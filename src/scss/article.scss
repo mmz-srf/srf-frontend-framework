@@ -1,0 +1,140 @@
+/*** ARTICLE ELEMENTS ***/
+
+.article__content-wrapper {
+  padding: 0 24px;
+}
+
+.article__main-medium {
+  margin-bottom: 24px;
+
+  .content-image-caption {
+    padding-left: 48px;
+  }
+}
+
+.article__title {
+  @include box-default;
+  font-size: 28px;
+  line-height: 36px;
+  letter-spacing: 0.5px;
+  font-weight: normal;
+}
+
+.article__lead {
+  @include box-default;
+  font-size: 20px;
+  line-height: 1.4;
+  letter-spacing: 0.5px;
+  color: $secondary-font-color;
+}
+
+.article-pubinfo {
+  margin: 0 -24px;
+  padding: 20px 24px;
+  color: #888579;
+  border-bottom: 1px solid rgba(0,0,0,.1);
+  letter-spacing: 0;
+}
+
+.article-pubinfo__author {
+  display: block;
+  font-size: 14px;
+  line-height: 1.4;
+  font-family: $font-medium;
+  color: #4e4d47;
+}
+
+.article-pubinfo__pub-time {
+  display: block;
+  margin-top: 4px;
+  font-size: 12px;
+  line-height: 1.4;
+  font-family: $font-system;
+}
+
+.article__text {
+  margin: 0;
+  padding: 0 24px;
+  @include box-default;
+
+  & > h2 {
+    font: 16px/24px $font-medium;
+    margin-top: 20px;
+    font-weight: 400;
+  }
+
+  & > p {
+    margin: 20px 0 24px;
+
+    a {
+      border-bottom: 1px solid $link-default-color;
+      color: $link-default-color;
+
+      &:hover {
+        color: $link-hover-color;
+        border-bottom: 1px solid $link-hover-color;
+      }
+
+      &:active {
+        color: $link-active-color;
+        border-bottom: 1px solid $link-active-color;
+      }
+    }
+  }
+
+
+  // inline formats from the wysiwyg editor
+  // working with element selectors since no classes are available
+  .ezxmltext-field {
+    & > h2 {
+      font-family: $font-medium;
+      font-size: 16px;
+      line-height: 24px;
+      color: $primary-font-color;
+      font-weight: 400;
+    }
+
+    & > p {
+      margin: 0 0 24px 0;
+
+      &:last-child {
+        margin: 0;
+      }
+
+      & > strong {
+        font-family: 'SRG_SSR_Medium', sans-serif;
+        font-weight: normal;
+      }
+
+      & > a {
+        color: $link-default-color;
+
+        &:hover {
+          color: $link-hover-color;
+        }
+
+        &:active {
+          color: $link-active-color;
+        }
+      }
+    }
+  }
+
+  @include list-styles-default();
+}
+
+.article__bottom-boxes {
+  @include box-media-container;
+  border-top: 1px solid rgba(0, 0, 0, 0.17);
+}
+
+.article__author-shortname {
+  display: block;
+  margin: 24px 0;
+  color: #888579;
+  font-size: 12px;
+  line-height: 1.4;
+  font-family: $font-system;
+  letter-spacing: 0;
+}
+

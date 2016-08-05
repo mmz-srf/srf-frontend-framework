@@ -1,0 +1,42 @@
+.goto-link {
+  display: table;
+  width: 100%;
+  padding: 12px 24px;
+  font-size: 14px;
+  line-height: 20px;
+  color: $link-default-color;
+  text-decoration: none;
+  background-color: #fcfcfa;
+
+  &:after {
+    content: " ";
+    display: table-cell;
+    width: 14px;
+    padding-left: 12px;
+  }
+
+  &:hover {
+    color: $link-hover-color;
+    background-color: #f5f5f2;
+  }
+
+  &:active,
+  &:focus {
+    color: $link-active-color;
+    background-color: #f5f5f2;
+  }
+}
+
+.goto-link--internal:after {
+  background: url("/web/assets/img/arrows/internal-link.svg") no-repeat scroll right center / 18px;
+}
+
+.goto-link--external:after {
+  background: url("/web/assets/img/arrows/external-link.svg") no-repeat scroll right center / 18px;
+}
+
+.goto-link--file:after {
+  background: url("/web/assets/img/arrows/file.svg") no-repeat scroll right center / 18px;
+}
+
+

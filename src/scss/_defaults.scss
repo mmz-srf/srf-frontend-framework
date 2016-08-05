@@ -1,0 +1,31 @@
+body {
+  font: 16px/1.5 $font-light;
+  color: $primary-font-color;
+  letter-spacing: .5px;
+  background-color: #fff;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+hr {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-width: 1px 0 0;
+}
+
+img {
+  height: auto;
+  width: 100%;
+}
+
+.center-horizontally {
+  margin: 0 50%;
+  transform: translate(-50%, 0);
+}

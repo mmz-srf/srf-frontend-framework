@@ -1,0 +1,50 @@
+/* video/audio */
+
+.srf-player {
+  margin: 0 -24px;
+  cursor: pointer;
+}
+.media-meta {
+  margin: 0 -24px;
+  color: $primary-font-color;
+  font: 14px/20px $font-medium;
+  background-color: #f5f5f2;
+  .show-title {
+    padding-top: 12px;
+    padding-left: 24px;
+  }
+  .show-info {
+    color: #888579;
+    font: 12px/12px $font-system;
+    letter-spacing: 0;
+    padding: 8px 24px 16px;
+    strong {
+      color: #4E4D47;
+      font: 12px/16px $font-medium;
+    }
+  }
+}
+.media-link {
+  position: relative;
+  display: block;
+}
+/* audio only */
+.media-link-meta {
+  position: absolute;
+  width: 15%;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  // z-index: 2;
+
+  .media-play-icon {
+    // width: 100%;
+  }
+  .media-length {
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.7);
+    font: 12px/18px $font-medium;
+    padding: 1px 8px 0;
+    float: left;
+  }
+}
