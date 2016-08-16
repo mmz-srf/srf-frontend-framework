@@ -1,0 +1,53 @@
+/*! URHEBERRECHTSHINWEIS: Die SRG SSR Schrift und die dazugehoerige Software stehen im vollumfaenglichen Eigentum der SRG. Jede Bearbeitung, Vervielfaeltigung, Verbreitung und/oder oeffentliche Wiedergabe, insbesondere die ungenehmigte Uebernahme der SRG SSR Schrift stellt einen Rechtsverstoss dar, der zum Schadenersatz verpflichtet und auch strafrechtlich verfolgt wird. */
+@font-face {
+  font-family: 'SRG_SSR_Medium';
+  src: url("../fonts/srgssrtype_md.woff2") format("woff2"), url("../fonts/srgssrtype_md.woff") format("woff"), url("../fonts/srgssrtype_md.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: 'SRG_SSR_Light';
+  src: url("../fonts/srgssrtype_lt.woff2") format("woff2"), url("../fonts/srgssrtype_lt.woff") format("woff"), url("../fonts/srgssrtype_lt.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: 'SRG_SSR_Regular';
+  src: url("../fonts/srgssrtype_rg.woff2") format("woff2"), url("../fonts/srgssrtype_rg.woff") format("woff"), url("../fonts/srgssrtype_rg.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: 'SRG_SSR_Serif_Regular';
+  src: url("../fonts/srgssrtype_serif_rg.woff2") format("woff2"), url("../fonts/srgssrtype_serif_rg.woff") format("woff"), url("../fonts/srgssrtype_serif_rg.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+/*** FONTS ***/
+body {
+  margin: 0;
+  font-family: "SRG_SSR_Light", sans-serif;
+  background-color: #fefefd; }
+
+.card {
+  padding: 24px; }
+
+h1 {
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 1.25;
+  letter-spacing: 0.2px;
+  color: #22211d;
+  font-family: "SRG_SSR_Regular", sans-serif; }
+
+.lead {
+  font-size: 22px;
+  font-weight: 300;
+  line-height: 1.45;
+  letter-spacing: 0.3px;
+  color: #4e4d47; }
+
+.text {
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 1.56;
+  letter-spacing: 0.5px;
+  color: #22211d; }
+
+/*# sourceMappingURL=main.css.map */
