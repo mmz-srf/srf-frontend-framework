@@ -61,7 +61,8 @@ gulp.task('watch', function() {
 gulp.task('build', function() {
     runSequence(
         ['clean'],
-        ['styles', 'patternlab']
+        ['patternlab'],
+        ['styles']
     );
 });
 
