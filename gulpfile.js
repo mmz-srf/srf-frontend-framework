@@ -40,7 +40,7 @@ gulp.task('styles', function () {
         }).on('error', $.sass.logError))
         .pipe($.autoprefixer({browsers: AUTOPREFIXER_BROWSERS}))
         .pipe($.sourcemaps.write('./maps'))
-        .pipe(gulp.dest('source/assets/scss'))
+        .pipe(gulp.dest('public/assets/css'))
         .pipe($.size({
             title: 'css'
         }));;
