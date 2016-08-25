@@ -1,15 +1,8 @@
 {
   "name": "srf-frontend-framework",
+  "description": "SRF Frontend Framework",
   "private": true,
-  "ignore": [
-    "**/.*",
-    "node_modules",
-    "bower_components",
-    "test",
-    "tests"
-  ],
-  "dependencies": {
-    "jquery": "^2.2.4",
-    "bootstrap-sass": "^3.3.6"
-  }
+  "dependencies": {},
+  "devDependencies": {},
+  "ignore": []
 }
