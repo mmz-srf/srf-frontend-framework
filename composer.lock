@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "2db9c997c50187f5fbfbaf9ced529d63",
-    "content-hash": "8af9120786d6781ebb176d6aa67e0a02",
+    "hash": "411858005f039b3af9d484ec0322334e",
+    "content-hash": "92f55936351f2a6731e4b36dd37f4a2c",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -360,6 +360,71 @@
                 "twig"
             ],
             "time": "2016-05-19 03:02:14"
+        },
+        {
+            "name": "pattern-lab/plugin-reload",
+            "version": "v2.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pattern-lab/plugin-php-reload.git",
+                "reference": "d7e19f0cdfd0d15e8e16a3858140da64e8ade84b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pattern-lab/plugin-php-reload/zipball/d7e19f0cdfd0d15e8e16a3858140da64e8ade84b",
+                "reference": "d7e19f0cdfd0d15e8e16a3858140da64e8ade84b",
+                "shasum": ""
+            },
+            "require": {
+                "pattern-lab/core": "^2.4.0",
+                "php": ">=5.4",
+                "wrench/wrench": "^2.0.0"
+            },
+            "type": "patternlab-plugin",
+            "extra": {
+                "patternlab": {
+                    "dist": {
+                        "componentDir": [
+                            {
+                                "*": "*"
+                            }
+                        ]
+                    },
+                    "onready": "PluginReload.init()",
+                    "config": {
+                        "plugins": {
+                            "reload": {
+                                "enabled": true
+                            }
+                        }
+                    }
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "PatternLab\\Reload": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Dave Olsen",
+                    "email": "dmolsen@gmail.com",
+                    "homepage": "http://dmolsen.com",
+                    "role": "Lead Developer"
+                }
+            ],
+            "description": "Automatic Browser Reload Support for Pattern Lab",
+            "homepage": "http://patternlab.io",
+            "keywords": [
+                "pattern lab",
+                "reload",
+                "websocket"
+            ],
+            "time": "2016-07-03 00:36:21"
         },
         {
             "name": "pattern-lab/styleguidekit-assets-default",
@@ -866,6 +931,68 @@
                 "templating"
             ],
             "time": "2016-05-30 09:11:59"
+        },
+        {
+            "name": "wrench/wrench",
+            "version": "v2.0.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/varspool/Wrench.git",
+                "reference": "aa8027758fc1a806d65802f358bba98a88a3941e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/varspool/Wrench/zipball/aa8027758fc1a806d65802f358bba98a88a3941e",
+                "reference": "aa8027758fc1a806d65802f358bba98a88a3941e",
+                "shasum": ""
+            },
+            "require": {
+                "ext-sockets": "*",
+                "php": ">=5.3"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.5"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Wrench": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "WTFPL"
+            ],
+            "authors": [
+                {
+                    "name": "Dominic Scheirlinck",
+                    "email": "dominic@varspool.com",
+                    "homepage": "http://www.somethingemporium.com/"
+                },
+                {
+                    "name": "Simon Samtleben",
+                    "email": "web@lemmingzshadow.net",
+                    "homepage": "http://lemmingzshadow.net/"
+                },
+                {
+                    "name": "Nico Kaiser",
+                    "email": "nico@kaiser.me",
+                    "homepage": "http://siriux.net/"
+                }
+            ],
+            "description": "PHP WebSocket client/server library",
+            "homepage": "http://github.com/varspool/Wrench",
+            "keywords": [
+                "WebSockets",
+                "hybi",
+                "websocket"
+            ],
+            "time": "2015-11-06 07:45:55"
         }
     ],
     "packages-dev": [],

@@ -5,7 +5,6 @@ var gulp            = require('gulp'),
     del             = require('del'),
     runSequence     = require('run-sequence'),
     browserSync     = require('browser-sync'),
-    path            = require('path'),
     shell           = require('gulp-shell');
 
 var $ = gulpLoadPlugins();
@@ -31,31 +30,39 @@ gulp.task('clean', function() {
 
 gulp.task('styles', function () {
     return gulp.src([
-        'source/assets/scss/**/*.scss'
+        'source/_patterns/**/*.scss'
     ])
-        .pipe($.sourcemaps.init())
         .pipe($.sass.sync({
             outputStyle: 'compressed',    //use 'nested' for debugging
             precision: 10,
         }).on('error', $.sass.logError))
         .pipe($.autoprefixer({browsers: AUTOPREFIXER_BROWSERS}))
-        .pipe($.sourcemaps.write('./maps'))
         .pipe(gulp.dest('public/assets/css'))
         .pipe($.size({
             title: 'css'
         }));;
 });
 
+gulp.task('serve', function() {
+  browserSync({
+    notify: false,
+    port: 8080,
+    server: {
+      baseDir: ['public/']
+    }
+  });
+});
+
 gulp.task('patternlab', function () {
     return gulp.src('', {read: false})
         .pipe(shell([
-            'php core/console --generate'
+            'php core/console --server --with-watch --patternsonly'
         ]))
         .pipe(reload({stream:true}));
 });
 
 gulp.task('watch', function() {
-    gulp.watch('source/assets/**/*', ['styles'], reload);
+    gulp.watch('source/_patterns/**/*', ['styles'], reload);
 });
 
 gulp.task('build', function() {
@@ -69,6 +76,6 @@ gulp.task('build', function() {
 gulp.task('default', function() {
     runSequence(
         ['build'],
-        ['watch']
+        ['watch', 'serve']
     );
 });

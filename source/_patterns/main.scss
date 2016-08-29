@@ -1,23 +1,14 @@
 @import "fonts";
 @import "variables";
 @import "breakpoints";
+@import "article";
+@import "components/blockquote/blockquote";
+@import "components/card/card";
 
 body {
-  margin: 0;
+  margin: 20px;
   font-family: $font-light;
   background-color: #fefefd;
-}
-
-.card__header {
-  padding: 24px;
-  border-bottom: 1px solid #ebebe5;
-}
-
-.card__body {
-  padding: 24px;
-  p {
-    margin: 0;
-  }
 }
 
 h1 {
