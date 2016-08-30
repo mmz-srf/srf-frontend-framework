@@ -37,7 +37,7 @@ gulp.task('styles', function () {
             precision: 10,
         }).on('error', $.sass.logError))
         .pipe($.autoprefixer({browsers: AUTOPREFIXER_BROWSERS}))
-        .pipe(gulp.dest('public/assets/css'))
+        .pipe(gulp.dest('source/assets/css'))
         .pipe($.size({
             title: 'css'
         }));;
@@ -56,7 +56,7 @@ gulp.task('serve', function() {
 gulp.task('patternlab', function () {
     return gulp.src('', {read: false})
         .pipe(shell([
-            'php core/console --server --with-watch --patternsonly'
+            'php core/console --server --with-watch'
         ]))
         .pipe(reload({stream:true}));
 });
@@ -68,8 +68,8 @@ gulp.task('watch', function() {
 gulp.task('build', function() {
     runSequence(
         ['clean'],
-        ['patternlab'],
-        ['styles']
+        ['styles'],
+        ['patternlab']
     );
 });
 

@@ -1,4 +1,4 @@
-v: 2.5.0
+v: 2.6.0
 overrideConfig: q
 ie:
     - DS_Store
