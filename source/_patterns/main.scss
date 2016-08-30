@@ -2,8 +2,9 @@
 @import "variables";
 @import "breakpoints";
 @import "article";
-@import "components/blockquote/blockquote";
-@import "components/card/card";
+@import "00-global/05-fonts";
+@import "10-components/blockquote/blockquote";
+@import "10-components/card/card";
 
 body {
   margin: 20px;
