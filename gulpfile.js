@@ -37,10 +37,18 @@ gulp.task('styles', function () {
             precision: 10,
         }).on('error', $.sass.logError))
         .pipe($.autoprefixer({browsers: AUTOPREFIXER_BROWSERS}))
-        .pipe(gulp.dest('source/assets/css'))
+        .pipe(gulp.dest('public/assets/css'))
         .pipe($.size({
             title: 'css'
         }));;
+});
+
+gulp.task('copy', function() {
+    return  gulp.src([
+       'source/assets/**/*'
+     ], {
+       dot: true
+     }).pipe(gulp.dest('public/assets'));
 });
 
 gulp.task('serve', function() {
@@ -56,21 +64,23 @@ gulp.task('serve', function() {
 gulp.task('patternlab', function () {
     return gulp.src('', {read: false})
         .pipe(shell([
-            'php core/console --server --with-watch'
+            'php core/console --server --with-watch --patternsonly'
         ]))
         .pipe(reload({stream:true}));
 });
 
 gulp.task('watch', function() {
     gulp.watch('source/_patterns/**/*', ['styles'], reload);
+    gulp.watch('source/assets/**/*', ['copy'], reload);
 });
 
-gulp.task('build', function() {
+gulp.task('build', function(cb) {
     runSequence(
         ['clean'],
-        ['styles'],
+        ['styles', 'copy'],
         ['patternlab']
     );
+    cb();
 });
 
 gulp.task('default', function() {
