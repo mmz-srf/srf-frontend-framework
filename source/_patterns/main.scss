@@ -2,16 +2,35 @@
 @import "variables";
 @import "breakpoints";
 @import "article";
-@import "00-global/05-fonts";
+@import "01-global/05-fonts";
+@import "20-pages/article";
 @import "10-components/blockquote/blockquote";
 @import "10-components/card/card";
 
+
 body {
-  margin: 20px;
+  margin: 0;
   font-family: $font-light;
   background-color: #fefefd;
 }
 
+.l-main-wrapper {
+  box-sizing: border-box;
+  max-width: 1440px;
+  min-width: 320px;
+  margin: 0 auto;
+  padding: 0 20px;
+
+  @include desktop {
+    padding: 0 32px;
+  }
+
+  @include desktop-wide {
+    padding: 0 40px;
+  }
+}
+
+/*
 h1 {
   font-size: 32px;
   font-weight: 400;
@@ -57,3 +76,4 @@ h1 {
   color: #888579;
   font-family: $font-system;
 }
+*/
