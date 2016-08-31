@@ -1,11 +1,11 @@
-<blockquote class="quote">
-    <span class="quote__sign">&laquo;</span>
-    &nbsp;Test test test&nbsp;
-    <span class="quote__sign">&raquo;</span>
+<blockquote class="blockquote">
+    <span class="blockquote_sign">&laquo;</span>
+    &nbsp;{{ blockquote.text }}&nbsp;
+    <span class="blockquote__sign">&raquo;</span>
     <footer>
-        <cite class="quote__author">
-            Hasan Kryeziu<br>
-            <span class="quote__function">Test test</span>
+        <cite class="blockquote__author">
+            {{ blockquote.author }}<br>
+            <span class="blockquote__function">{{ blockquote.function }}</span>
         </cite>
     </footer>
 </blockquote>

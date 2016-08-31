@@ -1,1 +1,3 @@
-Test Description
+###Zitat
+
+Ein Zitat wird als Inhaltselement eines Artikels verwendet
