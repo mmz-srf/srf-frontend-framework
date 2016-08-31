@@ -2,6 +2,10 @@
   "title" : "SRF Frontend Framework",
   "htmlClass": "pl",
   "bodyClass": "body",
+  "articleAuthor": {
+    "name": "Emilie Buri",
+    "date": "Sonntag, 22. Mai 2016, 19:55 Uhr"
+  },
   "blockquote": {
     "text": "Ich habe nicht ein Verbrechen gegen meine Verantwortung begangen.",
     "author": "Dilma Rousseff",
