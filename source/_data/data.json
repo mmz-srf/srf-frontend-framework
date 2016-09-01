@@ -2,13 +2,26 @@
   "title" : "SRF Frontend Framework",
   "htmlClass": "pl",
   "bodyClass": "body",
+  "articleHeader": {
+    "title": "Vor 20 Jahren forderte Cyberpionier Barlow: «Lasst uns in Ruhe!»",
+    "lead": "1996 schrieb John Perry Barlow die «Unabhängigkeitserklärung des Cyberspace». Darin kritisierte der Poet und Aktivist erstaunlich früh die staatliche Kontrolle."
+  },
   "articleAuthor": {
     "name": "Emilie Buri",
     "date": "Sonntag, 22. Mai 2016, 19:55 Uhr"
+  },
+  "articleText": {
+    "title": "Vorbild für den «Chaos Computer Club»",
+    "text": "Es ist erstaunlich, wie viele Themen Barlow bereits vor 20 Jahren angesprochen hat. Noch heute bezieht sich der Hackerverein «Chaos Computer Club» auf einige Stellen seines Manifestes. Denn auch der Chaos Computer Club kämpft für freien Zugang zu Information sowie sichere Datenübermittlung im Netz und wehrt sich gegen staatliche Überwachung und Internetzensur. Hernani Marques, Aktivist und Pressesprecher vom Schweizer Ableger des Chaos Computer Club, erwähnt aber auch Punkte in Barlows Manifest, die 2016 nicht mehr so aussehen: Die Unterscheidung von realem Leben und Cyberspace liesse sich heute nicht mehr so deutlich machen – man denke nur an die Smartphones, mit denen das Internet heute allgegenwärtig sei. Barlow habe auch nicht vorausgesehen, wie stark das Internet automatisiert werden sollte."
   },
   "blockquote": {
     "text": "Ich habe nicht ein Verbrechen gegen meine Verantwortung begangen.",
     "author": "Dilma Rousseff",
     "function": "Präsidentin von Brasilien"
+  },
+  "image": {
+    "title": "Hernani Marques",
+    "description": "Aktivist und Pressesprecher vom Schweizer Chaos Computer Club",
+    "source": "Bild: ZVG"
   }
 }
