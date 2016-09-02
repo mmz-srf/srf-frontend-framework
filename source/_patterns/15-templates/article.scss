@@ -1,0 +1,22 @@
+.article-wrapper {
+  max-width: 1480px;
+  min-width: 320px;
+  margin: 0 auto;
+
+  article {
+    box-sizing: border-box;
+    padding: 0 24px;
+  }
+
+  @include tablet {
+    padding: 0 48px;
+  }
+
+  @include desktop {
+    padding: 0 96px;
+  }
+
+  @include desktop-wide {
+    padding: 0 192px;
+  }
+}

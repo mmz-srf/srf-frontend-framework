@@ -2,12 +2,14 @@
 @import "variables";
 @import "breakpoints";
 @import "01-global/05-fonts";
-@import "20-pages/article";
-@import "10-components/blockquote/blockquote";
-@import "10-components/image/image";
-@import "10-components/article-header/article-header";
+@import "15-templates/article";
 @import "05-elements/article/article-author";
 @import "05-elements/article/article-text";
+@import "10-components/article-header/article-header";
+@import "10-components/blockquote/blockquote";
+@import "10-components/image/image";
+@import "10-components/linkbox/linkbox";
+@import "10-components/textbox/textbox";
 
 body {
   margin: 0;
@@ -15,24 +17,18 @@ body {
   background-color: #fefefd;
 }
 
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
 img {
   display: block;
   height: auto;
   width: 100%;
-}
-
-.l-main-wrapper {
-  box-sizing: border-box;
-  max-width: 1440px;
-  min-width: 320px;
-  margin: 0 auto;
-  padding: 0 20px;
-
-  @include desktop {
-    padding: 0 32px;
-  }
-
-  @include desktop-wide {
-    padding: 0 40px;
-  }
 }

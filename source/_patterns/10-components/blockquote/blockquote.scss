@@ -1,29 +1,28 @@
-.blockquote {
-  margin: 0 0 12px 0;
+.article-blockquote {
   font-size: 22px;
   line-height: 32px;
-  font-family: 'SRG_SSR_Serif_Regular', serif;
+  font-family: $font-regular;
   color: #4e4d47;
-}
 
-.blockquote__author {
-  display: block;
-  margin-top: 10px;
-  font-size: 14px;
-  line-height: 1.43;
-  letter-spacing: 0.5px;
-  font-family: 'SRG_SSR_Medium', sans-serif;
-  font-style: normal;
-  color: #22211d;
-}
-.blockquote__function {
-  font-size: 12px;
-  line-height: 1;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",  sans-serif;
-  font-weight: normal;
-  color: #888579;
-}
+  .article-blockquote__author {
+    display: block;
+    margin-top: 10px;
+    font-size: 14px;
+    line-height: 1.43;
+    letter-spacing: 0.5px;
+    font-family: $font-medium;
+    font-style: normal;
+    color: #22211d;
+  }
+  .article-blockquote__function {
+    font-size: 12px;
+    line-height: 1;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",  sans-serif;
+    font-weight: normal;
+    color: #888579;
+  }
 
-.blockquote__sign {
-  color: #bd0016;
+  .article-blockquote__sign {
+    color: #bd0016;
+  }
 }

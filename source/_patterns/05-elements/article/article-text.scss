@@ -1,13 +1,12 @@
-.article__text {
+.article-text {
   font-size: 1.125rem;
   font-weight: 300;
   line-height: 1.56;
   letter-spacing: 0.03125rem;
   color: #22211d;
-  filter: grayscale(0.9);
 
   & > h2 {
-    font: 22px/24px SRG_SSR_Medium,sans-serif;
+    font: 22px/24px $font-medium;
     margin-top: 20px;
     font-weight: 400;
   }
