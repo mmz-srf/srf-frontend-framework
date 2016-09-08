@@ -1,7 +1,6 @@
 .article-header {
   padding: 32px 16px;
   margin: 0 0 24px 0;
-  border-bottom: 1px solid #ebebe5;
 }
 
 .article-header__title {
@@ -12,6 +11,12 @@
   line-height: 44px;
   letter-spacing: 0.2px;
   color: #22211d;
+
+  @include smartphone {
+    font-size: 32px;
+    line-height: 40px;
+    letter-spacing: 0.2px;
+  }
 }
 
 .article-header__lead {
@@ -21,4 +26,10 @@
   letter-spacing: 0.3px;
   color: #4e4d47;
   font-family: $font-light;
+
+  @include smartphone {
+    font-size: 22px;
+    line-height: 32px;
+    letter-spacing: 0.3px;
+  }
 }

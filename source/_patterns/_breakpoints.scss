@@ -1,5 +1,5 @@
 @mixin smartphone {
-  @media (min-width: 320px) and (max-width: 719px) {
+  @media (max-width: 719px) {
     @content;
   }
 }
@@ -16,8 +16,14 @@
   }
 }
 
+@mixin desktop-up {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}
+
 @mixin desktop-wide {
-  @media (min-width: 1280px) and (min-width: 1480px) {
+  @media (min-width: 1280px) {
     @content;
   }
 }
