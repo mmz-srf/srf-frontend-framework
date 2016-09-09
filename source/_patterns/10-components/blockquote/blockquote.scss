@@ -2,10 +2,15 @@
   @include article-text-padding;
   @include article-element-margin();
   font-family: $font-serif;
-  font-size: 22px;
-  line-height: 32px;
+  font-size: 24px;
+  line-height: 36px;
   letter-spacing: 0.3px;
   color: #4e4d47;
+  @include smartphone {
+    font-size: 22px;
+    line-height: 32px;
+    letter-spacing: 0.3px;
+  }
 }
 
 .blockquote__quote {
@@ -31,8 +36,6 @@
   color: #bd0016;
 }
 
-
-
 .blockquote__author {
   display: block;
   margin-top: 12px;
@@ -47,8 +50,4 @@
   font-size: 12px;
   line-height: 12px;
   color: #888579;
-}
-
-.article-blockquote__sign {
-  color: #bd0016;
 }
