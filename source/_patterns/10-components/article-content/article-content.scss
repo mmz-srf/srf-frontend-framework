@@ -48,51 +48,17 @@
   }
 
   & > ul {
-    @include article-text-padding;
-    @include article-element-margin();
-    list-style-type: none;
-
-    li {
-      position: relative;
-      @include article-element-margin(1);
-      padding-left: 24px;
-    }
-
-    li:before {
-      position: absolute;
-      left: 0;
-      top: 10px;
-      display: inline-block;
-      width: 8px;
-      height: 8px;
-      border: 1px solid #fff;
-      border-radius: 50%;
-      background-color: $list-item-color;
-      content: " ";
-    }
-
+    // @extend used here to apply the DRY principle while coping with ezxml's missing classes for html elements
+    // tip: allways be careful with @extend
+    @extend .text-list;
+    @extend .text-list--unordered;
   }
 
   & > ol {
-    @include article-text-padding;
-    @include article-element-margin();
-    counter-reset: item;
-    list-style: none;
-
-    li {
-      position: relative;
-      counter-increment: item;
-      @include article-element-margin(1);
-      padding-left: 32px;
-    }
-
-    li:before {
-      position: absolute;
-      left: 0;
-      font-family: $font-medium;
-      content: counter(item) ".";
-      color: $list-item-color;
-    }
+    // @extend used here to apply the DRY principle while coping with ezxml's missing classes for html elements
+    // tip: allways be careful with @extend
+    @extend .text-list;
+    @extend .text-list--ordered;
   }
 
   & > p,
