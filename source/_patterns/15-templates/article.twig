@@ -1,7 +1,10 @@
 <div class="l-full-width-container">
-    {% include 'components-image' %}
+    {% include 'components-image-figure'  with {'styleModifier': 'image-figure--cropped-img'} %}
 </div>
 {% include 'components-article-header' %}
-{% include 'components-image' %}
+<section class="article-content">
+{% include 'elements-article-text' %}
+{% include 'components-image-figure' %}
 {% include 'elements-article-text' %}
 {% include 'components-blockquote' %}
+</section>

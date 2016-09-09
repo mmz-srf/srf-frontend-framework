@@ -1,0 +1,93 @@
+.article-content {
+  margin: 0 0 24px 0;
+  font-family: $font-light;
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: 0.5px;
+  color: #22211d;
+
+  & > h2 {
+    font: 22px/28px $font-medium;
+    letter-spacing: 0.3px;
+    @include article-text-padding;
+    margin-top: 16px;
+    margin: 0 0 12px 0;
+  }
+
+  & > p {
+    @include article-text-padding;
+    margin: 0 0 24px 0;
+
+    a {
+      border-bottom: 1px solid $link-default-color;
+      color: $link-default-color;
+
+      &:hover {
+        color: $link-hover-color;
+        border-bottom: 1px solid $link-hover-color;
+      }
+
+      &:active {
+        color: $link-active-color;
+        border-bottom: 1px solid $link-active-color;
+      }
+    }
+  }
+
+  & > ul {
+    @include article-text-padding;
+    @include article-element-margin();
+    list-style-type: none;
+
+    li {
+      position: relative;
+      @include article-element-margin(1);
+      padding-left: 24px;
+    }
+
+    li:before {
+      position: absolute;
+      left: 0;
+      top: 10px;
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: $list-item-color;
+      content: " ";
+    }
+
+  }
+
+  & > ol {
+    @include article-text-padding;
+    @include article-element-margin();
+    counter-reset: item;
+    list-style: none;
+
+    li {
+      position: relative;
+      counter-increment: item;
+      @include article-element-margin(1);
+      padding-left: 32px;
+    }
+
+    li:before {
+      position: absolute;
+      left: 0;
+      font-family: $font-medium;
+      content: counter(item) ".";
+      color: $list-item-color;
+    }
+  }
+
+  & > p,
+  & > ul,
+  & > ol {
+    b,
+    strong {
+      font-family: $font-medium;
+      font-weight: normal;
+    }
+  }
+}

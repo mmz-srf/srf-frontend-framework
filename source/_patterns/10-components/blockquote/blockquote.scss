@@ -1,28 +1,54 @@
-.article-blockquote {
+.blockquote {
+  @include article-text-padding;
+  @include article-element-margin();
+  font-family: $font-serif;
   font-size: 22px;
   line-height: 32px;
-  font-family: $font-regular;
+  letter-spacing: 0.3px;
   color: #4e4d47;
+}
 
-  .article-blockquote__author {
-    display: block;
-    margin-top: 10px;
-    font-size: 14px;
-    line-height: 1.43;
-    letter-spacing: 0.5px;
-    font-family: $font-medium;
-    font-style: normal;
-    color: #22211d;
-  }
-  .article-blockquote__function {
-    font-size: 12px;
-    line-height: 1;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",  sans-serif;
-    font-weight: normal;
-    color: #888579;
-  }
+.blockquote__quote {
+  display: inline-block;
+}
 
-  .article-blockquote__sign {
-    color: #bd0016;
-  }
+.blockquote__text {
+  padding-right: 16px;
+  position: relative;
+}
+
+.blockquote__text::after {
+  position: absolute;
+  right: 0;
+  content: "»";
+  color: #bd0016;
+}
+
+.blockquote__quote::before {
+  display: inline-block;
+  padding-right: 2px;
+  content: "«";
+  color: #bd0016;
+}
+
+
+
+.blockquote__author {
+  display: block;
+  margin-top: 12px;
+  font-family: $font-medium;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.5px;
+  color: #22211d;
+}
+.blockquote__function {
+  font-family: $font-system;
+  font-size: 12px;
+  line-height: 12px;
+  color: #888579;
+}
+
+.article-blockquote__sign {
+  color: #bd0016;
 }

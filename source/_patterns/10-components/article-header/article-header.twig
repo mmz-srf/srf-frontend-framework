@@ -1,8 +1,6 @@
 <header class="article-header">
-    <h1 class="article-header__title">{{ articleHeader.title }}</h1>
-    <p class="article-header__lead">
-        {{ articleHeader.lead }}
-    </p>
+    {% include 'elements-article-title' %}
+    {% include 'elements-article-lead' %}
     {% include 'elements-article-author' %}
-    <hr class="article-separator article-separator--fullwidth">
+    {% include 'elements-horizontal-separator' with {'styleModifier': 'horizontal-separator--fullwidth'} %}
 </header>

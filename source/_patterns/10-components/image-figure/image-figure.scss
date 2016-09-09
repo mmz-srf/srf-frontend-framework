@@ -1,0 +1,30 @@
+.image-figure {
+  @include article-element-margin();
+  font-size: 12px;
+  line-height: 1.3;
+  color: #4e4d47;
+
+  @include smartphone {
+    @include fullwidth-element;
+  }
+}
+
+.image-figure--cropped-img {
+  .image-figure__image-wrapper {
+    width: 100%;
+    overflow: hidden;
+    /* using max-width and max-height as 16:9 ratio for calculating the height */
+    max-height: 9000px;
+    max-width: 16000px;
+    height: calc(100vw * 9000.0 / 16000.0);
+
+    @include desktop-wide {
+      /* using max-width and max-height as 16:8 ratio for calculating the height */
+      max-height: 8000px;
+      max-width: 16000px;
+      height: calc(100vw * 8000.0 / 16000.0);
+    }
+  }
+}
+
+

@@ -1,18 +1,20 @@
+.article-author {
+  margin: 0 0 24px 0;
+}
+
 .article-author__name {
   margin: 0 0 4px 0;
+  font-family: $font-regular;
   font-size: 14px;
-  font-weight: 400;
   line-height: 20px;
   letter-spacing: 0.5px;
   color: #22211d;
-  font-family: $font-regular;
 }
 
 .article-author__date {
   margin: 0;
+  font-family: $font-system;
   font-size: 12px;
-  font-weight: 400;
   line-height: 12px;
   color: #888579;
-  font-family: $font-system;
 }
