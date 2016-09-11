@@ -13,13 +13,13 @@ var reload = browserSync.reload;
 
 const DEST = 'public';
 const AUTOPREFIXER_BROWSERS = [
-    'ie >= 10',
-    'ie_mob >= 10',
+    'ie >= 11',
+    'ie_mob >= 11',
     'ff >= 30',
     'chrome >= 34',
     'safari >= 7',
     'opera >= 23',
-    'ios >= 7',
+    'ios >= 8',
     'android >= 4.4',
     'bb >= 10'
 ];
@@ -30,17 +30,17 @@ gulp.task('clean', function() {
 
 gulp.task('styles', function () {
     return gulp.src([
-        'source/_patterns/**/*.scss'
+        'source/_patterns/main.scss'
     ])
         .pipe($.sass.sync({
             outputStyle: 'compressed',    //use 'nested' for debugging
-            precision: 10,
+            precision: 10
         }).on('error', $.sass.logError))
         .pipe($.autoprefixer({browsers: AUTOPREFIXER_BROWSERS}))
         .pipe(gulp.dest('public/assets/css'))
         .pipe($.size({
             title: 'css'
-        }));;
+        }));
 });
 
 gulp.task('copy', function() {
@@ -70,7 +70,7 @@ gulp.task('patternlab', function () {
 });
 
 gulp.task('watch', function() {
-    gulp.watch('source/_patterns/**/*', ['styles'], reload);
+    gulp.watch('source/_patterns/**/*.scss', ['styles'], reload);
     gulp.watch('source/assets/**/*', ['copy'], reload);
 });
 
@@ -81,6 +81,18 @@ gulp.task('build', function(cb) {
         ['patternlab']
     );
     cb();
+});
+
+gulp.task('gh-pages-deploy', function() {
+    return gulp.src('public/**/*')
+        .pipe($.ghPages());
+});
+
+gulp.task('deploy', function() {
+    runSequence(
+        ['build'],
+        ['gh-pages-deploy']
+    );
 });
 
 gulp.task('default', function() {

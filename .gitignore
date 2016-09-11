@@ -3,6 +3,5 @@
 /node_modules/
 /web/assets/
 export/*
-public/*
 source/styleguide/*
 vendor/*
