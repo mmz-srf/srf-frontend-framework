@@ -41,3 +41,5 @@ styleguideKitPath: vendor/pattern-lab/styleguidekit-twig-default
 plugins:
     reload:
         enabled: true
+    dataInheritance:
+        enabled: true

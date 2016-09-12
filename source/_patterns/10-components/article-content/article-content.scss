@@ -61,13 +61,4 @@
     @extend .text-list--ordered;
   }
 
-  & > p,
-  & > ul,
-  & > ol {
-    b,
-    strong {
-      font-family: $font-medium;
-      font-weight: normal;
-    }
-  }
 }

@@ -1,23 +1,24 @@
-.article-linkbox {
+.linkbox {
+  @include article-element-margin();
 
-  .article-linkbox__title {
-    margin: 0;
-    padding: 20px 24px;
-    font: 16px/1.5 'SRG_SSR_Medium', sans-serif;;
-    border-bottom: 1px solid rgba(0,0,0,0.1);
+  @include smartphone {
+    @include fullwidth-element;
+    padding: 0 8px;
   }
+}
 
-  .article-linkbox__list {
-    margin-top: 0;
-  }
+.linkbox__title {
+  @include article-text-padding;
+  @include article-element-margin(2);
+  font-family: $font-medium;
+  font-size: 22px;
+  line-height: 28px;
+}
 
-  .article-linkbox__list-item {
-    font-size: 14px;
-    line-height: 20px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1); // #efefed;
-    padding: 0;
-    &:before {
-      content: "";
-    }
+.linkbox__list {
+  border-top: 1px solid #ebebe5;
+
+  @include smartphone {
+    margin: 0 -8px;
   }
 }
