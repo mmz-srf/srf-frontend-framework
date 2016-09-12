@@ -5,7 +5,8 @@ var gulp            = require('gulp'),
     del             = require('del'),
     runSequence     = require('run-sequence'),
     browserSync     = require('browser-sync'),
-    shell           = require('gulp-shell');
+    exec            = require('child_process').exec;
+
 
 var $ = gulpLoadPlugins();
 var reload = browserSync.reload;
@@ -24,8 +25,10 @@ const AUTOPREFIXER_BROWSERS = [
     'bb >= 10'
 ];
 
-gulp.task('clean', function() {
-    return del.bind(null, [DEST]);
+gulp.task('clean', function () {
+    return del([
+        'public/assets'
+    ]);
 });
 
 gulp.task('styles', function () {
@@ -45,7 +48,7 @@ gulp.task('styles', function () {
 
 gulp.task('copy', function() {
     return  gulp.src([
-       'source/assets/**/*'
+       'source/assets/**/*',
      ], {
        dot: true
      }).pipe(gulp.dest('public/assets'));
@@ -61,26 +64,31 @@ gulp.task('serve', function() {
   });
 });
 
-gulp.task('patternlab', function () {
-    return gulp.src('', {read: false})
-        .pipe(shell([
-            'php core/console --server --with-watch --patternsonly'
-        ]))
-        .pipe(reload({stream:true}));
-});
+gulp.task('patternlab', function (cb) {
+    exec('php core/console --generate', function (err, stdout, stderr) {
+        console.log(stdout);
+        console.log(stderr);
+        cb(err);
+    });
+})
 
-gulp.task('watch', function() {
+gulp.task('watch', function(cb) {
     gulp.watch('source/_patterns/**/*.scss', ['styles'], reload);
     gulp.watch('source/assets/**/*', ['copy'], reload);
+    exec('php core/console --watch --patternsonly', function (err, stdout, stderr) {
+        console.log(stdout);
+        console.log(stderr);
+        cb(err);
+    });
 });
 
 gulp.task('build', function(cb) {
     runSequence(
         ['clean'],
-        ['styles', 'copy'],
-        ['patternlab']
+        ['patternlab'],
+        ['copy', 'styles'],
+        cb
     );
-    cb();
 });
 
 gulp.task('gh-pages-deploy', function() {
@@ -98,6 +106,6 @@ gulp.task('deploy', function() {
 gulp.task('default', function() {
     runSequence(
         ['build'],
-        ['watch', 'serve']
+        ['serve', 'watch']
     );
 });
