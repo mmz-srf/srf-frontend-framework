@@ -1,0 +1,30 @@
+body {
+  margin: 0;
+  font-family: $font-light;
+  background-color: #fefefd;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, h4 {
+  font-weight: normal;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  border-style: none;
+  display: block;
+  height: auto;
+  width: 100%;
+}
+
+cite {
+  font-style: normal;
+}

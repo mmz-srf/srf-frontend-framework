@@ -1,0 +1,10 @@
+.horizontal-separator {
+  border: 0;
+  background: #ebebe5 50% 0 no-repeat;
+  height: 1px;
+  margin: 0 0 24px 0;
+}
+
+.horizontal-separator--fullwidth {
+  @include fullwidth-element;
+}

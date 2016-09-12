@@ -2,37 +2,20 @@
 @import "variables";
 @import "breakpoints";
 @import "mixins";
+@import "globals";
 @import "layout";
 @import "01-global/05-fonts";
 @import "01-global/20-helpers";
 @import "15-templates/article";
+@import "05-elements/article/article-title";
+@import "05-elements/article/article-lead";
 @import "05-elements/article/article-author";
-@import "05-elements/article/article-text";
-@import "05-elements/article/separator";
+@import "05-elements/content/image-caption";
+@import "05-elements/content/text-list/text-list";
+@import "05-elements/separators/horizontal-separator";
+@import "10-components/article-content/article-content";
 @import "10-components/article-header/article-header";
 @import "10-components/blockquote/blockquote";
-@import "10-components/image/image";
+@import "10-components/image-figure/image-figure";
 @import "10-components/linkbox/linkbox";
 @import "10-components/textbox/textbox";
-
-body {
-  margin: 0;
-  font-family: $font-light;
-  background-color: #fefefd;
-}
-
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-
-a {
-  text-decoration: none;
-}
-
-img {
-  display: block;
-  height: auto;
-  width: 100%;
-}
