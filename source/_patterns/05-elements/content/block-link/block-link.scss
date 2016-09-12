@@ -1,0 +1,30 @@
+.block-link {
+  display: block;
+  width: 100%;
+  padding: 12px 50px 12px 16px;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+  color: #c91024;
+  border-bottom: 1px solid #ebebe5;
+  background: url(../img/arrows/internal-link.svg) calc(100% - 16px) center no-repeat;
+  background-size: 18px 18px;
+
+  @include smartphone {
+    padding: 12px 66px 12px 24px;
+    background-position: calc(100% - 24px) center;
+  }
+
+  &:hover {
+    background-color: #f5f5f2;
+  }
+}
+
+.block-link--external {
+  background-image: url(../img/arrows/external-link.svg);
+}
+
+.block-link--document {
+  background-image: url(../img/arrows/file.svg);
+}
+
