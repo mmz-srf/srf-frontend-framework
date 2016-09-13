@@ -1,4 +1,4 @@
-.article-media {
+.article-video {
   margin: 0;
 
   &__link {
@@ -24,10 +24,9 @@
 
 .media-caption {
 
-  &__description--video {
-    font: 12px/12px $font-system;
-    color: #888579;
-    margin: 8px 0 4px; // TODO: captions !!
+  &__source--video {
+    margin-bottom: 4px;
+    text-transform: none;
     strong {
       color: #4e4d47;
     }
