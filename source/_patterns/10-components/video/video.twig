@@ -16,10 +16,9 @@
         </div>
     </a>
 
-    <figcaption class="article-media__caption">
-        <div class="article-media__title">{{ video.title }}</div>
-        <div class="article-media__show">{% if video.show.title is defined %}Aus <strong>{{ video.show.title }}</strong> {% endif %}vom {{ video.show.date|date("d.m.Y")  }}</div>
-        {% if video.show.homepageUrl is defined and video.show.homepageUrl != '' %}
-            <a href="{{ video.show.homepageUrl }}" class="article-media__show-link">{{ video.show.title }}</a>{% endif %}
+    <figcaption class="media-caption media-caption--video">
+        <span class="media-caption__title">{{ video.title }}</span>
+        <span class="media-caption__description media-caption__description--video">Aus <strong>{{ video.show.title }}</strong> vom {{ video.show.date|date("d.m.Y")  }}</span>
     </figcaption>
+
 </figure>

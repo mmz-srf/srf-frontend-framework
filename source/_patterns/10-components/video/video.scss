@@ -1,4 +1,4 @@
-.article-video {
+.article-media {
   margin: 0;
 
   &__link {
@@ -20,41 +20,16 @@
     font: 12px/18px $font-medium;
     padding: 1px 8px;
   }
+}
 
-  &__caption {
-    background-color: $box-background-color;
-  }
+.media-caption {
 
-  &__title {
-    color: #4e4d47;
-    font: 14px/20px $font-medium;
-    padding: 12px 24px 0;
-  }
-
-  &__show {
-    color: #888579;
+  &__description--video {
     font: 12px/12px $font-system;
-    letter-spacing: 0;
-    padding: 8px 24px 16px;
-
+    color: #888579;
+    margin: 8px 0 4px; // TODO: captions !!
     strong {
       color: #4e4d47;
-      font: 12px/16px $font-medium;
-    }
-
-    &-link {
-      color: $link-default-color;
-      display: block;
-      font-size: 14px;
-      // line-height: 20px;
-      padding: 12px 24px;
-      width: 100%;
-      background: #fcfcfa url("/assets/demo/img/internal-link.svg") no-repeat scroll right 24px center;
-      border: 1px solid $separator-color;
-      border-width: 1px 0;
-      &:hover, &:active {
-        color: $link-hover-color;
-      }
     }
   }
 }

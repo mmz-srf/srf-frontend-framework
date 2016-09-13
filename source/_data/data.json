@@ -31,8 +31,7 @@
     "urn": "urn:srf:ais:audio:e5173721-9934-43fd-81a3-31b59e303966",
     "show": {
       "title": "100 Sekunden Wissen",
-      "date": "2016-02-08",
-      "homepageUrl": "//www.srf.ch/sendungen/100-sekunden-wissen/chaos-computer-club"
+      "date": "2016-02-08"
     }
   },
   "video": {
@@ -42,8 +41,7 @@
     "urn": "urn:srf:ais:video:900f6532-9869-43a6-9ff5-f6ef46cc5f7d",
     "show": {
       "title": "Schweiz aktuell",
-      "date": "2016-09-12",
-      "homepageUrl": "//www.srf.ch/sendungen/schweiz-aktuell"
+      "date": "2016-09-12"
     }
   }
 }

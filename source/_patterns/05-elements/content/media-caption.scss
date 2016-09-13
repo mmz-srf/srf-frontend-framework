@@ -1,4 +1,4 @@
-.image-caption {
+.media-caption {
   padding: 12px 16px;
   border-bottom: 1px solid $separator-color;
   background-color: #f5f5f2;
@@ -10,22 +10,22 @@
   }
 }
 
-.image-caption--no-bg {
+.media-caption--no-bg {
   background-color: transparent;
 }
 
-.image-caption__title {
+.media-caption__title {
   display: block;
   color: #22211d;
-  font-family: $font-medium;
+  font-family: $font-regular;
 }
 
-.image-caption__description {
+.media-caption__description {
   display: block;
   color: #4e4d47;
 }
 
-.image-caption__source {
+.media-caption__source {
   display: block;
   padding-top: 8px;
   font: 12px/12px $font-system;
@@ -37,7 +37,7 @@
   }
 }
 
-.image-caption__source_link {
+.media-caption__source_link {
   color: #555;
   font-weight: bold;
   text-decoration: none;
