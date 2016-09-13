@@ -20,27 +20,4 @@
 @import "10-components/image-figure/image-figure";
 @import "10-components/linkbox/linkbox";
 @import "10-components/textbox/textbox";
-@import "10-components/audio/audio";
-@import "10-components/video/video";
-
-body {
-  margin: 0;
-  font-family: $font-light;
-  background-color: #fefefd;
-}
-
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-
-a {
-  text-decoration: none;
-}
-
-img {
-  display: block;
-  height: auto;
-  width: 100%;
-}
+@import "10-components/media/media";
