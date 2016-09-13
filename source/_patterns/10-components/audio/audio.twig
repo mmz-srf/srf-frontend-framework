@@ -1,0 +1,25 @@
+<figure class="article-audio">
+    <a class="article-audio__link" href="{{ audio.player_url }}/srf/popup?urn={{ audio.urn }}&autoplay=true">
+
+        <img alt=""
+             sizes="100vw"
+             srcset="/assets/demo/img/bild_s8.jpg 640w,
+                 /assets/demo/img/bild_s8_retina.jpg 1248w,
+                 /assets/demo/img/bild_s12.jpg 944w,
+                 /assets/demo/img/bild_s12_retina.jpg 1888w,
+                 /assets/demo/img/bild_mobile_max.jpg 320w"
+             src="/assets/demo/img/bild_s8.jpg">
+
+        <div class="article-audio__link-meta">
+            <img class="article-audio__play-icon" src="/assets/demo/img/audio-play.svg" width="72" height="72" alt="">
+            <span class="article-audio__length">{{ audio.length }}</span>
+        </div>
+    </a>
+
+    <figcaption class="article-audio__caption">
+        <div class="article-audio__title">{{ audio.title }}</div>
+        <div class="article-audio__show">{% if audio.show.title is defined %}Aus <strong>{{ audio.show.title }}</strong> {% endif %}vom {{ audio.show.date|date("d.m.Y")  }}</div>
+        {% if audio.show.homepageUrl is defined and audio.show.homepageUrl != '' %}
+        <a href="{{ audio.show.homepageUrl }}" class="article-audio__show-link">{{ audio.show.title }}</a>{% endif %}
+    </figcaption>
+</figure>
