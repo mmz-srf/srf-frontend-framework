@@ -1,0 +1,39 @@
+.article-audio {
+  margin: 0;
+
+  &__img {
+    width: 173px;
+    margin: -5% -10% -10%;
+  }
+  &__link {
+    position: relative;
+    width: 112px;
+    height: 112px;
+    display: block;
+    float: left;
+    overflow: hidden;
+  }
+  &__play-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 55%;
+    text-align: center;
+  }
+}
+
+.media-caption {
+  &--audio {
+    position: relative;
+    background-color: $box-background-color;
+    width: calc(100% - 112px);
+    height: 112px;
+    float: left;
+  }
+  &__description--audio {
+    position: absolute;
+    bottom: 12px;
+    font: 12px/12px $font-system;
+  }
+}
