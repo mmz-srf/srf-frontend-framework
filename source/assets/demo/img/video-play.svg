@@ -9,7 +9,7 @@
 		</filter>
 	</defs>
 	<g filter="url(#a)" transform="translate(6 6)" fill="none" fill-rule="evenodd">
-		<ellipse stroke="#FFF" stroke-width="3" cx="30" cy="30" rx="30" ry="30"/>
+		<ellipse stroke="#FFF" stroke-width="3" cx="30" cy="30" rx="30" ry="30" fill-opacity=".16" fill="#000"/>
 		<path d="M26.048 38.838c-.577.36-1.048.1-1.048-.58l.003-16.515c0-.68.472-.94 1.05-.58l13.087 8.184c.577.36.577.95 0 1.31l-13.092 8.18z" fill="#FFF"/>
 	</g>
 </svg>
