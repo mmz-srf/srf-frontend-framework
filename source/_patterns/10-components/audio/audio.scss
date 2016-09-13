@@ -26,14 +26,18 @@
 .media-caption {
   &--audio {
     position: relative;
-    background-color: $box-background-color;
     width: calc(100% - 112px);
     height: 112px;
+    background-color: $box-background-color;
     float: left;
+    padding: 12px 16px;
   }
-  &__description--audio {
+  &__source--audio {
     position: absolute;
     bottom: 12px;
-    font: 12px/12px $font-system;
+    text-transform: none;
+    strong {
+      color: #3d3c37; // #4e4d47; !?
+    }
   }
 }
