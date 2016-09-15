@@ -1,9 +1,8 @@
 .media-caption {
   padding: 12px 16px;
-  // border-bottom: 1px solid $separator-color;
   background-color: #f5f5f2;
   font: 14px/20px $font-light;
-  letter-spacing: 0.5px;
+  // letter-spacing: 0.5px;
 
   @include smartphone {
     padding: 12px 24px;
@@ -16,7 +15,7 @@
 
 .media-caption__title {
   display: block;
-  color: #22211d;
+  // color: #22211d;
   font-family: $font-regular;
 }
 
