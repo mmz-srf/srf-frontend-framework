@@ -1,7 +1,7 @@
 <figure class="article-video">
     <a class="article-video__link" href="{{ video.player_url }}/srf/popup?urn={{ video.urn }}&autoplay=true">
 
-        <img alt=""
+        <img alt="Video «{{ video.title }}» abspielen"
              sizes="100vw"
              srcset="/assets/demo/img/bild_s8.jpg 640w,
                  /assets/demo/img/bild_s8_retina.jpg 1248w,
@@ -12,7 +12,7 @@
 
         <div class="article-video__link-meta">
             <img class="article-video__play-icon" src="/assets/demo/img/video-play.svg" width="72" height="72" alt="">
-            <span class="article-video__length">{{ video.length }}</span>
+            <span class="article-video__length">{{ video.length }}<span style="display:none;">min</span></span>
         </div>
     </a>
 
