@@ -13,6 +13,10 @@
   }
 }
 
+.blockquote--article-indentation {
+  @include article-indentation;
+}
+
 .blockquote__quote {
   display: inline-block;
 }
