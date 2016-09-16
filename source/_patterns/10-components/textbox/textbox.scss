@@ -2,7 +2,6 @@
   @include article-element-margin();
   background-color: #ebebe5;
   overflow: hidden;
-  border-bottom: 1px solid rgba(0, 0, 0, .1);
 
   @include smartphone {
     @include fullwidth-element;
