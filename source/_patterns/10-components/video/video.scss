@@ -1,5 +1,8 @@
 .article-video {
   margin: 0;
+  @include smartphone {
+    margin: 0 -8px;
+  }
 
   &__link {
     position: relative;
@@ -19,16 +22,5 @@
     color: #fff;
     font: 12px/18px $font-medium;
     padding: 1px 8px;
-  }
-}
-
-.media-caption {
-
-  &__source--video {
-    margin-bottom: 4px;
-    text-transform: none;
-    strong {
-      color: #4e4d47;
-    }
   }
 }
