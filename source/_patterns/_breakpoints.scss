@@ -38,3 +38,9 @@ $content-max-width: 1480px;
     @content;
   }
 }
+
+@mixin desktop-widest-down {
+  @media (max-width: #{$content-max-width - 1px}) {
+    @content;
+  }
+}
