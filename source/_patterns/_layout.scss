@@ -9,3 +9,7 @@
 .l-full-width-container {
   @include fullwidth-element;
 }
+
+.l-main-media-container {
+  margin-top: -24px;
+}

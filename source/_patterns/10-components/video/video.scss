@@ -1,7 +1,7 @@
 .article-video {
   margin: 0;
   @include smartphone {
-    margin: 0 -8px;
+    margin: 24px -8px 20px -8px;
   }
 
   &__link {

@@ -21,6 +21,7 @@
     letter-spacing: 0.3px;
 
     @include smartphone {
+      margin: 24px 0 12px 0;
       font-size: 22px;
       line-height: 28px;
       letter-spacing: 0.3px;
@@ -44,6 +45,10 @@
         color: $link-active-color;
         border-bottom: 1px solid $link-active-color;
       }
+    }
+
+    @include smartphone {
+      margin: 12px 0 20px 0;
     }
   }
 

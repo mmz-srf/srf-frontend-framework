@@ -5,6 +5,8 @@
 
   @include smartphone {
     @include fullwidth-element;
+    margin-top: 32px;
+    margin-bottom: 32px;
     padding: 0 8px;
   }
 }
@@ -22,6 +24,8 @@
   letter-spacing: 0.3px;
 
   @include smartphone {
+    margin: 16px 0 8px 0;
+    padding: 0 16px;
     font-size: 18px;
     line-height: 28px;
     letter-spacing: 0.5px;
@@ -34,5 +38,10 @@
   & > p {
     @include article-text-padding;
     @include article-element-margin();
+
+    @include smartphone {
+      margin: 12px 0 20px 0;
+    }
+
   }
 }

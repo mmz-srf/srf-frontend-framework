@@ -1,12 +1,13 @@
 .horizontal-separator {
-  @include article-element-margin();
+  margin: 24px 0 20px 0;
   height: 1px;
   border: 0;
   background: #ebebe5 50% 0 no-repeat;
 }
 
 .horizontal-separator--content-max-width {
-  margin: 0 -16px;
+  margin-left: -16px;
+  margin-right: -16px;
 
   @include desktop-widest-down {
     @include fullwidth-element;
