@@ -2,7 +2,6 @@
   padding: 12px 16px;
   background-color: #f5f5f2;
   font: 14px/20px $font-light;
-  // letter-spacing: 0.5px;
 
   @include smartphone {
     padding: 12px 24px;
@@ -15,18 +14,17 @@
 
 .media-caption__title {
   display: block;
-  // color: #22211d;
   font-family: $font-regular;
 }
 
 .media-caption__description {
   display: block;
+  margin-bottom: 8px;
   color: #4e4d47;
 }
 
 .media-caption__source {
   display: block;
-  padding-top: 8px;
   font: 12px/12px $font-system;
   letter-spacing: 0;
   text-transform: uppercase;
@@ -46,35 +44,36 @@
   }
 }
 
-.media-caption {
-  &--audio {
-    display: table;
-    height: 112px;
-    padding: 12px 16px;
-    margin-left: 112px;
-    @include smartphone {
-      margin-left: 96px;
-    }
+.media-caption--audio {
+  display: table;
+  height: 112px;
+  padding: 12px 16px;
+  margin-left: 112px;
+  @include smartphone {
+    margin-left: 96px;
   }
-  &__title--audio {
-    margin-bottom: 4px;
-  }
-  &__source--audio {
-    display: table-row;
-    vertical-align: bottom;
-    height: 16px;
-    text-transform: none;
-    line-height: 16px;
+}
 
-    strong {
-      color: #3d3c37; // #4e4d47; !?
-    }
+.media-caption__title--audio {
+  margin-bottom: 4px;
+}
+
+.media-caption__source--audio {
+  display: table-row;
+  vertical-align: bottom;
+  height: 16px;
+  text-transform: none;
+  line-height: 16px;
+
+  strong {
+    color: #3d3c37; // #4e4d47; !?
   }
-  &__source--video {
-    margin-bottom: 4px;
-    text-transform: none;
-    strong {
-      color: #4e4d47;
-    }
+}
+
+.media-caption__source--video {
+  margin-bottom: 4px;
+  text-transform: none;
+  strong {
+    color: #4e4d47;
   }
 }
