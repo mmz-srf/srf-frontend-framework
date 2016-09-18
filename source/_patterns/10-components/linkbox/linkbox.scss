@@ -1,5 +1,5 @@
 .linkbox {
-  @include article-element-margin();
+  margin: 40px 0;
 
   @include smartphone {
     @include fullwidth-element;

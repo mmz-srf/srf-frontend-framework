@@ -14,7 +14,7 @@
 
   & > h2 {
     @include article-text-padding;
-    margin: 0 0 12px 0;
+    margin: 32px 0 12px 0;
     font-family: $font-medium;
     font-size: 24px;
     line-height: 32px;
@@ -30,7 +30,7 @@
 
   & > p {
     @include article-text-padding;
-    margin: 0 0 24px 0;
+    margin: 12px 0 24px 0;
 
     a {
       border-bottom: 1px solid $link-default-color;
@@ -54,14 +54,14 @@
 
   & > ul {
     // @extend used here to apply the DRY principle while coping with ezxml's missing classes for html elements
-    // tip: allways be careful with @extend
+    // tip: always be careful with @extend
     @extend .text-list;
     @extend .text-list--unordered;
   }
 
   & > ol {
     // @extend used here to apply the DRY principle while coping with ezxml's missing classes for html elements
-    // tip: allways be careful with @extend
+    // tip: always be careful with @extend
     @extend .text-list;
     @extend .text-list--ordered;
   }

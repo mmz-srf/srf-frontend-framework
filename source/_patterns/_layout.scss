@@ -11,5 +11,9 @@
 }
 
 .l-main-media-container {
-  margin-top: -24px;
+  margin-top: -32px;
+
+  @include smartphone {
+    margin-top: -24px;
+  }
 }

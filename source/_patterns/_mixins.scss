@@ -15,12 +15,6 @@
   padding: 0 16px;
 }
 
-/* margin for content elements in the article */
-@mixin article-element-margin($size: 3) {
-  margin: 0 0 ($size * 8px) 0;
-}
-
-
 @mixin article-indentation {
 
   @include desktop-up {

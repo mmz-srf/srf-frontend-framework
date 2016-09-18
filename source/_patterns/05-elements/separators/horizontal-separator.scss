@@ -1,8 +1,12 @@
 .horizontal-separator {
-  margin: 24px 0 20px 0;
+  margin: 32px 0 24px 0;
   height: 1px;
   border: 0;
   background: #ebebe5 50% 0 no-repeat;
+
+  @include smartphone {
+    margin: 24px 0 20px 0;
+  }
 }
 
 .horizontal-separator--content-max-width {
