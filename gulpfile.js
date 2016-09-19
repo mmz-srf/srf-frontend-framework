@@ -60,7 +60,8 @@ gulp.task('serve', function() {
     port: 8080,
     server: {
       baseDir: ['public/']
-    }
+    },
+    open: false
   });
 });
 

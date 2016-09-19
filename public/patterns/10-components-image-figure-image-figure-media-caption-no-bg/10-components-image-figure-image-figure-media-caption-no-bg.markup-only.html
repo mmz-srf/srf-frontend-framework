@@ -1,4 +1,4 @@
-<figure class="image-figure {{ styleModifier }}">
+<figure class="image-figure ">
     <div class="image-figure__image-wrapper">
         <img class="image-figure__image"
              alt=""
@@ -10,5 +10,14 @@
                      ../../assets/demo/img/bild_mobile_max.jpg 320w"
              src="../../assets/demo/img/bild_s8.jpg">
     </div>
-    {% include 'elements-image-caption' with {'styleModifier': imageCaptionStyle } %}
-</figure>
+    <figcaption class="media-caption media-caption--no-bg">
+        <span class="media-caption__title">
+            Hernani Marques
+        </span>
+        <span class="media-caption__description">
+            Aktivist und Pressesprecher vom Schweizer Chaos Computer Club
+        </span>
+        <span class="media-caption__source">
+            Bild: ZVG
+        </span>
+</figcaption></figure>
