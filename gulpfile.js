@@ -1,19 +1,23 @@
 'use strict';
 
-var gulp            = require('gulp'),
+var gulp = require('gulp'),
     gulpLoadPlugins = require('gulp-load-plugins'),
-    del             = require('del'),
-    runSequence     = require('run-sequence'),
-    browserSync     = require('browser-sync'),
-    exec            = require('child_process').exec;
+    del = require('del'),
+    runSequence = require('run-sequence'),
+    browserSync = require('browser-sync'),
+    babel = require('babelify'),
+    browserify = require('browserify'),
+    source = require('vinyl-source-stream'),
+    buffer = require('vinyl-buffer'),
+    exec = require('child_process').exec;
 
 
 var $ = gulpLoadPlugins();
 var reload = browserSync.reload;
 
 
-const DEST = 'public';
-const AUTOPREFIXER_BROWSERS = [
+var DEST = 'public';
+var AUTOPREFIXER_BROWSERS = [
     'ie >= 11',
     'ie_mob >= 11',
     'ff >= 30',
@@ -44,6 +48,15 @@ gulp.task('styles', function () {
         .pipe($.size({
             title: 'css'
         }));
+});
+
+gulp.task('scripts', function() {
+    return browserify({entries: 'source/assets/js/main.js'})
+        .transform(babel)
+        .bundle()
+        .pipe(source('bundle.js'))
+        .pipe(buffer())
+        .pipe(gulp.dest('public/assets/js/'))
 });
 
 gulp.task('copy', function() {
@@ -87,7 +100,7 @@ gulp.task('build', function(cb) {
     runSequence(
         ['clean'],
         ['patternlab'],
-        ['copy', 'styles'],
+        ['copy', 'styles', 'scripts'],
         cb
     );
 });
