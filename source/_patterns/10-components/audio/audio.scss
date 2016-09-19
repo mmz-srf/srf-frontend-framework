@@ -1,0 +1,37 @@
+.article-audio {
+  margin: 0;
+  background-color: #f5f5f2;
+  @include smartphone {
+    margin: 0 -8px;
+  }
+
+  &__link {
+    position: relative;
+    width: 112px;
+    height: 112px;
+    float: left;
+    overflow: hidden;
+
+    @include smartphone {
+      width: 80px;
+      height: 80px;
+      margin: 16px 0 16px 16px;
+    }
+  }
+  &__img {
+    width: 173px;
+    margin: -5% -10% 0;
+    @include smartphone {
+      width: 123px;
+    }
+  }
+  &__play-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 55%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+
+  }
+}

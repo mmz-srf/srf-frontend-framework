@@ -1,5 +1,6 @@
 {
   "name": "srf-frontend-framework",
+  "version": "0.1.0",
   "private": true,
   "devDependencies": {
     "browser-sync": "^2.14.0",

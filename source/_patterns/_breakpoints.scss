@@ -1,3 +1,8 @@
+/*** breakpoint related variables ***/
+$content-max-width: 1480px;
+
+
+/*** breakpoint related mixins ***/
 @mixin smartphone {
   @media (max-width: 719px) {
     @content;
@@ -24,6 +29,18 @@
 
 @mixin desktop-wide {
   @media (min-width: 1280px) {
+    @content;
+  }
+}
+
+@mixin desktop-widest {
+  @media (min-width: #{$content-max-width}) {
+    @content;
+  }
+}
+
+@mixin desktop-widest-down {
+  @media (max-width: #{$content-max-width - 1px}) {
     @content;
   }
 }

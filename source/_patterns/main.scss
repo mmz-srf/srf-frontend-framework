@@ -7,11 +7,12 @@
 @import "01-global/05-fonts";
 @import "01-global/20-helpers";
 @import "15-templates/article";
+@import "05-elements/article/article-overline";
 @import "05-elements/article/article-title";
 @import "05-elements/article/article-lead";
 @import "05-elements/article/article-author";
 @import "05-elements/content/block-link/block-link";
-@import "05-elements/content/image-caption";
+@import "05-elements/content/media-caption";
 @import "05-elements/content/text-list/text-list";
 @import "05-elements/separators/horizontal-separator";
 @import "10-components/article-content/article-content";
@@ -20,3 +21,5 @@
 @import "10-components/image-figure/image-figure";
 @import "10-components/linkbox/linkbox";
 @import "10-components/textbox/textbox";
+@import "10-components/video/video";
+@import "10-components/audio/audio";

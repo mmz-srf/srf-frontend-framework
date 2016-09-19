@@ -19,3 +19,17 @@
 @mixin article-element-margin($size: 3) {
   margin: 0 0 ($size * 8px) 0;
 }
+
+
+@mixin article-indentation {
+
+  @include desktop-up {
+    margin-left: auto;
+    margin-right: auto;
+    width: 548px;
+  }
+
+  @include desktop-wide {
+    width: 584px;
+  }
+}

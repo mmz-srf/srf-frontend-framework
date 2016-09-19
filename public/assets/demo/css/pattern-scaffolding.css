@@ -55,3 +55,8 @@
   line-height: 1;
   padding: 0.5rem 1rem;
 }
+
+.demo-simulate-removed-html-elements .media-caption__title,
+.demo-simulate-removed-html-elements .media-caption__description {
+  display: none !important;
+}
