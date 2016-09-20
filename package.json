@@ -4,6 +4,7 @@
   "private": true,
   "devDependencies": {
     "babelify": "*",
+    "babel-preset-es2015": "*",
     "browserify": "*",
     "browser-sync": "^2.14.0",
     "del": "^2.2.2",
@@ -24,5 +25,10 @@
   },
   "scripts": {
     "start": "gulp"
+  },
+  "babel": {
+    "presets": [
+      "es2015"
+    ]
   }
 }
