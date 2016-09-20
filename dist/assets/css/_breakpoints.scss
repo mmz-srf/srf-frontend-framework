@@ -1,0 +1,46 @@
+/*** breakpoint related variables ***/
+$content-max-width: 1480px;
+
+
+/*** breakpoint related mixins ***/
+@mixin smartphone {
+  @media (max-width: 719px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: 720px) and (max-width: 1023px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: 1024px) and (max-width: 1279px){
+    @content;
+  }
+}
+
+@mixin desktop-up {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin desktop-wide {
+  @media (min-width: 1280px) {
+    @content;
+  }
+}
+
+@mixin desktop-widest {
+  @media (min-width: #{$content-max-width}) {
+    @content;
+  }
+}
+
+@mixin desktop-widest-down {
+  @media (max-width: #{$content-max-width - 1px}) {
+    @content;
+  }
+}

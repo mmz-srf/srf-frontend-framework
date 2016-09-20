@@ -1,0 +1,24 @@
+.linkbox {
+  @include article-element-margin();
+
+  @include smartphone {
+    @include fullwidth-element;
+    padding: 0 8px;
+  }
+}
+
+.linkbox__title {
+  @include article-text-padding;
+  @include article-element-margin(2);
+  font-family: $font-medium;
+  font-size: 22px;
+  line-height: 28px;
+}
+
+.linkbox__list {
+  border-top: 1px solid #ebebe5;
+
+  @include smartphone {
+    margin: 0 -8px;
+  }
+}

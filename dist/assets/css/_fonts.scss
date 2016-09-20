@@ -1,0 +1,29 @@
+/*! URHEBERRECHTSHINWEIS: Die SRG SSR Schrift und die dazugehoerige Software stehen im vollumfaenglichen Eigentum der SRG. Jede Bearbeitung, Vervielfaeltigung, Verbreitung und/oder oeffentliche Wiedergabe, insbesondere die ungenehmigte Uebernahme der SRG SSR Schrift stellt einen Rechtsverstoss dar, der zum Schadenersatz verpflichtet und auch strafrechtlich verfolgt wird. */
+
+@font-face {
+  font-family: 'SRG_SSR_Medium';
+  src: url('../fonts/srgssrtype_md.woff2') format('woff2'), url('../fonts/srgssrtype_md.woff') format('woff'),  url('../fonts/srgssrtype_md.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SRG_SSR_Light';
+  src: url('../fonts/srgssrtype_lt.woff2') format('woff2'), url('../fonts/srgssrtype_lt.woff') format('woff'),  url('../fonts/srgssrtype_lt.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SRG_SSR_Regular';
+  src: url('../fonts/srgssrtype_rg.woff2') format('woff2'), url('../fonts/srgssrtype_rg.woff') format('woff'),  url('../fonts/srgssrtype_rg.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SRG_SSR_Serif_Regular';
+  src: url('../fonts/srgssrtype_serif_rg.woff2') format('woff2'), url('../fonts/srgssrtype_serif_rg.woff') format('woff'),  url('../fonts/srgssrtype_serif_rg.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}

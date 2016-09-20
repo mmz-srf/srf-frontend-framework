@@ -1,0 +1,14 @@
+.horizontal-separator {
+  @include article-element-margin();
+  height: 1px;
+  border: 0;
+  background: #ebebe5 50% 0 no-repeat;
+}
+
+.horizontal-separator--content-max-width {
+  margin: 0 -16px;
+
+  @include desktop-widest-down {
+    @include fullwidth-element;
+  }
+}

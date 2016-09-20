@@ -1,0 +1,44 @@
+.text-list {
+  @include article-text-padding;
+  @include article-element-margin();
+  list-style-type: none;
+  counter-reset: item;
+
+  li {
+    position: relative;
+    @include article-element-margin(1);
+    padding-left: 1.5em;
+  }
+}
+
+.text-list--unordered {
+  li:before {
+    position: absolute;
+    left: 0;
+    top: 11px;
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border: 1px solid #fff;
+    border-radius: 50%;
+    background-color: $list-item-color;
+    content: " ";
+  }
+}
+
+.text-list--ordered {
+  li {
+    padding-left: 2em;
+  }
+
+  li:before {
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-family: $font-medium;
+    content: counter(item) ".";
+    color: $list-item-color;
+    counter-increment: item;
+  }
+}
+
