@@ -31,7 +31,8 @@ var AUTOPREFIXER_BROWSERS = [
 
 gulp.task('clean', function () {
     return del([
-        'public/assets'
+        'public/assets',
+        'dist/*'
     ]);
 });
 
@@ -78,6 +79,22 @@ gulp.task('serve', function() {
   });
 });
 
+gulp.task('dist-assets',function (){
+    return  gulp.src([
+        'source/assets/**/*',
+    ], {
+        dot: true
+    }).pipe(gulp.dest('dist/assets'));
+});
+
+gulp.task('dist-css',function (){
+    return  gulp.src([
+        'source/_patterns/**/*.scss',
+    ], {
+        dot: true
+    }).pipe(gulp.dest('dist/assets/css'));
+});
+
 gulp.task('patternlab', function (cb) {
     exec('php core/console --generate', function (err, stdout, stderr) {
         console.log(stdout);
@@ -97,11 +114,18 @@ gulp.task('watch', function(cb) {
     });
 });
 
+gulp.task('dist',function (){
+    runSequence(
+        ['dist-assets'],
+        ['dist-css']
+    );
+});
+
 gulp.task('build', function(cb) {
     runSequence(
         ['clean'],
         ['patternlab'],
-        ['copy', 'styles', 'scripts'],
+        ['copy', 'dist', 'styles', 'scripts'],
         cb
     );
 });
