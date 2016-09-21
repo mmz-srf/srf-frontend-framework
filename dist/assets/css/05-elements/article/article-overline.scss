@@ -1,0 +1,12 @@
+.article-overline {
+  margin: 32px 0 12px 0;
+  font-family: $font-regular;
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: 0.5px;
+  color: #c91024;
+
+  @include smartphone {
+    margin-top: 24px;
+  }
+}

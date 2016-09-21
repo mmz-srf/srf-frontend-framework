@@ -1,0 +1,64 @@
+.article-content {
+  margin: 0 0 24px 0;
+  font-family: $font-light;
+  font-size: 20px;
+  line-height: 32px;
+  letter-spacing: 0.3px;
+  color: #22211d;
+
+  @include smartphone {
+    font-size: 18px;
+    line-height: 28px;
+    letter-spacing: 0.5px;
+  }
+
+  & > h2 {
+    @include article-text-padding;
+    margin: 0 0 12px 0;
+    font-family: $font-medium;
+    font-size: 24px;
+    line-height: 32px;
+    letter-spacing: 0.3px;
+
+    @include smartphone {
+      font-size: 22px;
+      line-height: 28px;
+      letter-spacing: 0.3px;
+    }
+  }
+
+  & > p {
+    @include article-text-padding;
+    margin: 0 0 24px 0;
+
+    a {
+      border-bottom: 1px solid $link-default-color;
+      color: $link-default-color;
+
+      &:hover {
+        color: $link-hover-color;
+        border-bottom: 1px solid $link-hover-color;
+      }
+
+      &:active {
+        color: $link-active-color;
+        border-bottom: 1px solid $link-active-color;
+      }
+    }
+  }
+
+  & > ul {
+    // @extend used here to apply the DRY principle while coping with ezxml's missing classes for html elements
+    // tip: allways be careful with @extend
+    @extend .text-list;
+    @extend .text-list--unordered;
+  }
+
+  & > ol {
+    // @extend used here to apply the DRY principle while coping with ezxml's missing classes for html elements
+    // tip: allways be careful with @extend
+    @extend .text-list;
+    @extend .text-list--ordered;
+  }
+
+}

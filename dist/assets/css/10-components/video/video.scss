@@ -1,0 +1,26 @@
+.article-video {
+  margin: 0;
+  @include smartphone {
+    margin: 0 -8px;
+  }
+
+  &__link {
+    position: relative;
+    display: block;
+
+    &-meta {
+      position: absolute;
+      top: 55%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 15%;
+      text-align: center;
+    }
+  }
+  &__length {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    font: 12px/18px $font-medium;
+    padding: 1px 8px;
+  }
+}

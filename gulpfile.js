@@ -1,19 +1,23 @@
 'use strict';
 
-var gulp            = require('gulp'),
+var gulp = require('gulp'),
     gulpLoadPlugins = require('gulp-load-plugins'),
-    del             = require('del'),
-    runSequence     = require('run-sequence'),
-    browserSync     = require('browser-sync'),
-    exec            = require('child_process').exec;
+    del = require('del'),
+    runSequence = require('run-sequence'),
+    browserSync = require('browser-sync'),
+    babel = require('babelify'),
+    browserify = require('browserify'),
+    source = require('vinyl-source-stream'),
+    buffer = require('vinyl-buffer'),
+    exec = require('child_process').exec;
 
 
 var $ = gulpLoadPlugins();
 var reload = browserSync.reload;
 
 
-const DEST = 'public';
-const AUTOPREFIXER_BROWSERS = [
+var DEST = 'public';
+var AUTOPREFIXER_BROWSERS = [
     'ie >= 11',
     'ie_mob >= 11',
     'ff >= 30',
@@ -27,7 +31,8 @@ const AUTOPREFIXER_BROWSERS = [
 
 gulp.task('clean', function () {
     return del([
-        'public/assets'
+        'public/assets',
+        'dist/*'
     ]);
 });
 
@@ -44,6 +49,15 @@ gulp.task('styles', function () {
         .pipe($.size({
             title: 'css'
         }));
+});
+
+gulp.task('scripts', function() {
+    return browserify({entries: 'source/assets/js/main.js'})
+        .transform(babel)
+        .bundle()
+        .pipe(source('bundle.js'))
+        .pipe(buffer())
+        .pipe(gulp.dest('public/assets/js/'))
 });
 
 gulp.task('copy', function() {
@@ -65,6 +79,22 @@ gulp.task('serve', function() {
   });
 });
 
+gulp.task('dist-assets',function (){
+    return  gulp.src([
+        'source/assets/**/*',
+    ], {
+        dot: true
+    }).pipe(gulp.dest('dist/assets'));
+});
+
+gulp.task('dist-css',function (){
+    return  gulp.src([
+        'source/_patterns/**/*.scss',
+    ], {
+        dot: true
+    }).pipe(gulp.dest('dist/assets/css'));
+});
+
 gulp.task('patternlab', function (cb) {
     exec('php core/console --generate', function (err, stdout, stderr) {
         console.log(stdout);
@@ -75,6 +105,7 @@ gulp.task('patternlab', function (cb) {
 
 gulp.task('watch', function(cb) {
     gulp.watch('source/_patterns/**/*.scss', ['styles'], reload);
+    gulp.watch('source/assets/js/*.js', ['scripts'], reload);
     gulp.watch('source/assets/**/*', ['copy'], reload);
     exec('php core/console --watch --patternsonly', function (err, stdout, stderr) {
         console.log(stdout);
@@ -83,11 +114,18 @@ gulp.task('watch', function(cb) {
     });
 });
 
+gulp.task('dist',function (){
+    runSequence(
+        ['dist-assets'],
+        ['dist-css']
+    );
+});
+
 gulp.task('build', function(cb) {
     runSequence(
         ['clean'],
         ['patternlab'],
-        ['copy', 'styles'],
+        ['copy', 'dist', 'styles', 'scripts'],
         cb
     );
 });
