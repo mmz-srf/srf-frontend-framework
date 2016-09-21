@@ -15,7 +15,13 @@
   padding: 0 16px;
 }
 
-@mixin article-indentation {
+@mixin article-element-indentation {
+
+  @include tablet {
+    margin-left: auto;
+    margin-right: auto;
+    width: 544px;
+  }
 
   @include desktop-up {
     margin-left: auto;

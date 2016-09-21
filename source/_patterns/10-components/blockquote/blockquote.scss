@@ -15,7 +15,7 @@
 }
 
 .blockquote--article-indentation {
-  @include article-indentation;
+  @include article-element-indentation;
 }
 
 .blockquote__quote {
