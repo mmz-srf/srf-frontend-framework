@@ -1,20 +1,20 @@
 .blockquote {
   @include article-text-padding;
-  @include article-element-margin();
+  margin: 40px 0;
   font-family: $font-serif;
   font-size: 24px;
   line-height: 36px;
   letter-spacing: 0.3px;
   color: #4e4d47;
   @include smartphone {
+    margin: 32px 0;
     font-size: 22px;
     line-height: 32px;
-    letter-spacing: 0.3px;
   }
 }
 
 .blockquote--article-indentation {
-  @include article-indentation;
+  @include article-element-indentation;
 }
 
 .blockquote__quote {
@@ -42,12 +42,16 @@
 
 .blockquote__author {
   display: block;
-  margin-top: 12px;
+  margin-top: 16px;
   font-family: $font-medium;
   font-size: 14px;
   line-height: 20px;
   letter-spacing: 0.5px;
   color: #22211d;
+
+  @include smartphone {
+    margin-top: 12px;
+  }
 }
 .blockquote__function {
   font-family: $font-system;
