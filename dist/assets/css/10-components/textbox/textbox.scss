@@ -1,27 +1,30 @@
 .textbox {
-  @include article-element-margin();
+  margin: 40px 0;
   background-color: #ebebe5;
   overflow: hidden;
 
   @include smartphone {
     @include fullwidth-element;
+    margin-top: 32px;
+    margin-bottom: 32px;
     padding: 0 8px;
   }
 }
 
 .textbox--article-indentation {
-  @include article-indentation;
+  @include article-element-indentation;
 }
 
 .textbox__title {
-  padding: 12px 16px 8px;
-  margin: 0;
+  padding: 0 16px;
+  margin: 16px 0 8px 0;
   font-family: $font-medium;
   font-size: 20px;
   line-height: 32px;
   letter-spacing: 0.3px;
 
   @include smartphone {
+    margin: 12px 0 8px 0;
     font-size: 18px;
     line-height: 28px;
     letter-spacing: 0.5px;
@@ -29,10 +32,28 @@
 }
 
 .textbox__content {
-  @include article-element-margin();
 
   & > p {
     @include article-text-padding;
-    @include article-element-margin();
+    margin: 12px 0 24px 0;
+
+    @include smartphone {
+      margin: 12px 0 20px 0;
+    }
+
+  }
+
+  & > ul {
+    // @extend used here to apply the DRY principle while coping with ezxml's missing classes for html elements
+    // tip: always be careful with @extend
+    @extend .text-list;
+    @extend .text-list--unordered;
+  }
+
+  & > ol {
+    // @extend used here to apply the DRY principle while coping with ezxml's missing classes for html elements
+    // tip: always be careful with @extend
+    @extend .text-list;
+    @extend .text-list--ordered;
   }
 }
