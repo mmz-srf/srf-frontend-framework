@@ -1,3 +1,13 @@
+
+/*
+the following rule is - unfortunately - neccessary for consistency reasons with patternlab
+since their styleguide kit uses it as well and their rule is applied to ALL styles (also
+our own) within the patternlab...
+*/
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   font-family: $font-light;
