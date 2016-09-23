@@ -1,15 +1,17 @@
 .linkbox {
-  @include article-element-margin();
+  margin: 40px 0;
 
   @include smartphone {
     @include fullwidth-element;
+    margin-top: 32px;
+    margin-bottom: 32px;
     padding: 0 8px;
   }
 }
 
 .linkbox__title {
   @include article-text-padding;
-  @include article-element-margin(2);
+  margin: 0 0 16px 0;
   font-family: $font-medium;
   font-size: 22px;
   line-height: 28px;

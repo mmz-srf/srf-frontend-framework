@@ -1,6 +1,5 @@
-//console.log('shared');
+import * as SrfMedia from './srf-media';
+import * as SrfCarousels from './srf-carousels';
 
-$(document).ready(function () {
-    SRF.media.init();
-    SRF.carousels.init();
-});
+console.log(SrfMedia.init());
+console.log(SrfCarousels.init());
