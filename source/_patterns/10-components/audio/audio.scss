@@ -1,8 +1,8 @@
 .article-audio {
-  margin: 32px 0 24px 0;
+  margin: 32px 0 24px;
   background-color: #f5f5f2;
   @include smartphone {
-    margin: 24px -8px 20px -8px;
+    margin: 24px -8px 20px;
   }
 
   &__link {
@@ -32,6 +32,9 @@
     width: 55%;
     transform: translate(-50%, -50%);
     text-align: center;
-
+    &:hover, &:active {
+      background-image: url(../../assets/demo/img/play-active.svg);
+      background-size: 100%;
+    }
   }
 }
