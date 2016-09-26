@@ -9,3 +9,11 @@
 .l-full-width-container {
   @include fullwidth-element;
 }
+
+.l-main-media-container {
+  margin-top: -32px;
+
+  @include smartphone {
+    margin-top: -24px;
+  }
+}

@@ -3,7 +3,7 @@
     margin: 0 auto;
 
   @include tablet {
-    max-width: 656px;
+    max-width: 720px;
     padding: 0 32px;
   }
 
@@ -14,7 +14,7 @@
 
   @include desktop-wide {
     padding: 0 40px;
-    max-width: 792px;
+    max-width: 870px;
   }
 
 }
