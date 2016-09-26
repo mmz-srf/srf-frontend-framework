@@ -1,14 +1,6 @@
 <svg width="72" height="72" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
 	<title>audio-play</title>
-	<defs>
-		<filter x="-50%" y="-50%" width="200%" height="200%" filterUnits="objectBoundingBox" id="a">
-			<feOffset in="SourceAlpha" result="shadowOffsetOuter1"/>
-			<feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"/>
-			<feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.2 0" in="shadowBlurOuter1" result="shadowMatrixOuter1"/>
-			<feMerge><feMergeNode in="shadowMatrixOuter1"/><feMergeNode in="SourceGraphic"/></feMerge>
-		</filter>
-	</defs>
-	<g filter="url(#a)" transform="translate(6 6)" fill="none" fill-rule="evenodd">
+	<g transform="translate(6 6)" fill="none" fill-rule="evenodd">
 		<circle stroke="#FFF" stroke-width="3" fill-opacity=".16" fill="#000" cx="30" cy="30" r="30"/>
 		<g fill="#FFF">
 			<path d="M31.69 19.045c-.186-.08-.4-.035-.544.108l-6.853 6.854H21c-1.103 0-2 .897-2 2v3c0 1.103.897 2 2 2h3.293l6.853 6.853c.096.096.223.147.354.147.064 0 .13-.012.19-.038.188-.078.31-.26.31-.463v-20c0-.202-.122-.385-.31-.462"/>
