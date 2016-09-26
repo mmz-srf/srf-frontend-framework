@@ -23,4 +23,10 @@
     font: 12px/18px $font-medium;
     padding: 1px 8px;
   }
+  &__play-icon {
+    &:hover, &:active {
+      background-image: url(../../assets/demo/img/play-active.svg);
+      background-size: 100%;
+    }
+  }
 }
