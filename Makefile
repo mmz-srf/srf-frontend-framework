@@ -7,13 +7,14 @@ $(DEB_TARGET):	clean install-composer build-styleguide
 	fpm \
           -s dir\
           -t deb\
+          -C build \
           -n srf-frontend-framework-styleguide\
           -v $(VERSION)\
           --iteration $(ITERATION)\
-          -d /var/www/srf-frontend-framework-styleguide\
+          --prefix /var/www/srf-frontend-framework-styleguide\
           -a all\
           --deb-no-default-config-files \
-        --package $(DEB_TARGET) public
+        --package $(DEB_TARGET) 
 
 clean:
 	rm -rf public/patternlab-components/pattern-lab/plugin-reload
