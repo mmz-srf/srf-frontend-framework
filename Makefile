@@ -1,6 +1,6 @@
 
-DEB_VERSION:= 1
-DEB_ITERATION := 1200
+VERSION=$(shell date +%Y.%m.%d)
+ITERATION=$(shell date +%H%M)
 DEB_TARGET := srf-frontend-framework-styleguide.deb
 
 $(DEB_TARGET):	clean install-composer build-styleguide
@@ -8,8 +8,8 @@ $(DEB_TARGET):	clean install-composer build-styleguide
           -s dir\
           -t deb\
           -n srf-frontend-framework-styleguide\
-          -v $(DEB_VERSION)\
-          --iteration $(DEB_ITERATION)\
+          -v $(VERSION)\
+          --iteration $(ITERATION)\
           -d /var/www/srf-frontend-framework-styleguide\
           -a all\
           --deb-no-default-config-files \
