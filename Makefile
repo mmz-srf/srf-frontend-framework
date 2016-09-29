@@ -7,7 +7,7 @@ $(DEB_TARGET):	clean install-composer build-styleguide
 	fpm \
           -s dir\
           -t deb\
-          -C build \
+          -C public \
           -n srf-frontend-framework-styleguide\
           -v $(VERSION)\
           --iteration $(ITERATION)\
