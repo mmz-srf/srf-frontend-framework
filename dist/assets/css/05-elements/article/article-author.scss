@@ -12,7 +12,7 @@
   font-size: 14px;
   line-height: 20px;
   letter-spacing: 0.5px;
-  color: #22211d;
+  color: $color-text-default;
 }
 
 .article-author__date {
@@ -20,5 +20,5 @@
   font-family: $font-system;
   font-size: 12px;
   line-height: 12px;
-  color: #888579;
+  color: $color-text-light;
 }

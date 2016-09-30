@@ -1,6 +1,6 @@
 .article-audio {
   margin: 32px 0 24px;
-  background-color: #f5f5f2;
+  background-color: $color-bg-caption;
   @include smartphone {
     margin: 24px -8px 20px;
   }
