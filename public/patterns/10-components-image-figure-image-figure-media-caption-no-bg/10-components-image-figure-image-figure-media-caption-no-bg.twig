@@ -1,12 +1,13 @@
 <figure class="image-figure {{ styleModifier }}">
     <div class="image-figure__image-wrapper">
         <img class="image-figure__image"
-             alt=""
+             alt="{{ images[0].caption.title }}"
+             title="{{ images[0].caption.title }}"
              sizes="100vw"
              srcset="
-             {% for source in images[0].sources %}
-                {{ source.src }} {{ source.width }}w,
-             {% endfor %}
+                {% for source in images[0].sources %}
+                    {{ source.src }} {{ source.width }}w,
+                 {% endfor %}
              "
              src="{{ images[0].sources.s8.src }}">
     </div>

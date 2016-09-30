@@ -4,8 +4,8 @@
     <title>SRF Frontend Framework</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width" />
-    <link rel="stylesheet" href="../../assets/demo/css/pattern-scaffolding.css?1475159733" media="all" />
-    <link rel="stylesheet" href="../../assets/css/main.css?1475159733" media="all" />
+    <link rel="stylesheet" href="../../assets/demo/css/pattern-scaffolding.css?1475247111" media="all" />
+    <link rel="stylesheet" href="../../assets/css/main.css?1475247111" media="all" />
   </head>
   <body class="body">
 
@@ -17,8 +17,8 @@
 <meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
 <meta http-equiv="pragma" content="no-cache" />
 
-<link rel="stylesheet" href="../../styleguide/css/styleguide.min.css?1475159733" media="all">
-<link rel="stylesheet" href="../../styleguide/css/prism-typeahead.min.css?1475159733" media="all" />
+<link rel="stylesheet" href="../../styleguide/css/styleguide.min.css?1475247111" media="all">
+<link rel="stylesheet" href="../../styleguide/css/prism-typeahead.min.css?1475247111" media="all" />
   <!-- End Pattern Lab -->
   <div class="l-main-wrapper">
 
@@ -59,9 +59,105 @@
   <div class="sg-pattern-extra" id="sg-pattern-extra-components-image-carousel"></div>
     
   <div class="sg-pattern-example">
-    
-                
-                                                            
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+        integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+        crossorigin="anonymous"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
+
+
+<div class="gallery">
+            <div class="gallery__item">
+            <figure class="image-figure ">
+    <div class="image-figure__image-wrapper">
+        <img class="image-figure__image"
+             alt="Hernani Marques"
+             title="Hernani Marques"
+             sizes="100vw"
+             srcset="
+                                    /assets/demo/img/bild0/bild_s8.jpg 640w,
+                                     /assets/demo/img/bild0/bild_s8_retina.jpg 1248w,
+                                     /assets/demo/img/bild0/bild_s12.jpg 944w,
+                                     /assets/demo/img/bild0/bild_s12_retina.jpg 1888w,
+                                     /assets/demo/img/bild0/bild_mobile_max.jpg 320w,
+                              "
+             src="/assets/demo/img/bild0/bild_s8.jpg">
+    </div>
+    <figcaption class="media-caption ">
+        <span class="media-caption__title">
+            Hernani Marques
+        </span>
+        <span class="media-caption__description">
+            Aktivist und Pressesprecher vom Schweizer Chaos Computer Club
+        </span>
+        <span class="media-caption__source">
+            Bild: ZVG
+        </span>
+</figcaption>
+</figure>
+            <span class="gallery__counter"> 1 / 3 </span>
+        </div>
+            <div class="gallery__item">
+            <figure class="image-figure ">
+    <div class="image-figure__image-wrapper">
+        <img class="image-figure__image"
+             alt=""
+             title=""
+             sizes="100vw"
+             srcset="
+                                    /assets/demo/img/bild1/bild_s8.jpg 640w,
+                                     /assets/demo/img/bild1/bild_s8_retina.jpg 1248w,
+                                     /assets/demo/img/bild1/bild_s12.jpg 944w,
+                                     /assets/demo/img/bild1/bild_s12_retina.jpg 1888w,
+                                     /assets/demo/img/bild1/bild_mobile_max.jpg 320w,
+                              "
+             src="/assets/demo/img/bild1/bild_s8.jpg">
+    </div>
+    <figcaption class="media-caption ">
+        <span class="media-caption__title">
+            
+        </span>
+        <span class="media-caption__description">
+            «Surrounded Islands/Umsäumte Inseln» (Miami, USA, 1983)
+        </span>
+        <span class="media-caption__source">
+            WOLFGANG VOLZ
+        </span>
+</figcaption>
+</figure>
+            <span class="gallery__counter"> 2 / 3 </span>
+        </div>
+            <div class="gallery__item">
+            <figure class="image-figure ">
+    <div class="image-figure__image-wrapper">
+        <img class="image-figure__image"
+             alt=""
+             title=""
+             sizes="100vw"
+             srcset="
+                                    /assets/demo/img/bild2/bild_s8.jpg 640w,
+                                     /assets/demo/img/bild2/bild_s8_retina.jpg 1248w,
+                                     /assets/demo/img/bild2/bild_s12.jpg 944w,
+                                     /assets/demo/img/bild2/bild_s12_retina.jpg 1888w,
+                                     /assets/demo/img/bild2/bild_mobile_max.jpg 320w,
+                              "
+             src="/assets/demo/img/bild2/bild_s8.jpg">
+    </div>
+    <figcaption class="media-caption ">
+        <span class="media-caption__title">
+            
+        </span>
+        <span class="media-caption__description">
+            Volz geht es nicht nur um schöne, bunte Bilder.
+        </span>
+        <span class="media-caption__source">
+            MICHAEL MAREK
+        </span>
+</figcaption>
+</figure>
+            <span class="gallery__counter"> 3 / 3 </span>
+        </div>
+    </div>
+
 <script>
     $(document).ready(function () {
 
@@ -69,7 +165,7 @@
             speed: 300,
             slidesToShow: 1,
             prevArrow: '<a href="#" class="gallery__link--prev" />', // slick does this the wrong way around!
-            nextArrow: '<a href="#"  class="gallery__link--next" />',
+            nextArrow: '<a href="#" class="gallery__link--next" />',
             slide: ".gallery__item",
             lazyLoad: "ondemand"
             // centerPadding: "0",
@@ -84,7 +180,7 @@
   </div>
   
   <script type="text/json" id="sg-pattern-data-components-image-carousel" class="sg-pattern-data">
-    {"lineage":[],"lineageR":[],"patternBreadcrumb":{"patternType":"components","patternSubtype":"image carousel"},"patternDesc":"","patternExtension":"twig","patternName":"image carousel","patternPartial":"components-image-carousel","patternState":""}
+    {"lineage":[{"lineagePattern":"components-image-figure","lineagePath":"..\/..\/patterns\/10-components-image-carousel-image-carousel\/10-components-image-carousel-image-carousel.html"}],"lineageR":[],"patternBreadcrumb":{"patternType":"components","patternSubtype":"image carousel"},"patternDesc":"","patternExtension":"twig","patternName":"image carousel","patternPartial":"components-image-carousel","patternState":""}
   </script>
 </div><!--end .sg-pattern-->            </div> <!--end #sg-patterns-->
 </div><!--end .sg-main--></div> <!-- end of main wrapper-->
@@ -125,10 +221,10 @@
   }
 </script>
 
-<script id="pl-js-polyfill-insert-1475159733">
+<script id="pl-js-polyfill-insert-1475247111">
   (function() {
     if (self != top) {
-      var cb = '1475159733';
+      var cb = '1475247111';
       var js = [];
       if (typeof document !== 'undefined' && !('classList' in document.documentElement)) {
         js.push('styleguide/bower_components/classList.min.js');
@@ -138,10 +234,10 @@
   })();
 </script>
 
-<script id="pl-js-insert-1475159733">
+<script id="pl-js-insert-1475247111">
   (function() {
     if (self != top) {
-      var cb = '1475159733';
+      var cb = '1475247111';
       var js = [ { 'src': 'styleguide/bower_components/jwerty.min.js', 'dep': [ 'styleguide/js/patternlab-pattern.min.js' ] } ];
       scriptLoader.run(js,cb,'pl-js-insert');
     }
