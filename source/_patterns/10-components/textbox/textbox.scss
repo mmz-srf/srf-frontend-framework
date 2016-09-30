@@ -1,6 +1,6 @@
 .textbox {
   margin: 40px 0;
-  background-color: #ebebe5;
+  background-color: $color-bg-box;
   overflow: hidden;
 
   @include smartphone {

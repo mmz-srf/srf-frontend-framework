@@ -1,24 +1,17 @@
-
+{% set fonts = [
+     {class: 'l-font-srg-light',         description: 'SRG SSR Light'},
+     {class: 'l-font-srg-regular',       description: 'SRG SSR Regular'},
+     {class: 'l-font-srg-medium',        description: 'SRG SSR Medium'},
+     {class: 'l-font-srg-serif-regular', description: 'SRG SSR Serif Regular'},
+     {class: 'l-font-system',            description: 'System-UI-Font-Stack'}
+   ]
+%}
 
 <ul class="demo-fonts">
-    <li>
-        <span class="demo-text l-font-srg-light">{{ sampletext }}</span>
-        <span class="demo-label">SRG SSR Light</span>
-    </li>
-    <li>
-        <span class="demo-text l-font-srg-regular">{{ sampletext }}</span>
-        <span class="demo-label">SRG SSR Regular</span>
-    </li>
-    <li>
-        <span class="demo-text l-font-srg-medium">{{ sampletext }}</span>
-        <span class="demo-label">SRG SSR Medium</span>
-    </li>
-    <li>
-        <span class="demo-text l-font-srg-serif-regular">{{ sampletext }}</span>
-        <span class="demo-label">SRG SSR Serif Regular</span>
-    </li>
-    <li>
-        <span class="demo-text l-font-system">{{ sampletext }}</span>
-        <span class="demo-label">System-Font-Stack</span>
-    </li>
+    {% for font in fonts %}
+        <li class="demo-fonts__item">
+            <span class="demo-text {{ font.class }}">{{ sampletext }}</span>
+            <span class="demo-label">{{ font.description }}</span>
+        </li>
+    {% endfor %}
 </ul>

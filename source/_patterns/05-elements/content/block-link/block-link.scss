@@ -5,8 +5,8 @@
   font-size: 16px;
   line-height: 24px;
   letter-spacing: 0.5px;
-  color: #c91024;
-  border-bottom: 1px solid #ebebe5;
+  color: $color-link-default;
+  border-bottom: 1px solid $color-separator;
   background: url(../img/arrows/internal-link.svg) calc(100% - 16px) center no-repeat;
   background-size: 18px 18px;
 
@@ -15,8 +15,12 @@
     background-position: calc(100% - 24px) center;
   }
 
+  &:hover {
+    background-color: $color-link-bg-hover;
+  }
+
   &:active {
-    background-color: #f5f5f2;
+    background-color: $color-link-bg-active;
   }
 }
 
