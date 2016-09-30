@@ -3,11 +3,13 @@
   width: 100%;
   background-color: #f5f5f2;
   overflow: hidden;
+  margin: 32px 0 0 0; /* for regular media element within article */
 }
 
 .gallery .image-figure {
-  margin: 32px 0 0; /* for regular media element within article */
+  margin-top: 0;
 }
+
 
 .gallery--mainmedia .image-figure {
   margin: 0; /* for mainmedia elements on top of article */
