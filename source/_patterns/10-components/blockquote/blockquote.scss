@@ -22,21 +22,16 @@
 }
 
 .blockquote__text {
-  padding-right: 16px;
-  position: relative;
+  margin-left: -4px;
 }
 
 .blockquote__text::after {
-  position: absolute;
-  right: 0;
-  content: "»";
+  content: "\00a0»";
   color: $color-accentuation-red;
 }
 
 .blockquote__quote::before {
-  display: inline-block;
-  padding-right: 2px;
-  content: "«";
+  content: "«\00a0";
   color: $color-accentuation-red;
 }
 
