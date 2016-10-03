@@ -3,7 +3,7 @@ VERSION=$(shell date +%Y.%m.%d)
 ITERATION=$(shell date +%H%M)
 DEB_TARGET := srf-frontend-framework-styleguide.deb
 PLUGIN_RELOAD := public/pattern-lab/plugin-reload/dist/js/plugin-reload.js
-$(DEB_TARGET):	clean install-composer build-styleguide $(PLUGIN_RELOAD)
+$(DEB_TARGET):	clean composer-install bower-install npm-install gulp-build build-styleguide $(PLUGIN_RELOAD)
 	fpm \
           -s dir\
           -t deb\
@@ -24,8 +24,17 @@ clean:
 	rm -rf public/patternlab-components/pattern-lab/plugin-reload
 	rm -f $(DEB_TARGET)
 
-install-composer:
+composer-install:
 	composer install
+
+bower-install:
+	bower install
+
+npm-install:
+	npm install
+
+gulp-build:
+	gulp build
 
 build-styleguide:
 	php core/console --generate
