@@ -1,5 +1,7 @@
 {
   "title" : "SRF Frontend Framework",
+  "webDir": "http://styleguide.zrh.test.srf.mpc/",
+  "webDir": "file:///Users/hatzro/projects/git/srf-frontend-framework/public/",
   "htmlClass": "pl",
   "bodyClass": "body",
   "articleHeader": {

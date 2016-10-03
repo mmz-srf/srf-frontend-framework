@@ -18,8 +18,10 @@
     "gulp-size": "^2.1.0",
     "gulp-sourcemaps": "^1.6.0",
     "gulp-vulcanize": "^6.1.0",
+    "jquery": "3.1.*",
     "merge-stream": "^1.0.0",
     "run-sequence": "^1.2.2",
+    "slick-carousel": "*",
     "vinyl-buffer": "*",
     "vinyl-source-stream": "*"
   },
