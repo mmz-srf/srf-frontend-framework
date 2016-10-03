@@ -49,8 +49,8 @@
       background-position: 50%;
       background-size: 24px;
       display: block;
-      border-radius: 15px 0 0 15px; /* entweder schoene runde ecken oder extended touch area :( */
       box-sizing: content-box;
+      z-index: 100;
       @include tablet-up {
         top: 35%;
       }
@@ -70,12 +70,14 @@
       left: 0;
       background-image: url("/assets/img/arrows/carousel_arrow_prev.svg");
       border: 8px solid transparent;
+      border-radius: 0 15px 15px 0;
       border-width: 12px 12px 12px 0; /* <= /* kompromiss: schoene runde ecken UND extended touch area :( */
     }
     &--next {
       right: 0;
       background-image: url("/assets/img/arrows/carousel_arrow_next.svg");
       border: 8px solid transparent;
+      border-radius: 15px 0 0 15px;
       border-width: 12px 0 12px 12px; /* kompromiss :) */
     }
   }
