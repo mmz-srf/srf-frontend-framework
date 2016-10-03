@@ -53,6 +53,9 @@
   @include smartphone {
     margin-left: 96px;
   }
+  &:hover{
+    background-color: #dadad2;
+  }
 }
 
 .media-caption__title--audio {
