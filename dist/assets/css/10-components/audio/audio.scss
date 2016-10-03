@@ -32,7 +32,10 @@
         width: 15%;
       }
     }
-
+    &:not(.main-media) .image-figure__image{
+      height: 112px;
+      width: auto;
+    }
   }
   &__img {
     width: 173px;
