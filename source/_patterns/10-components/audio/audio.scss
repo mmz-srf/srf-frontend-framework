@@ -31,6 +31,10 @@
     @include smartphone {
       width: 123px;
     }
+    .main-media{
+      width: auto;
+      float: none;
+    }
   }
   &__play-icon {
     position: absolute;
