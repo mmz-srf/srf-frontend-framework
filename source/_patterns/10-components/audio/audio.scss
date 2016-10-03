@@ -35,6 +35,9 @@
     &:not(.main-media) .image-figure__image{
       height: 112px;
       width: auto;
+      @include smartphone {
+        height: 80px;
+      }
     }
   }
   &__img {
