@@ -3,7 +3,7 @@ VERSION=$(shell date +%Y.%m.%d)
 ITERATION=$(shell date +%H%M)
 DEB_TARGET := srf-frontend-framework-styleguide.deb
 PLUGIN_RELOAD := public/pattern-lab/plugin-reload/dist/js/plugin-reload.js
-$(DEB_TARGET):	clean composer-install bower-install npm-install gulp-build build-styleguide $(PLUGIN_RELOAD)
+$(DEB_TARGET):	clean composer-install node-install bower-install npm-install gulp-build build-styleguide $(PLUGIN_RELOAD)
 	fpm \
           -s dir\
           -t deb\
@@ -32,6 +32,15 @@ bower-install:
 
 npm-install:
 	npm install
+
+node-install:
+	@node --version | grep -q v\[6789\] || {\
+          clear; echo "Deine nodejs version ist ein bisserl aelter...";\
+          echo "Bitte installiere ein stabiles nodejs mit:";\
+          echo "npm install -g n";\
+          echo "n stable";\
+          exit 1;\
+        }
 
 gulp-build:
 	gulp build
