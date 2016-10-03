@@ -5,8 +5,11 @@
     margin: 24px -8px 20px;
   }
 
-  &:hover .media-caption--audio{
+  &:hover{
     background-color: #dadad2;
+    .media-caption--audio{
+      background-color: #dadad2;
+    }
   }
 
   &__link {
