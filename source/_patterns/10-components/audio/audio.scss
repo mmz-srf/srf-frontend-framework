@@ -20,7 +20,8 @@
   }
   &__img {
     width: 173px;
-    margin: -5% -10% 0;
+    margin: -5% -50%; // margin: -5% -10% 0;
+    background-color: #dadad2;
     @include smartphone {
       width: 123px;
     }

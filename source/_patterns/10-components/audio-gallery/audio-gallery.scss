@@ -1,0 +1,50 @@
+.audio-gallery { // ol
+  counter-reset: list-counter;
+  padding-left: 0;
+  // margins should be attachable to elements - not set (and reset!) specifically
+  margin: 32px 0 24px;
+  @include smartphone {
+    margin: 24px 0 20px;
+  }
+  &__item { // li
+    position: relative;
+    margin-bottom: 2px;
+    list-style: none;
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+    &:before {
+      position: absolute;
+      left: 16px;
+      top: 33px;
+      // top: 50%; // should the nr. remain in the middle of the li ??
+      // transform: translate(0px, -50%);
+      color: #555;
+      font: 16px/20px $font-medium;
+      content: counter(list-counter) ".";
+      counter-increment: list-counter;
+    }
+  }
+  // overwrites :(
+  .media-caption {
+    background-color: transparent;
+    &--audio {
+      height: 88px;
+      margin-left: 72px;
+    }
+  }
+  .article-audio {
+    margin: 0;
+    &__link {
+      height: 56px;
+      width: 56px;
+      margin: 16px 0 16px 56px;
+    }
+    &__img {
+      width: 110px;
+    }
+    &:hover, &:active, &.active {
+      background-color: #ebebe5;
+    }
+  }
+}
