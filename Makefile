@@ -39,5 +39,5 @@ node-install:
         }
 
 gulp-build:
-	gulp build dist
+	gulp build
 
