@@ -2,8 +2,8 @@
 VERSION=$(shell date +%Y.%m.%d)
 ITERATION=$(shell date +%H%M)
 DEB_TARGET := srf-frontend-framework-styleguide.deb
-
-$(DEB_TARGET):	clean install-composer build-styleguide
+PLUGIN_RELOAD := public/pattern-lab/plugin-reload/dist/js/plugin-reload.js
+$(DEB_TARGET):	clean install-composer build-styleguide $(PLUGIN_RELOAD)
 	fpm \
           -s dir\
           -t deb\
@@ -15,6 +15,10 @@ $(DEB_TARGET):	clean install-composer build-styleguide
           -a all\
           --deb-no-default-config-files \
         --package $(DEB_TARGET) 
+
+$(PLUGIN_RELOAD):
+	mkdir -p $(shell dirname $(PLUGIN_RELOAD))
+	cp ./vendor/pattern-lab/plugin-reload/dist/js/plugin-reload.js $(PLUGIN_RELOAD)
 
 clean:
 	rm -rf public/patternlab-components/pattern-lab/plugin-reload
