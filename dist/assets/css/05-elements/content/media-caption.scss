@@ -53,7 +53,7 @@
   @include smartphone {
     margin-left: 96px;
   }
-  &:hover{
+  &:hover + .article-audio{
     background-color: #dadad2;
   }
 }
