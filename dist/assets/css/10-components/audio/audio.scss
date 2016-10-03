@@ -24,16 +24,17 @@
       height: 80px;
       margin: 16px 0 16px 16px;
     }
+    .main-media{
+      width: auto;
+      float: none;
+    }
+
   }
   &__img {
     width: 173px;
     margin: -5% -10% 0;
     @include smartphone {
       width: 123px;
-    }
-    .main-media{
-      width: auto;
-      float: none;
     }
   }
   &__play-icon {
