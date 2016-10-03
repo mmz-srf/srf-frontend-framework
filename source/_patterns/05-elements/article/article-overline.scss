@@ -4,7 +4,7 @@
   font-size: 14px;
   line-height: 16px;
   letter-spacing: 0.5px;
-  color: #c91024;
+  color: $color-accentuation-red;
 
   @include smartphone {
     margin: 24px 0 8px 0;

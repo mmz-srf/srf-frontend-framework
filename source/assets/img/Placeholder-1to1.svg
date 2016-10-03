@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="80px" height="80px" viewBox="0 0 80 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 40.1 (33804) - http://www.bohemiancoding.com/sketch -->
+    <title>Placeholder-1to1</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <radialGradient cx="50%" cy="50%" fx="50%" fy="50%" r="100%" id="radialGradient-1">
+            <stop stop-color="#888579" offset="0%"></stop>
+            <stop stop-color="#383732" offset="100%"></stop>
+        </radialGradient>
+        <rect id="path-2" x="0" y="0" width="80" height="80"></rect>
+    </defs>
+    <g id="ELEMENTS" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="srf-app-article-element-audio" transform="translate(-776.000000, -233.000000)">
+            <g id="Group-Copy-7" transform="translate(760.000000, 217.000000)">
+                <g id="audio-legend">
+                    <g id="Group-4" transform="translate(16.000000, 16.000000)">
+                        <mask id="mask-3" fill="white">
+                            <use xlink:href="#path-2"></use>
+                        </mask>
+                        <use id="Placeholder-1to1" fill="url(#radialGradient-1)" xlink:href="#path-2"></use>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

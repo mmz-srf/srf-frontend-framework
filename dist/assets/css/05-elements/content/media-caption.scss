@@ -1,6 +1,6 @@
 .media-caption {
   padding: 12px 16px;
-  background-color: #f5f5f2;
+  background-color: $color-bg-caption;
   font: 14px/20px $font-light;
 
   @include smartphone {
@@ -21,7 +21,7 @@
 .media-caption__description {
   display: block;
   margin-bottom: 8px;
-  color: #4e4d47;
+  color: $color-text-accentuation;
 }
 
 .media-caption__source {
@@ -29,7 +29,7 @@
   font: 12px/12px $font-system;
   letter-spacing: 0;
   text-transform: uppercase;
-  color: #888579;
+  color: $color-text-light;
   .small {
     text-transform: none;
   }
@@ -67,7 +67,7 @@
   line-height: 16px;
 
   strong {
-    color: #3d3c37; // #4e4d47; !?
+    color: $color-text-accentuation;
   }
 }
 
@@ -75,6 +75,6 @@
   margin-bottom: 4px;
   text-transform: none;
   strong {
-    color: #4e4d47;
+    color: $color-text-accentuation;
   }
 }

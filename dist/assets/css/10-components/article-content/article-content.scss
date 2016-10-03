@@ -4,7 +4,7 @@
   font-size: 20px;
   line-height: 32px;
   letter-spacing: 0.3px;
-  color: #22211d;
+  color: $color-text-default;
 
   @include smartphone {
     font-size: 18px;
@@ -33,17 +33,17 @@
     margin: 12px 0 24px 0;
 
     a {
-      border-bottom: 1px solid $link-default-color;
-      color: $link-default-color;
+      border-bottom: 1px solid $color-link-default;
+      color: $color-link-default;
 
       &:hover {
-        color: $link-hover-color;
-        border-bottom: 1px solid $link-hover-color;
+        color: $color-link-hover;
+        border-bottom: 1px solid $color-link-hover;
       }
 
       &:active {
-        color: $link-active-color;
-        border-bottom: 1px solid $link-active-color;
+        color: $color-link-active;
+        border-bottom: 1px solid $color-link-active;
       }
     }
 
