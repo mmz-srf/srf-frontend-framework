@@ -7,6 +7,9 @@
 
   &:hover{
     background-color: #dadad2;
+    .media-caption--audio{
+      background-color: #dadad2;
+    }
   }
 
   &__link {
@@ -21,6 +24,15 @@
       height: 80px;
       margin: 16px 0 16px 16px;
     }
+    &.main-media{
+      width: auto;
+      height: auto;
+      float: none;
+      .article-audio__play-icon{
+        width: 15%;
+      }
+    }
+
   }
   &__img {
     width: 173px;
