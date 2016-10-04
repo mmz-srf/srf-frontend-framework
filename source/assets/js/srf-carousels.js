@@ -1,5 +1,5 @@
 export function init() {
-    $('.gallery').slick({
+    $('.gallery__js').slick({
         speed: 300,
         slidesToShow: 1,
         prevArrow: '<a href="#" class="gallery__link--prev" />', // slick does this the wrong way around!
