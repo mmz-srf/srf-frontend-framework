@@ -55,9 +55,19 @@ gulp.task('scripts', function() {
     return browserify({entries: 'source/assets/js/main.js'})
         .transform(babel)
         .bundle()
-        .pipe(source('bundle.js'))
+        .pipe(source('main.js'))
         .pipe(buffer())
         .pipe(gulp.dest('public/assets/js/'))
+});
+
+gulp.task('scripts-vendor', function() {
+    return gulp.src(
+        [
+            'node_modules/jquery/dist/jquery.min.js',
+            'node_modules/slick-carousel/slick/slick.min.js'
+        ])
+        .pipe($.concat({ path: 'vendor.js'}))
+        .pipe(gulp.dest('public/assets/js/'));
 });
 
 gulp.task('copy', function() {
@@ -125,7 +135,7 @@ gulp.task('build', function(cb) {
     runSequence(
         ['clean'],
         ['patternlab'],
-        ['copy', 'dist', 'styles', 'scripts'],
+        ['copy', 'dist', 'styles', 'scripts', 'scripts-vendor'],
         cb
     );
 });
