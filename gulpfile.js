@@ -55,7 +55,7 @@ gulp.task('scripts', function() {
     return browserify({entries: 'source/assets/js/main.js'})
         .transform(babel)
         .bundle()
-        .pipe(source('main.js'))
+        .pipe(source('bundle.js'))
         .pipe(buffer())
         .pipe(gulp.dest('public/assets/js/'))
 });
