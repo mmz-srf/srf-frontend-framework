@@ -17,12 +17,24 @@
       height: 80px;
       margin: 16px 0 16px 16px;
     }
+    &--unstyled {
+      color: inherit;
+    }
   }
-  &__img {
-    width: 173px;
-    margin: -5% -10% 0;
+  /* &__img {
+    width: 215px;
+    margin: -5% -50%;
+    background-color: #dadad2;
     @include smartphone {
-      width: 123px;
+      width: 155px;
+    }
+  } */
+  .image-figure__image {
+    width: 215px;
+    margin: -5% -50%;
+    background-color: #dadad2;
+    @include smartphone {
+      width: 155px;
     }
   }
   &__play-icon {
@@ -33,7 +45,7 @@
     transform: translate(-50%, -50%);
     text-align: center;
     &:hover, &:active {
-      background-image: url(../../assets/demo/img/play-active.svg);
+      background-image: url("../../assets/img/audio-play.svg");
       background-size: 100%;
     }
   }
