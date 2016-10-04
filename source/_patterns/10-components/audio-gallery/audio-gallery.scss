@@ -1,26 +1,6 @@
-// overwrites for article :(
-.article-content .audio-gallery {
-  // margins should be attachable to elements - not set (and reset!) specifically
-  margin: 32px -16px 24px;
-  @include smartphone { margin: 24px -24px 20px; }
-  &__item { // li
-    padding-left: 0;
-    margin: 0 0 2px;
-    &:last-of-type {
-      margin-bottom: 0;
-    }
-    &:before {
-      left: 16px;
-      top: 33px;
-      // top: 50%; // should the nr. remain in the middle of the li ??
-      // transform: translate(0px, -50%);
-      color: #555;
-      font: 16px/20px $font-medium;
-    }
-  }
-}
-// separate styling (patternlab)
 .audio-gallery { // ol
+  margin: 32px -8px 24px;
+  @include smartphone { margin: 24px -8px 20px; }
   counter-reset: item;
   padding-left: 0;
   &__item { // li
