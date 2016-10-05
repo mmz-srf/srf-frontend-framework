@@ -1,14 +1,15 @@
 <figure class="image-figure {{ styleModifier }}">
     <div class="image-figure__image-wrapper">
         <img class="image-figure__image"
-             alt=""
+             alt="{{ images[0].caption.title }}"
+             title="{{ images[0].caption.title }}"
              sizes="100vw"
-             srcset="../../assets/demo/img/bild_s8.jpg 640w,
-                     ../../assets/demo/img/bild_s8_retina.jpg 1248w,
-                     ../../assets/demo/img/bild_s12.jpg 944w,
-                     ../../assets/demo/img/bild_s12_retina.jpg 1888w,
-                     ../../assets/demo/img/bild_mobile_max.jpg 320w"
-             src="../../assets/demo/img/bild_s8.jpg">
+             srcset="
+                {% for source in images[0].sources %}
+                    {{ source.src }} {{ source.width }}w,
+                 {% endfor %}
+             "
+             src="{{ images[0].sources.s8.src }}">
     </div>
     {% include 'elements-media-caption' with {'styleModifier': imageCaptionStyle } %}
 </figure>
