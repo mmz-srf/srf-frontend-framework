@@ -1,8 +1,11 @@
 .article-audio {
   margin: 32px 0 24px;
-  background-color: $color-bg-caption;
   @include smartphone {
     margin: 24px -8px 20px;
+  }
+  background-color: $color-bg-caption;
+  &:hover, &:active, &.active {
+    background-color: #ebebe5;
   }
 
   &:hover{
@@ -23,6 +26,17 @@
       width: 80px;
       height: 80px;
       margin: 16px 0 16px 16px;
+    }
+    &:before {
+      content: "";
+      position: absolute;
+      background-color: rgba(0, 0, 0, 0.2);
+      height: 112px;
+      width: 112px;
+      @include smartphone {
+        width: 80px;
+        height: 80px;
+      }
     }
     &--unstyled {
       color: inherit;
