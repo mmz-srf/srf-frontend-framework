@@ -1,5 +1,5 @@
-import * as SrfMedia from './srf-media';
-import * as SrfCarousels from './srf-carousels';
+import {init as SrfCarouselsInit} from './srf-carousels';
 
-console.log(SrfMedia.init());
-console.log(SrfCarousels.init());
+document.addEventListener("DOMContentLoaded", function(event) {
+    SrfCarouselsInit();
+});

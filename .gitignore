@@ -6,3 +6,5 @@
 export/*
 source/styleguide/*
 vendor/*
+\public
+srf-frontend-framework-styleguide.deb

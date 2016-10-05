@@ -1,1 +1,0 @@
-{"name":"pattern-lab\/plugin-reload","templates":[],"stylesheets":[],"javascripts":["\/js\/plugin-reload.js"],"onready":"PluginReload.init()","callback":""}
