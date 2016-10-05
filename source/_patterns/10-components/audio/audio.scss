@@ -77,11 +77,11 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 55%;
+    width: 64%;
     transform: translate(-50%, -50%);
     text-align: center;
     &:hover, &:active {
-      background-image: url("../../assets/img/audio-play.svg");
+      background-image: url("../../assets/img/play-active.svg");
       background-size: 100%;
     }
   }
