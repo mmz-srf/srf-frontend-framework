@@ -8,12 +8,12 @@
     background-color: #ebebe5;
   }
 
-  &:hover{
+  /* &:hover{
     background-color: #dadad2;
     .media-caption--audio{
       background-color: #dadad2;
     }
-  }
+  } */
 
   &__link {
     position: relative;
@@ -45,24 +45,24 @@
       width: auto;
       height: auto;
       float: none;
-      .article-audio__play-icon{
+      .article-audio__play-icon {
         width: 15%;
       }
     }
-    &:not(.main-media) .image-figure__image{
+    /* &:not(.main-media) .image-figure__image{
       height: 112px;
       width: auto;
       @include smartphone {
         height: 80px;
       }
-    }
+    } */
   }
   /* &__img {
     width: 215px;
     margin: -5% -50%;
     background-color: #dadad2;
     @include smartphone {
-      width: 123px;
+      width: 155px;
     }
   } */
   .image-figure__image {

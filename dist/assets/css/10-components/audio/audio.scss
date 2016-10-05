@@ -1,15 +1,7 @@
 .article-audio {
   margin: 32px 0 24px;
-  background-color: $color-bg-caption;
   @include smartphone {
     margin: 24px -8px 20px;
-  }
-
-  &:hover{
-    background-color: #dadad2;
-    .media-caption--audio{
-      background-color: #dadad2;
-    }
   }
 
   &__link {
@@ -24,7 +16,21 @@
       height: 80px;
       margin: 16px 0 16px 16px;
     }
-    &.main-media{
+    &:before {
+      content: "";
+      position: absolute;
+      background-color: rgba(0, 0, 0, 0.2);
+      height: 112px;
+      width: 112px;
+      @include smartphone {
+        width: 80px;
+        height: 80px;
+      }
+    }
+    &--unstyled {
+      color: inherit;
+    }
+    &.main-media {
       width: auto;
       height: auto;
       float: none;
@@ -32,19 +38,28 @@
         width: 15%;
       }
     }
-    &:not(.main-media) .image-figure__image{
+    /* &:not(.main-media) .image-figure__image{
       height: 112px;
       width: auto;
       @include smartphone {
         height: 80px;
       }
-    }
+    } */
   }
-  &__img {
-    width: 173px;
-    margin: -5% -10% 0;
+  /* &__img {
+    width: 215px;
+    margin: -5% -50%;
+    background-color: #dadad2;
     @include smartphone {
-      width: 123px;
+      width: 155px;
+    }
+  } */
+  .image-figure__image {
+    width: 215px;
+    margin: -5% -50%;
+    background-color: #dadad2;
+    @include smartphone {
+      width: 155px;
     }
   }
   &__play-icon {
