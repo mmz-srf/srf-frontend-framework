@@ -34,6 +34,21 @@
     &--unstyled {
       color: inherit;
     }
+    &.main-media {
+      width: auto;
+      height: auto;
+      float: none;
+      .article-audio__play-icon {
+        width: 15%;
+      }
+    }
+    /* &:not(.main-media) .image-figure__image{
+      height: 112px;
+      width: auto;
+      @include smartphone {
+        height: 80px;
+      }
+    } */
   }
   /* &__img {
     width: 215px;
