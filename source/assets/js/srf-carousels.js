@@ -1,10 +1,10 @@
 export function init() {
-    $('.gallery__js').slick({
+    $('.carousel__js').slick({
         speed: 300,
         slidesToShow: 1,
-        prevArrow: '<a href="#" class="gallery__link--prev" />', // slick does this the wrong way around!
-        nextArrow: '<a href="#" class="gallery__link--next" />',
-        slide: ".gallery__item",
+        prevArrow: '<a href="#" class="carousel__link--prev" />', // slick does this the wrong way around!
+        nextArrow: '<a href="#" class="carousel__link--next" />',
+        slide: ".carousel__item",
         lazyLoad: "ondemand"
     });
 
