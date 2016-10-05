@@ -41,6 +41,14 @@
         width: 110px;
       }
     }
+    .media-caption__title {
+      height: 50%;
+      display: table-cell;
+      vertical-align: bottom;
+    }
+    .media-caption__source--audio {
+      height: 50%;
+    }
     // &__img { width: 110px; }
   }
   // this is VERY ugly!!
