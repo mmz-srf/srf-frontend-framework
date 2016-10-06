@@ -4,18 +4,11 @@
     margin: 24px -8px 20px;
   }
   background-color: $color-bg-caption;
-  &:hover, &:active, &.active {
+  &:hover, &:active, &.played {
     background-color: #ebebe5;
   }
 
-  /* &:hover{
-    background-color: #dadad2;
-    .media-caption--audio{
-      background-color: #dadad2;
-    }
-  } */
-
-  &__link {
+  &__wrapper {
     position: relative;
     width: 112px;
     height: 112px;
@@ -38,33 +31,15 @@
         height: 80px;
       }
     }
-    &--unstyled {
-      color: inherit;
-    }
-    &.main-media{
+    &.main-media {
       width: auto;
       height: auto;
       float: none;
-      .article-audio__play-icon{
+      .article-audio__play-icon {
         width: 15%;
       }
     }
-    /* &:not(.main-media) .image-figure__image{
-      height: 112px;
-      width: auto;
-      @include smartphone {
-        height: 80px;
-      }
-    } */
   }
-  /* &__img {
-    width: 215px;
-    margin: -5% -50%;
-    background-color: #dadad2;
-    @include smartphone {
-      width: 155px;
-    }
-  } */
   .image-figure__image {
     width: 215px;
     margin: -5% -50%;
@@ -77,11 +52,11 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 55%;
+    width: 64%;
     transform: translate(-50%, -50%);
     text-align: center;
     &:hover, &:active {
-      background-image: url("../../assets/img/audio-play.svg");
+      background-image: url("../../assets/img/play-active.svg");
       background-size: 100%;
     }
   }

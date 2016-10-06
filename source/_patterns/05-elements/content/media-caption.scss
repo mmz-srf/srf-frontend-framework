@@ -55,20 +55,33 @@
     margin-left: 96px;
   }
 }
-
 .media-caption__title--audio {
+  color: $color-text-default;
   margin-bottom: 4px;
 }
-
 .media-caption__source--audio {
   display: table-row;
   vertical-align: bottom;
   height: 16px;
   text-transform: none;
   line-height: 16px;
-
   strong {
     color: $color-text-accentuation;
+  }
+}
+// overwrite :(
+.audio-gallery {
+  .media-caption--audio {
+    height: 88px;
+    margin-left: 72px;
+  }
+  .media-caption__title {
+    height: 50%;
+    display: table-cell;
+    vertical-align: bottom;
+  }
+  .media-caption__source--audio {
+    height: 50%;
   }
 }
 

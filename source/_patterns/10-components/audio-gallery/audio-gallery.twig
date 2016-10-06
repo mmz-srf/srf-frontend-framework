@@ -4,25 +4,24 @@
         {% include 'components-audio' %}
     </li>
     <li class="audio-gallery__item">
-        <figure class="article-audio">
-            <a class="article-audio__link" href="{{ audio.player_url }}/srf/popup?urn={{ audio.urn }}&autoplay=true">
+        <a href="{{ audio.player_url }}/srf/popup?urn={{ audio.urn }}&autoplay=true">
+            <figure class="article-audio">
+                <div class="article-audio__wrapper">
+                    {# <img class="article-audio__img" ...> #}
+                    <img class="image-figure__image"
+                         alt="Audio «{{ audio.title }}» abspielen"
+                         sizes="100vw"
+                         src="../../assets/demo/img/Placeholder-16to9.svg">
 
-                {# <img class="article-audio__img" ...> #}
-                <img class="image-figure__image"
-                     alt="Audio «{{ audio.title }}» abspielen"
-                     sizes="100vw"
-                     src="../../assets/demo/img/Placeholder-16to9.svg">
+                    <img class="article-audio__play-icon" src="../../assets/demo/img/audio-play.svg" width="72" height="72" alt="">
+                </div>
 
-                <img class="article-audio__play-icon" src="../../assets/demo/img/audio-play.svg" width="72" height="72" alt="">
-            </a>
-
-            <a class="article-audio__link--unstyled" href="{{ audio.player_url }}/srf/popup?urn={{ audio.urn }}&autoplay=true">
                 <figcaption class="media-caption media-caption--audio">
                     <div class="media-caption__title media-caption__title--audio">{{ audio.title }}</div>
                     <div class="media-caption__source media-caption__source--audio">{{ audio.length }} min, aus <strong>{{ audio.show.title }}</strong> vom {{ video.show.date|date("d.m.Y")  }}</div>
                 </figcaption>
-            </a>
-        </figure>
+            </figure>
+        </a>
     </li>
 </ol>
 </div>
