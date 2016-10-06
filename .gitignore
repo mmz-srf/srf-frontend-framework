@@ -8,3 +8,4 @@ source/styleguide/*
 vendor/*
 \public
 srf-frontend-framework-styleguide.deb
+.DS_Store
