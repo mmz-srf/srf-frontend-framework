@@ -1,0 +1,90 @@
+.carousel {
+  position: relative;
+  width: 100%;
+  background-color: #f5f5f2;
+  overflow: hidden;
+  margin: 32px 0 0 0; /* for regular media element within article */
+
+  .image-figure {
+    margin-top: 0;
+    // position: initial;
+    width: 100%;
+  }
+  &--mainmedia .image-figure {
+    margin: 0; /* for mainmedia elements on top of article */
+  }
+  .image-figure__image-wrapper {
+    background: rgba(0, 0, 0, 0.8);
+    position: relative;
+  }
+  .image-figure__image-wrapper:before {
+    content: "";
+    display: block;
+    padding-top: 75%;
+  }
+  .image-figure__image {
+    height: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    object-fit: contain;
+    min-width: 100%;
+    width: 1px;
+  }
+  &__item {
+    position: relative;
+    float:left;
+  }
+  &__link {
+    &--prev, &--next {
+      position: absolute;
+      height: 64px;
+      width: 40px;
+      /* top: 40%;
+      transform: translate(0, -50%); */
+      top: 28vw;
+      background-repeat: no-repeat;
+      background-position: 50%;
+      background-size: 24px;
+      display: block;
+      box-sizing: content-box;
+      z-index: 100;
+      @include tablet-up {
+        top: 35%;
+      }
+      &:hover, &:active {
+        -moz-background-clip: content;
+        -webkit-background-clip: content;
+        background-clip: content-box;
+      }
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.48);
+      }
+      &:active {
+        background-color: rgba(0, 0, 0, 0.8);
+      }
+    }
+    &--prev {
+      left: 0;
+      background-image: url("../../../assets/img/arrows/carousel_arrow_prev.svg");
+      border: 8px solid transparent;
+      border-radius: 0 15px 15px 0;
+      border-width: 12px 12px 12px 0; /* <= /* kompromiss: schoene runde ecken UND extended touch area :( */
+    }
+    &--next {
+      right: 0;
+      background-image: url("../../../assets/img/arrows/carousel_arrow_next.svg");
+      border: 8px solid transparent;
+      border-radius: 15px 0 0 15px;
+      border-width: 12px 0 12px 12px; /* kompromiss :) */
+    }
+  }
+  .carousel-counter {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+    bottom: 16px;
+  }
+}

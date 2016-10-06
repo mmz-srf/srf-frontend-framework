@@ -1,0 +1,58 @@
+.audio-gallery { // ol
+  margin: 32px 0 24px;
+  @include smartphone { margin: 24px -8px 20px; }
+  counter-reset: item;
+  padding-left: 0;
+  &__item { // li
+    position: relative;
+    margin-bottom: 2px;
+    list-style: none;
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+    &:before {
+      position: absolute;
+      left: 16px;
+      top: 33px;
+      // top: 50%; // should the nr. remain in the middle of the li ??
+      // transform: translate(0px, -50%);
+      color: #555;
+      font: 16px/20px $font-medium;
+      content: counter(item) ".";
+      counter-increment: item;
+    }
+  }
+  // overwrites :(
+  .media-caption {
+    background-color: transparent;
+    &--audio {
+      height: 88px;
+      margin-left: 72px;
+    }
+  }
+  .article-audio {
+    margin: 0;
+    &__link {
+      height: 56px;
+      width: 56px;
+      margin: 16px 0 16px 56px;
+      &:before {
+        height: 110px;
+        width: 110px;
+      }
+    }
+    .media-caption__title {
+      height: 50%;
+      display: table-cell;
+      vertical-align: bottom;
+    }
+    .media-caption__source--audio {
+      height: 50%;
+    }
+    // &__img { width: 110px; }
+  }
+  // this is VERY ugly!!
+  .image-figure__image {
+    width: 110px;
+  }
+}
