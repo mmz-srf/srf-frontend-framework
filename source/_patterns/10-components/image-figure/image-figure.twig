@@ -10,6 +10,9 @@
                  {% endfor %}
              "
              src="{{ images[0].sources.s8.src }}">
+        {% if currentIndex and totalCount %}
+            {% include 'elements-carousel-counter' with { 'currentIndex': currentIndex, 'totalCount': totalCount } %}
+        {% endif %}
     </div>
     {% include 'elements-media-caption' with {'styleModifier': imageCaptionStyle } %}
 </figure>
