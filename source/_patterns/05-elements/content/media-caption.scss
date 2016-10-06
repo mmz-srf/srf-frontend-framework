@@ -77,11 +77,12 @@
   }
   .media-caption__title {
     height: 50%;
+    padding-bottom: 2px;
     display: table-cell;
     vertical-align: bottom;
   }
   .media-caption__source--audio {
-    height: 50%;
+    height: calc(50% - 2px);
   }
 }
 
