@@ -1,6 +1,6 @@
 {
   "name": "srf-frontend-framework",
-  "version": "",
+  "version": "0.3.11",
   "private": true,
   "devDependencies": {
     "babelify": "*",
