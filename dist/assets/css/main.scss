@@ -3,6 +3,7 @@
 @import "breakpoints";
 @import "mixins";
 @import "globals";
+@import "helpers";
 @import "layout";
 @import "01-global/05-fonts";
 @import "01-global/20-helpers";
@@ -22,6 +23,7 @@
 @import "10-components/image-carousel/image-carousel";
 @import "10-components/image-figure/image-figure";
 @import "10-components/linkbox/linkbox";
+@import "10-components/table-block/table-block";
 @import "10-components/textbox/textbox";
 @import "10-components/video/video";
 @import "10-components/audio/audio";

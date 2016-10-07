@@ -40,6 +40,6 @@ styleguideKit: pattern-lab/styleguidekit-twig-default
 styleguideKitPath: vendor/pattern-lab/styleguidekit-twig-default
 plugins:
     reload:
-        enabled: true
+        enabled: false
     dataInheritance:
-        enabled: true
+        enabled: false

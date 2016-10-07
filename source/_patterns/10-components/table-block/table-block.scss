@@ -1,0 +1,31 @@
+.table-block {
+ table {
+    overflow-x: auto;
+    background: radial-gradient(left, ellipse, rgba(0,0,0,.2) 0%, rgba(0,0,0, 0) 75%) 0 center,
+                radial-gradient(right, ellipse, rgba(0,0,0,.2) 0%, rgba(0,0,0, 0) 75%) 100% center;
+    background-size: 10px 100%, 10px 100%;
+    background-attachment: scroll, scroll;
+    background-repeat: no-repeat;
+    border-collapse: collapse;
+  }
+
+  th {
+    font-size: 11px;
+    text-align: left;
+    text-transform: uppercase;
+    background: #f2f0e6;
+  }
+
+  th, td {
+    min-width: 10vw;
+    padding: 6px 12px;
+    border: 1px solid #fff;
+    vertical-align: top;
+    @include smartphone {
+      min-width: 25vw;
+    }
+    @include tablet {
+      min-width: 25vw;
+    }
+  }
+}
