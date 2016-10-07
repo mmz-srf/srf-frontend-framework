@@ -90,4 +90,8 @@
   .image-figure__image {
     background-color: black;
   }
+  .slick-disabled {
+    opacity: 0;
+    pointer-events:none;
+  }
 }
