@@ -1,5 +1,5 @@
 .article-title {
-  margin: 12px 0 16px 0;
+  margin: 16px 0 12px 0;
   font-family: $font-regular;
   font-weight: 400;
   font-size: 36px;
@@ -8,7 +8,7 @@
   color: $color-text-default;
 
   @include smartphone {
-    margin: 8px 0 4px 0;
+    margin: 12px 0 8px 0;
     font-size: 32px;
     line-height: 40px;
     letter-spacing: 0.2px;
