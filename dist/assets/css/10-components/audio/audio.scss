@@ -10,10 +10,7 @@
 
   &__wrapper {
     position: relative;
-    width: 112px;
-    height: 112px;
     float: left;
-    overflow: hidden;
 
     @include smartphone {
       width: 80px;
@@ -36,23 +33,25 @@
       height: auto;
       float: none;
       .article-audio__play-icon {
-        width: 15%;
+        width: 60px;
       }
     }
   }
+  // cropped and centered image
   .image-figure__image {
-    width: 215px;
-    margin: -5% -50%;
-    background-color: #dadad2;
+    width: 112px;
+    height: 112px;
+    object-fit: cover;
     @include smartphone {
-      width: 155px;
+      width: 80px;
+      height: 80px;
     }
   }
   &__play-icon {
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 64%;
+    width: 60px;
     transform: translate(-50%, -50%);
     text-align: center;
     &:hover, &:active {

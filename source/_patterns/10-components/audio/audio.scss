@@ -33,7 +33,7 @@
       height: auto;
       float: none;
       .article-audio__play-icon {
-        width: 15%;
+        width: 60px;
       }
     }
   }
@@ -51,7 +51,7 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 64%;
+    width: 60px;
     transform: translate(-50%, -50%);
     text-align: center;
     &:hover, &:active {
