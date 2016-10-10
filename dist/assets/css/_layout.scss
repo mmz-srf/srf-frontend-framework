@@ -17,3 +17,10 @@
     margin-top: -24px;
   }
 }
+
+/* smaller devices treat embed components like full-width containers */
+.l-embed-full-width-container {
+  @include smartphone {
+    @include fullwidth-element;
+  }
+}
