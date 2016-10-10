@@ -1,0 +1,188 @@
+.video-gallery { // ol
+  position: relative;
+  width: 100%;
+  background-color: #f5f5f2;
+  overflow: hidden;
+  margin: 32px 0 0 0; /* for regular media element within article */
+
+  .image-figure {
+    margin-top: 0;
+    // position: initial;
+    width: 100%;
+  }
+  &--mainmedia .image-figure {
+    margin: 0; /* for mainmedia elements on top of article */
+  }
+  .image-figure__image-wrapper {
+    background: rgba(0, 0, 0, 0.8);
+    position: relative;
+  }
+  .image-figure__image-wrapper:before {
+    content: "";
+    display: block;
+    padding-top: 75%;
+  }
+  .image-figure__image {
+    height: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    object-fit: contain;
+    min-width: 100%;
+    width: 1px;
+  }
+  &__item {
+    position: relative;
+    float:left;
+  }
+  &__link {
+    &--prev, &--next {
+      position: absolute;
+      height: 64px;
+      width: 40px;
+      /* top: 40%;
+      transform: translate(0, -50%); */
+      top: 28vw;
+      background-repeat: no-repeat;
+      background-position: 50%;
+      background-size: 24px;
+      display: block;
+      box-sizing: content-box;
+      z-index: 100;
+      @include tablet-up {
+        top: 35%;
+      }
+      &:hover, &:active {
+        -moz-background-clip: content;
+        -webkit-background-clip: content;
+        background-clip: content-box;
+      }
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.48);
+      }
+      &:active {
+        background-color: rgba(0, 0, 0, 0.8);
+      }
+    }
+    &--prev {
+      left: 0;
+      background-image: url("../../assets/img/arrows/carousel_arrow_prev.svg");
+      border: 8px solid transparent;
+      border-radius: 0 15px 15px 0;
+      border-width: 12px 12px 12px 0; /* <= /* kompromiss: schoene runde ecken UND extended touch area :( */
+    }
+    &--next {
+      right: 0;
+      background-image: url("../../assets/img/arrows/carousel_arrow_next.svg");
+      border: 8px solid transparent;
+      border-radius: 15px 0 0 15px;
+      border-width: 12px 0 12px 12px; /* kompromiss :) */
+    }
+  }
+  .carousel-counter {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+    bottom: 16px;
+  }
+  .image-figure__image {
+    background-color: black;
+  }
+  .slick-disabled {
+    opacity: 0;
+    pointer-events:none;
+  }
+}
+
+
+/* Dots */
+.slick-dotted.slick-slider
+{
+  margin-bottom: 30px;
+}
+
+.slick-dots
+{
+  bottom: -25px;
+
+  display: block;
+
+  width: 100%;
+  padding: 0;
+  margin: 0;
+
+  list-style: none;
+
+  text-align: center;
+}
+.slick-dots li
+{
+  position: relative;
+
+  display: inline-block;
+
+  width: 20px;
+  height: 20px;
+  margin: 0 5px;
+  padding: 0;
+
+  cursor: pointer;
+}
+.slick-dots li button
+{
+  font-size: 0;
+  line-height: 0;
+
+  display: block;
+
+  width: 20px;
+  height: 20px;
+  padding: 5px;
+
+  cursor: pointer;
+
+  color: transparent;
+  border: 0;
+  outline: none;
+  background: transparent;
+}
+.slick-dots li button:hover,
+.slick-dots li button:focus
+{
+  outline: none;
+}
+.slick-dots li button:hover:before,
+.slick-dots li button:focus:before
+{
+  opacity: 1;
+}
+.slick-dots li button:before
+{
+  font-family: 'slick';
+  font-size: 28px;
+  line-height: 20px;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 20px;
+  height: 20px;
+
+  content: '•';
+  text-align: center;
+
+  opacity: .25;
+  color: black;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.slick-dots li.slick-active button:before
+{
+  opacity: .75;
+  color: black;
+}
