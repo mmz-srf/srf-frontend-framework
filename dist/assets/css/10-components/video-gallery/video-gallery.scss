@@ -29,10 +29,13 @@
       border: solid 1px #ffffff;
       border-radius: 2px;
       min-height: 108px;
+      height: 100%;
 
       .media-caption__title {
         min-height: 60px;
+        height: 100%;
         margin-bottom: 4px;
+        text-overflow: ellipsis;
       }
 
       strong {
