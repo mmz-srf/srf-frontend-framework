@@ -82,12 +82,13 @@
     vertical-align: bottom;
   }
   .media-caption__source--audio {
-    height: calc(50% - 2px);
+    height: 50%;
   }
 }
 
 .media-caption__source--video {
   margin-bottom: 4px;
+  margin-top: 8px;
   text-transform: none;
   strong {
     color: $color-text-accentuation;
