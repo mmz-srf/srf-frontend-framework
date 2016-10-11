@@ -1,30 +1,15 @@
-<div class="table-block--legacy">
+<!-- DON'T USE THIS MARKUP! SEE table-block--legacy.md -->
+<div class="table-block table-block--legacy">
     <table>
         <tbody>
-        <tr data-head="true">
-            <td class="contentAlignment-center" data-align="center">Name</td>
-            <td data-width="20%">Adresse</td>
-            <td class="contentAlignment-right" data-align="right">Ort</td>
-            <td data-width="200px">Land</td>
-        </tr>
-        <tr data-head="true">
-            <td class="contentAlignment-center" data-align="center">gjgjhgjhg</td>
-            <td data-width="20%">jhgasdfafd</td>
-            <td class="contentAlignment-right" data-align="right">jasdfasdfasdf</td>
-            <td data-width="200px">hgasdfasdfasdfdas</td>
-        </tr>
-        <tr data-head="true">
-            <td class="contentAlignment-center" data-align="center"><b>asdfasdfas</b></td>
-            <td data-width="20%"><i>asdfasdfasdf</i></td>
-            <td class="contentAlignment-right" data-align="right"><u>asdfasdfasdf</u></td>
-            <td data-width="200px">asdfasdfasdf</td>
-        </tr>
-        <tr data-head="true">
-            <td class="contentAlignment-center" data-align="center">hterthrtehtrh</td>
-            <td data-width="20%">rthrthertherth</td>
-            <td class="contentAlignment-right" data-align="right">erthertherth</td>
-            <td data-width="200px">ertherthertherth</td>
-        </tr>
+        {% for item in listItems.five %}
+            <tr data-head="true">
+                <td class="contentAlignment-center" data-align="center">{{ item.name.last|e }}, {{ item.name.first|e }}</td>
+                <td data-width="20%">{{ item.headline.short|e }}</td>
+                <td class="contentAlignment-right" data-align="right">{{ item.excerpt.short|e }}</td>
+                <td data-width="200px">{{ item.headline.medium|e }}</td>
+            </tr>
+        {% endfor %}
         </tbody>
     </table>
 </div>
