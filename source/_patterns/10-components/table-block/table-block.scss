@@ -1,0 +1,73 @@
+.table-block {
+  overflow-x: auto;
+  @include smartphone {
+    margin: 0 -8px 0 4px;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  tr {
+    background-color: $color-table-bg-zebra-light;
+  }
+
+  tbody tr:nth-child(even) {
+    background-color: $color-table-bg-zebra-dark;
+  }
+
+  th {
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.6px;
+    font-family: $font-medium;
+    text-align: left;
+    text-transform: uppercase;
+    color: $color-text-default;
+    background: $color-bg-box;
+    @include smartphone {
+      font-size: 14px;
+      line-height: 20px;
+      letter-spacing: 0.5px;
+    }
+  }
+
+  td {
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.5px;
+    @include smartphone {
+      font-size: 14px;
+      line-height: 20px;
+      letter-spacing: 0.5px;
+    }
+  }
+
+  th, td {
+    padding: 11px 16px 13px;
+    border: 1px solid #fff;
+    vertical-align: top;
+    @include smartphone {
+      padding: 13px 12px 15px;
+    }
+  }
+}
+
+.table-block--legacy {
+  tr[data-head="true"]:first-child td {
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.6px;
+    font-family: $font-medium;
+    text-align: left;
+    text-transform: uppercase;
+    color: $color-text-default;
+    background: $color-bg-box;
+    @include smartphone {
+      font-size: 14px;
+      line-height: 20px;
+      letter-spacing: 0.5px;
+    }
+  }
+}

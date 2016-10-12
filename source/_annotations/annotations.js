@@ -1,9 +1,9 @@
 {
   "comments" : [
     {
-      "el": ".article-header h1",
-      "title" : "Article Header",
-      "comment": "<p>The article header should be no more than 140 characters. </p>"
+      "el": ".table-block--legacy",
+      "title" : "CMS-generierte Tabelle",
+      "comment": "<p>Das HTML dieses Elementes ist vom bestehenden Tabelleneditor im CMS vorgegeben und weder semantisch noch accessible. Es soll für neuen Code <b>nicht mehr verwendet</b> werden! </p>"
     }
   ]
 }

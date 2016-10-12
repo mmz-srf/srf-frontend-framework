@@ -35,6 +35,10 @@ img {
   width: 100%;
 }
 
+iframe {
+  width: 100%;
+}
+
 cite {
   font-style: normal;
 }
@@ -42,5 +46,9 @@ cite {
 b,
 strong {
   font-family: $font-medium;
+  font-weight: normal;
+}
+
+th {
   font-weight: normal;
 }
