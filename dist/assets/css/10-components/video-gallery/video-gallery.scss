@@ -14,6 +14,15 @@
   background-color: #f5f5f2;
   overflow: visible;
   margin: 32px 0 0 0; /* for regular media element within article */
+  @include article-element-indentation {
+    @include desktop-up {
+      width: 584px;
+    }
+
+    @include desktop-wide {
+      width: 584px;
+    }
+  }
 
   @include smartphone {
     margin-top: 24px;
@@ -33,7 +42,6 @@
 
       .media-caption__title {
         min-height: 60px;
-        height: 100%;
         margin-bottom: 4px;
         text-overflow: ellipsis;
       }
