@@ -1,0 +1,6 @@
+.embed-inline {
+  margin: 32px 0 24px;
+  @include smartphone {
+    margin: 24px -8px 20px;
+  }
+}
