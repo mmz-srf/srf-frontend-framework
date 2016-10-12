@@ -1,27 +1,16 @@
-<div><!-- // this container is only here to prevent ugly things in patternlab from happening :( -->
-<ol class="audio-gallery">
-    <li class="audio-gallery__item">
-        {% include 'components-audio' %}
-    </li>
-    <li class="audio-gallery__item">
-        <a href="{{ audio.player_url }}/srf/popup?urn={{ audio.urn }}&autoplay=true">
-            <figure class="article-audio">
-                <div class="article-audio__wrapper">
-                    {# <img class="article-audio__img" ...> #}
-                    <img class="image-figure__image"
-                         alt="Audio «{{ audio.title }}» abspielen"
-                         sizes="100vw"
-                         src="../../assets/demo/img/Placeholder-1to1.svg">
-
-                    <img class="article-audio__play-icon" src="../../assets/demo/img/audio-play.svg" width="72" height="72" alt="">
-                </div>
-
-                <figcaption class="media-caption media-caption--audio">
-                    <div class="media-caption__title media-caption__title--audio">{{ audio.title }}</div>
-                    <div class="media-caption__source media-caption__source--audio">{{ audio.length }} min, aus <strong>{{ audio.show.title }}</strong> vom {{ video.show.date|date("d.m.Y")  }}</div>
-                </figcaption>
-            </figure>
-        </a>
-    </li>
-</ol>
+<div class="l-embed-full-width-container">
+    <ol class="audio-gallery">
+        {% for audio in audios %}
+            <li class="audio-gallery__item">
+                {% include 'components-audio'with {
+                "audios": [audio]
+                } %}
+            </li>
+            <li class="audio-gallery__item">
+                {% include 'components-audio'with {
+                "audios": [audio]
+                } %}
+            </li>
+        {% endfor %}
+    </ol>
 </div>

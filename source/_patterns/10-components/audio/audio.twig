@@ -1,22 +1,20 @@
-<a class="article-audio__link" href="{{ audio.player_url }}/srf/popup?urn={{ audio.urn }}&autoplay=true">
+<a class="article-audio__link" href="{{ audios[0].player_url }}/srf/popup?urn={{ audios[0].urn }}&autoplay=true">
 
     <figure class="article-audio">
         <div class="article-audio__wrapper">
             <img class="image-figure__image"
-                 alt="Audio «{{ audio.title }}» abspielen" {# this should go into the image container (cms) #}
+                 alt="Audio «{{ audios[0].title }}» abspielen" {# this should go into the image container (cms) #}
                  sizes="100vw"
-                 srcset="../../assets/demo/img/bild0/bild_s8.jpg 640w,
-                         ../../assets/demo/img/bild0/bild_s8_retina.jpg 1248w,
-                         ../../assets/demo/img/bild0/bild_s12.jpg 944w,
-                         ../../assets/demo/img/bild0/bild_s12_retina.jpg 1888w,
-                         ../../assets/demo/img/bild0/bild_mobile_max.jpg 320w"
-                 src="../../assets/demo/img/bild0/bild_s8.jpg">
+                 srcset="{% for source in audios[0].img_srcset %}
+                    {{ source.src }} {{ source.width }}w,
+                 {% endfor %}"
+                 src="{{ audios[0].img_src }}">
 
             <img class="article-audio__play-icon" src="../../assets/img/audio-play.svg" width="72" height="72" alt="">
         </div>
         <figcaption class="media-caption media-caption--audio">
-            <div class="media-caption__title media-caption__title--audio">{{ audio.title }}</div>
-            <div class="media-caption__source media-caption__source--audio">{{ audio.length }} min, aus <strong>{{ audio.show.title }}</strong> vom {{ video.show.date|date("d.m.Y")  }}</div>
+            <div class="media-caption__title media-caption__title--audio">{{ audios[0].title }}</div>
+            <div class="media-caption__source media-caption__source--audio">{{ audios[0].length }} min, aus <strong>{{ audios[0].show.title }}</strong> vom {{ audios[0].show.date|date("d.m.Y")  }}</div>
         </figcaption>
     </figure>
 </a>
