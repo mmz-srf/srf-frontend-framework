@@ -1,0 +1,15 @@
+<!-- DON'T USE THIS MARKUP! SEE table-block--legacy.md -->
+<div class="table-block table-block--legacy">
+    <table>
+        <tbody>
+        {% for item in listItems.five %}
+            <tr data-head="true">
+                <td class="contentAlignment-center" data-align="center">{{ item.name.last|e }}, {{ item.name.first|e }}</td>
+                <td data-width="20%">{{ item.headline.short|e }}</td>
+                <td class="contentAlignment-right" data-align="right">{{ item.excerpt.short|e }}</td>
+                <td data-width="200px">{{ item.headline.medium|e }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>

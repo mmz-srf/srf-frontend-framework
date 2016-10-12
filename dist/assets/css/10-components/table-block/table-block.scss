@@ -1,0 +1,73 @@
+.table-block {
+  table {
+    overflow-x: auto;
+    border-collapse: collapse;
+  }
+
+  tr {
+    background-color: #fafaf8;
+  }
+
+  tbody tr:nth-child(even) {
+    background-color: #f5f5f2;
+  }
+
+  th,
+  .table-block__header-cell {
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.6px;
+    font-family: "SRG_SSR_Medium", sans-serif;
+    text-align: left;
+    text-transform: uppercase;
+    color: #22211d;
+    background: #ebebe5;
+    @include smartphone {
+      font-size: 14px;
+      line-height: 20px;
+      letter-spacing: 0.5px;
+    }
+  }
+
+  td {
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.5px;
+    @include smartphone {
+      font-size: 14px;
+      line-height: 20px;
+      letter-spacing: 0.5px;
+    }
+  }
+
+  th, td {
+    min-width: 10vw;
+    padding: 11px 16px 13px;
+    border: 1px solid #fff;
+    vertical-align: top;
+    @include smartphone {
+      min-width: 25vw;
+    }
+    @include tablet {
+      min-width: 25vw;
+    }
+  }
+}
+
+.table-block--legacy {
+  tr[data-head="true"]:first-child td {
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.6px;
+    font-family: "SRG_SSR_Medium", sans-serif;
+    text-align: left;
+    text-transform: uppercase;
+    color: #22211d;
+    background: #ebebe5;
+    @include smartphone {
+      font-size: 14px;
+      line-height: 20px;
+      letter-spacing: 0.5px;
+    }
+  }
+}

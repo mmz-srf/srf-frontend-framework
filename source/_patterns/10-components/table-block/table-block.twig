@@ -1,0 +1,23 @@
+<div class="table-block">
+    <table>
+        <caption class="h-offscreen-focusable">Caption</caption>
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Beschreibung</th>
+            <th>Info</th>
+            <th>Tipps</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for item in listItems.four %}
+            <tr>
+                <td>{{ item.name.last|e }}, {{ item.name.first|e }}</td>
+                <td>{{ item.headline.short|e }}</td>
+                <td>{{ item.excerpt.short|e }}</td>
+                <td>{{ item.headline.medium|e }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
