@@ -25,7 +25,7 @@
     text-align: left;
     text-transform: uppercase;
     color: $color-text-default;
-    background: #ebebe5;
+    background: $color-bg-box;
     @include smartphone {
       font-size: 14px;
       line-height: 20px;
@@ -62,8 +62,8 @@
     font-family: $font-medium;
     text-align: left;
     text-transform: uppercase;
-    color: #22211d;
-    background: #ebebe5;
+    color: $color-text-default;
+    background: $color-bg-box;
     @include smartphone {
       font-size: 14px;
       line-height: 20px;
