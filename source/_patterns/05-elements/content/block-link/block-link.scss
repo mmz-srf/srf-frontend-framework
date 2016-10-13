@@ -6,6 +6,7 @@
   line-height: 24px;
   letter-spacing: 0.5px;
   color: $color-link-default;
+  border-top: 1px solid $color-separator;
   border-bottom: 1px solid $color-separator;
   background: url(../img/arrows/internal-link.svg) calc(100% - 16px) center no-repeat;
   background-size: 18px 18px;

@@ -185,5 +185,57 @@
       "title": "Schweiz aktuell",
       "date": "2016-09-12"
     }
-  }
+  },
+  "videos": [
+    {
+      "title": "Sprengstoff verschwunden 1",
+      "length": "1:03",
+      "player_url": "https://tp.srgssr.ch/p",
+      "urn": "urn:srf:ais:video:900f6532-9869-43a6-9ff5-f6ef46cc5f7d",
+      "show": {
+        "title": "Schweiz aktuell",
+        "date": "2016-09-12"
+      }
+    },
+    {
+      "title": "Sprengstoff verschwunden 2",
+      "length": "1:03",
+      "player_url": "https://tp.srgssr.ch/p",
+      "urn": "urn:srf:ais:video:900f6532-9869-43a6-9ff5-f6ef46cc5f7d",
+      "show": {
+        "title": "Schweiz aktuell",
+        "date": "2016-09-12"
+      }
+    },
+    {
+      "title": "20 Jahre «Unabhängigkeitserklärung des Cyberspace» (Kultur kompakt, 8.2.2016)",
+      "length": "1:03",
+      "player_url": "https://tp.srgssr.ch/p",
+      "urn": "urn:srf:ais:video:900f6532-9869-43a6-9ff5-f6ef46cc5f7d",
+      "show": {
+        "title": "Schweiz aktuell",
+        "date": "2016-09-12"
+      }
+    },
+    {
+      "title": "Sprengstoff verschwunden 4",
+      "length": "1:03",
+      "player_url": "https://tp.srgssr.ch/p",
+      "urn": "urn:srf:ais:video:900f6532-9869-43a6-9ff5-f6ef46cc5f7d",
+      "show": {
+        "title": "Schweiz aktuell",
+        "date": "2016-09-12"
+      }
+    },
+    {
+      "title": "Sprengstoff verschwunden 5",
+      "length": "1:03",
+      "player_url": "https://tp.srgssr.ch/p",
+      "urn": "urn:srf:ais:video:900f6532-9869-43a6-9ff5-f6ef46cc5f7d",
+      "show": {
+        "title": "Schweiz aktuell",
+        "date": "2016-09-12"
+      }
+    }
+  ]
 }
