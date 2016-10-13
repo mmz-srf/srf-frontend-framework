@@ -81,7 +81,7 @@
     {
       "sources": {
         "s8": {
-          "src": "/assets/demo/img/bild2/bild_s8.jpg",
+          "src": "../../assets/demo/img/bild2/bild_s8.jpg",
           "width": 640
         },
         "s8_retina": {
@@ -110,10 +110,10 @@
   ],
   "audios": [
     {
-      "img_src":"/assets/demo/img/bild2/bild_s8.jpg",
+      "img_src":"../../assets/demo/img/bild2/bild_s8.jpg",
       "img_srcset": {
         "s8": {
-          "src": "/assets/demo/img/bild2/bild_s8.jpg",
+          "src": "../../assets/demo/img/bild2/bild_s8.jpg",
           "width": 640
         },
         "s8_retina": {
@@ -143,10 +143,10 @@
       }
     },
     {
-      "img_src":"/assets/demo/img/bild1/bild_s8.jpg",
+      "img_src":"../../assets/demo/img/bild1/bild_s8.jpg",
       "img_srcset": {
         "s8": {
-          "src": "/assets/demo/img/bild1/bild_s8.jpg",
+          "src": "../../assets/demo/img/bild1/bild_s8.jpg",
           "width": 640
         },
         "s8_retina": {
