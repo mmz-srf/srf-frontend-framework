@@ -1,16 +1,14 @@
-<div class="l-embed-full-width-container">
-    <ol class="audio-gallery">
-        {% for audio in audios %}
-            <li class="audio-gallery__item">
-                {% include 'components-audio'with {
-                "audios": [audio]
-                } %}
-            </li>
-            <li class="audio-gallery__item">
-                {% include 'components-audio'with {
-                "audios": [audio]
-                } %}
-            </li>
-        {% endfor %}
-    </ol>
-</div>
+<ol class="audio-gallery">
+    {% for audio in audios %}
+        <li class="audio-gallery__item">
+            {% include 'components-audio'with {
+            "audios": [audio]
+            } %}
+        </li>
+        <li class="audio-gallery__item">
+            {% include 'components-audio'with {
+            "audios": [audio]
+            } %}
+        </li>
+    {% endfor %}
+</ol>

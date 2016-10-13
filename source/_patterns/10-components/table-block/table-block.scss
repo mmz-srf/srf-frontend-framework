@@ -1,7 +1,9 @@
 .table-block {
   overflow-x: auto;
+  margin: 16px 0 24px;
+
   @include smartphone {
-    margin: 0 -8px 0 4px;
+    margin: 16px -8px 20px 4px;
   }
 
   table {
