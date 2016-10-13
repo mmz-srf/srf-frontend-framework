@@ -15,16 +15,6 @@
   overflow: visible;
   margin: 32px 0 0 0; /* for regular media element within article */
 
-  /*
-  @include desktop-up {
-    width: 584px;
-  }
-
-  @include desktop-wide {
-    width: 584px;
-  }
-  */
-
   @include smartphone {
     margin-top: 24px;
     margin-bottom: 20px;
