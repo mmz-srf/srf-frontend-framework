@@ -81,7 +81,7 @@
     {
       "sources": {
         "s8": {
-          "src": "/assets/demo/img/bild2/bild_s8.jpg",
+          "src": "../../assets/demo/img/bild2/bild_s8.jpg",
           "width": 640
         },
         "s8_retina": {
@@ -110,10 +110,10 @@
   ],
   "audios": [
     {
-      "img_src":"/assets/demo/img/bild2/bild_s8.jpg",
+      "img_src":"../../assets/demo/img/bild2/bild_s8.jpg",
       "img_srcset": {
         "s8": {
-          "src": "/assets/demo/img/bild2/bild_s8.jpg",
+          "src": "../../assets/demo/img/bild2/bild_s8.jpg",
           "width": 640
         },
         "s8_retina": {
@@ -143,10 +143,10 @@
       }
     },
     {
-      "img_src":"/assets/demo/img/bild1/bild_s8.jpg",
+      "img_src":"../../assets/demo/img/bild1/bild_s8.jpg",
       "img_srcset": {
         "s8": {
-          "src": "/assets/demo/img/bild1/bild_s8.jpg",
+          "src": "../../assets/demo/img/bild1/bild_s8.jpg",
           "width": 640
         },
         "s8_retina": {
@@ -208,7 +208,7 @@
       }
     },
     {
-      "title": "20 Jahre «Unabhängigkeitserklärung des Cyberspace» (Kultur kompakt, 8.2.2016)",
+      "title": "20 Jahre «Unabhängigkeitserklärung des Cyberspace»",
       "length": "1:03",
       "player_url": "https://tp.srgssr.ch/p",
       "urn": "urn:srf:ais:video:900f6532-9869-43a6-9ff5-f6ef46cc5f7d",
