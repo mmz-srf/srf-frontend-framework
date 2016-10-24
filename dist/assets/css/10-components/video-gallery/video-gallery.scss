@@ -80,7 +80,12 @@
       }
       width: 56px;
       height: 101px;
-      @include tablet-up {
+
+      @include desktop-up {
+        top: 27%;
+      }
+
+      @include tablet {
         top: 33%;
       }
     }
