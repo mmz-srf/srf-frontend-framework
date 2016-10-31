@@ -234,6 +234,7 @@ var CartodbMap = function ($container) {
     };
 
 };
+
 export function init() {
     var $container = $("#cartodb-map");
     if (typeof cartodb === "object" && $container.length) {
