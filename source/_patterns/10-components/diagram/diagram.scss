@@ -1,0 +1,19 @@
+.chart {
+    background-image: url("../../assets/img/charts_bg.jpg");
+    width: 100%;
+    height: 437px;
+    &.line {
+      height: 700px;
+    }
+    &.pie {
+      height: 600px;
+    }
+
+}
+
+.amcharts-legend-div {
+  text {
+    font-weight: 700;
+    // .amcharts-legend-value { font-weight: 400 !important; }
+  }
+}

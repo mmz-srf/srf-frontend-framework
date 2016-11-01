@@ -2,6 +2,7 @@
   padding: 12px 16px;
   background-color: $color-bg-caption;
   font: 14px/20px $font-light;
+  overflow: hidden;
 
   @include smartphone {
     padding: 12px 24px;
@@ -93,4 +94,15 @@
   strong {
     color: $color-text-accentuation;
   }
+}
+
+.media-caption__image {
+  height: 30px;
+  width: auto;
+  margin-right: 16px;
+  float: left;
+}
+
+.media-caption__content {
+  overflow: hidden;
 }
