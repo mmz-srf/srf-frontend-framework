@@ -32,20 +32,7 @@
     @include article-text-padding;
     margin: 12px 0 24px 0;
 
-    a {
-      border-bottom: 1px solid $color-link-default;
-      color: $color-link-default;
-
-      &:hover {
-        color: $color-link-hover;
-        border-bottom: 1px solid $color-link-hover;
-      }
-
-      &:active {
-        color: $color-link-active;
-        border-bottom: 1px solid $color-link-active;
-      }
-    }
+    @include link-text-inline;
 
     @include smartphone {
       margin: 12px 0 20px 0;

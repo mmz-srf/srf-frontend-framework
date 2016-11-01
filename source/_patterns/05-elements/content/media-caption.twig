@@ -6,6 +6,12 @@
             {{ images[0].caption.description }}
         </span>
         <span class="media-caption__source">
-            {{ images[0].caption.source }}
+            {% if images[0].caption.source_link is defined %}
+                <a class="media-caption__source-link" href="{{ images[0].caption.source_link }}" target="_blank">
+            {% endif %}
+                {{ images[0].caption.source }}
+            {% if images[0].caption.source_link is defined %}
+                </a>
+            {% endif %}
         </span>
 </figcaption>

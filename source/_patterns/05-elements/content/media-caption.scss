@@ -6,6 +6,7 @@
   @include smartphone {
     padding: 12px 24px;
   }
+
 }
 
 .media-caption--no-bg {
@@ -33,6 +34,7 @@
   .small {
     text-transform: none;
   }
+  @include link-text-inline;
 }
 
 .media-caption__source_link {
