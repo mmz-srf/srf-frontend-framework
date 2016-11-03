@@ -1,6 +1,5 @@
 export function init() {
     AmCharts.ready(function () {
-        console.log(123)
         $('.chart').each(function () {
             loadChart($(this));
         });
