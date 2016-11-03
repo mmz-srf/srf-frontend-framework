@@ -6,10 +6,8 @@ export function init() {
         });
 
         function loadChart($element) {
-
-            var url = $element.data('src');
-
-            $.getJSON(url, function (settings) {
+            
+            $.getJSON($element.data('src'), function (settings) {
 
                 if (settings['graphs']) {
                     if (settings['graphs'].length >= 5) {
