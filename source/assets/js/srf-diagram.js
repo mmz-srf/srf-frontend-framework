@@ -30,14 +30,16 @@ export function init() {
 
     function updateTextLength() {
         var boxWidth = 0;
-        $(".chart").each(function(i) {
-            var legend = $(this).find(".amcharts-legend-bg");
+        $(".chart").each(function() {
+            var chart = $(this);
+            var legend = chart.find(".amcharts-legend-bg");
             if (legend.length) {
                 boxWidth = parseInt(legend[0].getBoundingClientRect().width, 10) - 24;
                 var string = "";
-                $(this).find(".amcharts-legend-label").each(function(j) {
-                    string = $(this).find("tspan");
-                    if ($(this)[0].getBoundingClientRect().width >= boxWidth) {
+                chart.find(".amcharts-legend-label").each(function() {
+                    var that = $(this);
+                    string = that.find("tspan");
+                    if (that[0].getBoundingClientRect().width >= boxWidth) {
                         var k = 6;
                         var end = parseInt((boxWidth / k), 10);
                         if (string.text().length <= end) {
