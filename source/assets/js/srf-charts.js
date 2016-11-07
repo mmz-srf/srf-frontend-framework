@@ -1,31 +1,35 @@
 export function init() {
-    AmCharts.ready(function () {
 
-        $('.chart').each(function () {
-            loadChart($(this));
-        });
+    if (typeof AmCharts !== "undefined") {
 
-        function loadChart($element) {
-            
-            $.getJSON($element.data('src'), function (settings) {
+        AmCharts.ready(function () {
 
-                if (settings['graphs']) {
-                    if (settings['graphs'].length >= 5) {
-                        $element.addClass('line');
-                    }
-                }
-                if (settings['type'] === 'pie') {
-                    if (settings['dataProvider'].length >= 7) {
-                        $element.addClass('pie');
-                    }
-                }
-
-                var chart = AmCharts.makeChart($element.attr('id'), settings);
-                chart.addListener("drawn", updateTextLength);
-                updateTextLength();
+            $('.chart').each(function () {
+                loadChart($(this));
             });
-        }
-    });
+
+            function loadChart($element) {
+
+                $.getJSON($element.data('src'), function (settings) {
+
+                    if (settings['graphs']) {
+                        if (settings['graphs'].length >= 5) {
+                            $element.addClass('line');
+                        }
+                    }
+                    if (settings['type'] === 'pie') {
+                        if (settings['dataProvider'].length >= 7) {
+                            $element.addClass('pie');
+                        }
+                    }
+
+                    var chart = AmCharts.makeChart($element.attr('id'), settings);
+                    chart.addListener("drawn", updateTextLength);
+                    updateTextLength();
+                });
+            }
+        });
+    }
 
     function updateTextLength() {
         var boxWidth = 0;
