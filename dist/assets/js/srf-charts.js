@@ -22,14 +22,12 @@ export function init() {
 
                 var chart = AmCharts.makeChart($element.attr('id'), settings);
                 chart.addListener("drawn", updateTextLength);
-                chart.addListener("init", updateTextLength);
+                updateTextLength();
             });
         }
     });
 
     function updateTextLength() {
-        debugger;
-        console.log('drawn')
         var boxWidth = 0;
         $(".chart").each(function() {
             var chart = $(this);
@@ -53,13 +51,4 @@ export function init() {
             }
         });
     }
-
-    //* there's no init event :( *//
-    $( document ).ready(function() {
-        if ($(".chart").length) {
-            setTimeout(function () {
-                //updateTextLength();
-            }, 500);
-        }
-    });
 }

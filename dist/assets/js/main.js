@@ -1,7 +1,7 @@
 import {init as SrfCarouselsInit} from './srf-carousels';
-import {init as SrfDiagramInit} from './srf-diagram';
+import {init as SrfChartsInit} from './srf-charts';
 
 document.addEventListener("DOMContentLoaded", function(event) {
     SrfCarouselsInit();
-    SrfDiagramInit();
+    SrfChartsInit();
 });
