@@ -1,7 +1,6 @@
 export function init() {
 
-    console.log(123)
-    if (typeof AmCharts === object) {
+    if (typeof AmCharts !== "undefined") {
 
         AmCharts.ready(function () {
 
