@@ -1,15 +1,19 @@
 export function init() {
-
     if (typeof AmCharts !== "undefined") {
-
-        AmCharts.ready(function () {
-
+        if (AmCharts.isReady) {
             $('.chart').each(function () {
                 loadChart($(this));
             });
-        });
+        } else {
+            AmCharts.ready(function () {
+                $('.chart').each(function () {
+                    loadChart($(this));
+                });
+            });
+        }
     }
 }
+
 function loadChart($element) {
 
     $.getJSON($element.data('src'), function (settings) {
@@ -30,7 +34,6 @@ function loadChart($element) {
         updateTextLength();
     });
 }
-
 
 function updateTextLength() {
     var boxWidth = 0;
