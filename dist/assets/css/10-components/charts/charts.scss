@@ -1,6 +1,5 @@
 .chart {
-  background-image: url("../../assets/img/charts_bg.jpg");
-  background-size: 100%;
+  background-image: radial-gradient(circle farthest-corner, #faf0e1, #ddd6cc);
   width: 100%;
   height: 437px;
   &.line {
@@ -12,7 +11,7 @@
   &__container {
     margin: 32px 0 24px;
     @include smartphone {
-      margin: 24px 0 20px;
+      margin: 24px -8px 20px;
     }
   }
 }
