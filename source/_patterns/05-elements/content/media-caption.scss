@@ -7,7 +7,6 @@
   @include smartphone {
     padding: 12px 24px;
   }
-
 }
 
 .media-caption--no-bg {
@@ -22,13 +21,13 @@
 
 .media-caption__description {
   display: block;
-  margin-bottom: 8px;
+  margin-bottom: 4px;
   color: $color-text-accentuation;
 }
 
 .media-caption__source {
   display: block;
-  font: 12px/12px $font-system;
+  font: 12px/16px $font-system;
   letter-spacing: 0;
   text-transform: uppercase;
   color: $color-text-light;
@@ -75,17 +74,21 @@
 // overwrite :(
 .audio-gallery {
   .media-caption--audio {
-    height: 88px;
+    // height: 88px;
+    height: auto;
+    width: 100%;
     margin-left: 72px;
+    display: table-cell;
+    vertical-align: middle;
   }
   .media-caption__title {
-    height: 50%;
+    // height: 50%;
     padding-bottom: 2px;
     display: table-cell;
     vertical-align: bottom;
   }
   .media-caption__source--audio {
-    height: 50%;
+    // height: 50%;
   }
 }
 
