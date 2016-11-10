@@ -6,7 +6,6 @@
   @include smartphone {
     padding: 12px 24px;
   }
-
 }
 
 .media-caption--no-bg {
@@ -21,13 +20,13 @@
 
 .media-caption__description {
   display: block;
-  margin-bottom: 8px;
+  margin-bottom: 4px;
   color: $color-text-accentuation;
 }
 
 .media-caption__source {
   display: block;
-  font: 12px/12px $font-system;
+  font: 12px/16px $font-system;
   letter-spacing: 0;
   text-transform: uppercase;
   color: $color-text-light;
