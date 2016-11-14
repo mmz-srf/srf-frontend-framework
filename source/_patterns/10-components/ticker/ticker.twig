@@ -1,0 +1,33 @@
+{% macro ticker_heading(time, nr) %}
+    <span class="ticker-item__time">{{ time }}</span>{% if nr %}<h3 class="ticker-item__title">Titel {{ nr|default(0) }}{% endif %}</h3>
+{% endmacro %}
+{% import _self as ticker %}
+{% set ticker_text = '<p>Wegen <strong>Unregelmässigkeiten im Material des Reaktorbehälters</strong> wurde der Reaktor (<a href="https://www.google.ch">Link</a>) im März 2015 <i>vom Netz</i> genommen.</p>' %}
+
+<h2 class="ticker__title">Ticker planned</h2>
+{{ ticker_text|raw }}
+<p class="ticker__info planned">Der Ticker startet in 60 min</p>
+<ul class="ticker planned text-list">
+    <li class="ticker-item">{{ ticker.ticker_heading('10:13', 1) }}</li>
+</ul>
+
+<h2 class="ticker__title">Ticker live</h2>
+{% include 'elements-text-list--unordered' %}
+<p class="ticker__info live">LIVE seit 3 Stunden</p>
+<ul class="ticker live text-list">
+    <li class="ticker-item">{{ ticker.ticker_heading('10:13', 1) }}</li>
+    <li class="ticker-item">{{ ticker.ticker_heading('10:07') }}{{ ticker_text|raw }}</li>
+    <li class="ticker-item">{{ ticker.ticker_heading('10:04', 2) }}{% include 'components-audio' %}</li>
+    <li class="ticker-item">{{ ticker.ticker_heading('09:56', 3) }}{% include 'components-image-figure' %}</li>
+    <li class="ticker-item">{{ ticker.ticker_heading('09:07', 4) }}{{ articleText.text[0:300]|raw }}...</li>
+    <li class="ticker-item">{{ ticker.ticker_heading('08:42', 5) }}{% include 'components-video' %}</li>
+    <li class="ticker-item">{{ ticker.ticker_heading('08:30', 6) }}{% include 'components-table-block' %}</li>
+    <li class="ticker-item">{{ ticker.ticker_heading('08:13', 7) }}{% include 'elements-text-list--unordered' %}</li>
+</ul>
+
+<h2 class="ticker__title">Ticker closed</h2>
+<p class="ticker__info closed">Der Ticker ist abgeschlossen</p>
+<ul class="ticker closed text-list">
+    <li class="ticker-item">{{ ticker.ticker_heading('10:13', 1) }}</li>
+    <li class="ticker-item">{{ ticker.ticker_heading('10:04', 2) }}{% include 'components-audio' %}</li>
+</ul>

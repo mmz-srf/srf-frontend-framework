@@ -4,9 +4,11 @@
     margin: 24px -8px 20px;
   }
 
-  &:hover .article-video__play-icon, &:active .article-video__play-icon{
-    background-image: url(../../assets/img/play-active.svg);
-    background-size: 100%;
+  &:hover, &:active {
+    .article-video__play-icon {
+      background-image: url(../../assets/img/play-active.svg);
+      background-size: 100%;
+    }
   }
 
   &__link {
@@ -20,6 +22,7 @@
       transform: translate(-50%, -50%);
       width: 60px;
       text-align: center;
+      z-index: 1;
     }
   }
   &__length {
@@ -28,5 +31,8 @@
     font: 12px/18px $font-medium;
     padding: 2px 8px;
   }
-
+  .image-figure {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
 }
