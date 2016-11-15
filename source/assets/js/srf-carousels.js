@@ -24,6 +24,14 @@ export function init() {
             slide: ".carousel__item",
 
         });
+        $(".carousel__link--next, .carousel__link--prev").on("touchstart", function () {
+            alert(123)
+            $(this).addClass("touched");
+        }).on("touchend", function () {
+            alert(2223)
+
+            $(this).removeClass("touched");
+        });
         registerListener($carousel);
     });
 

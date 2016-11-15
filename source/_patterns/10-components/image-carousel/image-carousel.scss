@@ -53,7 +53,7 @@
         width: 56px;
         height: 96px;
       }
-      &:hover, &:active {
+      &:hover, &:active, &.touched {
         -moz-background-clip: content;
         -webkit-background-clip: content;
         background-clip: content-box;
@@ -61,8 +61,12 @@
       &:hover {
         background-color: rgba(0, 0, 0, 0.48);
       }
-      &:active {
+      &:active, &.touched {
         background-color: rgba(0, 0, 0, 0.8);
+      }
+
+      &:not(.touched) {
+        background-color: transparent;
       }
     }
     &--prev {
@@ -97,10 +101,11 @@
   }
   .image-figure {
     margin-bottom: 2px;
+    &__image {
+      background-color: black;
+    }
   }
-  .image-figure__image {
-    background-color: black;
-  }
+
   .slick-disabled {
     opacity: 0;
     pointer-events:none;

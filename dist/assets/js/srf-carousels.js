@@ -19,10 +19,15 @@ export function init() {
             speed: 300,
             slidesToShow: 1,
             infinite: false,
-            prevArrow: '<a href="#" class="carousel__link--prev" />', // slick does this the wrong way around!
+            prevArrow: '<a href="#" class="carousel__link--prev" />',
             nextArrow: '<a href="#" class="carousel__link--next" />',
-            slide: ".carousel__item",
+            slide: ".carousel__item"
 
+        });
+        $(".carousel__link--next, .carousel__link--prev").on("touchstart", function () {
+            $(this).addClass("touched");
+        }).on("touchend", function () {
+            $(this).removeClass("touched");
         });
         registerListener($carousel);
     });
