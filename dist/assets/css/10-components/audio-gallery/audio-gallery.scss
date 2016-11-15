@@ -25,9 +25,26 @@
       }
     }
   }
+
   .article-audio {
     min-height: 88px;
     display: table;
+    margin: 0;
+    &__wrapper {
+      height: 56px;
+      width: 56px;
+      margin: 16px 0 16px 56px;
+      &:before {
+        height: 56px;
+        width: 56px;
+      }
+      @include smartphone {
+        margin-left: 16px;
+      }
+    }
+    &__play-icon {
+      width: 36px;
+    }
   }
 
   .image-figure__image {
