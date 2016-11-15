@@ -6,6 +6,12 @@ var css = {
 
 export function init() {
     $carousels = $(css.containers);
+
+    //prevent flicker effect on page load
+    $carousels.on('init', function () {
+        $(css.containers).css("visibility", "visible");
+    });
+
     $.each($carousels, function (i, carousel) {
         var $carousel = $(carousel);
         loadedCarousels[$carousel.attr("id")] = false;
@@ -19,11 +25,6 @@ export function init() {
 
         });
         registerListener($carousel);
-
-        //prevent flicker effect on page load
-        $(css.containers).on('init', function () {
-            $(css.containers).css("visibility", "visible");
-        });
     });
 
     $('.video_carousel__js').slick({
