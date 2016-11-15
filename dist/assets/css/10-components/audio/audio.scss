@@ -1,14 +1,20 @@
 .article-audio {
-  margin: 32px 0 24px;
-  @include smartphone {
-    margin: 24px -8px 20px;
-  }
   background-color: $color-bg-caption;
   &:hover, &:active, &.played {
     background-color: #ebebe5;
-    & .article-audio__play-icon {
+    .article-audio__play-icon {
       background-image: url("../../assets/img/play-active.svg");
       background-size: 100%;
+    }
+  }
+  margin: 32px 0 24px;
+  @include smartphone {
+    margin: 24px -8px 20px;
+    &:not(.played) { // very ugly! (handling of touch states)
+      background-color: $color-bg-caption;
+      .article-audio__play-icon {
+        background-image: none;
+      }
     }
   }
 
@@ -58,26 +64,5 @@
     width: 60px;
     transform: translate(-50%, -50%);
     text-align: center;
-  }
-}
-
-.article-audio--compact {
-  .article-audio {
-    margin: 0;
-    &__wrapper {
-      height: 56px;
-      width: 56px;
-      margin: 16px 0 16px 56px;
-      &:before {
-        height: 56px;
-        width: 56px;
-      }
-      @include smartphone {
-        margin-left: 16px;
-      }
-    }
-    &__play-icon {
-      width: 36px;
-    }
   }
 }
