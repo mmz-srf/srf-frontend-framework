@@ -64,10 +64,11 @@
       &:active, &.touched {
         background-color: rgba(0, 0, 0, 0.8);
       }
-
-      &:not(.touched) {
-        background-color: transparent;
-      }
+      @include smartphone {
+         &:not(.touched) {
+           background-color: transparent;
+         }
+       }
     }
     &--prev {
       left: 0;
