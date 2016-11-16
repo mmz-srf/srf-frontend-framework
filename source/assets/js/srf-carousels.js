@@ -6,6 +6,12 @@ var css = {
 
 export function init() {
     $carousels = $(css.containers);
+
+    //prevent flicker effect on page load
+    $carousels.on('init', function () {
+        $(css.containers).css("visibility", "visible");
+    });
+
     $.each($carousels, function (i, carousel) {
         var $carousel = $(carousel);
         loadedCarousels[$carousel.attr("id")] = false;
@@ -18,12 +24,15 @@ export function init() {
             slide: ".carousel__item",
 
         });
-        registerListener($carousel);
+        $(".carousel__link--next, .carousel__link--prev").on("touchstart", function () {
+            alert(123)
+            $(this).addClass("touched");
+        }).on("touchend", function () {
+            alert(2223)
 
-        //prevent flicker effect on page load
-        $(css.containers).on('init', function () {
-            $(css.containers).css("visibility", "visible");
+            $(this).removeClass("touched");
         });
+        registerListener($carousel);
     });
 
     $('.video_carousel__js').slick({
