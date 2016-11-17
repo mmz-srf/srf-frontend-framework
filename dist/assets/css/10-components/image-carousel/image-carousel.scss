@@ -3,32 +3,39 @@
   width: 100%;
   background-color: #f5f5f2;
   overflow: hidden;
-  margin: 32px 0 0 0; /* for regular media element within article */
+  // margin: 32px 0 0 0; /* for regular media element within article */
+  margin: 32px 0 24px;
+  @include smartphone {
+    margin: 24px 0 20px;
+  }
 
   .image-figure {
     margin-top: 0;
     // position: initial;
     width: 100%;
+    margin-bottom: 2px;
+    &__image {
+      background-color: black;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      object-fit: contain;
+      min-width: 100%;
+      width: 1px;
+    }
   }
+
   .image-figure__image-wrapper {
     background: rgba(0, 0, 0, 0.8);
     position: relative;
-  }
-  .image-figure__image-wrapper:before {
-    content: "";
-    display: block;
-    padding-top: 75%;
-  }
-  .image-figure__image {
-    height: 100%;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    object-fit: contain;
-    min-width: 100%;
-    width: 1px;
+    &:before {
+      content: "";
+      display: block;
+      padding-top: 75%;
+    }
   }
   &__item {
     position: relative;
@@ -53,7 +60,7 @@
         width: 56px;
         height: 96px;
       }
-      &:hover, &:active, .touched {
+      &:hover, &:active, &.touched {
         -moz-background-clip: content;
         -webkit-background-clip: content;
         background-clip: content-box;
@@ -61,12 +68,13 @@
       &:hover {
         background-color: rgba(0, 0, 0, 0.48);
       }
-      &:active, .touched {
+      &:active, &.touched {
         background-color: rgba(0, 0, 0, 0.8);
-        background-color: pink;
       }
-      &:not(.touched) {
-        // background-color: transparent;
+      @include smartphone {
+        &:not(.touched) {
+          background-color: transparent;
+        }
       }
     }
     &--prev {
@@ -97,12 +105,6 @@
       line-height: 20px;
       padding: 0 8px;
       font-weight: 500;
-    }
-  }
-  .image-figure {
-    margin-bottom: 2px;
-    &__image {
-      background-color: black;
     }
   }
 
