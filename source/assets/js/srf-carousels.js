@@ -1,7 +1,8 @@
 var $carousels = [];
 var loadedCarousels = {};
 var css = {
-    'containers': '.carousel__js'
+    'containers': '.carousel__js',
+    'handles': '.carousel__link--next, .carousel__link--prev'
 };
 
 export function init() {
@@ -10,6 +11,9 @@ export function init() {
     //prevent flicker effect on page load
     $carousels.on('init', function () {
         $(css.containers).css("visibility", "visible");
+        if (typeof window.ontouchstart !== 'undefined') {
+            $(css.handles).addClass("untouched");
+        }
     });
 
     $.each($carousels, function (i, carousel) {
@@ -19,18 +23,9 @@ export function init() {
             speed: 300,
             slidesToShow: 1,
             infinite: false,
-            prevArrow: '<a href="#" class="carousel__link--prev" />', // slick does this the wrong way around!
+            prevArrow: '<a href="#" class="carousel__link--prev" />',
             nextArrow: '<a href="#" class="carousel__link--next" />',
-            slide: ".carousel__item",
-
-        });
-        $(".carousel__link--next, .carousel__link--prev").on("touchstart", function () {
-            alert(123)
-            $(this).addClass("touched");
-        }).on("touchend", function () {
-            alert(2223)
-
-            $(this).removeClass("touched");
+            slide: ".carousel__item"
         });
         registerListener($carousel);
     });
@@ -82,6 +77,12 @@ function registerListener($carousel) {
             loadedCarousels[$carousel.attr("id")] = true;
             loadLazyImages(slick.$slides.find(".image-figure__js"));
         }
+    });
+
+    $(css.handles).on("touchstart", function () {
+        $(this).removeClass("untouched");
+    }).on("touchend", function () {
+        $(this).addClass("untouched");
     });
 }
 

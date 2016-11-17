@@ -60,7 +60,7 @@
         width: 56px;
         height: 96px;
       }
-      &:hover, &:active, &.touched {
+      &:hover, &:active {
         -moz-background-clip: content;
         -webkit-background-clip: content;
         background-clip: content-box;
@@ -68,13 +68,11 @@
       &:hover {
         background-color: rgba(0, 0, 0, 0.48);
       }
-      &:active, &.touched {
+      &:active {
         background-color: rgba(0, 0, 0, 0.8);
       }
-      @include smartphone {
-        &:not(.touched) {
-          background-color: transparent;
-        }
+      &.untouched {
+        background-color: transparent;
       }
     }
     &--prev {
