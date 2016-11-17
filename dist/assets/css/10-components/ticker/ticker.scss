@@ -1,0 +1,114 @@
+.ticker {
+  margin-top: 30px;
+  margin-bottom: 24px;
+  @include smartphone {
+    margin-bottom: 20px;
+  }
+  &--scheduled .ticker-item {
+    &:first-of-type:after {
+      top: -35px;
+      height: 39px;
+    }
+  }
+  &--live .ticker-item {
+    &--new:before { // red center
+      // &:first-of-type:before {
+        content: "•";
+        color: $color-link-default;
+        font-size: 25px; // 30px;
+        line-height: 11px;
+        text-indent: 1px; // ~
+        // opacity: 1;
+        transition: opacity 0.9s linear;
+      }
+      &:first-of-type:after { // elongated border
+        top: -35px;
+        height: 190%;
+      }
+  }
+  &--live, &--closed {
+    .ticker-item {
+      &:last-of-type:after { // no border for the last element
+        border: 0;
+      }
+    }
+  }
+
+  &-item { // general
+    padding-bottom: 20px;
+    &:before { // grey circle
+      content: "";
+      position: absolute;
+      height: 11px;
+      width: 11px;
+      top: 3px;
+      left: -3px; // 0;
+      background-color: #fff;
+      border: 1px solid #cac8bf;
+      border-radius: 50%;
+      z-index: 1;
+    }
+    &:after { // line along left side
+      content: "";
+      position: absolute;
+      height: 100%;
+      left: 3px; // 6px;
+      top: 16px;
+      border: 1px solid #cac8bf;
+      border-width: 0 0 0 1px;
+      display: block;
+    }
+    .article-audio, .article-video, .image-figure, .table-block { // audios, images
+      left: 0;
+      margin: 10px -24px 12px -51px; // 10px -16px 12px -40px;
+      border: 5px solid #fff;
+      border-width: 5px 0;
+      box-shadow: 0 0 10px 10px #fff; // like gradient
+      position: relative;
+      z-index: 1;
+      .image-figure { // videos
+        margin: 0;
+        border: 0;
+        &:after {
+          background: none;
+        }
+      }
+    }
+    &__time {
+      // color: #22211d;
+      font: 14px/20px $font-regular;
+      letter-spacing: .5px;
+      display: block;
+    }
+    &__title {
+      // color: #22211d;
+      font: 18px/28px $font-medium;
+      letter-spacing: .5px;
+      margin: 6px 0;
+    }
+  }
+  &__title {
+    font: 22px/28px $font-medium;
+    letter-spacing: .3px;
+    margin-top: 32px;
+    @include smartphone {
+      margin-top: 24px;
+    }
+  }
+  &__info {
+    font: 12px/16px $font-system;
+    letter-spacing: .2px;
+    color: $color-text-light;
+    border: 5px solid #fff;
+    border-width: 5px 0;
+    box-shadow: 0 0 10px 10px #fff; // like gradient
+    position: relative;
+    z-index: 1;
+    &--live {
+      color: $color-accentuation-red;
+    }
+  }
+  .text-list {
+    margin-left: -16px;
+  }
+}

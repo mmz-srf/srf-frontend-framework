@@ -53,14 +53,6 @@
         width: 56px;
         height: 96px;
       }
-      @include smartphone {
-        &.touched {
-          background-color: rgba(0, 0, 0, 0.8);
-        }
-        &:not(.touched) {
-          background-color: transparent;
-        }
-      }
       &:hover, &:active, &.touched {
         -moz-background-clip: content;
         -webkit-background-clip: content;
@@ -69,9 +61,14 @@
       &:hover {
         background-color: rgba(0, 0, 0, 0.48);
       }
-      &:active {
+      &:active, &.touched {
         background-color: rgba(0, 0, 0, 0.8);
       }
+      @include smartphone {
+         &:not(.touched) {
+           background-color: transparent;
+         }
+       }
     }
     &--prev {
       left: 0;
