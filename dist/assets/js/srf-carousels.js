@@ -11,9 +11,6 @@ export function init() {
     //prevent flicker effect on page load
     $carousels.on('init', function () {
         $(css.containers).css("visibility", "visible");
-        if (typeof window.ontouchstart !== 'undefined') {
-            $(css.handles).addClass("untouched");
-        }
     });
 
     $.each($carousels, function (i, carousel) {
@@ -81,7 +78,7 @@ function registerListener($carousel) {
 
     $(css.handles).on("touchstart", function () {
         $(this).removeClass("untouched");
-    }).on("touchend", function () {
+    }).on("touchend touchcancel", function () {
         $(this).addClass("untouched");
     });
 }
