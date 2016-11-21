@@ -3,38 +3,24 @@ BUILDDATE :=$(shell date '+%Y%m%d-%H%M')
 MAKEFILE_PATH := $(abspath $(lastword $(MAKEFILE_LIST)))
 COMMIT_ID := $(shell git log -n1 --pretty=format:'%h')
 
-ifndef BRANCH
-BRANCH := local
-endif
+%-test:   export MOUNTPOINT :=/mnt/frontend_framework_test
+%-master: export MOUNTPOINT :=/mnt/frontend_framework_master
+export TARGET=$(MOUNTPOINT)/$(BUILDDATE)-$(COMMIT_ID)
 
-ifeq ('BRANCH', 'master')
-MOUNTPOINT :=/mnt/frontend_framework_master
-TARGET := $(MOUNTPOINT)/$(BUILDDATE)-$(COMMIT_ID)
-endif
-
-ifeq ('BRANCH', 'test')
-MOUNTPOINT :=/mnt/frontend_framework_develop
-TARGET := $(MOUNTPOINT)/$(BUILDDATE)-$(COMMIT_ID)
-endif
 
 # default: Build the assets and styleguide
 all: composer-install node-install bower-install npm-install gulp-build
 
-ifdef TARGET
+install-master: install
+
+install-test: install
+
 # this stuff only is needed on jenkins where we have the NFS shares available
 install: all
 	# copy all created files to the defined mountpoint for BRANCH
 	mkdir -p $(TARGET)
 	cp -r public dist $(TARGET)
-	# update and deduplicate the uploaded files on NFS share
-	@cd $(MOUNTPOINT) && make -f $(MAKEFILE_PATH) BRANCH=$(BRANCH) update-and-deduplicate-directory
-
-update-and-deduplicate-directory:
-	@rm -f index.html
-	@for i in $(find -maxdepth 1 -type d | sort); do echo "<a href='$i/public/'>$i</a><br \>">>index.html; done
-	@LATEST=$(find -maxdepth 1 -type d | sort | tail -2)
-	@rdfind -makehardlinks true -makeresultsfile false $(LATEST)
-endif
+	./bin/deduplicate-deployed-versions $(MOUNTPOINT)
 
 clean:
 	rm -rf public/patternlab-components/pattern-lab/plugin-reload

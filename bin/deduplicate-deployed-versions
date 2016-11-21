@@ -1,0 +1,19 @@
+#!/bin/bash
+
+[ -z "${1}" ] && {
+  echo "Usage: $0 <mountpoint>";
+  exit 1;
+}
+[ -d "${1}" ] || {
+  echo "ERROR: mountpoint $1 does not exists";
+  exit 1;
+}
+
+cd $1
+rm -f index.html;
+for i in $(find -maxdepth 1 -type d | sort);
+do
+  echo "<a href='$i/public/'>$i</a><br \>">>index.html;
+done;
+LATEST=$(find -maxdepth 1 -type d | sort | tail -2);
+rdfind -makehardlinks true -makeresultsfile false $(LATEST)
