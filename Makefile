@@ -24,15 +24,11 @@ install: all
 
 clean:
 	rm -rf public/patternlab-components/pattern-lab/plugin-reload
-	rm -rf dist
+	rm -rf dist vendor node_modules
 
 composer-install:
 	composer --prefer-dist --no-interaction install
-ifdef MOUNTPOINT
 	composer remove pattern-lab/plugin-reload
-else
-	composer require pattern-lab/plugin-reload
-endif
 
 bower-install:
 	bower install
