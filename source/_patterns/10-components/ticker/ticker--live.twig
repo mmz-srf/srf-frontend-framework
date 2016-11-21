@@ -2,7 +2,7 @@
 {% include 'elements-text-list--unordered' %}
 <p class="ticker__info ticker__info--live">LIVE seit 3 Stunden</p>
 <div><!-- div to override styling :( -->
-    <ul class="ticker ticker--live text-list">
+    <ul class="ticker ticker--live">
         <li class="ticker-item ticker-item--new">{{ ticker.ticker_heading('10:13', 1) }}</li>
         <li class="ticker-item">{{ ticker.ticker_heading('10:07') }}{{ ticker_text|raw }}</li>
         <li class="ticker-item">{{ ticker.ticker_heading('10:04', 2) }}{% include 'components-audio' %}</li>
