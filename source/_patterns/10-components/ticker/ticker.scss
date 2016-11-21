@@ -1,87 +1,84 @@
 .ticker {
   margin-top: 30px;
   margin-bottom: 24px;
+  padding: 0 20px;
   @include smartphone {
     margin-bottom: 20px;
   }
-  &--scheduled .ticker-item {
-    &:first-of-type:after {
-      top: -35px;
-      height: 39px;
+  &--scheduled, &--live, &--closed { // special borders
+    .ticker-item:first-of-type:after {
+      content: "";
+      position: absolute;
+      display: block;
+      left: -1px;
     }
   }
-  &--live .ticker-item {
-    &--new:before { // red center
-      // &:first-of-type:before {
+  &--closed { // fix overlapping border
+    .ticker-item:first-of-type:after {
+      top: 0;
+      height: 3px;
+      border-left: 1px solid #fff;
+    }
+  }
+  &--scheduled, &--live { // elongated border
+    .ticker-item:first-of-type:after {
+      top: -30px;
+      height: 33px;
+      border-left: 1px solid $color-border
+    }
+  }
+  &--live {
+    .ticker-item--new:before { // red center
         content: "•";
         color: $color-link-default;
-        font-size: 25px; // 30px;
+        font-size: 1.5rem; // 30px;
         line-height: 11px;
         text-indent: 1px; // ~
-        // opacity: 1;
         transition: opacity 0.9s linear;
       }
-      &:first-of-type:after { // elongated border
-        top: -35px;
-        height: 190%;
-      }
-  }
-  &--live, &--closed {
-    .ticker-item {
-      &:last-of-type:after { // no border for the last element
-        border: 0;
-      }
-    }
   }
 
   &-item { // general
-    padding-bottom: 20px;
+    position: relative;
+    margin: -3px 0; // adjustment for last element (without border)
+    padding: 0 20px 30px 20px;
+    border-left: 1px solid $color-border;
     &:before { // grey circle
       content: "";
       position: absolute;
       height: 11px;
       width: 11px;
       top: 3px;
-      left: -3px; // 0;
+      left: -7px;
       background-color: #fff;
-      border: 1px solid #cac8bf;
+      border: 1px solid $color-border;
       border-radius: 50%;
-      z-index: 1;
+      // z-index: 1;
     }
-    &:after { // line along left side
-      content: "";
-      position: absolute;
-      height: 100%;
-      left: 3px; // 6px;
-      top: 16px;
-      border: 1px solid #cac8bf;
-      border-width: 0 0 0 1px;
-      display: block;
+    &:last-of-type { // no border for the last element
+      border: 0;
+      margin-left: 1px;
     }
-    .article-audio, .article-video, .image-figure, .table-block { // audios, images
+    .article-audio, .article-video, > .image-figure, .table-block { // audios, images
       left: 0;
-      margin: 10px -24px 12px -51px; // 10px -16px 12px -40px;
+      margin: 10px -48px 12px -49px;
       border: 5px solid #fff;
       border-width: 5px 0;
       box-shadow: 0 0 10px 10px #fff; // like gradient
-      position: relative;
-      z-index: 1;
-      .image-figure { // videos
-        margin: 0;
-        border: 0;
-        &:after {
-          background: none;
-        }
-      }
+      // position: relative;
+      // z-index: 1;
+      // .image-figure { // videos
+        // margin: 0;
+        // border: 0;
+        // &:after { background: none; }
+      // }
     }
     &__time {
-      // color: #22211d;
       font: 14px/20px $font-regular;
       letter-spacing: .5px;
       display: block;
     }
     &__title {
-      // color: #22211d;
       font: 18px/28px $font-medium;
       letter-spacing: .5px;
       margin: 6px 0;
@@ -107,8 +104,5 @@
     &--live {
       color: $color-accentuation-red;
     }
-  }
-  .text-list {
-    margin-left: -16px;
   }
 }
