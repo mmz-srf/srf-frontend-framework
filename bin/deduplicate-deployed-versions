@@ -1,0 +1,26 @@
+#!/bin/bash
+
+function versions_index {
+    echo "<html><body>"
+    for i in $(find -mindepth 1 -maxdepth 1 -type d | sort);
+    do
+      echo "<a href='$i/public/'>$i</a><br>";
+    done;
+    echo "</body>";
+}
+
+[ -z "${1}" ] && {
+  echo "Usage: $0 <mountpoint>";
+  exit 1;
+}
+[ -d "${1}" ] || {
+  echo "ERROR: mountpoint $1 does not exists";
+  exit 1;
+}
+
+cd $1
+
+versions_index > index.html
+
+LATEST=$(find -mindepth 1 -maxdepth 1 -type d | sort | tail -2);
+rdfind -makehardlinks true -makeresultsfile false ${LATEST}
