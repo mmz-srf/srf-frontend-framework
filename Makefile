@@ -27,12 +27,12 @@ clean:
 	rm -rf dist
 
 composer-install:
-ifdef TARGET
+	composer --prefer-dist --no-interaction install
+ifdef MOUNTPOINT
 	composer remove pattern-lab/plugin-reload
 else
 	composer require pattern-lab/plugin-reload
 endif
-	composer --prefer-dist --no-interaction install
 
 bower-install:
 	bower install
