@@ -3,24 +3,22 @@ BUILDDATE :=$(shell date '+%Y%m%d-%H%M')
 MAKEFILE_PATH := $(abspath $(lastword $(MAKEFILE_LIST)))
 COMMIT_ID := $(shell git log -n1 --pretty=format:'%h')
 
-%-test:   export MOUNTPOINT :=/mnt/frontend_framework_test
-%-master: export MOUNTPOINT :=/mnt/frontend_framework_master
-export TARGET=$(MOUNTPOINT)/$(BUILDDATE)-$(COMMIT_ID)
-
+MOUNTPOINT := /mnt/frontend_framework_master
+TARGET := $(MOUNTPOINT)/$(BUILDDATE)-$(COMMIT_ID)
 
 # default: Build the assets and styleguide
 all: composer-install node-install bower-install npm-install gulp-build
 
-install-master: install
-
-install-test: install
-
-# this stuff only is needed on jenkins where we have the NFS shares available
-install: all
+install-master:
 	# copy all created files to the defined mountpoint for BRANCH
 	mkdir -p $(TARGET)
 	cp -r public dist $(TARGET)
 	./bin/deduplicate-deployed-versions $(MOUNTPOINT)
+
+install-test:
+	# copy all created files to the defined mountpoint for BRANCH
+	mkdir -p /mnt/frontend_framework_test/latest/
+	rsync -avzh --delete public dist /mnt/frontend_framework_test/latest/
 
 clean:
 	rm -rf public/patternlab-components/pattern-lab/plugin-reload
