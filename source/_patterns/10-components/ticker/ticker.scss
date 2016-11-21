@@ -24,7 +24,7 @@
     .ticker-item:first-of-type:after {
       top: -30px;
       height: 33px;
-      border-left: 1px solid $color-border
+      border-left: 1px solid $color-border;
     }
   }
   &--live {
