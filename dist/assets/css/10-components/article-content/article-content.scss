@@ -38,19 +38,18 @@
       margin: 12px 0 20px 0;
     }
   }
+}
 
-  & > ul {
-    // @extend used here to apply the DRY principle while coping with ezxml's missing classes for html elements
-    // tip: always be careful with @extend
-    @extend .text-list;
-    @extend .text-list--unordered;
-  }
+ul {
+  // @extend used here to apply the DRY principle while coping with ezxml's missing classes for html elements
+  // tip: always be careful with @extend
+  @extend .text-list;
+  @extend .text-list--unordered;
+}
 
-  & > ol {
-    // @extend used here to apply the DRY principle while coping with ezxml's missing classes for html elements
-    // tip: always be careful with @extend
-    @extend .text-list;
-    @extend .text-list--ordered;
-  }
-
+ol {
+  // @extend used here to apply the DRY principle while coping with ezxml's missing classes for html elements
+  // tip: always be careful with @extend
+  @extend .text-list;
+  @extend .text-list--ordered;
 }
