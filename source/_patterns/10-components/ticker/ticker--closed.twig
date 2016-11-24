@@ -1,10 +1,12 @@
-<h2 class="ticker__title">Ticker closed</h2>
-{% include 'elements-text-list--unordered' %}
-<p>Infos zum Ticker</p>
-<p class="ticker__info">Der Ticker ist abgeschlossen</p>
-<div><!-- div to override styling :( -->
-    <ul class="ticker ticker--closed">
-        <li class="ticker-item"><span class="ticker-item__time">10:13</span><h3 class="ticker-item__title">Titel 1</h3></li>
-        <li class="ticker-item"><span class="ticker-item__time">10:04</span><h3 class="ticker-item__title">Titel 2</h3>{% include 'components-audio' %}</li>
-    </ul>
+<div class="ticker__wrapper">
+    <h2 class="ticker__title">Ticker closed</h2>
+    {% include 'elements-text-list--unordered' %}
+    <p>Infos zum Ticker</p>
+    <p class="ticker__info">Der Ticker ist abgeschlossen</p>
+    <div><!-- div to override styling :( -->
+        <ul class="ticker ticker--closed">
+            <li class="ticker-item"><span class="ticker-item__time">10:13</span><h3 class="ticker-item__title">Titel 1</h3></li>
+            <li class="ticker-item"><span class="ticker-item__time">10:04</span><h3 class="ticker-item__title">Titel 2</h3>{% include 'components-audio' %}</li>
+        </ul>
+    </div>
 </div>
