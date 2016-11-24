@@ -1,4 +1,10 @@
 .ticker {
+  &__wrapper {
+    padding: 0 16px;
+    ul {
+      padding: 0;
+    }
+  }
   margin-top: 30px;
   margin-bottom: 24px;
   padding: 0 20px;
@@ -53,35 +59,33 @@
       background-color: #fff;
       border: 1px solid $color-border;
       border-radius: 50%;
-      // z-index: 1;
     }
     &:last-of-type { // no border for the last element
       border: 0;
       margin-left: 1px;
     }
+    p {
+      margin-top: 0;
+    }
     .article-audio, .article-video, > .image-figure, .table-block { // audios, images
       left: 0;
-      margin: 10px -48px 12px -49px;
       border: 5px solid #fff;
       border-width: 5px 0;
       box-shadow: 0 0 10px 10px #fff; // like gradient
-      // position: relative;
-      // z-index: 1;
-      // .image-figure { // videos
-        // margin: 0;
-        // border: 0;
-        // &:after { background: none; }
-      // }
+      @include smartphone {
+        margin: 10px -44px 12px -45px;
+      }
     }
     &__time {
       font: 14px/20px $font-regular;
       letter-spacing: .5px;
       display: block;
+      margin-bottom: 4px;
     }
     &__title {
       font: 18px/28px $font-medium;
       letter-spacing: .5px;
-      margin: 6px 0;
+      margin: 8px 0;
     }
   }
   &__title {

@@ -1,8 +1,10 @@
-<h2 class="ticker__title">Ticker planned</h2>
-{{ ticker_text|raw }}
-<p class="ticker__info">Der Ticker startet in 60 min</p>
-<div><!-- div to override styling :( -->
-    <ul class="ticker ticker--scheduled">
-        <li class="ticker-item">{{ ticker.ticker_heading('10:13', 1) }}</li>
-    </ul>
+<div class="ticker__wrapper">
+    <h2 class="ticker__title">Ticker planned</h2>
+    {{ ticker_text|raw }}
+    <p class="ticker__info">Der Ticker startet in 60 min</p>
+    <div><!-- div to override styling :( -->
+        <ul class="ticker ticker--scheduled">
+            <li class="ticker-item">{{ ticker.ticker_heading('10:13', 1) }}</li>
+        </ul>
+    </div>
 </div>
