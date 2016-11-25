@@ -19,6 +19,13 @@
 
 .linkbox__list {
   border-top: 1px solid #ebebe5;
+  > li {
+    margin: 0;
+    padding: 0;
+    &:before {
+      content: none;
+    }
+  }
 
   @include smartphone {
     margin: 0 -8px;
