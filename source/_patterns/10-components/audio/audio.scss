@@ -49,7 +49,7 @@
   }
   // cropped and centered image
   .image-figure__image {
-    width: 112px;
+    // width: 112px;
     height: 112px;
     object-fit: cover;
     @include smartphone {
