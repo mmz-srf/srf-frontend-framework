@@ -50,7 +50,10 @@
   &-item { // general
     position: relative;
     margin: -3px 0; // adjustment for last element (without border)
-    padding: 0 20px 30px 20px;
+    padding: 0 32px 30px;
+    @include smartphone {
+      padding: 0 16px 30px;
+    }
     border-left: 1px solid $color-border;
     &:before { // grey circle
       content: "";
@@ -75,19 +78,30 @@
       border: 5px solid #fff;
       border-width: 5px 0;
       box-shadow: 0 0 10px 10px #fff; // like gradient
+      margin-top: 24px;
       @include smartphone {
         margin: 10px -50px 12px -51px;
       }
+    }
+    .content-header {
+      padding: 0;
     }
     &__time {
       font: 14px/20px $font-regular;
       letter-spacing: .5px;
       display: block;
-      margin-bottom: 4px;
+      margin-bottom: 12px;
+      @include smartphone {
+        margin-bottom: 8px;
+      }
     }
     &__title {
-      font: 18px/28px $font-medium;
-      letter-spacing: .5px;
+      font: 20px/30px $font-medium;
+      letter-spacing: .3px;
+      @include smartphone {
+        font-size: 18px;
+        letter-spacing: .5px;
+      }
       margin: 8px 0;
     }
   }
