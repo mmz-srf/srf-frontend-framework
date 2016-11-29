@@ -1,1 +1,72 @@
-{"categoryField":"category","fontFamily":"Arial","color":"#555","balloon":{"borderAlpha":"0","fillAlpha":"0.8","shadowColor":"transparent"},"panEventsEnabled":false,"numberFormatter":{"precision":-1,"decimalSeparator":".","thousandsSeparator":" "},"addClassNames":true,"type":"pie","colorField":"color","valueField":"value_0","titleField":"category","fontSize":12,"depth3D":10,"angle":8,"startDuration":0,"pullOutOnlyOne":true,"balloonText":"[[title]]: stk [[value]] ([[percents]]%)","dataProvider":[{"category":"Peperoni","value_0":"6","color":"#FF5500"},{"category":"Schoggi","value_0":"12","color":"#990066"},{"category":"Gummib\u00e4rli","value_0":"85","color":"#95E300"},{"category":"Popchorn","value_0":"30","color":"#00BBFF"}],"radius":130,"labelRadius":20,"maxLabelWidth":160,"pullOutRadius":0,"labelText":"[[title]]: stk [[value]]"}
+{
+
+  "categoryField": "category",
+  "fontFamily": "Arial",
+  "color": "#555",
+  "balloon": {
+    "borderAlpha": "0",
+    "fillAlpha": "0.8",
+    "shadowColor": "transparent",
+    "fadeOutDuration": 1.5
+  },
+  "balloonText": "[[title]]: stk [[value]] ([[percents]]%)",
+  "hideBalloonTime": 1.5,
+  "panEventsEnabled": false,
+  "numberFormatter": {
+    "precision": -1,
+    "decimalSeparator": ".",
+    "thousandsSeparator": " "
+  },
+  "addClassNames": true,
+  "type": "pie",
+  "colorField": "color",
+  "valueField": "value_0",
+  "titleField": "category",
+  "fontSize": 12,
+  "depth3D": 10,
+  "angle": 8,
+  "startDuration": 0,
+  "pullOutOnlyOne": true,
+  "dataProvider": [
+    {
+      "category": "Peperoni",
+      "value_0": "6",
+      "color": "#FF5500"
+    },
+    {
+      "category": "Schoggi",
+      "value_0": "12",
+      "color": "#990066"
+    },
+    {
+      "category": "Gummibärli",
+      "value_0": "85",
+      "color": "#95E300"
+    },
+    {
+      "category": "Popchorn",
+      "value_0": "30",
+      "color": "#00BBFF"
+    }
+  ],
+  "labelText": "",
+  "title": {
+    "bold": true
+  },
+  "legend": {
+    "marginLeft": 10,
+    "marginRight": 10,
+    "autoMargins": false,
+    "spacing": 20,
+    "verticalGap": 15,
+    "color": "#555",
+    "textClickEnabled": true,
+    "rollOverColor": "#555",
+    "valueText": "stk [[value]]"
+  },
+  "chartCursor": {
+    "leaveAfterTouch": true,
+    "leaveCursor": true
+  }
+
+}
