@@ -75,12 +75,12 @@
     }
     .article-audio, .article-video, > .image-figure, .table-block { // audios, images
       left: 0;
-      border: 5px solid #fff;
-      border-width: 5px 0;
-      box-shadow: 0 0 10px 10px #fff; // like gradient
       margin-top: 24px;
       @include smartphone {
         margin: 10px -50px 12px -51px;
+        border: 5px solid #fff;
+        border-width: 5px 0;
+        box-shadow: 0 0 10px 10px #fff; // like gradient
       }
     }
     // html embeds special :(
@@ -95,7 +95,7 @@
     }
     .block-link {
       padding-left: 0;
-      background-position: 100% center; // right -4px center; // all the way to the right
+      background-position: 100% center;
     }
     .content-header {
       padding: 0;
