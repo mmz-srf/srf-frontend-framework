@@ -83,8 +83,19 @@
         margin: 10px -50px 12px -51px;
       }
     }
+    // html embeds special :(
     .linkbox {
+      width: 100%;
+      left: 0;
+      margin: 32px 0;
       background-color: #fff;
+      @include smartphone {
+        margin: 23px 0;
+      }
+    }
+    .block-link {
+      padding-left: 0;
+      background-position: 100% center; // right -4px center; // all the way to the right
     }
     .content-header {
       padding: 0;
