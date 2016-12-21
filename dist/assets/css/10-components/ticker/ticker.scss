@@ -97,6 +97,19 @@
       padding-left: 0;
       background-position: 100% center;
     }
+    .embed-inline {
+      @include smartphone {
+        margin: 24px -46px 10px -47px;
+        background-color: #f5f5f2; // or #fff ??
+        border: 5px solid #fff;
+        border-width: 5px 0;
+        box-shadow: 0 0 10px 10px #fff; // like gradient
+      }
+      @include tablet-up {
+        justify-content: auto;
+        margin: 24px 0 10px;
+      }
+    }
     .content-header {
       padding: 0;
     }
