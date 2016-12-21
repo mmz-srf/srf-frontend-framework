@@ -2,28 +2,25 @@
 .audio-gallery { // ol
   margin: 32px 0 24px;
   @include smartphone { margin: 24px -8px 20px; }
-  counter-reset: item;
-  padding-left: 0;
   &__item { // li
-    position: relative;
-    margin-bottom: 2px;
-    list-style: none;
+    margin: 0 0 2px;
+    padding: 0;
+    @include smartphone { margin: 0 -16px 2px; }
     &:last-of-type {
       margin-bottom: 0;
     }
-    @include tablet-up {
-      &:before { // numbering
-        position: absolute;
-        left: 16px;
-        top: 33px;
-        // top: 50%; // should the nr. remain in the middle of the li ??
-        // transform: translate(0px, -50%);
-        color: #555;
-        font: 16px/20px $font-medium;
-        content: counter(item) ".";
-        counter-increment: item;
+    &:before { // numbering
+      left: 16px;
+      top: 33px;
+      // top: 50%; // should the nr. remain in the middle of the li ??
+      // transform: translate(0px, -50%);
+      color: #555;
+      font: 16px/20px $font-medium;
+      @include smartphone {
+        content: none;
       }
     }
+
   }
 
   .article-audio {

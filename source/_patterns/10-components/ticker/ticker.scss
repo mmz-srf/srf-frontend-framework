@@ -4,6 +4,9 @@
     ul {
       padding: 0;
     }
+    .ticker {
+      padding: 0 6px;
+    }
   }
   margin-top: 30px;
   margin-bottom: 24px;
@@ -47,7 +50,10 @@
   &-item { // general
     position: relative;
     margin: -3px 0; // adjustment for last element (without border)
-    padding: 0 20px 30px 20px;
+    padding: 0 32px 30px;
+    @include smartphone {
+      padding: 0 16px 30px;
+    }
     border-left: 1px solid $color-border;
     &:before { // grey circle
       content: "";
@@ -69,23 +75,61 @@
     }
     .article-audio, .article-video, > .image-figure, .table-block { // audios, images
       left: 0;
-      border: 5px solid #fff;
-      border-width: 5px 0;
-      box-shadow: 0 0 10px 10px #fff; // like gradient
+      margin-top: 24px;
       @include smartphone {
-        margin: 10px -44px 12px -45px;
+        margin: 10px -50px 12px -51px;
+        border: 5px solid #fff;
+        border-width: 5px 0;
+        box-shadow: 0 0 10px 10px #fff; // like gradient
       }
+    }
+    // html embeds special :(
+    .linkbox {
+      width: 100%;
+      left: 0;
+      margin: 32px 0;
+      background-color: #fff;
+      @include smartphone {
+        margin: 23px 0;
+      }
+    }
+    .block-link {
+      padding-left: 0;
+      background-position: 100% center;
+    }
+    .embed-inline {
+      @include smartphone {
+        margin: 24px -46px 10px -47px;
+        background-color: #f5f5f2; // or #fff ??
+        border: 5px solid #fff;
+        border-width: 5px 0;
+        box-shadow: 0 0 10px 10px #fff; // like gradient
+      }
+      @include tablet-up {
+        justify-content: auto;
+        margin: 24px 0 10px;
+      }
+    }
+    .content-header {
+      padding: 0;
     }
     &__time {
       font: 14px/20px $font-regular;
       letter-spacing: .5px;
       display: block;
-      margin-bottom: 4px;
+      margin-bottom: 12px;
+      @include smartphone {
+        margin-bottom: 8px;
+      }
     }
     &__title {
-      font: 18px/28px $font-medium;
-      letter-spacing: .5px;
-      margin: 8px 0;
+      font: 20px/30px $font-medium;
+      letter-spacing: .3px;
+      @include smartphone {
+        font-size: 18px;
+        letter-spacing: .5px;
+      }
+      margin: 8px 0 0;
     }
   }
   &__title {

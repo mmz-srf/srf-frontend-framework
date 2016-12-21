@@ -5,8 +5,15 @@
     <p class="ticker__info">Der Ticker ist abgeschlossen</p>
     <div><!-- div to override styling :( -->
         <ul class="ticker ticker--closed">
-            <li class="ticker-item"><span class="ticker-item__time">10:13</span><h3 class="ticker-item__title">Titel 1</h3></li>
-            <li class="ticker-item"><span class="ticker-item__time">10:04</span><h3 class="ticker-item__title">Titel 2</h3>{% include 'components-audio' %}</li>
+            <li class="ticker-item"><span class="ticker-item__time">10:23</span><h3 class="ticker-item__title">Titel 1</h3></li>
+            <li class="ticker-item"><span class="ticker-item__time">10:21</span><h3 class="ticker-item__title">Titel 2</h3>
+                <div class="linkbox">
+                    <ul class="linkbox__list">
+                        <li>{% include 'elements-block-link' with {'styleModifier': 'block-link--internal'} %}</li>
+                    </ul>
+                </div>
+            </li>
+            <li class="ticker-item"><span class="ticker-item__time">10:04</span><h3 class="ticker-item__title">Titel 3</h3>{% include 'components-audio' %}</li>
         </ul>
     </div>
 </div>
