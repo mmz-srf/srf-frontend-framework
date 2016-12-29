@@ -33,8 +33,6 @@
 
 .textbox__content {
 
-  @include link-text-inline;
-
   & > p {
     @include article-text-padding;
     margin: 12px 0 24px 0;
