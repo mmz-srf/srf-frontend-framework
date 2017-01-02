@@ -92,15 +92,18 @@
       @include smartphone {
         margin: 23px 0;
       }
+      &__title {
+        padding: 0;
+      }
     }
     .block-link {
-      padding-left: 0;
-      background-position: 100% center;
+      padding-left: 8px;
+      background-position: right 8px center;
     }
     .embed-inline {
       @include smartphone {
         margin: 24px -46px 10px -47px;
-        background-color: #f5f5f2; // or #fff ??
+        background-color: #fff;
         border: 5px solid #fff;
         border-width: 5px 0;
         box-shadow: 0 0 10px 10px #fff; // like gradient
