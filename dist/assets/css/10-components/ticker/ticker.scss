@@ -109,7 +109,7 @@
         box-shadow: 0 0 10px 10px #fff; // like gradient
       }
       @include tablet-up {
-        justify-content: auto;
+        justify-content: flex-start;
         margin: 24px 0 10px;
       }
     }
