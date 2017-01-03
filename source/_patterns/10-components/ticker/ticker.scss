@@ -88,12 +88,16 @@
       width: 100%;
       left: 0;
       margin: 32px 0;
+      padding: 0;
       background-color: #fff;
       @include smartphone {
         margin: 23px 0;
       }
       &__title {
         padding: 0;
+      }
+      &__list {
+        margin: 0;
       }
     }
     .block-link {
