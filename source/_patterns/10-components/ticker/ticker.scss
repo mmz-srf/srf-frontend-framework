@@ -1,12 +1,10 @@
 .ticker {
   &__wrapper {
     padding: 0 16px;
-    ul {
+    & > ul {
       padding: 0;
     }
-    .ticker {
-      padding: 0 6px;
-    }
+    /* .ticker { padding: 0 6px; } */
   }
   margin-top: 30px;
   margin-bottom: 24px;

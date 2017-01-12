@@ -21,7 +21,7 @@
 }
 
 .text-list--unordered {
-  li:before {
+  & > li:before {
     position: absolute;
     left: 0;
     top: 11px;
