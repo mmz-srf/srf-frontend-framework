@@ -1,10 +1,10 @@
 .ticker {
+  padding: 0 6px;
   &__wrapper {
     padding: 0 16px;
     & > ul {
       padding: 0;
     }
-    /* .ticker { padding: 0 6px; } */
   }
   margin-top: 30px;
   margin-bottom: 24px;
@@ -71,17 +71,25 @@
     p {
       margin-top: 0;
     }
-    .article-audio, .article-video, > .image-figure, .table-block { // audios, images
+    .article-audio, .article-video, > .image-figure,
+    .table-block, .embed-inline {
       left: 0;
       margin-top: 24px;
       @include smartphone {
-        margin: 10px -50px 12px -51px;
+        margin: 10px -40px 12px -41px;
         border: 5px solid #fff;
         border-width: 5px 0;
         box-shadow: 0 0 10px 10px #fff; // like gradient
       }
     }
     // html embeds special :(
+    .embed-inline {
+      background-color: #fff;
+      @include tablet-up {
+        justify-content: flex-start;
+        margin: 24px 0 10px;
+      }
+    }
     .linkbox {
       width: 100%;
       left: 0;
@@ -101,19 +109,6 @@
     .block-link {
       padding-left: 8px;
       background-position: right 8px center;
-    }
-    .embed-inline {
-      @include smartphone {
-        margin: 24px -46px 10px -47px;
-        background-color: #fff;
-        border: 5px solid #fff;
-        border-width: 5px 0;
-        box-shadow: 0 0 10px 10px #fff; // like gradient
-      }
-      @include tablet-up {
-        justify-content: flex-start;
-        margin: 24px 0 10px;
-      }
     }
     .content-header {
       padding: 0;
