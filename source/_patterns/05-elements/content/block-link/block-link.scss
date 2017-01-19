@@ -22,6 +22,10 @@
   &:active {
     background-color: $color-link-bg-active;
   }
+  &:hover, &:active {
+    border-bottom: 1px solid $color-separator;
+    color: $color-link-default;
+  }
 }
 
 .block-link--external {

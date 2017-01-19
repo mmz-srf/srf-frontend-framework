@@ -36,8 +36,8 @@
 
 @mixin link-text-inline {
   a {
-    border-bottom: 1px solid $color-link-default;
     color: $color-link-default;
+    border-bottom: 1px solid $color-link-default;
 
     &:hover {
       color: $color-link-hover;

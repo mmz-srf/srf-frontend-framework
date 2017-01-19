@@ -14,13 +14,14 @@
   &__link {
     position: relative;
     display: block;
+    border-bottom: 0 !important; // temporary (videos are about to change slightly)!
 
     &-meta {
       position: absolute;
       top: 55%;
       left: 50%;
+      width: 68px;
       transform: translate(-50%, -50%);
-      width: 60px;
       text-align: center;
       z-index: 1;
     }
@@ -34,5 +35,13 @@
   .image-figure {
     margin-top: 0;
     margin-bottom: 0;
+    &__image-wrapper:before {
+      content: "";
+      position: absolute;
+      background-color: rgba(0, 0, 0, 0.2);
+      height: 100%;
+      width: 100%;
+
+    }
   }
 }
