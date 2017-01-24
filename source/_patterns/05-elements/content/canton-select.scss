@@ -6,6 +6,7 @@
   }
   height: 48px;
   width: 100%;
+  max-width: 300px;
   color: #4e4d47;
   font: 16px/20px $font-regular;
   letter-spacing: 1px;
@@ -48,10 +49,10 @@
     border-width: 8px 9px 0;
   }
   &--active {
-    border-width: 0 12px 12px;
+    border-width: 0 11px 10px;
     &:after {
       top: 2px;
-      border-width: 0 10px 10px;
+      border-width: 0 9px 8px;
     }
   }
 }

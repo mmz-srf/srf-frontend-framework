@@ -5,9 +5,11 @@
   position: relative;
 }
 .chmap {
-  width: 100%;
   height: 100%;
-  margin: -10px 0 -20px;
+  width: 100%;
+  max-width: 442px;
+  margin: -10px auto -20px;
+  display: block;
 }
 .chmap title { display:none; }
 
@@ -74,6 +76,7 @@
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.36);
   border-radius: 2px;
   white-space: nowrap;
+  // aufklapp dreieckli
   &:after {
     content: "";
     position: absolute;
@@ -84,6 +87,7 @@
     border-width: 20px 15px 0 0;
   }
 }
+// umgekehrtes aufklapp dreieckli
 .chmap-tooltip--right:after {
   border-color: #fafaf8 transparent;
   border-width: 20px 0 0 15px;
@@ -92,13 +96,8 @@
 }
 
 .chmap-tooltip {
-  position: relative;
-  top: auto;
   left: auto;
-  width: 100%;
-  padding: 10px;
-  display: inline-block;
-  box-sizing: border-box;
+  padding: 0 16px;
   pointer-events: none;
 }
 
