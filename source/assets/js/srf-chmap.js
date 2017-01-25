@@ -38,7 +38,7 @@ var chmapController = function() {
     this.initObservers = function() {
 
         // tooltips for cantons
-        $('.chmap--desktop').on('mouseenter', 'a', function( event ) {
+        $('.chmap--desktop').on('mousemove', 'a', function( event ) {
             $(':focus').focusout();
             var pageY = event.pageY - 50,
                 pageX = event.pageX + 0;
@@ -51,7 +51,7 @@ var chmapController = function() {
             // if not there yet: create it
             if ($tooltip.length === 0) {
                 // TODO: check what happens if there are two maps!
-                $("#map-" + mapId).append('<div id="chmap-tooltip" class="chmap-tooltip--flyout"></div>');
+                $("#map-" + mapId).append('<div id="chmap-tooltip" class="chmap-tooltip"></div>');
                 $tooltip = $("#chmap-tooltip"); // :(
             }
 
@@ -152,20 +152,24 @@ var chmapController = function() {
             // select menu
             $(".menu option[value='" + cantonId + "']").prop('selected', true);
 
-            var $tooltip = $("#chmap-tooltip-" + this.id);
+            var $tooltip = $("#infowindow-" + this.id);
             if ($tooltip.find("p").length === 0) {
-                $tooltip.append("<table><tr><td><img alt=\"\"/></td><td><p></p></td></tr></table>");
+                $tooltip.append("<img class=\"chmap-infowindow__img\" alt=\"\"/><p class=\"chmap-infowindow__text\"></p>");
             }
-            $tooltip.find("img").attr("src", "").addClass("hide");
+            $tooltip.find("img").attr("src", "").addClass("chmap-tooltip__img--hide");
             if (canton.img !== "") {
-                $tooltip.find("img").attr("src", canton.img).removeClass("hide");
+                $tooltip.find("img").attr("src", canton.img).removeClass("chmap-tooltip__img--hide");
             }
-            $tooltip.find("p").html("<span class=\"h-offscreen\">" + canton.name + " (" + canton.legend + ")</span>" + canton.txt);
+            var legend = "";
+            if (canton.legend !== "") {
+                legend = " (" + canton.legend + ")";
+            }
+            $tooltip.find("p").html("<span class=\"h-offscreen\">" + canton.name + legend + "</span>" + canton.txt);
             $tooltip.show();
         };
 
         this.resetSelectedCanton = function(mapId) {
-            var $tooltip = $("#chmap-tooltip-" + mapId);
+            var $tooltip = $("#infowindow-" + mapId);
             $tooltip.html("");
         };
 
