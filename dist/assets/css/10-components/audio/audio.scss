@@ -12,9 +12,6 @@
     margin: 24px -8px 20px;
     &:not(.played) { // very ugly! (handling of touch states)
       background-color: $color-bg-caption;
-      .article-audio__play-icon {
-        background-image: none;
-      }
     }
   }
 
