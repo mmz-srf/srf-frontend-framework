@@ -1,6 +1,9 @@
-<figure class="article-video">
-    <a class="article-video__link" href="{{ video.player_url }}/srf/popup?urn={{ video.urn }}&autoplay=true">
+{% if styleModifier is empty %}
+    {% set styleModifier = 'imageCaptionStyle' %}
+{% endif %}
 
+<a class="article-video__link" href="{{ video.player_url }}/srf/popup?urn={{ video.urn }}&autoplay=true">
+<figure class="article-video">
         {#<img alt="Video «{{ video.title }}» abspielen"#}
              {#sizes="100vw"#}
              {#srcset="../../assets/demo/img/bild0/bild_s8.jpg 640w,#}
@@ -10,20 +13,16 @@
                      {#../../assets/demo/img/bild0/bild_mobile_max.jpg 320w"#}
              {#src="../../assets/demo/img/bild0/bild_s8.jpg">#}
 
-        {% include 'components-video-image-figure' with {
-                        'styleModifier': imageCaptionStyle,
-                        'images': [images[2]]
-        } %}
-
-        <div class="article-video__link-meta">
-            <img class="article-video__play-icon" src="../../assets/img/video-play.svg" width="72" height="72" alt="">
-            <span class="article-video__length">{{ video.length }}<span style="display:none;">min</span></span>
-        </div>
-    </a>
+    {% include 'components-video-image-figure' with {
+        'styleModifier': styleModifier,
+        'images': [images[2]]
+        }
+    %}
 
     <figcaption class="media-caption media-caption--video">
-        <div class="media-caption__title">{{ video.title }}</div>
+        <div class="media-caption__title media-caption__title--video">{{ video.title }}</div>
         <div class="media-caption__source media-caption__source--video">Aus <strong>{{ video.show.title }}</strong> vom {{ video.show.date|date("d.m.Y")  }}</div>
     </figcaption>
 
 </figure>
+</a>
