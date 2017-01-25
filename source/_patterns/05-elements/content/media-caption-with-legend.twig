@@ -1,0 +1,27 @@
+<figcaption class="media-caption {{ styleModifier }}">
+    <div class="media-caption__content media-caption__content--chmap">
+        <span class="media-caption__title">
+            {{ chmap.title }}
+        </span>
+        <span class="media-caption__description">
+            {{ chmap.description }}
+        </span>
+        <span class="media-caption__source">
+            {% if chmap.source_link is defined %}
+            <a class="media-caption__source-link" href="{{ chmap.source_link }}" target="_blank">
+            {% endif %}
+                {{ chmap.source }}
+            {% if chmap.source_link is defined %}
+            </a>
+            {% endif %}
+        </span>
+    </div>
+    <ul class="media-caption__legend">
+        {% for legend in chmap.legend %}
+            <li class="media-caption__legend-element">
+                <div class="media-caption__legend-box" style="background-color:{{ legend.color }};"></div>
+                <p class="media-caption__legend-description">{{ legend.description }}</p>
+            </li>
+        {% endfor %}
+    </ul>
+</figcaption>

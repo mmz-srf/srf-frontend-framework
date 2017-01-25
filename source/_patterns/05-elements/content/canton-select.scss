@@ -1,12 +1,12 @@
 .menu {
   &__wrapper {
     position: relative;
+    width: 100%;
+    max-width: 332px;
     padding: 16px;
-    border-top: 2px solid #fff;
   }
   height: 48px;
   width: 100%;
-  max-width: 300px;
   color: #4e4d47;
   font: 16px/20px $font-regular;
   letter-spacing: 1px;
