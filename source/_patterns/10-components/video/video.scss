@@ -4,6 +4,28 @@
     margin: 24px -8px 20px;
   }
 
+  &__wrapper {
+    position: relative;
+    float: left;
+
+    @include smartphone {
+      width: 80px;
+      height: 80px;
+      margin: 16px 0 16px 16px;
+    }
+    &:before {
+      content: "";
+      position: absolute;
+      background-color: rgba(0, 0, 0, 0.2);
+      height: 112px;
+      width: 112px;
+      @include smartphone {
+        width: 80px;
+        height: 80px;
+      }
+    }
+  }
+
   &:hover, &:active {
     .article-video__play-icon {
       background-image: url(../../assets/img/play-active.svg);
@@ -32,6 +54,16 @@
     font: 12px/18px $font-medium;
     padding: 2px 8px;
   }
+  // cropped and centered image
+  .image-figure__image {
+    width: 112px;
+    height: 112px;
+    object-fit: cover;
+    @include smartphone {
+      width: 80px;
+      height: 80px;
+    }
+  }
   .image-figure {
     margin-top: 0;
     margin-bottom: 0;
@@ -42,6 +74,17 @@
       height: 100%;
       width: 100%;
 
+    }
+  }
+  &__play-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 68px;
+    @include smartphone {
+      width: 46px;
     }
   }
 }

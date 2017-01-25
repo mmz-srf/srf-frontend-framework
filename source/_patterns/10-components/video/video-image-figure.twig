@@ -1,3 +1,5 @@
+{% if styleModifier == 'imageCaptionStyle' %}
+
 <figure class="image-figure {{ styleModifier }}">
     <div class="image-figure__image-wrapper">
         <img class="image-figure__image"
@@ -15,3 +17,21 @@
         {% endif %}
     </div>
 </figure>
+
+{% else %}
+
+<div class="article-video__wrapper">
+    <img class="image-figure__image"
+         alt="{{ images[0].caption.title }}"
+         title="{{ images[0].caption.title }}"
+         sizes="100vw"
+         srcset="
+            {% for source in images[0].sources %}
+                {{ source.src }} {{ source.width }}w,
+             {% endfor %}
+         "
+         src="{{ images[0].sources.s8.src }}">
+    <img class="article-video__play-icon" src="../../assets/img/video-play.svg" width="72" height="72" alt="">
+</div>
+
+{% endif %}
