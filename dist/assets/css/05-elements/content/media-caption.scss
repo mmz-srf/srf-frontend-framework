@@ -46,7 +46,34 @@
   }
 }
 
-.media-caption--audio, .media-caption--video {
+.media-caption--video {
+  display: table;
+  height: 112px;
+  padding: 12px 16px;
+  margin-left: 112px;
+  background-color: transparent;
+  @include smartphone {
+    margin-left: 96px;
+  }
+
+  .media-caption__title--video {
+    color: $color-text-default;
+    margin-bottom: 4px;
+  }
+
+  .media-caption__source--video {
+    display: table-row;
+    vertical-align: bottom;
+    height: 16px;
+    text-transform: none;
+    line-height: 16px;
+    strong {
+      color: $color-text-accentuation;
+    }
+  }
+}
+
+.media-caption--audio {
   display: table;
   height: 112px;
   padding: 12px 16px;
@@ -56,11 +83,11 @@
     margin-left: 96px;
   }
 }
-.media-caption__title--audio, .media-caption__title--video {
+.media-caption__title--audio {
   color: $color-text-default;
   margin-bottom: 4px;
 }
-.media-caption__source--audio, .media-caption__source--video {
+.media-caption__source--audio{
   display: table-row;
   vertical-align: bottom;
   height: 16px;
