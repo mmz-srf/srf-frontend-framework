@@ -1,8 +1,8 @@
 {
-
   "categoryField": "category",
   "fontFamily": "Arial",
   "color": "#555",
+  "hideCredits": true,
   "tabIndex": 0,
   "balloon": {
     "borderAlpha": "0",
@@ -70,5 +70,4 @@
     "leaveCursor": true,
     "leaveAfterTouch": true
   }
-
 }
