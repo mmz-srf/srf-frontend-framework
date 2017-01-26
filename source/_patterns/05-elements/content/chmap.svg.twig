@@ -1,18 +1,13 @@
 <svg class="chmap" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 304 228" aria-labelledby="title" width="624" height="468">
     <title>Schweizerkarte</title>
-    <defs>
-        <filter xmlns="http://www.w3.org/2000/svg" id="drop-shadow" x="-20%" y="-20%" width="200%" height="200%">
-            <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
-            <feOffset dy="5" dx="5" result="offsetblur"/>
-            <feFlood flood-color="rgba(0,0,0,1)" flood-opacity=".25"/>
-            <feComposite in2="offsetblur" operator="in"/>
-            <feMerge>
-                <feMergeNode/>
-                <feMergeNode in="SourceGraphic"/>
-            </feMerge>
-        </filter>
+		<defs>
+      <filter id="drop-shadow" x="-60%" y="-60%" width="220%" height="220%">
+        <feColorMatrix in="SourceGraphic" result="matrixOut" type="matrix" values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0"></feColorMatrix>
+        <feGaussianBlur in="matrixOut" result="blurOut" stdDeviation="2"></feGaussianBlur>
+        <feBlend in="SourceGraphic" in2="blurOut" mode="normal"></feBlend>
+      </filter>
     </defs>
-
+    <style>.chmap__location--shadow { filter: url(#drop-shadow); }</style>
     <g class="chmap__locations">
         <a xlink:href="#AG" aria-describedby="infowindow-ID" tabindex="1" role="link">
             <g id="AG" class="chmap__location">

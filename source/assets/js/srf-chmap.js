@@ -25,10 +25,9 @@ var chmapController = function() {
             $.ajax({
                 url: $(this).data('src'),
                 type: "GET",
-                dataType: "xml",
+                dataType: "json",
                 success: function(data) {
-                    var $canton = $(data).find("canton")
-                        , myMap = that.maps[mapId] = new Map(mapId, $canton);
+                    var myMap = that.maps[mapId] = new Map(mapId, data);
                     myMap.loadResults();
                 }
             });
@@ -129,9 +128,8 @@ var chmapController = function() {
         var reference = this;
         var canton = null;
 
-        Result.children().each(function () {
-            canton = $(this).attr("short");
-            reference.cantons[canton] = new Canton(reference.id, canton);
+        $($.parseJSON(JSON.stringify(Result))).each(function() {
+            reference.cantons[this.id] = new Canton(reference.id, this.id);
         });
 
         this.getCantonById = function(cantonId) {
@@ -175,17 +173,16 @@ var chmapController = function() {
 
         this.loadResults = function() { // colors
             var that = this;
-            this.result.children().each(function () {
-                var canton, element,
-                    shortName = $(this).attr("short");
-                if (that.cantons.hasOwnProperty(shortName)) {
-                    element = $(this);
-                    canton = that.cantons[shortName];
-                    canton.legend = element.find("legend").text();
-                    canton.txt = element.find("text_content").text();
-                    canton.img = element.find("canton_img").text();
-                    canton.name = $("#" + shortName).find("title").text(); // for rumantsch as well
-                    $("#" + shortName).attr("fill", $(this).attr("bgcolor"));
+            $($.parseJSON(JSON.stringify(this.result))).each(function() {
+                var canton, element;
+                if (that.cantons.hasOwnProperty(this.id)) {
+                    element = this;
+                    canton = that.cantons[this.id];
+                    canton.legend = element.legend;
+                    canton.txt = element.description;
+                    canton.img = element.image;
+                    canton.name = $("#" + this.id).find("title").text(); // for rumantsch as well
+                    $("#" + this.id).attr("fill", this.color);
                 }
             });
         };
