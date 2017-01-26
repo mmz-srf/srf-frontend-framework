@@ -1,9 +1,9 @@
 .related-list {
   color: $color-text-default;
-  margin: 24px 8px 32px;
+  margin: 24px 0 32px;
 
   @include tablet-up {
-    margin: 32px 8px 40px;
+    margin: 32px 0 40px;
   }
 
   ul {
@@ -12,11 +12,6 @@
     list-style: none;
     padding: 0;
     margin: 0;
-
-    @include tablet-up {
-      margin: 0 10px;
-    }
-
   }
   li::before {
     background: none;
@@ -25,6 +20,10 @@
   .article-audio, .article-video {
     background: none;
     margin: 0;
+  }
+
+  .article-audio__wrapper {
+    margin: 16px 0 13px 13px;
   }
 }
 
