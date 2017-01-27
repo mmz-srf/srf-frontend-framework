@@ -3,7 +3,7 @@
   margin: 24px -8px 32px;
 
   @include tablet-up {
-    margin: 32px 0 40px;
+    margin: 32px -8px 40px;
   }
 
   ul {
@@ -20,6 +20,32 @@
   .article-audio, .article-video {
     background: none;
     margin: 0;
+
+
+    &__wrapper {
+      width: 80px;
+      height: 80px;
+      margin: 16px 0 16px 16px;
+
+      &:before {
+        width: 80px;
+        height: 80px;
+      }
+    }
+
+    &__play-icon {
+      width: 46px;
+    }
+  }
+
+  .article-audio .image-figure__image,
+    .article-video .image-figure__image{
+    width: 80px;
+    height: 80px;
+  }
+
+  .media-caption--audio {
+    margin-left: 96px;
   }
 }
 
@@ -32,10 +58,6 @@
   margin: 0;
   padding: 10px 16px;
   text-transform: uppercase;
-
-  @include tablet-up {
-    font-size: 18px;
-  }
 }
 .related-item {
   border-bottom: 1px solid #ebebe5;

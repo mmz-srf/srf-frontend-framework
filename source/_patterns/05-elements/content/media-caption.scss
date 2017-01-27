@@ -50,11 +50,8 @@
   display: table;
   height: 112px;
   padding: 12px 16px;
-  margin-left: 112px;
+  margin-left: 96px;
   background-color: transparent;
-  @include smartphone {
-    margin-left: 96px;
-  }
 
   .media-caption__title--video {
     color: $color-text-default;
@@ -62,11 +59,7 @@
   }
 
   .media-caption__source--video {
-    display: table-row;
-    vertical-align: bottom;
-    height: 16px;
     text-transform: none;
-    line-height: 16px;
     strong {
       color: $color-text-accentuation;
     }
@@ -88,11 +81,7 @@
   margin-bottom: 4px;
 }
 .media-caption__source--audio{
-  display: table-row;
-  vertical-align: bottom;
-  height: 16px;
   text-transform: none;
-  line-height: 16px;
   strong {
     color: $color-text-accentuation;
   }
