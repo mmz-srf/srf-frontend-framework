@@ -18,11 +18,6 @@
     </div>
 </figure>
 
-<figcaption class="media-caption">
-    <div class="media-caption__title">{{ video.title }}</div>
-    <div class="media-caption__source media-caption__source--video">Aus <strong>{{ video.show.title }}</strong> vom {{ video.show.date|date("d.m.Y")  }}</div>
-</figcaption>
-
 {% else %}
 
 <div class="article-video__wrapper">
@@ -38,10 +33,5 @@
          src="{{ images[0].sources.s8.src }}">
     <img class="article-video__play-icon" src="../../assets/img/video-play.svg" width="72" height="72" alt="">
 </div>
-
-<figcaption class="media-caption media-caption--video">
-    <div class="media-caption__title media-caption__title--video">{{ video.title }}</div>
-    <div class="media-caption__source media-caption__source--video">Aus <strong>{{ video.show.title }}</strong> vom {{ video.show.date|date("d.m.Y")  }}</div>
-</figcaption>
 
 {% endif %}
