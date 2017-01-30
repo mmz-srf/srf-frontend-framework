@@ -1,0 +1,18 @@
+<figure class="srf-image-comparison-figure">
+    <div class="srf-image-comparison">
+        <img src="{{ images[0].sources.s12.src }}" class="srf-image-comparison-media" />
+        <div class="srf-image-comparison-after">
+            <img src="{{ images[1].sources.s12.src }}" class="srf-image-comparison-media srf-image-comparison-media--after" />
+        </div>
+    </div>
+
+    <figcaption class="srf-image-comparison-caption">
+        <span class="h-offscreen">Bildlegende</span>
+        {{ images[0].caption.title }}
+        <br/>
+        <span class="small-caps">
+            <span class="h-offscreen">Bildlegende</span>
+            {{ images[0].caption.description }}
+        </span>
+    </figcaption>
+</figure>
