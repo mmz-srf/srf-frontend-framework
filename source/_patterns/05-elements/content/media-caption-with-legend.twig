@@ -1,5 +1,5 @@
 <figcaption class="media-caption {{ styleModifier }}">
-    <div class="media-caption__content media-caption__content--chmap">
+    <div class="media-caption__content {{ styleModifierContent }}">
         <span class="media-caption__title">
             {{ chmap.title }}
         </span>
@@ -16,12 +16,5 @@
             {% endif %}
         </span>
     </div>
-    <ul class="media-caption__legend{% if chmap.legend|length > 4 %} media-caption__legend--two-col{% endif %}">
-        {% for legend in chmap.legend %}
-            <li class="media-caption__legend-element">
-                <div class="media-caption__legend-box" style="background-color:{{ legend.color }};"></div>
-                <p class="media-caption__legend-description">{{ legend.description }}</p>
-            </li>
-        {% endfor %}
-    </ul>
+    {% include 'elements-legend' %}
 </figcaption>
