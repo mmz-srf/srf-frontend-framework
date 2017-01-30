@@ -3,11 +3,7 @@ export function init() {
     var $compBox = $('.srf-image-comparison');
 
     $compBox.each(function () {
-        var $that = $(this),
-            $slider = $('<img src="../../assets/img/arrows/image_slider_arrows.png" class="srf-image-comparison-slider" />');
-        // add slider-element to this srf-image-comparison-element
-        $that.append($slider);
-
+        var $that = $(this)
 
         // run moveElementWithInput function on mouse- or touch-movement
         $that.on('mousemove touchstart touchmove', function (e) {
