@@ -10,8 +10,12 @@
   }
   // a:hover { cursor: default; }
   &__wrapper {
-    background-color: #f5f5f2;
     position: relative;
+    background-color: #f5f5f2;
+    margin: 32px 0 24px;
+    @include smartphone {
+      margin: 24px -8px 20px;
+    }
   }
   &__locations {
     fill: #d2d2d2; // initial bg
@@ -23,7 +27,6 @@
     &--shadow {
       stroke: rgb(34, 34, 34);
       filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=3, OffY=3, Color='#444')";
-      filter: url(#drop-shadow);
       -webkit-filter: drop-shadow(3px 3px 3px rgba(0,0,0,0.5));
       filter: drop-shadow(3px 3px 3px rgba(0,0,0,0.5));
       transition: fill 1s ease-in 0s;

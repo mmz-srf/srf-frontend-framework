@@ -1,0 +1,83 @@
+{
+  "categoryField": "category",
+  "fontFamily": "Arial",
+  "color": "#555",
+  "hideCredits": true,
+  "tabIndex": 0,
+  "balloon": {
+    "borderAlpha": "0",
+    "fillAlpha": "0.8",
+    "shadowColor": "transparent",
+    "fadeOutDuration": 1.5
+  },
+  "panEventsEnabled": false,
+  "numberFormatter": {
+    "precision": -1,
+    "decimalSeparator": ".",
+    "thousandsSeparator": " "
+  },
+  "addClassNames": true,
+  "type": "serial",
+  "fontSize": 12,
+  "graphs": [
+    {
+      "title": "",
+      "id": "chart_0",
+      "lineThickness": 3,
+      "lineColor": "#808080",
+      "valueField": "value_0",
+      "balloonText": "<b>[[value]]</b>"
+    }
+  ],
+  "chartCursor": {
+    "cursorColor": "#FFF",
+    "color": "#555",
+    "zoomable": false,
+    "oneBalloonOnly": true
+  },
+  "categoryAxis": {
+    "title": "",
+    "titleBold": false,
+    "gridPosition": "start",
+    "minHorizontalGap": 70,
+    "axisColor": "#FFF",
+    "gridAlpha": 0
+  },
+  "valueAxes": [
+    {
+      "title": "Anzahl",
+      "titleBold": false,
+      "gridColor": "#FFF",
+      "gridAlpha": 1,
+      "axisColor": "#FFF",
+      "minimum": 0,
+      "unit": "Äpfel",
+      "unitPosition": "left"
+    }
+  ],
+  "dataProvider": [
+    {
+      "category": "heute",
+      "value_0": "55",
+      "color": "#DCE1E6"
+    },
+    {
+      "category": "morgen ",
+      "value_0": "68",
+      "color": "#DCE1E6"
+    },
+    {
+      "category": "übermorgen",
+      "value_0": "21",
+      "color": "#DCE1E6"
+    },
+    {
+      "category": "über- übermorgen",
+      "value_0": "13"
+    },
+    {
+      "category": "über- über- übermorgen",
+      "value_0": "66"
+    }
+  ]
+}

@@ -39,11 +39,9 @@ var chmapController = function() {
         // tooltips for cantons
         $('.chmap--desktop').on('mousemove', 'a', function( event ) {
             $(':focus').focusout();
-            var pageY = event.pageY - 75,
-                pageX = event.pageX;
             var parentOffset = $('.chmap--desktop').parent().offset(),
             		pageY = event.pageY - parentOffset.top - 58,
-                pageX = event.pageX - parentOffset.left,
+                pageX = event.pageX - parentOffset.left + 0,
                 mapId = that.getCurrentMapId($(event.target)),
                 map = that.getMapById(mapId),
                 canton = map.getCantonById($(event.target).parent().attr("id")),
@@ -129,6 +127,7 @@ var chmapController = function() {
         this.result = Result;
         this.cantons = {};
         var reference = this;
+        var canton = null;
 
         $($.parseJSON(JSON.stringify(Result))).each(function() {
             reference.cantons[this.id] = new Canton(reference.id, this.id);
@@ -143,15 +142,14 @@ var chmapController = function() {
         // infowindow (beneath select menu)
         this.setSelectedCanton = function(cantonId) {
             var map = that.getMapById(this.id)
-                , canton = map.getCantonById(cantonId)
-                , $map = $("#map-" + this.id);
+                , canton = map.getCantonById(cantonId);
 
             // repaint chosen canton (on top)
             $("#selector-" + this.id).attr('xlink:href', "#" + cantonId);
-            $map.find(".chmap__location").removeClass("chmap__location--shadow");
-            $map.find("#" + cantonId).addClass("chmap__location--shadow");
+            $(".chmap__location").removeClass("chmap__location--shadow");
+            $("#" + cantonId).addClass("chmap__location--shadow");
             // select menu
-            $map.find(".menu option[value='" + cantonId + "']").prop('selected', true);
+            $(".menu option[value='" + cantonId + "']").prop('selected', true);
 
             var $tooltip = $("#infowindow-" + this.id);
             if ($tooltip.find("p").length === 0) {
@@ -172,21 +170,20 @@ var chmapController = function() {
         this.resetSelectedCanton = function(mapId) {
             var $tooltip = $("#infowindow-" + mapId);
             $tooltip.html("");
-            $("#map-" + this.id + " .chmap__location").removeClass("chmap__location--shadow");
         };
 
         this.loadResults = function() { // colors
             var that = this;
             $($.parseJSON(JSON.stringify(this.result))).each(function() {
-                var canton, $canton;
+                var canton, element;
                 if (that.cantons.hasOwnProperty(this.id)) {
+                    element = this;
                     canton = that.cantons[this.id];
-                    canton.legend = this.legend;
-                    canton.txt = this.description;
-                    canton.img = this.image;
-                    $canton = $("#" + this.id);
-                    canton.name = $canton.find("title").text(); // for rumantsch as well
-                    $canton.attr("fill", this.color);
+                    canton.legend = element.legend;
+                    canton.txt = element.description;
+                    canton.img = element.image;
+                    canton.name = $("#" + this.id).find("title").text(); // for rumantsch as well
+                    $("#" + this.id).attr("fill", this.color);
                 }
             });
         };
