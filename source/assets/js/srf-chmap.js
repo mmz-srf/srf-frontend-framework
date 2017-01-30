@@ -59,7 +59,7 @@ var chmapController = function() {
 
             // tooltip positioning
             var cssClass = "left";
-            if (pageX > $(window).width() / 2) {
+            if (pageX > $('.chmap--desktop').parent().width() / 2) {
                 cssClass = "right";
                 pageX = pageX - $tooltip.outerWidth();
             }
