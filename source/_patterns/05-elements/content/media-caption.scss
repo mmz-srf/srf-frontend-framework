@@ -55,7 +55,7 @@
 
   .media-caption__title--video {
     color: $color-text-default;
-    margin-bottom: 8px;
+    margin-bottom: 4px;
   }
 
   .media-caption__source--video {
@@ -78,7 +78,7 @@
 }
 .media-caption__title--audio {
   color: $color-text-default;
-  margin-bottom: 8px;
+  margin-bottom: 4px;
 }
 .media-caption__source--audio{
   text-transform: none;
@@ -103,6 +103,8 @@
 }
 
 .media-caption__source--video {
+  margin-bottom: 4px;
+  margin-top: 4px;
   text-transform: none;
   strong {
     color: $color-text-accentuation;
