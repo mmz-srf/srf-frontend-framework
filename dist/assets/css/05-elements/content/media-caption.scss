@@ -119,8 +119,10 @@
 .media-caption__legend { // ul
   padding: 0;
   margin: 16px -16px 0 0;
-  column-count: 2;
-  column-gap: 0;
+  &--two-col {
+    column-count: 2;
+    column-gap: 0;
+  }
   @include tablet-up {
     margin-top: 0;
     float: left;

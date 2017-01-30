@@ -16,7 +16,7 @@
             {% endif %}
         </span>
     </div>
-    <ul class="media-caption__legend">
+    <ul class="media-caption__legend{% if chmap.legend|length > 4 %} media-caption__legend--two-col{% endif %}">
         {% for legend in chmap.legend %}
             <li class="media-caption__legend-element">
                 <div class="media-caption__legend-box" style="background-color:{{ legend.color }};"></div>
