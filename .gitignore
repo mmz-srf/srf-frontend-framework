@@ -7,6 +7,5 @@ export/*
 source/styleguide/*
 vendor/*
 \public
-\dist
 srf-frontend-framework-styleguide.deb
 .DS_Store
