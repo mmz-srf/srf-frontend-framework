@@ -1,10 +1,11 @@
 .srf-image-comparison-figure {
   width: 100%;
+  max-width: 624px;
   font-family: $font-regular;
-  margin: 24px 0 20px;
+  margin: 24px auto 20px;
 
   @include tablet-up {
-    margin: 32px 0 24px;
+    margin: 32px auto 24px;
   }
 }
 
