@@ -1,9 +1,11 @@
 .menu {
   &__wrapper {
     position: relative;
-    width: 100%;
-    max-width: 332px;
     padding: 16px;
+    width: 100%;
+    @include tablet-up {
+      max-width: 332px;
+    }
   }
   height: 48px;
   width: 100%;
