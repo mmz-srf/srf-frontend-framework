@@ -67,13 +67,11 @@
 	  border-radius: 2px 2px 0 2px;
   }
   &--right:before { // umgekehrtes aufklapp dreieckli
-    border-color: #fafaf8 transparent;
     border-width: 18px 0 0 18px;
     right: 0;
     left: auto;
   }
   &--right:after { // triangle-hack so there are no overlapping shadows in Firefox & Chrome
-    border-color: #fafaf8 transparent;
     border-width: 24px 0 0 24px;
     right: 0;
     left: auto;
