@@ -1,5 +1,4 @@
 [
-
     {
         "id": "AG",
         "name": "Aargau",
@@ -9,7 +8,7 @@
         "description": "3'735 Beschäftigte",
         "color": "#003dff",
         "legend": "",
-        "image": "http://cms-fe-2.zrh.serv.test.srf.mpc/var/storage/images/auftritte/news/ch-flashkarten/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma/101874385-1-ger-DE/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma_chmap_image.jpg"
+        "image": "https://www.srf.ch/var/storage/images/auftritte/news/ch-flashkarten/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma/101874385-1-ger-DE/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma_chmap_image.jpg"
     },
     {
         "id": "AI",
@@ -20,7 +19,7 @@
         "description": "0 Beschäftigte",
         "color": "#00ffff",
         "legend": "",
-        "image": "http://cms-fe-2.zrh.serv.test.srf.mpc/var/storage/images/auftritte/news/ch-flashkarten/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma/101874390-1-ger-DE/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma_chmap_image.jpg"
+        "image": "https://www.srf.ch/var/storage/images/auftritte/news/ch-flashkarten/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma/101874390-1-ger-DE/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma_chmap_image.jpg"
     },
     {
         "id": "AR",
@@ -31,7 +30,7 @@
         "description": "0 Beschäftigte",
         "color": "#00ffff",
         "legend": "",
-        "image": "http://cms-fe-2.zrh.serv.test.srf.mpc/var/storage/images/auftritte/news/ch-flashkarten/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma/101874395-1-ger-DE/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma_chmap_image.jpg"
+        "image": "https://www.srf.ch/var/storage/images/auftritte/news/ch-flashkarten/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma/101874395-1-ger-DE/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma_chmap_image.jpg"
     },
     {
         "id": "BE",
@@ -42,7 +41,7 @@
         "description": "320 Beschäftigte",
         "color": "#0099ff",
         "legend": "",
-        "image": "http://cms-fe-2.zrh.serv.test.srf.mpc/var/storage/images/auftritte/news/ch-flashkarten/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma/101874400-1-ger-DE/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma_chmap_image.jpg"
+        "image": "https://www.srf.ch/var/storage/images/auftritte/news/ch-flashkarten/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma/101874400-1-ger-DE/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma_chmap_image.jpg"
     },
     {
         "id": "BL",
@@ -53,7 +52,7 @@
         "description": "1'883 Beschäftigte",
         "color": "#003dff",
         "legend": "",
-        "image": "http://cms-fe-2.zrh.serv.test.srf.mpc/var/storage/images/auftritte/news/ch-flashkarten/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma/101874405-1-ger-DE/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma_chmap_image.jpg"
+        "image": "https://www.srf.ch/var/storage/images/auftritte/news/ch-flashkarten/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma/101874405-1-ger-DE/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma_chmap_image.jpg"
     },
     {
         "id": "BS",
@@ -64,7 +63,7 @@
         "description": "18'933 Beschäftigte",
         "color": "#0000f5",
         "legend": "",
-        "image": "http://cms-fe-2.zrh.serv.test.srf.mpc/var/storage/images/auftritte/news/ch-flashkarten/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma/101874410-1-ger-DE/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma_chmap_image.jpg"
+        "image": "https://www.srf.ch/var/storage/images/auftritte/news/ch-flashkarten/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma/101874410-1-ger-DE/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma_chmap_image.jpg"
     },
     {
         "id": "FR",
@@ -75,7 +74,7 @@
         "description": "1'111 Beschäftigte",
         "color": "#003dff",
         "legend": "",
-        "image": "http://cms-fe-2.zrh.serv.test.srf.mpc/var/storage/images/auftritte/news/ch-flashkarten/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma/101874415-1-ger-DE/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma_chmap_image.jpg"
+        "image": "https://www.srf.ch/var/storage/images/auftritte/news/ch-flashkarten/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma/101874415-1-ger-DE/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma_chmap_image.jpg"
     },
     {
         "id": "GE",
@@ -86,7 +85,7 @@
         "description": "469 Beschäftigte",
         "color": "#0099ff",
         "legend": "",
-        "image": "http://cms-fe-2.zrh.serv.test.srf.mpc/var/storage/images/auftritte/news/ch-flashkarten/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma/101874420-1-ger-DE/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma_chmap_image.jpg"
+        "image": "https://www.srf.ch/var/storage/images/auftritte/news/ch-flashkarten/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma/101874420-1-ger-DE/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma_chmap_image.jpg"
     },
     {
         "id": "GL",
@@ -97,7 +96,7 @@
         "description": "0 Beschäftigte",
         "color": "#00ffff",
         "legend": "",
-        "image": "http://cms-fe-2.zrh.serv.test.srf.mpc/var/storage/images/auftritte/news/ch-flashkarten/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma/101874425-1-ger-DE/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma_chmap_image.jpg"
+        "image": "https://www.srf.ch/var/storage/images/auftritte/news/ch-flashkarten/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma/101874425-1-ger-DE/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma_chmap_image.jpg"
     },
     {
         "id": "GR",
@@ -108,7 +107,7 @@
         "description": "0 Beschäftigte",
         "color": "#00ffff",
         "legend": "",
-        "image": "http://cms-fe-2.zrh.serv.test.srf.mpc/var/storage/images/auftritte/news/ch-flashkarten/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma/101874430-1-ger-DE/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma_chmap_image.jpg"
+        "image": "https://www.srf.ch/var/storage/images/auftritte/news/ch-flashkarten/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma/101874430-1-ger-DE/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma_chmap_image.jpg"
     },
     {
         "id": "JU",
@@ -119,7 +118,7 @@
         "description": "0 Beschäftigte",
         "color": "#00ffff",
         "legend": "",
-        "image": "http://cms-fe-2.zrh.serv.test.srf.mpc/var/storage/images/auftritte/news/ch-flashkarten/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma/101874435-1-ger-DE/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma_chmap_image.jpg"
+        "image": "https://www.srf.ch/var/storage/images/auftritte/news/ch-flashkarten/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma/101874435-1-ger-DE/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma_chmap_image.jpg"
     },
     {
         "id": "LU",
@@ -130,7 +129,7 @@
         "description": "600 Beschäftigte",
         "color": "#0068ff",
         "legend": "",
-        "image": "http://cms-fe-2.zrh.serv.test.srf.mpc/var/storage/images/auftritte/news/ch-flashkarten/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma/101874440-1-ger-DE/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma_chmap_image.jpg"
+        "image": "https://www.srf.ch/var/storage/images/auftritte/news/ch-flashkarten/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma/101874440-1-ger-DE/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma_chmap_image.jpg"
     },
     {
         "id": "NE",
@@ -141,7 +140,7 @@
         "description": "631 Beschäftigte",
         "color": "#0068ff",
         "legend": "",
-        "image": "http://cms-fe-2.zrh.serv.test.srf.mpc/var/storage/images/auftritte/news/ch-flashkarten/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma/101874445-1-ger-DE/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma_chmap_image.jpg"
+        "image": "https://www.srf.ch/var/storage/images/auftritte/news/ch-flashkarten/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma/101874445-1-ger-DE/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma_chmap_image.jpg"
     },
     {
         "id": "NW",
@@ -152,7 +151,7 @@
         "description": "0 Beschäftigte",
         "color": "#00ffff",
         "legend": "",
-        "image": "http://cms-fe-2.zrh.serv.test.srf.mpc/var/storage/images/auftritte/news/ch-flashkarten/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma/101874450-1-ger-DE/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma_chmap_image.jpg"
+        "image": "https://www.srf.ch/var/storage/images/auftritte/news/ch-flashkarten/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma/101874450-1-ger-DE/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma_chmap_image.jpg"
     },
     {
         "id": "OW",
@@ -163,7 +162,7 @@
         "description": "0 Beschäftigte",
         "color": "#00ffff",
         "legend": "",
-        "image": "http://cms-fe-2.zrh.serv.test.srf.mpc/var/storage/images/auftritte/news/ch-flashkarten/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma/101874455-1-ger-DE/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma_chmap_image.jpg"
+        "image": "https://www.srf.ch/var/storage/images/auftritte/news/ch-flashkarten/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma/101874455-1-ger-DE/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma_chmap_image.jpg"
     },
     {
         "id": "SG",
@@ -174,7 +173,7 @@
         "description": "232 Beschäftigte",
         "color": "#0099ff",
         "legend": "",
-        "image": "http://cms-fe-2.zrh.serv.test.srf.mpc/var/storage/images/auftritte/news/ch-flashkarten/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma/101874460-1-ger-DE/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma_chmap_image.jpg"
+        "image": "https://www.srf.ch/var/storage/images/auftritte/news/ch-flashkarten/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma/101874460-1-ger-DE/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma_chmap_image.jpg"
     },
     {
         "id": "SH",
@@ -185,7 +184,7 @@
         "description": "1'604 Beschäftigte",
         "color": "#003dff",
         "legend": "",
-        "image": "http://cms-fe-2.zrh.serv.test.srf.mpc/var/storage/images/auftritte/news/ch-flashkarten/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma/101874465-1-ger-DE/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma_chmap_image.jpg"
+        "image": "https://www.srf.ch/var/storage/images/auftritte/news/ch-flashkarten/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma/101874465-1-ger-DE/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma_chmap_image.jpg"
     },
     {
         "id": "SO",
@@ -196,7 +195,7 @@
         "description": "0 Beschäftigte",
         "color": "#00ffff",
         "legend": "",
-        "image": "http://cms-fe-2.zrh.serv.test.srf.mpc/var/storage/images/auftritte/news/ch-flashkarten/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma/101874470-1-ger-DE/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma_chmap_image.jpg"
+        "image": "https://www.srf.ch/var/storage/images/auftritte/news/ch-flashkarten/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma/101874470-1-ger-DE/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma_chmap_image.jpg"
     },
     {
         "id": "SZ",
@@ -207,7 +206,7 @@
         "description": "0 Beschäftigte",
         "color": "#00ffff",
         "legend": "",
-        "image": "http://cms-fe-2.zrh.serv.test.srf.mpc/var/storage/images/auftritte/news/ch-flashkarten/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma/101874475-1-ger-DE/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma_chmap_image.jpg"
+        "image": "https://www.srf.ch/var/storage/images/auftritte/news/ch-flashkarten/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma/101874475-1-ger-DE/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma_chmap_image.jpg"
     },
     {
         "id": "TG",
@@ -218,7 +217,7 @@
         "description": "21 Beschäftigte",
         "color": "#00d9ff",
         "legend": "",
-        "image": "http://cms-fe-2.zrh.serv.test.srf.mpc/var/storage/images/auftritte/news/ch-flashkarten/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma/101874480-1-ger-DE/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma_chmap_image.jpg"
+        "image": "https://www.srf.ch/var/storage/images/auftritte/news/ch-flashkarten/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma/101874480-1-ger-DE/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma_chmap_image.jpg"
     },
     {
         "id": "TI",
@@ -229,7 +228,7 @@
         "description": "109 Beschäftigte",
         "color": "#0099ff",
         "legend": "",
-        "image": "http://cms-fe-2.zrh.serv.test.srf.mpc/var/storage/images/auftritte/news/ch-flashkarten/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma/101874485-1-ger-DE/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma_chmap_image.jpg"
+        "image": "https://www.srf.ch/var/storage/images/auftritte/news/ch-flashkarten/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma/101874485-1-ger-DE/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma_chmap_image.jpg"
     },
     {
         "id": "UR",
@@ -240,7 +239,7 @@
         "description": "100 Beschäftigte",
         "color": "#00d9ff",
         "legend": "",
-        "image": "http://cms-fe-2.zrh.serv.test.srf.mpc/var/storage/images/auftritte/news/ch-flashkarten/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma/101874490-1-ger-DE/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma_chmap_image.jpg"
+        "image": "https://www.srf.ch/var/storage/images/auftritte/news/ch-flashkarten/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma/101874490-1-ger-DE/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma_chmap_image.jpg"
     },
     {
         "id": "VD",
@@ -251,7 +250,7 @@
         "description": "2'970 Beschäftigte",
         "color": "#003dff",
         "legend": "",
-        "image": "http://cms-fe-2.zrh.serv.test.srf.mpc/var/storage/images/auftritte/news/ch-flashkarten/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma/101874495-1-ger-DE/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma_chmap_image.jpg"
+        "image": "https://www.srf.ch/var/storage/images/auftritte/news/ch-flashkarten/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma/101874495-1-ger-DE/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma_chmap_image.jpg"
     },
     {
         "id": "VS",
@@ -262,7 +261,7 @@
         "description": "0 Beschäftigte",
         "color": "#00ffff",
         "legend": "",
-        "image": "http://cms-fe-2.zrh.serv.test.srf.mpc/var/storage/images/auftritte/news/ch-flashkarten/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma/101874500-1-ger-DE/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma_chmap_image.jpg"
+        "image": "https://www.srf.ch/var/storage/images/auftritte/news/ch-flashkarten/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma/101874500-1-ger-DE/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma_chmap_image.jpg"
     },
     {
         "id": "ZG",
@@ -273,7 +272,7 @@
         "description": "4'202 Beschäftigte",
         "color": "#003dff",
         "legend": "",
-        "image": "http://cms-fe-2.zrh.serv.test.srf.mpc/var/storage/images/auftritte/news/ch-flashkarten/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma/101874505-1-ger-DE/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma_chmap_image.jpg"
+        "image": "https://www.srf.ch/var/storage/images/auftritte/news/ch-flashkarten/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma/101874505-1-ger-DE/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma_chmap_image.jpg"
     },
     {
         "id": "ZH",
@@ -284,7 +283,6 @@
         "description": "887 Beschäftigte",
         "color": "#0068ff",
         "legend": "",
-        "image": "http://cms-fe-2.zrh.serv.test.srf.mpc/var/storage/images/auftritte/news/ch-flashkarten/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma/101874510-1-ger-DE/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma_chmap_image.jpg"
+        "image": "https://www.srf.ch/var/storage/images/auftritte/news/ch-flashkarten/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma/101874510-1-ger-DE/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma_chmap_image.jpg"
     }
-
 ]

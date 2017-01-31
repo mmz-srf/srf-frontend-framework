@@ -8,6 +8,7 @@
   @include tablet-up {
     margin-top: 0;
     float: left;
+    width: 66%;
   }
   &__element { // li
     overflow: hidden;
