@@ -240,8 +240,8 @@
   ],
   "chmap": {
     "title": "Anzahl Stellen in Interpharma-Unternehmen",
-    "description": "Die Mitglieder des Verbands der forschenden pharmazeutischen Firmen der Schweiz (Interpharma) stammen nicht nur aus der Pharmaindustrie, sondern sind oftmals auch in pharmanahen Branchen tätig. Zu diesen zählen insbesondere die orthopädische und die elektronische Medizintechnik sowie die Forschung in Biotechnologie. Die Mitgliedsfirmen beschäftigen zusammen rund 38 040 Beschäftigte und betreiben Unternehmenssitze, Forschung und Entwicklung sowie Produktion in 16 Kantonen der Schweiz.",
-    "source": "WOLFGANG VOLZ",
+    "description": "Die Mitglieder des Verbands der forschenden pharmazeutischen Firmen der Schweiz (Interpharma) stammen nicht nur aus der Pharmaindustrie, sondern sind oftmals auch in pharmanahen Branchen tätig.",
+    "source": "BAK Basel Economics",
     "legend": [
       { "color": "#00ffff",
         "description": "0 Beschäftigte"
