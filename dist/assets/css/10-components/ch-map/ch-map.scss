@@ -5,6 +5,7 @@
   margin: -10px auto -20px;
   padding: 0 10px;
   display: block;
+  fill: #d2d2d2;
   title {
     display: none;
   }
@@ -16,9 +17,6 @@
     @include smartphone {
       margin: 24px -8px 20px;
     }
-  }
-  &__locations {
-    fill: #d2d2d2; // initial bg
   }
   &__location {
     stroke: #fff; // cantons
@@ -44,7 +42,7 @@
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.36), 0 0 18px 0 transparent;
   border-radius: 2px 2px 2px 0;
   white-space: nowrap;
-  &:after { // aufklapp dreieckli
+  &:before { // aufklapp dreieckli
     content: ""; // "◤";
     position: absolute;
     left: 0;
@@ -52,14 +50,27 @@
     border-color: #fafaf8 transparent;
     border-style: solid;
     border-width: 18px 18px 0 0;
-    filter: drop-shadow(0 6px 4px rgba(0, 0, 0, .36));
+    filter: drop-shadow(0 4px 4px rgba(0, 0, 0, .36));
+  }
+  &:after { // triangle-hack so there are no overlapping shadows in Firefox & Chrome
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 28px;
+    border-color: #fafaf8 transparent;
+    border-style: solid;
+    border-width: 24px 24px 0 0;
   }
   &--right {
 	  border-radius: 2px 2px 0 2px;
   }
-  &--right:after { // umgekehrtes aufklapp dreieckli
-    border-color: #fafaf8 transparent;
+  &--right:before { // umgekehrtes aufklapp dreieckli
     border-width: 18px 0 0 18px;
+    right: 0;
+    left: auto;
+  }
+  &--right:after { // triangle-hack so there are no overlapping shadows in Firefox & Chrome
+    border-width: 24px 0 0 24px;
     right: 0;
     left: auto;
   }

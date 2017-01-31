@@ -5,6 +5,7 @@
   margin: -10px auto -20px;
   padding: 0 10px;
   display: block;
+  fill: #d2d2d2;
   title {
     display: none;
   }
@@ -16,9 +17,6 @@
     @include smartphone {
       margin: 24px -8px 20px;
     }
-  }
-  &__locations {
-    fill: #d2d2d2; // initial bg
   }
   &__location {
     stroke: #fff; // cantons
