@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ch_karte>
+    <canton>
+        <AG id="1" name="Aargau" short="AG" bgcolor="#003dff">
+            <value>3735</value>
+            <legend><![CDATA[]]></legend>
+            <flyout flyout="on" bgcolor="#ffffff">
+                <title textcolor="#000000" textsize="12" textstyle="bold"><![CDATA[Aargau]]></title>
+                <text_content textcolor="#000000" textsize="11" textstyle="normal"><![CDATA[3&#039;735 Beschäftigte]]></text_content>
+                <canton_img>https://www.srf.ch/var/storage/images/auftritte/news/ch-flashkarten/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma/101874385-1-ger-DE/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma_chmap_image.jpg</canton_img>
+            </flyout>
+        </AG>
+        <AI id="2" name="Appenzell Innerrhoden" short="AI" bgcolor="#00ffff">
+            <value>0</value>
+            <legend><![CDATA[]]></legend>
+            <flyout flyout="on" bgcolor="#ffffff">
+                <title textcolor="#000000" textsize="12" textstyle="bold"><![CDATA[Appenzell Innerrhoden]]></title>
+                <text_content textcolor="#000000" textsize="11" textstyle="normal"><![CDATA[0 Beschäftigte]]></text_content>
+                <canton_img>https://www.srf.ch/var/storage/images/auftritte/news/ch-flashkarten/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma/101874390-1-ger-DE/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma_chmap_image.jpg</canton_img>
+            </flyout>
+        </AI>
+        <AR id="3" name="Appenzell Ausserrhoden" short="AR" bgcolor="#00ffff">
+            <value>0</value>
+            <legend><![CDATA[]]></legend>
+            <flyout flyout="on" bgcolor="#ffffff">
+                <title textcolor="#000000" textsize="12" textstyle="bold"><![CDATA[Appenzell Ausserrhoden]]></title>
+                <text_content textcolor="#000000" textsize="11" textstyle="normal"><![CDATA[0 Beschäftigte]]></text_content>
+                <canton_img>https://www.srf.ch/var/storage/images/auftritte/news/ch-flashkarten/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma/101874395-1-ger-DE/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma_chmap_image.jpg</canton_img>
+            </flyout>
+        </AR>
+        <BE id="4" name="Bern" short="BE" bgcolor="#0099ff">
+            <value>320</value>
+            <legend><![CDATA[]]></legend>
+            <flyout flyout="on" bgcolor="#ffffff">
+                <title textcolor="#000000" textsize="12" textstyle="bold"><![CDATA[Bern]]></title>
+                <text_content textcolor="#000000" textsize="11" textstyle="normal"><![CDATA[320 Beschäftigte]]></text_content>
+                <canton_img>https://www.srf.ch/var/storage/images/auftritte/news/ch-flashkarten/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma/101874400-1-ger-DE/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma_chmap_image.jpg</canton_img>
+            </flyout>
+        </BE>
+        <BL id="5" name="Basel-Land" short="BL" bgcolor="#003dff">
+            <value>1883</value>
+            <legend><![CDATA[]]></legend>
+            <flyout flyout="on" bgcolor="#ffffff">
+                <title textcolor="#000000" textsize="12" textstyle="bold"><![CDATA[Basel-Land]]></title>
+                <text_content textcolor="#000000" textsize="11" textstyle="normal"><![CDATA[1&#039;883 Beschäftigte]]></text_content>
+                <canton_img>https://www.srf.ch/var/storage/images/auftritte/news/ch-flashkarten/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma/101874405-1-ger-DE/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma_chmap_image.jpg</canton_img>
+            </flyout>
+        </BL>
+        <BS id="6" name="Basel-Stadt" short="BS" bgcolor="#0000f5">
+            <value>18933</value>
+            <legend><![CDATA[]]></legend>
+            <flyout flyout="on" bgcolor="#ffffff">
+                <title textcolor="#000000" textsize="12" textstyle="bold"><![CDATA[Basel-Stadt]]></title>
+                <text_content textcolor="#000000" textsize="11" textstyle="normal"><![CDATA[18&#039;933 Beschäftigte]]></text_content>
+                <canton_img>https://www.srf.ch/var/storage/images/auftritte/news/ch-flashkarten/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma/101874410-1-ger-DE/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma_chmap_image.jpg</canton_img>
+            </flyout>
+        </BS>
+        <FR id="7" name="Freiburg" short="FR" bgcolor="#003dff">
+            <value>1111</value>
+            <legend><![CDATA[]]></legend>
+            <flyout flyout="on" bgcolor="#ffffff">
+                <title textcolor="#000000" textsize="12" textstyle="bold"><![CDATA[Freiburg]]></title>
+                <text_content textcolor="#000000" textsize="11" textstyle="normal"><![CDATA[1&#039;111 Beschäftigte]]></text_content>
+                <canton_img>https://www.srf.ch/var/storage/images/auftritte/news/ch-flashkarten/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma/101874415-1-ger-DE/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma_chmap_image.jpg</canton_img>
+            </flyout>
+        </FR>
+        <GE id="8" name="Genf" short="GE" bgcolor="#0099ff">
+            <value>469</value>
+            <legend><![CDATA[]]></legend>
+            <flyout flyout="on" bgcolor="#ffffff">
+                <title textcolor="#000000" textsize="12" textstyle="bold"><![CDATA[Genf]]></title>
+                <text_content textcolor="#000000" textsize="11" textstyle="normal"><![CDATA[469 Beschäftigte]]></text_content>
+                <canton_img>https://www.srf.ch/var/storage/images/auftritte/news/ch-flashkarten/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma/101874420-1-ger-DE/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma_chmap_image.jpg</canton_img>
+            </flyout>
+        </GE>
+        <GL id="9" name="Glarus" short="GL" bgcolor="#00ffff">
+            <value>0</value>
+            <legend><![CDATA[]]></legend>
+            <flyout flyout="on" bgcolor="#ffffff">
+                <title textcolor="#000000" textsize="12" textstyle="bold"><![CDATA[Glarus]]></title>
+                <text_content textcolor="#000000" textsize="11" textstyle="normal"><![CDATA[0 Beschäftigte]]></text_content>
+                <canton_img>https://www.srf.ch/var/storage/images/auftritte/news/ch-flashkarten/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma/101874425-1-ger-DE/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma_chmap_image.jpg</canton_img>
+            </flyout>
+        </GL>
+        <GR id="10" name="Graubünden" short="GR" bgcolor="#00ffff">
+            <value>0</value>
+            <legend><![CDATA[]]></legend>
+            <flyout flyout="on" bgcolor="#ffffff">
+                <title textcolor="#000000" textsize="12" textstyle="bold"><![CDATA[Graubünden]]></title>
+                <text_content textcolor="#000000" textsize="11" textstyle="normal"><![CDATA[0 Beschäftigte]]></text_content>
+                <canton_img>https://www.srf.ch/var/storage/images/auftritte/news/ch-flashkarten/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma/101874430-1-ger-DE/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma_chmap_image.jpg</canton_img>
+            </flyout>
+        </GR>
+        <JU id="11" name="Jura" short="JU" bgcolor="#00ffff">
+            <value>0</value>
+            <legend><![CDATA[]]></legend>
+            <flyout flyout="on" bgcolor="#ffffff">
+                <title textcolor="#000000" textsize="12" textstyle="bold"><![CDATA[Jura]]></title>
+                <text_content textcolor="#000000" textsize="11" textstyle="normal"><![CDATA[0 Beschäftigte]]></text_content>
+                <canton_img>https://www.srf.ch/var/storage/images/auftritte/news/ch-flashkarten/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma/101874435-1-ger-DE/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma_chmap_image.jpg</canton_img>
+            </flyout>
+        </JU>
+        <LU id="12" name="Luzern" short="LU" bgcolor="#0068ff">
+            <value>600</value>
+            <legend><![CDATA[]]></legend>
+            <flyout flyout="on" bgcolor="#ffffff">
+                <title textcolor="#000000" textsize="12" textstyle="bold"><![CDATA[Luzern]]></title>
+                <text_content textcolor="#000000" textsize="11" textstyle="normal"><![CDATA[600 Beschäftigte]]></text_content>
+                <canton_img>https://www.srf.ch/var/storage/images/auftritte/news/ch-flashkarten/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma/101874440-1-ger-DE/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma_chmap_image.jpg</canton_img>
+            </flyout>
+        </LU>
+        <NE id="13" name="Neuenburg" short="NE" bgcolor="#0068ff">
+            <value>631</value>
+            <legend><![CDATA[]]></legend>
+            <flyout flyout="on" bgcolor="#ffffff">
+                <title textcolor="#000000" textsize="12" textstyle="bold"><![CDATA[Neuenburg]]></title>
+                <text_content textcolor="#000000" textsize="11" textstyle="normal"><![CDATA[631 Beschäftigte]]></text_content>
+                <canton_img>https://www.srf.ch/var/storage/images/auftritte/news/ch-flashkarten/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma/101874445-1-ger-DE/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma_chmap_image.jpg</canton_img>
+            </flyout>
+        </NE>
+        <NW id="14" name="Nidwalden" short="NW" bgcolor="#00ffff">
+            <value>0</value>
+            <legend><![CDATA[]]></legend>
+            <flyout flyout="on" bgcolor="#ffffff">
+                <title textcolor="#000000" textsize="12" textstyle="bold"><![CDATA[Nidwalden]]></title>
+                <text_content textcolor="#000000" textsize="11" textstyle="normal"><![CDATA[0 Beschäftigte]]></text_content>
+                <canton_img>https://www.srf.ch/var/storage/images/auftritte/news/ch-flashkarten/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma/101874450-1-ger-DE/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma_chmap_image.jpg</canton_img>
+            </flyout>
+        </NW>
+        <OW id="15" name="Obwalden" short="OW" bgcolor="#00ffff">
+            <value>0</value>
+            <legend><![CDATA[]]></legend>
+            <flyout flyout="on" bgcolor="#ffffff">
+                <title textcolor="#000000" textsize="12" textstyle="bold"><![CDATA[Obwalden]]></title>
+                <text_content textcolor="#000000" textsize="11" textstyle="normal"><![CDATA[0 Beschäftigte]]></text_content>
+                <canton_img>https://www.srf.ch/var/storage/images/auftritte/news/ch-flashkarten/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma/101874455-1-ger-DE/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma_chmap_image.jpg</canton_img>
+            </flyout>
+        </OW>
+        <SG id="16" name="St. Gallen" short="SG" bgcolor="#0099ff">
+            <value>232</value>
+            <legend><![CDATA[]]></legend>
+            <flyout flyout="on" bgcolor="#ffffff">
+                <title textcolor="#000000" textsize="12" textstyle="bold"><![CDATA[St. Gallen]]></title>
+                <text_content textcolor="#000000" textsize="11" textstyle="normal"><![CDATA[232 Beschäftigte]]></text_content>
+                <canton_img>https://www.srf.ch/var/storage/images/auftritte/news/ch-flashkarten/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma/101874460-1-ger-DE/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma_chmap_image.jpg</canton_img>
+            </flyout>
+        </SG>
+        <SH id="17" name="Schaffhausen" short="SH" bgcolor="#003dff">
+            <value>1604</value>
+            <legend><![CDATA[]]></legend>
+            <flyout flyout="on" bgcolor="#ffffff">
+                <title textcolor="#000000" textsize="12" textstyle="bold"><![CDATA[Schaffhausen]]></title>
+                <text_content textcolor="#000000" textsize="11" textstyle="normal"><![CDATA[1&#039;604 Beschäftigte]]></text_content>
+                <canton_img>https://www.srf.ch/var/storage/images/auftritte/news/ch-flashkarten/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma/101874465-1-ger-DE/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma_chmap_image.jpg</canton_img>
+            </flyout>
+        </SH>
+        <SO id="18" name="Solothurn" short="SO" bgcolor="#00ffff">
+            <value>0</value>
+            <legend><![CDATA[]]></legend>
+            <flyout flyout="on" bgcolor="#ffffff">
+                <title textcolor="#000000" textsize="12" textstyle="bold"><![CDATA[Solothurn]]></title>
+                <text_content textcolor="#000000" textsize="11" textstyle="normal"><![CDATA[0 Beschäftigte]]></text_content>
+                <canton_img>https://www.srf.ch/var/storage/images/auftritte/news/ch-flashkarten/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma/101874470-1-ger-DE/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma_chmap_image.jpg</canton_img>
+            </flyout>
+        </SO>
+        <SZ id="19" name="Schwyz" short="SZ" bgcolor="#00ffff">
+            <value>0</value>
+            <legend><![CDATA[]]></legend>
+            <flyout flyout="on" bgcolor="#ffffff">
+                <title textcolor="#000000" textsize="12" textstyle="bold"><![CDATA[Schwyz]]></title>
+                <text_content textcolor="#000000" textsize="11" textstyle="normal"><![CDATA[0 Beschäftigte]]></text_content>
+                <canton_img>https://www.srf.ch/var/storage/images/auftritte/news/ch-flashkarten/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma/101874475-1-ger-DE/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma_chmap_image.jpg</canton_img>
+            </flyout>
+        </SZ>
+        <TG id="20" name="Thurgau" short="TG" bgcolor="#00d9ff">
+            <value>21</value>
+            <legend><![CDATA[]]></legend>
+            <flyout flyout="on" bgcolor="#ffffff">
+                <title textcolor="#000000" textsize="12" textstyle="bold"><![CDATA[Thurgau]]></title>
+                <text_content textcolor="#000000" textsize="11" textstyle="normal"><![CDATA[21 Beschäftigte]]></text_content>
+                <canton_img>https://www.srf.ch/var/storage/images/auftritte/news/ch-flashkarten/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma/101874480-1-ger-DE/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma_chmap_image.jpg</canton_img>
+            </flyout>
+        </TG>
+        <TI id="21" name="Tessin" short="TI" bgcolor="#0099ff">
+            <value>109</value>
+            <legend><![CDATA[]]></legend>
+            <flyout flyout="on" bgcolor="#ffffff">
+                <title textcolor="#000000" textsize="12" textstyle="bold"><![CDATA[Tessin]]></title>
+                <text_content textcolor="#000000" textsize="11" textstyle="normal"><![CDATA[109 Beschäftigte]]></text_content>
+                <canton_img>https://www.srf.ch/var/storage/images/auftritte/news/ch-flashkarten/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma/101874485-1-ger-DE/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma_chmap_image.jpg</canton_img>
+            </flyout>
+        </TI>
+        <UR id="22" name="Uri" short="UR" bgcolor="#00d9ff">
+            <value>100</value>
+            <legend><![CDATA[]]></legend>
+            <flyout flyout="on" bgcolor="#ffffff">
+                <title textcolor="#000000" textsize="12" textstyle="bold"><![CDATA[Uri]]></title>
+                <text_content textcolor="#000000" textsize="11" textstyle="normal"><![CDATA[100 Beschäftigte]]></text_content>
+                <canton_img>https://www.srf.ch/var/storage/images/auftritte/news/ch-flashkarten/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma/101874490-1-ger-DE/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma_chmap_image.jpg</canton_img>
+            </flyout>
+        </UR>
+        <VD id="23" name="Waadt" short="VD" bgcolor="#003dff">
+            <value>2970</value>
+            <legend><![CDATA[]]></legend>
+            <flyout flyout="on" bgcolor="#ffffff">
+                <title textcolor="#000000" textsize="12" textstyle="bold"><![CDATA[Waadt]]></title>
+                <text_content textcolor="#000000" textsize="11" textstyle="normal"><![CDATA[2&#039;970 Beschäftigte]]></text_content>
+                <canton_img>https://www.srf.ch/var/storage/images/auftritte/news/ch-flashkarten/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma/101874495-1-ger-DE/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma_chmap_image.jpg</canton_img>
+            </flyout>
+        </VD>
+        <VS id="24" name="Wallis" short="VS" bgcolor="#00ffff">
+            <value>0</value>
+            <legend><![CDATA[]]></legend>
+            <flyout flyout="on" bgcolor="#ffffff">
+                <title textcolor="#000000" textsize="12" textstyle="bold"><![CDATA[Wallis]]></title>
+                <text_content textcolor="#000000" textsize="11" textstyle="normal"><![CDATA[0 Beschäftigte]]></text_content>
+                <canton_img>https://www.srf.ch/var/storage/images/auftritte/news/ch-flashkarten/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma/101874500-1-ger-DE/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma_chmap_image.jpg</canton_img>
+            </flyout>
+        </VS>
+        <ZG id="25" name="Zug" short="ZG" bgcolor="#003dff">
+            <value>4202</value>
+            <legend><![CDATA[]]></legend>
+            <flyout flyout="on" bgcolor="#ffffff">
+                <title textcolor="#000000" textsize="12" textstyle="bold"><![CDATA[Zug]]></title>
+                <text_content textcolor="#000000" textsize="11" textstyle="normal"><![CDATA[4&#039;202 Beschäftigte]]></text_content>
+                <canton_img>https://www.srf.ch/var/storage/images/auftritte/news/ch-flashkarten/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma/101874505-1-ger-DE/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma_chmap_image.jpg</canton_img>
+            </flyout>
+        </ZG>
+        <ZH id="26" name="Zürich" short="ZH" bgcolor="#0068ff">
+            <value>887</value>
+            <legend><![CDATA[]]></legend>
+            <flyout flyout="on" bgcolor="#ffffff">
+                <title textcolor="#000000" textsize="12" textstyle="bold"><![CDATA[Zürich]]></title>
+                <text_content textcolor="#000000" textsize="11" textstyle="normal"><![CDATA[887 Beschäftigte]]></text_content>
+                <canton_img>https://www.srf.ch/var/storage/images/auftritte/news/ch-flashkarten/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma/101874510-1-ger-DE/anzahl_beschaeftigte_in_pharmazeutischen_firmen_interpharma_chmap_image.jpg</canton_img>
+            </flyout>
+        </ZH>
+    </canton>
+</ch_karte>
