@@ -88,11 +88,7 @@ var chmapController = function() {
         });
 
         // does not work: it's neat to impossible to tell whether a select menu is open
-        $('.menu').on('focus', function() {
-            $(".menu__arrow").addClass("menu__arrow--active");
-        }).on('blur', function() {
-            $(".menu__arrow").addClass("menu__arrow--active");
-        }).on('change', function() { // canton select navigation
+        $('.menu').on('change', function() { // canton select navigation
             $(".menu__arrow").removeClass("menu__arrow--active");
             var cantonId = $(this).val()
                 , mapId = that.getCurrentMapId($(this))
@@ -149,6 +145,7 @@ var chmapController = function() {
             // repaint chosen canton (on top)
             $("#selector-" + this.id).attr('xlink:href', "#" + cantonId);
             $map.find(".chmap__location").removeClass("chmap__location--shadow");
+            // $map.find("#" + cantonId).addClass("chmap__location--shadow");
             $map.find("#" + cantonId).addClass("chmap__location--shadow");
             // select menu
             $map.find(".menu option[value='" + cantonId + "']").prop('selected', true);
