@@ -128,6 +128,17 @@
   float: left;
 }
 
+.media-caption--chmap {
+  border-bottom: 2px solid #fff;
+}
+
 .media-caption__content {
   overflow: hidden;
+  @include tablet-up {
+    &--chmap {
+      width: 33%;
+      float: left;
+      margin-right: 16px;
+    }
+  }
 }

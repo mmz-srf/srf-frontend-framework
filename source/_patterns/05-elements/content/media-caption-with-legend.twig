@@ -1,0 +1,20 @@
+<figcaption class="media-caption {{ styleModifier }}">
+    <div class="media-caption__content {{ styleModifierContent }}">
+        <span class="media-caption__title">
+            {{ chmap.title }}
+        </span>
+        <span class="media-caption__description">
+            {{ chmap.description }}
+        </span>
+        <span class="media-caption__source">
+            {% if chmap.source_link is defined %}
+            <a class="media-caption__source-link" href="{{ chmap.source_link }}" target="_blank">
+            {% endif %}
+                {{ chmap.source }}
+            {% if chmap.source_link is defined %}
+            </a>
+            {% endif %}
+        </span>
+    </div>
+    {% include 'elements-legend' %}
+</figcaption>
