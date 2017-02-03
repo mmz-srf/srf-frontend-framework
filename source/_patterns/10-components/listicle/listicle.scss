@@ -46,6 +46,14 @@
           @include fullwidth-element;
         }
       }
+      .article-video {
+        @include tablet{
+          @include fullwidth-element;
+        }
+        @include smartphone {
+          @include fullwidth-element;
+        }
+      }
     }
   }
 
