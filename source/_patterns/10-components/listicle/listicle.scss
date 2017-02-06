@@ -9,10 +9,30 @@
     margin-top: 32px;
     margin-bottom: 32px;
   }
+  .listicle__title{
+    margin: 24px 24px 16px 24px;
+    font-family: $font-medium;
+    font-size: 22px;
+    line-height: 32px;
+    letter-spacing: 0.3px;
+    @include tablet-up{
+      margin: 32px 16px 24px 16px;
+      font-size: 20px;
+      line-height: 32px;
+      letter-spacing: 0.3px;
+    }
+  }
 
   ol {
+    margin-bottom: 16px;
+
     li {
       padding-left: 15px;
+      margin-top: 0;
+      margin-bottom: 16px;
+      @include tablet-up{
+        margin-bottom: 24px;
+      }
       &::before{
         color: #22211d;
         font-size: 18px;
@@ -27,8 +47,9 @@
       h4{
         font-family: $font-medium;
         font-size: 18px;
-        margin-left: 8px;
+        margin-left: 15px;
         margin-top: 16px;
+        margin-bottom:12px;
         @include tablet-up{
           font-size: 20px;
           margin-left: 8px;
@@ -38,50 +59,51 @@
 
       .image-figure {
         background-color: #f5f5f2;
-        margin-bottom: 0px;
+        margin-bottom: 0;
+        margin-top: 0;
         @include tablet{
           @include fullwidth-element;
         }
         @include smartphone {
           @include fullwidth-element;
+        }
+        @include tablet-up{
+          margin-top: 4px;
         }
       }
       .article-video {
+        margin-top: 0;
         @include tablet{
           @include fullwidth-element;
         }
         @include smartphone {
           @include fullwidth-element;
+        }
+        @include tablet-up{
+          margin-top: 4px;
         }
       }
     }
   }
 
-}
+  .listicle__content {
+    font-size: 18px;
+    line-height: 28px;
+    letter-spacing: 0.5px;
+    padding: 0px 24px;
 
-.listicle__title {
-  margin: 24px 24px 8px 24px;
-  font-family: $font-medium;
-  font-size: 22px;
-  line-height: 32px;
-  letter-spacing: 0.3px;
-
-  @include tablet-up {
-    font-size: 24px;
-    margin: 32px 16px;
+    @include tablet-up{
+      font-size: 20px;
+      line-height: 32px;
+      letter-spacing: 0.3px;
+      padding: 0px 16px;
+    }
+    @include tablet{
+      @include fullwidth-element;
+    }
+    @include smartphone {
+      @include fullwidth-element;
+    }
   }
-}
 
-.listicle__content {
-  font-size: 18px;
-  line-height: 28px;
-  letter-spacing: 0.5px;
-  margin: 12px 0px;
-
-  @include tablet-up{
-    font-size: 20px;
-    line-height: 32px;
-    letter-spacing: 0.3px;
-    margin: 16px 0px 16px 16px;
-  }
 }
