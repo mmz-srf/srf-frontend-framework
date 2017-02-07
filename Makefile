@@ -12,13 +12,13 @@ all: composer-install node-install bower-install npm-install gulp-build
 install-master:
 	# copy all created files to the defined mountpoint for BRANCH
 	mkdir -p $(TARGET)
-	cp -r public dist $(TARGET)
+	cp -r public $(TARGET)/
 	./bin/deduplicate-deployed-versions $(MOUNTPOINT)
 
 install-test:
 	# copy all created files to the defined mountpoint for BRANCH
 	mkdir -p /mnt/frontend_framework_test/latest/
-	rsync -avzh --delete public dist /mnt/frontend_framework_test/latest/
+	rsync -avzh --delete public /mnt/frontend_framework_test/latest/
 
 clean:
 	rm -rf public/patternlab-components/pattern-lab/plugin-reload
