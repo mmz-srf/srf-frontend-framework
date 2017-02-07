@@ -1,0 +1,26 @@
+<h3 class="h-offscreen">Bildvergleich</h3>
+
+<figure class="srf-image-comparison-figure">
+    <div class="srf-image-comparison">
+        <img src="{{ images[0].sources.s12.src }}" class="srf-image-comparison-media" alt="" />
+        <div class="srf-image-comparison-after">
+            <img src="{{ images[1].sources.s12.src }}" class="srf-image-comparison-media srf-image-comparison-media--after" alt="" />
+        </div>
+        <img src="../../assets/img/arrows/image_slider_arrows.png" class="srf-image-comparison-slider" alt="" />
+    </div>
+
+    <a class="h-offscreen h-offscreen-focusable srf-image-comparison-moveleft" href="#">Regler nach links verschieben</a>
+    <a class="h-offscreen h-offscreen-focusable srf-image-comparison-moveright" href="#">Regler nach rechts verschieben</a>
+
+    <figcaption class="media-caption">
+        <span class="media-caption__title">
+            {{ images[0].caption.title }}
+        </span>
+        <span class="media-caption__description">
+            {{ images[0].caption.description }}
+        </span>
+        <span class="media-caption__source">
+            {{ images[0].caption.source }}
+        </span>
+    </figcaption>
+</figure>
