@@ -126,7 +126,7 @@ var chmapController = function() {
         this.cantons = {};
         var reference = this;
 
-        $($.parseJSON(JSON.stringify(Result))).each(function() {
+        $(this.result).each(function() {
             reference.cantons[this.id] = new Canton(reference.id, this.id);
         });
 
@@ -174,7 +174,7 @@ var chmapController = function() {
 
         this.loadResults = function() { // colors
             var that = this;
-            $($.parseJSON(JSON.stringify(this.result))).each(function() {
+            $(this.result).each(function() {
                 var canton, $canton;
                 if (that.cantons.hasOwnProperty(this.id)) {
                     canton = that.cantons[this.id];
