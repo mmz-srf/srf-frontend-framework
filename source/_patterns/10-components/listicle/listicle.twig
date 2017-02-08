@@ -3,7 +3,9 @@
     <ol>
         <li>
             <h4>Titel</h4>
-            {% include 'components-image-figure' with { 'imageCaptionStyle': 'media-caption--no-bg'} %}
+            <div class="listicle__media">
+                {% include 'components-image-figure' with { 'imageCaptionStyle': 'media-caption--no-bg'} %}
+            </div>
             <div class="listicle__content">
                 <p>Barlow rief zusammen mit einem Softwaremillionär die <a href="https://www.eff.org/de"target="_blank">«Electronic FrontierFoundation»</a>
                     ins Leben, die noch heute für freie Netze und gegen Überwachung kämpft.</p>
@@ -13,16 +15,19 @@
         </li>
         <li>
             <h4>Titel 2</h4>
-            {% include 'components-video' %}
+            <div class="listicle__media">
+                {% include 'components-video' %}
+            </div>
             <div class="listicle__content">
                 <p>Barlow rief zusammen mit einem Softwaremillionär die <a href="https://www.eff.org/de"target="_blank">«Electronic Frontier Foundation»</a>
                     ins Leben, die noch heute für freie Netze und gegen Überwachung kämpft.</p>
                 <p>Barlow rief zusammen mit einem <strong>Softwaremillionär</strong> die «Electronic Frontier
                     Foundation» ins Leben, die noch heute für freie Netze und gegen Überwachung kämpft.</p>
-                <div class="listicle__link">
-                    <a href="https://www.google.ch">Google</a>
-                </div>
-                <div class="listicle__source">Somewhere</div>
+            </div>
+            <div class="listicle__link">
+                {% include 'elements-block-link' with {'styleModifier': 'block-link--external'} %}
+            </div>
+            <div class="listicle__source">Somewhere</div>
         </li>
     </ol>
 </div>
