@@ -1,16 +1,19 @@
-<h3 class="h-offscreen">Bildvergleich</h3>
+<figure class="image-comparison-figure">
+    <h3 class="h-offscreen">Bildvergleich</h3>
 
-<figure class="srf-image-comparison-figure">
-    <div class="srf-image-comparison">
-        <img src="{{ images[0].sources.s12.src }}" class="srf-image-comparison-media" alt="" />
-        <div class="srf-image-comparison-after">
-            <img src="{{ images[1].sources.s12.src }}" class="srf-image-comparison-media srf-image-comparison-media--after" alt="" />
+    <div class="image-comparison-figure__image-wrapper">
+        <img src="{{ images[2].sources.s12.src }}" class="image-comparison-figure__image" alt="" />
+        <div class="image-comparison-figure__cover-wrapper">
+            <img src="{{ images[3].sources.s12.src }}" class="image-comparison-figure__image image-comparison-figure__image--cover" alt="" />
         </div>
-        <img src="../../assets/img/arrows/image_slider_arrows.png" class="srf-image-comparison-slider" alt="" />
+
+        <img src="../../assets/img/slider-arrows-left.svg" class="image-comparison-figure__slider image-comparison-figure__slider--left" alt="" />
+        <img src="../../assets/img/slider-arrows-right.svg" class="image-comparison-figure__slider image-comparison-figure__slider--right" alt="" />
+
     </div>
 
-    <a class="h-offscreen h-offscreen-focusable srf-image-comparison-moveleft" href="#">Regler nach links verschieben</a>
-    <a class="h-offscreen h-offscreen-focusable srf-image-comparison-moveright" href="#">Regler nach rechts verschieben</a>
+    <a class="h-offscreen h-offscreen-focusable image-comparison-figure__move-left" href="#">Regler nach links verschieben</a>
+    <a class="h-offscreen h-offscreen-focusable image-comparison-figure__move-right" href="#">Regler nach rechts verschieben</a>
 
     <figcaption class="media-caption">
         <span class="media-caption__title">

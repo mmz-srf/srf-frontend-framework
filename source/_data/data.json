@@ -106,6 +106,35 @@
         "description": "Volz geht es nicht nur um schöne, bunte Bilder.",
         "source": "MICHAEL MAREK"
       }
+    },
+    {
+      "sources": {
+        "s8": {
+          "src": "../../assets/demo/img/bild3/bild_s8.jpg",
+          "width": 640
+        },
+        "s8_retina": {
+          "src": "../../assets/demo/img/bild3/bild_s8_retina.jpg",
+          "width": 1248
+        },
+        "s12": {
+          "src": "../../assets/demo/img/bild3/bild_s12.jpg",
+          "width": 944
+        },
+        "s12_retina": {
+          "src": "../../assets/demo/img/bild3/bild_s12_retina.jpg",
+          "width": 1888
+        },
+        "mobile_max": {
+          "src": "../../assets/demo/img/bild3/bild_mobile_max.jpg",
+          "width": 320
+        }
+      },
+      "caption": {
+        "title": "Titel",
+        "description": "Volz geht es nicht nur um schöne, bunte Bilder.",
+        "source": "MICHAEL MAREK"
+      }
     }
   ],
   "audios": [
