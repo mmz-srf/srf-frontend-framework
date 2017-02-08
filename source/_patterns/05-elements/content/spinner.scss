@@ -1,12 +1,24 @@
 .spinner-container {
   position: absolute;
-  width: 100px;
-  height: 100px;
   left: 50%;
-  transform: translate(-50%, 0);
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 64px;
+  height: 64px;
+
+  @include tablet {
+    width: 42px;
+    height: 42px;
+  }
+  @include smartphone {
+    width: 34px;
+    height: 34px;
+  }
 }
 
 .spinner {
+  width: 100%;
+  height: auto;
   animation: rotate 2s linear infinite;
 }
 
@@ -18,24 +30,16 @@
 .spinner__circle--bg {
   stroke: #dadad2;
 }
-.spinner__circle--dash {
-  animation: dash 1.5s ease-in-out infinite;
-  stroke-linecap: round;
-  stroke-miterlimit: 10;
-  stroke: #e31f2b;
-}
-.spinner__fg {
-  animation: dash 1.5s ease-in-out infinite;
-  stroke-linecap: round;
-  stroke-miterlimit: 10;
-  stroke: #e31f2b;
-}
-.spinner__bg, .spinner__fg {
-  stroke-width: 3;
-  fill: none;
-}
-.spinner__bg { stroke: #dadad2; }
 
+.spinner__circle--dash {
+  stroke: #e31f2b;
+  stroke-linecap: round;
+  stroke-miterlimit: 10;
+  animation: dash 1.5s ease-in-out infinite;
+}
+.spinner__circle--dash-white {
+  stroke: #fff;
+}
 
 @-webkit-keyframes rotate {
   @include rotate-spinner;
