@@ -114,22 +114,34 @@
   }
 
   .listicle__link{
+    margin-bottom: 12px;
+    @include tablet-up{
+      margin-bottom: 16px;
+    }
     .block-link{
-      padding-left:0;
       border-top: 1px solid $color-separator;
-      margin-bottom: 12px;
-      @include tablet-up{
-        margin-bottom: 16px;
-      }
-
+    }
+    @include tablet{
+      @include fullwidth-element;
+    }
+    @include smartphone {
+      @include fullwidth-element;
     }
   }
   .listicle__source{
     font-size: 12px;
     color: #757266;
     margin-bottom: 12px;
+    padding: 0 24px;
     @include tablet-up{
       margin-bottom: 16px;
+      padding: 0 16px;
+    }
+    @include tablet{
+      @include fullwidth-element;
+    }
+    @include smartphone {
+      @include fullwidth-element;
     }
   }
 
