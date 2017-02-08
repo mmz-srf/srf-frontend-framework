@@ -1,0 +1,36 @@
+<div class="list listicle {{ styleModifier }}">
+    <h2 class="listicle__title">Listicle Titel</h2>
+    <ol>
+        <li>
+            <h4>Titel</h4>
+            <div class="listicle__lead">
+                Pellentesque mollis mauris tortor, convallis posuere urna finibus ac. In quis enim tellus. Sed vitae nulla quis odio efficitur mollis vitae a nunc. Donec egestas mi vitae ante interdum, in tincidunt libero gravida.
+            </div>
+            <div class="listicle__media">
+                {% include 'components-image-figure' with { 'imageCaptionStyle': 'media-caption--no-bg'} %}
+            </div>
+            <div class="listicle__content">
+                <p>Barlow rief zusammen mit einem Softwaremillionär die <a href="https://www.eff.org/de"target="_blank">«Electronic FrontierFoundation»</a>
+                    ins Leben, die noch heute für freie Netze und gegen Überwachung kämpft.</p>
+                <p>Barlow rief zusammen mit einem <strong>Softwaremillionär</strong> die «Electronic Frontier
+                    Foundation» ins Leben, die noch heute für freie Netze und gegen Überwachung kämpft.</p>
+            </div>
+        </li>
+        <li>
+            <h4>Titel 2</h4>
+            <div class="listicle__media">
+                {% include 'components-video' %}
+            </div>
+            <div class="listicle__content">
+                <p>Barlow rief zusammen mit einem Softwaremillionär die <a href="https://www.eff.org/de"target="_blank">«Electronic Frontier Foundation»</a>
+                    ins Leben, die noch heute für freie Netze und gegen Überwachung kämpft.</p>
+                <p>Barlow rief zusammen mit einem <strong>Softwaremillionär</strong> die «Electronic Frontier
+                    Foundation» ins Leben, die noch heute für freie Netze und gegen Überwachung kämpft.</p>
+            </div>
+            <div class="listicle__link">
+                {% include 'elements-block-link' with {'styleModifier': 'block-link--external'} %}
+            </div>
+            <div class="listicle__source">Somewhere</div>
+        </li>
+    </ol>
+</div>

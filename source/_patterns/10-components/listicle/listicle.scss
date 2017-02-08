@@ -1,0 +1,148 @@
+.list {
+  margin: 0;
+  overflow: hidden;
+  @include tablet{
+    @include fullwidth-element;
+  }
+  @include smartphone {
+    @include fullwidth-element;
+    margin-top: 32px;
+    margin-bottom: 32px;
+  }
+  .listicle__title{
+    margin: 24px 24px 16px 24px;
+    font-family: $font-medium;
+    font-size: 22px;
+    line-height: 32px;
+    letter-spacing: 0.3px;
+    @include tablet-up{
+      margin: 32px 16px 24px 16px;
+      font-size: 20px;
+      line-height: 32px;
+      letter-spacing: 0.3px;
+    }
+  }
+
+  ol {
+    margin-bottom: 16px;
+
+    li {
+      padding-left: 15px;
+      margin-top: 0;
+      margin-bottom: 16px;
+      @include tablet-up{
+        margin-bottom: 24px;
+      }
+      &::before{
+        color: #22211d;
+        font-size: 18px;
+        margin-left: 15px;
+        @include tablet-up{
+          font-size: 20px;
+          margin-left: 8px;
+
+        }
+      }
+
+      h4{
+        font-family: $font-medium;
+        font-size: 18px;
+        margin-left: 18px;
+        margin-top: 16px;
+        margin-bottom:12px;
+        @include tablet-up{
+          font-size: 20px;
+          margin-left: 14px;
+          margin-top: 24px;
+        }
+      }
+      .listicle__media{
+        margin-top: 0;
+        margin-bottom: 12px;
+        @include tablet-up{
+          margin-top: 4px;
+          margin-bottom: 16px;
+        }
+        @include tablet{
+          @include fullwidth-element;
+        }
+        @include smartphone {
+          @include fullwidth-element;
+        }
+        .image-figure {
+          background-color: $color-bg-caption;
+          margin-bottom: 0;
+          margin-top: 0;
+          .media-caption--no-bg{
+            border-bottom: none;
+          }
+        }
+        .article-video{
+          margin: 0 0 0;
+        }
+        .image-figure__image-wrapper::before{
+          background-color: rgba(0,0,0,0);
+        }
+
+      }
+    }
+  }
+
+  .listicle__content, .listicle__lead {
+    font-size: 18px;
+    line-height: 28px;
+    letter-spacing: 0.5px;
+    padding: 0px 24px;
+    margin-bottom: 12px;
+
+    @include tablet-up{
+      font-size: 20px;
+      line-height: 32px;
+      letter-spacing: 0.3px;
+      padding: 0px 16px;
+      margin-bottom: 16px;
+    }
+    @include tablet{
+      @include fullwidth-element;
+    }
+    @include smartphone {
+      @include fullwidth-element;
+    }
+    p{
+      margin:0;
+    }
+  }
+
+  .listicle__link{
+    margin-bottom: 12px;
+    @include tablet-up{
+      margin-bottom: 16px;
+    }
+    .block-link{
+      border-top: 1px solid $color-separator;
+    }
+    @include tablet{
+      @include fullwidth-element;
+    }
+    @include smartphone {
+      @include fullwidth-element;
+    }
+  }
+  .listicle__source{
+    font-size: 12px;
+    color: #757266;
+    margin-bottom: 12px;
+    padding: 0 24px;
+    @include tablet-up{
+      margin-bottom: 16px;
+      padding: 0 16px;
+    }
+    @include tablet{
+      @include fullwidth-element;
+    }
+    @include smartphone {
+      @include fullwidth-element;
+    }
+  }
+
+}
