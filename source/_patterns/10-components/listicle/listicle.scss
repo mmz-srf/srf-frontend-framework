@@ -36,7 +36,7 @@
         margin-left: 15px;
         @include tablet-up{
           font-size: 20px;
-          margin-left: 8px;
+          margin-left: 32px;
 
         }
       }
@@ -49,7 +49,7 @@
         margin-bottom:12px;
         @include tablet-up{
           font-size: 20px;
-          margin-left: 14px;
+          margin-left: 16px;
           margin-top: 24px;
         }
       }
@@ -74,10 +74,6 @@
         .article-video{
           margin: 0 0 0;
         }
-        .image-figure__image-wrapper::before{
-          background-color: rgba(0,0,0,0);
-        }
-
       }
     }
   }
