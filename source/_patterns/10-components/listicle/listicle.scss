@@ -1,9 +1,6 @@
 .list {
   margin: 0;
   overflow: hidden;
-  @include tablet{
-    @include fullwidth-element;
-  }
   @include smartphone {
     @include fullwidth-element;
     margin-top: 32px;
@@ -63,9 +60,6 @@
           margin-top: 4px;
           margin-bottom: 16px;
         }
-        @include tablet{
-          @include fullwidth-element;
-        }
         @include smartphone {
           @include fullwidth-element;
         }
@@ -102,9 +96,6 @@
       padding: 0px 16px;
       margin-bottom: 16px;
     }
-    @include tablet{
-      @include fullwidth-element;
-    }
     @include smartphone {
       @include fullwidth-element;
     }
@@ -121,9 +112,6 @@
     .block-link{
       border-top: 1px solid $color-separator;
     }
-    @include tablet{
-      @include fullwidth-element;
-    }
     @include smartphone {
       @include fullwidth-element;
     }
@@ -136,9 +124,6 @@
     @include tablet-up{
       margin-bottom: 16px;
       padding: 0 16px;
-    }
-    @include tablet{
-      @include fullwidth-element;
     }
     @include smartphone {
       @include fullwidth-element;
