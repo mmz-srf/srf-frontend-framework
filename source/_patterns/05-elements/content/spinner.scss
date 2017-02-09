@@ -29,12 +29,13 @@
 }
 
 .spinner__circle {
-  stroke-width: 3;
+  stroke-width: 2;
   fill: none;
 }
 
 .spinner__circle--bg {
   stroke: #dadad2;
+  opacity: .4;
 }
 
 .spinner__circle--dash {
