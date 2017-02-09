@@ -63,6 +63,17 @@
           text-indent: 22px;
         }
       }
+      h2 {
+        font-family: $font-medium;
+        font-size: 18px;
+        line-height: 28px;
+        text-space: 0.5px;
+        @include tablet-up {
+          font-size: 20px;
+          line-height: 32px;
+          text-space: 0.2px;
+        }
+      }
       .listicle__media{
         margin-top: 0;
         margin-bottom: 12px;
