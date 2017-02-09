@@ -7,14 +7,14 @@
     margin-bottom: 32px;
   }
   .listicle__title{
-    margin: 24px 24px 16px 24px;
+    margin: 24px 32px 16px;
     font-family: $font-medium;
     font-size: 22px;
-    line-height: 32px;
+    line-height: 28px;
     letter-spacing: 0.3px;
     @include tablet-up{
-      margin: 32px 16px 24px 16px;
-      font-size: 20px;
+      margin: 32px 32px 24px;
+      font-size: 24px;
       line-height: 32px;
       letter-spacing: 0.3px;
     }
@@ -29,14 +29,19 @@
       margin-bottom: 16px;
       @include tablet-up{
         margin-bottom: 24px;
+        padding-left: 0;
       }
       &::before{
         color: #22211d;
         font-size: 18px;
+        line-height: 28px;
+        text-space: 0.5px;
         margin-left: 15px;
         @include tablet-up{
           font-size: 20px;
-          margin-left: 32px;
+          line-height: 32px;
+          text-space: 0.2px;
+          margin-left: 16px;
 
         }
       }
@@ -44,11 +49,15 @@
       h4{
         font-family: $font-medium;
         font-size: 18px;
+        line-height: 28px;
+        text-space: 0.5px;
         margin-left: 18px;
         margin-top: 16px;
         margin-bottom:12px;
         @include tablet-up{
           font-size: 20px;
+          line-height: 32px;
+          text-space: 0.2px;
           margin-left: 16px;
           margin-top: 24px;
           text-indent: 22px;
