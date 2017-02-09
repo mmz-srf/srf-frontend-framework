@@ -1,13 +1,11 @@
 .image-comparison-figure {
 
-  @include desktop-widest {
-    max-width: $content-max-width;
-    margin-left: auto;
-    margin-right: auto;
-  }
+  margin: 32px 0 24px 0;
 
   @include smartphone {
     @include fullwidth-element;
+    margin-top: 24px;
+    margin-bottom: 24px;
   }
 }
 
