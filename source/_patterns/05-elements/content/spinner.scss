@@ -16,6 +16,12 @@
   }
 }
 
+.spinner-container--bottom {
+  position: relative;
+  top: auto;
+  bottom: 0;
+}
+
 .spinner {
   width: 100%;
   height: auto;
