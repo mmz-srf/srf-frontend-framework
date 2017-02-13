@@ -1,6 +1,6 @@
 export function init() {
 
-    var $compBox = $('.image-comparison-figure');
+    var $compBox = $('.image-slider');
 
     $compBox.each(function () {
         var $that = $(this);
@@ -20,14 +20,14 @@ export function init() {
             moveSlider(e, compBoxLeft, $that);
         });
 
-        $that.parent().find('.image-comparison-figure__move-left').on('click', function (e) {
+        $that.parent().find('.image-slider__move-left').on('click', function (e) {
             e.preventDefault();
             var newPosition = currentPosition > 0 ? currentPosition - 10 : currentPosition;
             currentPosition = newPosition;
             moveSlider(e, '', $that, newPosition);
         });
 
-        $that.parent().find('.image-comparison-figure__move-right').on('click', function (e) {
+        $that.parent().find('.image-slider__move-right').on('click', function (e) {
             e.preventDefault();
             var newPosition = currentPosition < 100 ? currentPosition + 10 : currentPosition;
             currentPosition = newPosition;
@@ -38,10 +38,10 @@ export function init() {
 
 function moveSlider(e, compBoxLeft, $that, newPosition) {
     var newPosition = typeof newPosition == 'undefined' ? ((e.pageX - compBoxLeft) / $that.outerWidth()) * 100 : newPosition;
-    var $wrapper = $that.find('.image-comparison-figure__cover-wrapper'),
-        $coverImage = $that.find('.image-comparison-figure__image--cover'),
-        $sliderElementLeft = $that.find('.image-comparison-figure__slider--left'),
-        $sliderElementRight = $that.find('.image-comparison-figure__slider--right');
+    var $wrapper = $that.find('.image-slider__cover-wrapper'),
+        $coverImage = $that.find('.image-slider__image--cover'),
+        $sliderElementLeft = $that.find('.image-slider__slider--left'),
+        $sliderElementRight = $that.find('.image-slider__slider--right');
 
     if (newPosition >= 0 && newPosition <= 100) {
         $wrapper.css('width', newPosition + '%');

@@ -20,7 +20,7 @@ var chmapController = function() {
     };
 
     this.loadData = function() {
-        $('.chmap__wrapper').each(function() { // div around svg
+        $('.chmap-wrapper').each(function() { // div around svg
             var mapId = $(this).attr("id").substr(4);
             $.ajax({
                 url: $(this).data('src'),
@@ -102,7 +102,7 @@ var chmapController = function() {
     };
 
     this.getCurrentMapId = function(element) {
-        return $(element).closest(".chmap__wrapper").attr("id").substr(4);
+        return $(element).closest(".chmap-wrapper").attr("id").substr(4);
     };
 
     this.getMapById = function(mapId) {
