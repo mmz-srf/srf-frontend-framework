@@ -1,36 +1,33 @@
 <div class="list listicle {{ styleModifier }}">
-    <h2 class="listicle__title">Listicle Titel</h2>
-    <ol class="listicle__elements-wrapper">
-        <li class="listicle__element">
-            <h4 class="listicle__element-title">Titel</h4>
-            <div class="listicle__element-lead">
-                Pellentesque mollis mauris tortor, convallis posuere urna finibus ac. In quis enim tellus. Sed vitae nulla quis odio efficitur mollis vitae a nunc. Donec egestas mi vitae ante interdum, in tincidunt libero gravida.
+    <h2 class="listicle__title">Listicle</h2>
+    <ol class="listicle__element">
+        <li class="listicle-element">
+            <h4 class="listicle-element__title">{{ articleText.title }}</h4>
+            <div class="listicle-element__lead">
+                {{ articleHeader.lead }}
             </div>
-            <div class="listicle__element-media">
+            <div class="listicle-element__media">
                 {% include 'components-image-figure' with { 'imageCaptionStyle': 'media-caption--no-bg'} %}
             </div>
-            <div class="listicle__element-content">
-                <p>Barlow rief zusammen mit einem Softwaremillionär die <a href="https://www.eff.org/de"target="_blank">«Electronic FrontierFoundation»</a>
-                    ins Leben, die noch heute für freie Netze und gegen Überwachung kämpft.</p>
-                <p>Barlow rief zusammen mit einem <strong>Softwaremillionär</strong> die «Electronic Frontier
-                    Foundation» ins Leben, die noch heute für freie Netze und gegen Überwachung kämpft.</p>
+            <div class="listicle-element__content">
+                {{ articleText.text }}
+            </div>
+            <div class="listicle-element__link">
+                {% include 'elements-block-link' with {'styleModifier': 'block-link'} %}
             </div>
         </li>
-        <li class="listicle__element">
-            <h4 class="listicle__element-title">Titel 2</h4>
-            <div class="listicle__element-media">
+        <li class="listicle-element">
+            <h4 class="listicle-element__title">{{ articleText.title }}</h4>
+            <div class="listicle-element__media">
                 {% include 'components-video' %}
             </div>
-            <div class="listicle__element-content">
-                <p>Barlow rief zusammen mit einem Softwaremillionär die <a href="https://www.eff.org/de"target="_blank">«Electronic Frontier Foundation»</a>
-                    ins Leben, die noch heute für freie Netze und gegen Überwachung kämpft.</p>
-                <p>Barlow rief zusammen mit einem <strong>Softwaremillionär</strong> die «Electronic Frontier
-                    Foundation» ins Leben, die noch heute für freie Netze und gegen Überwachung kämpft.</p>
+            <div class="listicle-element__content">
+                {{ articleText.text }}
             </div>
-            <div class="listicle__element-link">
+            <div class="listicle-element__link">
                 {% include 'elements-block-link' with {'styleModifier': 'block-link--external'} %}
             </div>
-            <div class="listicle__element-source">Somewhere</div>
+            <div class="listicle-element__source">Somewhere</div>
         </li>
     </ol>
 </div>
