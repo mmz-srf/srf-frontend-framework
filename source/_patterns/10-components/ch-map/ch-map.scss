@@ -1,7 +1,7 @@
 .chmap {
   height: 100%;
   width: 100%;
-  max-width: 442px;
+  max-width: 500px;
   margin: -10px auto -20px;
   padding: 0 10px;
   display: block;
@@ -18,7 +18,7 @@
   background-color: $color-bg-caption;
   margin: 32px 0 24px;
   @include smartphone {
-    margin: 24px -8px 20px;
+    margin: 24px 0 20px;
   }
 }
 .chmap__location {
@@ -85,8 +85,9 @@
   pointer-events: none;
 }
 .chmap-infowindow__text {
-  font-size: 13px;
-  line-height: 18px;
+  font-size: 14px;
+  line-height: 20px;
+  color: #4e4d47;
   margin: 0;
 }
 .chmap-infowindow__img {
