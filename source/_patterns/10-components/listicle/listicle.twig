@@ -29,5 +29,14 @@
             </div>
             <div class="listicle-element__source">Somewhere</div>
         </li>
+        <li class="listicle-element">
+            <h4 class="listicle-element__title">{{ articleText.title }}</h4>
+            <div class="listicle-element__media">
+                {% include 'components-audio' %}
+            </div>
+            <div class="listicle-element__content">
+                {{ articleText.text }}
+            </div>
+        </li>
     </ol>
 </div>
