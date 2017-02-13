@@ -1,33 +1,33 @@
 <div class="list listicle {{ styleModifier }}">
     <h2 class="listicle__title">Listicle</h2>
-    <ol class="listicle__elements-wrapper">
-        <li class="listicle__element">
-            <h4 class="listicle__element-title">{{ articleText.title }}</h4>
-            <div class="listicle__element-lead">
+    <ol class="listicle__element">
+        <li class="listicle-element">
+            <h4 class="listicle-element__title">{{ articleText.title }}</h4>
+            <div class="listicle-element__lead">
                 {{ articleHeader.lead }}
             </div>
-            <div class="listicle__element-media">
+            <div class="listicle-element__media">
                 {% include 'components-image-figure' with { 'imageCaptionStyle': 'media-caption--no-bg'} %}
             </div>
-            <div class="listicle__element-content">
+            <div class="listicle-element__content">
                 {{ articleText.text }}
             </div>
-            <div class="listicle__element-link">
+            <div class="listicle-element__link">
                 {% include 'elements-block-link' with {'styleModifier': 'block-link'} %}
             </div>
         </li>
-        <li class="listicle__element">
-            <h4 class="listicle__element-title">{{ articleText.title }}</h4>
-            <div class="listicle__element-media">
+        <li class="listicle-element">
+            <h4 class="listicle-element__title">{{ articleText.title }}</h4>
+            <div class="listicle-element__media">
                 {% include 'components-video' %}
             </div>
-            <div class="listicle__element-content">
+            <div class="listicle__element__content">
                 {{ articleText.text }}
             </div>
-            <div class="listicle__element-link">
+            <div class="listicle-element__link">
                 {% include 'elements-block-link' with {'styleModifier': 'block-link--external'} %}
             </div>
-            <div class="listicle__element-source">Somewhere</div>
+            <div class="listicle-element__source">Somewhere</div>
         </li>
     </ol>
 </div>

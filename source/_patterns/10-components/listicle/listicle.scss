@@ -22,11 +22,11 @@
   }
 }
 
-.listicle__elements-wrapper {
+.listicle__element {
   margin-bottom: 16px;
 }
 
-.listicle__element {
+.listicle-element {
   padding-left: 15px;
   margin-top: 0;
   margin-bottom: 16px;
@@ -50,7 +50,7 @@
   }
 }
 
-.listicle__element-title{
+.listicle-element__title{
   font-family: $font-medium;
   font-size: 18px;
   line-height: 28px;
@@ -68,7 +68,7 @@
   }
 }
 
-.listicle__element-content, .listicle__element-lead {
+.listicle-element__content, .listicle-element__lead {
   font-size: 18px;
   line-height: 28px;
   letter-spacing: 0.5px;
@@ -101,7 +101,7 @@
   }
 }
 
-.listicle__element-media{
+.listicle-element__media{
   margin-top: 0;
   margin-bottom: 12px;
   @include tablet-up{
@@ -124,7 +124,7 @@
   }
 }
 
-.listicle__element-source{
+.listicle-element__source{
   font-size: 12px;
   color: #757266;
   margin-bottom: 12px;
@@ -138,7 +138,7 @@
   }
 }
 
-.listicle__element-link{
+.listicle-element__link{
   margin-bottom: 12px;
   @include tablet-up{
     margin-bottom: 16px;
