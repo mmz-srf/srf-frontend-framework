@@ -32,19 +32,18 @@
   margin-bottom: 16px;
   @include tablet-up{
     margin-bottom: 24px;
-    padding-left: 0;
   }
   &::before{
     color: #22211d;
     font-size: 18px;
     line-height: 28px;
     text-space: 0.5px;
-    //margin-left: 15px;
+    margin-left: 8px;
     @include tablet-up{
       font-size: 20px;
       line-height: 32px;
       text-space: 0.2px;
-      //margin-left: 16px;
+      margin-left: 16px;
 
     }
   }
@@ -55,9 +54,10 @@
   font-size: 18px;
   line-height: 28px;
   text-space: 0.5px;
-  text-indent: 18px;
+  text-indent: 20px;
   margin-top: 16px;
   margin-bottom:12px;
+  margin-left: 8px;
   @include tablet-up{
     font-size: 20px;
     line-height: 32px;
