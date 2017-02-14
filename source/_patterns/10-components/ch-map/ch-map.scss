@@ -41,8 +41,9 @@
   letter-spacing: .3px;
   padding: 4px 12px;
   background-color: $color-link-bg-hover;
-  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.36), 0 0 18px 0 transparent;
-  border-radius: 2px 2px 2px 0;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.24),
+              0 0 8px 0 rgba(0, 0, 0, 0.12);
+  border-radius: 2px;
   white-space: nowrap;
   &:before { // aufklapp dreieckli
     content: ""; // "◤";
@@ -51,28 +52,10 @@
     top: 34px;
     border-color: $color-link-bg-hover transparent;
     border-style: solid;
-    border-width: 18px 18px 0 0;
-    filter: drop-shadow(0 4px 4px rgba(0, 0, 0, .36));
-  }
-  &:after { // triangle-hack so there are no overlapping shadows in Firefox & Chrome
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 28px;
-    border-color: $color-link-bg-hover transparent;
-    border-style: solid;
-    border-width: 24px 24px 0 0;
-  }
-  &--right {
-	  border-radius: 2px 2px 0 2px;
+    border-width: 16px 16px 0 0;
   }
   &--right:before { // umgekehrtes aufklapp dreieckli
-    border-width: 18px 0 0 18px;
-    right: 0;
-    left: auto;
-  }
-  &--right:after { // triangle-hack so there are no overlapping shadows in Firefox & Chrome
-    border-width: 24px 0 0 24px;
+    border-width: 16px 0 0 16px;
     right: 0;
     left: auto;
   }
@@ -81,8 +64,10 @@
 .chmap-infowindow {
   overflow: hidden;
   margin: 0 16px;
-  padding-bottom: 16px;
   pointer-events: none;
+  &--padded {
+    padding-bottom: 16px;
+  }
 }
 .chmap-infowindow__text {
   font-size: 14px;

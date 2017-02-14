@@ -87,9 +87,8 @@ var chmapController = function() {
             }
         });
 
-        // does not work: it's neat to impossible to tell whether a select menu is open
+        // it's near to impossible to tell whether a select menu is open :( - in order to swap the triangle
         $('.menu').on('change', function() { // canton select navigation
-            $(".menu__arrow").removeClass("menu__arrow--active");
             var cantonId = $(this).val()
                 , mapId = that.getCurrentMapId($(this))
                 , map = that.getMapById(mapId);
@@ -138,6 +137,10 @@ var chmapController = function() {
 
         // infowindow (beneath select menu)
         this.setSelectedCanton = function(cantonId) {
+            if (cantonId === "") {
+                $("#infowindow-" + this.id).removeClass("chmap-infowindow--padded");
+                return false;
+            }
             var map = that.getMapById(this.id)
                 , canton = map.getCantonById(cantonId)
                 , $map = $("#map-" + this.id);
@@ -163,7 +166,7 @@ var chmapController = function() {
                 legend = " (" + canton.legend + ")";
             }
             $tooltip.find("p").html("<span class=\"h-offscreen\">" + canton.name + legend + "</span>" + canton.txt);
-            $tooltip.show();
+            $tooltip.addClass('chmap-infowindow--padded').show();
         };
 
         this.resetSelectedCanton = function(mapId) {
