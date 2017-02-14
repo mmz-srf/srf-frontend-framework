@@ -15,46 +15,29 @@
   text-indent: 8px;
   border: 0;
   border-radius: 2px;
-  background-color: #ebebe5;
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+  background: #ebebe5 url("../img/arrows/menu_arrow.svg") no-repeat right 16px center;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.24),
+              0 0 2px 0 rgba(0, 0, 0, 0.12);
   // hide default arrow
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
+  &:hover {
+    background-color: #dadad2;
+  }
   &:active {
     outline: none;
     text-shadow: 0 0 0 #ebebe5;
     -webkit-tap-highlight-color: rgba(0,0,0,0);
     -webkit-tap-highlight-color: transparent;
+    background-color: #cac8bf;
+  }
+  &:hover, &:active {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.24),
+                0 0 8px 0 rgba(0, 0, 0, 0.12);
   }
   &:-moz-focusring {
     color: transparent;
     text-shadow: 0 0 0 #4e4d47;
-  }
-}
-
-.menu__arrow {
-  position: absolute;
-  right: 30px;
-  top: 50%;
-  transform: translate(0, -50%);
-  border-color: #4e4d47 transparent;
-  border-style: solid;
-  border-width: 10px 11px 0;
-  &:after {
-    content: "";
-    position: absolute;
-    left: -9px;
-    top: -10px;
-    border-color: #ebebe5 transparent;
-    border-style: solid;
-    border-width: 8px 9px 0;
-  }
-  &--active {
-    border-width: 0 11px 10px;
-    &:after {
-      top: 2px;
-      border-width: 0 9px 8px;
-    }
   }
 }
