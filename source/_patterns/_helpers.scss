@@ -5,13 +5,13 @@
  */
 .h-offscreen {
   position: absolute;
-  clip: rect(1px 1px 1px 1px); /* for Internet Explorer */
-  clip: rect(1px, 1px, 1px, 1px);
-  padding: 0;
-  border: 0;
-  height: 1px;
   width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
   overflow: hidden;
+  clip: rect(0,0,0,0);
+  border: 0;
 }
 
 /*
@@ -19,20 +19,13 @@
  * hides elements visually but not from screen readers while still being focusable
  */
 .h-offscreen-focusable {
-  position: absolute;
-  clip: rect(1px 1px 1px 1px); /* for Internet Explorer */
-  clip: rect(1px, 1px, 1px, 1px);
-  padding: 0;
-  border: 0;
-  height: 1px;
-  width: 1px;
-  overflow: hidden;
-
+  &:active,
   &:focus {
-    position: relative;
-    clip: auto;
+    position: static;
     width: auto;
     height: auto;
-    overflow: auto;
+    margin: 0;
+    overflow: visible;
+    clip: auto;
   }
 }
