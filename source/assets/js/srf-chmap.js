@@ -158,7 +158,7 @@ var chmapController = function() {
                 $tooltip.append("<img class=\"chmap-infowindow__img\" alt=\"\"/><p class=\"chmap-infowindow__text\"></p>");
             }
             $tooltip.find("img").attr("src", "").addClass("chmap-tooltip__img--hide");
-            if (canton.img !== "") {
+            if (canton.img !== "" && canton.img !== false) {
                 $tooltip.find("img").attr("src", canton.img).removeClass("chmap-tooltip__img--hide");
             }
             var legend = "";
