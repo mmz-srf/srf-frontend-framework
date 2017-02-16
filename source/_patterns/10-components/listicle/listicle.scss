@@ -1,9 +1,9 @@
 .list {
-  margin: 0 0 8px;
+  margin: 32px 0 8px;
   overflow: hidden;
   @include smartphone {
     @include fullwidth-element;
-    margin-top: 32px;
+    margin-top: 24px;
     margin-bottom: 12px;
   }
 }
@@ -15,7 +15,7 @@
   line-height: 28px;
   letter-spacing: 0.3px;
   @include tablet-up {
-    margin: 16px 16px 24px;
+    margin: 0 16px 24px;
     font-size: 24px;
     line-height: 32px;
     letter-spacing: 0.3px;
