@@ -1,5 +1,5 @@
 .menu {
-  &-wrapper {
+  &__wrapper {
     position: relative;
     padding: 16px;
     width: 100%;
@@ -35,7 +35,6 @@
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  // dealing with ff bugs
   &:-moz-focusring {
     color: transparent;
     text-shadow: 0 0 0 #4e4d47;
