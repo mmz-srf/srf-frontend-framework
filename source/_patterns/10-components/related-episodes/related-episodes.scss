@@ -23,13 +23,19 @@
 
 
     &__wrapper {
-      width: 80px;
+      width: 142px;
       height: 80px;
       margin: 16px 0 16px 16px;
+      @include smartphone {
+        width: 80px;
+      }
 
       &:before {
-        width: 80px;
+        width: 142px;
         height: 80px;
+        @include smartphone {
+          width: 80px;
+        }
       }
     }
 
@@ -40,8 +46,11 @@
 
   .article-audio .image-figure__image,
     .article-video .image-figure__image{
-    width: 80px;
+    width: 142px;
     height: 80px;
+    @include smartphone {
+      width: 80px;
+    }
   }
 
   .media-caption--audio {
