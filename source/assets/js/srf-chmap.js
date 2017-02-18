@@ -37,18 +37,24 @@ var chmapController = function() {
     this.initObservers = function() {
 
         // tooltips for cantons
-        $('.chmap--desktop').on('mousemove', 'a', function( event ) {
+        $('.chmap--desktop').on('mousemove', function( event ) {
+            var $target = $(event.target);
+            if ($target.hasClass("chmap--desktop")) {
+                return
+            }
             $(':focus').focusout();
-            var pageY = event.pageY - 75,
-                pageX = event.pageX;
             var parentOffset = $('.chmap--desktop').parent().offset(),
-            		pageY = event.pageY - parentOffset.top - 58,
+            	pageY = event.pageY - parentOffset.top - 58,
                 pageX = event.pageX - parentOffset.left,
-                mapId = that.getCurrentMapId($(event.target)),
+                $tooltip = $("#chmap-tooltip"),
+                mapId = that.getCurrentMapId($target),
                 map = that.getMapById(mapId),
-                canton = map.getCantonById($(event.target).parent().attr("id")),
-                $tooltip = $("#chmap-tooltip");
-            // that.doMouseEnter($(event.target).parent());
+                canton = null;
+            if ($target.is("use")) {
+                canton = map.getCantonById($target.attr("xlink:href").substr(1));
+            } else {
+                canton = map.getCantonById($target.parent().attr("id"));
+            }
 
             // if not there yet: create it
             if ($tooltip.length === 0) {
@@ -59,7 +65,7 @@ var chmapController = function() {
 
             // tooltip positioning
             var cssClass = "left";
-            if (pageX > $('.chmap--desktop').parent().width() / 2) {
+            if (pageX > $(this).parent().width() / 2) {
                 cssClass = "right";
                 pageX = pageX - $tooltip.outerWidth();
             }
@@ -148,7 +154,6 @@ var chmapController = function() {
             // repaint chosen canton (on top)
             $("#selector-" + this.id).attr('xlink:href', "#" + cantonId);
             $map.find(".chmap__location").removeClass("chmap__location--shadow");
-            // $map.find("#" + cantonId).addClass("chmap__location--shadow");
             $map.find("#" + cantonId).addClass("chmap__location--shadow");
             // select menu
             $map.find(".menu option[value='" + cantonId + "']").prop('selected', true);
