@@ -79,6 +79,7 @@
   .image-figure {
     margin-top: 0;
     margin-bottom: 0;
+    position: relative;
     &__image-wrapper:before {
       content: "";
       position: absolute;
