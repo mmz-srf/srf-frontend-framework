@@ -1,7 +1,7 @@
 .media-caption--poll {
   margin: 0;
   padding: 0;
-
+  width: 100%;
 }
 .media-caption__description--poll {
   font-size: 18px;
@@ -19,6 +19,14 @@
 .poll {
   padding: 0;
   margin: 2px 0 0;
+  // possibly only temporary ...?
+  .article-audio {
+    overflow: hidden;
+  }
+  .article-audio__wrapper {
+    left: calc(50% - 16px); transform: translate(-50%, 0);
+  }
+
 }
 .poll__submit { // submit button
   width: 100%;
@@ -118,13 +126,16 @@
   position: absolute;
   height: 100%;
   width: 0;
-  background-color: #fff;
+  opacity: 0;
+  background-color: $color-accentuation-red; // #fff;
+  // opacity: 0;
   // transition: all 5s;
-    // width 1s,
-    // background-color 1s 2s;
 }
 .poll-option-rating__bg-color--animate {
-  transition: all 30s;
+  // width: 200px;
+  // opacity: 1;
+  // background-color: $color-accentuation-red;
+  transition: all 2s ease-in;
 }
 .poll-option-rating__percent {
   position: relative;

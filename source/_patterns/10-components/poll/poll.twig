@@ -11,9 +11,9 @@
 {% endmacro %}
 {% macro rating_box(optionIndex, answer_title) %}
     <div class="poll-option-rating">
+        <div class="poll-option-rating__bg-color"></div>
         <p class="poll-option-rating__answer-copy">{{ answer_title }} {{ optionIndex + 1 }}</p>
         <p class="poll-option-rating__percent"><strong></strong>%</p>
-        <div class="poll-option-rating__bg-color"></div>
     </div>
 {% endmacro %}
 {% import _self as option %}

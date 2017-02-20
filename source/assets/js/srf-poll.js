@@ -58,24 +58,31 @@ var pollController = function() {
             // total number of votes
             var total = that.getTotalVotes(that.polls[pollId].data);
 
-            // percent = that.polls[pollId].data[i] * 100 / total;
             var width, percent = 0;
             $poll.find("li").each(function (i) {
                 percent = that.polls[pollId].data[i] / total;
                 width = parseInt(percent * 100, 10);
                 $(this).find(".poll-option-rating").show();
-                $(this).find(".poll-option-rating__bg-color").css({
-                    "width": width + "%",
-                    "background-color": "rgba(201,16,36, " + percent + ")"
-                }); // .addClass("poll-option-rating__bg-color--animate"); 
+                $(this).find(".poll-option-label").hide();
+                var $color_bar = $(this).find(".poll-option-rating__bg-color")
+                    // .addClass("poll-option-rating__bg-color--animate")
+                    /* .css({
+                        "width": width + "%",
+                        "opacity": percent,
+                        "transition": "width 30s linear"
+                        // "background-color": "rgba(201,16,36, " + percent + ")"
+                    }); */
+                    .animate({
+                        // "background-color": "rgba(201,16,36, " + percent + ")",
+                        opacity: percent,
+                        width: width + "%"
+                    }, 3000, function() {
+                        // Animation complete.
+                    });
 
                 $(this).find(".poll-option-rating__percent strong").text(width);
                 // the radio is already hidden ... (accessibility???)
-                $(this).find(".poll-option-label").hide();
             });
-
-            // var $data = that.loadData(pollId);
-            // console.log("data...",$data)
         });
     };
 
