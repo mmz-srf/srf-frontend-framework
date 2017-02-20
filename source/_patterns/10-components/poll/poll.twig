@@ -1,0 +1,98 @@
+{% macro question_label(pollIndex, optionIndex, answer_title, answer_description) %}
+    <figcaption class="media-caption media-caption--poll">
+        <input type="radio" id="poll_q{{ pollIndex }}{{ optionIndex }}" class="poll-option__radio">
+        <label for="poll_q{{ pollIndex }}{{ optionIndex }}" class="poll-option-label">
+            <p class="poll-option-label__title">{{ answer_title }} {{ optionIndex + 1 }}</p>
+            {% if answer_description %}
+                <p class="poll-option-label__description">{{ answer_description }}</p>
+            {% endif %}
+        </label>
+    </figcaption>
+{% endmacro %}
+{% macro rating_box(optionIndex, answer_title) %}
+    <div class="poll-option-rating">
+        <p class="poll-option-rating__answer-copy">{{ answer_title }} {{ optionIndex + 1 }}</p>
+        <p class="poll-option-rating__percent"><strong></strong>%</p>
+        <div class="poll-option-rating__bg-color"></div>
+    </div>
+{% endmacro %}
+{% import _self as option %}
+
+{% set pollIndex = 1 %}
+<h2>Umfrage {{ pollIndex }}</h2>
+<form id="poll-ID{{ pollIndex }}" class="poll-wrapper" name="poll_{{ pollIndex }}" method="get" data-src="../../assets/demo/poll-data.json">
+    <figure class="image-figure {{ styleModifier }}">
+        <figcaption class="media-caption media-caption--poll">
+            <span class="media-caption__description media-caption__description--poll">
+                {{ poll.description }}
+            </span>
+        </figcaption>
+    </figure>
+    <ol class="poll">
+        {% set i = 0 %}
+        <li class="poll-option">
+            <figure class="image-figure {{ styleModifier }}">
+                <div class="image-figure__image-wrapper">
+                    <img class="image-figure__image"
+                         alt="{{ images[2].caption.title }}"
+                         title="{{ images[2].caption.title }}"
+                         sizes="100vw"
+                         srcset="
+                    {% for source in images[2].sources %}
+                        {{ source.src }} {{ source.width }}w,
+                    {% endfor %}"
+                         src="{{ images[2].sources.s8.src }}">
+                </div>
+                {{ option.question_label( pollIndex, i, poll.answers.0 ) }}
+            </figure>
+            {{ option.rating_box( loop.index0, poll.answers.0) }}
+        </li>
+        <li class="poll-option">{% set i = i + 1 %}
+            <figure class="article-video">
+                <a class="article-video__link" href="{{ video.player_url }}/srf/popup?urn={{ video.urn }}&autoplay=true">
+                    <figure class="image-figure {{ styleModifier }}">
+                        <div class="image-figure__image-wrapper">
+                            <img class="image-figure__image"
+                                 alt="Video «{{ images[0].caption.title }}» abspielen"
+                                 title="{{ images[0].caption.title }}"
+                                 sizes="100vw"
+                                 srcset="
+                                {% for source in images[0].sources %}
+                                    {{ source.src }} {{ source.width }}w,
+                                {% endfor %}"
+                                 src="{{ images[0].sources.s8.src }}">
+                            <div class="article-video__link-meta">
+                                <img class="article-video__play-icon" src="../../assets/demo/img/video-play.svg" width="72" height="72" alt="">
+                                <span class="article-video__length">{{ video.length }}<span style="display:none;">min</span></span>
+                            </div>
+                        </div>
+                    </figure>
+                </a>
+                {{ option.question_label( pollIndex, i, poll.answers.0 ) }}
+            </figure>
+            {{ option.rating_box( loop.index0, poll.answers.0) }}
+        </li>
+        <li class="poll-option">{% set i = i + 1 %}
+            {# Audio #}
+            <figure class="article-audio">
+                <div class="article-audio__wrapper">
+                    <img class="image-figure__image"
+                         alt="Audio «{{ audios[0].title }}» abspielen"
+                         sizes="100vw"
+                         srcset="{% for source in audios[0].img_srcset %}
+                            {{ source.src }} {{ source.width }}w,
+                         {% endfor %}"
+                         src="{{ audios[0].img_src }}">
+
+                    <img class="article-audio__play-icon" src="../../assets/img/audio-play.svg" width="72" height="72" alt="">
+                </div>
+                {{ option.question_label( pollIndex, i, poll.answers.1.title, poll.answers.1.description ) }}
+            </figure>
+            {# // Audio #}
+            {{ option.rating_box( loop.index0, poll.answers.0) }}
+        </li>
+    </ol>
+    <input type="submit" class="poll__submit" value="Abstimmen">
+</form>
+
+{% include 'components-poll--simple' %}

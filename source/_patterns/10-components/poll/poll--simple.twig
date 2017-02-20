@@ -1,0 +1,31 @@
+{% set pollIndex = 2 %}
+<h2>Umfrage {{ pollIndex }}</h2>
+<form id="poll-ID{{ pollIndex }}" class="poll-wrapper" name="poll_{{ pollIndex }}" method="get" data-src="../../assets/demo/poll-data.json">
+    <figure class="image-figure {{ styleModifier }}">
+        <div class="image-figure__image-wrapper">
+            <img class="image-figure__image"
+                 alt="{{ images[2].caption.title }}"
+                 title="{{ images[2].caption.title }}"
+                 sizes="100vw"
+                 srcset="
+                    {% for source in images[2].sources %}
+                        {{ source.src }} {{ source.width }}w,
+                    {% endfor %}"
+                 src="{{ images[2].sources.s8.src }}">
+        </div>
+        <figcaption class="media-caption media-caption--poll">
+            <span class="media-caption__description media-caption__description--poll">
+                {{ poll.description }}
+            </span>
+        </figcaption>
+    </figure>
+    <ol class="poll">
+        {% for question in 0..2 %}
+            <li class="poll-option">
+                {{ option.question_label( pollIndex, loop.index0, poll.answers.0 ) }}
+                {{ option.rating_box( loop.index0, poll.answers.0) }}
+            </li>
+        {% endfor %}
+    </ol>
+    <input type="submit" class="poll__submit" value="Abstimmen">
+</form>
