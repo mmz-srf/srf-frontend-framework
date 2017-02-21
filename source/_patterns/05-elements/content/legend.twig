@@ -1,8 +1,8 @@
 <ul class="legend{% if chmap.legend|length > 4 %} legend--two-col{% endif %}">
     {% for legend in chmap.legend %}
-        <li class="legend__element">
-            <div class="legend__element-box" style="background-color:{{ legend.color }};"></div>
-            <p class="legend__element-description">{{ legend.description }}</p>
+        <li class="legend-element">
+            <div class="legend-element__box" style="background-color:{{ legend.color }};"></div>
+            <p class="legend-element__description">{{ legend.description }}</p>
         </li>
     {% endfor %}
 </ul>
