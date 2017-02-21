@@ -18,32 +18,32 @@
   &:hover, &:focus {
     background-color: $color-link-bg-hover;
   }
-  &.active {
+  &:active {
     background-color: $color-bg-caption;
   }
-}
 
-.article-teaser__image-container {
-  float: left;
-  border: none;
-  margin-right: 12px;
-
-  @include tablet-up {
-    margin-right: 16px;
+  &:hover, &:focus, &:active {
+    border-bottom-color: #d2d2d2;
   }
-}
-
-.article-teaser__content {
-  margin-left: 10px;
 }
 
 .article-teaser__image {
+  float: left;
+  border: none;
+  margin-right: 12px;
   width: 80px;
   height: 80px;
 
   @include tablet-up {
+    margin-right: 16px;
     width: 142px;
   }
+
+  object-fit: cover;
+}
+
+.article-teaser__content {
+  margin-left: 10px;
 }
 
 .article-teaser__kicker {
