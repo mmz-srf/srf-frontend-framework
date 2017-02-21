@@ -19,36 +19,63 @@
 .poll {
   padding: 0;
   margin: 2px 0 0;
+  overflow: hidden;
   // possibly only temporary ...?
   .article-audio {
-    overflow: hidden;
+    // overflow: hidden;
   }
   .article-audio__wrapper {
     left: calc(50% - 16px); transform: translate(-50%, 0);
   }
-
+  &.poll--with-media {
+    @include tablet-up {
+      margin-top: 8px;
+    }
+  }
 }
 .poll__submit { // submit button
   width: 100%;
   padding: 16px;
-  margin-top: 8px;
+  // margin-top: 8px;
   font: 16px/20px $font-regular;
   letter-spacing: 1px;
   color: #fff;
   text-transform: uppercase;
   border: 0;
-  border-radius: 2px;
+  @include rounded-corners(2px);
   background-color: #4e4d47;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+  @include tablet-up {
+    width: 174px;
+    margin-left: 16px;
+  }
 }
 .poll-option { // list element
   padding: 0;
   margin: 0 0 2px;
+  &:last-of-type {
+    margin-bottom: 8px;
+  }
   &:before {
     content: none; // overwrite
   }
   .article-video, .article-audio { // overwrite
     margin: 0;
+  }
+
+  &.poll-option--with-media {
+  // experimental!!
+    @include tablet-up {
+      width: calc(50% - 4px);
+      float: left;
+      margin-bottom: 8px;
+      &:nth-of-type(odd) {
+        margin-right: 8px;
+      }
+      .image-figure {
+        width: auto;
+      }
+    }
   }
 }
 .poll-option__radio {
@@ -59,15 +86,14 @@
   display: block;
   background-color: $color-bg-box;
   padding: 12px 24px;
+  @include rounded-corners(2px);
   cursor: pointer;
 
   // custom radios
   &:before, &:after {
     content: "";
     position: absolute;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    border-radius: 50%;
+    @include rounded-corners(50%);
   }
   &:before {
     top: 16px;
@@ -88,7 +114,7 @@
     border: solid 1px $color-text-light;
   }
   &:hover {
-    background-color: #dadad2;
+    background-color: $color-bg-box-hover;
   }
   &:hover:after, &--selected:after {
     border: solid 1px $color-accentuation-red;
@@ -112,15 +138,37 @@
 // rating / responses
 .poll-option-rating {
   position: relative;
-  overflow: hidden;
+  // height: 56px;
+  min-height: 56px;
+  @include rounded-corners(2px);
+  background-color: $color-bg-box;
+  // overflow: hidden;
   display: none; // initial => to be changed in js ..
+  &:hover {
+    background-color: $color-bg-box-hover;
+  }
 }
 .poll-option-rating__answer-copy {
-  position: relative;
-  float: left;
+  position: absolute;
+  top: 50%;
+  width: calc(100% - 88px); // 88 = 72 + 16
   font: 16px/20px $font-regular;
   letter-spacing: .5px;
-  margin: 16px;
+  margin: 0;
+  padding: 16px;
+  transform: translate(0px, -50%);
+}
+.poll-option-rating__percent {
+  position: absolute;
+  min-width: 72px;
+  // float: right;
+  right: 16px;
+  text-align: right;
+  font: 24px/20px $font-light;
+  letter-spacing: .3px;
+  margin: 0 16px 0 0;
+  top: 50%;
+  transform: translate(0, -50%);
 }
 .poll-option-rating__bg-color {
   position: absolute;
@@ -137,12 +185,11 @@
   // background-color: $color-accentuation-red;
   transition: all 2s ease-in;
 }
-.poll-option-rating__percent {
-  position: relative;
-  min-width: 72px;
-  float: right;
-  text-align: right;
-  font: 24px/20px $font-light;
-  letter-spacing: .3px;
-  margin: 16px;
+.poll-roundup {
+  height: 56px;
+  margin: 0;
+  padding: 16px;
+  background-color: #f5f5f2;
+  display: none;
+  @include rounded-corners-2px;
 }
