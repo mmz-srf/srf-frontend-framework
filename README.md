@@ -1,6 +1,8 @@
 # srf-frontend-framework
 SRF Frontend Framework
 
+URL: http://www.srfcdn.ch/assets/test/latest/public/
+
 ## Minimalistic installation guide:
 
 0. Clone via preferred method
