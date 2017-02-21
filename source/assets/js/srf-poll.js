@@ -37,10 +37,10 @@ var pollController = function() {
         var that = this; // todo: click => ...
         $('.poll-option__radio').on('click', function() { // canton select navigation
             // mark as "clicked"
-            $(".poll-option-label[for=" + $(this).attr("id") + "]").addClass("poll-option-label--selected")
-            var $poll = $(this).parents(".poll-wrapper");
-            var pollId = $poll.attr("id");
-            var optionId = $(this).attr("id");
+            $(".poll-option-label[for=" + $(this).attr("id") + "]").addClass("poll-option-label--selected");
+            var $poll = $(this).parents(".poll-wrapper")
+                , pollId = $poll.attr("id")
+                , optionId = $(this).attr("id");
 
             // this is hopefully temporary ...?
             var qIndex = 0;
@@ -62,9 +62,10 @@ var pollController = function() {
             $poll.find("li").each(function (i) {
                 percent = that.polls[pollId].data[i] / total;
                 width = parseInt(percent * 100, 10);
-                $(this).find(".poll-option-rating").show();
-                $(this).find(".poll-option-label").hide();
-                var $color_bar = $(this).find(".poll-option-rating__bg-color")
+                var $element = $(this);
+                $element.find(".poll-option-rating").show();
+                $element.find(".poll-option-label").remove();
+                $element.find(".poll-option-rating__bg-color")
                     // .addClass("poll-option-rating__bg-color--animate")
                     /* .css({
                         "width": width + "%",
@@ -83,6 +84,8 @@ var pollController = function() {
                 $(this).find(".poll-option-rating__percent strong").text(width);
                 // the radio is already hidden ... (accessibility???)
             });
+            $poll.find(".poll__submit").remove();
+            $poll.find(".poll-roundup").show().find("strong").text(total);
         });
     };
 
