@@ -1,5 +1,5 @@
 {% set pollIndex = 2 %}
-<h2>Umfrage {{ pollIndex }}</h2>
+<h2>{{ poll.title }} {{ pollIndex }}</h2>
 <form id="poll-ID{{ pollIndex }}" class="poll-wrapper" name="poll_{{ pollIndex }}" method="get" data-src="../../assets/demo/poll-data.json">
     <figure class="image-figure {{ styleModifier }}">
         <div class="image-figure__image-wrapper">
@@ -27,5 +27,6 @@
             </li>
         {% endfor %}
     </ol>
-    <input type="submit" class="poll__submit" value="Abstimmen">
+    <input type="submit" class="poll__submit" value="{{ poll.submit }}">
+    <p class="poll-roundup"><strong></strong> {{ poll.total }}</p>
 </form>

@@ -19,7 +19,7 @@
 {% import _self as option %}
 
 {% set pollIndex = 1 %}
-<h2>Umfrage {{ pollIndex }}</h2>
+<h2>{{ poll.title }} {{ pollIndex }}</h2>
 <form id="poll-ID{{ pollIndex }}" class="poll-wrapper" name="poll_{{ pollIndex }}" method="get" data-src="../../assets/demo/poll-data.json">
     <figure class="image-figure {{ styleModifier }}">
         <figcaption class="media-caption media-caption--poll">
@@ -28,9 +28,9 @@
             </span>
         </figcaption>
     </figure>
-    <ol class="poll">
+    <ol class="poll poll--with-media">
         {% set i = 0 %}
-        <li class="poll-option">
+        <li class="poll-option poll-option--with-media">
             <figure class="image-figure {{ styleModifier }}">
                 <div class="image-figure__image-wrapper">
                     <img class="image-figure__image"
@@ -47,7 +47,7 @@
             </figure>
             {{ option.rating_box( loop.index0, poll.answers.0) }}
         </li>
-        <li class="poll-option">{% set i = i + 1 %}
+        <li class="poll-option poll-option--with-media">{% set i = i + 1 %}
             <figure class="article-video">
                 <a class="article-video__link" href="{{ video.player_url }}/srf/popup?urn={{ video.urn }}&autoplay=true">
                     <figure class="image-figure {{ styleModifier }}">
@@ -72,7 +72,7 @@
             </figure>
             {{ option.rating_box( loop.index0, poll.answers.0) }}
         </li>
-        <li class="poll-option">{% set i = i + 1 %}
+        <li class="poll-option poll-option--with-media">{% set i = i + 1 %}
             {# Audio #}
             <figure class="article-audio">
                 <div class="article-audio__wrapper">
@@ -92,7 +92,10 @@
             {{ option.rating_box( loop.index0, poll.answers.0) }}
         </li>
     </ol>
-    <input type="submit" class="poll__submit" value="Abstimmen">
+    <input type="submit" class="poll__submit" value="{{ poll.submit }}">
+    <!-- div class="poll-roundup"><p><strong></strong> Stimmen wurden abgegeben</p></div -->
+    <p class="poll-roundup"><strong></strong> {{ poll.total }}</p>
+
 </form>
 
 {% include 'components-poll--simple' %}
