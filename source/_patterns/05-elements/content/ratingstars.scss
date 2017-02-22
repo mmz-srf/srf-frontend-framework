@@ -20,61 +20,7 @@
 .animated .ratingstars__star--4 {animation-name:ratingAnime4;animation-delay:.55s}
 .animated .ratingstars__star--5 {animation-name:ratingAnime5;animation-delay:.6s}
 
-//.ratingstars--toVote .ratingstars__star:active,
 .ratingstars__star.is-active {fill:rgb(201,17,37)}
 
-.ratingstars__star.is-votedActive {background:rgb(34,33,29)}
-
-.resultWording {opacity:0;font-size:10px;position:absolute;top:16px;right:0;left:0;transition:opacity .4s linear;transition-delay:.8s}
-.resultWording.animated {opacity:1}
-
-/*
-@keyframes ratingAnime1 {
-    0% {transform:translate3d(0,0,0) scale3d(1,1,1)}
-    50% {transform:translate3d(0,-24px,0) scale3d(1.125,1.125,1.125) rotateY(90deg)}
-    80% {transform:translate3d(0,-2px,0) scale3d(.8,.8,.8) rotateY(144deg)}
-    100% {transform:translate3d(0,-8px,0) scale3d(.875,.875,.875) rotateY(180deg);transform-origin:80% 50%;fill:rgb(34,33,29)}
-}
-@keyframes ratingAnime2 {
-    0% {transform:translate3d(0,0,0) scale3d(1,1,1)}
-    50% {transform:translate3d(0,-24px,0) scale3d(1.125,1.125,1.125) rotateY(90deg)}
-    80% {transform:translate3d(0,-2px,0) scale3d(.8,.8,.8) rotateY(144deg)}
-    100% {transform:translate3d(0,-8px,0) scale3d(.875,.875,.875) rotateY(180deg);transform-origin:65% 50%;fill:rgb(34,33,29)}
-}
-@keyframes ratingAnime3 {
-    0% {transform:translate3d(0,0,0) scale3d(1,1,1)}
-    50% {transform:translate3d(0,-24px,0) scale3d(1.125,1.125,1.125) rotateY(90deg)}
-    80% {transform:translate3d(0,-2px,0) scale3d(.8,.8,.8) rotateY(144deg)}
-    100% {transform:translate3d(0,-8px,0) scale3d(.875,.875,.875) rotateY(180deg);transform-origin:50% 50%;fill:rgb(34,33,29)}
-}
-@keyframes ratingAnime4 {
-    0% {transform:translate3d(0,0,0) scale3d(1,1,1)}
-    50% {transform:translate3d(0,-24px,0) scale3d(1.125,1.125,1.125) rotateY(90deg)}
-    80% {transform:translate3d(0,-2px,0) scale3d(.8,.8,.8) rotateY(144deg)}
-    100% {transform:translate3d(0,-8px,0) scale3d(.875,.875,.875) rotateY(180deg);transform-origin:35% 50%;fill:rgb(185,183,173)}
-}
-@keyframes ratingAnime5 {
-    0% {transform:translate3d(0,0,0) scale3d(1,1,1)}
-    50% {transform:translate3d(0,-24px,0) scale3d(1.125,1.125,1.125) rotateY(90deg)}
-    80% {transform:translate3d(0,-2px,0) scale3d(.8,.8,.8) rotateY(144deg)}
-    100% {transform:translate3d(0,-8px,0) scale3d(.875,.875,.875) rotateY(180deg);transform-origin:20% 50%;fill:rgb(185,183,173)}
-}*/
-
-
-
-
-
-
-/*
-.is-flipCardAnime {perspective:1000}
-.is-flipCardAnime {transform:rotateY(180deg)}
-
-.is-me {transition:.6s;transform-style:preserve-3d}
-
-.ratingstars__starm {animation:animationFrames linear 1s;animation-iteration-count:1;transform-origin:50% 50%;animation-fill-mode:forwards}
-.ratingstars__elem:hover {background:blue;transform:rotateY(180deg)}
-
-
-.me {transform:translate3d(0px,0px,0px) scale3d(1,1,1) rotateY(0deg)}
-.me1 {transform:translate3d(0px, -30px, 0px) scale3d(1.1, 1.1, 1) rotateY(90deg)}
-*/
+.resultWording {visibility:hidden;opacity:0;font-size:10px;position:absolute;top:16px;right:0;left:0;transition:visibility .4s linear .8s,opacity .4s}
+.animated .resultWording {visibility:visible;opacity:1}
