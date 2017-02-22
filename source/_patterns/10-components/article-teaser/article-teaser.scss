@@ -25,6 +25,10 @@
   &:hover, &:focus, &:active {
     border-bottom-color: #d2d2d2;
   }
+
+  @include smartphone {
+    @include fullwidth-element;
+  }
 }
 
 .article-teaser__image {
@@ -56,6 +60,12 @@
   letter-spacing: 0.2px;
   color: $color-accentuation-red;
   margin: 0 0 4px;
+
+  @include tablet-up {
+    font-size: 14px;
+    line-height: 1.14;
+    letter-spacing: 0.5px;
+  }
 }
 
 .article-teaser__title {
@@ -67,7 +77,14 @@
   line-height: 1.43;
   letter-spacing: 0.2px;
   color: #1a1916;
-  margin: 0 0 4px;
+  margin: 0 0 6px;
+
+  @include tablet-up {
+    font-size: 20px;
+    line-height: 1.4;
+    letter-spacing: 0.5px;
+    margin: 0 0 8px;
+  }
 }
 
 .article-teaser__date {
