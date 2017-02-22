@@ -17,10 +17,15 @@
     </figcaption -->
 {% endmacro %}
 {% macro rating_box(optionIndex, answer_title, media_options) %}
-    <div class="poll-option-rating">
-        <div class="poll-option-rating__bg-color"></div>
-        <p class="poll-option-rating__answer-copy">{{ answer_title }} {{ optionIndex + 1 }}</p>
-        <p class="poll-option-rating__percent"><strong></strong>%</p>
+   <div class="poll-option-wrapper">
+        {% if media_options is not empty %}
+            {% include "media.twig" with media_options %}
+        {% endif %}
+         <div class="poll-option-rating">
+            <div class="poll-option-rating__bg-color"></div>
+            <p class="poll-option-rating__answer-copy">{{ answer_title }} {{ optionIndex + 1 }}</p>
+            <p class="poll-option-rating__percent"><strong></strong>%</p>
+        </div>
     </div>
 {% endmacro %}
 {% import _self as option %}
@@ -38,26 +43,29 @@
     <ol class="poll poll--with-media">
         {% set i = 0 %}
         <li class="poll-option poll-option--with-media">
-            {% set media_options = { "media_type": "bild", "media_title" : images[2].caption.title, "media_length" : 0, "image" : images[2] } %}
-            {% include "media.twig" with media_options %}
-            {{ option.question_label( pollIndex, i, poll.answers.0 ) }}
+            {% set media = { "type": "bild", "title" : images[2].caption.title, "length" : 0, "player_url": null, "urn" : null } %}
+            {% set media_options = { "media": media, "image" : images[2] } %}
+            {# {% set media_options = { "media_type": "bild", "media_title" : images[2].caption.title, "media_length" : 0, "media_link_info": null, "image" : images[2] } %} #}
             {{ option.rating_box( loop.index0, poll.answers.0, media_options ) }}
+            {{ option.question_label( pollIndex, i, poll.answers.0 ) }}
         </li>
         <li class="poll-option poll-option--with-media">{% set i = i + 1 %}
             {# Video #}
-            {% set media_options = { "media_type": "video", "media_title" : videos[0].title, "media_length" : videos[0].length, "image" : images[2] } %}
-            {% include "media.twig" with media_options %}
-            {# // Video #}
-            {{ option.question_label( pollIndex, i, poll.answers.0 ) }}
+            {% set media = { "type": "video", "title" : videos[0].title, "length" : videos[0].length, "player_url": videos[0].player_url, "urn" : videos[0].urn } %}
+            {% set media_options = { "media": media, "image" : images[2] } %}
+            {# {% set media_options = { "media_type": "video", "media_title" : videos[0].title, "media_length" : videos[0].length, "media_link_info": null, "image" : images[2] } %} #}
             {{ option.rating_box( loop.index0, poll.answers.0, media_options) }}
+            {{ option.question_label( pollIndex, i, poll.answers.1.title, poll.answers.1.description ) }}
+            {# // Video #}
         </li>
         <li class="poll-option poll-option--with-media">{% set i = i + 1 %}
             {# Audio #}
-            {% set media_options = { "media_type": "audio", "media_title" : audios[0].title, "media_length" : audios[0].length, "image" : images[2] } %}
-            {% include "media.twig" with media_options %}
-            {# // Audio #}
-            {{ option.question_label( pollIndex, i, poll.answers.1.title, poll.answers.1.description ) }}
+            {% set media = { "type": "audio", "title" : audios[0].title, "length" : audios[0].length, "player_url": audios[0].player_url, "urn" : audios[0].urn } %}
+            {% set media_options = { "media": media, "image" : images[2] } %}
+            {# {% set media_options = { "media_type": "audio", "media_title" : audios[0].title, "media_length" : audios[0].length, "media_link_info": null, "image" : images[2] } %} #}
             {{ option.rating_box( loop.index0, poll.answers.0, media_options ) }}
+            {# // Audio #}
+            {{ option.question_label( pollIndex, i, poll.answers.0 ) }}
         </li>
     </ol>
     <input type="submit" class="poll__submit" value="{{ poll.submit }}">

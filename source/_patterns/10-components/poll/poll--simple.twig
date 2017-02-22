@@ -23,7 +23,7 @@
         {% for question in 0..2 %}
             <li class="poll-option">
                 {{ option.question_label( pollIndex, loop.index0, poll.answers.0 ) }}
-                {{ option.rating_box( loop.index0, poll.answers.0) }}
+                {{ option.rating_box( loop.index0, poll.answers.0, {}) }}
             </li>
         {% endfor %}
     </ol>

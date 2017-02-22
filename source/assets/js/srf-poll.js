@@ -35,6 +35,7 @@ var pollController = function() {
     this.initObservers = function() {
         // also radio!
         var that = this; // todo: click => ...
+        // should work on submit submit - not on click!!
         $('.poll-option__radio').on('click', function() { // canton select navigation
             // mark as "clicked"
             $(".poll-option-label[for=" + $(this).attr("id") + "]").addClass("poll-option-label--selected");
@@ -52,6 +53,12 @@ var pollController = function() {
             });
             // tbd: send data .. :)
 
+
+            // js mess ...
+            $poll.removeClass("poll--with-media"); // <-- adjust
+
+
+
             // adjust selected vote
             that.polls[pollId].data[qIndex]++;
 
@@ -59,11 +66,16 @@ var pollController = function() {
             var total = that.getTotalVotes(that.polls[pollId].data);
 
             var width, percent = 0;
+
             $poll.find("li").each(function (i) {
                 percent = that.polls[pollId].data[i] / total;
                 width = parseInt(percent * 100, 10);
                 var $element = $(this);
+
                 $element.find(".poll-option-rating").show();
+                // $element.addClass("poll-option--rated");
+                $element.removeClass("poll-option--with-media");
+                $element.find(".article-media").addClass("article-media--cropped");
                 $element.find(".poll-option-label").remove();
                 $element.find(".poll-option-rating__bg-color")
                     // .addClass("poll-option-rating__bg-color--animate")

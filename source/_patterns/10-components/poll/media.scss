@@ -20,8 +20,8 @@
     //
     &-meta {
       position: absolute;
-      top: 55%;
-      left: 50%;
+      top: 50%;
+      left: 55%;
       width: 68px;
       transform: translate(-50%, -50%);
       text-align: center;
@@ -41,17 +41,31 @@
       background-size: 100%;
     }
   }
-  // img cropping ... 
+  // img cropping ...
   &.article-media--cropped {
     position: relative;
-    width: 56px;
-    height: 56px;
+    width: 72px;
+    height: 72px;
     right: 0;
-    margin: 16px;
+    margin: 8px;
+    padding: 8px;
     float: right;
-  }
-  .image-figure__image--cropped {
-    height: 100%;
-    object-fit: cover;
+    z-index: 1; // ???
+
+    .article-media__link {
+      height: 100%;
+    }
+    .image-figure__image {
+      height: 100%;
+      object-fit: cover;
+    }
+    .article-media__link-meta {
+      top: 50%;
+      width: 40px;
+    }
+    .article-media__length {
+      display: none;
+    }
+
   }
 }

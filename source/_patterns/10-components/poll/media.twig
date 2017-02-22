@@ -1,26 +1,29 @@
 <figure class="article-media">
-    {% if media_type == "audio" or media_type == "video" %}
+    {% if media.type == "audio" or media.type == "video" %}
     <a class="article-media__link" href="{{ media.player_url }}/srf/popup?urn={{ media.urn }}&autoplay=true">
     {% endif %}
         <img class="image-figure__image"
             {% if media_type == "image" %}
-                alt="{{ media_title }}"
-                title="{{ media_title }}"
+                alt="{{ media.title }}"
+                title="{{ media.title }}"
             {% else %}
-                alt="{{ media_type|capitalize }} «{{ media_title }}» abspielen"
-                title="{{ media_type|capitalize }} «{{ media_title }}» abspielen"
+                alt="{{ media.type|capitalize }} «{{ media.title  }}» abspielen"
+                title="{{ media.type|capitalize }} «{{ media.title  }}» abspielen"
             {% endif %}
              sizes="100vw"
              srcset="{% for source in image.sources %}
                         {{ source.src }} {{ source.width }}w,
                      {% endfor %}"
              src="{{ image.sources.s8.src }}">
-        {% if media_type == "audio" or media_type == "video" %}
+        {% if media.type == "audio" or media.type == "video" %}
         <div class="article-media__link-meta">
-            <img class="article-media__play-icon" src="/assets/demo/img/{{ media_type }}-play.svg" width="72" height="72" alt="">
-            <span class="article-media__length">{{ media_length }}</span>
+            <img class="article-media__play-icon" src="/assets/demo/img/{{ media.type }}-play.svg" width="72" height="72" alt="">
+            <span class="article-media__length">{{ media.length }}</span>
         </div>
     </a> {# no links for images - and no dim #}
     {% endif %}
     <!-- figcaption deliberately omitted (design) -->
 </figure>
+
+{% set media = { "type": "audio", "title" : audios[0].title, "length" : audios[0].length,
+"player_url": audios[0].player_url, "urn" : audios[0].urn } %}
