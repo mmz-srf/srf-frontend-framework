@@ -16,6 +16,7 @@
     margin-bottom: 0;
   }
 }
+/////
 .poll {
   padding: 0;
   margin: 2px 0 0;
@@ -25,60 +26,69 @@
     height: auto;
     width: 100%;
   }
-  &.poll--with-media {
-    @include tablet-up {
+}
+
+.poll--with-media { // only for polls with media
+  // only valid initially :(
+  &.poll--setup {
+    @include tablet-up { // only for tablets
       margin-top: 8px;
       // flexbox
       display: flex;
       flex-wrap: wrap;
+
+      .poll-option {
+        // experimental!!
+        width: calc(50% - 4px);
+        float: left;
+        margin-bottom: 8px;
+        // flexbox
+        display: flex;
+        flex-direction: column;
+
+        &:nth-of-type(odd) {
+          margin-right: 8px;
+        }
+        .image-figure {
+          width: auto;
+        }
+      }
     }
   }
+  // only for polls with media - always
+  .poll-option-rating {
+    position: absolute;
+  }
+  .poll-option-rating__percent {
+    right: 70px;
+  }
+
 }
+
 .poll__submit { // submit button
   width: 100%;
-  padding: 16px;
-  margin-top: 6px; // there are 2 from above
+  padding: 16px 40px;
+  margin-top: 6px; // there are 2px from above
+  text-transform: uppercase;
   font: 16px/20px $font-regular;
   letter-spacing: 1px;
   color: #fff;
-  text-transform: uppercase;
   border: 0;
   @include rounded-corners(2px);
-  background-color: #4e4d47;
+  background-color: $color-text-accentuation;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
   @include tablet-up {
-    width: 174px;
+    width: auto;
     margin-left: 16px;
   }
 }
 .poll-option { // list element
   padding: 0;
   margin: 0 0 2px;
-  // &:last-of-type { margin-bottom: 8px; }
   // overwrite :(
   &:before {
     content: none; // overwrite
   }
-
-  &.poll-option--with-media {
-  // experimental!!
-    @include tablet-up {
-      width: calc(50% - 4px);
-      float: left;
-      margin-bottom: 8px;
-      // flexbox
-      display: flex;
-      flex-direction: column;
-
-      &:nth-of-type(odd) {
-        margin-right: 8px;
-      }
-      .image-figure {
-        width: auto;
-      }
-    }
-  }
-
   &.poll-option--rated {
     width: 100%;
   }
@@ -130,7 +140,6 @@
   // custom radios end here
 }
 .poll-option-label__title {
-  // display: inline-block;
   font: 16px/20px $font-regular;
   letter-spacing: 0.5px;
   margin: 0 0 0 36px;
@@ -146,9 +155,15 @@
 .poll-option-wrapper {
   @include rounded-corners(2px);
   overflow: hidden;
+  // min-height: 56px;
+}
+.poll-option-wrapper--show-result {
+  .poll-option-rating {
+    display: block;
+  }
 }
 .poll-option-rating {
-  position: absolute;
+  // position: absolute;
   height: 100%;
   width: 100%;
   min-height: 56px;
@@ -174,7 +189,7 @@
   position: absolute;
   min-width: 72px;
   // float: right;
-  right: 70px;
+  right: 0;
   text-align: right;
   font: 24px/20px $font-light;
   letter-spacing: .3px;
@@ -187,16 +202,14 @@
   height: 100%;
   width: 0;
   opacity: 0;
-  background-color: $color-accentuation-red; // #fff;
-  // opacity: 0;
-  // transition: all 5s;
+  background-color: $color-accentuation-red;
 }
 
 .poll-roundup {
   height: 56px;
   margin: 0;
   padding: 16px;
-  background-color: #f5f5f2;
+  background-color: $color-bg-caption;
   display: none;
   @include rounded-corners(2px);
 }

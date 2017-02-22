@@ -40,7 +40,7 @@
             </span>
         </figcaption>
     </figure>
-    <ol class="poll poll--with-media">
+    <ol class="poll poll--with-media poll--setup"> {# with-media & setup solely for polls with media! #}
         {% set i = 0 %}
         <li class="poll-option poll-option--with-media">
             {% set media = { "type": "bild", "title" : images[2].caption.title, "length" : 0, "player_url": null, "urn" : null } %}

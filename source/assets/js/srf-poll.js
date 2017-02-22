@@ -54,37 +54,28 @@ var pollController = function() {
             // tbd: send data .. :)
 
 
-            // js mess ...
-            $poll.removeClass("poll--with-media"); // <-- adjust
-
-
-
             // adjust selected vote
             that.polls[pollId].data[qIndex]++;
 
             // total number of votes
             var total = that.getTotalVotes(that.polls[pollId].data);
+            // js mess ...
+            $poll.removeClass("poll--setup"); // <-- adjust
+            $poll.find(".poll__submit").remove();
+            $poll.find(".poll-roundup").show().find("strong").text(total);
 
             var width, percent = 0;
-
             $poll.find("li").each(function (i) {
                 percent = that.polls[pollId].data[i] / total;
                 width = parseInt(percent * 100, 10);
                 var $element = $(this);
 
-                $element.find(".poll-option-rating").show();
-                // $element.addClass("poll-option--rated");
-                $element.removeClass("poll-option--with-media");
-                $element.find(".article-media").addClass("article-media--cropped");
+                // as wrapper in answer mode...
+                $element.find(".poll-option-wrapper").addClass("poll-option-wrapper--show-result");
+                // $element.find(".poll-option-rating").show();
+                // $element.find(".article-media").addClass("article-media--cropped");
                 $element.find(".poll-option-label").remove();
                 $element.find(".poll-option-rating__bg-color")
-                    // .addClass("poll-option-rating__bg-color--animate")
-                    /* .css({
-                        "width": width + "%",
-                        "opacity": percent,
-                        "transition": "width 30s linear"
-                        // "background-color": "rgba(201,16,36, " + percent + ")"
-                    }); */
                     .animate({
                         // "background-color": "rgba(201,16,36, " + percent + ")",
                         opacity: percent,
@@ -93,11 +84,10 @@ var pollController = function() {
                         // Animation complete.
                     });
 
-                $(this).find(".poll-option-rating__percent strong").text(width);
+                $element.find(".poll-option-rating__percent strong").text(width);
                 // the radio is already hidden ... (accessibility???)
             });
-            $poll.find(".poll__submit").remove();
-            $poll.find(".poll-roundup").show().find("strong").text(total);
+
         });
     };
 

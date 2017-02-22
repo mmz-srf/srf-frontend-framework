@@ -7,7 +7,6 @@
     // covering up the link
     border: 0;
     &:hover { border: 0; }
-    //
 
     &:before {
       // this is the only place that works (must be div or link or similar..)
@@ -17,7 +16,7 @@
       height: 100%;
       width: 100%;
     }
-    //
+
     &-meta {
       position: absolute;
       top: 50%;
@@ -41,8 +40,11 @@
       background-size: 100%;
     }
   }
-  // img cropping ...
-  &.article-media--cropped {
+}
+
+// img cropping ...
+.poll-option-wrapper--show-result {
+  .article-media {
     position: relative;
     width: 72px;
     height: 72px;
@@ -51,21 +53,19 @@
     padding: 8px;
     float: right;
     z-index: 1; // ???
-
-    .article-media__link {
-      height: 100%;
-    }
-    .image-figure__image {
-      height: 100%;
-      object-fit: cover;
-    }
-    .article-media__link-meta {
-      top: 50%;
-      width: 40px;
-    }
-    .article-media__length {
-      display: none;
-    }
-
+  }
+  .article-media__link {
+    height: 100%;
+  }
+  .image-figure__image {
+    height: 100%;
+    object-fit: cover;
+  }
+  .article-media__link-meta {
+    top: 50%;
+    width: 40px;
+  }
+  .article-media__length {
+    display: none;
   }
 }
