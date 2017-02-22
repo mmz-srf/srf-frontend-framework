@@ -60,7 +60,7 @@ var pollController = function() {
             // total number of votes
             var total = that.getTotalVotes(that.polls[pollId].data);
             // js mess ...
-            $poll.removeClass("poll--setup").addClass("poll--submitted"); // <-- adjust
+            $poll.find(".poll").removeClass("poll--setup").addClass("poll--submitted");
             $poll.find(".poll-roundup").show().find("strong").text(total);
             $poll.find(".poll__submit").remove();
 

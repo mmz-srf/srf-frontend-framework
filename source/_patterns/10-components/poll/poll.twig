@@ -42,14 +42,14 @@
     </figure>
     <ol class="poll poll--with-media poll--setup"> {# with-media & setup solely for polls with media! #}
         {% set i = 0 %}
-        <li class="poll-option poll-option--with-media">
+        <li class="poll-option">
             {% set media = { "type": "bild", "title" : images[2].caption.title, "length" : 0, "player_url": null, "urn" : null } %}
             {% set media_options = { "media": media, "image" : images[2] } %}
             {# {% set media_options = { "media_type": "bild", "media_title" : images[2].caption.title, "media_length" : 0, "media_link_info": null, "image" : images[2] } %} #}
             {{ option.rating_box( loop.index0, poll.answers.0, media_options ) }}
             {{ option.question_label( pollIndex, i, poll.answers.0 ) }}
         </li>
-        <li class="poll-option poll-option--with-media">{% set i = i + 1 %}
+        <li class="poll-option">{% set i = i + 1 %}
             {# Video #}
             {% set media = { "type": "video", "title" : videos[0].title, "length" : videos[0].length, "player_url": videos[0].player_url, "urn" : videos[0].urn } %}
             {% set media_options = { "media": media, "image" : images[2] } %}
@@ -58,7 +58,7 @@
             {{ option.question_label( pollIndex, i, poll.answers.1.title, poll.answers.1.description ) }}
             {# // Video #}
         </li>
-        <li class="poll-option poll-option--with-media">{% set i = i + 1 %}
+        <li class="poll-option">{% set i = i + 1 %}
             {# Audio #}
             {% set media = { "type": "audio", "title" : audios[0].title, "length" : audios[0].length, "player_url": audios[0].player_url, "urn" : audios[0].urn } %}
             {% set media_options = { "media": media, "image" : images[2] } %}
