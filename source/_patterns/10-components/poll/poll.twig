@@ -1,5 +1,12 @@
 {% macro question_label(pollIndex, optionIndex, answer_title, answer_description) %}
-    <figcaption class="media-caption media-caption--poll">
+    <input type="radio" id="poll_q{{ pollIndex }}{{ optionIndex }}" class="poll-option__radio">
+    <label for="poll_q{{ pollIndex }}{{ optionIndex }}" class="poll-option-label">
+        <p class="poll-option-label__title">{{ answer_title }} {{ optionIndex + 1 }}</p>
+        {% if answer_description %}
+            <p class="poll-option-label__description">{{ answer_description }}</p>
+        {% endif %}
+    </label>
+    <!-- figcaption class="media-caption media-caption--poll">
         <input type="radio" id="poll_q{{ pollIndex }}{{ optionIndex }}" class="poll-option__radio">
         <label for="poll_q{{ pollIndex }}{{ optionIndex }}" class="poll-option-label">
             <p class="poll-option-label__title">{{ answer_title }} {{ optionIndex + 1 }}</p>
@@ -7,9 +14,9 @@
                 <p class="poll-option-label__description">{{ answer_description }}</p>
             {% endif %}
         </label>
-    </figcaption>
+    </figcaption -->
 {% endmacro %}
-{% macro rating_box(optionIndex, answer_title) %}
+{% macro rating_box(optionIndex, answer_title, media_options) %}
     <div class="poll-option-rating">
         <div class="poll-option-rating__bg-color"></div>
         <p class="poll-option-rating__answer-copy">{{ answer_title }} {{ optionIndex + 1 }}</p>
@@ -31,65 +38,26 @@
     <ol class="poll poll--with-media">
         {% set i = 0 %}
         <li class="poll-option poll-option--with-media">
-            <figure class="image-figure {{ styleModifier }}">
-                <div class="image-figure__image-wrapper">
-                    <img class="image-figure__image"
-                         alt="{{ images[2].caption.title }}"
-                         title="{{ images[2].caption.title }}"
-                         sizes="100vw"
-                         srcset="
-                    {% for source in images[2].sources %}
-                        {{ source.src }} {{ source.width }}w,
-                    {% endfor %}"
-                         src="{{ images[2].sources.s8.src }}">
-                </div>
-                {{ option.question_label( pollIndex, i, poll.answers.0 ) }}
-            </figure>
-            {{ option.rating_box( loop.index0, poll.answers.0) }}
+            {% set media_options = { "media_type": "bild", "media_title" : images[2].caption.title, "media_length" : 0, "image" : images[2] } %}
+            {% include "media.twig" with media_options %}
+            {{ option.question_label( pollIndex, i, poll.answers.0 ) }}
+            {{ option.rating_box( loop.index0, poll.answers.0, media_options ) }}
         </li>
         <li class="poll-option poll-option--with-media">{% set i = i + 1 %}
-            <figure class="article-video">
-                <a class="article-video__link" href="{{ video.player_url }}/srf/popup?urn={{ video.urn }}&autoplay=true">
-                    <figure class="image-figure {{ styleModifier }}">
-                        <div class="image-figure__image-wrapper">
-                            <img class="image-figure__image"
-                                 alt="Video «{{ images[2].caption.title }}» abspielen"
-                                 title="{{ images[2].caption.title }}"
-                                 sizes="100vw"
-                                 srcset="
-                                {% for source in images[2].sources %}
-                                    {{ source.src }} {{ source.width }}w,
-                                {% endfor %}"
-                                 src="{{ images[2].sources.s8.src }}">
-                            <div class="article-video__link-meta">
-                                <img class="article-video__play-icon" src="../../assets/demo/img/video-play.svg" width="72" height="72" alt="">
-                                <span class="article-video__length">{{ video.length }}<span style="display:none;">min</span></span>
-                            </div>
-                        </div>
-                    </figure>
-                </a>
-                {{ option.question_label( pollIndex, i, poll.answers.0 ) }}
-            </figure>
-            {{ option.rating_box( loop.index0, poll.answers.0) }}
+            {# Video #}
+            {% set media_options = { "media_type": "video", "media_title" : videos[0].title, "media_length" : videos[0].length, "image" : images[2] } %}
+            {% include "media.twig" with media_options %}
+            {# // Video #}
+            {{ option.question_label( pollIndex, i, poll.answers.0 ) }}
+            {{ option.rating_box( loop.index0, poll.answers.0, media_options) }}
         </li>
         <li class="poll-option poll-option--with-media">{% set i = i + 1 %}
             {# Audio #}
-            <figure class="article-audio">
-                <div class="article-audio__wrapper">
-                    <img class="image-figure__image"
-                         alt="Audio «{{ audios[0].title }}» abspielen"
-                         sizes="100vw"
-                         srcset="{% for source in audios[0].img_srcset %}
-                            {{ source.src }} {{ source.width }}w,
-                         {% endfor %}"
-                         src="{{ audios[0].img_src }}">
-
-                    <img class="article-audio__play-icon" src="../../assets/img/audio-play.svg" width="72" height="72" alt="">
-                </div>
-                {{ option.question_label( pollIndex, i, poll.answers.1.title, poll.answers.1.description ) }}
-            </figure>
+            {% set media_options = { "media_type": "audio", "media_title" : audios[0].title, "media_length" : audios[0].length, "image" : images[2] } %}
+            {% include "media.twig" with media_options %}
             {# // Audio #}
-            {{ option.rating_box( loop.index0, poll.answers.0) }}
+            {{ option.question_label( pollIndex, i, poll.answers.1.title, poll.answers.1.description ) }}
+            {{ option.rating_box( loop.index0, poll.answers.0, media_options ) }}
         </li>
     </ol>
     <input type="submit" class="poll__submit" value="{{ poll.submit }}">
