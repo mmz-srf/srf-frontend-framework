@@ -81,19 +81,24 @@
       left: 0;
       background-image: url("../../assets/img/arrows/carousel_arrow_prev.svg");
       border: 8px solid transparent;
-      border-radius: 0 15px 15px 0; // following: ugly fix
-      border-width: 12px 12px 12px 0 !important; /* <= /* kompromiss: schoene runde ecken UND extended touch area :( */
+      border-radius: 0 15px 15px 0;
+      // border-width: 12px 12px 12px 0; /* <= /* kompromiss: schoene runde ecken UND extended touch area :( */
       background-position: 30%;
     }
     &--next {
       right: 0;
       background-image: url("../../assets/img/arrows/carousel_arrow_next.svg");
       border: 8px solid transparent;
-      border-radius: 15px 0 0 15px; // and again: ugly fix
-      border-width: 12px 0 12px 12px !important; /* kompromiss :) */
+      border-radius: 15px 0 0 15px;
+      // border-width: 12px 0 12px 12px; /* kompromiss :) */
       background-position: 60%;
     }
   }
+  a.carousel__link { // overwrites (links)
+    &--prev { border-width: 12px 12px 12px 0; }
+    &--next { border-width: 12px 0 12px 12px; }
+  }
+
   &-counter {
     position: absolute;
     left: 50%;
