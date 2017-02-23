@@ -22,7 +22,7 @@
 {% macro form_submit(poll) %}
     <div class="poll-form-handling">
         <span class="poll-form-handling__errors"></span>
-        <input class="submit-button" type="submit" value="{{ poll.submit }}">
+        {% include 'elements-submit-button' with { 'button_text' : poll.submit } %}
         <p class="poll-form-handling__roundup"><strong></strong> {{ poll.total }}</p>
     </div>
 {% endmacro %}

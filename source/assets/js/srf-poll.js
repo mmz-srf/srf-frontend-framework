@@ -38,6 +38,7 @@ var pollController = function() {
         $(".poll-option__radio").on("click", function(e) {
             var $form = $(this).parents(".poll-wrapper");
             if ($form.find(".poll").hasClass("poll--with-radios")) {
+                $(".poll-option-label--selected").removeClass("poll-option-label--selected");
                 $(".poll-option-label[for=" + $(this).attr("id") + "]")
                     .addClass("poll-option-label--selected");
             } else {
