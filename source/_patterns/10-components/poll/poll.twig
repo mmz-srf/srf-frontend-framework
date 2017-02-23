@@ -6,15 +6,6 @@
             <p class="poll-option-label__description">{{ answer_description }}</p>
         {% endif %}
     </label>
-    <!-- figcaption class="media-caption media-caption--poll">
-        <input type="radio" id="poll_q{{ pollIndex }}{{ optionIndex }}" class="poll-option__radio">
-        <label for="poll_q{{ pollIndex }}{{ optionIndex }}" class="poll-option-label">
-            <p class="poll-option-label__title">{{ answer_title }} {{ optionIndex + 1 }}</p>
-            {% if answer_description %}
-                <p class="poll-option-label__description">{{ answer_description }}</p>
-            {% endif %}
-        </label>
-    </figcaption -->
 {% endmacro %}
 {% macro rating_box(optionIndex, answer_title, media_options) %}
    <div class="poll-option-wrapper">
@@ -43,17 +34,17 @@
     <ol class="poll poll--with-media poll--setup"> {# with-media & setup solely for polls with media! #}
         {% set i = 0 %}
         <li class="poll-option">
+            {# Image #}
             {% set media = { "type": "bild", "title" : images[2].caption.title, "length" : 0, "player_url": null, "urn" : null } %}
             {% set media_options = { "media": media, "image" : images[2] } %}
-            {# {% set media_options = { "media_type": "bild", "media_title" : images[2].caption.title, "media_length" : 0, "media_link_info": null, "image" : images[2] } %} #}
             {{ option.rating_box( loop.index0, poll.answers.0, media_options ) }}
             {{ option.question_label( pollIndex, i, poll.answers.0 ) }}
+            {# // Image #}
         </li>
         <li class="poll-option">{% set i = i + 1 %}
             {# Video #}
             {% set media = { "type": "video", "title" : videos[0].title, "length" : videos[0].length, "player_url": videos[0].player_url, "urn" : videos[0].urn } %}
             {% set media_options = { "media": media, "image" : images[2] } %}
-            {# {% set media_options = { "media_type": "video", "media_title" : videos[0].title, "media_length" : videos[0].length, "media_link_info": null, "image" : images[2] } %} #}
             {{ option.rating_box( loop.index0, poll.answers.0, media_options) }}
             {{ option.question_label( pollIndex, i, poll.answers.1.title, poll.answers.1.description ) }}
             {# // Video #}
@@ -62,7 +53,6 @@
             {# Audio #}
             {% set media = { "type": "audio", "title" : audios[0].title, "length" : audios[0].length, "player_url": audios[0].player_url, "urn" : audios[0].urn } %}
             {% set media_options = { "media": media, "image" : images[2] } %}
-            {# {% set media_options = { "media_type": "audio", "media_title" : audios[0].title, "media_length" : audios[0].length, "media_link_info": null, "image" : images[2] } %} #}
             {{ option.rating_box( loop.index0, poll.answers.0, media_options ) }}
             {# // Audio #}
             {{ option.question_label( pollIndex, i, poll.answers.0 ) }}
