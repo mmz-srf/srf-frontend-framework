@@ -11,6 +11,10 @@
 }
 
 .poll-wrapper {
+  margin: 32px 0 24px;
+  @include smartphone {
+    margin: 24px 0 20px;
+  }
   .image-figure {
     margin-top: 0;
     margin-bottom: 0;
@@ -78,53 +82,64 @@
   position: relative;
   display: block;
   background-color: $color-bg-box;
-  padding: 12px 24px;
+  padding: 12px 16px;
   cursor: pointer;
   flex: 1 0 auto; // flexbox
-
-  // custom radios --> remove hover!
-  &:before, &:after {
-    content: "";
-    position: absolute;
-    @include rounded-corners(50%);
-  }
-  &:before {
-    top: 16px;
-    left: 20px;
-    width: 14px;
-    height: 14px;
-    display: inline-block;
-    background-color: $color-accentuation-red;
-  }
-  &:after {
-    top: 12px;
-    left: 16px;
-    width: 20px;
-    height: 20px;
-    margin-right: 16px;
-    display: inline-block;
-    background-color: $color-bg-box;
-    border: solid 1px $color-text-light;
-  }
-  &:hover, &:hover:after {
+  &:hover {
     background-color: $color-bg-box-hover;
   }
-  &--selected:after, &--selected:hover:after {
-    border: solid 1px $color-accentuation-red;
-    background-color: transparent;
-  }
-  // custom radios end here
 }
+.poll--with-radios {
+  .poll-option-label {
+    // custom radios
+    &:before, &:after {
+      content: "";
+      position: absolute;
+      @include rounded-corners(50%);
+    }
+    &:before {
+      top: 16px;
+      left: 20px;
+      width: 14px;
+      height: 14px;
+      display: inline-block;
+      background-color: $color-accentuation-red;
+    }
+    &:after {
+      top: 12px;
+      left: 16px;
+      width: 20px;
+      height: 20px;
+      margin-right: 16px;
+      display: inline-block;
+      background-color: $color-bg-box;
+      border: solid 1px $color-text-light;
+    }
+    &:hover:after {
+      background-color: $color-bg-box-hover;
+    }
+    &--selected:after, &--selected:hover:after {
+      border: solid 1px $color-accentuation-red;
+      background-color: transparent;
+    }
+    // custom radios end here
+  }
+  .poll-option-label__title,
+  .poll-option-label__description {
+    margin: 0 0 0 36px;
+  }
+}
+
 .poll-option-label__title {
   font: 16px/20px $font-regular;
   letter-spacing: 0.5px;
-  margin: 0 0 0 36px;
+  margin: 0;
 }
 .poll-option-label__description {
-  margin: 0 0 0 36px;
   font-size: 16px;
   line-height: 24px;
   letter-spacing: .5px;
+  margin: 0;
 }
 
 // rating / responses

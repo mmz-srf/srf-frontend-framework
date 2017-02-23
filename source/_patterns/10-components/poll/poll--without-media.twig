@@ -1,7 +1,5 @@
-{% set pollIndex = 2 %}
-<h2>{{ poll.title }} {{ pollIndex }}</h2>
 <form id="poll-ID{{ pollIndex }}" class="poll-wrapper" name="poll_{{ pollIndex }}" method="get" data-src="../../assets/demo/poll-data.json">
-    <figure class="image-figure {{ styleModifier }}">
+    <figure class="image-figure {{ styleModifier }}"> {# images here only if no media is present below #}
         <div class="image-figure__image-wrapper">
             <img class="image-figure__image"
                  alt="{{ images[2].caption.title }}"
@@ -19,18 +17,16 @@
             </span>
         </figcaption>
     </figure>
-    <ol class="poll">
+    <ol class="poll {{ styleModifier }}">
         {% for question in 0..2 %}
-            <li class="poll-option">
-                {{ option.question_label( pollIndex, loop.index0, poll.answers.0 ) }}
-                {{ option.rating_box( loop.index0, poll.answers.0, {}) }}
-            </li>
+        <li class="poll-option">
+            {{ option.question_label( pollIndex, loop.index0, poll.answers.0 ) }}
+            {{ option.rating_box( loop.index0, poll.answers.0, {}) }}
+        </li>
         {% endfor %}
     </ol>
-    <div class="poll-form-handling">
-        <span class="poll-form-handling__errors"></span>
-        <input class="submit-button" type="submit" value="{{ poll.submit }}">
-        <p class="poll-form-handling__roundup"><strong></strong> {{ poll.total }}</p>
-    </div>
+    {% if styleModifier == 'poll--with-radios' %} {# submit button only for polls with radios #}
+        {{ option.form_submit(poll) }}
+    {% endif %}
 
 </form>

@@ -33,18 +33,19 @@ var pollController = function() {
     };
 
     this.initObservers = function() {
-        // also radio!
-        var that = this; // todo: click => ...
+        var that = this;
 
-        // mark as "checked"
-        $('.poll-option__radio').on('click', function(e) {
-            $(".poll-option-label[for=" + $(this).attr("id") + "]").addClass("poll-option-label--selected");
+        $(".poll-option__radio").on("click", function(e) {
+            var $form = $(this).parents(".poll-wrapper");
+            if ($form.find(".poll").hasClass("poll--with-radios")) {
+                $(".poll-option-label[for=" + $(this).attr("id") + "]")
+                    .addClass("poll-option-label--selected");
+            } else {
+                $form.submit();
+            }
         });
 
-        // should work on submit submit - not on click!!
-        $('.poll-wrapper').on('submit', function(e) {
-            // formerly:
-            // $('.poll-option__radio').on('click', function() { // this is probably not it
+        $(".poll-wrapper").on("submit", function(e) {
             var $poll = $(this) // .parents(".poll-wrapper")
                 , pollId = $poll.attr("id")
                 , optionId = $poll.find(".poll-option__radio:checked").attr("id");
@@ -73,6 +74,7 @@ var pollController = function() {
 
             // total number of votes
             var total = that.getTotalVotes(that.polls[pollId].data);
+            // some visual trickery ...
             $poll.find(".poll").removeClass("poll--setup").addClass("poll--submitted");
             $poll.find(".poll-form-handling__roundup").show().find("strong").text(total);
             $poll.find(".submit-button").remove();
@@ -83,7 +85,7 @@ var pollController = function() {
                 width = parseInt(percent * 100, 10);
                 var $element = $(this);
 
-                // as wrapper in answer mode...
+                // the radio's already hidden
                 $element.find(".poll-option-label").remove();
                 $element.find(".poll-option-rating__bg-color")
                     .animate({
@@ -97,9 +99,6 @@ var pollController = function() {
                 $element.find(".poll-option-rating__percent strong").text(width);
                 // the radio is already hidden ... (accessibility???)
             });
-            // on submit
-            // e.stopPropagation();
-            // e.preventDefault();
             return false;
         });
     };

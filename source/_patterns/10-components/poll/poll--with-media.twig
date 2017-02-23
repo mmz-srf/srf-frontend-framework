@@ -1,0 +1,40 @@
+<form id="poll-ID{{ pollIndex }}" class="poll-wrapper" name="poll_{{ pollIndex }}" method="get" data-src="../../assets/demo/poll-data.json">
+    {# here is never an image - as the poll contains media #}
+    <figure class="image-figure">
+        <figcaption class="media-caption media-caption--poll">
+            <span class="media-caption__description media-caption__description--poll">
+                {{ poll.description }}
+            </span>
+        </figcaption>
+    </figure>
+    <ol class="poll poll--with-media poll--setup"> {# with-media & setup solely for polls with media! #}
+        {% set i = 0 %}
+        <li class="poll-option">
+            {# Image #}
+            {% set media_options = { "media": { "type": "bild", "title" : images[2].caption.title, "length" : 0, "player_url": null, "urn" : null }, "image" : images[2] } %}
+            {{ option.rating_box( loop.index0, poll.answers.0, media_options ) }}
+            {{ option.question_label( pollIndex, i, poll.answers.0 ) }}
+            {# // Image #}
+        </li>
+        <li class="poll-option">{% set i = i + 1 %}
+            {# Video #}
+            {% set media_options = { "media": { "type": "video", "title" : videos[0].title, "length" : videos[0].length, "player_url": videos[0].player_url, "urn" : videos[0].urn }, "image" : images[2] } %}
+            {{ option.rating_box( loop.index0, poll.answers.0, media_options) }}
+            {{ option.question_label( pollIndex, i, poll.answers.1.title, poll.answers.1.description ) }}
+            {# // Video #}
+        </li>
+        <li class="poll-option">{% set i = i + 1 %}
+            {# Audio #}
+            {% set media_options = { "media": { "type": "audio", "title" : audios[0].title, "length" : audios[0].length, "player_url": audios[0].player_url, "urn" : audios[0].urn }, "image" : images[2] } %}
+            {{ option.rating_box( loop.index0, poll.answers.0, media_options ) }}
+            {# // Audio #}
+            {{ option.question_label( pollIndex, i, poll.answers.0 ) }}
+        </li>
+    </ol>
+    {% if styleModifier == 'poll--with-radios' %} {# submit button only for polls with radios #}
+        {{ option.form_submit(poll) }}
+    {% endif %}
+</form>
+
+{% include 'components-poll--without-media' with { 'pollIndex': 2, 'styleModifier': '' }%}
+{% include 'components-poll--without-media' with { 'pollIndex': 3, 'styleModifier': 'poll--with-radios' } %}
