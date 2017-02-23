@@ -64,9 +64,8 @@
         height: 96px;
       }
       &:hover, &:active {
-        -moz-background-clip: content;
-        -webkit-background-clip: content;
         background-clip: content-box;
+        border-bottom-color: transparent;
       }
       &:hover {
         background-color: rgba(0, 0, 0, 0.48);
@@ -82,16 +81,16 @@
       left: 0;
       background-image: url("../../assets/img/arrows/carousel_arrow_prev.svg");
       border: 8px solid transparent;
-      border-radius: 0 15px 15px 0;
-      border-width: 12px 12px 12px 0; /* <= /* kompromiss: schoene runde ecken UND extended touch area :( */
+      border-radius: 0 15px 15px 0; // following: ugly fix
+      border-width: 12px 12px 12px 0 !important; /* <= /* kompromiss: schoene runde ecken UND extended touch area :( */
       background-position: 30%;
     }
     &--next {
       right: 0;
       background-image: url("../../assets/img/arrows/carousel_arrow_next.svg");
       border: 8px solid transparent;
-      border-radius: 15px 0 0 15px;
-      border-width: 12px 0 12px 12px; /* kompromiss :) */
+      border-radius: 15px 0 0 15px; // and again: ugly fix
+      border-width: 12px 0 12px 12px !important; /* kompromiss :) */
       background-position: 60%;
     }
   }
