@@ -45,23 +45,6 @@
   }
 }
 
-.poll__submit { // submit button
-  width: 100%;
-  padding: 16px 40px;
-  margin-top: 6px; // there are 2px from above
-  text-transform: uppercase;
-  font: 16px/20px $font-regular;
-  letter-spacing: 1px;
-  color: #fff;
-  border: 0;
-  @include rounded-corners(2px);
-  background-color: $color-text-accentuation;
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
-  @include tablet-up {
-    width: auto;
-    margin-left: 16px;
-  }
-}
 .poll-option { // list element
   padding: 0;
   margin: 0 0 2px;
@@ -123,10 +106,10 @@
     background-color: $color-bg-box;
     border: solid 1px $color-text-light;
   }
-  &:hover {
+  &:hover, &:hover:after {
     background-color: $color-bg-box-hover;
   }
-  &:hover:after, &--selected:after {
+  &--selected:after, &--selected:hover:after {
     border: solid 1px $color-accentuation-red;
     background-color: transparent;
   }
@@ -191,11 +174,66 @@
   background-color: $color-accentuation-red;
 }
 
-.poll-roundup {
-  height: 56px;
+// last bit
+.poll-form-handling__roundup {
   margin: 0;
   padding: 16px;
   background-color: $color-bg-caption;
-  @include rounded-corners(2px);
   display: none;
+}
+
+.poll-form-handling {
+  @include rounded-corners(2px);
+  @include tablet-up {
+    background-color: $color-bg-caption; // #f5f5f2;
+    padding: 16px;
+    .poll-form-handling__roundup {
+      padding: 0;
+    }
+  }
+  .submit-button {
+    margin: 0;
+  }
+}
+.poll-form-handling__errors--onerror {
+  display: block;
+  color: $color-accentuation-red;
+  margin-bottom: 16px;
+}
+
+// ---- // --> will move
+.submit-button { // submit button
+  width: 100%;
+  padding: 16px 40px;
+  margin-top: 6px; // there are 2px from above
+  text-transform: uppercase;
+  font: 16px/20px $font-regular;
+  letter-spacing: 1px;
+  color: #fff;
+  border: 0;
+  @include rounded-corners(2px);
+  background-color: $color-text-accentuation;
+  // box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2); // :(
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.24),
+              0 0 2px 0 rgba(0, 0, 0, 0.12);
+  @include tablet-up {
+    width: auto;
+    margin-left: 16px;
+  }
+  &:hover {
+    background-color: #6b6960;
+  } &:active {
+    background-color: #888579;
+  } &:hover, &:active {
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.24),
+                  0 0 8px 0 rgba(0, 0, 0, 0.12);
+  }
+}
+.submit-button--error {
+  background-color: $color-accentuation-red;
+  // hover... ?
+}
+.submit-button--success {
+  background-color: #1a7ac5;
+  // hover... ?
 }

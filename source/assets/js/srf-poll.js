@@ -35,34 +35,47 @@ var pollController = function() {
     this.initObservers = function() {
         // also radio!
         var that = this; // todo: click => ...
-        // should work on submit submit - not on click!!
-        $('.poll-option__radio').on('click', function() { // canton select navigation
-            // mark as "clicked"
+
+        // mark as "checked"
+        $('.poll-option__radio').on('click', function(e) {
             $(".poll-option-label[for=" + $(this).attr("id") + "]").addClass("poll-option-label--selected");
-            var $poll = $(this).parents(".poll-wrapper")
+        });
+
+        // should work on submit submit - not on click!!
+        $('.poll-wrapper').on('submit', function(e) {
+            // formerly:
+            // $('.poll-option__radio').on('click', function() { // this is probably not it
+            var $poll = $(this) // .parents(".poll-wrapper")
                 , pollId = $poll.attr("id")
-                , optionId = $(this).attr("id");
+                , optionId = $poll.find(".poll-option__radio:checked").attr("id");
+
+            // currently err = no option chosen => future: no service available...
+            if (that.hasErrors($poll, optionId)) {
+                return false;
+            } // else ...
+
+            $poll.find(".poll-option__radio:checked").addClass("poll-option-label--selected");
 
             // this is hopefully temporary ...?
             var qIndex = 0;
             $poll.find("input[type=radio]").each(function (i) {
-                // which (nr) one is it?
+                // which one (nr) is it?
                 if ($(this).attr("id") == optionId) {
                     qIndex = i;
                 }
             });
-            // tbd: send data .. :)
 
+            // tbd: send data .. :)
+            // selected id was optionId / qIndex ...?
 
             // adjust selected vote
             that.polls[pollId].data[qIndex]++;
 
             // total number of votes
             var total = that.getTotalVotes(that.polls[pollId].data);
-            // js mess ...
             $poll.find(".poll").removeClass("poll--setup").addClass("poll--submitted");
-            $poll.find(".poll-roundup").show().find("strong").text(total);
-            $poll.find(".poll__submit").remove();
+            $poll.find(".poll-form-handling__roundup").show().find("strong").text(total);
+            $poll.find(".submit-button").remove();
 
             var width, percent = 0;
             $poll.find("li").each(function (i) {
@@ -84,7 +97,10 @@ var pollController = function() {
                 $element.find(".poll-option-rating__percent strong").text(width);
                 // the radio is already hidden ... (accessibility???)
             });
-
+            // on submit
+            // e.stopPropagation();
+            // e.preventDefault();
+            return false;
         });
     };
 
@@ -94,6 +110,25 @@ var pollController = function() {
             total = total + value;
         });
         return total;
+    };
+
+    this.hasErrors = function ($poll, optionId) {
+        if (optionId === undefined) {
+            $poll.find(".submit-button").addClass("submit-button--error");
+            var errMsg = "Bitte wählen Sie eine Option aus."; // todo: translate!
+            $poll.find(".poll-form-handling__errors")
+                .addClass("poll-form-handling__errors--onerror")
+                .text(errMsg);
+            // e.preventDefault();
+            return true;
+            // anything else?
+        } else {
+            // remove err msg (whether it's there or not)
+            $poll.find(".poll-form-handling__errors")
+                .removeClass("poll-form-handling__errors--onerror")
+                .text("");
+            return false;
+        }
     };
 
     function Poll(id, data) {
