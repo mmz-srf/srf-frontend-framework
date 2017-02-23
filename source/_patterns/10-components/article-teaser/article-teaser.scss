@@ -47,7 +47,11 @@
 }
 
 .article-teaser__content {
-  margin-left: 10px;
+  margin-left: 92px;
+
+  @include tablet-up {
+    margin-left: 158px;
+  }
 }
 
 .article-teaser__kicker {
