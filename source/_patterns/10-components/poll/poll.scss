@@ -1,15 +1,3 @@
-.media-caption--poll {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-}
-.media-caption__description--poll {
-  font-size: 18px;
-  line-height: 28px;
-  letter-spacing: 0.5px;
-  margin: 16px;
-}
-
 .poll-wrapper {
   margin: 32px 0 24px;
   @include smartphone {
@@ -26,6 +14,23 @@
     width: 100%;
   }
 }
+
+.poll-fieldset {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+.poll-fieldset__legend {
+  font-size: 18px;
+  letter-spacing: 0.5px;
+  line-height: 28px;
+  color: $color-text-accentuation;
+  background-color: $color-bg-caption;
+  padding: 16px;
+  display: block;
+  width: 100%;
+}
+
 /////
 .poll {
   padding: 0;
@@ -171,7 +176,7 @@
   background-color: $color-bg-box;
   display: none; // initial => to be changed in js ..
 
-  &:hover {
+  &:hover, &:focus {
     background-color: $color-bg-box-hover;
   }
 }

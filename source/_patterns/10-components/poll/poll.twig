@@ -1,20 +1,20 @@
-{% macro question_label(pollIndex, optionIndex, answer_title, answer_description) %}
-    <input type="radio" id="poll_q{{ pollIndex }}{{ optionIndex }}" class="poll-option__radio">
-    <label for="poll_q{{ pollIndex }}{{ optionIndex }}" class="poll-option-label">
-        <p class="poll-option-label__title">{{ answer_title }} {{ optionIndex + 1 }}</p>
+{% macro question_label(poll_index, option_index, answer_title, answer_description) %}
+    <input type="radio" id="poll_q{{ poll_index }}{{ option_index }}" class="poll-option__radio">
+    <label for="poll_q{{ poll_index }}{{ option_index }}" class="poll-option-label">
+        <p class="poll-option-label__title">{{ answer_title }} {{ option_index + 1 }}</p>
         {% if answer_description %}
             <p class="poll-option-label__description">{{ answer_description }}</p>
         {% endif %}
     </label>
 {% endmacro %}
-{% macro rating_box(optionIndex, answer_title, media_options) %}
+{% macro rating_box(option_index, answer_title, media_options) %}
    <div class="poll-option-wrapper">
         {% if media_options is not empty %}
             {% include "media.twig" with media_options %}
         {% endif %}
-         <div class="poll-option-rating">
+         <div class="poll-option-rating" aria-labelledby="poll-option-rating__answer-copy poll-option-rating__percent" tabindex="0">
             <div class="poll-option-rating__bg-color"></div>
-            <p class="poll-option-rating__answer-copy">{{ answer_title }} {{ optionIndex + 1 }}</p>
+            <p class="poll-option-rating__answer-copy">{{ answer_title }} {{ option_index + 1 }}</p>
             <p class="poll-option-rating__percent"><strong></strong>%</p>
         </div>
     </div>
@@ -23,7 +23,7 @@
     <div class="poll-form-handling">
         <span class="poll-form-handling__errors"></span>
         {% include 'elements-submit-button' with { 'button_text' : poll.submit } %}
-        <p class="poll-form-handling__roundup"><strong></strong> {{ poll.total }}</p>
+        <p class="poll-form-handling__roundup" tabindex="-1"><strong></strong> {{ poll.total }}</p>
     </div>
 {% endmacro %}
 

@@ -3,7 +3,7 @@
     <a class="article-media__link" href="{{ media.player_url }}/srf/popup?urn={{ media.urn }}&autoplay=true">
     {% endif %}
         <img class="image-figure__image"
-            {% if media_type == "image" %}
+            {% if media.type == "bild" %}
                 alt="{{ media.title }}"
                 title="{{ media.title }}"
             {% else %}

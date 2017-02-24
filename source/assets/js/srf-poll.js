@@ -106,7 +106,8 @@ var pollController = function() {
             var total = that.getTotalVotes(that.polls[pollId].data);
             // some visual trickery ...
             $poll.find(".poll").removeClass("poll--setup").addClass("poll--submitted");
-            $poll.find(".poll-form-handling__roundup").show().find("strong").text(total);
+            $poll.find(".poll-form-handling__roundup").attr("tabindex", 0).show()
+                .find("strong").text(total);
             $poll.find(".submit-button").remove();
 
             var width, percent, opacity = 0;
@@ -117,6 +118,7 @@ var pollController = function() {
                 var $element = $(this);
 
                 // the radio's already hidden
+                $element.find(".poll-option__radio").remove();
                 $element.find(".poll-option-label").remove();
                 $element.find(".poll-option-rating__bg-color")
                     .animate({

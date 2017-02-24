@@ -1,31 +1,34 @@
 <form id="poll-ID{{ pollIndex }}" class="poll-wrapper" name="poll_{{ pollIndex }}" method="get" data-src="../../assets/demo/poll-data.json">
-    <figure class="image-figure {{ styleModifier }}"> {# images here only if no media is present below #}
-        <div class="image-figure__image-wrapper">
-            <img class="image-figure__image"
-                 alt="{{ images[2].caption.title }}"
-                 title="{{ images[2].caption.title }}"
-                 sizes="100vw"
-                 srcset="
-                    {% for source in images[2].sources %}
-                        {{ source.src }} {{ source.width }}w,
-                    {% endfor %}"
-                 src="{{ images[2].sources.s8.src }}">
-        </div>
-        <figcaption class="media-caption media-caption--poll">
-            <span class="media-caption__description media-caption__description--poll">
-                {{ poll.description }}
-            </span>
-        </figcaption>
-    </figure>
-    <ol class="poll {{ styleModifier }}">
-        {% for question in 0..2 %}
-        <li class="poll-option">
-            {{ option.question_label( pollIndex, loop.index0, poll.answers.0 ) }}
-            {{ option.rating_box( loop.index0, poll.answers.0, {}) }}
-        </li>
-        {% endfor %}
-    </ol>
-    {% if styleModifier == 'poll--with-radios' %} {# submit button only for polls with radios #}
-        {{ option.form_submit(poll) }}
-    {% endif %}
+    <fieldset class="poll-fieldset">
+        <figure class="image-figure {{ styleModifier }}"> {# images here only if no media is present below #}
+            <div class="image-figure__image-wrapper">
+                <img class="image-figure__image"
+                     alt="{{ images[0].caption.title }}"
+                     title="{{ images[0].caption.title }}"
+                     sizes="100vw"
+                     srcset="
+                        {% for source in images[2].sources %}
+                            {{ source.src }} {{ source.width }}w,
+                        {% endfor %}"
+                     src="{{ images[2].sources.s8.src }}">
+            </div>
+            <!-- figcaption class="media-caption media-caption--poll">
+                <span class="media-caption__description media-caption__description--poll"></span>
+            </figcaption -->
+        </figure>
+        <legend class="poll-fieldset__legend" tabindex="0">{{ poll.description }}</legend>
+        <ol class="poll {{ styleModifier }}">
+            {% for question in 0..2 %}
+            <li class="poll-option">
+                {{ option.question_label( pollIndex, loop.index0, poll.answers.0 ) }}
+                {{ option.rating_box( loop.index0, poll.answers.0, {}) }}
+            </li>
+            {% endfor %}
+        </ol>
+        {% if styleModifier == 'poll--with-radios' %} {# submit button only for polls with radios #}
+            {{ option.form_submit(poll) }}
+        {% else %}
+            <p class="poll-form-handling__roundup" tabindex="-1"><strong></strong> {{ poll.total }}</p>
+        {% endif %}
+    </fieldset>
 </form>
