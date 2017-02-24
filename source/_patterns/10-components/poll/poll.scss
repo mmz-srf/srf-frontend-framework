@@ -198,17 +198,14 @@
 }
 
 .poll-form-handling {
-  .submit-button {
-    margin: 6px 0 0;
-  }
   @include rounded-corners(2px);
   @include tablet-up {
-    background-color: $color-bg-caption; // #f5f5f2;
+    background-color: $color-bg-caption;
     padding: 16px;
-    .poll-form-handling__roundup {
-      padding: 0;
-    }
-    .submit-button {
+  }
+  .submit-button {
+    margin: 6px 0 0;
+    @include tablet-up {
       margin: 0;
     }
   }
@@ -218,7 +215,7 @@
   color: $color-accentuation-red;
   margin-bottom: 16px;
   @include smartphone {
-    background-color: $color-bg-caption; // #f5f5f2;
+    background-color: $color-bg-caption;
     margin-bottom: -4px;
     padding: 16px;
     @include rounded-corners(2px);
