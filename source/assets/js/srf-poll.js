@@ -35,20 +35,37 @@ var pollController = function() {
     this.initObservers = function() {
         var that = this;
 
-        $(".poll-option__radio").on("click", function(e) {
+        $(".poll-option__radio").on("keypress", function(e) {
+            // enable checking radios by tabbing in + <enter>
+            if (e.keyCode === 13) {
+                $(this).prop('checked', true).trigger("poll_radio_check");
+                return false;
+            }
+
+        });
+        $(".poll-option__radio").on("change poll_radio_check", function(e) {
             var $form = $(this).parents(".poll-wrapper");
             if ($form.find(".poll").hasClass("poll--with-radios")) {
+                // unmark the "radio"
+                $form.find(".poll-option-label--selected").removeClass("poll-option-label--selected");
+                // uncheck (possible) previous choice
+                $form.find(".poll-option__radio").prop("checked", false);
                 var $errButton = $form.find(".submit-button--error");
+                // if there was a previous err
                 if ($errButton.length) {
+                    // remove err colour from button
                     $errButton.removeClass("submit-button--error");
+                    // remove err msg
                     $form.find(".poll-form-handling__errors--onerror")
                         .removeClass("poll-form-handling__errors--onerror")
                         .text("");
-                    $form.find(".poll-option-label--selected").removeClass("poll-option-label--selected");
                 }
+                // mark (visually) selected "radio"
                 $form.find(".poll-option-label[for=" + $(this).attr("id") + "]")
                     .addClass("poll-option-label--selected");
-            } else {
+                // and check it too
+                $form.find(".poll-option__radio[id=" + $(this).attr("id") + "]").prop("checked", true);
+            } else { // polls without radios submit form immediately
                 $form.submit();
             }
         });

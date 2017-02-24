@@ -17,12 +17,13 @@
   &:hover {
     background-color: #6b6960;
     cursor: pointer;
-  } &:active {
+  } &:active, &:focus {
       background-color: #888579;
-    } &:hover, &:active {
+      outline: none;
+  } &:hover, &:active {
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.24),
         0 0 8px 0 rgba(0, 0, 0, 0.12);
-      }
+  }
 }
 .submit-button--error {
   background-color: $color-accentuation-red;
