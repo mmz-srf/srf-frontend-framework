@@ -38,8 +38,15 @@ var pollController = function() {
         $(".poll-option__radio").on("click", function(e) {
             var $form = $(this).parents(".poll-wrapper");
             if ($form.find(".poll").hasClass("poll--with-radios")) {
-                $(".poll-option-label--selected").removeClass("poll-option-label--selected");
-                $(".poll-option-label[for=" + $(this).attr("id") + "]")
+                var $errButton = $form.find(".submit-button--error");
+                if ($errButton.length) {
+                    $errButton.removeClass("submit-button--error");
+                    $form.find(".poll-form-handling__errors--onerror")
+                        .removeClass("poll-form-handling__errors--onerror")
+                        .text("");
+                    $form.find(".poll-option-label--selected").removeClass("poll-option-label--selected");
+                }
+                $form.find(".poll-option-label[for=" + $(this).attr("id") + "]")
                     .addClass("poll-option-label--selected");
             } else {
                 $form.submit();
@@ -47,31 +54,36 @@ var pollController = function() {
         });
 
         $(".poll-wrapper").on("submit", function(e) {
-            var $poll = $(this) // .parents(".poll-wrapper")
+            var $poll = $(this)
                 , pollId = $poll.attr("id")
                 , optionId = $poll.find(".poll-option__radio:checked").attr("id");
 
-            // currently err = no option chosen => future: no service available...
+            // currently err = no option chosen
             if (that.hasErrors($poll, optionId)) {
                 return false;
             } // else ...
 
-            $poll.find(".poll-option__radio:checked").addClass("poll-option-label--selected");
-
-            // this is hopefully temporary ...?
-            var qIndex = 0;
+            // find the selected button index
+            var radioIndex = 0 // this is hopefully temporary ...?
+                , winner, mostVotes = 0;
             $poll.find("input[type=radio]").each(function (i) {
                 // which one (nr) is it?
                 if ($(this).attr("id") == optionId) {
-                    qIndex = i;
+                    radioIndex = i;
+                    // adjust selected vote
+                    that.polls[pollId].data[radioIndex]++
                 }
+                // find the current winner
+                /* if (mostVotes < that.polls[pollId].data[i]) {
+                    mostVotes = that.polls[pollId].data[i];
+                    winner = i;
+                } */
             });
 
-            // tbd: send data .. :)
-            // selected id was optionId / qIndex ...?
+            mostVotes = Math.max.apply( null, that.polls[pollId].data );
 
-            // adjust selected vote
-            that.polls[pollId].data[qIndex]++;
+            // tbd: send data .. :)
+            // selected id was optionId / radioIndex ...?
 
             // total number of votes
             var total = that.getTotalVotes(that.polls[pollId].data);
@@ -80,10 +92,11 @@ var pollController = function() {
             $poll.find(".poll-form-handling__roundup").show().find("strong").text(total);
             $poll.find(".submit-button").remove();
 
-            var width, percent = 0;
+            var width, percent, opacity = 0;
             $poll.find("li").each(function (i) {
                 percent = that.polls[pollId].data[i] / total;
                 width = parseInt(percent * 100, 10);
+                opacity = (that.polls[pollId].data[i] === mostVotes) ? .7 : .4;
                 var $element = $(this);
 
                 // the radio's already hidden
@@ -91,7 +104,7 @@ var pollController = function() {
                 $element.find(".poll-option-rating__bg-color")
                     .animate({
                         // "background-color": "rgba(201,16,36, " + percent + ")",
-                        opacity: percent,
+                        opacity: opacity, // percent,
                         width: width + "%"
                     }, 3000, function() {
                         // Animation complete
