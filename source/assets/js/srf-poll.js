@@ -52,13 +52,13 @@ var pollController = function() {
                     .removeClass("poll-option-label--selected");
 
                 var $errButton = $form.find(".submit-button--error");
+                var $err = $form.find(".poll-form-handling__errors--onerror");
                 // if there was a previous err
-                if ($errButton.length) {
+                if ($err.length) {
                     // remove err colour from button
-                    $errButton.removeClass("submit-button--error");
+                    // $errButton.removeClass("submit-button--error");
                     // remove err msg
-                    $form.find(".poll-form-handling__errors--onerror")
-                        .removeClass("poll-form-handling__errors--onerror")
+                    $err.removeClass("poll-form-handling__errors--onerror")
                         .text("");
                 }
                 // mark (visually) selected "radio"
@@ -105,6 +105,10 @@ var pollController = function() {
             var total = that.getTotalVotes(that.polls[pollId].data);
             // some visual trickery ...
             $poll.find(".poll").removeClass("poll--setup").addClass("poll--submitted");
+            // ??
+            if ($poll.hasClass("poll--with-media")) {
+                $poll.find(".article-media--image").removeClass("article-media--image");
+            }
             $poll.find(".poll-form-handling__roundup").show()
                 .find("strong").text(total);
             $poll.find(".submit-button").remove();
@@ -143,7 +147,7 @@ var pollController = function() {
 
     this.hasErrors = function ($poll, optionId) {
         if (optionId === undefined) {
-            $poll.find(".submit-button").addClass("submit-button--error");
+            // $poll.find(".submit-button").addClass("submit-button--error");
             var errMsg = "Bitte wählen Sie eine Option aus."; // todo: translate!
             $poll.find(".poll-form-handling__errors")
                 .addClass("poll-form-handling__errors--onerror")

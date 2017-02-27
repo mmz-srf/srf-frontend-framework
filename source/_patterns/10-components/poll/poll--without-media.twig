@@ -17,7 +17,7 @@
                 <span class="media-caption__description media-caption__description--poll"></span>
             </figcaption -->
         </figure> #}
-        {% set media_options = { "media": { "type": "bild", "title" : images[0].caption.title, "length" : 0, "player_url": null, "urn" : null }, "image" : images[1 ] } %}
+        {% set media_options = { "media": { "type": "bild", "title" : images[0].caption.title, "length" : 0, "player_url": null, "urn" : null }, "image" : images[1] } %}
         {% include "media.twig" with media_options %}
         <legend class="poll-fieldset__legend">{{ poll.description }}</legend>
         <ol class="poll">
