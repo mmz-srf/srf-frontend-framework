@@ -35,6 +35,7 @@ var pollController = function() {
     this.initObservers = function() {
         var that = this;
 
+        // tabbing for desktop
         $(".poll-option__radio").on("keypress", function(e) {
             // enable checking radios by tabbing in + <enter>
             if (e.keyCode === 13) {
@@ -42,14 +43,14 @@ var pollController = function() {
                 return false;
             }
 
-        });
-        $(".poll-option__radio").on("change poll_radio_check", function(e) {
-            var $form = $(this).parents(".poll-wrapper");
-            if ($form.find(".poll").hasClass("poll--with-radios")) {
+        }).on("change poll_radio_check", function(e) {
+            var $form = $(this).parents(".poll-wrapper")
+                ,radioId = $(this).attr("id");
+            if ($form.hasClass("poll--with-radios")) {
                 // unmark the "radio"
-                $form.find(".poll-option-label--selected").removeClass("poll-option-label--selected");
-                // uncheck (possible) previous choice
-                $form.find(".poll-option__radio").prop("checked", false);
+                $form.find(".poll-option-label--selected")
+                    .removeClass("poll-option-label--selected");
+
                 var $errButton = $form.find(".submit-button--error");
                 // if there was a previous err
                 if ($errButton.length) {
@@ -61,10 +62,8 @@ var pollController = function() {
                         .text("");
                 }
                 // mark (visually) selected "radio"
-                $form.find(".poll-option-label[for=" + $(this).attr("id") + "]")
+                $form.find(".poll-option-label[for=" + radioId + "]")
                     .addClass("poll-option-label--selected");
-                // and check it too
-                $form.find(".poll-option__radio[id=" + $(this).attr("id") + "]").prop("checked", true);
             } else { // polls without radios submit form immediately
                 $form.submit();
             }
@@ -106,7 +105,7 @@ var pollController = function() {
             var total = that.getTotalVotes(that.polls[pollId].data);
             // some visual trickery ...
             $poll.find(".poll").removeClass("poll--setup").addClass("poll--submitted");
-            $poll.find(".poll-form-handling__roundup").attr("tabindex", 0).show()
+            $poll.find(".poll-form-handling__roundup").show()
                 .find("strong").text(total);
             $poll.find(".submit-button").remove();
 
@@ -115,9 +114,8 @@ var pollController = function() {
                 percent = that.polls[pollId].data[i] / total;
                 width = parseInt(percent * 100, 10);
                 opacity = (that.polls[pollId].data[i] === mostVotes) ? .7 : .4;
-                var $element = $(this);
 
-                // the radio's already hidden
+                var $element = $(this);
                 $element.find(".poll-option__radio").remove();
                 $element.find(".poll-option-label").remove();
                 $element.find(".poll-option-rating__bg-color")
@@ -130,7 +128,6 @@ var pollController = function() {
                     });
 
                 $element.find(".poll-option-rating__percent strong").text(width);
-                // the radio is already hidden ... (accessibility???)
             });
             return false;
         });
@@ -151,7 +148,6 @@ var pollController = function() {
             $poll.find(".poll-form-handling__errors")
                 .addClass("poll-form-handling__errors--onerror")
                 .text(errMsg);
-            // e.preventDefault();
             return true;
             // anything else?
         } else {

@@ -1,12 +1,12 @@
-<form id="poll-ID{{ pollIndex }}" class="poll-wrapper" name="poll_{{ pollIndex }}" method="get" data-src="../../assets/demo/poll-data.json">
+<form id="poll-ID{{ pollIndex }}" class="poll-wrapper {{ styleModifier }}" name="poll_{{ pollIndex }}" method="get" data-src="../../assets/demo/poll-data.json">
     <fieldset class="poll-fieldset">
     {# here is never an image - as the poll contains media #}
-        <legend class="poll-fieldset__legend" tabindex="0">{{ poll.description }}</legend>
-        <ol class="poll poll--with-media poll--setup {{ styleModifier }}"> {# with-media & setup solely for polls with media! #}
+        <legend class="poll-fieldset__legend">{{ poll.description }}</legend>
+        <ol class="poll poll--with-media poll--setup"> {# with-media & setup solely for polls with media! #}
             {% set i = 0 %}
             <li class="poll-option">
                 {# Image #}
-                {% set media_options = { "media": { "type": "bild", "title" : images[0].caption.title, "length" : 0, "player_url": null, "urn" : null }, "image" : images[2] } %}
+                {% set media_options = { "media": { "type": "bild", "title" : images[0].caption.title, "length" : 0, "player_url": null, "urn" : null }, "image" : images[0] } %}
                 {{ option.rating_box( i, poll.answers.0, media_options ) }}
                 {{ option.question_label( pollIndex, i, poll.answers.0 ) }}
                 {# // Image #}
@@ -26,8 +26,6 @@
                 {# // Audio #}
             </li>
         </ol>
-    {% if styleModifier == 'poll--with-radios' %} {# submit button only for polls with radios #}
-        {{ option.form_submit(poll) }}
-    {% endif %}
+        {{ option.form_submit(poll, styleModifier) }}
     </fieldset>
 </form>

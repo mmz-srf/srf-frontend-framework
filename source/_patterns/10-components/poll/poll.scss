@@ -6,7 +6,7 @@
   .image-figure {
     margin-top: 0;
     margin-bottom: 0;
-    @include rounded-corners(2px);
+    @include rounded-corners(2px 2px 0 0);
     overflow: hidden;
   }
   .image-figure__image {
@@ -21,95 +21,26 @@
   border: 0;
 }
 .poll-fieldset__legend {
+  width: 100%;
   font-size: 18px;
   letter-spacing: 0.5px;
   line-height: 28px;
   color: $color-text-accentuation;
   background-color: $color-bg-caption;
+  @include rounded-corners(0 0 2px 2px);
   padding: 16px;
+  margin-bottom: 2px;
   display: block;
-  width: 100%;
+  float:left;
 }
 
-/////
 .poll {
   padding: 0;
   margin: 2px 0 0;
   overflow: hidden;
-}
-.poll--with-media { // only for polls with media
-  // always valid
-  .poll-option-rating {
-    position: absolute;
-  }
-  .poll-option-rating__percent {
-    right: 70px;
-  }
-  @include tablet-up {
-    &.poll--setup { // only valid initially :(
-      margin-top: 8px;
-      display: flex;
-      flex-wrap: wrap;
-    }
-  }
+  clear: left;
 }
 
-.poll-option { // list element
-  padding: 0;
-  margin: 0 0 2px;
-  @include rounded-corners(2px);
-  overflow: hidden;
-  // overwrite :(
-  &:before { content: none; }
-  &.poll-option--rated {
-    width: 100%;
-  }
-}
-.poll--setup { // only valid initially (and only for polls with media)
-  @include tablet-up {
-    .poll-option {
-      width: calc(50% - 4px);
-      float: left;
-      margin-bottom: 8px;
-      display: flex;
-      flex-direction: column;
-      &:nth-of-type(odd) {
-        margin-right: 8px;
-      }
-    }
-  }
-}
-
-.poll-option__radio {
-  // for accessibility -> no hiding!
-  position: absolute;
-  opacity: 0;
-  // height: 0; width: 0; margin: 0; padding: 0;
-  // border: 0;
-  &:focus, &:active {
-    + .poll-option-label {
-      background-color: $color-bg-box-hover;
-      &:after {
-        background-color: $color-bg-box-hover;
-      }
-      &--selected:after {
-        border: solid 1px $color-accentuation-red;
-        background-color: transparent;
-      }
-    }
-  }
-}
-.poll-option-label {
-  position: relative;
-  display: block;
-  background-color: $color-bg-box;
-  padding: 12px 16px;
-  cursor: pointer;
-  flex: 1 0 auto; // flexbox
-  &:hover, &:focus {
-    background-color: $color-bg-box-hover;
-  }
-}
 .poll--with-radios {
   .poll-option-label {
     // custom radios
@@ -149,8 +80,90 @@
   .poll-option-label__description {
     margin: 0 0 0 36px;
   }
+  .poll-form-handling {
+    @include tablet-up {
+      background-color: $color-bg-caption;
+      padding: 16px;
+    }
+  }
+  .submit-button {
+    display: block;
+  }
 }
 
+.poll--with-media { // only for polls with media
+  // always valid
+  .poll-option-rating {
+    position: absolute;
+  }
+  .poll-option-rating__percent {
+    right: 70px;
+  }
+  @include tablet-up {
+    &.poll--setup { // only valid initially :(
+      margin-top: 8px;
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+}
+
+.poll--setup { // only valid initially (and only for polls with media)
+  @include tablet-up {
+    .poll-option {
+      width: calc(50% - 4px);
+      float: left;
+      margin-bottom: 8px;
+      display: flex;
+      flex-direction: column;
+      &:nth-of-type(odd) {
+        margin-right: 8px;
+      }
+    }
+  }
+}
+
+.poll-option { // list element
+  padding: 0;
+  margin: 0 0 2px;
+  @include rounded-corners(2px);
+  overflow: hidden;
+  // overwrite :(
+  &:before { content: none; }
+  &.poll-option--rated {
+    width: 100%;
+  }
+}
+
+.poll-option__radio {
+  // for accessibility -> no hiding!
+  position: absolute;
+  // opacity: 0; height: 0; width: 0; margin: 0; padding: 0; border: 0;
+  &:focus, &:active {
+    + .poll-option-label {
+      background-color: $color-bg-box-hover;
+      &:after  {
+        background-color: $color-bg-box-hover;
+      }
+      &--selected:after {
+        border: solid 1px $color-accentuation-red;
+        background-color: transparent;
+      }
+    }
+  }
+}
+
+.poll-option-label {
+  position: relative;
+  display: block;
+  background-color: $color-bg-box;
+  padding: 12px 16px;
+  cursor: pointer;
+  flex: 1 0 auto; // flexbox
+  &:hover, &:focus {
+    background-color: $color-bg-box-hover;
+  }
+}
 .poll-option-label__title {
   font: 16px/20px $font-regular;
   letter-spacing: 0.5px;
@@ -180,7 +193,6 @@
     background-color: $color-bg-box-hover;
   }
 }
-
 .poll-option-rating__answer-copy {
   position: absolute;
   top: 50%;
@@ -211,25 +223,20 @@
 }
 
 // last bit
-.poll-form-handling__roundup {
-  margin: 0;
-  padding: 16px;
-  background-color: $color-bg-caption;
-  display: none;
-}
-
 .poll-form-handling {
   @include rounded-corners(2px);
-  @include tablet-up {
-    background-color: $color-bg-caption;
-    padding: 16px;
-  }
   .submit-button {
     margin: 6px 0 0;
     @include tablet-up {
       margin: 0;
     }
   }
+}
+.poll-form-handling__roundup {
+  margin: 0;
+  padding: 16px;
+  background-color: $color-bg-caption;
+  display: none;
 }
 .poll-form-handling__errors--onerror {
   display: block;
@@ -241,4 +248,7 @@
     padding: 16px;
     @include rounded-corners(2px);
   }
+}
+.submit-button {
+  display: none;
 }
