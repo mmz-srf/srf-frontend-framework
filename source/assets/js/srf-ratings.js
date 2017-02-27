@@ -49,7 +49,7 @@
                 myVote = $that.attr('value'),
                 $ratingstarsContainer = $('.devWrap'),
                 animeStarName = '@keyframes ratingAnime',
-                animeStarCode = '{0% {transform:translate3d(0,0,0) scale3d(1,1,1)} 33.334% {transform:translate3d(0,-12px,0) scale3d(1.125,1.125,1.125) rotateY(90deg);',
+                animeStarCode1 = '{0% {transform:translate3d(0,0,0) scale3d(1,1,1)} 33.334% {transform:translate3d(0,-12px,0) scale3d(1.125,1.125,1.125) rotateY(90deg);',
                 animeStarCode2 = ' animation-timing-function:cubic-bezier(.175,.885,.3,1.75)} 100% {transform:translate3d(0,-12px,0) scale3d(.875,.875,.875) rotateY(180deg);animation-timing-function:cubic-bezier(.175,.885,.3,1.75);',
                 animeStarOrigin = '',
                 animeStarOrigin1 = 'transform-origin:75% 50%;',
@@ -88,9 +88,9 @@
 
                 // compose the css-keyframe-code for all five individual stars … active or neutral
                 if (i <= Math.round(resultVote)) {
-                    newStyle += animeStarName+i+' '+animeStarCode+animeStarOrigin+animeStarActive+animeStarCode2+animeStarOrigin+animeStarActive+animeStarEnd;
+                    newStyle += animeStarName+i+' '+animeStarCode1+animeStarOrigin+animeStarActive+animeStarCode2+animeStarOrigin+animeStarActive+animeStarEnd;
                 } else {
-                    newStyle += animeStarName+i+' '+animeStarCode+animeStarOrigin+animeStarNeutral+animeStarCode2+animeStarOrigin+animeStarNeutral+animeStarEnd;
+                    newStyle += animeStarName+i+' '+animeStarCode1+animeStarOrigin+animeStarNeutral+animeStarCode2+animeStarOrigin+animeStarNeutral+animeStarEnd;
                 }
 
             }
