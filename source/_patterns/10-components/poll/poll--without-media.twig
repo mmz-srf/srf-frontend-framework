@@ -23,7 +23,11 @@
         <ol class="poll">
             {% for question in 0..2 %}
             <li class="poll-option">
-                {{ option.question_label( pollIndex, loop.index0, poll.answers.0 ) }}
+                {% if loop.index0 == 1 %}
+                    {{ option.question_label( pollIndex, loop.index0, poll.answers.1.title, poll.answers.1.description ) }}
+                {% else %}
+                    {{ option.question_label( pollIndex, loop.index0, poll.answers.0 ) }}
+                {% endif %}
                 {{ option.rating_box( loop.index0, poll.answers.0, {}) }}
             </li>
             {% endfor %}
