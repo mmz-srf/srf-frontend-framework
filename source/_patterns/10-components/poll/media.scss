@@ -42,6 +42,25 @@
   }
 }
 
+.article-media--image {
+  &:after {
+    content: "";
+    display: block;
+    padding-top: 56%;
+  }
+  position: relative;
+  .image-figure__image {
+    height: 100%;
+    left: 0;
+    min-width: 100%;
+    object-fit: contain;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 1px;
+  }
+}
+
 // img cropping ...
 .poll--submitted {
   .article-media {

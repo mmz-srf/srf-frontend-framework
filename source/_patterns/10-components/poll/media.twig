@@ -1,4 +1,4 @@
-<figure class="article-media">
+<figure class="article-media{% if media.type == "bild" %} article-media--image{% endif %}">
     {% if media.type == "audio" or media.type == "video" %}
     <a class="article-media__link" href="{{ media.player_url }}/srf/popup?urn={{ media.urn }}&autoplay=true">
     {% endif %}
