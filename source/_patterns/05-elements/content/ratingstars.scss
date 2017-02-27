@@ -11,7 +11,8 @@
 .ratingstars__checkbox {position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden}
 
 .ratingstars__star {width:2rem;height:2rem;margin:.25rem;fill:rgb(185,183,173);border-radius:1em}
-.ratingstars__star:hover {fill:rgb(159,156,144)}
+.ratingstars__star:hover,
+.ratingstars__star.is-hover {fill:rgb(159,156,144)}
 
 .animated .ratingstars__star {animation:ratingAnime1 linear .4s;animation-iteration-count:1;transform-origin:50% 50%;animation-fill-mode:forwards;transform-style:preserve-3d}
 .animated .ratingstars__star--1 {animation-name:ratingAnime1;animation-delay:.4s}

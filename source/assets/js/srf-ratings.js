@@ -29,6 +29,20 @@
             getTotalStars(data);
         });
 
+        // if user hovers stars
+        $('.ratingstars__star').on('mouseenter',function(e){
+            var $that = $(this),
+                thisStar = $that.parent().siblings('input').attr('value');
+
+            for (var i = 1; i <= thisStar; i++) {
+                $('.ratingstars__star--'+i).addClass('is-hover');
+            }
+        });
+
+        $('.ratingstars__star').on('mouseleave',function(e){
+            $('.ratingstars__star').removeClass('is-hover');
+        });
+
         // if user votes
         $('.ratingstars--toVote input[type="radio"]').on('change',function(e){
             var $that = $(this),
