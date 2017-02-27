@@ -10,7 +10,7 @@
 
 .ratingstars__checkbox {position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden}
 
-.ratingstars__star {width:2rem;height:2rem;margin:.25rem;fill:rgb(185,183,173);border-radius:1em}
+.ratingstars__star {width:37px;height:37px;margin:4px;fill:rgb(185,183,173);border-radius:1em}
 .ratingstars__star:hover,
 .ratingstars__star.is-hover {fill:rgb(159,156,144)}
 
@@ -23,5 +23,5 @@
 
 .ratingstars__star.is-active {fill:rgb(201,17,37)}
 
-.resultWording {visibility:hidden;opacity:0;font-size:10px;position:absolute;top:16px;right:0;left:0;transition:visibility .4s linear .8s,opacity .4s}
+.resultWording {visibility:hidden;opacity:0;font-size:14px;position:absolute;top:20px;right:0;left:0;transition:all .4s linear .8s}
 .animated .resultWording {visibility:visible;opacity:1}

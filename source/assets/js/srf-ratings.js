@@ -49,15 +49,17 @@
                 myVote = $that.attr('value'),
                 $ratingstarsContainer = $('.devWrap'),
                 animeStarName = '@keyframes ratingAnime',
-                animeStarCode = '{0% {transform:translate3d(0,0,0) scale3d(1,1,1)} 50% {transform:translate3d(0,-24px,0) scale3d(1.125,1.125,1.125) rotateY(90deg)} 80% {transform:translate3d(0,-19.2px,0) scale3d(.66,.66,.66) rotateY(144deg)} 100% {transform:translate3d(0,-12px,0) scale3d(.875,.875,.875) rotateY(180deg);',
+                animeStarCode = '{0% {transform:translate3d(0,0,0) scale3d(1,1,1)} 33.334% {transform:translate3d(0,-12px,0) scale3d(1.125,1.125,1.125) rotateY(90deg);',
+                animeStarCode2 = ' animation-timing-function:cubic-bezier(.175,.885,.3,1.75)} 100% {transform:translate3d(0,-12px,0) scale3d(.875,.875,.875) rotateY(180deg);animation-timing-function:cubic-bezier(.175,.885,.3,1.75);',
                 animeStarOrigin = '',
-                animeStarOrigin1 = 'transform-origin:80% 50%;',
-                animeStarOrigin2 = 'transform-origin:65% 50%;',
+                animeStarOrigin1 = 'transform-origin:75% 50%;',
+                animeStarOrigin2 = 'transform-origin:62.5% 50%;',
                 animeStarOrigin3 = 'transform-origin:50% 50%;',
-                animeStarOrigin4 = 'transform-origin:35% 50%;',
-                animeStarOrigin5 = 'transform-origin:20% 50%;',
-                animeStarActive = 'fill:rgb(34,33,29)}}',
-                animeStarNeutral = 'fill:rgb(185,183,173)}}',
+                animeStarOrigin4 = 'transform-origin:37.5% 50%;',
+                animeStarOrigin5 = 'transform-origin:25% 50%;',
+                animeStarActive = 'fill:rgb(34,33,29);',
+                animeStarNeutral = 'fill:rgb(185,183,173);',
+                animeStarEnd = '}}',
                 newStyle = '';
 
             // calculate the rating-result
@@ -86,9 +88,9 @@
 
                 // compose the css-keyframe-code for all five individual stars … active or neutral
                 if (i <= Math.round(resultVote)) {
-                    newStyle += animeStarName+i+' '+animeStarCode+animeStarOrigin+animeStarActive;
+                    newStyle += animeStarName+i+' '+animeStarCode+animeStarOrigin+animeStarActive+animeStarCode2+animeStarOrigin+animeStarActive+animeStarEnd;
                 } else {
-                    newStyle += animeStarName+i+' '+animeStarCode+animeStarOrigin+animeStarNeutral;
+                    newStyle += animeStarName+i+' '+animeStarCode+animeStarOrigin+animeStarNeutral+animeStarCode2+animeStarOrigin+animeStarNeutral+animeStarEnd;
                 }
 
             }
