@@ -124,11 +124,9 @@ var pollController = function() {
                 var $element = $(this);
                 $element.find(".poll-option__radio").remove();
                 $element.find(".poll-option-label").remove();
-
-                var $bgColor = $element.find(".poll-option-rating__bg-color");
-
+                
                 if (i === winner) {
-                    $(this).find(".poll-option-rating__bg-color").addClass("poll-option-rating__bg-color--winner");
+                    $element.find(".poll-option-rating__bg-color").addClass("poll-option-rating__bg-color--winner");
                 }
 
                 $element.find(".poll-option-rating__bg-color")
