@@ -105,7 +105,7 @@ var pollController = function() {
             // total number of votes
             var total = that.getTotalVotes(that.polls[pollId].data);
             // some visual trickery ...
-            $poll.find(".poll").removeClass("poll--setup").addClass("poll--submitted");
+            $poll.removeClass("poll--setup").addClass("poll--submitted");
             // ??
             if ($poll.hasClass("poll--with-media")) {
                 $poll.find(".article-media--image").removeClass("article-media--image");

@@ -99,14 +99,19 @@
   .poll-option-rating__percent {
     right: 70px;
   }
-  @include tablet-up {
-    .poll--setup { // only valid initially :(
-      // margin-top: 8px;
-      display: flex;
-      flex-wrap: wrap;
+  &.poll--setup {
+    @include tablet-up { // only valid initially :(
+      .poll {
+        // margin-top: 8px;
+        display: flex;
+        flex-wrap: wrap;
+      }
     }
-    .poll-fieldset__legend {
-      margin-bottom: 8px;
+    .poll-fieldset__legend, .poll-option {
+      margin-bottom: 4px;
+      @include tablet-up {
+        margin-bottom: 8px;
+      }
     }
   }
 }
