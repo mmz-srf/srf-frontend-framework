@@ -107,7 +107,7 @@ var pollController = function() {
             // some visual trickery ...
             $poll.find(".poll").removeClass("poll--setup").addClass("poll--submitted");
             // ??
-            if ($poll.find(".poll").hasClass("poll--with-media")) {
+            if ($poll.hasClass("poll--with-media")) {
                 $poll.find(".article-media--image").removeClass("article-media--image");
             }
             $poll.find(".poll-form-handling__roundup").show()

@@ -100,10 +100,13 @@
     right: 70px;
   }
   @include tablet-up {
-    &.poll--setup { // only valid initially :(
-      margin-top: 8px;
+    .poll--setup { // only valid initially :(
+      // margin-top: 8px;
       display: flex;
       flex-wrap: wrap;
+    }
+    .poll-fieldset__legend {
+      margin-bottom: 8px;
     }
   }
 }

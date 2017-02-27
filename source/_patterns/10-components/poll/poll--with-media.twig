@@ -1,8 +1,8 @@
-<form id="poll-ID{{ pollIndex }}" class="poll-wrapper {{ styleModifier }}" name="poll_{{ pollIndex }}" method="get" data-src="../../assets/demo/poll-data.json">
+<form id="poll-ID{{ pollIndex }}" class="poll-wrapper poll--with-media {{ styleModifier }}" name="poll_{{ pollIndex }}" method="get" data-src="../../assets/demo/poll-data.json">
     <fieldset class="poll-fieldset">
     {# here is never an image - as the poll contains media #}
         <legend class="poll-fieldset__legend">{{ poll.description }}</legend>
-        <ol class="poll poll--with-media poll--setup"> {# with-media & setup solely for polls with media! #}
+        <ol class="poll poll--setup"> {# with-media & setup solely for polls with media! #}
             {% set i = 0 %}
             <li class="poll-option">
                 {# Image #}
