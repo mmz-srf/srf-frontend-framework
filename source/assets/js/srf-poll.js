@@ -90,13 +90,14 @@ var pollController = function() {
                     that.polls[pollId].data[radioIndex]++
                 }
                 // find the current winner
-                /* if (mostVotes < that.polls[pollId].data[i]) {
+                if (mostVotes < that.polls[pollId].data[i]) {
                     mostVotes = that.polls[pollId].data[i];
                     winner = i;
-                } */
+                }
             });
 
-            mostVotes = Math.max.apply( null, that.polls[pollId].data );
+            // we need the winner after all :(
+            // mostVotes = Math.max.apply( null, that.polls[pollId].data );
 
             // tbd: send data .. :)
             // selected id was optionId / radioIndex ...?
@@ -115,6 +116,7 @@ var pollController = function() {
 
             var width, percent, opacity = 0;
             $poll.find("li").each(function (i) {
+
                 percent = that.polls[pollId].data[i] / total;
                 width = parseInt(percent * 100, 10);
                 opacity = (that.polls[pollId].data[i] === mostVotes) ? .7 : .4;
@@ -122,10 +124,17 @@ var pollController = function() {
                 var $element = $(this);
                 $element.find(".poll-option__radio").remove();
                 $element.find(".poll-option-label").remove();
+
+                var $bgColor = $element.find(".poll-option-rating__bg-color");
+
+                if (i === winner) {
+                    $(this).find(".poll-option-rating__bg-color").addClass("poll-option-rating__bg-color--winner");
+                }
+
                 $element.find(".poll-option-rating__bg-color")
                     .animate({
                         // "background-color": "rgba(201,16,36, " + percent + ")",
-                        opacity: opacity, // percent,
+                        // opacity: opacity, // percent,
                         width: width + "%"
                     }, 3000, function() {
                         // Animation complete

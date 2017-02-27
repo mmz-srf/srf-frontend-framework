@@ -218,8 +218,12 @@
   position: absolute;
   height: 100%;
   width: 0;
-  opacity: 0;
-  background-color: $color-accentuation-red;
+  background-color: #ff9193; // the color of the looooosers
+  // opacity: 0;
+  // background-color: $color-accentuation-red;
+  &--winner {
+    background-color: #ff6669;
+  }
 }
 
 // last bit
