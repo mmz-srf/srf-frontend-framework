@@ -290,5 +290,17 @@
       { "color": "#0000f5",
         "description": "5001-20000 Beschäftigte"
       }]
+  },
+  "poll": {
+    "title": "Umfrage",
+    "description": "Ihre Meinung ist uns wichtig!",
+    "answers": [
+        "Antwort",
+      { "title": "Detaillierter Titel einer Antwort",
+        "description": "Beschreibung in richtig vielen Worten und noch ein wenig extra"
+    }],
+    "submit": "Abstimmen",
+    "total": "Stimmen wurden abgegeben"
   }
 }
+
