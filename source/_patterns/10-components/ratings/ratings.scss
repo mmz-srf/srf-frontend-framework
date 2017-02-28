@@ -23,5 +23,5 @@
 
 .ratingstars__star.is-active {fill:rgb(201,17,37)}
 
-.resultWording {visibility:hidden;opacity:0;font-size:14px;position:absolute;top:20px;right:0;left:0;transition:all .4s linear .8s}
-.animated .resultWording {visibility:visible;opacity:1}
+.resultWording {visibility:hidden;opacity:0;font-size:14px;position:absolute;top:20px;right:0;left:0;transition:all .4s linear .4s}
+.resultWording.animated {visibility:visible;opacity:1}

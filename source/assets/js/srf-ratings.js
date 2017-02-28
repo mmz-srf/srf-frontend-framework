@@ -10,32 +10,32 @@
 
     // process data to get total of votes
     function getTotalVotes(data){
+        totalVotes = 0;
         for (var i = 0; i < data.length; i++) { totalVotes += data[i]; }
+        console.log(totalVotes);
         return totalVotes;
     };
 
     // process data to get total stars
     function getTotalStars(data){
+        totalStars = 0;
         for (var i = 0; i < data.length; i++) { totalStars += data[i] * ( i + 1 ); }
+        console.log(totalStars);
         return totalStars;
     };
 
     $(document).ready(function () {
 
-        // load ratings-results and process data
-        var dataJSONurl = $('.devWrap').attr('data-src');
-        $.getJSON(dataJSONurl, function(data) {
-            getTotalVotes(data);
-            getTotalStars(data);
-        });
-
         // if user hovers stars
         $('.ratingstars__star').on('mouseenter',function(e){
             var $that = $(this),
-                thisStar = $that.parent().siblings('input').attr('value');
+                thisStar = $that.parent().siblings('input').attr('value'),
+                ratings_index = $that.parent().parent().attr('data-ratings_index'),
+                answer_index = $that.parent().parent().attr('data-answer_index'),
+                star_index = $that.parent().parent().attr('data-star_index');
 
             for (var i = 1; i <= thisStar; i++) {
-                $('.ratingstars__star--'+i).addClass('is-hover');
+                $('[data-ratings_index='+ratings_index+'][data-answer_index='+answer_index+'][data-star_index='+i+']').find('.ratingstars__star--'+ratings_index+'-'+answer_index+'-'+i).addClass('is-hover');
             }
         });
 
@@ -47,7 +47,8 @@
         $('.ratingstars--toVote input[type="radio"]').on('change',function(e){
             var $that = $(this),
                 myVote = $that.attr('value'),
-                $ratingstarsContainer = $('.devWrap'),
+                animeStarInit1 = '.animated .ratingstars__star--',
+                animeStarInit2 = ' {animation-name:ratingAnime',
                 animeStarName = '@keyframes ratingAnime',
                 animeStarCode1 = '{0% {transform:translate3d(0,0,0) scale3d(1,1,1)} 33.334% {transform:translate3d(0,-12px,0) scale3d(1.125,1.125,1.125) rotateY(90deg);',
                 animeStarCode2 = ' animation-timing-function:cubic-bezier(.175,.885,.3,1.75)} 100% {transform:translate3d(0,-12px,0) scale3d(.875,.875,.875) rotateY(180deg);animation-timing-function:cubic-bezier(.175,.885,.3,1.75);',
@@ -60,14 +61,30 @@
                 animeStarActive = 'fill:rgb(34,33,29);',
                 animeStarNeutral = 'fill:rgb(185,183,173);',
                 animeStarEnd = '}}',
-                newStyle = '';
+                newStyle = '',
+                ratings_index = $that.parent().attr('data-ratings_index'),
+                answer_index = $that.parent().attr('data-answer_index'),
+                star_index = $that.parent().attr('data-star_index'),
+                $ratingstarsContainer = $('#ratings-ID'+ratings_index),
+                dataJSONurl = $that.closest('.poll-option').attr('data-src');;
 
-            // calculate the rating-result
-            resultVote = Math.round((totalStars + myVote) / (totalVotes + 1)) / 10;
+            // load ratings-results and process data
+            $.getJSON(dataJSONurl, function(data) {
+                console.log(data);
+                getTotalVotes(data);
+                getTotalStars(data);
+                
+                // calculate the rating-result
+                resultVote = Math.round((totalStars + myVote) / (totalVotes + 1)) / 10;
+                console.log('('+totalStars+' + '+myVote+') / ('+totalVotes+' + 1)) / 10 = '+resultVote);
+            });
 
-            // mark all stars before (and including) the clicked one as active
+
+            $('[data-ratings_index='+ratings_index+'][data-answer_index='+answer_index+']').find('.ratingstars__star').removeClass('is-active');
+
+            // mark all stars before and including the clicked one as active
             for (var i = 1; i <= myVote; i++) {
-                $('.ratingstars__star--'+i).addClass('is-active');
+                $('.ratingstars__star--'+ratings_index+'-'+answer_index+'-'+i).addClass('is-active');
             }
 
             // compose the keyframes
@@ -88,19 +105,20 @@
 
                 // compose the css-keyframe-code for all five individual stars … active or neutral
                 if (i <= Math.round(resultVote)) {
-                    newStyle += animeStarName+i+' '+animeStarCode1+animeStarOrigin+animeStarActive+animeStarCode2+animeStarOrigin+animeStarActive+animeStarEnd;
+                    newStyle += animeStarInit1+ratings_index+'-'+answer_index+'-'+i+animeStarInit2+ratings_index+'-'+answer_index+'-'+i+'}'+animeStarName+ratings_index+'-'+answer_index+'-'+i+' '+animeStarCode1+animeStarOrigin+animeStarActive+animeStarCode2+animeStarOrigin+animeStarActive+animeStarEnd;
                 } else {
-                    newStyle += animeStarName+i+' '+animeStarCode1+animeStarOrigin+animeStarNeutral+animeStarCode2+animeStarOrigin+animeStarNeutral+animeStarEnd;
+                    newStyle += animeStarInit1+ratings_index+'-'+answer_index+'-'+i+animeStarInit2+ratings_index+'-'+answer_index+'-'+i+'}'+animeStarName+ratings_index+'-'+answer_index+'-'+i+' '+animeStarCode1+animeStarOrigin+animeStarNeutral+animeStarCode2+animeStarOrigin+animeStarNeutral+animeStarEnd;
                 }
 
             }
 
             // add the keyframe-codes into a style-element and add it to the DOM
-            $('<style />').text(newStyle).insertAfter($ratingstarsContainer);
+            $('<style id="ratingAnime'+ratings_index+'-'+answer_index+'" />').text(newStyle).insertAfter($ratingstarsContainer);
 
             // include Result- and myVote-Number to the DOM
-            $('.resultNumber--js').text(resultVote);
-            $('.myNumber--js').text(myVote);
+            $('.resultWording--'+ratings_index+'-'+answer_index).addClass('animated');
+            $('.resultWording--'+ratings_index+'-'+answer_index+' .resultNumber--js').text(resultVote);
+            $('.resultWording--'+ratings_index+'-'+answer_index+' .myNumber--js').text(myVote);
 
             // add css-classes to trigger the animations
             $ratingstarsContainer.addClass('animated');
