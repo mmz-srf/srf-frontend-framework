@@ -126,7 +126,13 @@
   }
 }
 .poll--setup {
-  .poll-option:last-of-type {
+  .poll-option--save-the-margin {
+    margin-bottom: 4px;
+    @include tablet-up {
+      margin-bottom: 8px;
+    }
+  }
+  /* .poll-option:last-of-type {
     margin-bottom: 0; // this cannot be perfect: the second last might be a problem :(
   }
   &.poll--with-radios {
@@ -141,7 +147,7 @@
         }
       }
     }
-  }
+  } */
 }
 
 .poll-option { // list element
@@ -234,6 +240,7 @@
   font: 24px/20px $font-light;
   letter-spacing: .3px;
   margin: 0 16px 0 0;
+  display: none;
 }
 .poll-option-rating__bg-color {
   position: absolute;
