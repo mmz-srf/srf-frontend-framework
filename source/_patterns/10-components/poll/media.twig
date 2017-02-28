@@ -1,0 +1,29 @@
+<figure class="article-media{% if media.type == "bild" %} article-media--image{% endif %}">
+    {% if media.type == "audio" or media.type == "video" %}
+    <a class="article-media__link" href="{{ media.player_url }}/srf/popup?urn={{ media.urn }}&autoplay=true">
+    {% endif %}
+        <img class="image-figure__image"
+            {% if media.type == "bild" %}
+                alt="{{ media.title }}"
+                title="{{ media.title }}"
+            {% else %}
+                alt="{{ media.type|capitalize }} «{{ media.title  }}» abspielen"
+                title="{{ media.type|capitalize }} «{{ media.title  }}» abspielen"
+            {% endif %}
+             sizes="100vw"
+             srcset="{% for source in image.sources %}
+                        {{ source.src }} {{ source.width }}w,
+                     {% endfor %}"
+             src="{{ image.sources.s8.src }}">
+        {% if media.type == "audio" or media.type == "video" %}
+        <div class="article-media__link-meta">
+            <img class="article-media__play-icon" src="../../assets/img/{{ media.type }}-play.svg" width="72" height="72" alt="">
+            <span class="article-media__length">{{ media.length }}</span>
+        </div>
+    </a> {# no links for images - and no dim #}
+    {% endif %}
+    <!-- figcaption deliberately omitted (design) -->
+</figure>
+
+{% set media = { "type": "audio", "title" : audios[0].title, "length" : audios[0].length,
+"player_url": audios[0].player_url, "urn" : audios[0].urn } %}
