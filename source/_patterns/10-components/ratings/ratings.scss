@@ -1,0 +1,27 @@
+//.dev {background:rgb(236,236,230)}
+//.devWrap {position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);text-align:center}
+
+.ratingstars {margin:0;padding:0}
+.ratingstars--toVote .ratingstars__star {cursor:pointer}
+.ratingstars--isVoted .ratingstars__star {width:1.75rem;height:1.75rem}
+
+.ratingstars__elem {margin:0;padding:0;float:left} // overwrite
+.ratingstars__elem:before {content:none} // overwrite
+
+.ratingstars__checkbox {position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden}
+
+.ratingstars__star {width:37px;height:37px;margin:4px;fill:rgb(185,183,173);border-radius:1em}
+.ratingstars__star:hover,
+.ratingstars__star.is-hover {fill:rgb(159,156,144)}
+
+.animated .ratingstars__star {animation:ratingAnime1 linear .4s;animation-iteration-count:1;transform-origin:50% 50%;animation-fill-mode:forwards;transform-style:preserve-3d}
+.animated .ratingstars__star--1 {animation-name:ratingAnime1;animation-delay:.4s}
+.animated .ratingstars__star--2 {animation-name:ratingAnime2;animation-delay:.45s}
+.animated .ratingstars__star--3 {animation-name:ratingAnime3;animation-delay:.5s}
+.animated .ratingstars__star--4 {animation-name:ratingAnime4;animation-delay:.55s}
+.animated .ratingstars__star--5 {animation-name:ratingAnime5;animation-delay:.6s}
+
+.ratingstars__star.is-active {fill:rgb(201,17,37)}
+
+.resultWording {visibility:hidden;opacity:0;font-size:14px;position:absolute;top:20px;right:0;left:0;transition:all .4s linear .8s}
+.animated .resultWording {visibility:visible;opacity:1}

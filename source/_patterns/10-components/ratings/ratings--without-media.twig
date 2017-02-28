@@ -1,0 +1,16 @@
+{% import 'ratings.twig' as starTempl %}
+{% set ratingsIndex = 1 %}
+<form id="ratings-ID{{ratingsIndex}}" class="poll-wrapper poll--setup" name="ratings_{{ratingsIndex}}" method="get" data-src="../../assets/demo/ratings-data.json">
+    <fieldset class="poll-fieldset">
+        {% set media_options = { "media": { "type": "bild", "title" : images[0].caption.title, "length" : 0, "player_url": null, "urn" : null }, "image" : images[1] } %}
+        {% include "media.twig" with media_options %}
+        <legend class="poll-fieldset__legend">{{poll.description}}</legend>
+        <ol class="poll">
+            {% for question in 0..2 %}
+            <li class="poll-option">
+{{starTempl.ratingstars(ratingsIndex,loop.index,poll.answers.0)}}
+            </li>
+            {% endfor %}
+        </ol>
+    </fieldset>
+</form>
