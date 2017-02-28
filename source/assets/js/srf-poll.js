@@ -114,13 +114,11 @@ var pollController = function() {
 
             // $poll.find(".submit-button").remove();
 
-            var width, percent = 0; // , opacity = 0;
+            var width, sum = 0;
             var widths = [];
             $poll.find("li").each(function (i) {
-
-                percent = that.polls[pollId].data[i] / total;
-                width = parseInt(percent * 100, 10);
-                // opacity = (that.polls[pollId].data[i] === mostVotes) ? .7 : .4;
+                width = Math.round(that.polls[pollId].data[i] * 100 / total);
+                sum += width;
 
                 var $element = $(this);
                 $element.find(".poll-option__radio").remove();
