@@ -106,20 +106,21 @@ var pollController = function() {
             var total = that.getTotalVotes(that.polls[pollId].data);
             // some visual trickery ...
             $poll.removeClass("poll--setup").addClass("poll--submitted");
-            // ??
             if ($poll.hasClass("poll--with-media")) {
                 $poll.find(".article-media--image").removeClass("article-media--image");
             }
             $poll.find(".poll-form-handling__roundup").show()
                 .find("strong").text(total);
-            $poll.find(".submit-button").remove();
 
-            var width, percent, opacity = 0;
+            // $poll.find(".submit-button").remove();
+
+            var width, percent = 0; // , opacity = 0;
+            var widths = [];
             $poll.find("li").each(function (i) {
 
                 percent = that.polls[pollId].data[i] / total;
                 width = parseInt(percent * 100, 10);
-                opacity = (that.polls[pollId].data[i] === mostVotes) ? .7 : .4;
+                // opacity = (that.polls[pollId].data[i] === mostVotes) ? .7 : .4;
 
                 var $element = $(this);
                 $element.find(".poll-option__radio").remove();
@@ -129,18 +130,49 @@ var pollController = function() {
                     $element.find(".poll-option-rating__bg-color").addClass("poll-option-rating__bg-color--winner");
                 }
 
-                $element.find(".poll-option-rating__bg-color")
-                    .animate({
-                        // "background-color": "rgba(201,16,36, " + percent + ")",
-                        // opacity: opacity, // percent,
+                widths[i] = width;
+
+                /* $element.find(".poll-option-rating__bg-color")
+                    .delay(delay).animate({
                         width: width + "%"
-                    }, 3000, function() {
-                        // Animation complete
-                    });
+                    }, 3000, function() { // Animation complete
+                    }); */
 
                 $element.find(".poll-option-rating__percent strong").text(width);
             });
+
+            var $submit = $poll.find(".submit-button");
+            if ($submit.length > 0) {
+                $submit.val("✔").fadeOut(1500, function () {
+                    that.animateBars($poll, widths);
+                    /* var delay = 0;
+                     $poll.find(".poll-option-rating__bg-color").each(function(i) {
+                     $(this).delay(delay).animate({
+                     width: widths[i] + "%"
+                     }, 500, function () {
+                     $(this).closest(".poll-option-rating")
+                     .find(".poll-option-rating__percent").fadeIn();
+                     });
+                     delay += 500;
+                     }); */
+                });
+            } else {
+                that.animateBars($poll, widths);
+            }
             return false;
+        });
+    };
+
+    this.animateBars = function ($poll, widths) {
+        var delay = 0;
+        $poll.find(".poll-option-rating__bg-color").each(function(i) {
+            $(this).delay(delay).animate({
+                width: widths[i] + "%"
+            }, 500, function () {
+                $(this).closest(".poll-option-rating")
+                    .find(".poll-option-rating__percent").fadeIn(500);
+            });
+            delay += 500;
         });
     };
 
