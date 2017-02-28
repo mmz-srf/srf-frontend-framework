@@ -4,7 +4,7 @@
                     <p class="poll-option-label__description">{{answer_description}}</p>
                 {% endif %}
                 <ol class="ratingstars ratingstars--toVote">
-                    {% for meme in 1..5 %}
+                    {% for answers in 1..5 %}
                     <li class="ratingstars__elem" data-ratings_index="{{ratings_index}}" data-answer_index="{{answer_index}}" data-star_index="{{loop.index}}">
                         <input type="radio" id="star{{ratings_index}}-{{answer_index}}-{{loop.index}}" name="ratingStar[]" value="{{loop.index}}" class="ratingstars__checkbox" />
                         <label for="star{{ratings_index}}-{{answer_index}}-{{loop.index}}">
@@ -14,17 +14,6 @@
                     {% endfor %}
                 </ol>
                 <p class="resultWording resultWording--{{ratings_index}}-{{answer_index}}"><strong><span class="resultNumber--js">0.0</span> Sterne</strong> / Ihre Wertung: <span class="myNumber--js">0</span> Sterne</p>
-{% endmacro %}
-
-{% macro form_submit(poll, styleModifier = 'poll--with-radios') %}
-    <div class="poll-form-handling" role="combobox" aria-live="polite">
-        {# visible submit button only for polls with radios #}
-        {% if styleModifier == 'poll--with-radios' %}
-            <span class="poll-form-handling__errors"></span>
-        {% endif %}
-        {% include 'elements-submit-button' with { 'button_text' : poll.submit } %}
-        <p class="poll-form-handling__roundup"><strong></strong> {{ poll.total }}</p>
-    </div>
 {% endmacro %}
 
 {% include 'components-ratings--without-media' with { 'ratingsIndex': 1 } %}
