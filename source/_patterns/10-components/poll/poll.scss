@@ -13,6 +13,9 @@
     height: auto;
     width: 100%;
   }
+  .submit-button {
+    display: none;
+  }
 }
 
 .poll-fieldset {
@@ -280,7 +283,4 @@
     padding: 16px;
     @include rounded-corners(2px);
   }
-}
-.submit-button {
-  display: none;
 }
