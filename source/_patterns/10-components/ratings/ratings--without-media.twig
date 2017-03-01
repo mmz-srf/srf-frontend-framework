@@ -8,8 +8,8 @@
         <legend class="poll-fieldset__legend">{{poll.description}}</legend>
         <ol class="poll">
             {% for question in 0..2 %}
-            <li class="poll-option" data-src="../../assets/demo/ratings-data.json">
-{{starTempl.ratingstars(ratingsIndex,loop.index,poll.answers.0)}}
+            <li class="poll-option poll-option--rating" data-src="../../assets/demo/ratings-data.json">
+{{starTempl.ratingstars(ratingsIndex,loop.index,poll.answers.1.title,poll.answers.1.description)}}
             </li>
             {% endfor %}
         </ol>

@@ -295,7 +295,7 @@
     "title": "Umfrage",
     "description": "Ihre Meinung ist uns wichtig!",
     "answers": [
-        "Ich bin eine Antwort",
+        "Ich bin eine Option",
       { "title": "Detaillierter Titel einer Antwort",
         "description": "Beschreibung in richtig vielen Worten und noch ein wenig extra"
     }],

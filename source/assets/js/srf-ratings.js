@@ -44,7 +44,7 @@
         });
 
         // if user votes
-        $('.ratingstars--toVote input[type="radio"]').on('change',function(e){
+        $('.ratingstars-list input[type="radio"]').on('change',function(e){
             var $that = $(this),
                 myVote = $that.attr('value'),
                 animeStarInit1 = '.animated .ratingstars__star--',
@@ -73,16 +73,13 @@
                 console.log(data);
                 getTotalVotes(data);
                 getTotalStars(data);
-                
-                // calculate the rating-result
-                resultVote = Math.round((totalStars + myVote) / (totalVotes + 1)) / 10;
-                console.log('('+totalStars+' + '+myVote+') / ('+totalVotes+' + 1)) / 10 = '+resultVote);
             });
-
-
-            $('[data-ratings_index='+ratings_index+'][data-answer_index='+answer_index+']').find('.ratingstars__star').removeClass('is-active');
+    
+            // calculate the rating-result
+            resultVote = Math.round((totalStars + myVote) / (totalVotes + 1)) / 10;
 
             // mark all stars before and including the clicked one as active
+            $('[data-ratings_index='+ratings_index+'][data-answer_index='+answer_index+']').find('.ratingstars__star').removeClass('is-active');
             for (var i = 1; i <= myVote; i++) {
                 $('.ratingstars__star--'+ratings_index+'-'+answer_index+'-'+i).addClass('is-active');
             }
