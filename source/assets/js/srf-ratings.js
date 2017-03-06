@@ -171,7 +171,7 @@ var ratingController = function() {
         var totalStars = total[0]; // that.getTotalStars(currentData);
         var totalVotes = total[1]; // that.getTotalVotes(currentData);
         // calculate the rating-result (handling js + behaviour)
-        var resultVote = Math.round((+totalStars + +myVote) / (+totalVotes + 1));
+        var resultVote = Math.round((+totalStars + +myVote) / (+totalVotes + 1) * 10) / 10;
 
         // compose the keyframes
         for (var i = 1; i < 6; i++) {
@@ -191,7 +191,7 @@ var ratingController = function() {
 
             // compose the css-keyframe-code for all five individual stars … active or neutral
             // if (i <= Math.round(resultVote)) {
-            if (i <= resultVote) {
+            if (i <= Math.round(resultVote)) {
                 newStyle += animeStarInit1+ratings_index+'-'+answer_index+'-'+i+animeStarInit2+ratings_index+'-'+answer_index+'-'+i+'}'+animeStarName+ratings_index+'-'+answer_index+'-'+i+' '+animeStarCode1+animeStarOrigin+animeStarActive+animeStarCode2+animeStarOrigin+animeStarActive+animeStarEnd;
             } else {
                 newStyle += animeStarInit1+ratings_index+'-'+answer_index+'-'+i+animeStarInit2+ratings_index+'-'+answer_index+'-'+i+'}'+animeStarName+ratings_index+'-'+answer_index+'-'+i+' '+animeStarCode1+animeStarOrigin+animeStarNeutral+animeStarCode2+animeStarOrigin+animeStarNeutral+animeStarEnd;
