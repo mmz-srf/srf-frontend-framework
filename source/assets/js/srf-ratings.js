@@ -171,7 +171,7 @@ var ratingController = function() {
         var totalStars = total[0]; // that.getTotalStars(currentData);
         var totalVotes = total[1]; // that.getTotalVotes(currentData);
         // calculate the rating-result (handling js + behaviour)
-        var resultVote = Math.round((+totalStars + +myVote) / (+totalVotes + 1) * 10) / 10;
+        var resultVote = 0.5 * Math.round((+totalStars + +myVote) / (+totalVotes + 1) / 0.5);
 
         // compose the keyframes
         for (var i = 1; i < 6; i++) {
