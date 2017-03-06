@@ -1,6 +1,6 @@
 {% macro ratingstars(ratings_index,answer_index,answer_title,answer_description,media_options) %}
                 {% if media_options is not empty %}
-                    {% include "_media.twig" with media_options %}
+                    {% include "components-media" with media_options %}
                 {% endif %}
                 <div class="ratings-wrapper">
                     <p class="poll-option-label__title">{{answer_title}} {{answer_index}}</p>
