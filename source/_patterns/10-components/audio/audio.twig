@@ -11,7 +11,8 @@
                          alt="Audio «{{ audio.title }}» abspielen" {# this should go into the image container (cms) #}
                          sizes="100vw"
                          srcset="{% for source in audio.img_srcset %}
-                            {{ source.src }} {{ source.width }}w,
+                            {{ source.src }} {{ source.width }}w
+                            {{ loop.last ? '' : ',' }}
                          {% endfor %}"
                          src="{{ audio.img_src }}">
                 {% endblock %}

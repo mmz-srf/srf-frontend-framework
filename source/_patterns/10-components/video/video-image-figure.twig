@@ -1,4 +1,4 @@
-{% if styleModifier == 'imageCaptionStyle' %}
+{% if styleModifier == 'image-figure--video' %}
 
 <figure class="image-figure {{ styleModifier }}">
     <div class="image-figure__image-wrapper">
@@ -6,15 +6,24 @@
              alt="{{ images[0].caption.title }}"
              title="{{ images[0].caption.title }}"
              sizes="100vw"
-             srcset="
-                {% for source in images[0].sources %}
-                    {{ source.src }} {{ source.width }}w,
-                 {% endfor %}
-             "
+             srcset="{% for source in images[0].sources %}
+                        {{ source.src }} {{ source.width }}w
+                        {{ loop.last ? '' : ',' }}
+                     {% endfor %}"
              src="{{ images[0].sources.s8.src }}">
-        {% if currentIndex and totalCount %}
-            {% include 'elements-carousel-counter' with { 'currentIndex': currentIndex, 'totalCount': totalCount } %}
-        {% endif %}
+
+        {% block image_carousel_counter %}
+            {% if currentIndex and totalCount %}
+                {% include 'elements-carousel-counter' with { 'currentIndex': currentIndex, 'totalCount': totalCount } %}
+            {% endif %}
+        {% endblock %}
+
+        <div class="article-video__link-meta">
+            {% block play_icon %}
+                {% include 'elements-play-icon' with { 'media': 'video' } %}
+            {% endblock %}
+            <span class="article-video__length">{{ video.length }}<span class="h-offscreen">min</span></span>
+        </div>
     </div>
 </figure>
 
@@ -31,7 +40,10 @@
              {% endfor %}
          "
          src="{{ images[0].sources.s8.src }}">
-    <img class="article-video__play-icon" src="../../assets/img/video-play.svg" width="72" height="72" alt="">
+
+    {% block plain_play_icon %}{# :( play_icon !! #}
+        {% include 'elements-play-icon' with { 'media': 'video' } %}
+    {% endblock %}
 </div>
 
 {% endif %}
