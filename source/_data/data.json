@@ -3,6 +3,7 @@
   "htmlClass": "pl",
   "bodyClass": "body",
   "articleHeader": {
+    "kicker": "Pendler-Chaos",
     "title": "Vor 20 Jahren forderte Cyberpionier Barlow: «Lasst uns in Ruhe!»",
     "lead": "1996 schrieb John Perry Barlow die «Unabhängigkeitserklärung des Cyberspace». Darin kritisierte der Poet und Aktivist erstaunlich früh die staatliche Kontrolle."
   },
@@ -19,6 +20,36 @@
     "author": "Dilma Rousseff",
     "function": "Präsidentin von Brasilien"
   },
+  "image":
+    {
+      "sources": {
+        "s8": {
+          "src": "../../assets/demo/img/bild0/bild_s8.jpg",
+          "width": 640
+        },
+        "s8_retina": {
+          "src": "../../assets/demo/img/bild0/bild_s8_retina.jpg",
+          "width": 1248
+        },
+        "s12": {
+          "src": "../../assets/demo/img/bild0/bild_s12.jpg",
+          "width": 944
+        },
+        "s12_retina": {
+          "src": "../../assets/demo/img/bild0/bild_s12_retina.jpg",
+          "width": 1888
+        },
+        "mobile_max": {
+          "src": "../../assets/demo/img/bild0/bild_mobile_max.jpg",
+          "width": 320
+        }
+      },
+      "caption": {
+        "title": "Hernani Marques",
+        "description": "Aktivist und Pressesprecher vom Schweizer Chaos Computer Club",
+        "source": "Bild: ZVG"
+      }
+    },
   "images": [
     {
       "sources": {
