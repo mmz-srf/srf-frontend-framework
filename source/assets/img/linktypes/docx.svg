@@ -1,0 +1,32 @@
+<svg width="30" height="18" viewBox="0 0 30 18" xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>4A431C2D-FCE5-4284-8FC6-27860D851E72</title>
+    <defs>
+        <rect id="a" width="656" height="831" rx="2"/>
+        <filter x="-50%" y="-50%" width="200%" height="200%" filterUnits="objectBoundingBox" id="b">
+            <feOffset dy="1" in="SourceAlpha" result="shadowOffsetOuter1"/>
+            <feGaussianBlur stdDeviation="1" in="shadowOffsetOuter1" result="shadowBlurOuter1"/>
+            <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"/>
+            <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.2 0" in="shadowBlurOuter1"/>
+        </filter>
+        <mask id="c" x="0" y="0" width="656" height="831" fill="#fff">
+            <use xlink:href="#a"/>
+        </mask>
+    </defs>
+    <g transform="translate(-618 -533)" fill="none" fill-rule="evenodd">
+        <mask id="d" fill="#fff">
+            <use xlink:href="#a"/>
+        </mask>
+        <use fill="#000" filter="url(#b)" xlink:href="#a"/>
+        <use stroke="#FFF" mask="url(#c)" stroke-width="2" fill="#FEFEFD" xlink:href="#a"/>
+        <g mask="url(#d)">
+            <path stroke="#C91024" stroke-linecap="round" stroke-linejoin="round"
+                  d="M632.5 540v-6.5h8.5l4.5 4.5v12.5h-13"/>
+            <path stroke="#C91024" stroke-linecap="round" stroke-linejoin="round" d="M640.5 533.5v5h5"/>
+            <text font-family="ArialUnicodeMS, Arial Unicode MS" font-size="8" fill="#C91024"
+                  transform="translate(619 533)">
+                <tspan x="7.102" y="15">docx</tspan>
+            </text>
+        </g>
+    </g>
+</svg>

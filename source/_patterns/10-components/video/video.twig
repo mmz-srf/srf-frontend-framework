@@ -22,11 +22,6 @@
     <figcaption class="media-caption media-caption--video{{ styleModifier == 'RelatedEpisodes' ? '-related-episodes' : '' }}">
         <div class="media-caption__title media-caption__title--video">{{ video.title }}</div>
         <div class="media-caption__source media-caption__source--video">Aus <strong>{{ video.show.title }}</strong> vom {{ video.show.date|date("d.m.Y")  }}</div>
-
-        {% if childComponent == 'linkbox' %}
-            {% include 'components-linkbox' with {'styleModifier': 'linkbox--related', 'title': 'Unterrichtsmaterialien'} %}
-        {% endif %}
-
     </figcaption>
 </figure>
 </a>
