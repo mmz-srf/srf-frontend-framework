@@ -32,3 +32,24 @@
     margin: 0 -8px;
   }
 }
+
+.linkbox--related {
+  margin: 13px 0 8px -8px;
+}
+
+.linkbox--related .block-link {
+  padding-left: 8px;
+  background-position: calc(100% - 8px) center;
+}
+
+.linkbox--related li:last-child .block-link {
+  border-bottom: 0;
+}
+
+.linkbox--related .linkbox__title {
+  font-size: 14px;
+  margin: 0 0 8px 8px;
+  padding: 0;
+  color: $color-text-light;
+  font-family: $font-regular;
+}

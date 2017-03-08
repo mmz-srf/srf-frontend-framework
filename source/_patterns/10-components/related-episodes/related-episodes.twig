@@ -3,8 +3,9 @@
         Sendungen zu diesem Artikel
     </h2>
     <ul>
+        <li class="related-item">{% include 'components-video' with {'styleModifier': 'RelatedEpisodes', 'childComponent' : 'linkbox' } %}</li>
         <li class="related-item">{% include 'components-audio' %}</li>
-        <li class="related-item">{% include 'components-video' with {'styleModifier': 'RelatedEpisodes'}  %}</li>
+        <li class="related-item">{% include 'components-video' with {'styleModifier': 'RelatedEpisodes'} %}</li>
         <li class="related-item">{% include 'components-audio' %}</li>
         <li class="related-item">{% include 'components-video' with {'styleModifier': 'RelatedEpisodes'} %}</li>
     </ul>
