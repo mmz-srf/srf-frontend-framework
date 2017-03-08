@@ -1,49 +1,53 @@
-{% if styleModifier == 'image-figure--video' %}
+{% if styleModifier == 'RelatedEpisodes' %}
+    <div class="article-video__wrapper">
+        {% block video_image_related_episodes %}
+            <img class="image-figure__image"
+                 alt="Video «{{ video.title }}» abspielen" {# this should go into the image container (cms) #}
+                 title="Video «{{ video.title }}» abspielen"
+                 sizes="100vw"
+                 srcset="{% for source in video.img_srcset %}
+                            {{ source.src }} {{ source.width }}w
+                            {{ loop.last ? '' : ',' }}
+                         {% endfor %}"
+                 src="{{ video.img_src }}">
+        {% endblock %}
 
-<figure class="image-figure {{ styleModifier }}">
-    <div class="image-figure__image-wrapper">
-        <img class="image-figure__image"
-             alt="{{ images[0].caption.title }}"
-             title="{{ images[0].caption.title }}"
-             sizes="100vw"
-             srcset="{% for source in images[0].sources %}
+        {% block plain_play_icon %}{# :( play_icon !! #}
+            {% include 'elements-play-icon' with { 'media': 'video' } %}
+        {% endblock %}
+    </div>
+{% else %}
+    <figure class="image-figure {{ styleModifier }}">
+        <div class="image-figure__image-wrapper">
+            {% block video_image %}
+                <img class="image-figure__image"
+                     alt="Video «{{ video.title }}» abspielen" {# this should go into the image container (cms) #}
+                     title="Video «{{ video.title }}» abspielen"
+                     sizes="100vw" {# why won't this work?!? (in the gallery) #}
+                     {#srcset="{% for source in video.img_srcset %}#}
+                            {#{{ source.src }} {{ source.width }}w#}
+                            {#{{ loop.last ? '' : ',' }}#}
+                         {#{% endfor %}"#}
+                     {#src="{{ video.img_src }}">#}
+                     srcset="{% for source in images[0].sources %}
                         {{ source.src }} {{ source.width }}w
                         {{ loop.last ? '' : ',' }}
                      {% endfor %}"
-             src="{{ images[0].sources.s8.src }}">
-
-        {% block image_carousel_counter %}
-            {% if currentIndex and totalCount %}
-                {% include 'elements-carousel-counter' with { 'currentIndex': currentIndex, 'totalCount': totalCount } %}
-            {% endif %}
-        {% endblock %}
-
-        <div class="article-video__link-meta">
-            {% block play_icon %}
-                {% include 'elements-play-icon' with { 'media': 'video' } %}
+                     src="{{ images[0].sources.s8.src }}">
             {% endblock %}
-            <span class="article-video__length">{{ video.length }}<span class="h-offscreen">min</span></span>
+
+            {% block image_carousel_counter %}
+                {% if currentIndex and totalCount %}
+                    {% include 'elements-carousel-counter' with { 'currentIndex': currentIndex, 'totalCount': totalCount } %}
+                {% endif %}
+            {% endblock %}
+
+            <div class="article-video__link-meta">
+                {% block play_icon %}
+                    {% include 'elements-play-icon' with { 'media': 'video' } %}
+                {% endblock %}
+                <span class="article-video__length">{{ video.length }}<span class="h-offscreen">min</span></span>
+            </div>
         </div>
-    </div>
-</figure>
-
-{% else %}
-
-<div class="article-video__wrapper">
-    <img class="image-figure__image"
-         alt="{{ images[0].caption.title }}"
-         title="{{ images[0].caption.title }}"
-         sizes="100vw"
-         srcset="
-            {% for source in images[0].sources %}
-                {{ source.src }} {{ source.width }}w,
-             {% endfor %}
-         "
-         src="{{ images[0].sources.s8.src }}">
-
-    {% block plain_play_icon %}{# :( play_icon !! #}
-        {% include 'elements-play-icon' with { 'media': 'video' } %}
-    {% endblock %}
-</div>
-
+    </figure>
 {% endif %}
