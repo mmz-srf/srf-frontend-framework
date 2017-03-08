@@ -12,13 +12,14 @@
             {% endif %}
              sizes="100vw"
              srcset="{% for source in image.sources %}
-                        {{ source.src }} {{ source.width }}w,
+                        {{ source.src }} {{ source.width }}w
+                        {{ loop.last ? '' : ',' }}
                      {% endfor %}"
              src="{{ image.sources.s8.src }}">
         {% if media.type == "audio" or media.type == "video" %}
         <div class="article-media__link-meta">
             <img class="article-media__play-icon" src="../../assets/img/{{ media.type }}-play.svg" width="72" height="72" alt="">
-            <span class="article-media__length">{{ media.length }}</span>
+            <span class="article-media__length">{{ media.length }}<span class="h-offscreen">min</span></span>
         </div>
     </a> {# no links for images - and no dim #}
     {% endif %}
