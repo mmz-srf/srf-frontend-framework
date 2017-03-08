@@ -3,12 +3,15 @@ import {init as SrfChartsInit} from './srf-charts';
 import {init as SrfCHMapInit} from './srf-chmap';
 import {init as SrfImageSliderInit} from './srf-image-slider';
 import {init as SrfPollInit} from './srf-poll';
+import {init as SrfTooltipInit} from './srf-tooltip';
 
 
 document.addEventListener("DOMContentLoaded", function(event) {
+    console.debug("DOMContentLoaded event fired!");
     SrfCarouselsInit();
     SrfChartsInit();
     SrfCHMapInit();
     SrfImageSliderInit();
     SrfPollInit();
+    SrfTooltipInit();
 });
