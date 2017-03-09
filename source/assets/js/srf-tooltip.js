@@ -7,7 +7,7 @@ export function init() {
 
             var $that = $(this);
 
-            $that.title = $that.data('tooltipTitle');
+            $that.title = $that.data('tooltipContent');
             $that.originalWidth = $that.width();
 
             $that.template = '<div class="tooltip" role="tooltip"><div class="tooltip-arrow"></div>'
@@ -27,11 +27,10 @@ export function init() {
                     // Move tooltip in right position relative to its parent
                     var leftPosition = ($that.originalWidth - tooltip.width()) / 2;
 
-                    var topPosition = (tooltip.height() + 20) * -1;
+                    var topPosition = (tooltip.height() + 25) * -1;
 
-                    tooltip.css('top', Math.ceil(topPosition));
-                    // -16 to take care of margin inside the tooltip
-                    tooltip.css('left', Math.ceil(leftPosition - 16));
+                    tooltip.css('top', topPosition);
+                    tooltip.css('left', leftPosition - 8);
                     tooltip.css('position', 'absolute');
                 });
 
@@ -39,7 +38,7 @@ export function init() {
                     $that.children('.tooltip').remove();
                 });
             } else {
-                console.warn("Tooltip used without title, please add data-tooltip-content");
+                console.warn("Tooltip used without content, please add data-tooltip-content");
             }
         });
     });

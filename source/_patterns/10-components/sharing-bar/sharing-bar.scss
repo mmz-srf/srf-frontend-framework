@@ -1,0 +1,82 @@
+.sharing-bar {
+    padding: 32px 0 24px 0;
+    display: inline-block;
+    width: 100%;
+    position: relative;
+    background-color: transparent;
+    text-align: center;
+
+    >.horizontal-separator {
+        margin: 0;
+        position: absolute;
+        top: 56px;
+        width: 100%;
+        z-index: -1;
+    }
+}
+
+.sharing-bar__container {
+    background-color: #fff;
+    padding: 0 16px;
+    margin: 0 auto;
+
+    display: inline-block;
+}
+
+.sharing-bar__summary {
+    font-size: 12px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.33;
+    letter-spacing: normal;
+    text-align: center;
+    color: #757266;
+}
+
+.sharing-bar__button {
+    // 48px x 48px
+    width: 40px;
+    height: 40px;
+    margin: 4px;
+
+    float: left;
+    padding-top: 14px;
+
+    font-size: 10px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.2;
+    letter-spacing: normal;
+    text-align: center;
+    color: #4e4d47;
+
+    // Make hover area circled so corners don't trigger mouseenter/hover
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.sharing-bar__button:hover {
+    opacity: 0.84;
+}
+
+.sharing-bar__button--facebook {
+    background-image: url("../../assets/img/share/icon_share_facebook.svg");
+}
+
+.sharing-bar__button--twitter {
+    background-image: url("../../assets/img/share/icon_share_twitter.svg");
+}
+
+.sharing-bar__button--whatsapp {
+    background-image: url("../../assets/img/share/icon_share_whatsapp.svg");
+}
+
+.sharing-bar__button--comment {
+    background-image: url("../../assets/img/share/icon_share_comments.svg");
+}
+
+.sharing-bar__button--comment-zero {
+    background-image: url("../../assets/img/share/icon_share_comments-zero.svg");
+}
