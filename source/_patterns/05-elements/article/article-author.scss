@@ -6,6 +6,15 @@
   }
 }
 
+.article-author--short {
+  margin-top: 36px;
+  @include article-text-padding;
+
+  @include smartphone {
+    margin-top: 30px;
+  }
+}
+
 .article-author__name {
   margin: 0 0 4px 0;
   font-family: $font-regular;
@@ -13,6 +22,10 @@
   line-height: 20px;
   letter-spacing: 0.5px;
   color: $color-text-default;
+}
+
+.article-author--short .article-author__name {
+  font-family: $font-light;
 }
 
 .article-author__date {
