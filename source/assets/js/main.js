@@ -7,7 +7,6 @@ import {init as SrfTooltipInit} from './srf-tooltip';
 
 
 document.addEventListener("DOMContentLoaded", function(event) {
-    console.debug("DOMContentLoaded event fired!");
     SrfCarouselsInit();
     SrfChartsInit();
     SrfCHMapInit();
