@@ -10,7 +10,7 @@
 {% macro rating_box(option_index, answer_title, media_options) %}
    <div class="poll-option-wrapper" aria-live="polite">
         {% if media_options is not empty %}
-            {% include "media.twig" with media_options %}
+            {% include "_media.twig" with media_options %}
         {% endif %}
          <div class="poll-option-rating" tabindex="0" role="combobox">
             <div class="poll-option-rating__bg-color"></div>
@@ -29,8 +29,9 @@
         <p class="poll-form-handling__roundup"><strong></strong> {{ poll.total }}</p>
     </div>
 {% endmacro %}
-
-{% include 'components-poll--without-media' with { 'pollIndex': 1, 'styleModifier': '' } %}
-{% include 'components-poll--with-media' with { 'pollIndex': 2, 'styleModifier': '' } %}
-{% include 'components-poll--without-media' with { 'pollIndex': 3, 'styleModifier': 'poll--with-radios' } %}
-{% include 'components-poll--with-media' with { 'pollIndex': 4, 'styleModifier': 'poll--with-radios' } %}
+{#
+    {% include 'components-poll--without-media' with { 'pollIndex': 1, 'styleModifier': '' } %}
+    {% include 'components-poll--with-media' with { 'pollIndex': 2, 'styleModifier': '' } %}
+    {% include 'components-poll--without-media' with { 'pollIndex': 3, 'styleModifier': 'poll--with-radios' } %}
+    {% include 'components-poll--with-media' with { 'pollIndex': 4, 'styleModifier': 'poll--with-radios' } %}
+#}

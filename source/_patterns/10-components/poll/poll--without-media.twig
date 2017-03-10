@@ -1,4 +1,6 @@
-{% import 'poll.twig' as option %}
+{% import '_poll.twig' as option %}
+{% set pollIndex = pollIndex|default(1) %}
+{#{% set pollIndex = styleModifier == "poll--with-ratios" ? 3 : 1 %}#}
 <form id="poll-ID{{ pollIndex }}" class="poll-wrapper poll--setup {{ styleModifier }}" name="poll_{{ pollIndex }}" method="get" data-src="../../assets/demo/poll-data.json">
     <fieldset class="poll-fieldset">
         {# images here only if no media is present below #} {#
@@ -19,7 +21,7 @@
             </figcaption -->
         </figure> #}
         {% set media_options = { "media": { "type": "bild", "title" : images[0].caption.title, "length" : 0, "player_url": null, "urn" : null }, "image" : images[1] } %}
-        {% include "media.twig" with media_options %}
+        {% include "_media.twig" with media_options %}
         <legend class="poll-fieldset__legend">{{ poll.description }}</legend>
         <ol class="poll">
             {% for question in 0..2 %}
