@@ -7,8 +7,8 @@
                 alt="{{ media.title }}"
                 title="{{ media.title }}"
             {% else %}
-                alt="{{ media.type|capitalize }} «{{ media.title  }}» abspielen"
-                title="{{ media.type|capitalize }} «{{ media.title  }}» abspielen"
+                alt="{{ media.type|capitalize }} «{{ media.title }}» abspielen"
+                title="{{ media.type|capitalize }} «{{ media.title }}» abspielen"
             {% endif %}
              sizes="100vw"
              srcset="{% for source in image.sources %}
@@ -17,10 +17,12 @@
                      {% endfor %}"
              src="{{ image.sources.s8.src }}">
         {% if media.type == "audio" or media.type == "video" %}
-        <div class="article-media__link-meta">
-            <img class="article-media__play-icon" src="../../assets/img/{{ media.type }}-play.svg" width="72" height="72" alt="">
-            <span class="article-media__length">{{ media.length }}<span class="h-offscreen">min</span></span>
-        </div>
+
+        {% include 'components-play-icon-with-runtime' with {
+            'media': media.type,
+            'runtime': media.length
+            }
+        %}
     </a> {# no links for images - and no dim #}
     {% endif %}
     <!-- figcaption deliberately omitted (design) -->

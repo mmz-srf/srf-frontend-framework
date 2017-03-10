@@ -12,7 +12,7 @@
                  src="{{ video.img_src }}">
         {% endblock %}
 
-        {% block plain_play_icon %}{# :( play_icon !! #}
+        {% block plain_play_icon %}
             {% include 'elements-play-icon' with { 'media': 'video' } %}
         {% endblock %}
     </div>
@@ -21,19 +21,14 @@
         <div class="image-figure__image-wrapper">
             {% block video_image %}
                 <img class="image-figure__image"
-                     alt="Video «{{ video.title }}» abspielen" {# this should go into the image container (cms) #}
+                     alt="Video «{{ video.title }}» abspielen"
                      title="Video «{{ video.title }}» abspielen"
-                     sizes="100vw" {# why won't this work?!? (in the gallery) #}
-                     {#srcset="{% for source in video.img_srcset %}#}
-                            {#{{ source.src }} {{ source.width }}w#}
-                            {#{{ loop.last ? '' : ',' }}#}
-                         {#{% endfor %}"#}
-                     {#src="{{ video.img_src }}">#}
-                     srcset="{% for source in images[0].sources %}
-                        {{ source.src }} {{ source.width }}w
-                        {{ loop.last ? '' : ',' }}
-                     {% endfor %}"
-                     src="{{ images[0].sources.s8.src }}">
+                     sizes="100vw"
+                     srcset="{% for source in video.img_srcset %}
+                            {{ source.src }} {{ source.width }}w
+                            {{ loop.last ? '' : ',' }}
+                         {% endfor %}"
+                     src="{{ video.img_src }}">
             {% endblock %}
 
             {% block image_carousel_counter %}
@@ -42,12 +37,7 @@
                 {% endif %}
             {% endblock %}
 
-            <div class="article-video__link-meta">
-                {% block play_icon %}
-                    {% include 'elements-play-icon' with { 'media': 'video' } %}
-                {% endblock %}
-                <span class="article-video__length">{{ video.length }}<span class="h-offscreen">min</span></span>
-            </div>
+            {% include 'components-play-icon-with-runtime' with { 'media': 'video', 'runtime': video.length } %}
         </div>
     </figure>
 {% endif %}
