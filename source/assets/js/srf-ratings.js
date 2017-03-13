@@ -54,6 +54,7 @@ var ratingController = function() {
         // if user clicks on submit
         $(".rating-wrapper").on("submit", function(e) {
             var $ratingContainer = $(this).closest(".rating-wrapper");
+
             // remove err msg
             that.handleErrors($ratingContainer, false);
 
@@ -199,18 +200,18 @@ var ratingController = function() {
         return [totalStars, totalVotes];
     };
 
-    this.handleErrors = function ($poll, hasError) {
+    this.handleErrors = function ($ratings, hasError) {
         if (hasError) {
-            // $poll.find(".submit-button").addClass("submit-button--error");
+            // $ratings.find(".submit-button").addClass("submit-button--error");
             var errMsg = "Bitte wählen Sie eine Option aus."; // todo: translate!
-            $poll.find(".poll-form-handling__errors")
+            $ratings.find(".poll-form-handling__errors")
                 .addClass("poll-form-handling__errors--onerror")
                 .text(errMsg);
             return true;
             // anything else?
         } else {
             // remove err msg (whether it's there or not)
-            $poll.find(".poll-form-handling__errors")
+            $ratings.find(".poll-form-handling__errors")
                 .removeClass("poll-form-handling__errors--onerror")
                 .text("");
             return false;
