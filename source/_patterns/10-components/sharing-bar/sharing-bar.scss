@@ -25,6 +25,7 @@
 
 .sharing-bar__summary {
     font-size: 12px;
+    font-family: $font-system;
     line-height: 1.33;
     text-align: center;
     color: #757266;
@@ -37,10 +38,11 @@
     margin: 4px;
 
     float: left;
-    padding-top: 14px;
+    padding-top: 13px;
 
     font-size: 10px;
     font-weight: bold;
+    font-family: $font-system;
     line-height: 1.2;
     text-align: center;
     color: #4e4d47;
