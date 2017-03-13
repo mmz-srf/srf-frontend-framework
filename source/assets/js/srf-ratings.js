@@ -10,32 +10,12 @@ var ratingController = function() {
     var that = this;
     this.rating = {};
 
-    /*
-     // set global variables
-     var getTotalVotes,
-     getTotalStars,
-     resultVote = 0,
-     totalVotes = 0,
-     totalStars = 0;
-     */
-
     this.init = function() {
         this.loadData();
         this.initObservers();
     };
 
     this.loadData = function(dataJSONurl, ratingId) {
-        // load ratings-results and process data
-        /* $.getJSON(dataJSONurl, function(data) {
-            console.log(data);
-            that.rating[ratingId] = new Rating(ratingId, data);
-
-            // getTotalVotes(data);
-            // getTotalStars(data);
-        });
-        return that.rating; */
-        // it's asynchronous !!
-
         $('.rating-wrapper').each(function() { // every form
             var ratingsId = $(this).attr("id");
             $.ajax({
@@ -71,26 +51,7 @@ var ratingController = function() {
             $('.ratingstars__star').removeClass('is-hover');
         });
 
-        // if user clicks on radio-button
-        $('.ratingstars-list input[type="radio"]').on('change', function(e) {
-            /* var $that = $(this),
-                myVote = $that.attr('value'),
-                ratings_index = $that.parent().attr('data-ratings_index'),
-                answer_index = $that.parent().attr('data-answer_index'),
-                star_index = $that.parent().attr('data-star_index');
-
-            // toggle all stars before and including the clicked one as active/inactive
-            $('[data-ratings_index='+ratings_index+'][data-answer_index='+answer_index+']').find('.ratingstars__star').removeClass('is-active');
-            for (var i = 1; i <= myVote; i++) {
-                $('.ratingstars__star--'+ratings_index+'-'+answer_index+'-'+i).addClass('is-active');
-            } */
-
-        });
-
-        // THIS IS NOT YET WORKING!!!
-        // It's still the old version where the initial function was $('.ratingstars-list input[type="radio"]').on('change',function(e){…
-        // Therefore here $that is still the changed radio-button, not the .submit-button
-        // $('.submit-button').on('click', function(e) {
+        // if user clicks on submit
         $(".rating-wrapper").on("submit", function(e) {
             var $ratingContainer = $(this).closest(".rating-wrapper");
             // remove err msg
@@ -121,7 +82,7 @@ var ratingController = function() {
 
         });
 
-        // on choosing a star
+        // if user clicks on the label (and therefore triggers a click on radio-button which changes it)
         $(".ratingstars__checkbox").on("click", function () {
             var $star = $(this);
             var $rating = $star.closest('.rating-wrapper');
@@ -147,9 +108,9 @@ var ratingController = function() {
     // contains submit... content ...
     this.doTheDance = function (ratings_index, answer_index, star_index) { // (ratingId) {
         // improvisation ...
-        var $that = $("#ratings-ID" + ratings_index);
-        var myVote = $that.find("#star" + ratings_index + "-" + answer_index + "-" + star_index).attr('value');
-        var animeStarInit1 = '.animated .ratingstars__star--',
+        var $that = $("#ratings-ID" + ratings_index),
+            myVote = $that.find("#star" + ratings_index + "-" + answer_index + "-" + star_index).attr('value'),
+            animeStarInit1 = '.animated .ratingstars__star--',
             animeStarInit2 = ' {animation-name:ratingAnime',
             animeStarName = '@keyframes ratingAnime',
             animeStarCode1 = '{0% {transform:translate3d(0,0,0) scale3d(1,1,1)} 33.334% {transform:translate3d(0,-12px,0) scale3d(1.125,1.125,1.125) rotateY(90deg);',
@@ -190,7 +151,6 @@ var ratingController = function() {
             }
 
             // compose the css-keyframe-code for all five individual stars … active or neutral
-            // if (i <= Math.round(resultVote)) {
             if (i <= Math.round(resultVote)) {
                 newStyle += animeStarInit1+ratings_index+'-'+answer_index+'-'+i+animeStarInit2+ratings_index+'-'+answer_index+'-'+i+'}'+animeStarName+ratings_index+'-'+answer_index+'-'+i+' '+animeStarCode1+animeStarOrigin+animeStarActive+animeStarCode2+animeStarOrigin+animeStarActive+animeStarEnd;
             } else {
