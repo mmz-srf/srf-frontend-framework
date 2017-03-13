@@ -64,11 +64,18 @@
     height: 100%;
     object-fit: cover;
   }
-  .article-media__link-meta {
+  /* .article-media__link-meta {
     top: 50%;
     width: 40px;
   }
   .article-media__length {
+    display: none;
+  } */
+  .media-play {
+    top: 50%;
+    width: 40px;
+  }
+  .media-play__length {
     display: none;
   }
 }
