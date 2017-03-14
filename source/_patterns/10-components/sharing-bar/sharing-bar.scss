@@ -9,13 +9,22 @@
     text-align: center;
 
     >.horizontal-separator {
-        margin: 0;
         position: absolute;
+        margin-top: 0;
+        margin-bottom: 0;
         top: 44px;
         @include smartphone { top: 52px; }
         width: 100%;
         z-index: -1;
     }
+
+    >.horizontal-separator--content-max-width {
+        position: relative;
+        top: 25px;
+        width: 100vw;
+    }
+
+
 }
 
 .sharing-bar__container {
