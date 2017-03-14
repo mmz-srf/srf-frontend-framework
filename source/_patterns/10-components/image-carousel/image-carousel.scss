@@ -52,6 +52,9 @@
       /* top: 40%;
       transform: translate(0, -50%); */
       top: 28vw;
+      padding:0; // reset default button style
+      background-color:transparent; // reset default button style
+      cursor:pointer; // reset default button style
       background-repeat: no-repeat;
       background-size: 24px;
       display: block;
@@ -70,9 +73,11 @@
       }
       &:hover {
         background-color: rgba(0, 0, 0, 0.48);
+        border-bottom-color:transparent; // overwrite -> kompromiss
       }
       &:active {
         background-color: rgba(0, 0, 0, 0.8);
+        border-bottom-color:transparent; // overwrite -> kompromiss
       }
       &.untouched {
         background-color: transparent;
@@ -83,7 +88,7 @@
       background-image: url("../../assets/img/arrows/carousel_arrow_prev.svg");
       border: 8px solid transparent;
       border-radius: 0 15px 15px 0;
-      border-width: 12px 12px 12px 0; /* <= /* kompromiss: schoene runde ecken UND extended touch area :( */
+      border-width: 12px 12px 12px 0 !important; /* <= /* kompromiss: schoene runde ecken UND extended touch area :( */
       background-position: 30%;
     }
     &--next {
@@ -91,7 +96,7 @@
       background-image: url("../../assets/img/arrows/carousel_arrow_next.svg");
       border: 8px solid transparent;
       border-radius: 15px 0 0 15px;
-      border-width: 12px 0 12px 12px; /* kompromiss :) */
+      border-width: 12px 0 12px 12px !important; /* kompromiss :) */
       background-position: 60%;
     }
   }
@@ -110,7 +115,6 @@
   }
 
   .slick-disabled {
-    opacity: 0;
-    pointer-events:none;
+    display: none !important; // hide from screenreader
   }
 }

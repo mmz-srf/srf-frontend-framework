@@ -20,8 +20,8 @@ export function init() {
             speed: 300,
             slidesToShow: 1,
             infinite: false,
-            prevArrow: '<a href="#" class="carousel__link--prev" />',
-            nextArrow: '<a href="#" class="carousel__link--next" />',
+            prevArrow: '<button class="carousel__link--prev"><span class="h-offscreen h-offscreen-focusable">Vorhergehendes Bild</span></button>',
+            nextArrow: '<button class="carousel__link--next"><span class="h-offscreen h-offscreen-focusable">Nächstes Bild</span></button>',
             slide: ".carousel__item"
         });
         registerListener($carousel);
@@ -47,8 +47,8 @@ export function init() {
                     slidesToScroll: 3,
                     dots: true,
                     arrows: true,
-                    prevArrow: '<a href="#" class="carousel__link--prev" />',
-                    nextArrow: '<a href="#" class="carousel__link--next" />',
+                    prevArrow: '<button class="carousel__link--prev"><span class="h-offscreen h-offscreen-focusable">Vorhergehendes Bild</span></button>',
+                    nextArrow: '<button class="carousel__link--next"><span class="h-offscreen h-offscreen-focusable">Nächstes Bild</span></button>',
                     centerMode: false
                 }
             }, {
@@ -58,8 +58,8 @@ export function init() {
                     slidesToScroll: 2,
                     dots: true,
                     arrows: true,
-                    prevArrow: '<a href="#" class="carousel__link--prev" />',
-                    nextArrow: '<a href="#" class="carousel__link--next" />',
+                    prevArrow: '<button class="carousel__link--prev"><span class="h-offscreen h-offscreen-focusable">Vorhergehendes Bild</span></button>',
+                    nextArrow: '<button class="carousel__link--next"><span class="h-offscreen h-offscreen-focusable">Nächstes Bild</span></button>',
                     centerMode: false
                 }
             }
