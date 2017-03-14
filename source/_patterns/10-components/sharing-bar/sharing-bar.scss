@@ -83,6 +83,10 @@
 }
 
 .sharing-bar__button--whatsapp {
+    display: none;
+    @include smartphone {
+        display: inline-block;
+    }
     background-image: url("../../assets/img/share/icon_share_whatsapp.svg");
 }
 
