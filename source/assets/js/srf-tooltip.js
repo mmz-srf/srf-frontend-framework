@@ -43,16 +43,18 @@ export function init() {
 
                     $that.find('.tooltip-content').html($that.title);
 
-                    var tooltip = $that.children('.tooltip');
+                    var $tooltip = $that.children('.tooltip');
 
                     // Move tooltip in right position relative to its parent
-                    var leftPosition = ($that.originalWidth - tooltip.width()) / 2;
+                    var leftPosition = ($that.originalWidth - $tooltip.width()) / 2;
 
-                    var topPosition = (tooltip.height() + 25) * -1;
+                    var topPosition = ($tooltip.height() + 25) * -1;
 
-                    tooltip.css('top', topPosition);
-                    tooltip.css('left', leftPosition - 8);
-                    tooltip.css('position', 'absolute');
+                    $tooltip.css({
+                        "top": topPosition,
+                        "left": leftPosition - 8,
+                        "position": "absolute"
+                    });
                 });
 
                 $that.mouseleave(function() {
