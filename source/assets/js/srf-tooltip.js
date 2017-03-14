@@ -4,8 +4,6 @@ export function init() {
 
         var clientTouchSupported = ('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch;
 
-        console.debug("Touch supported", clientTouchSupported);
-
         // Bind mouseenter and mouseleave handlers
         $('[data-tooltip-toggle]').each(function() {
 
