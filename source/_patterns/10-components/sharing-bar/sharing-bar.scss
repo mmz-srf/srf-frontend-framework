@@ -1,5 +1,7 @@
 .sharing-bar {
-    padding: 32px 0 24px 0;
+    padding: 20px 0 20px 0;
+    @include smartphone { padding: 28px 0 20px 0; }
+
     display: inline-block;
     width: 100%;
     position: relative;
@@ -9,15 +11,18 @@
     >.horizontal-separator {
         margin: 0;
         position: absolute;
-        top: 56px;
+        top: 44px;
+        @include smartphone { top: 52px; }
         width: 100%;
         z-index: -1;
     }
 }
 
 .sharing-bar__container {
+    padding: 0 10px;
+    @include smartphone { padding: 0 12px; }
+
     background-color: #fff;
-    padding: 0 16px;
     margin: 0 auto;
 
     display: inline-block;
@@ -35,7 +40,8 @@
     // 48px x 48px
     width: 40px;
     height: 40px;
-    margin: 4px;
+    margin: 4px 6px;
+    @include smartphone { margin: 4px; }
 
     float: left;
     padding-top: 13px;
