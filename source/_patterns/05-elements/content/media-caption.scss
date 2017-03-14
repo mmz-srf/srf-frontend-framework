@@ -48,15 +48,14 @@
 }
 
 .media-caption--video-related-episodes {
-  display: table;
-  height: 112px;
+  display: block;
+  min-height: 112px;
   padding: 12px;
 
   @include tablet-up {
     padding: 16px;
   }
 
-  margin-left: 96px;
   background-color: transparent;
 
   .media-caption__title--video {
