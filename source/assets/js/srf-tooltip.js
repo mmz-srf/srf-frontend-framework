@@ -2,7 +2,9 @@ export function init() {
 
     $(document).ready(function() {
 
-        var clientTouchSupported = 'ontouchstart' in window;
+        var clientTouchSupported = ('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch;
+
+        console.debug("Touch supported", clientTouchSupported);
 
         // Bind mouseenter and mouseleave handlers
         $('[data-tooltip-toggle]').each(function() {
@@ -44,7 +46,6 @@ export function init() {
                     $that.find('.tooltip-content').html($that.title);
 
                     var tooltip = $that.children('.tooltip');
-                    //tooltip.css('white-space', 'nowrap');
 
                     // Move tooltip in right position relative to its parent
                     var leftPosition = ($that.originalWidth - tooltip.width()) / 2;
