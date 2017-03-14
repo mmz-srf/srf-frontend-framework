@@ -55,7 +55,6 @@
     @include smartphone { margin: 4px; }
 
     float: left;
-    padding-top: 13px;
 
     font-size: 10px;
     font-weight: bold;
@@ -91,6 +90,7 @@
 
 .sharing-bar__button--comment {
     background-image: url("../../assets/img/share/icon_share_comments.svg");
+    line-height: 39px;
 }
 
 .sharing-bar__button--comment-zero {
