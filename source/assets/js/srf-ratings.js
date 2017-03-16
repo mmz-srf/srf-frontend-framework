@@ -39,13 +39,17 @@ var ratingController = function() {
         // if user hovers stars
         $('.ratingstars__star').on('mouseenter',function(e){
             var $that = $(this),
-                thisStar = $that.parent().siblings('input').attr('value'),
-                ratings_index = $that.parent().parent().attr('data-ratings_index'),
-                answer_index = $that.parent().parent().attr('data-answer_index'),
-                star_index = $that.parent().parent().attr('data-star_index');
+                $thatParent = $that.parent(),
+                $thatParentParent = $thatParent.parent(),
+                $thisStarInput = $thatParent.siblings('input'),
+                thisStar = $thisStarInput.attr('value'),
+                index_tmp = $thisStarInput.attr('id').split('-'),
+                ratings_index = index_tmp[0].slice(-1),// $thatParentParent.attr('data-ratings_index'),
+                answer_index = index_tmp[1],// $thatParentParent.attr('data-answer_index'),
+                star_index = index_tmp[2];// $thatParentParent.attr('data-star_index');
 
             for (var i = 1; i <= thisStar; i++) {
-                $('[data-ratings_index='+ratings_index+'][data-answer_index='+answer_index+'][data-star_index='+i+']').find('.ratingstars__star--'+ratings_index+'-'+answer_index+'-'+i).addClass('is-hover');
+                $('#star' + ratings_index + '-' + answer_index + '-' + i).siblings('label').find('.ratingstars__star--'+ratings_index+'-'+answer_index+'-'+i).addClass('is-hover');
             }
         }).on('mouseleave',function(e){
             $('.ratingstars__star').removeClass('is-hover');
@@ -93,12 +97,17 @@ var ratingController = function() {
             // moved from ... $('.ratingstars-list input[type="radio"]').on('change', function(e) { // !!!
             var $that = $(this),
                 myVote = $that.attr('value'),
-                ratings_index = $that.parent().attr('data-ratings_index'),
-                answer_index = $that.parent().attr('data-answer_index'),
-                star_index = $that.parent().attr('data-star_index');
+                $thatParent = $that.parent(),
+                index_tmp = $that.attr('id').split('-'),
+                ratings_index = index_tmp[0].slice(-1),// $thatParent.attr('data-ratings_index'),
+                answer_index = index_tmp[1],// $thatParent.attr('data-answer_index'),
+                star_index = index_tmp[2];// $thatParent.attr('data-star_index');
 
             // toggle all stars before and including the clicked one as active/inactive
             $('[data-ratings_index='+ratings_index+'][data-answer_index='+answer_index+']').find('.ratingstars__star').removeClass('is-active');
+
+            // each input#starID-ANSWER-STAR where ID == X and ANSWER == Y travel to siblings('label').children('svg') … (but ignore STAR)
+
             for (var i = 1; i <= myVote; i++) {
                 $('.ratingstars__star--'+ratings_index+'-'+answer_index+'-'+i).addClass('is-active');
             }
