@@ -1,4 +1,4 @@
 <a href="{{ hyperlink.url }}" class="block-link {{ styleModifier }}"{% if isExternal %} target="_blank"{% endif %}>
     {{ hyperlink.title }}
-    {% if isExternal %}<span class="h-offscreen">, öffnet in einem neuen Fenster</span>{% endif %}
+    {% if isExternal %}<span class="h-offscreen">{{ a11yInfo }}</span>{% endif %}
 </a>
