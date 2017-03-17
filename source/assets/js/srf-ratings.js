@@ -178,13 +178,18 @@ var ratingController = function(){
             }
 
             // compose the css-keyframe-code for all five individual stars … active or neutral
-            if (i > Math.round(resultVote)) { animeStarState = animeStarNeutral; }
+            if (i > Math.round(resultVote)-1) { animeStarState = animeStarNeutral; } // -1 because of wrong half-star
             newStyle += animeStarInit1+ratings_index+'-'+answer_index+'-'+i+animeStarInit2+ratings_index+'-'+answer_index+'-'+i+'}'+animeStarName+ratings_index+'-'+answer_index+'-'+i+' '+animeStarCode1+animeStarOrigin+animeStarState+animeStarCode2+animeStarOrigin+animeStarState+animeStarEnd;
 
             // fillup half-star -> TODO
             if (resultVote == 0.5 || resultVote == 1.5 || resultVote == 2.5 || resultVote == 3.5 || resultVote == 4.5 ) {
                 if (i == Math.round(resultVote*1.0)/1.0-1) { // -1 because of wrong half-star
-                    $thisRating.find(halfStarClass).eq(i).addClass(activeClassName);
+                    
+                    $thisRating.find(ratingStarClass+'--'+i).on('animationend',function(e){
+                        $(this).parent().next('.ratingstars__elem').find(halfStarClass).addClass(activeClassName);
+                    });
+                    
+                    //$thisRating.find(halfStarClass).eq(i).delay(300).queue(function(){ $(this).addClass(activeClassName).dequeue(); });
                 }
             }
 
