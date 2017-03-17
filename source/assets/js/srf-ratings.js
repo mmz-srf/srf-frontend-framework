@@ -177,21 +177,26 @@ var ratingController = function(){
                 animeStarOrigin = animeStarOrigin5;
             }
 
-            // compose the css-keyframe-code for all five individual stars … active or neutral
-            if (i > Math.round(resultVote)-1) { animeStarState = animeStarNeutral; } // -1 because of wrong half-star
-            newStyle += animeStarInit1+ratings_index+'-'+answer_index+'-'+i+animeStarInit2+ratings_index+'-'+answer_index+'-'+i+'}'+animeStarName+ratings_index+'-'+answer_index+'-'+i+' '+animeStarCode1+animeStarOrigin+animeStarState+animeStarCode2+animeStarOrigin+animeStarState+animeStarEnd;
+            var resultCorrection = 0;
 
-            // fillup half-star -> TODO
             if (resultVote == 0.5 || resultVote == 1.5 || resultVote == 2.5 || resultVote == 3.5 || resultVote == 4.5 ) {
-                if (i == Math.round(resultVote*1.0)/1.0-1) { // -1 because of wrong half-star
-                    
-                    $thisRating.find(ratingStarClass+'--'+i).on('animationend',function(e){
-                        $(this).parent().next('.ratingstars__elem').find(halfStarClass).addClass(activeClassName);
+
+                resultCorrection = -1; // if there is a half-star, the last star (-1) should not be active but neutral
+
+                // fill half-stars
+                if (i == Math.round(resultVote*1.0)/1.0-1) {
+                    $thisRating.find(ratingStarClass+'--'+i).on('animationstart',function(e){
+                        var $that = $(this);
+                        setTimeout(function () {
+                            $that.parent().next('.ratingstars__elem').find(halfStarClass).addClass(activeClassName);
+                        },183.36); // .4s animation-duration / 33.334% Keyframe + 50ms difference in animation-delay = 183.36ms
                     });
-                    
-                    //$thisRating.find(halfStarClass).eq(i).delay(300).queue(function(){ $(this).addClass(activeClassName).dequeue(); });
                 }
             }
+
+            // compose the css-keyframe-code for all five individual stars … active or neutral
+            if (i > Math.round(resultVote)+resultCorrection) { animeStarState = animeStarNeutral; } // resultCorrection = 0 by default, or -1 if there is a half-star -> the last active star should not be filled, because there is the filled half-star
+            newStyle += animeStarInit1+ratings_index+'-'+answer_index+'-'+i+animeStarInit2+ratings_index+'-'+answer_index+'-'+i+'}'+animeStarName+ratings_index+'-'+answer_index+'-'+i+' '+animeStarCode1+animeStarOrigin+animeStarState+animeStarCode2+animeStarOrigin+animeStarState+animeStarEnd;
 
         }
         that.animateStars(ratings_index,answer_index,myVote,resultVote,newStyle);
