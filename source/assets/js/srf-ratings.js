@@ -17,6 +17,7 @@ var ratingController = function(){
         resultNumbClass = '.resultNumber--js',
         myNumbClass = '.myNumber--js',
         optionClass = '.poll-option',
+        halfStarClass = '.star-half',
         radioID = '#star',
         hoverClassName = 'is-hover',
         activeClassName = 'is-active',
@@ -140,7 +141,7 @@ var ratingController = function(){
             animeStarInit2 = ' {animation-name:'+animationName,
             animeStarName = '@keyframes '+animationName,
             animeStarCode1 = '{0% {transform:translate3d(0,0,0) scale3d(1,1,1)} 33.334% {transform:translate3d(0,-12px,0) scale3d(1.125,1.125,1.125) rotateY(90deg);',
-            animeStarCode2 = ' animation-timing-function:cubic-bezier(.175,.885,.3,1.75)} 100% {transform:translate3d(0,-12px,0) scale3d(.875,.875,.875) rotateY(180deg);animation-timing-function:cubic-bezier(.175,.885,.3,1.75);',
+            animeStarCode2 = 'animation-timing-function:cubic-bezier(.175,.885,.3,1.75)} 100% {transform:translate3d(0,-12px,0) scale3d(.875,.875,.875) rotateY(180deg);animation-timing-function:cubic-bezier(.175,.885,.3,1.75);',
             animeStarOrigin = '',
             animeStarOrigin1 = 'transform-origin:75% 50%;',
             animeStarOrigin2 = 'transform-origin:62.5% 50%;',
@@ -178,9 +179,19 @@ var ratingController = function(){
             // compose the css-keyframe-code for all five individual stars … active or neutral
             if (i > Math.round(resultVote)) { animeStarState = animeStarNeutral; }
             newStyle += animeStarInit1+ratings_index+'-'+answer_index+'-'+i+animeStarInit2+ratings_index+'-'+answer_index+'-'+i+'}'+animeStarName+ratings_index+'-'+answer_index+'-'+i+' '+animeStarCode1+animeStarOrigin+animeStarState+animeStarCode2+animeStarOrigin+animeStarState+animeStarEnd;
+
+            // fillup half-star
+            if (resultVote == 0.5 || resultVote == 1.5 || resultVote == 2.5 || resultVote == 3.5 || resultVote == 4.5 ) {
+                if (i == Math.round(resultVote*1.0)/1.0-1) { // -1 because of wrong half-star
+                    $thisRating.find(halfStarClass).eq(i).addClass(activeClassName);
+                }
+            }
+
         }
         that.animateStars(ratings_index,answer_index,myVote,resultVote,newStyle);
-        
+
+
+
         // remove input-fields and label-wrapper arount svg-star
         $thisRating.find('input').remove().siblings('label').replaceWith(function(){ return $(this).contents(); });
     };
