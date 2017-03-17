@@ -43,7 +43,7 @@ var ratingController = function() {
             $(this).siblings('label').find('svg').removeClass('is-hover');
         });
 
-        // if user hovers stars
+        // highlight current starX and previous stars if user hovers starX
         $('.ratingstars__star').on('mouseenter',function(e){
             var $that = $(this),
                 $thatParent = $that.parent(),
@@ -60,6 +60,28 @@ var ratingController = function() {
             }
         }).on('mouseleave',function(e){
             $('.ratingstars__star').removeClass('is-hover');
+        });
+
+        // if user clicks on the label (and therefore triggers a click on radio-button which changes it)
+        $(".ratingstars__checkbox").on("click", function () {
+            var $that = $(this),
+                $rating = $that.closest('.rating-wrapper'),
+                myVote = $that.attr('value'),
+                $thatParent = $that.parent(),
+                index_tmp = $that.attr('id').split('-'),
+                ratings_index = index_tmp[0].slice(-1),
+                answer_index = index_tmp[1],
+                star_index = index_tmp[2];
+
+            that.rating[$rating.prop("id")].addVote($that.closest(".poll-option").prop("id"), $that.prop("id"));
+
+            // toggle all stars before and including the clicked one as active/inactive
+            $('[data-ratings_index='+ratings_index+'][data-answer_index='+answer_index+']').find('.ratingstars__star').removeClass('is-active');
+
+            for (var i = 1; i <= myVote; i++) {
+                $('.ratingstars__star--'+ratings_index+'-'+answer_index+'-'+i).addClass('is-active');
+            }
+
         });
 
         // if user clicks on submit
@@ -86,34 +108,10 @@ var ratingController = function() {
                 }
             });
 
-            if (rated === 0) { //
-                that.handleErrors($that, true);
-            }
+            if (rated === 0) { that.handleErrors($that, true); }
 
             // ==> submit all votes!!!
             return false; // but nothing else
-
-        });
-
-        // if user clicks on the label (and therefore triggers a click on radio-button which changes it)
-        $(".ratingstars__checkbox").on("click", function () {
-            var $that = $(this),
-                $rating = $that.closest('.rating-wrapper'),
-                myVote = $that.attr('value'),
-                $thatParent = $that.parent(),
-                index_tmp = $that.attr('id').split('-'),
-                ratings_index = index_tmp[0].slice(-1),
-                answer_index = index_tmp[1],
-                star_index = index_tmp[2];
-
-            that.rating[$rating.prop("id")].addVote($that.closest(".poll-option").prop("id"), $that.prop("id"));
-
-            // toggle all stars before and including the clicked one as active/inactive
-            $('[data-ratings_index='+ratings_index+'][data-answer_index='+answer_index+']').find('.ratingstars__star').removeClass('is-active');
-
-            for (var i = 1; i <= myVote; i++) {
-                $('.ratingstars__star--'+ratings_index+'-'+answer_index+'-'+i).addClass('is-active');
-            }
 
         });
     };
@@ -141,7 +139,8 @@ var ratingController = function() {
             total = that.getTotal(currentData),
             totalStars = total[0],
             totalVotes = total[1],
-            resultVote = 0.5 * Math.round((+totalStars + +myVote) / (+totalVotes + 1) / 0.5); // calculate the rating-result (handling js + behaviour)
+            resultVote = 0.5 * Math.round((+totalStars + +myVote) / (+totalVotes + 1) / 0.5), // calculate the rating-result (handling js + behaviour)
+            $thisRating = $('#stars-ID'+ratings_index+answer_index);
 
         // compose the keyframes
         for (var i = 1; i < 6; i++) {
@@ -167,6 +166,9 @@ var ratingController = function() {
             newStyle += animeStarInit1+ratings_index+'-'+answer_index+'-'+i+animeStarInit2+ratings_index+'-'+answer_index+'-'+i+'}'+animeStarName+ratings_index+'-'+answer_index+'-'+i+' '+animeStarCode1+animeStarOrigin+animeStarState+animeStarCode2+animeStarOrigin+animeStarState+animeStarEnd;
         }
         that.animateStars(ratings_index, answer_index, myVote, resultVote, newStyle);
+        
+        // remove input-fields and label-wrapper arount svg-star
+        $thisRating.find('input').remove().siblings('label').replaceWith(function(){ return $(this).contents(); });
     };
 
     this.animateStars = function (ratings_index, answer_index, myVote, resultVote, newStyle) {
