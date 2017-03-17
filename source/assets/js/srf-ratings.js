@@ -57,16 +57,17 @@ var ratingController = function() {
 
         // if user clicks on submit
         $(".rating-wrapper").on("submit", function(e) {
-            var $ratingContainer = $(this).closest(".rating-wrapper");
+            var $that = $(this),
+                rating_id = $that.prop("id"),
+                rating_index = rating_id.slice(-1),
+                answer_index,
+                star_index = 0,
+                tmp = 0,
+                rated = 0;
 
             // remove err msg
-            that.handleErrors($ratingContainer, false);
-
-            var rating_id = $ratingContainer.prop("id");
-            var rating_index = rating_id.slice(-1)
-                , answer_index, star_index = 0
-                , tmp = 0
-                , rated = 0;
+            that.handleErrors($that, false);
+            
             $.each(that.rating[rating_id].stars, function () {
                 // do the dance ... if possible
                 if (this.value !== undefined) {
@@ -79,7 +80,7 @@ var ratingController = function() {
             });
 
             if (rated === 0) { //
-                that.handleErrors($ratingContainer, true);
+                that.handleErrors($that, true);
             }
 
             // ==> submit all votes!!!
@@ -89,24 +90,19 @@ var ratingController = function() {
 
         // if user clicks on the label (and therefore triggers a click on radio-button which changes it)
         $(".ratingstars__checkbox").on("click", function () {
-            var $star = $(this);
-            var $rating = $star.closest('.rating-wrapper');
-            that.rating[$rating.prop("id")]
-                .addVote($star.closest(".poll-option").prop("id"), $star.prop("id"));
-
-            // moved from ... $('.ratingstars-list input[type="radio"]').on('change', function(e) { // !!!
             var $that = $(this),
+                $rating = $that.closest('.rating-wrapper'),
                 myVote = $that.attr('value'),
                 $thatParent = $that.parent(),
                 index_tmp = $that.attr('id').split('-'),
-                ratings_index = index_tmp[0].slice(-1),// $thatParent.attr('data-ratings_index'),
-                answer_index = index_tmp[1],// $thatParent.attr('data-answer_index'),
-                star_index = index_tmp[2];// $thatParent.attr('data-star_index');
+                ratings_index = index_tmp[0].slice(-1),
+                answer_index = index_tmp[1],
+                star_index = index_tmp[2];
+
+            that.rating[$rating.prop("id")].addVote($that.closest(".poll-option").prop("id"), $that.prop("id"));
 
             // toggle all stars before and including the clicked one as active/inactive
             $('[data-ratings_index='+ratings_index+'][data-answer_index='+answer_index+']').find('.ratingstars__star').removeClass('is-active');
-
-            // each input#starID-ANSWER-STAR where ID == X and ANSWER == Y travel to siblings('label').children('svg') … (but ignore STAR)
 
             for (var i = 1; i <= myVote; i++) {
                 $('.ratingstars__star--'+ratings_index+'-'+answer_index+'-'+i).addClass('is-active');
@@ -117,7 +113,6 @@ var ratingController = function() {
 
     // contains submit... content ...
     this.doTheDance = function (ratings_index, answer_index, star_index) { // (ratingId) {
-        // improvisation ...
         var $that = $("#ratings-ID" + ratings_index),
             myVote = $that.find("#star" + ratings_index + "-" + answer_index + "-" + star_index).attr('value'),
             animeStarInit1 = '.animated .ratingstars__star--',
@@ -134,15 +129,12 @@ var ratingController = function() {
             animeStarActive = 'fill:rgb(34,33,29);',
             animeStarNeutral = 'fill:rgb(185,183,173);',
             animeStarEnd = '}}',
-            newStyle = '';
-
-        var currentData = this.rating["ratings-ID" + ratings_index].stars["stars-ID" + ratings_index + answer_index].data;
-
-        var total = that.getTotal(currentData);
-        var totalStars = total[0]; // that.getTotalStars(currentData);
-        var totalVotes = total[1]; // that.getTotalVotes(currentData);
-        // calculate the rating-result (handling js + behaviour)
-        var resultVote = 0.5 * Math.round((+totalStars + +myVote) / (+totalVotes + 1) / 0.5);
+            newStyle = '',
+            currentData = this.rating["ratings-ID" + ratings_index].stars["stars-ID" + ratings_index + answer_index].data,
+            total = that.getTotal(currentData),
+            totalStars = total[0],
+            totalVotes = total[1],
+            resultVote = 0.5 * Math.round((+totalStars + +myVote) / (+totalVotes + 1) / 0.5); // calculate the rating-result (handling js + behaviour)
 
         // compose the keyframes
         for (var i = 1; i < 6; i++) {
@@ -161,11 +153,11 @@ var ratingController = function() {
             }
 
             // compose the css-keyframe-code for all five individual stars … active or neutral
-            if (i <= Math.round(resultVote)) {
-                newStyle += animeStarInit1+ratings_index+'-'+answer_index+'-'+i+animeStarInit2+ratings_index+'-'+answer_index+'-'+i+'}'+animeStarName+ratings_index+'-'+answer_index+'-'+i+' '+animeStarCode1+animeStarOrigin+animeStarActive+animeStarCode2+animeStarOrigin+animeStarActive+animeStarEnd;
-            } else {
-                newStyle += animeStarInit1+ratings_index+'-'+answer_index+'-'+i+animeStarInit2+ratings_index+'-'+answer_index+'-'+i+'}'+animeStarName+ratings_index+'-'+answer_index+'-'+i+' '+animeStarCode1+animeStarOrigin+animeStarNeutral+animeStarCode2+animeStarOrigin+animeStarNeutral+animeStarEnd;
+            var animeStarState = animeStarActive;
+            if (i > Math.round(resultVote)) {
+                animeStarState = animeStarNeutral;
             }
+            newStyle += animeStarInit1+ratings_index+'-'+answer_index+'-'+i+animeStarInit2+ratings_index+'-'+answer_index+'-'+i+'}'+animeStarName+ratings_index+'-'+answer_index+'-'+i+' '+animeStarCode1+animeStarOrigin+animeStarState+animeStarCode2+animeStarOrigin+animeStarState+animeStarEnd;
         }
         that.animateStars(ratings_index, answer_index, myVote, resultVote, newStyle);
     };
@@ -177,31 +169,19 @@ var ratingController = function() {
         $('<style id="ratingAnime'+ratings_index+'-'+answer_index+'" />').text(newStyle).insertAfter($ratingstarsContainer);
 
         // include Result- and myVote-Number to the DOM
-        $('.resultWording--'+ratings_index+'-'+answer_index).addClass('animated');
-        $('.resultWording--'+ratings_index+'-'+answer_index+' .resultNumber--js').text(resultVote);
-        $('.resultWording--'+ratings_index+'-'+answer_index+' .myNumber--js').text(myVote);
+        $('#stars-ID'+ratings_index+answer_index).find('.resultWording').addClass('animated'); // or $('.resultWording--'+ratings_index+'-'+answer_index).addClass('animated');
+        $('#stars-ID'+ratings_index+answer_index).find('.resultNumber--js').text(resultVote); // or $('.resultWording--'+ratings_index+'-'+answer_index+' .resultNumber--js').text(resultVote);
+        if (resultVote != '1') { $('#stars-ID'+ratings_index+answer_index).find('.resultNumber--js').parent().append('e'); } // or $('.resultWording--'+ratings_index+'-'+answer_index+' strong').append('e');
+        $('#stars-ID'+ratings_index+answer_index).find('.myNumber--js').text(myVote); // or $('.resultWording--'+ratings_index+'-'+answer_index+' .myNumber--js').text(myVote);
+        if (resultVote != '1') { $('#stars-ID'+ratings_index+answer_index).find('.myNumber--js').parent().append('e'); } // or $('.resultWording--'+ratings_index+'-'+answer_index+' .myNumber--js').append('e');
 
         // add css-classes to trigger the animations
         $ratingstarsContainer.addClass('animated');
     };
 
-    // process data to get total of votes
-    this.getTotalVotes = function (data) {
-        var totalVotes = 0;
-        for (var i = 0; i < data.length; i++) { totalVotes += data[i]; }
-        return totalVotes;
-    };
-
-    // process data to get total stars
-    this.getTotalStars = function (data){
-        var totalStars = 0;
-        for (var i = 0; i < data.length; i++) { totalStars += data[i] * ( i + 1 ); }
-        return totalStars;
-    };
-
     this.getTotal = function (data) {
-        var totalStars = 0
-            , totalVotes = 0;
+        var totalStars = 0,
+            totalVotes = 0;
         for (var i = 0; i < data.length; i++) {
             totalStars += data[i] * ( i + 1 ); // totalStars
             totalVotes += data[i]; // totalVotes
@@ -211,18 +191,12 @@ var ratingController = function() {
 
     this.handleErrors = function ($ratings, hasError) {
         if (hasError) {
-            // $ratings.find(".submit-button").addClass("submit-button--error");
             var errMsg = "Bitte wählen Sie eine Option aus."; // todo: translate!
-            $ratings.find(".poll-form-handling__errors")
-                .addClass("poll-form-handling__errors--onerror")
-                .text(errMsg);
+            $ratings.find(".poll-form-handling__errors").addClass("poll-form-handling__errors--onerror").text(errMsg);
             return true;
-            // anything else?
         } else {
             // remove err msg (whether it's there or not)
-            $ratings.find(".poll-form-handling__errors")
-                .removeClass("poll-form-handling__errors--onerror")
-                .text("");
+            $ratings.find(".poll-form-handling__errors").removeClass("poll-form-handling__errors--onerror").text("");
             return false;
         }
     };
