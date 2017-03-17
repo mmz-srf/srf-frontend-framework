@@ -13,17 +13,17 @@
 .ratingstars__star:hover,
 .ratingstars__star.is-hover {fill:rgb(159,156,144)}
 
-.animated .ratingstars__star {animation:ratingAnime1 linear .4s;animation-iteration-count:1;transform-origin:50% 50%;animation-fill-mode:forwards;transform-style:preserve-3d}
-.animated .ratingstars__star--1 {animation-name:ratingAnime1;animation-delay:.4s}
-.animated .ratingstars__star--2 {animation-name:ratingAnime2;animation-delay:.45s}
-.animated .ratingstars__star--3 {animation-name:ratingAnime3;animation-delay:.5s}
-.animated .ratingstars__star--4 {animation-name:ratingAnime4;animation-delay:.55s}
-.animated .ratingstars__star--5 {animation-name:ratingAnime5;animation-delay:.6s}
+.is-animated .ratingstars__star {animation:ratingAnime1 linear .4s;animation-iteration-count:1;transform-origin:50% 50%;animation-fill-mode:forwards;transform-style:preserve-3d}
+.is-animated .ratingstars__star--1 {animation-name:ratingAnime1;animation-delay:.4s}
+.is-animated .ratingstars__star--2 {animation-name:ratingAnime2;animation-delay:.45s}
+.is-animated .ratingstars__star--3 {animation-name:ratingAnime3;animation-delay:.5s}
+.is-animated .ratingstars__star--4 {animation-name:ratingAnime4;animation-delay:.55s}
+.is-animated .ratingstars__star--5 {animation-name:ratingAnime5;animation-delay:.6s}
 
 .ratingstars__star.is-active {fill:rgb(201,17,37)}
 
 .resultWording {visibility:hidden;opacity:0;font-size:14px;position:absolute;top:20px;right:0;left:0;transition:all .4s linear .4s}
-.resultWording.animated {visibility:visible;opacity:1}
+.resultWording.is-animated {visibility:visible;opacity:1}
 
 .ratings-wrapper {position:relative;display:block;background-color:$color-bg-box;padding:18px 16px;flex:1 0 auto;overflow:hidden}
 .ratings-wrapper .poll-option-label__title,

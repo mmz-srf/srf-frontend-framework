@@ -10,18 +10,35 @@ var ratingController = function() {
     var that = this;
     this.rating = {};
 
+    var ratingRadioClass = '.ratingstars__checkbox',
+        ratingStarClass = '.ratingstars__star',
+        ratingFormClass = '.rating-wrapper',
+        resultWordingClass = '.resultWording',
+        resultNumbClass = '.resultNumber--js',
+        myNumbClass = '.myNumber--js',
+        optionClass = '.poll-option',
+        radioID = '#star',
+        hoverClassName = 'is-hover',
+        activeClassName = 'is-active',
+        animatedClassName = 'is-animated',
+        errorClassName = 'poll-form-handling__errors',
+        starsIDName = 'stars-ID',
+        ratingsIDName = 'ratings-ID',
+        animationName = 'ratingAnime',
+        errMsg = 'Bitte wählen Sie eine Option aus.'; // todo: translate!
+
     this.init = function() {
         this.loadData();
         this.initObservers();
     };
 
     this.loadData = function(dataJSONurl, ratingId) {
-        $('.rating-wrapper').each(function() { // every form
-            var ratingsId = $(this).attr("id");
+        $(ratingFormClass).each(function() { // every form
+            var ratingsId = $(this).attr('id');
             $.ajax({
-                url: $("#" + ratingsId).data('src'),
-                type: "GET",
-                dataType: "json",
+                url: $('#'+ratingsId).data('src'),
+                type: 'GET',
+                dataType: 'json',
                 success: function(data) {
                     that.rating[ratingsId] = new Rating(ratingsId, data);
                     that.rating[ratingsId].loadAnswers(ratingsId);
@@ -37,14 +54,14 @@ var ratingController = function() {
         var that = this;
 
         // highlight first/last star if user uses keyboard to tab to radiobuttons without choosing a rating yet
-        $('.ratingstars__checkbox').on('focusin',function(){
-            $(this).siblings('label').find('svg').addClass('is-hover');
+        $(ratingRadioClass).on('focusin',function(){
+            $(this).siblings('label').find('svg').addClass(hoverClassName);
         }).on('focusout',function(e){
-            $(this).siblings('label').find('svg').removeClass('is-hover');
+            $(this).siblings('label').find('svg').removeClass(hoverClassName);
         });
 
         // highlight current starX and previous stars if user hovers starX
-        $('.ratingstars__star').on('mouseenter',function(e){
+        $(ratingStarClass).on('mouseenter',function(e){
             var $that = $(this),
                 $thatParent = $that.parent(),
                 $thatParentParent = $thatParent.parent(),
@@ -56,16 +73,16 @@ var ratingController = function() {
                 star_index = index_tmp[2];// $thatParentParent.attr('data-star_index');
 
             for (var i = 1; i <= thisStar; i++) {
-                $('#star' + ratings_index + '-' + answer_index + '-' + i).siblings('label').find('.ratingstars__star--'+ratings_index+'-'+answer_index+'-'+i).addClass('is-hover');
+                $(radioID+ratings_index+'-'+answer_index+'-'+i).siblings('label').find(ratingStarClass+'--'+ratings_index+'-'+answer_index+'-'+i).addClass(hoverClassName);
             }
         }).on('mouseleave',function(e){
-            $('.ratingstars__star').removeClass('is-hover');
+            $(ratingStarClass).removeClass(hoverClassName);
         });
 
         // if user clicks on the label (and therefore triggers a click on radio-button which changes it)
-        $(".ratingstars__checkbox").on("click", function () {
+        $(ratingRadioClass).on('click', function () {
             var $that = $(this),
-                $rating = $that.closest('.rating-wrapper'),
+                $rating = $that.closest(ratingFormClass),
                 myVote = $that.attr('value'),
                 $thatParent = $that.parent(),
                 index_tmp = $that.attr('id').split('-'),
@@ -73,21 +90,21 @@ var ratingController = function() {
                 answer_index = index_tmp[1],
                 star_index = index_tmp[2];
 
-            that.rating[$rating.prop("id")].addVote($that.closest(".poll-option").prop("id"), $that.prop("id"));
+            that.rating[$rating.prop('id')].addVote($that.closest(optionClass).prop('id'), $that.prop('id'));
 
             // toggle all stars before and including the clicked one as active/inactive
-            $('[data-ratings_index='+ratings_index+'][data-answer_index='+answer_index+']').find('.ratingstars__star').removeClass('is-active');
+            $('[data-ratings_index='+ratings_index+'][data-answer_index='+answer_index+']').find(ratingStarClass).removeClass(activeClassName);
 
             for (var i = 1; i <= myVote; i++) {
-                $('.ratingstars__star--'+ratings_index+'-'+answer_index+'-'+i).addClass('is-active');
+                $(ratingStarClass+'--'+ratings_index+'-'+answer_index+'-'+i).addClass(activeClassName);
             }
 
         });
 
         // if user clicks on submit
-        $(".rating-wrapper").on("submit", function(e) {
+        $(ratingFormClass).on('submit', function(e) {
             var $that = $(this),
-                rating_id = $that.prop("id"),
+                rating_id = $that.prop('id'),
                 rating_index = rating_id.slice(-1),
                 answer_index,
                 star_index = 0,
@@ -100,7 +117,7 @@ var ratingController = function() {
             $.each(that.rating[rating_id].stars, function () {
                 // do the dance ... if possible
                 if (this.value !== undefined) {
-                    tmp = this.value.split("-"); // bsp. this.value = "star1-2-3"
+                    tmp = this.value.split('-'); // bsp. this.value = 'star1-2-3'
                     answer_index = tmp[1];
                     star_index = tmp[2];
                     that.doTheDance(rating_index, answer_index, star_index);
@@ -116,13 +133,12 @@ var ratingController = function() {
         });
     };
 
-    // contains submit... content ...
     this.doTheDance = function (ratings_index, answer_index, star_index) { // (ratingId) {
-        var $that = $("#ratings-ID" + ratings_index),
-            myVote = $that.find("#star" + ratings_index + "-" + answer_index + "-" + star_index).attr('value'),
-            animeStarInit1 = '.animated .ratingstars__star--',
-            animeStarInit2 = ' {animation-name:ratingAnime',
-            animeStarName = '@keyframes ratingAnime',
+        var $that = $('#'+ratingsIDName+ratings_index),
+            myVote = $that.find(radioID+ratings_index+'-'+answer_index+'-'+star_index).attr('value'),
+            animeStarInit1 = '.'+animatedClassName+' '+ratingStarClass+'--',
+            animeStarInit2 = ' {animation-name:'+animationName,
+            animeStarName = '@keyframes '+animationName,
             animeStarCode1 = '{0% {transform:translate3d(0,0,0) scale3d(1,1,1)} 33.334% {transform:translate3d(0,-12px,0) scale3d(1.125,1.125,1.125) rotateY(90deg);',
             animeStarCode2 = ' animation-timing-function:cubic-bezier(.175,.885,.3,1.75)} 100% {transform:translate3d(0,-12px,0) scale3d(.875,.875,.875) rotateY(180deg);animation-timing-function:cubic-bezier(.175,.885,.3,1.75);',
             animeStarOrigin = '',
@@ -135,12 +151,12 @@ var ratingController = function() {
             animeStarNeutral = 'fill:rgb(185,183,173);',
             animeStarEnd = '}}',
             newStyle = '',
-            currentData = this.rating["ratings-ID" + ratings_index].stars["stars-ID" + ratings_index + answer_index].data,
+            currentData = this.rating[ratingsIDName+ratings_index].stars[starsIDName+ratings_index+answer_index].data,
             total = that.getTotal(currentData),
             totalStars = total[0],
             totalVotes = total[1],
             resultVote = 0.5 * Math.round((+totalStars + +myVote) / (+totalVotes + 1) / 0.5), // calculate the rating-result (handling js + behaviour)
-            $thisRating = $('#stars-ID'+ratings_index+answer_index);
+            $thisRating = $('#'+starsIDName+ratings_index+answer_index);
 
         // compose the keyframes
         for (var i = 1; i < 6; i++) {
@@ -172,20 +188,21 @@ var ratingController = function() {
     };
 
     this.animateStars = function (ratings_index, answer_index, myVote, resultVote, newStyle) {
-        var $ratingstarsContainer = $('#ratings-ID' + ratings_index);
+        var $ratingstarsContainer = $('#'+ratingsIDName+ratings_index),
+            $thisRating = $('#'+starsIDName+ratings_index+answer_index);
 
         // add the keyframe-codes into a style-element and add it to the DOM
-        $('<style id="ratingAnime'+ratings_index+'-'+answer_index+'" />').text(newStyle).insertAfter($ratingstarsContainer);
+        $('<style id="'+animationName+ratings_index+'-'+answer_index+'" />').text(newStyle).insertAfter($ratingstarsContainer);
 
         // include Result- and myVote-Number to the DOM
-        $('#stars-ID'+ratings_index+answer_index).find('.resultWording').addClass('animated'); // or $('.resultWording--'+ratings_index+'-'+answer_index).addClass('animated');
-        $('#stars-ID'+ratings_index+answer_index).find('.resultNumber--js').text(resultVote); // or $('.resultWording--'+ratings_index+'-'+answer_index+' .resultNumber--js').text(resultVote);
-        if (resultVote != '1') { $('#stars-ID'+ratings_index+answer_index).find('.resultNumber--js').parent().append('e'); } // or $('.resultWording--'+ratings_index+'-'+answer_index+' strong').append('e');
-        $('#stars-ID'+ratings_index+answer_index).find('.myNumber--js').text(myVote); // or $('.resultWording--'+ratings_index+'-'+answer_index+' .myNumber--js').text(myVote);
-        if (resultVote != '1') { $('#stars-ID'+ratings_index+answer_index).find('.myNumber--js').parent().append('e'); } // or $('.resultWording--'+ratings_index+'-'+answer_index+' .myNumber--js').append('e');
+        $thisRating.find(resultWordingClass).addClass(animatedClassName); // or $(resultWordingClass+'--'+ratings_index+'-'+answer_index).addClass(animatedClassName);
+        $thisRating.find(resultNumbClass).text(resultVote); // or $(resultWordingClass+'--'+ratings_index+'-'+answer_index+' '+resultNumbClass).text(resultVote);
+        if (resultVote != '1') { $thisRating.find(resultNumbClass).parent().append('e'); } // or $(resultWordingClass+'--'+ratings_index+'-'+answer_index+' strong').append('e');
+        $thisRating.find(myNumbClass).text(myVote); // or $(resultWordingClass+'--'+ratings_index+'-'+answer_index+' '+myNumbClass).text(myVote);
+        if (resultVote != '1') { $thisRating.find(myNumbClass).parent().append('e'); } // or $(resultWordingClass+'--'+ratings_index+'-'+answer_index+' '+myNumbClass).append('e');
 
         // add css-classes to trigger the animations
-        $ratingstarsContainer.addClass('animated');
+        $ratingstarsContainer.addClass(animatedClassName);
     };
 
     this.getTotal = function (data) {
@@ -200,12 +217,11 @@ var ratingController = function() {
 
     this.handleErrors = function ($ratings, hasError) {
         if (hasError) {
-            var errMsg = "Bitte wählen Sie eine Option aus."; // todo: translate!
-            $ratings.find(".poll-form-handling__errors").addClass("poll-form-handling__errors--onerror").text(errMsg);
+            $ratings.find('.'+errorClassName).addClass(errorClassName+'--onerror').text(errMsg);
             return true;
         } else {
             // remove err msg (whether it's there or not)
-            $ratings.find(".poll-form-handling__errors").removeClass("poll-form-handling__errors--onerror").text("");
+            $ratings.find('.'+errorClassName).removeClass(errorClassName+'--onerror').text('');
             return false;
         }
     };
@@ -224,8 +240,8 @@ var ratingController = function() {
 
         this.loadAnswers = function(ratingsId) {
             var answerId = 0;
-            $("#" + ratingsId + " .poll-option").each(function(i) {
-                answerId = $(this).prop("id");
+            $('#'+ratingsId+' '+optionClass).each(function(i) {
+                answerId = $(this).prop('id');
                 reference.stars[answerId] = new Stars(answerId, data[i]);
             });
         };
