@@ -22,6 +22,7 @@ var ratingController = function(){
         hoverClassName = 'is-hover',
         activeClassName = 'is-active',
         animatedClassName = 'is-animated',
+        submittedClassName = 'is-submitted',
         errorClassName = 'poll-form-handling__errors',
         starsIDName = 'stars-ID',
         ratingsIDName = 'ratings-ID',
@@ -180,7 +181,7 @@ var ratingController = function(){
             if (i > Math.round(resultVote)) { animeStarState = animeStarNeutral; }
             newStyle += animeStarInit1+ratings_index+'-'+answer_index+'-'+i+animeStarInit2+ratings_index+'-'+answer_index+'-'+i+'}'+animeStarName+ratings_index+'-'+answer_index+'-'+i+' '+animeStarCode1+animeStarOrigin+animeStarState+animeStarCode2+animeStarOrigin+animeStarState+animeStarEnd;
 
-            // fillup half-star
+            // fillup half-star -> TODO
             if (resultVote == 0.5 || resultVote == 1.5 || resultVote == 2.5 || resultVote == 3.5 || resultVote == 4.5 ) {
                 if (i == Math.round(resultVote*1.0)/1.0-1) { // -1 because of wrong half-star
                     $thisRating.find(halfStarClass).eq(i).addClass(activeClassName);
@@ -190,10 +191,9 @@ var ratingController = function(){
         }
         that.animateStars(ratings_index,answer_index,myVote,resultVote,newStyle);
 
-
-
-        // remove input-fields and label-wrapper arount svg-star
-        $thisRating.find('input').remove().siblings('label').replaceWith(function(){ return $(this).contents(); });
+        // remove input-fields and label-wrapper arount svg-star -> TODO
+        $thisRating.addClass(submittedClassName).find('input').remove();
+        $thisRating.find('label').replaceWith(function(){ return $(this).contents(); });
     };
 
     this.animateStars = function(ratings_index,answer_index,myVote,resultVote,newStyle){

@@ -1,8 +1,6 @@
-//.dev {background:rgb(236,236,230)}
-//.devWrap {position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);text-align:center}
-
 .ratingstars {margin:0 auto;padding:0;width:267px;text-align:center;position:relative}
 .ratingstars-list .ratingstars__star {cursor:pointer}
+.is-submitted .ratingstars-list .ratingstars__star {cursor:default;pointer-events:none}
 
 .ratingstars__elem {margin:0;padding:0;float:left} // overwrite
 .ratingstars__elem:before {content:none} // overwrite
