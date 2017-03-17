@@ -36,6 +36,13 @@ var ratingController = function() {
     this.initObservers = function() {
         var that = this;
 
+        // highlight first/last star if user uses keyboard to tab to radiobuttons without choosing a rating yet
+        $('.ratingstars__checkbox').on('focusin',function(){
+            $(this).siblings('label').find('svg').addClass('is-hover');
+        }).on('focusout',function(e){
+            $(this).siblings('label').find('svg').removeClass('is-hover');
+        });
+
         // if user hovers stars
         $('.ratingstars__star').on('mouseenter',function(e){
             var $that = $(this),
