@@ -1,0 +1,4 @@
+<label for="{{ fieldID|default('input-field-ID') }}" class="input-field {{ styleModifier }}">{{ labelText|default("Vorname") }}
+    <input type="{{ fieldType|default("text") }}" id="{{ fieldID|default('input-field-ID') }}" class="input-field__text {{ styleModifier }}" aria-labelledby="{{ fieldID|default('input-field-ID') }}" name="input-field"{% if styleModifier == 'input-field--inactive' %} disabled="true"{% endif %}>
+</label>
+<span class="input-field-hint {{ styleModifier }}">{{ hintText|default("Hint") }}</span>
