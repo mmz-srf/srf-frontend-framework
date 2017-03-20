@@ -1,11 +1,13 @@
 .submit-button {
   width: 100%;
-  padding: 16px 40px;
+  padding: 12px 40px;
   text-transform: uppercase;
   font: 16px/20px $font-regular;
   letter-spacing: 1px;
   color: #fff;
   border: 0;
+  margin-top: 20px;
+  display: block;
   // the following makes iOs display the button with css
   -webkit-appearance: none;
   @include rounded-corners(2px);
@@ -14,17 +16,17 @@
               0 0 2px 0 rgba(0, 0, 0, 0.12);
   @include tablet-up {
     width: auto;
-    margin-left: 16px;
+    // margin-left: 16px;
   }
   &:hover {
     background-color: #6b6960;
     cursor: pointer;
   } &:active, &:focus {
-      background-color: #888579;
+      background-color: $color-text-light;
       outline: none;
   } &:hover, &:active {
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.24),
-        0 0 8px 0 rgba(0, 0, 0, 0.12);
+                    0 0 8px 0 rgba(0, 0, 0, 0.12);
   }
 }
 .submit-button--error {
@@ -32,6 +34,16 @@
   // hover... ?
 }
 .submit-button--success {
-  background-color: #1a7ac5;
+  background-color: $color-button-success;
   // hover... ?
+}
+.submit-button--secondary {
+  color: $color-text-accentuation;
+  background-color: $color-bg-box;
+  &:hover {
+    background-color: $color-bg-box-hover;
+  }
+  &:active, &:focus {
+    background-color: $color-border;
+  }
 }
