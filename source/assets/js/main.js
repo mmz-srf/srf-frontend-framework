@@ -4,6 +4,7 @@ import {init as SrfCHMapInit} from './srf-chmap';
 import {init as SrfImageSliderInit} from './srf-image-slider';
 import {init as SrfPollInit} from './srf-poll';
 import {init as SrfTooltipInit} from './srf-tooltip';
+import {init as SrfFormFieldInit} from './srf-form-fields';
 
 
 document.addEventListener("DOMContentLoaded", function(event) {
@@ -13,4 +14,5 @@ document.addEventListener("DOMContentLoaded", function(event) {
     SrfImageSliderInit();
     SrfPollInit();
     SrfTooltipInit();
+    SrfFormFieldInit();
 });

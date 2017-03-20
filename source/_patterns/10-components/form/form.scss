@@ -1,0 +1,35 @@
+.form {
+  background-color: $color-bg-caption;
+  padding: 16px;
+}
+.form__label {
+  font: 22px/28px $font-medium;
+  letter-spacing: .3px;
+  color: $color-text-default;
+}
+.form-fieldset {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  > *:last-child { // remove margins from last checkbox or whatever
+    margin-bottom: 0;
+  }
+}
+.form-fieldset__legend {
+  position: relative;
+  display: block;
+  font: 16px/24px $font-regular;
+  letter-spacing: 0.5px;
+  color: $color-text-accentuation;
+  margin: 20px 0 4px;
+}
+.form-fieldset__hint {
+  font: 16px/24px $font-light;
+  color: $color-form-field-hint;
+  margin-top: 2px;
+}
+
+.form__hint {
+  font: 14px/20px $font-light;
+  margin-top: 24px;
+}
