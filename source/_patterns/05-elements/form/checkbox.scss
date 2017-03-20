@@ -1,0 +1,59 @@
+.checkbox {
+  position: absolute;
+  opacity: 0;
+  // custom boxes (decorating the label)
+  &:checked {
+    + .checkbox-label {
+      background-color: $color-bg-box-hover;
+      &:after {
+        border-color: $color-accentuation-red;
+      }
+      &:before {
+        content: "✔";
+        left: 21px;
+        color: $color-accentuation-red;
+      }
+    }
+    + .checkbox--inactive {
+      // hier sollte eigentlich keine Aktion stattfinden (??)
+      &:after {
+        border-color: $color-text-light;
+      }
+      &:before {
+        color: $color-text-light;
+      }
+    }
+  }
+}
+
+.checkbox-label {
+  @include button-label;
+  padding: 14px 16px 14px 50px;
+
+  &:before, &:after {
+    content: "";
+    position: absolute;
+  }
+  &:after {
+    top: 16px;
+    left: 16px;
+    width: 18px;
+    height: 18px;
+    border: solid 1px $color-text-light;
+  }
+}
+
+.checkbox--inactive {
+  opacity: .48;
+}
+.checkbox--on-error {
+  color: $color-accentuation-red;
+  &:after {
+    border-color: $color-accentuation-red;
+  }
+}
+
+.checkbox-label { // .form-fieldset .checkbox-label {
+  margin-bottom: 2px;
+  // &:last-of-type { margin-bottom: 0; } // managed by fieldset !
+}
