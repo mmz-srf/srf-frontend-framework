@@ -83,3 +83,12 @@
 .chmap-infowindow__img--hide {
   display: none;
 }
+
+.menu-wrapper {
+  position: relative;
+  padding: 16px;
+  width: 100%;
+  @include tablet-up {
+    max-width: 332px;
+  }
+}
