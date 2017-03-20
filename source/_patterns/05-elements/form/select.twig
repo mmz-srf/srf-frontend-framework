@@ -1,0 +1,6 @@
+{% if labelText is defined and labelText is not empty %}<label for="{{ fieldID|default('menu-ID') }}" class="menu-label {{ styleModifier }}">{{ labelText|default("Bitte wählen") }}</label>{% endif %}
+<select class="menu" aria-labelledby="{{ fieldID|default('menu-ID') }}" id="{{ fieldID|default('menu-ID') }}">
+    {% for option in menu %}
+        <option value="{{ option.key }}">{{ option.val }}</option>
+    {% endfor %}
+</select>
