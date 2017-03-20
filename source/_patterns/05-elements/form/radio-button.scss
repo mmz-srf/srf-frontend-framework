@@ -1,0 +1,65 @@
+.radio-button {
+  position: absolute;
+  opacity: 0;
+  // custom radio buttons (decorating the label)
+  &:checked {
+    + .radio-button-label {
+      background-color: $color-bg-box-hover;
+      &:after {
+        border: solid 1px $color-accentuation-red;
+        background-color: transparent;
+      }
+    }
+  }
+}
+
+.radio-button-label {
+  @include button-label;
+  padding: 14px 16px 14px 54px;
+
+  // custom radios
+  &:before, &:after {
+    content: "";
+    position: absolute;
+    @include rounded-corners(50%);
+  }
+  &:before { // border
+    top: 20px;
+    left: 20px;
+    width: 14px;
+    height: 14px;
+    display: inline-block;
+    background-color: $color-accentuation-red;
+  }
+  &:after { // inside border (hiding the dot)
+    top: 16px;
+    left: 16px;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    background-color: $color-bg-box;
+    // transition fix:
+    transition: background-color 0.2s ease-in-out;
+    border: solid 1px $color-text-light;
+  }
+  &:hover:after, &:focus:after { // red dot
+    background-color: $color-bg-box-hover;
+  }
+  // custom radios end here
+}
+
+.radio-button--inactive {
+  opacity: .48;
+  // hier sollte eigentlich keine Aktion stattfinden (??)
+  &:before {
+    background-color: $color-text-light;
+  }
+  &:after {
+    border: solid 1px $color-text-light !important;
+  }
+}
+
+.radio-button-label { // .form-fieldset .radio-button-label {
+  margin-bottom: 2px;
+  // &:last-of-type { margin-bottom: 0; } // managed by fieldset !
+}
