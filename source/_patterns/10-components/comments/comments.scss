@@ -1,0 +1,119 @@
+.comments-wrapper {
+  background-color: #fafaf8;
+  // color: #22211d; // probably unnecessary
+}
+.comments-wrapper__title {
+  font: 22px/28px $font-medium;
+  letter-spacing: .3px;
+  margin: 0;
+  padding: 24px 16px 20px;
+}
+.comments {
+  background-color: #fff;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+.comments--replies {
+  margin-left: 10px;
+  &:before {
+    content: "⤻";
+    // temporary:
+    position: absolute;
+    top: -5px;
+    left: -15px;
+    color: #888579;
+    font-size: 35px;
+    line-height: 5px;
+    transform: rotate(45deg);
+  }
+}
+.comment {
+  border-top: 1px solid $color-separator;
+  overflow: hidden;
+  padding: 0;
+  margin: 0 16px;
+  &:before { // overwrite
+    content: none;
+  }
+}
+.comments--main > .comment:first-child {
+  border-top: 0;
+}
+
+.comment__user {
+  font: 14px/20px $font-regular;
+  letter-spacing: .5px;
+  margin: 24px 0 2px;
+}
+.comment__user--srf {
+  background: #fff url("../img/srf_logo.svg") no-repeat scroll right 2px / 24px auto;
+}
+.comment__time {
+  font: 12px/16px $font-system;
+  color: #888579;
+}
+.comment__content {
+  font: 18px/28px $font-light;
+  letter-spacing: .5px;
+  margin: 12px 0 16px;
+}
+.comment__link {
+  font: 14px/16px $font-regular;
+  letter-spacing: .2px;
+  // color: #888579;
+  border-bottom: 0;
+  display: inline-block;
+  margin-bottom: 28px;
+  padding: 0 10px;
+  &:first-of-type {
+    border-right: 1px solid $color-separator;
+    padding-left: 0;
+  }
+}
+
+.comment__link--clicked {
+  color: #888579;
+}
+
+.tabs {
+  height: 40px;
+  margin: 0;
+  padding: 0;
+}
+.tab-option {
+  float: left; // display: inline;
+  width: 50%;
+  margin: 0;
+  padding: 0;
+  // padding: 12px 24px 10px;
+  &:before { // overwrite
+    content: none;
+  }
+}
+
+.tab-option__link {
+  width: 100%;
+  font: 14px/16px $font-regular;
+  color: #6b6960;
+  text-align: left;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid $color-separator;
+  padding: 12px 24px 9px;
+  cursor: pointer;
+}
+.tab-option__link--selected {
+  color: $color-accentuation-red;
+  border-bottom: 2px solid $color-accentuation-red;
+  padding-bottom: 8px;
+}
+
+.load-more {
+  height: 40px;
+  width: 100%;
+  // background: #ebebe5 url("../img/arrows/menu_arrow.svg") no-repeat right 16px center;
+  background: #fafaf8 url(../img/arrows/red_arrow_down.svg) no-repeat center; // design: rgba(235, 235, 229, 0.2);
+  border: 1px solid $color-separator;
+  border-width: 1px 0;
+}

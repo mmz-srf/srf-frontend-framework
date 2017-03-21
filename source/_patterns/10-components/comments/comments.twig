@@ -1,0 +1,32 @@
+<div class="comments-wrapper">
+    <p class="comments-wrapper__title">{% if comments.total_count > 0 %}{{ comments.total_count }} {% endif %}Kommentare</p>
+    <ul class="tabs">
+        <li class="tab-option"><button class="tab-option__link tab-option__link--selected">Alle Kommentare</button></li>
+        <li class="tab-option"><button class="tab-option__link">Beliebteste</button></li>
+    </ul>
+    <ul class="comments comments--main">
+        {% for comment in comments.comments %}
+            <li class="comment">
+                <p class="comment__user">{{ comment.name }} ({{ comment.nickname }})</p>
+                <span class="comment__time">{{ comment.dateFormatted|date('d.m.Y') }}/vor 10 Minuten</span>{# pub. time ab 1h ago ?... #}
+                <p class="comment__content">{{ comment.message }}</p>
+                <a class="comment__link comment__link--clicked">Gefällt mir (13)</a>{# ... folgestory #}
+                <a class="comment__link">Antworten</a> {# was passiet hier #}
+                {% if comment.children|length > 0 %}
+                    <ol class="comments comments--replies">
+                    {% for replies in comment.children %}
+                        <li class="comment">
+                            <p class="comment__user {% if replies.isEditorialAnswer %} comment__user--srf{% endif %}">{{ comment.name }} ({{ comment.nickname }})</p>
+                            <span class="comment__time">{{ replies.dateFormatted|date('d.m.Y') }}/vor 10 Minuten</span>{# pub. time ab 1h ago ?... #}
+                            <p class="comment__content">{{ replies.message }}</p>
+                            <a class="comment__link">Gefällt mir (13)</a>{# ... folgestory #}
+                            <a class="comment__link">Antworten</a> {# was passiet hier #}
+                        </li>
+                    {% endfor %}
+                        </ol>
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+    <button class="load-more"></button>
+</div>
