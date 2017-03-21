@@ -41,6 +41,9 @@
     height: 18px;
     border: solid 1px $color-text-light;
   }
+  &.checkbox--inactive:hover {
+      background-color: $color-bg-box;
+  }
 }
 
 .checkbox--inactive {

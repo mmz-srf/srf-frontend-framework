@@ -45,12 +45,15 @@
   &:hover:after, &:focus:after { // red dot
     background-color: $color-bg-box-hover;
   }
+  &.checkbox--inactive:hover {
+    background-color: $color-bg-box;
+  }
   // custom radios end here
 }
 
 .radio-button--inactive {
   opacity: .48;
-  // hier sollte eigentlich keine Aktion stattfinden (??)
+  // visible when state changes after the button was activated
   &:before {
     background-color: $color-text-light;
   }
@@ -59,7 +62,6 @@
   }
 }
 
-.radio-button-label { // .form-fieldset .radio-button-label {
+.radio-button-label {
   margin-bottom: 2px;
-  // &:last-of-type { margin-bottom: 0; } // managed by fieldset !
 }
