@@ -1,2 +1,2 @@
-<input type="checkbox" id="{{ fieldID|default('checkbox-ID') }}" class="checkbox" name="checkbox" aria-labelledby="{{ fieldID|default('checkbox-ID') }}" {% if styleModifier == 'checkbox--inactive' %} disabled="true"{% endif %}>
+<input type="checkbox" id="{{ fieldID|default('checkbox-ID') }}" class="checkbox" name="checkbox" aria-labelledby="{{ fieldID|default('checkbox-ID') }}" {% if styleModifier == 'checkbox--inactive' %} disabled="true"{% endif %}{% if required %} required{% endif %}>
 <label for="{{ fieldID|default('checkbox-ID') }}" class="checkbox-label {{ styleModifier }}">{{ checkboxText|default("meine Wahl") }}</label>

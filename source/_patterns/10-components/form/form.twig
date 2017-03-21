@@ -2,8 +2,8 @@
     <label form="form-ID" class="form__label">{{ form.title }}</label>
     <fieldset class="form-fieldset">
         <legend class="form-fieldset__legend">{{ form.legend }}</legend>
-        {% include 'elements-checkbox' with { 'fieldID': 'checkbox-ID1' } %}
-        {% include 'elements-checkbox' with { 'fieldID': 'checkbox-ID2' } %}
+        {% include 'elements-checkbox' with { 'fieldID': 'checkbox-ID1', 'required': true } %}
+        {% include 'elements-checkbox' with { 'fieldID': 'checkbox-ID2', 'required': false } %}
         <span class="form-fieldset__hint {{ styleModifier }}">{{ hintText|default("Hint") }}</span>
     </fieldset>
     <fieldset class="form-fieldset">
@@ -14,9 +14,9 @@
     </fieldset>
     <fieldset class="form-fieldset">
         {% if legentTitle is defined %}<legend class="form-fieldset__legend">{{ legentTitle|default('') }}</legend>{% endif %}
-        {% include 'elements-input-field' with { 'labelText': 'Name, Vorname', 'fieldID': 'input-ID1', 'hintText': '', 'inputType': 'text' } %}
-        {% include 'elements-input-field' with { 'labelText': 'Geburtstag', 'fieldID': 'input-ID2', 'hintText': 'dd.mm.YYY', 'inputType': 'date' } %}
-        {% include 'elements-select' with { 'fieldID': 'menu-ID', 'labelText': 'Bitte wählen' } %}
+        {% include 'elements-input-field' with { 'labelText': 'Name, Vorname', 'fieldID': 'input-ID1', 'hintText': '', 'inputType': 'text', 'required': true } %}
+        {% include 'elements-input-field' with { 'labelText': 'Geburtstag', 'fieldID': 'input-ID2', 'hintText': 'dd.mm.YYY', 'inputType': 'date', 'required': true } %}
+        {% include 'elements-select' with { 'fieldID': 'menu-ID', 'labelText': 'Bitte wählen', 'required': false } %}
         {% include 'elements-submit-button' with { 'styleModifier' : 'submit-button--secondary', 'buttonText' : form.button } %}
     </fieldset>
     <p class="form__hint">{{ form.hint }}</p>
