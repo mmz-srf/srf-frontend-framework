@@ -36,5 +36,7 @@
         </ul>
     </section>
     <section id="sectionAll" role="tabpanel" aria-hidden="true"></section>
-    {% include 'elements-load-more' %}
+    {% block more_button %}
+        {% include 'elements-load-more' %}
+    {% endblock %}
 </div>
