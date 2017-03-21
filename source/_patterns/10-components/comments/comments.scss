@@ -1,6 +1,5 @@
 .comments-wrapper {
-  background-color: #fafaf8;
-  // color: #22211d; // probably unnecessary
+  background-color: $color-link-bg-hover;
 }
 .comments-wrapper__title {
   font: 22px/28px $font-medium;
@@ -22,7 +21,7 @@
     position: absolute;
     top: -5px;
     left: -15px;
-    color: #888579;
+    color: $color-text-light;
     font-size: 35px;
     line-height: 5px;
     transform: rotate(45deg);
@@ -39,7 +38,7 @@
 }
 .comments--main > .comment:first-child {
   border-top: 0;
-  // .comment__user { margin-top: 24px; }
+  padding-top: 8px;
 }
 
 .comment__user {
@@ -62,7 +61,6 @@
 .comment__link {
   font: 14px/16px $font-regular;
   letter-spacing: .2px;
-  // color: #888579;
   border-bottom: 0;
   display: inline-block;
   margin-bottom: 28px;
@@ -87,7 +85,7 @@
   padding: 0;
 }
 .tab-option {
-  float: left; // display: inline;
+  float: left;
   width: 50%;
   margin: 0;
   padding: 0;
@@ -99,12 +97,12 @@
 .tab-option__link {
   width: 100%;
   font: 14px/16px $font-regular;
-  color: #6b6960;
+  color: $color-tab-option-link;
   border-bottom: 1px solid $color-separator;
   padding: 12px 24px 11px;
   display: inline-block;
   &:hover {
-    color: #6b6960;
+    color: $color-tab-option-link;
     border-bottom: 1px solid $color-separator;
   }
 }
