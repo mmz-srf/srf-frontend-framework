@@ -1,4 +1,4 @@
-<div class="comments-wrapper">
+<div class="comments-wrapper" {% block data_attributes %}{% endblock %}>
     <p class="comments-wrapper__title">{% if comments.total_count > 0 %}{{ comments.total_count }} {% endif %}Kommentare</p>
     <ul class="tabs" role="tablist">
         <li class="tab-option" role="presentation">
