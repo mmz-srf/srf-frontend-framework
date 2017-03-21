@@ -30,13 +30,19 @@
                     0 0 8px 0 rgba(0, 0, 0, 0.12);
   }
 }
-.submit-button--error {
+
+.submit-button--on-error {
   background-color: $color-accentuation-red;
-  // hover... ?
+  &:hover {
+    background-color: $color-accentuation-red;
+  }
 }
 .submit-button--success {
-  background-color: $color-button-success;
-  // hover... ?
+  background: $color-button-success url("../img/white_tick.svg") no-repeat 40px;
+  padding-left: 73px;
+  &:hover {
+    background-color: $color-button-success;
+  }
 }
 .submit-button--secondary {
   color: $color-text-accentuation;

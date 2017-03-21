@@ -1,1 +1,2 @@
 <input class="submit-button {{ styleModifier }}" type="submit" value="{{ buttonText|default("senden") }}">
+{% if styleModifier == 'submit-button--on-error' %}<span class="submit-button-hint {{ styleModifier }}"></span>{% endif %}
