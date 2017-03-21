@@ -1,7 +1,13 @@
 .load-more {
   height: 40px;
   width: 100%;
-  background: #fafaf8 url(../img/arrows/red_arrow_down.svg) no-repeat center; // design: rgba(235, 235, 229, 0.2); ??
+  background: $color-link-bg-hover url(../img/arrows/red_arrow_down.svg) no-repeat center; // design: rgba(235, 235, 229, 0.2); ??
   border: 1px solid $color-separator;
   border-width: 1px 0;
+  &:hover {
+    background-color: $color-bg-caption;
+  }
+  &:active {
+    background-color: $color-bg-box;
+  }
 }
