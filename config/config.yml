@@ -42,4 +42,4 @@ plugins:
     reload:
         enabled: true
     dataInheritance:
-        enabled: false
+        enabled: true
