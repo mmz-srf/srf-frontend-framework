@@ -3,6 +3,7 @@
   "htmlClass": "pl",
   "bodyClass": "body",
   "articleHeader": {
+    "kicker": "Pendler-Chaos",
     "title": "Vor 20 Jahren forderte Cyberpionier Barlow: «Lasst uns in Ruhe!»",
     "lead": "1996 schrieb John Perry Barlow die «Unabhängigkeitserklärung des Cyberspace». Darin kritisierte der Poet und Aktivist erstaunlich früh die staatliche Kontrolle."
   },
@@ -20,6 +21,40 @@
     "author": "Dilma Rousseff",
     "function": "Präsidentin von Brasilien"
   },
+  "hyperlink": {
+    "url": "http://www.srf.ch",
+    "title": "Sicherheit oder totale Überwachung? (Kontext, 10.2.15)"
+  },
+  "image":
+    {
+      "sources": {
+        "s8": {
+          "src": "../../assets/demo/img/bild0/bild_s8.jpg",
+          "width": 640
+        },
+        "s8_retina": {
+          "src": "../../assets/demo/img/bild0/bild_s8_retina.jpg",
+          "width": 1248
+        },
+        "s12": {
+          "src": "../../assets/demo/img/bild0/bild_s12.jpg",
+          "width": 944
+        },
+        "s12_retina": {
+          "src": "../../assets/demo/img/bild0/bild_s12_retina.jpg",
+          "width": 1888
+        },
+        "mobile_max": {
+          "src": "../../assets/demo/img/bild0/bild_mobile_max.jpg",
+          "width": 320
+        }
+      },
+      "caption": {
+        "title": "Hernani Marques",
+        "description": "Aktivist und Pressesprecher vom Schweizer Chaos Computer Club",
+        "source": "Bild: ZVG"
+      }
+    },
   "images": [
     {
       "sources": {
@@ -138,6 +173,41 @@
       }
     }
   ],
+  "audio": {
+    "img_src":"../../assets/demo/img/bild2/bild_s8.jpg",
+    "img_srcset": {
+      "s8": {
+        "src": "../../assets/demo/img/bild2/bild_s8.jpg",
+        "width": 640
+      },
+      "s8_retina": {
+        "src": "../../assets/demo/img/bild2/bild_s8_retina.jpg",
+        "width": 1248
+      },
+      "s12": {
+        "src": "../../assets/demo/img/bild2/bild_s12.jpg",
+        "width": 944
+      },
+      "s12_retina": {
+        "src": "../../assets/demo/img/bild2/bild_s12_retina.jpg",
+        "width": 1888
+      },
+      "mobile_max": {
+        "src": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+        "width": 320
+      }
+    },
+    "title": "20 Jahre «Unabhängigkeitserklärung des Cyberspace» (Kultur kompakt, 8.2.2016)",
+    "length": "5:14",
+    "player_url": "https://tp.srgssr.ch/p",
+    "urn": "urn:srf:ais:audio:e5173721-9934-43fd-81a3-31b59e303966",
+    "assetId": "e5173721-9934-43fd-81a3-31b59e303966",
+    "elementId": "e5173721-9934-43fd-81a3-31b59e303966",
+    "show": {
+      "title": "100 Sekunden Wissen",
+      "date": "2016-02-08"
+    }
+  },
   "audios": [
     {
       "img_src":"../../assets/demo/img/bild2/bild_s8.jpg",
@@ -167,6 +237,8 @@
       "length": "5:14",
       "player_url": "https://tp.srgssr.ch/p",
       "urn": "urn:srf:ais:audio:e5173721-9934-43fd-81a3-31b59e303966",
+      "assetId": "e5173721-9934-43fd-81a3-31b59e303966",
+      "elementId": "e5173721-9934-43fd-81a3-31b59e303966",
       "show": {
         "title": "100 Sekunden Wissen",
         "date": "2016-02-08"
@@ -200,6 +272,8 @@
       "length": "57",
       "player_url": "https://tp.srgssr.ch/p",
       "urn": "urn:srf:ais:audio:4437788f-dca5-4136-8e6a-9d057f5581ca",
+      "assetId": "e5173721-9934-43fd-81a3-31b59e303966",
+      "elementId": "e5173721-9934-43fd-81a3-31b59e303966",
       "show": {
         "title": "Zambo",
         "date": "2016-09-02"
@@ -207,6 +281,29 @@
     }
   ],
   "video": {
+    "img_src":"../../assets/demo/img/bild2/bild_s8.jpg",
+    "img_srcset": {
+      "s8": {
+        "src": "../../assets/demo/img/bild2/bild_s8.jpg",
+        "width": 640
+      },
+      "s8_retina": {
+        "src": "../../assets/demo/img/bild2/bild_s8_retina.jpg",
+        "width": 1248
+      },
+      "s12": {
+        "src": "../../assets/demo/img/bild2/bild_s12.jpg",
+        "width": 944
+      },
+      "s12_retina": {
+        "src": "../../assets/demo/img/bild2/bild_s12_retina.jpg",
+        "width": 1888
+      },
+      "mobile_max": {
+        "src": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+        "width": 320
+      }
+    },
     "title": "Sprengstoff verschwunden",
     "length": "1:03",
     "player_url": "https://tp.srgssr.ch/p",
