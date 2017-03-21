@@ -27,7 +27,7 @@ var ratingController = function(){
         starsIDName = 'stars-ID',
         ratingsIDName = 'ratings-ID',
         animationName = 'ratingAnime',
-        errMsg = 'Bitte wählen Sie eine Option aus.'; // todo: translate!
+        errMsg = 'Bitte setzen Sie überall eine Bewertung.'; // todo: translate!
 
     this.init = function(){
         this.loadData();
@@ -105,32 +105,40 @@ var ratingController = function(){
 
         // if user clicks on submit
         $(ratingFormClass).on('submit',function(e){
-            var $that = $(this),
-                rating_id = $that.prop('id'),
-                rating_index = rating_id.slice(-1),
-                answer_index,
-                star_index = 0,
-                tmp = 0,
-                rated = 0;
 
-            // remove err msg
-            that.handleErrors($that,false);
+            var $ratings = $(this).find(optionClass);
+            if ( $ratings.find('input:radio:checked').length === $ratings.length ) {
+
+                var $that = $(this),
+                    rating_id = $that.prop('id'),
+                    rating_index = rating_id.slice(-1),
+                    answer_index,
+                    star_index = 0,
+                    tmp = 0,
+                    rated = 0;
+
+                // remove err msg
+                that.handleErrors($that,false);
             
-            $.each(that.rating[rating_id].stars,function(){
-                // do the dance ... if possible
-                if (this.value !== undefined) {
-                    tmp = this.value.split('-'); // bsp. this.value = 'star1-2-3'
-                    answer_index = tmp[1];
-                    star_index = tmp[2];
-                    that.doTheDance(rating_index,answer_index,star_index);
-                    rated++;
-                }
-            });
+                $.each(that.rating[rating_id].stars,function(){
+                    // do the dance ... if possible
+                    if (this.value !== undefined) {
+                        tmp = this.value.split('-'); // bsp. this.value = 'star1-2-3'
+                        answer_index = tmp[1];
+                        star_index = tmp[2];
+                        that.doTheDance(rating_index,answer_index,star_index);
+                        rated++;
+                    }
+                });
 
-            if (rated === 0) { that.handleErrors($that,true); }
+                if (rated === 0) { that.handleErrors($that,true); }
 
-            // ==> submit all votes!!!
-            return false; // but nothing else
+                // ==> submit all votes!!!
+                return false; // but nothing else
+            } else {
+                that.handleErrors($(this),true);
+                return false;
+            }
 
         });
     };
