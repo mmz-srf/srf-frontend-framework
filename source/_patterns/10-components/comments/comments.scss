@@ -16,15 +16,10 @@
 .comments--replies {
   margin-left: 10px;
   &:before {
-    content: "⤻";
-    // temporary:
     position: absolute;
-    top: -5px;
-    left: -15px;
-    color: $color-text-light;
-    font-size: 35px;
-    line-height: 5px;
-    transform: rotate(45deg);
+    top: -8px;
+    left: -10px;
+    content: url("../img/arrows/fancy_arrow.svg");
   }
 }
 .comment {
