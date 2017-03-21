@@ -401,6 +401,12 @@
     "total": "Stimmen wurden abgegeben"
   },
   "comments": {
+    "title": "Kommentare",
+    "no_comment": "Es wurden noch keine Kommentare erfasst. Seien Sie die erste Person, die diesen Artikel kommentiert.",
+    "link_all": "Alle Kommentare",
+    "link_hits": "Beliebteste",
+    "link_social": "Gefällt mir",
+    "link_reply": "Antworten",
     "total_count": "8",
     "comments": [
       {
