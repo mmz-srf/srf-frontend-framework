@@ -2,6 +2,8 @@
   padding: 0;
   margin: 16px -16px 0 0;
   &--two-col {
+    -moz-column-count: 2;
+    -moz-column-gap: 0;
     column-count: 2;
     column-gap: 0;
   }

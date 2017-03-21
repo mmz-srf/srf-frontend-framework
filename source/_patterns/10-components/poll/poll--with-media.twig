@@ -1,5 +1,7 @@
-{% import 'poll.twig' as option %} {# with-media & setup solely for polls with media! #}
+{% import '_poll.twig' as option %} {# with-media & setup solely for polls with media! #}
 {% set list_entries = 3 %}
+{% set pollIndex = pollIndex|default(2) %}
+{#{% set pollIndex = styleModifier == "poll--with-ratios" ? 4 : 2 %}#}
 <form id="poll-ID{{ pollIndex }}" class="poll-wrapper poll--with-media poll--setup {{ styleModifier }}" name="poll_{{ pollIndex }}" method="get" data-src="../../assets/demo/poll-data.json">
     <fieldset class="poll-fieldset">
     {# here is never an image - as the poll contains media #}
