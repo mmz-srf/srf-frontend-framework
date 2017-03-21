@@ -9,7 +9,7 @@
         border-color: $color-accentuation-red;
       }
       &:before {
-        content: "✔";
+        content: url(../img/red_tick.svg);
         left: 21px;
         color: $color-accentuation-red;
       }
