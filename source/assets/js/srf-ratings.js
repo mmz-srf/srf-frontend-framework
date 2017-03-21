@@ -135,9 +135,12 @@ var ratingController = function(){
 
                 // ==> submit all votes!!!
                 return false; // but nothing else
+
             } else {
+
                 that.handleErrors($(this),true);
                 return false;
+
             }
 
         });
