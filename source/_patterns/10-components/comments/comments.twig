@@ -8,19 +8,19 @@
         {% for comment in comments.comments %}
             <li class="comment">
                 <p class="comment__user">{{ comment.name }} ({{ comment.nickname }})</p>
-                <span class="comment__time">{{ comment.dateFormatted|date('d.m.Y') }}/vor 10 Minuten</span>{# pub. time ab 1h ago ?... #}
+                <span class="comment__time">{{ comment.dateFormatted|date('d.m.Y') }}</span>{# Heute / Wochentag & pub. time ab 1h ago ?... #}
                 <p class="comment__content">{{ comment.message }}</p>
                 <a class="comment__link comment__link--clicked">Gefällt mir (13)</a>{# ... folgestory #}
-                <a class="comment__link">Antworten</a> {# was passiet hier #}
+                <a class="comment__link">Antworten</a> {# was passiet hier? #}
                 {% if comment.children|length > 0 %}
                     <ol class="comments comments--replies">
                     {% for replies in comment.children %}
                         <li class="comment">
                             <p class="comment__user {% if replies.isEditorialAnswer %} comment__user--srf{% endif %}">{{ comment.name }} ({{ comment.nickname }})</p>
-                            <span class="comment__time">{{ replies.dateFormatted|date('d.m.Y') }}/vor 10 Minuten</span>{# pub. time ab 1h ago ?... #}
+                            <span class="comment__time">{{ replies.dateFormatted|date('d.m.Y') }}/vor 10 Minuten</span>{# Heute / Wochentag & pub. time ab 1h ago ?... #}
                             <p class="comment__content">{{ replies.message }}</p>
                             <a class="comment__link">Gefällt mir (13)</a>{# ... folgestory #}
-                            <a class="comment__link">Antworten</a> {# was passiet hier #}
+                            <a class="comment__link">Antworten</a> {# was passiet hier? #}
                         </li>
                     {% endfor %}
                         </ol>
