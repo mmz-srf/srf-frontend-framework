@@ -4,6 +4,7 @@
   background: $color-link-bg-hover url(../img/arrows/red_arrow_down.svg) no-repeat center; // design: rgba(235, 235, 229, 0.2); ??
   border: 1px solid $color-separator;
   border-width: 1px 0;
+  cursor: pointer;
   &:hover {
     background-color: $color-bg-caption;
   }

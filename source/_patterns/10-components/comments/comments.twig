@@ -1,5 +1,5 @@
 <div class="comments-wrapper" {% block data_attributes %}{% endblock %}>
-    <p class="comments-wrapper__title">{% if comments.total_count > 0 %}{{ comments.total_count }} {% endif %}{{ comments.title|default("Kommentare") }} }}</p>
+    <p class="comments-wrapper__title">{% if comments.total_count > 0 %}{{ comments.total_count }} {% endif %}{{ comments.title|default("Kommentare") }}</p>
     {% if comments.total_count == 0 %}
         <p class="comments-wrapper__text">
             {{ comments.no_comment|default("Es wurden noch keine Kommentare erfasst. Seien Sie die erste Person, die diesen Artikel kommentiert.") }}

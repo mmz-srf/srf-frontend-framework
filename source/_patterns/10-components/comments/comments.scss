@@ -1,5 +1,9 @@
 .comments-wrapper {
   background-color: $color-link-bg-hover;
+  margin: 24px 0 24px;
+  @include smartphone {
+    margin: 20px -8px 20px;
+  }
 }
 .comments-wrapper__title {
   font: 22px/28px $font-medium;
