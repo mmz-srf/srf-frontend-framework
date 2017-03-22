@@ -20,26 +20,7 @@
         <section id="sectionAll" role="tabpanel">
             <ul class="comments comments--main">
                 {% for comment in comments.comments %}
-                    <li class="comment" data-comment-id="{{ comment.id }}">
-                        <p class="comment__user">{{ comment.name }} ({{ comment.nickname }})</p>
-                        <span class="comment__time">{{ comment.dateFormatted }}</span>{# Heute / Wochentag & pub. time ab 1h ago ?... #}
-                        <p class="comment__content">{{ comment.message }}</p>
-                        <a class="comment__link comment__link--clicked">{{ comments.link_social|default("Gefällt mir") }} (?)</a>{# ... folgestory #}
-                        <a class="comment__link">{{ comments.link_reply|default("Antworten") }}</a> {# was passiet hier? #}
-                        {% if comment.children|length > 0 %}
-                            <ol class="comments comments--replies">
-                            {% for reply in comment.children %}
-                                <li class="comment" {{ reply.id }}>
-                                    <p class="comment__user {% if reply.isEditorialAnswer %} comment__user--srf{% endif %}">{{ comment.name }} ({{ comment.nickname }})</p>
-                                    <span class="comment__time">{{ reply.dateFormatted }}</span>{# Heute / Wochentag & pub. time ab 1h ago ?... #}
-                                    <p class="comment__content">{{ reply.message }}</p>
-                                    <a class="comment__link">{{ reply.link_social|default("Gefällt mir") }} (?)</a>{# ... folgestory #}
-                                    <a class="comment__link">{{ reply.link_reply|default("Antworten") }}</a> {# was passiet hier? #}
-                                </li>
-                            {% endfor %}
-                                </ol>
-                        {% endif %}
-                    </li>
+                   {% include 'components-comment' with { 'comment': comment } %}
                 {% endfor %}
             </ul>
         </section>
