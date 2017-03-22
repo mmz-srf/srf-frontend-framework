@@ -1,4 +1,4 @@
-<div class="comments-wrapper" {% block data_attributes %}{% endblock %}>
+<div class="comments-wrapper" data-total-count="{{ comments.total_count }}" {% block data_attributes %}{% endblock %}>
     <div class="comments-header l-full-width-container">
         <p class="comments-header__title comments-header--shrink">{% if comments.total_count > 0 %}{{ comments.total_count }} {% endif %}{{ comments.title|default("Kommentare") }}</p>
         {% if comments.total_count == 0 %}
@@ -19,9 +19,9 @@
     {% if comments.total_count > 0 %}
         <section id="sectionAll" role="tabpanel">
             <ul class="comments comments--main">
-                {% for comment in comments.comments %}
-                   {% include 'components-comment' with { 'comment': comment } %}
-                {% endfor %}
+                {% block comments %}
+                   {% include 'components-comment' with { 'comments': comments.comments } %}
+                {% endblock %}
             </ul>
         </section>
         <section id="sectionAll" role="tabpanel" aria-hidden="true"></section>
