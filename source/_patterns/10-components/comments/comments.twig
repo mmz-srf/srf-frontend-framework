@@ -1,6 +1,7 @@
 <div class="comments-wrapper" data-total-count="{{ comments.total_count }}" {% block data_attributes %}{% endblock %}>
     <div class="comments-header l-full-width-container">
         <p class="comments-header__title comments-header--shrink">{% if comments.total_count > 0 %}{{ comments.total_count }} {% endif %}{{ comments.title|default("Kommentare") }}</p>
+        <hr class="comments-header__border">
         {% if comments.total_count == 0 %}
             <p class="comments-header__text comments-header--shrink">
                 {{ comments.no_comment|default("Es wurden noch keine Kommentare erfasst. Seien Sie die erste Person, die diesen Artikel kommentiert.") }}
