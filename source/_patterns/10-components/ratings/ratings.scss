@@ -5,7 +5,7 @@
 .ratingstars__elem {margin:0;padding:0;float:left} // overwrite
 .ratingstars__elem:before {content:none} // overwrite
 
-.ratingstars__checkbox {position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden}
+.ratingstars__checkbox {position:absolute;opacity:0;z-index:-1} /*{position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden}*/
 
 .ratingstars__star {width:45px;height:45px;padding:4px;fill:rgb(185,183,173);border-radius:1em}
 .ratingstars__star:hover,
