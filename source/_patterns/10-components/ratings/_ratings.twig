@@ -10,7 +10,7 @@
                     <div class="ratingstars">
                         <ol class="ratingstars-list">
                             {% for answers in 1..5 %}
-                            <li class="ratingstars__elem" data-ratings_index="{{ratings_index}}" data-answer_index="{{answer_index}}" data-star_index="{{loop.index}}">
+                            <li class="ratingstars__elem">
                                 <input type="radio" id="star{{ratings_index}}-{{answer_index}}-{{loop.index}}" name="ratingStar{{ratings_index}}-{{answer_index}}" value="{{loop.index}}" class="ratingstars__checkbox" />
                                 <label for="star{{ratings_index}}-{{answer_index}}-{{loop.index}}">
                                     <svg class="ratingstars__star ratingstars__star--{{loop.index}} ratingstars__star--{{ratings_index}}-{{answer_index}}-{{loop.index}}" viewBox="0 0 37 37" version="1.1" xmlns="http://www.w3.org/2000/svg">

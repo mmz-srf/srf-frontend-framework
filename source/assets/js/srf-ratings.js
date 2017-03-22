@@ -70,12 +70,12 @@ var ratingController = function(){
                 $thisStarInput = $thatParent.siblings('input'),
                 thisStar = $thisStarInput.attr('value'),
                 index_tmp = $thisStarInput.attr('id').split('-'),
-                ratings_index = index_tmp[0].slice(-1),// $thatParentParent.attr('data-ratings_index'),
-                answer_index = index_tmp[1],// $thatParentParent.attr('data-answer_index'),
-                star_index = index_tmp[2];// $thatParentParent.attr('data-star_index');
+                ratings_index = index_tmp[0].slice(-1),
+                answer_index = index_tmp[1],
+                star_index = index_tmp[2];
 
             for (var i = 1; i <= thisStar; i++) {
-                $(radioID+ratings_index+'-'+answer_index+'-'+i).siblings('label').find(ratingStarClass+'--'+ratings_index+'-'+answer_index+'-'+i).addClass(hoverClassName);
+                $(ratingStarClass+'--'+ratings_index+'-'+answer_index+'-'+i).addClass(hoverClassName);
             }
         }).on('mouseleave',function(e){
             $(ratingStarClass).removeClass(hoverClassName);
@@ -95,7 +95,7 @@ var ratingController = function(){
             that.rating[$rating.prop('id')].addVote($that.closest(optionClass).prop('id'),$that.prop('id'));
 
             // toggle all stars before and including the clicked one as active/inactive
-            $('[data-ratings_index='+ratings_index+'][data-answer_index='+answer_index+']').find(ratingStarClass).removeClass(activeClassName);
+            $('#'+starsIDName+ratings_index+answer_index).find(ratingStarClass).removeClass(activeClassName);
 
             for (var i = 1; i <= myVote; i++) {
                 $(ratingStarClass+'--'+ratings_index+'-'+answer_index+'-'+i).addClass(activeClassName);
