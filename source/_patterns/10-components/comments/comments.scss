@@ -1,11 +1,18 @@
 .comments-wrapper {
-  background-color: $color-link-bg-hover;
   margin: 24px 0 24px;
   @include smartphone {
     margin: 20px -8px 20px;
   }
 }
-.comments-wrapper__title {
+.comments-header {
+  background-color: $color-link-bg-hover;
+}
+.comments-header--shrink {
+  max-width: 680px;
+  padding: 0 40px;
+  margin: 0 auto !important;
+}
+.comments-header__title {
   font: 22px/28px $font-medium;
   letter-spacing: .3px;
   margin: 0;
