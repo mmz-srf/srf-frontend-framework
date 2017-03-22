@@ -10,8 +10,8 @@
       }
       &:before {
         content: url(../img/red_tick.svg);
-        left: 21px;
-        color: $color-accentuation-red;
+        top: 13px;
+        left: 20px;
       }
     }
     + .checkbox--inactive {
@@ -28,17 +28,17 @@
 
 .checkbox-label {
   @include button-label;
-  padding: 14px 16px 14px 50px;
+  padding: 14px 16px 14px 48px;
 
   &:before, &:after {
     content: "";
     position: absolute;
   }
   &:after {
-    top: 16px;
+    top: 17px;
     left: 16px;
-    width: 18px;
-    height: 18px;
+    width: 16px;
+    height: 16px;
     border: solid 1px $color-text-light;
   }
   &.checkbox--inactive:hover {

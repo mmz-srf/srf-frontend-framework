@@ -53,8 +53,9 @@
   @include rounded-corners(2px);
   transition: border-color 0.2s ease-in-out; // ??
   &:focus {
-    border-color: $color-text-default;
+    border-color: $color-text-accentuation;
     color: $color-text-default;
+    outline: none;
   }
   &[type=password] {
     font-size: 30px;

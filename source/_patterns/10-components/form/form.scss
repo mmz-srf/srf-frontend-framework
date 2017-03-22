@@ -21,7 +21,7 @@
   font: 16px/24px $font-regular;
   letter-spacing: 0.5px;
   color: $color-text-accentuation;
-  margin: 20px 0 4px;
+  padding: 20px 0 4px; // margin: 20px 0 4px;
 }
 .form-fieldset__hint {
   font: 16px/24px $font-light;
