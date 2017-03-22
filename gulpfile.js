@@ -7,10 +7,10 @@ var gulp = require('gulp'),
     browserSync = require('browser-sync'),
     babel = require('babelify'),
     browserify = require('browserify'),
+    imagemin = require('gulp-imagemin'),
     source = require('vinyl-source-stream'),
     buffer = require('vinyl-buffer'),
     exec = require('child_process').exec;
-
 
 var $ = gulpLoadPlugins();
 var reload = browserSync.reload;
@@ -69,10 +69,20 @@ gulp.task('scripts-vendor', function() {
         .pipe(gulp.dest('public/assets/js/'));
 });
 
+gulp.task('images', function() {
+    gulp.src('source/assets/img/**/*')
+        .pipe(imagemin([
+            imagemin.gifsicle(),
+            imagemin.optipng(),
+            imagemin.svgo({plugins: [{removeTitle: true, removeDesc: true}]})
+        ]))
+        .pipe(gulp.dest('public/assets/img'))
+});
+
 gulp.task('copy', function() {
     return  gulp.src([
-       'source/assets/**/*',
-     ], {
+        'source/assets/!(img)/**/*'   // copy all assets except the img folder
+    ], {
        dot: true
      }).pipe(gulp.dest('public/assets'));
 });
@@ -99,7 +109,8 @@ gulp.task('patternlab', function (cb) {
 gulp.task('watch', function(cb) {
     gulp.watch('source/_patterns/**/*.scss', ['styles'], reload);
     gulp.watch('source/assets/js/*.js', ['scripts'], reload);
-    gulp.watch('source/assets/**/*', ['copy'], reload);
+    gulp.watch('source/assets/!(img)/**/*', ['copy'], reload);
+    gulp.watch('source/assets/img/**/*', ['images'], reload);
     exec('php core/console --watch --patternsonly', function (err, stdout, stderr) {
         console.log(stdout);
         console.log(stderr);
@@ -107,12 +118,11 @@ gulp.task('watch', function(cb) {
     });
 });
 
-
 gulp.task('build', function(cb) {
     runSequence(
         ['clean'],
         ['patternlab'],
-        ['copy', 'styles', 'scripts', 'scripts-vendor'],
+        ['copy', 'images', 'styles', 'scripts', 'scripts-vendor'],
         cb
     );
 });
