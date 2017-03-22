@@ -55,7 +55,7 @@
 }
 .comments--replies {
   margin-left: 10px;
-  @include tablet {
+  @include tablet-up {
     margin-left: 50px;
   }
 }
