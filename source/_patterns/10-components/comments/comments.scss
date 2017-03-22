@@ -6,17 +6,46 @@
 }
 .comments-header {
   background-color: $color-link-bg-hover;
+  border-top: 1px solid $color-separator;
 }
 .comments-header--shrink {
-  max-width: 680px;
-  padding: 0 40px;
-  margin: 0 auto !important;
+    @include tablet-up {
+      margin: 0 auto !important
+    }
+    @include tablet {
+      max-width: 720px;
+    }
+    @include desktop-up {
+      max-width: 792px;
+    }
+    @include desktop-wide {
+      max-width: 870px;
+    }
 }
+
 .comments-header__title {
   font: 22px/28px $font-medium;
   letter-spacing: .3px;
   margin: 0;
   padding: 24px 16px 20px;
+
+  @include tablet {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+  @include desktop-up {
+    padding-left: 55px;
+    padding-right: 55px;
+  }
+}
+.comments-header__border { // hack :(
+  position: absolute;
+  border-bottom: 1px solid $color-separator;
+  border-width: 0 0 1px;
+  margin: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: 0;
 }
 .comments {
   background-color: #fff;
@@ -26,11 +55,8 @@
 }
 .comments--replies {
   margin-left: 10px;
-  &:before {
-    position: absolute;
-    top: -8px;
-    left: -10px;
-    content: url("../img/arrows/fancy_arrow.svg");
+  @include tablet {
+    margin-left: 50px;
   }
 }
 .comment {
@@ -40,6 +66,19 @@
   margin: 0 16px;
   &:before { // overwrite
     content: none;
+  }
+  .comment {
+    margin-right: 0;
+    overflow: visible;
+    &:before {
+      position: absolute;
+      top: -12px;
+      left: -26px;
+      content: url("../img/arrows/fancy_arrow.svg");
+      @include tablet-up {
+        top: -14px;
+      }
+    }
   }
 }
 .comments--main > .comment:first-child {
@@ -89,6 +128,23 @@
   height: 40px;
   margin: 0;
   padding: 0;
+
+  @include tablet {
+    padding-left: 34px;
+    padding-right: 34px;
+  }
+
+  @include desktop-up {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  @include desktop-wide {
+    // max-width: 870px;
+  }
+  &.comments-header--shrink {
+    margin: 0 auto;
+  }
 }
 .tab-option {
   float: left;
@@ -97,6 +153,9 @@
   padding: 0;
   &:before { // overwrite
     content: none;
+  }
+  @include tablet-up {
+    width: auto;
   }
 }
 
@@ -110,6 +169,9 @@
   &:hover {
     color: $color-tab-option-link;
     border-bottom: 1px solid $color-separator;
+  }
+  @include tablet-up {
+    padding: 12px 16px 11px;
   }
 }
 .tab-option__link--selected {

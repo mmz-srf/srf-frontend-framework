@@ -11,4 +11,7 @@
   &:active {
     background-color: $color-bg-box;
   }
+  @include tablet-up {
+    height: 56px;
+  }
 }
