@@ -3,6 +3,12 @@
   @include smartphone {
     margin: 20px -8px 20px;
   }
+  position: relative;
+  .spinner-container {
+    position:relative;
+    margin-top: 30px;
+    display:none;
+  }
 }
 .comments-header {
   background-color: $color-link-bg-hover;
