@@ -1,5 +1,5 @@
 {% import '_ratings.twig' as starTempl %}
-{% import 'poll.twig' as option %} {# with-media & setup solely for polls with media! #}
+{% import '_poll.twig' as option %} {# with-media & setup solely for polls with media! #}
 {% set ratingsIndex = ratingsIndex ?: 2 %}
 {% set styleModifier = styleModifier ?: 'poll--with-radios' %}
 {% set list_entries = 3 %}
