@@ -26,7 +26,7 @@ $timestamp=cond($num_cantons|eq(26), $case.timestamp, $results.update)
         {/if} #}
     </p>
 
-    <div class="result bars main-result-bar">
+    <div class="result bars">
         <div class="yes absolute">
             <strong>JA</strong><span class="offscreen">-Stimmen absolut:</span> ({# {'%x Stimmen'|i18n('frontend/votes', '', hash('%x', concat('<span class="result">', $results.absolute.yes|format_absolute_number(), '</span>')))} #})
         </div>
@@ -35,7 +35,7 @@ $timestamp=cond($num_cantons|eq(26), $case.timestamp, $results.update)
         </div>
         <div class="bar">
             <div class="yes relative" style="width: 33{# $results.relative.yes}#}%"></div>
-            <div class="no relative" style="width: 66{# $results.relative.no}#}%"></div>
+            <div class="no relative" style="width: 67{# $results.relative.no}#}%"></div>
             <div class="result yes"><span class="offscreen">JA-Stimmen relativ: </span>{# {$results.relative.yes|format_relative_number()} #}<span class="symbol">%</span></div>
             <div class="result no"><span class="offscreen">NEIN-Stimmen relativ: </span>{# {$results.relative.no|format_relative_number()} #}<span class="symbol">%</span></div>
         </div>

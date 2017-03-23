@@ -139,8 +139,12 @@ $yes-rel: #fff;
       }
     }
 
-    // .result.bars {
-    .main-result-bar {
+    .result.bars {
+    // .main-result-bar {
+      position: relative;
+      width: 100%;
+      height: 64px;
+      margin-bottom: 10px;
       &.cantonal {
         height: 42px;
         margin-bottom: 16px;
@@ -157,10 +161,7 @@ $yes-rel: #fff;
           }
         }
       }
-      position: relative;
-      width: 100%;
-      // height: 64px;
-      // margin-bottom: 10px;
+
       .absolute {
         font-size: 12px;
         line-height: 16px;
@@ -208,11 +209,11 @@ $yes-rel: #fff;
             font-size: 24px;
           }
           &.yes {
-            // position: absolute;
+            position: absolute;
             left: 8px;
           }
           &.no {
-            // position: absolute;
+            position: absolute;
             right: 8px;
             text-align: right;
             // top: 1px;
@@ -235,7 +236,7 @@ $yes-rel: #fff;
         }
 
       }
-    // }
+    }
     .polis-map {
       min-height: 230px;
     }
@@ -327,7 +328,7 @@ $yes-rel: #fff;
       }
     }
   }
-// }
+
 .toggle-district {
   display: block;
   width: 100%;
