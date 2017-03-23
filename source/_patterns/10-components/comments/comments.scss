@@ -71,13 +71,13 @@
     margin-right: 0;
     overflow: visible;
     &:before {
+      content: "";
       position: absolute;
-      top: -12px;
+      height: 15px;
       left: -26px;
-      content: url("../img/arrows/fancy_arrow.svg");
-      @include tablet-up {
-        top: -14px;
-      }
+      top: -8px;
+      width: 20px;
+      background: #fff url("../img/arrows/fancy_arrow.svg");
     }
   }
 }
