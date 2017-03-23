@@ -1,6 +1,6 @@
-{% set count = 0 %}
+{% set commentIds = [] %}
 {% for comment in comments %}
-    {% set count = count + 1 %}
+    {% set commentIds = commentIds|merge([comment.id]) %}
     <li id="comment_{{ comment.id }}" class="comment">
         <p class="comment__user">{{ comment.name }} ({{ comment.nickname }})</p>
         <span class="comment__time">{{ comment.dateFormatted }}</span>
@@ -10,7 +10,7 @@
         {% if comment.children|length > 0 %}
             <ol class="comments comments--replies">
                 {% for reply in comment.children %}
-                    {% set count = count + 1 %}
+                    {% set commentIds = commentIds|merge([reply.id]) %}
                     <li id="comment_{{ reply.id }}" class="comment">
                         <p class="comment__user {% if reply.isEditorialAnswer %} comment__user--srf{% endif %}">{{ reply.name }} ({{ reply.nickname }})</p>
                         <span class="comment__time">{{ reply.dateFormatted }}</span>
@@ -23,4 +23,4 @@
         {% endif %}
     </li>
 {% endfor %}
-<span style="display:none" data-count="{{ count }}" class="comments_count--js"></span>
+<span style="display:none" data-ids="{{ commentIds|join(',')  }}" class="comment_ids--js"></span>
