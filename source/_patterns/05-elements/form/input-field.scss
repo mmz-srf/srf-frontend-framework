@@ -27,10 +27,10 @@
   }
   &.input-field--success {
     &:after {
-      content: "✔";
+      content: "";
       display: inline-block;
-      color: $color-button-success;
       border: solid 1px $color-button-success;
+      background: transparent url("../img/blue_tick.svg") no-repeat center;
     }
   }
   &.input-field--no-icon {
