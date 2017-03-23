@@ -39,6 +39,8 @@ export function init() {
             if ($that.tooltipEnabled) {
 
                 $that.on('mouseenter focus', function() {
+                    $that.children('.tooltip').remove();
+
                     $that.append($that.template);
                     $that.css('position', 'relative');
 
