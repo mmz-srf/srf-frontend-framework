@@ -52,6 +52,9 @@
       /* top: 40%;
       transform: translate(0, -50%); */
       top: 28vw;
+      padding:0; // reset default button style
+      background-color:transparent; // reset default button style
+      cursor:pointer; // reset default button style
       background-repeat: no-repeat;
       background-size: 24px;
       display: block;
@@ -110,7 +113,6 @@
   }
 
   .slick-disabled {
-    opacity: 0;
-    pointer-events:none;
+    display: none !important; // hide from screenreader
   }
 }

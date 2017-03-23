@@ -3,6 +3,7 @@
 </div>
 {% include 'components-article-header' %}
 <section class="article-content">
+    {% include 'components-sharing-bar' %}
     {% include 'elements-article-text' %}
     {% include 'components-image-figure' %}
     {% include 'elements-article-text' %}
@@ -15,7 +16,7 @@
     {% include 'elements-article-text' %}
     {% include 'elements-text-list--ordered' %}
     {% include 'elements-article-text' %}
-    {% include 'components-linkbox' %}
+    {% include 'components-linkbox' with {'title': 'Links zum Thema'}%}
     {% include 'elements-article-text' %}
     {% include 'elements-content-header' %}
     {% include 'components-table-block' %}
@@ -31,4 +32,6 @@
     {% include 'components-image-slider' %}
     {% include 'components-ticker--closed' %}
     {% include 'components-poll' %}
+    {% include 'elements-article-text' %}
+    {% include 'elements-article-author--short' %}
 </section>

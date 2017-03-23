@@ -1,0 +1,98 @@
+.sharing-bar {
+    padding: 20px 0 20px 0;
+    @include smartphone { padding: 28px 0 20px 0; }
+
+    display: inline-block;
+    width: 100%;
+    position: relative;
+    background-color: transparent;
+    text-align: center;
+
+    >.horizontal-separator {
+        position: absolute;
+        margin-top: 0;
+        margin-bottom: 0;
+        top: 44px;
+        @include smartphone { top: 52px; }
+        z-index: -1;
+    }
+
+    >.horizontal-separator--content-max-width {
+        position: relative;
+        top: 25px;
+        @include desktop-widest {
+            margin-left: 0px;
+            margin-right: 0px;
+        }
+    }
+
+
+}
+
+.sharing-bar__container {
+    padding: 0 10px;
+    @include smartphone { padding: 0 12px; }
+
+    background-color: #fff;
+    margin: 0 auto;
+
+    display: inline-block;
+}
+
+.sharing-bar__summary {
+    font-size: 12px;
+    font-family: $font-system;
+    line-height: 1.33;
+    text-align: center;
+    color: #757266;
+}
+
+.sharing-bar__button {
+    // 48px x 48px
+    width: 40px;
+    height: 40px;
+    margin: 4px 6px;
+    @include smartphone { margin: 4px; }
+
+    float: left;
+
+    font-size: 10px;
+    font-weight: bold;
+    font-family: $font-system;
+    line-height: 1.2;
+    text-align: center;
+    color: #4e4d47;
+
+    // Make hover area circled so corners don't trigger mouseenter/hover
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.sharing-bar__button:hover {
+    opacity: 0.84;
+}
+
+.sharing-bar__button--facebook {
+    background-image: url("../../assets/img/share/icon_share_facebook.svg");
+}
+
+.sharing-bar__button--twitter {
+    background-image: url("../../assets/img/share/icon_share_twitter.svg");
+}
+
+.sharing-bar__button--whatsapp {
+    display: none;
+    @include smartphone {
+        display: inline-block;
+    }
+    background-image: url("../../assets/img/share/icon_share_whatsapp.svg");
+}
+
+.sharing-bar__button--comment {
+    background-image: url("../../assets/img/share/icon_share_comments.svg");
+    line-height: 39px;
+}
+
+.sharing-bar__button--comment-zero {
+    background-image: url("../../assets/img/share/icon_share_comments_zero.svg");
+}

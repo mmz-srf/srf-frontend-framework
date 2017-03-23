@@ -23,7 +23,7 @@ defaultShowPatternInfo: true
 lineageMatch: '{%([ ]+)?include( |\()[&quot;\&#039;]([A-Za-z0-9-_]+)[&quot;\&#039;](\))?(.*)%}'
 lineageMatchKey: 3
 patternExtension: twig
-twigDebug: false
+twigDebug: true
 twigAutoescape: html
 twigDefaultDateFormat: ''
 twigDefaultIntervalFormat: ''
@@ -42,4 +42,4 @@ plugins:
     reload:
         enabled: true
     dataInheritance:
-        enabled: false
+        enabled: true

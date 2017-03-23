@@ -1,17 +1,25 @@
 <figcaption class="media-caption {{ styleModifier }}">
-        <span class="media-caption__title">
-            {{ images[0].caption.title }}
-        </span>
-        <span class="media-caption__description">
-            {{ images[0].caption.description }}
-        </span>
-        <span class="media-caption__source">
-            {% if images[0].caption.source_link is defined %}
-                <a class="media-caption__source-link" href="{{ images[0].caption.source_link }}" target="_blank">
-            {% endif %}
-                {{ images[0].caption.source }}
-            {% if images[0].caption.source_link is defined %}
-                </a>
-            {% endif %}
-        </span>
+        {% if image.caption.title %}
+                <span class="media-caption__title">
+                    {{ image.caption.title }}
+                </span>
+        {% endif %}
+
+        {% if image.caption.description %}
+                <span class="media-caption__description">
+                    {{ image.caption.description }}
+                </span>
+        {% endif %}
+
+        {% if image.caption.source %}
+                <span class="media-caption__source">
+                    {% if image.caption.source_link %}
+                        <a class="media-caption__source-link" href="{{ image.caption.source_link }}" target="_blank">
+                    {% endif %}
+                        {{ image.caption.source }}
+                    {% if image.caption.source_link %}
+                        </a>
+                    {% endif %}
+                </span>
+        {% endif %}
 </figcaption>
