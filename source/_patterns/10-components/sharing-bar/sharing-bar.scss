@@ -1,6 +1,6 @@
 .sharing-bar {
-    padding: 20px 0 20px 0;
-    @include smartphone { padding: 28px 0 20px 0; }
+    padding: 24px 0 24px 0;
+    @include smartphone { padding: 32px 0 24px 0; }
 
     display: inline-block;
     width: 100%;
@@ -44,7 +44,7 @@
     font-family: $font-system;
     line-height: 1.33;
     text-align: center;
-    color: #757266;
+    color: #888579;
 }
 
 .sharing-bar__button {
@@ -61,14 +61,17 @@
     font-family: $font-system;
     line-height: 1.2;
     text-align: center;
-    color: #4e4d47;
+    color: #22211D;
 
     // Make hover area circled so corners don't trigger mouseenter/hover
     border-radius: 50%;
     cursor: pointer;
 }
 
-.sharing-bar__button:hover {
+.sharing-bar__button:hover,
+.sharing-bar__button:active,
+.sharing-bar__button:focus,
+.sharing-bar__button--active {
     opacity: 0.84;
 }
 
