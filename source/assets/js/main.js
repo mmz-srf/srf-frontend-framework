@@ -10,7 +10,7 @@ import {init as SrfPolisInit} from './srf-polis';
 document.addEventListener("DOMContentLoaded", function(event) {
     SrfCarouselsInit();
     SrfChartsInit();
-    SrfCHMapInit();
+    // SrfCHMapInit();
     SrfImageSliderInit();
     SrfPollInit();
     SrfRatingsInit();

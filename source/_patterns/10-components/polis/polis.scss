@@ -1,0 +1,498 @@
+
+/* result colors red-blue */
+$res-0:   #7a001a;
+$res-40:  #92001f;
+$res-45:  #c4002b;
+$res-50:  #de0030;
+$res-55:  #1e8ce3;
+$res-60:  #036cc5;
+$res-65:  #085698;
+$res-100: #0c406b;
+$yes-rel: #fff;
+
+.polis-map-wrapper {
+  position: relative;
+  // background-color: #f5f5f2;
+  margin: 32px 0 24px;
+  padding-bottom: 30px;
+  @include tablet-up {
+    padding-bottom: 84px;
+  }
+}
+
+.polis-map {
+  position: relative;
+  background-color: #f5f5f2;
+  margin: 32px 0 24px;
+  padding-bottom: 30px;
+  @include tablet-up {
+    padding-bottom: 84px;
+  }
+}
+
+.res-0  { fill: $res-0; }
+.res-40 { fill: $res-40; }
+.res-45 { fill: $res-45; }
+.res-50 { fill: $res-50; }
+.res-55 { fill: $res-55; }
+.res-60 { fill: $res-60; }
+.res-65 { fill: $res-65; }
+.res-100 { fill: $res-100; }
+
+.polis-map-wrapper {
+  span.date {
+    display: inline;
+  }
+  .chmap {
+    polygon {
+      -moz-transition: fill 1s ease-in;
+      /* WebKit */
+      -webkit-transition: fill 1s ease-in;
+      /* Opera */
+      -o-transition: fill 1s ease-in;
+      /* Standard */
+      transition: fill 1s ease-in;
+    }
+  }
+
+  .chevron {
+    width: 25px;
+    height: 4px;
+    background-repeat: no-repeat;
+    background-position: 0 50%;
+    display: table-cell;
+    vertical-align: middle;
+    text-indent: -9999px;
+    font-size:0;
+  }
+
+  // .vote {
+    // background: #ebebe5;
+    h2 {
+      font-size: 20px;
+      line-height: 26px;
+      font-family: SRG_SSR_Regular, Arial, Helvetica, Verdana;
+      color: #222;
+      padding-bottom: 10px;
+    }
+    h3 {
+      display: table;
+      position: relative;
+      text-align: center;
+      font-size: 14px;
+      font-family: "SRG_SSR_Medium", Arial, Helvetica, Verdana;
+      color: #222;
+      line-height: 20px;
+      margin-bottom: 12px;
+      background: #e2e0d7;
+      background: linear-gradient(to bottom, #e2e0d7 0%, #ceccbd 70%);
+      cursor: pointer;
+      padding: 12px 0;
+      width: 100%;
+      &:hover {
+        background: linear-gradient(to bottom, #f5f5f2 0%, #e2e0d7 70%);
+      }
+    }
+    &.active {
+      h3 {
+        background: linear-gradient(to bottom, #EBEBE5 0%, #d8d6ca 70%);
+        &:hover {
+          background: linear-gradient(to bottom, #f5f5f2 0%, #e2e0d7 70%);
+        }
+      }
+      .chevron {
+        background-image: url(../images/arrows/link-up.png);
+      }
+    }
+    &.passive {
+      .chevron {
+        background-image: url(../images/arrows/link-down.png);
+      }
+      .content {
+        display: none;
+      }
+    }
+    .cantonal {
+      h4 {
+        font-size: 19px;
+        line-height: 12px;
+        color: #555;
+        font-family: "SRG_SSR_Regular", Arial, Helvetica, Verdana;
+        font-weight: normal;
+      }
+    }
+    .result-state {
+      font-size: 12px;
+      line-height: 16px;
+      color: #555;
+      margin-bottom: 2px;
+    }
+    .content {
+      padding: 16px;
+      padding-top: 0;
+      margin-bottom: 10px;
+    }
+
+    &.vote-cantonal {
+      .content {
+        padding-bottom: 2px;
+      }
+    }
+
+    // .result.bars {
+    .main-result-bar {
+      &.cantonal {
+        height: 42px;
+        margin-bottom: 16px;
+        .bar {
+          height: 23px;
+          .relative {
+            height: 23px;
+          }
+          .result {
+            font-size: 19px;
+            font-family: "SRG_SSR_Regular", Arial, Helvetica, Verdana;
+            color: #fff;
+            height: 23px;
+          }
+        }
+      }
+      position: relative;
+      width: 100%;
+      // height: 64px;
+      // margin-bottom: 10px;
+      .absolute {
+        font-size: 12px;
+        line-height: 16px;
+      }
+      .yes.absolute {
+        // position: absolute;
+        left:0;
+        top: 0;
+        strong {
+          color: #085698;
+        }
+      }
+      .no.absolute {
+        // position: absolute;
+        right: 0;
+        top:0;
+        strong {
+          float: right;
+          text-indent: 0.25em;
+          color: #b60028;
+        }
+      }
+      .bar {
+        background: #d8d6ca;
+        position: absolute;
+        display: table;
+        top: 19px;
+        left: 0;
+        height: 43px;
+        width: 100%;
+        .relative {
+          height: 43px;
+        }
+        .result {
+          font-size: 34px;
+          font-family: "SRG_SSR_Regular", Arial, Helvetica, Verdana;
+          color: #fff;
+          display: table-cell;
+          vertical-align: middle;
+          position: relative;
+          width: 50%;
+          line-height: normal;
+          height: 30px;
+          .symbol {
+            font-size: 24px;
+          }
+          &.yes {
+            // position: absolute;
+            left: 8px;
+          }
+          &.no {
+            // position: absolute;
+            right: 8px;
+            text-align: right;
+            // top: 1px;
+          }
+        }
+        .yes.relative {
+          position: absolute;
+          left:0;
+          top: 0;
+          transition: width 0.5s ease-in;
+          background-color: #036cc5;
+        }
+        .no.relative {
+          text-align: right;
+          position: absolute;
+          right:0;
+          top: 0;
+          transition: width 0.5s ease-in;
+          background-color: #b60028;
+        }
+
+      }
+    // }
+    .polis-map {
+      min-height: 230px;
+    }
+    .regional-results-wrapper {
+      // display: none;
+      // margin-top: 16px;
+
+      .text-active, .text-passive {
+        display: none;
+        vertical-align: middle;
+        width: 100%;
+      }
+
+      &.active {
+        display: block;
+        .text-active {
+          display: table-cell;
+        }
+      }
+      &.passive {
+        .district {
+          display: none;
+        }
+        .text-passive {
+          display: table-cell;
+        }
+        .chevron {
+          background-image: url(../images/arrows/link-down.png);
+        }
+      }
+      .icon {
+        width: 65px;
+        height: 65px;
+        margin-top: 1px;
+        background: #fff;
+        float: left;
+        svg {
+          margin: 5px;
+        }
+      }
+      .regional-results {
+        h4 {
+          font-size: 24px;
+          line-height: 24px;
+          margin-bottom: 2px;
+          font-family: SRG_SSR_Medium, Arial, Helvetica, Verdana;
+          text-transform: uppercase;
+          small {
+            font-family: Arial;
+            text-transform: none;
+            font-size: 12px;
+            line-height: 16px;
+            color: #555;
+          }
+        }
+        h5 {
+          font-size: 19px;
+          font-family: SRG_SSR_Regular, Arial, Helvetica, Verdana;
+          color: #555;
+          margin-bottom: 1px;
+        }
+        margin-left: 80px;
+        box-sizing: border-box;
+        .result.bars {
+          height: 43px;
+          margin-bottom: 14px;
+          .bar {
+            height: 22px;
+            .relative {
+              height: 22px;
+            }
+            .result, .symbol {
+              height: 22px;
+              font-size: 19px;
+            }
+          }
+        }
+        .district {
+          .result.bars {
+            height: 28px;
+            .bar {
+              height: 7px;
+              .relative {
+                height: 7px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+// }
+.toggle-district {
+  display: block;
+  width: 100%;
+  height: 32px;
+  font-size: 14px;
+  // line-height: 32px;
+  font-family: "SRG_SSR_Medium", Arial, Helvetica, Verdana;
+  text-align: center;
+  background: #e2e0d7;
+  color: #555;
+  display: table;
+  .chevron {
+    background-image: url(../images/arrows/link-up.png);
+    background-position: 0 14px;
+    display: inline-block;
+    float: right;
+    height: 32px;
+    margin-left: 3px;
+  }
+  &:hover {
+    background: #ceccbd;
+    text-decoration: none;
+  }
+  &:focus {
+    text-decoration: none;
+  }
+}
+.polis-flyout {
+  overflow: hidden;
+  display: inline-block;
+  position: absolute;
+  left: 200px;
+  top: 200px;
+  pointer-events: none;
+  width: 300px;
+  height: 85px;
+  z-index: 100;
+  h3 {
+    font-size: 16px;
+    line-height: 24px;
+    font-family: 'SRG_SSR_Bold', Arial, Helvetica, Verdana;
+    text-transform: uppercase;
+  }
+  p {
+    font-size: 12px;
+    line-height: 14px;
+    margin-bottom: 0;
+  }
+}
+
+.polis-flyout-wrapper {
+  background: #222;
+  color: #FFF;
+  padding: 14px 16px 16px;
+  display: inline-block;
+  position: absolute;
+  left: 0;
+}
+
+.polis-flyout-wrapper:after {
+  top: 100%;
+  left: 0%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+  border-color: rgba(0, 0, 0, 0);
+  border-top-color: #222;
+  border-width: 16px;
+  margin-left: -16px;
+}
+
+.arrow-right {
+  &.polis-flyout {
+    left: -300px;
+  }
+
+  .polis-flyout-wrapper {
+    left: auto;
+    right: 0;
+  }
+
+  .polis-flyout-wrapper:after {
+    left: auto;
+    right: -16px;
+  }
+}
+
+.polis-legend {
+  margin: 12px 16px;
+  @include tablet-up {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 292px; // i think ...// 280px;
+  }
+}
+.polis-legend__title {
+  font: 12px/16px $font-system;
+  color: #22211d;
+  margin-bottom: 4px;
+}
+.polis-legend-numbers,
+.polis-legend-scale {
+  > li:before {
+    content: none;
+  }
+  margin: 0;
+  padding: 0;
+}
+
+.polis-legend-numbers {
+  font: 12px/16px $font-system;
+  color: #888579;
+}
+
+.polis-legend-numbers__element {
+  margin: 4px 0 0;
+  text-align: center;
+  // same
+  width: 6.5%; // 6*6.5
+  padding: 0;
+  float: left;
+}
+.polis-legend-numbers__element--edge {
+  width: 27.2%;
+}
+.polis-legend-numbers__element--100 {
+  text-align: left;
+}
+.polis-legend-numbers__element--zero {
+  text-align: right;
+}
+
+.polis-legend-scale {
+  .res-0 {   background-color: $res-0;   }
+  .res-40 {  background-color: $res-40;  }
+  .res-45 {  background-color: $res-45;  }
+  .res-50 {  background-color: $res-50;  }
+  .res-55 {  background-color: $res-55;  }
+  .res-60 {  background-color: $res-60;  }
+  .res-65 {  background-color: $res-65;  }
+  .res-100 { background-color: $res-100; }
+}
+.polis-legend-scale__element {
+  height: 4px;
+  margin: 0;
+  // same
+  width: 6.5%; // 6*6.5
+  padding: 0;
+  float: left;
+}
+.polis-legend-scale__element--edge {
+  width: 30.5%; //+ 2*30.5 = 100
+}
+
+.polis-participation {
+  font: 12px/16px $font-system;
+  color: #888579;
+  margin: 0 16px 8px;
+  @include tablet-up {
+    position: absolute;
+    bottom: 0;
+    margin: 16px;
+  }
+}

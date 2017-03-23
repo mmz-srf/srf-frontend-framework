@@ -43,8 +43,8 @@ var polisController = function() {
     };
 
     this.initObservers = function() {
-        //clicker for titles
-        $('.polis .vote h3').on('click', function(){
+        // clicker for titles
+        $('.chmap .vote h3').on('click', function(){
             $(this).closest('.vote').toggleClass('active passive');
         });
         //district results toggle
@@ -52,8 +52,8 @@ var polisController = function() {
             e.preventDefault();
             $(this).closest('.regional-results-wrapper').toggleClass('active passive');
         });
-        //render regional results
-        $('.polis-desktop').on('click', '.polis.ch g:not(.initial) polygon', function(){
+        // render regional results
+        $('.chmap--desktop').on('click', '.chmap g:not(.initial) polygon', function(){
             var mapId = $(this).closest('div.polis-map').attr('id'),
                 cantonId = $(this).closest('g').attr('id'),
                 map = that.getMapById(mapId),
@@ -64,14 +64,14 @@ var polisController = function() {
         });
 
 
-        $('.polis-desktop').on('mouseenter', '.polis.ch g:not(.initial)', function() {
+        $('.chmap--desktop').on('mouseenter', '.chmap g:not(.initial)', function() {
             that.doMouseEnter($(this), false);
-        }).on('mouseleave', '.polis.ch g:not(.initial)', function(){
+        }).on('mouseleave', '.chmap g:not(.initial)', function(){
             that.doMouseLeave($(this), false);
         });
 
-        //tooltip for cantons
-        $('.polis-desktop').on('mousemove', '.polis.ch g:not(.initial)', function( event ) {
+        // tooltip for cantons
+        $('.chmap--desktop').on('mousemove', '.chmap g:not(.initial)', function( event ) {
             var pageY = event.pageY-90,
                 pageX = event.pageX,
                 $tooltip = $('#polis-tooltip'),
@@ -242,7 +242,7 @@ var polisController = function() {
         }
 
         //show tooltip with data
-        var mapId = $target.closest('div.polis-map').attr('id');
+        var mapId = $target.closest('.polis-map').attr('id');
         var map = that.getMapById(mapId);
         var canton = map.getCantonById($target.attr('id'));
         if ($('#polis-tooltip').length === 0) {
@@ -350,7 +350,7 @@ var polisController = function() {
             if (this.yes === undefined || this.yes === "") {
                 this.$element.attr('class', 'initial');
             } else {
-                this.$element.attr('class', this.decorator.getColorForPercent(this.yes));
+                this.$element.addClass(this.decorator.getColorForPercent(this.yes)); // attr('class', this.decorator.getColorForPercent(this.yes));
             }
         };
 
