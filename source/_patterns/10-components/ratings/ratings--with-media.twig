@@ -1,0 +1,37 @@
+{% import '_ratings.twig' as starTempl %}
+{% import 'poll.twig' as option %} {# with-media & setup solely for polls with media! #}
+{% set ratingsIndex = ratingsIndex ?: 2 %}
+{% set styleModifier = styleModifier ?: 'poll--with-radios' %}
+{% set list_entries = 3 %}
+<form id="ratings-ID{{ratingsIndex}}" class="rating-wrapper poll--with-media poll--setup {{styleModifier}}" name="ratings_{{ratingsIndex}}" method="get" data-src="../../assets/demo/ratings-data.json">
+    <fieldset class="poll-fieldset">
+        {# here is never an image - as the poll contains media #}
+        <legend class="poll-fieldset__legend">{{poll.description}}</legend>
+        <ol class="poll">
+            {% for question in 0..3 %}
+            {% if loop.index0 == 0 %}
+            <li id="stars-ID{{ratingsIndex}}{{loop.index}}" class="poll-option poll-option--rating">
+                {# Image #}
+                {% set media_options = { "media": { "type": "bild", "title" : images[0].caption.title, "length" : 0, "player_url": null, "urn" : null }, "image" : images[0] } %}
+{{starTempl.ratingstars(ratingsIndex,loop.index,poll.answers.1.title,poll.answers.1.description,media_options)}}
+                {# // Image #}
+            </li>{% endif %}{% if loop.index0 == 1 %}
+            <li id="stars-ID{{ratingsIndex}}{{loop.index}}" class="poll-option poll-option--rating">
+                {# Video #}
+                {% set media_options = { "media": { "type": "video", "title" : videos[0].title, "length" : videos[0].length, "player_url": videos[0].player_url, "urn" : videos[0].urn }, "image" : images[2] } %}
+{{starTempl.ratingstars(ratingsIndex,loop.index,poll.answers.1.title,poll.answers.1.description,media_options)}}
+                {# // Video #}
+            </li>{% endif %}{% if loop.index0 == 2 %}
+            <li id="stars-ID{{ratingsIndex}}{{loop.index}}" class="poll-option poll-option--rating">
+                {# Audio #}
+                {% set media_options = { "media": { "type": "audio", "title" : audios[0].title, "length" : audios[0].length, "player_url": audios[0].player_url, "urn" : audios[0].urn }, "image" : images[2] } %}
+{{starTempl.ratingstars(ratingsIndex,loop.index,poll.answers.1.title,poll.answers.1.description,media_options)}}
+                {# // Audio #}
+            </li>{% endif %}
+            {% endfor %}
+        </ol>
+{{ option.form_submit(poll, styleModifier) }}
+    </fieldset>
+</form>
+
+
