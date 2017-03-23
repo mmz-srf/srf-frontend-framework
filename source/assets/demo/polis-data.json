@@ -1,0 +1,5656 @@
+{
+  "voteCase": {
+    "id": 1453,
+    "active": false,
+    "title": "Abstimmungen und Wahlen vom 12. Februar 2017",
+    "date": "2017-02-12"
+  },
+  "votes": {
+    "3893": {
+      "needsCantonalMajority": true,
+      "cantonalResult": {
+        "absolute": {
+          "yes": 17,
+          "no": 6
+        },
+        "relative": {
+          "yes": 73.913043478261,
+          "no": 26.086956521739
+        }
+      },
+      "id": 3893,
+      "title": "Bundesbeschluss über die erleichterte Einbürgerung von Personen der dritten Ausländergeneration",
+      "shortTitle": "Einbürgerung 3. Generation",
+      "location": {
+        "id": 1,
+        "locationName": "Schweiz",
+        "shortName": "CH",
+        "type": {
+          "id": 1,
+          "name": "Land"
+        },
+        "power": 0,
+        "parentLocationId": 0
+      },
+      "results": {
+        "nationalResults": {
+          "dataCondition": {
+            "id": 3,
+            "value": "Resultat"
+          },
+          "resultCondition": {
+            "id": 2,
+            "value": "angenommen"
+          },
+          "update": "2017-02-12T18:18:17",
+          "location": {
+            "id": 1,
+            "locationName": "Schweiz",
+            "shortName": "CH",
+            "type": {
+              "id": 1,
+              "name": "Land"
+            },
+            "power": 0,
+            "parentLocationId": 0
+          },
+          "absolute": {
+            "yes": 1499615,
+            "no": 982833
+          },
+          "relative": {
+            "yes": 60.4,
+            "no": 39.6,
+            "participation": 46.4
+          }
+        },
+        "results": [
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T18:18:17",
+            "location": {
+              "id": 1,
+              "locationName": "Schweiz",
+              "shortName": "CH",
+              "type": {
+                "id": 1,
+                "name": "Land"
+              },
+              "power": 0,
+              "parentLocationId": 0
+            },
+            "absolute": {
+              "yes": 1499615,
+              "no": 982833
+            },
+            "relative": {
+              "yes": 60.4,
+              "no": 39.6,
+              "participation": 46.4
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T17:56:44",
+            "location": {
+              "id": 3,
+              "locationName": "Aargau",
+              "shortName": "AG",
+              "type": {
+                "id": 2,
+                "name": "Kanton"
+              },
+              "power": 1,
+              "parentLocationId": 1
+            },
+            "absolute": {
+              "yes": 96318,
+              "no": 84570
+            },
+            "relative": {
+              "yes": 53.2,
+              "no": 46.8,
+              "participation": 43.3
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T17:56:07",
+            "location": {
+              "id": 4,
+              "locationName": "Appenzell Ausserrhoden",
+              "shortName": "AR",
+              "type": {
+                "id": 2,
+                "name": "Kanton"
+              },
+              "power": 0.5,
+              "parentLocationId": 1
+            },
+            "absolute": {
+              "yes": 9931,
+              "no": 9567
+            },
+            "relative": {
+              "yes": 50.9,
+              "no": 49.1,
+              "participation": 50.5
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 3,
+              "value": "abgelehnt"
+            },
+            "update": "2017-02-12T17:56:17",
+            "location": {
+              "id": 6,
+              "locationName": "Appenzell Innerrhoden",
+              "shortName": "AI",
+              "type": {
+                "id": 2,
+                "name": "Kanton"
+              },
+              "power": 0.5,
+              "parentLocationId": 1
+            },
+            "absolute": {
+              "yes": 2030,
+              "no": 2627
+            },
+            "relative": {
+              "yes": 43.6,
+              "no": 56.4,
+              "participation": 40.4
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T17:55:50",
+            "location": {
+              "id": 7,
+              "locationName": "Basel-Landschaft",
+              "shortName": "BL",
+              "type": {
+                "id": 2,
+                "name": "Kanton"
+              },
+              "power": 0.5,
+              "parentLocationId": 1
+            },
+            "absolute": {
+              "yes": 48078,
+              "no": 36657
+            },
+            "relative": {
+              "yes": 56.7,
+              "no": 43.3,
+              "participation": 45.9
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T17:55:41",
+            "location": {
+              "id": 8,
+              "locationName": "Basel-Stadt",
+              "shortName": "BS",
+              "type": {
+                "id": 2,
+                "name": "Kanton"
+              },
+              "power": 0.5,
+              "parentLocationId": 1
+            },
+            "absolute": {
+              "yes": 39305,
+              "no": 18888
+            },
+            "relative": {
+              "yes": 67.5,
+              "no": 32.5,
+              "participation": 51.5
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T17:50:29",
+            "location": {
+              "id": 9,
+              "locationName": "Bern",
+              "shortName": "BE",
+              "type": {
+                "id": 2,
+                "name": "Kanton"
+              },
+              "power": 1,
+              "parentLocationId": 1
+            },
+            "absolute": {
+              "yes": 195868,
+              "no": 120508
+            },
+            "relative": {
+              "yes": 61.9,
+              "no": 38.1,
+              "participation": 43.2
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T17:55:24",
+            "location": {
+              "id": 10,
+              "locationName": "Freiburg",
+              "shortName": "FR",
+              "type": {
+                "id": 2,
+                "name": "Kanton"
+              },
+              "power": 1,
+              "parentLocationId": 1
+            },
+            "absolute": {
+              "yes": 56155,
+              "no": 29330
+            },
+            "relative": {
+              "yes": 65.7,
+              "no": 34.3,
+              "participation": 43
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T17:57:34",
+            "location": {
+              "id": 11,
+              "locationName": "Genf",
+              "shortName": "GE",
+              "type": {
+                "id": 2,
+                "name": "Kanton"
+              },
+              "power": 1,
+              "parentLocationId": 1
+            },
+            "absolute": {
+              "yes": 93122,
+              "no": 32797
+            },
+            "relative": {
+              "yes": 74,
+              "no": 26,
+              "participation": 49.4
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 3,
+              "value": "abgelehnt"
+            },
+            "update": "2017-02-12T17:52:08",
+            "location": {
+              "id": 12,
+              "locationName": "Glarus",
+              "shortName": "GL",
+              "type": {
+                "id": 2,
+                "name": "Kanton"
+              },
+              "power": 1,
+              "parentLocationId": 1
+            },
+            "absolute": {
+              "yes": 5144,
+              "no": 5226
+            },
+            "relative": {
+              "yes": 49.6,
+              "no": 50.4,
+              "participation": 39.6
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T17:56:36",
+            "location": {
+              "id": 13,
+              "locationName": "Graubünden",
+              "shortName": "GR",
+              "type": {
+                "id": 2,
+                "name": "Kanton"
+              },
+              "power": 1,
+              "parentLocationId": 1
+            },
+            "absolute": {
+              "yes": 39404,
+              "no": 29348
+            },
+            "relative": {
+              "yes": 57.3,
+              "no": 42.7,
+              "participation": 49.9
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T17:57:42",
+            "location": {
+              "id": 14,
+              "locationName": "Jura",
+              "shortName": "JU",
+              "type": {
+                "id": 2,
+                "name": "Kanton"
+              },
+              "power": 1,
+              "parentLocationId": 1
+            },
+            "absolute": {
+              "yes": 15469,
+              "no": 6252
+            },
+            "relative": {
+              "yes": 71.2,
+              "no": 28.8,
+              "participation": 41.9
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T17:50:51",
+            "location": {
+              "id": 15,
+              "locationName": "Luzern",
+              "shortName": "LU",
+              "type": {
+                "id": 2,
+                "name": "Kanton"
+              },
+              "power": 1,
+              "parentLocationId": 1
+            },
+            "absolute": {
+              "yes": 71644,
+              "no": 55070
+            },
+            "relative": {
+              "yes": 56.5,
+              "no": 43.5,
+              "participation": 46.5
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T17:57:27",
+            "location": {
+              "id": 16,
+              "locationName": "Neuenburg",
+              "shortName": "NE",
+              "type": {
+                "id": 2,
+                "name": "Kanton"
+              },
+              "power": 1,
+              "parentLocationId": 1
+            },
+            "absolute": {
+              "yes": 43814,
+              "no": 14497
+            },
+            "relative": {
+              "yes": 75.1,
+              "no": 24.9,
+              "participation": 52.4
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T17:51:53",
+            "location": {
+              "id": 17,
+              "locationName": "Nidwalden",
+              "shortName": "NW",
+              "type": {
+                "id": 2,
+                "name": "Kanton"
+              },
+              "power": 0.5,
+              "parentLocationId": 1
+            },
+            "absolute": {
+              "yes": 7562,
+              "no": 7455
+            },
+            "relative": {
+              "yes": 50.4,
+              "no": 49.6,
+              "participation": 48.9
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 3,
+              "value": "abgelehnt"
+            },
+            "update": "2017-02-12T17:51:27",
+            "location": {
+              "id": 18,
+              "locationName": "Obwalden",
+              "shortName": "OW",
+              "type": {
+                "id": 2,
+                "name": "Kanton"
+              },
+              "power": 0.5,
+              "parentLocationId": 1
+            },
+            "absolute": {
+              "yes": 5940,
+              "no": 6854
+            },
+            "relative": {
+              "yes": 46.4,
+              "no": 53.6,
+              "participation": 49
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T17:55:58",
+            "location": {
+              "id": 19,
+              "locationName": "Schaffhausen",
+              "shortName": "SH",
+              "type": {
+                "id": 2,
+                "name": "Kanton"
+              },
+              "power": 1,
+              "parentLocationId": 1
+            },
+            "absolute": {
+              "yes": 17048,
+              "no": 14967
+            },
+            "relative": {
+              "yes": 53.3,
+              "no": 46.7,
+              "participation": 65.7
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 3,
+              "value": "abgelehnt"
+            },
+            "update": "2017-02-12T17:51:17",
+            "location": {
+              "id": 20,
+              "locationName": "Schwyz",
+              "shortName": "SZ",
+              "type": {
+                "id": 2,
+                "name": "Kanton"
+              },
+              "power": 1,
+              "parentLocationId": 1
+            },
+            "absolute": {
+              "yes": 22377,
+              "no": 26524
+            },
+            "relative": {
+              "yes": 45.8,
+              "no": 54.2,
+              "participation": 47.3
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T17:55:32",
+            "location": {
+              "id": 22,
+              "locationName": "Solothurn",
+              "shortName": "SO",
+              "type": {
+                "id": 2,
+                "name": "Kanton"
+              },
+              "power": 1,
+              "parentLocationId": 1
+            },
+            "absolute": {
+              "yes": 44789,
+              "no": 37432
+            },
+            "relative": {
+              "yes": 54.5,
+              "no": 45.5,
+              "participation": 46.2
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 3,
+              "value": "abgelehnt"
+            },
+            "update": "2017-02-12T17:56:28",
+            "location": {
+              "id": 21,
+              "locationName": "St. Gallen",
+              "shortName": "SG",
+              "type": {
+                "id": 2,
+                "name": "Kanton"
+              },
+              "power": 1,
+              "parentLocationId": 1
+            },
+            "absolute": {
+              "yes": 70821,
+              "no": 71316
+            },
+            "relative": {
+              "yes": 49.8,
+              "no": 50.2,
+              "participation": 44.5
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T17:57:00",
+            "location": {
+              "id": 23,
+              "locationName": "Tessin",
+              "shortName": "TI",
+              "type": {
+                "id": 2,
+                "name": "Kanton"
+              },
+              "power": 1,
+              "parentLocationId": 1
+            },
+            "absolute": {
+              "yes": 49769,
+              "no": 49439
+            },
+            "relative": {
+              "yes": 50.2,
+              "no": 49.8,
+              "participation": 45.6
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 3,
+              "value": "abgelehnt"
+            },
+            "update": "2017-02-12T17:56:53",
+            "location": {
+              "id": 24,
+              "locationName": "Thurgau",
+              "shortName": "TG",
+              "type": {
+                "id": 2,
+                "name": "Kanton"
+              },
+              "power": 1,
+              "parentLocationId": 1
+            },
+            "absolute": {
+              "yes": 36486,
+              "no": 36510
+            },
+            "relative": {
+              "yes": 49.9,
+              "no": 50.1,
+              "participation": 43.5
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 3,
+              "value": "abgelehnt"
+            },
+            "update": "2017-02-12T17:51:02",
+            "location": {
+              "id": 25,
+              "locationName": "Uri",
+              "shortName": "UR",
+              "type": {
+                "id": 2,
+                "name": "Kanton"
+              },
+              "power": 1,
+              "parentLocationId": 1
+            },
+            "absolute": {
+              "yes": 4766,
+              "no": 5474
+            },
+            "relative": {
+              "yes": 46.5,
+              "no": 53.5,
+              "participation": 38.6
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T17:57:08",
+            "location": {
+              "id": 26,
+              "locationName": "Waadt",
+              "shortName": "VD",
+              "type": {
+                "id": 2,
+                "name": "Kanton"
+              },
+              "power": 1,
+              "parentLocationId": 1
+            },
+            "absolute": {
+              "yes": 153704,
+              "no": 57330
+            },
+            "relative": {
+              "yes": 72.8,
+              "no": 27.2,
+              "participation": 48.6
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T17:57:17",
+            "location": {
+              "id": 27,
+              "locationName": "Wallis",
+              "shortName": "VS",
+              "type": {
+                "id": 2,
+                "name": "Kanton"
+              },
+              "power": 1,
+              "parentLocationId": 1
+            },
+            "absolute": {
+              "yes": 64389,
+              "no": 41294
+            },
+            "relative": {
+              "yes": 60.9,
+              "no": 39.1,
+              "participation": 49.2
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T17:52:24",
+            "location": {
+              "id": 28,
+              "locationName": "Zug",
+              "shortName": "ZG",
+              "type": {
+                "id": 2,
+                "name": "Kanton"
+              },
+              "power": 1,
+              "parentLocationId": 1
+            },
+            "absolute": {
+              "yes": 22613,
+              "no": 17917
+            },
+            "relative": {
+              "yes": 55.8,
+              "no": 44.2,
+              "participation": 53.4
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T17:50:30",
+            "location": {
+              "id": 29,
+              "locationName": "Zürich",
+              "shortName": "ZH",
+              "type": {
+                "id": 2,
+                "name": "Kanton"
+              },
+              "power": 1,
+              "parentLocationId": 1
+            },
+            "absolute": {
+              "yes": 283069,
+              "no": 164984
+            },
+            "relative": {
+              "yes": 63.2,
+              "no": 36.8,
+              "participation": 49.3
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T16:07:35",
+            "location": {
+              "id": 5793,
+              "locationName": "Arrondissement administratif Jura bernois",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 9
+            },
+            "absolute": {
+              "yes": 9876,
+              "no": 5438
+            },
+            "relative": {
+              "yes": 64.4900091,
+              "no": 35.5099909,
+              "participation": 0
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T16:07:39",
+            "location": {
+              "id": 312,
+              "locationName": "Bezirk Aarau",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 3
+            },
+            "absolute": {
+              "yes": 12934,
+              "no": 9384
+            },
+            "relative": {
+              "yes": 57.9532216,
+              "no": 42.0467784,
+              "participation": 46.3903024
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T16:07:35",
+            "location": {
+              "id": 206,
+              "locationName": "Bezirk Affoltern",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 29
+            },
+            "absolute": {
+              "yes": 11003,
+              "no": 6819
+            },
+            "relative": {
+              "yes": 61.738301,
+              "no": 38.261699,
+              "participation": 51.8318841
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T14:02:06",
+            "location": {
+              "id": 301,
+              "locationName": "Bezirk Albula",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 13
+            },
+            "absolute": {
+              "yes": 1652,
+              "no": 1282
+            },
+            "relative": {
+              "yes": 56.3,
+              "no": 43.7,
+              "participation": 0
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T16:07:35",
+            "location": {
+              "id": 207,
+              "locationName": "Bezirk Andelfingen",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 29
+            },
+            "absolute": {
+              "yes": 6050,
+              "no": 5402
+            },
+            "relative": {
+              "yes": 52.8292001,
+              "no": 47.1707999,
+              "participation": 53.2863632
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 3,
+              "value": "abgelehnt"
+            },
+            "update": "2017-02-12T16:07:39",
+            "location": {
+              "id": 5831,
+              "locationName": "Bezirk Arbon",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 24
+            },
+            "absolute": {
+              "yes": 6656,
+              "no": 7191
+            },
+            "relative": {
+              "yes": 48.0681736,
+              "no": 51.9318264,
+              "participation": 42.0638234
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T16:07:36",
+            "location": {
+              "id": 278,
+              "locationName": "Bezirk Arlesheim",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 7
+            },
+            "absolute": {
+              "yes": 28207,
+              "no": 19594
+            },
+            "relative": {
+              "yes": 59.0092257,
+              "no": 40.9907743,
+              "participation": 47.7577493
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T16:07:39",
+            "location": {
+              "id": 313,
+              "locationName": "Bezirk Baden",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 3
+            },
+            "absolute": {
+              "yes": 22228,
+              "no": 15330
+            },
+            "relative": {
+              "yes": 59.1831301,
+              "no": 40.8168699,
+              "participation": 45.2077595
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T16:07:39",
+            "location": {
+              "id": 314,
+              "locationName": "Bezirk Bremgarten",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 3
+            },
+            "absolute": {
+              "yes": 10706,
+              "no": 10378
+            },
+            "relative": {
+              "yes": 50.777841,
+              "no": 49.222159,
+              "participation": 45.0474408
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 3,
+              "value": "abgelehnt"
+            },
+            "update": "2017-02-12T16:07:40",
+            "location": {
+              "id": 358,
+              "locationName": "Bezirk Brig",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 27
+            },
+            "absolute": {
+              "yes": 4041,
+              "no": 4306
+            },
+            "relative": {
+              "yes": 48.4126033,
+              "no": 51.5873967,
+              "participation": 44.5692687
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T16:07:39",
+            "location": {
+              "id": 315,
+              "locationName": "Bezirk Brugg",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 3
+            },
+            "absolute": {
+              "yes": 7795,
+              "no": 6822
+            },
+            "relative": {
+              "yes": 53.3283163,
+              "no": 46.6716837,
+              "participation": 46.290287
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T16:07:36",
+            "location": {
+              "id": 269,
+              "locationName": "Bezirk Bucheggberg",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 22
+            },
+            "absolute": {
+              "yes": 1608,
+              "no": 1357
+            },
+            "relative": {
+              "yes": 54.232715,
+              "no": 45.767285,
+              "participation": 48.8276767
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T16:07:35",
+            "location": {
+              "id": 208,
+              "locationName": "Bezirk Bülach",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 29
+            },
+            "absolute": {
+              "yes": 20820,
+              "no": 17738
+            },
+            "relative": {
+              "yes": 53.9965766,
+              "no": 46.0034234,
+              "participation": 44.8630971
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 3,
+              "value": "abgelehnt"
+            },
+            "update": "2017-02-12T16:07:35",
+            "location": {
+              "id": 209,
+              "locationName": "Bezirk Dielsdorf",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 29
+            },
+            "absolute": {
+              "yes": 11110,
+              "no": 11682
+            },
+            "relative": {
+              "yes": 48.7451737,
+              "no": 51.2548263,
+              "participation": 43.7854189
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T16:07:35",
+            "location": {
+              "id": 216,
+              "locationName": "Bezirk Dietikon",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 29
+            },
+            "absolute": {
+              "yes": 12177,
+              "no": 9302
+            },
+            "relative": {
+              "yes": 56.6925835,
+              "no": 43.3074165,
+              "participation": 44.9574929
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T16:07:36",
+            "location": {
+              "id": 270,
+              "locationName": "Bezirk Dorneck",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 22
+            },
+            "absolute": {
+              "yes": 4193,
+              "no": 2959
+            },
+            "relative": {
+              "yes": 58.6269575,
+              "no": 41.3730425,
+              "participation": 50.9181141
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 3,
+              "value": "abgelehnt"
+            },
+            "update": "2017-02-12T16:07:35",
+            "location": {
+              "id": 250,
+              "locationName": "Bezirk Einsiedeln",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 20
+            },
+            "absolute": {
+              "yes": 2431,
+              "no": 2723
+            },
+            "relative": {
+              "yes": 47.1672487,
+              "no": 52.8327513,
+              "participation": 47.9788615
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T16:07:39",
+            "location": {
+              "id": 5833,
+              "locationName": "Bezirk Frauenfeld",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 24
+            },
+            "absolute": {
+              "yes": 10105,
+              "no": 9141
+            },
+            "relative": {
+              "yes": 52.5044165,
+              "no": 47.4955835,
+              "participation": 44.9861012
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 3,
+              "value": "abgelehnt"
+            },
+            "update": "2017-02-12T16:07:36",
+            "location": {
+              "id": 267,
+              "locationName": "Bezirk Gäu",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 22
+            },
+            "absolute": {
+              "yes": 2671,
+              "no": 3313
+            },
+            "relative": {
+              "yes": 44.6356952,
+              "no": 55.3643048,
+              "participation": 44.8677723
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 3,
+              "value": "abgelehnt"
+            },
+            "update": "2017-02-12T16:07:36",
+            "location": {
+              "id": 251,
+              "locationName": "Bezirk Gersau",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 20
+            },
+            "absolute": {
+              "yes": 377,
+              "no": 418
+            },
+            "relative": {
+              "yes": 47.4213836,
+              "no": 52.5786164,
+              "participation": 51.8494484
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T16:07:40",
+            "location": {
+              "id": 361,
+              "locationName": "Bezirk Goms",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 27
+            },
+            "absolute": {
+              "yes": 817,
+              "no": 633
+            },
+            "relative": {
+              "yes": 56.3448276,
+              "no": 43.6551724,
+              "participation": 43.4229973
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T16:07:36",
+            "location": {
+              "id": 271,
+              "locationName": "Bezirk Gösgen",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 22
+            },
+            "absolute": {
+              "yes": 3763,
+              "no": 3497
+            },
+            "relative": {
+              "yes": 51.8319559,
+              "no": 48.1680441,
+              "participation": 46.1675014
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 3,
+              "value": "abgelehnt"
+            },
+            "update": "2017-02-12T16:07:38",
+            "location": {
+              "id": 289,
+              "locationName": "Bezirk Hinterland",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 4
+            },
+            "absolute": {
+              "yes": 3675,
+              "no": 4243
+            },
+            "relative": {
+              "yes": 46.4132357,
+              "no": 53.5867643,
+              "participation": 47.4117366
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T14:02:05",
+            "location": {
+              "id": 303,
+              "locationName": "Bezirk Hinterrhein",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 13
+            },
+            "absolute": {
+              "yes": 2818,
+              "no": 2096
+            },
+            "relative": {
+              "yes": 57.3,
+              "no": 42.7,
+              "participation": 0
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T16:07:35",
+            "location": {
+              "id": 210,
+              "locationName": "Bezirk Hinwil",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 29
+            },
+            "absolute": {
+              "yes": 14935,
+              "no": 13657
+            },
+            "relative": {
+              "yes": 52.2348909,
+              "no": 47.7651091,
+              "participation": 46.809447
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T16:07:36",
+            "location": {
+              "id": 252,
+              "locationName": "Bezirk Höfe",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 20
+            },
+            "absolute": {
+              "yes": 4769,
+              "no": 4614
+            },
+            "relative": {
+              "yes": 50.8259618,
+              "no": 49.1740382,
+              "participation": 51.6505813
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T16:07:35",
+            "location": {
+              "id": 211,
+              "locationName": "Bezirk Horgen",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 29
+            },
+            "absolute": {
+              "yes": 23826,
+              "no": 13631
+            },
+            "relative": {
+              "yes": 63.6089382,
+              "no": 36.3910618,
+              "participation": 50.8735632
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T14:02:05",
+            "location": {
+              "id": 304,
+              "locationName": "Bezirk Imboden",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 13
+            },
+            "absolute": {
+              "yes": 3996,
+              "no": 3063
+            },
+            "relative": {
+              "yes": 56.6,
+              "no": 43.4,
+              "participation": 0
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T14:02:04",
+            "location": {
+              "id": 305,
+              "locationName": "Bezirk Inn",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 13
+            },
+            "absolute": {
+              "yes": 2166,
+              "no": 1270
+            },
+            "relative": {
+              "yes": 63,
+              "no": 37,
+              "participation": 0
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T16:07:39",
+            "location": {
+              "id": 5835,
+              "locationName": "Bezirk Kreuzlingen",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 24
+            },
+            "absolute": {
+              "yes": 6074,
+              "no": 4924
+            },
+            "relative": {
+              "yes": 55.2282233,
+              "no": 44.7717767,
+              "participation": 47.7472106
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 3,
+              "value": "abgelehnt"
+            },
+            "update": "2017-02-12T16:07:39",
+            "location": {
+              "id": 316,
+              "locationName": "Bezirk Kulm",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 3
+            },
+            "absolute": {
+              "yes": 4151,
+              "no": 5914
+            },
+            "relative": {
+              "yes": 41.2419275,
+              "no": 58.7580725,
+              "participation": 40.1254665
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T16:07:36",
+            "location": {
+              "id": 253,
+              "locationName": "Bezirk Küssnacht (SZ)",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 20
+            },
+            "absolute": {
+              "yes": 2180,
+              "no": 2066
+            },
+            "relative": {
+              "yes": 51.3424399,
+              "no": 48.6575601,
+              "participation": 51.7467249
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T14:02:04",
+            "location": {
+              "id": 306,
+              "locationName": "Bezirk Landquart",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 13
+            },
+            "absolute": {
+              "yes": 4685,
+              "no": 4084
+            },
+            "relative": {
+              "yes": 53.4,
+              "no": 46.6,
+              "participation": 0
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 3,
+              "value": "abgelehnt"
+            },
+            "update": "2017-02-12T16:07:37",
+            "location": {
+              "id": 279,
+              "locationName": "Bezirk Laufen",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 7
+            },
+            "absolute": {
+              "yes": 2761,
+              "no": 3019
+            },
+            "relative": {
+              "yes": 47.7681661,
+              "no": 52.2318339,
+              "participation": 43.8329459
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T16:07:39",
+            "location": {
+              "id": 317,
+              "locationName": "Bezirk Laufenburg",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 3
+            },
+            "absolute": {
+              "yes": 4593,
+              "no": 4578
+            },
+            "relative": {
+              "yes": 50.0817795,
+              "no": 49.9182205,
+              "participation": 44.1559686
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T16:07:36",
+            "location": {
+              "id": 273,
+              "locationName": "Bezirk Lebern",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 22
+            },
+            "absolute": {
+              "yes": 7343,
+              "no": 6142
+            },
+            "relative": {
+              "yes": 54.453096,
+              "no": 45.546904,
+              "participation": 44.8890216
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T16:07:39",
+            "location": {
+              "id": 318,
+              "locationName": "Bezirk Lenzburg",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 3
+            },
+            "absolute": {
+              "yes": 8532,
+              "no": 7942
+            },
+            "relative": {
+              "yes": 51.7907005,
+              "no": 48.2092995,
+              "participation": 43.3336822
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 3,
+              "value": "abgelehnt"
+            },
+            "update": "2017-02-12T16:07:40",
+            "location": {
+              "id": 363,
+              "locationName": "Bezirk Leuk",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 27
+            },
+            "absolute": {
+              "yes": 2101,
+              "no": 2375
+            },
+            "relative": {
+              "yes": 46.9392315,
+              "no": 53.0607685,
+              "participation": 50.7016953
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T16:07:37",
+            "location": {
+              "id": 280,
+              "locationName": "Bezirk Liestal",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 7
+            },
+            "absolute": {
+              "yes": 8856,
+              "no": 6856
+            },
+            "relative": {
+              "yes": 56.3645621,
+              "no": 43.6354379,
+              "participation": 44.0950499
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T14:02:02",
+            "location": {
+              "id": 307,
+              "locationName": "Bezirk Maloja / Distretto di Maloggia",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 13
+            },
+            "absolute": {
+              "yes": 3798,
+              "no": 2272
+            },
+            "relative": {
+              "yes": 62.6,
+              "no": 37.4,
+              "participation": 0
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 3,
+              "value": "abgelehnt"
+            },
+            "update": "2017-02-12T16:07:36",
+            "location": {
+              "id": 254,
+              "locationName": "Bezirk March",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 20
+            },
+            "absolute": {
+              "yes": 5184,
+              "no": 6609
+            },
+            "relative": {
+              "yes": 43.9582803,
+              "no": 56.0417197,
+              "participation": 42.7826465
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T16:07:35",
+            "location": {
+              "id": 212,
+              "locationName": "Bezirk Meilen",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 29
+            },
+            "absolute": {
+              "yes": 23881,
+              "no": 13705
+            },
+            "relative": {
+              "yes": 63.5369552,
+              "no": 36.4630448,
+              "participation": 57.8166166
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T16:07:38",
+            "location": {
+              "id": 290,
+              "locationName": "Bezirk Mittelland",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 4
+            },
+            "absolute": {
+              "yes": 3855,
+              "no": 2914
+            },
+            "relative": {
+              "yes": 56.9508051,
+              "no": 43.0491949,
+              "participation": 54.7762999
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 3,
+              "value": "abgelehnt"
+            },
+            "update": "2017-02-12T16:07:39",
+            "location": {
+              "id": 5834,
+              "locationName": "Bezirk Münchwilen",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 24
+            },
+            "absolute": {
+              "yes": 6059,
+              "no": 6878
+            },
+            "relative": {
+              "yes": 46.8346603,
+              "no": 53.1653397,
+              "participation": 42.9259404
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 3,
+              "value": "abgelehnt"
+            },
+            "update": "2017-02-12T16:07:39",
+            "location": {
+              "id": 319,
+              "locationName": "Bezirk Muri",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 3
+            },
+            "absolute": {
+              "yes": 4795,
+              "no": 5009
+            },
+            "relative": {
+              "yes": 48.9086087,
+              "no": 51.0913913,
+              "participation": 42.1981411
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T16:07:37",
+            "location": {
+              "id": 283,
+              "locationName": "Bezirk Oberklettgau",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 19
+            },
+            "absolute": {
+              "yes": 1012,
+              "no": 1000
+            },
+            "relative": {
+              "yes": 50.2982107,
+              "no": 49.7017893,
+              "participation": 68.6076773
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T16:07:36",
+            "location": {
+              "id": 274,
+              "locationName": "Bezirk Olten",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 22
+            },
+            "absolute": {
+              "yes": 8884,
+              "no": 6803
+            },
+            "relative": {
+              "yes": 56.6328807,
+              "no": 43.3671193,
+              "participation": 45.691005
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T16:07:35",
+            "location": {
+              "id": 213,
+              "locationName": "Bezirk Pfäffikon",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 29
+            },
+            "absolute": {
+              "yes": 10531,
+              "no": 9027
+            },
+            "relative": {
+              "yes": 53.8449739,
+              "no": 46.1550261,
+              "participation": 50.4082366
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T14:02:01",
+            "location": {
+              "id": 309,
+              "locationName": "Bezirk Plessur",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 13
+            },
+            "absolute": {
+              "yes": 9104,
+              "no": 5310
+            },
+            "relative": {
+              "yes": 63.2,
+              "no": 36.8,
+              "participation": 0
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T14:02:01",
+            "location": {
+              "id": 310,
+              "locationName": "Bezirk Prättigau-Davos",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 13
+            },
+            "absolute": {
+              "yes": 4822,
+              "no": 4282
+            },
+            "relative": {
+              "yes": 53,
+              "no": 47,
+              "participation": 0
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 3,
+              "value": "abgelehnt"
+            },
+            "update": "2017-02-12T16:07:40",
+            "location": {
+              "id": 366,
+              "locationName": "Bezirk Raron",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 27
+            },
+            "absolute": {
+              "yes": 1948,
+              "no": 2044
+            },
+            "relative": {
+              "yes": 48.7975952,
+              "no": 51.2024048,
+              "participation": 49.7055937
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 3,
+              "value": "abgelehnt"
+            },
+            "update": "2017-02-12T16:07:37",
+            "location": {
+              "id": 284,
+              "locationName": "Bezirk Reiat",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 19
+            },
+            "absolute": {
+              "yes": 1811,
+              "no": 2122
+            },
+            "relative": {
+              "yes": 46.0462751,
+              "no": 53.9537249,
+              "participation": 71.4858039
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T16:07:39",
+            "location": {
+              "id": 320,
+              "locationName": "Bezirk Rheinfelden",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 3
+            },
+            "absolute": {
+              "yes": 6114,
+              "no": 5208
+            },
+            "relative": {
+              "yes": 54.0010599,
+              "no": 45.9989401,
+              "participation": 39.0900969
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T16:07:37",
+            "location": {
+              "id": 285,
+              "locationName": "Bezirk Schaffhausen",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 19
+            },
+            "absolute": {
+              "yes": 11364,
+              "no": 8755
+            },
+            "relative": {
+              "yes": 56.4839207,
+              "no": 43.5160793,
+              "participation": 64.4089693
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 3,
+              "value": "abgelehnt"
+            },
+            "update": "2017-02-12T16:07:37",
+            "location": {
+              "id": 286,
+              "locationName": "Bezirk Schleitheim",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 19
+            },
+            "absolute": {
+              "yes": 643,
+              "no": 706
+            },
+            "relative": {
+              "yes": 47.664937,
+              "no": 52.335063,
+              "participation": 63.3815552
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 3,
+              "value": "abgelehnt"
+            },
+            "update": "2017-02-12T16:07:36",
+            "location": {
+              "id": 255,
+              "locationName": "Bezirk Schwyz",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 20
+            },
+            "absolute": {
+              "yes": 7436,
+              "no": 10094
+            },
+            "relative": {
+              "yes": 42.4187108,
+              "no": 57.5812892,
+              "participation": 47.14079
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T16:07:36",
+            "location": {
+              "id": 264,
+              "locationName": "Bezirk See / District du Lac",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 10
+            },
+            "absolute": {
+              "yes": 6327,
+              "no": 3964
+            },
+            "relative": {
+              "yes": 61.4809056,
+              "no": 38.5190944,
+              "participation": 44.8961863
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T16:07:36",
+            "location": {
+              "id": 265,
+              "locationName": "Bezirk Sense",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 10
+            },
+            "absolute": {
+              "yes": 7119,
+              "no": 5565
+            },
+            "relative": {
+              "yes": 56.1258278,
+              "no": 43.8741722,
+              "participation": 40.0307857
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T16:07:37",
+            "location": {
+              "id": 281,
+              "locationName": "Bezirk Sissach",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 7
+            },
+            "absolute": {
+              "yes": 6050,
+              "no": 4927
+            },
+            "relative": {
+              "yes": 55.115241,
+              "no": 44.884759,
+              "participation": 44.2398696
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T16:07:36",
+            "location": {
+              "id": 275,
+              "locationName": "Bezirk Solothurn",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 22
+            },
+            "absolute": {
+              "yes": 4304,
+              "no": 1495
+            },
+            "relative": {
+              "yes": 74.2196931,
+              "no": 25.7803069,
+              "participation": 50.1075269
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T16:07:37",
+            "location": {
+              "id": 287,
+              "locationName": "Bezirk Stein",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 19
+            },
+            "absolute": {
+              "yes": 1209,
+              "no": 1126
+            },
+            "relative": {
+              "yes": 51.7773019,
+              "no": 48.2226981,
+              "participation": 64.2335766
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T14:02:00",
+            "location": {
+              "id": 311,
+              "locationName": "Bezirk Surselva",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 13
+            },
+            "absolute": {
+              "yes": 4385,
+              "no": 3316
+            },
+            "relative": {
+              "yes": 56.9,
+              "no": 43.1,
+              "participation": 0
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 3,
+              "value": "abgelehnt"
+            },
+            "update": "2017-02-12T16:07:36",
+            "location": {
+              "id": 268,
+              "locationName": "Bezirk Thal",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 22
+            },
+            "absolute": {
+              "yes": 1888,
+              "no": 2598
+            },
+            "relative": {
+              "yes": 42.0864913,
+              "no": 57.9135087,
+              "participation": 45.6129686
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 3,
+              "value": "abgelehnt"
+            },
+            "update": "2017-02-12T16:07:36",
+            "location": {
+              "id": 276,
+              "locationName": "Bezirk Thierstein",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 22
+            },
+            "absolute": {
+              "yes": 2111,
+              "no": 2412
+            },
+            "relative": {
+              "yes": 46.6725625,
+              "no": 53.3274375,
+              "participation": 43.4532925
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 3,
+              "value": "abgelehnt"
+            },
+            "update": "2017-02-12T16:07:38",
+            "location": {
+              "id": 288,
+              "locationName": "Bezirk Unterklettgau",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 19
+            },
+            "absolute": {
+              "yes": 1009,
+              "no": 1258
+            },
+            "relative": {
+              "yes": 44.5081606,
+              "no": 55.4918394,
+              "participation": 68.4595148
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T16:07:35",
+            "location": {
+              "id": 214,
+              "locationName": "Bezirk Uster",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 29
+            },
+            "absolute": {
+              "yes": 22757,
+              "no": 15091
+            },
+            "relative": {
+              "yes": 60.1273515,
+              "no": 39.8726485,
+              "participation": 48.3488139
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 3,
+              "value": "abgelehnt"
+            },
+            "update": "2017-02-12T16:07:40",
+            "location": {
+              "id": 370,
+              "locationName": "Bezirk Visp",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 27
+            },
+            "absolute": {
+              "yes": 3738,
+              "no": 3940
+            },
+            "relative": {
+              "yes": 48.6845533,
+              "no": 51.3154467,
+              "participation": 42.1717308
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 3,
+              "value": "abgelehnt"
+            },
+            "update": "2017-02-12T16:07:38",
+            "location": {
+              "id": 291,
+              "locationName": "Bezirk Vorderland",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 4
+            },
+            "absolute": {
+              "yes": 2401,
+              "no": 2410
+            },
+            "relative": {
+              "yes": 49.9064644,
+              "no": 50.0935356,
+              "participation": 50.2393838
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 3,
+              "value": "abgelehnt"
+            },
+            "update": "2017-02-12T16:07:37",
+            "location": {
+              "id": 282,
+              "locationName": "Bezirk Waldenburg",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 7
+            },
+            "absolute": {
+              "yes": 2204,
+              "no": 2261
+            },
+            "relative": {
+              "yes": 49.3617021,
+              "no": 50.6382979,
+              "participation": 40.330902
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T16:07:36",
+            "location": {
+              "id": 272,
+              "locationName": "Bezirk Wasseramt",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 22
+            },
+            "absolute": {
+              "yes": 8024,
+              "no": 6856
+            },
+            "relative": {
+              "yes": 53.9247312,
+              "no": 46.0752688,
+              "participation": 45.7424953
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 3,
+              "value": "abgelehnt"
+            },
+            "update": "2017-02-12T16:07:39",
+            "location": {
+              "id": 5832,
+              "locationName": "Bezirk Weinfelden",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 24
+            },
+            "absolute": {
+              "yes": 6812,
+              "no": 8152
+            },
+            "relative": {
+              "yes": 45.5225875,
+              "no": 54.4774125,
+              "participation": 42.7694733
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T16:07:35",
+            "location": {
+              "id": 215,
+              "locationName": "Bezirk Winterthur",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 29
+            },
+            "absolute": {
+              "yes": 34548,
+              "no": 20323
+            },
+            "relative": {
+              "yes": 62.9622205,
+              "no": 37.0377795,
+              "participation": 51.321141
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 3,
+              "value": "abgelehnt"
+            },
+            "update": "2017-02-12T16:07:39",
+            "location": {
+              "id": 321,
+              "locationName": "Bezirk Zofingen",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 3
+            },
+            "absolute": {
+              "yes": 8631,
+              "no": 8907
+            },
+            "relative": {
+              "yes": 49.2131372,
+              "no": 50.7868628,
+              "participation": 40.3839985
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T16:07:35",
+            "location": {
+              "id": 217,
+              "locationName": "Bezirk Zürich",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 29
+            },
+            "absolute": {
+              "yes": 85767,
+              "no": 27283
+            },
+            "relative": {
+              "yes": 75.8664308,
+              "no": 24.1335692,
+              "participation": 50.1401809
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 3,
+              "value": "abgelehnt"
+            },
+            "update": "2017-02-12T16:07:39",
+            "location": {
+              "id": 322,
+              "locationName": "Bezirk Zurzach",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 3
+            },
+            "absolute": {
+              "yes": 4068,
+              "no": 4598
+            },
+            "relative": {
+              "yes": 46.9420725,
+              "no": 53.0579275,
+              "participation": 44.138665
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T16:07:40",
+            "location": {
+              "id": 377,
+              "locationName": "Canton de Genève",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 11
+            },
+            "absolute": {
+              "yes": 85706,
+              "no": 30806
+            },
+            "relative": {
+              "yes": 73.559805,
+              "no": 26.440195,
+              "participation": 50.4512018
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T16:07:39",
+            "location": {
+              "id": 331,
+              "locationName": "Distretto di Bellinzona",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 23
+            },
+            "absolute": {
+              "yes": 7127,
+              "no": 6959
+            },
+            "relative": {
+              "yes": 50.5963368,
+              "no": 49.4036632,
+              "participation": 45.2932806
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 3,
+              "value": "abgelehnt"
+            },
+            "update": "2017-02-12T14:02:00",
+            "location": {
+              "id": 302,
+              "locationName": "Distretto di Bernina",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 13
+            },
+            "absolute": {
+              "yes": 922,
+              "no": 928
+            },
+            "relative": {
+              "yes": 49.8,
+              "no": 50.2,
+              "participation": 0
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 3,
+              "value": "abgelehnt"
+            },
+            "update": "2017-02-12T16:07:39",
+            "location": {
+              "id": 332,
+              "locationName": "Distretto di Blenio",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 23
+            },
+            "absolute": {
+              "yes": 757,
+              "no": 1122
+            },
+            "relative": {
+              "yes": 40.2873869,
+              "no": 59.7126131,
+              "participation": 36.3375979
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 3,
+              "value": "abgelehnt"
+            },
+            "update": "2017-02-12T16:07:39",
+            "location": {
+              "id": 333,
+              "locationName": "Distretto di Leventina",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 23
+            },
+            "absolute": {
+              "yes": 1292,
+              "no": 1703
+            },
+            "relative": {
+              "yes": 43.1385643,
+              "no": 56.8614357,
+              "participation": 50.3649635
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T16:07:39",
+            "location": {
+              "id": 334,
+              "locationName": "Distretto di Locarno",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 23
+            },
+            "absolute": {
+              "yes": 9378,
+              "no": 8734
+            },
+            "relative": {
+              "yes": 51.7778269,
+              "no": 48.2221731,
+              "participation": 43.2958324
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T16:07:39",
+            "location": {
+              "id": 335,
+              "locationName": "Distretto di Lugano",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 23
+            },
+            "absolute": {
+              "yes": 20802,
+              "no": 20218
+            },
+            "relative": {
+              "yes": 50.7118479,
+              "no": 49.2881521,
+              "participation": 46.4552907
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 3,
+              "value": "abgelehnt"
+            },
+            "update": "2017-02-12T16:07:39",
+            "location": {
+              "id": 336,
+              "locationName": "Distretto di Mendrisio",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 23
+            },
+            "absolute": {
+              "yes": 8002,
+              "no": 8036
+            },
+            "relative": {
+              "yes": 49.8940017,
+              "no": 50.1059983,
+              "participation": 47.8793063
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 3,
+              "value": "abgelehnt"
+            },
+            "update": "2017-02-12T14:01:59",
+            "location": {
+              "id": 308,
+              "locationName": "Distretto di Moesa",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 13
+            },
+            "absolute": {
+              "yes": 1056,
+              "no": 1445
+            },
+            "relative": {
+              "yes": 42.2,
+              "no": 57.8,
+              "participation": 0
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 3,
+              "value": "abgelehnt"
+            },
+            "update": "2017-02-12T16:07:40",
+            "location": {
+              "id": 337,
+              "locationName": "Distretto di Riviera",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 23
+            },
+            "absolute": {
+              "yes": 1469,
+              "no": 1790
+            },
+            "relative": {
+              "yes": 45.0751764,
+              "no": 54.9248236,
+              "participation": 44.2261427
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T16:07:40",
+            "location": {
+              "id": 338,
+              "locationName": "Distretto di Vallemaggia",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 23
+            },
+            "absolute": {
+              "yes": 942,
+              "no": 877
+            },
+            "relative": {
+              "yes": 51.786696,
+              "no": 48.213304,
+              "participation": 41.2936437
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T16:07:40",
+            "location": {
+              "id": 5777,
+              "locationName": "District d'Aigle",
+              "shortName": "Aigle",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 26
+            },
+            "absolute": {
+              "yes": 7050,
+              "no": 3705
+            },
+            "relative": {
+              "yes": 65.5509066,
+              "no": 34.4490934,
+              "participation": 46.5413663
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T16:07:40",
+            "location": {
+              "id": 371,
+              "locationName": "District de Boudry",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 16
+            },
+            "absolute": {
+              "yes": 10387,
+              "no": 3518
+            },
+            "relative": {
+              "yes": 74.6997483,
+              "no": 25.3002517,
+              "participation": 53.8431931
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T16:07:40",
+            "location": {
+              "id": 359,
+              "locationName": "District de Conthey",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 27
+            },
+            "absolute": {
+              "yes": 5363,
+              "no": 3260
+            },
+            "relative": {
+              "yes": 62.194132,
+              "no": 37.805868,
+              "participation": 50.4459691
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T16:07:40",
+            "location": {
+              "id": 378,
+              "locationName": "District de Delémont",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 14
+            },
+            "absolute": {
+              "yes": 7698,
+              "no": 3025
+            },
+            "relative": {
+              "yes": 71.7896111,
+              "no": 28.2103889,
+              "participation": 41.7718587
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T16:07:36",
+            "location": {
+              "id": 260,
+              "locationName": "District de la Broye",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 10
+            },
+            "absolute": {
+              "yes": 5186,
+              "no": 3299
+            },
+            "relative": {
+              "yes": 61.1196229,
+              "no": 38.8803771,
+              "participation": 42.4326742
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T16:07:40",
+            "location": {
+              "id": 5778,
+              "locationName": "District de la Broye-Vully",
+              "shortName": "Broye-Vully",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 26
+            },
+            "absolute": {
+              "yes": 6392,
+              "no": 3917
+            },
+            "relative": {
+              "yes": 62.0040741,
+              "no": 37.9959259,
+              "participation": 45.0595109
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T16:07:40",
+            "location": {
+              "id": 372,
+              "locationName": "District de la Chaux-de-Fonds",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 16
+            },
+            "absolute": {
+              "yes": 9907,
+              "no": 3019
+            },
+            "relative": {
+              "yes": 76.6439734,
+              "no": 23.3560266,
+              "participation": 55.3136516
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T16:07:36",
+            "location": {
+              "id": 261,
+              "locationName": "District de la Glâne",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 10
+            },
+            "absolute": {
+              "yes": 3623,
+              "no": 2236
+            },
+            "relative": {
+              "yes": 61.8364909,
+              "no": 38.1635091,
+              "participation": 39.5083172
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T16:07:36",
+            "location": {
+              "id": 262,
+              "locationName": "District de la Gruyère",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 10
+            },
+            "absolute": {
+              "yes": 8419,
+              "no": 4653
+            },
+            "relative": {
+              "yes": 64.4048348,
+              "no": 35.5951652,
+              "participation": 41.8794753
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T16:07:40",
+            "location": {
+              "id": 5785,
+              "locationName": "District de la Riviera-Pays-d'Enhaut",
+              "shortName": "Riviera-Pays-d'Enhaut",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 26
+            },
+            "absolute": {
+              "yes": 16105,
+              "no": 5560
+            },
+            "relative": {
+              "yes": 74.3364874,
+              "no": 25.6635126,
+              "participation": 49.6981708
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T16:07:36",
+            "location": {
+              "id": 263,
+              "locationName": "District de la Sarine",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 10
+            },
+            "absolute": {
+              "yes": 20786,
+              "no": 7725
+            },
+            "relative": {
+              "yes": 72.9051945,
+              "no": 27.0948055,
+              "participation": 47.1416871
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T16:07:36",
+            "location": {
+              "id": 266,
+              "locationName": "District de la Veveyse",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 10
+            },
+            "absolute": {
+              "yes": 3239,
+              "no": 1490
+            },
+            "relative": {
+              "yes": 68.4922817,
+              "no": 31.5077183,
+              "participation": 42.7244305
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T16:07:40",
+            "location": {
+              "id": 5780,
+              "locationName": "District de Lausanne",
+              "shortName": "Lausanne",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 26
+            },
+            "absolute": {
+              "yes": 29345,
+              "no": 8292
+            },
+            "relative": {
+              "yes": 77.9684885,
+              "no": 22.0315115,
+              "participation": 47.4175233
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T16:07:40",
+            "location": {
+              "id": 5781,
+              "locationName": "District de Lavaux-Oron",
+              "shortName": "Lavaux-Oron",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 26
+            },
+            "absolute": {
+              "yes": 15016,
+              "no": 5181
+            },
+            "relative": {
+              "yes": 74.3476754,
+              "no": 25.6523246,
+              "participation": 55.0303063
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T16:07:40",
+            "location": {
+              "id": 5776,
+              "locationName": "District de l'Ouest lausannois",
+              "shortName": "Ouest lausannois",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 26
+            },
+            "absolute": {
+              "yes": 10452,
+              "no": 4214
+            },
+            "relative": {
+              "yes": 71.2668758,
+              "no": 28.7331242,
+              "participation": 46.0434119
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T16:07:40",
+            "location": {
+              "id": 364,
+              "locationName": "District de Martigny",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 27
+            },
+            "absolute": {
+              "yes": 8935,
+              "no": 4976
+            },
+            "relative": {
+              "yes": 64.2297462,
+              "no": 35.7702538,
+              "participation": 50.8808995
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T16:07:40",
+            "location": {
+              "id": 365,
+              "locationName": "District de Monthey",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 27
+            },
+            "absolute": {
+              "yes": 7790,
+              "no": 4740
+            },
+            "relative": {
+              "yes": 62.1707901,
+              "no": 37.8292099,
+              "participation": 47.7850345
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T16:07:40",
+            "location": {
+              "id": 5775,
+              "locationName": "District de Morges",
+              "shortName": "Morges",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 26
+            },
+            "absolute": {
+              "yes": 18008,
+              "no": 6482
+            },
+            "relative": {
+              "yes": 73.5320539,
+              "no": 26.4679461,
+              "participation": 52.3669078
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T16:07:40",
+            "location": {
+              "id": 374,
+              "locationName": "District de Neuchâtel",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 16
+            },
+            "absolute": {
+              "yes": 12821,
+              "no": 3512
+            },
+            "relative": {
+              "yes": 78.4975204,
+              "no": 21.5024796,
+              "participation": 50.312366
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T16:07:40",
+            "location": {
+              "id": 5782,
+              "locationName": "District de Nyon",
+              "shortName": "Nyon",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 26
+            },
+            "absolute": {
+              "yes": 19780,
+              "no": 6822
+            },
+            "relative": {
+              "yes": 74.3553116,
+              "no": 25.6446884,
+              "participation": 52.4278305
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T16:07:40",
+            "location": {
+              "id": 380,
+              "locationName": "District de Porrentruy",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 14
+            },
+            "absolute": {
+              "yes": 5233,
+              "no": 2427
+            },
+            "relative": {
+              "yes": 68.3159269,
+              "no": 31.6840731,
+              "participation": 41.240798
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T16:07:40",
+            "location": {
+              "id": 367,
+              "locationName": "District de Saint-Maurice",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 27
+            },
+            "absolute": {
+              "yes": 2964,
+              "no": 1424
+            },
+            "relative": {
+              "yes": 67.5478578,
+              "no": 32.4521422,
+              "participation": 51.9376236
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T16:07:40",
+            "location": {
+              "id": 368,
+              "locationName": "District de Sierre",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 27
+            },
+            "absolute": {
+              "yes": 9513,
+              "no": 5390
+            },
+            "relative": {
+              "yes": 63.8327853,
+              "no": 36.1672147,
+              "participation": 53.2699832
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T16:07:40",
+            "location": {
+              "id": 369,
+              "locationName": "District de Sion",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 27
+            },
+            "absolute": {
+              "yes": 10003,
+              "no": 4871
+            },
+            "relative": {
+              "yes": 67.2515799,
+              "no": 32.7484201,
+              "participation": 51.8618845
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T16:07:40",
+            "location": {
+              "id": 360,
+              "locationName": "District d'Entremont",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 27
+            },
+            "absolute": {
+              "yes": 3142,
+              "no": 1489
+            },
+            "relative": {
+              "yes": 67.8471173,
+              "no": 32.1528827,
+              "participation": 50.8441558
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T16:07:40",
+            "location": {
+              "id": 379,
+              "locationName": "District des Franches-Montagnes",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 14
+            },
+            "absolute": {
+              "yes": 2538,
+              "no": 800
+            },
+            "relative": {
+              "yes": 76.033553,
+              "no": 23.966447,
+              "participation": 42.3822715
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T16:07:40",
+            "location": {
+              "id": 362,
+              "locationName": "District d'Hérens",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 27
+            },
+            "absolute": {
+              "yes": 2843,
+              "no": 1543
+            },
+            "relative": {
+              "yes": 64.8198814,
+              "no": 35.1801186,
+              "participation": 56.0697266
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T16:07:40",
+            "location": {
+              "id": 5779,
+              "locationName": "District du Gros-de-Vaud",
+              "shortName": "Gros-de-Vaud",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 26
+            },
+            "absolute": {
+              "yes": 9612,
+              "no": 4509
+            },
+            "relative": {
+              "yes": 68.0688337,
+              "no": 31.9311663,
+              "participation": 50.7322809
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T16:07:40",
+            "location": {
+              "id": 5774,
+              "locationName": "District du Jura-Nord vaudois",
+              "shortName": "Jura-Nord vaudois",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 26
+            },
+            "absolute": {
+              "yes": 17552,
+              "no": 7725
+            },
+            "relative": {
+              "yes": 69.4386201,
+              "no": 30.5613799,
+              "participation": 46.735641
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T16:07:40",
+            "location": {
+              "id": 373,
+              "locationName": "District du Locle",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 16
+            },
+            "absolute": {
+              "yes": 3853,
+              "no": 1552
+            },
+            "relative": {
+              "yes": 71.2858464,
+              "no": 28.7141536,
+              "participation": 56.6180275
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T16:07:40",
+            "location": {
+              "id": 375,
+              "locationName": "District du Val-de-Ruz",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 16
+            },
+            "absolute": {
+              "yes": 4326,
+              "no": 1709
+            },
+            "relative": {
+              "yes": 71.6818558,
+              "no": 28.3181442,
+              "participation": 52.4101061
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T16:07:40",
+            "location": {
+              "id": 376,
+              "locationName": "District du Val-de-Travers",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 16
+            },
+            "absolute": {
+              "yes": 2520,
+              "no": 1187
+            },
+            "relative": {
+              "yes": 67.9794982,
+              "no": 32.0205018,
+              "participation": 43.6972821
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 3,
+              "value": "abgelehnt"
+            },
+            "update": "2017-02-12T16:07:38",
+            "location": {
+              "id": 292,
+              "locationName": "Kanton Appenzell Innerrhoden",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 6
+            },
+            "absolute": {
+              "yes": 1960,
+              "no": 2598
+            },
+            "relative": {
+              "yes": 43.0013164,
+              "no": 56.9986836,
+              "participation": 40.7856578
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T16:07:36",
+            "location": {
+              "id": 277,
+              "locationName": "Kanton Basel-Stadt",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 8
+            },
+            "absolute": {
+              "yes": 37206,
+              "no": 18378
+            },
+            "relative": {
+              "yes": 66.9365285,
+              "no": 33.0634715,
+              "participation": 52.8539911
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 3,
+              "value": "abgelehnt"
+            },
+            "update": "2017-02-12T16:07:36",
+            "location": {
+              "id": 258,
+              "locationName": "Kanton Glarus",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 12
+            },
+            "absolute": {
+              "yes": 5144,
+              "no": 5226
+            },
+            "relative": {
+              "yes": 49.6046287,
+              "no": 50.3953713,
+              "participation": 39.6450828
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T16:07:36",
+            "location": {
+              "id": 257,
+              "locationName": "Kanton Nidwalden",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 17
+            },
+            "absolute": {
+              "yes": 7562,
+              "no": 7455
+            },
+            "relative": {
+              "yes": 50.3562629,
+              "no": 49.6437371,
+              "participation": 48.8928881
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 3,
+              "value": "abgelehnt"
+            },
+            "update": "2017-02-12T16:07:36",
+            "location": {
+              "id": 256,
+              "locationName": "Kanton Obwalden",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 18
+            },
+            "absolute": {
+              "yes": 5940,
+              "no": 6854
+            },
+            "relative": {
+              "yes": 46.4280131,
+              "no": 53.5719869,
+              "participation": 49.0467741
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 3,
+              "value": "abgelehnt"
+            },
+            "update": "2017-02-12T16:07:35",
+            "location": {
+              "id": 249,
+              "locationName": "Kanton Uri",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 25
+            },
+            "absolute": {
+              "yes": 4662,
+              "no": 5441
+            },
+            "relative": {
+              "yes": 46.1447095,
+              "no": 53.8552905,
+              "participation": 39.2704934
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T16:07:36",
+            "location": {
+              "id": 259,
+              "locationName": "Kanton Zug",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 28
+            },
+            "absolute": {
+              "yes": 22613,
+              "no": 17917
+            },
+            "relative": {
+              "yes": 55.7932396,
+              "no": 44.2067604,
+              "participation": 53.4071651
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T16:07:35",
+            "location": {
+              "id": 5789,
+              "locationName": "Verwaltungskreis Bern-Mittelland",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 9
+            },
+            "absolute": {
+              "yes": 95139,
+              "no": 42185
+            },
+            "relative": {
+              "yes": 69.2806793,
+              "no": 30.7193207,
+              "participation": 0
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T16:07:35",
+            "location": {
+              "id": 5791,
+              "locationName": "Verwaltungskreis Biel/Bienne",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 9
+            },
+            "absolute": {
+              "yes": 17222,
+              "no": 8511
+            },
+            "relative": {
+              "yes": 66.9257374,
+              "no": 33.0742626,
+              "participation": 0
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T16:07:35",
+            "location": {
+              "id": 5792,
+              "locationName": "Verwaltungskreis Emmental",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 9
+            },
+            "absolute": {
+              "yes": 15250,
+              "no": 12849
+            },
+            "relative": {
+              "yes": 54.272394,
+              "no": 45.727606,
+              "participation": 0
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 3,
+              "value": "abgelehnt"
+            },
+            "update": "2017-02-12T16:07:35",
+            "location": {
+              "id": 5794,
+              "locationName": "Verwaltungskreis Frutigen-Niedersimmental",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 9
+            },
+            "absolute": {
+              "yes": 6180,
+              "no": 6467
+            },
+            "relative": {
+              "yes": 48.8653436,
+              "no": 51.1346564,
+              "participation": 0
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T16:07:35",
+            "location": {
+              "id": 5795,
+              "locationName": "Verwaltungskreis Interlaken-Oberhasli",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 9
+            },
+            "absolute": {
+              "yes": 6968,
+              "no": 6275
+            },
+            "relative": {
+              "yes": 52.6164766,
+              "no": 47.3835234,
+              "participation": 0
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 3,
+              "value": "abgelehnt"
+            },
+            "update": "2017-02-12T16:07:35",
+            "location": {
+              "id": 5790,
+              "locationName": "Verwaltungskreis Oberaargau",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 9
+            },
+            "absolute": {
+              "yes": 11690,
+              "no": 11697
+            },
+            "relative": {
+              "yes": 49.9850344,
+              "no": 50.0149656,
+              "participation": 0
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 3,
+              "value": "abgelehnt"
+            },
+            "update": "2017-02-12T16:07:35",
+            "location": {
+              "id": 5798,
+              "locationName": "Verwaltungskreis Obersimmental-Saanen",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 9
+            },
+            "absolute": {
+              "yes": 2173,
+              "no": 2337
+            },
+            "relative": {
+              "yes": 48.1818182,
+              "no": 51.8181818,
+              "participation": 0
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T16:07:35",
+            "location": {
+              "id": 5788,
+              "locationName": "Verwaltungskreis Seeland",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 9
+            },
+            "absolute": {
+              "yes": 12846,
+              "no": 9406
+            },
+            "relative": {
+              "yes": 57.7296423,
+              "no": 42.2703577,
+              "participation": 0
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T16:07:35",
+            "location": {
+              "id": 5797,
+              "locationName": "Verwaltungskreis Thun",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 9
+            },
+            "absolute": {
+              "yes": 18524,
+              "no": 15343
+            },
+            "relative": {
+              "yes": 54.696312,
+              "no": 45.303688,
+              "participation": 0
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 3,
+              "value": "abgelehnt"
+            },
+            "update": "2017-02-12T16:07:35",
+            "location": {
+              "id": 5858,
+              "locationName": "Wahlkreis Entlebuch",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 15
+            },
+            "absolute": {
+              "yes": 2613,
+              "no": 4761
+            },
+            "relative": {
+              "yes": 35.4353133,
+              "no": 64.5646867,
+              "participation": 44.3243566
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T16:07:35",
+            "location": {
+              "id": 5860,
+              "locationName": "Wahlkreis Hochdorf",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 15
+            },
+            "absolute": {
+              "yes": 10864,
+              "no": 9624
+            },
+            "relative": {
+              "yes": 53.0261617,
+              "no": 46.9738383,
+              "participation": 45.4441387
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T16:07:35",
+            "location": {
+              "id": 5861,
+              "locationName": "Wahlkreis Luzern-Land",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 15
+            },
+            "absolute": {
+              "yes": 19778,
+              "no": 13694
+            },
+            "relative": {
+              "yes": 59.0881931,
+              "no": 40.9118069,
+              "participation": 49.8148886
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T16:07:35",
+            "location": {
+              "id": 5862,
+              "locationName": "Wahlkreis Luzern-Stadt",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 15
+            },
+            "absolute": {
+              "yes": 18102,
+              "no": 7186
+            },
+            "relative": {
+              "yes": 71.5833597,
+              "no": 28.4166403,
+              "participation": 48.0318069
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 3,
+              "value": "abgelehnt"
+            },
+            "update": "2017-02-12T16:07:38",
+            "location": {
+              "id": 295,
+              "locationName": "Wahlkreis Rheintal",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 21
+            },
+            "absolute": {
+              "yes": 7037,
+              "no": 10865
+            },
+            "relative": {
+              "yes": 39.3084572,
+              "no": 60.6915428,
+              "participation": 42.3653224
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 3,
+              "value": "abgelehnt"
+            },
+            "update": "2017-02-12T16:07:38",
+            "location": {
+              "id": 294,
+              "locationName": "Wahlkreis Rorschach",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 21
+            },
+            "absolute": {
+              "yes": 5779,
+              "no": 5984
+            },
+            "relative": {
+              "yes": 49.1286237,
+              "no": 50.8713763,
+              "participation": 46.2410291
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 3,
+              "value": "abgelehnt"
+            },
+            "update": "2017-02-12T16:07:38",
+            "location": {
+              "id": 297,
+              "locationName": "Wahlkreis Sarganserland",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 21
+            },
+            "absolute": {
+              "yes": 5070,
+              "no": 6413
+            },
+            "relative": {
+              "yes": 44.152225,
+              "no": 55.847775,
+              "participation": 44.1256464
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T16:07:38",
+            "location": {
+              "id": 298,
+              "locationName": "Wahlkreis See-Gaster",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 21
+            },
+            "absolute": {
+              "yes": 10165,
+              "no": 9339
+            },
+            "relative": {
+              "yes": 52.1175144,
+              "no": 47.8824856,
+              "participation": 44.1873067
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T16:07:38",
+            "location": {
+              "id": 293,
+              "locationName": "Wahlkreis St. Gallen",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 21
+            },
+            "absolute": {
+              "yes": 20519,
+              "no": 14458
+            },
+            "relative": {
+              "yes": 58.6642651,
+              "no": 41.3357349,
+              "participation": 46.2335885
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T16:07:35",
+            "location": {
+              "id": 5863,
+              "locationName": "Wahlkreis Sursee",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 15
+            },
+            "absolute": {
+              "yes": 12272,
+              "no": 10896
+            },
+            "relative": {
+              "yes": 52.9696133,
+              "no": 47.0303867,
+              "participation": 46.7135213
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 3,
+              "value": "abgelehnt"
+            },
+            "update": "2017-02-12T16:07:38",
+            "location": {
+              "id": 299,
+              "locationName": "Wahlkreis Toggenburg",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 21
+            },
+            "absolute": {
+              "yes": 5998,
+              "no": 7440
+            },
+            "relative": {
+              "yes": 44.6346182,
+              "no": 55.3653818,
+              "participation": 43.9663876
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 3,
+              "value": "abgelehnt"
+            },
+            "update": "2017-02-12T16:07:38",
+            "location": {
+              "id": 296,
+              "locationName": "Wahlkreis Werdenberg",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 21
+            },
+            "absolute": {
+              "yes": 4384,
+              "no": 5192
+            },
+            "relative": {
+              "yes": 45.7811195,
+              "no": 54.2188805,
+              "participation": 43.8699068
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 3,
+              "value": "abgelehnt"
+            },
+            "update": "2017-02-12T16:07:39",
+            "location": {
+              "id": 300,
+              "locationName": "Wahlkreis Wil",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 21
+            },
+            "absolute": {
+              "yes": 10234,
+              "no": 10966
+            },
+            "relative": {
+              "yes": 48.2735849,
+              "no": 51.7264151,
+              "participation": 45.7529414
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 3,
+              "value": "abgelehnt"
+            },
+            "update": "2017-02-12T16:07:35",
+            "location": {
+              "id": 5864,
+              "locationName": "Wahlkreis Willisau",
+              "shortName": "",
+              "type": {
+                "id": 3,
+                "name": "Bezirk"
+              },
+              "power": 0,
+              "parentLocationId": 15
+            },
+            "absolute": {
+              "yes": 6710,
+              "no": 8554
+            },
+            "relative": {
+              "yes": 43.9596436,
+              "no": 56.0403564,
+              "participation": 42.6481589
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T16:07:41",
+            "location": {
+              "id": 5768,
+              "locationName": "AI-AUSLAND-CH",
+              "shortName": "AI-AUSLAND-CH",
+              "type": {
+                "id": 5,
+                "name": "Ausland-CH"
+              },
+              "power": 0,
+              "parentLocationId": 6
+            },
+            "absolute": {
+              "yes": 70,
+              "no": 29
+            },
+            "relative": {
+              "yes": 70.7070707,
+              "no": 29.2929293,
+              "participation": 27.8089888
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T16:07:40",
+            "location": {
+              "id": 5767,
+              "locationName": "BS-AUSLAND-CH",
+              "shortName": "BS-AUSLAND-CH",
+              "type": {
+                "id": 5,
+                "name": "Ausland-CH"
+              },
+              "power": 0,
+              "parentLocationId": 8
+            },
+            "absolute": {
+              "yes": 2099,
+              "no": 510
+            },
+            "relative": {
+              "yes": 80.4522806,
+              "no": 19.5477194,
+              "participation": 33.2318234
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T16:07:41",
+            "location": {
+              "id": 5772,
+              "locationName": "GE-AUSLAND-CH",
+              "shortName": "GE-AUSLAND-CH",
+              "type": {
+                "id": 5,
+                "name": "Ausland-CH"
+              },
+              "power": 0,
+              "parentLocationId": 11
+            },
+            "absolute": {
+              "yes": 7416,
+              "no": 1991
+            },
+            "relative": {
+              "yes": 78.8349102,
+              "no": 21.1650898,
+              "participation": 39.3828343
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T16:07:40",
+            "location": {
+              "id": 5766,
+              "locationName": "LU-AUSLAND-CH",
+              "shortName": "LU-AUSLAND-CH",
+              "type": {
+                "id": 5,
+                "name": "Ausland-CH"
+              },
+              "power": 0,
+              "parentLocationId": 15
+            },
+            "absolute": {
+              "yes": 1305,
+              "no": 355
+            },
+            "relative": {
+              "yes": 78.6144578,
+              "no": 21.3855422,
+              "participation": 36.8721211
+            }
+          },
+          {
+            "dataCondition": {
+              "id": 3,
+              "value": "Resultat"
+            },
+            "resultCondition": {
+              "id": 2,
+              "value": "angenommen"
+            },
+            "update": "2017-02-12T16:07:41",
+            "location": {
+              "id": 5770,
+              "locationName": "VD-AUSLAND-CH",
+              "shortName": "VD-AUSLAND-CH",
+              "type": {
+                "id": 5,
+                "name": "Ausland-CH"
+              },
+              "power": 0,
+              "parentLocationId": 26
+            },
+            "absolute": {
+              "yes": 4392,
+              "no": 923
+            },
+            "relative": {
+              "yes": 82.6340546,
+              "no": 17.3659454,
+              "participation": 30.9498956
+            }
+          }
+        ]
+      },
+      "type": {
+        "name": "obligatorisches Referendum",
+        "scoreMore": "true"
+      }
+    }
+  }
+}
