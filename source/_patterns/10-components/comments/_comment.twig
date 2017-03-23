@@ -1,5 +1,5 @@
 {% for comment in comments %}
-    <li id="comment_{{ comment.id }}" class="comment comment_parent--js">
+    <li id="comment_{{ comment.id }}" class="comment">
         <p class="comment__user">{{ comment.name }} ({{ comment.nickname }})</p>
         <span class="comment__time">{{ comment.dateFormatted }}</span>
         <p class="comment__content">{{ comment.message }}</p>
@@ -8,7 +8,7 @@
         {% if comment.children|length > 0 %}
             <ol class="comments comments--replies">
                 {% for reply in comment.children %}
-                    <li id="comment_{{ reply.id }}" class="comment comment_child--js">
+                    <li id="comment_{{ reply.id }}" class="comment">
                         <p class="comment__user {% if reply.isEditorialAnswer %} comment__user--srf{% endif %}">{{ reply.name }} ({{ reply.nickname }})</p>
                         <span class="comment__time">{{ reply.dateFormatted }}</span>
                         <p class="comment__content">{{ reply.message }}</p>
