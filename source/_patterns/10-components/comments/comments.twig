@@ -1,13 +1,13 @@
 <div class="comments-wrapper" data-total-count="{{ comments.total_count }}" {% block data_attributes %}{% endblock %}>
-    <div class="comments-header l-full-width-container">
-        <p class="comments-header__title comments-header--shrink">{% if comments.total_count > 0 %}{{ comments.total_count }} {% endif %}{{ comments.title|default("Kommentare") }}</p>
+    <div class="comments-header">
+        <p class="comments-header__title comments--shrink">{% if comments.total_count > 0 %}{{ comments.total_count }} {% endif %}{{ comments.title|default("Kommentare") }}</p>
         <hr class="comments-header__border">
         {% if comments.total_count == 0 %}
-            <p class="comments-header__text comments-header--shrink">
+            <p class="comments-header__text comments--shrink">
                 {{ comments.no_comment|default("Es wurden noch keine Kommentare erfasst. Seien Sie die erste Person, die diesen Artikel kommentiert.") }}
             </p>
         {% else %}
-            <ul class="tabs comments-header--shrink" role="tablist">
+            <ul class="tabs comments--shrink" role="tablist">
                 <li class="tab-option" role="presentation">
                     <a href="#sectionAll" class="tab-option__link tab-option__link--selected" tabindex="0" role="tab" aria-controls="sectionAll" aria-selected="true">{{ comments.link_all|default("Alle Kommentare") }}</a>
                 </li>
@@ -19,7 +19,7 @@
     </div>{# here ends the header #}
     {% if comments.total_count > 0 %}
         <section id="sectionAll" role="tabpanel">
-            <ul class="comments comments--main">
+            <ul class="comments comments--shrink comments--main">
                 {% block comments %}
                    {% include 'components-comment' with { 'comments': comments.comments } %}
                 {% endblock %}

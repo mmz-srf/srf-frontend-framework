@@ -1,20 +1,29 @@
-.comments-wrapper {
-  margin: 24px 0 24px;
-  @include smartphone {
-    margin: 20px -8px 20px;
-  }
+.article-comments { // section
+  background-color: #f5f5f2;
+  padding: 24px 32px;
   position: relative;
+  @include smartphone {
+    padding: 20px 8px;
+  }
   .spinner-container {
     position:relative;
     margin-top: 30px;
     display:none;
   }
 }
+.comments-wrapper {
+  background-color: #fff;
+  border: 1px solid $color-separator;
+  border-width: 1px 1px 0;
+  background-color: #fefefd;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.24),
+              0 0 2px 0 rgba(0, 0, 0, 0.12);
+}
 .comments-header {
   background-color: $color-link-bg-hover;
-  border-top: 1px solid $color-separator;
+  position: relative;
 }
-.comments-header--shrink {
+.comments--shrink {
     @include tablet-up {
       margin: 0 auto !important
     }
@@ -46,26 +55,29 @@
 }
 .comments-header__border { // hack :(
   position: absolute;
+  width: 100%;
   border-bottom: 1px solid $color-separator;
   border-width: 0 0 1px;
   margin: 0;
   bottom: 0;
-  width: 100%;
   z-index: 0;
 }
-.comments {
+.comments { // ul
   background-color: #fff;
-  margin: 0;
+  margin: 0 0 13px;
   padding: 0;
   position: relative;
+  @include tablet-up {
+    margin-bottom: 28px;
+  }
 }
-.comments--replies {
+.comments--replies { // ul ul
   margin-left: 10px;
   @include tablet-up {
     margin-left: 50px;
   }
 }
-.comment {
+.comment { // ul li
   border-top: 1px solid $color-separator;
   overflow: hidden;
   padding: 0;
@@ -73,7 +85,10 @@
   &:before { // overwrite
     content: none;
   }
-  .comment {
+  @include tablet-up {
+    margin: 0;
+  }
+  .comment { // ul li li
     margin-right: 0;
     overflow: visible;
     &:before {
@@ -87,15 +102,31 @@
     }
   }
 }
-.comments--main > .comment:first-child {
-  border-top: 0;
-  padding-top: 8px;
+.comments--main { // ul
+  > .comment:first-child {
+    border-top: 0;
+    padding-top: 8px;
+  }
+  @include tablet-up {
+    margin: 0 auto !important
+  }
+  @include tablet {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+  @include desktop-up {
+    padding-left: 55px;
+    padding-right: 55px;
+  }
 }
 
 .comment__user {
   font: 14px/20px $font-regular;
   letter-spacing: .5px;
   margin: 16px 0 2px;
+  @include tablet-up {
+    margin-top: 20px
+  }
 }
 .comment__user--srf {
   background: #fff url("../img/srf_logo.svg") no-repeat scroll right 2px / 24px auto;
@@ -108,15 +139,24 @@
   font: 18px/28px $font-light;
   letter-spacing: .5px;
   margin: 12px 0 16px;
+  @include tablet-up {
+    font-size: 20px;
+    line-height: 32px;
+    letter-spacing: .3px;
+    margin-bottom: 24px;
+  }
 }
 .comment__link {
-  font: 14px/16px $font-regular;
-  letter-spacing: .2px;
   border-bottom: 0;
   display: inline-block;
   margin-bottom: 28px;
   padding: 0 10px;
   cursor: pointer; // why would this be necessary!?
+  font: 14px/16px $font-regular;
+  letter-spacing: .2px;
+  @include tablet-up {
+    font: 16px/24px $font-light;
+  }
   &:first-of-type {
     border-right: 1px solid $color-separator;
     padding-left: 0;
