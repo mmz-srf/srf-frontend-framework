@@ -410,7 +410,7 @@
     "total_count": "8",
     "comments": [
       {
-        "dateFormatted": "14.03.2017 15:19",
+        "dateFormatted": "Dienstag, 14.03.2017, 15:19 Uhr",
         "isEditorialAnswer": false,
         "id": 4236430,
         "name": "Werner Christmann",
@@ -418,7 +418,7 @@
         "nickname": "chrischi1",
         "children": [
           {
-            "dateFormatted": "14.03.2017 21:20",
+            "dateFormatted": "Dienstag, 14.03.2017, 21:20 Uhr",
             "isEditorialAnswer": false,
             "id": 4237595,
             "name": "W Streuli",
@@ -426,7 +426,7 @@
             "nickname": "Wernu"
           },
           {
-            "dateFormatted": "14.03.2017 15:18",
+            "dateFormatted": "Dienstag, 14.03.2017, 15:18 Uhr",
             "isEditorialAnswer": false,
             "id": 4236425,
             "name": "Verena Casagrande",
@@ -434,7 +434,7 @@
             "nickname": "Verena Casagrande"
           },
           {
-            "dateFormatted": "14.03.2017 12:36",
+            "dateFormatted": "Dienstag, 14.03.2017, 12:36 Uhr",
             "isEditorialAnswer": true,
             "id": 4236072,
             "name": "SRF Redaktion",
@@ -444,7 +444,7 @@
         ]
       },
       {
-        "dateFormatted": "14.03.2017 12:08",
+        "dateFormatted": "Dienstag, 14.03.2017, 12:08 Uhr",
         "isEditorialAnswer": false,
         "id": 4235970,
         "name": "Severin Heck",
@@ -452,7 +452,7 @@
         "nickname": "Selber denken und prüfen",
         "children": [
           {
-            "dateFormatted": "14.03.2017 15:18",
+            "dateFormatted": "Dienstag, 14.03.2017, 15:18 Uhr",
             "isEditorialAnswer": false,
             "id": 4236425,
             "name": "Verena Casagrande",
@@ -462,7 +462,7 @@
         ]
       },
       {
-        "dateFormatted": "14.03.2017 12:00",
+        "dateFormatted": "Dienstag, 14.03.2017, 12:00 Uhr",
         "isEditorialAnswer": false,
         "id": 4235945,
         "name": "Severin Heck",
@@ -470,7 +470,7 @@
         "nickname": "Selber denken und prüfen",
         "children": [
           {
-            "dateFormatted": "14.03.2017 12:36",
+            "dateFormatted": "Dienstag, 14.03.2017, 12:36 Uhr",
             "isEditorialAnswer": false,
             "id": 4236072,
             "name": "Sebastian Klaus",

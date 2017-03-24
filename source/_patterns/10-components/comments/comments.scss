@@ -62,7 +62,7 @@
   bottom: 0;
   z-index: 0;
 }
-.comments { // ul
+.comments { // ul & ul ul
   background-color: #fff;
   margin: 0 0 13px;
   padding: 0;
@@ -140,7 +140,6 @@
     font-size: 20px;
     line-height: 32px;
     letter-spacing: .3px;
-    margin-bottom: 24px;
   }
 }
 .comment__link {
