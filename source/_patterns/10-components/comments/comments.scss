@@ -112,6 +112,7 @@
     padding-top: 8px;
   }
   margin-bottom: 13px;
+  clear: both;
   @include tablet-up {
     margin: 0 auto 32px !important
   }
@@ -216,7 +217,9 @@
   font: 14px/16px $font-regular;
   color: $color-tab-option-link;
   border-bottom: 1px solid $color-separator;
-  padding: 12px 16px 11px;
+  padding: 12px 16px 0;
+  height: 40px;
+  white-space: nowrap;
   display: inline-block;
   &:hover {
     color: $color-tab-option-link;
@@ -224,7 +227,7 @@
   }
   @include smartphone {
     text-align: center;
-    padding: 12px 24px 11px;
+    padding: 12px 24px 0;
   }
 }
 .tab-option__link--selected {
