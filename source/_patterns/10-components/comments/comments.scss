@@ -64,7 +64,7 @@
 }
 .comments { // ul & ul ul
   background-color: #fff;
-  margin: 0 0 13px;
+  margin: 0;
   padding: 0;
   position: relative;
 }
@@ -84,6 +84,7 @@
   }
   @include tablet-up {
     margin: 0;
+    padding: 0 16px;
   }
   .comment { // ul li li
     margin-right: 0;
@@ -96,6 +97,10 @@
       top: -8px;
       width: 20px;
       background: #fff url("../img/arrows/fancy_arrow.svg");
+      @include tablet-up {
+        left: -36px;
+        top: 26px;
+      }
     }
   }
 }
@@ -104,16 +109,17 @@
     border-top: 0;
     padding-top: 8px;
   }
+  margin-bottom: 13px;
   @include tablet-up {
-    margin: 0 auto 28px !important
+    margin: 0 auto 32px !important
   }
   @include tablet {
-    padding-left: 50px;
-    padding-right: 50px;
+    padding-left: 34px;
+    padding-right: 34px;
   }
   @include desktop-up {
-    padding-left: 55px;
-    padding-right: 55px;
+    padding-left: 39px;
+    padding-right: 39px;
   }
 }
 
@@ -122,7 +128,7 @@
   letter-spacing: .5px;
   margin: 16px 0 2px;
   @include tablet-up {
-    margin-top: 20px
+    margin-top: 24px
   }
 }
 .comment__user--srf {
@@ -152,6 +158,7 @@
   letter-spacing: .2px;
   @include tablet-up {
     font: 16px/24px $font-light;
+    margin-bottom: 24px;
   }
   &:first-of-type {
     border-right: 1px solid $color-separator;
