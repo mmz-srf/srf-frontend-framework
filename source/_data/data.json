@@ -2,6 +2,7 @@
   "title" : "SRF Frontend Framework",
   "htmlClass": "pl",
   "bodyClass": "body",
+  "a11yInfo": "Accessible Text goes here",
   "articleHeader": {
     "kicker": "Pendler-Chaos",
     "title": "Vor 20 Jahren forderte Cyberpionier Barlow: «Lasst uns in Ruhe!»",
@@ -401,4 +402,3 @@
     "total": "Stimmen wurden abgegeben"
   }
 }
-
