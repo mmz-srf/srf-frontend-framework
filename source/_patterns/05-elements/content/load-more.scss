@@ -1,9 +1,10 @@
 .load-more {
   height: 40px;
-  background: $color-link-bg-hover url(../img/arrows/red_arrow_down.svg) no-repeat center; // design: rgba(235, 235, 229, 0.2); ??
+  background-color: $color-link-bg-hover;
   border: 1px solid $color-separator;
   border-width: 1px 0;
   cursor: pointer;
+  width: 100%;
   &:hover {
     background-color: $color-bg-caption;
   }
@@ -12,5 +13,18 @@
   }
   @include tablet-up {
     height: 56px;
+  }
+}
+.load-more__img {
+  width: 19px;
+  height: 10px;
+  display: inline;
+  margin: 0 6px 1px 0;
+}
+.load-more__info {
+  color: $color-accentuation-red;
+  font: 16px/16px $font-regular;
+  @include smartphone {
+    display: none;
   }
 }
