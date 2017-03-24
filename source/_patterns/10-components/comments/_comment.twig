@@ -2,21 +2,25 @@
 {% for comment in comments %}
     {% set commentIds = commentIds|merge([comment.id]) %}
     <li id="comment_{{ comment.id }}" class="comment">
+        <span class="h-offscreen">{{ default.comment_by|default("Kommentar von") }} </span>
         <p class="comment__user">{{ comment.name }} ({{ comment.nickname }})</p>
         <time class="comment__time">{{ comment.dateFormatted }}</time>
         <p class="comment__content">{{ comment.message }}</p>
-        <a class="comment__link comment__link--clicked">{{ comments.link_social|default("Gefällt mir") }} (?)</a>{# ... folgestory #}
-        <a class="comment__link">{{ comments.link_reply|default("Antworten") }}</a>
+        <a class="comment__link comment__link--clicked">{{ default.link_social|default("Gefällt mir") }}
+            (?)</a>{# ... folgestory #}
+        <a class="comment__link">{{ default.link_reply|default("Antworten") }}</a>
         {% if comment.children|length > 0 %}
             <ol class="comments comments--replies">
                 {% for reply in comment.children %}
                     {% set commentIds = commentIds|merge([reply.id]) %}
                     <li id="comment_{{ reply.id }}" class="comment">
+                        <span class="h-offscreen">{{ default.reply_by|default("Antwort von") }} </span>
                         <p class="comment__user {% if reply.isEditorialAnswer %} comment__user--srf{% endif %}">{{ reply.name }} ({{ reply.nickname }})</p>
                         <time class="comment__time">{{ reply.dateFormatted }}</time>
                         <p class="comment__content">{{ reply.message }}</p>
-                        <a class="comment__link">{{ reply.link_social|default("Gefällt mir") }} (?)</a>{# ... folgestory #}
-                        <a class="comment__link">{{ reply.link_reply|default("Antworten") }}</a>
+                        <a class="comment__link">{{ default.link_social|default("Gefällt mir") }}
+                            (?)</a>{# ... folgestory #}
+                        <a class="comment__link">{{ default.link_reply|default("Antworten") }}</a>
                     </li>
                 {% endfor %}
             </ol>

@@ -22,7 +22,7 @@
             <section id="sectionAll" role="tabpanel">
                 <ul class="comments comments--shrink comments--main">
                     {% block comments %}
-                       {% include 'components-comment' with { 'comments': comments.comments } %}
+                        {% include 'components-comment' with { 'comments': comments.comments, 'default': comments } %}
                     {% endblock %}
                 </ul>
             </section>
