@@ -1,5 +1,5 @@
 .article-comments { // section
-  background-color: #f5f5f2;
+  background-color: $color-bg-caption;
   padding: 24px 32px;
   position: relative;
   @include smartphone {
@@ -13,8 +13,6 @@
 }
 .comments-wrapper {
   background-color: #fefefd;
-  border: 1px solid $color-separator;
-  border-width: 1px 1px 0;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.24),
               0 0 2px 0 rgba(0, 0, 0, 0.12);
 }
@@ -65,7 +63,6 @@
   z-index: 0;
 }
 .comments { // ul & ul ul
-  background-color: #fff;
   margin: 0;
   padding: 0;
   position: relative;
@@ -98,7 +95,7 @@
       left: -26px;
       top: -8px;
       width: 20px;
-      background: #fff url("../img/arrows/fancy_arrow.svg");
+      background-image: url("../img/arrows/fancy_arrow.svg");
       @include tablet-up {
         left: -36px;
         top: 26px;
@@ -139,7 +136,7 @@
 }
 .comment__time {
   font: 12px/16px $font-system;
-  color: #888579;
+  color: $color-text-light;
   display: block;
 }
 .comment__content {
@@ -155,14 +152,14 @@
 .comment__link {
   border-bottom: 0;
   display: inline-block;
-  margin-bottom: 28px;
-  padding: 0 10px;
   cursor: pointer; // why would this be necessary!?
+  padding: 0 10px;
+  margin-bottom: 28px;
   font: 14px/16px $font-regular;
   letter-spacing: .2px;
   @include tablet-up {
-    font: 16px/24px $font-light;
     margin-bottom: 24px;
+    font: 16px/24px $font-light;
   }
   &:first-of-type {
     border-right: 1px solid $color-separator;
@@ -173,7 +170,7 @@
   }
 }
 
-.comment__link--clicked {
+.comment__link:visited, .comment__link--clicked {
   color: $color-text-light;
 }
 
@@ -194,9 +191,6 @@
 
   @include desktop-wide {
     // max-width: 870px;
-  }
-  &.comments-header--shrink {
-    margin: 0 auto;
   }
 }
 .tab-option {

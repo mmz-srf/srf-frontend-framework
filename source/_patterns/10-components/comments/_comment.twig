@@ -3,7 +3,7 @@
     {% set commentIds = commentIds|merge([comment.id]) %}
     <li id="comment_{{ comment.id }}" class="comment">
         <p class="comment__user">{{ comment.name }} ({{ comment.nickname }})</p>
-        <span class="comment__time">{{ comment.dateFormatted }}</span>
+        <time class="comment__time">{{ comment.dateFormatted }}</time>
         <p class="comment__content">{{ comment.message }}</p>
         <a class="comment__link comment__link--clicked">{{ comments.link_social|default("Gefällt mir") }} (?)</a>{# ... folgestory #}
         <a class="comment__link">{{ comments.link_reply|default("Antworten") }}</a>
@@ -13,7 +13,7 @@
                     {% set commentIds = commentIds|merge([reply.id]) %}
                     <li id="comment_{{ reply.id }}" class="comment">
                         <p class="comment__user {% if reply.isEditorialAnswer %} comment__user--srf{% endif %}">{{ reply.name }} ({{ reply.nickname }})</p>
-                        <span class="comment__time">{{ reply.dateFormatted }}</span>
+                        <time class="comment__time">{{ reply.dateFormatted }}</time>
                         <p class="comment__content">{{ reply.message }}</p>
                         <a class="comment__link">{{ reply.link_social|default("Gefällt mir") }} (?)</a>{# ... folgestory #}
                         <a class="comment__link">{{ reply.link_reply|default("Antworten") }}</a>
