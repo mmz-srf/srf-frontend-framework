@@ -399,6 +399,124 @@
     }],
     "submit": "Abstimmen",
     "total": "Stimmen wurden abgegeben"
+  },
+  "menu": [
+    {
+      "key": "",
+      "val": "Kanton wählen"
+    },
+    {
+      "key": "AG",
+      "val": "Aargau"
+    },
+    {
+      "key": "AI",
+      "val": "Appenzell Innerrhoden"
+    },
+    {
+      "key": "AR",
+      "val": "Appenzell Ausserrhoden"
+    },
+    {
+      "key": "BE",
+      "val": "Bern"
+    },
+    {
+      "key": "BL",
+      "val": "Basel-Landschaft"
+    },
+    {
+      "key": "BS",
+      "val": "Basel-Stadt"
+    },
+    {
+      "key": "FR",
+      "val": "Fribourg"
+    },
+    {
+      "key": "GE",
+      "val": "Genf"
+    },
+    {
+      "key": "GL",
+      "val": "Glarus"
+    },
+    {
+      "key": "GR",
+      "val": "Graubünden"
+    },
+    {
+      "key": "JU",
+      "val": "Jura"
+    },
+    {
+      "key": "LU",
+      "val": "Luzern"
+    },
+    {
+      "key": "NE",
+      "val": "Neuenburg"
+    },
+    {
+      "key": "NW",
+      "val": "Nidwalden"
+    },
+    {
+      "key": "OW",
+      "val": "Obwalden"
+    },
+    {
+      "key": "SG",
+      "val": "St. Gallen"
+    },
+    {
+      "key": "SH",
+      "val": "Schaffhausen"
+    },
+    {
+      "key": "SO",
+      "val": "Solothurn"
+    },
+    {
+      "key": "SZ",
+      "val": "Schwyz"
+    },
+    {
+      "key": "TG",
+      "val": "Thurgau"
+    },
+    {
+      "key": "TI",
+      "val": "Tessin"
+    },
+    {
+      "key": "UR",
+      "val": "Uri"
+    },
+    {
+      "key": "VD",
+      "val": "Waadt"
+    },
+    {
+      "key": "VS",
+      "val": "Wallis"
+    },
+    {
+      "key": "ZG",
+      "val": "Zug"
+    },
+    {
+      "key": "ZH",
+      "val": "Zürich"
+    }
+  ],
+  "form": {
+    "title": "Formular Titel",
+    "id": "form-ID",
+    "method": "get",
+    "legend": "Irgend ein Titel",
+    "hint": "* Pflichtfelder",
+    "button": "Datei Upload"
   }
 }
 

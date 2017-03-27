@@ -4,6 +4,8 @@
 
     {% include 'elements-media-caption-with-legend' with { 'styleModifier': 'media-caption--chmap', 'styleModifierContent': 'media-caption__content--chmap' } %}
 
-    {% include 'elements-canton-select' %}
+    <div class="menu-wrapper">
+        {% include 'elements-select' %}
+    </div>
     <div id="infowindow-ID" class="chmap-infowindow"></div>
 </figure>
