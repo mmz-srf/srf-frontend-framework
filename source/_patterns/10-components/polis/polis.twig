@@ -32,21 +32,20 @@
             </li>
         </ul>
         {% if votes.3900.needsCantonalMajority %}
-            <p class="polis-result-title">Standesstimmen</p>
+            <p class="polis-result-title">{{ polis.Standesstimmen }}</p>
             {% set resultAbsoluteYes = votes.3900.cantonalResult.absolute.yes|number_format(1, '.', '') %}
             {% set resultAbsoluteNo = votes.3900.cantonalResult.absolute.no|number_format(1, '.', '') %}
             <ul class="polis-result-container">
-                <li class="polis-result polis-result--yes" style="width: {{ resultAbsoluteYes }}%">
+                <li class="polis-result polis-result--yes" style="width: {{ resultAbsoluteYes / 23 * 100 }}%">
                     <span class="h-offscreen">{{ polis.yes }}</span>
                     <div class="polis-result__bar polis-result__bar--yes">
                         <p class="polis-result-relativ"><span
                                     class="polis-result-relativ__number">{{ resultAbsoluteYes }}</span></p>
                     </div>
                 </li>
-                <li class="polis-result" role="presentation" aria-hidden="true">
-                    <div class="polis-result__bar"></div>{# if not all are there yet #}
-                </li>
-                <li class="polis-result polis-result--no" style="width: {{ resultAbsoluteNo }}%">
+                <li class="polis-result polis-result--default" role="presentation" aria-hidden="true"
+                    style="width: {{ (23 - resultAbsoluteYes - resultAbsoluteNo) / 23 * 100 }}%">{# if not all are there yet #}</li>
+                <li class="polis-result polis-result--no" style="width: {{ resultAbsoluteNo / 23 * 100 }}%">
                     <span class="h-offscreen">{{ polis.no }}</span>
                     <div class="polis-result__bar polis-result__bar--no">
                         <p class="polis-result-relativ"><span
