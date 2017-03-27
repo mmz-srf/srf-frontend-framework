@@ -1,7 +1,7 @@
 /*** COLORS ***/
 $color-accentuation-red: #c91024;
-$color-bg-caption: #F5F5F2;
-$color-bg-box: #EBEBE5;
+$color-bg-caption: #f5f5f2;
+$color-bg-box: #ebebe5;
 $color-bg-box-hover: #dadad2;
 $color-link-default: $color-accentuation-red;
 $color-link-hover: #8d0614;
@@ -11,13 +11,17 @@ $color-link-bg-active: $color-bg-caption;
 $color-list-bullet: $color-accentuation-red;
 $color-separator: $color-bg-box;
 $color-text-default: #22211d;
-$color-text-accentuation: #4E4D47;
+$color-text-accentuation: #4e4d47;
 $color-text-light: #888579;
 $color-table-bg-zebra-light: $color-link-bg-hover;
 $color-table-bg-zebra-dark: $color-bg-caption;
 $color-table-bg-header: $color-bg-box;
 $color-border: #cac8bf;
 $color-border-medium: #D2D2D2;
+$color-button-default: #6b6960;
+$color-button-success: #1a7ac5;
+$color-form-field: #b9b7ac;
+$color-form-field-hint: #6b6960;
 
 /*** FONTS ***/
 $font-medium: 'SRG_SSR_Medium', sans-serif;

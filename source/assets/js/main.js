@@ -5,6 +5,7 @@ import {init as SrfImageSliderInit} from './srf-image-slider';
 import {init as SrfPollInit} from './srf-poll';
 import {init as SrfRatingsInit} from './srf-ratings';
 import {init as SrfTooltipInit} from './srf-tooltip';
+import {init as SrfFormFieldInit} from './srf-form-fields';
 import {init as SrfPolisInit} from './srf-polis';
 
 document.addEventListener("DOMContentLoaded", function(event) {
@@ -15,5 +16,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
     SrfPollInit();
     SrfRatingsInit();
     SrfTooltipInit();
+    SrfFormFieldInit();
     SrfPolisInit();
 });
