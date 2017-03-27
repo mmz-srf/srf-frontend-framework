@@ -1,0 +1,45 @@
+<section class="article-comments l-full-width-container">
+    <div class="comments-wrapper" data-total-count="{{ comments.total_count }}" {% block data_attributes %}{% endblock %}>
+        <div class="comments-header">
+            <p class="comments-header__title comments--shrink">
+                {% if comments.total_count > 0 %}{{ comments.total_count }} {% endif %}
+                {% if comments.total_count == 1 %}
+                    {{ comments.title_singular|default("Kommentar") }}
+                {% else %}
+                    {{ comments.title_plural|default("Kommentare") }}
+                {% endif %}
+            </p>
+            <hr class="comments-header__border" aria-hidden="true" role="presentation">
+            {% if comments.total_count == 0 %}
+                <p class="comments-header__text comments--shrink">
+                    {{ comments.no_comment|default("Es wurden noch keine Kommentare erfasst. Seien Sie die erste Person, die diesen Artikel kommentiert.") }}
+                </p>
+            {% else %}
+                <ul class="tabs comments--shrink" role="tablist">
+                    <li class="tab-option" role="presentation">
+                        <a href="#sectionAll" class="tab-option__link tab-option__link--selected" tabindex="0" role="tab" aria-controls="sectionAll" aria-selected="true">{{ comments.link_all|default("Alle Kommentare") }}</a>
+                    </li>
+                    <li class="tab-option" role="presentation">
+                        <a href="#sectionHits" class="tab-option__link" tabindex="-1" role="tab" aria-controls="sectionHits">{{ comments.link_hits|default("Beliebteste") }}</a>
+                    </li>
+                </ul>
+            {% endif %}
+        </div>{# here ends the header #}
+        {% if comments.total_count > 0 %}
+            <section id="sectionAll" role="tabpanel">
+                <ul class="comments comments--shrink comments--main">
+                    {% block comments %}
+                        {% include 'components-comment' with { 'comments': comments.comments, 'default': comments.addons } %}
+                    {% endblock %}
+                </ul>
+            </section>
+            <section id="sectionAll" role="tabpanel" aria-hidden="true"></section>
+            {% block more_button %}
+                {% include 'elements-load-more' %}
+            {% endblock %}
+            {% block more_button_spinner %}
+                {% include 'elements-spinner' %}
+            {% endblock %}
+        {% endif %}
+    </div>
+</section>
