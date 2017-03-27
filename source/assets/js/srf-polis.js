@@ -482,12 +482,10 @@ var polisController = function() {
 
         this.generateMobileNavigation = function() {
             var $select = $('#' + this.id).closest('.polis-container').find('.menu');
-            // console.log($select.find("option"))
-            // $select.find("option").addClass("polis-select-option--hide");
+            $select.find("option").addClass("polis-select-option--hide");
             for (var cantonId in this.cantons) {
-                console.log(this.cantons[cantonId]);
                 if (this.cantons[cantonId].hasResults()) {
-                    $select.find("option[value" + cantonId + "]").removeClass("polis-select-option--hide");
+                    $select.find("option[value=" + cantonId + "]").removeClass("polis-select-option--hide");
                 }
             }
         };
