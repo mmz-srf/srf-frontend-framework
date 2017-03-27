@@ -6,7 +6,7 @@
         <p class="comment__user">{{ comment.name }} ({{ comment.nickname }})</p>
         <time class="comment__time">{{ comment.dateFormatted }}</time>
         <p class="comment__content">{{ comment.message }}</p>
-        <a class="comment__link comment__link--clicked">{{ default.link_social|default("Gefällt mir") }}
+        <a class="comment__link">{{ default.link_social|default("Gefällt mir") }}
             (?)</a>{# ... folgestory #}
         <a class="comment__link">{{ default.link_reply|default("Antworten") }}</a>
         {% if comment.children|length > 0 %}
