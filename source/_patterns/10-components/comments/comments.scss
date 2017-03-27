@@ -86,7 +86,7 @@
 .comments--replies { // ul ul
   margin-left: 10px;
   @include tablet-up {
-    margin-left: 50px;
+    margin-left: 64px;
   }
 }
 .comment { // ul li
@@ -113,8 +113,8 @@
       width: 19px;
       background-image: url("../img/arrows/fancy_arrow.svg");
       @include tablet-up {
-        left: -36px;
-        top: 26px;
+        left: -30px;
+        top: 27px;
       }
     }
   }
