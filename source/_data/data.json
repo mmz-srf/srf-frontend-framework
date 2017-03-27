@@ -401,14 +401,17 @@
     "total": "Stimmen wurden abgegeben"
   },
   "comments": {
-    "title": "Kommentare",
+    "title_singular": "Kommentar",
+    "title_plural": "Kommentare",
     "no_comment": "Es wurden noch keine Kommentare erfasst. Seien Sie die erste Person, die diesen Artikel kommentiert.",
     "link_all": "Alle Kommentare",
     "link_hits": "Beliebteste",
-    "link_social": "Gefällt mir",
-    "link_reply": "Antworten",
-    "comment_by": "Kommentar von",
-    "reply_by": "Antwort von",
+    "addons": {
+      "link_social": "Gefällt mir",
+      "link_reply": "Antworten",
+      "comment_by": "Kommentar von",
+      "reply_by": "Antwort von"
+    },
     "total_count": "8",
     "comments": [
       {

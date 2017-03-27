@@ -1,3 +1,15 @@
+@mixin add_responsive_paddings($tablet : "34px", $desktop-up : "40px") {
+  @include tablet {
+    padding-left: $tablet;
+    padding-right: $tablet;
+  }
+  @include desktop-up {
+    padding-left: $desktop-up;
+    padding-right: $desktop-up;
+  }
+  /* @include desktop-wide { // max-width: 870px; } */
+}
+
 .article-comments { // section
   background-color: $color-bg-caption;
   padding: 24px 32px;
@@ -34,7 +46,6 @@
       max-width: 870px;
     }
 }
-
 .comments-header__title {
   font: 22px/28px $font-medium;
   letter-spacing: .3px;
@@ -44,15 +55,20 @@
   @include tablet-up {
     padding-top: 24px;
   }
-  @include tablet {
-    padding-left: 50px;
-    padding-right: 50px;
-  }
-  @include desktop-up {
-    padding-left: 55px;
-    padding-right: 55px;
-  }
 }
+
+.comments-header__text {
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: .5px;
+  color: #4e4d47;
+  padding: 0 16px 24px;
+}
+
+.comments-header__title, .comments-header__text {
+  @include add_responsive_paddings(50px, 55px);
+}
+
 .comments-header__border { // hack :(
   position: absolute;
   width: 100%;
@@ -113,14 +129,7 @@
   @include tablet-up {
     margin: 0 auto 32px !important
   }
-  @include tablet {
-    padding-left: 34px;
-    padding-right: 34px;
-  }
-  @include desktop-up {
-    padding-left: 39px;
-    padding-right: 39px;
-  }
+  @include add_responsive_paddings(34px, 40px);
 }
 
 .comment__user {
@@ -178,20 +187,7 @@
   height: 40px;
   margin: 0;
   padding: 0;
-
-  @include tablet {
-    padding-left: 34px;
-    padding-right: 34px;
-  }
-
-  @include desktop-up {
-    padding-left: 40px;
-    padding-right: 40px;
-  }
-
-  @include desktop-wide {
-    // max-width: 870px;
-  }
+  @include add_responsive_paddings(34px, 40px);
 }
 .tab-option {
   float: left;
