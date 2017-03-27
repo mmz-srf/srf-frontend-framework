@@ -1,154 +1,132 @@
-{# def $num_cantons = $vote.results.cantonal_results|count()
-$timestamp=cond($num_cantons|eq(26), $case.timestamp, $results.update)
-#}
-<div class="polis-map-wrapper">
-    <p class="result-state">
-        <strong class="state">
-            {# if $results.data_condition|eq('Resultat')}
-                {if $results.location.is_national}
-                    {if $num_cantons|eq(26)} #}
-                        Endresultat
-        </strong>
-        <span class="date">vom 23.3.2017{# $timestamp|l10n('shortdate')} #}</span>
-                    {# else}
-                        Zwischenresultat
-        </strong> <span class="update-time"><span class="time">um {$results.update|l10n('shorttime')}</span> {'Uhr'|i18n('frontend/votes')}</span>
-        <span class="partial"> (<span class="num">{$num_cantons}</span> von 26 Kantonen)</span>
-                    {/if}
-                {else}
-        Endresultat
-        </strong> <span class="date">vom 23.3.2017{# $timestamp|l10n('shortdate')} </span>
-                {/if}
-            {else}
-        </strong> <span class="date"></span>
-        <span class="update-time" style="display: none;"> <span class="time"></span> Uhr</span>
-        <span class="partial" style="display: none;"> (<span class="num"></span> von 26 Kantonen)</span>
-        {/if} #}
-    </p>
-
-    <div class="result bars">
-        <div class="yes absolute">
-            <strong>JA</strong><span class="offscreen">-Stimmen absolut:</span> ({# {'%x Stimmen'|i18n('frontend/votes', '', hash('%x', concat('<span class="result">', $results.absolute.yes|format_absolute_number(), '</span>')))} #})
-        </div>
-        <div class="no absolute">
-            <strong>NEIN</strong><span class="offscreen">-Stimmen absolut:</span> ({# {'%x Stimmen'|i18n('frontend/votes', '', hash('%x', concat('<span class="result">', $results.absolute.no|format_absolute_number(), '</span>')))} #})
-        </div>
-        <div class="bar">
-            <div class="yes relative" style="width: 33{# $results.relative.yes}#}%"></div>
-            <div class="no relative" style="width: 67{# $results.relative.no}#}%"></div>
-            <div class="result yes"><span class="offscreen">JA-Stimmen relativ: </span>{# {$results.relative.yes|format_relative_number()} #}<span class="symbol">%</span></div>
-            <div class="result no"><span class="offscreen">NEIN-Stimmen relativ: </span>{# {$results.relative.no|format_relative_number()} #}<span class="symbol">%</span></div>
-        </div>
-    </div>
-
-    {# if $vote.needs_cantonal_majority} #}
-    <div class="result bars cantonal">
-        <h4>Standesstimmen</h4>
-        <div class="bar">
-            <div class="yes relative" style="width: 13{# $vote.cantonal_result.relative.yes} #}%"></div>
-            <div class="no relative" style="width: 87{# $vote.cantonal_result.relative.no} #}%"></div>
-            <div class="result yes"><span class="offscreen">JA-Stimmen: </span>{# $vote.cantonal_result.absolute.yes}#}</div>
-            <div class="result no"><span class="offscreen">NEIN-Stimmen: </span>{#{$vote.cantonal_result.absolute.no}#}</div>
-        </div>
-    </div>
-    {# /if #}
-
-    <figure id="map-1453" class="polis-map" data-vote="3893" data-api="../../assets/demo/polis-data.json" aria-hidden="true">
-        <style type="text/css">
-            .chmap--desktop .chmap g.hover polygon, .chmap__location:hover {
-                stroke: black;
-                stroke-width: .5px;
-                filter: url(#drop-shadow);
-            } /* this isn't working properly yet! */
-            .chmap--desktop .chmap g.initial.hover polygon, .chmap__location:hover {
-                stroke: black;
-                stroke-width: .5;
-            }
-        </style>
-        {% include "elements-chmap.svg" %}
-        <p class="polis-participation">
-            Stimmbeteiligung {# if $results.relative.participation}
-            {'Stimmbeteiligung: %percent'|i18n('frontend/votes', '', hash('%percent', concat($results.relative.participation, '%')))}
-            {/if} #}
+<div class="polis-container">
+    <div class="polis-map-container">
+        <h2 class="polis-map-container__title">{{ votes.3900.shortTitle }}</h2>
+        <p class="polis-map-container__info">{{ votes.3900.title }}</p>
+        {# Endresultat #}
+        <p class="polis-result-title">
+            <span class="polis-result-title__type">{% if voteCase.active %}Resultat{% else %}Endresultat{% endif %}</span>&nbsp;
+            <time class="polis-result-title__time">{% if voteCase.active %}{{ votes.3900.results.nationalResults.update|date("H:i") }}{% else %} vom {{ voteCase.update|date("d.m.Y") }}{% endif %}</time>
         </p>
-        <div class="polis-legend">
-            <p class="polis-legend__title">JA-Anteil in %</p>
-            <ul class="polis-legend-scale">
-                <li class="polis-legend-scale__element polis-legend-scale__element--edge res-100"></li>
-                <li class="polis-legend-scale__element res-65"></li>
-                <li class="polis-legend-scale__element res-60"></li>
-                <li class="polis-legend-scale__element res-55"></li>
-                <li class="polis-legend-scale__element res-50"></li>
-                <li class="polis-legend-scale__element res-45"></li>
-                <li class="polis-legend-scale__element res-40"></li>
-                <li class="polis-legend-scale__element polis-legend-scale__element--edge res-0"></li>
-            </ul>
-            <ul class="polis-legend-numbers">
-                <li class="polis-legend-numbers__element polis-legend-numbers__element--edge polis-legend-numbers__element--100">100</li>
-                <li class="polis-legend-numbers__element">65</li>
-                <li class="polis-legend-numbers__element">60</li>
-                <li class="polis-legend-numbers__element">55</li>
-                <li class="polis-legend-numbers__element">50</li>
-                <li class="polis-legend-numbers__element">45</li>
-                <li class="polis-legend-numbers__element">40</li>
-                <li class="polis-legend-numbers__element">35</li>
-                <li class="polis-legend-numbers__element polis-legend-numbers__element--edge polis-legend-numbers__element--zero">0</li>
-            </ul>
-        </div>
-
-    </figure>
-
-    <div class="regional-results-wrapper passive">
-        <div class="regional-results-select">
-            {% include 'elements-canton-select' %}
-        </div>
-        <div class="regional-results-message" style="display: none;"><p>Keine Resultate vorhanden</p></div>
-
-        <!-- div class="icon"></div -->
-        <div class="regional-results">
-            <div class="cantonal">
-                <h4><span class="canton"></span> <small><strong>Endresultat</strong></small></h4>
-                <div class="result bars">
-                    <div class="yes absolute">
-                        <strong class="static">JA</strong><span class="offscreen">-Stimmen absolut:</span> {# ({'%x Stimmen'|i18n('frontend/votes', '', hash('%x', concat('<span class="result">', $vote.results.national_results.absolute.yes|format_absolute_number(), '</span>')))}) #}
-                    </div>
-                    <div class="no absolute">
-                        <strong class="static">NEIN</strong><span class="offscreen">-Stimmen absolut:</span> {# ({'%x Stimmen'|i18n('frontend/votes', '', hash('%x', concat('<span class="result">', $vote.results.national_results.absolute.no|format_absolute_number(), '</span>')))}) #}
-                    </div>
-                    <div class="bar">
-                        <div class="yes relative" style="width: {$vote.results.national_results.relative.yes}%"></div>
-                        <div class="no relative" style="width: {$vote.results.national_results.relative.no}%"></div>
-                        <div class="result yes"><span class="offscreen">JA-Stimmen relativ:</span>{# {$vote.results.national_results.relative.yes}#}<span class="symbol">%</span></div>
-                        <div class="result no"><span class="offscreen">NEIN-Stimmen relativ:</span>{# {$vote.results.national_results.relative.no}#}<span class="symbol">%</span></div>
-                    </div>
+        {% set resultRelativeYes = votes.3900.results.nationalResults.relative.yes|number_format(1, '.', '') %}
+        {% set resultRelativeNo = votes.3900.results.nationalResults.relative.no|number_format(1, '.', '') %}
+        <ul class="polis-result-container">
+            <li class="polis-result polis-result--yes" style="width: {{ resultRelativeYes }}%">
+                <p class="polis-result__title polis-result__title--yes">JA</p>
+                <div class="polis-result__bar polis-result__bar--main polis-result__bar--yes">
+                    <p class="polis-result-relativ"><span
+                                class="polis-result-relativ__number">{{ resultRelativeYes }}</span>%</p>
                 </div>
-            </div>
-            <div class="district">
-                <ul class="unstyled">
-                    <li>
-                        <h5>Bezirk:</h5>
-                        <div class="result bars">
-                            <div class="yes absolute">
-                                <span class="offscreen">JA-Stimmen:</span>
-                                <strong></strong>{# ({'%x Stimmen'|i18n('frontend/votes', '', hash('%x', concat('<span class="result">', $vote.results.national_results.absolute.yes|format_absolute_number(), '</span>')))}) #}
-                            </div>
-                            <div class="no absolute">
-                                <span class="offscreen">NEIN-Stimmen:</span>
-                                <strong></strong> {# ({'%x Stimmen'|i18n('frontend/votes', '', hash('%x', concat('<span class="result">', $vote.results.national_results.absolute.no|format_absolute_number(), '</span>')))}) #}
-                            </div>
-                            <div class="bar">
-                                <div class="yes relative" style="width: {$vote.results.national_results.relative.yes}%"></div>
-                                <div class="no relative" style="width: {$vote.results.national_results.relative.no}%"></div>
-                            </div>
+                <p class="polis-result__text">
+                    {{ votes.3900.results.nationalResults.absolute.yes|number_format(0, '', '\'') }} Stimmen
+                </p>
+            </li>
+            <li class="polis-result polis-result--no" style="width: {{ resultRelativeNo }}%">
+                <p class="polis-result__title polis-result__title--no">NEIN</p>
+                <div class="polis-result__bar polis-result__bar--main polis-result__bar--no">
+                    <p class="polis-result-relativ"><span
+                                class="polis-result-relativ__number">{{ resultRelativeNo }}</span>%</p>
+                </div>
+                <p class="polis-result__text">
+                    {{ votes.3900.results.nationalResults.absolute.no|number_format(0, '', '\'') }} Stimmen
+                </p>
+            </li>
+        </ul>
+        {% if votes.3900.needsCantonalMajority %}
+            <p class="polis-result-title">Standesstimmen</p>
+            {% set resultAbsoluteYes = votes.3900.cantonalResult.absolute.yes|number_format(1, '.', '') %}
+            {% set resultAbsoluteNo = votes.3900.cantonalResult.absolute.no|number_format(1, '.', '') %}
+            <ul class="polis-result-container">
+                <li class="polis-result polis-result--yes" style="width: {{ resultAbsoluteYes }}%">
+                    <span class="h-offscreen">JA</span>
+                    <div class="polis-result__bar polis-result__bar--yes">
+                        <p class="polis-result-relativ"><span
+                                    class="polis-result-relativ__number">{{ resultAbsoluteYes }}</span></p>
+                    </div>
+                </li>
+                <li class="polis-result polis-result--no" style="width: {{ resultAbsoluteNo }}%">
+                    <span class="h-offscreen">NEIN</span>
+                    <div class="polis-result__bar polis-result__bar--no">
+                        <p class="polis-result-relativ"><span
+                                    class="polis-result-relativ__number">{{ resultAbsoluteNo }}</span></p>
+                    </div>
+                </li>
+            </ul>
+        {% endif %}
+
+        <figure id="map-1453" class="polis-map" data-vote="3893" data-api="../../assets/demo/polis-data.json"
+                aria-hidden="true">
+            {# <style type="text/css">
+                .chmap__location:hover, .chmap__location:hover {
+                    stroke: black;
+                    stroke-width: .5px;
+                    filter: url(#drop-shadow);
+                } /* this isn't working properly yet! */
+            </style>  #}
+            {% include "elements-chmap.svg" %}
+            {% if votes.3900.results.nationalResults.relative.participation > 0 %}
+                <p class="polis-map__participation">
+                    Stimmbeteiligung {{ votes.3900.results.nationalResults.relative.participation }}%
+                </p>
+            {% endif %}
+
+            {% include "_polis-legend.twig" %}
+
+        </figure>
+    </div>
+    {# Abstand ... #}
+    <div class="polis-select-container">
+        {% if votes.3900.results.results.0.dataCondition.value == "Resultat" %}{# ==> only if at least one canton is selectable!! #}
+        {% include 'elements-canton-select' %}
+        {% set bezirke = '' %}
+        {% for vote in votes.3900.results.results %}{# TMP !! #}
+            {% if vote.location.type.name == "Kanton" and vote.location.shortName == "ZH" %}
+                {# Kantone werden nur angezeigt, wenn Endresultat da, oder??? #}
+                <p class="polis-result-title polis-result-title--canton">Endresultat
+                    Kanton {{ vote.location.locationName }}</p>
+
+                <ul id="result-{{ vote.location.shortName }}"
+                    class="polis-result-container polis-result-container--canton polis-result-container--hide">
+                    <li class="polis-result polis-result--yes" style="width: {{ resultRelativeYes }}%">
+                        <p class="polis-result__title polis-result__title--yes">JA</p>
+                        <div class="polis-result__bar polis-result__bar--yes">
+                            <p class="polis-result-relativ"><span
+                                        class="polis-result-relativ__number">{{ resultRelativeYes }}</span>%</p>
                         </div>
+                        <p class="polis-result__text">
+                            {{ votes.3900.results.nationalResults.absolute.yes|number_format(0, '', '\'') }} Stimmen
+                        </p>
+                    </li>
+                    <li class="polis-result polis-result--no" style="width: {{ resultRelativeNo }}%">
+                        <p class="polis-result__title polis-result__title--no">NEIN</p>
+                        <div class="polis-result__bar polis-result__bar--no">
+                            <p class="polis-result-relativ"><span
+                                        class="polis-result-relativ__number">{{ resultRelativeNo }}</span>%</p>
+                        </div>
+                        <p class="polis-result__text">
+                            {{ votes.3900.results.nationalResults.absolute.no|number_format(0, '', '\'') }} Stimmen
+                        </p>
                     </li>
                 </ul>
-            </div>
-        </div>
-        <a href="#" class="toggle-district">
+            {% elseif vote.location.type.name == "Bezirk" and vote.location.parentLocationId == 29 %}
+                {% set yes_class = vote.relative.yes > 50 ? ' polis--yes' : '' %}
+                {% set no_class = vote.relative.no > 50 ? ' polis--no' : '' %}
+                {% set bezirke = bezirke ~
+                '<li class="polis-district">
+                        <span class="polis-district__name">' ~ vote.location.locationName ~ '</span>
+                        <span class="polis-district__votes' ~ yes_class ~ '">' ~ vote.relative.yes|number_format(1, '.', '') ~ ' JA</span>
+                        <span class="polis-district__votes' ~ no_class ~ '">' ~ vote.relative.no|number_format(1, '.', '') ~ ' NEIN</span>
+                    </li>' %}
+            {% endif %}
+        {% endfor %}
+    </div>{# end polis-select-container #}
+    <ul id="result-bezirk-ZH" class="polis-district-container">{{ bezirke|raw }}</ul>
+{% else %}
+    <p class="regional-results-message" style="display: none;">Keine Resultate vorhanden</p>
+    {% endif %}
+    {#  <a href="#" class="toggle-district">
             <span class="text-active">Bezirksresultate verbergen</span>
             <span class="text-passive">Bezirksresultate anzeigen</span>
             <span class="chevron">Auf / Zuklappen</span>
         </a>
-    </div>
+        #}
 </div>

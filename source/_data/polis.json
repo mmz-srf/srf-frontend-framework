@@ -7,7 +7,7 @@
   },
   "votes": {
     "3900": {
-      "needsCantonalMajority": false,
+      "needsCantonalMajority": true,
       "cantonalResult": {
         "absolute": {
           "yes": 3.5,
