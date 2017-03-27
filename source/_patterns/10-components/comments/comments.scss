@@ -204,7 +204,7 @@
 
 .tab-option__link {
   width: 100%;
-  font: 14px/16px $font-regular;
+  font: 16px/16px $font-regular;
   color: $color-tab-option-link;
   border-bottom: 1px solid $color-separator;
   padding: 12px 16px 0;
@@ -218,6 +218,7 @@
   @include smartphone {
     text-align: center;
     padding: 12px 24px 0;
+    font-size: 14px;
   }
 }
 .tab-option__link--selected {
