@@ -76,7 +76,7 @@
     {# Abstand ... #}
     <div class="polis-select-container">
         {% if votes.3900.results.results.0.dataCondition.value == "Resultat" %}{# ==> only if at least one canton is selectable!! #}
-        {% include 'elements-canton-select' %}
+        {% include 'elements-select' with { 'menu': menu } %}
         {% set bezirke = '' %}
         {% for vote in votes.3900.results.results %}{# TMP !! #}
             {% if vote.location.type.name == "Kanton" and vote.location.shortName == "ZH" %}
