@@ -135,7 +135,7 @@
 .comment__user {
   font: 14px/20px $font-regular;
   letter-spacing: .5px;
-  margin: 16px 0 2px;
+  margin: 20px 0 2px;
   @include tablet-up {
     margin-top: 24px
   }
@@ -163,7 +163,7 @@
   display: inline-block;
   cursor: pointer; // why would this be necessary!?
   padding: 0 10px;
-  margin-bottom: 28px;
+  margin-bottom: 24px;
   font: 14px/16px $font-regular;
   letter-spacing: .2px;
   @include tablet-up {
