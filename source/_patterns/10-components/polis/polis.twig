@@ -85,8 +85,8 @@
             {% if vote.location.type.name == "Kanton" and vote.location.shortName == "ZH" %}
                 <div class="polis-districts-container" id="results-canton-{{ vote.location.shortName }}">
                 {# Kantone werden nur angezeigt, wenn Endresultat da, oder??? #}
-                <p class="polis-result-title polis-result-title--canton">Endresultat
-                    Kanton {{ vote.location.locationName }}</p>
+                <p class="polis-result-title polis-result-title--canton">{{ polis.final_result }}
+                    {{ polis.canton }} {{ vote.location.locationName }}</p>
 
                 <ul id="result-canton-{{ vote.location.shortName }}"
                     class="polis-result-container polis-result-container--canton polis-result-container--hide">
