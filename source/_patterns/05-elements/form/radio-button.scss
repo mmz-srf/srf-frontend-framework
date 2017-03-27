@@ -1,0 +1,63 @@
+.radio-button {
+  position: absolute;
+  opacity: 0;
+  // custom radio buttons (decorating the label)
+  &:checked {
+    + .radio-button-label {
+      background-color: $color-bg-box-hover;
+      &:after {
+        border: solid 1px $color-accentuation-red;
+        background-color: transparent;
+      }
+    }
+  }
+}
+
+.radio-button-label {
+  @include button-label;
+  padding: 14px 16px 14px 51px;
+
+  // custom radios
+  &:before, &:after {
+    content: "";
+    position: absolute;
+    @include rounded-corners(50%);
+  }
+  &:before { // border
+    top: 21px;
+    left: 20px;
+    width: 12px;
+    height: 12px;
+    display: inline-block;
+    background-color: $color-accentuation-red;
+  }
+  &:after { // inside border (hiding the dot)
+    top: 17px;
+    left: 16px;
+    width: 18px;
+    height: 18px;
+    display: inline-block;
+    background-color: $color-bg-box;
+    // transition fix:
+    transition: background-color 0.2s ease-in-out;
+    border: solid 1px $color-text-light;
+  }
+  &:hover:after, &:focus:after { // red dot
+    background-color: $color-bg-box-hover;
+  }
+  &.checkbox--inactive:hover {
+    background-color: $color-bg-box;
+  }
+  // custom radios end here
+}
+
+.radio-button--inactive {
+  opacity: .48;
+  // visible when state changes after the button was activated
+  &:before {
+    background-color: $color-text-light;
+  }
+  &:after {
+    border: solid 1px $color-text-light !important;
+  }
+}

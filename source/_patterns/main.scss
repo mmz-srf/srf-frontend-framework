@@ -17,8 +17,11 @@
 @import "05-elements/content/media-caption";
 @import "05-elements/content/text-list/text-list";
 @import "05-elements/content/carousel-counter";
-@import "05-elements/content/canton-select";
-@import "05-elements/content/submit-button";
+@import "05-elements/form/select";
+@import "05-elements/form/radio-button";
+@import "05-elements/form/checkbox";
+@import "05-elements/form/input-field";
+@import "05-elements/form/submit-button";
 @import "05-elements/content/spinner";
 @import "05-elements/content/legend";
 @import "05-elements/content/tooltip";
@@ -48,3 +51,4 @@
 @import "10-components/ratings/ratings";
 @import "10-components/sharing-bar/sharing-bar";
 @import "10-components/play-icon-with-runtime/play-icon-with-runtime";
+@import "10-components/form/form";
