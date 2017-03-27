@@ -528,7 +528,8 @@
     "Standesstimmen": "Standesstimmen",
     "turnout": "Stimmbeteiligung",
     "canton": "Kanton",
-    "at": "vom"
+    "at": "vom",
+    "legend_title": "JA-Anteil in %"
   }
 }
 
