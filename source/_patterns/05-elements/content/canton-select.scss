@@ -3,12 +3,12 @@
     position: relative;
     padding: 16px;
     width: 100%;
-    @include tablet-up {
-      max-width: 332px;
-    }
   }
   height: 48px;
   width: 100%;
+  @include tablet-up {
+    max-width: 300px;
+  }
   color: #4e4d47;
   font: 16px/20px $font-regular;
   letter-spacing: 1px;

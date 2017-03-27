@@ -53,25 +53,26 @@ var polisController = function() {
             $(this).closest('.regional-results-wrapper').toggleClass('active passive');
         });
         // render regional results
-        $('.chmap--desktop').on('click', '.chmap g:not(.initial) polygon', function(){
-            var mapId = $(this).closest('div.polis-map').attr('id'),
+        // $('.chmap--desktop').on('click', '.chmap g:not(.initial) polygon', function(){
+        $('.polis-map .chmap--desktop').on("focus mousedown", "a", function (e) { // access...
+            var mapId = $(this).closest('.polis-map').attr('id'),
                 cantonId = $(this).closest('g').attr('id'),
                 map = that.getMapById(mapId),
                 canton = map.getCantonById(cantonId);
             map.setSelectedCanton(cantonId);
             canton.renderResults();
+            // TODO:
             $(this).closest('.vote').find('.regional-results-wrapper').show();
         });
 
-
-        $('.chmap--desktop').on('mouseenter', '.chmap g:not(.initial)', function() {
+        $('.polis-map .chmap--desktop').on('mouseenter', '.chmap', function () {
             that.doMouseEnter($(this), false);
         }).on('mouseleave', '.chmap g:not(.initial)', function(){
             that.doMouseLeave($(this), false);
         });
 
         // tooltip for cantons
-        $('.chmap--desktop').on('mousemove', '.chmap g:not(.initial)', function( event ) {
+        $('.polis-map .chmap--desktop').on('mousemove', '.chmap', function (event) {
             var pageY = event.pageY-90,
                 pageX = event.pageX,
                 $tooltip = $('#polis-tooltip'),
@@ -90,7 +91,7 @@ var polisController = function() {
             // if not all cantons are ready => hide them
             var $vote = $(this).closest('.vote'),
                 cantonId = $(this).val(),
-                mapId = $vote.find('div.polis-map').attr('id'),
+                mapId = $vote.find('.polis-map').attr('id'),
                 map = that.getMapById(mapId);
             $vote.find('.regional-results-message').hide();
             if (cantonId === '') {
@@ -265,7 +266,7 @@ var polisController = function() {
     //private methods
     function Canton(parent, id) {
         this.id = id;
-        this.$wrapper = $('#'+parent).closest('.vote');
+        this.$wrapper = $('#' + parent).closest(".polis-container"); // :/
         this.$element = $('#'+parent+' #'+id);
         this.yes = undefined;
         this.no = undefined;
@@ -287,6 +288,7 @@ var polisController = function() {
         };
 
         this.renderResults = function() {
+            console.log(this.$wrapper)
             var $results = this.$wrapper.find('.regional-results-wrapper');
             $results.find('.cantonal h4 span.canton').text(this.name);
             var min = this.results.last_update.minute();
@@ -473,22 +475,21 @@ var polisController = function() {
             this.setResults(vote);
             this.loadResults();
             this.generateMobileNavigation();
-            if(this.selectedCanton && this.cantons[this.selectedCanton]){
+            if (this.selectedCanton && this.cantons[this.selectedCanton]) {
                 this.cantons[this.selectedCanton].renderResults();
             }
         };
 
         this.generateMobileNavigation = function() {
-            var $select = $('#'+this.id).closest('.vote').find('.regional-results-select select');
-            $select.find('option').remove();
-            // $select.append($("<option></option>").attr("value", "").text(SRF.i18n.tr('Kanton wählen', 'frontend/votes')));
-            $select.append($("<option></option>").attr("value", "").text('Kanton wählen'));
+            var $select = $('#' + this.id).closest('.polis-container').find('.menu');
+            // console.log($select.find("option"))
+            $select.find("option").addClass("polis-select-option--hide");
             for (var cantonId in this.cantons) {
-                if(this.cantons[cantonId].hasResults()){
-                    $select.append($("<option></option>").attr("value", cantonId).text(this.cantons[cantonId].name));
+                console.log(this.cantons[cantonId]);
+                if (this.cantons[cantonId].hasResults()) {
+                    $select.find("option[value" + cantonId + "]").removeClass("polis-select-option--hide");
                 }
             }
-            $select.find('option[value=selectedCanton]').attr("selected", "");
         };
     }
 

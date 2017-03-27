@@ -37,7 +37,7 @@ var chmapController = function() {
     this.initObservers = function() {
 
         // tooltips for cantons
-        $('.chmap--desktop').on('mousemove', function( event ) {
+        $('.chmap-wrapper .chmap--desktop').on('mousemove', function (event) {
             var $target = $(event.target);
             if ($target.hasClass("chmap--desktop")) {
                 return
