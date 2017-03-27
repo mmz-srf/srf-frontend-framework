@@ -512,6 +512,8 @@
   ],
   "form": {
     "title": "Formular Titel",
+    "id": "form-ID",
+    "method": "get",
     "legend": "Irgend ein Titel",
     "hint": "* Pflichtfelder",
     "button": "Datei Upload"
