@@ -517,6 +517,17 @@
     "legend": "Irgend ein Titel",
     "hint": "* Pflichtfelder",
     "button": "Datei Upload"
+  },
+  "polis": {
+    "yes": "JA",
+    "no": "NEIN",
+    "result": "Resultat",
+    "final_result": "Endresultat",
+    "no_results": "Keine Resultate vorhanden",
+    "votes": "Stimmen",
+    "Standesstimmen": "Standesstimmen",
+    "turnout": "Stimmbeteiligung",
+    "at": "vom"
   }
 }
 

@@ -1,21 +1,22 @@
 
 /* result colors red-blue */
 $res-0: #8d0614;
-$res-40: #c91024; // no
+$res-40: #c91024; // no bar
 $res-45: #f1434a;
 $res-50: #ff9193;
 $res-55: #91ceff;
 $res-60: #42a3f1;
-$res-65: #1a7ac5; // yes
+$res-65: #1a7ac5; // yes bar
 $res-100: #105082;
 $yes-rel: #fff;
-// default: #b9b7ac ???
+// map default: #b9b7ac
 
+// colored bars
 $color-polis-yes: #1a7ac5;
 $color-polis-no: $color-accentuation-red;
 
-$color-polis-yes-text: #1667a7;
-$color-polis-no-text: #af001d; // oder #9d0017 ???
+$color-polis-yes-text: #1667a7; // oben: 1667a7 // unten 145296
+$color-polis-no-text: #af001d; // oben: af001d oder unten: #9d0017 ???
 // no txt: #af001d
 
 .polis-container { // margins only :(
@@ -25,6 +26,7 @@ $color-polis-no-text: #af001d; // oder #9d0017 ???
   }
 }
 
+// top "half"
 .polis-map-container { // top part
   background-color: #f5f5f2;
   padding: 12px 16px;
@@ -40,7 +42,7 @@ $color-polis-no-text: #af001d; // oder #9d0017 ???
   font: 14px/20px $font-light;
   letter-spacing: .5px;
   color: #4e4d47;
-  margin: 12px 0; // TODO!
+  margin: 12px 0;
 }
 
 .polis-map {
@@ -50,7 +52,7 @@ $color-polis-no-text: #af001d; // oder #9d0017 ???
   @include tablet-up {
     padding-bottom: 84px;
   }
-  .chmap {
+  .chmap { // bg default
     fill: #b9b7ac;
   }
 }
@@ -75,10 +77,10 @@ $color-polis-no-text: #af001d; // oder #9d0017 ???
 
 //// result container (bars) ////
 .polis-result-container { // ul
+  width: 100%;
   margin: 0;
   padding: 0;
   display: table; // :/ (Standesstimmen)
-  width: 100%;
 }
 
 .polis-result-title { // solo
@@ -99,8 +101,9 @@ $color-polis-no-text: #af001d; // oder #9d0017 ???
   margin: 0;
   display: table-cell;
   &:before {
-    content: none; // overwrite
+    content: none;
   }
+  // overwrite
 }
 
 .polis-result--no {
@@ -110,7 +113,7 @@ $color-polis-no-text: #af001d; // oder #9d0017 ???
 .polis-result__title { // "internal"
   font: 12px/16px $font-medium;
   letter-spacing: .5px;
-  margin: 12px 0 4px; // 0 0 4px;
+  margin: 12px 0 4px;
 }
 
 .polis-result__title--yes {
@@ -118,7 +121,7 @@ $color-polis-no-text: #af001d; // oder #9d0017 ???
 }
 
 .polis-result__title--no {
-  color: $color-polis-no;
+  color: $color-polis-no-text; // $color-polis-no;
 }
 
 .polis-result__text {
@@ -132,7 +135,8 @@ $color-polis-no-text: #af001d; // oder #9d0017 ???
   height: 16px;
   font: 12px/12px $font-regular;
   color: #fff;
-  background-color: #6b6960;
+  // background-color: #6b6960;
+  background-color: #b9b7ac;
   margin: 0;
   padding: 0;
   position: relative;
@@ -165,19 +169,17 @@ $color-polis-no-text: #af001d; // oder #9d0017 ???
 .polis-result-relativ__number {
   font-weight: 700;
 }
-
 /// end result container ////
-.polis-select-container {
-  margin-top: 2px;
-  padding: 16px;
+
+.polis-cantons-container {
   background-color: #f5f5f2;
-  .menu-wrapper {
-    padding: 16px 16px 0; // overwrite
-  }
+  margin-top: 2px;
+  padding: 16px 16px 0;
 }
 
 .polis-result-container--canton {
   overflow: hidden;
+  margin: 0 0 16px;
 }
 
 .polis-result-title--canton {
@@ -187,10 +189,10 @@ $color-polis-no-text: #af001d; // oder #9d0017 ???
   }
 }
 
-/// here comes the zebra ///
+/// here comes the zebra / districts ///
 .polis-district-container { // ul
   padding: 0;
-  margin: 0;
+  margin: 0 -16px;
 }
 
 .polis-district {
@@ -201,11 +203,11 @@ $color-polis-no-text: #af001d; // oder #9d0017 ???
   width: 100%;
   font: 12px/16px $font-system; // all
   padding: 12px 16px;
-  margin: 2px 0 0;
+  margin: 0;
   text-align: right;
   display: inline-block;
   clear: both;
-
+  border-top: 2px solid #fff; // todo: change!
   background-color: #fafaf8;
   &:nth-child(even) {
     background-color: #f5f5f2;
@@ -229,13 +231,13 @@ $color-polis-no-text: #af001d; // oder #9d0017 ???
   }
 }
 
-.polis--yes {
+.polis-district--yes {
   color: #145296;
   font-weight: 500;
 }
 
-.polis--no {
-  color: #9d0017;
+.polis-district--no {
+  color: #9d0017; // red txt
   font-weight: 500;
 }
 
