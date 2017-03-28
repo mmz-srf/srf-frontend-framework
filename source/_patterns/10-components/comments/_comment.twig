@@ -4,7 +4,7 @@
     <li id="comment_{{ comment.id }}" class="comment">
         <span class="h-offscreen">{{ default.comment_by|default("Kommentar von") }} </span>
         <cite class="comment__user">{{ comment.name }} ({{ comment.nickname }})</cite>
-        <time class="comment__time">{{ comment.dateFormatted }}</time>
+        <span class="comment__time">{{ comment.dateFormatted }}</span>
         <blockquote class="comment__content">{{ comment.message }}</blockquote>
         <a class="comment__link">{{ default.link_social|default("Gefällt mir") }}
             (?)</a>{# ... folgestory #}
@@ -17,7 +17,7 @@
                         <span class="h-offscreen">{{ default.reply_by|default("Antwort von") }} </span>
                         <cite class="comment__user {% if reply.isEditorialAnswer %} comment__user--srf{% endif %}">{{ reply.name }}
                             ({{ reply.nickname }})</cite>
-                        <time class="comment__time">{{ reply.dateFormatted }}</time>
+                        <span class="comment__time">{{ reply.dateFormatted }}</span>
                         <blockquote class="comment__content">{{ reply.message }}</blockquote>
                         <a class="comment__link">{{ default.link_social|default("Gefällt mir") }}
                             (?)</a>{# ... folgestory #}
@@ -28,4 +28,4 @@
         {% endif %}
     </li>
 {% endfor %}
-<span style="display:none" data-ids="{{ commentIds|join(',')  }}" class="comment_ids--js"></span>
+<li style="display:none" data-ids="{{ commentIds|join(',') }}" class="comment_ids--js" aria-hidden="true"></li>
