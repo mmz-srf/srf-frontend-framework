@@ -37,7 +37,10 @@ export function init() {
 
             // Only bind if tooltip is enabled
             if ($that.tooltipEnabled) {
-                $that.mouseenter(function() {
+
+                $that.on('mouseenter focus', function() {
+                    $that.children('.tooltip').remove();
+
                     $that.append($that.template);
                     $that.css('position', 'relative');
 
@@ -57,7 +60,7 @@ export function init() {
                     });
                 });
 
-                $that.mouseleave(function() {
+                $that.on('mouseleave focusout', function() {
                     $that.children('.tooltip').remove();
                 });
             }
