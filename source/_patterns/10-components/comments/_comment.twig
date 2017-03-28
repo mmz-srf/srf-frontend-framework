@@ -3,9 +3,9 @@
     {% set commentIds = commentIds|merge([comment.id]) %}
     <li id="comment_{{ comment.id }}" class="comment">
         <span class="h-offscreen">{{ default.comment_by|default("Kommentar von") }} </span>
-        <p class="comment__user">{{ comment.name }} ({{ comment.nickname }})</p>
+        <cite class="comment__user">{{ comment.name }} ({{ comment.nickname }})</cite>
         <time class="comment__time">{{ comment.dateFormatted }}</time>
-        <p class="comment__content">{{ comment.message }}</p>
+        <blockquote class="comment__content">{{ comment.message }}</blockquote>
         <a class="comment__link">{{ default.link_social|default("Gefällt mir") }}
             (?)</a>{# ... folgestory #}
         <a class="comment__link">{{ default.link_reply|default("Antworten") }}</a>
@@ -15,9 +15,10 @@
                     {% set commentIds = commentIds|merge([reply.id]) %}
                     <li id="comment_{{ reply.id }}" class="comment">
                         <span class="h-offscreen">{{ default.reply_by|default("Antwort von") }} </span>
-                        <p class="comment__user {% if reply.isEditorialAnswer %} comment__user--srf{% endif %}">{{ reply.name }} ({{ reply.nickname }})</p>
+                        <cite class="comment__user {% if reply.isEditorialAnswer %} comment__user--srf{% endif %}">{{ reply.name }}
+                            ({{ reply.nickname }})</cite>
                         <time class="comment__time">{{ reply.dateFormatted }}</time>
-                        <p class="comment__content">{{ reply.message }}</p>
+                        <blockquote class="comment__content">{{ reply.message }}</blockquote>
                         <a class="comment__link">{{ default.link_social|default("Gefällt mir") }}
                             (?)</a>{# ... folgestory #}
                         <a class="comment__link">{{ default.link_reply|default("Antworten") }}</a>
