@@ -333,3 +333,25 @@ $color-polis-no-text: #af001d; // oben: af001d oder unten: #9d0017 ???
 .polis-select-option--hide {
   display: none;
 }
+
+// recycling chmap tooltip ...
+.chmap-tooltip__title {
+  margin: 4px 0 -4px;
+  // white-space: normal; // ??
+}
+
+.chmap-tooltip-text {
+  font: 12px/12px $font-system;
+  color: #6b6960;
+  display: inline;
+}
+
+.chmap-tooltip-text--yes {
+  color: #145296;
+  font-weight: 500;
+}
+
+.chmap-tooltip-text--no {
+  color: #9d0017; // red txt
+  font-weight: 500;
+}

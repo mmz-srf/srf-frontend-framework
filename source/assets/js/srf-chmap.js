@@ -94,7 +94,7 @@ var chmapController = function() {
         });
 
         // it's near to impossible to tell whether a select menu is open :( - in order to swap the triangle
-        $('.menu').on('change', function() { // canton select navigation
+        $('.chmap-wrapper .menu').on('change', function () { // canton select navigation
             var cantonId = $(this).val()
                 , mapId = that.getCurrentMapId($(this))
                 , map = that.getMapById(mapId);

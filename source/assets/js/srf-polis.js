@@ -65,28 +65,31 @@ var polisController = function() {
             $(this).closest('.vote').find('.regional-results-wrapper').show();
         });
 
-        $('.polis-map .chmap--desktop').on('mouseenter', '.chmap', function () {
+        $('.polis-map .chmap--desktop').on('mouseenter', '.chmap__location', function () {
             that.doMouseEnter($(this), false);
-        }).on('mouseleave', '.chmap g:not(.initial)', function(){
+        }).on('mouseleave', '.chmap__location', function () {
             that.doMouseLeave($(this), false);
         });
 
         // tooltip for cantons
-        $('.polis-map .chmap--desktop').on('mousemove', '.chmap', function (event) {
-            var pageY = event.pageY-90,
-                pageX = event.pageX,
-                $tooltip = $('#polis-tooltip'),
-                breakpoint = (window.innerWidth/2)-80;
+        $('.polis-map .chmap--desktop').on('mousemove', '.chmap__location', function (event) {
 
-            if(pageX > breakpoint) {
-                $tooltip.addClass('arrow-right');
-                pageX -= 300;
-            } else {
-                $tooltip.removeClass('arrow-right');
+            var parentOffset = $('.chmap--desktop').parent().offset(),
+                pageY = event.pageY - 90, // event.pageY - parentOffset.top - 58,
+                pageX = event.pageX - parentOffset.left + 15,
+                $tooltip = $("#polis-tooltip");
+
+            var cssClass = "left";
+            if (pageX > $('.chmap--desktop').parent().width() / 2) {
+                cssClass = "right";
+                pageX = pageX - $tooltip.outerWidth();
             }
-            $tooltip.css('top', pageY).css('left', pageX);
+            $tooltip.css({"top": pageY, "left": pageX})
+                .removeClass("chmap-tooltip--left chmap-tooltip--right")
+                .addClass("chmap-tooltip--" + cssClass);
         });
-        //mobile canton results navigation
+
+        // mobile canton results navigation
         $('.vote .regional-results-select select').on('change', function() {
             // if not all cantons are ready => hide them
             var $vote = $(this).closest('.vote'),
@@ -232,15 +235,14 @@ var polisController = function() {
         $parent.find('.yes.relative').width(results.relative.yes+'%');
     };
 
-    this.doMouseEnter = function($target, isIEWorkaround){
+    this.doMouseEnter = function ($target, isIEWorkaround) {
         if ($target.is('.initial')) {
-            $('#polis-tooltip').hide();
+            $('#polis-tooltip').hide(); // we don't have that :/
             return;
         }
-        if (!that.msie()) {
-            $target.attr('class', $target.attr('class') + ' hover');
-            $target.closest('svg').append($target);
-        }
+
+        // $target.attr('class', $target.attr('class') + ' hover');
+        // $target.closest('svg').append($target); --> use!
 
         //show tooltip with data
         var mapId = $target.closest('.polis-map').attr('id');
@@ -248,19 +250,34 @@ var polisController = function() {
         var canton = map.getCantonById($target.attr('id'));
         if ($('#polis-tooltip').length === 0) {
             // $('body').append('<div id="polis-tooltip" class="polis-flyout"><div class="polis-flyout-wrapper"><h3></h3><p><strong>'+SRF.i18n.tr('JA', 'frontend/votes')+'</strong> <span class="yes"></span>% / <strong>'+SRF.i18n.tr('NEIN', 'frontend/votes')+'</strong> <span class="no"></span>%</p></div></div>');
-            $('body').append('<div id="polis-tooltip" class="polis-flyout"><div class="polis-flyout-wrapper"><h3></h3><p><strong>' + 'JA' + '</strong> <span class="yes"></span>% / <strong>'+ 'NEIN' +'</strong> <span class="no"></span>%</p></div></div>');
+            $('body').append('<div id="polis-tooltip" class="chmap-tooltip">' +
+                '<p class="chmap-tooltip__title"></p>' +
+                '<p class="chmap-tooltip-text"><span class="chmap-tooltip-text__yes"></span>% JA</p>&nbsp;' +
+                '<p class="chmap-tooltip-text"><span class="chmap-tooltip-text__no"></span>% NEIN</p>' +
+                '</div>');
         }
+
         var $tooltip = $('#polis-tooltip');
-        $tooltip.find('.yes').text(canton.yes);
-        $tooltip.find('.no').text(canton.no);
-        $tooltip.find('h3').text(canton.name);
+        $tooltip.find('.chmap-tooltip-text__yes').text(canton.yes);
+        $tooltip.find('.chmap-tooltip-text__no').text(canton.no);
+        $tooltip.find('.chmap-tooltip-text').removeClass("chmap-tooltip-text--no chmap-tooltip-text--yes");
+        if (canton.no > canton.yes) {
+            $tooltip.find(".chmap-tooltip-text__no")
+                .closest(".chmap-tooltip-text")
+                .addClass("chmap-tooltip-text--no");
+        } else {
+            $tooltip.find(".chmap-tooltip-text__yes")
+                .closest(".chmap-tooltip-text")
+                .addClass("chmap-tooltip-text--yes");
+        }
+        $tooltip.find('.chmap-tooltip__title').text(canton.name);
         $tooltip.show();
     };
 
     this.doMouseLeave = function($target, isIEWorkaround){
         $target.attr('class', $target.attr('class').replace(' hover', ''));
 
-        $('#polis-tooltip').hide();
+        // $('#polis-tooltip').hide();
     };
 
     //private methods
