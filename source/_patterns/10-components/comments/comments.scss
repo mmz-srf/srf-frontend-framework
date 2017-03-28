@@ -136,6 +136,7 @@
   font: 14px/20px $font-regular;
   letter-spacing: .5px;
   margin: 20px 0 2px;
+  display: block;
   @include tablet-up {
     margin-top: 24px
   }
