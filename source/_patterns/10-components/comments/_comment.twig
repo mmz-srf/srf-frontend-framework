@@ -17,8 +17,8 @@
                     {% set commentIds = commentIds|merge([reply.id]) %}
                     <li id="comment_{{ reply.id }}" class="comment">
                         <span class="h-offscreen">{{ default.reply_by|default("Antwort von") }} </span>
-                        <cite class="comment__user {% if reply.isEditorialAnswer %} comment__user--srf{% endif %}">{{ reply.name }}
-                            ({{ reply.nickname }})</cite>
+                        <cite class="comment__user {% if reply.isEditorialAnswer %} comment__user--srf{% endif %}">
+                            {{ reply.name }}{% if not reply.isEditorialAnswer %} ({{ reply.nickname }}){% endif %}</cite>
                         <span class="comment__time">{{ reply.dateFormatted }}</span>
                         <blockquote class="comment__content">{{ reply.message }}</blockquote>
                         <a class="comment__link">{{ default.link_social|default("Gefällt mir") }}
