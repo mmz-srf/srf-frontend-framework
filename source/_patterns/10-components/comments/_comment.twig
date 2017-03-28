@@ -1,0 +1,31 @@
+{% set commentIds = [] %}
+{% for comment in comments %}
+    {% set commentIds = commentIds|merge([comment.id]) %}
+    <li id="comment_{{ comment.id }}" class="comment">
+        <span class="h-offscreen">{{ default.comment_by|default("Kommentar von") }} </span>
+        <cite class="comment__user">{{ comment.name }} ({{ comment.nickname }})</cite>
+        <span class="comment__time">{{ comment.dateFormatted }}</span>
+        <blockquote class="comment__content">{{ comment.message }}</blockquote>
+        <a class="comment__link">{{ default.link_social|default("Gefällt mir") }}
+            (?)</a>{# ... folgestory #}
+        <a class="comment__link">{{ default.link_reply|default("Antworten") }}</a>
+        {% if comment.children|length > 0 %}
+            <ol class="comments comments--replies">
+                {% for reply in comment.children %}
+                    {% set commentIds = commentIds|merge([reply.id]) %}
+                    <li id="comment_{{ reply.id }}" class="comment">
+                        <span class="h-offscreen">{{ default.reply_by|default("Antwort von") }} </span>
+                        <cite class="comment__user {% if reply.isEditorialAnswer %} comment__user--srf{% endif %}">{{ reply.name }}
+                            ({{ reply.nickname }})</cite>
+                        <span class="comment__time">{{ reply.dateFormatted }}</span>
+                        <blockquote class="comment__content">{{ reply.message }}</blockquote>
+                        <a class="comment__link">{{ default.link_social|default("Gefällt mir") }}
+                            (?)</a>{# ... folgestory #}
+                        <a class="comment__link">{{ default.link_reply|default("Antworten") }}</a>
+                    </li>
+                {% endfor %}
+            </ol>
+        {% endif %}
+    </li>
+{% endfor %}
+<li style="display:none" data-ids="{{ commentIds|join(',') }}" class="comment_ids--js" aria-hidden="true"></li>

@@ -400,6 +400,92 @@
     "submit": "Abstimmen",
     "total": "Stimmen wurden abgegeben"
   },
+  "comments": {
+    "title_singular": "Kommentar",
+    "title_plural": "Kommentare",
+    "no_comment": "Es wurden noch keine Kommentare erfasst. Seien Sie die erste Person, die diesen Artikel kommentiert.",
+    "link_all": "Alle Kommentare",
+    "link_hits": "Beliebteste",
+    "addons": {
+      "link_social": "Gefällt mir",
+      "link_reply": "Antworten",
+      "comment_by": "Kommentar von",
+      "reply_by": "Antwort von"
+    },
+    "total_count": "8",
+    "comments": [
+      {
+        "dateFormatted": "Dienstag, 14.03.2017, 15:19 Uhr",
+        "isEditorialAnswer": false,
+        "id": 4236430,
+        "name": "Werner Christmann",
+        "message": "Nun, ich denke, dass die Autoverhinderer sich vermehrt den neuen Sorgenkindern, den über alle Regeln erhabenen Pedaleuren zuwenden sollten. Wird wohl nichts kommen, ausser vielleicht dass über 50-Jährige für ihr E-Bike einen Führerschein benötigen.",
+        "nickname": "chrischi1",
+        "children": [
+          {
+            "dateFormatted": "Dienstag, 14.03.2017, 21:20 Uhr",
+            "isEditorialAnswer": false,
+            "id": 4237595,
+            "name": "W Streuli",
+            "message": "vielleicht sollten die Autoverhinderer den Autofahrer wieder einmal mehr in Erinnerung rufen, das in Ballungsgebieten in der CH jährlich rund 2000 Personen durch die erhöhte Schadstoffbelastung an Lungenkrankheiten sterben. Leider vergisst die Autolobby diese traurige Statistik nur zu schnell.Das Auto ist zwar im Vergleich zu früher sauberer geworden, aber die Masse machts halt aus.Jeder Todesfall, egal ob durch Unfälle, oder durch Schadstoffbelastung in Städten ist einer zuviel",
+            "nickname": "Wernu"
+          },
+          {
+            "dateFormatted": "Dienstag, 14.03.2017, 15:18 Uhr",
+            "isEditorialAnswer": false,
+            "id": 4236425,
+            "name": "Verena Casagrande",
+            "message": "Evt. wird einmal Spass haben verboten!!!!",
+            "nickname": "Verena Casagrande"
+          },
+          {
+            "dateFormatted": "Dienstag, 14.03.2017, 12:36 Uhr",
+            "isEditorialAnswer": true,
+            "id": 4236072,
+            "name": "SRF Redaktion",
+            "message": "Ja, Spass ist verboten!",
+            "nickname": "srf"
+          }
+        ]
+      },
+      {
+        "dateFormatted": "Dienstag, 14.03.2017, 12:08 Uhr",
+        "isEditorialAnswer": false,
+        "id": 4235970,
+        "name": "Severin Heck",
+        "message": "Es gibt 4 mal mehr Tote durch Suizid. Und um ein vielfaches Verletzte durch Suizidversuche (ca. 20000). Krankheitstot ist 4 mal Wahrscheinlich als irgend ein Unfalltod (alle Miteinander). Verkehr ist Statistisch auf Zeit gerechnet genau gleich gefährlich wie andere 'Outdoor' Aktivitäten. Zum Teil sicherer... Fazit: Rausgehen, Spass haben und Leben ist 'sicherer' als Depressiv daheim sitzen (Suizid) und krank werden (Drogen, Übergewicht, Bewegungsmangel...) Bloss ist heute alles Verboten..",
+        "nickname": "Selber denken und prüfen",
+        "children": [
+          {
+            "dateFormatted": "Dienstag, 14.03.2017, 15:18 Uhr",
+            "isEditorialAnswer": false,
+            "id": 4236425,
+            "name": "Verena Casagrande",
+            "message": "Evt. wird einmal Spass haben verboten!!!!",
+            "nickname": "Verena Casagrande"
+          }
+        ]
+      },
+      {
+        "dateFormatted": "Dienstag, 14.03.2017, 12:00 Uhr",
+        "isEditorialAnswer": false,
+        "id": 4235945,
+        "name": "Severin Heck",
+        "message": "Bei Verkehrssicherheit das grösste Problem ist die Diletantische, Ideologische Politik. (Unfallkarte.ch) ausserorts schnell fahren, oder auf der Autobahn ist statistisch gesehen absolut ungefährlich. Wurde von den Ideologen aufs schlimmste Verurteilt. Alkoholkontrollen sind hingegen berechtigt, wobei der Grenzwert fraglich ist. Gefährlich sind unübersichtliche Verkehrssituationen. Die Politik kann da nichts machen, aber Stadt- und Verkehrsplaner sehr, sehr viel... Ingenieure statt Politik!!",
+        "nickname": "Selber denken und prüfen",
+        "children": [
+          {
+            "dateFormatted": "Dienstag, 14.03.2017, 12:36 Uhr",
+            "isEditorialAnswer": false,
+            "id": 4236072,
+            "name": "Sebastian Klaus",
+            "message": "Andererseits sähe die Statistik ohne diese Begrenzungen ausserorts wieder ganz anders aus. Eine gute Verkehrsplanung kann aber ganz sicher sehr viel erreichen, häufig mehr als allzu restriktive Einschränkungen, die nerven anstatt beruhigen.",
+            "nickname": "sklaus"
+          }
+        ]
+      }
+    ]
+  },
   "menu": [
     {
       "key": "",
