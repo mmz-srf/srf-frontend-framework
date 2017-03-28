@@ -9,7 +9,7 @@
         <a class="comment__link">{{ default.link_social|default("Gefällt mir") }}
             (?)</a>{# ... folgestory #}
         {% if allowsComments %}
-            <a class="comment__link">{{ default.link_reply|default("Antworten") }}</a>
+            <a class="comment__link comment__link--reply">{{ default.link_reply|default("Antworten") }}</a>
         {% endif %}
         {% if comment.children|length > 0 %}
             <ol class="comments comments--replies">
@@ -24,7 +24,7 @@
                         <a class="comment__link">{{ default.link_social|default("Gefällt mir") }}
                             (?)</a>{# ... folgestory #}
                         {% if allowsComments %}
-                            <a class="comment__link">{{ default.link_reply|default("Antworten") }}</a>
+                            <a class="comment__link comment__link--reply">{{ default.link_reply|default("Antworten") }}</a>
                         {% endif %}
                     </li>
                 {% endfor %}
