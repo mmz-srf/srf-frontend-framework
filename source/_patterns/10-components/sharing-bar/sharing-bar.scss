@@ -44,6 +44,10 @@
     line-height: 1.33;
     text-align: center;
     color: #888579;
+
+    b {
+        color: #22211D;
+    }
 }
 
 .sharing-bar__button {
@@ -69,8 +73,7 @@
 
 .sharing-bar__button:hover,
 .sharing-bar__button:active,
-.sharing-bar__button:focus,
-.sharing-bar__button--active {
+.sharing-bar__button:focus {
     opacity: 0.84;
     outline: none;
 }
