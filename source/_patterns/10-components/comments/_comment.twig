@@ -8,7 +8,9 @@
         <blockquote class="comment__content">{{ comment.message }}</blockquote>
         <a class="comment__link">{{ default.link_social|default("Gefällt mir") }}
             (?)</a>{# ... folgestory #}
-        <a class="comment__link">{{ default.link_reply|default("Antworten") }}</a>
+        {% if allowsComments %}
+            <a class="comment__link">{{ default.link_reply|default("Antworten") }}</a>
+        {% endif %}
         {% if comment.children|length > 0 %}
             <ol class="comments comments--replies">
                 {% for reply in comment.children %}
