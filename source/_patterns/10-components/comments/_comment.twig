@@ -21,7 +21,9 @@
                         <blockquote class="comment__content">{{ reply.message }}</blockquote>
                         <a class="comment__link">{{ default.link_social|default("Gefällt mir") }}
                             (?)</a>{# ... folgestory #}
-                        <a class="comment__link">{{ default.link_reply|default("Antworten") }}</a>
+                        {% if allowsComments %}
+                            <a class="comment__link">{{ default.link_reply|default("Antworten") }}</a>
+                        {% endif %}
                     </li>
                 {% endfor %}
             </ol>
