@@ -1,0 +1,35 @@
+<div class="polis-districts-container"{# id="results-canton-{{ vote.location.shortName }}"#}>
+    {# Kantone werden nur angezeigt, wenn Endresultat da #}
+    <p class="polis-result-title polis-result-title--canton">{{ polis.final_result }} {{ polis.canton }}
+        <span>{# vote.location.locationName #}</span></p>
+    <ul {# id="result-canton-{{ vote.location.shortName }}" #}
+            class="polis-result-container polis-result-container--canton polis-result-container--hide">
+        <li class="polis-result polis-result--yes"{# style="width: {{ resultRelativeYes }}%" #}>
+            <p class="polis-result__title polis-result__title--yes">{{ polis.yes }}</p>
+            <div class="polis-result__bar polis-result__bar--yes">
+                <p class="polis-result-relativ"><span
+                            class="polis-result-relativ__number">{# resultRelativeYes #}</span>%</p>
+            </div>
+            <p class="polis-result__text">
+                <span></span> {{ polis.votes }}
+            </p>
+        </li>
+        <li class="polis-result polis-result--no"{# style="width: {{ resultRelativeNo }}%" #}>
+            <p class="polis-result__title polis-result__title--no">{{ polis.no }}</p>
+            <div class="polis-result__bar polis-result__bar--no">
+                <p class="polis-result-relativ"><span
+                            class="polis-result-relativ__number">{# resultRelativeNo #}</span>%</p>
+            </div>
+            <p class="polis-result__text">
+                <span></span> {{ polis.votes }}
+            </p>
+        </li>
+    </ul>
+    <ul class="polis-district-container"{# id="result-district-ZH" #}>
+        <li class="polis-district">
+            <span class="polis-district__name">{# vote.location.locationName #}</span>
+            <span class="polis-district__votes{# yes_class #}">{# vote.relative.yes polis.yes #}</span>
+            <span class="polis-district__votes{# no_class #}">{# vote.relative.no polis.no #}</span>
+        </li>
+    </ul>
+</div>{# end polis-districts-container #}
