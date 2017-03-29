@@ -2,9 +2,13 @@
   position: absolute;
   opacity: 0;
   // custom boxes (decorating the label)
-  &:checked {
+  &:focus, &:active, &:checked {
     + .checkbox-label {
       background-color: $color-bg-box-hover;
+    }
+  }
+  &:checked, &:focus:checked {
+    + .checkbox-label {
       &:after {
         border-color: $color-accentuation-red;
       }
@@ -15,7 +19,6 @@
       }
     }
     + .checkbox--inactive {
-      // hier sollte eigentlich keine Aktion stattfinden (??)
       &:after {
         border-color: $color-text-light;
       }
@@ -26,9 +29,26 @@
   }
 }
 
+.poll-option__radio {
+  // for accessibility -> no hiding!
+  position: absolute;
+  opacity: 0; // height: 0; width: 0; margin: 0; padding: 0; border: 0;
+  &:focus, &:active {
+    + .poll-option-label {
+      background-color: $color-bg-box-hover;
+      &:after {
+        background-color: $color-bg-box-hover;
+      }
+      &--selected:after {
+        border: solid 1px $color-accentuation-red;
+        background-color: transparent;
+      }
+    }
+  }
+}
+
 .checkbox-label {
   @include button-label;
-  padding: 14px 16px 14px 48px;
 
   &:before, &:after {
     content: "";

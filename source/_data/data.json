@@ -603,6 +603,7 @@
     "method": "get",
     "legend": "Irgend ein Titel",
     "hint": "* Pflichtfelder",
+    "accessibilityInfo": "Pflichtfeld",
     "button": "Datei Upload"
   }
 }
