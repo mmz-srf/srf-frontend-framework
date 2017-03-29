@@ -57,13 +57,6 @@
 
         <figure id="map-1453" class="polis-map" data-vote="3893" data-api="../../assets/demo/polis-data.json"
                 aria-hidden="true">
-            {# <style type="text/css">
-                .chmap__location:hover, .chmap__location:hover {
-                    stroke: black;
-                    stroke-width: .5px;
-                    filter: url(#drop-shadow);
-                } /* this isn't working properly yet! */
-            </style>  #}
             {% include "elements-chmap.svg" with { 'idReference': 'results-canton' } %}
             {% if votes.3900.results.nationalResults.relative.participation > 0 %}
                 <p class="polis-map__participation">
@@ -77,54 +70,7 @@
     </div>
     {# Abstand ... #}
     <div class="polis-cantons-container">
-        {% if votes.3900.results.results.0.dataCondition.value == "Resultat" %}{# ==> only if at least one canton is selectable!! #}
         {% include 'elements-select' with { 'menu': menu } %}
-            {% set bezirke = '' %}{# prototype! #}
-        {% for vote in votes.3900.results.results %}{# TMP !! #}
-            {% if vote.location.type.name == "Kanton" and vote.location.shortName == "ZH" %}
-                <div class="polis-districts-container" id="results-canton-{{ vote.location.shortName }}">
-                {# Kantone werden nur angezeigt, wenn Endresultat da, oder??? #}
-                <p class="polis-result-title polis-result-title--canton">{{ polis.final_result }}
-                    {{ polis.canton }} {{ vote.location.locationName }}</p>
-
-                <ul id="result-canton-{{ vote.location.shortName }}"
-                    class="polis-result-container polis-result-container--canton polis-result-container--hide">
-                    <li class="polis-result polis-result--yes" style="width: {{ resultRelativeYes }}%">
-                        <p class="polis-result__title polis-result__title--yes">{{ polis.yes }}</p>
-                        <div class="polis-result__bar polis-result__bar--yes">
-                            <p class="polis-result-relativ"><span
-                                        class="polis-result-relativ__number">{{ resultRelativeYes }}</span>%</p>
-                        </div>
-                        <p class="polis-result__text">
-                            {{ votes.3900.results.nationalResults.absolute.yes|number_format(0, '', '\'') }} {{ polis.votes }}
-                        </p>
-                    </li>
-                    <li class="polis-result polis-result--no" style="width: {{ resultRelativeNo }}%">
-                        <p class="polis-result__title polis-result__title--no">{{ polis.no }}</p>
-                        <div class="polis-result__bar polis-result__bar--no">
-                            <p class="polis-result-relativ"><span
-                                        class="polis-result-relativ__number">{{ resultRelativeNo }}</span>%</p>
-                        </div>
-                        <p class="polis-result__text">
-                            {{ votes.3900.results.nationalResults.absolute.no|number_format(0, '', '\'') }} {{ polis.votes }}
-                        </p>
-                    </li>
-                </ul>
-            {% elseif vote.location.type.name == "Bezirk" and vote.location.parentLocationId == 29 %}
-                {% set yes_class = vote.relative.yes > 50 ? ' polis-district--yes' : '' %}
-                {% set no_class = vote.relative.no > 50 ? ' polis-district--no' : '' %}
-                {% set bezirke = bezirke ~
-                '<li class="polis-district">
-                        <span class="polis-district__name">' ~ vote.location.locationName ~ '</span>
-                        <span class="polis-district__votes' ~ yes_class ~ '">' ~ vote.relative.yes|number_format(1, '.', '') ~ ' ' ~ polis.yes ~ '</span>
-                        <span class="polis-district__votes' ~ no_class ~ '">' ~ vote.relative.no|number_format(1, '.', '') ~ ' ' ~ polis.no ~ '</span>
-                    </li>' %}
-            {% endif %}
-        {% endfor %}
-            <ul class="polis-district-container" id="result-district-ZH">{{ bezirke|raw }}</ul>
-            </div>{# end polis-districts-container => only for prototype!!! #}
-        {% else %}
-            <p class="regional-results-message" style="display: none;">{{ polis.no_results }}</p>
-    {% endif %}
+        {% include '_polis-districts.twig' %}
     </div>{# end polis-cantons-container => only for prototype!!! #}
 </div>
