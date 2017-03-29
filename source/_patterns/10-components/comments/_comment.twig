@@ -3,7 +3,7 @@
     {% set commentIds = commentIds|merge([comment.id]) %}
     <li id="comment_{{ comment.id }}" class="comment">
         <span class="h-offscreen">{{ default.comment_by|default("Kommentar von") }} </span>
-        <cite class="comment__user">{{ comment.name }} ({{ comment.nickname }})</cite>
+        <cite class="comment__user" {% if comment.isEditorialAnswer %} comment__user--srf{% endif %}>{{ comment.name }} {% if not comment.isEditorialAnswer %} ({{ comment.nickname }}){% endif %}</cite>
         <span class="comment__time">{{ comment.dateFormatted }}</span>
         <blockquote class="comment__content">{{ comment.message }}</blockquote>
         <a class="comment__link">{{ default.link_social|default("Gefällt mir") }}
