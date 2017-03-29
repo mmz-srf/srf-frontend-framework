@@ -3,25 +3,29 @@
     {% set commentIds = commentIds|merge([comment.id]) %}
     <li id="comment_{{ comment.id }}" class="comment">
         <span class="h-offscreen">{{ default.comment_by|default("Kommentar von") }} </span>
-        <cite class="comment__user">{{ comment.name }} ({{ comment.nickname }})</cite>
+        <cite class="comment__user {% if comment.isEditorialAnswer %} comment__user--srf{% endif %}">{{ comment.name }} {% if not comment.isEditorialAnswer %} ({{ comment.nickname }}){% endif %}</cite>
         <span class="comment__time">{{ comment.dateFormatted }}</span>
         <blockquote class="comment__content">{{ comment.message }}</blockquote>
         <a class="comment__link">{{ default.link_social|default("Gefällt mir") }}
             (?)</a>{# ... folgestory #}
-        <a class="comment__link">{{ default.link_reply|default("Antworten") }}</a>
+        {% if allowsComments %}
+            <a class="comment__link comment__link--reply">{{ default.link_reply|default("Antworten") }}</a>
+        {% endif %}
         {% if comment.children|length > 0 %}
             <ol class="comments comments--replies">
                 {% for reply in comment.children %}
                     {% set commentIds = commentIds|merge([reply.id]) %}
                     <li id="comment_{{ reply.id }}" class="comment">
                         <span class="h-offscreen">{{ default.reply_by|default("Antwort von") }} </span>
-                        <cite class="comment__user {% if reply.isEditorialAnswer %} comment__user--srf{% endif %}">{{ reply.name }}
-                            ({{ reply.nickname }})</cite>
+                        <cite class="comment__user {% if reply.isEditorialAnswer %} comment__user--srf{% endif %}">
+                            {{ reply.name }}{% if not reply.isEditorialAnswer %} ({{ reply.nickname }}){% endif %}</cite>
                         <span class="comment__time">{{ reply.dateFormatted }}</span>
                         <blockquote class="comment__content">{{ reply.message }}</blockquote>
                         <a class="comment__link">{{ default.link_social|default("Gefällt mir") }}
                             (?)</a>{# ... folgestory #}
-                        <a class="comment__link">{{ default.link_reply|default("Antworten") }}</a>
+                        {% if allowsComments %}
+                            <a class="comment__link comment__link--reply">{{ default.link_reply|default("Antworten") }}</a>
+                        {% endif %}
                     </li>
                 {% endfor %}
             </ol>

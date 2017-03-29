@@ -29,13 +29,13 @@
             <div id="sectionAll" role="tabpanel">
                 <ul class="comments comments--shrink comments--main">
                     {% block comments %}
-                        {% include 'components-comment' with { 'comments': comments.comments, 'default': comments.addons } %}
+                        {% include 'components-comment' with { 'comments': comments.comments, 'default': comments.addons, 'allowsComments': true } %}
                     {% endblock %}
                 </ul>
             </div>
             <div id="sectionHits" role="tabpanel" aria-hidden="true"></div>
             {% block more_button %}
-                {% include 'elements-load-more' %}
+                {% include 'elements-load-more' with {'imgSrc': '../../assets/img/arrows/red_arrow_down.svg'} %}
             {% endblock %}
             {% block more_button_spinner %}
                 {% include 'elements-spinner' %}
