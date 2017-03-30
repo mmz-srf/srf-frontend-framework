@@ -5,4 +5,4 @@
         <option value="{{ option.key }}">{{ option.val }}</option>
     {% endfor %}
 </select>
-<span class="input-field-hint {{ styleModifier }}" id="{{ fieldID }}-hint">{{ hintText|default("Hint") }}</span>
+<span class="input-field-hint {{ styleModifier }}" id="{{ fieldID }}-hint">{{ hintText|default("") }}</span>
