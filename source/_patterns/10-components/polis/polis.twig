@@ -55,7 +55,7 @@
             </ul>
         {% endif %}
 
-        <figure id="map-1453" class="polis-map" data-vote="3893" data-api="../../assets/demo/polis-data.json"
+        <figure id="{{ polis.id }}" class="polis-map" data-vote="3893" data-api="{{ polis.src }}"
                 aria-hidden="true">
             {% include "elements-chmap.svg" with { 'idReference': 'results-canton' } %}
             {% if votes.3900.results.nationalResults.relative.participation > 0 %}
