@@ -1,3 +1,4 @@
 {
-  "styleModifier": "input-field--on-error"
+  "styleModifier": "input-field--on-error",
+  "hintText": "Fehlerinfo"
 }
