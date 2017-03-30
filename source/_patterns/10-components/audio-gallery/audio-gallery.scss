@@ -1,6 +1,6 @@
 
 .audio-gallery { // ol
-  margin: 32px 0 24px;
+  margin: 32px -16px 24px;
   @include smartphone { margin: 24px -8px 20px; }
   &__item { // li
     margin: 0 0 2px;
