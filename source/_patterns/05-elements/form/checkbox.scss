@@ -29,24 +29,6 @@
   }
 }
 
-.poll-option__radio {
-  // for accessibility -> no hiding!
-  position: absolute;
-  opacity: 0; // height: 0; width: 0; margin: 0; padding: 0; border: 0;
-  &:focus, &:active {
-    + .poll-option-label {
-      background-color: $color-bg-box-hover;
-      &:after {
-        background-color: $color-bg-box-hover;
-      }
-      &--selected:after {
-        border: solid 1px $color-accentuation-red;
-        background-color: transparent;
-      }
-    }
-  }
-}
-
 .checkbox-label {
   @include button-label;
 
