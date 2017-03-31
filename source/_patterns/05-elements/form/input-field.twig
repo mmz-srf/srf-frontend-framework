@@ -1,6 +1,7 @@
 {% set hintAvailable = hintText is defined and hintText is not empty %}
 <label for="{{ fieldID|default('input-field-ID') }}"
-       class="input-field {{ styleModifier }}">{{ labelText|default("Vorname") }}{% if required %} * {{ accessibilityInfo }}{% endif %}</label>
+       class="input-field {{ styleModifier }}">{{ labelText|default("Vorname") }}{% if required %} * <span
+            class="h-offscreen">{{ form.accessibilityInfo }}</span>{% endif %}</label>
 <input type="{{ fieldType|default("text") }}" id="{{ fieldID|default('input-field-ID') }}"
        class="input-field__text {{ styleModifier }}"{% if hintAvailable %} aria-labelledby="{{ fieldID|default('input-field-ID') }}-hint"
         {% endif %}
