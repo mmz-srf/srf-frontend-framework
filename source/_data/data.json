@@ -519,8 +519,6 @@
     "button": "Datei Upload"
   },
   "polis": {
-    "id": "map-ID",
-    "src": "../../assets/demo/polis-data.json",
     "yes": "JA",
     "no": "NEIN",
     "result": "Resultat",

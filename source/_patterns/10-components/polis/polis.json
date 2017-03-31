@@ -1,4 +1,7 @@
 {
+    "polis": {
+        "src": "../../assets/demo/polis-data.json"
+    },
     "voteCase": {
         "id": 1453,
         "active": false,
