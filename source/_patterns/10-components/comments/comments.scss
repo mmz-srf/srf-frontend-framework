@@ -233,3 +233,113 @@
     border-bottom: 2px solid $color-accentuation-red;
   }
 }
+
+/// replies (interactive commenting)
+.comment--reply { // li
+  border-top: 0;
+  @include tablet-up {
+    &::before {
+      top: 17px !important;
+    }
+  }
+}
+
+.reply-container {
+  background: transparent;
+  padding: 0 0 36px 0;
+}
+
+.reply { // fieldset
+  border: 0 none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+@mixin reply_to_comments_area() {
+  width: 100%;
+  font: 16px/24px $font-light;
+  letter-spacing: 0.5px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.reply__textarea {
+  @include reply_to_comments_area();
+  color: #383732;
+  background-color: transparent;
+  border: solid 1px #b9b7ac;
+  border-radius: 2px;
+  margin-bottom: 7px;
+  padding: 12px 16px;
+  position: relative;
+  z-index: 2;
+  @include tablet-up {
+    height: 72px;
+  }
+  // resize: none; // :/
+  &:focus {
+    outline: none;
+    border: 1px solid $color-text-accentuation; // #383732; <-- design :/
+    @include smartphone { // perhaps?
+      + .reply-info .reply-info__initial {
+        display: none;
+      }
+    }
+    + .reply-info .reply-info__count {
+      display: block;
+    }
+  }
+}
+
+.reply-info {
+  font-size: 14px;
+  letter-spacing: 0.2px;
+  color: #888579;
+  margin: 0 0 4px;
+}
+
+.reply-info__netiquette { // link
+  font-size: 14px;
+}
+
+.reply-info__count {
+  font-size: 14px;
+  letter-spacing: 0.2px;
+  color: #888579;
+  float: right;
+  display: none;
+}
+
+.reply-info__count--initial {
+  display: none;
+}
+
+.reply-info__count--warn {
+  color: $color-accentuation-red;
+}
+
+.reply-info__count--show {
+  display: block;
+}
+
+// txt higlighting
+.reply__highlights {
+  @include reply_to_comments_area();
+  margin: 14px 1px; // 2px 1px;
+  padding: 0 16px;
+  background-color: #fff;
+  position: absolute;
+  overflow: hidden;
+  z-index: 0;
+  color: transparent;
+  height: 94px; // = 120 - 26
+  @include tablet-up {
+    height: 46px; // = 72 - 26
+  }
+}
+
+.reply--overboard {
+  color: transparent;
+  background-color: #ffe2e2;
+}

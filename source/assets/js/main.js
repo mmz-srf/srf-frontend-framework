@@ -6,6 +6,7 @@ import {init as SrfPollInit} from './srf-poll';
 import {init as SrfRatingsInit} from './srf-ratings';
 import {init as SrfTooltipInit} from './srf-tooltip';
 import {init as SrfFormFieldInit} from './srf-form-fields';
+import {init as SrfCommentsInit} from './srf-comments';
 
 
 document.addEventListener("DOMContentLoaded", function(event) {
@@ -17,4 +18,5 @@ document.addEventListener("DOMContentLoaded", function(event) {
     SrfRatingsInit();
     SrfTooltipInit();
     SrfFormFieldInit();
+    SrfCommentsInit();
 });

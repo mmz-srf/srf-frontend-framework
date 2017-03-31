@@ -413,6 +413,12 @@
       "comment_by": "Kommentar von",
       "reply_by": "Antwort von"
     },
+    "replies": {
+      "title": "Einen Kommentar schreiben",
+      "netiquette": "Netiquette",
+      "letters": "Zeichen",
+      "please_respect": "Bitte beachten Sie unsere"
+    },
     "total_count": "8",
     "comments": [
       {

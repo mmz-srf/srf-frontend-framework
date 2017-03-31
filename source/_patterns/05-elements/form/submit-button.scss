@@ -55,3 +55,14 @@
     background-color: $color-border;
   }
 }
+
+.submit-button--inactive {
+  opacity: .48;
+  &:hover, &:active, &:focus {
+    cursor: default;
+    background-color: $color-text-accentuation;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.24),
+    0 0 2px 0 rgba(0, 0, 0, 0.12);
+    transition: none;
+  }
+}

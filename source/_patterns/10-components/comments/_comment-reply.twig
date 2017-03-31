@@ -1,0 +1,20 @@
+<li class="comment comment--reply">
+    <form class="reply-container" {% if form.id != '' %}id="{{ form.id|default("form-ID") }}" {% endif %}
+          name="{{ form.id|default("form-ID") }}" method="{{ form.method|default("get") }}">
+        <label class="h-offscreen" form="form-ID">{{ replies.title|default("Einen Kommentar schreiben") }}</label>
+        <fieldset class="reply">
+            <div class="reply__highlights"></div>
+            <textarea class="reply__textarea" name="reply" cols="70" rows="7"></textarea>
+            <p class="reply-info">
+                <span class="reply-info__initial">{{ replies.please_respect|default("Bitte beachten Sie unsere") }}
+                    &nbsp;</span>
+                <a class="reply-info__netiquette"
+                   href="//srf.ch/netiquette">{{ default.nettiquette|default("Netiquette") }}</a>
+                <span class="reply-info__count">
+                    <span class="js-comment-count-up">500</span>&nbsp;{{ replies.letters|default("Zeichen") }}
+                </span>
+            </p>
+        </fieldset>
+        {% include 'elements-submit-button' with {} %}
+    </form>
+</li>
