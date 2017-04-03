@@ -5,7 +5,7 @@ const DESKTOP_BREAKPOINT = 600;
 
 
 export function init() {
-    let $maps = $(css.polisMap);
+    let $maps = $(css.polisWrapper);
     if ($maps.length) {
         $maps.each(function () {
             initMap($(this));
@@ -15,10 +15,13 @@ export function init() {
 
 let css = {
     polisMap: '.polis-map',
+    polisWrapper: '.polis-container',
     svgMap: '.chmap--desktop',
+    cantonSelect: '.polis-cantons-container .menu',
+    cantonSelectHiddenClass: 'polis-select-option--hide',
 
 
-    ///////////////////////////////
+///////////////////////////////
     'votes': '.vote',
     'regionalResults': '.regional-results',
     'regionalResultsWrapper': '.regional-results-wrapper',
@@ -41,19 +44,21 @@ let css = {
     'tooltip': '#polis-tooltip'
 }
 
-function initMap($map) {
+function initMap($container) {
+    let $map = $container.find(css.polisMap);
     let id = $map.attr('id') + "";
-    let map = new PolisMap(id, $map, $map.data('vote'), $map.data('api'));
+    let map = new PolisMap(id, $container, $map, $map.data('vote'), $map.data('api'));
     map.fetchData();
     map.registerListener();
     window.setInterval(map.fetchData(), REFRESH_INTERVAL);
     maps[id] = map;
 }
 
-function PolisMap(cssId, $domObject, voteId, apiUrl) {
+function PolisMap(cssId, $container, $map, voteId, apiUrl) {
 
     this.id = cssId;
-    this.$domObject = $domObject;
+    this.$container = $container;
+    this.$map = $map;
     this.voteId = voteId;
     this.apiUrl = apiUrl;
     this.caseDate = '';
@@ -129,10 +134,6 @@ function PolisMap(cssId, $domObject, voteId, apiUrl) {
         this.selectedCanton = null;
     };
 
-    this.setResults = function (vote) {
-        this.result = vote;
-    };
-
     this.fetchData = function () {
         var that = this;
         $.getJSON(that.apiUrl, function (data) {
@@ -160,7 +161,6 @@ function PolisMap(cssId, $domObject, voteId, apiUrl) {
 
     this.loadResults = function () {
         let cantonsWithData = [];
-        var that = this;
 
         // build canton id map
         this.cantonIdMap = {};
@@ -218,14 +218,21 @@ function PolisMap(cssId, $domObject, voteId, apiUrl) {
 
     this.updateResults = function (vote) {
         this.loadResults();
-        this.generateMobileNavigation();
+        this.renderCantonSelect();
         if (this.selectedCanton && this.cantons[this.selectedCanton]) {
             this.cantons[this.selectedCanton].renderResults();
         }
     };
 
-    this.generateMobileNavigation = function () {
+    this.renderCantonSelect = function () {
 
+        let $select = this.$container.find(css.cantonSelect);
+        $select.find("option").addClass(css.cantonSelectHiddenClass);
+        for (let cantonId in this.cantons) {
+            if (this.cantons[cantonId].hasResults()) {
+                $select.find("option[value=" + cantonId + "]").removeClass(css.cantonSelectHiddenClass);
+            }
+        }
     };
 }
 
@@ -327,6 +334,27 @@ function Canton(parent, id) {
         this.results = undefined;
         this.setColor();
     };
+}
+
+
+function ResultSet(result, map) {
+
+    this.last_update = result.update; // moment(result.update);
+    this.relative = {
+        yes: result.relative.yes,
+        no: result.relative.no,
+        participation: result.relative.participation
+    };
+    this.absolute = {
+        yes: result.absolute.yes,
+        no: result.absolute.no
+    };
+
+    this.map = map;
+
+    this.num_cantons = Object.keys(map.cantonIdMap).length;
+    // this.state = (this.num_cantons == 26) ? SRF.i18n.tr('Endresultat', 'frontend/votes') : SRF.i18n.tr('Zwischenresultat', 'frontend/votes');
+    this.state = (this.num_cantons == 26) ? 'Endresultat' : 'Zwischenresultat';
 }
 
 function ColorDecorator() {
