@@ -3,15 +3,19 @@
     <label form="form-ID" class="form__label">{{ form.title }}</label>
     <fieldset class="form-fieldset">
         <legend class="form-fieldset__legend">{{ form.legend }}</legend>
-        {% include 'elements-checkbox' with { 'fieldID': 'checkbox-ID1', 'required': true } %}
-        {% include 'elements-checkbox' with { 'fieldID': 'checkbox-ID2', 'required': false } %}
-        <span class="form-fieldset__hint {{ styleModifier }}">{{ hintText|default("Hint") }}</span>
+        {% set hintFieldID = 'checkbox-fieldset-ID' %}
+        {% include 'elements-checkbox' with { 'fieldID': 'checkbox-ID1', 'required': true, 'hintFieldlID': hintFieldID } %}
+        {% include 'elements-checkbox' with { 'fieldID': 'checkbox-ID2', 'required': false, 'hintFieldlID': hintFieldID } %}
+        <span class="form-fieldset__hint {{ styleModifier }}"
+              id="{{ hintFieldID }}-hint">{{ hintText|default("Hint") }}</span>
     </fieldset>
     <fieldset class="form-fieldset">
         <legend class="form-fieldset__legend">{{ form.legend }}</legend>
-        {% include 'elements-radio-button' with { 'fieldID': 'radio-button-ID1' } %}
-        {% include 'elements-radio-button' with { 'fieldID': 'radio-button-ID2' } %}
-        <span class="form-fieldset__hint {{ styleModifier }}">{{ hintText|default("Hint") }}</span>
+        {% set hintFieldID = 'radio-button-fieldset-ID' %}
+        {% include 'elements-radio-button' with { 'fieldID': 'radio-button-ID1', 'hintFieldlID': hintFieldID } %}
+        {% include 'elements-radio-button' with { 'fieldID': 'radio-button-ID2', 'hintFieldlID': hintFieldID } %}
+        <span class="form-fieldset__hint {{ styleModifier }}"
+              id="{{ hintFieldID }}-hint">{{ hintText|default("Hint") }}</span>
     </fieldset>
     <fieldset class="form-fieldset">
         {% if legendTitle is defined %}
