@@ -404,6 +404,9 @@
   "comments": {
     "title_singular": "Kommentar",
     "title_plural": "Kommentare",
+    "greetings": "Sie sind angemeldet als",
+    "let_us_know": "Teilen Sie Ihre Meinung ...",
+    "logout": "abmelden",
     "no_comment": "Es wurden noch keine Kommentare erfasst. Seien Sie die erste Person, die diesen Artikel kommentiert.",
     "link_all": "Alle Kommentare",
     "link_hits": "Beliebteste",
@@ -466,7 +469,7 @@
           {
             "dateFormatted": "Dienstag, 14.03.2017, 15:18 Uhr",
             "isEditorialAnswer": false,
-            "id": 4236425,
+            "id": 4236499,
             "name": "Verena Casagrande",
             "message": "Evt. wird einmal Spass haben verboten!!!!",
             "nickname": "Verena Casagrande"
@@ -484,7 +487,7 @@
           {
             "dateFormatted": "Dienstag, 14.03.2017, 12:36 Uhr",
             "isEditorialAnswer": false,
-            "id": 4236072,
+            "id": 4236012,
             "name": "Sebastian Klaus",
             "message": "Andererseits sähe die Statistik ohne diese Begrenzungen ausserorts wieder ganz anders aus. Eine gute Verkehrsplanung kann aber ganz sicher sehr viel erreichen, häufig mehr als allzu restriktive Einschränkungen, die nerven anstatt beruhigen.",
             "nickname": "sklaus"

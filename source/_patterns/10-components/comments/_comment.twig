@@ -10,6 +10,7 @@
             (?)</a>{# ... folgestory #}
         {% if allowsComments %}
             <a class="comment__link comment__link--reply">{{ default.link_reply|default("Antworten") }}</a>
+            <span class="comment__placeholder comment__placeholder--primary" id="placeholder_{{ comment.id }}"></span>
         {% endif %}
         {% if comment.children|length > 0 %}
             <ol class="comments comments--replies">
@@ -25,9 +26,9 @@
                             (?)</a>{# ... folgestory #}
                         {% if allowsComments %}
                             <a class="comment__link comment__link--reply">{{ default.link_reply|default("Antworten") }}</a>
+                            <span class="comment__placeholder" id="placeholder_{{ reply.id }}"></span>
                         {% endif %}
                     </li>
-                    {% include '_comment-reply.twig' with { 'comments' : {'replies' : comments.replies }} %}
                 {% endfor %}
             </ol>
         {% endif %}
