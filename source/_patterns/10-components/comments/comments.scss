@@ -1,0 +1,235 @@
+@mixin add_responsive_paddings($tablet : "34px", $desktop-up : "40px") {
+  @include tablet {
+    padding-left: $tablet;
+    padding-right: $tablet;
+  }
+  @include desktop-up {
+    padding-left: $desktop-up;
+    padding-right: $desktop-up;
+  }
+  /* @include desktop-wide { // max-width: 870px; } */
+}
+
+.article-comments { // section
+  background-color: $color-bg-caption;
+  padding: 24px 32px;
+  position: relative;
+  @include smartphone {
+    padding: 20px 8px;
+  }
+  .spinner-container {
+    position:relative;
+    margin-top: 30px;
+    display:none;
+  }
+}
+.comments-wrapper {
+  background-color: #fefefd;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.24),
+              0 0 2px 0 rgba(0, 0, 0, 0.12);
+}
+.comments-header {
+  background-color: $color-link-bg-hover;
+  position: relative;
+}
+.comments--shrink {
+    @include tablet-up {
+      margin: 0 auto !important
+    }
+    @include tablet {
+      max-width: 720px;
+    }
+    @include desktop-up {
+      max-width: 792px;
+    }
+    @include desktop-wide {
+      max-width: 870px;
+    }
+}
+.comments-header__title {
+  font: 22px/28px $font-medium;
+  letter-spacing: .3px;
+  margin: 0;
+  padding: 16px 16px 20px;
+
+  @include tablet-up {
+    padding-top: 24px;
+  }
+}
+
+.comments-header__text {
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: .5px;
+  color: #4e4d47;
+  padding: 0 16px 24px;
+}
+
+.comments-header__title, .comments-header__text {
+  @include add_responsive_paddings(50px, 55px);
+}
+
+.comments-header__border { // hack :(
+  position: absolute;
+  width: 100%;
+  border-bottom: 1px solid $color-separator;
+  border-width: 0 0 1px;
+  margin: 0;
+  bottom: 0;
+  z-index: 0;
+}
+.comments { // ul & ul ul
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+.comments--replies { // ul ul
+  margin-left: 10px;
+  @include tablet-up {
+    margin-left: 64px;
+  }
+}
+.comment { // ul li
+  border-top: 1px solid $color-separator;
+  overflow: hidden;
+  padding: 0;
+  margin: 0 16px;
+  &:before { // overwrite
+    content: none;
+  }
+  @include tablet-up {
+    margin: 0;
+    padding: 0 16px;
+  }
+  .comment { // ul li li
+    margin-right: 0;
+    overflow: visible;
+    &:before {
+      content: "";
+      position: absolute;
+      height: 15px;
+      left: -26px;
+      top: -8px;
+      width: 19px;
+      background-image: url("../img/arrows/fancy_arrow.svg");
+      @include tablet-up {
+        left: -30px;
+        top: 27px;
+      }
+    }
+  }
+}
+.comments--main { // ul
+  > .comment:first-child {
+    border-top: 0;
+    padding-top: 8px;
+  }
+  margin-bottom: 13px;
+  clear: both;
+  @include tablet-up {
+    margin: 0 auto 32px !important
+  }
+  @include add_responsive_paddings(34px, 40px);
+}
+
+.comment__user {
+  font: 14px/20px $font-regular;
+  letter-spacing: .5px;
+  margin: 20px 0 2px;
+  display: block;
+  @include tablet-up {
+    margin-top: 24px
+  }
+}
+.comment__user--srf {
+  background: #fff url("../img/srf_logo.svg") no-repeat scroll right 2px / 24px auto;
+}
+.comment__time {
+  font: 12px/16px $font-system;
+  color: $color-text-light;
+  display: block;
+}
+.comment__content {
+  font: 18px/28px $font-light;
+  letter-spacing: .5px;
+  margin: 12px 0 16px;
+  @include tablet-up {
+    font-size: 20px;
+    line-height: 32px;
+    letter-spacing: .3px;
+  }
+}
+.comment__link {
+  border-bottom: 0;
+  display: inline-block;
+  cursor: pointer; // why would this be necessary!?
+  padding: 0 10px;
+  margin-bottom: 24px;
+  font: 14px/16px $font-regular;
+  letter-spacing: .2px;
+  @include tablet-up {
+    margin-bottom: 24px;
+    font: 16px/24px $font-light;
+  }
+  &:first-of-type {
+    padding-left: 0;
+  }
+  &:hover {
+    border-bottom: 0;
+  }
+}
+.comment__link--reply {
+  border-left: 1px solid $color-separator;
+}
+
+.comment__link:visited, .comment__link--clicked {
+  color: $color-text-light;
+}
+
+.tabs {
+  height: 40px;
+  margin: 0;
+  padding: 0;
+  @include add_responsive_paddings(34px, 40px);
+}
+.tab-option {
+  float: left;
+  width: 50%;
+  margin: 0;
+  padding: 0;
+  &:before { // overwrite
+    content: none;
+  }
+  @include tablet-up {
+    width: auto;
+  }
+}
+
+.tab-option__link {
+  width: 100%;
+  font: 16px/16px $font-regular;
+  color: $color-tab-option-link;
+  border-bottom: 1px solid $color-separator;
+  padding: 12px 16px 0;
+  height: 40px;
+  white-space: nowrap;
+  display: inline-block;
+  &:hover {
+    color: $color-tab-option-link;
+    border-bottom: 1px solid $color-separator;
+  }
+  @include smartphone {
+    text-align: center;
+    padding: 12px 24px 0;
+    font-size: 14px;
+  }
+}
+.tab-option__link--selected {
+  color: $color-accentuation-red;
+  border-bottom: 2px solid $color-accentuation-red;
+  padding-bottom: 10px;
+  &:hover {
+    color: $color-accentuation-red;
+    border-bottom: 2px solid $color-accentuation-red;
+  }
+}
