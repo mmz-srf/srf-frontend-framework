@@ -4,9 +4,9 @@
         <h2 class="polis-map-container__title">{{ votes[voteId].shortTitle }}</h2>
         <p class="polis-map-container__info">{{ votes[voteId].title }}</p>
         {# Endresultat #}
-        <p class="polis-result-title">
-            <span class="polis-result-title__type">{% if voteCase.active %}{{ polis.result }}{% else %}{{ polis.final_result }}{% endif %}</span>&nbsp;
-            <time class="polis-result-title__time">{% if voteCase.active %}{{ votes[voteId].results.nationalResults.update|date("H:i") }}{% else %} {{ polis.at }} {{ voteCase.update|date("d.m.Y") }}{% endif %}</time>
+        <p class="polis-result-title polis-result-total--statusline">
+            <span class="polis-result-title__type"></span>&nbsp;
+            <time class="polis-result-title__time"></time>
         </p>
         {% set resultRelativeYes = votes[voteId].results.nationalResults.relative.yes|number_format(1, '.', '') %}
         {% set resultRelativeNo = votes[voteId].results.nationalResults.relative.no|number_format(1, '.', '') %}

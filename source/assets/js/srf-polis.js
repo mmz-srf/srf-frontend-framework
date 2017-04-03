@@ -28,6 +28,7 @@ let css = {
     totalRelativeYesResult: '.polis-result-total-relativeYes',
     totalRelativeNoResult: '.polis-result-total-relativeNo',
     participation: '.polis-map__participation',
+    statusLine: '.polis-result-total--statusline',
 
 ///////////////////////////////
     'votes': '.vote',
@@ -254,25 +255,26 @@ function MainBar(map) {
 
     this.update = function () {
         if (this.map.result.results && this.map.result.results.nationalResults) {
-            this.paint(new ResultSet(this.map.result.results.nationalResults, map), this.calcLastUpdated(this.map.result));
+            this.render(new ResultSet(this.map.result.results.nationalResults, map), this.calcLastUpdated(this.map.result));
         }
     };
 
     this.calcLastUpdated = function (vote) {
-        var lastUpdated = null;
+        let lastUpdated = null;
         vote.results.results.forEach(function (result) {
+            let ts = new Date(result.update).getTime();
             // if (lastUpdated == null || moment(result.update) > lastUpdated) {
-            if (lastUpdated == null || result.update > lastUpdated) {
-                lastUpdated = result.update; // moment(result.update);
+            if (lastUpdated == null || ts > lastUpdated) {
+                lastUpdated = ts; // moment(result.update);
             }
         }.bind(this));
-
-        return lastUpdated;
+        return new Date(lastUpdated);
     };
 
-    this.paint = function (resultSet, lastUpdateTime) {
+    this.render = function (resultSet, lastMod) {
+        // to do: better grab this DOM objects at page load, once only
         let $content = this.map.$mainBar.closest('.content');
-        debugger;
+        let $statusLine = this.map.$container.find(css.statusLine);
 
         //absolute
         this.map.$mainBar.find(css.totalAbsoluteYesResult).text(resultSet.absolute.yes.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "'"));
@@ -290,28 +292,21 @@ function MainBar(map) {
         } else {
             $content.find(css.participation).text('');
         }
+
         //state line
-        let ut = lastUpdateTime;
-
         if (resultSet.num_cantons < 26) {
-            $content.find('.result-state span.num').text(resultSet.num_cantons);
-            $content.find('.result-state span.num').show();
-            $content.find('.result-state span.update-time').show();
-            $content.find('.result-state span.partial').show();
+            // to do: how to know EMTPY?
+            $statusLine.html(`
+                <span class="polis-result-title__type">${resultSet.state}</span> 
+                vom <time class="polis-result-title__time">${lastMod.getDate()}.${lastMod.getMonth() + 1}.${lastMod.getFullYear()}</time> 
+                um <time class="polis-result-title__time">${lastMod.getHours()}:${lastMod.getMinutes()}</time> Uhr (${resultSet.num_cantons} von 26 Kantonen)
+            `);
         } else {
-            $content.find('.result-state span.num').hide();
-            $content.find('.result-state span.update-time').hide();
-            $content.find('.result-state span.partial').hide();
-            ut = this.map.caseDate;
-        }
-
-        $content.find('.result-state strong.state').text(resultSet.state);
-
-        if (ut && typeof ut.date === 'function') {
-            // content.find('.result-state span.date').text(SRF.i18n.tr('vom', 'frontend/votes') + ' ' + this.pad(ut.date()) + "." + this.pad(ut.month() + 1) + "." + ut.year());
-            // content.find('.result-state span.time').text(SRF.i18n.tr('um', 'frontend/votes') + ' ' + ut.hour() + ":" + that.pad(ut.minute()));
-            content.find('.result-state span.date').text('vom' + ' ' + this.pad(ut.date()) + "." + this.pad(ut.month() + 1) + "." + ut.year());
-            content.find('.result-state span.time').text('um' + ' ' + ut.hour() + ":" + that.pad(ut.minute()));
+            lastMod = new Date(this.map.caseDate);
+            $statusLine.html(`
+                <span class="polis-result-title__type">${resultSet.state}</span>  
+                vom <time class="polis-result-title__time">${lastMod.getDate()}.${lastMod.getMonth() + 1}.${lastMod.getFullYear()}</time> 
+            `);
         }
     };
 }
