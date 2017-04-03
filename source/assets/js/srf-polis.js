@@ -20,6 +20,14 @@ let css = {
     cantonSelect: '.polis-cantons-container .menu',
     cantonSelectHiddenClass: 'polis-select-option--hide',
 
+    mainBar: '.polis-result-container--main',
+    totalAbsoluteYesResult: '.polis-result-total--absoluteYes',
+    totalAbsoluteNoResult: '.polis-result-total--absoluteNo',
+    totalRelativeYesBar: '.polis-result-total--yesBar',
+    totalRelativeNoBar: '.polis-result-total--noBar',
+    totalRelativeYesResult: '.polis-result-total-relativeYes',
+    totalRelativeNoResult: '.polis-result-total-relativeNo',
+    participation: '.polis-map__participation',
 
 ///////////////////////////////
     'votes': '.vote',
@@ -61,6 +69,8 @@ function PolisMap(cssId, $container, $map, voteId, apiUrl) {
     this.$map = $map;
     this.voteId = voteId;
     this.apiUrl = apiUrl;
+    this.mainBar = null;
+    this.$mainBar = null;
     this.caseDate = '';
     this.lastUpdate = '';
     this.isInitialRender = true;
@@ -144,10 +154,12 @@ function PolisMap(cssId, $container, $map, voteId, apiUrl) {
                 if (that.isInitialRender) {
                     that.loadResults();
                     that.isInitialRender = false;
-                    // that.updateMainBar(domId, vote, myMap);
+                    that.$mainBar = that.$container.find(css.mainBar);
+                    that.mainBar = new MainBar(that);
+                    that.mainBar.update();
                 } else {
                     that.updateResults();
-                    // that.updateMainBar(domId, vote, myMap);
+                    // that.mainBar.update();
                     //that.updateCantonalMajority(domId, vote);
                 }
             }
@@ -157,7 +169,8 @@ function PolisMap(cssId, $container, $map, voteId, apiUrl) {
             }
         });
 
-    }
+    };
+
 
     this.loadResults = function () {
         let cantonsWithData = [];
@@ -225,7 +238,6 @@ function PolisMap(cssId, $container, $map, voteId, apiUrl) {
     };
 
     this.renderCantonSelect = function () {
-
         let $select = this.$container.find(css.cantonSelect);
         $select.find("option").addClass(css.cantonSelectHiddenClass);
         for (let cantonId in this.cantons) {
@@ -236,6 +248,73 @@ function PolisMap(cssId, $container, $map, voteId, apiUrl) {
     };
 }
 
+
+function MainBar(map) {
+    this.map = map;
+
+    this.update = function () {
+        if (this.map.result.results && this.map.result.results.nationalResults) {
+            this.paint(new ResultSet(this.map.result.results.nationalResults, map), this.calcLastUpdated(this.map.result));
+        }
+    };
+
+    this.calcLastUpdated = function (vote) {
+        var lastUpdated = null;
+        vote.results.results.forEach(function (result) {
+            // if (lastUpdated == null || moment(result.update) > lastUpdated) {
+            if (lastUpdated == null || result.update > lastUpdated) {
+                lastUpdated = result.update; // moment(result.update);
+            }
+        }.bind(this));
+
+        return lastUpdated;
+    };
+
+    this.paint = function (resultSet, lastUpdateTime) {
+        let $content = this.map.$mainBar.closest('.content');
+        debugger;
+
+        //absolute
+        this.map.$mainBar.find(css.totalAbsoluteYesResult).text(resultSet.absolute.yes.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "'"));
+        this.map.$mainBar.find(css.totalAbsoluteNoResult).text(resultSet.absolute.no.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "'"));
+        //bars
+        this.map.$mainBar.find(css.totalRelativeYesBar).width(resultSet.relative.yes + '%');
+        this.map.$mainBar.find(css.totalRelativeNoBar).width(resultSet.relative.no + '%');
+        //relative values
+        this.map.$mainBar.find(css.totalRelativeYesResult).html(parseFloat(resultSet.relative.yes).toFixed(1));
+        this.map.$mainBar.find(css.totalRelativeNoResult).html(parseFloat(resultSet.relative.no).toFixed(1));
+
+        if (resultSet.relative.participation) {
+            // content.find('.polis-participation').text(SRF.i18n.tr('Stimmbeteiligung', 'frontend/votes')+': '+resultSet.relative.participation+'%');
+            $content.find(css.participation).text('Stimmbeteiligung' + ': ' + resultSet.relative.participation + '%');
+        } else {
+            $content.find(css.participation).text('');
+        }
+        //state line
+        let ut = lastUpdateTime;
+
+        if (resultSet.num_cantons < 26) {
+            $content.find('.result-state span.num').text(resultSet.num_cantons);
+            $content.find('.result-state span.num').show();
+            $content.find('.result-state span.update-time').show();
+            $content.find('.result-state span.partial').show();
+        } else {
+            $content.find('.result-state span.num').hide();
+            $content.find('.result-state span.update-time').hide();
+            $content.find('.result-state span.partial').hide();
+            ut = this.map.caseDate;
+        }
+
+        $content.find('.result-state strong.state').text(resultSet.state);
+
+        if (ut && typeof ut.date === 'function') {
+            // content.find('.result-state span.date').text(SRF.i18n.tr('vom', 'frontend/votes') + ' ' + this.pad(ut.date()) + "." + this.pad(ut.month() + 1) + "." + ut.year());
+            // content.find('.result-state span.time').text(SRF.i18n.tr('um', 'frontend/votes') + ' ' + ut.hour() + ":" + that.pad(ut.minute()));
+            content.find('.result-state span.date').text('vom' + ' ' + this.pad(ut.date()) + "." + this.pad(ut.month() + 1) + "." + ut.year());
+            content.find('.result-state span.time').text('um' + ' ' + ut.hour() + ":" + that.pad(ut.minute()));
+        }
+    };
+}
 
 function Canton(parent, id) {
     this.id = id;
