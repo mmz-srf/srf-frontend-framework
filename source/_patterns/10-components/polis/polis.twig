@@ -42,27 +42,27 @@
             <p class="polis-result-title">{{ polis.Standesstimmen }}</p>
             {% set resultAbsoluteYes = votes[voteId].cantonalResult.absolute.yes|number_format(1, '.', '') %}
             {% set resultAbsoluteNo = votes[voteId].cantonalResult.absolute.no|number_format(1, '.', '') %}
-            <ul class="polis-result-container">
-                <li class="polis-result polis-result--yes" style="width: {{ resultAbsoluteYes / 23 * 100 }}%">
+            <ul class="polis-result-container polis-result-cantonalmajority">
+                <li class="polis-result polis-result--yes polis-result-cantonalmajority--yesBar" style="width: {{ resultAbsoluteYes / 23 * 100 }}%">
                     <span class="h-offscreen">{{ polis.yes }}</span>
                     <div class="polis-result__bar polis-result__bar--yes">
                         <p class="polis-result-relativ"><span
-                                    class="polis-result-relativ__number ">{{ resultAbsoluteYes }}</span></p>
+                                    class="polis-result-relativ__number polis-result-cantonalmajority-yesResult">{{ resultAbsoluteYes }}</span></p>
                     </div>
                 </li>
                 <li class="polis-result polis-result--default" role="presentation" aria-hidden="true"
                     style="width: {{ (23 - resultAbsoluteYes - resultAbsoluteNo) / 23 * 100 }}%">{# if not all are there yet #}</li>
-                <li class="polis-result polis-result--no" style="width: {{ resultAbsoluteNo / 23 * 100 }}%">
+                <li class="polis-result polis-result--no polis-result-cantonalmajority--noBar" style="width: {{ resultAbsoluteNo / 23 * 100 }}%">
                     <span class="h-offscreen">{{ polis.no }}</span>
                     <div class="polis-result__bar polis-result__bar--no">
                         <p class="polis-result-relativ"><span
-                                    class="polis-result-relativ__number">{{ resultAbsoluteNo }}</span></p>
+                                    class="polis-result-relativ__number polis-result-cantonalmajority-noResult">{{ resultAbsoluteNo }}</span></p>
                     </div>
                 </li>
             </ul>
         {% endif %}
 
-        <figure id="{{ voteId }}" class="polis-map" data-vote="{{ voteId }}" data-api="{{ polis.src }}"
+        <figure id="{{ voteId }}" class="polis-map" data-vote="{{ voteId }}" data-api="{{ polis.src }}" data-has-cantonal-majority="{{ votes[voteId].needsCantonalMajority }}"
                 aria-hidden="true">
             {% include "elements-chmap.svg" with { 'idReference': 'results-canton' } %}
             {% if votes[voteId].results.nationalResults.relative.participation > 0 %}

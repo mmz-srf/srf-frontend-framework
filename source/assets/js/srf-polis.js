@@ -27,9 +27,12 @@ let css = {
     totalRelativeNoBar: '.polis-result-total--noBar',
     totalRelativeYesResult: '.polis-result-total-relativeYes',
     totalRelativeNoResult: '.polis-result-total-relativeNo',
+    cantonalMajorityYesBar: '.polis-result-cantonalmajority--yesBar',
+    cantonalMajorityNoBar: '.polis-result-cantonalmajority--noBar',
+    cantonalMajorityYesResult: '.polis-result-cantonalmajority-yesResult',
+    cantonalMajorityNoResult: '.polis-result-cantonalmajority-noResult',
     participation: '.polis-map__participation',
     statusLine: '.polis-result-total--statusline',
-
 ///////////////////////////////
     'votes': '.vote',
     'regionalResults': '.regional-results',
@@ -56,20 +59,21 @@ let css = {
 function initMap($container) {
     let $map = $container.find(css.polisMap);
     let id = $map.attr('id') + "";
-    let map = new PolisMap(id, $container, $map, $map.data('vote'), $map.data('api'));
+    let map = new PolisMap(id, $container, $map, $map.data('vote'), $map.data('api'), $map.data("has-cantonal-majority"));
     map.fetchData();
     map.registerListener();
     window.setInterval(map.fetchData(), REFRESH_INTERVAL);
     maps[id] = map;
 }
 
-function PolisMap(cssId, $container, $map, voteId, apiUrl) {
+function PolisMap(cssId, $container, $map, voteId, apiUrl, hasCantonalMajority) {
 
     this.id = cssId;
     this.$container = $container;
     this.$map = $map;
     this.voteId = voteId;
     this.apiUrl = apiUrl;
+    this.hasCantonalMajority = hasCantonalMajority == 1 ? true : false;
     this.mainBar = null;
     this.$mainBar = null;
     this.caseDate = '';
@@ -160,8 +164,7 @@ function PolisMap(cssId, $container, $map, voteId, apiUrl) {
                     that.mainBar.update();
                 } else {
                     that.updateResults();
-                    // that.mainBar.update();
-                    //that.updateCantonalMajority(domId, vote);
+                    that.mainBar.update();
                 }
             }
             else {
@@ -255,7 +258,9 @@ function MainBar(map) {
 
     this.update = function () {
         if (this.map.result.results && this.map.result.results.nationalResults) {
-            this.render(new ResultSet(this.map.result.results.nationalResults, map), this.calcLastUpdated(this.map.result));
+            let nationalResults = new ResultSet(this.map.result.results.nationalResults, map) || {};
+            let cantonalResults =  new ResultSet(this.map.result.cantonalResult, map) || {};
+            this.render(nationalResults, cantonalResults, this.calcLastUpdated(this.map.result));
         }
     };
 
@@ -263,51 +268,58 @@ function MainBar(map) {
         let lastUpdated = null;
         vote.results.results.forEach(function (result) {
             let ts = new Date(result.update).getTime();
-            // if (lastUpdated == null || moment(result.update) > lastUpdated) {
             if (lastUpdated == null || ts > lastUpdated) {
-                lastUpdated = ts; // moment(result.update);
+                lastUpdated = ts;
             }
         }.bind(this));
         return new Date(lastUpdated);
     };
 
-    this.render = function (resultSet, lastMod) {
-        // to do: better grab this DOM objects at page load, once only
+    this.render = function (nationalResults, cantonalResults, lastMod) {
+        // to do: LOADS of dom access here, that could be done once only...
         let $content = this.map.$mainBar.closest('.content');
         let $statusLine = this.map.$container.find(css.statusLine);
 
         //absolute
-        this.map.$mainBar.find(css.totalAbsoluteYesResult).text(resultSet.absolute.yes.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "'"));
-        this.map.$mainBar.find(css.totalAbsoluteNoResult).text(resultSet.absolute.no.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "'"));
+        this.map.$mainBar.find(css.totalAbsoluteYesResult).text(nationalResults.absolute.yes.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "'"));
+        this.map.$mainBar.find(css.totalAbsoluteNoResult).text(nationalResults.absolute.no.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "'"));
         //bars
-        this.map.$mainBar.find(css.totalRelativeYesBar).width(resultSet.relative.yes + '%');
-        this.map.$mainBar.find(css.totalRelativeNoBar).width(resultSet.relative.no + '%');
+        this.map.$mainBar.find(css.totalRelativeYesBar).width(nationalResults.relative.yes + '%');
+        this.map.$mainBar.find(css.totalRelativeNoBar).width(nationalResults.relative.no + '%');
         //relative values
-        this.map.$mainBar.find(css.totalRelativeYesResult).html(parseFloat(resultSet.relative.yes).toFixed(1));
-        this.map.$mainBar.find(css.totalRelativeNoResult).html(parseFloat(resultSet.relative.no).toFixed(1));
+        this.map.$mainBar.find(css.totalRelativeYesResult).html(parseFloat(nationalResults.relative.yes).toFixed(1));
+        this.map.$mainBar.find(css.totalRelativeNoResult).html(parseFloat(nationalResults.relative.no).toFixed(1));
 
-        if (resultSet.relative.participation) {
+        if (nationalResults.relative.participation) {
             // content.find('.polis-participation').text(SRF.i18n.tr('Stimmbeteiligung', 'frontend/votes')+': '+resultSet.relative.participation+'%');
-            $content.find(css.participation).text('Stimmbeteiligung' + ': ' + resultSet.relative.participation + '%');
+            $content.find(css.participation).text('Stimmbeteiligung' + ': ' + nationalResults.relative.participation + '%');
         } else {
             $content.find(css.participation).text('');
         }
 
         //state line
-        if (resultSet.num_cantons < 26) {
-            // to do: how to know EMTPY?
+        if (nationalResults.num_cantons < 26) {
             $statusLine.html(`
-                <span class="polis-result-title__type">${resultSet.state}</span> 
+                <span class="polis-result-title__type">${nationalResults.state}</span> 
                 vom <time class="polis-result-title__time">${lastMod.getDate()}.${lastMod.getMonth() + 1}.${lastMod.getFullYear()}</time> 
-                um <time class="polis-result-title__time">${lastMod.getHours()}:${lastMod.getMinutes()}</time> Uhr (${resultSet.num_cantons} von 26 Kantonen)
+                um <time class="polis-result-title__time">${lastMod.getHours()}:${lastMod.getMinutes()}</time> Uhr (${nationalResults.num_cantons} von 26 Kantonen)
             `);
         } else {
             lastMod = new Date(this.map.caseDate);
             $statusLine.html(`
-                <span class="polis-result-title__type">${resultSet.state}</span>  
+                <span class="polis-result-title__type">${nationalResults.state}</span>  
                 vom <time class="polis-result-title__time">${lastMod.getDate()}.${lastMod.getMonth() + 1}.${lastMod.getFullYear()}</time> 
             `);
         }
+
+        // cantonal majority
+        if(this.map.hasCantonalMajority) {
+            this.map.$container.find(css.cantonalMajorityYesResult).text(cantonalResults.absolute.yes.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "'"));
+            this.map.$container.find(css.cantonalMajorityNoResult).text(cantonalResults.absolute.no.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "'"));
+            this.map.$container.find(css.cantonalMajorityYesBar).width(cantonalResults.relative.yes+'%');
+            this.map.$container.find(css.cantonalMajorityNoBar).width(cantonalResults.relative.no+'%');
+        }
+
     };
 }
 
