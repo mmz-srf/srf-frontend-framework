@@ -2,7 +2,7 @@ let maps = {}; // id => Map object
 const REFRESH_INTERVAL = 30000;
 // for features like clickable map, tooltips
 const DESKTOP_BREAKPOINT = 600;
-
+const CANTONS = ['AG', 'AR', 'AI', 'BL', 'BS', 'BE', 'FR', 'GE', 'GL', 'GR', 'JU', 'LU', 'NE', 'NW', 'OW', 'SH', 'SZ', 'SO', 'SG', 'TI', 'TG', 'UR', 'VD', 'VS', 'ZG', 'ZH'];
 
 export function init() {
     let $maps = $(css.polisWrapper);
@@ -14,12 +14,14 @@ export function init() {
 }
 
 let css = {
+    // map stuff and general stuff
     polisMap: '.polis-map',
     polisWrapper: '.polis-container',
     svgMap: '.chmap--desktop',
     cantonSelect: '.polis-cantons-container .menu',
     cantonSelectHiddenClass: 'polis-select-option--hide',
 
+    // main bar stuff
     mainBar: '.polis-result-container--main',
     totalAbsoluteYesResult: '.polis-result-total--absoluteYes',
     totalAbsoluteNoResult: '.polis-result-total--absoluteNo',
@@ -33,6 +35,9 @@ let css = {
     cantonalMajorityNoResult: '.polis-result-cantonalmajority-noResult',
     participation: '.polis-map__participation',
     statusLine: '.polis-result-total--statusline',
+
+// cantonal stuff
+    cantonContainer: '.polis-cantons-container',
 ///////////////////////////////
     'votes': '.vote',
     'regionalResults': '.regional-results',
@@ -81,35 +86,12 @@ function PolisMap(cssId, $container, $map, voteId, apiUrl, hasCantonalMajority) 
     this.isInitialRender = true;
     this.result = null;
     this.selectedCanton = undefined;
-    this.cantons = {
-        'AG': new Canton(this.id, 'AG'),
-        'AR': new Canton(this.id, 'AR'),
-        'AI': new Canton(this.id, 'AI'),
-        'BL': new Canton(this.id, 'BL'),
-        'BS': new Canton(this.id, 'BS'),
-        'BE': new Canton(this.id, 'BE'),
-        'FR': new Canton(this.id, 'FR'),
-        'GE': new Canton(this.id, 'GE'),
-        'GL': new Canton(this.id, 'GL'),
-        'GR': new Canton(this.id, 'GR'),
-        'JU': new Canton(this.id, 'JU'),
-        'LU': new Canton(this.id, 'LU'),
-        'NE': new Canton(this.id, 'NE'),
-        'NW': new Canton(this.id, 'NW'),
-        'OW': new Canton(this.id, 'OW'),
-        'SH': new Canton(this.id, 'SH'),
-        'SZ': new Canton(this.id, 'SZ'),
-        'SO': new Canton(this.id, 'SO'),
-        'SG': new Canton(this.id, 'SG'),
-        'TI': new Canton(this.id, 'TI'),
-        'TG': new Canton(this.id, 'TG'),
-        'UR': new Canton(this.id, 'UR'),
-        'VD': new Canton(this.id, 'VD'),
-        'VS': new Canton(this.id, 'VS'),
-        'ZG': new Canton(this.id, 'ZG'),
-        'ZH': new Canton(this.id, 'ZH')
-    };
 
+    this.cantons = {};
+    let $cantonContainer = this.$container.find(css.cantonContainer);
+    CANTONS.forEach((canton) => {
+        this.cantons[canton + ""] = new Canton(this.id, canton, $cantonContainer);
+    });
     this.cantonIdMap = {};
 
     this.getCantonById = function (cantonId) {
@@ -119,10 +101,10 @@ function PolisMap(cssId, $container, $map, voteId, apiUrl, hasCantonalMajority) 
     };
 
     this.registerListener = function () {
-        var that = this;
-        // mobile canton results navigation
-        $('.vote .regional-results-select select').on('change', function () {
+        let that = this;
 
+        $(css.cantonSelect).on('change', function () {
+            that.onCantonSelect($(this));
         });
         if (screen.width >= DESKTOP_BREAKPOINT) {
             // have tooltips and clickable map
@@ -135,22 +117,25 @@ function PolisMap(cssId, $container, $map, voteId, apiUrl, hasCantonalMajority) 
     this.onMapMouseDown = function ($clicked) {
         let cantonId = $clicked.closest('g').attr('id');
         let canton = that.getCantonById(cantonId);
-        that.setSelectedCanton(cantonId);
+        this.selectedCanton = cantonId;
         canton.renderResults();
         // ????
         //$clicked.closest('.vote').find('.regional-results-wrapper').show();
-    }
-
-    this.setSelectedCanton = function ($cantonId) {
-        this.selectedCanton = $cantonId;
     };
 
-    this.resetSelectedCanton = function () {
-        this.selectedCanton = null;
+    this.onCantonSelect = function ($clicked) {
+        let cantonId = $clicked.val();
+        this.selectedCanton = cantonId;
+        let canton = this.getCantonById(cantonId);
+        canton.renderResults();
+
+        // TO DO: show districts toggle if district results are available
+
     };
+
 
     this.fetchData = function () {
-        var that = this;
+        let that = this;
         $.getJSON(that.apiUrl, function (data) {
             if (data.votes && data.votes[that.voteId]) {
                 that.result = data.votes[that.voteId];
@@ -192,7 +177,7 @@ function PolisMap(cssId, $container, $map, voteId, apiUrl, hasCantonalMajority) 
             }.bind(this));
 
             this.result.results.results.forEach(function (result) {
-                var canton;
+                let canton;
                 if (result.resultCondition.id == 2 || result.resultCondition.id == 3) { // 2: accepted, 3: declined
                     // its a canton
                     if (result.location.type.id == 2) {
@@ -205,9 +190,9 @@ function PolisMap(cssId, $container, $map, voteId, apiUrl, hasCantonalMajority) 
                             cantonsWithData.push(result.location.shortName);
                         }
                     } else if (result.location.type.id == 3) { // its a district
-                        var cantonShortName = this.cantonIdMap[result.location.parentLocationId];
+                        let cantonShortName = this.cantonIdMap[result.location.parentLocationId];
                         if (this.cantons.hasOwnProperty(cantonShortName)) {
-                            var resultSet = new ResultSet(result, this);
+                            let resultSet = new ResultSet(result, this);
                             canton = this.cantons[cantonShortName];
                             canton.setResultForDistrict(result.location.locationName, resultSet);
                         }
@@ -259,7 +244,7 @@ function MainBar(map) {
     this.update = function () {
         if (this.map.result.results && this.map.result.results.nationalResults) {
             let nationalResults = new ResultSet(this.map.result.results.nationalResults, map) || {};
-            let cantonalResults =  new ResultSet(this.map.result.cantonalResult, map) || {};
+            let cantonalResults = new ResultSet(this.map.result.cantonalResult, map) || {};
             this.render(nationalResults, cantonalResults, this.calcLastUpdated(this.map.result));
         }
     };
@@ -277,8 +262,12 @@ function MainBar(map) {
 
     this.render = function (nationalResults, cantonalResults, lastMod) {
         // to do: LOADS of dom access here, that could be done once only...
+        this.renderMainBar(nationalResults);
+        this.renderStateLine(nationalResults, lastMod);
+        this.renderCantonalMajority(cantonalResults);
+    };
+    this.renderMainBar = function (nationalResults) {
         let $content = this.map.$mainBar.closest('.content');
-        let $statusLine = this.map.$container.find(css.statusLine);
 
         //absolute
         this.map.$mainBar.find(css.totalAbsoluteYesResult).text(nationalResults.absolute.yes.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "'"));
@@ -290,14 +279,16 @@ function MainBar(map) {
         this.map.$mainBar.find(css.totalRelativeYesResult).html(parseFloat(nationalResults.relative.yes).toFixed(1));
         this.map.$mainBar.find(css.totalRelativeNoResult).html(parseFloat(nationalResults.relative.no).toFixed(1));
 
+        // stimmbeteiligung text
         if (nationalResults.relative.participation) {
             // content.find('.polis-participation').text(SRF.i18n.tr('Stimmbeteiligung', 'frontend/votes')+': '+resultSet.relative.participation+'%');
             $content.find(css.participation).text('Stimmbeteiligung' + ': ' + nationalResults.relative.participation + '%');
         } else {
             $content.find(css.participation).text('');
         }
-
-        //state line
+    };
+    this.renderStateLine = function (nationalResults, lastMod) {
+        let $statusLine = this.map.$container.find(css.statusLine);
         if (nationalResults.num_cantons < 26) {
             $statusLine.html(`
                 <span class="polis-result-title__type">${nationalResults.state}</span> 
@@ -311,22 +302,21 @@ function MainBar(map) {
                 vom <time class="polis-result-title__time">${lastMod.getDate()}.${lastMod.getMonth() + 1}.${lastMod.getFullYear()}</time> 
             `);
         }
-
-        // cantonal majority
-        if(this.map.hasCantonalMajority) {
+    };
+    this.renderCantonalMajority = function (cantonalResults) {
+        if (this.map.hasCantonalMajority) {
             this.map.$container.find(css.cantonalMajorityYesResult).text(cantonalResults.absolute.yes.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "'"));
             this.map.$container.find(css.cantonalMajorityNoResult).text(cantonalResults.absolute.no.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "'"));
-            this.map.$container.find(css.cantonalMajorityYesBar).width(cantonalResults.relative.yes+'%');
-            this.map.$container.find(css.cantonalMajorityNoBar).width(cantonalResults.relative.no+'%');
+            this.map.$container.find(css.cantonalMajorityYesBar).width(cantonalResults.relative.yes + '%');
+            this.map.$container.find(css.cantonalMajorityNoBar).width(cantonalResults.relative.no + '%');
         }
-
-    };
+    }
 }
 
-function Canton(parent, id) {
+function Canton(parent, id, $container) {
     this.id = id;
-    this.$wrapper = $('#' + parent).closest('.vote');
     this.$element = $('#' + parent + ' #' + id);
+    this.$container = $container;
     this.yes = undefined;
     this.no = undefined;
     this.name = undefined;
@@ -347,7 +337,7 @@ function Canton(parent, id) {
     };
 
     this.renderResults = function () {
-        var $results = this.$wrapper.find('.regional-results-wrapper');
+        var $results = this.$container.find(css.regionalResultWrapper);
         $results.find('.cantonal h4 span.canton').text(this.name);
         var min = this.results.last_update.minute();
         $results.find('.cantonal h4 span.time').html(this.results.last_update.hour() + ':' + ((min > 9) ? min : "0" + min));
@@ -442,6 +432,7 @@ function ResultSet(result, map) {
     // this.state = (this.num_cantons == 26) ? SRF.i18n.tr('Endresultat', 'frontend/votes') : SRF.i18n.tr('Zwischenresultat', 'frontend/votes');
     this.state = (this.num_cantons == 26) ? 'Endresultat' : 'Zwischenresultat';
 }
+
 
 function ColorDecorator() {
     this.getColorForPercent = function (percent) {
