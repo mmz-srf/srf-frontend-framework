@@ -1,8 +1,7 @@
 .sharing-bar {
-    padding: 20px 0 20px 0;
-    @include smartphone { padding: 28px 0 20px 0; }
+    margin: 20px 0 24px 0;
+    @include smartphone { margin: 28px 0 24px 0; }
 
-    display: inline-block;
     width: 100%;
     position: relative;
     background-color: transparent;
@@ -44,7 +43,11 @@
     font-family: $font-system;
     line-height: 1.33;
     text-align: center;
-    color: #757266;
+    color: #888579;
+
+    b {
+        color: #22211D;
+    }
 }
 
 .sharing-bar__button {
@@ -61,15 +64,18 @@
     font-family: $font-system;
     line-height: 1.2;
     text-align: center;
-    color: #4e4d47;
+    color: #22211D;
 
     // Make hover area circled so corners don't trigger mouseenter/hover
     border-radius: 50%;
     cursor: pointer;
 }
 
-.sharing-bar__button:hover {
+.sharing-bar__button:hover,
+.sharing-bar__button:active,
+.sharing-bar__button:focus {
     opacity: 0.84;
+    outline: none;
 }
 
 .sharing-bar__button--facebook {
@@ -91,6 +97,10 @@
 .sharing-bar__button--comment {
     background-image: url("../../assets/img/share/icon_share_comments.svg");
     line-height: 39px;
+}
+
+.sharing-bar__button--comment-android {
+    line-height: 41px;
 }
 
 .sharing-bar__button--comment-zero {

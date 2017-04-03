@@ -1,15 +1,15 @@
 <section class="article-comments l-full-width-container">
     <div class="comments-wrapper" data-total-count="{{ comments.total_count }}" {% block data_attributes %}{% endblock %}>
         <div class="comments-header">
-            <p class="comments-header__title comments--shrink">
+            <h3 class="comments-header__title comments--shrink">
                 {% if comments.total_count > 0 %}{{ comments.total_count }} {% endif %}
                 {% if comments.total_count == 1 %}
                     {{ comments.title_singular|default("Kommentar") }}
                 {% else %}
                     {{ comments.title_plural|default("Kommentare") }}
                 {% endif %}
-            </p>
-            <hr class="comments-header__border" aria-hidden="true" role="presentation">
+            </h3>
+            <hr class="comments-header__border" aria-hidden="true">
             {% if comments.total_count == 0 %}
                 <p class="comments-header__text comments--shrink">
                     {{ comments.no_comment|default("Es wurden noch keine Kommentare erfasst. Seien Sie die erste Person, die diesen Artikel kommentiert.") }}
@@ -26,16 +26,16 @@
             {% endif %}
         </div>{# here ends the header #}
         {% if comments.total_count > 0 %}
-            <section id="sectionAll" role="tabpanel">
+            <div id="sectionAll" role="tabpanel">
                 <ul class="comments comments--shrink comments--main">
                     {% block comments %}
-                        {% include 'components-comment' with { 'comments': comments.comments, 'default': comments.addons } %}
+                        {% include 'components-comment' with { 'comments': comments.comments, 'default': comments.addons, 'allowsComments': true } %}
                     {% endblock %}
                 </ul>
-            </section>
-            <section id="sectionAll" role="tabpanel" aria-hidden="true"></section>
+            </div>
+            <div id="sectionHits" role="tabpanel" aria-hidden="true"></div>
             {% block more_button %}
-                {% include 'elements-load-more' %}
+                {% include 'elements-load-more' with {'imgSrc': '../../assets/img/arrows/red_arrow_down.svg'} %}
             {% endblock %}
             {% block more_button_spinner %}
                 {% include 'elements-spinner' %}

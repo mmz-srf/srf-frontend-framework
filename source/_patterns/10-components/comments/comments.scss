@@ -136,6 +136,7 @@
   font: 14px/20px $font-regular;
   letter-spacing: .5px;
   margin: 20px 0 2px;
+  display: block;
   @include tablet-up {
     margin-top: 24px
   }
@@ -171,12 +172,14 @@
     font: 16px/24px $font-light;
   }
   &:first-of-type {
-    border-right: 1px solid $color-separator;
     padding-left: 0;
   }
   &:hover {
     border-bottom: 0;
   }
+}
+.comment__link--reply {
+  border-left: 1px solid $color-separator;
 }
 
 .comment__link:visited, .comment__link--clicked {
