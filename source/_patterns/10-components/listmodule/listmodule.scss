@@ -1,0 +1,13 @@
+.listmodule {margin:24px 0 20px}
+.listmodule__title {font:normal 500 22px/1.27 $font-regular;letter-spacing:.3px;color:rgb(34,33,29);padding:0 24px}
+.listmodule__list {list-style-type:none;margin:0;padding:0}
+.listmodule__item {margin:0;padding:0 24px;border-top:1px solid rgb(236,236,230)}
+.listmodule__item:last-of-type {border-bottom:1px solid rgb(236,236,230)}
+.listmodule__item:before {display:none}
+.listmodule__itemTitle {font:normal normal 18px/1.56 $font-regular;letter-spacing:.5px;color:rgb(34,33,29)}
+.listmodule__item p {font:normal 300 18px/1.56 $font-regular;letter-spacing:.5px;color:rgb(34,33,29)}
+.listmodule__item p.listmodule__itemSubhead,
+.listmodule__item p.listmodule__itemSource {font:normal normal 12px/1.33 $font-system;color:rgb(136,133,121)}
+.listmodule__itemFigure {float:right;width:80px;height:60px}
+.listmodule__itemMedia {}
+.listmodule__itemFigure .listmodule__itemSource {display:none}
