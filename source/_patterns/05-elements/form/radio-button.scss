@@ -10,13 +10,13 @@
       }
     }
   }
-  &:checked { // looking very strange!
+  /* &:checked { // looking very strange!
     &:focus, &:hover {
       + .radio-button-label {
         background-color: $color-bg-box;
       }
     }
-  }
+  } */
   &:checked, &:focus:checked {
     + .radio-button-label {
       &:after {
