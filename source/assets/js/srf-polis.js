@@ -14,7 +14,7 @@ export function init() {
 }
 
 let css = {
-    // map stuff and general stuff
+    // map
     polisMap: '.polis-map',
     polisWrapper: '.polis-container',
     svgMap: '.chmap--desktop',
@@ -28,8 +28,7 @@ let css = {
     tooltipText: '.chmap-tooltip-text',
     tooltipTitle: '.chmap-tooltip__title',
     mapPolygons: '.chmap--no-touch g',
-
-    // main bar stuff
+    // main bar
     mainBar: '.polis-result-container--main',
     totalAbsoluteYesResult: '.polis-result-total--absoluteYes',
     totalAbsoluteNoResult: '.polis-result-total--absoluteNo',
@@ -43,10 +42,19 @@ let css = {
     cantonalMajorityNoResult: '.polis-result-cantonalmajority-noResult',
     participation: '.polis-map__participation',
     statusLine: '.polis-result-total--statusline',
-
-
-// cantonal stuff
+    // canton detail view
     cantonContainer: '.polis-cantons-container',
+    cantonTitle: '.polis-result-title--canton-name',
+    cantonTitleTime: 'polis-result-title--canton-time',
+    districtContainer: '.polis-districts-container',
+    cantonalMainResult: '.polis-result-container--canton',
+
+    cantonalAbsoluteYesResult: '.polis-result-total--absoluteYes',
+    cantonalAbsoluteNoResult: '.polis-result-total--absoluteNo',
+    cantonalRelativeYesBar: '.polis-result-total--yesBar',
+    cantonalRelativeNoBar: '.polis-result-total--noBar',
+    cantonalRelativeYesResult: '.polis-result-total-relativeYes',
+    cantonalRelativeNoResult: '.polis-result-total-relativeNo',
 
 }
 
@@ -107,8 +115,10 @@ function PolisMap(cssId, $container, $map, voteId, apiUrl, hasCantonalMajority) 
     this.registerWideScreenListener = function () {
         let that = this;
         let $polygons = that.$container.find(css.mapPolygons);
-        $polygons.on('click', function () {
 
+        $polygons.on('click', function (event) {
+            event.preventDefault()
+            that.onMapClick($(this));
         }).on('mousemove', function (event) {
             that.onMapMouseMove(event.pageX, event.pageY);
         }).on('mouseenter', function () {
@@ -118,15 +128,7 @@ function PolisMap(cssId, $container, $map, voteId, apiUrl, hasCantonalMajority) 
         });
 
     };
-    this.getToolTipContent = function (name = "", yes = "", no = "") {
-        let titleClass = '';
-        if (yes && no) {
-            titleClass = no > yes ? css.tooltipTextNoClass : css.tooltipTextYesClass;
-        }
-        return `<p class="chmap-tooltip__title ${titleClass}">${name}</p>
-                    <p class="chmap-tooltip-text"><span class="chmap-tooltip-text__yes">${yes}</span>% JA</p>&nbsp;
-                    <p class="chmap-tooltip-text"><span class="chmap-tooltip-text__no">${no}</span>% NEIN</p>`;
-    };
+
     this.onMapMouseEnter = function ($target) {
         if ($target.is('.initial') && this.$tooltip) {
             this.$tooltip.hide();
@@ -145,36 +147,35 @@ function PolisMap(cssId, $container, $map, voteId, apiUrl, hasCantonalMajority) 
         }
     };
     this.onMapMouseLeave = function ($target) {
-        console.log("onMapMouseLeave");
-
         $target.attr('class', $target.attr('class').replace(' hover', ''));
     };
 
     this.onMapMouseMove = function (x, y) {
-        console.log("onMapMouseMove");
+        // to do: expensive dom access in here.. move to init and recalc on resize event
         let parentOffset = $('.chmap--desktop').parent().offset();
-        let pageY = y - 90; // event.pageY - parentOffset.top - 58,
+        let pageY = y - 90;
         let pageX = x - parentOffset.left + 15;
-        let $tooltip = $(css.tooltip);
+
 
         let cssClass = "left";
         if (pageX > $('.chmap--desktop').parent().width() / 2) {
             cssClass = "right";
-            pageX = pageX - $tooltip.outerWidth();
+            pageX = pageX - this.$tooltip.outerWidth();
         }
-        $tooltip.css({"top": pageY, "left": pageX})
+        this.$tooltip.css({"top": pageY, "left": pageX})
             .removeClass("chmap-tooltip--left chmap-tooltip--right")
             .addClass("chmap-tooltip--" + cssClass);
     };
 
-    this.onMapMouseDown = function ($clicked) {
-        return;
+    this.onMapClick = function ($clicked) {
+        if ($clicked.is('.initial')) {
+            return;
+        }
         let cantonId = $clicked.closest('g').attr('id');
-        let canton = that.getCantonById(cantonId);
+        let canton = this.getCantonById(cantonId);
         this.selectedCanton = cantonId;
+        this.$container.find(css.cantonSelect).val(cantonId);
         canton.renderResults();
-        // ????
-        //$clicked.closest('.vote').find('.regional-results-wrapper').show();
     };
 
     this.onCantonSelect = function ($clicked) {
@@ -185,6 +186,16 @@ function PolisMap(cssId, $container, $map, voteId, apiUrl, hasCantonalMajority) 
 
         // TO DO: show districts toggle if district results are available
 
+    };
+
+    this.getToolTipContent = function (name = "", yes = "", no = "") {
+        let titleClass = '';
+        if (yes && no) {
+            titleClass = no > yes ? css.tooltipTextNoClass : css.tooltipTextYesClass;
+        }
+        return `<p class="chmap-tooltip__title ${titleClass}">${name}</p>
+                    <p class="chmap-tooltip-text"><span class="chmap-tooltip-text__yes">${yes}</span>% JA</p>&nbsp;
+                    <p class="chmap-tooltip-text"><span class="chmap-tooltip-text__no">${no}</span>% NEIN</p>`;
     };
 
 
@@ -391,34 +402,45 @@ function Canton(parent, id, $container) {
     };
 
     this.renderResults = function () {
-        var $results = this.$container.find(css.regionalResultWrapper);
-        $results.find('.cantonal h4 span.canton').text(this.name);
-        var min = this.results.last_update.minute();
-        $results.find('.cantonal h4 span.time').html(this.results.last_update.hour() + ':' + ((min > 9) ? min : "0" + min));
-        $results.find('.icon').html($('#logo-' + this.id).clone(true));
-        $results.find('.icon svg g').attr('class', this.$element.attr('class'));
-        //canton
-        this.paintResult($results.find('.cantonal'), this.results);
+        // to DO: LOADS of DOM access that could be minified
+        this.$container.find(css.cantonTitle).text(this.name);
+        let lastUpdate = new Date(this.results.last_update);
+        let min = lastUpdate.getMinutes();
+        let hours = lastUpdate.getHours() - 1;
 
-        var $lis = $results.find('.district li'),
+
+        this.$container.find(css.cantonTitleTime).html(hours + ':' + ((min > 9) ? min : "0" + min));
+
+        // canton icon is no more..
+        //canton
+        this.renderMainResults();
+
+        this.$container.find(css.districtContainer).show();
+
+
+        return;
+
+        
+
+        var $lis = this.$container.find('.district li'),
             numberOfDistricts = this.getNumberOfDistricts();
         if (numberOfDistricts === 0) {
-            $results.find('.toggle-district').hide();
-            $results.removeClass('active').addClass('passive');
+            this.$container.find('.toggle-district').hide();
+            this.$container.removeClass('active').addClass('passive');
             return;
         } else {
-            $results.find('.toggle-district').show();
+            this.$container.find('.toggle-district').show();
         }
         while ($lis.length > numberOfDistricts) {
             $($lis.get(0)).remove();
-            $lis = $results.find('.district li');
+            $lis = this.$container.find('.district li');
         }
         while ($lis.length < numberOfDistricts) {
             var newLi = $($lis.get(0)).clone(true);
             $lis.closest('ul').append(newLi);
-            $lis = $results.find('.district li');
+            $lis = this.$container.find('.district li');
         }
-        $lis = $results.find('.district li');
+        $lis = this.$container.find('.district li');
         var i = 0;
         for (var district in this.districtResults) {
             // important check that this is objects own property
@@ -431,18 +453,21 @@ function Canton(parent, id, $container) {
         }
     };
 
-    this.paintResult = function ($parent, resultSet) {
-        $parent.find('.yes.absolute .result').text(resultSet.absolute.yes.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "'"));
-        $parent.find('.no.absolute .result').text(resultSet.absolute.no.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "'"));
-        //bars
-        $parent.find('.bar .no.relative').width(resultSet.relative.no + '%');
-        $parent.find('.bar .yes.relative').width(resultSet.relative.yes + '%');
-        //relative values
-        $parent.find('.bar .result.yes').html(parseFloat(resultSet.relative.yes).toFixed(1) + '<span class="symbol">%</span>');
-        $parent.find('.bar .result.no').html(parseFloat(resultSet.relative.no).toFixed(1) + '<span class="symbol">%</span>');
+    this.renderMainResults = function () {
+        let resultSet = this.results;
+        let $results = this.$container.find(css.cantonalMainResult);
+        $results.find(css.totalAbsoluteYesResult).text(resultSet.absolute.yes.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "'"));
+        $results.find(css.totalAbsoluteNoResult).text(resultSet.absolute.no.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "'"));
 
-        $parent.find('.yes.absolute strong:not(.static)').text(parseFloat(resultSet.relative.yes).toFixed(1) + "%");
-        $parent.find('.no.absolute strong:not(.static)').text(parseFloat(resultSet.relative.no).toFixed(1) + "%");
+        //bars
+        $results.find(css.totalRelativeYesBar).width(resultSet.relative.yes + "%");
+        $results.find(css.totalRelativeNoBar).width(resultSet.relative.no + "%");
+        //relative values
+        $results.find(css.totalRelativeYesResult).html(parseFloat(resultSet.relative.yes).toFixed(1));
+        $results.find(css.totalRelativeNoResult).html(parseFloat(resultSet.relative.no).toFixed(1));
+
+        $results.find('.yes.absolute strong:not(.static)').text(parseFloat(resultSet.relative.yes).toFixed(1) + "%");
+        $results.find('.no.absolute strong:not(.static)').text(parseFloat(resultSet.relative.no).toFixed(1) + "%");
     };
 
     this.setYes = function (yes) {

@@ -355,3 +355,7 @@ $color-polis-no-text: #af001d; // oben: af001d oder unten: #9d0017 ???
   color: #9d0017; // red txt
   font-weight: 500;
 }
+
+.polis-result-total--yesBar, .polis-result-total--noBar {
+  transition: width 0.5s ease-in;
+}
