@@ -71,6 +71,7 @@ function PolisMap(cssId, $container, $map, voteId, apiUrl, hasCantonalMajority) 
     this.hasCantonalMajority = hasCantonalMajority == 1 ? true : false;
     this.mainBar = null;
     this.$mainBar = null;
+    this.$tooltip = null;
     this.caseDate = '';
     this.lastUpdate = '';
     this.isInitialRender = true;
@@ -119,35 +120,36 @@ function PolisMap(cssId, $container, $map, voteId, apiUrl, hasCantonalMajority) 
     };
     this.onMapMouseEnter = function ($target) {
         console.log("onmapmouseenter");
-        if ($target.is('.initial')) {
-            $(css.tooltip).hide();
+        if ($target.is('.initial') && this.$tooltip) {
+            this.$tooltip.hide();
             return;
         }
         let canton = this.getCantonById($target.attr('id'));
-        if ($(css.tooltip).length === 0) {
-
+   
+        if (!this.$tooltip) {
             $('body').append('<div id="polis-tooltip" class="chmap-tooltip">' +
                 '<p class="chmap-tooltip__title"></p>' +
                 '<p class="chmap-tooltip-text"><span class="chmap-tooltip-text__yes"></span>% JA</p>&nbsp;' +
                 '<p class="chmap-tooltip-text"><span class="chmap-tooltip-text__no"></span>% NEIN</p>' +
                 '</div>');
+            this.$tooltip = $(css.tooltip);
         }
-        let $tooltip = $(css.tooltip);
 
-        $tooltip.find(css.tooltipTextYes).text(canton.yes);
-        $tooltip.find(css.tooltipTextNo).text(canton.no);
-        $tooltip.find(css.tooltipText).removeClass(css.tooltipTextNoClass + " " + css.tooltipTextYesClass);
+
+        this.$tooltip.find(css.tooltipTextYes).text(canton.yes);
+        this.$tooltip.find(css.tooltipTextNo).text(canton.no);
+        this.$tooltip.find(css.tooltipText).removeClass(css.tooltipTextNoClass + " " + css.tooltipTextYesClass);
         if (canton.no > canton.yes) {
-            $tooltip.find(css.tooltipTextNo)
+            this.$tooltip.find(css.tooltipTextNo)
                 .closest(css.tooltipText)
                 .addClass(css.tooltipTextNoClass);
         } else {
-            $tooltip.find(css.tooltipTextYes)
+            this.$tooltip.find(css.tooltipTextYes)
                 .closest(css.tooltipText)
                 .addClass(css.tooltipTextYesClass);
         }
-        $tooltip.find(css.tooltipTitle).text(canton.name);
-        $tooltip.show();
+        this.$tooltip.find(css.tooltipTitle).text(canton.name);
+        this.$tooltip.show();
     };
     this.onMapMouseLeave = function ($target) {
         console.log("onmapmouseenter");
