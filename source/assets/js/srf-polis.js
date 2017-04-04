@@ -20,6 +20,14 @@ let css = {
     svgMap: '.chmap--desktop',
     cantonSelect: '.polis-cantons-container .menu',
     cantonSelectHiddenClass: 'polis-select-option--hide',
+    tooltip: '#polis-tooltip',
+    tooltipTextYes: '.chmap-tooltip-text__yes',
+    tooltipTextYesClass: 'chmap-tooltip-text__yes',
+    tooltipTextNo: '.chmap-tooltip-text__no',
+    tooltipTextNoClass: 'chmap-tooltip-text__no',
+    tooltipText: '.chmap-tooltip-text',
+    tooltipTitle: '.chmap-tooltip__title',
+    mapPolygons: '.chmap--no-touch g',
 
     // main bar stuff
     mainBar: '.polis-result-container--main',
@@ -36,29 +44,10 @@ let css = {
     participation: '.polis-map__participation',
     statusLine: '.polis-result-total--statusline',
 
+
 // cantonal stuff
     cantonContainer: '.polis-cantons-container',
-///////////////////////////////
-    'votes': '.vote',
-    'regionalResults': '.regional-results',
-    'regionalResultsWrapper': '.regional-results-wrapper',
-    'regionalResultsMessage': '.regional-results-message',
 
-    'districtItem': '.district li',
-    'regionalDistrictToggle': '.regional-results, .toggle-district',
-
-    'resultNavigationSelect': '.regional-results-select select',
-    'selection': 'span.selection',
-    'mainResultBar': '.main-result-bar',
-    'cantonalMajority': '.result.bars.cantonal .bar',
-    'absoluteResultYes': '.yes.absolute .result',
-    'absoluteResultNo': '.no.absolute .result',
-    'barResultYes': '.bar .yes.relative',
-    'barResultNo': '.bar .no.relative',
-    'relativeResultYes': '.bar .result.yes',
-    'relativeResultNo': '.bar .result.no',
-    'participation': '.polis-participation',
-    'tooltip': '#polis-tooltip'
 }
 
 function initMap($container) {
@@ -78,6 +67,7 @@ function PolisMap(cssId, $container, $map, voteId, apiUrl, hasCantonalMajority) 
     this.$map = $map;
     this.voteId = voteId;
     this.apiUrl = apiUrl;
+    // cantonalMajority = Ständemehr
     this.hasCantonalMajority = hasCantonalMajority == 1 ? true : false;
     this.mainBar = null;
     this.$mainBar = null;
@@ -87,12 +77,13 @@ function PolisMap(cssId, $container, $map, voteId, apiUrl, hasCantonalMajority) 
     this.result = null;
     this.selectedCanton = undefined;
 
+    this.cantonIdMap = {};
     this.cantons = {};
     let $cantonContainer = this.$container.find(css.cantonContainer);
     CANTONS.forEach((canton) => {
         this.cantons[canton + ""] = new Canton(this.id, canton, $cantonContainer);
     });
-    this.cantonIdMap = {};
+
 
     this.getCantonById = function (cantonId) {
         if (this.cantons.hasOwnProperty(cantonId)) {
@@ -107,11 +98,78 @@ function PolisMap(cssId, $container, $map, voteId, apiUrl, hasCantonalMajority) 
             that.onCantonSelect($(this));
         });
         if (screen.width >= DESKTOP_BREAKPOINT) {
-            // have tooltips and clickable map
-            $(css.svgMap).on("focus mousedown", "a", function () {
-                that.onMapMouseDown($(this));
-            });
+            that.registerWideScreenListener();
         }
+    };
+
+    // have tooltips and clickable map
+    this.registerWideScreenListener = function () {
+        let that = this;
+        let $polygons = that.$container.find(css.mapPolygons);
+        $polygons.on('click', function () {
+
+        }).on('mousemove', function (event) {
+            that.onMapMouseMove(event.pageX, event.pageY);
+        }).on('mouseenter', function () {
+            that.onMapMouseEnter($(this));
+        }).on('mouseleave', function () {
+            that.onMapMouseLeave($(this));
+        });
+
+    };
+    this.onMapMouseEnter = function ($target) {
+        console.log("onmapmouseenter");
+        if ($target.is('.initial')) {
+            $(css.tooltip).hide();
+            return;
+        }
+        let canton = this.getCantonById($target.attr('id'));
+        if ($(css.tooltip).length === 0) {
+
+            $('body').append('<div id="polis-tooltip" class="chmap-tooltip">' +
+                '<p class="chmap-tooltip__title"></p>' +
+                '<p class="chmap-tooltip-text"><span class="chmap-tooltip-text__yes"></span>% JA</p>&nbsp;' +
+                '<p class="chmap-tooltip-text"><span class="chmap-tooltip-text__no"></span>% NEIN</p>' +
+                '</div>');
+        }
+        let $tooltip = $(css.tooltip);
+
+        $tooltip.find(css.tooltipTextYes).text(canton.yes);
+        $tooltip.find(css.tooltipTextNo).text(canton.no);
+        $tooltip.find(css.tooltipText).removeClass(css.tooltipTextNoClass + " " + css.tooltipTextYesClass);
+        if (canton.no > canton.yes) {
+            $tooltip.find(css.tooltipTextNo)
+                .closest(css.tooltipText)
+                .addClass(css.tooltipTextNoClass);
+        } else {
+            $tooltip.find(css.tooltipTextYes)
+                .closest(css.tooltipText)
+                .addClass(css.tooltipTextYesClass);
+        }
+        $tooltip.find(css.tooltipTitle).text(canton.name);
+        $tooltip.show();
+    };
+    this.onMapMouseLeave = function ($target) {
+        console.log("onmapmouseenter");
+
+        $target.attr('class', $target.attr('class').replace(' hover', ''));
+    };
+
+    this.onMapMouseMove = function (x, y) {
+
+        let parentOffset = $('.chmap--desktop').parent().offset();
+        let pageY = y - 90; // event.pageY - parentOffset.top - 58,
+        let pageX = x - parentOffset.left + 15;
+        let $tooltip = $(css.tooltip);
+
+        let cssClass = "left";
+        if (pageX > $('.chmap--desktop').parent().width() / 2) {
+            cssClass = "right";
+            pageX = pageX - $tooltip.outerWidth();
+        }
+        $tooltip.css({"top": pageY, "left": pageX})
+            .removeClass("chmap-tooltip--left chmap-tooltip--right")
+            .addClass("chmap-tooltip--" + cssClass);
     };
 
     this.onMapMouseDown = function ($clicked) {
