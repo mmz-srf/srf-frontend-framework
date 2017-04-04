@@ -1,22 +1,29 @@
-<form class="reply-container comment--reply comments--shrink" id="comment_form"
+<form class="reply-container comment--reply
+     {% if isMovable %} comment--hide js-comment_place{% else %} comments--shrink{% endif %}"
       name="comment_form" method="{{ form.method|default("get") }}">
     <label class="h-offscreen" form="comment_form">{{ replies.title|default("Einen Kommentar schreiben") }}</label>
-    <fieldset class="reply">
+    {% if not isMovable %}
+        <a class="comments-header__button comments--shrink">{{ comments.let_us_know|default("Teilen Sie Ihre Meinung ...") }}</a>
+    {% endif %}
+    <fieldset class="reply comment--hide">
         <div class="reply__highlights"></div>
         <textarea class="reply__textarea" name="reply" cols="70" rows="7"></textarea>
         <p class="reply-info">
             <span class="reply-info__initial">{{ replies.please_respect|default("Bitte beachten Sie unsere") }}
                 &nbsp;</span>
             <a class="reply-info__netiquette"
-               href="//srf.ch/netiquette">{{ default.nettiquette|default("Netiquette") }}</a>
+               href="//srf.ch/netiquette">{{ replies.nettiquette|default("Netiquette") }}</a>
             <span class="reply-info__count">
                 <span class="js-comment-count-up">500</span>&nbsp;{{ replies.letters|default("Zeichen") }}
             </span>
         </p>{# depth? ==> > 1 doesn't exist ==> no "antwort" Link! #}
-        <input type="hidden" name="reply_to" id="comment_reply_to" value="">{# replytocomment #}
-        <input type="hidden" name="user_email" id="comment_user_email" value="">{# email #}
-        <input type="hidden" name="node_id" id="comment_node_id" value="">{# node_id #}
-        <input type="hidden" name="reply_depth" id="comment_reply_depth" value="">{# node_id #}
+        <input type="hidden" name="reply_to" class="js-comment_reply_to" value="">{# replytocomment #}
+        <input type="hidden" name="user_email" class="js-comment_user_email" value="">{# email #}
+        <input type="hidden" name="user_name" class="js-comment_user_name" value="">{# email #}
+        <input type="hidden" name="user_nickname" class="js-comment_user_nickname" value="">{# email #}
+        <input type="hidden" name="node_id" class="js-comment_node_id" value="">{# node_id #}
+        {# <input type="hidden" name="reply_depth" class="js-comment_reply_depth" value=""> #}
+        {# also name & nickname!! #}
     </fieldset>
-    {% include 'elements-submit-button' %}
+    {% include 'elements-submit-button' with { 'styleModifier' : 'submit-button--inactive comment--hide'} %}
 </form>
