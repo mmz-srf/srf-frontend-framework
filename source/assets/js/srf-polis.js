@@ -46,7 +46,9 @@ let css = {
     cantonContainer: '.polis-cantons-container',
     cantonTitle: '.polis-result-title--canton-name',
     cantonTitleTime: 'polis-result-title--canton-time',
-    districtContainer: '.polis-districts-container',
+    districtsContainer: '.polis-districts-container',
+    // not the best naming, districtContainer is part of districtsContainer
+    districtContainer: '.polis-district-container',
     cantonalMainResult: '.polis-result-container--canton',
 
     cantonalAbsoluteYesResult: '.polis-result-total--absoluteYes',
@@ -415,42 +417,11 @@ function Canton(parent, id, $container) {
         //canton
         this.renderMainResults();
 
-        this.$container.find(css.districtContainer).show();
+        this.$container.find(css.districtsContainer).show();
+
+        this.renderDistricts();
 
 
-        return;
-
-        
-
-        var $lis = this.$container.find('.district li'),
-            numberOfDistricts = this.getNumberOfDistricts();
-        if (numberOfDistricts === 0) {
-            this.$container.find('.toggle-district').hide();
-            this.$container.removeClass('active').addClass('passive');
-            return;
-        } else {
-            this.$container.find('.toggle-district').show();
-        }
-        while ($lis.length > numberOfDistricts) {
-            $($lis.get(0)).remove();
-            $lis = this.$container.find('.district li');
-        }
-        while ($lis.length < numberOfDistricts) {
-            var newLi = $($lis.get(0)).clone(true);
-            $lis.closest('ul').append(newLi);
-            $lis = this.$container.find('.district li');
-        }
-        $lis = this.$container.find('.district li');
-        var i = 0;
-        for (var district in this.districtResults) {
-            // important check that this is objects own property
-            // not from prototype prop inherited
-            if (this.districtResults.hasOwnProperty(district)) {
-                $($lis[i]).find('h5').text(district);
-                this.paintResult($($lis[i]), this.districtResults[district]);
-                i++;
-            }
-        }
     };
 
     this.renderMainResults = function () {
@@ -469,6 +440,26 @@ function Canton(parent, id, $container) {
         $results.find('.yes.absolute strong:not(.static)').text(parseFloat(resultSet.relative.yes).toFixed(1) + "%");
         $results.find('.no.absolute strong:not(.static)').text(parseFloat(resultSet.relative.no).toFixed(1) + "%");
     };
+
+    this.getDistrictContent = function (name = "", yes = 0, no = 0) {
+        let yesClass = yes > no ? 'polis-district--yes' : '';
+        let noClass = no > yes ? 'polis-district--no' : '';
+        return ` 
+            <li class="polis-district">
+                <span class="polis-district__name">${name}</span>
+                <span class="polis-district__votes ${yesClass}">37.7 JA</span>
+                <span class="polis-district__votes ${noClass}">62.3 NEIN</span>
+            </li>`;
+    }
+    this.renderDistricts = function () {
+        let $districtContainer = this.$container.find(css.districtContainer);
+        let html = '';
+        for (let district in this.districtResults) {
+            html += this.getDistrictContent(district, this.districtResults[district].relative.yes, this.districtResults[district].relative.no);
+        }
+        $districtContainer.html('');
+        $districtContainer.html(html);
+    }
 
     this.setYes = function (yes) {
         this.yes = yes;
