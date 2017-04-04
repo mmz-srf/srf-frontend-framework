@@ -26,9 +26,9 @@ var commentController = function () {
 
         // main (top) comment
         $(".comments-header__button").on("click", function (e) {
-            $(this).addClass("comment--hide");
+            $(this).addClass("comment--hide"); // hide the button
             $(".js-comment_place").removeClass("comment--hide")
-                .appendTo(".comment-header__placeholder");
+                .appendTo(".comments-header__placeholder");
             $(".reply__textarea").focus();
         });
 
