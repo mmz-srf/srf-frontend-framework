@@ -1,5 +1,4 @@
 @mixin reply_to_comments_area() {
-  // width: calc(100% - 32px);
   font: 16px/24px $font-light;
   letter-spacing: 0.5px;
   white-space: pre-wrap;
@@ -28,6 +27,9 @@
   background-color: $color-link-bg-hover;
   position: relative;
   .reply-container {
+    @include smartphone {
+      margin: 0 16px 28px;
+    }
     &:before {
       content: none;
     }
@@ -49,39 +51,33 @@
   font-size: 14px;
   line-height: 20px;
   letter-spacing: .5px;
-  color: #4e4d47;
+  color: $color-text-accentuation;
   margin: 0;
   padding: 0 16px 24px;
 }
 
 .comments-header__button {
-  // width: 100%;
   font: 16px/24px $font-light;
   letter-spacing: .5px;
-  color: #888579;
+  color: $color-text-light;
   padding: 12px;
-  margin-bottom: 20px;
-  border: 1px solid #b9b7ac; // what is this?!?
+  margin: 0 16px 20px;
+  border: 1px solid $color-form-field;
   border-radius: 2px;
   background: #fff;
   display: block;
   cursor: pointer;
   &:hover {
-    color: #888579;
-    border-bottom: 1px solid #b9b7ac;
+    color: $color-text-light;
+    border-bottom: 1px solid $color-form-field;
   }
   @include tablet-up {
-    width: calc(100% - 32px); // /:
-  }
-  @include smartphone {
-    margin: 0 16px 20px;
-    width: calc(100% - 32px); // /:
+    margin-bottom: 35px;
   }
 }
 
-.comments--shrink { // check again!
+.comments--shrink {
   @include tablet-up {
-    // margin: 0 auto; // !important
     margin-right: auto;
     margin-left: auto;
   }
@@ -154,7 +150,7 @@
   margin-bottom: 13px;
   clear: both;
   @include tablet-up {
-    margin: 0 auto 32px !important
+    margin: 0 auto 32px
   }
 }
 
@@ -214,8 +210,8 @@
 
 .tabs {
   height: 40px;
-  // margin: 0;
   padding: 0;
+  margin-bottom: 0;
 }
 .tab-option {
   float: left;
@@ -231,12 +227,12 @@
 }
 
 .tab-option__link {
+  height: 40px;
   width: 100%;
   font: 16px/16px $font-regular;
   color: $color-tab-option-link;
   border-bottom: 1px solid $color-separator;
   padding: 12px 16px 0;
-  height: 40px;
   white-space: nowrap;
   display: inline-block;
   &:hover {
@@ -260,22 +256,8 @@
 }
 
 /// replies (interactive commenting)
-.comment--reply { // li
-  border-top: 0;
-  @include tablet-up {
-    &::before {
-      top: 17px !important;
-    }
-  }
-}
-
-.comment--hide {
-  display: none;
-}
-
 .reply-container { // form
   background: transparent;
-  // padding: 0 0 36px 0;
   margin-bottom: 36px;
   position: relative;
   &:before {
@@ -288,11 +270,11 @@
     background-image: url("../img/arrows/fancy_arrow.svg");
     @include tablet-up {
       left: -46px;
-      top: 27px;
+      top: 17px;
     }
   }
   @include smartphone {
-    margin: 0 16px 28px;
+    margin: 0 0 28px 16px;
   }
   .submit-button { // /: (submit buttons probably shouldn't have "defined" margins...)
     margin-top: 12px;
@@ -310,20 +292,16 @@
   }
 }
 
-/* .comment__placeholder--primary {
-  margin-left: 10px;
-  @include tablet-up {
-    margin-left: 80px;
-  }
-} */
+.comment--hide {
+  display: none;
+}
 
 .reply { // fieldset
-  border: 1px solid #b9b7ac;
+  border: 1px solid $color-form-field;
   border-radius: 2px;
   padding: 0;
-  // padding: 11px 15px;
-  background-color: #fff;
   margin: 0;
+  background-color: #fff;
   position: relative;
   // this is not really working /:
   /* -webkit-transition: max-height 0.8s;
@@ -348,9 +326,9 @@
 .reply__textarea {
   width: calc(100% - 32px);
   @include reply_to_comments_area();
-  color: #383732;
+  color: #383732; // new color :/
   background-color: transparent;
-  border: 1px solid #b9b7ac;
+  border: 1px solid $color-form-field;
   border-width: 0 0 1px;
   margin: 12px 15px 7px;
   padding: 0 0 12px;
@@ -363,8 +341,7 @@
   resize: none; // :/
   &:focus {
     outline: none;
-    // border: 1px solid $color-text-accentuation; // #383732; <-- design :/
-    @include smartphone { // perhaps?
+    @include smartphone {
       + .reply-info .reply-info__initial {
         display: none;
       }
@@ -378,7 +355,7 @@
 .reply-info {
   font-size: 14px;
   letter-spacing: 0.2px;
-  color: #888579;
+  color: $color-text-light;
   margin: 0 16px 12px;
 }
 
@@ -389,7 +366,7 @@
 .reply-info__count {
   font-size: 14px;
   letter-spacing: 0.2px;
-  color: #888579;
+  color: $color-text-light;
   float: right;
   display: none;
 }
@@ -402,7 +379,6 @@
 .reply__highlights {
   @include reply_to_comments_area();
   color: transparent;
-  // background-color: #fff;
   border: 12px solid #fff;
   border-width: 12px 16px;
   position: absolute;

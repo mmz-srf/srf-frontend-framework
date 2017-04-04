@@ -26,39 +26,38 @@ var commentController = function () {
 
         // main (top) comment
         $(".comments-header__button").on("click", function (e) {
-            $(this).addClass("comment--hide"); // hide the button
+            // hide the button
+            $(this).addClass("comment--hide");
+            // move the form
             $(".js-comment_place").removeClass("comment--hide")
                 .appendTo(".comments-header__placeholder");
-            $(".reply__textarea").focus();
+            // set the focus
+            $(".reply__textarea").val("").focus();
+            console.log($(".reply__textarea"))
+
+            // set default ==> no reply but a comment
+            $(".js-comment_reply_to").val(0);
         });
 
         // movable comment
         $(".comment__link--reply").on("click", function (e) {
-            // hide main comment again
+            // hide main comment again (if there was one)
             $(".comments-header__button").removeClass("comment--hide");
 
             var parent_id = $(this).parent("li").prop("id");
-
+            // move the form
             $(".js-comment_place").removeClass("comment--hide")
                 .appendTo("#" + parent_id.replace("comment", "placeholder"));
-            $(".reply__textarea").trigger("focus");
+            // set the focus
+            $(".reply__textarea").val("").focus();
 
-
-            // what do we save here???
+            // if it's a reply ==> reply_to has a number > 0 (default)! <== depth = 1
             $(".js-comment_reply_to").val(parent_id);
-            // user id
+
+            // cms
             $(".js-comment_user_email").val("user@somewhere.ch"); // <-- TODO
             $(".js-comment_user_name").val("Kurt Ischfurt"); // <-- TODO
             $(".js-comment_user_nickname").val("dekurtischfurt"); // <-- TODO
-            // which article does the comment belong to?
-            // $("#comment_node_id").val("123456"); // <-- comes from article
-
-            // cms?
-            var depth = 0;
-            if ($(this).closest(".comments").attr("class").indexOf("replies") > -1) {
-                depth = 1;
-            }
-            $(".js-comment_reply_depth").val(depth); // <-- TODO
         });
     };
 

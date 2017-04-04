@@ -1,4 +1,4 @@
-<form class="reply-container comment--reply comment--hide js-comment_place comments--shrink"
+<form class="reply-container comment--hide comments--shrink js-comment_place"
       name="comment_form" method="{{ form.method|default("get") }}">
     <label class="h-offscreen" form="comment_form">{{ replies.title|default("Einen Kommentar schreiben") }}</label>
     <fieldset class="reply">
@@ -12,14 +12,12 @@
             <span class="reply-info__count">
                 <span class="js-comment-count-up">500</span>&nbsp;{{ replies.letters|default("Zeichen") }}
             </span>
-        </p>{# depth? ==> > 1 doesn't exist ==> no "antwort" Link! #}
-        <input type="hidden" name="reply_to" class="js-comment_reply_to" value="">{# replytocomment #}
+        </p>
+        {# <input type="hidden" name="node_id" class="js-comment_node_id" value="">{# node_id #}
+        <input type="hidden" name="reply_to" class="js-comment_reply_to" value="0">{# replytocomment #}
         <input type="hidden" name="user_email" class="js-comment_user_email" value="">{# email #}
         <input type="hidden" name="user_name" class="js-comment_user_name" value="">{# email #}
         <input type="hidden" name="user_nickname" class="js-comment_user_nickname" value="">{# email #}
-        <input type="hidden" name="node_id" class="js-comment_node_id" value="">{# node_id #}
-        {# <input type="hidden" name="reply_depth" class="js-comment_reply_depth" value=""> #}
-        {# also name & nickname!! #}
     </fieldset>
     {% include 'elements-submit-button' with { 'styleModifier' : 'submit-button--inactive'} %}
 </form>
