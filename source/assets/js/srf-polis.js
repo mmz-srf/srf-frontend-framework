@@ -447,8 +447,8 @@ function Canton(parent, id, $container) {
         return ` 
             <li class="polis-district">
                 <span class="polis-district__name">${name}</span>
-                <span class="polis-district__votes ${yesClass}">37.7 JA</span>
-                <span class="polis-district__votes ${noClass}">62.3 NEIN</span>
+                <span class="polis-district__votes ${yesClass}">${yes.toFixed(1)}% JA</span>
+                <span class="polis-district__votes ${noClass}">${no.toFixed(1)}% NEIN</span>
             </li>`;
     }
     this.renderDistricts = function () {
