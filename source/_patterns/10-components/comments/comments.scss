@@ -328,11 +328,14 @@
     outline: none;
     @include smartphone {
       + .reply-info .reply-info__initial {
-        display: none;
+        position: absolute;
+        opacity: 0;
       }
     }
     + .reply-info .reply-info__count {
-      display: block;
+      // display: block;
+      position: static;
+      opacity: 1;
     }
   }
   // animating... /:
@@ -371,7 +374,9 @@
   letter-spacing: 0.2px;
   color: $color-text-light;
   float: right;
-  display: none;
+  // display: none;
+  position: absolute;
+  opacity: 0;
 }
 
 .reply-info__count--warn {

@@ -406,6 +406,7 @@
     "title_plural": "Kommentare",
     "greetings": "Sie sind angemeldet als",
     "let_us_know": "Teilen Sie Ihre Meinung ...",
+    "select_to_comment": "anwählen um einen Kommentar zu schreiben",
     "logout": "abmelden",
     "no_comment": "Es wurden noch keine Kommentare erfasst. Seien Sie die erste Person, die diesen Artikel kommentiert.",
     "link_all": "Alle Kommentare",
@@ -414,13 +415,15 @@
       "link_social": "Gefällt mir",
       "link_reply": "Antworten",
       "comment_by": "Kommentar von",
-      "reply_by": "Antwort von"
+      "reply_by": "Antwort von",
+      "select_to_reply": "anwählen um eine Antwort zu schreiben"
     },
     "replies": {
       "title": "Einen Kommentar schreiben",
       "netiquette": "Netiquette",
       "letters": "Zeichen",
-      "please_respect": "Bitte beachten Sie unsere"
+      "please_respect": "Bitte beachten Sie unsere",
+      "still_available": "Verfügbar sind noch"
     },
     "total_count": "8",
     "comments": [
