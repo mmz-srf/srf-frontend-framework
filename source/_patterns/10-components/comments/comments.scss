@@ -1,5 +1,5 @@
 @mixin reply_to_comments_area() {
-  width: 100%;
+  width: calc(100% - 32px);
   font: 16px/24px $font-light;
   letter-spacing: 0.5px;
   white-space: pre-wrap;
@@ -64,14 +64,25 @@
 }
 
 .comments-header__button {
+  width: 100%;
   font: 16px/24px $font-light;
   letter-spacing: .5px;
   color: #888579;
+  text-align: left;
   padding: 12px;
-  margin: 0 16px 20px;
+  margin: 0 0 20px;
   border: 1px solid #b9b7ac; // what is this?!?
   border-radius: 2px;
   background: #fff;
+  display: block;
+  cursor: pointer;
+  &:hover {
+    color: #888579;
+    border-bottom: 1px solid #b9b7ac;
+  }
+  @include tablet-up {
+    width: calc(100% - 32px); // /:
+  }
 }
 
 .comments-header__text {
@@ -257,7 +268,7 @@
 }
 
 .comment--hide {
-  // display: none;
+  display: none;
 }
 
 .reply-container { // form
@@ -284,40 +295,68 @@
 
 .comment__placeholder {
   display: block;
-}
-
-.comment__placeholder--primary {
   margin-left: 10px;
   @include tablet-up {
     margin-left: 80px;
   }
 }
 
+/* .comment__placeholder--primary {
+  margin-left: 10px;
+  @include tablet-up {
+    margin-left: 80px;
+  }
+} */
+
 .reply { // fieldset
-  border: 0 none;
-  margin: 0;
+  border: 1px solid #b9b7ac;
+  border-radius: 2px;
   padding: 0;
+  // padding: 11px 15px;
+  background-color: #fff;
+  margin: 0;
   position: relative;
+  // this is not really working /:
+  /* -webkit-transition: max-height 0.8s;
+  -moz-transition: max-height 0.8s;
+  transition: max-height 0.8s; */
 }
+
+.reply--on-focus {
+  border: 1px solid $color-text-accentuation;
+}
+
+/* .reply--mini {
+  max-size: 24px;
+}
+.reply--size-up {
+  max-size: 161px;
+  @include tablet-up {
+    max-size: 120px;
+  }
+} */
 
 .reply__textarea {
   @include reply_to_comments_area();
   color: #383732;
   background-color: transparent;
-  border: solid 1px #b9b7ac;
-  border-radius: 2px;
-  margin: 0 0 7px;
-  padding: 11px 15px;
+  border: 0;
+  border: 1px solid #b9b7ac;
+  border-width: 0 0 1px;
+  // border-radius: 2px;
+  margin: 11px 15px 7px;
+  // padding: 11px 15px;
+  padding: 0 0 11px;
   position: relative;
   z-index: 2;
   height: 120px;
   @include tablet-up {
     height: 72px;
   }
-  // resize: none; // :/
+  resize: none; // :/
   &:focus {
     outline: none;
-    border: 1px solid $color-text-accentuation; // #383732; <-- design :/
+    // border: 1px solid $color-text-accentuation; // #383732; <-- design :/
     @include smartphone { // perhaps?
       + .reply-info .reply-info__initial {
         display: none;
@@ -333,7 +372,7 @@
   font-size: 14px;
   letter-spacing: 0.2px;
   color: #888579;
-  margin: 0 0 4px;
+  margin: 0 16px 12px;
 }
 
 .reply-info__netiquette { // link
