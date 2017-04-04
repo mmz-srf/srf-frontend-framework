@@ -7,13 +7,9 @@
       background-color: $color-bg-box-hover;
     }
   }
-  /* &:checked { // looking very strange!
-    &:focus, &:hover {
-      + .checkbox-label {
-        background-color: $color-bg-box;
-      }
-    }
-  } */
+  &:checked:focus + .checkbox-label {
+    background-color: #cac8bf;
+  }
   &:checked, &:focus:checked {
     + .checkbox-label {
       &:after {
