@@ -10,8 +10,12 @@
       }
     }
   }
-  &:checked:focus + .radio-button-label {
-    background-color: #cac8bf;
+  &:checked {
+    &:focus, &:hover {
+      + .radio-button-label {
+        background-color: #cac8bf;
+      }
+    }
   }
   &:checked, &:focus:checked {
     + .radio-button-label {
