@@ -118,47 +118,40 @@ function PolisMap(cssId, $container, $map, voteId, apiUrl, hasCantonalMajority) 
         });
 
     };
+    this.getToolTipContent = function (name = "", yes = "", no = "") {
+        let titleClass = '';
+        if (yes && no) {
+            titleClass = no > yes ? css.tooltipTextNoClass : css.tooltipTextYesClass;
+        }
+        return `<p class="chmap-tooltip__title ${titleClass}">${name}</p>
+                    <p class="chmap-tooltip-text"><span class="chmap-tooltip-text__yes">${yes}</span>% JA</p>&nbsp;
+                    <p class="chmap-tooltip-text"><span class="chmap-tooltip-text__no">${no}</span>% NEIN</p>`;
+    };
     this.onMapMouseEnter = function ($target) {
-        console.log("onmapmouseenter");
         if ($target.is('.initial') && this.$tooltip) {
             this.$tooltip.hide();
             return;
         }
         let canton = this.getCantonById($target.attr('id'));
-   
+        let html = this.getToolTipContent(canton.name, canton.yes, canton.no);
+
         if (!this.$tooltip) {
-            $('body').append('<div id="polis-tooltip" class="chmap-tooltip">' +
-                '<p class="chmap-tooltip__title"></p>' +
-                '<p class="chmap-tooltip-text"><span class="chmap-tooltip-text__yes"></span>% JA</p>&nbsp;' +
-                '<p class="chmap-tooltip-text"><span class="chmap-tooltip-text__no"></span>% NEIN</p>' +
-                '</div>');
+            $('body').append('<div style="display:none;" id="polis-tooltip" class="chmap-tooltip">' + html + '</div>');
             this.$tooltip = $(css.tooltip);
         }
-
-
-        this.$tooltip.find(css.tooltipTextYes).text(canton.yes);
-        this.$tooltip.find(css.tooltipTextNo).text(canton.no);
-        this.$tooltip.find(css.tooltipText).removeClass(css.tooltipTextNoClass + " " + css.tooltipTextYesClass);
-        if (canton.no > canton.yes) {
-            this.$tooltip.find(css.tooltipTextNo)
-                .closest(css.tooltipText)
-                .addClass(css.tooltipTextNoClass);
-        } else {
-            this.$tooltip.find(css.tooltipTextYes)
-                .closest(css.tooltipText)
-                .addClass(css.tooltipTextYesClass);
+        this.$tooltip.html(html);
+        if (canton.yes && canton.no) {
+            this.$tooltip.show();
         }
-        this.$tooltip.find(css.tooltipTitle).text(canton.name);
-        this.$tooltip.show();
     };
     this.onMapMouseLeave = function ($target) {
-        console.log("onmapmouseenter");
+        console.log("onMapMouseLeave");
 
         $target.attr('class', $target.attr('class').replace(' hover', ''));
     };
 
     this.onMapMouseMove = function (x, y) {
-
+        console.log("onMapMouseMove");
         let parentOffset = $('.chmap--desktop').parent().offset();
         let pageY = y - 90; // event.pageY - parentOffset.top - 58,
         let pageX = x - parentOffset.left + 15;
@@ -175,6 +168,7 @@ function PolisMap(cssId, $container, $map, voteId, apiUrl, hasCantonalMajority) 
     };
 
     this.onMapMouseDown = function ($clicked) {
+        return;
         let cantonId = $clicked.closest('g').attr('id');
         let canton = that.getCantonById(cantonId);
         this.selectedCanton = cantonId;
