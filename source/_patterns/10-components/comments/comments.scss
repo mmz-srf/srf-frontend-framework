@@ -303,38 +303,23 @@
   margin: 0;
   background-color: #fff;
   position: relative;
-  // this is not really working /:
-  /* -webkit-transition: max-height 0.8s;
-  -moz-transition: max-height 0.8s;
-  transition: max-height 0.8s; */
 }
 
 .reply--on-focus {
   border: 1px solid $color-text-accentuation;
 }
 
-/* .reply--mini {
-  max-size: 24px;
-}
-.reply--size-up {
-  max-size: 161px;
-  @include tablet-up {
-    max-size: 120px;
-  }
-} */
-
 .reply__textarea {
   width: calc(100% - 32px);
   @include reply_to_comments_area();
   color: #383732; // new color :/
   background-color: transparent;
-  border: 1px solid $color-form-field;
-  border-width: 0 0 1px;
-  margin: 12px 15px 7px;
+  margin: 12px 15px 0;
   padding: 0 0 12px;
   position: relative;
   z-index: 2;
   height: 108px;
+  border: 0;
   @include tablet-up {
     height: 60px; // 72 - 12px
   }
@@ -350,13 +335,31 @@
       display: block;
     }
   }
+  // animating... /:
+  /* -webkit-transition: max-height 0.8s;
+  -moz-transition: max-height 0.8s;
+  transition: max-height 0.8s; */
 }
+
+// more animating ...
+/* .reply--mini {
+  max-height: 24px; // 24px;
+}
+.reply--size-up {
+  max-height: 161px;
+  @include tablet-up {
+    max-height: 120px;
+  }
+} */
 
 .reply-info {
   font-size: 14px;
   letter-spacing: 0.2px;
   color: $color-text-light;
   margin: 0 16px 12px;
+  padding-top: 7px;
+  border: 1px solid $color-form-field;
+  border-width: 1px 0 0;
 }
 
 .reply-info__netiquette { // link
@@ -379,7 +382,7 @@
 .reply__highlights {
   @include reply_to_comments_area();
   color: transparent;
-  border: 12px solid #fff;
+  border: 12px solid transparent;
   border-width: 12px 16px;
   position: absolute;
   overflow: hidden;

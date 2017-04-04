@@ -26,6 +26,7 @@ var commentController = function () {
 
         // main (top) comment
         $(".comments-header__button").on("click", function (e) {
+            e.preventDefault();
             // hide the button
             $(this).addClass("comment--hide");
             // move the form
@@ -33,10 +34,15 @@ var commentController = function () {
                 .appendTo(".comments-header__placeholder");
             // set the focus
             $(".reply__textarea").val("").focus();
-            console.log($(".reply__textarea"))
 
             // set default ==> no reply but a comment
             $(".js-comment_reply_to").val(0);
+
+            // animating :/
+            /* $(".reply__textarea")
+             .removeClass("reply--mini")
+             .addClass("reply--size-up"); */
+            return false;
         });
 
         // movable comment

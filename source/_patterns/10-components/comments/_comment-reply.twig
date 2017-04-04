@@ -3,7 +3,7 @@
     <label class="h-offscreen" form="comment_form">{{ replies.title|default("Einen Kommentar schreiben") }}</label>
     <fieldset class="reply">
         <div class="reply__highlights"></div>
-        <textarea class="reply__textarea" name="reply" cols="70" rows="7"></textarea>
+        <textarea class="reply__textarea{# reply--mini #}" name="reply" cols="70" rows="7"></textarea>
         <p class="reply-info">
             <span class="reply-info__initial">{{ replies.please_respect|default("Bitte beachten Sie unsere") }}
                 &nbsp;</span>
