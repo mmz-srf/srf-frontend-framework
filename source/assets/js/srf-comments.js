@@ -47,6 +47,7 @@ var commentController = function () {
 
         // movable comment
         $(".comment__link--reply").on("click", function (e) {
+            e.preventDefault();
             // hide main comment again (if there was one)
             $(".comments-header__button").removeClass("comment--hide");
 
@@ -60,6 +61,7 @@ var commentController = function () {
             // if it's a reply ==> reply_to has a number > 0 (default)! <== depth = 1
             $(".js-comment_reply_to").val(parent_id);
 
+            return false;
             // cms
             $(".js-comment_user_email").val("user@somewhere.ch"); // <-- TODO
             $(".js-comment_user_name").val("Kurt Ischfurt"); // <-- TODO

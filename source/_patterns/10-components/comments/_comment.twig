@@ -9,7 +9,7 @@
         <a class="comment__link">{{ default.link_social|default("Gefällt mir") }}
             (?)</a>{# ... folgestory #}
         {% if allowsComments %}
-            <a class="comment__link comment__link--reply">{{ default.link_reply|default("Antworten") }}</a>
+            <a class="comment__link comment__link--reply" href="#">{{ default.link_reply|default("Antworten") }}</a>
             <span class="comment__placeholder" id="placeholder_{{ comment.id }}"></span>
         {% endif %}
         {% if comment.children|length > 0 %}
@@ -22,7 +22,7 @@
                             {{ reply.name }}{% if not reply.isEditorialAnswer %} ({{ reply.nickname }}){% endif %}</cite>
                         <span class="comment__time">{{ reply.dateFormatted }}</span>
                         <blockquote class="comment__content">{{ reply.message }}</blockquote>
-                        <a class="comment__link">{{ default.link_social|default("Gefällt mir") }}
+                        <a class="comment__link" href="#">{{ default.link_social|default("Gefällt mir") }}
                             (?)</a>{# ... folgestory #}
                         {# there's no reply possible
                         {% if allowsComments %}
