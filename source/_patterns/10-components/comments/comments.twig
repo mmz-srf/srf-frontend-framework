@@ -14,7 +14,9 @@
                 {{ comments.greetings|default("Sie sind angemeldet als") }}&nbsp;<a href="" class="">Who ?
                     (whoareyou)</a> (<a href="" class="">{{ comments.logout|default("abmelden") }}</a>)
             </p>
-
+            {# "button " #}
+            <a class="comments-header__button comments--shrink">{{ comments.let_us_know|default("Teilen Sie Ihre Meinung ...") }}</a>
+            <span class="comments-header__placeholder"></span>
             {% block comment_reply_main %}
                 {% include '_comment-reply.twig' with { 'comments' : { 'replies' : comments.replies }, 'isMovable' : false } %}
             {% endblock %}
@@ -50,9 +52,9 @@
             {% block more_button_spinner %}
                 {% include 'elements-spinner' %}
             {% endblock %}
-            {% block comment_reply %}
-                {% include '_comment-reply.twig' with { 'comments' : { 'replies' : comments.replies }, 'isMovable' : true } %}
-            {% endblock %}
+            {# {% block comment_reply %}
+                 {% include '_comment-reply.twig' with { 'comments' : { 'replies' : comments.replies }, 'isMovable' : true } %}
+             {% endblock %} #}
         {% endif %}
     </div>
 </section>

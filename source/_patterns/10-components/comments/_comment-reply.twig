@@ -1,11 +1,7 @@
-<form class="reply-container comment--reply
-     {% if isMovable %} comment--hide js-comment_place{% else %} comments--shrink{% endif %}"
+<form class="reply-container comment--reply comment--hide js-comment_place comments--shrink"
       name="comment_form" method="{{ form.method|default("get") }}">
     <label class="h-offscreen" form="comment_form">{{ replies.title|default("Einen Kommentar schreiben") }}</label>
-    {% if not isMovable %}
-        <a class="comments-header__button comments--shrink">{{ comments.let_us_know|default("Teilen Sie Ihre Meinung ...") }}</a>
-    {% endif %}
-    <fieldset class="reply comment--hide">
+    <fieldset class="reply">
         <div class="reply__highlights"></div>
         <textarea class="reply__textarea" name="reply" cols="70" rows="7"></textarea>
         <p class="reply-info">
@@ -25,5 +21,5 @@
         {# <input type="hidden" name="reply_depth" class="js-comment_reply_depth" value=""> #}
         {# also name & nickname!! #}
     </fieldset>
-    {% include 'elements-submit-button' with { 'styleModifier' : 'submit-button--inactive comment--hide'} %}
+    {% include 'elements-submit-button' with { 'styleModifier' : 'submit-button--inactive'} %}
 </form>

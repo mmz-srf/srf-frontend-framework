@@ -27,28 +27,22 @@ var commentController = function () {
         // main (top) comment
         $(".comments-header__button").on("click", function (e) {
             $(this).addClass("comment--hide");
-            $(".reply").removeClass("comment--hide");
+            $(".js-comment_place").removeClass("comment--hide")
+                .appendTo(".comment-header__placeholder");
             $(".reply__textarea").focus();
-            $(".submit-button").removeClass("comment--hide");
         });
 
         // movable comment
         $(".comment__link--reply").on("click", function (e) {
-            // probably: hide main comment again!
+            // hide main comment again
             $(".comments-header__button").removeClass("comment--hide");
-            var $mainForm = $(".comments--shrink"); // todo!
-            $mainForm.find(".reply").addClass("comment--hide");
-            $mainForm.find(".submit-button").addClass("comment--hide");
 
             var parent_id = $(this).parent("li").prop("id");
-            // but for now:
-            var $movableForm = $(".js-comment_place");
-            $movableForm.find(".reply").removeClass("comment--hide");
-            $movableForm.find(".reply__textarea").trigger("focus");
-            $movableForm.find(".submit-button").removeClass("comment--hide");
 
             $(".js-comment_place").removeClass("comment--hide")
                 .appendTo("#" + parent_id.replace("comment", "placeholder"));
+            $(".reply__textarea").trigger("focus");
+
 
             // what do we save here???
             $(".js-comment_reply_to").val(parent_id);
