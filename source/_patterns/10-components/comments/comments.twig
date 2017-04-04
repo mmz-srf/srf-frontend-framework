@@ -17,9 +17,10 @@
             {# "button " #}
             <a class="comments-header__button comments--shrink"
                href="#" role="link">{{ comments.let_us_know|default("Teilen Sie Ihre Meinung ...") }}
-                <span class="h-offscreen">{{ comments.select_to_comment|default("anwählen um einen Kommentar zu schreiben") }}</span></a>
+                <span class="h-offscreen">{{ comments.select_to_comment|default("anwählen um einen Kommentar zu schreiben") }}</span>
+            </a>
             <span class="comments-header__placeholder"></span>
-            {% block comment_reply_main %}
+            {% block comment_reply %}
                 {% include '_comment-reply.twig' with { 'comments' : { 'replies' : comments.replies }, 'isMovable' : false } %}
             {% endblock %}
             {# // until here (user "is" logged in) #}
