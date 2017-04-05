@@ -7,7 +7,7 @@
 .listmodule__item > div {float:left;width:calc(100% - 84px)}
 .listmodule__itemTitle {font:normal normal 18px/1.56 $font-regular;letter-spacing:.5px;color:rgb(34,33,29);margin-bottom:8px}
 .listmodule__item > p {font:normal 300 18px/1.56 $font-light;letter-spacing:.5px;color:rgb(34,33,29);clear:both}
-.listmodule__item p.listmodule__itemSubhead,
+.listmodule__itemSubhead,
 .listmodule__item p.listmodule__itemSource {font:normal normal 12px/1.33 $font-system;color:rgb(136,133,121);margin:0 0 8px}
 .listmodule__item > p.listmodule__itemSource {margin-bottom:20px}
 .listmodule__item > p.listmodule__itemSource span {text-transform:uppercase}
