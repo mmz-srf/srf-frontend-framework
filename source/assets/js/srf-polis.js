@@ -1,7 +1,7 @@
 let maps = {}; // id => Map object
 const REFRESH_INTERVAL = 30000;
-// for features like clickable map, tooltips
-const DESKTOP_BREAKPOINT = 600;
+// in px; for non-touch features like clickable map, tooltips
+const DESKTOP_BREAKPOINT = 500;
 const CANTONS = ['AG', 'AR', 'AI', 'BL', 'BS', 'BE', 'FR', 'GE', 'GL', 'GR', 'JU', 'LU', 'NE', 'NW', 'OW', 'SH', 'SZ', 'SO', 'SG', 'TI', 'TG', 'UR', 'VD', 'VS', 'ZG', 'ZH'];
 
 export function init() {
@@ -47,17 +47,8 @@ let css = {
     cantonTitle: '.polis-result-title--canton-name',
     cantonTitleTime: 'polis-result-title--canton-time',
     districtsContainer: '.polis-districts-container',
-    // not the best naming, districtContainer is part of districtsContainer
-    districtContainer: '.polis-district-container',
-    cantonalMainResult: '.polis-result-container--canton',
-
-    cantonalAbsoluteYesResult: '.polis-result-total--absoluteYes',
-    cantonalAbsoluteNoResult: '.polis-result-total--absoluteNo',
-    cantonalRelativeYesBar: '.polis-result-total--yesBar',
-    cantonalRelativeNoBar: '.polis-result-total--noBar',
-    cantonalRelativeYesResult: '.polis-result-total-relativeYes',
-    cantonalRelativeNoResult: '.polis-result-total-relativeNo',
-
+    districtContainer: '.polis-district-container',  // not the best naming, districtContainer is part of districtsContainer
+    cantonalMainResult: '.polis-result-container--canton'
 }
 
 function initMap($container) {
@@ -108,6 +99,7 @@ function PolisMap(cssId, $container, $map, voteId, apiUrl, hasCantonalMajority) 
         $(css.cantonSelect).on('change', function () {
             that.onCantonSelect($(this));
         });
+        console.log(screen.width);
         if (screen.width >= DESKTOP_BREAKPOINT) {
             that.registerWideScreenListener();
         }
@@ -128,7 +120,6 @@ function PolisMap(cssId, $container, $map, voteId, apiUrl, hasCantonalMajority) 
         }).on('mouseleave', function () {
             that.onMapMouseLeave($(this));
         });
-
     };
 
     this.onMapMouseEnter = function ($target) {
@@ -153,11 +144,10 @@ function PolisMap(cssId, $container, $map, voteId, apiUrl, hasCantonalMajority) 
     };
 
     this.onMapMouseMove = function (x, y) {
-        // to do: expensive dom access in here.. move to init and recalc on resize event
+        // TO DO: expensive dom access in here.. move to init and recalc on resize event
         let parentOffset = $('.chmap--desktop').parent().offset();
         let pageY = y - 90;
         let pageX = x - parentOffset.left + 15;
-
 
         let cssClass = "left";
         if (pageX > $('.chmap--desktop').parent().width() / 2) {
@@ -185,9 +175,6 @@ function PolisMap(cssId, $container, $map, voteId, apiUrl, hasCantonalMajority) 
         this.selectedCanton = cantonId;
         let canton = this.getCantonById(cantonId);
         canton.renderResults();
-
-        // TO DO: show districts toggle if district results are available
-
     };
 
     this.getToolTipContent = function (name = "", yes = "", no = "") {
@@ -224,18 +211,13 @@ function PolisMap(cssId, $container, $map, voteId, apiUrl, hasCantonalMajority) 
                 console.log(`API error: no data for voteId '${that.voteId}' via endpoint '${that.apiUrl}'`);
             }
         });
-
     };
-
 
     this.loadResults = function () {
         let cantonsWithData = [];
-
-        // build canton id map
         this.cantonIdMap = {};
 
         if (this.result && this.result.results) {
-
             // build a map cantonId -> cantonShortName
             this.result.results.results.forEach(function (result) {
                 if (result.location.type.id == 2) {
@@ -266,8 +248,6 @@ function PolisMap(cssId, $container, $map, voteId, apiUrl, hasCantonalMajority) 
                     }
                 }
             }.bind(this));
-
-
         }
 
         // reset those cantons without data
@@ -281,8 +261,6 @@ function PolisMap(cssId, $container, $map, voteId, apiUrl, hasCantonalMajority) 
                 }
             }
         }.bind(this));
-
-
     };
 
     this.updateResults = function (vote) {
@@ -404,41 +382,34 @@ function Canton(parent, id, $container) {
     };
 
     this.renderResults = function () {
-        // to DO: LOADS of DOM access that could be minified
-        this.$container.find(css.cantonTitle).text(this.name);
+        // hidden on page load only
+        this.$container.find(css.districtsContainer).show();
+
         let lastUpdate = new Date(this.results.last_update);
         let min = lastUpdate.getMinutes();
         let hours = lastUpdate.getHours() - 1;
 
-
+        this.$container.find(css.cantonTitle).text(this.name);
         this.$container.find(css.cantonTitleTime).html(hours + ':' + ((min > 9) ? min : "0" + min));
 
-        // canton icon is no more..
-        //canton
         this.renderMainResults();
-
-        this.$container.find(css.districtsContainer).show();
-
         this.renderDistricts();
-
-
     };
 
     this.renderMainResults = function () {
-        let resultSet = this.results;
         let $results = this.$container.find(css.cantonalMainResult);
-        $results.find(css.totalAbsoluteYesResult).text(resultSet.absolute.yes.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "'"));
-        $results.find(css.totalAbsoluteNoResult).text(resultSet.absolute.no.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "'"));
+        $results.find(css.totalAbsoluteYesResult).text(this.results.absolute.yes.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "'"));
+        $results.find(css.totalAbsoluteNoResult).text(this.results.absolute.no.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "'"));
 
         //bars
-        $results.find(css.totalRelativeYesBar).width(resultSet.relative.yes + "%");
-        $results.find(css.totalRelativeNoBar).width(resultSet.relative.no + "%");
+        $results.find(css.totalRelativeYesBar).width(this.results.relative.yes + "%");
+        $results.find(css.totalRelativeNoBar).width(this.results.relative.no + "%");
         //relative values
-        $results.find(css.totalRelativeYesResult).html(parseFloat(resultSet.relative.yes).toFixed(1));
-        $results.find(css.totalRelativeNoResult).html(parseFloat(resultSet.relative.no).toFixed(1));
+        $results.find(css.totalRelativeYesResult).html(parseFloat(this.results.relative.yes).toFixed(1));
+        $results.find(css.totalRelativeNoResult).html(parseFloat(this.results.relative.no).toFixed(1));
 
-        $results.find('.yes.absolute strong:not(.static)').text(parseFloat(resultSet.relative.yes).toFixed(1) + "%");
-        $results.find('.no.absolute strong:not(.static)').text(parseFloat(resultSet.relative.no).toFixed(1) + "%");
+        $results.find('.yes.absolute strong:not(.static)').text(parseFloat(this.results.relative.yes).toFixed(1) + "%");
+        $results.find('.no.absolute strong:not(.static)').text(parseFloat(this.results.relative.no).toFixed(1) + "%");
     };
 
     this.getDistrictContent = function (name = "", yes = 0, no = 0) {
