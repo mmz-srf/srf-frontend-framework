@@ -51,7 +51,8 @@ var commentController = function () {
             // hide main comment again (if there was one)
             $(".comments-header__button").removeClass("comment--hide");
 
-            var parent_id = $(this).parent("li").prop("id");
+            var parent_id = $(this).parent("li").prop("id").split("_");
+            parent_id = parent_id[1];
             // move the form
             $(".js-comment_place").removeClass("comment--hide")
                 .appendTo("#" + parent_id.replace("comment", "placeholder"));
