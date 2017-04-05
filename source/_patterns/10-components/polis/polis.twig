@@ -1,4 +1,5 @@
-{% set voteId = votes|keys|last %}
+{# voteId fallback: so FeF and CMS can use the same twig #}
+{% set voteId = voteId is defined ? voteId : votes|keys|last %}
 <div class="polis-container">
     <div class="polis-map-container">
         <h2 class="polis-map-container__title">{{ votes[voteId].shortTitle }}</h2>
