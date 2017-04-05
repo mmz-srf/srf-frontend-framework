@@ -59,7 +59,7 @@ var commentController = function () {
             $(".reply__textarea").val("").focus();
 
             // if it's a reply ==> reply_to has a number > 0 (default)! <== depth = 1
-            $(".js-comment_reply_to").val(parent_id);
+            $(".js-comment_parent_id").val(parent_id);
 
             return false;
             // cms
