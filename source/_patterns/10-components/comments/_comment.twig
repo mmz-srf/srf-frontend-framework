@@ -26,11 +26,6 @@
                         <blockquote class="comment__content">{{ reply.message }}</blockquote>
                         <a class="comment__link" href="#">{{ default.link_social|default("Gefällt mir") }}
                             (?)</a>{# ... folgestory #}
-                        {# there's no reply possible
-                        {% if allowsComments %}
-                            <a class="comment__link comment__link--reply">{{ default.link_reply|default("Antworten") }}</a>
-                            <span class="comment__placeholder" id="placeholder_{{ reply.id }}"></span>
-                        {% endif %} #}
                     </li>
                 {% endfor %}
             </ol>
