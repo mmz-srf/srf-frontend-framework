@@ -1,4 +1,3 @@
-let maps = {}; // id => Map object
 const REFRESH_INTERVAL = 30000;
 // in px; for non-touch features like clickable map, tooltips
 const DESKTOP_BREAKPOINT = 500;
@@ -58,11 +57,9 @@ function initMap($container) {
     map.fetchData();
     map.registerListener();
     window.setInterval(map.fetchData(), REFRESH_INTERVAL);
-    maps[id] = map;
 }
 
 function PolisMap(cssId, $container, $map, voteId, apiUrl, hasCantonalMajority) {
-
     this.id = cssId;
     this.$container = $container;
     this.$map = $map;
@@ -85,7 +82,6 @@ function PolisMap(cssId, $container, $map, voteId, apiUrl, hasCantonalMajority) 
     CANTONS.forEach((canton) => {
         this.cantons[canton + ""] = new Canton(this.id, canton, $cantonContainer);
     });
-
 
     this.getCantonById = function (cantonId) {
         if (this.cantons.hasOwnProperty(cantonId)) {
@@ -139,6 +135,7 @@ function PolisMap(cssId, $container, $map, voteId, apiUrl, hasCantonalMajority) 
             this.$tooltip.show();
         }
     };
+
     this.onMapMouseLeave = function ($target) {
         $target.attr('class', $target.attr('class').replace(' hover', ''));
     };
@@ -311,6 +308,7 @@ function MainBar(map) {
         this.renderStateLine(nationalResults, lastMod);
         this.renderCantonalMajority(cantonalResults);
     };
+
     this.renderMainBar = function (nationalResults) {
         let $content = this.map.$mainBar.closest('.content');
 
@@ -332,6 +330,7 @@ function MainBar(map) {
             $content.find(css.participation).text('');
         }
     };
+
     this.renderStateLine = function (nationalResults, lastMod) {
         let $statusLine = this.map.$container.find(css.statusLine);
         if (nationalResults.num_cantons < 26) {
@@ -348,6 +347,7 @@ function MainBar(map) {
             `);
         }
     };
+
     this.renderCantonalMajority = function (cantonalResults) {
         if (this.map.hasCantonalMajority) {
             this.map.$container.find(css.cantonalMajorityYesResult).text(cantonalResults.absolute.yes.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "'"));
@@ -456,7 +456,7 @@ function Canton(parent, id, $container) {
 
 function ResultSet(result, map) {
 
-    this.last_update = result.update; // moment(result.update);
+    this.last_update = result.update; // TO DO: moment(result.update);
     this.relative = {
         yes: result.relative.yes,
         no: result.relative.no,
