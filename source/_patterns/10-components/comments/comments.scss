@@ -3,6 +3,11 @@
   letter-spacing: 0.5px;
   white-space: pre-wrap;
   word-wrap: break-word;
+  margin: 12px 16px;
+  height: 108px;
+  @include tablet-up {
+    height: 60px;
+  }
 }
 
 .article-comments { // section
@@ -314,12 +319,12 @@
   @include reply_to_comments_area();
   color: #383732; // new color :/
   background-color: transparent;
-  margin: 12px 15px 0;
-  padding: 0 0 12px;
+  display: block;
   position: relative;
   z-index: 2;
-  height: 108px;
   border: 0;
+  padding: 0;
+  height: 108px;
   @include tablet-up {
     height: 60px; // 72 - 12px
   }
@@ -333,7 +338,6 @@
       }
     }
     + .reply-info .reply-info__count {
-      // display: block;
       position: static;
       opacity: 1;
     }
@@ -374,7 +378,6 @@
   letter-spacing: 0.2px;
   color: $color-text-light;
   float: right;
-  // display: none;
   position: absolute;
   opacity: 0;
 }
@@ -387,15 +390,9 @@
 .reply__highlights {
   @include reply_to_comments_area();
   color: transparent;
-  border: 12px solid transparent;
-  border-width: 12px 16px;
   position: absolute;
   overflow: hidden;
   z-index: 0;
-  height: 120px;
-  @include tablet-up {
-    height: 72px;
-  }
 }
 
 .reply--overboard { // pink background
