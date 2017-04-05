@@ -64,20 +64,28 @@
 
         <figure id="{{ voteId }}" class="polis-map" data-vote="{{ voteId }}" data-api="{{ polis.src }}" data-has-cantonal-majority="{{ votes[voteId].needsCantonalMajority }}"
                 aria-hidden="true">
-            {% include "elements-chmap.svg" with { 'idReference': 'results-canton' } %}
+            {% block polis_map %}
+                {% include "elements-chmap.svg" with { 'idReference': 'results-canton' } %}
+            {% endblock %}
             {% if votes[voteId].results.nationalResults.relative.participation > 0 %}
                 <p class="polis-map__participation">
                     {{ polis.turnout }} {{ votes[voteId].results.nationalResults.relative.participation }}%
                 </p>
             {% endif %}
 
-            {% include "_polis-legend.twig" %}
+            {% block polis_legend %}
+                {% include "_polis-legend.twig" %}
+            {% endblock %}
 
         </figure>
     </div>
     {# Abstand ... #}
     <div class="polis-cantons-container">
-        {% include 'elements-select' with { 'menu': menu } %}
-        {% include '_polis-districts.twig' %}
+        {% block polis_elements_select %}
+            {% include 'elements-select' with { 'menu': menu } %}
+        {% endblock %}
+        {% block polis_districts %}
+            {% include '_polis-districts.twig' %}
+        {% endblock %}
     </div>
 </div>
