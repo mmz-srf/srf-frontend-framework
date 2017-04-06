@@ -1,4 +1,4 @@
-{% set infolinesElem = infolinesElem ?: infolines.video %}
+{% set infolineElem = infolineElem ?: infolines.video %}
 {% set infolineSource = infolineSource ?: false %}
 
-<p class="infoline {{styleModifier}}">{{infolinesElem}}{% if infolineSource == 'true' %} <span class="infoline-source">{{infolines.source}}</span>{% endif %}</p>
+<p class="infoline {{styleModifier}}">{{infolineElem}}{% if infolineSource == 'true' %} <span class="infoline-source">{{infolines.source}}</span>{% endif %}</p>
