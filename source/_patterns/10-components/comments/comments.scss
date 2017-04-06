@@ -279,7 +279,7 @@
     }
   }
   @include smartphone {
-    margin: 0 0 28px 16px;
+    margin: 0 0 36px 16px;
   }
   .button { // /: (submit buttons probably shouldn't have "defined" margins...)
     margin-top: 12px;
@@ -351,7 +351,7 @@
   color: $color-text-light;
   margin: 0 16px 10px;
   padding-top: 10px;
-  border: 1px solid rgba(0, 0, 0, .1);
+  border: 1px solid #ebebe5;
   border-width: 1px 0 0;
 }
 
