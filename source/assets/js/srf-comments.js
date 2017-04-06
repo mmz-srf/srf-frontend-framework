@@ -36,12 +36,19 @@ var commentController = function () {
             $(".reply__textarea").val("").focus();
 
             // set default ==> no reply but a comment
-            $(".js-comment_reply_to").val(0);
+            // $(".js-comment_parent_id").val("");
 
             // animating :/
             /* $(".reply__textarea")
              .removeClass("reply--mini")
              .addClass("reply--size-up"); */
+
+            // this goes cms ... as soon ...
+            $(".js-comment_user_email").val("user@somewhere.ch"); // <-- TODO
+            $(".js-comment_user_name").val("Kurt Ischfurt"); // <-- TODO
+            $(".js-comment_user_nickname").val("dekurtischfurt"); // <-- TODO
+            $(".js-comment_user_city").val("dadaenk"); // <-- TODO
+
             return false;
         });
 
@@ -51,8 +58,8 @@ var commentController = function () {
             // hide main comment again (if there was one)
             $(".comments-header__button").removeClass("comment--hide");
 
-            var parent_id = $(this).parent("li").prop("id").split("_");
-            parent_id = parent_id[1];
+            var parent_id = $(this).parent("li").prop("id");
+
             // move the form
             $(".js-comment_place").removeClass("comment--hide")
                 .appendTo("#" + parent_id.replace("comment", "placeholder"));
@@ -60,13 +67,18 @@ var commentController = function () {
             $(".reply__textarea").val("").focus();
 
             // if it's a reply ==> reply_to has a number > 0 (default)! <== depth = 1
+            parent_id = parent_id.split("_")[1];
+
             $(".js-comment_parent_id").val(parent_id);
 
-            return false;
-            // cms
+            // this goes cms ... as soon ...
             $(".js-comment_user_email").val("user@somewhere.ch"); // <-- TODO
             $(".js-comment_user_name").val("Kurt Ischfurt"); // <-- TODO
             $(".js-comment_user_nickname").val("dekurtischfurt"); // <-- TODO
+            $(".js-comment_user_city").val("dadaenk"); // <-- TODO
+
+            console.log($(".js-comment_place").serializeArray());
+            return false;
         });
     };
 
