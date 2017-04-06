@@ -202,6 +202,7 @@ function PolisMap(cssId, $container, $map, voteId, apiUrl, hasCantonalMajority) 
                     that.$mainBar = that.$container.find(css.mainBar);
                     that.mainBar = new MainBar(that);
                     that.mainBar.update();
+                    that.renderCantonSelect();
                 } else {
                     that.updateResults();
                     that.mainBar.update();
@@ -265,6 +266,7 @@ function PolisMap(cssId, $container, $map, voteId, apiUrl, hasCantonalMajority) 
     };
 
     this.updateResults = function (vote) {
+        console.log("juhupdate!")
         this.loadResults();
         this.renderCantonSelect();
         if (this.selectedCanton && this.cantons[this.selectedCanton]) {
