@@ -605,6 +605,21 @@
     "hint": "* Pflichtfelder",
     "button": "Datei Upload"
   },
+  "list": {
+      "title": "Das sagt die Prominenz",
+      "elements": [
+          {
+              "title": "Guy Parmelin: «Ein toller Sport der die Schweiz fasziniert»",
+              "body": "Der Ursprungsort oder die Ursprungsregion des Schwingens ist nicht wirklich bekannt. Zuerst war der «Hosenlupf» in der Zentralschweiz und in den Voralpen des Mittellands Teil der Festkultur. In der Deutschschweiz fasste es darauf deutlich schneller und stärker Fuss als in der Romandie. Seltsamerweise findet man die erste Schwingerdarstellung auf einem Gemälde aus dem 13. Jahrhundert, das in der Kathedrale Lausanne hängt.",
+              "media": "image"
+          },
+          {
+              "title": "Jörg Abderhalden: «Stucki ist ein ganz heisser Kandidat»",
+              "body": "Stucki ist für mich einer der ganz spannenden Favoriten. Alle haben ihn irgendwie auf der Rechnung, aber niemand so richtig…. Er verliert praktisch keinen Gang und ist deshalb ein ganz heisser Kandidat, um am Ende ganz oben zu stehen. Aber er muss es wirklich wollen, muss aktiv schwingen und etwas riskieren. Sonst wird das nichts.",
+              "media": "video"
+          }
+      ]
+  },
   "infolines": {
     "image": "Bild:",
     "video": "Video: 6:05 Min, vom 29.8.2016",

@@ -1,25 +1,26 @@
 .listmodule {margin:24px 0 20px}
-.listmodule__title {font:normal 500 22px/1.27 $font-regular;letter-spacing:.3px;color:rgb(34,33,29);padding:0 24px}
+
+.listmodule__title {font:normal 500 22px/1.27 $font-regular;letter-spacing:.3px;color:$color-text-default;padding:0 24px}
+
 .listmodule__list {list-style-type:none;margin:0;padding:0}
+
 .listmodule__item {margin:0;padding:0 24px;border-top:1px solid rgb(236,236,230);overflow:hidden}
 .listmodule__item:last-of-type {border-bottom:1px solid rgb(236,236,230)}
 .listmodule__item:before {display:none}
-.listmodule__item > div {float:left;width:calc(100% - 96px);margin-bottom:8px}
-.listmodule__itemTitle {font:normal normal 18px/1.56 $font-regular;letter-spacing:.5px;color:rgb(34,33,29);margin-bottom:8px}
-.listmodule__item > p {font:normal 300 18px/1.56 $font-light;letter-spacing:.5px;color:rgb(34,33,29);clear:both;margin:0 0 8px}
-.listmodule__itemSubhead,
-.listmodule__itemSource {font:normal normal 12px/1.33 $font-system;color:rgb(136,133,121);margin:0 0 20px;display:inline-block}
-.listmodule__itemSubhead {margin-bottom:8px}
-.listmodule__itemSource--caption {display:none;background:rgb(245,245,242);font:normal normal 12px/1.33 $font-system;color:rgb(117,114,102);padding:8px 16px;text-transform:uppercase;margin-bottom:8px}
-.listmodule__itemSource em {text-transform:uppercase;font-style:normal}
-.listmodule__itemFigure {float:right;width:92px;height:auto;margin:16px -8px 12px 12px}
+
+.listmodule__itemTextblock {margin-bottom:8px}
+.listmodule__itemTitle {font:normal normal 18px/28px $font-regular;letter-spacing:.5px;color:$color-text-default;margin-bottom:8px}
+.listmodule__itemBody {font:normal 300 18px/28px $font-light;letter-spacing:.5px;color:$color-text-default;margin:0 0 8px}
+.listmodule__itemSource {display:none;background:$color-bg-caption;font:normal normal 12px/16px $font-system;color:#757266;margin:0 0 8px;padding:8px 16px}
+.listmodule__itemSourceName {text-transform:uppercase}
+
+.listmodule__itemFigure {float:right;width:92px;height:auto;margin:16px -8px 16px 16px}
 .listmodule__itemMedia {background:red}
 
 @include tablet-up {
-  .listmodule__item > div {float:none;width:100%}
+  .listmodule__itemTextblock {float:none;width:100%}
   .listmodule__itemTitle {font-size:20px;line-height:1.4;letter-spacing:.6px}
-  .listmodule__item > p {font-size:20px;line-height:1.4;letter-spacing:.6px;clear:none}
-  .listmodule__itemSource {display:none}
-  .listmodule__itemSource--caption {display:block}
-  .listmodule__itemFigure {width:203px;margin:0 -24px 24px 24px}
+  .listmodule__itemBody {font-size:20px;line-height:1.4;letter-spacing:.6px;clear:none}
+  .listmodule__itemSource {display:block}
+  .listmodule__itemFigure {width:203px;margin:24px -8px 24px 24px}
 }

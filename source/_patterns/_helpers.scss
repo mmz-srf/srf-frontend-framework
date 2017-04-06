@@ -29,3 +29,17 @@
     clip: auto;
   }
 }
+
+.h-show-mobile {
+    display:inline-block;
+    @include tablet-up {
+        display:none;
+    }
+}
+
+.h-show-tablet-up {
+    display:none;
+    @include tablet-up {
+        display:inline-block;
+    }
+}
