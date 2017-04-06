@@ -20,10 +20,10 @@ let css = {
     cantonSelect: '.polis-cantons-container .menu',
     cantonSelectHiddenClass: 'polis-select-option--hide',
     tooltip: '#polis-tooltip',
-    tooltipTextYes: '.chmap-tooltip-text__yes',
-    tooltipTextYesClass: 'chmap-tooltip-text__yes',
-    tooltipTextNo: '.chmap-tooltip-text__no',
-    tooltipTextNoClass: 'chmap-tooltip-text__no',
+    tooltipTextYes: 'chmap-tooltip-text--yes',
+    // tooltipTextYesClass: 'chmap-tooltip-text__yes',
+    tooltipTextNo: 'chmap-tooltip-text--no',
+    // tooltipTextNoClass: 'chmap-tooltip-text__no',
     tooltipText: '.chmap-tooltip-text',
     tooltipTitle: '.chmap-tooltip__title',
     mapPolygons: '.chmap--no-touch g',
@@ -175,13 +175,17 @@ function PolisMap(cssId, $container, $map, voteId, apiUrl, hasCantonalMajority) 
     };
 
     this.getToolTipContent = function (name = "", yes = "", no = "") {
-        let titleClass = '';
-        if (yes && no) {
-            titleClass = no > yes ? css.tooltipTextNoClass : css.tooltipTextYesClass;
+        let noClass = '';
+        let yesClass = '';
+
+        if (no > yes) {
+            noClass = css.tooltipTextNo;
+        } else {
+            yesClass = css.tooltipTextYes;
         }
-        return `<p class="chmap-tooltip__title ${titleClass}">${name}</p>
-                    <p class="chmap-tooltip-text"><span class="chmap-tooltip-text__yes">${yes}</span>% JA</p>&nbsp;
-                    <p class="chmap-tooltip-text"><span class="chmap-tooltip-text__no">${no}</span>% NEIN</p>`;
+        return `<p class="chmap-tooltip__title">${name}</p>
+                    <p class="chmap-tooltip-text ${yesClass}">${yes}% JA</p>&nbsp;
+                    <p class="chmap-tooltip-text ${noClass}">${no}% NEIN</p>`;
     };
 
 
