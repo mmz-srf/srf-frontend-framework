@@ -48,7 +48,7 @@ let css = {
     districtsContainer: '.polis-districts-container',
     districtContainer: '.polis-district-container',  // not the best naming, districtContainer is part of districtsContainer
     cantonalMainResult: '.polis-result-container--canton'
-}
+};
 
 function initMap($container) {
     let $map = $container.find(css.polisMap);
@@ -421,7 +421,7 @@ function Canton(parent, id, $container) {
                 <span class="polis-district__votes ${yesClass}">${yes.toFixed(1)}% JA</span>
                 <span class="polis-district__votes ${noClass}">${no.toFixed(1)}% NEIN</span>
             </li>`;
-    }
+    };
     this.renderDistricts = function () {
         let $districtContainer = this.$container.find(css.districtContainer);
         let html = '';
@@ -430,7 +430,7 @@ function Canton(parent, id, $container) {
         }
         $districtContainer.html('');
         $districtContainer.html(html);
-    }
+    };
 
     this.setYes = function (yes) {
         this.yes = yes;
@@ -439,9 +439,9 @@ function Canton(parent, id, $container) {
 
     this.setColor = function () {
         if (this.yes === undefined || this.yes === "") {
-            this.$element.attr('class', 'initial');
+            this.$element.attr('class', 'initial chmap__location');
         } else {
-            this.$element.attr('class', this.decorator.getColorForPercent(this.yes));
+            this.$element.attr('class', this.decorator.getColorForPercent(this.yes) + ' chmap__location');
         }
     };
 
