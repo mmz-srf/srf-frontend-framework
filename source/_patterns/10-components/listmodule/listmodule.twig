@@ -2,34 +2,40 @@
     <h1 class="listmodule__title">Das sagt die Prominenz</h1>
     <ul class="listmodule__list">
         <li class="listmodule__item">
-            <div><h2 class="listmodule__itemTitle">Guy Parmelin: «Ein toller Sport der die Schweiz fasziniert»</h2>
-            <span class="listmodule__itemSubhead">Bundesrat</span></div>
             <figure class="listmodule__itemFigure">
                 <div class="listmodule__itemFigure-Wrapper"><img src="{{image.sources.s8.src}}" class="listmodule__itemMedia" /></div>
-                <figcaption class="listmodule__itemSource"><span class="h-offscreen">Bild: </span>Keystone</figcaption>
+                <figcaption class="listmodule__itemSource listmodule__itemSource--caption"><span class="h-offscreen">Bild: </span>Keystone</figcaption>
             </figure>
-            <p>Der Ursprungsort oder die Ursprungsregion des Schwingens ist nicht wirklich bekannt. Zuerst war der «Hosenlupf» in der Zentralschweiz und in den Voralpen des Mittellands Teil der Festkultur. In der Deutschschweiz fasste es darauf deutlich schneller und stärker Fuss als in der Romandie. Seltsamerweise findet man die erste Schwingerdarstellung auf einem Gemälde aus dem 13. Jahrhundert, das in der Kathedrale Lausanne hängt.</p>
-            <p class="listmodule__itemSource">Bild: <span>Keystone</span></p>
+            {# include 'components-image-figure' #}
+            <div>
+                <h2 class="listmodule__itemTitle">Guy Parmelin: «Ein toller Sport der die Schweiz fasziniert»</h2>
+                <p>Der Ursprungsort oder die Ursprungsregion des Schwingens ist nicht wirklich bekannt. Zuerst war der «Hosenlupf» in der Zentralschweiz und in den Voralpen des Mittellands Teil der Festkultur. In der Deutschschweiz fasste es darauf deutlich schneller und stärker Fuss als in der Romandie. Seltsamerweise findet man die erste Schwingerdarstellung auf einem Gemälde aus dem 13. Jahrhundert, das in der Kathedrale Lausanne hängt.</p>
+                {% include 'elements-infoline' with {'infolineSource': 'true', 'infolinesElem': infolines.image} %}
+            </div>
         </li>
         <li class="listmodule__item">
-            <div><h2 class="listmodule__itemTitle">Jörg Abderhalden: «Stucki ist ein ganz heisser Kandidat»</h2>
-            <span class="listmodule__itemSubhead">Dreifacher Schwingerkönig</span></div>
             <figure class="listmodule__itemFigure">
                 <div class="listmodule__itemFigure-Wrapper"><img src="{{image.sources.s8.src}}" class="listmodule__itemMedia" /></div>
-                <figcaption class="listmodule__itemSource">Vom 29.8.2016</figcaption>
+                <figcaption class="listmodule__itemSource listmodule__itemSource--caption">Vom 29.8.2016</figcaption>
             </figure>
-            <p>Stucki ist für mich einer der ganz spannenden Favoriten. Alle haben ihn irgendwie auf der Rechnung, aber niemand so richtig…. Er verliert praktisch keinen Gang und ist deshalb ein ganz heisser Kandidat, um am Ende ganz oben zu stehen. Aber er muss es wirklich wollen, muss aktiv schwingen und etwas riskieren. Sonst wird das nichts.</p>
-            <p class="listmodule__itemSource">Video: 6:05 Min, vom 29.8.2016</p>
+            {# include 'components-image-figure' #}
+            <div>
+                <h2 class="listmodule__itemTitle">Jörg Abderhalden: «Stucki ist ein ganz heisser Kandidat»</h2>
+                <p>Stucki ist für mich einer der ganz spannenden Favoriten. Alle haben ihn irgendwie auf der Rechnung, aber niemand so richtig…. Er verliert praktisch keinen Gang und ist deshalb ein ganz heisser Kandidat, um am Ende ganz oben zu stehen. Aber er muss es wirklich wollen, muss aktiv schwingen und etwas riskieren. Sonst wird das nichts.</p>
+                {% include 'elements-infoline' with {'infolinesElem': infolines.video} %}
+            </div>
         </li>
         <li class="listmodule__item">
-            <div><h2 class="listmodule__itemTitle">Jörg Abderhalden: «Stucki ist ein ganz heisser Kandidat»</h2>
-            <span class="listmodule__itemSubhead">Dreifacher Schwingerkönig</span></div>
             <figure class="listmodule__itemFigure">
                 <div class="listmodule__itemFigure-Wrapper"><img src="{{image.sources.s8.src}}" class="listmodule__itemMedia" /></div>
-                <figcaption class="listmodule__itemSource"><span class="h-offscreen">Bild: </span>Keystone</figcaption>
+                <figcaption class="listmodule__itemSource listmodule__itemSource--caption"><span class="h-offscreen">Bild: </span>Keystone</figcaption>
             </figure>
-            <p>Stucki ist für mich einer der ganz spannenden Favoriten. Alle haben ihn irgendwie auf der Rechnung, aber niemand so richtig…. Er verliert praktisch keinen Gang und ist deshalb ein ganz heisser Kandidat, um am Ende ganz oben zu stehen. Aber er muss es wirklich wollen, muss aktiv schwingen und etwas riskieren. Sonst wird das nichts.</p>
-            <p class="listmodule__itemSource">Bild: <span>Keystone</span></p>
+            {# include 'components-image-figure' #}
+            <div>
+                <h2 class="listmodule__itemTitle">Jörg Abderhalden: «Stucki ist ein ganz heisser Kandidat»</h2>
+                <p>Stucki ist für mich einer der ganz spannenden Favoriten. Alle haben ihn irgendwie auf der Rechnung, aber niemand so richtig…. Er verliert praktisch keinen Gang und ist deshalb ein ganz heisser Kandidat, um am Ende ganz oben zu stehen. Aber er muss es wirklich wollen, muss aktiv schwingen und etwas riskieren. Sonst wird das nichts.</p>
+                {% include 'elements-infoline' with {'infolineSource': 'true', 'infolinesElem': infolines.image} %}
+            </div>
         </li>
     </ul>
 </section>
