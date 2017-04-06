@@ -23,8 +23,8 @@
         {% include 'elements-input-field' with { 'labelText': 'Name, Vorname', 'hintText': '', 'fieldID': 'input-ID1', 'inputType': 'text', 'required': true } %}
         {% include 'elements-input-field' with { 'labelText': 'Geburtstag', 'hintText': 'Format: dd.mm.YYY', 'fieldID': 'input-ID2', 'inputType': 'date', 'required': true } %}
         {% include 'elements-select' with { 'fieldID': 'menu-ID', 'labelText': 'Bitte wählen', 'required': false } %}
-        {% include 'elements-button' with { 'styleModifier' : 'button--secondary', 'buttonText' : form.button } %}
+        {% include 'elements-button' with { 'styleModifier' : 'button--secondary', 'buttonText' : form.button.upload } %}
     </fieldset>
     <p class="form__hint">{{ form.hint }}</p>
-    {% include 'elements-button' with {} %}
+    {% include 'elements-button' %}
 </form>

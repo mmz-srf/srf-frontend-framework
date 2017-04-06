@@ -604,6 +604,12 @@
     "legend": "Irgend ein Titel",
     "hint": "* Pflichtfelder",
     "accessibilityInfo": "Pflichtfeld",
-    "button": "Datei Upload"
+    "button": [
+      {
+        "upload": "Datei Upload",
+        "errorInfo": "Datei Upload",
+        "successInfo": "Datei Upload"
+      }
+    ]
   }
 }
