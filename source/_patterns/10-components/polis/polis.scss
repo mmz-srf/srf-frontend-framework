@@ -184,7 +184,8 @@ $color-polis-no-text: #af001d; // oben: af001d oder unten: #9d0017 ???
 
 .polis-result-container--canton {
   overflow: hidden;
-  margin: 0 0 16px;
+  margin: 0;
+  padding-bottom: 16px;
 }
 
 .polis-result-title--canton {
