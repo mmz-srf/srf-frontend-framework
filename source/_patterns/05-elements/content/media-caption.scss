@@ -72,7 +72,6 @@
 }
 
 .media-caption--audio {
-  display: table;
   height: 112px;
   padding: 12px;
 
@@ -100,15 +99,6 @@
 .audio-gallery {
   .media-caption--audio {
     height: auto;
-    width: 100%;
-    margin-left: 72px;
-    display: table-cell;
-    vertical-align: middle;
-  }
-  .media-caption__title {
-    padding-bottom: 2px;
-    display: table-cell;
-    vertical-align: bottom;
   }
 }
 
