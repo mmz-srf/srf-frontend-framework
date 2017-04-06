@@ -1,3 +1,4 @@
 {
-  "styleModifier": "submit-button--on-error"
+  "styleModifier": "submit-button--on-error",
+  "ariaLabelText": "Senden (Formular enthält fehlerhafte Eingaben)"
 }
