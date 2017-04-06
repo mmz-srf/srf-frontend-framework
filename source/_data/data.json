@@ -621,8 +621,9 @@
       ]
   },
   "infolines": {
-    "image": "Bild:",
-    "video": "Video: 6:05 Min, vom 29.8.2016",
+    "imageTag": "Bild:",
+    "videoTag": "Video:",
+    "videoTagLong": "Video: 6:05 Min, vom 29.8.2016",
     "source": "Keystone"
   }
 }
