@@ -9,7 +9,7 @@ export function init() {
 
 var commentController = function () {
     var that = this;
-    this.max_input = 70;
+    this.max_input = 500;
 
     this.init = function () {
 
@@ -35,14 +35,6 @@ var commentController = function () {
             // set the focus
             $(".reply__textarea").val("").focus();
 
-            // set default ==> no reply but a comment
-            // $(".js-comment_parent_id").val("");
-
-            // animating :/
-            /* $(".reply__textarea")
-             .removeClass("reply--mini")
-             .addClass("reply--size-up"); */
-
             // this goes cms ... as soon ...
             $(".js-comment_user_email").val("user@somewhere.ch"); // <-- TODO
             $(".js-comment_user_name").val("Kurt Ischfurt"); // <-- TODO
@@ -66,9 +58,7 @@ var commentController = function () {
             // set the focus
             $(".reply__textarea").val("").focus();
 
-            // if it's a reply ==> reply_to has a number > 0 (default)! <== depth = 1
             parent_id = parent_id.split("_")[1];
-
             $(".js-comment_parent_id").val(parent_id);
 
             // this goes cms ... as soon ...

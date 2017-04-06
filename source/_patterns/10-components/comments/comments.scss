@@ -329,6 +329,7 @@
     height: 60px; // 72 - 12px
   }
   resize: none; // :/
+  box-shadow: none;
   &:focus {
     outline: none;
     @include smartphone {
@@ -342,22 +343,7 @@
       opacity: 1;
     }
   }
-  // animating... /:
-  /* -webkit-transition: max-height 0.8s;
-  -moz-transition: max-height 0.8s;
-  transition: max-height 0.8s; */
 }
-
-// more animating ...
-/* .reply--mini {
-  max-height: 24px; // 24px;
-}
-.reply--size-up {
-  max-height: 161px;
-  @include tablet-up {
-    max-height: 120px;
-  }
-} */
 
 .reply-info {
   font-size: 14px;
