@@ -21,9 +21,7 @@ let css = {
     cantonSelectHiddenClass: 'polis-select-option--hide',
     tooltip: '#polis-tooltip',
     tooltipTextYes: 'chmap-tooltip-text--yes',
-    // tooltipTextYesClass: 'chmap-tooltip-text__yes',
     tooltipTextNo: 'chmap-tooltip-text--no',
-    // tooltipTextNoClass: 'chmap-tooltip-text__no',
     tooltipText: '.chmap-tooltip-text',
     tooltipTitle: '.chmap-tooltip__title',
     mapPolygons: '.chmap--no-touch g',
@@ -107,7 +105,7 @@ function PolisMap(cssId, $container, $map, voteId, apiUrl, hasCantonalMajority) 
         let $polygons = that.$container.find(css.mapPolygons);
 
         $polygons.on('click', function (event) {
-            event.preventDefault()
+            event.preventDefault();
             that.onMapClick($(this));
         }).on('mousemove', function (event) {
             that.onMapMouseMove(event.pageX, event.pageY);
@@ -116,14 +114,28 @@ function PolisMap(cssId, $container, $map, voteId, apiUrl, hasCantonalMajority) 
         }).on('mouseleave', function () {
             that.onMapMouseLeave($(this));
         });
+
+        // for polygons with shadow (clicked)
+        $("#selector-ID").on('mouseenter', function () {
+            that.onMapMouseEnter($(this));
+        }).on('mousemove', function (event) {
+            that.onMapMouseMove(event.pageX, event.pageY);
+        }).on('mouseleave', function () {
+            that.onMapMouseLeave($(this));
+        });
     };
 
     this.onMapMouseEnter = function ($target) {
+        let cantonId = '';
         if ($target.is('.initial') && this.$tooltip) {
             this.$tooltip.hide();
             return;
+        } else if ($target.is("use")) {
+            cantonId = $target.attr("xlink:href").substr(1);
+        } else {
+            cantonId = $target.attr('id');
         }
-        let canton = this.getCantonById($target.attr('id'));
+        let canton = this.getCantonById(cantonId);
         let html = this.getToolTipContent(canton.name, canton.yes, canton.no);
 
         if (!this.$tooltip) {
@@ -137,20 +149,20 @@ function PolisMap(cssId, $container, $map, voteId, apiUrl, hasCantonalMajority) 
     };
 
     this.onMapMouseLeave = function ($target) {
-        $target.attr('class', $target.attr('class').replace(' hover', ''));
+        // $target.attr('class', $target.attr('class').replace(' hover', ''));
     };
 
     this.onMapMouseMove = function (x, y) {
         // TO DO: expensive dom access in here.. move to init and recalc on resize event
-        let parentOffset = $('.chmap--desktop').parent().offset();
         let pageY = y - 90;
-        let pageX = x - parentOffset.left + 15;
+        let pageX = x;
 
         let cssClass = "left";
-        if (pageX > $('.chmap--desktop').parent().width() / 2) {
+        if (pageX > $(window).width() / 2) {
             cssClass = "right";
             pageX = pageX - this.$tooltip.outerWidth();
         }
+
         this.$tooltip.css({"top": pageY, "left": pageX})
             .removeClass("chmap-tooltip--left chmap-tooltip--right")
             .addClass("chmap-tooltip--" + cssClass);
@@ -165,6 +177,8 @@ function PolisMap(cssId, $container, $map, voteId, apiUrl, hasCantonalMajority) 
         this.selectedCanton = cantonId;
         this.$container.find(css.cantonSelect).val(cantonId);
         canton.renderResults();
+        let that = this;
+        that.markSelectdCanton(cantonId);
     };
 
     this.onCantonSelect = function ($clicked) {
@@ -172,6 +186,19 @@ function PolisMap(cssId, $container, $map, voteId, apiUrl, hasCantonalMajority) 
         this.selectedCanton = cantonId;
         let canton = this.getCantonById(cantonId);
         canton.renderResults();
+        let that = this;
+        that.markSelectdCanton(cantonId);
+    };
+
+    this.markSelectdCanton = function (cantonId) {
+        // repaint chosen canton (on top)
+        $("#selector-ID").attr("xlink:href", "#" + cantonId);
+        this.$container.find(".chmap__location").removeClass("chmap__location--shadow");
+        this.$container.find("#" + cantonId).addClass("chmap__location--shadow");
+    };
+
+    this.unmarkSelectdCanton = function (cantonId) {
+        this.$container.find(".chmap__location").removeClass("chmap__location--shadow");
     };
 
     this.getToolTipContent = function (name = "", yes = "", no = "") {
@@ -187,7 +214,6 @@ function PolisMap(cssId, $container, $map, voteId, apiUrl, hasCantonalMajority) 
                     <p class="chmap-tooltip-text ${yesClass}">${yes}% JA</p>&nbsp;
                     <p class="chmap-tooltip-text ${noClass}">${no}% NEIN</p>`;
     };
-
 
     this.fetchData = function () {
         let that = this;
