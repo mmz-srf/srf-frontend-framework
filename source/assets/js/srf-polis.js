@@ -56,7 +56,7 @@ function initMap($container) {
     let map = new PolisMap(id, $container, $map, $map.data('vote'), $map.data('api'), $map.data("has-cantonal-majority"));
     map.fetchData();
     map.registerListener();
-    window.setInterval(map.fetchData(), REFRESH_INTERVAL);
+    window.setInterval(map.fetchData, REFRESH_INTERVAL);
 }
 
 function PolisMap(cssId, $container, $map, voteId, apiUrl, hasCantonalMajority) {
