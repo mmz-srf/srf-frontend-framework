@@ -25,7 +25,7 @@
         {% if styleModifier == 'poll--with-radios' %}
             <span class="poll-form-handling__errors"></span>
         {% endif %}
-        {% include 'elements-submit-button' with { 'buttonText' : poll.submit } %}
+        {% include 'elements-button' with { 'buttonText' : poll.submit } %}
         <p class="poll-form-handling__roundup"><strong></strong> {{ poll.total }}</p>
     </div>
 {% endmacro %}

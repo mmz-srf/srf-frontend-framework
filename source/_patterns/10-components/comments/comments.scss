@@ -281,7 +281,7 @@
   @include smartphone {
     margin: 0 0 28px 16px;
   }
-  .submit-button { // /: (submit buttons probably shouldn't have "defined" margins...)
+  .button { // /: (submit buttons probably shouldn't have "defined" margins...)
     margin-top: 12px;
     @include tablet-up {
       margin-top: 16px;

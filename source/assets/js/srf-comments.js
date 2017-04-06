@@ -74,21 +74,21 @@ var commentController = function () {
 
     this.countChars = function ($textarea) {
         var len = $textarea.val().length
-            , $button = $(".submit-button");
+            , $button = $(".button");
 
         // count up available chars
         $(".js-comment-count-up").text(this.max_input - len);
 
         if (len === 0 || len > this.max_input) { // no more space available
             // disable submit button
-            $button.attr("disabled", true).addClass("submit-button--inactive");
+            $button.attr("disabled", true).addClass("button--inactive");
             if (len > this.max_input) {
                 $(".reply-info__count").addClass("reply-info__count--warn");
             }
 
         } else { // space available
             // reset all
-            $button.attr("disabled", false).removeClass("submit-button--inactive");
+            $button.attr("disabled", false).removeClass("button--inactive");
             $(".reply-info__count").removeClass("reply-info__count--warn");
         }
     };
