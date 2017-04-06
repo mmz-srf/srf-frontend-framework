@@ -95,7 +95,7 @@ function PolisMap(cssId, $container, $map, voteId, apiUrl, hasCantonalMajority) 
         $(css.cantonSelect).on('change', function () {
             that.onCantonSelect($(this));
         });
-        console.log(screen.width);
+
         if (screen.width >= DESKTOP_BREAKPOINT) {
             that.registerWideScreenListener();
         }
@@ -205,7 +205,7 @@ function PolisMap(cssId, $container, $map, voteId, apiUrl, hasCantonalMajority) 
             }
             else {
                 // TO DO: might clear interval..
-                console.log(`API error: no data for voteId '${that.voteId}' via endpoint '${that.apiUrl}'`);
+                //console.log(`API error: no data for voteId '${that.voteId}' via endpoint '${that.apiUrl}'`);
             }
         });
     };
