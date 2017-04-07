@@ -2,15 +2,18 @@
 {% for comment in comments %}
     {% set commentIds = commentIds|merge([comment.id]) %}
     <li id="comment_{{ comment.id }}" class="comment">
-        <span class="h-offscreen">{{ default.comment_by|default("Kommentar von") }} </span>
-        <cite class="comment__user {% if comment.isEditorialAnswer %} comment__user--srf{% endif %}">{{ comment.name }} {% if comment.isEditorialAnswer %}
-                <span class="h-offscreen">(SRF)</span>{% else %}({{ comment.nickname }}){% endif %}</cite>
+        <cite class="comment__user {% if comment.isEditorialAnswer %} comment__user--srf{% endif %}" role="combobox">
+            <span class="h-offscreen">{{ default.comment_by|default("Kommentar von") }} </span>{{ comment.name }}
+            {% if comment.isEditorialAnswer %}<span
+                    class="h-offscreen">(SRF)</span>{% else %}({{ comment.nickname }}){% endif %}
+        </cite>
         <span class="comment__time">{{ comment.dateFormatted }}</span>
         <blockquote class="comment__content">{{ comment.message }}</blockquote>
         <a class="comment__link">{{ default.link_social|default("Gefällt mir") }}
             (?)</a>{# ... folgestory #}
         {% if allowsComments %}
-            <a class="comment__link comment__link--reply" href="#">{{ default.link_reply|default("Antworten") }}
+            <a class="comment__link comment__link--reply" href="#"
+               role="link">{{ default.link_reply|default("Antworten") }}
                 <span class="h-offscreen">{{ default.select_to_reply|default("anwählen um auf den Kommentar zu antworten") }}</span>
             </a>
             <span class="comment__placeholder" id="placeholder_{{ comment.id }}"></span>
