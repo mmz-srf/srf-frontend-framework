@@ -116,7 +116,7 @@ function PolisMap(cssId, $container, $map, voteId, apiUrl, hasCantonalMajority) 
         });
 
         // for polygons with shadow (clicked)
-        $("#selector-ID").on('mouseenter', function () {
+        $("#selector-" + voteId).on('mouseenter', function () {
             that.onMapMouseEnter($(this));
         }).on('mousemove', function (event) {
             that.onMapMouseMove(event.pageX, event.pageY);
@@ -192,7 +192,7 @@ function PolisMap(cssId, $container, $map, voteId, apiUrl, hasCantonalMajority) 
 
     this.markSelectdCanton = function (cantonId) {
         // repaint chosen canton (on top)
-        $("#selector-ID").attr("xlink:href", "#" + cantonId);
+        $("#selector-" + this.id).attr("xlink:href", "#" + cantonId);
         this.$container.find(".chmap__location").removeClass("chmap__location--shadow");
         this.$container.find("#" + cantonId).addClass("chmap__location--shadow");
     };
@@ -292,7 +292,6 @@ function PolisMap(cssId, $container, $map, voteId, apiUrl, hasCantonalMajority) 
     };
 
     this.updateResults = function (vote) {
-        console.log("juhupdate!")
         this.loadResults();
         this.renderCantonSelect();
         if (this.selectedCanton && this.cantons[this.selectedCanton]) {

@@ -67,7 +67,7 @@
         <figure id="{{ voteId }}" class="polis-map" data-vote="{{ voteId }}" data-api="{{ polis.src }}" data-has-cantonal-majority="{{ vote.needsCantonalMajority }}"
                 aria-hidden="true">
             {% block polis_map %}
-                {% include "elements-chmap.svg" with { 'idReference': 'results-canton' } %}
+                {% include "elements-chmap.svg" with { 'idReference': voteId } %}
             {% endblock %}
             {% if vote.results.nationalResults.relative.participation > 0 %}
                 <p class="polis-map__participation">
