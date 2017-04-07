@@ -90,7 +90,7 @@ function PolisMap(cssId, $container, $map, voteId, apiUrl, hasCantonalMajority) 
     this.registerListener = function () {
         let that = this;
 
-        $(css.cantonSelect).on('change', function () {
+        that.$container.find(css.cantonSelect).on('change', function () {
             that.onCantonSelect($(this));
         });
 
