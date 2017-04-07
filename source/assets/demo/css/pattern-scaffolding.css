@@ -52,3 +52,20 @@
 .demo-simulate-removed-html-elements .media-caption__description {
   display: none !important;
 }
+
+.demo-documentation pre {
+  display: block;
+  padding: 0 1rem;
+}
+
+.demo-documentation code {
+  font-size: 14px;
+  font-family: monospace;
+  line-height: 1;
+}
+
+.demo-documentation h3,
+.demo-documentation h4 {
+  padding: 0 16px;
+  margin: 32px 0 12px 0;
+}
