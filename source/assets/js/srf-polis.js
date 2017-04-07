@@ -177,20 +177,18 @@ function PolisMap(cssId, $container, $map, voteId, apiUrl, hasCantonalMajority) 
         this.selectedCanton = cantonId;
         this.$container.find(css.cantonSelect).val(cantonId);
         canton.renderResults();
-        let that = this;
-        that.markSelectdCanton(cantonId);
+        this.markSelectedCanton(cantonId);
     };
 
     this.onCantonSelect = function ($clicked) {
         let cantonId = $clicked.val();
-        this.selectedCanton = cantonId;
         let canton = this.getCantonById(cantonId);
+        this.selectedCanton = cantonId;
         canton.renderResults();
-        let that = this;
-        that.markSelectdCanton(cantonId);
+        this.markSelectedCanton(cantonId);
     };
 
-    this.markSelectdCanton = function (cantonId) {
+    this.markSelectedCanton = function (cantonId) {
         // repaint chosen canton (on top)
         $("#selector-" + this.id).attr("xlink:href", "#" + cantonId);
         this.$container.find(".chmap__location").removeClass("chmap__location--shadow");
