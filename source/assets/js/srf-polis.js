@@ -27,16 +27,16 @@ let css = {
     mapPolygons: '.chmap--no-touch g',
     // main bar
     mainBar: '.polis-result-container--main',
-    totalAbsoluteYesResult: '.polis-result-total--absoluteYes',
-    totalAbsoluteNoResult: '.polis-result-total--absoluteNo',
-    totalRelativeYesBar: '.polis-result-total--yesBar',
-    totalRelativeNoBar: '.polis-result-total--noBar',
-    totalRelativeYesResult: '.polis-result-total-relativeYes',
-    totalRelativeNoResult: '.polis-result-total-relativeNo',
-    cantonalMajorityYesBar: '.polis-result-cantonalmajority--yesBar',
-    cantonalMajorityNoBar: '.polis-result-cantonalmajority--noBar',
-    cantonalMajorityYesResult: '.polis-result-cantonalmajority-yesResult',
-    cantonalMajorityNoResult: '.polis-result-cantonalmajority-noResult',
+    totalAbsoluteYesResult: '.js-polis-result-total--absoluteYes',
+    totalAbsoluteNoResult: '.js-polis-result-total--absoluteNo',
+    totalRelativeYesBar: '.js-polis-result-total--yesBar',
+    totalRelativeNoBar: '.js-polis-result-total--noBar',
+    totalRelativeYesResult: '.js-polis-result-total-relativeYes',
+    totalRelativeNoResult: '.js-polis-result-total-relativeNo',
+    cantonalMajorityYesBar: '.js-polis-result-cantonalmajority--yesBar',
+    cantonalMajorityNoBar: '.js-polis-result-cantonalmajority--noBar',
+    cantonalMajorityYesResult: '.js-polis-result-cantonalmajority-yesResult',
+    cantonalMajorityNoResult: '.js-polis-result-cantonalmajority-noResult',
     participation: '.polis-map__participation',
     statusLine: '.polis-result-total--statusline',
     // canton detail view
@@ -367,14 +367,14 @@ function MainBar(map) {
         if (nationalResults.num_cantons < 26) {
             $statusLine.html(`
                 <span class="polis-result-title__type">${nationalResults.state}</span> 
-                vom <time class="polis-result-title__time">${lastMod.getDate()}.${lastMod.getMonth() + 1}.${lastMod.getFullYear()}</time> 
+                vom <time class="polis-result-title__time" datetime="${lastMod.getFullYear()}-${lastMod.getMonth() + 1}${lastMod.getDate()}">${lastMod.getDate()}.${lastMod.getMonth() + 1}.${lastMod.getFullYear()}</time> 
                 um <time class="polis-result-title__time">${lastMod.getHours()}:${lastMod.getMinutes()}</time> Uhr (${nationalResults.num_cantons} von 26 Kantonen)
             `);
         } else {
             lastMod = new Date(this.map.caseDate);
             $statusLine.html(`
                 <span class="polis-result-title__type">${nationalResults.state}</span>  
-                vom <time class="polis-result-title__time">${lastMod.getDate()}.${lastMod.getMonth() + 1}.${lastMod.getFullYear()}</time> 
+                vom <time class="polis-result-title__time" datetime="${lastMod.getFullYear()}-${lastMod.getMonth() + 1}-${lastMod.getDate()}">${lastMod.getDate()}.${lastMod.getMonth() + 1}.${lastMod.getFullYear()}</time> 
             `);
         }
     };
