@@ -140,9 +140,10 @@ function PolisMap(cssId, $container, $map, voteId, apiUrl, hasCantonalMajority) 
         }
         let canton = this.getCantonById(cantonId);
         let html = this.getToolTipContent(canton.name, canton.yes, canton.no);
-
-        if (!this.$tooltip) {
+        if ($(css.tooltip).length === 0) {
             $('body').append('<div id="polis-tooltip" class="chmap-tooltip">' + html + '</div>');
+        } // there's only one tooltip per page
+        if (this.$tooltip === null) {
             this.$tooltip = $(css.tooltip);
         }
         this.$tooltip.html(html);
