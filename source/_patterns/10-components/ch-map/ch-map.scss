@@ -12,6 +12,9 @@
 }
 .chmap--no-touch {
   -webkit-tap-highlight-color: rgba(0,0,0,0);
+  &:active, &:focus {
+    outline: none;
+  }
 }
 .chmap-wrapper {
   position: relative;
@@ -26,6 +29,7 @@
   stroke-width: 0.5px;
   cursor: pointer;
 }
+
 .chmap__location--shadow {
   stroke: rgb(34, 34, 34);
   filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=3, OffY=3, Color='#444')";
