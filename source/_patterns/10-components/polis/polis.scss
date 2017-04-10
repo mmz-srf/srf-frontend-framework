@@ -155,6 +155,7 @@ $color-polis-no-text: #af001d; // oben: af001d oder unten: #9d0017 ???
 
 .polis-result__bar--no {
   background-color: $color-polis-no;
+  border-left: 1px solid #b9b7ac;
 }
 
 .polis-result--default {
