@@ -58,6 +58,7 @@ var chmapController = function() {
 
             // if not there yet: create it
             if ($tooltip.length === 0) {
+                alert(123)
                 // TODO: check what happens if there are two maps!
                 $("#map-" + mapId).append('<div id="chmap-tooltip" class="chmap-tooltip"></div>');
                 $tooltip = $("#chmap-tooltip"); // :(

@@ -363,8 +363,7 @@ $color-polis-no-text: #af001d; // oben: af001d oder unten: #9d0017 ???
 
 // recycling chmap tooltip ...
 .chmap-tooltip__title {
-  margin: 4px 0 -4px;
-  // white-space: normal; // ??
+  margin: 0 0 -4px; // it's really inside polis-map :/
 }
 
 .chmap-tooltip-text {
