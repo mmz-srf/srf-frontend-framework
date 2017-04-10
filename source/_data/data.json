@@ -603,6 +603,13 @@
     "method": "get",
     "legend": "Irgend ein Titel",
     "hint": "* Pflichtfelder",
-    "button": "Datei Upload"
+    "accessibilityInfo": "Pflichtfeld",
+    "button": [
+      {
+        "upload": "Datei Upload",
+        "errorInfo": "Datei Upload",
+        "successInfo": "Datei Upload"
+      }
+    ]
   }
 }

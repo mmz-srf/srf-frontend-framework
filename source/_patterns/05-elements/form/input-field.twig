@@ -1,5 +1,9 @@
 {% set hintAvailable = hintText is defined and hintText is not empty %}
-<label for="{{ fieldID|default('input-field-ID') }}" class="input-field {{ styleModifier }}">{{ labelText|default("Vorname") }}{% if required %} *{% endif %}
-    <input type="{{ fieldType|default("text") }}" id="{{ fieldID|default('input-field-ID') }}" class="input-field__text {{ styleModifier }}"{% if hintAvailabel %} aria-labelledby="{{ fieldID|default('input-field-ID') }}-hint" {% endif %}name="input-field"{% if styleModifier == 'input-field--inactive' %} disabled="true"{% endif %}{% if required %} required{% endif %}>
-</label>
-{% if hintAvailable %}<span class="input-field-hint {{ styleModifier }}" id="{{ fieldID }}-hint">{{ hintText|default("Hint") }}</span>{% endif %}
+<label for="{{ fieldID|default('input-field-ID') }}"
+       class="input-field {{ styleModifier }}">{{ labelText|default("Vorname") }}{% if required %} * <span
+            class="h-offscreen">{{ form.accessibilityInfo }}</span>{% endif %}</label>
+<input type="{{ fieldType|default("text") }}" id="{{ fieldID|default('input-field-ID') }}"
+       class="input-field__text {{ styleModifier }}"{% if hintAvailable %} aria-labelledby="{{ fieldID|default('input-field-ID') }}-hint"
+        {% endif %}
+       name="input-field"{% if styleModifier == 'input-field--inactive' %} disabled="true"{% endif %}{% if required %} required{% endif %}>
+<span class="input-field-hint {{ styleModifier }}" id="{{ fieldID }}-hint">{{ hintText|default("") }}</span>

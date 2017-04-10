@@ -2,9 +2,23 @@
   position: absolute;
   opacity: 0;
   // custom radio buttons (decorating the label)
-  &:checked {
+  &:focus, &:active, &:checked {
     + .radio-button-label {
       background-color: $color-bg-box-hover;
+      &:after {
+        background-color: $color-bg-box-hover;
+      }
+    }
+  }
+  &:checked {
+    &:focus, &:hover {
+      + .radio-button-label {
+        background-color: #cac8bf;
+      }
+    }
+  }
+  &:checked, &:focus:checked {
+    + .radio-button-label {
       &:after {
         border: solid 1px $color-accentuation-red;
         background-color: transparent;
@@ -15,7 +29,6 @@
 
 .radio-button-label {
   @include button-label;
-  padding: 14px 16px 14px 51px;
 
   // custom radios
   &:before, &:after {
