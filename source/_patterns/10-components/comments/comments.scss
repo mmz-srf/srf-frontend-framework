@@ -12,6 +12,7 @@
 
 .article-comments { // section
   background-color: $color-bg-caption;
+  box-shadow: 0 4px 4px -5px #003 inset; // fake!
   padding: 24px 32px;
   position: relative;
   @include smartphone {

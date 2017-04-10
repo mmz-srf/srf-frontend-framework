@@ -1,6 +1,11 @@
 export function init() {
 
-    $(".input-field--success, .input-field--on-error").on("focusin", function () {
-        $(this).addClass("input-field--no-icon");
+    $(".radio-button, .checkbox").on("keypress", function (e) {
+        // enable checking radios by tabbing in + <enter>
+        if (e.keyCode === 13) {
+            var isChecked = $(this).prop('checked') ? false : true;
+            $(this).prop('checked', isChecked);
+            return false;
+        }
     });
 }

@@ -67,7 +67,6 @@ var commentController = function () {
             $(".js-comment_user_nickname").val("dekurtischfurt"); // <-- TODO
             $(".js-comment_user_city").val("dadaenk"); // <-- TODO
 
-            console.log($(".js-comment_place").serializeArray());
             return false;
         });
     };
