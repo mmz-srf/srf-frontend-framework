@@ -42,7 +42,10 @@ $color-polis-no-text: #af001d; // oben: af001d oder unten: #9d0017 ???
   font: 14px/20px $font-light;
   letter-spacing: .5px;
   color: #4e4d47;
-  margin: 12px 0;
+  margin: 4px 0 12px;
+  @include tablet-up {
+    margin: 12px 0 16px;
+  }
 }
 
 .polis-map {
@@ -87,6 +90,13 @@ $color-polis-no-text: #af001d; // oben: af001d oder unten: #9d0017 ???
   font: 12px/16px $font-system;
   margin: 8px 0 4px;
   @include tablet-up {
+    // margin-top: 16px;
+  }
+}
+
+.polis-result-title--main {
+  margin: 12px 0 0;
+  @include tablet-up {
     margin-top: 16px;
   }
 }
@@ -113,7 +123,7 @@ $color-polis-no-text: #af001d; // oben: af001d oder unten: #9d0017 ???
 .polis-result__title { // "internal"
   font: 12px/16px $font-medium;
   letter-spacing: .5px;
-  margin: 12px 0 4px;
+  margin: 8px 0 4px; // 12px 0 4px;
 }
 
 .polis-result__title--yes {
@@ -178,8 +188,11 @@ $color-polis-no-text: #af001d; // oben: af001d oder unten: #9d0017 ???
   background-color: #f5f5f2;
   margin-top: 2px;
   padding: 16px 16px 0;
-  .menu {
+  .menu { // select
     margin-bottom: 16px;
+    @include tablet-up {
+      margin-bottom: 16px;
+    }
   }
 }
 
@@ -190,9 +203,9 @@ $color-polis-no-text: #af001d; // oben: af001d oder unten: #9d0017 ???
 }
 
 .polis-result-title--canton {
-  margin: 0 0 4px;
+  margin: -2px 0 8px; // mobile
   @include tablet-up {
-    margin: 0 0 8px;
+    margin: 0 0 4px;
   }
 }
 
