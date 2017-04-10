@@ -158,7 +158,7 @@ function PolisMap(cssId, $container, $map, voteId, apiUrl, hasCantonalMajority) 
 
     this.onMapMouseMove = function (x, y) {
         // TO DO: expensive dom access in here.. move to init and recalc on resize event
-        let pageY = y - 90;
+        let pageY = y - this.$tooltip.outerHeight() - 20; // 90;
         let pageX = x;
 
         let cssClass = "left";

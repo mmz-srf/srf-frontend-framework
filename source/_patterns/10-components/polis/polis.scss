@@ -158,7 +158,7 @@ $color-polis-no-text: #af001d; // oben: af001d oder unten: #9d0017 ???
 }
 
 .polis-result--default {
-  background-color: #b9b7ac;
+  background-color: #6b6960;
 }
 
 .polis-result-relativ {
@@ -207,24 +207,20 @@ $color-polis-no-text: #af001d; // oben: af001d oder unten: #9d0017 ???
 }
 
 /// here comes the zebra / districts ///
-.polis-district-container { // ul
+.polis-district-container { // ul (table)
   padding: 0;
   margin: 0 -16px;
+  font: 12px/16px $font-system; // all
+  text-align: right;
+  display: table;
 }
 
-.polis-district {
+.polis-district { // li (table-row)
   &:before {
     content: none;
   }
   // overwrite
-  width: 100%;
-  font: 12px/16px $font-system; // all
-  padding: 12px 16px;
-  margin: 0;
-  text-align: right;
-  clear: both;
-  border-top: 2px solid #fff; // todo: change!
-  display: table;
+  display: table-row;
   background-color: #fafaf8;
   &:nth-child(even) {
     background-color: #f5f5f2;
@@ -237,6 +233,8 @@ $color-polis-no-text: #af001d; // oben: af001d oder unten: #9d0017 ???
   letter-spacing: 0;
   text-align: left;
   display: table-cell;
+  padding: 12px 16px;
+  border-top: 2px solid #fff;
 }
 
 .polis-district__votes {
@@ -244,12 +242,12 @@ $color-polis-no-text: #af001d; // oben: af001d oder unten: #9d0017 ???
   font-weight: 300;
   letter-spacing: .2px;
   display: table-cell;
-  vertical-align: middle;
   white-space: nowrap;
   width: 10%;
-  padding-left: 16px;
+  padding: 12px 16px 12px 0;
+  border-top: 2px solid #fff;
   @include tablet-up {
-    padding-left: 64px
+    padding-left: 48px
   }
 }
 
