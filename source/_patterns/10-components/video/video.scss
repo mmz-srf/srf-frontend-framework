@@ -90,3 +90,38 @@
     }
   }
 }
+
+.article-video--simple {
+    float: right;
+    width: 92px;
+    height: auto;
+    margin: 16px -8px 16px 16px;
+    right: auto; /* overwrite */
+    left:auto; /* overwrite */
+    
+    @include tablet-up {
+        width: 203px;
+        margin: 24px -8px 24px 24px;
+    }
+    
+    @include smartphone {
+        .media-caption,
+        .media-play__length {
+            display: none;
+        }
+    }
+    
+    .media-caption__title,
+    .media-caption__description {
+        display: none;
+    }
+    
+    .media-play {
+        width:40px
+    }
+    
+    .image-figure--simple {
+        margin-right:0; /* overwrite of the overwrite */
+    }
+    
+}
