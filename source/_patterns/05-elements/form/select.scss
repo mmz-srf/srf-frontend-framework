@@ -50,3 +50,17 @@
   color: $color-text-accentuation;
   margin: 20px 0 4px;
 }
+
+.menu--inactive {
+  opacity: .48;
+  transition: none;
+  &:hover, &:active {
+    background-color: #ebebe5;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.24),
+    0 0 2px 0 rgba(0, 0, 0, 0.12);
+  }
+}
+
+.polis--hide {
+  display: none;
+}

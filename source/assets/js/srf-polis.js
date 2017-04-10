@@ -16,17 +16,18 @@ let css = {
     // map
     polisMap: '.polis-map',
     polisWrapper: '.polis-container',
-    svgMap: '.chmap--desktop',
-    cantonSelect: '.polis-cantons-container .menu',
-    cantonSelectHiddenClass: 'polis-select-option--hide',
+    // svgMap: '.chmap--desktop',
+    cantonSelect: '.js-polis-menu', // '.polis-cantons-container .menu',
+    hiddenClass: 'polis--hide',
     tooltip: '#polis-tooltip',
     tooltipTextYes: 'chmap-tooltip-text--yes',
     tooltipTextNo: 'chmap-tooltip-text--no',
-    tooltipText: '.chmap-tooltip-text',
-    tooltipTitle: '.chmap-tooltip__title',
+    // tooltipText: '.chmap-tooltip-text',
+    // tooltipTitle: '.chmap-tooltip__title',
     mapPolygons: '.chmap--no-touch g',
     // main bar
-    mainBar: '.polis-result-container--main',
+    mainBarContainer: '.polis-result-container--main',
+    // mainBar: '.polis-result__bar--main',
     totalAbsoluteYesResult: '.js-polis-result-total--absoluteYes',
     totalAbsoluteNoResult: '.js-polis-result-total--absoluteNo',
     totalRelativeYesBar: '.js-polis-result-total--yesBar',
@@ -37,13 +38,15 @@ let css = {
     cantonalMajorityNoBar: '.js-polis-result-cantonalmajority--noBar',
     cantonalMajorityYesResult: '.js-polis-result-cantonalmajority-yesResult',
     cantonalMajorityNoResult: '.js-polis-result-cantonalmajority-noResult',
-    participation: '.polis-map__participation',
-    statusLine: '.polis-result-total--statusline',
+    defaultColor: 'polis-result--default',
+    // participation: '.polis-map__participation',
+    participation: 'js-polis-participation',
+    statusLine: '.js-polis-result-total--statusline',
     // canton detail view
     cantonContainer: '.polis-cantons-container',
     cantonTitle: '.polis-result-title--canton-name',
-    cantonTitleTime: 'polis-result-title--canton-time',
-    districtsContainer: '.polis-districts-container',
+    cantonTitleTime: '.polis-result-title--canton-time',
+    districtsWrapper: '.polis-districts-wrapper',
     districtContainer: '.polis-district-container',  // not the best naming, districtContainer is part of districtsContainer
     cantonalMainResult: '.polis-result-container--canton'
 };
@@ -104,7 +107,7 @@ function PolisMap(cssId, $container, $map, voteId, apiUrl, hasCantonalMajority) 
         let that = this;
         let $polygons = that.$container.find(css.mapPolygons);
 
-        $polygons.on('click', function (event) {
+        $polygons.on('focus click', function (event) {
             event.preventDefault();
             that.onMapClick($(this));
         }).on('mousemove', function (event) {
@@ -128,7 +131,7 @@ function PolisMap(cssId, $container, $map, voteId, apiUrl, hasCantonalMajority) 
     this.onMapMouseEnter = function ($target) {
         let cantonId = '';
         if ($target.is('.initial') && this.$tooltip) {
-            this.$tooltip.hide();
+            this.$tooltip.addClass("polis--hide");
             return;
         } else if ($target.is("use")) {
             cantonId = $target.attr("xlink:href").substr(1);
@@ -139,17 +142,17 @@ function PolisMap(cssId, $container, $map, voteId, apiUrl, hasCantonalMajority) 
         let html = this.getToolTipContent(canton.name, canton.yes, canton.no);
 
         if (!this.$tooltip) {
-            $('body').append('<div style="display:none;" id="polis-tooltip" class="chmap-tooltip">' + html + '</div>');
+            $('body').append('<div id="polis-tooltip" class="chmap-tooltip">' + html + '</div>');
             this.$tooltip = $(css.tooltip);
         }
         this.$tooltip.html(html);
         if (canton.yes && canton.no) {
-            this.$tooltip.show();
+            this.$tooltip.removeClass("polis--hide");
         }
     };
 
     this.onMapMouseLeave = function ($target) {
-        // $target.attr('class', $target.attr('class').replace(' hover', ''));
+        this.$tooltip.addClass("polis--hide");
     };
 
     this.onMapMouseMove = function (x, y) {
@@ -223,7 +226,7 @@ function PolisMap(cssId, $container, $map, voteId, apiUrl, hasCantonalMajority) 
                 if (that.isInitialRender) {
                     that.loadResults();
                     that.isInitialRender = false;
-                    that.$mainBar = that.$container.find(css.mainBar);
+                    that.$mainBar = that.$container.find(css.mainBarContainer);
                     that.mainBar = new MainBar(that);
                     that.mainBar.update();
                     that.renderCantonSelect();
@@ -299,24 +302,35 @@ function PolisMap(cssId, $container, $map, voteId, apiUrl, hasCantonalMajority) 
 
     this.renderCantonSelect = function () {
         let $select = this.$container.find(css.cantonSelect);
-        $select.find("option").addClass(css.cantonSelectHiddenClass);
+        let i = 0;
+        $select.find("option").addClass(css.hiddenClass);
+        $select.find("option[value=\"\"]").removeClass(css.hiddenClass);
         for (let cantonId in this.cantons) {
             if (this.cantons[cantonId].hasResults()) {
-                $select.find("option[value=" + cantonId + "]").removeClass(css.cantonSelectHiddenClass);
+                $select.find("option[value=" + cantonId + "]").removeClass(css.hiddenClass);
+                i++;
             }
+        }
+        if (i === 0) { // inactive menu if there's no option to select
+            $select.attr("disabled", true);
+        } else {
+            $select.attr("disabled", false).removeClass("menu--inactive");
         }
     };
 }
-
 
 function MainBar(map) {
     this.map = map;
 
     this.update = function () {
+        this.map.$mainBar.find(".polis-result__bar--main").removeClass(css.defaultColor);
         if (this.map.result.results && this.map.result.results.nationalResults) {
             let nationalResults = new ResultSet(this.map.result.results.nationalResults, map) || {};
             let cantonalResults = new ResultSet(this.map.result.cantonalResult, map) || {};
             this.render(nationalResults, cantonalResults, this.calcLastUpdated(this.map.result));
+        }
+        else {
+            this.map.$mainBar.find(".polis-result__bar--main").addClass(css.defaultColor);
         }
     };
 
@@ -339,8 +353,6 @@ function MainBar(map) {
     };
 
     this.renderMainBar = function (nationalResults) {
-        let $content = this.map.$mainBar.closest('.content');
-
         //absolute
         this.map.$mainBar.find(css.totalAbsoluteYesResult).text(nationalResults.absolute.yes.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "'"));
         this.map.$mainBar.find(css.totalAbsoluteNoResult).text(nationalResults.absolute.no.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "'"));
@@ -353,10 +365,9 @@ function MainBar(map) {
 
         // stimmbeteiligung text
         if (nationalResults.relative.participation) {
+            let $content = this.map.$mainBar.closest(css.polisWrapper);
             // content.find('.polis-participation').text(SRF.i18n.tr('Stimmbeteiligung', 'frontend/votes')+': '+resultSet.relative.participation+'%');
-            $content.find(css.participation).text('Stimmbeteiligung' + ': ' + nationalResults.relative.participation + '%');
-        } else {
-            $content.find(css.participation).text('');
+            $content.find(css.participation).text(nationalResults.relative.participation);
         }
     };
 
@@ -365,14 +376,14 @@ function MainBar(map) {
         if (nationalResults.num_cantons < 26) {
             $statusLine.html(`
                 <span class="polis-result-title__type">${nationalResults.state}</span> 
-                vom <time class="polis-result-title__time" datetime="${lastMod.getFullYear()}-${lastMod.getMonth() + 1}${lastMod.getDate()}">${lastMod.getDate()}.${lastMod.getMonth() + 1}.${lastMod.getFullYear()}</time> 
+                vom <time class="polis-result-title__time">${lastMod.getDate()}.${lastMod.getMonth() + 1}.${lastMod.getFullYear()}</time> 
                 um <time class="polis-result-title__time">${lastMod.getHours()}:${lastMod.getMinutes()}</time> Uhr (${nationalResults.num_cantons} von 26 Kantonen)
             `);
         } else {
             lastMod = new Date(this.map.caseDate);
             $statusLine.html(`
                 <span class="polis-result-title__type">${nationalResults.state}</span>  
-                vom <time class="polis-result-title__time" datetime="${lastMod.getFullYear()}-${lastMod.getMonth() + 1}-${lastMod.getDate()}">${lastMod.getDate()}.${lastMod.getMonth() + 1}.${lastMod.getFullYear()}</time> 
+                vom <time class="polis-result-title__time">${lastMod.getDate()}.${lastMod.getMonth() + 1}.${lastMod.getFullYear()}</time> 
             `);
         }
     };
@@ -412,11 +423,12 @@ function Canton(parent, id, $container) {
 
     this.renderResults = function () {
         // hidden on page load only
-        this.$container.find(css.districtsContainer).show();
+        this.$container.find(css.districtsWrapper).show();
 
         let lastUpdate = new Date(this.results.last_update);
         let min = lastUpdate.getMinutes();
         let hours = lastUpdate.getHours() - 1;
+        console.log(this.results.last_update, this.$container.find(css.cantonTitleTime))
 
         this.$container.find(css.cantonTitle).text(this.name);
         this.$container.find(css.cantonTitleTime).html(hours + ':' + ((min > 9) ? min : "0" + min));
@@ -437,14 +449,14 @@ function Canton(parent, id, $container) {
         $results.find(css.totalRelativeYesResult).html(parseFloat(this.results.relative.yes).toFixed(1));
         $results.find(css.totalRelativeNoResult).html(parseFloat(this.results.relative.no).toFixed(1));
 
-        $results.find('.yes.absolute strong:not(.static)').text(parseFloat(this.results.relative.yes).toFixed(1) + "%");
-        $results.find('.no.absolute strong:not(.static)').text(parseFloat(this.results.relative.no).toFixed(1) + "%");
+        // $results.find('.yes.absolute strong:not(.static)').text(parseFloat(this.results.relative.yes).toFixed(1) + "%");
+        // $results.find('.no.absolute strong:not(.static)').text(parseFloat(this.results.relative.no).toFixed(1) + "%");
     };
 
     this.getDistrictContent = function (name = "", yes = 0, no = 0) {
         let yesClass = yes > no ? 'polis-district--yes' : '';
         let noClass = no > yes ? 'polis-district--no' : '';
-        return ` 
+        return `
             <li class="polis-district">
                 <span class="polis-district__name">${name}</span>
                 <span class="polis-district__votes ${yesClass}">${yes.toFixed(1)}% JA</span>
@@ -457,8 +469,7 @@ function Canton(parent, id, $container) {
         for (let district in this.districtResults) {
             html += this.getDistrictContent(district, this.districtResults[district].relative.yes, this.districtResults[district].relative.no);
         }
-        $districtContainer.html('');
-        $districtContainer.html(html);
+        $districtContainer.html('').html(html);
     };
 
     this.setYes = function (yes) {

@@ -91,7 +91,7 @@ $color-polis-no-text: #af001d; // oben: af001d oder unten: #9d0017 ???
   }
 }
 
-.polis-result-title__time {
+.polis-result-title__time, .polis-result-title--canton-time {
   color: #888579;
 }
 
@@ -106,9 +106,6 @@ $color-polis-no-text: #af001d; // oben: af001d oder unten: #9d0017 ???
   // overwrite
 }
 
-.polis-result--default {
-  background-color: #b9b7ac;
-}
 .polis-result--no {
   text-align: right;
 }
@@ -157,6 +154,10 @@ $color-polis-no-text: #af001d; // oben: af001d oder unten: #9d0017 ???
   background-color: $color-polis-no;
 }
 
+.polis-result--default {
+  background-color: #b9b7ac;
+}
+
 .polis-result-relativ {
   position: absolute;
   left: 0;
@@ -169,7 +170,7 @@ $color-polis-no-text: #af001d; // oben: af001d oder unten: #9d0017 ???
 }
 
 .polis-result-relativ__number {
-  font-weight: 700;
+  font-weight: 700; // there's no bold font yet :)
 }
 /// end result container ////
 
@@ -193,6 +194,10 @@ $color-polis-no-text: #af001d; // oben: af001d oder unten: #9d0017 ???
   @include tablet-up {
     margin: 0 0 8px;
   }
+}
+
+.polis-result-title--canton-time {
+  color: #888579;
 }
 
 /// here comes the zebra / districts ///

@@ -1,4 +1,4 @@
-<div class="polis-districts-container" style="display:none">
+<div class="polis-districts-wrapper" style="display:none" id="infowindow-{{ vote.id }}">
     {# Kantone werden nur angezeigt, wenn Endresultat da #}
     <p class="polis-result-title polis-result-title--canton">{{ polis.final_result }}
         <span class="polis-result-title--canton-name"></span>
@@ -23,7 +23,7 @@
                             class="polis-result-relativ__number js-polis-result-total-relativeNo"></span>%</p>
             </div>
             <p class="polis-result__text">
-                <span class="polis-result-total--absoluteNo"></span> {{ polis.votes }}
+                <span class="js-polis-result-total--absoluteNo"></span> {{ polis.votes }}
             </p>
         </li>
     </ul>
