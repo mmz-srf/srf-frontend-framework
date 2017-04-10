@@ -12,8 +12,7 @@
             {# following - we assume the user is logged in #}
             <p class="comments-header__text comments--shrink">
                 {{ comments.greetings|default("Sie sind angemeldet als") }}&nbsp;
-                <a href="" class="">Who ? (whoareyou)</a> (<a href=""
-                                                              class="">{{ comments.logout|default("abmelden") }}</a>)
+                <a href="" class="">Who ? (whoareyou)</a> (<a href="#">{{ comments.logout|default("abmelden") }}</a>)
             </p>
             {# "button " #}
             <a class="comments-header__button comments--shrink"
