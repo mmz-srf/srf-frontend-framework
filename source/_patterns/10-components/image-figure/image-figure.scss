@@ -20,8 +20,12 @@
     left:auto; /* overwrite */
     
     @include tablet-up {
-        width: 203px;
+        width: 228px;
         margin: 24px -8px 24px 24px;
+    }
+    
+    .media-caption {
+        padding:8px 16px;
     }
     
     @include smartphone {

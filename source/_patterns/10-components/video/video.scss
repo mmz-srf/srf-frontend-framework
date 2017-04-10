@@ -100,8 +100,16 @@
     left:auto; /* overwrite */
     
     @include tablet-up {
-        width: 203px;
+        width: 228px;
         margin: 24px -8px 24px 24px;
+    }
+    
+    .media-caption {
+        padding:8px 16px;
+    }
+    
+    .media-caption__source--video {
+        margin: 0;
     }
     
     @include smartphone {
@@ -121,7 +129,23 @@
     }
     
     .image-figure--simple {
-        margin-right:0; /* overwrite of the overwrite */
+        height: 92px; /* overwrite of the overwrite */
+        margin-right: 0; /* overwrite of the overwrite */
+
+        .image-figure__image {
+            height: 92px;
+            object-fit: cover;
+        }
+        
+        @include tablet-up {
+            height: auto; /* overwrite of the overwrite */
+
+            .image-figure__image {
+                height: auto;
+            }
+
+        }
+
     }
     
 }
