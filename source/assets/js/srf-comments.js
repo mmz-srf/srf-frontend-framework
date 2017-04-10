@@ -25,10 +25,9 @@ var commentController = function () {
         });
 
         // main (top) comment
-        $(".comments-header__button").on("click", function (e) {
-            e.preventDefault();
+        $(document).on('login:checked', function(){
             // hide the button
-            $(this).addClass("comment--hide");
+            $(".comments-header__button").addClass("comment--hide");
             // move the form
             $(".js-comment_place").removeClass("comment--hide")
                 .appendTo(".comments-header__placeholder");
