@@ -1,6 +1,6 @@
 .button {
   width: 100%;
-  padding: 12px 40px;
+  padding: 13px 40px;
   text-transform: uppercase;
   font: 16px/20px $font-regular;
   letter-spacing: 1px;
@@ -28,7 +28,7 @@
   } &:hover, &:active {
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.24),
                     0 0 8px 0 rgba(0, 0, 0, 0.12);
-  }    
+  }
 }
 
 .button--on-error {
@@ -55,6 +55,17 @@
   }
   &:active, &:focus {
     background-color: $color-border;
+  }
+}
+
+.button--inactive {
+  opacity: .48;
+  &:hover, &:active, &:focus {
+    cursor: default;
+    background-color: $color-text-accentuation;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.24),
+    0 0 2px 0 rgba(0, 0, 0, 0.12);
+    transition: none;
   }
 }
 
