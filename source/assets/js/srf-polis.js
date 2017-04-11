@@ -130,30 +130,34 @@ function PolisMap(cssId, $container, $map, voteId, apiUrl, hasCantonalMajority) 
 
     this.onMapMouseEnter = function ($target) {
         let cantonId = '';
-        if ($target.is('.initial') && this.$tooltip) {
-            this.$tooltip.addClass("polis--hide");
+        if ($target.is('.polis-initial') && this.$tooltip) {
             return;
         } else if ($target.is("use")) {
-            cantonId = $target.attr("xlink:href").substr(1);
+            cantonId = this.extractCantonId($target.attr("xlink:href").substr(1));
         } else {
-            cantonId = $target.attr('id');
+            cantonId = this.extractCantonId($target.attr('id'));
         }
         let canton = this.getCantonById(cantonId);
         let html = this.getToolTipContent(canton.name, canton.yes, canton.no);
         if ($(css.tooltip).length === 0) {
-            $('body').append('<div id="polis-tooltip" class="chmap-tooltip">' + html + '</div>');
+            $('body').append('<div id="polis-tooltip" class="chmap-tooltip polis--hide">' + html + '</div>');
         } // there's only one tooltip per page
         if (this.$tooltip === null) {
             this.$tooltip = $(css.tooltip);
         }
         this.$tooltip.html(html);
         if (canton.yes && canton.no) {
-            this.$tooltip.removeClass("polis--hide");
+            this.$tooltip.removeClass(css.hiddenClass);
         }
     };
 
+    this.extractCantonId = function (cantonId) {
+        cantonId = cantonId.split("-")[0];
+        return cantonId;
+    };
+
     this.onMapMouseLeave = function ($target) {
-        this.$tooltip.addClass("polis--hide");
+        this.$tooltip.addClass(css.hiddenClass);
     };
 
     this.onMapMouseMove = function (x, y) {
@@ -173,10 +177,10 @@ function PolisMap(cssId, $container, $map, voteId, apiUrl, hasCantonalMajority) 
     };
 
     this.onMapClick = function ($clicked) {
-        if ($clicked.is('.initial')) {
+        if ($clicked.is('.polis-initial')) {
             return;
         }
-        let cantonId = $clicked.closest('g').attr('id');
+        let cantonId = this.extractCantonId($clicked.closest('g').attr('id'));
         let canton = this.getCantonById(cantonId);
         this.selectedCanton = cantonId;
         this.$container.find(css.cantonSelect).val(cantonId);
@@ -194,9 +198,9 @@ function PolisMap(cssId, $container, $map, voteId, apiUrl, hasCantonalMajority) 
 
     this.markSelectedCanton = function (cantonId) {
         // repaint chosen canton (on top)
-        $("#selector-" + this.id).attr("xlink:href", "#" + cantonId);
+        $("#selector-" + this.id).attr("xlink:href", "#" + cantonId + "-" + this.id);
         this.$container.find(".chmap__location").removeClass("chmap__location--shadow");
-        this.$container.find("#" + cantonId).addClass("chmap__location--shadow");
+        this.$container.find("#" + cantonId + "-" + this.id).addClass("chmap__location--shadow");
     };
 
     this.unmarkSelectdCanton = function (cantonId) {
@@ -366,9 +370,10 @@ function MainBar(map) {
 
         // stimmbeteiligung text
         if (nationalResults.relative.participation) {
-            let $content = this.map.$mainBar.closest(css.polisWrapper);
+            let $participation = this.map.$mainBar.closest(css.polisWrapper).find(css.participation);
             // content.find('.polis-participation').text(SRF.i18n.tr('Stimmbeteiligung', 'frontend/votes')+': '+resultSet.relative.participation+'%');
-            $content.find(css.participation).text(nationalResults.relative.participation);
+            $participation.text(nationalResults.relative.participation);
+            $participation.closest(css.hiddenClass).removeClass(css.hiddenClass);
         }
     };
 
@@ -399,9 +404,9 @@ function MainBar(map) {
     }
 }
 
-function Canton(parent, id, $container) {
+function Canton(parentId, id, $container) {
     this.id = id;
-    this.$element = $('#' + parent + ' #' + id);
+    this.$element = $('#' + parentId + ' #' + id + "-" + parentId);
     this.$container = $container;
     this.yes = undefined;
     this.no = undefined;
@@ -429,7 +434,6 @@ function Canton(parent, id, $container) {
         let lastUpdate = new Date(this.results.last_update);
         let min = lastUpdate.getMinutes();
         let hours = lastUpdate.getHours() - 1;
-        console.log(this.results.last_update, this.$container.find(css.cantonTitleTime))
 
         this.$container.find(css.cantonTitle).text(this.name);
         this.$container.find(css.cantonTitleTime).html(hours + ':' + ((min > 9) ? min : "0" + min));
@@ -480,7 +484,7 @@ function Canton(parent, id, $container) {
 
     this.setColor = function () {
         if (this.yes === undefined || this.yes === "") {
-            this.$element.attr('class', 'initial chmap__location');
+            this.$element.attr('class', 'polis-initial chmap__location');
         } else {
             this.$element.attr('class', this.decorator.getColorForPercent(this.yes) + ' chmap__location');
         }

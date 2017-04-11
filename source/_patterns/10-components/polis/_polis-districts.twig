@@ -2,7 +2,7 @@
     {# Kantone werden nur angezeigt, wenn Endresultat da #}
     <p class="polis-result-title polis-result-title--canton">{{ polis.final_result }}
         <span class="polis-result-title--canton-name"></span>
-        <span class="polis-result-title--canton-time"></span>
+        <span class="polis-result-title--canton-time"></span> {{ polis.o_clock }}
     </p>
     <ul {# id="result-canton-{{ vote.location.shortName }}" #}
             class="polis-result-container polis-result-container--canton polis-result-container--hide">

@@ -77,12 +77,11 @@
             {% block polis_map %}
                 {% include "elements-chmap.svg" with { 'idReference': voteId } %}
             {% endblock %}
-            {# {% if vote.results.nationalResults.relative.participation > 0 %} #}
-            <p class="polis-map__participation polis--hide">
+
+            <p class="polis-map__participation{% if vote.results.nationalResults.relative.participation == 0 %} polis--hide{% endif %}">
                 {{ polis.turnout }} <span
                         class="js-polis-participation">{{ vote.results.nationalResults.relative.participation }}</span>%
                 </p>
-            {# {% endif %} #}
 
             {% block polis_legend %}
                 {% include "_polis-legend.twig" %}

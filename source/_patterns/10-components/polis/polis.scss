@@ -151,10 +151,13 @@ $color-polis-no-text: #af001d; // oben: af001d oder unten: #9d0017 ???
 
 .polis-result__bar--yes {
   background-color: $color-polis-yes;
+  // border-right: 1px solid #b9b7ac;
+  // box-shadow: -1px 0 0 #b9b7ac inset;
 }
 
 .polis-result__bar--no {
   background-color: $color-polis-no;
+  // border-left: 1px solid #b9b7ac;
   border-left: 1px solid #b9b7ac;
 }
 
@@ -380,4 +383,8 @@ $color-polis-no-text: #af001d; // oben: af001d oder unten: #9d0017 ???
 
 .polis--hide {
   display: none;
+}
+
+.polis-initial {
+  cursor: default;
 }

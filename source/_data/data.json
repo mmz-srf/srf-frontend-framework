@@ -530,6 +530,7 @@
     "turnout": "Stimmbeteiligung",
     "canton": "Kanton",
     "at": "vom",
+    "o_clock": "Uhr",
     "legend_title": "JA-Anteil in %"
   }
 }
