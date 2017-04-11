@@ -1,8 +1,9 @@
 <div class="polis-districts-wrapper" style="display:none" id="infowindow-{{ vote.id }}">
     {# Kantone werden nur angezeigt, wenn Endresultat da #}
-    <p class="polis-result-title polis-result-title--canton">{{ polis.final_result }}
+    <p class="polis-result-title polis-result-title--canton">{{ polis.final_result }} {{ polis.canton }}
         <span class="polis-result-title--canton-name"></span>
-        <span class="polis-result-title--canton-time"></span> {{ polis.o_clock }}
+        <span class="polis-result-title--canton-time"></span> <span
+                class="polis-result-title--canton-o_clock">{{ polis.o_clock }}</span>
     </p>
     <ul {# id="result-canton-{{ vote.location.shortName }}" #}
             class="polis-result-container polis-result-container--canton polis-result-container--hide">
