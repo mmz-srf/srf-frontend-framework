@@ -38,6 +38,11 @@
     text-shadow: 0 0 0 $color-text-accentuation;
   }
 }
+
+select::-ms-expand {
+  display: none;
+  // ie11 also needs some padding-left
+}
 @-moz-document url-prefix() {
   .menu { text-indent: 8px; }
 }
