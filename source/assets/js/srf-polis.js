@@ -336,6 +336,7 @@ function MainBar(map) {
         }
         else {
             this.map.$mainBar.find(".polis-result__bar--main").addClass(css.defaultColor);
+            this.map.$container.find(css.statusLine).text("Noch keine Resultate");
         }
     };
 
