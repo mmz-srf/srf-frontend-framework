@@ -51,14 +51,13 @@ var chmapController = function() {
                 map = that.getMapById(mapId),
                 canton = null;
             if ($target.is("use")) {
-                canton = map.getCantonById($target.attr("xlink:href").substr(1));
+                canton = map.getCantonById(that.extractCantonId($target.attr("xlink:href").substr(1)));
             } else {
-                canton = map.getCantonById($target.parent().attr("id"));
+                canton = map.getCantonById(that.extractCantonId($target.parent().attr("id")));
             }
 
             // if not there yet: create it
             if ($tooltip.length === 0) {
-                alert(123)
                 // TODO: check what happens if there are two maps!
                 $("#map-" + mapId).append('<div id="chmap-tooltip" class="chmap-tooltip"></div>');
                 $tooltip = $("#chmap-tooltip"); // :(
@@ -86,7 +85,7 @@ var chmapController = function() {
             e.stopPropagation();
             var mapId = that.getCurrentMapId($(this))
                 , map = that.getMapById(mapId)
-                , cantonId = $(this).find(".chmap__location").attr("id");
+                , cantonId = that.extractCantonId($(this).find(".chmap__location").attr("id"));
             if (cantonId === '') {
                 map.resetSelectedCanton(mapId);
             } else {
@@ -96,7 +95,7 @@ var chmapController = function() {
 
         // it's near to impossible to tell whether a select menu is open :( - in order to swap the triangle
         $('.chmap-wrapper .menu').on('change', function () { // canton select navigation
-            var cantonId = $(this).val()
+            var cantonId = that.extractCantonId($(this).val())
                 , mapId = that.getCurrentMapId($(this))
                 , map = that.getMapById(mapId);
             if (cantonId === '') {
@@ -105,6 +104,11 @@ var chmapController = function() {
                 map.setSelectedCanton(cantonId);
             }
         });
+    };
+
+    this.extractCantonId = function (cantonId) {
+        cantonId = cantonId.split("-")[0];
+        return cantonId;
     };
 
     this.getCurrentMapId = function(element) {
@@ -153,9 +157,9 @@ var chmapController = function() {
                 , $map = $("#map-" + this.id);
 
             // repaint chosen canton (on top)
-            $("#selector-" + this.id).attr('xlink:href', "#" + cantonId);
+            $("#selector-" + this.id).attr('xlink:href', "#" + cantonId + "-" + this.id);
             $map.find(".chmap__location").removeClass("chmap__location--shadow");
-            $map.find("#" + cantonId).addClass("chmap__location--shadow");
+            $map.find("#" + cantonId + "-" + this.id).addClass("chmap__location--shadow");
             // select menu
             $map.find(".menu option[value='" + cantonId + "']").prop('selected', true);
 
@@ -190,7 +194,7 @@ var chmapController = function() {
                     canton.legend = this.legend;
                     canton.txt = this.description;
                     canton.img = this.image;
-                    $canton = $("#" + this.id);
+                    $canton = $("#" + this.id + "-" + that.id);
                     canton.name = $canton.find("title").text(); // for rumantsch as well
                     $canton.attr("fill", this.color);
                 }
