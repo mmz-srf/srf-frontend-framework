@@ -206,9 +206,9 @@ $color-polis-no-text: #af001d; // oben: af001d oder unten: #9d0017 ???
 }
 
 .polis-result-title--canton {
-  margin: -2px 0 8px; // mobile
+  margin: -2px 0 0; // mobile
   @include tablet-up {
-    margin: 0 0 4px;
+    margin: 0;
   }
 }
 
