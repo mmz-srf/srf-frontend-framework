@@ -1,7 +1,34 @@
 const REFRESH_INTERVAL = 30000;
 // in px; for non-touch features like clickable map, tooltips
 const DESKTOP_BREAKPOINT = 500;
-const CANTONS = ['AG', 'AR', 'AI', 'BL', 'BS', 'BE', 'FR', 'GE', 'GL', 'GR', 'JU', 'LU', 'NE', 'NW', 'OW', 'SH', 'SZ', 'SO', 'SG', 'TI', 'TG', 'UR', 'VD', 'VS', 'ZG', 'ZH'];
+const CANTONS = [
+    {'AG': "Aargau"},
+    {'AR': "Appenzell Ausserrhoden"},
+    {'AI': "Appenzell Innerrhoden"},
+    {'BL': "Basel-Landschaft"},
+    {'BS': "Basel-Stadt"},
+    {'BE': "Bern"},
+    {'FR': "Fribourg"},
+    {'GE': "Genf"},
+    {'GL': "Glarus"},
+    {'GR': "Graubünden"},
+    {'JU': "Jura"},
+    {'LU': "Luzern"},
+    {'NE': "Neuenburg"},
+    {'NW': "Nidwalden"},
+    {'OW': "Obwalden"},
+    {'SH': "Schaffhausen"},
+    {'SZ': "Schwyz"},
+    {'SO': "Solothurn"},
+    {'SG': "St. Gallen"},
+    {'TI': "Tessin"},
+    {'TG': "Thurgau"},
+    {'UR': "Uri"},
+    {'VD': "Waadt"},
+    {'VS': "Wallis"},
+    {'ZG': "Zug"},
+    {'ZH': "Zürich"}
+]
 
 export function init() {
     let $maps = $(css.polisWrapper);
@@ -16,18 +43,14 @@ let css = {
     // map
     polisMap: '.polis-map',
     polisWrapper: '.polis-container',
-    // svgMap: '.chmap--desktop',
-    cantonSelect: '.js-polis-menu', // '.polis-cantons-container .menu',
+    cantonSelect: '.js-polis-menu',
     hiddenClass: 'polis--hide',
     tooltip: '#polis-tooltip',
     tooltipTextYes: 'chmap-tooltip-text--yes',
     tooltipTextNo: 'chmap-tooltip-text--no',
-    // tooltipText: '.chmap-tooltip-text',
-    // tooltipTitle: '.chmap-tooltip__title',
     mapPolygons: '.chmap--no-touch g',
     // main bar
     mainBarContainer: '.polis-result-container--main',
-    // mainBar: '.polis-result__bar--main',
     totalAbsoluteYesResult: '.js-polis-result-total--absoluteYes',
     totalAbsoluteNoResult: '.js-polis-result-total--absoluteNo',
     totalRelativeYesBar: '.js-polis-result-total--yesBar',
@@ -39,7 +62,6 @@ let css = {
     cantonalMajorityYesResult: '.js-polis-result-cantonalmajority-yesResult',
     cantonalMajorityNoResult: '.js-polis-result-cantonalmajority-noResult',
     defaultColor: 'polis-result--default',
-    // participation: '.polis-map__participation',
     participation: 'js-polis-participation',
     statusLine: '.js-polis-result-total--statusline',
     // canton detail view
@@ -47,7 +69,7 @@ let css = {
     cantonTitle: '.polis-result-title--canton-name',
     cantonTitleTime: '.polis-result-title--canton-time',
     districtsWrapper: '.polis-districts-wrapper',
-    districtContainer: '.polis-district-container',  // not the best naming, districtContainer is part of districtsContainer
+    districtContainer: '.polis-district-container',
     cantonalMainResult: '.polis-result-container--canton'
 };
 
@@ -80,8 +102,9 @@ function PolisMap(cssId, $container, $map, voteId, apiUrl, hasCantonalMajority) 
     this.cantonIdMap = {};
     this.cantons = {};
     let $cantonContainer = this.$container.find(css.cantonContainer);
-    CANTONS.forEach((canton) => {
-        this.cantons[canton + ""] = new Canton(this.id, canton, $cantonContainer);
+    CANTONS.forEach(canton => {
+        let abbr = Object.keys(canton)[0];
+        this.cantons[abbr + ""] = new Canton(this.id, abbr, $cantonContainer);
     });
 
     this.getCantonById = function (cantonId) {
@@ -161,7 +184,6 @@ function PolisMap(cssId, $container, $map, voteId, apiUrl, hasCantonalMajority) 
     };
 
     this.onMapMouseMove = function (x, y) {
-        // TO DO: expensive dom access in here.. move to init and recalc on resize event
         let pageY = y - this.$tooltip.outerHeight() - 20; // 90;
         let pageX = x;
 
@@ -203,10 +225,6 @@ function PolisMap(cssId, $container, $map, voteId, apiUrl, hasCantonalMajority) 
         this.$container.find("#" + cantonId + "-" + this.id).addClass("chmap__location--shadow");
     };
 
-    this.unmarkSelectdCanton = function (cantonId) {
-        this.$container.find(".chmap__location").removeClass("chmap__location--shadow");
-    };
-
     this.getToolTipContent = function (name = "", yes = "", no = "") {
         let noClass = '';
         let yesClass = '';
@@ -226,7 +244,7 @@ function PolisMap(cssId, $container, $map, voteId, apiUrl, hasCantonalMajority) 
         $.getJSON(that.apiUrl, function (data) {
             if (data.votes && data.votes[that.voteId]) {
                 that.result = data.votes[that.voteId];
-                that.caseDate = data.voteCase.date; // TO DO:  moment(data.voteCase.date);
+                that.caseDate = data.voteCase.date;
 
                 if (that.isInitialRender) {
                     that.loadResults();
@@ -239,10 +257,6 @@ function PolisMap(cssId, $container, $map, voteId, apiUrl, hasCantonalMajority) 
                     that.updateResults();
                     that.mainBar.update();
                 }
-            }
-            else {
-                // TO DO: might clear interval..
-                //console.log(`API error: no data for voteId '${that.voteId}' via endpoint '${that.apiUrl}'`);
             }
         });
     };
@@ -305,17 +319,26 @@ function PolisMap(cssId, $container, $map, voteId, apiUrl, hasCantonalMajority) 
         }
     };
 
+    this.getCantonSelectOption = function (cantonId) {
+        let filtered = CANTONS.filter(function (a) {
+            return Object.keys(a)[0] == cantonId;
+        })
+        return `<option value="${Object.keys(filtered[0])[0] }">${Object.values(filtered[0])[0]}</option> `;
+    }
+
+    // no hiding of options via CSS because of Safari
     this.renderCantonSelect = function () {
         let $select = this.$container.find(css.cantonSelect);
+        let options = '';
         let i = 0;
-        $select.find("option").addClass(css.hiddenClass);
-        $select.find("option[value=\"\"]").removeClass(css.hiddenClass);
         for (let cantonId in this.cantons) {
             if (this.cantons[cantonId].hasResults()) {
-                $select.find("option[value=" + cantonId + "]").removeClass(css.hiddenClass);
+                options += this.getCantonSelectOption(cantonId);
                 i++;
             }
         }
+        options = `<option value="">Kanton wählen</option>${options}`;
+        $select.html(options);
         if (i === 0) { // inactive menu if there's no option to select
             $select.attr("disabled", true);
         } else {
@@ -352,7 +375,6 @@ function MainBar(map) {
     };
 
     this.render = function (nationalResults, cantonalResults, lastMod) {
-        // to do: LOADS of dom access here, that could be done once only...
         this.renderMainBar(nationalResults);
         this.renderStateLine(nationalResults, lastMod);
         this.renderCantonalMajority(cantonalResults);
@@ -455,8 +477,6 @@ function Canton(parentId, id, $container) {
         $results.find(css.totalRelativeYesResult).html(parseFloat(this.results.relative.yes).toFixed(1));
         $results.find(css.totalRelativeNoResult).html(parseFloat(this.results.relative.no).toFixed(1));
 
-        // $results.find('.yes.absolute strong:not(.static)').text(parseFloat(this.results.relative.yes).toFixed(1) + "%");
-        // $results.find('.no.absolute strong:not(.static)').text(parseFloat(this.results.relative.no).toFixed(1) + "%");
     };
 
     this.getDistrictContent = function (name = "", yes = 0, no = 0) {
@@ -502,7 +522,7 @@ function Canton(parentId, id, $container) {
 
 function ResultSet(result, map) {
 
-    this.last_update = result.update; // TO DO: moment(result.update);
+    this.last_update = result.update;
     this.relative = {
         yes: result.relative.yes,
         no: result.relative.no,
@@ -516,7 +536,6 @@ function ResultSet(result, map) {
     this.map = map;
 
     this.num_cantons = Object.keys(map.cantonIdMap).length;
-    // this.state = (this.num_cantons == 26) ? SRF.i18n.tr('Endresultat', 'frontend/votes') : SRF.i18n.tr('Zwischenresultat', 'frontend/votes');
     this.state = (this.num_cantons == 26) ? 'Endresultat' : 'Zwischenresultat';
 }
 
