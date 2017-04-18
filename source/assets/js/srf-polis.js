@@ -1,34 +1,9 @@
 const REFRESH_INTERVAL = 30000;
 // in px; for non-touch features like clickable map, tooltips
 const DESKTOP_BREAKPOINT = 500;
-const CANTONS = [
-    {'AG': "Aargau"},
-    {'AR': "Appenzell Ausserrhoden"},
-    {'AI': "Appenzell Innerrhoden"},
-    {'BL': "Basel-Landschaft"},
-    {'BS': "Basel-Stadt"},
-    {'BE': "Bern"},
-    {'FR': "Fribourg"},
-    {'GE': "Genf"},
-    {'GL': "Glarus"},
-    {'GR': "Graubünden"},
-    {'JU': "Jura"},
-    {'LU': "Luzern"},
-    {'NE': "Neuenburg"},
-    {'NW': "Nidwalden"},
-    {'OW': "Obwalden"},
-    {'SH': "Schaffhausen"},
-    {'SZ': "Schwyz"},
-    {'SO': "Solothurn"},
-    {'SG': "St. Gallen"},
-    {'TI': "Tessin"},
-    {'TG': "Thurgau"},
-    {'UR': "Uri"},
-    {'VD': "Waadt"},
-    {'VS': "Wallis"},
-    {'ZG': "Zug"},
-    {'ZH': "Zürich"}
-]
+
+const CANTON_NAMES = ["Aargau", "Appenzell Ausserrhoden", "Appenzell Innerrhoden", "Basel-Landschaft", "Basel-Stadt", "Bern", "Fribourg", "Genf", "Glarus", "Graubünden", "Jura", "Luzern", "Neuenburg", "Nidwalden", "Obwalden", "Schaffhausen", "Schwyz", "Solothurn", "St. Gallen", "Tessin", "Thurgau", "Uri", "Waadt", "Wallis", "Zug", "Zürich"];
+const CANTON_SHORT_NAMES = ["AG", "AR", "AI", "BL", "BS", "BE", "FR", "GE", "GL", "GR", "JU", "LU", "NE", "NW", "OW", "SH", "SZ", "SO", "SG", "TI", "TG", "UR", "VD", "VS", "ZG", "ZH"];
 
 export function init() {
     let $maps = $(css.polisWrapper);
@@ -102,11 +77,9 @@ function PolisMap(cssId, $container, $map, voteId, apiUrl, hasCantonalMajority) 
     this.cantonIdMap = {};
     this.cantons = {};
     let $cantonContainer = this.$container.find(css.cantonContainer);
-    CANTONS.forEach(canton => {
-        let abbr = Object.keys(canton)[0];
+    CANTON_SHORT_NAMES.forEach(abbr => {
         this.cantons[abbr + ""] = new Canton(this.id, abbr, $cantonContainer);
     });
-
     this.getCantonById = function (cantonId) {
         if (this.cantons.hasOwnProperty(cantonId)) {
             return this.cantons[cantonId];
@@ -320,10 +293,9 @@ function PolisMap(cssId, $container, $map, voteId, apiUrl, hasCantonalMajority) 
     };
 
     this.getCantonSelectOption = function (cantonId) {
-        let filtered = CANTONS.filter(function (a) {
-            return Object.keys(a)[0] == cantonId;
-        })
-        return `<option value="${Object.keys(filtered[0])[0] }">${Object.values(filtered[0])[0]}</option> `;
+        let index = CANTON_SHORT_NAMES.indexOf(cantonId);
+        let selected = this.selectedCanton === cantonId ? 'selected' : '';
+        return `<option value="${cantonId}" ${selected}>${CANTON_NAMES[index]}</option> `;
     }
 
     // no hiding of options via CSS because of Safari
@@ -342,7 +314,8 @@ function PolisMap(cssId, $container, $map, voteId, apiUrl, hasCantonalMajority) 
         if (i === 0) { // inactive menu if there's no option to select
             $select.attr("disabled", true);
         } else {
-            $select.attr("disabled", false).removeClass("menu--inactive");
+            $select.attr("disabled", false)
+            $select.removeClass("menu--inactive");
         }
     };
 }
