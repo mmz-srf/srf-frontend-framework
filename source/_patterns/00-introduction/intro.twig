@@ -20,7 +20,7 @@
 
         <p><strong>Please note:</strong> This page uses patterns of the SRF Frontend Framework but is no reference for its usage in general (there are also some specific styles only for this page in use).</p>
 
-        <h2>CSS/Sass Guidelines</h2>
+        <h2>CSS/Sass Development Guidelines</h2>
 
         <h3 class="demo-documentation__content-subtitle">General</h3>
         <ul class="text-list text-list--unordered">
@@ -73,7 +73,8 @@
         </div>
 
         <h3 class="demo-documentation__content-subtitle">Nesting selectors</h3>
-        <p><strong>Do not nest selectors more than three levels deep!</strong></p>
+        <p>Avoid the nesting of selectors in order to reduce <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity">specificity</a>; whenever possible, use class selectors.</p>
+        <p>But in any case: <strong>Do not nest selectors more than three levels deep!</strong></p>
         <div class="textbox textbox--article-indentation">
 <pre><code>.page-container {
   .content {
@@ -91,24 +92,25 @@
             <li>Not reusable</li>
         </ul>
 
-        <p>Please do not abbreviate and nest class names with the sass parent selector (<code>&</code>). Searching for css definitions gets very hard this way.</p>
+        <p>Please do not abbreviate and nest class names with the sass parent selector placeholder (<code>&</code>). Searching for CSS definitions gets very hard this way.</p>
         <p><strong>Bad</strong></p>
         <div class="textbox textbox--article-indentation">
-<pre ><code>
-.sharing-bar {
+<pre ><code>.sharing-bar {
   &__container { }
   &__button {
     &--facebook { }
+    &:hover { }
   }
 }
 </code></pre>
         </div>
         <p><strong>Good</strong></p>
         <div class="textbox textbox--article-indentation">
-<pre ><code>/* sharing-bar.css */
-.sharing-bar { }
+<pre ><code>.sharing-bar { }
 .sharing-bar__container { }
-.sharing-bar__button { }
+.sharing-bar__button {
+  &:hover { }
+}
 .sharing-bar__button--facebook { }
 </code></pre>
         </div>
