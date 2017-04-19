@@ -45,7 +45,7 @@ var commentController = function () {
             // hide the button
             $(".comments-header__button").removeClass("comment--hide");
             // move the form
-            $(".comments-header__placeholder").html("");
+            $(".js-comment_place").addClass("comment--hide")
         });
 
         $(document).on('login:checked', function(){
