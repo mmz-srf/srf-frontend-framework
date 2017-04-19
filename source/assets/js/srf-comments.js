@@ -47,20 +47,24 @@ var commentController = function () {
         // movable comment
         $(".comment__link--reply").on("click", function (e) {
             e.preventDefault();
-            // hide main comment again (if there was one)
-            $(".comments-header__button").removeClass("comment--hide");
+            if ($('.js-comment_user_token').val() == SRF.janrain.getToken()) {
+                // hide main comment again (if there was one)
+                $(".comments-header__button").removeClass("comment--hide");
 
-            var parent_id = $(this).parent("li").prop("id");
+                var parent_id = $(this).parent("li").prop("id");
 
-            // move the form
-            $(".js-comment_place").removeClass("comment--hide")
-                .appendTo("#" + parent_id.replace("comment", "placeholder"));
-            // set the focus
-            $(".reply__textarea").val("").focus();
+                // move the form
+                $(".js-comment_place").removeClass("comment--hide")
+                    .appendTo("#" + parent_id.replace("comment", "placeholder"));
+                // set the focus
+                $(".reply__textarea").val("").focus();
 
-            parent_id = parent_id.split("_")[1];
-            $(".js-comment_parent_id").val(parent_id);
+                parent_id = parent_id.split("_")[1];
+                $(".js-comment_parent_id").val(parent_id);
 
+            } else {
+                renderLoginModal();
+            }
             return false;
         });
     };
