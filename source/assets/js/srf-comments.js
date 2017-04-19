@@ -51,11 +51,13 @@ var commentController = function () {
             var origin = $('.login-pending').first();
             if (origin.length > 0) {
                 origin.removeClass('login-pending');
-                if (origin.hasClass('.comment__link--reply')){
+                if (origin.hasClass('comment__link--reply')){
+                    // hide main comment again (if there was one)
                     $(".comments-header__button").removeClass("comment--hide");
 
                     var parent_id = origin.parent("li").prop("id");
-                    //move the form
+
+                    // move the form
                     $(".js-comment_place").removeClass("comment--hide")
                         .appendTo("#" + parent_id.replace("comment", "placeholder"));
                     // set the focus
@@ -63,6 +65,7 @@ var commentController = function () {
 
                     parent_id = parent_id.split("_")[1];
                     $(".js-comment_parent_id").val(parent_id);
+
                 } else {
                     origin.addClass("comment--hide");
                     // move the form
