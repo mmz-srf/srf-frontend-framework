@@ -7,6 +7,7 @@
                     {{ comments.title_singular|default("Kommentar") }}
                 {% else %}
                     {{ comments.title_plural|default("Kommentare") }}
+                    {{ 'Hello Kommentare'|trans }}
                 {% endif %}
             </h3>
             {# following - we assume the user is logged in #}
@@ -15,8 +16,9 @@
                 <a href="" class="">Who ? (whoareyou)</a> (<a href="#">{{ comments.logout|default("abmelden") }}</a>)
             </p>
             {# "button " #}
-            <a class="comments-header__button comments--shrink"
-               href="#" role="link">{{ comments.let_us_know|default("Teilen Sie Ihre Meinung ...") }}
+            <a class="comments-header__button comments--shrink" href="#" role="link">
+                {{ comments.let_us_know|default("Teilen Sie Ihre Meinung ...") }}
+                {{ 'Gugus, ich bin ein text'|trans }}
                 <span class="h-offscreen">{{ comments.select_to_comment|default("anwählen um einen Kommentar zu schreiben") }}</span>
             </a>
             <span class="comments-header__placeholder"></span>
