@@ -52,6 +52,7 @@ var commentController = function () {
             if (origin.length > 0) {
                 origin.removeClass('login-pending');
                 if (origin.hasClass('comment__link--reply')){
+                    console.log("This is a reply");
                     // hide main comment again (if there was one)
                     $(".comments-header__button").removeClass("comment--hide");
 
@@ -67,6 +68,7 @@ var commentController = function () {
                     $(".js-comment_parent_id").val(parent_id);
 
                 } else {
+                    console.log("This is a main comment");
                     origin.addClass("comment--hide");
                     // move the form
                     $(".js-comment_place").removeClass("comment--hide")
