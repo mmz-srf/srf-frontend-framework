@@ -10,7 +10,7 @@
                 {% endif %}
             </h3>
             {# following - we assume the user is logged in #}
-            <p class="comments-header__text comments--shrink">
+            <p class="comments-header__text comments--shrink" style="display: none">
                 {{ comments.greetings|default("Sie sind angemeldet als") }}&nbsp;
                 <a href="" class="comments-header__logged-in-as">Who ? (whoareyou)</a> (<a href=""
                                                               class="comments-header__logout">{{ comments.logout|default("abmelden") }}</a>)
