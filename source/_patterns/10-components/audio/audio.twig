@@ -4,7 +4,7 @@
         class="article-audio__link media__js"
         data-mediatype="audio"
         data-assetid="{{ audio.assetId }}">
-        <figure class="article-audio">
+        <figure class="article-audio {{ styleModifier }}">
             <div class="article-audio__wrapper">
                 {% block audio_image %}
                     <img class="image-figure__image"
@@ -23,7 +23,7 @@
                 {% endblock %}
             </div>
             {% block audio_caption %}
-                <figcaption class="media-caption media-caption--audio">
+                <figcaption class="media-caption media-caption--audio {{ styleModifier }}">
                     {% if audio.title %}
                         <div class="media-caption__title media-caption__title--audio">{{ audio.title }}</div>
                     {% endif %}
