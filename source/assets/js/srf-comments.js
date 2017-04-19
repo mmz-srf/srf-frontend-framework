@@ -51,9 +51,9 @@ var commentController = function () {
             var origin = $('.login-pending').first();
             if (origin.length > 0) {
                 origin.removeClass('login-pending');
-                if (origin.hasClass('.comment__link--reply'){
+                if (origin.hasClass('.comment__link--reply')){
                     $(".comments-header__button").removeClass("comment--hide");
-                    
+
                     var parent_id = origin.parent("li").prop("id");
                     //move the form
                     $(".js-comment_place").removeClass("comment--hide")
@@ -71,6 +71,7 @@ var commentController = function () {
                     // set the focus
                     $(".reply__textarea").val("").focus();
                 }
+
             }
             return false;
         });
