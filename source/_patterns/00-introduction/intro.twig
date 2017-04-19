@@ -22,6 +22,15 @@
 
         <h2>CSS/Sass Guidelines</h2>
 
+        <h3 class="demo-documentation__content-subtitle">General</h3>
+        <ul class="text-list text-list--unordered">
+            <li>Maintainability should be the primary goal when writing CSS/Sass-Code for the framework</li>
+            <li>You are allowed to use flexbox  - so use it ;-)</li>
+            <li>Top and bottom spaces between elements/components should be ruled by
+                <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model/Mastering_margin_collapsing" target="_blank">collapsing margins</a>. The element with the larger margin wins.
+                Therefore only use margins not padding and add a wrapper <code>&lt;div&gt;</code> if necessary.</li>
+        </ul>
+
         <h3 class="demo-documentation__content-subtitle">Formatting</h3>
         <ul class="text-list text-list--unordered">
             <li>Use soft tabs (2 spaces) for indentation</li>
@@ -63,7 +72,7 @@
 </code></pre>
         </div>
 
-        <h3 class="demo-documentation__content-subtitle">Nested selectors</h3>
+        <h3 class="demo-documentation__content-subtitle">Nesting selectors</h3>
         <p><strong>Do not nest selectors more than three levels deep!</strong></p>
         <div class="textbox textbox--article-indentation">
 <pre><code>.page-container {
@@ -81,6 +90,28 @@
             <li>Overly specific (powerful) <em>—OR—</em></li>
             <li>Not reusable</li>
         </ul>
+
+        <p>Please do not abbreviate and nest class names with the sass parent selector (<code>&</code>). Searching for css definitions gets very hard this way.</p>
+        <p><strong>Bad</strong></p>
+        <div class="textbox textbox--article-indentation">
+<pre ><code>
+.sharing-bar {
+  &__container { }
+  &__button {
+    &--facebook { }
+  }
+}
+</code></pre>
+        </div>
+        <p><strong>Good</strong></p>
+        <div class="textbox textbox--article-indentation">
+<pre ><code>/* sharing-bar.css */
+.sharing-bar { }
+.sharing-bar__container { }
+.sharing-bar__button { }
+.sharing-bar__button--facebook { }
+</code></pre>
+        </div>
 
         <h3 class="demo-documentation__content-subtitle">Ordering of property declarations</h3>
         <ol>
