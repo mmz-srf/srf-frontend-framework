@@ -53,19 +53,29 @@
   display: none !important;
 }
 
+
+
 .demo-documentation pre {
   display: block;
-  padding: 0 1rem;
+  padding: 0 16px;
+  overflow: scroll;
 }
 
 .demo-documentation code {
-  font-size: 14px;
+  font-size: 16px;
   font-family: monospace;
   line-height: 1;
 }
 
-.demo-documentation h3,
-.demo-documentation h4 {
+.demo-documentation__content-subtitle,
+.demo-documentation__content-subtitle--small {
+  font-family: "SRG_SSR_Medium", sans-serif;
+  font-weight: normal;
   padding: 0 16px;
   margin: 32px 0 12px 0;
+}
+
+.demo-documentation__content-subtitle--small {
+  font-family: "SRG_SSR_Regular", sans-serif;
+  font-size: 20px;
 }
