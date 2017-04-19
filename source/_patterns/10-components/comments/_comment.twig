@@ -1,0 +1,39 @@
+{% set commentIds = [] %}
+{% for comment in comments %}
+    {% set commentIds = commentIds|merge([comment.id]) %}
+    <li id="comment_{{ comment.id }}" class="comment">
+        <cite class="comment__user {% if comment.isEditorialAnswer %} comment__user--srf{% endif %}" role="combobox">
+            <span class="h-offscreen">{{ default.comment_by|default("Kommentar von") }} </span>{{ comment.name }}
+            {% if comment.isEditorialAnswer %}<span
+                    class="h-offscreen">(SRF)</span>{% else %}({{ comment.nickname }}){% endif %}
+        </cite>
+        <span class="comment__time">{{ comment.dateFormatted }}</span>
+        <blockquote class="comment__content">{{ comment.message }}</blockquote>
+        <a class="comment__link">{{ default.link_social|default("Gefällt mir") }}
+            (?)</a>{# ... folgestory #}
+        {% if allowsComments %}
+            <a class="comment__link comment__link--reply" href="#"
+               role="link">{{ default.link_reply|default("Antworten") }}
+                <span class="h-offscreen">{{ default.select_to_reply|default("anwählen um auf den Kommentar zu antworten") }}</span>
+            </a>
+            <span class="comment__placeholder" id="placeholder_{{ comment.id }}"></span>
+        {% endif %}
+        {% if comment.children|length > 0 %}
+            <ol class="comments comments--replies">
+                {% for reply in comment.children %}
+                    {% set commentIds = commentIds|merge([reply.id]) %}
+                    <li id="comment_{{ reply.id }}" class="comment">
+                        <span class="h-offscreen">{{ default.reply_by|default("Antwort von") }} </span>
+                        <cite class="comment__user {% if reply.isEditorialAnswer %} comment__user--srf{% endif %}">
+                            {{ reply.name }}{% if not reply.isEditorialAnswer %} ({{ reply.nickname }}){% endif %}</cite>
+                        <span class="comment__time">{{ reply.dateFormatted }}</span>
+                        <blockquote class="comment__content">{{ reply.message }}</blockquote>
+                        <a class="comment__link" href="#">{{ default.link_social|default("Gefällt mir") }}
+                            (?)</a>{# ... folgestory #}
+                    </li>
+                {% endfor %}
+            </ol>
+        {% endif %}
+    </li>
+{% endfor %}
+<li style="display:none" data-ids="{{ commentIds|join(',') }}" class="comment_ids--js" aria-hidden="true"></li>

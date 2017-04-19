@@ -1,4 +1,4 @@
+{% set hintAvailable = hintFieldID is defined and hintFieldID is not empty %}
 <input type="checkbox" id="{{ fieldID|default('checkbox-ID') }}" class="checkbox"
-       name="checkbox" {% if styleModifier == 'checkbox--inactive' %} disabled="true"{% endif %}{% if required %} required{% endif %}>
-<label for="{{ fieldID|default('checkbox-ID') }}"
-       class="checkbox-label {{ styleModifier }}">{{ checkboxText|default("meine Wahl") }}</label>
+       name="checkbox"{% if hintAvailable %} aria-labelledby="{{ hintFieldID }}-hint"{% endif %}{% if styleModifier == 'checkbox--inactive' %} disabled="true"{% endif %}{% if required %} required{% endif %}>
+<label for="{{ fieldID|default('checkbox-ID') }}" class="checkbox-label {{ styleModifier }}">{{ checkboxText|default("meine Wahl") }}</label>

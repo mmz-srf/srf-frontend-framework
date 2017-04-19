@@ -1,0 +1,60 @@
+<section class="article-comments l-full-width-container">
+    <div class="comments-wrapper" data-total-count="{{ comments.total_count }}" {% block data_attributes %}{% endblock %}>
+        <div class="comments-header">
+            <h3 class="comments-header__title comments--shrink">
+                {% if comments.total_count > 0 %}{{ comments.total_count }} {% endif %}
+                {% if comments.total_count == 1 %}
+                    {{ comments.title_singular|default("Kommentar") }}
+                {% else %}
+                    {{ comments.title_plural|default("Kommentare") }}
+                {% endif %}
+            </h3>
+            {# following - we assume the user is logged in #}
+            <p class="comments-header__text comments--shrink">
+                {{ comments.greetings|default("Sie sind angemeldet als") }}&nbsp;
+                <a href="" class="">Who ? (whoareyou)</a> (<a href="#">{{ comments.logout|default("abmelden") }}</a>)
+            </p>
+            {# "button " #}
+            <a class="comments-header__button comments--shrink"
+               href="#" role="link">{{ comments.let_us_know|default("Teilen Sie Ihre Meinung ...") }}
+                <span class="h-offscreen">{{ comments.select_to_comment|default("anwählen um einen Kommentar zu schreiben") }}</span>
+            </a>
+            <span class="comments-header__placeholder"></span>
+            {% block comment_reply %}
+                {% include '_comment-reply.twig' with { 'comments' : { 'replies' : comments.replies }, 'isMovable' : false } %}
+            {% endblock %}
+            {# // until here (user "is" logged in) #}
+            <hr class="comments-header__border" aria-hidden="true">
+            {% if comments.total_count == 0 %}
+                <p class="comments-header__text comments--shrink">
+                    {{ comments.no_comment|default("Es wurden noch keine Kommentare erfasst. Seien Sie die erste Person, die diesen Artikel kommentiert.") }}
+                </p>
+            {% else %}
+                <ul class="tabs comments--shrink" role="tablist">
+                    <li class="tab-option" role="presentation">
+                        <a href="#sectionAll" class="tab-option__link tab-option__link--selected" tabindex="0" role="tab" aria-controls="sectionAll" aria-selected="true">{{ comments.link_all|default("Alle Kommentare") }}</a>
+                    </li>
+                    <li class="tab-option" role="presentation">
+                        <a href="#sectionHits" class="tab-option__link" tabindex="-1" role="tab" aria-controls="sectionHits">{{ comments.link_hits|default("Beliebteste") }}</a>
+                    </li>
+                </ul>
+            {% endif %}
+        </div>{# here ends the header #}
+        {% if comments.total_count > 0 %}
+            <div id="sectionAll" role="tabpanel">
+                <ul class="comments comments--shrink comments--main">
+                    {% block comments %}
+                        {% include 'components-comment' with { 'comments': comments.comments, 'default': comments.addons, 'replies': comments.replies, 'allowsComments': true } %}
+                    {% endblock %}
+                </ul>
+            </div>
+            <div id="sectionHits" role="tabpanel" aria-hidden="true"></div>
+            {% block more_button %}
+                {% include 'elements-load-more' with {'imgSrc': '../../assets/img/arrows/red_arrow_down.svg'} %}
+            {% endblock %}
+            {% block more_button_spinner %}
+                {% include 'elements-spinner' %}
+            {% endblock %}
+        {% endif %}
+    </div>
+</section>
