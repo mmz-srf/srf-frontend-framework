@@ -200,7 +200,7 @@
 
 $( document ).ready(function() {
     $('.js-demo-toc').initTOC({
-        selector: 'h1, h2, h3, h4, h5, h6',
+        selector: 'h2, h3, h4, h5, h6',
         scope: 'body',
         overwrite: true,
         prefix: 'toc'
