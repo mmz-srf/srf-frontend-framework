@@ -34,12 +34,6 @@ var commentController = function () {
             // set the focus
             $(".reply__textarea").val("").focus();
 
-            // this goes cms ... as soon ...
-            $(".js-comment_user_email").val("user@somewhere.ch"); // <-- TODO
-            $(".js-comment_user_name").val("Kurt Ischfurt"); // <-- TODO
-            $(".js-comment_user_nickname").val("dekurtischfurt"); // <-- TODO
-            $(".js-comment_user_city").val("dadaenk"); // <-- TODO
-
             return false;
         });
 
@@ -66,12 +60,6 @@ var commentController = function () {
 
             parent_id = parent_id.split("_")[1];
             $(".js-comment_parent_id").val(parent_id);
-
-            // this goes cms ... as soon ...
-            $(".js-comment_user_email").val("user@somewhere.ch"); // <-- TODO
-            $(".js-comment_user_name").val("Kurt Ischfurt"); // <-- TODO
-            $(".js-comment_user_nickname").val("dekurtischfurt"); // <-- TODO
-            $(".js-comment_user_city").val("dadaenk"); // <-- TODO
 
             return false;
         });

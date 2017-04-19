@@ -2,11 +2,13 @@
   background-color: $color-bg-caption;
   padding: 16px;
 }
+
 .form__label {
   font: 22px/28px $font-medium;
   letter-spacing: .3px;
   color: $color-text-default;
 }
+
 .form-fieldset {
   border: 0;
   padding: 0;
@@ -15,6 +17,7 @@
     margin-bottom: 0;
   }
 }
+
 .form-fieldset__legend {
   position: relative;
   display: block;
@@ -23,6 +26,7 @@
   color: $color-text-accentuation;
   padding: 20px 0 4px; // margin: 20px 0 4px;
 }
+
 .form-fieldset__hint {
   font: 16px/24px $font-light;
   color: $color-form-field-hint;

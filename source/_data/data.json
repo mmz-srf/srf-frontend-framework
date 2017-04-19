@@ -367,6 +367,7 @@
     }
   ],
   "chmap": {
+    "id": "ID",
     "title": "Anzahl Stellen in Interpharma-Unternehmen",
     "description": "Die Mitglieder des Verbands der forschenden pharmazeutischen Firmen der Schweiz (Interpharma) stammen nicht nur aus der Pharmaindustrie, sondern sind oftmals auch in pharmanahen Branchen tätig.",
     "source": "BAK Basel Economics",
@@ -623,5 +624,19 @@
         "successInfo": "Datei Upload"
       }
     ]
+  },
+  "polis": {
+    "yes": "JA",
+    "no": "NEIN",
+    "result": "Resultat",
+    "final_result": "Endresultat",
+    "no_results": "Keine Resultate vorhanden",
+    "votes": "Stimmen",
+    "Standesstimmen": "Standesstimmen",
+    "turnout": "Stimmbeteiligung",
+    "canton": "Kanton",
+    "at": "vom",
+    "o_clock": "Uhr",
+    "legend_title": "JA-Anteil in %"
   }
 }

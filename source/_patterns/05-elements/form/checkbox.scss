@@ -51,13 +51,14 @@
     border: solid 1px $color-text-light;
   }
   &.checkbox--inactive:hover {
-      background-color: $color-bg-box;
+    background-color: $color-bg-box;
   }
 }
 
 .checkbox--inactive {
   opacity: .48;
 }
+
 .checkbox--on-error {
   color: $color-accentuation-red;
   &:after {

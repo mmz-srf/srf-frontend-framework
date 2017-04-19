@@ -13,11 +13,8 @@
                 <span class="js-comment-count-up">500</span>&nbsp;{{ replies.letters|default("Zeichen") }}
             </span>
         </p>
-        {# <input type="hidden" name="node_id" class="js-comment_node_id" value="">{# node_id #}
         <input type="hidden" name="reply_to" class="js-comment_reply_to" value="0">{# replytocomment #}
-        <input type="hidden" name="user_email" class="js-comment_user_email" value="">{# email #}
-        <input type="hidden" name="user_name" class="js-comment_user_name" value="">{# email #}
-        <input type="hidden" name="user_nickname" class="js-comment_user_nickname" value="">{# email #}
+        <input type="hidden" name="user_token" class="js-comment_user_token" value="0">{# replytocomment #}
     </fieldset>
     {% include 'elements-button' with { 'styleModifier' : 'button--inactive', 'buttonText' : 'Kommentieren' } %}
 </form>
