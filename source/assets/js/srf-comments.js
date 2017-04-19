@@ -63,7 +63,7 @@ var commentController = function () {
                 $(".js-comment_parent_id").val(parent_id);
 
             } else {
-                renderLoginModal();
+                $(document).trigger('login:render');
             }
             return false;
         });
