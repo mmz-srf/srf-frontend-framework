@@ -25,15 +25,18 @@ var commentController = function () {
         });
 
         // main (top) comment
-        $(document).on('login:checked', function(){
-            // hide the button
-            $(".comments-header__button").addClass("comment--hide");
-            // move the form
-            $(".js-comment_place").removeClass("comment--hide")
-                .appendTo(".comments-header__placeholder");
-            // set the focus
-            $(".reply__textarea").val("").focus();
+        $(".comments-header__button").on("click", function (e) {
+            e.preventDefault();
+            $(document).trigger('login:check');
+            $(this).addClass('login-pending');
+            return false;
+        });
 
+        // movable comment
+        $(".comment__link--reply").on("click", function (e) {
+            e.preventDefault();
+            $(document).trigger('login:check');
+            $(this).addClass('login-pending');
             return false;
         });
 
@@ -44,29 +47,34 @@ var commentController = function () {
             $(".comments-header__placeholder").html("");
         });
 
-        // movable comment
-        $(".comment__link--reply").on("click", function (e) {
-            e.preventDefault();
-            if ($('.js-comment_user_token').val() == SRF.janrain.getToken()) {
-                // hide main comment again (if there was one)
-                $(".comments-header__button").removeClass("comment--hide");
+        $(document).on('login:checked', function(){
+            var origin = $('.login-pending').first();
+            if (origin.length > 0) {
+                origin.removeClass('login-pending');
+                if (origin.hasClass('.comment__link--reply'){
+                    $(".comments-header__button").removeClass("comment--hide");
+                    
+                    var parent_id = origin.parent("li").prop("id");
+                    //move the form
+                    $(".js-comment_place").removeClass("comment--hide")
+                        .appendTo("#" + parent_id.replace("comment", "placeholder"));
+                    // set the focus
+                    $(".reply__textarea").val("").focus();
 
-                var parent_id = $(this).parent("li").prop("id");
-
-                // move the form
-                $(".js-comment_place").removeClass("comment--hide")
-                    .appendTo("#" + parent_id.replace("comment", "placeholder"));
-                // set the focus
-                $(".reply__textarea").val("").focus();
-
-                parent_id = parent_id.split("_")[1];
-                $(".js-comment_parent_id").val(parent_id);
-
-            } else {
-                $(document).trigger('login:render');
+                    parent_id = parent_id.split("_")[1];
+                    $(".js-comment_parent_id").val(parent_id);
+                } else {
+                    origin.addClass("comment--hide");
+                    // move the form
+                    $(".js-comment_place").removeClass("comment--hide")
+                        .appendTo(".comments-header__placeholder");
+                    // set the focus
+                    $(".reply__textarea").val("").focus();
+                }
             }
             return false;
         });
+
     };
 
     this.countChars = function ($textarea) {
