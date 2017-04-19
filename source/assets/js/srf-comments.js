@@ -27,16 +27,17 @@ var commentController = function () {
         // main (top) comment
         $(".comments-header__button").on("click", function (e) {
             e.preventDefault();
-            $(document).trigger('login:check');
             $(this).addClass('login-pending');
+            $(document).trigger('login:check');
             return false;
         });
 
         // movable comment
         $(".comment__link--reply").on("click", function (e) {
             e.preventDefault();
-            $(document).trigger('login:check');
             $(this).addClass('login-pending');
+            $(document).trigger('login:check');
+
             return false;
         });
 
