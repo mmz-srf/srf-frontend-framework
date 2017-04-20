@@ -3,9 +3,11 @@ BUILDDATE :=$(shell date '+%Y%m%d-%H%M')
 MAKEFILE_PATH := $(abspath $(lastword $(MAKEFILE_LIST)))
 COMMIT_ID := $(shell git log -n1 --pretty=format:'%h')
 
+# master version
 MOUNTPOINT := /mnt/frontend_framework_master
 TARGET := $(MOUNTPOINT)/$(BUILDDATE)-$(COMMIT_ID)
 
+# test version
 TEST_MOUNTPOINT := /mnt/frontend_framework_test/
 TEST_TARGET := $(BUILDDATE)
 
