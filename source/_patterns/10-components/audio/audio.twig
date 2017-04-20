@@ -23,7 +23,7 @@
                 {% endblock %}
             </div>
             {% block audio_caption %}
-                <figcaption class="media-caption media-caption--audio {{ styleModifier }}">
+                <figcaption class="media-caption media-caption--audio">
                     {% if audio.title %}
                         <div class="media-caption__title media-caption__title--audio">{{ audio.title }}</div>
                     {% endif %}
@@ -36,6 +36,7 @@
                     </div>
                 </figcaption>
             {% endblock %}
+            <div id="article-audio__{{ audio.elementId }}" class="article-audio__player"></div>
         </figure>
     </a>
 {% endblock %}
