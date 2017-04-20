@@ -62,6 +62,12 @@
   }
 }
 
+// animations
+/* .article-audio__player {
+  height: 0;
+  transition: height 0.8s;
+} */
+
 .audio--playing {
   &.article-audio, &.article-audio:hover {
     background-color: #383732;
