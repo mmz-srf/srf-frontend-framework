@@ -379,7 +379,7 @@ function MainBar(map) {
             $statusLine.html(`
                 <span class="polis-result-title__type">${nationalResults.state}</span> 
                 vom <time class="polis-result-title__time">${lastMod.getDate()}.${lastMod.getMonth() + 1}.${lastMod.getFullYear()}</time> 
-                um <time class="polis-result-title__time">${lastMod.getHours()}:${lastMod.getMinutes()}</time> Uhr (${nationalResults.num_cantons} von 26 Kantonen)
+                um <time class="polis-result-title__time">${lastMod.getHours()}:${'0' + lastMod.getMinutes().slice(-2)}</time> Uhr (${nationalResults.num_cantons} von 26 Kantonen)
             `);
         } else {
             lastMod = new Date(this.map.caseDate);
