@@ -326,9 +326,6 @@
         <h3 class="demo-documentation__content-subtitle">Extend directive</h3>
         <p><code>@extend</code> should be avoided because it has unintuitive and potentially dangerous behavior, especially when used with nested selectors. Even extending top-level placeholder selectors can cause problems if the order of selectors ends up changing later (e.g. if they are in other files and the order the files are loaded shifts). Gzipping should handle most of the savings you would have gained by using <code>@extend</code>, and you can DRY up your stylesheets nicely with mixins.</p>
 
-        <p>Again: <strong>never nest ID selectors!</strong></p>
-        <p>If you must use an ID selector in the first place (and you should really try not to), they should never be nested. If you find yourself doing this, you need to revisit your markup, or figure out why such strong specificity is needed. If you are writing well formed HTML and CSS, you should <strong>never</strong> need to do this.</p>
-
         <h3 class="demo-documentation__content-subtitle">Credits</h3>
         <p>This style guide is based on the <a href="https://github.com/airbnb/css" target="_blank">Airbnb CSS / Sass Styleguide</a> with adaptations for the SRF Frontend Framework.</p>
 
