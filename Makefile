@@ -9,7 +9,7 @@ TARGET := $(MOUNTPOINT)/$(BUILDDATE)-$(COMMIT_ID)
 
 # test version
 TEST_MOUNTPOINT := /mnt/frontend_framework_test/
-TEST_TARGET := $(BUILDDATE)
+TEST_TARGET := $(TEST_MOUNTPOINT)$(BUILDDATE)
 
 # default: Build the assets and styleguide
 all: composer-install node-install bower-install npm-install gulp-build
@@ -21,12 +21,12 @@ install-master:
 	./bin/deduplicate-deployed-versions $(MOUNTPOINT)
 
 install-test:
-	mkdir -p $(TEST_MOUNTPOINT)$(TEST_TARGET)
-	cp -r public $(TEST_MOUNTPOINT)$(TEST_TARGET)/
+	mkdir -p $(TEST_TARGET)
+	cp -r public $(TEST_TARGET)/
 	./bin/deduplicate-deployed-versions $(TEST_MOUNTPOINT)
+	unlink $(MOUNTPOINT)latest
 	cd $(TEST_MOUNTPOINT)
-	unlink ./latest
-	ln -s $(TEST_TARGET) latest
+	ln -s $(BUILDDATE) latest
 	cd -
 
 clean:
