@@ -7,14 +7,14 @@
       background-size: 100%;
     }
   }
-  margin: 32px 0 24px;
+  margin: 32px 0;
   @include smartphone {
-    margin: 24px -8px 20px;
+    margin: 24px -8px;
     &:not(.played) { // very ugly! (handling of touch states)
       background-color: $color-bg-caption;
     }
   }
-  &:not(".audio--playing") { // very ugly! (handling of touch states)
+  &:not(".audio--playing") { // samesame
     background-color: $color-bg-caption;
   }
 
