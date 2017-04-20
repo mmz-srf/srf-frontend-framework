@@ -1,7 +1,7 @@
 .article-video {
-  margin: 32px 0 24px;
+  margin: 32px 0;
   @include smartphone {
-    margin: 24px -8px 20px;
+    margin: 24px -8px;
   }
 
   &__wrapper {
@@ -65,7 +65,7 @@
       top: 55%;
       left: 50%;
       width: 68px;
-      transform: translate(-50%, -50%);
+      transform: translate(-50%, -34px);
       text-align: center;
       z-index: 1;
     }
@@ -88,5 +88,27 @@
       width: 100%;
 
     }
+  }
+}
+
+.video--playing {
+  &.article-video, &.article-video:hover {
+    background-color: #383732;
+    cursor: default;
+  }
+  .media-caption { // :/
+    background-color: #383732;
+  }
+  .article-video__wrapper::before {
+    opacity: 0;
+  }
+  .article-video__play-icon {
+    display: none;
+  }
+  .media-caption__title {
+    color: #f5f5f2;
+  }
+  .media-caption__source, strong {
+    color: #cac8bf;
   }
 }
