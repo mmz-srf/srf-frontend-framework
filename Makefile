@@ -24,7 +24,7 @@ install-test:
 	mkdir -p $(TEST_TARGET)
 	cp -r public $(TEST_TARGET)/
 	./bin/deduplicate-deployed-versions $(TEST_MOUNTPOINT)
-	unlink $(MOUNTPOINT)latest
+	unlink $(TEST_MOUNTPOINT)latest
 	cd $(TEST_MOUNTPOINT)
 	ln -s $(BUILDDATE) latest
 	cd -
