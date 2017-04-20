@@ -25,10 +25,7 @@ install-test:
 	cp -r public $(TEST_TARGET)/
 	./bin/deduplicate-deployed-versions $(TEST_MOUNTPOINT)
 	unlink $(TEST_MOUNTPOINT)latest
-	cd $(TEST_MOUNTPOINT)
-	pwd
-	ln -s $(BUILDDATE) latest
-	cd -
+	ln -s -r $(TEST_MOUNTPOINT)/$(BUILDDATE) $(TEST_MOUNTPOINT)/latest
 
 clean:
 	rm -rf public/patternlab-components/pattern-lab/plugin-reload
