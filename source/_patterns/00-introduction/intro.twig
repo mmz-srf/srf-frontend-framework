@@ -4,9 +4,7 @@
     <header class="article-header">
         <p class="article-overline">Introduction</p>
         <h1 class="article-title">SRF Frontend Framework</h1>
-        <p class="article-lead">
-            1996 schrieb John Perry Barlow die «Unabhängigkeitserklärung des Cyberspace». Darin kritisierte der Poet und Aktivist erstaunlich früh die staatliche Kontrolle.
-        </p>
+        <p class="article-lead"></p>
     </header>
 
     <hr class="horizontal-separator" role="presentation" aria-hidden="true">
@@ -25,10 +23,10 @@
         <h3 class="demo-documentation__content-subtitle">General</h3>
         <ul class="text-list text-list--unordered">
             <li>Maintainability should be the primary goal when writing CSS/Sass-Code for the framework</li>
-            <li>You are allowed to use flexbox  - so use it ;-)</li>
             <li>Top and bottom spaces between elements/components should be ruled by
                 <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model/Mastering_margin_collapsing" target="_blank">collapsing margins</a>. The element with the larger margin wins.
-                Therefore only use margins not padding and add a wrapper <code>&lt;div&gt;</code> if necessary.</li>
+                Therefore only use margins not padding. Sometimes it's necessary to add a wrapper <code>&lt;div&gt;</code> to make margins work as desired.</li>
+            <li>You are allowed to use flexbox  - so use it ;-)</li>
         </ul>
 
         <h3 class="demo-documentation__content-subtitle">Formatting</h3>
@@ -44,8 +42,9 @@
             <li>Use the <code>.scss</code> syntax, never the original <code>.sass</code> syntax</li>
         </ul>
 
-        <p><strong>Bad</strong></p>
+        <p><strong>Example</strong></p>
         <div class="textbox textbox--article-indentation">
+            <p class="textbox__title">Bad</p>
 <pre ><code>.avatar{
     border-radius:50%;
     border:2px solid white; }
@@ -57,8 +56,8 @@
 }
 </code></pre>
         </div>
-        <p><strong>Good</strong></p>
         <div class="textbox textbox--article-indentation">
+            <p class="textbox__title">Good</p>
 <pre ><code>.avatar {
   border-radius: 50%;
   border: 2px solid white;
@@ -93,8 +92,9 @@
         </ul>
 
         <p>Please do not abbreviate and nest class names with the sass parent selector placeholder (<code>&</code>). Searching for CSS definitions gets very hard this way.</p>
-        <p><strong>Bad</strong></p>
+        <p><strong>Example</strong></p>
         <div class="textbox textbox--article-indentation">
+            <p class="textbox__title">Bad</p>
 <pre ><code>.sharing-bar {
   &__container { }
   &__button {
@@ -104,8 +104,8 @@
 }
 </code></pre>
         </div>
-        <p><strong>Good</strong></p>
         <div class="textbox textbox--article-indentation">
+            <p class="textbox__title">Good</p>
 <pre ><code>.sharing-bar { }
 .sharing-bar__container { }
 .sharing-bar__button {
@@ -189,21 +189,24 @@
                         <tbody>
                         <tr>
                             <td><code>l-</code></td>
-                            <td>Classes defining the global layout</td>
+                            <td>Classes defining the global <strong>l</strong>ayout</td>
                         </tr>
                         <tr>
-                            <td><code>u-</code></td>
-                            <td><a href="#utility_classes">Utility classes</a></td>
+                            <td><code>h-</code></td>
+                            <td><a href="#utility_classes">Utility/<strong>h</strong>elper classes</a></td>
                         </tr>
                         <tr>
                             <td><code>js-</code></td>
-                            <td><a href="#js_hooks">Javascript hooks</a></td>
+                            <td><a href="#js_hooks"><strong>J</strong>ava<strong>s</strong>cript hooks</a></td>
+                        </tr>
+                        <tr>
+                            <td><code>demo-</code><br><code>sg-</code></td>
+                            <td>Class names beginning with <code>demo-</code> or <code>sg-</code> are <strong>not</strong> part of the SRF Frontend Framework patterns. Use them only to style this patternlab styleguide.</td>
                         </tr>
                         </tbody>
                     </table>
                 </div>
             </li>
-            <li>Class names beginning with <code>demo-</code> or <code>sg-</code> are <strong>not</strong> part of the SRF Frontend Framework patterns. They are only used to style this patternlab styleguide.</li>
         </ul>
 
         <p><strong>BEM</strong>, or “Block-Element-Modifier”, is a <em>naming convention</em> for classes in HTML and CSS. It was originally developed by Yandex with large codebases and scalability in mind, and can serve as a solid set of guidelines for implementing OOCSS.</p>
@@ -265,8 +268,22 @@
             </ul>
         </div>
 
-        <h3 class="demo-documentation__content-subtitle"><a id="utility_classes"></a>Utility classes</h3>
-        <p>Use utility classes very restrictively since they might affect the maintainability of the code in a negative way. In order to stick to the DRY principle, use Sass-Mixins (we prefer maintainability over larger generated css code).</p>
+        <h3 class="demo-documentation__content-subtitle"><a id="utility_classes"></a>Utility/helper classes</h3>
+        <blockquote class="blockquote ">
+            <div class="blockquote__quote">
+                <span class="blockquote__text">A utility class applies a single rule or a very simple, universal pattern. Think .float-right, .align-center, or .font-small for single rules; .list-unstyled, .clearfix, and .visually-hidden for patterns. (Sometimes they’re called “helpers,” as in Bootstrap.)</span>
+            </div>
+            <footer class="blockquote__footer">
+                <cite class="blockquote__author">
+                    <a href="http://davidtheclark.com/on-utility-classes/" target="_blank">David Clark</a><br>
+                    <span class="blockquote__function">Frontend web developer</span>
+                </cite>
+            </footer>
+        </blockquote>
+        <p>Use utility classes very restrictively since they might affect the maintainability of the code in a negative way. In order to stick to the DRY principle, prefer the use of Sass-Mixins (even if it results in duplicate generated css code). Prefix utility/helper classes with <code>h-</code></p>
+        <div class="textbox textbox--article-indentation">
+<pre><code>&lt;span class=&quot;h-offscreen h-offscreen-focusable&quot;&gt;This text is for screen readers only&lt;/span&gt;</code></pre>
+        </div>
         <div class="linkbox">
             <ul class="linkbox__list">
                 <li>
@@ -279,7 +296,7 @@
 
         <h3 class="demo-documentation__content-subtitle"><a id="js_hooks"></a>JavaScript hooks</h3>
         <p>Avoid binding to the same class in both your CSS and JavaScript. Conflating the two often leads to, at a minimum, time wasted during refactoring when a developer must cross-reference each class they are changing, and at its worst, developers being afraid to make changes for fear of breaking functionality.</p>
-        <p>Therefore, please create JavaScript-specific classes to bind to, prefixed with <code>.js-</code> and preferably followed by the block name if sensible.</p>
+        <p>Therefore, please create JavaScript-specific classes to bind to, prefixed with <code>js-</code> and preferably followed by the block name if sensible.</p>
         <div class="textbox textbox--article-indentation">
 <pre ><code>&lt;button class=&quot;js-sharing-bar-comment-counter sharing-bar__button sharing-bar__button--comment&quot;&gt;123&lt;/button&gt;</code></pre>
         </div>
@@ -294,7 +311,7 @@
             </div>
             <footer class="blockquote__footer">
                 <cite class="blockquote__author">
-                    <a href="https://www.smashingmagazine.com/2010/11/the-important-css-declaration-how-and-when-to-use-it/">Louis Lazaris</a><br>
+                    <a href="https://www.smashingmagazine.com/2010/11/the-important-css-declaration-how-and-when-to-use-it/" target="_blank">Louis Lazaris</a><br>
                     <span class="blockquote__function">Web developer and author</span>
                 </cite>
             </footer>
