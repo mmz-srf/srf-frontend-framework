@@ -26,6 +26,7 @@ install-test:
 	./bin/deduplicate-deployed-versions $(TEST_MOUNTPOINT)
 	unlink $(TEST_MOUNTPOINT)latest
 	cd $(TEST_MOUNTPOINT)
+	pwd
 	ln -s $(BUILDDATE) latest
 	cd -
 
