@@ -6,9 +6,8 @@ COMMIT_ID := $(shell git log -n1 --pretty=format:'%h')
 MOUNTPOINT := /mnt/frontend_framework_master
 TARGET := $(MOUNTPOINT)/$(BUILDDATE)-$(COMMIT_ID)
 
-TEST_MOUNTPOINT := /mnt/frontend_framework_test
-TEST_TARGET := $(TEST_MOUNTPOINT)/$(BUILDDATE)
-TEST_LATEST := $(TEST_MOUNTPOINT)/latest
+TEST_MOUNTPOINT := /mnt/frontend_framework_test/
+TEST_TARGET := $(BUILDDATE)
 
 # default: Build the assets and styleguide
 all: composer-install node-install bower-install npm-install gulp-build
@@ -20,10 +19,12 @@ install-master:
 	./bin/deduplicate-deployed-versions $(MOUNTPOINT)
 
 install-test:
-	mkdir -p $(TEST_TARGET)
-	cp -r public $(TEST_TARGET)/
-	./bin/deduplicate-deployed-versions $(TEST_MOUNTPOINT)
-	ln -s $(TEST_TARGET) $(TEST_LATEST)
+	mkdir -p $(TEST_MOUNTPOINT)$(TEST_TARGET)
+	cp -r public $(TEST_MOUNTPOINT)$(TEST_TARGET)/
+	./bin/deduplicate-deployed-versions $(TEST_MOUNTPOINT)$(TEST_MOUNTPOINT)
+	cd $(TEST_MOUNTPOINT)
+	ln -s $(TEST_TARGET) latest
+	cd -
 
 clean:
 	rm -rf public/patternlab-components/pattern-lab/plugin-reload
