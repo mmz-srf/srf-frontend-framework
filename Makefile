@@ -23,6 +23,7 @@ install-test:
 	cp -r public $(TEST_MOUNTPOINT)$(TEST_TARGET)/
 	./bin/deduplicate-deployed-versions $(TEST_MOUNTPOINT)$(TEST_MOUNTPOINT)
 	cd $(TEST_MOUNTPOINT)
+	unlink latest
 	ln -s $(TEST_TARGET) latest
 	cd -
 
