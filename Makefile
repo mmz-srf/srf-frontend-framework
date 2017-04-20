@@ -23,7 +23,7 @@ install-test:
 	mkdir -p $(TEST_TARGET)
 	cp -r public $(TEST_TARGET)/
 	./bin/deduplicate-deployed-versions $(TEST_MOUNTPOINT)
-	ln -s $(TEST_TARGET)/ $(TEST_LATEST)/
+	ln -s $(TEST_TARGET) $(TEST_LATEST)
 
 clean:
 	rm -rf public/patternlab-components/pattern-lab/plugin-reload
