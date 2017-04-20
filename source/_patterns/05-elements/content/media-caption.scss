@@ -74,6 +74,7 @@
 .media-caption--audio {
   height: 112px;
   padding: 12px;
+  display: table;
 
   @include tablet-up {
     padding: 16px;
