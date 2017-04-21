@@ -53,13 +53,23 @@
   }
 }
 
-.comments-header__text {
+.comments-header__text, .comments-infobox__text {
   font-size: 14px;
   line-height: 20px;
   letter-spacing: .5px;
   color: $color-text-accentuation;
   margin: 0;
   padding: 0 16px 24px;
+}
+
+.comments-infobox {
+  background-color: #fefefd;
+  border-top: 1px solid #ebebe5;
+  padding-top: 20px;
+}
+
+.comments-infobox--with-border {
+  border-bottom: 1px solid #ebebe5;
 }
 
 .comments-header__button {

@@ -9,27 +9,39 @@
                     {{ comments.title_plural|default("Kommentare") }}
                 {% endif %}
             </h3>
-            {# following - we assume the user is logged in #}
             <p class="comments-header__text comments--shrink">
                 {{ comments.greetings|default("Sie sind angemeldet als") }}&nbsp;
                 <a href="" class="">Who ? (whoareyou)</a> (<a href="#">{{ comments.logout|default("abmelden") }}</a>)
             </p>
-            {# "button " #}
-            <a class="comments-header__button comments--shrink" href="#" role="link">
-                {{ comments.let_us_know|default("Teilen Sie Ihre Meinung ...") }}
-                <span class="h-offscreen">{{ comments.select_to_comment|default("anwählen um einen Kommentar zu schreiben") }}</span>
-            </a>
-            <span class="comments-header__placeholder"></span>
-            {% block comment_reply %}
-                {% include '_comment-reply.twig' with { 'comments' : { 'replies' : comments.replies }, 'isMovable' : false } %}
-            {% endblock %}
-            {# // until here (user "is" logged in) #}
-            <hr class="comments-header__border" aria-hidden="true">
+
+            {% if allowsComments and comments.reason_for_closure == '' %}
+                <a class="comments-header__button comments--shrink" href="#" role="link">
+                    {{ comments.let_us_know|default("Teilen Sie Ihre Meinung ...") }}
+                    <span class="h-offscreen">{{ comments.select_to_comment|default("anwählen um einen Kommentar zu schreiben") }}</span>
+                </a>
+                <span class="comments-header__placeholder"></span>
+
+                {% block comment_reply %}
+                    {% include '_comment-reply.twig' with { 'comments' : { 'replies' : comments.replies }, 'isMovable' : false } %}
+                {% endblock %}
+            {% elseif comments.reason_for_closure != '' %}
+                <div class="comments-infobox{% if comments.total_count > 0 %} comments-infobox--with-border{% endif %}">
+                    <p class="comments-infobox__text comments--shrink">
+                        {{ comments.reason_for_closure|default("Uns ist es wichtig, Kommentare möglichst schnell zu sichten und freizugeben. Deshalb ist das Kommentieren bei älteren Artikeln und Sendungen nicht mehr möglich.") }}
+                    </p>
+                </div>
+            {% endif %}
+
             {% if comments.total_count == 0 %}
-                <p class="comments-header__text comments--shrink">
-                    {{ comments.no_comment|default("Es wurden noch keine Kommentare erfasst. Seien Sie die erste Person, die diesen Artikel kommentiert.") }}
-                </p>
+                {% if allowsComments and comments.reason_for_closure == '' %}
+                    <div class="comments-infobox">
+                        <p class="comments-infobox__text comments--shrink">
+                            {{ comments.no_comment|default("Es wurden noch keine Kommentare erfasst. Seien Sie die erste Person, die diesen Artikel kommentiert.") }}
+                        </p>
+                    </div>
+                {% endif %}
             {% else %}
+                <hr class="comments-header__border" aria-hidden="true">
                 <ul class="tabs comments--shrink" role="tablist">
                     <li class="tab-option" role="presentation">
                         <a href="#sectionAll" class="tab-option__link tab-option__link--selected" tabindex="0" role="tab" aria-controls="sectionAll" aria-selected="true">{{ comments.link_all|default("Alle Kommentare") }}</a>

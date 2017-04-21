@@ -410,6 +410,11 @@
     "select_to_comment": "anwählen um einen Kommentar zu schreiben",
     "logout": "abmelden",
     "no_comment": "Es wurden noch keine Kommentare erfasst. Seien Sie die erste Person, die diesen Artikel kommentiert.",
+    "reason": "Uns ist es wichtig, Kommentare möglichst schnell zu sichten und freizugeben. Deshalb ist das Kommentieren bei älteren Artikeln und Sendungen nicht mehr möglich.",
+    "reasons_for_closure": {
+      "autoclose": "Uns ist es wichtig, Kommentare möglichst schnell zu sichten und freizugeben. Deshalb ist das Kommentieren bei älteren Artikeln und Sendungen nicht mehr möglich.",
+      "pending": "Wir haben die Kommentarfunktion auf dieser Seite aus Kapazitätsgründen deaktiviert. Aktuell warten sehr viele Kommentare auf die Freischaltung, wir werden sie schnellstmöglich sichten. Danach ist die Kommentarfunktion wieder aktiv. Wir bitten um Verständnis."
+    },
     "link_all": "Alle Kommentare",
     "link_hits": "Beliebteste",
     "addons": {
