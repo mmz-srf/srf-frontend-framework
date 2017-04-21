@@ -9,8 +9,17 @@
         </cite>
         <span class="comment__time">{{ comment.dateFormatted }}</span>
         <blockquote class="comment__content">{{ comment.message }}</blockquote>
-        <a class="comment__link">{{ default.link_social|default("Gefällt mir") }}
-            (?)</a>{# ... folgestory #}
+        <a class="comment__link comment__link--agree" role="link">
+            {{ 'Zustimmen'|trans }}
+            <span class="count"></span>
+            <span class="h-offscreen">{{ 'dem Kommentar zustimmen'|trans }}</span>
+        </a>
+        <a class="comment__link comment__link--deny" role="link">
+            {{ 'Ablehnen'|trans }}
+            <span class="count"></span>
+            <span class="h-offscreen">{{ 'den Kommentar ablehnen'|trans }}</span>
+        </a>
+        
         {% if allowsComments %}
             <a class="comment__link comment__link--reply" href="#"
                role="link">{{ default.link_reply|default("Antworten") }}
