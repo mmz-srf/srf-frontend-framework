@@ -62,9 +62,11 @@
 }
 
 .demo-documentation code {
+  padding: 2px 4px;
   font-size: 16px;
   font-family: monospace;
-  line-height: 1;
+  line-height: 16px;
+  background-color: #ebebe5;
 }
 
 .demo-documentation__content-subtitle,

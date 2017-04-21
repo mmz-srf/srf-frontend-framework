@@ -20,6 +20,8 @@
 
         <h2>CSS/Sass Development Guidelines</h2>
 
+        <p>This guidelines describe the development within the SRF Frontend Framework, not it's use.</p>
+
         <h3 class="demo-documentation__content-subtitle">General</h3>
         <ul class="text-list text-list--unordered">
             <li>Maintainability should be the primary goal when writing CSS/Sass-Code for the framework.</li>
@@ -305,7 +307,8 @@
         <p>While it is possible to select elements by ID in CSS, it should generally be considered an anti-pattern. ID selectors introduce an unnecessarily high level of <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity">specificity</a> to your rule declarations, and they are not reusable.</p>
 
         <h3 class="demo-documentation__content-subtitle">!important declarations</h3>
-        <blockquote class="blockquote ">
+        <p>This statement says it all:</p>
+        <blockquote class="blockquote">
             <div class="blockquote__quote">
                 <span class="blockquote__text">!important declarations should not be used unless they are absolutely necessary after all other avenues have been exhausted.</span>
             </div>
@@ -317,7 +320,7 @@
             </footer>
         </blockquote>
 
-        <h3 class="demo-documentation__content-subtitle">Variables</h3>
+        <h3 class="demo-documentation__content-subtitle">Sass-Variables</h3>
         <p>Prefer dash-cased variable names (e.g. <code>$my-variable</code>) over camelCased or snake_cased variable names. It is acceptable to prefix variable names that are intended to be used only within the same file with an underscore (e.g. <code>$_my-variable</code>).</p>
 
         <h3 class="demo-documentation__content-subtitle">Mixins</h3>
