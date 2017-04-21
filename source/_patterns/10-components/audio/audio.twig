@@ -1,5 +1,5 @@
 {% block audio %}
-    <a  href="{{ audio.player_url }}/srf/popup?urn={{ audio.urn }}&autoplay=true"
+    <a  {% block direct_player_link %}href="{{ audio.player_url }}/srf/popup?urn={{ audio.urn }}&autoplay=true"{% endblock %}
         id="article-media__{{ audio.elementId }}"
         class="article-audio__link media__js"
         data-mediatype="audio"
@@ -39,4 +39,5 @@
             <div id="article-audio__{{ audio.elementId }}" class="article-audio__player"></div>
         </figure>
     </a>
+    {% block player_wrapper %}{% endblock %}
 {% endblock %}
