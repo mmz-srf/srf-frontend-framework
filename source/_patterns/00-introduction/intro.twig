@@ -22,12 +22,13 @@
 
         <p>This guidelines describe the development within the SRF Frontend Framework, not it's use.</p>
 
-        <h3 class="demo-documentation__content-subtitle">General</h3>
+        <h3 class="demo-documentation__content-subtitle">General considerations</h3>
         <ul class="text-list text-list--unordered">
-            <li>Maintainability should be the primary goal when writing CSS/Sass-Code for the framework.</li>
+            <li>The main idea behind our <a href="#BEM">BEM blocks</a> is that they could be used independently and anywhere. A vision is that - when we are ready to use http/2 - each block will have a separate generated CSS file so that just the styles for blocks used on a web page need to be included. Therefore: Avoid global styles and code a block in a way that all its styling is in one Sass file.</li>
+            <li>Maintainability should be the primary goal when writing CSS/Sass-Code for the framework even if it results in more code.</li>
             <li>Top and bottom spaces between elements/components should be ruled by
                 <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model/Mastering_margin_collapsing" target="_blank">collapsing margins</a>. The element with the larger margin wins.
-                Therefore only use margins not padding. Sometimes it's necessary to add a wrapper <code>&lt;div&gt;</code> to make margins work as desired.</li>
+                Therefore only use margins not padding for top and bottom spaces. Sometimes it is necessary to add a wrapper <code>&lt;div&gt;</code> to make margins work as desired.</li>
             <li>You are allowed to use flexbox  - so use it ;-)</li>
         </ul>
 
@@ -93,7 +94,7 @@
             <li>Not reusable</li>
         </ul>
 
-        <p>Please do not abbreviate and nest class names with the sass parent selector placeholder (<code>&</code>). Searching for CSS definitions gets very hard this way.</p>
+        <p>Please do not abbreviate and nest class names with the sass parent selector (<code>&</code>). Searching for CSS definitions gets very hard this way.</p>
         <p><strong>Example</strong></p>
         <div class="textbox textbox--article-indentation">
             <p class="textbox__title">Bad</p>
@@ -211,11 +212,11 @@
             </li>
         </ul>
 
-        <p><strong>BEM</strong>, or “Block-Element-Modifier”, is a <em>naming convention</em> for classes in HTML and CSS. It was originally developed by Yandex with large codebases and scalability in mind, and can serve as a solid set of guidelines for implementing OOCSS.</p>
+        <p><a id="BEM"></a><strong>BEM</strong>, or “Block-Element-Modifier”, is a <em>naming convention</em> for classes in HTML and CSS. It was originally developed by Yandex with large codebases and scalability in mind, and can serve as a solid set of guidelines for implementing OOCSS.</p>
         <p>We use a variant of BEM called <a href="https://en.bem.info/methodology/naming-convention/#two-dashes-style" target="_blank">“Two Dashes style”</a>:</p>
         <p><strong>Example</strong></p>
         <div class="textbox textbox--article-indentation">
-<pre ><code>// sharing-bar.twig
+<pre ><code>&lt;!-- sharing-bar.twig --&gt;
 &lt;div class=&quot;sharing-bar&quot;&gt;
     &lt;div class=&quot;sharing-bar__container&quot;&gt;
         &lt;div class=&quot;sharing-bar__button sharing-bar__button--facebook&quot;&gt;
@@ -230,7 +231,7 @@
         </div>
 
         <div class="textbox textbox--article-indentation">
-<pre ><code>/* sharing-bar.css */
+<pre ><code>/* sharing-bar.scss */
 .sharing-bar { }
 .sharing-bar__container { }
 .sharing-bar__button { }
@@ -244,6 +245,7 @@
             <li><code>.sharing-bar__button--facebook</code> is a “modifier” and represents a different state or variation on the <code>.sharing-bar__button--facebook</code> block. Modifiers can be applied to elements and blocks</li>
         </ul>
 
+        <p>The main principle behind our BEM blocks should be that they can be used anywhere, independent of their context. In the future, each block will have a separate generated CSS file so that just the styles for the block have to be included when its added somewhere. Therefore it's important that all styling of a block and its elements is contained in one single Sass file. The name of the sass file should correspond to the name of the block (i.e. block <code>.sharing-bar { }</code> is defined in a file named <code>sharing-bar.scss</code></p>
 
         <div class="linkbox">
             <ul class="linkbox__list">
@@ -327,7 +329,7 @@
         <p>Mixins should be used to DRY up your code, add clarity, or abstract complexity–in much the same way as well-named functions. Mixins that accept no arguments can be useful for this, but note that if you are not compressing your payload (e.g. gzip), this may contribute to unnecessary code duplication in the resulting styles.</p>
 
         <h3 class="demo-documentation__content-subtitle">Extend directive</h3>
-        <p><code>@extend</code> should be avoided because it has unintuitive and potentially dangerous behavior, especially when used with nested selectors. Even extending top-level placeholder selectors can cause problems if the order of selectors ends up changing later (e.g. if they are in other files and the order the files are loaded shifts). Gzipping should handle most of the savings you would have gained by using <code>@extend</code>, and you can DRY up your stylesheets nicely with mixins.</p>
+        <p><code>@extend</code> should be avoided because it has unintuitive and potentially dangerous behavior, especially when used with nested selectors. Even extending top-level placeholder selectors can cause problems if the order of selectors ends up changing later (e.g. if they are in other files and the order the files are loaded shifts). Gzipping should handle most of the savings you would have gained by using <code>@extend</code>, and you can DRY up your stylesheets nicely with <strong>mixins</strong>.</p>
 
         <h3 class="demo-documentation__content-subtitle">Credits</h3>
         <p>This style guide is based on the <a href="https://github.com/airbnb/css" target="_blank">Airbnb CSS / Sass Styleguide</a> with adaptations for the SRF Frontend Framework.</p>
