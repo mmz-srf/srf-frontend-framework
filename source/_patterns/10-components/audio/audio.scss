@@ -63,14 +63,29 @@
 }
 
 // animations
-/* .article-audio__player {
+.article-audio__player {
   height: 0;
-  transition: height 0.8s;
-} */
+  transition: height 0.4s;
+}
+
+.article-audio {
+  transition: background-color 0.4s;
+}
+
+.media-caption__title,
+.media-caption__source,
+strong {
+  transition: color 0.4s;
+}
+
+.article-audio__wrapper::before {
+  transition: opacity 0.4s;
+}
 
 .audio--playing {
-  &.article-audio, &.article-audio:hover {
-    background-color: #383732;
+  &.article-audio,
+  &.article-audio:hover {
+    background-color: $color-media-playing;
     cursor: default;
   }
   .article-audio__wrapper::before {
@@ -80,14 +95,15 @@
     display: none;
   }
   .media-caption__title {
-    color: #f5f5f2;
+    color: $color-bg-caption;
   }
-  .media-caption__source, strong {
-    color: #cac8bf;
+  .media-caption__source,
+  strong {
+    color: $color-border;
   }
   .article-audio__player {
     height: 42px;
     padding: 8px;
-    background-color: #22211d;
+    background-color: $color-text-default;
   }
 }
