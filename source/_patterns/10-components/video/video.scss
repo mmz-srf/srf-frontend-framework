@@ -91,6 +91,27 @@
   }
 }
 
+// animations
+.article-video {
+  transition: background-color 0.4s;
+}
+
+.media-caption__title,
+.media-caption__source,
+strong {
+  transition: color 0.4s;
+}
+
+.image-figure__image-wrapper::before {
+  transition: opacity 0.4s;
+}
+
+.media-play__icon,
+.media-play__length {
+  opacity: 1;
+  transition: opacity 0.4s;
+}
+
 .video--playing {
   &.article-video, &.article-video:hover {
     background-color: #383732;
@@ -99,16 +120,15 @@
   .media-caption { // :/
     background-color: #383732;
   }
-  .article-video__wrapper::before {
+  .image-figure__image-wrapper::before,
+  .media-play__icon,
+  .media-play__length {
     opacity: 0;
   }
-  .article-video__play-icon {
-    display: none;
-  }
   .media-caption__title {
-    color: #f5f5f2;
+    color: $color-bg-caption;
   }
   .media-caption__source, strong {
-    color: #cac8bf;
+    color: $color-border;
   }
 }
