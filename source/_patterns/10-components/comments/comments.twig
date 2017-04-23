@@ -9,11 +9,12 @@
                     {{ comments.title_plural|default("Kommentare") }}
                 {% endif %}
             </h3>
-            <p class="comments-header__text comments--shrink">
+            <p class="comments-header__text comments--shrink {{ styleModifier }}">
                 {{ comments.greetings|default("Sie sind angemeldet als") }}&nbsp;
                 <a href="" class="">Who ? (whoareyou)</a> (<a href="#">{{ comments.logout|default("abmelden") }}</a>)
             </p>
 
+            {# show the button to comment #}
             {% if allowsComments and comments.reason_for_closure == '' %}
                 <a class="comments-header__button comments--shrink" href="#" role="link">
                     {{ comments.let_us_know|default("Teilen Sie Ihre Meinung ...") }}
@@ -24,23 +25,25 @@
                 {% block comment_reply %}
                     {% include '_comment-reply.twig' with { 'comments' : { 'replies' : comments.replies }, 'isMovable' : false } %}
                 {% endblock %}
-            {% elseif comments.reason_for_closure != '' %}
-                <div class="comments-infobox{% if comments.total_count > 0 %} comments-infobox--with-border{% endif %}">
-                    <p class="comments-infobox__text comments--shrink">
-                        {{ comments.reason_for_closure|default("Uns ist es wichtig, Kommentare möglichst schnell zu sichten und freizugeben. Deshalb ist das Kommentieren bei älteren Artikeln und Sendungen nicht mehr möglich.") }}
-                    </p>
-                </div>
-            {% endif %}
 
-            {% if comments.total_count == 0 %}
-                {% if allowsComments and comments.reason_for_closure == '' %}
+                {# encouragement to comment #}
+                {% if comments.total_count == 0 %}
                     <div class="comments-infobox">
                         <p class="comments-infobox__text comments--shrink">
                             {{ comments.no_comment|default("Es wurden noch keine Kommentare erfasst. Seien Sie die erste Person, die diesen Artikel kommentiert.") }}
                         </p>
                     </div>
                 {% endif %}
-            {% else %}
+                {# else there's a reason that doesn't allow commenting #}
+            {% elseif comments.reason_for_closure != '' %}
+                <h3 class="comments-infobox__title comments--shrink">{{ comments.comments_disabled }}</h3>
+                <p class="comments-infobox__text comments--shrink{% if comments.total_count == 0 %} comments-infobox__text--padded{% endif %}">
+                    {{ comments.reason_for_closure|default("Uns ist es wichtig, Kommentare möglichst schnell zu sichten und freizugeben. Deshalb ist das Kommentieren bei älteren Artikeln und Sendungen nicht mehr möglich.") }}
+                </p>
+            {% endif %}
+
+            {# show comments #}
+            {% if comments.total_count > 0 %}
                 <hr class="comments-header__border" aria-hidden="true">
                 <ul class="tabs comments--shrink" role="tablist">
                     <li class="tab-option" role="presentation">
