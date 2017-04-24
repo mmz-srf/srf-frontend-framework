@@ -37,7 +37,7 @@
                 </figcaption>
             {% endblock %}
             <div id="article-audio__{{ audio.elementId }}" class="article-audio__player"></div>
+            {% block player_wrapper %}{% endblock %}
         </figure>
-        {% block player_wrapper %}{% endblock %}
     </a>
 {% endblock %}
