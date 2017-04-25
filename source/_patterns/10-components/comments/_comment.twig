@@ -19,7 +19,7 @@
             <span class="count"></span>
             <span class="h-offscreen">{{ 'den Kommentar ablehnen'|trans }}</span>
         </a>
-        
+
         {% if allowsComments %}
             <a class="comment__link comment__link--reply" href="#"
                role="link">{{ default.link_reply|default("Antworten") }}
@@ -37,8 +37,16 @@
                             {{ reply.name }}{% if not reply.isEditorialAnswer %} ({{ reply.nickname }}){% endif %}</cite>
                         <span class="comment__time">{{ reply.dateFormatted }}</span>
                         <blockquote class="comment__content">{{ reply.message }}</blockquote>
-                        <a class="comment__link" href="#">{{ default.link_social|default("Gefällt mir") }}
-                            (?)</a>{# ... folgestory #}
+                        <a class="comment__link comment__link--agree" role="link">
+                            {{ 'Zustimmen'|trans }}
+                            <span class="count"></span>
+                            <span class="h-offscreen">{{ 'dem Kommentar zustimmen'|trans }}</span>
+                        </a>
+                        <a class="comment__link comment__link--deny" role="link">
+                            {{ 'Ablehnen'|trans }}
+                            <span class="count"></span>
+                            <span class="h-offscreen">{{ 'den Kommentar ablehnen'|trans }}</span>
+                        </a>
                     </li>
                 {% endfor %}
             </ol>
