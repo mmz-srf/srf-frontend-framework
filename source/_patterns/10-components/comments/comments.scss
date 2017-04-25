@@ -57,12 +57,17 @@
 // login info
 .comments-header__text,
   // deactivation info
-.comments-infobox__text {
+.comments-infobox__text,
+.comments-header__info-text {
   font-size: 14px;
   line-height: 20px;
   letter-spacing: .5px;
   color: $color-text-accentuation;
   padding: 0 16px;
+}
+
+.comments-infobox__text {
+  font-size: 16px;
 }
 
 // login info
@@ -77,7 +82,8 @@
   border-top: 1px solid #ebebe5;
 }
 
-.comments-infobox__title {
+.comments-infobox__title,
+.comments-header__info-title {
   font: 14px/20px $font-regular;
   letter-spacing: 0.5px;
   color: #22211d;
@@ -88,12 +94,13 @@
   }
 }
 
-.comments-infobox__text {
+.comments-infobox__text,
+.comments-header__info-text {
   margin: 0;
 }
 
 // no comments yet
-.comments-infobox__text--padded {
+.comments-header__info-text--padded {
   padding-bottom: 24px;
 }
 

@@ -37,8 +37,8 @@
             {% endif %}
             {# else there's a reason that doesn't allow commenting #}
             {% if comments.reason_for_closure != '' %}
-                <h3 class="comments-infobox__title comments--shrink">{{ comments.comments_disabled }}</h3>
-                <p class="comments-infobox__text comments--shrink{% if comments.total_count == 0 %} comments-infobox__text--padded{% endif %}">
+                <h3 class="comments-header__info-title comments--shrink">{{ comments.comments_disabled }}</h3>
+                <p class="comments-header__info-text comments--shrink{% if comments.total_count == 0 %} comments-header__info-text--padded{% endif %}">
                     {{ comments.reason_for_closure|default("Uns ist es wichtig, Kommentare möglichst schnell zu sichten und freizugeben. Deshalb ist das Kommentieren bei älteren Artikeln und Sendungen nicht mehr möglich.") }}
                 </p>
             {% endif %}
