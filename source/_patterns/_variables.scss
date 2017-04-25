@@ -18,13 +18,20 @@ $color-table-bg-zebra-dark: $color-bg-caption;
 $color-table-bg-header: $color-bg-box;
 $color-border: #cac8bf;
 $color-border-medium: #D2D2D2;
+$color-tab-option-link: #6b6960;
 $color-button-default: #6b6960;
 $color-button-success: #1a7ac5;
 $color-form-field: #b9b7ac;
 $color-form-field-hint: #6b6960;
-$color-tab-option-link: #6b6960;
+$color-bg-facebook: rgb(58,89,153);
+$color-bg-facebook-hover: rgb(78,105,162);
+$color-bg-facebook-active: rgb(105,128,176);
+$color-bg-twitter: rgb(86,173,239);
+$color-bg-twitter-hover: rgb(102,180,239);
+$color-bg-twitter-active: rgb(125,191,242);
 
 /*** FONTS ***/
+$font-bold: 'SRG_SSR_Bold', sans-serif;
 $font-medium: 'SRG_SSR_Medium', sans-serif;
 $font-regular: 'SRG_SSR_Regular', sans-serif;
 $font-light: 'SRG_SSR_Light', sans-serif;

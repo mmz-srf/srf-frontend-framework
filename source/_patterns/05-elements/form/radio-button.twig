@@ -1,2 +1,4 @@
-<input type="radio" id="{{ fieldID|default('radio-button-ID') }}" class="radio-button" name="radio-button"{% if styleModifier == 'radio-button--inactive' %} disabled="true"{% endif %}>
+{% set hintAvailable = hintFieldID is defined and hintFieldID is not empty %}
+<input type="radio" id="{{ fieldID|default('radio-button-ID') }}" class="radio-button"
+       name="radio-button"{% if hintAvailable %} aria-labelledby="{{ hintFieldID }}-hint"{% endif %}{% if styleModifier == 'radio-button--inactive' %} disabled="true"{% endif %}>
 <label for="{{ fieldID|default('radio-button-ID') }}" class="radio-button-label {{ styleModifier }}">{{ buttonText|default("meine Wahl") }}</label>
