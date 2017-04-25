@@ -54,7 +54,6 @@
       background-image: url(../../assets/img/play-active.svg);
       background-size: 100%;
     }
-
     .media-caption--video {
       background-color: $color-bg-box;
     }
@@ -129,19 +128,21 @@ strong {
     background-color: $color-media-playing;
     cursor: default;
   }
-  .media-caption, .media-caption:hover { // :/
+
+  &:hover .media-caption, .media-caption { // :/
     background-color: $color-media-playing;
-  }
-  .image-figure__image-wrapper::before,
-  .media-play__icon,
-  .media-play__length {
-    opacity: 0;
   }
   .media-caption__title {
     color: $color-bg-caption;
   }
   .media-caption__source, strong {
     color: $color-border;
+  }
+
+  .image-figure__image-wrapper::before,
+  .media-play__icon,
+  .media-play__length {
+    opacity: 0;
   }
 
   .article-video__player {
