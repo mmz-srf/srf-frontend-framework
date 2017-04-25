@@ -11,7 +11,7 @@
         <blockquote class="comment__content">{{ comment.message }}</blockquote>
         <a class="comment__link">{{ default.link_social|default("Gefällt mir") }}
             (?)</a>{# ... folgestory #}
-        {% if allowsComments %}
+        {% if allowsComments && comment.reason_for_closure == '' %}
             <a class="comment__link comment__link--reply" href="#"
                role="link">{{ default.link_reply|default("Antworten") }}
                 <span class="h-offscreen">{{ default.select_to_reply|default("anwählen um auf den Kommentar zu antworten") }}</span>
