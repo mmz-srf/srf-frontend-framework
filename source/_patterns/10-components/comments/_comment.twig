@@ -9,15 +9,15 @@
         </cite>
         <span class="comment__time">{{ comment.dateFormatted }}</span>
         <blockquote class="comment__content">{{ comment.message }}</blockquote>
-        <a class="comment__link comment__link--agree" role="link">
+        <a class="comment__link comment__link--agree" role="link" href="#">
             {{ 'Zustimmen'|trans }}
-            <span class="count"></span>
             <span class="h-offscreen">{{ 'dem Kommentar zustimmen'|trans }}</span>
-        </a>
-        <a class="comment__link comment__link--deny" role="link">
-            {{ 'Ablehnen'|trans }}
             <span class="count"></span>
+        </a>
+        <a class="comment__link comment__link--deny" role="link" href="#">
+            {{ 'Ablehnen'|trans }}
             <span class="h-offscreen">{{ 'den Kommentar ablehnen'|trans }}</span>
+            <span class="count"></span>
         </a>
 
         {% if allowsComments %}
@@ -37,15 +37,15 @@
                             {{ reply.name }}{% if not reply.isEditorialAnswer %} ({{ reply.nickname }}){% endif %}</cite>
                         <span class="comment__time">{{ reply.dateFormatted }}</span>
                         <blockquote class="comment__content">{{ reply.message }}</blockquote>
-                        <a class="comment__link comment__link--agree" role="link">
+                        <a class="comment__link comment__link--agree" role="link" href="#">
                             {{ 'Zustimmen'|trans }}
-                            <span class="count"></span>
                             <span class="h-offscreen">{{ 'dem Kommentar zustimmen'|trans }}</span>
-                        </a>
-                        <a class="comment__link comment__link--deny" role="link">
-                            {{ 'Ablehnen'|trans }}
                             <span class="count"></span>
+                        </a>
+                        <a class="comment__link comment__link--deny" role="link" href="#">
+                            {{ 'Ablehnen'|trans }}
                             <span class="h-offscreen">{{ 'den Kommentar ablehnen'|trans }}</span>
+                            <span class="count"></span>
                         </a>
                     </li>
                 {% endfor %}
