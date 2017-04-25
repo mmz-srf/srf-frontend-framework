@@ -53,6 +53,10 @@
       background-image: url(../../assets/img/play-active.svg);
       background-size: 100%;
     }
+
+    .media-caption--video {
+      background-color: $color-bg-box;
+    }
   }
 
   &__link {
@@ -91,7 +95,7 @@
   }
 }
 
-// animations
+// animations preparation
 .article-video {
   transition: background-color 0.4s;
 }
@@ -112,13 +116,20 @@ strong {
   transition: opacity 0.4s;
 }
 
+// end animations preparation
+
+.article-video__player {
+  background-color: #000;
+}
+
 .video--playing {
+  overflow: hidden;
   &.article-video, &.article-video:hover {
-    background-color: #383732;
+    background-color: $color-media-playing;
     cursor: default;
   }
   .media-caption { // :/
-    background-color: #383732;
+    background-color: $color-media-playing;
   }
   .image-figure__image-wrapper::before,
   .media-play__icon,
@@ -132,15 +143,22 @@ strong {
     color: $color-border;
   }
 
-  .article-video__player::before {
-    content: "";
-    display: block;
-    padding-top: 56%;
+  .article-video__player {
+    margin: 0 -1px;
+    &::before {
+      content: "";
+      display: block;
+      padding-top: 56%;
+    }
+    iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+    }
   }
-  .article-video__player iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-  }
+}
+
+.article-video__link {
+  outline: none;
 }
