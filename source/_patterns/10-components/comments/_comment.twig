@@ -13,7 +13,7 @@
             {{ 'Zustimmen'|trans }}
             <span class="h-offscreen">{{ 'dem Kommentar zustimmen'|trans }}</span>
             <span class="count"></span>
-        </a>
+        </a><span class="vertical-separator" aria-hidden="true" role="presentation"></span>
         <a class="comment__link comment__link--deny" role="link" href="#{{ comment.id }}-deny">
             {{ 'Ablehnen'|trans }}
             <span class="h-offscreen">{{ 'den Kommentar ablehnen'|trans }}</span>
@@ -21,6 +21,7 @@
         </a>
 
         {% if allowsComments %}
+            <span class="vertical-separator" aria-hidden="true" role="presentation"></span>
             <a class="comment__link comment__link--reply" href="#{{ comment.id }}-reply"
                role="link">{{ default.link_reply|default("Antworten") }}
                 <span class="h-offscreen">{{ default.select_to_reply|default("anwählen um auf den Kommentar zu antworten") }}</span>
@@ -41,7 +42,7 @@
                             {{ 'Zustimmen'|trans }}
                             <span class="h-offscreen">{{ 'dem Kommentar zustimmen'|trans }}</span>
                             <span class="count"></span>
-                        </a>
+                        </a><span class="vertical-separator" aria-hidden="true" role="presentation"></span>
                         <a class="comment__link comment__link--deny" role="link" href="#{{ comment.id }}-deny">
                             {{ 'Ablehnen'|trans }}
                             <span class="h-offscreen">{{ 'den Kommentar ablehnen'|trans }}</span>
