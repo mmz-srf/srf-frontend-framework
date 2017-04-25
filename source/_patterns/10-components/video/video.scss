@@ -145,6 +145,13 @@ strong {
     opacity: 0;
   }
 
+  // just so the image doesn't get pushed down
+  .image-figure__image {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+
   .article-video__player {
     margin: 0 -2px;
     &::before {
