@@ -242,7 +242,7 @@
         <ul class="text-list text-list--unordered">
             <li><code>.sharing-bar</code> is the “block” and represents the higher-level component</li>
             <li><code>.sharing-bar__container</code> and <code>.sharing-bar__button</code> are “elements” and represents descendants of <code>.sharing-bar</code> that helps compose the block as a whole. Elements can be nested in the html structure of the block.</li>
-            <li><code>.sharing-bar__button--facebook</code> is a “modifier” and represents a different state or variation on the <code>.sharing-bar__button--facebook</code> block. Modifiers can be applied to elements and blocks</li>
+            <li><code>.sharing-bar__button--facebook</code> is a “modifier” and represents a different state or variation on the <code>.sharing-bar__button</code> element. Modifiers can be applied to elements and blocks</li>
         </ul>
 
         <p>The main principle behind our BEM blocks should be that they can be used anywhere, independent of their context. In the future, each block will have a separate generated CSS file so that just the styles for the block have to be included when its added somewhere. Therefore it's important that all styling of a block and its elements is contained in one single Sass file. The name of the sass file should correspond to the name of the block (i.e. block <code>.sharing-bar { }</code> is defined in a file named <code>sharing-bar.scss</code></p>
