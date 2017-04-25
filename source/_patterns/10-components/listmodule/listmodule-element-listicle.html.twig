@@ -1,0 +1,37 @@
+<li class="listmodule-listicle-element">
+    <h4 class="listmodule-listicle-element__title">1. {{ articleText.title }}</h4>
+    <div class="listmodule-listicle-element__lead">
+        {{ articleHeader.lead }}
+    </div>
+    <div class="listmodule-listicle-element__media">
+        {% include 'components-image-figure' with { 'imageCaptionStyle': 'media-caption--no-bg'} %}
+    </div>
+    <div class="listmodule-listicle-element__content">
+        {{ articleText.text }}
+    </div>
+    <div class="listmodule-listicle-element__link">
+        {% include 'elements-block-link' with {'styleModifier': 'block-link'} %}
+    </div>
+</li>
+<li class="listmodule-listicle-element">
+    <h4 class="listmodule-listicle-element__title">2. {{ articleText.title }}</h4>
+    <div class="listmodule-listicle-element__media">
+        {% include 'components-video' %}
+    </div>
+    <div class="listmodule-listicle-element__content">
+        {{ articleText.text }}
+    </div>
+    <div class="listmodule-listicle-element__link">
+        {% include 'elements-block-link' with {'styleModifier': 'block-link--external'} %}
+    </div>
+    <div class="listmodule-listicle-element__source">Somewhere</div>
+</li>
+<li class="listmodule-listicle-element">
+    <h4 class="listmodule-listicle-element__title">3. {{ articleText.title }}</h4>
+    <div class="listmodule-listicle-element__media">
+        {% include 'components-audio' %}
+    </div>
+    <div class="listmodule-listicle-element__content">
+        {{ articleText.text }}
+    </div>
+</li>

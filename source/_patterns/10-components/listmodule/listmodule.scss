@@ -1,21 +1,162 @@
-.listmodule {margin:24px 0 24px}
+.listmodule-list {margin:24px 0 24px}
 
-.listmodule__title {font:normal 500 22px/28px $font-medium;letter-spacing:.3px;color:$color-text-default;margin:0 0 16px;padding:0 16px}
+.listmodule-list__title {font:normal 500 22px/28px $font-medium;letter-spacing:.3px;color:$color-text-default;margin:0 0 16px;padding:0 16px}
 
-.listmodule__list {list-style-type:none;margin:0;padding:0}
+.listmodule-list__list {list-style-type:none;margin:0;padding:0}
 
-.listmodule__item {margin:0;padding:0 16px;border-top:1px solid rgb(236,236,230);overflow:hidden}
-.listmodule__item:last-of-type {border-bottom:1px solid rgb(236,236,230)}
-.listmodule__item:before {display:none}
+.listmodule-list__item {margin:0;padding:0 16px;border-top:1px solid rgb(236,236,230);overflow:hidden}
+.listmodule-list__item:last-of-type {border-bottom:1px solid rgb(236,236,230)}
+.listmodule-list__item:before {display:none}
 
-.listmodule__itemTextblock {margin-bottom:16px}
-.listmodule__itemTitle {font:normal normal 18px/28px $font-regular;letter-spacing:.5px;color:$color-text-default;margin-top:12px;margin-bottom:8px}
-.listmodule__itemBody {font:normal 300 18px/28px $font-light;letter-spacing:.5px;color:$color-text-default;margin:0 0 8px}
+.listmodule-list__itemTextblock {margin-bottom:16px}
+.listmodule-list__itemTitle {font:normal normal 18px/28px $font-regular;letter-spacing:.5px;color:$color-text-default;margin-top:12px;margin-bottom:8px}
+.listmodule-list__itemBody {font:normal 300 18px/28px $font-light;letter-spacing:.5px;color:$color-text-default;margin:0 0 8px}
 
 @include tablet-up {
-  .listmodule {margin:32px 0 32px}
-  .listmodule__title {font-size:24px;line-height:32px}
-  .listmodule__itemTextblock {float:none;width:100%;margin-bottom:24px}
-  .listmodule__itemTitle {font-size:20px;line-height:1.4;letter-spacing:.6px;margin-top:20px}
-  .listmodule__itemBody {font-size:20px;line-height:1.4;letter-spacing:.6px;clear:none}
+  .listmodule-list {margin:32px 0 32px}
+  .listmodule-list__title {font-size:24px;line-height:32px}
+  .listmodule-list__itemTextblock {float:none;width:100%;margin-bottom:24px}
+  .listmodule-list__itemTitle {font-size:20px;line-height:1.4;letter-spacing:.6px;margin-top:20px}
+  .listmodule-list__itemBody {font-size:20px;line-height:1.4;letter-spacing:.6px;clear:none}
+}
+
+.listmodule-listicle {
+  margin: 32px 0 8px;
+  overflow: hidden;
+  @include smartphone {
+    @include fullwidth-element;
+    margin-top: 24px;
+    margin-bottom: 12px;
+  }
+}
+
+.listmodule-listicle__title {
+  margin: 0 24px 16px;
+  font-family: $font-medium;
+  font-size: 22px;
+  line-height: 28px;
+  letter-spacing: 0.3px;
+  @include tablet-up {
+    margin: 0 16px 24px;
+    font-size: 24px;
+    line-height: 32px;
+    letter-spacing: 0.3px;
+  }
+}
+
+.listmodule-listicle__element {
+  list-style-type: none;
+  @include tablet-up{
+    padding:0;
+  }
+}
+
+.listmodule-listicle-element {
+  padding-left: 0;
+  margin-top: 0;
+  margin-bottom: 24px;
+  @include tablet-up{
+    margin-bottom: 32px;
+  }
+  &::before{
+    content: none;
+  }
+}
+
+.listmodule-listicle-element__title{
+  font-family: $font-medium;
+  font-size: 18px;
+  line-height: 28px;
+  text-space: 0.5px;
+  margin-top: 16px;
+  margin-bottom:12px;
+  margin-left: 8px;
+  @include tablet-up{
+    font-size: 20px;
+    line-height: 32px;
+    text-space: 0.2px;
+    margin-left: 16px;
+    margin-top: 24px;
+  }
+}
+
+.listmodule-listicle-element__content, .listicle-element__lead {
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: 0.5px;
+  padding: 0px 24px;
+  margin-bottom: 12px;
+
+  @include tablet-up{
+    font-size: 20px;
+    line-height: 32px;
+    letter-spacing: 0.3px;
+    padding: 0px 16px;
+    margin-bottom: 16px;
+  }
+  @include smartphone {
+    @include fullwidth-element;
+  }
+  p{
+    margin:0;
+  }
+  h2 {
+    font-family: $font-medium;
+    font-size: 18px;
+    line-height: 28px;
+    text-space: 0.5px;
+    @include tablet-up {
+      font-size: 20px;
+      line-height: 32px;
+      text-space: 0.2px;
+    }
+  }
+}
+
+.listmodule-listicle-element__media{
+  margin-top: 0;
+  margin-bottom: 12px;
+  @include tablet-up{
+    margin-top: 4px;
+    margin-bottom: 16px;
+  }
+  @include smartphone {
+    @include fullwidth-element;
+  }
+  .image-figure {
+    background-color: $color-bg-caption;
+    margin-bottom: 0;
+    margin-top: 0;
+    .media-caption--no-bg{
+      border-bottom: none;
+    }
+  }
+  .article-video{
+    margin: 0 0 0;
+  }
+}
+
+.listmodule-listicle-element__source{
+  font-size: 12px;
+  color: #757266;
+  padding: 0 24px;
+  @include tablet-up{
+    padding: 0 16px;
+  }
+  @include smartphone {
+    @include fullwidth-element;
+  }
+}
+
+.listmodule-listicle-element__link{
+  margin-bottom: 12px;
+  @include tablet-up{
+    margin-bottom: 16px;
+  }
+  .block-link{
+    border-top: 1px solid $color-separator;
+  }
+  @include smartphone {
+    @include fullwidth-element;
+  }
 }
