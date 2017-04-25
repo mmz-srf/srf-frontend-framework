@@ -206,11 +206,14 @@
     border-bottom: 0;
   }
 }
-.comment__link--reply {
+.comment__link--reply,
+.comment__link--deny {
   border-left: 1px solid $color-separator;
 }
 
-.comment__link:visited, .comment__link--clicked {
+.comment__link:visited,
+.comment__link--clicked,
+.comment__link--disabled {
   color: $color-text-light;
 }
 
