@@ -2,14 +2,10 @@
 
 function versions_index {
     echo "<html><body>"
-    echo "<ol>"
-    echo "<li><a href='latest/public/'>latest</a><br /></li>";
-    for i in $(find -mindepth 1 -maxdepth 1 -type d | sort -r);
+    for i in $(find -mindepth 1 -maxdepth 1 -type d | sort);
     do
-      echo "<li><a href='$i/public/'>$i</a></li>";
+      echo "<a href='$i/public/'>$i</a><br>";
     done;
-    echo "</ol>"
-
     echo "</body>";
 }
 

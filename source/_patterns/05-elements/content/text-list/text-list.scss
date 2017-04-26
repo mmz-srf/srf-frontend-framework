@@ -36,18 +36,18 @@
 }
 
 .text-list--ordered {
-  & > li {
+  li {
     padding-left: 2em;
+  }
 
-    &:before {
-      position: absolute;
-      left: 0;
-      top: 0;
-      font-family: $font-medium;
-      content: counter(item) ".";
-      color: $color-list-bullet;
-      counter-increment: item;
-    }
+  li:before {
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-family: $font-medium;
+    content: counter(item) ".";
+    color: $color-list-bullet;
+    counter-increment: item;
   }
 }
 

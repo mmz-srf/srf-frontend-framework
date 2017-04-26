@@ -1,11 +1,11 @@
-<figure id="map-{{ chmap.id }}" class="chmap-wrapper" data-src="../../assets/demo/chmap-data.json" aria-hidden="true">
+<figure id="map-ID" class="chmap-wrapper" data-src="../../assets/demo/chmap-data.json" aria-hidden="true">
     <div id="loader"></div>
-    {% include "elements-chmap.svg" with { 'idReference' : chmap.id } %}
+    {% include "elements-chmap.svg" %}
 
     {% include 'elements-media-caption-with-legend' with { 'styleModifier': 'media-caption--chmap', 'styleModifierContent': 'media-caption__content--chmap' } %}
 
     <div class="menu-wrapper">
         {% include 'elements-select' %}
     </div>
-    <div id="infowindow-{{ chmap.id }}" class="chmap-infowindow"></div>
+    <div id="infowindow-ID" class="chmap-infowindow"></div>
 </figure>

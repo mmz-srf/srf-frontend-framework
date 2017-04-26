@@ -1,9 +1,6 @@
 .menu {
   // height: 48px;
   width: 100%;
-  @include tablet-up {
-    max-width: 300px;
-  }
   color: $color-text-accentuation;
   font: 16px/24px $font-regular;
   letter-spacing: 1px;
@@ -19,7 +16,7 @@
     background-color: #dadad2;
     cursor: pointer;
   }
-  &:active, &:focus {
+  &:active {
     outline: none;
     -webkit-tap-highlight-color: rgba(0,0,0,0);
     background-color: #cac8bf;
@@ -29,6 +26,11 @@
                 0 0 8px 0 rgba(0, 0, 0, 0.12);
   }
 
+  // @include tablet-up {
+    // margin-left: 16px;
+    // margin-right: 16px;
+    // width: calc(100% - 32px);
+  // }
   // hide default arrow
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -37,11 +39,6 @@
     color: transparent;
     text-shadow: 0 0 0 $color-text-accentuation;
   }
-}
-
-select::-ms-expand {
-  display: none;
-  // ie11 also needs some padding-left
 }
 @-moz-document url-prefix() {
   .menu { text-indent: 8px; }
@@ -54,15 +51,7 @@ select::-ms-expand {
   letter-spacing: .5px;
   color: $color-text-accentuation;
   margin: 20px 0 4px;
-}
-
-.menu--inactive {
-  opacity: .48;
-  transition: none;
-  &:hover, &:active {
-    background-color: #ebebe5;
-    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.24),
-    0 0 2px 0 rgba(0, 0, 0, 0.12);
-    cursor: default;
-  }
+  /* @include tablet-up {
+    margin: 20px 16px 4px;
+  } */
 }

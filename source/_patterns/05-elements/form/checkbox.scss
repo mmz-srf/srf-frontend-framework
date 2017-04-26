@@ -2,20 +2,9 @@
   position: absolute;
   opacity: 0;
   // custom boxes (decorating the label)
-  &:focus, &:active, &:checked {
+  &:checked {
     + .checkbox-label {
       background-color: $color-bg-box-hover;
-    }
-  }
-  &:checked {
-    &:focus, &:hover {
-      + .checkbox-label {
-        background-color: #cac8bf;
-      }
-    }
-  }
-  &:checked, &:focus:checked {
-    + .checkbox-label {
       &:after {
         border-color: $color-accentuation-red;
       }
@@ -26,6 +15,7 @@
       }
     }
     + .checkbox--inactive {
+      // hier sollte eigentlich keine Aktion stattfinden (??)
       &:after {
         border-color: $color-text-light;
       }
@@ -38,6 +28,7 @@
 
 .checkbox-label {
   @include button-label;
+  padding: 14px 16px 14px 48px;
 
   &:before, &:after {
     content: "";
@@ -51,14 +42,13 @@
     border: solid 1px $color-text-light;
   }
   &.checkbox--inactive:hover {
-    background-color: $color-bg-box;
+      background-color: $color-bg-box;
   }
 }
 
 .checkbox--inactive {
   opacity: .48;
 }
-
 .checkbox--on-error {
   color: $color-accentuation-red;
   &:after {

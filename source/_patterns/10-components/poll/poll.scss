@@ -13,7 +13,7 @@
     height: auto;
     width: 100%;
   }
-  .button {
+  .submit-button {
     display: none;
   }
 }
@@ -89,7 +89,7 @@
       padding: 16px;
     }
   }
-  .button {
+  .submit-button {
     display: block;
   }
 }
@@ -260,7 +260,7 @@
 // last bit
 .poll-form-handling {
   @include rounded-corners(2px);
-  .button {
+  .submit-button {
     margin: 6px 0 0;
     @include tablet-up {
       margin: 0;

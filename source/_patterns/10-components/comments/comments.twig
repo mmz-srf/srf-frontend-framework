@@ -9,21 +9,6 @@
                     {{ comments.title_plural|default("Kommentare") }}
                 {% endif %}
             </h3>
-            {# following - we assume the user is logged in #}
-            <p class="comments-header__text comments--shrink">
-                {{ comments.greetings|default("Sie sind angemeldet als") }}&nbsp;
-                <a href="" class="">Who ? (whoareyou)</a> (<a href="#">{{ comments.logout|default("abmelden") }}</a>)
-            </p>
-            {# "button " #}
-            <a class="comments-header__button comments--shrink" href="#" role="link">
-                {{ comments.let_us_know|default("Teilen Sie Ihre Meinung ...") }}
-                <span class="h-offscreen">{{ comments.select_to_comment|default("anwählen um einen Kommentar zu schreiben") }}</span>
-            </a>
-            <span class="comments-header__placeholder"></span>
-            {% block comment_reply %}
-                {% include '_comment-reply.twig' with { 'comments' : { 'replies' : comments.replies }, 'isMovable' : false } %}
-            {% endblock %}
-            {# // until here (user "is" logged in) #}
             <hr class="comments-header__border" aria-hidden="true">
             {% if comments.total_count == 0 %}
                 <p class="comments-header__text comments--shrink">
@@ -44,7 +29,7 @@
             <div id="sectionAll" role="tabpanel">
                 <ul class="comments comments--shrink comments--main">
                     {% block comments %}
-                        {% include 'components-comment' with { 'comments': comments.comments, 'default': comments.addons, 'replies': comments.replies, 'allowsComments': true } %}
+                        {% include 'components-comment' with { 'comments': comments.comments, 'default': comments.addons, 'allowsComments': true } %}
                     {% endblock %}
                 </ul>
             </div>

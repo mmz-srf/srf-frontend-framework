@@ -2,7 +2,6 @@
   padding: 12px 16px;
   background-color: $color-bg-caption;
   font: 14px/20px $font-light;
-  color: $color-text-default;
   overflow: hidden;
 
   @include smartphone {
@@ -48,14 +47,15 @@
 }
 
 .media-caption--video-related-episodes {
-  display: block;
-  min-height: 112px;
+  display: table;
+  height: 112px;
   padding: 12px;
 
   @include tablet-up {
     padding: 16px;
   }
 
+  margin-left: 96px;
   background-color: transparent;
 
   .media-caption__title--video {
@@ -128,18 +128,6 @@
   float: left;
 }
 
-.media-caption--chmap {
-  padding: 12px 16px;
-  border-bottom: 2px solid #fff;
-}
-
 .media-caption__content {
   overflow: hidden;
-  @include tablet-up {
-    &--chmap {
-      width: 33%;
-      float: left;
-      margin-right: 16px;
-    }
-  }
 }

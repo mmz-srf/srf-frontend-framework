@@ -1,1 +1,1 @@
-{"listeners":["\\PatternLab\\Reload\\PatternLabListener","\\PatternLab\\TwigExtensions\\PatternLabListener"]}
+{"listeners":["\\PatternLab\\Reload\\PatternLabListener"]}

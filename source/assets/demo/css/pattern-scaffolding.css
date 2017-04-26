@@ -52,32 +52,3 @@
 .demo-simulate-removed-html-elements .media-caption__description {
   display: none !important;
 }
-
-
-
-.demo-documentation pre {
-  display: block;
-  padding: 0 16px;
-  overflow: scroll;
-}
-
-.demo-documentation code {
-  padding: 2px 4px;
-  font-size: 16px;
-  font-family: monospace;
-  line-height: 16px;
-  background-color: #ebebe5;
-}
-
-.demo-documentation__content-subtitle,
-.demo-documentation__content-subtitle--small {
-  font-family: "SRG_SSR_Medium", sans-serif;
-  font-weight: normal;
-  padding: 0 16px;
-  margin: 32px 0 12px 0;
-}
-
-.demo-documentation__content-subtitle--small {
-  font-family: "SRG_SSR_Regular", sans-serif;
-  font-size: 20px;
-}
