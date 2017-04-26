@@ -15,7 +15,7 @@
             </p>
 
             {# show the button to comment #}
-            {% if allowsComments and comments.reason_for_closure == '' %}
+            {% if allowsComments %}
                 <a class="comments-header__button comments--shrink" href="#" role="link">
                     {{ comments.let_us_know|default("Teilen Sie Ihre Meinung ...") }}
                     <span class="h-offscreen">{{ comments.select_to_comment|default("anwählen um einen Kommentar zu schreiben") }}</span>
