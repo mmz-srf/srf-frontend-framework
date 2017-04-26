@@ -1,7 +1,7 @@
 .article-video {
-  margin: 32px 0 24px;
+  margin: 32px 0;
   @include smartphone {
-    margin: 24px -8px 20px;
+    margin: 24px -8px;
   }
 
   &__wrapper {
@@ -49,9 +49,13 @@
     }
   }
   &:hover, &:active {
-    .article-video__play-icon {
+    .article-video__play-icon,
+    .media-play__icon {
       background-image: url(../../assets/img/play-active.svg);
       background-size: 100%;
+    }
+    .media-caption--video {
+      background-color: $color-bg-box;
     }
   }
 
@@ -65,7 +69,7 @@
       top: 55%;
       left: 50%;
       width: 68px;
-      transform: translate(-50%, -50%);
+      transform: translate(-50%, -34px);
       text-align: center;
       z-index: 1;
     }
@@ -89,4 +93,82 @@
 
     }
   }
+}
+
+// animations preparation
+.article-video {
+  transition: background-color 0.4s;
+}
+
+.media-caption__title,
+.media-caption__source,
+strong {
+  transition: color 0.4s;
+}
+
+.image-figure__image-wrapper::before {
+  transition: opacity 0.4s;
+}
+
+.media-play__icon,
+.media-play__length {
+  opacity: 1;
+  transition: opacity 0.4s;
+}
+
+// end animations preparation
+
+.article-video__player {
+  background-color: #000;
+}
+
+.video--playing {
+  overflow: hidden;
+  &.article-video, &.article-video:hover {
+    background-color: $color-media-playing;
+    cursor: default;
+  }
+
+  &:hover .media-caption, .media-caption { // :/
+    background-color: $color-media-playing;
+  }
+  .media-caption__title {
+    color: $color-bg-caption;
+  }
+  .media-caption__source, strong {
+    color: $color-border;
+  }
+
+  .image-figure__image-wrapper::before,
+  .media-play__icon,
+  .media-play__length {
+    opacity: 0;
+  }
+
+  // just so the image doesn't get pushed down
+  .image-figure__image {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+
+  .article-video__player {
+    margin: 0 -2px;
+    &::before {
+      content: "";
+      display: block;
+      padding-top: 56%;
+    }
+    iframe {
+      position: absolute;
+      top: 0;
+      left: -1px;
+      right: -1px;
+      width: calc(100% + 2px);
+    }
+  }
+}
+
+.article-video__link {
+  outline: none;
 }
