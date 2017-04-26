@@ -210,7 +210,6 @@
   letter-spacing: .2px;
 
   @include smartphone {
-    //height: 40px;
     font: 16px/20px $font-regular;
     letter-spacing: .1px;
   }
