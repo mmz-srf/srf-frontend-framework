@@ -1,8 +1,11 @@
 {% set hintAvailable = hintText is defined and hintText is not empty %}
-{% if labelText is defined and labelText is not empty %}<label for="{{ fieldID|default('menu-ID') }}" class="menu-label {{ styleModifier }}">{{ labelText|default("Bitte wählen") }}</label>{% endif %}
-<select class="menu" aria-labelledby="{{ fieldID|default('menu-ID') }}" id="{{ fieldID|default('menu-ID') }}">
+{% if labelText is defined and labelText is not empty %}<label for="{{ fieldID|default('menu-ID') }}"
+                                                               class="menu-label {{ styleModifier }}">{{ labelText|default("Bitte wählen") }}</label>{% endif %}
+<select class="menu {{ styleModifier }}"{% if hintAvailable %} aria-labelledby="{{ fieldID|default('menu-ID') }}-hint"{% endif %}
+        id="{{ fieldID|default('menu-ID') }}">
     {% for option in menu %}
         <option value="{{ option.key }}">{{ option.val }}</option>
     {% endfor %}
 </select>
-{% if hintAvailable %}<span class="input-field-hint {{ styleModifier }}" id="{{ fieldID }}-hint">{{ hintText|default("Hint") }}</span>{% endif %}
+{% if hintAvailable %}<span class="input-field-hint {{ styleModifier }}"
+                            id="{{ fieldID }}-hint">{{ hintText|default("Hint") }}</span>{% endif %}

@@ -72,9 +72,9 @@
 }
 
 .media-caption--audio {
-  display: table;
   height: 112px;
   padding: 12px;
+  display: table;
 
   @include tablet-up {
     padding: 16px;
@@ -90,7 +90,8 @@
   color: $color-text-default;
   margin-bottom: 4px;
 }
-.media-caption__source--audio{
+
+.media-caption__source--audio {
   text-transform: none;
   strong {
     color: $color-text-accentuation;
@@ -100,15 +101,6 @@
 .audio-gallery {
   .media-caption--audio {
     height: auto;
-    width: 100%;
-    margin-left: 72px;
-    display: table-cell;
-    vertical-align: middle;
-  }
-  .media-caption__title {
-    padding-bottom: 2px;
-    display: table-cell;
-    vertical-align: bottom;
   }
 }
 
