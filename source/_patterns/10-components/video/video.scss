@@ -117,14 +117,22 @@
     color: $color-border;
   }
 
+  .media-caption__title,
+  .media-caption__source,
+  strong {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
   .image-figure__image-wrapper::before,
   .media-play__icon,
   .media-play__length {
     display: none;
   }
 
+  // the player (currently) shows a black border left & right :/
   .article-video__player {
-    margin: 0 -2px;
+    margin: 0 -1px;
     &::before {
       content: "";
       display: block;
