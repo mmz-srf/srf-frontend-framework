@@ -210,13 +210,14 @@
   letter-spacing: .2px;
 
   @include smartphone {
-    font: 16px/20px $font-regular;
-    letter-spacing: .1px;
+    font: 16px/20px $font-light;
+    letter-spacing: 0;
   }
 
   @include tablet-up {
     margin-bottom: 24px;
     font: 16px/24px $font-light;
+      letter-spacing: 0.5px;
   }
   &:hover {
     border-bottom: 0;
