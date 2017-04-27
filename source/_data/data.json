@@ -418,11 +418,9 @@
     "link_all": "Alle Kommentare",
     "link_hits": "Beliebteste",
     "addons": {
-      "link_social": "Gefällt mir",
       "link_reply": "Antworten",
       "comment_by": "Kommentar von",
-      "reply_by": "Antwort von",
-      "select_to_reply": "anwählen um eine Antwort zu schreiben"
+      "reply_by": "Antwort von"
     },
     "replies": {
       "title": "Einen Kommentar schreiben",

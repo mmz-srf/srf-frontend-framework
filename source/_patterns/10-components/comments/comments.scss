@@ -190,6 +190,18 @@
       }
     }
   }
+
+  .vertical-separator {
+    margin-left: 9px;
+    margin-right: 9px;
+  }
+
+  @include smartphone {
+    .vertical-separator {
+      margin-left: 8px;
+      margin-right: 8px;
+    }
+  }
 }
 .comments--main { // ul
   > .comment:first-child {
@@ -234,26 +246,45 @@
   border-bottom: 0;
   display: inline-block;
   cursor: pointer; // why would this be necessary!?
-  padding: 0 10px;
+  padding: 8px 0;
+  margin-right: 0;
   margin-bottom: 24px;
   font: 14px/16px $font-regular;
   letter-spacing: .2px;
+
+  @include smartphone {
+    font: 16px/20px $font-regular;
+    letter-spacing: .1px;
+  }
+
   @include tablet-up {
     margin-bottom: 24px;
     font: 16px/24px $font-light;
-  }
-  &:first-of-type {
-    padding-left: 0;
   }
   &:hover {
     border-bottom: 0;
   }
 }
+
 .comment__link--reply {
-  border-left: 1px solid $color-separator;
+   @include smartphone {
+       background: url("../img/linktypes/reply.svg") no-repeat center;
+       opacity: 0.7;
+       width: 40px;
+       text-indent: -10000px;
+       margin-left: -8px;
+   }
 }
 
-.comment__link:visited, .comment__link--clicked {
+.comment__link--reply:hover {
+    @include smartphone {
+        opacity: 1;
+    }
+}
+
+.comment__link:visited,
+.comment__link--clicked,
+.comment__link--disabled {
   color: $color-text-light;
 }
 
