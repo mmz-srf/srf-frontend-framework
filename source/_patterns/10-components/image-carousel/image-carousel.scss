@@ -67,9 +67,8 @@
         height: 96px;
       }
       &:hover, &:active {
-        -moz-background-clip: content;
-        -webkit-background-clip: content;
         background-clip: content-box;
+        border-bottom-color: transparent;
       }
       &:hover {
         background-color: rgba(0, 0, 0, 0.48);
@@ -86,7 +85,7 @@
       background-image: url("../../assets/img/arrows/carousel_arrow_prev.svg");
       border: 8px solid transparent;
       border-radius: 0 15px 15px 0;
-      border-width: 12px 12px 12px 0; /* <= /* kompromiss: schoene runde ecken UND extended touch area :( */
+      // border-width: 12px 12px 12px 0; /* <= /* kompromiss: schoene runde ecken UND extended touch area :( */
       background-position: 30%;
     }
     &--next {
@@ -94,10 +93,15 @@
       background-image: url("../../assets/img/arrows/carousel_arrow_next.svg");
       border: 8px solid transparent;
       border-radius: 15px 0 0 15px;
-      border-width: 12px 0 12px 12px; /* kompromiss :) */
+      // border-width: 12px 0 12px 12px; /* kompromiss :) */
       background-position: 60%;
     }
   }
+  a.carousel__link { // overwrites (links)
+    &--prev { border-width: 12px 12px 12px 0; }
+    &--next { border-width: 12px 0 12px 12px; }
+  }
+
   &-counter {
     position: absolute;
     left: 50%;
