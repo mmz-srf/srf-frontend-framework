@@ -27,36 +27,59 @@ var commentController = function () {
         // main (top) comment
         $(".comments-header__button").on("click", function (e) {
             e.preventDefault();
-            // hide the button
-            $(this).addClass("comment--hide");
-            // move the form
-            $(".js-comment_place").removeClass("comment--hide")
-                .appendTo(".comments-header__placeholder");
-            // set the focus
-            $(".reply__textarea").val("").focus();
-
+            $(this).addClass('login-pending');
+            $(document).trigger('login:check');
             return false;
         });
 
         // movable comment
         $(".comment__link--reply").on("click", function (e) {
             e.preventDefault();
-            // hide main comment again (if there was one)
-            $(".comments-header__button").removeClass("comment--hide");
-
-            var parent_id = $(this).parent("li").prop("id");
-
-            // move the form
-            $(".js-comment_place").removeClass("comment--hide")
-                .appendTo("#" + parent_id.replace("comment", "placeholder"));
-            // set the focus
-            $(".reply__textarea").val("").focus();
-
-            parent_id = parent_id.split("_")[1];
-            $(".js-comment_parent_id").val(parent_id);
+            $(this).addClass('login-pending');
+            $(document).trigger('login:check');
 
             return false;
         });
+
+        $(document).on('login:logout', function(){
+            // hide the button
+            $(".comments-header__button").removeClass("comment--hide");
+            // move the form
+            $(".js-comment_place").addClass("comment--hide")
+        });
+
+        $(document).on('login:checked', function(){
+            var origin = $('.login-pending').first();
+            if (origin.length > 0) {
+                origin.removeClass('login-pending');
+                if (origin.hasClass('comment__link--reply')){
+                    // hide main comment again (if there was one)
+                    $(".comments-header__button").removeClass("comment--hide");
+
+                    var parent_id = origin.parent("li").prop("id");
+
+                    // move the form
+                    $(".js-comment_place").removeClass("comment--hide")
+                        .appendTo("#" + parent_id.replace("comment", "placeholder"));
+                    // set the focus
+                    $(".reply__textarea").val("").focus();
+
+                    parent_id = parent_id.split("_")[1];
+                    $(".js-comment_parent_id").val(parent_id);
+
+                } else {
+                    origin.addClass("comment--hide");
+                    // move the form
+                    $(".js-comment_place").removeClass("comment--hide")
+                        .appendTo(".comments-header__placeholder");
+                    // set the focus
+                    $(".reply__textarea").val("").focus();
+                }
+
+            }
+            return false;
+        });
+
     };
 
     this.countChars = function ($textarea) {

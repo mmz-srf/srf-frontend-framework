@@ -9,9 +9,10 @@
                     {{ comments.title_plural|default("Kommentare") }}
                 {% endif %}
             </h3>
-            <p class="comments-header__text comments--shrink {{ styleModifier }}">
+            <p class="comments-header__text comments--shrink {{ styleModifier }}" style="display: none">
                 {{ comments.greetings|default("Sie sind angemeldet als") }}&nbsp;
-                <a href="" class="">Who ? (whoareyou)</a> (<a href="#">{{ comments.logout|default("abmelden") }}</a>)
+                <a href="" class="comments-header__logged-in-as">Who ? (whoareyou)</a> (<a href=""
+                                                              class="comments-header__logout">{{ comments.logout|default("abmelden") }}</a>)
             </p>
 
             {# show the button to comment #}
