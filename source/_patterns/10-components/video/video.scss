@@ -95,29 +95,6 @@
   }
 }
 
-// animations preparation
-.article-video {
-  transition: background-color 0.4s;
-}
-
-.media-caption__title,
-.media-caption__source,
-strong {
-  transition: color 0.4s;
-}
-
-.image-figure__image-wrapper::before {
-  transition: opacity 0.4s;
-}
-
-.media-play__icon,
-.media-play__length {
-  opacity: 1;
-  transition: opacity 0.4s;
-}
-
-// end animations preparation
-
 .article-video__player {
   background-color: #000;
 }
@@ -135,21 +112,15 @@ strong {
   .media-caption__title {
     color: $color-bg-caption;
   }
-  .media-caption__source, strong {
+  .media-caption__source,
+  strong {
     color: $color-border;
   }
 
   .image-figure__image-wrapper::before,
   .media-play__icon,
   .media-play__length {
-    opacity: 0;
-  }
-
-  // just so the image doesn't get pushed down
-  .image-figure__image {
-    position: absolute;
-    left: 0;
-    top: 0;
+    display: none;
   }
 
   .article-video__player {

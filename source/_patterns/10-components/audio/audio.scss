@@ -62,26 +62,6 @@
   }
 }
 
-// animations
-.article-audio__player {
-  height: 0;
-  transition: height 0.4s;
-}
-
-.article-audio {
-  transition: background-color 0.4s;
-}
-
-.media-caption__title,
-.media-caption__source,
-strong {
-  transition: color 0.4s;
-}
-
-.article-audio__wrapper::before {
-  transition: opacity 0.4s;
-}
-
 .audio--playing {
   &.article-audio,
   &.article-audio:hover {
@@ -101,6 +81,7 @@ strong {
   strong {
     color: $color-border;
   }
+
   .article-audio__player {
     height: 42px;
     padding: 8px;
