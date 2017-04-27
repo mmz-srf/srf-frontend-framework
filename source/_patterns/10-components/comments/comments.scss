@@ -249,7 +249,7 @@
   padding: 8px 0;
   margin-right: 0;
   margin-bottom: 24px;
-  font: 14px/16px $font-regular;
+  font: 14px/16px $font-light;
   letter-spacing: .2px;
 
   @include smartphone {
@@ -264,6 +264,11 @@
   }
   &:hover {
     border-bottom: 0;
+  }
+
+  .count b {
+      font-family: $font-regular;
+      font-weight: normal;
   }
 }
 
