@@ -5,6 +5,8 @@
   font: 16px/20px $font-regular;
   letter-spacing: 1px;
   color: #fff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   border: 0;
   margin-top: 20px;
   display: block;
