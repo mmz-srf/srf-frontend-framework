@@ -11,9 +11,8 @@
 .video-gallery {
   position: relative;
   width: 100%;
-  // background-color: #f5f5f2;
   overflow: visible;
-  margin: 32px 0 0 0; /* for regular media element within article */
+  margin: 32px 0 0 0; // for regular media element within article
 
   @include smartphone {
     margin-top: 24px;
@@ -61,7 +60,8 @@
   .image-figure__image-wrapper {
     background: none;
     position: relative;
-    &:before {
+
+    &::before {
       padding-top: 56.5%;
       position: relative;
     }
@@ -71,51 +71,54 @@
     background-color: transparent;
   }
 
-  .carousel__link {
-    &--prev, &--next {
-      &:hover {
-        background-color: #ebebe5;
-        border-bottom-color: transparent;
-      }
-      &:active {
-        background-color: #dadad2;
-        border-bottom-color: transparent;
-      }
-      width: 56px;
-      height: 101px;
+  .carousel__link--prev,
+  .carousel__link--next {
+    width: 56px;
+    height: 101px;
 
-      @include desktop-up {
-        top: 27%;
-      }
-
-      @include tablet {
-        top: 33%;
-      }
+    @include desktop-up {
+      top: 27%;
     }
 
-    &--prev {
-      left: -60px;
-      background-image: url("../../assets/img/arrows/carousel_arrow_prev-no-background.svg");
-      background-color: transparent;
-      &:hover, &:active {
-        border-width: 12px 12px 12px 0;
-      }
+    @include tablet {
+      top: 33%;
     }
-    &--next {
-      right: -60px;
-      background-image: url("../../assets/img/arrows/carousel_arrow_next-no-background.svg");
-      background-color: transparent;
-      &:hover, &:active {
-        border-width: 12px 0 12px 12px;
-      }
+
+    &:hover {
+      background-color: #ebebe5;
+      border-bottom-color: transparent;
+    }
+
+    &:active {
+      background-color: #dadad2;
+      border-bottom-color: transparent;
+    }
+  }
+
+  .carousel__link--prev {
+    left: -60px;
+    background-image: url('../../assets/img/arrows/carousel_arrow_prev-no-background.svg');
+    background-color: transparent;
+
+    &:hover,
+    &:active {
+      border-width: 12px 12px 12px 0;
+    }
+  }
+  .carousel__link--next {
+    right: -60px;
+    background-image: url('../../assets/img/arrows/carousel_arrow_next-no-background.svg');
+    background-color: transparent;
+
+    &:hover,
+    &:active {
+      border-width: 12px 0 12px 12px;
     }
   }
 }
 
-.slick-list
-{
+.slick-list {
   position: relative;
-
   display: block;
   overflow: hidden;
 
@@ -125,48 +128,40 @@
 
 .slick-track {
   clear: both;
-  content: "";
+  content: '';
   display: table;
 }
 
-/* Dots */
-.slick-dotted.slick-slider
-{
+// Dots
+.slick-dotted.slick-slider {
   margin-bottom: 24px;
 }
 
-.slick-dots
-{
+.slick-dots {
   bottom: -25px;
-
   display: block;
-
   width: 100%;
   padding: 0;
   margin: 0;
-
   list-style: none;
-
   text-align: center;
 }
-.slick-dots li
-{
+
+.slick-dots li {
   position: relative;
-
   display: inline-block;
-
   width: 20px;
   height: 20px;
   margin: 0 5px 12px;
   padding: 0;
-
   cursor: pointer;
-  &:before {
+
+  &::before {
     content: none;
   }
 }
-.slick-dots li button
-{
+
+.slick-dots li button {
   font-size: 0;
   line-height: 0;
 
@@ -183,18 +178,18 @@
   outline: none;
   background: transparent;
 }
+
 .slick-dots li button:hover,
-.slick-dots li button:focus
-{
+.slick-dots li button:focus {
   outline: none;
 }
-.slick-dots li button:hover:before,
-.slick-dots li button:focus:before
-{
+
+.slick-dots li button:hover::before,
+.slick-dots li button:focus::before {
   opacity: 1;
 }
-.slick-dots li button:before
-{
+
+.slick-dots li button::before {
   font-family: 'slick';
   font-size: 28px;
   line-height: 20px;
@@ -216,8 +211,7 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.slick-dots li.slick-active button:before
-{
+.slick-dots li.slick-active button::before {
   opacity: .75;
   color: black;
 }
