@@ -4,10 +4,11 @@
   overflow: hidden;
 
   @include smartphone {
-    @include fullwidth-element;
     margin-top: 32px;
     margin-bottom: 32px;
     padding: 0 8px;
+
+    @include fullwidth-element;
   }
 }
 
@@ -17,28 +18,27 @@
 
 .textbox__title {
   padding: 0 16px;
-  margin: 16px 0 8px 0;
+  margin: 16px 0 8px;
   font-family: $font-medium;
   font-size: 20px;
   line-height: 32px;
-  letter-spacing: 0.3px;
+  letter-spacing: .3px;
 
   @include smartphone {
-    margin: 12px 0 8px 0;
+    margin: 12px 0 8px;
     font-size: 18px;
     line-height: 28px;
-    letter-spacing: 0.5px;
+    letter-spacing: .5px;
   }
 }
 
 .textbox__content {
-
   & > p {
     @include article-text-padding;
-    margin: 12px 0 24px 0;
+    margin: 12px 0 24px;
 
     @include smartphone {
-      margin: 12px 0 20px 0;
+      margin: 12px 0 20px;
     }
 
   }

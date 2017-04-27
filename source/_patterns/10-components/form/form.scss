@@ -13,6 +13,7 @@
   border: 0;
   padding: 0;
   margin: 0;
+
   > *:last-child { // remove margins from last checkbox or whatever
     margin-bottom: 0;
   }

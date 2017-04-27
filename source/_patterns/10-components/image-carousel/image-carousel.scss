@@ -3,116 +3,123 @@
   width: 100%;
   background-color: #f5f5f2;
   overflow: hidden;
-  // margin: 32px 0 0 0; /* for regular media element within article */
   margin: 32px 0 24px;
+
   @include smartphone {
     margin: 24px 0 20px;
   }
 
   .image-figure {
-    // position: initial;
     width: 100%;
-    // margin-top: 0;
-    // margin-bottom: 2px;
     margin: 0;
     left: 0;
     right: 0;
-    &__image {
-      background-color: black;
-      height: 100%;
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      right: 0;
-      left: 0;
-      object-fit: contain;
-      min-width: 100%;
-      width: 1px;
-    }
+  }
+
+  .image-figure__image {
+    background-color: #000;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    object-fit: contain;
+    min-width: 100%;
+    width: 1px;
   }
 
   .image-figure__image-wrapper {
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(0, 0, 0, .8);
     position: relative;
-    &:before {
-      content: "";
+
+    &::before {
+      content: '';
       display: block;
       padding-top: 75%;
     }
   }
-  &__item {
-    position: relative;
-    float:left;
-  }
-  &__link {
-    &--prev, &--next {
-      position: absolute;
-      height: 64px;
-      width: 40px;
-      /* top: 40%;
-      transform: translate(0, -50%); */
-      top: 28vw;
-      padding:0; // reset default button style
-      background-color:transparent; // reset default button style
-      cursor:pointer; // reset default button style
-      background-repeat: no-repeat;
-      background-size: 24px;
-      display: block;
-      box-sizing: content-box;
-      z-index: 100;
-      @include tablet-up {
-        top: 35%;
-        background-size: 34px;
-        width: 56px;
-        height: 96px;
-      }
-      &:hover, &:active {
-        -moz-background-clip: content;
-        -webkit-background-clip: content;
-        background-clip: content-box;
-      }
-      &:hover {
-        background-color: rgba(0, 0, 0, 0.48);
-      }
-      &:active {
-        background-color: rgba(0, 0, 0, 0.8);
-      }
-      &.untouched {
-        background-color: transparent;
-      }
-    }
-    &--prev {
-      left: 0;
-      background-image: url("../../assets/img/arrows/carousel_arrow_prev.svg");
-      border: 8px solid transparent;
-      border-radius: 0 15px 15px 0;
-      border-width: 12px 12px 12px 0; /* <= /* kompromiss: schoene runde ecken UND extended touch area :( */
-      background-position: 30%;
-    }
-    &--next {
-      right: 0;
-      background-image: url("../../assets/img/arrows/carousel_arrow_next.svg");
-      border: 8px solid transparent;
-      border-radius: 15px 0 0 15px;
-      border-width: 12px 0 12px 12px; /* kompromiss :) */
-      background-position: 60%;
-    }
-  }
-  &-counter {
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%, 0);
-    bottom: 12px;
-    @include tablet-up {
-      bottom: 16px;
-      font-size: 14px;
-      line-height: 20px;
-      padding: 0 8px;
-      font-weight: 500;
-    }
-  }
 
   .slick-disabled {
-    display: none !important; // hide from screenreader
+    display: none !important; // hide from screenreader // TODO: There is a better way!
+  }
+}
+
+.carousel__item {
+  position: relative;
+  float:left;
+}
+
+.carousel__link--prev {
+  left: 0;
+  background-image: url('../../assets/img/arrows/carousel_arrow_prev.svg');
+  border: 8px solid transparent;
+  border-radius: 0 15px 15px 0;
+  border-width: 12px 12px 12px 0; // <= kompromiss: schoene runde ecken UND extended touch area :(
+  background-position: 30%;
+}
+.carousel__link--next {
+  right: 0;
+  background-image: url('../../assets/img/arrows/carousel_arrow_next.svg');
+  border: 8px solid transparent;
+  border-radius: 15px 0 0 15px;
+  border-width: 12px 0 12px 12px; // kompromiss :)
+  background-position: 60%;
+}
+
+.carousel__link--prev,
+.carousel__link--next {
+  position: absolute;
+  height: 64px;
+  width: 40px;
+  top: 28vw;
+  padding: 0; // reset default button style
+  background-color: transparent; // reset default button style
+  cursor: pointer; // reset default button style
+  background-repeat: no-repeat;
+  background-size: 24px;
+  display: block;
+  box-sizing: content-box;
+  z-index: 100;
+
+  @include tablet-up {
+    top: 35%;
+    background-size: 34px;
+    width: 56px;
+    height: 96px;
+  }
+
+  &:hover,
+  &:active {
+    -moz-background-clip: content;
+    -webkit-background-clip: content;
+    background-clip: content-box;
+  }
+
+  &:hover {
+    background-color: rgba(0, 0, 0, .48);
+  }
+
+  &:active {
+    background-color: rgba(0, 0, 0, .8);
+  }
+
+  &.untouched {
+    background-color: transparent;
+  }
+}
+
+.carousel-counter {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
+  bottom: 12px;
+
+  @include tablet-up {
+    bottom: 16px;
+    font-size: 14px;
+    line-height: 20px;
+    padding: 0 8px;
+    font-weight: 500;
   }
 }

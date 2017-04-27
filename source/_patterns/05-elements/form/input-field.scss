@@ -17,25 +17,32 @@
   margin: 4px 0 2px;
   box-sizing: border-box;
   border: 1px solid $color-form-field; // ???
-  @include rounded-corners(2px);
   transition: border-color 0.2s ease-in-out; // ??
+
+  @include rounded-corners(2px);
+
   &:focus {
     border-color: $color-text-accentuation;
     color: $color-text-default;
     outline: none;
   }
+
   &[type=password] {
     font-size: 30px;
     padding: 9px 44px 9px 16px;
   }
+
   &.input-field--on-error {
-    background: transparent url("../img/exclamation-mark-red.svg") no-repeat right 16px center;
+    background: transparent url('../img/exclamation-mark-red.svg') no-repeat right 16px center;
+
     &:focus {
       background: none;
     }
   }
+
   &.input-field--success {
-    background: transparent url("../img/blue_tick.svg") no-repeat right 16px center;
+    background: transparent url('../img/blue_tick.svg') no-repeat right 16px center;
+
     &:focus {
       background: none;
     }

@@ -1,5 +1,5 @@
 
-/* result colors red-blue */
+// result colors red-blue
 $res-0: #8d0614;
 $res-40: #c91024; // no bar
 $res-45: #f1434a;
@@ -21,6 +21,7 @@ $color-polis-no-text: #af001d; // oben: af001d oder unten: #9d0017 ???
 
 .polis-container { // margins only :(
   margin: 24px 0 20px; // mobile
+
   @include tablet-up {
     margin: 32px 0 24px;
   }
@@ -43,6 +44,7 @@ $color-polis-no-text: #af001d; // oben: af001d oder unten: #9d0017 ???
   letter-spacing: .5px;
   color: #4e4d47;
   margin: 4px 0 12px;
+
   @include tablet-up {
     margin: 12px 0 16px;
   }
@@ -52,9 +54,11 @@ $color-polis-no-text: #af001d; // oben: af001d oder unten: #9d0017 ???
   position: relative;
   padding-bottom: 26px;
   margin: 0 0 2px;
+
   @include tablet-up {
     padding-bottom: 84px;
   }
+
   .chmap { // bg default
     fill: #b9b7ac;
   }
@@ -68,15 +72,6 @@ $color-polis-no-text: #af001d; // oben: af001d oder unten: #9d0017 ???
 .res-60 { fill: $res-60; }
 .res-65 { fill: $res-65; }
 .res-100 { fill: $res-100; }
-
-/* .res-0  { polygon, path { fill: $res-0; } }
-.res-40 { polygon, path { fill: $res-40; } }
-.res-45 { polygon, path { fill: $res-45;} }
-.res-50 { polygon, path {fill: $res-50;} }
-.res-55 { polygon, path {fill: $res-55;} }
-.res-60 { polygon, path {fill: $res-60;} }
-.res-65 { polygon, path {fill: $res-65;} }
-.res-100 { polygon, path {fill: $res-100;} } */
 
 //// result container (bars) ////
 .polis-result-container { // ul
@@ -96,7 +91,8 @@ $color-polis-no-text: #af001d; // oben: af001d oder unten: #9d0017 ???
 }
 
 .polis-result-title--main,
-.polis-result-title__time, .polis-result-title--canton-time,
+.polis-result-title__time,
+.polis-result-title--canton-time,
 .polis-result-title--canton-o_clock {
   color: #888579;
 }
@@ -106,7 +102,8 @@ $color-polis-no-text: #af001d; // oben: af001d oder unten: #9d0017 ???
   padding: 0;
   margin: 0;
   display: table-cell;
-  &:before { // overwrite
+
+  &::before { // overwrite
     content: none;
   }
 }
@@ -118,7 +115,7 @@ $color-polis-no-text: #af001d; // oben: af001d oder unten: #9d0017 ???
 .polis-result__title { // "internal"
   font: 12px/16px $font-medium;
   letter-spacing: .5px;
-  margin: 8px 0 4px; // 12px 0 4px;
+  margin: 8px 0 4px;
 }
 
 .polis-result-title__type {
@@ -130,7 +127,7 @@ $color-polis-no-text: #af001d; // oben: af001d oder unten: #9d0017 ???
 }
 
 .polis-result__title--no {
-  color: $color-polis-no-text; // $color-polis-no;
+  color: $color-polis-no-text;
 }
 
 .polis-result__text {
@@ -157,13 +154,10 @@ $color-polis-no-text: #af001d; // oben: af001d oder unten: #9d0017 ???
 
 .polis-result__bar--yes {
   background-color: $color-polis-yes;
-  // border-right: 1px solid #b9b7ac;
-  // box-shadow: -1px 0 0 #b9b7ac inset;
 }
 
 .polis-result__bar--no {
   background-color: $color-polis-no;
-  // border-left: 1px solid #b9b7ac;
 }
 
 .polis-result--default {
@@ -175,7 +169,7 @@ $color-polis-no-text: #af001d; // oben: af001d oder unten: #9d0017 ???
   left: 0;
   right: 0;
   top: 50%;
-  transform: translate(0px, -50%);
+  transform: translate(0, -50%);
   z-index: 1;
   padding: 0 8px; // mobile
   margin: 0;
@@ -190,8 +184,10 @@ $color-polis-no-text: #af001d; // oben: af001d oder unten: #9d0017 ???
   background-color: #f5f5f2;
   margin-top: 2px;
   padding: 16px 16px 0;
+
   .menu { // select
     margin-bottom: 16px;
+
     @include tablet-up {
       margin-bottom: 16px;
     }
@@ -206,6 +202,7 @@ $color-polis-no-text: #af001d; // oben: af001d oder unten: #9d0017 ???
 
 .polis-result-title--canton {
   margin: -2px 0 0; // mobile
+
   @include tablet-up {
     margin: 0;
   }
@@ -225,12 +222,14 @@ $color-polis-no-text: #af001d; // oben: af001d oder unten: #9d0017 ???
 }
 
 .polis-district { // li (table-row)
-  &:before {
-    content: none;
-  }
   // overwrite
   display: table-row;
   background-color: #fafaf8;
+
+  &::before {
+    content: none;
+  }
+
   &:nth-child(even) {
     background-color: #f5f5f2;
   }
@@ -255,6 +254,7 @@ $color-polis-no-text: #af001d; // oben: af001d oder unten: #9d0017 ???
   width: 10%;
   padding: 12px 16px 12px 0;
   border-top: 2px solid #fff;
+
   @include tablet-up {
     padding-left: 48px
   }
@@ -269,12 +269,10 @@ $color-polis-no-text: #af001d; // oben: af001d oder unten: #9d0017 ???
   color: #9d0017; // red txt
   font-weight: 500;
 }
-
 /// here goes the zebra ///
 
 //// legend /////
 .polis-legend {
-  // margin: 12px 16px;
   @include tablet-up {
     position: absolute;
     width: 292px;
@@ -282,11 +280,13 @@ $color-polis-no-text: #af001d; // oben: af001d oder unten: #9d0017 ???
     bottom: 0;
   }
 }
+
 .polis-legend__title {
   font: 12px/16px $font-system;
   color: #22211d;
   margin-bottom: 4px;
 }
+
 .polis-legend-numbers,
 .polis-legend-scale {
   margin: 0;
@@ -295,10 +295,9 @@ $color-polis-no-text: #af001d; // oben: af001d oder unten: #9d0017 ???
 
 .polis-legend-numbers__element,
 .polis-legend-scale__element {
-  &:before {
+  &::before {
     content: none;
   }
-  // overwrite
 }
 
 .polis-legend-numbers {
@@ -313,12 +312,15 @@ $color-polis-no-text: #af001d; // oben: af001d oder unten: #9d0017 ???
   padding: 0;
   float: left;
 }
+
 .polis-legend-numbers__element--edge {
   width: 27.2%;
 }
+
 .polis-legend-numbers__element--100 {
   text-align: left;
 }
+
 .polis-legend-numbers__element--zero {
   text-align: right;
 }
@@ -333,6 +335,7 @@ $color-polis-no-text: #af001d; // oben: af001d oder unten: #9d0017 ???
   .res-65 {  background-color: $res-65;  }
   .res-100 { background-color: $res-100; }
 }
+
 .polis-legend-scale__element {
   height: 4px;
   margin: 0;
@@ -341,6 +344,7 @@ $color-polis-no-text: #af001d; // oben: af001d oder unten: #9d0017 ???
   padding: 0;
   float: left;
 }
+
 .polis-legend-scale__element--edge {
   width: 30.5%; //+ 2*30.5 = 100
 }
@@ -380,8 +384,9 @@ $color-polis-no-text: #af001d; // oben: af001d oder unten: #9d0017 ???
   font-weight: 500;
 }
 
-.polis-result-total--yesBar, .polis-result-total--noBar {
-  transition: width 0.5s ease-in;
+.polis-result-total--yesBar,
+.polis-result-total--noBar {
+  transition: width .5s ease-in;
 }
 
 .polis--hide {
