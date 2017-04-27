@@ -241,7 +241,9 @@
 
 .comment__link:visited,
 .comment__link--clicked,
-.comment__link--disabled {
+.comment__link--disabled,
+.comment__link--disabled:hover,
+.comment__link--disabled:active {
   color: $color-text-light;
 }
 
