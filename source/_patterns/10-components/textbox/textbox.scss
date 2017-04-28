@@ -2,10 +2,12 @@
   margin: 48px 0;
   background-color: $color-bg-box;
   overflow: hidden;
+  font-size: 18px;
 
   @include smartphone {
-    margin: 48px 0;
+    margin: 32px 0;
     padding: 0 8px;
+    font-size: 16px;
 
     @include fullwidth-element;
   }
@@ -33,11 +35,12 @@
 
 .textbox__content {
   & > p {
-    @include article-text-padding;
+    padding: 0 24px;
     margin: 12px 0 24px;
 
     @include smartphone {
       margin: 12px 0 20px;
+      padding: 0 16px;
     }
 
   }
