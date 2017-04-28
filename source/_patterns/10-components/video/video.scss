@@ -1,3 +1,5 @@
+@import "../../variables";
+
 .article-video {
   margin: 32px 0;
 
@@ -9,7 +11,7 @@
   &:active {
     .article-video__play-icon,
     .media-play__icon {
-      background-image: url('../../assets/img/play-active.svg');
+      background-image: url($image-path-prefix + '/play-active.svg');
       background-size: 100%;
     }
 
