@@ -1,10 +1,12 @@
+@import "../../variables";
+
 .article-media {
   margin: 0;
 
   &:hover,
   &:active {
     .article-media__play-icon {
-      background-image: url('../../assets/img/play-active.svg');
+      background-image: url($image-path-prefix + '/play-active.svg');
       background-size: 100%;
     }
   }

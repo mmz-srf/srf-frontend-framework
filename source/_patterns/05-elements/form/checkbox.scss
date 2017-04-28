@@ -1,3 +1,5 @@
+@import "../../variables";
+
 .checkbox {
   position: absolute;
   opacity: 0;
@@ -28,7 +30,7 @@
       }
 
       &::before {
-        content: url('../img/red_tick.svg');
+        content: url($image-path-prefix + '/red_tick.svg');
         top: 13px;
         left: 20px;
       }
