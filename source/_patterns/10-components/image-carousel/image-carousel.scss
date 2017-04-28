@@ -56,7 +56,6 @@
   border: 8px solid transparent;
   border-radius: 0 15px 15px 0;
   border-width: 12px 12px 12px 0; // <= kompromiss: schoene runde ecken UND extended touch area :(
-  background-position: 30%;
 }
 .carousel__link--next {
   right: 0;
@@ -64,7 +63,6 @@
   border: 8px solid transparent;
   border-radius: 15px 0 0 15px;
   border-width: 12px 0 12px 12px; // kompromiss :)
-  background-position: 60%;
 }
 
 .carousel__link--prev,
@@ -78,6 +76,7 @@
   cursor: pointer; // reset default button style
   background-repeat: no-repeat;
   background-size: 24px;
+  background-position: 40%;
   display: block;
   box-sizing: content-box;
   z-index: 100;
@@ -111,15 +110,14 @@
 
 .carousel-counter {
   position: absolute;
+  bottom: 8px;
   left: 50%;
   transform: translate(-50%, 0);
-  bottom: 12px;
 
   @include tablet-up {
     bottom: 16px;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 20px;
-    padding: 0 8px;
     font-weight: 500;
   }
 }
