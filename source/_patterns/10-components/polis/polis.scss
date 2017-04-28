@@ -141,6 +141,8 @@ $color-polis-no-text: #af001d; // oben: af001d oder unten: #9d0017 ???
   height: 16px;
   font: 12px/12px $font-regular;
   color: #fff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   background-color: #6b6960;
   margin: 0;
   padding: 0;
