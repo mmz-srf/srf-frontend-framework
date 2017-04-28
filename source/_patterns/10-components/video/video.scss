@@ -105,29 +105,6 @@
   padding: 2px 8px;
 }
 
-// animations preparation
-.article-video {
-  transition: background-color .4s;
-}
-
-.media-caption__title,
-.media-caption__source,
-strong {  //TODO: really necessary?
-  transition: color .4s;
-}
-
-.image-figure__image-wrapper::before {
-  transition: opacity .4s;
-}
-
-.media-play__icon,
-.media-play__length {
-  opacity: 1;
-  transition: opacity .4s;
-}
-
-// end animations preparation
-
 .article-video__player {
   background-color: #000;
 }
