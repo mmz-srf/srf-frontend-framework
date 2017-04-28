@@ -5,12 +5,11 @@
   font-size: 18px;
 
   @include smartphone {
-    margin: 32px 0;
+    margin: 32px 8px;
     padding: 0 8px;
     font-size: 16px;
-
-    @include fullwidth-element;
   }
+
 }
 
 .textbox--article-indentation {
@@ -18,7 +17,7 @@
 }
 
 .textbox__title {
-  padding: 0 16px;
+  padding: 0 8px;
   margin: 16px 0 8px;
   font-family: $font-medium;
   font-size: 20px;
@@ -40,7 +39,7 @@
 
     @include smartphone {
       margin: 12px 0 20px;
-      padding: 0 16px;
+      padding: 0 8px;
     }
 
   }
