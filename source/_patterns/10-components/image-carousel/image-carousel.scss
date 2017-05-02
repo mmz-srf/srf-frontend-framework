@@ -52,7 +52,7 @@
       background-color: transparent; // reset default button style
       cursor: pointer; // reset default button style
       background-repeat: no-repeat;
-      background-size: 24px;
+      background-size: 20px;
       background-position: 40%;
       display: block;
       box-sizing: content-box;
@@ -93,6 +93,7 @@
     &--next {
       right: 0;
       background-image: url("../../assets/img/arrows/carousel_arrow_next.svg");
+      background-position: 55%;
       border: 8px solid transparent;
       border-radius: 15px 0 0 15px;
       border-width: 12px 0 12px 12px; /* kompromiss :) */
