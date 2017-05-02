@@ -11,14 +11,6 @@
     border-collapse: collapse;
   }
 
-  tr {
-    background-color: $color-table-bg-zebra-light;
-  }
-
-  tbody tr:nth-child(even) {
-    background-color: $color-table-bg-zebra-dark;
-  }
-
   th {
     font-size: 16px;
     line-height: 24px;
@@ -34,6 +26,14 @@
       letter-spacing: .5px;
     }
   }
+
+  // if there is a thead, begin with a light bg-color
+  thead + tbody tr:nth-child(even) {background-color: $color-table-bg-zebra-dark}
+  thead + tbody tr:nth-child(odd) {background-color: $color-table-bg-zebra-light}
+
+  // otherwise begin with a dark bg-color
+  tbody tr:nth-child(even) {background-color:$color-table-bg-zebra-light}
+  tbody tr:nth-child(odd) {background-color:$color-table-bg-zebra-dark}
 
   td {
     font-size: 16px;
