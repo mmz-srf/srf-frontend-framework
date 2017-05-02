@@ -84,8 +84,9 @@ function registerListener($carousel) {
         }
     });
 
-    $(css.handles).on("touchstart", function () {
+    $(css.handles).on("touchstart mouseup", function () {
         $(this).removeClass("untouched");
+        $(".carousel__link--prev, .carousel__link--next").removeClass("waggle");
     }).on("touchend touchcancel", function () {
         $(this).addClass("untouched");
     });
@@ -119,6 +120,10 @@ function isWithinVerticalViewport($element) {
 
     // return (!(viewport.right < bounds.left || viewport.left > bounds.right || viewport.bottom < bounds.top || viewport.top > bounds.bottom));
     return (!(viewport.bottom < bounds.top || viewport.top > bounds.bottom));
-
 }
+
+$(css.containers).on('swipe', function (event, slick, direction) {
+    // no more waggeling
+    $(".carousel__link--prev, .carousel__link--next").removeClass("waggle");
+});
 
