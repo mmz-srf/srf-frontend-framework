@@ -30,7 +30,7 @@
       }
 
       &::before {
-        content: url($image-path-prefix + '/red_tick.svg');
+        content: url('../img/red_tick.svg');
         top: 13px;
         left: 20px;
       }

@@ -9,7 +9,7 @@
   letter-spacing: .5px;
   color: $color-link-default;
   border-bottom: 1px solid $color-separator;
-  background: url($image-path-prefix + '/linktypes/internal.svg') calc(100% - 16px) center no-repeat;
+  background: url('../img/linktypes/internal.svg') calc(100% - 16px) center no-repeat;
   background-size: 18px 18px;
 
   @include smartphone {
@@ -33,19 +33,19 @@
 }
 
 .block-link--external {
-  background-image: url($image-path-prefix + '/linktypes/external.svg');
+  background-image: url('../img/linktypes/external.svg');
 }
 
 .block-link--document {
-  background-image: url($image-path-prefix + '/linktypes/file.svg');
+  background-image: url('../img/linktypes/file.svg');
 }
 
 .block-link--pdf {
-  background-image: url($image-path-prefix + '/linktypes/pdf.svg');
+  background-image: url('../img/linktypes/pdf.svg');
   background-size: 19px 18px;
 }
 
 .block-link--docx {
-  background-image: url($image-path-prefix + '/linktypes/docx.svg');
+  background-image: url('../img/linktypes/docx.svg');
   background-size: 26px 18px;
 }

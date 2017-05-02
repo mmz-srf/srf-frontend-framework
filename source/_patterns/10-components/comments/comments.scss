@@ -211,7 +211,7 @@
       width: 19px;
       left: -26px;
       top: -8px;
-      background-image: url($image-path-prefix + '/arrows/fancy_arrow.svg');
+      background-image: url('../img/arrows/fancy_arrow.svg');
 
       @include tablet-up {
         left: -30px;
@@ -251,7 +251,7 @@
 }
 
 .comment__user--srf {
-  background: transparent url($image-path-prefix + '/srf_logo.svg') no-repeat scroll right 2px / 24px auto;
+  background: transparent url('../img/srf_logo.svg') no-repeat scroll right 2px / 24px auto;
 }
 
 .comment__time {
@@ -305,7 +305,7 @@
 
 .comment__link--reply {
   @include smartphone {
-    background: url($image-path-prefix + '/linktypes/reply.svg') no-repeat center;
+    background: url('../img/linktypes/reply.svg') no-repeat center;
     opacity: .7;
     width: 40px;
     text-indent: -10000px;
@@ -398,7 +398,7 @@
     left: -26px;
     top: -7px;
     width: 19px;
-    background-image: url($image-path-prefix + '/arrows/fancy_arrow.svg');
+    background-image: url('../img/arrows/fancy_arrow.svg');
 
     @include tablet-up {
       left: -46px;

@@ -10,7 +10,7 @@
   padding: 12px 0;
   border: 0;
   border-radius: 2px;
-  background: #ebebe5 url($image-path-prefix + '/arrows/menu_arrow.svg') no-repeat right 16px center;
+  background: #ebebe5 url('../img/arrows/menu_arrow.svg') no-repeat right 16px center;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .24),
               0 0 2px 0 rgba(0, 0, 0, .12);
   transition: background-color .2s ease-in-out, box-shadow .2s ease-in-out;
