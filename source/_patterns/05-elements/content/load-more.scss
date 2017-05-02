@@ -5,25 +5,31 @@
   border-width: 1px 0;
   cursor: pointer;
   width: 100%;
-  &:hover {
-    background-color: $color-bg-caption;
-  }
-  &:active {
-    background-color: $color-bg-box;
-  }
+
   @include tablet-up {
     height: 56px;
   }
+
+  &:hover {
+    background-color: $color-bg-caption;
+  }
+
+  &:active {
+    background-color: $color-bg-box;
+  }
 }
+
 .load-more__img {
   width: 19px;
   height: 10px;
   display: inline;
   margin: 0 6px 1px 0;
 }
+
 .load-more__info {
   color: $color-accentuation-red;
   font: 16px/16px $font-regular;
+
   @include smartphone {
     display: none;
   }

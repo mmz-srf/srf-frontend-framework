@@ -1,0 +1,398 @@
+
+// result colors red-blue
+$res-0: #8d0614;
+$res-40: #c91024; // no bar
+$res-45: #f1434a;
+$res-50: #ff9193;
+$res-55: #91ceff;
+$res-60: #42a3f1;
+$res-65: #1a7ac5; // yes bar
+$res-100: #105082;
+$yes-rel: #fff;
+// map default: #b9b7ac
+
+// colored bars
+$color-polis-yes: #1a7ac5;
+$color-polis-no: $color-accentuation-red;
+
+$color-polis-yes-text: #1667a7; // oben: 1667a7 // unten 145296
+$color-polis-no-text: #af001d; // oben: af001d oder unten: #9d0017 ???
+// no txt: #af001d
+
+.polis-container { // margins only :(
+  margin: 24px 0 20px; // mobile
+
+  @include tablet-up {
+    margin: 32px 0 24px;
+  }
+}
+
+// top "half"
+.polis-map-container { // top part
+  background-color: #f5f5f2;
+  padding: 12px 16px;
+}
+
+.polis-map-container__title {
+  font: 22px/28px $font-medium;
+  letter-spacing: .3px;
+  margin: 0;
+}
+
+.polis-map-container__info {
+  font: 14px/20px $font-light;
+  letter-spacing: .5px;
+  color: #4e4d47;
+  margin: 4px 0 12px;
+
+  @include tablet-up {
+    margin: 12px 0 16px;
+  }
+}
+
+.polis-map {
+  position: relative;
+  padding-bottom: 26px;
+  margin: 0 0 2px;
+
+  @include tablet-up {
+    padding-bottom: 84px;
+  }
+
+  .chmap { // bg default
+    fill: #b9b7ac;
+  }
+}
+
+.res-0  { fill: $res-0; }
+.res-40 { fill: $res-40; }
+.res-45 { fill: $res-45; }
+.res-50 { fill: $res-50; }
+.res-55 { fill: $res-55; }
+.res-60 { fill: $res-60; }
+.res-65 { fill: $res-65; }
+.res-100 { fill: $res-100; }
+
+//// result container (bars) ////
+.polis-result-container { // ul
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  display: table; // :/ (Standesstimmen)
+}
+
+.polis-result-title { // solo
+  font: 12px/16px $font-system;
+  margin: 8px 0 4px;
+}
+
+.polis-result-title--main {
+  margin: 12px 0 0;
+}
+
+.polis-result-title--main,
+.polis-result-title__time,
+.polis-result-title--canton-time,
+.polis-result-title--canton-o_clock {
+  color: #888579;
+}
+
+.polis-result { // li
+  width: 50%;
+  padding: 0;
+  margin: 0;
+  display: table-cell;
+
+  &::before { // overwrite
+    content: none;
+  }
+}
+
+.polis-result--no {
+  text-align: right;
+}
+
+.polis-result__title { // "internal"
+  font: 12px/16px $font-medium;
+  letter-spacing: .5px;
+  margin: 8px 0 4px;
+}
+
+.polis-result-title__type {
+  color: #22211d;
+}
+
+.polis-result__title--yes {
+  color: $color-polis-yes-text;
+}
+
+.polis-result__title--no {
+  color: $color-polis-no-text;
+}
+
+.polis-result__text {
+  font: 12px/16px $font-system;
+  color: #888579;
+  margin: 4px 0 0; /// TODO!
+  white-space: nowrap;
+}
+
+.polis-result__bar {
+  height: 16px;
+  font: 12px/12px $font-regular;
+  color: #fff;
+  background-color: #6b6960;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+.polis-result__bar--main {
+  height: 24px;
+  font: 14px/16px $font-regular;
+}
+
+.polis-result__bar--yes {
+  background-color: $color-polis-yes;
+}
+
+.polis-result__bar--no {
+  background-color: $color-polis-no;
+}
+
+.polis-result--default {
+  background-color: #6b6960;
+}
+
+.polis-result-relativ {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translate(0, -50%);
+  z-index: 1;
+  padding: 0 8px; // mobile
+  margin: 0;
+}
+
+.polis-result-relativ__number {
+  font-family: $font-bold;
+}
+/// end result container ////
+
+.polis-cantons-container {
+  background-color: #f5f5f2;
+  margin-top: 2px;
+  padding: 16px 16px 0;
+
+  .menu { // select
+    margin-bottom: 16px;
+
+    @include tablet-up {
+      margin-bottom: 16px;
+    }
+  }
+}
+
+.polis-result-container--canton {
+  overflow: hidden;
+  margin: 0;
+  padding-bottom: 16px;
+}
+
+.polis-result-title--canton {
+  margin: -2px 0 0; // mobile
+
+  @include tablet-up {
+    margin: 0;
+  }
+}
+
+.polis-result-title--canton-time {
+  color: #888579;
+}
+
+/// here comes the zebra / districts ///
+.polis-district-container { // ul (table)
+  padding: 0;
+  margin: 0 -16px;
+  font: 12px/16px $font-system; // all
+  text-align: right;
+  display: table;
+}
+
+.polis-district { // li (table-row)
+  // overwrite
+  display: table-row;
+  background-color: #fafaf8;
+
+  &::before {
+    content: none;
+  }
+
+  &:nth-child(even) {
+    background-color: #f5f5f2;
+  }
+}
+
+.polis-district__name {
+  color: #4e4d47;
+  font-weight: 500;
+  letter-spacing: 0;
+  text-align: left;
+  display: table-cell;
+  padding: 12px 16px;
+  border-top: 2px solid #fff;
+}
+
+.polis-district__votes {
+  color: #6b6960;
+  font-weight: 300;
+  letter-spacing: .2px;
+  display: table-cell;
+  white-space: nowrap;
+  width: 10%;
+  padding: 12px 16px 12px 0;
+  border-top: 2px solid #fff;
+
+  @include tablet-up {
+    padding-left: 48px
+  }
+}
+
+.polis-district--yes {
+  color: #145296;
+  font-weight: 500;
+}
+
+.polis-district--no {
+  color: #9d0017; // red txt
+  font-weight: 500;
+}
+/// here goes the zebra ///
+
+//// legend /////
+.polis-legend {
+  @include tablet-up {
+    position: absolute;
+    width: 292px;
+    right: 0;
+    bottom: 0;
+  }
+}
+
+.polis-legend__title {
+  font: 12px/16px $font-system;
+  color: #22211d;
+  margin-bottom: 4px;
+}
+
+.polis-legend-numbers,
+.polis-legend-scale {
+  margin: 0;
+  padding: 0;
+}
+
+.polis-legend-numbers__element,
+.polis-legend-scale__element {
+  &::before {
+    content: none;
+  }
+}
+
+.polis-legend-numbers {
+  font: 12px/16px $font-system;
+  color: #888579;
+}
+
+.polis-legend-numbers__element {
+  margin: 4px 0 0;
+  text-align: center; // same
+  width: 6.5%; // 6*6.5
+  padding: 0;
+  float: left;
+}
+
+.polis-legend-numbers__element--edge {
+  width: 27.2%;
+}
+
+.polis-legend-numbers__element--100 {
+  text-align: left;
+}
+
+.polis-legend-numbers__element--zero {
+  text-align: right;
+}
+
+.polis-legend-scale {
+  .res-0 {   background-color: $res-0;   }
+  .res-40 {  background-color: $res-40;  }
+  .res-45 {  background-color: $res-45;  }
+  .res-50 {  background-color: $res-50;  }
+  .res-55 {  background-color: $res-55;  }
+  .res-60 {  background-color: $res-60;  }
+  .res-65 {  background-color: $res-65;  }
+  .res-100 { background-color: $res-100; }
+}
+
+.polis-legend-scale__element {
+  height: 4px;
+  margin: 0;
+  // same
+  width: 6.5%; // 6*6.5
+  padding: 0;
+  float: left;
+}
+
+.polis-legend-scale__element--edge {
+  width: 30.5%; //+ 2*30.5 = 100
+}
+
+///// end legend /////
+.polis-map__participation {
+  font: 12px/16px $font-system;
+  color: #888579;
+  @include tablet-up {
+    position: absolute;
+    bottom: -12px;
+  }
+}
+
+.polis-select-option--hide {
+  display: none;
+}
+
+// recycling chmap tooltip ...
+.chmap-tooltip__title {
+  margin: 0 0 -4px; // it's really inside polis-map :/
+}
+
+.chmap-tooltip-text {
+  font: 12px/12px $font-system;
+  color: #6b6960;
+  display: inline;
+}
+
+.chmap-tooltip-text--yes {
+  color: #145296;
+  font-weight: 500;
+}
+
+.chmap-tooltip-text--no {
+  color: #9d0017; // red txt
+  font-weight: 500;
+}
+
+.polis-result-total--yesBar,
+.polis-result-total--noBar {
+  transition: width .5s ease-in;
+}
+
+.polis--hide {
+  display: none;
+}
+
+.polis-initial {
+  cursor: default;
+}

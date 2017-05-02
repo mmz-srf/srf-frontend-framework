@@ -32,6 +32,7 @@
   letter-spacing: 0;
   text-transform: uppercase;
   color: $color-text-light;
+
   .small {
     text-transform: none;
   }
@@ -42,7 +43,8 @@
   font-weight: bold;
   text-decoration: none;
 
-  &:hover, &:active {
+  &:hover,
+  &:active {
     text-decoration: underline;
   }
 }
@@ -51,12 +53,11 @@
   display: block;
   min-height: 112px;
   padding: 12px;
+  background-color: transparent;
 
   @include tablet-up {
     padding: 16px;
   }
-
-  background-color: transparent;
 
   .media-caption__title--video {
     color: $color-text-default;
@@ -65,6 +66,7 @@
 
   .media-caption__source--video {
     text-transform: none;
+
     strong {
       color: $color-text-accentuation;
     }
@@ -72,43 +74,38 @@
 }
 
 .media-caption--audio {
-  display: table;
   height: 112px;
   padding: 12px;
+  display: table;
+  margin-left: 112px;
+  background-color: transparent;
 
   @include tablet-up {
     padding: 16px;
   }
 
-  margin-left: 112px;
-  background-color: transparent;
   @include smartphone {
     margin-left: 96px;
   }
 }
+
 .media-caption__title--audio {
   color: $color-text-default;
   margin-bottom: 4px;
 }
-.media-caption__source--audio{
+
+.media-caption__source--audio {
   text-transform: none;
+
   strong {
     color: $color-text-accentuation;
   }
 }
+
 // overwrite :(
 .audio-gallery {
   .media-caption--audio {
     height: auto;
-    width: 100%;
-    margin-left: 72px;
-    display: table-cell;
-    vertical-align: middle;
-  }
-  .media-caption__title {
-    padding-bottom: 2px;
-    display: table-cell;
-    vertical-align: bottom;
   }
 }
 
@@ -116,6 +113,7 @@
   margin-bottom: 4px;
   margin-top: 4px;
   text-transform: none;
+
   strong {
     color: $color-text-accentuation;
   }
@@ -135,11 +133,12 @@
 
 .media-caption__content {
   overflow: hidden;
+}
+
+.media-caption__content--chmap {
   @include tablet-up {
-    &--chmap {
-      width: 33%;
-      float: left;
-      margin-right: 16px;
-    }
+    width: 33%;
+    float: left;
+    margin-right: 16px;
   }
 }

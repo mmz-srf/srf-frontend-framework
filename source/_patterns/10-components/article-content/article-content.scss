@@ -1,39 +1,39 @@
 .article-content {
-  margin: 0 0 24px 0;
+  margin: 0 0 24px;
   font-family: $font-light;
   font-size: 20px;
   line-height: 32px;
-  letter-spacing: 0.3px;
+  letter-spacing: .3px;
   color: $color-text-default;
 
   @include smartphone {
     font-size: 18px;
     line-height: 28px;
-    letter-spacing: 0.5px;
+    letter-spacing: .5px;
   }
 
   & > h2 {
     @include article-text-padding;
-    margin: 32px 0 12px 0;
+    margin: 32px 0 12px;
     font-family: $font-medium;
     font-size: 24px;
     line-height: 32px;
-    letter-spacing: 0.3px;
+    letter-spacing: .3px;
 
     @include smartphone {
-      margin: 24px 0 12px 0;
+      margin: 24px 0 12px;
       font-size: 22px;
       line-height: 28px;
-      letter-spacing: 0.3px;
+      letter-spacing: .3px;
     }
   }
 
   & > p {
     @include article-text-padding;
-    margin: 12px 0 24px 0;
+    margin: 12px 0 24px;
 
     @include smartphone {
-      margin: 12px 0 20px 0;
+      margin: 12px 0 20px;
     }
   }
 }
