@@ -3,6 +3,7 @@
 namespace SRF\Twig;
 
 
+use PatternLab\Config;
 use PatternLab\Data;
 use PatternLab\Listener;
 use PatternLab\PatternEngine\Twig\TwigUtil;
@@ -23,8 +24,15 @@ class PatternLabListener extends Listener {
      */
     public function addExtensions() {
 
+        // If not set in config, this will return false
+        $assetsPrefix = Config::getOption('assetsDir');
+        if (!$assetsPrefix) {
+            // Default value
+            $assetsPrefix = Config::getOption('assetsDirDefault');
+        }
+
         $instance = TwigUtil::getInstance();
-        $instance->addGlobal('frameworkAssetPath', '/assets');
+        $instance->addGlobal('frameworkAssetPath', $assetsPrefix);
     }
 
 }
