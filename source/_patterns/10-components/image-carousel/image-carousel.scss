@@ -84,6 +84,11 @@
       border: 8px solid transparent;
       border-radius: 0 15px 15px 0;
       border-width: 12px 12px 12px 0; /* <= /* kompromiss: schoene runde ecken UND extended touch area :( */
+
+      &.waggle {
+        animation: waggle--left 2s ease 0s;
+        animation-iteration-count: infinite;
+      }
     }
     &--next {
       right: 0;
@@ -91,6 +96,11 @@
       border: 8px solid transparent;
       border-radius: 15px 0 0 15px;
       border-width: 12px 0 12px 12px; /* kompromiss :) */
+
+      &.waggle {
+        animation: waggle--right 2s ease 0s;
+        animation-iteration-count: infinite;
+      }
     }
   }
   &-counter {
@@ -109,4 +119,54 @@
   .slick-disabled {
     display: none !important; // hide from screenreader
   }
+}
+
+@mixin waggle--right {
+  0%, 100% {
+    background-position: 10%;
+  }
+  50% {
+    background-position: 80%;
+  }
+}
+
+@mixin waggle--left {
+  0%, 100% {
+    background-position: 80%;
+  }
+  50% {
+    background-position: 10%;
+  }
+}
+
+@-webkit-keyframes waggle--right {
+  @include waggle--right;
+}
+
+@-moz-keyframes waggle--right {
+  @include waggle--right;
+}
+
+@-o-keyframes waggle--right {
+  @include waggle--right;
+}
+
+@keyframes waggle--right {
+  @include waggle--right;
+}
+
+@-webkit-keyframes waggle--left {
+  @include waggle--left;
+}
+
+@-moz-keyframes waggle--left {
+  @include waggle--left;
+}
+
+@-o-keyframes waggle--left {
+  @include waggle--left;
+}
+
+@keyframes waggle--left {
+  @include waggle--left;
 }
