@@ -52,32 +52,6 @@
   float:left;
 }
 
-.carousel__link--prev {
-  left: 0;
-  background-image: url('../img/arrows/carousel_arrow_prev.svg');
-  border: 8px solid transparent;
-  border-radius: 0 15px 15px 0;
-  border-width: 12px 12px 12px 0; // <= kompromiss: schoene runde ecken UND extended touch area :(
-
-  &.waggle {
-    animation: waggle--left 2s ease 0s;
-    animation-iteration-count: infinite;
-  }
-}
-.carousel__link--next {
-  right: 0;
-  background-image: url('../img/arrows/carousel_arrow_next.svg');
-  background-position: 55%;
-  border: 8px solid transparent;
-  border-radius: 15px 0 0 15px;
-  border-width: 12px 0 12px 12px; // kompromiss :)
-
-  &.waggle {
-    animation: waggle--right 2s ease 0s;
-    animation-iteration-count: infinite;
-  }
-}
-
 .carousel__link--prev,
 .carousel__link--next {
   position: absolute;
@@ -86,19 +60,20 @@
   top: 28vw;
   padding: 0; // reset default button style
   background-color: transparent; // reset default button style
-  cursor: pointer; // reset default button style
+  background-position: 40%;
   background-repeat: no-repeat;
   background-size: 24px;
-  background-position: 40%;
+  border: 8px solid transparent;
   display: block;
   box-sizing: content-box;
+  cursor: pointer; // reset default button style
   z-index: 100;
 
   @include tablet-up {
     top: 35%;
-    background-size: 28px;
     width: 56px;
     height: 96px;
+    background-size: 28px;
   }
 
   &:hover,
@@ -118,6 +93,31 @@
 
   &.untouched {
     background-color: transparent;
+  }
+}
+
+.carousel__link--prev {
+  left: 0;
+  background-image: url('../../assets/img/arrows/carousel_arrow_prev.svg');
+  border-radius: 0 15px 15px 0;
+  border-width: 12px 12px 12px 0; // <= kompromiss: schoene runde ecken UND extended touch area :(
+
+  &.waggle {
+    animation: waggle--left 2s ease 0s;
+    animation-iteration-count: infinite;
+  }
+}
+
+.carousel__link--next {
+  right: 0;
+  background-image: url('../../assets/img/arrows/carousel_arrow_next.svg');
+  background-position: 55%;
+  border-radius: 15px 0 0 15px;
+  border-width: 12px 0 12px 12px; // kompromiss :)
+
+  &.waggle {
+    animation: waggle--right 2s ease 0s;
+    animation-iteration-count: infinite;
   }
 }
 
