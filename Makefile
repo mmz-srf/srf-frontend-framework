@@ -51,10 +51,10 @@ node-install:
         }
 
 configure-test:
-    cat config/config_test.yml >> config/config.yml
+	cat config/config_test.yml >> config/config.yml
 
 configure-master:
-    cat config/config_prod.yml >> config/config.yml
+	cat config/config_prod.yml >> config/config.yml
 
 gulp-build:
 	gulp build
