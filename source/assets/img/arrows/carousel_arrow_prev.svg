@@ -1,15 +1,23 @@
-<svg width="20" height="30" viewBox="0 0 20 30" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <title>gallery arrow prev</title>
+<svg width="29" height="49" viewBox="0 0 29 49" xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink">
     <defs>
-        <path d="M5.293 14.793c-.39.39-.39 1.024 0 1.414l8.5 8.5c.39.39 1.024.39 1.414 0 .39-.39.39-1.024 0-1.414l-7.715-7.87 7.715-7.716c.39-.39.39-1.024 0-1.414-.39-.39-1.024-.39-1.414 0l-8.5 8.5z" id="b"/>
-        <filter x="-50%" y="-50%" width="200%" height="200%" filterUnits="objectBoundingBox" id="a">
-            <feOffset in="SourceAlpha" result="shadowOffsetOuter1"/>
-            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"/>
-            <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.5 0" in="shadowBlurOuter1"/>
+        <path d="M22.71 7.812c.407-.437.382-1.12-.056-1.524-.438-.405-1.122-.38-1.53.056L6.29 22.266c-.386.414-.386 1.054 0 1.468l14.835 15.922c.407.436 1.09.46 1.53.056.437-.405.462-1.087.056-1.524L8.56 23 22.71 7.812z"
+              id="b"/>
+        <filter x="-97.1%" y="-39.7%" width="294.1%" height="197.1%" filterUnits="objectBoundingBox" id="a">
+            <feOffset dy="3" in="SourceAlpha" result="soo1"/>
+            <feGaussianBlur stdDeviation="3" in="soo1" result="sbo1"/>
+            <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.64 0" in="sbo1" result="smo1"/>
+            <feOffset in="SourceAlpha" result="soo2"/>
+            <feGaussianBlur stdDeviation="3" in="soo2" result="sbo2"/>
+            <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.24 0" in="sbo2" result="smo2"/>
+            <feMerge>
+                <feMergeNode in="smo1"/>
+                <feMergeNode in="smo2"/>
+            </feMerge>
         </filter>
     </defs>
-    <g fill="none" fill-rule="evenodd">
+    <g fill="none">
         <use fill="#000" filter="url(#a)" xlink:href="#b"/>
-        <use fill="#FFF" xlink:href="#b"/>
+        <use fill="#FEFEFE" fill-rule="evenodd" xlink:href="#b"/>
     </g>
 </svg>
