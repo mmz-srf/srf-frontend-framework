@@ -195,7 +195,7 @@ var chmapController = function() {
                     canton.txt = this.description;
                     canton.img = this.image;
                     $canton = $("#" + this.id + "-" + that.id);
-                    canton.name = $canton.find("title").text(); // for rumantsch as well
+                    canton.name = $canton.closest("a").attr("aria-label"); // for rumantsch as well
                     $canton.attr("fill", this.color);
                 }
             });
