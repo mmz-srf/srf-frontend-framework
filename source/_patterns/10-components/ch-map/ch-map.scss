@@ -2,12 +2,12 @@
   height: 100%;
   width: 100%;
   max-width: 500px;
-  margin: -10px auto -20px;
-  padding: 0 10px;
+  margin: 0 auto;
   display: block;
   fill: #d2d2d2;
-  title {
-    display: none;
+  padding: 24px 16px 0;
+  @include smartphone {
+    padding-bottom: 12px;
   }
 }
 
@@ -110,5 +110,12 @@
 
   @include tablet-up {
     max-width: 332px;
+  }
+}
+
+// ie11 has a problem with height: 100% :/
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  .chmap--desktop {
+    height: 300px
   }
 }
