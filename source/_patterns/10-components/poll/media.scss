@@ -1,38 +1,44 @@
 .article-media {
   margin: 0;
 
-  &__link {
-    position: relative;
-    display: block;
-    // covering up the link
-    border: 0;
-    &:hover { border: 0; }
-
-    &:before {
-      // this is the only place that works (must be div or link or similar..)
-      content: "";
-      position: absolute;
-      background-color: rgba(0, 0, 0, 0.2);
-      height: 100%;
-      width: 100%;
-    }
-  }
-
-  &:hover, &:active {
+  &:hover,
+  &:active {
     .article-media__play-icon {
-      background-image: url(../../assets/img/play-active.svg);
+      background-image: url('../../assets/img/play-active.svg');
       background-size: 100%;
     }
   }
 }
 
+.article-media__link {
+  position: relative;
+  display: block;
+  // covering up the link
+  border: 0;
+
+  &:hover {
+    border: 0;
+  }
+
+  &::before {
+    // this is the only place that works (must be div or link or similar..)
+    content: '';
+    position: absolute;
+    background-color: rgba(0, 0, 0, .2);
+    height: 100%;
+    width: 100%;
+  }
+}
+
 .article-media--image {
-  &:after {
-    content: "";
+  position: relative;
+
+  &::after {
+    content: '';
     display: block;
     padding-top: 56.25%;
   }
-  position: relative;
+
   .image-figure__image {
     height: 100%;
     left: 0;
@@ -57,17 +63,21 @@
     float: right;
     z-index: 1; // ???
   }
+
   .article-media__link {
     height: 100%;
   }
+
   .image-figure__image {
     height: 100%;
     object-fit: cover;
   }
+
   .media-play {
     top: 50%;
     width: 40px;
   }
+
   .media-play__length {
     display: none;
   }

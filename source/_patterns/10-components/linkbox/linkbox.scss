@@ -10,26 +10,29 @@
 }
 
 .linkbox__title {
-  @include article-text-padding;
-  margin: 0 0 16px 0;
+  margin: 0 0 16px;
   font-family: $font-medium;
   font-size: 22px;
   line-height: 28px;
+
+  @include article-text-padding;
 }
 
 .linkbox__list {
   border-top: 1px solid #ebebe5;
   padding: 0;
-  > li {
-    margin: 0;
-    padding: 0;
-    &:before {
-      content: none;
-    }
-  }
 
   @include smartphone {
     margin: 0 -8px;
+  }
+
+  > li {
+    margin: 0;
+    padding: 0;
+
+    &::before {
+      content: none;
+    }
   }
 }
 
