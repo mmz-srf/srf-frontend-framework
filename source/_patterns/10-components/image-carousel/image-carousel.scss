@@ -121,15 +121,14 @@
 
 .carousel-counter {
   position: absolute;
+  bottom: 8px;
   left: 50%;
   transform: translate(-50%, 0);
-  bottom: 12px;
 
   @include tablet-up {
     bottom: 16px;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 20px;
-    padding: 0 8px;
     font-weight: 500;
   }
 }
