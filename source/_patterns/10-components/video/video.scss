@@ -107,6 +107,13 @@
 
 .article-video__player {
   background-color: #000;
+
+  // creating an image & player placeholder
+  &::before {
+    content: "";
+    display: block;
+    padding-top: 56.25%;
+  }
 }
 
 .video--playing {
@@ -148,12 +155,6 @@
   // the player (currently) shows a black border left & right :/
   .article-video__player {
     margin: 0 -1px;
-
-    &::before {
-      content: "";
-      display: block;
-      padding-top: 56%;
-    }
 
     iframe {
       position: absolute;
