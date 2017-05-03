@@ -1,64 +1,77 @@
 .article-audio {
   background-color: $color-bg-caption;
-  &:hover, &:active, &.played {
+  margin: 32px 0;
+
+  &:hover,
+  &:active,
+  &.played {
     background-color: #ebebe5;
+
     .article-audio__play-icon {
-      background-image: url("../../assets/img/play-active.svg");
+      background-image: url('../../assets/img/play-active.svg');
       background-size: 100%;
     }
   }
-  margin: 32px 0;
+
   @include smartphone {
     margin: 24px -8px;
+
     &:not(.played) { // very ugly! (handling of touch states)
       background-color: $color-bg-caption;
     }
   }
-  &:not(".audio--playing") { // samesame
+
+  &:not('.audio--playing') { // samesame
     background-color: $color-bg-caption;
   }
 
-  &__wrapper {
-    position: relative;
-    float: left;
-
-    @include smartphone {
-      width: 80px;
-      height: 80px;
-      margin: 16px 0 16px 16px;
-    }
-    &:before {
-      content: "";
-      position: absolute;
-      background-color: rgba(0, 0, 0, 0.2);
-      height: 112px;
-      width: 200px;
-      @include smartphone {
-        width: 80px;
-        height: 80px;
-      }
-    }
-  }
   .image-figure__image {
     width: 200px;
     height: 112px;
     object-fit: cover;
+
     // cropped and centered image
     @include smartphone {
       width: 80px;
       height: 80px;
     }
   }
-  &__play-icon {
+}
+
+.article-audio__wrapper {
+  position: relative;
+  float: left;
+
+  @include smartphone {
+    width: 80px;
+    height: 80px;
+    margin: 16px 0 16px 16px;
+  }
+
+  &::before {
+    content: '';
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    width: 68px;
+    background-color: rgba(0, 0, 0, .2);
+    height: 112px;
+    width: 200px;
+
     @include smartphone {
-      width: 46px;
+      width: 80px;
+      height: 80px;
     }
+  }
+}
+
+.article-audio__play-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: 68px;
+
+  @include smartphone {
+    width: 46px;
   }
 }
 

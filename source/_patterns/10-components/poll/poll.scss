@@ -1,18 +1,23 @@
 .poll-wrapper {
   margin: 32px 0 24px;
+
   @include smartphone {
     margin: 24px 0 20px;
   }
+
   .image-figure {
     margin-top: 0;
     margin-bottom: 0;
-    @include rounded-corners(2px 2px 0 0);
     overflow: hidden;
+
+    @include rounded-corners(2px 2px 0 0);
   }
+
   .image-figure__image {
     height: auto;
     width: 100%;
   }
+
   .button {
     display: none;
   }
@@ -23,18 +28,20 @@
   margin: 0;
   border: 0;
 }
+
 .poll-fieldset__legend {
   width: 100%;
   font-size: 18px;
-  letter-spacing: 0.5px;
+  letter-spacing: .5px;
   line-height: 28px;
   color: $color-text-accentuation;
   background-color: $color-bg-caption;
-  @include rounded-corners(0 0 2px 2px);
   padding: 16px;
   margin-bottom: 2px;
   display: block;
   float:left;
+
+  @include rounded-corners(0 0 2px 2px);
 }
 
 .poll {
@@ -47,12 +54,14 @@
 .poll--with-radios {
   .poll-option-label {
     // custom radios
-    &:before, &:after {
-      content: "";
+    &::before,
+    &::after {
+      content: '';
       position: absolute;
+
       @include rounded-corners(50%);
     }
-    &:before {
+    &::before {
       top: 20px;
       left: 20px;
       width: 14px;
@@ -60,7 +69,8 @@
       display: inline-block;
       background-color: $color-accentuation-red;
     }
-    &:after {
+
+    &::after {
       top: 16px;
       left: 16px;
       width: 20px;
@@ -70,25 +80,32 @@
       background-color: $color-bg-box;
       border: solid 1px $color-text-light;
     }
-    &:hover:after, &:focus:after {
+
+    &:hover::after,
+    &:focus::after {
       background-color: $color-bg-box-hover;
     }
-    &--selected:after, &--selected:hover:after {
+
+    &--selected::after,
+    &--selected:hover::after {
       border: solid 1px $color-accentuation-red;
       background-color: transparent;
     }
     // custom radios end here
   }
+
   .poll-option-label__title,
   .poll-option-label__description {
     margin: 0 0 0 36px;
   }
+
   .poll-form-handling {
     @include tablet-up {
       background-color: $color-bg-caption;
       padding: 16px;
     }
   }
+
   .button {
     display: block;
   }
@@ -99,9 +116,11 @@
   .poll-option-rating {
     position: absolute;
   }
+
   .poll-option-rating__percent {
     right: 70px;
   }
+
   &.poll--setup {
     @include tablet-up { // only valid initially :(
       .poll {
@@ -109,57 +128,52 @@
         display: flex;
         flex-wrap: wrap;
       }
+
       .poll-option { // only valid initially (and only for polls with media)
         width: calc(50% - 4px);
         float: left;
         margin-bottom: 8px;
         display: flex;
         flex-direction: column;
+
         &:nth-of-type(odd) {
           margin-right: 8px;
         }
       }
     }
+
     .poll-fieldset__legend, .poll-option {
       margin-bottom: 4px;
+
       @include tablet-up {
         margin-bottom: 8px;
       }
     }
   }
 }
+
 .poll--setup {
   .poll-option--save-the-margin {
     margin-bottom: 4px;
+
     @include tablet-up {
       margin-bottom: 8px;
     }
   }
-  /* .poll-option:last-of-type {
-    margin-bottom: 0; // this cannot be perfect: the second last might be a problem :(
-  }
-  &.poll--with-radios {
-    .poll-option:last-of-type {
-      margin-bottom: 2px;
-    }
-    &.poll--with-media {
-      .poll-option:last-of-type {
-        margin-bottom: 4px;
-        @include tablet-up {
-          margin-bottom: 8px;
-        }
-      }
-    }
-  } */
 }
 
 .poll-option { // list element
   padding: 0;
   margin: 0 0 2px;
-  @include rounded-corners(2px);
   overflow: hidden;
+
+  @include rounded-corners(2px);
+
   // overwrite :(
-  &:before { content: none; }
+  &::before {
+    content: none;
+  }
+
   &.poll-option--rated {
     width: 100%;
   }
@@ -168,14 +182,18 @@
 .poll-option__radio {
   // for accessibility -> no hiding!
   position: absolute;
-  opacity: 0; // height: 0; width: 0; margin: 0; padding: 0; border: 0;
-  &:focus, &:active {
+  opacity: 0;
+
+  &:focus,
+  &:active {
     + .poll-option-label {
       background-color: $color-bg-box-hover;
-      &:after  {
+
+      &::after  {
         background-color: $color-bg-box-hover;
       }
-      &--selected:after {
+
+      &--selected::after {
         border: solid 1px $color-accentuation-red;
         background-color: transparent;
       }
@@ -190,15 +208,20 @@
   padding: 18px 16px;
   cursor: pointer;
   flex: 1 0 auto; // flexbox
-  &:hover, &:focus, &--selected {
+
+  &:hover,
+  &:focus,
+  &--selected {
     background-color: $color-bg-box-hover;
   }
 }
+
 .poll-option-label__title {
   font: 16px/20px $font-regular;
-  letter-spacing: 0.5px;
+  letter-spacing: .5px;
   margin: 0;
 }
+
 .poll-option-label__description {
   font-size: 16px;
   line-height: 24px;
@@ -212,6 +235,7 @@
     display: block;
   }
 }
+
 .poll-option-rating {
   height: 100%;
   width: 100%;
@@ -219,10 +243,12 @@
   background-color: $color-bg-box;
   display: none; // initial => to be changed in js ..
 
-  &:hover, &:focus {
+  &:hover,
+  &:focus {
     background-color: $color-bg-box-hover;
   }
 }
+
 .poll-option-rating__answer-copy {
   position: absolute;
   top: 50%;
@@ -231,8 +257,9 @@
   letter-spacing: .5px;
   margin: 0;
   padding: 16px;
-  transform: translate(0px, -50%);
+  transform: translate(0, -50%);
 }
+
 .poll-option-rating__percent {
   position: absolute;
   right: 0;
@@ -245,16 +272,16 @@
   margin: 0 16px 0 0;
   display: none;
 }
+
 .poll-option-rating__bg-color {
   position: absolute;
   height: 100%;
   width: 0;
   background-color: #ff9193; // the color of the looooosers
-  // opacity: 0;
-  // background-color: $color-accentuation-red;
-  &--winner {
-    background-color: #ff6669;
-  }
+}
+
+.poll-option-rating__bg-color--winner {
+  background-color: #ff6669;
 }
 
 // last bit
@@ -262,25 +289,30 @@
   @include rounded-corners(2px);
   .button {
     margin: 6px 0 0;
+
     @include tablet-up {
       margin: 0;
     }
   }
 }
+
 .poll-form-handling__roundup {
   margin: 0;
   padding: 16px;
   background-color: $color-bg-caption;
   display: none;
 }
+
 .poll-form-handling__errors--onerror {
   display: block;
   color: $color-accentuation-red;
   margin-bottom: 16px;
+
   @include smartphone {
     background-color: $color-bg-caption;
     margin-bottom: -4px;
     padding: 16px;
+
     @include rounded-corners(2px);
   }
 }

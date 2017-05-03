@@ -1,35 +1,44 @@
 .checkbox {
   position: absolute;
   opacity: 0;
+
   // custom boxes (decorating the label)
-  &:focus, &:active, &:checked {
+  &:focus,
+  &:active,
+  &:checked {
     + .checkbox-label {
       background-color: $color-bg-box-hover;
     }
   }
+
   &:checked {
-    &:focus, &:hover {
+    &:focus,
+    &:hover {
       + .checkbox-label {
         background-color: #cac8bf;
       }
     }
   }
-  &:checked, &:focus:checked {
+
+   &:checked,
+   &:focus:checked {
     + .checkbox-label {
-      &:after {
+      &::after {
         border-color: $color-accentuation-red;
       }
-      &:before {
-        content: url(../img/red_tick.svg);
+
+      &::before {
+        content: url('../img/red_tick.svg');
         top: 13px;
         left: 20px;
       }
     }
     + .checkbox--inactive {
-      &:after {
+      &::after {
         border-color: $color-text-light;
       }
-      &:before {
+
+      &::before {
         color: $color-text-light;
       }
     }
@@ -39,17 +48,20 @@
 .checkbox-label {
   @include button-label;
 
-  &:before, &:after {
-    content: "";
+  &::before,
+  &::after {
+    content: '';
     position: absolute;
   }
-  &:after {
+
+  &::after {
     top: 17px;
     left: 16px;
     width: 16px;
     height: 16px;
     border: solid 1px $color-text-light;
   }
+
   &.checkbox--inactive:hover {
     background-color: $color-bg-box;
   }
@@ -61,7 +73,8 @@
 
 .checkbox--on-error {
   color: $color-accentuation-red;
-  &:after {
+
+  &::after {
     border-color: $color-accentuation-red;
   }
 }
