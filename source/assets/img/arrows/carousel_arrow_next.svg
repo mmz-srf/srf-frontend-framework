@@ -1,23 +1,25 @@
-<svg width="29" height="49" viewBox="0 0 29 49" xmlns="http://www.w3.org/2000/svg"
+<svg width="26" height="41" viewBox="0 0 26 41" xmlns="http://www.w3.org/2000/svg"
      xmlns:xlink="http://www.w3.org/1999/xlink">
     <defs>
-        <path d="M6.29 38.188c-.407.437-.382 1.12.056 1.524.438.405 1.122.38 1.53-.056L22.71 23.734c.386-.414.386-1.054 0-1.468L7.876 6.344c-.407-.436-1.09-.46-1.53-.056-.437.405-.462 1.087-.056 1.524L20.44 23 6.29 38.188z"
+        <path d="M6.293 30.293c-.39.39-.39 1.024 0 1.414.39.39 1.024.39 1.414 0l12-12c.39-.39.39-1.024 0-1.414l-12-12c-.39-.39-1.024-.39-1.414 0-.39.39-.39 1.024 0 1.414L17.586 19 6.293 30.293z"
               id="b"/>
-        <filter x="-97.1%" y="-39.7%" width="294.1%" height="197.1%" filterUnits="objectBoundingBox" id="a">
-            <feOffset dy="3" in="SourceAlpha" result="soo1"/>
-            <feGaussianBlur stdDeviation="3" in="soo1" result="sbo1"/>
-            <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.64 0" in="sbo1" result="smo1"/>
-            <feOffset in="SourceAlpha" result="soo2"/>
-            <feGaussianBlur stdDeviation="3" in="soo2" result="sbo2"/>
-            <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.24 0" in="sbo2" result="smo2"/>
+        <filter x="-117.9%" y="-51.9%" width="335.7%" height="226.9%" filterUnits="objectBoundingBox" id="a">
+            <feOffset dy="3" in="SourceAlpha" result="shadowOffsetOuter1"/>
+            <feGaussianBlur stdDeviation="3" in="shadowOffsetOuter1" result="shadowBlurOuter1"/>
+            <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.64 0" in="shadowBlurOuter1"
+                           result="shadowMatrixOuter1"/>
+            <feOffset in="SourceAlpha" result="shadowOffsetOuter2"/>
+            <feGaussianBlur stdDeviation="3" in="shadowOffsetOuter2" result="shadowBlurOuter2"/>
+            <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.24 0" in="shadowBlurOuter2"
+                           result="shadowMatrixOuter2"/>
             <feMerge>
-                <feMergeNode in="smo1"/>
-                <feMergeNode in="smo2"/>
+                <feMergeNode in="shadowMatrixOuter1"/>
+                <feMergeNode in="shadowMatrixOuter2"/>
             </feMerge>
         </filter>
     </defs>
-    <g fill="none">
+    <g fill-rule="nonzero" fill="none">
         <use fill="#000" filter="url(#a)" xlink:href="#b"/>
-        <use fill="#FEFEFE" fill-rule="evenodd" xlink:href="#b"/>
+        <use fill="#FFF" fill-rule="evenodd" xlink:href="#b"/>
     </g>
 </svg>
