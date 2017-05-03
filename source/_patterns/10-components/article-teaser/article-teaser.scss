@@ -60,50 +60,50 @@
 }
 
 .article-teaser__kicker {
+  color: $color-accentuation-red;
   font-family: $font-regular;
   font-size: 12px;
-  font-weight: normal;
-  font-style: normal;
   font-stretch: normal;
-  line-height: 1.33;
+  font-style: normal;
+  font-weight: normal;
   letter-spacing: .2px;
-  color: $color-accentuation-red;
+  line-height: 1.33;
   margin: 0 0 4px;
 
   @include tablet-up {
     font-size: 14px;
-    line-height: 1.14;
     letter-spacing: .5px;
+    line-height: 1.14;
   }
 }
 
 .article-teaser__title {
-  font-family: $font-regular;
-  font-size: 14px;
-  font-weight: normal;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: 1.43;
-  letter-spacing: .2px;
   color: #1a1916;
+  font-family: $font-regular;
+  font-size: 16px;
+  font-stretch: normal;
+  font-style: normal;
+  font-weight: normal;
+  letter-spacing: .2px;
+  line-height: 24px;
   margin: 0 0 6px;
 
   @include tablet-up {
-    font-size: 20px;
-    line-height: 1.4;
+    font-size: 18px;
     letter-spacing: .5px;
+    line-height: 28px;
     margin: 0 0 8px;
   }
 }
 
 .article-teaser__date {
+  color: $color-text-light;
   font-family: $font-system;
   font-size: 12px;
-  font-weight: normal;
-  font-style: normal;
   font-stretch: normal;
-  line-height: 1.33;
+  font-style: normal;
+  font-weight: normal;
   letter-spacing: normal;
-  color: $color-text-light;
+  line-height: 1.33;
   margin: 0;
 }
