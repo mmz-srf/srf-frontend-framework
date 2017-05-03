@@ -122,7 +122,7 @@ function isWithinVerticalViewport($element) {
     return (!(viewport.bottom < bounds.top || viewport.top > bounds.bottom));
 }
 
-$(css.containers).on('swipe', function (event, slick, direction) {
+$(css.containers).on('swipe mouseover', function (event, slick, direction) {
     // no more waggeling
     $(".carousel__link--prev, .carousel__link--next").removeClass("waggle");
 });
