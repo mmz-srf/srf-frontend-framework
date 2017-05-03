@@ -75,26 +75,6 @@
   }
 }
 
-// animations
-.article-audio__player {
-  height: 0;
-  transition: height .4s;
-}
-
-.article-audio {
-  transition: background-color .4s;
-}
-
-.media-caption__title,
-.media-caption__source,
-strong {  // TODO: really necessary??
-  transition: color .4s;
-}
-
-.article-audio__wrapper::before {
-  transition: opacity .4s;
-}
-
 .audio--playing {
   &.article-audio,
   &.article-audio:hover {
@@ -117,6 +97,13 @@ strong {  // TODO: really necessary??
   .media-caption__source,
   strong {
     color: $color-border;
+  }
+
+  .media-caption__title,
+  .media-caption__source,
+  strong {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   .article-audio__player {
