@@ -65,14 +65,6 @@ export function init() {
             }
         ]
     });
-
-    $(window).scroll(function () {
-        if (isWithinVerticalViewport($carousels) && $carousels.find(".has-waggled").attr("class") == undefined) {
-            $(".carousel__link--prev, .carousel__link--next").addClass("waggle");
-        } else { // perhaps this isn't even necessary?
-            $(".carousel__link--prev, .carousel__link--next").removeClass("waggle");
-        }
-    });
 }
 
 function registerListener($carousel) {
@@ -84,19 +76,30 @@ function registerListener($carousel) {
         }
     });
 
-    $(css.handles).on("touchstart mouseup", function () {
+    $carousel.on('swipe mouseover mouseenter', function (event, slick, direction) {
+        // on "interacting" with the carousel
+        if ($(this).find(".carousel__link--next").hasClass("waggle")) {
+            // no more animation // and only do it once
+            $(this).find(".carousel__link--prev").removeClass("waggle").addClass("has-waggled");
+            $(this).find(".carousel__link--next").removeClass("waggle").addClass("has-waggled");
+        }
+    });
+
+    $carousel.find(css.handles).on("touchstart mouseup", function () {
         $(this).removeClass("untouched");
-        // if only the handles are clicked / touched: stop waggeling
-        $(".carousel__link--prev, .carousel__link--next").removeClass("waggle").addClass("has-waggled");
+        // if the handles are clicked / touched: stop the animation
+        $(this).removeClass("waggle").addClass("has-waggled");
+        $(this).removeClass("waggle").addClass("has-waggled");
     }).on("touchend touchcancel", function () {
         $(this).addClass("untouched");
     });
 
-    $carousel.on('swipe mouseover mouseenter', function (event, slick, direction) {
-        // on "interacting" with the carousel
-        if ($(this).find(".carousel__link--next").hasClass("waggle")) {
-            // no more waggeling // and only do it once
-            $(".carousel__link--prev, .carousel__link--next").removeClass("waggle").addClass("has-waggled");
+    $(window).scroll(function () {
+        // as soon as the gallery is within the viewport (and handles weren't animated before)
+        if (isWithinVerticalViewport($carousel) && $carousel.find(".has-waggled").attr("class") == undefined) {
+            // animate them
+            $carousel.find(".carousel__link--prev").addClass("waggle");
+            $carousel.find(".carousel__link--next").addClass("waggle");
         }
     });
 }
