@@ -65,14 +65,6 @@ export function init() {
             }
         ]
     });
-
-    $(window).scroll(function () {
-        if (isWithinVerticalViewport($(css.containers))) {
-            $(".carousel__link--prev, .carousel__link--next").addClass("waggle");
-        } else { // perhaps this isn't even necessary?
-            $(".carousel__link--prev, .carousel__link--next").removeClass("waggle");
-        }
-    });
 }
 
 function registerListener($carousel) {
@@ -84,11 +76,31 @@ function registerListener($carousel) {
         }
     });
 
-    $(css.handles).on("touchstart mouseup", function () {
+    $carousel.on('swipe mouseover mouseenter', function (event, slick, direction) {
+        // on "interacting" with the carousel
+        if ($(this).find(".carousel__link--next").hasClass("waggle")) {
+            // no more animation // and only do it once
+            $(this).find(".carousel__link--prev").removeClass("waggle").addClass("has-waggled");
+            $(this).find(".carousel__link--next").removeClass("waggle").addClass("has-waggled");
+        }
+    });
+
+    $carousel.find(css.handles).on("touchstart mouseup", function () {
         $(this).removeClass("untouched");
-        $(".carousel__link--prev, .carousel__link--next").removeClass("waggle");
+        // if the handles are clicked / touched: stop the animation
+        $(this).removeClass("waggle").addClass("has-waggled");
+        $(this).removeClass("waggle").addClass("has-waggled");
     }).on("touchend touchcancel", function () {
         $(this).addClass("untouched");
+    });
+
+    $(window).scroll(function () {
+        // as soon as the gallery is within the viewport (and handles weren't animated before)
+        if (isWithinVerticalViewport($carousel) && $carousel.find(".has-waggled").attr("class") == undefined) {
+            // animate them
+            $carousel.find(".carousel__link--prev").addClass("waggle");
+            $carousel.find(".carousel__link--next").addClass("waggle");
+        }
     });
 }
 
@@ -108,8 +120,8 @@ function isWithinVerticalViewport($element) {
     var win = $(window);
 
     var viewport = {
-        // top : win.scrollTop(),
-        left: win.scrollLeft()
+        top: win.scrollTop()// ,
+        // left: win.scrollLeft()
     };
     // viewport.right = viewport.left + win.width();
     viewport.bottom = viewport.top + win.height();
@@ -121,9 +133,4 @@ function isWithinVerticalViewport($element) {
     // return (!(viewport.right < bounds.left || viewport.left > bounds.right || viewport.bottom < bounds.top || viewport.top > bounds.bottom));
     return (!(viewport.bottom < bounds.top || viewport.top > bounds.bottom));
 }
-
-$(css.containers).on('swipe mouseover', function (event, slick, direction) {
-    // no more waggeling
-    $(".carousel__link--prev, .carousel__link--next").removeClass("waggle");
-});
 
