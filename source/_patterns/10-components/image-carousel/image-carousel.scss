@@ -60,7 +60,6 @@
   top: 28vw;
   padding: 0; // reset default button style
   background-color: transparent; // reset default button style
-  background-position: 40%;
   background-repeat: no-repeat;
   background-size: 24px;
   border: 8px solid transparent;
@@ -68,19 +67,16 @@
   box-sizing: content-box;
   cursor: pointer; // reset default button style
   z-index: 100;
+  transition: background-color 0.2s ease;
+  -moz-background-clip: content;
+  -webkit-background-clip: content;
+  background-clip: content-box;
 
   @include tablet-up {
     top: 35%;
     width: 56px;
     height: 96px;
     background-size: 28px;
-  }
-
-  &:hover,
-  &:active {
-    -moz-background-clip: content;
-    -webkit-background-clip: content;
-    background-clip: content-box;
   }
 
   &:hover {
@@ -99,8 +95,13 @@
 .carousel__link--prev {
   left: 0;
   background-image: url('../../assets/img/arrows/carousel_arrow_prev.svg');
+  background-position: 50%;
   border-radius: 0 15px 15px 0;
   border-width: 12px 12px 12px 0; // <= kompromiss: schoene runde ecken UND extended touch area :(
+
+  @include tablet-up {
+    background-position: 50%;
+  }
 
   &.waggle {
     animation: waggle--left 2s ease 0s;
@@ -116,8 +117,12 @@
   border-width: 12px 0 12px 12px; // kompromiss :)
 
   &.waggle {
-    animation: waggle--right 2s ease 0s;
-    animation-iteration-count: infinite;
+    animation: waggle--right 2s linear 0s;
+    animation-iteration-count: 4;
+  }
+
+  @include tablet-up {
+    background-position: 50%;
   }
 }
 
