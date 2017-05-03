@@ -3,12 +3,14 @@
   margin: 16px 0 24px;
 
   @include smartphone {
-    margin: 16px -8px 20px 4px;
+    margin: 16px -8px 20px -8px;
+    padding: 0 8px;
   }
 
   table {
     width: 100%;
     border-collapse: collapse;
+    margin-right:16px;
   }
 
   th {
@@ -26,6 +28,9 @@
       letter-spacing: .5px;
     }
   }
+  
+  thead > tr > th:last-of-type,
+  tbody > tr > td:last-of-type {border-right-width:8px}
 
   // if there is a thead, begin with a light bg-color
   thead + tbody tr:nth-child(even) {background-color: $color-table-bg-zebra-dark}
