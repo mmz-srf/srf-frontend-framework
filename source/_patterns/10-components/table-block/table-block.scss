@@ -53,7 +53,12 @@
 
   th, td {
     padding: 11px 16px 13px;
-    border: 1px solid #fff;
+    border-style: solid;
+    border-color: #fff;
+    border-top-width: 0;
+    border-right-width: 1px;
+    border-bottom-width: 2px;
+    border-left-width: 0;
     vertical-align: top;
 
     @include smartphone {
