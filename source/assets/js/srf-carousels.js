@@ -67,7 +67,7 @@ export function init() {
     });
 
     $(window).scroll(function () {
-        if (isWithinVerticalViewport($(css.containers))) {
+        if (isWithinVerticalViewport($carousels) && $carousels.find(".has-waggled").attr("class") == undefined) {
             $(".carousel__link--prev, .carousel__link--next").addClass("waggle");
         } else { // perhaps this isn't even necessary?
             $(".carousel__link--prev, .carousel__link--next").removeClass("waggle");
@@ -86,9 +86,18 @@ function registerListener($carousel) {
 
     $(css.handles).on("touchstart mouseup", function () {
         $(this).removeClass("untouched");
-        $(".carousel__link--prev, .carousel__link--next").removeClass("waggle");
+        // if only the handles are clicked / touched: stop waggeling
+        $(".carousel__link--prev, .carousel__link--next").removeClass("waggle").addClass("has-waggled");
     }).on("touchend touchcancel", function () {
         $(this).addClass("untouched");
+    });
+
+    $carousel.on('swipe mouseover mouseenter', function (event, slick, direction) {
+        // on "interacting" with the carousel
+        if ($(this).find(".carousel__link--next").hasClass("waggle")) {
+            // no more waggeling // and only do it once
+            $(".carousel__link--prev, .carousel__link--next").removeClass("waggle").addClass("has-waggled");
+        }
     });
 }
 
@@ -108,8 +117,8 @@ function isWithinVerticalViewport($element) {
     var win = $(window);
 
     var viewport = {
-        // top : win.scrollTop(),
-        left: win.scrollLeft()
+        top: win.scrollTop()// ,
+        // left: win.scrollLeft()
     };
     // viewport.right = viewport.left + win.width();
     viewport.bottom = viewport.top + win.height();
@@ -121,9 +130,4 @@ function isWithinVerticalViewport($element) {
     // return (!(viewport.right < bounds.left || viewport.left > bounds.right || viewport.bottom < bounds.top || viewport.top > bounds.bottom));
     return (!(viewport.bottom < bounds.top || viewport.top > bounds.bottom));
 }
-
-$(css.containers).on('swipe mouseover', function (event, slick, direction) {
-    // no more waggeling
-    $(".carousel__link--prev, .carousel__link--next").removeClass("waggle");
-});
 
