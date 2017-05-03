@@ -28,9 +28,12 @@
       letter-spacing: .5px;
     }
   }
-  
-  thead > tr > th:last-of-type,
-  tbody > tr > td:last-of-type {border-right-width:8px}
+
+  // Adds a 8-Pixel-Spacing on the right of every scrollable table-box (… 'cause of how CSS works with elements inside overflow-x)
+  @include smartphone {
+    thead > tr > th:last-of-type,
+    tbody > tr > td:last-of-type {border-right-width:8px}
+  }
 
   // if there is a thead, begin with a light bg-color
   thead + tbody tr:nth-child(even) {background-color: $color-table-bg-zebra-dark}
