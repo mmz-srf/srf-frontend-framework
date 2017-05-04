@@ -68,7 +68,7 @@
   box-sizing: content-box;
   cursor: pointer; // reset default button style
   z-index: 100;
-  transition: background-color 1.2s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  transition: background-color .2s ease;
   -moz-background-clip: content;
   -webkit-background-clip: content;
   background-clip: content-box;
@@ -105,8 +105,8 @@
   }
 
   &.waggle {
-    animation: waggle--left 2s ease 0s;
-    animation-iteration-count: 4;
+    animation: waggle--left 1.2s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+    animation-iteration-count: infinite;
   }
 }
 
@@ -118,8 +118,8 @@
   border-width: 12px 0 12px 12px; // kompromiss :)
 
   &.waggle {
-    animation: waggle--right 2s linear 0s;
-    animation-iteration-count: 4;
+    animation: waggle--right 1.2s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+    animation-iteration-count: infinite;
   }
 
   @include tablet-up {

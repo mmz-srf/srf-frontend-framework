@@ -76,7 +76,7 @@ function registerListener($carousel) {
         }
     });
 
-    $carousel.on('swipe mouseover mouseenter', function (event, slick, direction) {
+    $carousel.on('swipe', function (event, slick, direction) {
         // on "interacting" with the carousel
         if ($(this).find(".carousel__link--next").hasClass("waggle")) {
             // no more animation // and only do it once
@@ -85,7 +85,7 @@ function registerListener($carousel) {
         }
     });
 
-    $carousel.find(css.handles).on("touchstart mouseup", function () {
+    $carousel.find(css.handles).on("touchstart mousedown mouseenter", function () {
         $(this).removeClass("untouched");
         // if the handles are clicked / touched: stop the animation
         $(this).removeClass("waggle").addClass("has-waggled");
