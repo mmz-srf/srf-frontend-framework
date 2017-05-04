@@ -93,15 +93,6 @@ function registerListener($carousel) {
     }).on("touchend touchcancel", function () {
         $(this).addClass("untouched");
     });
-
-    /* $(window).scroll(function () {
-        // as soon as the gallery is within the viewport (and handles weren't animated before)
-        if (isWithinVerticalViewport($carousel) && $carousel.find(".has-waggled").attr("class") == undefined) {
-            // animate them
-            $carousel.find(".carousel__link--prev").addClass("waggle");
-            $carousel.find(".carousel__link--next").addClass("waggle");
-        }
-     }); */
 }
 
 function loadLazyImages(images) {
@@ -114,22 +105,3 @@ function loadLazyImages(images) {
         }
     });
 }
-
-/* function isWithinVerticalViewport($element) {
-
-    var win = $(window);
-
-    var viewport = {
-        top: win.scrollTop()// ,
-        // left: win.scrollLeft()
-    };
-    // viewport.right = viewport.left + win.width();
-    viewport.bottom = viewport.top + win.height();
-
-    var bounds = $element.offset();
-    // bounds.right = bounds.left + this.outerWidth();
-    bounds.bottom = bounds.top + $element.outerHeight();
-
-    // return (!(viewport.right < bounds.left || viewport.left > bounds.right || viewport.bottom < bounds.top || viewport.top > bounds.bottom));
-    return (!(viewport.bottom < bounds.top || viewport.top > bounds.bottom));
- } */

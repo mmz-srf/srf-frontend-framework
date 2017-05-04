@@ -62,6 +62,7 @@
   padding: 0; // reset default button style
   background-color: transparent; // reset default button style
   background-repeat: no-repeat;
+  background-position: 50%;
   background-size: 24px;
   border: 8px solid transparent;
   display: block;
@@ -74,16 +75,16 @@
   background-clip: content-box;
 
   @include tablet-up {
-    top: 198px;
+    top: 1246px;
     width: 56px;
     height: 96px;
     background-size: 28px;
   }
   @include desktop-up {
-    top: 219px;
+    top: 267px;
   }
   @include desktop-wide {
-    top: 248px;
+    top: 296px;
   }
 
   &:hover {
@@ -102,29 +103,19 @@
 .carousel__link--prev {
   left: 0;
   background-image: url('../../assets/img/arrows/carousel_arrow_prev.svg');
-  background-position: 50%;
   border-radius: 0 15px 15px 0;
   border-width: 12px 12px 12px 0; // <= kompromiss: schoene runde ecken UND extended touch area :(
-
-  @include tablet-up {
-    background-position: 50%;
-  }
 }
 
 .carousel__link--next {
   right: 0;
   background-image: url('../../assets/img/arrows/carousel_arrow_next.svg');
-  background-position: 55%;
   border-radius: 15px 0 0 15px;
   border-width: 12px 0 12px 12px; // kompromiss :)
 
   &.carousel__link--waggle {
     animation: waggle--right 1.6s cubic-bezier(0.445, 0.05, 0.55, 0.95);
     animation-iteration-count: infinite;
-  }
-
-  @include tablet-up {
-    background-position: 50%;
   }
 }
 
