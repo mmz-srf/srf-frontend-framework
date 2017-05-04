@@ -1,3 +1,5 @@
+@import "../../variables";
+
 @mixin reply_to_comments_area() {
   font: 16px/24px $font-light;
   letter-spacing: .5px;
