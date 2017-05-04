@@ -10,8 +10,12 @@
     display: none;
   }
 }
-.chmap--no-touch {
+
+.chmap--no-touch { // link
   -webkit-tap-highlight-color: rgba(0,0,0,0);
+  &:active, &:focus {
+    outline: none;
+  }
 }
 .chmap-wrapper {
   position: relative;
@@ -25,7 +29,11 @@
   stroke: #fff; // cantons
   stroke-width: 0.5px;
   cursor: pointer;
+  &:focus {
+    outline: none;
+  }
 }
+
 .chmap__location--shadow {
   stroke: rgb(34, 34, 34);
   filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=3, OffY=3, Color='#444')";
@@ -49,7 +57,8 @@
     content: ""; // "◤";
     position: absolute;
     left: 0;
-    top: 34px;
+    // top: 34px;
+    bottom: -15px;
     border-color: $color-link-bg-hover transparent;
     border-style: solid;
     border-width: 16px 16px 0 0;

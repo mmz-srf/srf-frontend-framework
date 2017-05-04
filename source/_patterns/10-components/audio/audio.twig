@@ -1,10 +1,10 @@
 {% block audio %}
-    <a  href="{{ audio.player_url }}/srf/popup?urn={{ audio.urn }}&autoplay=true"
+    <a  href="{% block direct_player_link %}{{ audio.player_url }}/srf/popup?urn={{ audio.urn }}&autoplay=true{% endblock %}"
         id="article-media__{{ audio.elementId }}"
         class="article-audio__link media__js"
         data-mediatype="audio"
         data-assetid="{{ audio.assetId }}">
-        <figure class="article-audio">
+        <figure class="article-audio {{ styleModifier }}">
             <div class="article-audio__wrapper">
                 {% block audio_image %}
                     <img class="image-figure__image"
@@ -35,6 +35,9 @@
                         vom {{ audio.show.date|date("d.m.Y")  }}
                     </div>
                 </figcaption>
+            {% endblock %}
+            {% block player_wrapper %}
+                <div id="article-audio__{{ audio.elementId }}" class="article-audio__player"></div>
             {% endblock %}
         </figure>
     </a>

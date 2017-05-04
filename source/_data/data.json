@@ -367,6 +367,7 @@
     }
   ],
   "chmap": {
+    "id": "ID",
     "title": "Anzahl Stellen in Interpharma-Unternehmen",
     "description": "Die Mitglieder des Verbands der forschenden pharmazeutischen Firmen der Schweiz (Interpharma) stammen nicht nur aus der Pharmaindustrie, sondern sind oftmals auch in pharmanahen Branchen tätig.",
     "source": "BAK Basel Economics",
@@ -404,14 +405,24 @@
   "comments": {
     "title_singular": "Kommentar",
     "title_plural": "Kommentare",
+    "greetings": "Sie sind angemeldet als",
+    "let_us_know": "Teilen Sie Ihre Meinung ...",
+    "select_to_comment": "anwählen um einen Kommentar zu schreiben",
+    "logout": "abmelden",
     "no_comment": "Es wurden noch keine Kommentare erfasst. Seien Sie die erste Person, die diesen Artikel kommentiert.",
     "link_all": "Alle Kommentare",
     "link_hits": "Beliebteste",
     "addons": {
-      "link_social": "Gefällt mir",
       "link_reply": "Antworten",
       "comment_by": "Kommentar von",
       "reply_by": "Antwort von"
+    },
+    "replies": {
+      "title": "Einen Kommentar schreiben",
+      "netiquette": "Netiquette",
+      "letters": "Zeichen",
+      "please_respect": "Bitte beachten Sie unsere",
+      "still_available": "Verfügbar sind noch"
     },
     "total_count": "8",
     "comments": [
@@ -460,7 +471,7 @@
           {
             "dateFormatted": "Dienstag, 14.03.2017, 15:18 Uhr",
             "isEditorialAnswer": false,
-            "id": 4236425,
+            "id": 4236499,
             "name": "Verena Casagrande",
             "message": "Evt. wird einmal Spass haben verboten!!!!",
             "nickname": "Verena Casagrande"
@@ -478,7 +489,7 @@
           {
             "dateFormatted": "Dienstag, 14.03.2017, 12:36 Uhr",
             "isEditorialAnswer": false,
-            "id": 4236072,
+            "id": 4236012,
             "name": "Sebastian Klaus",
             "message": "Andererseits sähe die Statistik ohne diese Begrenzungen ausserorts wieder ganz anders aus. Eine gute Verkehrsplanung kann aber ganz sicher sehr viel erreichen, häufig mehr als allzu restriktive Einschränkungen, die nerven anstatt beruhigen.",
             "nickname": "sklaus"
@@ -603,27 +614,27 @@
     "method": "get",
     "legend": "Irgend ein Titel",
     "hint": "* Pflichtfelder",
-    "button": "Datei Upload"
+    "accessibilityInfo": "Pflichtfeld",
+    "button": [
+      {
+        "upload": "Datei Upload",
+        "errorInfo": "Datei Upload",
+        "successInfo": "Datei Upload"
+      }
+    ]
   },
-  "list": {
-      "title": "Das sagt die Prominenz",
-      "elements": [
-          {
-              "title": "Guy Parmelin: «Ein toller Sport der die Schweiz fasziniert»",
-              "body": "Der Ursprungsort oder die Ursprungsregion des Schwingens ist nicht wirklich bekannt. Zuerst war der «Hosenlupf» in der Zentralschweiz und in den Voralpen des Mittellands Teil der Festkultur. In der Deutschschweiz fasste es darauf deutlich schneller und stärker Fuss als in der Romandie. Seltsamerweise findet man die erste Schwingerdarstellung auf einem Gemälde aus dem 13. Jahrhundert, das in der Kathedrale Lausanne hängt.",
-              "media": "image"
-          },
-          {
-              "title": "Jörg Abderhalden: «Stucki ist ein ganz heisser Kandidat»",
-              "body": "Stucki ist für mich einer der ganz spannenden Favoriten. Alle haben ihn irgendwie auf der Rechnung, aber niemand so richtig…. Er verliert praktisch keinen Gang und ist deshalb ein ganz heisser Kandidat, um am Ende ganz oben zu stehen. Aber er muss es wirklich wollen, muss aktiv schwingen und etwas riskieren. Sonst wird das nichts.",
-              "media": "video"
-          }
-      ]
-  },
-  "infolines": {
-    "imageTag": "Bild:",
-    "videoTag": "Video:",
-    "videoTagLong": "Video: 6:05 Min, vom 29.8.2016",
-    "source": "Keystone"
+  "polis": {
+    "yes": "JA",
+    "no": "NEIN",
+    "result": "Resultat",
+    "final_result": "Endresultat",
+    "no_results": "Keine Resultate vorhanden",
+    "votes": "Stimmen",
+    "Standesstimmen": "Standesstimmen",
+    "turnout": "Stimmbeteiligung",
+    "canton": "Kanton",
+    "at": "vom",
+    "o_clock": "Uhr",
+    "legend_title": "JA-Anteil in %"
   }
 }

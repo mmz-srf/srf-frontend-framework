@@ -51,12 +51,12 @@ var pollController = function() {
                 $form.find(".poll-option-label--selected")
                     .removeClass("poll-option-label--selected");
 
-                var $errButton = $form.find(".submit-button--error");
+                var $errButton = $form.find(".button--error");
                 var $err = $form.find(".poll-form-handling__errors--onerror");
                 // if there was a previous err
                 if ($err.length) {
                     // remove err colour from button
-                    // $errButton.removeClass("submit-button--error");
+                    // $errButton.removeClass("button--error");
                     // remove err msg
                     $err.removeClass("poll-form-handling__errors--onerror")
                         .text("");
@@ -112,7 +112,7 @@ var pollController = function() {
             $poll.find(".poll-form-handling__roundup").show()
                 .find("strong").text(total);
 
-            // $poll.find(".submit-button").remove();
+            // $poll.find(".button").remove();
 
             var width, sum = 0;
             var widths = [];
@@ -139,7 +139,7 @@ var pollController = function() {
                 $element.find(".poll-option-rating__percent strong").text(width);
             });
 
-            var $submit = $poll.find(".submit-button");
+            var $submit = $poll.find(".button");
             if ($submit.length > 0) {
                 $submit.val("✔").fadeOut(1500, function () {
                     that.animateBars($poll, widths);
@@ -184,7 +184,7 @@ var pollController = function() {
 
     this.hasErrors = function ($poll, optionId) {
         if (optionId === undefined) {
-            // $poll.find(".submit-button").addClass("submit-button--error");
+            // $poll.find(".button").addClass("button--error");
             var errMsg = "Bitte wählen Sie eine Option aus."; // todo: translate!
             $poll.find(".poll-form-handling__errors")
                 .addClass("poll-form-handling__errors--onerror")

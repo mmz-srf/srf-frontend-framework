@@ -7,12 +7,15 @@
       background-size: 100%;
     }
   }
-  margin: 32px 0 24px;
+  margin: 32px 0;
   @include smartphone {
-    margin: 24px -8px 20px;
+    margin: 24px -8px;
     &:not(.played) { // very ugly! (handling of touch states)
       background-color: $color-bg-caption;
     }
+  }
+  &:not(".audio--playing") { // samesame
+    background-color: $color-bg-caption;
   }
 
   &__wrapper {
@@ -56,5 +59,51 @@
     @include smartphone {
       width: 46px;
     }
+  }
+}
+
+// animations
+.article-audio__player {
+  height: 0;
+  transition: height 0.4s;
+}
+
+.article-audio {
+  transition: background-color 0.4s;
+}
+
+.media-caption__title,
+.media-caption__source,
+strong {
+  transition: color 0.4s;
+}
+
+.article-audio__wrapper::before {
+  transition: opacity 0.4s;
+}
+
+.audio--playing {
+  &.article-audio,
+  &.article-audio:hover {
+    background-color: $color-media-playing;
+    cursor: default;
+  }
+  .article-audio__wrapper::before {
+    opacity: 0;
+  }
+  .article-audio__play-icon {
+    display: none;
+  }
+  .media-caption__title {
+    color: $color-bg-caption;
+  }
+  .media-caption__source,
+  strong {
+    color: $color-border;
+  }
+  .article-audio__player {
+    height: 42px;
+    padding: 8px;
+    background-color: $color-text-default;
   }
 }

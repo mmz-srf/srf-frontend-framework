@@ -2,14 +2,31 @@
 {% for comment in comments %}
     {% set commentIds = commentIds|merge([comment.id]) %}
     <li id="comment_{{ comment.id }}" class="comment">
-        <span class="h-offscreen">{{ default.comment_by|default("Kommentar von") }} </span>
-        <cite class="comment__user {% if comment.isEditorialAnswer %} comment__user--srf{% endif %}">{{ comment.name }} {% if not comment.isEditorialAnswer %} ({{ comment.nickname }}){% endif %}</cite>
+        <cite class="comment__user {% if comment.isEditorialAnswer %} comment__user--srf{% endif %}" role="combobox">
+            <span class="h-offscreen">{{ default.comment_by|default("Kommentar von") }} </span>{{ comment.name }}
+            {% if comment.isEditorialAnswer %}<span
+                    class="h-offscreen">(SRF)</span>{% else %}({{ comment.nickname }}){% endif %}
+        </cite>
         <span class="comment__time">{{ comment.dateFormatted }}</span>
         <blockquote class="comment__content">{{ comment.message }}</blockquote>
-        <a class="comment__link">{{ default.link_social|default("Gefällt mir") }}
-            (?)</a>{# ... folgestory #}
+        <a class="comment__link comment__link--agree" role="link" title="{{ 'Zustimmen'|trans }}" href="#{{ comment.id }}-agree">
+            {{ 'Zustimmen'|trans }}
+            <span class="h-offscreen">{{ 'dem Kommentar zustimmen'|trans }}</span>
+            <span class="count"></span>
+        </a><span class="vertical-separator" aria-hidden="true" role="presentation"></span>
+        <a class="comment__link comment__link--deny" role="link" title="{{ 'Ablehnen'|trans }}" href="#{{ comment.id }}-deny">
+            {{ 'Ablehnen'|trans }}
+            <span class="h-offscreen">{{ 'den Kommentar ablehnen'|trans }}</span>
+            <span class="count"></span>
+        </a>
+
         {% if allowsComments %}
-            <a class="comment__link comment__link--reply">{{ default.link_reply|default("Antworten") }}</a>
+            <span class="vertical-separator" aria-hidden="true" role="presentation"></span>
+            <a class="comment__link comment__link--reply" href="#{{ comment.id }}-reply"
+               role="link" title="{{ 'Antworten'|trans }}">{{ 'Antworten'|trans }}
+                <span class="h-offscreen">{{ default.select_to_reply|default("anwählen um auf den Kommentar zu antworten") }}</span>
+            </a>
+            <span class="comment__placeholder" id="placeholder_{{ comment.id }}"></span>
         {% endif %}
         {% if comment.children|length > 0 %}
             <ol class="comments comments--replies">
@@ -21,11 +38,16 @@
                             {{ reply.name }}{% if not reply.isEditorialAnswer %} ({{ reply.nickname }}){% endif %}</cite>
                         <span class="comment__time">{{ reply.dateFormatted }}</span>
                         <blockquote class="comment__content">{{ reply.message }}</blockquote>
-                        <a class="comment__link">{{ default.link_social|default("Gefällt mir") }}
-                            (?)</a>{# ... folgestory #}
-                        {% if allowsComments %}
-                            <a class="comment__link comment__link--reply">{{ default.link_reply|default("Antworten") }}</a>
-                        {% endif %}
+                        <a class="comment__link comment__link--agree" title="{{ 'Zustimmen'|trans }}" role="link" href="#{{ comment.id }}-agree">
+                            {{ 'Zustimmen'|trans }}
+                            <span class="h-offscreen">{{ 'dem Kommentar zustimmen'|trans }}</span>
+                            <span class="count"></span>
+                        </a><span class="vertical-separator" aria-hidden="true" role="presentation"></span>
+                        <a class="comment__link comment__link--deny" title="{{ 'Ablehnen'|trans }}" role="link" href="#{{ comment.id }}-deny">
+                            {{ 'Ablehnen'|trans }}
+                            <span class="h-offscreen">{{ 'den Kommentar ablehnen'|trans }}</span>
+                            <span class="count"></span>
+                        </a>
                     </li>
                 {% endfor %}
             </ol>

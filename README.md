@@ -1,7 +1,10 @@
+
 # srf-frontend-framework
 SRF Frontend Framework
 
-URL: http://www.srfcdn.ch/assets/test/latest/public/
+Test: http://www.srfcdn.ch/assets/test/latest/public/
+
+Master: http://www.srf.ch/static/assets/master/
 
 ## Minimalistic installation guide:
 
