@@ -20,8 +20,8 @@ export function init() {
             speed: 300,
             slidesToShow: 1,
             infinite: false,
-            prevArrow: '<button class="carousel__link--prev"><span class="h-offscreen h-offscreen-focusable">Vorhergehendes Bild</span></button>',
-            nextArrow: '<button class="carousel__link--next"><span class="h-offscreen h-offscreen-focusable">Nächstes Bild</span></button>',
+            prevArrow: '<button class="carousel__link--prev waggle"><span class="h-offscreen h-offscreen-focusable">Vorhergehendes Bild</span></button>',
+            nextArrow: '<button class="carousel__link--next waggle"><span class="h-offscreen h-offscreen-focusable">Nächstes Bild</span></button>',
             slide: ".carousel__item"
         });
         registerListener($carousel);
@@ -94,14 +94,14 @@ function registerListener($carousel) {
         $(this).addClass("untouched");
     });
 
-    $(window).scroll(function () {
+    /* $(window).scroll(function () {
         // as soon as the gallery is within the viewport (and handles weren't animated before)
         if (isWithinVerticalViewport($carousel) && $carousel.find(".has-waggled").attr("class") == undefined) {
             // animate them
             $carousel.find(".carousel__link--prev").addClass("waggle");
             $carousel.find(".carousel__link--next").addClass("waggle");
         }
-    });
+     }); */
 }
 
 function loadLazyImages(images) {
@@ -115,7 +115,7 @@ function loadLazyImages(images) {
     });
 }
 
-function isWithinVerticalViewport($element) {
+/* function isWithinVerticalViewport($element) {
 
     var win = $(window);
 
@@ -132,5 +132,4 @@ function isWithinVerticalViewport($element) {
 
     // return (!(viewport.right < bounds.left || viewport.left > bounds.right || viewport.bottom < bounds.top || viewport.top > bounds.bottom));
     return (!(viewport.bottom < bounds.top || viewport.top > bounds.bottom));
-}
-
+ } */
