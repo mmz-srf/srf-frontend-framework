@@ -403,6 +403,7 @@
     "total": "Stimmen wurden abgegeben"
   },
   "allowsComments": true,
+  "businessUnit": "rtr",
   "comments": {
     "title_singular": "Kommentar",
     "title_plural": "Kommentare",
@@ -432,7 +433,6 @@
     "total_count": "8",
     "comments": [
       {
-        "businessUnit": "srf",
         "dateFormatted": "Dienstag, 14.03.2017, 15:19 Uhr",
         "isEditorialAnswer": true,
         "id": 4236430,
@@ -441,7 +441,6 @@
         "nickname": "chrischi1",
         "children": [
           {
-            "businessUnit": "srf",
             "dateFormatted": "Dienstag, 14.03.2017, 21:20 Uhr",
             "isEditorialAnswer": false,
             "id": 4237595,
@@ -450,7 +449,6 @@
             "nickname": "Wernu"
           },
           {
-            "businessUnit": "srf",
             "dateFormatted": "Dienstag, 14.03.2017, 15:18 Uhr",
             "isEditorialAnswer": false,
             "id": 4236425,
@@ -459,7 +457,6 @@
             "nickname": "Verena Casagrande"
           },
           {
-            "businessUnit": "srf",
             "dateFormatted": "Dienstag, 14.03.2017, 12:36 Uhr",
             "isEditorialAnswer": true,
             "id": 4236072,
