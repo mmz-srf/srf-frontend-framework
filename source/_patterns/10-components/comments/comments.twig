@@ -51,7 +51,7 @@
                     <li class="tab-option" role="presentation">
                         <a href="#sectionAll" class="tab-option__link tab-option__link--selected" tabindex="0" role="tab" aria-controls="sectionAll" aria-selected="true">{{ 'Alle Kommentare'|trans }}</a>
                     </li>
-                    {% if rankedComments is not empty %}
+                    {% if popularComments is not empty %}
                         <li class="tab-option" role="presentation">
                             <a href="#sectionHits" class="tab-option__link" tabindex="-1" role="tab" aria-controls="sectionHits">{{ 'Beliebteste'|trans }}</a>
                         </li>
@@ -65,15 +65,19 @@
                     {% block comments %}
                         {% include 'components-comment' with { 'comments': comments.comments, 'allowsComments': true } %}
                     {% endblock %}
-                    {% block more_button %}
-                        {% include 'elements-load-more' with {'imgSrc': '../../assets/img/arrows/red_arrow_down.svg'} %}
-                    {% endblock %}
-                    {% block more_button_spinner %}
-                        {% include 'elements-spinner' %}
-                    {% endblock %}
                 </ul>
+                {% block more_button %}
+                    {% include 'elements-load-more' with {'imgSrc': '../../assets/img/arrows/red_arrow_down.svg'} %}
+                {% endblock %}
+                {% block more_button_spinner %}
+                    {% include 'elements-spinner' %}
+                {% endblock %}
             </div>
-            <div id="sectionHits" role="tabpanel" aria-hidden="true"></div>
+            {% if popularComments is not empty %}
+                <div id="sectionHits" role="tabpanel" aria-hidden="true">
+                    <ul class="comments comments--shrink comments--popular"></ul>
+                </div>
+            {% endif %}
         {% endif %}
     </div>
 </section>
