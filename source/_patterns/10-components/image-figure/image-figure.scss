@@ -56,6 +56,15 @@ Behaviour:
 
 .image-figure--in-box {
   margin-top: 0;
+
+  @include smartphone {
+      // resetting the full width here
+    left: 0;
+    right: 0;
+    width: auto;
+    margin-left: 8px;
+    margin-right: 8px;
+  }
 }
 
 
