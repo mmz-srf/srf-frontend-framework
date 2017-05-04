@@ -4,22 +4,22 @@
             <h3 class="comments-header__title comments--shrink">
                 {% if comments.total_count > 0 %}{{ comments.total_count }} {% endif %}
                 {% if comments.total_count == 1 %}
-                    {{ comments.title_singular|default("Kommentar") }}
+                    {{ 'Kommentar'|trans }}
                 {% else %}
-                    {{ comments.title_plural|default("Kommentare") }}
+                    {{ 'Kommentare'|trans }}
                 {% endif %}
             </h3>
             <p class="comments-header__text comments--shrink {{ styleModifier }}" style="display: none">
-                {{ comments.greetings|default("Sie sind angemeldet als") }}&nbsp;
+                {{ 'Sie sind angemeldet als'|trans }}
                 <a href="" class="comments-header__logged-in-as">Who ? (whoareyou)</a> (<a href=""
-                                                              class="comments-header__logout">{{ comments.logout|default("abmelden") }}</a>)
+                                                              class="comments-header__logout">{{ 'abmelden'|trans }}</a>)
             </p>
 
             {# show the button to comment #}
             {% if allowsComments %}
                 <a class="comments-header__button comments--shrink" href="#" role="link">
-                    {{ comments.let_us_know|default("Teilen Sie Ihre Meinung ...") }}
-                    <span class="h-offscreen">{{ comments.select_to_comment|default("anwählen um einen Kommentar zu schreiben") }}</span>
+                    {{ 'Teilen Sie Ihre Meinung ...'|trans }}
+                    <span class="h-offscreen">{{ 'anwählen um einen Kommentar zu schreiben'|trans }}</span>
                 </a>
                 <span class="comments-header__placeholder"></span>
 
@@ -31,16 +31,16 @@
                 {% if comments.total_count == 0 %}
                     <div class="comments-infobox">
                         <p class="comments-infobox__text comments--shrink">
-                            {{ comments.no_comment|default("Es wurden noch keine Kommentare erfasst. Seien Sie die erste Person, die diesen Artikel kommentiert.") }}
+                            {{ 'Es wurden noch keine Kommentare erfasst. Seien Sie die erste Person, die diesen Artikel kommentiert.'|trans }}
                         </p>
                     </div>
                 {% endif %}
             {% endif %}
             {# else there's a reason that doesn't allow commenting #}
             {% if comments.reason_for_closure != '' %}
-                <h3 class="comments-header__info-title comments--shrink">{{ comments.comments_disabled }}</h3>
+                <h3 class="comments-header__info-title comments--shrink">{{ 'Kommentarfunktion deaktiviert'|trans }}</h3>
                 <p class="comments-header__info-text comments--shrink{% if comments.total_count == 0 %} comments-header__info-text--padded{% endif %}">
-                    {{ comments.reason_for_closure|default("Uns ist es wichtig, Kommentare möglichst schnell zu sichten und freizugeben. Deshalb ist das Kommentieren bei älteren Artikeln und Sendungen nicht mehr möglich.") }}
+                    {{ 'Uns ist es wichtig, Kommentare möglichst schnell zu sichten und freizugeben. Deshalb ist das Kommentieren bei älteren Artikeln und Sendungen nicht mehr möglich.'|trans }}
                 </p>
             {% endif %}
 
@@ -49,11 +49,13 @@
                 <hr class="comments-header__border" aria-hidden="true">
                 <ul class="tabs comments--shrink" role="tablist">
                     <li class="tab-option" role="presentation">
-                        <a href="#sectionAll" class="tab-option__link tab-option__link--selected" tabindex="0" role="tab" aria-controls="sectionAll" aria-selected="true">{{ comments.link_all|default("Alle Kommentare") }}</a>
+                        <a href="#sectionAll" class="tab-option__link tab-option__link--selected" tabindex="0" role="tab" aria-controls="sectionAll" aria-selected="true">{{ 'Alle Kommentare'|trans }}</a>
                     </li>
-                    <li class="tab-option" role="presentation">
-                        <a href="#sectionHits" class="tab-option__link" tabindex="-1" role="tab" aria-controls="sectionHits">{{ comments.link_hits|default("Beliebteste") }}</a>
-                    </li>
+                    {% if rankedComments is not empty %}
+                        <li class="tab-option" role="presentation">
+                            <a href="#sectionHits" class="tab-option__link" tabindex="-1" role="tab" aria-controls="sectionHits">{{ 'Beliebteste'|trans }}</a>
+                        </li>
+                    {% endif %}
                 </ul>
             {% endif %}
         </div>{# here ends the header #}
@@ -61,17 +63,17 @@
             <div id="sectionAll" role="tabpanel">
                 <ul class="comments comments--shrink comments--main">
                     {% block comments %}
-                        {% include 'components-comment' with { 'comments': comments.comments, 'default': comments.addons, 'replies': comments.replies, 'allowsComments': true } %}
+                        {% include 'components-comment' with { 'comments': comments.comments, 'allowsComments': true } %}
+                    {% endblock %}
+                    {% block more_button %}
+                        {% include 'elements-load-more' with {'imgSrc': '../../assets/img/arrows/red_arrow_down.svg'} %}
+                    {% endblock %}
+                    {% block more_button_spinner %}
+                        {% include 'elements-spinner' %}
                     {% endblock %}
                 </ul>
             </div>
             <div id="sectionHits" role="tabpanel" aria-hidden="true"></div>
-            {% block more_button %}
-                {% include 'elements-load-more' with {'imgSrc': '../../assets/img/arrows/red_arrow_down.svg'} %}
-            {% endblock %}
-            {% block more_button_spinner %}
-                {% include 'elements-spinner' %}
-            {% endblock %}
         {% endif %}
     </div>
 </section>
