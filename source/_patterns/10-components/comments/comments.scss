@@ -189,13 +189,6 @@
     padding: 0 16px;
   }
 
-  @include smartphone {
-    .vertical-separator {
-      margin-left: 6px;
-      margin-right: 6px;
-    }
-  }
-
   &::before { // overwrite
     content: none;
   }
@@ -223,6 +216,13 @@
   .vertical-separator {
     margin-left: 9px;
     margin-right: 9px;
+  }
+
+  @include smartphone {
+    .vertical-separator {
+      margin-left: 6px;
+      margin-right: 6px;
+    }
   }
 }
 .comments--main, .comments--popular { // ul
