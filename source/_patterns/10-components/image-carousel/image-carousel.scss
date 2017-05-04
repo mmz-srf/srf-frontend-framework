@@ -72,16 +72,16 @@
   background-clip: content-box;
 
   @include tablet-up {
-    top: 198px;
+    top: 1246px;
     width: 56px;
     height: 96px;
     background-size: 28px;
   }
   @include desktop-up {
-    top: 219px;
+    top: 267px;
   }
   @include desktop-wide {
-    top: 248px;
+    top: 296px;
   }
 
   &:hover {
