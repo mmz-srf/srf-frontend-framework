@@ -14,6 +14,14 @@
 
 .textbox--article-indentation {
   @include article-element-indentation;
+
+    .textbox__title {
+        padding: 0 24px;
+
+        @include smartphone {
+            padding: 0 8px;
+        }
+    }
 }
 
 .textbox__title {
