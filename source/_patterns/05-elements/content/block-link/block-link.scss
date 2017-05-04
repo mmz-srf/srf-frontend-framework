@@ -4,10 +4,10 @@
   padding: 12px 50px 12px 16px;
   font-size: 16px;
   line-height: 24px;
-  letter-spacing: 0.5px;
+  letter-spacing: .5px;
   color: $color-link-default;
   border-bottom: 1px solid $color-separator;
-  background: url(../img/linktypes/internal.svg) calc(100% - 16px) center no-repeat;
+  background: url('../img/linktypes/internal.svg') calc(100% - 16px) center no-repeat;
   background-size: 18px 18px;
 
   @include smartphone {
@@ -22,26 +22,28 @@
   &:active {
     background-color: $color-link-bg-active;
   }
-  &:hover, &:active {
+
+  &:hover,
+  &:active {
     border-bottom: 1px solid $color-separator;
     color: $color-link-default;
   }
 }
 
 .block-link--external {
-  background-image: url(../img/linktypes/external.svg);
+  background-image: url('../img/linktypes/external.svg');
 }
 
 .block-link--document {
-  background-image: url(../img/linktypes/file.svg);
+  background-image: url('../img/linktypes/file.svg');
 }
 
 .block-link--pdf {
-  background-image: url(../img/linktypes/pdf.svg);
+  background-image: url('../img/linktypes/pdf.svg');
   background-size: 19px 18px;
 }
 
 .block-link--docx {
-  background-image: url(../img/linktypes/docx.svg);
+  background-image: url('../img/linktypes/docx.svg');
   background-size: 26px 18px;
 }

@@ -13,11 +13,13 @@
     padding: 0;
     margin: 0;
   }
+
   li::before {
     background: none;
   }
 
-  .article-audio, .article-video {
+  .article-audio,
+  .article-video {
     background: none;
     margin: 0;
 
@@ -33,11 +35,12 @@
       width: 142px;
       height: 80px;
       margin: 16px 0 16px 16px;
+
       @include smartphone {
         width: 80px;
       }
 
-      &:before {
+      &::before {
         width: 142px;
         height: 80px;
         @include smartphone {
@@ -52,9 +55,10 @@
   }
 
   .article-audio .image-figure__image,
-    .article-video .image-figure__image{
+  .article-video .image-figure__image {
     width: 142px;
     height: 80px;
+
     @include smartphone {
       width: 80px;
     }
@@ -69,22 +73,23 @@
   font-family: $font-regular;
   font-size: 14px;
   line-height: 1.41;
-  letter-spacing: 0.5px;
+  letter-spacing: .5px;
   color: #888579;
   margin: 0;
   padding: 10px 25px;
+  text-transform: uppercase;
 
   @include tablet-up {
     padding: 10px 16px;
   }
-
-  text-transform: uppercase;
 }
+
 .related-item {
   border-bottom: 1px solid #ebebe5;
   background: none;
   margin: 0;
   padding: 0;
+
   a {
     text-decoration: none;
   }
