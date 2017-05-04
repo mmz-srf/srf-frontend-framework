@@ -101,11 +101,6 @@
   @include tablet-up {
     background-position: 50%;
   }
-
-  &.waggle {
-    animation: waggle--left 1.2s cubic-bezier(0.445, 0.05, 0.55, 0.95);
-    animation-iteration-count: infinite;
-  }
 }
 
 .carousel__link--next {
@@ -115,8 +110,8 @@
   border-radius: 15px 0 0 15px;
   border-width: 12px 0 12px 12px; // kompromiss :)
 
-  &.waggle {
-    animation: waggle--right 1.2s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  &.carousel__link--waggle {
+    animation: waggle--right 1.6s cubic-bezier(0.445, 0.05, 0.55, 0.95);
     animation-iteration-count: infinite;
   }
 
@@ -148,15 +143,6 @@
   }
 }
 
-@mixin waggle--left {
-  0%, 100% {
-    background-position: 80%;
-  }
-  50% {
-    background-position: 10%;
-  }
-}
-
 @-webkit-keyframes waggle--right {
   @include waggle--right;
 }
@@ -171,20 +157,4 @@
 
 @keyframes waggle--right {
   @include waggle--right;
-}
-
-@-webkit-keyframes waggle--left {
-  @include waggle--left;
-}
-
-@-moz-keyframes waggle--left {
-  @include waggle--left;
-}
-
-@-o-keyframes waggle--left {
-  @include waggle--left;
-}
-
-@keyframes waggle--left {
-  @include waggle--left;
 }
