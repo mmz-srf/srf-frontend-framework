@@ -1,8 +1,8 @@
 .article-video {
-  margin: 32px 0;
+  margin: 24px -8px;
 
-  @include smartphone {
-    margin: 24px -8px;
+  @include tablet-up {
+    margin: 32px 0;
   }
 
   &:hover,
@@ -27,9 +27,10 @@
   .image-figure__image-wrapper::before {
     content: '';
     position: absolute;
-    background-color: rgba(0, 0, 0, .2);
-    height: 100%;
+    // height: 100%;
     width: 100%;
+    padding-top: 56.25%;
+    background-color: rgba(0, 0, 0, .2);
   }
 }
 
@@ -47,24 +48,24 @@
     content: '';
     position: absolute;
     background-color: rgba(0, 0, 0, .2);
-    height: 112px;
-    width: 112px;
+    width: 80px;
+    height: 80px;
 
-    @include smartphone {
-      width: 80px;
-      height: 80px;
+    @include tablet-up {
+      height: 112px;
+      width: 112px;
     }
   }
 
   // cropped and centered image
   .image-figure__image {
-    width: 112px;
-    height: 112px;
+    width: 80px;
+    height: 80px;
     object-fit: cover;
 
-    @include smartphone {
-      width: 80px;
-      height: 80px;
+    @include tablet-up {
+      width: 112px;
+      height: 112px;
     }
   }
 
@@ -74,10 +75,10 @@
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
-    width: 68px;
+    width: 46px;
 
-    @include smartphone {
-      width: 46px;
+    @include tablet-up {
+      width: 68px;
     }
   }
 }
@@ -107,13 +108,6 @@
 
 .article-video__player {
   background-color: #000;
-
-  // creating an image & player placeholder
-  &::before {
-    content: "";
-    display: block;
-    padding-top: 56.25%;
-  }
 }
 
 .video--playing {
@@ -155,6 +149,12 @@
   // the player (currently) shows a black border left & right :/
   .article-video__player {
     margin: 0 -1px;
+
+    &::before {
+      content: "";
+      display: block;
+      padding-top: 56%;
+    }
 
     iframe {
       position: absolute;
