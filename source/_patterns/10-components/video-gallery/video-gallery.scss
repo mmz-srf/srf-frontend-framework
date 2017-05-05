@@ -2,17 +2,17 @@
 
 .video-gallery-container {
   width: 100%;
-  padding: 0 60px;
+  padding: 0 20px;
   background-color: #f5f5f2;
 
-  @include smartphone {
-    padding: 0;
+  @include tablet-up {
+    padding: 0 60px;
   }
 }
 
 .video-gallery {
-  position: relative;
-  width: 100%;
+  // position: relative;
+  // width: 100%;
   overflow: visible;
   margin: 32px 0 0 0; // for regular media element within article
 
@@ -21,21 +21,19 @@
     margin-bottom: 20px;
   }
 
-  /////
+  // flexbox
   .carousel__item {
     display: flex;
     flex-direction: column;
   }
-  .article-video__link {
+  .article-video__link { // :/
     display: flex;
-    flex-flow: row nowrap;
+    // flex-flow: row nowrap;
     height: 100%;
   }
 
-
   .article-video {
     width: 100%;
-    // overflow: hidden;
     margin: 24px 4px 12px;
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .24);
 
@@ -45,20 +43,12 @@
 
     @include rounded-corners(2px);
 
-    // here comes "pure guesswork"
-    &:hover {
-      background-color: #dadad2;
-    }
-
     &:hover,
-    &:active {
-      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .24);
-    }
-
     &:active,
     &:focus {
       outline: none;
-      background-color: #cac8bf;
+      background-color: #fafaf8;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .24);
     }
   }
 
@@ -70,7 +60,6 @@
   }
 
   .media-caption--video {
-    // min-height: 108px;
     background-color: #fefefd;
     padding: 8px 12px 16px;
 
@@ -91,6 +80,14 @@
   }
 
   // play icon
+  .media-play__icon { // should this here be necessary?
+    margin-bottom: 8px;
+  }
+  @include tablet-up {
+    .media-play {
+      width: 48px;
+    }
+  }
 
   .carousel__link--prev,
   .carousel__link--next {
@@ -137,107 +134,64 @@
     }
   }
 }
-
 // end video-carousel overwrites
 
-.slick-list {
+/* .slick-list {
   position: relative;
   display: block;
   overflow: hidden;
-
   margin: 0;
   padding: 0;
-}
-
-/* .slick-track {
-  clear: both;
-  content: '';
-  display: table;
 } */
+
 .slick-track {
   display: flex;
 }
 
 // Dots
-.slick-dotted.slick-slider {
-  margin-bottom: 24px;
-}
-
 .slick-dots {
-  bottom: -25px;
-  display: block;
-  width: 100%;
-  padding: 0;
+  height: 28px;
   margin: 0;
-  list-style: none;
   text-align: center;
-}
 
-.slick-dots li {
-  position: relative;
-  display: inline-block;
-  width: 20px;
-  height: 20px;
-  margin: 0 5px 12px;
-  padding: 0;
-  cursor: pointer;
+  li {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
 
-  &::before {
-    content: none;
+    &::before {
+      content: none;
+    }
   }
-}
 
-.slick-dots li button {
-  font-size: 0;
-  line-height: 0;
+  button {
+    width: 16px;
+    height: 16px; // 16px ?
+    font-size: 0;
+    line-height: 0;
+    border: 0;
+    background: transparent;
+    display: block;
+    outline: none;
+    cursor: pointer;
 
-  display: block;
+    &::before {
+      content: '•';
+      font-size: 28px;
+      line-height: 10px;
+      color: #333; // die Farben sind nicht zu erkennen :(
+      opacity: .25;
+    }
 
-  width: 20px;
-  height: 20px;
-  padding: 5px;
+    &:hover, &:focus {
+      outline: none;
+      &::before {
+        opacity: 1;
+      }
+    }
+  }
 
-  cursor: pointer;
-
-  color: transparent;
-  border: 0;
-  outline: none;
-  background: transparent;
-}
-
-.slick-dots li button:hover,
-.slick-dots li button:focus {
-  outline: none;
-}
-
-.slick-dots li button:hover::before,
-.slick-dots li button:focus::before {
-  opacity: 1;
-}
-
-.slick-dots li button::before {
-  font-family: 'slick';
-  font-size: 28px;
-  line-height: 20px;
-
-  position: absolute;
-  top: 0;
-  left: 0;
-
-  width: 20px;
-  height: 20px;
-
-  content: '•';
-  text-align: center;
-
-  opacity: .25;
-  color: black;
-
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-.slick-dots li.slick-active button::before {
-  opacity: .75;
-  color: black;
+  .slick-active button::before {
+    opacity: .75;
+  }
 }
