@@ -178,7 +178,6 @@
 
 .comment { // ul li
   border-top: 1px solid $color-separator;
-  overflow: hidden;
   padding: 0;
   margin: 0 16px;
 
@@ -303,11 +302,24 @@
 
 .comment__link--reply {
   @include smartphone {
-    background: url('../img/linktypes/reply.svg') no-repeat center;
     opacity: .7;
-    width: 40px;
+    width: 30px;
     text-indent: -10000px;
-    margin-left: -8px;
+    margin-left: -4px;
+    position: relative;
+  }
+}
+
+.comment__link--reply:after {
+  // WOW, this is a beauty! Touch area should be 40x40, overlapping all boundries :O
+  @include smartphone {
+    content: '&nbsp;';
+    position: absolute;
+    height: 40px;
+    width: 40px;
+    left: 0;
+    top: -3px;
+    background: url('../img/linktypes/reply.svg') no-repeat 0 center;
   }
 }
 
