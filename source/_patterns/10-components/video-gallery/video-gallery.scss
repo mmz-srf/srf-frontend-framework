@@ -1,8 +1,9 @@
 @import "../../variables";
 
 .video-gallery-container {
-  width: 100%;
   padding: 0 20px;
+  margin: 0 -8px;
+  overflow: hidden;
   background-color: #f5f5f2;
 
   @include tablet-up {
@@ -14,11 +15,11 @@
   // position: relative;
   // width: 100%;
   overflow: visible;
-  margin: 32px 0 0 0; // for regular media element within article
+  // margin: 32px 0 0 0; // for regular media element within article
 
   @include smartphone {
-    margin-top: 24px;
-    margin-bottom: 20px;
+    // margin-top: 24px;
+    // margin-bottom: 20px;
   }
 
   // flexbox
@@ -28,13 +29,12 @@
   }
   .article-video__link { // :/
     display: flex;
-    // flex-flow: row nowrap;
     height: 100%;
   }
 
   .article-video {
     width: 100%;
-    margin: 24px 4px 12px;
+    margin: 0 4px 12px;
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .24);
 
     // flexbox
@@ -56,6 +56,12 @@
     &::before {
       padding-top: 56.25%;
       position: relative;
+    }
+  }
+
+  .image-figure {
+    &::before {
+      content: none;
     }
   }
 
@@ -150,8 +156,8 @@
 
 // Dots
 .slick-dots {
-  height: 28px;
-  margin: 0;
+  height: 16px;
+  margin: 12px auto;
   text-align: center;
 
   li {
