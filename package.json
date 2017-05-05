@@ -1,6 +1,6 @@
 {
   "name": "srf-frontend-framework",
-  "version": "0.10.3",
+  "version": "0.11.2",
   "private": true,
   "devDependencies": {
     "babel-preset-es2015": "*",
