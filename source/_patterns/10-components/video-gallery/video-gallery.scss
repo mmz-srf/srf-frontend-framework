@@ -1,12 +1,13 @@
 @import "../../variables";
 
 .video-gallery-container {
-  padding: 0 20px;
   margin: 0 -8px;
+  padding: 0 20px;
   overflow: hidden;
   background-color: #f5f5f2;
 
   @include tablet-up {
+    margin: 0;
     padding: 0 60px;
   }
 }
@@ -15,6 +16,7 @@
   // position: relative;
   // width: 100%;
   overflow: visible;
+  margin: 24px 0 12px;
   // margin: 32px 0 0 0; // for regular media element within article
 
   @include smartphone {
@@ -26,6 +28,7 @@
   .carousel__item {
     display: flex;
     flex-direction: column;
+    margin: 0 4px;
   }
   .article-video__link { // :/
     display: flex;
@@ -34,7 +37,8 @@
 
   .article-video {
     width: 100%;
-    margin: 0 4px 12px;
+    margin: 0;
+    overflow: hidden; // so the rounded corners are "visible"
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .24);
 
     // flexbox
@@ -162,6 +166,7 @@
 
   li {
     display: inline-block;
+    vertical-align: top;
     margin: 0;
     padding: 0;
 
@@ -176,10 +181,12 @@
     font-size: 0;
     line-height: 0;
     border: 0;
+    padding: 0;
     background: transparent;
     display: block;
     outline: none;
     cursor: pointer;
+    float: left;
 
     &::before {
       content: '•';
