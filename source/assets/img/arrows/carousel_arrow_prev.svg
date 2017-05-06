@@ -5,7 +5,7 @@
               id="b"/>
         <filter x="-117.9%" y="-51.9%" width="335.7%" height="226.9%" filterUnits="objectBoundingBox" id="a">
             <feOffset dy="3" in="SourceAlpha" result="soo1"/>
-            <feGaussianBlur stdDeviation="3" in="soo1" result="shadowBlurOuter1"/>
+            <feGaussianBlur stdDeviation="3" in="soo1" result="sbo1"/>
             <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.64 0" in="sbo1" result="smo1"/>
             <feOffset in="SourceAlpha" result="soo2"/>
             <feGaussianBlur stdDeviation="3" in="soo2" result="sbo2"/>
@@ -16,8 +16,8 @@
             </feMerge>
         </filter>
     </defs>
-    <g fill-rule="nonzero" fill="none">
+    <g fill="none">
         <use fill="#000" filter="url(#a)" xlink:href="#b"/>
-        <use fill="#FEFEFE" fill-rule="evenodd" xlink:href="#b"/>
+        <use fill="#FEFEFE" xlink:href="#b"/>
     </g>
 </svg>
