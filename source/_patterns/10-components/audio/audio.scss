@@ -1,3 +1,5 @@
+@import "../../variables";
+
 .article-audio {
   background-color: $color-bg-caption;
   margin: 32px 0;
@@ -8,7 +10,7 @@
     background-color: #ebebe5;
 
     .article-audio__play-icon {
-      background-image: url('../../assets/img/play-active.svg');
+      background-image: url('../img/play-active.svg');
       background-size: 100%;
     }
   }
@@ -75,26 +77,6 @@
   }
 }
 
-// animations
-.article-audio__player {
-  height: 0;
-  transition: height .4s;
-}
-
-.article-audio {
-  transition: background-color .4s;
-}
-
-.media-caption__title,
-.media-caption__source,
-strong {  // TODO: really necessary??
-  transition: color .4s;
-}
-
-.article-audio__wrapper::before {
-  transition: opacity .4s;
-}
-
 .audio--playing {
   &.article-audio,
   &.article-audio:hover {
@@ -117,6 +99,13 @@ strong {  // TODO: really necessary??
   .media-caption__source,
   strong {
     color: $color-border;
+  }
+
+  .media-caption__title,
+  .media-caption__source,
+  strong {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   .article-audio__player {

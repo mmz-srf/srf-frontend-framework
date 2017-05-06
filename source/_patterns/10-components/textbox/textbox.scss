@@ -1,23 +1,31 @@
 .textbox {
-  margin: 40px 0;
+  margin: 48px 0;
   background-color: $color-bg-box;
   overflow: hidden;
+  font-size: 18px;
 
   @include smartphone {
-    margin-top: 32px;
-    margin-bottom: 32px;
+    margin: 32px 8px;
     padding: 0 8px;
-
-    @include fullwidth-element;
+    font-size: 16px;
   }
+
 }
 
 .textbox--article-indentation {
   @include article-element-indentation;
+
+    .textbox__title {
+        padding: 0 24px;
+
+        @include smartphone {
+            padding: 0 8px;
+        }
+    }
 }
 
 .textbox__title {
-  padding: 0 16px;
+  padding: 0 8px;
   margin: 16px 0 8px;
   font-family: $font-medium;
   font-size: 20px;
@@ -34,11 +42,12 @@
 
 .textbox__content {
   & > p {
-    @include article-text-padding;
+    padding: 0 24px;
     margin: 12px 0 24px;
 
     @include smartphone {
       margin: 12px 0 20px;
+      padding: 0 8px;
     }
 
   }

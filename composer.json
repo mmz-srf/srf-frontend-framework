@@ -21,7 +21,8 @@
 	"autoload": {
 		"psr-0": {
 			"PatternLab":   "core/src/"
-		}
+		},
+        "classmap": ["source"]
 	},
 	"require": {
 		"php": ">=5.4",
