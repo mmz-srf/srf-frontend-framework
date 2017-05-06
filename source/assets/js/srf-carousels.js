@@ -37,6 +37,7 @@ export function init() {
         initialSlide: 0,
         dots: true,
         arrows: false,
+        appendArrows: ".slick-list",
         mobileFirst: true,
         centerMode: true,
         centerPadding: "0",
@@ -50,7 +51,8 @@ export function init() {
                     arrows: true,
                     prevArrow: '<button class="carousel__link--prev"><span class="h-offscreen h-offscreen-focusable">Vorhergehendes Bild</span></button>',
                     nextArrow: '<button class="carousel__link--next"><span class="h-offscreen h-offscreen-focusable">Nächstes Bild</span></button>',
-                    centerMode: false
+                    centerMode: false,
+                    centerPadding: "60px"
                 }
             }, {
                 breakpoint: 720, // tablet
@@ -61,7 +63,8 @@ export function init() {
                     arrows: true,
                     prevArrow: '<button class="carousel__link--prev"><span class="h-offscreen h-offscreen-focusable">Vorhergehendes Bild</span></button>',
                     nextArrow: '<button class="carousel__link--next"><span class="h-offscreen h-offscreen-focusable">Nächstes Bild</span></button>',
-                    centerMode: false
+                    centerMode: false,
+                    centerPadding: "60px"
                 }
             }
         ]
