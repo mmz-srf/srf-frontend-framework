@@ -1,34 +1,25 @@
 @import "../../variables";
 
 .video-gallery-container {
-  margin: 0 -8px;
+  margin: 24px -8px;
   padding: 0 20px;
   overflow: hidden;
   background-color: #f5f5f2;
 
   @include tablet-up {
-    margin: 0;
-    padding: 0 60px;
+    margin: 32px 0;
+    padding: 0 58px;
   }
 }
 
 .video-gallery {
-  // position: relative;
-  // width: 100%;
   overflow: visible;
   margin: 24px 0 12px;
-  // margin: 32px 0 0 0; // for regular media element within article
-
-  @include smartphone {
-    // margin-top: 24px;
-    // margin-bottom: 20px;
-  }
 
   // flexbox
   .carousel__item {
     display: flex;
     flex-direction: column;
-    margin: 0 4px;
   }
   .article-video__link { // :/
     display: flex;
@@ -37,7 +28,7 @@
 
   .article-video {
     width: 100%;
-    margin: 0;
+    margin: 0 4px 12px;
     overflow: hidden; // so the rounded corners are "visible"
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .24);
 
@@ -45,14 +36,21 @@
     display: flex;
     flex-direction: column;
 
+    @include tablet-up {
+      margin: 0 6px 12px;
+    }
+
     @include rounded-corners(2px);
 
     &:hover,
     &:active,
     &:focus {
       outline: none;
-      background-color: #fafaf8;
-      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .24);
+      box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.24);
+
+      .media-caption--video {
+        background-color: #fafaf8;
+      }
     }
   }
 
@@ -66,6 +64,9 @@
   .image-figure {
     &::before {
       content: none;
+    }
+    .image-figure__image { // overwriting the carousel bg (black)
+      background-color: #dadad2;
     }
   }
 
@@ -89,79 +90,73 @@
     }
   }
 
-  // play icon
-  .media-play__icon { // should this here be necessary?
-    margin-bottom: 8px;
-  }
+  // play icon overwrites
   @include tablet-up {
     .media-play {
       width: 48px;
+      transform: translate(-50%, -24px);
+    }
+    .media-play__icon {
+      margin-bottom: 3px;
     }
   }
 
+  // img carousel overwrites
   .carousel__link--prev,
   .carousel__link--next {
     width: 56px;
     height: 101px;
 
-    @include desktop-up {
-      top: 27%;
+    @include tablet-up {
+      top: 50%;
+      transform: translate(0, -50%);
     }
 
-    @include tablet {
-      top: 33%;
+    &:hover, &:active {
+      border-bottom-color: transparent;
     }
-
     &:hover {
       background-color: #ebebe5;
-      border-bottom-color: transparent;
     }
-
     &:active {
       background-color: #dadad2;
-      border-bottom-color: transparent;
     }
   }
 
   .carousel__link--prev {
     left: -60px;
     background-image: url('../img/arrows/carousel_arrow_prev-no-background.svg');
-    background-color: transparent;
 
-    &:hover,
-    &:active {
-      border-width: 12px 12px 12px 0;
-    }
+    // TODO: new img!
+    background-size: 86px;
+    background-position: 18px 34px;
   }
   .carousel__link--next {
     right: -60px;
     background-image: url('../img/arrows/carousel_arrow_next-no-background.svg');
-    background-color: transparent;
 
-    &:hover,
-    &:active {
-      border-width: 12px 0 12px 12px;
+    // TODO: new img!
+    background-size: 50px;
+    background-position: 20px 34px;
+  }
+  // end img carousel overwrites
+
+  // slick slider
+  .slick-track {
+    display: flex;
+  }
+
+  @include tablet-up {
+    .slick-list {
+      overflow: hidden; // cuts the right most img off :/
     }
   }
-}
-// end video-carousel overwrites
-
-/* .slick-list {
-  position: relative;
-  display: block;
-  overflow: hidden;
-  margin: 0;
-  padding: 0;
-} */
-
-.slick-track {
-  display: flex;
 }
 
 // Dots
 .slick-dots {
   height: 16px;
-  margin: 12px auto;
+  margin: 0 auto;
   text-align: center;
 
   li {
@@ -177,7 +172,7 @@
 
   button {
     width: 16px;
-    height: 16px; // 16px ?
+    height: 16px;
     font-size: 0;
     line-height: 0;
     border: 0;
