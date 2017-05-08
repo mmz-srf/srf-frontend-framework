@@ -1,6 +1,5 @@
 .article-teaser {
-  margin-top: 24px;
-  margin-bottom: 20px;
+  margin: 24px 0;
 
   border-top: 1px solid $color-border-medium;
   border-bottom: 1px solid $color-border-medium;
@@ -9,8 +8,7 @@
   width: 100%;
 
   @include tablet-up {
-    margin-top: 32px;
-    margin-bottom: 24px;
+    margin: 32px 0;
   }
 
   @include smartphone {

@@ -1,0 +1,1 @@
+Do not be confused if you're looking for the table's title. It's rendered as a normal content header (see content-header.twig).

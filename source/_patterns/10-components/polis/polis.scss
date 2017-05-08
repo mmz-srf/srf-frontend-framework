@@ -19,11 +19,11 @@ $color-polis-yes-text: #1667a7; // oben: 1667a7 // unten 145296
 $color-polis-no-text: #af001d; // oben: af001d oder unten: #9d0017 ???
 // no txt: #af001d
 
-.polis-container { // margins only :(
-  margin: 24px 0 20px; // mobile
+.polis-container {
+  margin: 24px 0;
 
   @include tablet-up {
-    margin: 32px 0 24px;
+    margin: 32px 0;
   }
 }
 
