@@ -5,7 +5,7 @@
         <cite class="comment__user {% if comment.isEditorialAnswer %} comment__user--{{ businessUnit }}{% endif %}" role="combobox">
             <span class="h-offscreen">{{ default.comment_by|default("Kommentar von") }} </span>{{ comment.name }}
             {% if comment.isEditorialAnswer %}<span
-                    class="h-offscreen">(SRF)</span>{% else %}({{ comment.nickname }}){% endif %}
+                    class="h-offscreen">({{ businessUnit|upper }})</span>{% else %}({{ comment.nickname }}){% endif %}
         </cite>
         <span class="comment__time">{{ comment.dateFormatted }}</span>
         <blockquote class="comment__content">{{ comment.message }}</blockquote>
