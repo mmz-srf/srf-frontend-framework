@@ -102,42 +102,35 @@
   }
 
   // img carousel overwrites
-  .carousel__link--prev,
-  .carousel__link--next {
-    width: 56px;
-    height: 101px;
-
-    @include tablet-up {
+  @include tablet-up {
+    .carousel__link--prev,
+    .carousel__link--next {
+      width: 56px;
+      height: 101px;
       top: 50%;
-      transform: translate(0, -50%);
+      transform: translate(0, calc(-50% - 12px));
+      background-size: 16px;
+      background-position: 20px;
+
+      &:hover, &:active {
+        border-bottom-color: transparent;
+      }
+      &:hover {
+        background-color: #ebebe5;
+      }
+      &:active {
+        background-color: #dadad2;
+      }
     }
 
-    &:hover, &:active {
-      border-bottom-color: transparent;
+    .carousel__link--prev {
+      left: -60px;
+      background-image: url('../img/arrows/carousel_arrow_prev-no-background.svg');
     }
-    &:hover {
-      background-color: #ebebe5;
+    .carousel__link--next {
+      right: -60px;
+      background-image: url('../img/arrows/carousel_arrow_next-no-background.svg');
     }
-    &:active {
-      background-color: #dadad2;
-    }
-  }
-
-  .carousel__link--prev {
-    left: -60px;
-    background-image: url('../img/arrows/carousel_arrow_prev-no-background.svg');
-
-    // TODO: new img!
-    background-size: 86px;
-    background-position: 18px 34px;
-  }
-  .carousel__link--next {
-    right: -60px;
-    background-image: url('../img/arrows/carousel_arrow_next-no-background.svg');
-
-    // TODO: new img!
-    background-size: 50px;
-    background-position: 20px 34px;
   }
   // end img carousel overwrites
 
@@ -187,14 +180,14 @@
       content: '•';
       font-size: 28px;
       line-height: 10px;
-      color: #333; // die Farben sind nicht zu erkennen :(
-      opacity: .25;
+      color: #000; // die Farben sind nicht zu erkennen :(
+      opacity: .2;
     }
 
     &:hover, &:focus {
       outline: none;
       &::before {
-        opacity: 1;
+        opacity: .6;
       }
     }
   }
