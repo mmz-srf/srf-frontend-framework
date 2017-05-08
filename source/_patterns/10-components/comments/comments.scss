@@ -1,0 +1,537 @@
+@import "../../variables";
+
+@mixin reply_to_comments_area() {
+  font: 16px/24px $font-light;
+  letter-spacing: .5px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  margin: 12px 16px;
+  height: 108px;
+
+  @include tablet-up {
+    height: 60px;
+  }
+}
+
+.article-comments { // section
+  background-color: $color-bg-caption;
+  box-shadow: 0 4px 4px -5px #003 inset; // fake!
+  padding: 24px 32px;
+  position: relative;
+
+  @include smartphone {
+    padding: 20px 8px;
+  }
+
+  .spinner-container {
+    position: relative;
+    margin-top: 30px;
+    display: none;
+  }
+}
+.comments-wrapper {
+  background-color: #fefefd;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.24),
+              0 0 2px 0 rgba(0, 0, 0, 0.12);
+}
+
+.comments-header {
+  background-color: $color-link-bg-hover;
+  position: relative;
+
+  .reply-container {
+    @include smartphone {
+      margin: 0 16px 28px;
+    }
+
+    &::before {
+      content: none;
+    }
+  }
+}
+
+// Kommentare
+.comments-header__title {
+  font: 22px/28px $font-medium;
+  letter-spacing: .3px;
+  margin: 0;
+  padding: 16px 16px 20px;
+
+  @include tablet-up {
+    padding-top: 24px;
+  }
+}
+
+// login info
+.comments-header__text,
+  // deactivation info
+.comments-infobox__text,
+.comments-header__info-text {
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: .5px;
+  color: $color-text-accentuation;
+  padding: 0 16px;
+}
+
+.comments-infobox__text {
+  font-size: 16px;
+  line-height: 24px;
+}
+
+// login info
+.comments-header__text {
+  margin: 0 0 24px;
+}
+
+// info: there are no comments yet ...
+.comments-infobox {
+  padding: 20px 0;
+  background-color: #fefefd;
+  border-top: 1px solid #ebebe5;
+}
+
+.comments-infobox__title,
+.comments-header__info-title {
+  font: 14px/20px $font-regular;
+  letter-spacing: 0.5px;
+  color: #22211d;
+  padding: 0 16px;
+  margin: -4px 0 4px;
+  @include tablet-up {
+    margin: 0 0 4px;
+  }
+}
+
+.comments-infobox__text,
+.comments-header__info-text {
+  margin: 0;
+}
+
+// no comments yet
+.comments-header__info-text--padded {
+  padding-bottom: 24px;
+}
+
+.comments-header__button {
+  font: 16px/24px $font-light;
+  letter-spacing: .5px;
+  color: $color-text-light;
+  padding: 12px;
+  margin: 0 16px 20px;
+  border: 1px solid $color-form-field;
+  border-radius: 2px;
+  background: #fff;
+  display: block;
+  cursor: pointer;
+
+  @include tablet-up {
+    margin-bottom: 24px;
+  }
+
+  &:hover {
+    color: $color-text-light;
+    border-bottom: 1px solid $color-form-field;
+  }
+}
+
+.comments--shrink {
+  @include tablet-up {
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  @include tablet {
+    max-width: 654px;
+  }
+
+  @include desktop-up {
+    max-width: 712px;
+  }
+
+  @include desktop-wide {
+    max-width: 790px;
+  }
+}
+
+.comments-header__border { // hack :(
+  position: absolute;
+  width: 100%;
+  border-bottom: 1px solid $color-separator;
+  border-width: 0 0 1px;
+  margin: 0;
+  bottom: 0;
+  z-index: 0;
+}
+
+.comments { // ul & ul ul
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+.comments--replies { // ul ul
+  margin-left: 10px;
+
+  @include tablet-up {
+    margin-left: 64px;
+  }
+}
+
+.comment { // ul li
+  border-top: 1px solid $color-separator;
+  padding: 0;
+  margin: 0 16px;
+
+  @include tablet-up {
+    margin: 0;
+    padding: 0 16px;
+  }
+
+  &::before { // overwrite
+    content: none;
+  }
+
+  .comment { // ul li li
+    margin-right: 0;
+    overflow: visible;
+
+    &::before {
+      content: '';
+      position: absolute;
+      height: 15px;
+      width: 19px;
+      left: -26px;
+      top: -8px;
+      background-image: url('../img/arrows/fancy_arrow.svg');
+
+      @include tablet-up {
+        left: -30px;
+        top: 27px;
+      }
+    }
+  }
+
+  .vertical-separator {
+    margin-left: 9px;
+    margin-right: 9px;
+  }
+
+  @include smartphone {
+    .vertical-separator {
+      margin-left: 6px;
+      margin-right: 6px;
+    }
+  }
+}
+.comments--main, .comments--popular { // ul
+  margin-bottom: 13px;
+  clear: both;
+
+  @include tablet-up {
+    margin: 0 auto 32px
+  }
+
+  > .comment:first-child {
+    border-top: 0;
+    padding-top: 8px;
+  }
+}
+
+.comment__user {
+  font: 14px/20px $font-regular;
+  letter-spacing: .5px;
+  margin: 20px 0 2px;
+  display: block;
+
+  @include tablet-up {
+    margin-top: 24px;
+  }
+}
+
+.comment__user--srf {
+  background: transparent url('../img/srf_logo.svg') no-repeat scroll right 2px / 24px auto;
+}
+
+.comment__user--rtr {
+  background: transparent url('../img/rtr_logo.svg') no-repeat scroll right 2px / 24px auto;
+}
+
+.comment__time {
+  font: 12px/16px $font-system;
+  color: $color-text-light;
+  display: block;
+}
+
+.comment__content {
+  font: 18px/28px $font-light;
+  letter-spacing: .5px;
+  margin: 12px 0 16px;
+
+  @include tablet-up {
+    font-size: 20px;
+    line-height: 32px;
+    letter-spacing: .3px;
+  }
+}
+
+.comment__link {
+  border-bottom: 0;
+  display: inline-block;
+  cursor: pointer; // why would this be necessary!?
+  padding: 8px 0;
+  margin-right: 0;
+  margin-bottom: 24px;
+  font: 14px/16px $font-light;
+  letter-spacing: .2px;
+
+  @include smartphone {
+    font: 16px/20px $font-light;
+    letter-spacing: 0;
+  }
+
+  @include tablet-up {
+    margin-bottom: 24px;
+    font: 16px/24px $font-light;
+      letter-spacing: .5px;
+  }
+
+  &:hover {
+    border-bottom: 0;
+  }
+
+  .count b {
+      font-family: $font-regular;
+      font-weight: normal;
+  }
+}
+
+.comment__link--reply {
+  @include smartphone {
+    opacity: .7;
+    width: 30px;
+    text-indent: -10000px;
+    margin-left: -4px;
+    position: relative;
+  }
+}
+
+.comment__link--reply:after {
+  // WOW, this is a beauty! Touch area should be 40x40, overlapping all boundries :O
+  @include smartphone {
+    content: '&nbsp;';
+    position: absolute;
+    height: 40px;
+    width: 40px;
+    left: 0;
+    top: -3px;
+    background: url('../img/linktypes/reply.svg') no-repeat 0 center;
+  }
+}
+
+.comment__link--reply:hover {
+  @include smartphone {
+    opacity: 1;
+  }
+}
+
+.comment__link:visited,
+.comment__link--clicked,
+.comment__link--disabled,
+.comment__link--disabled:hover,
+.comment__link--disabled:active {
+  color: $color-text-light;
+}
+
+.tabs {
+  height: 40px;
+  padding: 0;
+  margin-bottom: 0;
+}
+
+.tab-option {
+  float: left;
+  width: 50%;
+  margin: 0;
+  padding: 0;
+
+  @include tablet-up {
+    width: auto;
+  }
+
+  &::before { // overwrite
+    content: none;
+  }
+}
+
+.tab-option__link {
+  height: 40px;
+  width: 100%;
+  font: 16px/16px $font-regular;
+  color: $color-tab-option-link;
+  border-bottom: 1px solid $color-separator;
+  padding: 12px 16px 0;
+  white-space: nowrap;
+  display: inline-block;
+
+  @include smartphone {
+    text-align: center;
+    padding: 12px 24px 0;
+    font-size: 14px;
+  }
+
+  &:hover {
+    color: $color-tab-option-link;
+    border-bottom: 1px solid $color-separator;
+  }
+}
+
+.tab-option__link--selected {
+  color: $color-accentuation-red;
+  border-bottom: 2px solid $color-accentuation-red;
+  padding-bottom: 10px;
+
+  &:hover {
+    color: $color-accentuation-red;
+    border-bottom: 2px solid $color-accentuation-red;
+  }
+}
+
+/// replies (interactive commenting)
+.reply-container { // form
+  background: transparent;
+  margin-bottom: 36px;
+  position: relative;
+
+  @include smartphone {
+    margin: 0 0 36px 16px;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    height: 15px;
+    left: -26px;
+    top: -7px;
+    width: 19px;
+    background-image: url('../img/arrows/fancy_arrow.svg');
+
+    @include tablet-up {
+      left: -46px;
+      top: 17px;
+    }
+  }
+
+  .button { // /: (submit buttons probably shouldn't have "defined" margins...)
+    margin-top: 12px;
+
+    @include tablet-up {
+      margin-top: 16px;
+    }
+  }
+}
+
+.comment__placeholder {
+  display: block;
+  margin-left: 10px;
+
+  @include tablet-up {
+    margin-left: 80px;
+  }
+}
+
+.comment--hide {
+  display: none;
+}
+
+.reply { // fieldset
+  border: 1px solid $color-form-field;
+  border-radius: 2px;
+  padding: 0;
+  margin: 0;
+  background-color: #fff;
+  position: relative;
+}
+
+.reply--on-focus {
+  border: 1px solid $color-text-accentuation;
+}
+
+.reply__textarea {
+  width: calc(100% - 32px);
+  color: #383732; // new color :/
+  background-color: transparent;
+  display: block;
+  position: relative;
+  z-index: 2;
+  border: 0;
+  padding: 0;
+  height: 108px;
+  resize: none; // :/
+  box-shadow: none;
+
+  @include reply_to_comments_area();
+
+  @include tablet-up {
+    height: 60px; // 72 - 12px
+  }
+
+  &:focus {
+    outline: none;
+
+    @include smartphone {
+      + .reply-info .reply-info__initial {
+        position: absolute;
+        opacity: 0;
+      }
+    }
+
+    + .reply-info .reply-info__count {
+      position: static;
+      opacity: 1;
+    }
+  }
+}
+
+.reply-info {
+  font-size: 14px;
+  letter-spacing: .2px;
+  color: $color-text-light;
+  margin: 0 16px 10px;
+  padding-top: 10px;
+  border: 1px solid #ebebe5;
+  border-width: 1px 0 0;
+}
+
+.reply-info__netiquette { // link
+  font-size: 14px;
+}
+
+.reply-info__count {
+  font-size: 14px;
+  letter-spacing: .2px;
+  color: $color-text-light;
+  float: right;
+  position: absolute;
+  opacity: 0;
+}
+
+.reply-info__count--warn {
+  color: $color-accentuation-red;
+}
+
+// txt higlighting
+.reply__highlights {
+  color: transparent;
+  position: absolute;
+  overflow: hidden;
+  z-index: 0;
+
+  @include reply_to_comments_area();
+}
+
+// pink background
+.reply--overboard {
+  color: transparent;
+  background-color: #ffe2e2;
+}

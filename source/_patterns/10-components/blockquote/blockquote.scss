@@ -1,15 +1,22 @@
 .blockquote {
-  @include article-text-padding;
-  margin: 40px 0;
+  margin: 48px 0;
   font-family: $font-serif;
   font-size: 24px;
   line-height: 36px;
-  letter-spacing: 0.3px;
+  letter-spacing: .3px;
   color: $color-text-accentuation;
+
+  @include article-text-padding;
+
   @include smartphone {
     margin: 32px 0;
     font-size: 22px;
     line-height: 32px;
+  }
+
+  @include tablet-up {
+    padding-left: 24px;
+    padding-right: 24px;
   }
 }
 
@@ -26,22 +33,22 @@
 }
 
 .blockquote__text::after {
-  content: "\00a0»";
+  content: '\00a0»';
   color: $color-accentuation-red;
 }
 
 .blockquote__quote::before {
-  content: "«\00a0";
+  content: '«\00a0';
   color: $color-accentuation-red;
 }
 
 .blockquote__author {
   display: block;
-  margin-top: 16px;
+  margin-top: 8px;
   font-family: $font-regular;
   font-size: 14px;
   line-height: 18px;
-  letter-spacing: 0.5px;
+  letter-spacing: .5px;
   color: $color-text-default;
 
   @include smartphone {

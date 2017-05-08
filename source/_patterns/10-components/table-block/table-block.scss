@@ -3,7 +3,8 @@
   margin: 16px 0 24px;
 
   @include smartphone {
-    margin: 16px -8px 20px 4px;
+    margin: 16px -8px 20px;
+    padding: 0 8px;
   }
 
   table {
@@ -11,18 +12,10 @@
     border-collapse: collapse;
   }
 
-  tr {
-    background-color: $color-table-bg-zebra-light;
-  }
-
-  tbody tr:nth-child(even) {
-    background-color: $color-table-bg-zebra-dark;
-  }
-
   th {
     font-size: 16px;
     line-height: 24px;
-    letter-spacing: 0.6px;
+    letter-spacing: .6px;
     font-family: $font-medium;
     text-align: left;
     text-transform: uppercase;
@@ -31,25 +24,42 @@
     @include smartphone {
       font-size: 14px;
       line-height: 20px;
-      letter-spacing: 0.5px;
+      letter-spacing: .5px;
     }
   }
+
+  // Adds a 8-Pixel-Spacing on the right of every scrollable table-box (… 'cause of how CSS works with elements inside overflow-x)
+  @include smartphone {
+    thead th:last-of-type,
+    tbody td:last-of-type {border-right-width:8px}
+  }
+
+  // if there is a thead, begin with a light bg-color
+  thead + tbody tr:nth-child(even) {background-color: $color-table-bg-zebra-dark}
+  thead + tbody tr:nth-child(odd) {background-color: $color-table-bg-zebra-light}
+
+  // otherwise begin with a dark bg-color
+  tbody tr:nth-child(even) {background-color:$color-table-bg-zebra-light}
+  tbody tr:nth-child(odd) {background-color:$color-table-bg-zebra-dark}
 
   td {
     font-size: 16px;
     line-height: 24px;
-    letter-spacing: 0.5px;
+    letter-spacing: .5px;
     @include smartphone {
       font-size: 14px;
       line-height: 20px;
-      letter-spacing: 0.5px;
+      letter-spacing: .5px;
     }
   }
 
   th, td {
     padding: 11px 16px 13px;
-    border: 1px solid #fff;
+    border-style: solid;
+    border-color: #fff;
+    border-width: 0 1px 2px 0;
     vertical-align: top;
+
     @include smartphone {
       padding: 13px 12px 15px;
     }
@@ -60,16 +70,17 @@
   tr[data-head="true"]:first-child td {
     font-size: 16px;
     line-height: 24px;
-    letter-spacing: 0.6px;
+    letter-spacing: .6px;
     font-family: $font-medium;
     text-align: left;
     text-transform: uppercase;
     color: $color-text-default;
     background: $color-bg-box;
+
     @include smartphone {
       font-size: 14px;
       line-height: 20px;
-      letter-spacing: 0.5px;
+      letter-spacing: .5px;
     }
   }
 }

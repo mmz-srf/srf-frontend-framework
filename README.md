@@ -1,5 +1,10 @@
+
 # srf-frontend-framework
 SRF Frontend Framework
+
+Test: http://www.srfcdn.ch/assets/test/latest/public/
+
+Master: http://www.srf.ch/static/assets/master/
 
 ## Minimalistic installation guide:
 

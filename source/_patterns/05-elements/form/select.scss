@@ -1,0 +1,82 @@
+@import "../../variables";
+
+.menu {
+  // height: 48px;
+  width: 100%;
+  color: $color-text-accentuation;
+  font: 16px/24px $font-regular;
+  letter-spacing: 1px;
+  text-indent: 16px;
+  padding: 12px 0;
+  border: 0;
+  border-radius: 2px;
+  background: #ebebe5 url('../img/arrows/menu_arrow.svg') no-repeat right 16px center;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .24),
+              0 0 2px 0 rgba(0, 0, 0, .12);
+  transition: background-color .2s ease-in-out, box-shadow .2s ease-in-out;
+
+  @include tablet-up {
+    max-width: 300px;
+  }
+
+  &:hover {
+    background-color: #dadad2;
+    cursor: pointer;
+  }
+
+  &:active,
+  &:focus {
+    outline: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: #cac8bf;
+  }
+
+  &:hover,
+  &:active {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .24),
+                0 0 8px 0 rgba(0, 0, 0, .12);
+  }
+
+  // hide default arrow
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  &:-moz-focusring {
+    color: transparent;
+    text-shadow: 0 0 0 $color-text-accentuation;
+  }
+}
+
+select::-ms-expand {
+  display: none;
+  // ie11 also needs some padding-left
+}
+
+@-moz-document url-prefix() {
+  .menu {
+    text-indent: 8px;
+  }
+}
+
+.menu-label {
+  position: relative;
+  display: block;
+  font: 16px/24px $font-regular;
+  letter-spacing: .5px;
+  color: $color-text-accentuation;
+  margin: 20px 0 4px;
+}
+
+.menu--inactive {
+  opacity: .48;
+  transition: none;
+
+  &:hover,
+  &:active {
+    background-color: #ebebe5;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .24),
+                0 0 2px 0 rgba(0, 0, 0, .12);
+    cursor: default;
+  }
+}

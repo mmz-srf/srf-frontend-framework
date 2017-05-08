@@ -2,35 +2,47 @@
   height: 100%;
   width: 100%;
   max-width: 500px;
-  margin: -10px auto -20px;
-  padding: 0 10px;
+  margin: 0 auto;
   display: block;
   fill: #d2d2d2;
-  title {
-    display: none;
+  padding: 24px 16px 0;
+  @include smartphone {
+    padding-bottom: 12px;
   }
 }
-.chmap--no-touch {
-  -webkit-tap-highlight-color: rgba(0,0,0,0);
+
+.chmap--no-touch { // link
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+  &:active,
+  &:focus {
+    outline: none;
+  }
 }
 .chmap-wrapper {
   position: relative;
   background-color: $color-bg-caption;
   margin: 32px 0 24px;
+
   @include smartphone {
     margin: 24px 0 20px;
   }
 }
 .chmap__location {
   stroke: #fff; // cantons
-  stroke-width: 0.5px;
+  stroke-width: .5px;
   cursor: pointer;
+
+  &:focus {
+    outline: none;
+  }
 }
+
 .chmap__location--shadow {
   stroke: rgb(34, 34, 34);
   filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=3, OffY=3, Color='#444')";
-  -webkit-filter: drop-shadow(3px 3px 3px rgba(0,0,0,0.5));
-  filter: drop-shadow(3px 3px 3px rgba(0,0,0,0.5));
+  -webkit-filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, .5));
+  filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, .5));
   transition: fill 1s ease-in 0s;
 }
 
@@ -41,45 +53,69 @@
   letter-spacing: .3px;
   padding: 4px 12px;
   background-color: $color-link-bg-hover;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.24),
-              0 0 8px 0 rgba(0, 0, 0, 0.12);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .24),
+              0 0 8px 0 rgba(0, 0, 0, .12);
   border-radius: 2px;
   white-space: nowrap;
-  &:before { // aufklapp dreieckli
-    content: ""; // "◤";
+
+  &::before { // aufklapp dreieckli
+    content: ''; // "◤";
     position: absolute;
     left: 0;
-    top: 34px;
+    bottom: -15px;
     border-color: $color-link-bg-hover transparent;
     border-style: solid;
     border-width: 16px 16px 0 0;
   }
-  &--right:before { // umgekehrtes aufklapp dreieckli
-    border-width: 16px 0 0 16px;
-    right: 0;
-    left: auto;
-  }
+}
+
+// umgekehrtes aufklapp dreieckli
+.chmap-tooltip--right::before {
+  border-width: 16px 0 0 16px;
+  right: 0;
+  left: auto;
 }
 
 .chmap-infowindow {
   overflow: hidden;
   margin: 0 16px;
   pointer-events: none;
-  &--padded {
-    padding-bottom: 16px;
-  }
 }
+
+.chmap-infowindow--padded {
+  padding-bottom: 16px;
+}
+
 .chmap-infowindow__text {
   font-size: 14px;
   line-height: 20px;
   color: #4e4d47;
   margin: 0;
 }
+
 .chmap-infowindow__img {
   width: 96px;
   margin-right: 10px;
   float: left;
 }
+
 .chmap-infowindow__img--hide {
   display: none;
+}
+
+.menu-wrapper {
+  position: relative;
+  padding: 16px;
+  width: 100%;
+
+  @include tablet-up {
+    max-width: 332px;
+  }
+}
+
+// ie11 has a problem with height: 100% :/
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  .chmap--desktop {
+    height: 300px
+  }
 }

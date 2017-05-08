@@ -1,0 +1,18 @@
+{% set alt = alt is defined ? alt : image.caption.title %}
+{% set src = src is defined ? src : image.sources.s8.src %}
+<div class="image-figure__image-wrapper imageType-{{ imageType|default('article_body_fullwidth') }}">
+    <img class="image-figure__image"
+         alt="{{ alt }}"
+         title="{{ alt }}"
+         sizes="{{ sizes }}"
+         srcset="{% for source in image.sources %}
+                    {{ source.src }} {{ source.width }}w
+                    {{ loop.last ? '' : ',' }}
+                 {% endfor %}"
+         src="{{ src }}">
+    {% block image_carousel_counter %}
+        {% if currentIndex and totalCount %}
+            {% include 'elements-carousel-counter' with { 'currentIndex': currentIndex, 'totalCount': totalCount, 'accessibilityInfo' : 'Bild' } %}
+        {% endif %}
+    {% endblock %}
+</div>

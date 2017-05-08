@@ -1,18 +1,9 @@
 <figure class="image-figure {{ styleModifier }}">
-    <div class="image-figure__image-wrapper">
-        <img class="image-figure__image"
-             alt="{{ images[0].caption.title }}"
-             title="{{ images[0].caption.title }}"
-             sizes="100vw"
-             srcset="
-                {% for source in images[0].sources %}
-                    {{ source.src }} {{ source.width }}w,
-                 {% endfor %}
-             "
-             src="{{ images[0].sources.s8.src }}">
-        {% if currentIndex and totalCount %}
-            {% include 'elements-carousel-counter' with { 'currentIndex': currentIndex, 'totalCount': totalCount } %}
-        {% endif %}
-    </div>
-    {% include 'elements-media-caption' with {'styleModifier': imageCaptionStyle } %}
+    {% block image_wrapper %}
+        {% include 'elements-image' with {'styleModifier': imageCaptionStyle } %}
+    {% endblock %}
+
+    {% block image_caption %}
+        {% include 'elements-media-caption' with {'styleModifier': imageCaptionStyle } %}
+    {% endblock %}
 </figure>

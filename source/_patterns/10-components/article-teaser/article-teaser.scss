@@ -1,13 +1,11 @@
-
-
 .article-teaser {
   margin-top: 24px;
   margin-bottom: 20px;
 
-  border-top: 1px solid #d2d2d2;
-  border-bottom: 1px solid #d2d2d2;
+  border-top: 1px solid $color-border-medium;
+  border-bottom: 1px solid $color-border-medium;
   padding: 16px;
-  display: inline-block;
+  display: block;
   width: 100%;
 
   @include tablet-up {
@@ -15,35 +13,50 @@
     margin-bottom: 24px;
   }
 
-  &:hover, &:focus {
+  @include smartphone {
+    @include fullwidth-element;
+  }
+
+  &:hover,
+  &:focus {
     background-color: $color-link-bg-hover;
   }
+
   &:active {
     background-color: $color-bg-caption;
   }
 
-  &:hover, &:focus, &:active {
-    border-bottom-color: #d2d2d2;
+  &:hover,
+  &:focus,
+  &:active {
+    border-bottom-color: $color-border-medium;
   }
+}
+
+.article-teaser__wrapper {
+  display: inline-block;
 }
 
 .article-teaser__image {
   float: left;
-  border: none;
+  border: 0;
   margin-right: 12px;
   width: 80px;
   height: 80px;
+  object-fit: cover;
 
   @include tablet-up {
     margin-right: 16px;
     width: 142px;
   }
-
-  object-fit: cover;
 }
 
 .article-teaser__content {
-  margin-left: 10px;
+  margin-left: 92px;
+
+  @include tablet-up {
+    margin-left: 158px;
+  }
 }
 
 .article-teaser__kicker {
@@ -53,9 +66,15 @@
   font-style: normal;
   font-stretch: normal;
   line-height: 1.33;
-  letter-spacing: 0.2px;
+  letter-spacing: .2px;
   color: $color-accentuation-red;
   margin: 0 0 4px;
+
+  @include tablet-up {
+    font-size: 14px;
+    line-height: 1.14;
+    letter-spacing: .5px;
+  }
 }
 
 .article-teaser__title {
@@ -65,9 +84,16 @@
   font-style: normal;
   font-stretch: normal;
   line-height: 1.43;
-  letter-spacing: 0.2px;
+  letter-spacing: .2px;
   color: #1a1916;
-  margin: 0 0 4px;
+  margin: 0 0 6px;
+
+  @include tablet-up {
+    font-size: 20px;
+    line-height: 1.4;
+    letter-spacing: .5px;
+    margin: 0 0 8px;
+  }
 }
 
 .article-teaser__date {

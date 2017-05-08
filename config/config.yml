@@ -18,12 +18,13 @@ cacheBusterOn: 'true'
 exportDir: export
 publicDir: public
 sourceDir: source
+assetsDirDefault: '/assets'
 defaultPattern: introduction-intro
 defaultShowPatternInfo: true
 lineageMatch: '{%([ ]+)?include( |\()[&quot;\&#039;]([A-Za-z0-9-_]+)[&quot;\&#039;](\))?(.*)%}'
 lineageMatchKey: 3
 patternExtension: twig
-twigDebug: false
+twigDebug: true
 twigAutoescape: html
 twigDefaultDateFormat: ''
 twigDefaultIntervalFormat: ''

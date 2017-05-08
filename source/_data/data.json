@@ -2,13 +2,16 @@
   "title" : "SRF Frontend Framework",
   "htmlClass": "pl",
   "bodyClass": "body",
+  "a11yInfo": "Accessible Text goes here",
   "articleHeader": {
+    "kicker": "Pendler-Chaos",
     "title": "Vor 20 Jahren forderte Cyberpionier Barlow: «Lasst uns in Ruhe!»",
     "lead": "1996 schrieb John Perry Barlow die «Unabhängigkeitserklärung des Cyberspace». Darin kritisierte der Poet und Aktivist erstaunlich früh die staatliche Kontrolle."
   },
   "articleAuthor": {
     "name": "Emilie Buri",
-    "date": "Sonntag, 22. Mai 2016, 19:55 Uhr"
+    "date": "Sonntag, 22. Mai 2016, 19:55 Uhr",
+    "shortname": "srf/sda/embu"
   },
   "articleText": {
     "title": "Vorbild für den «Chaos Computer Club»",
@@ -19,6 +22,40 @@
     "author": "Dilma Rousseff",
     "function": "Präsidentin von Brasilien"
   },
+  "hyperlink": {
+    "url": "http://www.srf.ch",
+    "title": "Sicherheit oder totale Überwachung? (Kontext, 10.2.15)"
+  },
+  "image":
+    {
+      "sources": {
+        "s8": {
+          "src": "../../assets/demo/img/bild0/bild_s8.jpg",
+          "width": 640
+        },
+        "s8_retina": {
+          "src": "../../assets/demo/img/bild0/bild_s8_retina.jpg",
+          "width": 1248
+        },
+        "s12": {
+          "src": "../../assets/demo/img/bild0/bild_s12.jpg",
+          "width": 944
+        },
+        "s12_retina": {
+          "src": "../../assets/demo/img/bild0/bild_s12_retina.jpg",
+          "width": 1888
+        },
+        "mobile_max": {
+          "src": "../../assets/demo/img/bild0/bild_mobile_max.jpg",
+          "width": 320
+        }
+      },
+      "caption": {
+        "title": "Hernani Marques",
+        "description": "Aktivist und Pressesprecher vom Schweizer Chaos Computer Club",
+        "source": "Bild: ZVG"
+      }
+    },
   "images": [
     {
       "sources": {
@@ -137,6 +174,41 @@
       }
     }
   ],
+  "audio": {
+    "img_src":"../../assets/demo/img/bild2/bild_s8.jpg",
+    "img_srcset": {
+      "s8": {
+        "src": "../../assets/demo/img/bild2/bild_s8.jpg",
+        "width": 640
+      },
+      "s8_retina": {
+        "src": "../../assets/demo/img/bild2/bild_s8_retina.jpg",
+        "width": 1248
+      },
+      "s12": {
+        "src": "../../assets/demo/img/bild2/bild_s12.jpg",
+        "width": 944
+      },
+      "s12_retina": {
+        "src": "../../assets/demo/img/bild2/bild_s12_retina.jpg",
+        "width": 1888
+      },
+      "mobile_max": {
+        "src": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+        "width": 320
+      }
+    },
+    "title": "20 Jahre «Unabhängigkeitserklärung des Cyberspace» (Kultur kompakt, 8.2.2016)",
+    "length": "5:14",
+    "player_url": "https://tp.srgssr.ch/p",
+    "urn": "urn:srf:ais:audio:e5173721-9934-43fd-81a3-31b59e303966",
+    "assetId": "e5173721-9934-43fd-81a3-31b59e303966",
+    "elementId": "e5173721-9934-43fd-81a3-31b59e303966",
+    "show": {
+      "title": "100 Sekunden Wissen",
+      "date": "2016-02-08"
+    }
+  },
   "audios": [
     {
       "img_src":"../../assets/demo/img/bild2/bild_s8.jpg",
@@ -166,6 +238,8 @@
       "length": "5:14",
       "player_url": "https://tp.srgssr.ch/p",
       "urn": "urn:srf:ais:audio:e5173721-9934-43fd-81a3-31b59e303966",
+      "assetId": "e5173721-9934-43fd-81a3-31b59e303966",
+      "elementId": "e5173721-9934-43fd-81a3-31b59e303966",
       "show": {
         "title": "100 Sekunden Wissen",
         "date": "2016-02-08"
@@ -199,6 +273,8 @@
       "length": "57",
       "player_url": "https://tp.srgssr.ch/p",
       "urn": "urn:srf:ais:audio:4437788f-dca5-4136-8e6a-9d057f5581ca",
+      "assetId": "e5173721-9934-43fd-81a3-31b59e303966",
+      "elementId": "e5173721-9934-43fd-81a3-31b59e303966",
       "show": {
         "title": "Zambo",
         "date": "2016-09-02"
@@ -206,6 +282,29 @@
     }
   ],
   "video": {
+    "img_src":"../../assets/demo/img/bild2/bild_s8.jpg",
+    "img_srcset": {
+      "s8": {
+        "src": "../../assets/demo/img/bild2/bild_s8.jpg",
+        "width": 640
+      },
+      "s8_retina": {
+        "src": "../../assets/demo/img/bild2/bild_s8_retina.jpg",
+        "width": 1248
+      },
+      "s12": {
+        "src": "../../assets/demo/img/bild2/bild_s12.jpg",
+        "width": 944
+      },
+      "s12_retina": {
+        "src": "../../assets/demo/img/bild2/bild_s12_retina.jpg",
+        "width": 1888
+      },
+      "mobile_max": {
+        "src": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+        "width": 320
+      }
+    },
     "title": "Sprengstoff verschwunden",
     "length": "1:03",
     "player_url": "https://tp.srgssr.ch/p",
@@ -217,27 +316,73 @@
   },
   "videos": [
     {
-      "title": "Sprengstoff verschwunden 1",
+      "title": "Sprengstoff verschwunden",
       "length": "1:03",
       "player_url": "https://tp.srgssr.ch/p",
       "urn": "urn:srf:ais:video:900f6532-9869-43a6-9ff5-f6ef46cc5f7d",
       "show": {
         "title": "Schweiz aktuell",
         "date": "2016-09-12"
-      }
-    },
-    {
-      "title": "Sprengstoff verschwunden 2",
-      "length": "1:03",
-      "player_url": "https://tp.srgssr.ch/p",
-      "urn": "urn:srf:ais:video:900f6532-9869-43a6-9ff5-f6ef46cc5f7d",
-      "show": {
-        "title": "Schweiz aktuell",
-        "date": "2016-09-12"
+      },
+      "img_src": "../../assets/demo/img/bild2/bild_s8.jpg",
+      "img_srcset": {
+        "s8": {
+          "src": "../../assets/demo/img/bild2/bild_s8.jpg",
+          "width": 640
+        },
+        "s8_retina": {
+          "src": "../../assets/demo/img/bild2/bild_s8_retina.jpg",
+          "width": 1248
+        },
+        "s12": {
+          "src": "../../assets/demo/img/bild2/bild_s12.jpg",
+          "width": 944
+        },
+        "s12_retina": {
+          "src": "../../assets/demo/img/bild2/bild_s12_retina.jpg",
+          "width": 1888
+        },
+        "mobile_max": {
+          "src": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "width": 320
+        }
       }
     },
     {
       "title": "20 Jahre «Unabhängigkeitserklärung des Cyberspace»",
+      "length": "1:03",
+      "player_url": "https://tp.srgssr.ch/p",
+      "urn": "urn:srf:ais:video:900f6532-9869-43a6-9ff5-f6ef46cc5f7d",
+      "show": {
+        "title": "Schweiz aktuell",
+        "date": "2016-09-12"
+      },
+      "img_src": "../../assets/demo/img/bild2/bild_s8.jpg",
+      "img_srcset": {
+        "s8": {
+          "src": "../../assets/demo/img/bild2/bild_s8.jpg",
+          "width": 640
+        },
+        "s8_retina": {
+          "src": "../../assets/demo/img/bild2/bild_s8_retina.jpg",
+          "width": 1248
+        },
+        "s12": {
+          "src": "../../assets/demo/img/bild2/bild_s12.jpg",
+          "width": 944
+        },
+        "s12_retina": {
+          "src": "../../assets/demo/img/bild2/bild_s12_retina.jpg",
+          "width": 1888
+        },
+        "mobile_max": {
+          "src": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "width": 320
+        }
+      }
+    },
+    {
+      "title": "Sprengstoff verschwunden 2. Shizz fo shizzle mah nizzle fo rizzle, mah home g-dizzle, gravida vizzle, arcu.",
       "length": "1:03",
       "player_url": "https://tp.srgssr.ch/p",
       "urn": "urn:srf:ais:video:900f6532-9869-43a6-9ff5-f6ef46cc5f7d",
@@ -268,6 +413,7 @@
     }
   ],
   "chmap": {
+    "id": "ID",
     "title": "Anzahl Stellen in Interpharma-Unternehmen",
     "description": "Die Mitglieder des Verbands der forschenden pharmazeutischen Firmen der Schweiz (Interpharma) stammen nicht nur aus der Pharmaindustrie, sondern sind oftmals auch in pharmanahen Branchen tätig.",
     "source": "BAK Basel Economics",
@@ -290,5 +436,232 @@
       { "color": "#0000f5",
         "description": "5001-20000 Beschäftigte"
       }]
+  },
+  "poll": {
+    "title": "Umfrage",
+    "description": "Ihre Meinung ist uns wichtig!",
+    "answers": [
+        "Ich bin eine Option",
+      { "title": "Detaillierter Titel einer Antwort",
+        "description": "Beschreibung in richtig vielen Worten und noch ein wenig extra"
+    }],
+    "submit": "Abstimmen",
+    "total": "Stimmen wurden abgegeben"
+  },
+  "allowsComments": true,
+  "businessUnit": "rtr",
+  "comments": {
+    "total_count": "8",
+    "comments": [
+      {
+        "dateFormatted": "Dienstag, 14.03.2017, 15:19 Uhr",
+        "isEditorialAnswer": true,
+        "id": 4236430,
+        "name": "Werner Christmann",
+        "message": "Nun, ich denke, dass die Autoverhinderer sich vermehrt den neuen Sorgenkindern, den über alle Regeln erhabenen Pedaleuren zuwenden sollten. Wird wohl nichts kommen, ausser vielleicht dass über 50-Jährige für ihr E-Bike einen Führerschein benötigen.",
+        "nickname": "chrischi1",
+        "children": [
+          {
+            "dateFormatted": "Dienstag, 14.03.2017, 21:20 Uhr",
+            "isEditorialAnswer": false,
+            "id": 4237595,
+            "name": "W Streuli",
+            "message": "vielleicht sollten die Autoverhinderer den Autofahrer wieder einmal mehr in Erinnerung rufen, das in Ballungsgebieten in der CH jährlich rund 2000 Personen durch die erhöhte Schadstoffbelastung an Lungenkrankheiten sterben. Leider vergisst die Autolobby diese traurige Statistik nur zu schnell.Das Auto ist zwar im Vergleich zu früher sauberer geworden, aber die Masse machts halt aus.Jeder Todesfall, egal ob durch Unfälle, oder durch Schadstoffbelastung in Städten ist einer zuviel",
+            "nickname": "Wernu"
+          },
+          {
+            "dateFormatted": "Dienstag, 14.03.2017, 15:18 Uhr",
+            "isEditorialAnswer": false,
+            "id": 4236425,
+            "name": "Verena Casagrande",
+            "message": "Evt. wird einmal Spass haben verboten!!!!",
+            "nickname": "Verena Casagrande"
+          },
+          {
+            "dateFormatted": "Dienstag, 14.03.2017, 12:36 Uhr",
+            "isEditorialAnswer": true,
+            "id": 4236072,
+            "name": "SRF Redaktion",
+            "message": "Ja, Spass ist verboten!",
+            "nickname": "srf"
+          }
+        ]
+      },
+      {
+        "dateFormatted": "Dienstag, 14.03.2017, 12:08 Uhr",
+        "isEditorialAnswer": false,
+        "id": 4235970,
+        "name": "Severin Heck",
+        "message": "Es gibt 4 mal mehr Tote durch Suizid. Und um ein vielfaches Verletzte durch Suizidversuche (ca. 20000). Krankheitstot ist 4 mal Wahrscheinlich als irgend ein Unfalltod (alle Miteinander). Verkehr ist Statistisch auf Zeit gerechnet genau gleich gefährlich wie andere 'Outdoor' Aktivitäten. Zum Teil sicherer... Fazit: Rausgehen, Spass haben und Leben ist 'sicherer' als Depressiv daheim sitzen (Suizid) und krank werden (Drogen, Übergewicht, Bewegungsmangel...) Bloss ist heute alles Verboten..",
+        "nickname": "Selber denken und prüfen",
+        "children": [
+          {
+            "dateFormatted": "Dienstag, 14.03.2017, 15:18 Uhr",
+            "isEditorialAnswer": false,
+            "id": 4236499,
+            "name": "Verena Casagrande",
+            "message": "Evt. wird einmal Spass haben verboten!!!!",
+            "nickname": "Verena Casagrande"
+          }
+        ]
+      },
+      {
+        "dateFormatted": "Dienstag, 14.03.2017, 12:00 Uhr",
+        "isEditorialAnswer": false,
+        "id": 4235945,
+        "name": "Severin Heck",
+        "message": "Bei Verkehrssicherheit das grösste Problem ist die Diletantische, Ideologische Politik. (Unfallkarte.ch) ausserorts schnell fahren, oder auf der Autobahn ist statistisch gesehen absolut ungefährlich. Wurde von den Ideologen aufs schlimmste Verurteilt. Alkoholkontrollen sind hingegen berechtigt, wobei der Grenzwert fraglich ist. Gefährlich sind unübersichtliche Verkehrssituationen. Die Politik kann da nichts machen, aber Stadt- und Verkehrsplaner sehr, sehr viel... Ingenieure statt Politik!!",
+        "nickname": "Selber denken und prüfen",
+        "children": [
+          {
+            "dateFormatted": "Dienstag, 14.03.2017, 12:36 Uhr",
+            "isEditorialAnswer": false,
+            "id": 4236012,
+            "name": "Sebastian Klaus",
+            "message": "Andererseits sähe die Statistik ohne diese Begrenzungen ausserorts wieder ganz anders aus. Eine gute Verkehrsplanung kann aber ganz sicher sehr viel erreichen, häufig mehr als allzu restriktive Einschränkungen, die nerven anstatt beruhigen.",
+            "nickname": "sklaus"
+          }
+        ]
+      }
+    ]
+  },
+  "menu": [
+    {
+      "key": "",
+      "val": "Kanton wählen"
+    },
+    {
+      "key": "AG",
+      "val": "Aargau"
+    },
+    {
+      "key": "AI",
+      "val": "Appenzell Innerrhoden"
+    },
+    {
+      "key": "AR",
+      "val": "Appenzell Ausserrhoden"
+    },
+    {
+      "key": "BE",
+      "val": "Bern"
+    },
+    {
+      "key": "BL",
+      "val": "Basel-Landschaft"
+    },
+    {
+      "key": "BS",
+      "val": "Basel-Stadt"
+    },
+    {
+      "key": "FR",
+      "val": "Fribourg"
+    },
+    {
+      "key": "GE",
+      "val": "Genf"
+    },
+    {
+      "key": "GL",
+      "val": "Glarus"
+    },
+    {
+      "key": "GR",
+      "val": "Graubünden"
+    },
+    {
+      "key": "JU",
+      "val": "Jura"
+    },
+    {
+      "key": "LU",
+      "val": "Luzern"
+    },
+    {
+      "key": "NE",
+      "val": "Neuenburg"
+    },
+    {
+      "key": "NW",
+      "val": "Nidwalden"
+    },
+    {
+      "key": "OW",
+      "val": "Obwalden"
+    },
+    {
+      "key": "SG",
+      "val": "St. Gallen"
+    },
+    {
+      "key": "SH",
+      "val": "Schaffhausen"
+    },
+    {
+      "key": "SO",
+      "val": "Solothurn"
+    },
+    {
+      "key": "SZ",
+      "val": "Schwyz"
+    },
+    {
+      "key": "TG",
+      "val": "Thurgau"
+    },
+    {
+      "key": "TI",
+      "val": "Tessin"
+    },
+    {
+      "key": "UR",
+      "val": "Uri"
+    },
+    {
+      "key": "VD",
+      "val": "Waadt"
+    },
+    {
+      "key": "VS",
+      "val": "Wallis"
+    },
+    {
+      "key": "ZG",
+      "val": "Zug"
+    },
+    {
+      "key": "ZH",
+      "val": "Zürich"
+    }
+  ],
+  "form": {
+    "title": "Formular Titel",
+    "id": "form-ID",
+    "method": "get",
+    "legend": "Irgend ein Titel",
+    "hint": "* Pflichtfelder",
+    "accessibilityInfo": "Pflichtfeld",
+    "button": [
+      {
+        "upload": "Datei Upload",
+        "errorInfo": "Datei Upload",
+        "successInfo": "Datei Upload"
+      }
+    ]
+  },
+  "polis": {
+    "yes": "JA",
+    "no": "NEIN",
+    "result": "Resultat",
+    "final_result": "Endresultat",
+    "no_results": "Keine Resultate vorhanden",
+    "votes": "Stimmen",
+    "Standesstimmen": "Standesstimmen",
+    "turnout": "Stimmbeteiligung",
+    "canton": "Kanton",
+    "at": "vom",
+    "o_clock": "Uhr",
+    "legend_title": "JA-Anteil in %"
   }
 }

@@ -1,0 +1,70 @@
+@import "../../variables";
+
+.input-field {
+  position: relative;
+  display: block;
+  font: 16px/24px $font-regular;
+  letter-spacing: .5px;
+  color: $color-text-accentuation;
+  margin-top: 20px;
+}
+
+.input-field__text {
+  width: 100%;
+  font: 16px/24px $font-light;
+  letter-spacing: .5px;
+  color: $color-text-default;
+  background-color: #fff;
+  padding: 12px 44px 12px 16px;
+  margin: 4px 0 2px;
+  box-sizing: border-box;
+  border: 1px solid $color-form-field; // ???
+  transition: border-color 0.2s ease-in-out; // ??
+
+  @include rounded-corners(2px);
+
+  &:focus {
+    border-color: $color-text-accentuation;
+    color: $color-text-default;
+    outline: none;
+  }
+
+  &[type=password] {
+    font-size: 30px;
+    padding: 9px 44px 9px 16px;
+  }
+
+  &.input-field--on-error {
+    background: transparent url('../img/exclamation-mark-red.svg') no-repeat right 16px center;
+
+    &:focus {
+      background: none;
+    }
+  }
+
+  &.input-field--success {
+    background: transparent url('../img/blue_tick.svg') no-repeat right 16px center;
+
+    &:focus {
+      background: none;
+    }
+  }
+}
+
+.input-field-hint {
+  font: 16px/24px $font-light;
+  color: $color-form-field-hint; // ???
+}
+
+.input-field--inactive {
+  opacity: .48;
+}
+
+.input-field--on-error {
+  border-color: $color-accentuation-red;
+  color: $color-accentuation-red;
+}
+
+.input-field--success {
+  border-color: $color-button-success;
+}

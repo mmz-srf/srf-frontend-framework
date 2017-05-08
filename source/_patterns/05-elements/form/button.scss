@@ -1,0 +1,113 @@
+@import "../../variables";
+
+.button {
+  width: 100%;
+  padding: 13px 40px;
+  text-transform: uppercase;
+  font: 16px/20px $font-regular;
+  letter-spacing: 1px;
+  color: #fff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  border: 0;
+  margin-top: 20px;
+  display: block;
+  // the following makes iOs display the button with css
+  -webkit-appearance: none;
+  background-color: $color-text-accentuation;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .24),
+              0 0 2px 0 rgba(0, 0, 0, .12);
+  transition: background-color .2s ease-in-out, box-shadow .2s ease-in-out;
+
+  @include rounded-corners(2px);
+
+  @include tablet-up {
+    width: auto;
+  }
+
+  &:hover {
+    background-color: #6b6960;
+    cursor: pointer;
+  }
+
+  &:active,
+  &:focus {
+    background-color: $color-text-light;
+    outline: none;
+  }
+
+  &:hover,
+  &:active {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .24),
+                0 0 8px 0 rgba(0, 0, 0, .12);
+  }
+}
+
+.button--on-error {
+  background: $color-accentuation-red url('../img/exclamation-mark.svg') no-repeat 40px;
+  padding-left: 73px;
+
+  &:hover {
+    background-color: $color-accentuation-red;
+  }
+}
+
+.button--success {
+  background: $color-button-success url('../img/white_tick.svg') no-repeat 40px;
+  padding-left: 73px;
+
+  &:hover {
+    background-color: $color-button-success;
+  }
+}
+
+.button--secondary {
+  color: $color-text-accentuation;
+  background-color: $color-bg-box;
+
+  &:hover {
+    background-color: $color-bg-box-hover;
+  }
+
+  &:active,
+  &:focus {
+    background-color: $color-border;
+  }
+}
+
+.button--inactive {
+  opacity: .48;
+
+  &:hover,
+  &:active,
+  &:focus {
+    cursor: default;
+    background-color: $color-text-accentuation;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .24),
+                0 0 2px 0 rgba(0, 0, 0, .12);
+    transition: none;
+  }
+}
+
+.button--facebook {
+  background-color: $color-bg-facebook;
+  @include tablet-up {background:$color-bg-facebook url('../img/facebook.svg') no-repeat 40px}
+  &:hover {background-color:$color-bg-facebook-hover}
+  &:active,
+  &:focus {background-color:$color-bg-facebook-active}
+}
+
+.button--twitter {
+  background-color: $color-bg-twitter;
+  @include tablet-up {background:$color-bg-twitter url('../img/twitter.svg') no-repeat 40px}
+  &:hover {background-color:$color-bg-twitter-hover}
+  &:active,
+  &:focus {background-color:$color-bg-twitter-active}
+}
+
+.button--alert {
+  background-color: $color-accentuation-red;
+  &:hover {background-color:$color-accentuation-red}
+  &:active,
+  &:focus {background-color:$color-accentuation-red}
+}

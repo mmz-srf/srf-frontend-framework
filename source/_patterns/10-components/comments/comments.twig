@@ -1,0 +1,83 @@
+<section class="article-comments l-full-width-container">
+    <div class="comments-wrapper" data-total-count="{{ comments.total_count }}" {% block data_attributes %}{% endblock %}>
+        <div class="comments-header">
+            <h3 class="comments-header__title comments--shrink">
+                {% if comments.total_count > 0 %}{{ comments.total_count }} {% endif %}
+                {% if comments.total_count == 1 %}
+                    {{ 'Kommentar'|trans }}
+                {% else %}
+                    {{ 'Kommentare'|trans }}
+                {% endif %}
+            </h3>
+            <p class="comments-header__text comments--shrink {{ styleModifier }}" style="display: none">
+                {{ 'Sie sind angemeldet als'|trans }}
+                <a href="" class="comments-header__logged-in-as">Who ? (whoareyou)</a> (<a href=""
+                                                              class="comments-header__logout">{{ 'abmelden'|trans }}</a>)
+            </p>
+
+            {# show the button to comment #}
+            {% if allowsComments %}
+                <a class="comments-header__button comments--shrink" href="#" role="link">
+                    {{ 'Teilen Sie Ihre Meinung ...'|trans }}
+                    <span class="h-offscreen">{{ 'anwählen um einen Kommentar zu schreiben'|trans }}</span>
+                </a>
+                <span class="comments-header__placeholder"></span>
+
+                {% block comment_reply %}
+                    {% include '_comment-reply.twig' with { 'comments' : { 'replies' : comments.replies }, 'isMovable' : false } %}
+                {% endblock %}
+
+                {# encouragement to comment #}
+                {% if comments.total_count == 0 %}
+                    <div class="comments-infobox">
+                        <p class="comments-infobox__text comments--shrink">
+                            {{ 'Es wurden noch keine Kommentare erfasst. Seien Sie die erste Person, die diesen Artikel kommentiert.'|trans }}
+                        </p>
+                    </div>
+                {% endif %}
+            {% endif %}
+            {# else there's a reason that doesn't allow commenting #}
+            {% if comments.reason_for_closure != '' %}
+                <h3 class="comments-header__info-title comments--shrink">{{ 'Kommentarfunktion deaktiviert'|trans }}</h3>
+                <p class="comments-header__info-text comments--shrink{% if comments.total_count == 0 %} comments-header__info-text--padded{% endif %}">
+                    {{ 'Uns ist es wichtig, Kommentare möglichst schnell zu sichten und freizugeben. Deshalb ist das Kommentieren bei älteren Artikeln und Sendungen nicht mehr möglich.'|trans }}
+                </p>
+            {% endif %}
+
+            {# show comments #}
+            {% if comments.total_count > 0 %}
+                <hr class="comments-header__border" aria-hidden="true">
+                <ul class="tabs comments--shrink" role="tablist">
+                    <li class="tab-option" role="presentation">
+                        <a href="#sectionAll" class="tab-option__link tab-option__link--selected" tabindex="0" role="tab" aria-controls="sectionAll" aria-selected="true">{{ 'Alle Kommentare'|trans }}</a>
+                    </li>
+                    {% if popularComments is not empty %}
+                        <li class="tab-option" role="presentation">
+                            <a href="#sectionHits" class="tab-option__link" tabindex="-1" role="tab" aria-controls="sectionHits">{{ 'Beliebteste'|trans }}</a>
+                        </li>
+                    {% endif %}
+                </ul>
+            {% endif %}
+        </div>{# here ends the header #}
+        {% if comments.total_count > 0 %}
+            <div id="sectionAll" role="tabpanel">
+                <ul class="comments comments--shrink comments--main">
+                    {% block comments %}
+                        {% include 'components-comment' with { 'comments': comments.comments, 'allowsComments': true } %}
+                    {% endblock %}
+                </ul>
+                {% block more_button %}
+                    {% include 'elements-load-more' with {'imgSrc': '../../assets/img/arrows/red_arrow_down.svg'} %}
+                {% endblock %}
+                {% block more_button_spinner %}
+                    {% include 'elements-spinner' %}
+                {% endblock %}
+            </div>
+            {% if popularComments is not empty %}
+                <div id="sectionHits" role="tabpanel" aria-hidden="true" style="display: none;">
+                    <ul class="comments comments--shrink comments--popular"></ul>
+                </div>
+            {% endif %}
+        {% endif %}
+    </div>
+</section>

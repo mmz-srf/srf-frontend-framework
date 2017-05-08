@@ -1,0 +1,31 @@
+{% macro question_label(poll_index, option_index, answer_title, answer_description) %}
+    <input type="radio" id="poll_q{{ poll_index }}{{ option_index }}" class="poll-option__radio" name="poll_option">
+    <label for="poll_q{{ poll_index }}{{ option_index }}" class="poll-option-label">
+        <p class="poll-option-label__title">{{ answer_title }} {{ option_index + 1 }}</p>
+        {% if answer_description %}
+            <p class="poll-option-label__description">{{ answer_description }}</p>
+        {% endif %}
+    </label>
+{% endmacro %}
+{% macro rating_box(option_index, answer_title, media_options) %}
+   <div class="poll-option-wrapper" aria-live="polite">
+        {% if media_options is not empty %}
+            {% include "_media.twig" with media_options %}
+        {% endif %}
+         <div class="poll-option-rating" tabindex="0" role="combobox">
+            <div class="poll-option-rating__bg-color"></div>
+            <p class="poll-option-rating__answer-copy">{{ answer_title }} {{ option_index + 1 }}</p>
+            <p class="poll-option-rating__percent"> <strong></strong>%</p>
+        </div>
+    </div>
+{% endmacro %}
+{% macro form_submit(poll, styleModifier = 'poll--with-radios') %}
+    <div class="poll-form-handling" role="combobox" aria-live="polite">
+        {# visible submit button only for polls with radios #}
+        {% if styleModifier == 'poll--with-radios' %}
+            <span class="poll-form-handling__errors"></span>
+        {% endif %}
+        {% include 'elements-button' with { 'buttonText' : poll.submit } %}
+        <p class="poll-form-handling__roundup"><strong></strong> {{ poll.total }}</p>
+    </div>
+{% endmacro %}

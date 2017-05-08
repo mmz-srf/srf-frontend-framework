@@ -41,3 +41,17 @@
   font-weight: normal;
   font-style: normal;
 }
+
+@font-face {
+  font-family: 'SRG_SSR_Italic';
+  src: url('../fonts/SRGSSRType_W_It.woff2') format('woff2'), url('../fonts/SRGSSRType_W_It.woff') format('woff');
+  font-weight: normal !important;
+  font-style: normal !important;
+}
+
+@font-face {
+  font-family: 'SRG_SSR_Bold_Italic';
+  src: url('../fonts/SRGSSRType_W_BdIt.woff2') format('woff2'), url('../fonts/SRGSSRType_W_BdIt.woff') format('woff');
+  font-weight: normal !important;
+  font-style: normal !important;
+}

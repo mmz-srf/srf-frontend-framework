@@ -20,13 +20,13 @@
   @include tablet {
     margin-left: auto;
     margin-right: auto;
-    width: 544px;
+    width: 476px;
   }
 
   @include desktop-up {
     margin-left: auto;
     margin-right: auto;
-    width: 548px;
+    width: 516px;
   }
 
   @include desktop-wide {
@@ -51,6 +51,14 @@
   }
 }
 
+@mixin rounded-corners($border-radius : "2px") {
+  @if $border-radius != "" {
+    -webkit-border-radius: $border-radius;
+    -moz-border-radius: $border-radius;
+    border-radius: $border-radius;
+  }
+}
+
 @mixin rotate-spinner {
   100% {
     transform: rotate(360deg);
@@ -68,5 +76,22 @@
   100% {
     stroke-dasharray: 89, 200;
     stroke-dashoffset: -124;
+  }
+}
+
+@mixin button-label {
+  position: relative;
+  display: block;
+  font: 16px/24px $font-regular;
+  letter-spacing: .5px;
+  color: $color-text-default;
+  background-color: $color-bg-box;
+  margin: 0 0 2px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+  padding: 14px 16px 14px 48px;
+
+  &:hover, &:active, &:focus {
+    background-color: $color-bg-box-hover;
   }
 }

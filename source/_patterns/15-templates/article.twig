@@ -3,7 +3,9 @@
 </div>
 {% include 'components-article-header' %}
 <section class="article-content">
+    {% include 'components-sharing-bar' %}
     {% include 'elements-article-text' %}
+    {% include 'components-image-carousel' %}
     {% include 'components-image-figure' %}
     {% include 'elements-article-text' %}
     {% include 'elements-text-list--unordered' %}
@@ -15,7 +17,7 @@
     {% include 'elements-article-text' %}
     {% include 'elements-text-list--ordered' %}
     {% include 'elements-article-text' %}
-    {% include 'components-linkbox' %}
+    {% include 'components-linkbox' with {'title': 'Links zum Thema'}%}
     {% include 'elements-article-text' %}
     {% include 'elements-content-header' %}
     {% include 'components-table-block' %}
@@ -30,4 +32,9 @@
     {% include 'components-related-episodes' %}
     {% include 'components-image-slider' %}
     {% include 'components-ticker--closed' %}
+    {% include 'components-poll' %}
+    {% include 'components-form' %}
+    {% include 'elements-article-text' %}
+    {% include 'elements-article-author--short' %}
 </section>
+{% include 'components-comments' %}
