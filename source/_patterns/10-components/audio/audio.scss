@@ -3,6 +3,8 @@
 .article-audio {
   background-color: $color-bg-caption;
   margin: 32px 0;
+  display: inline-block;
+  width: 100vw;
 
   &:hover,
   &:active,
@@ -34,8 +36,8 @@
 
     // cropped and centered image
     @include smartphone {
-      width: 80px;
-      height: 80px;
+      width: 92px;
+      height: 92px;
     }
   }
 }
@@ -45,8 +47,8 @@
   float: left;
 
   @include smartphone {
-    width: 80px;
-    height: 80px;
+    width: 92px;
+    height: 92px;
     margin: 16px 0 16px 16px;
   }
 
@@ -58,8 +60,8 @@
     width: 200px;
 
     @include smartphone {
-      width: 80px;
-      height: 80px;
+      width: 92px;
+      height: 92px;
     }
   }
 }
