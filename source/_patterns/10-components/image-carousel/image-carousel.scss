@@ -52,23 +52,6 @@
   float:left;
 }
 
-.carousel__link--prev {
-  left: 0;
-  background-image: url('../../img/arrows/carousel_arrow_prev.svg');
-  border: 8px solid transparent;
-  border-radius: 0 15px 15px 0;
-  border-width: 12px 12px 12px 0; // <= kompromiss: schoene runde ecken UND extended touch area :(
-  background-position: 30%;
-}
-.carousel__link--next {
-  right: 0;
-  background-image: url('../../img/arrows/carousel_arrow_next.svg');
-  border: 8px solid transparent;
-  border-radius: 15px 0 0 15px;
-  border-width: 12px 0 12px 12px; // kompromiss :)
-  background-position: 60%;
-}
-
 .carousel__link--prev,
 .carousel__link--next {
   position: absolute;
