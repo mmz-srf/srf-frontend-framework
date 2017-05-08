@@ -33,7 +33,7 @@
 
     &__wrapper {
       width: 142px;
-      height: 80px;
+      height: 92px;
       margin: 16px 0 16px 16px;
 
       @include smartphone {
@@ -42,9 +42,9 @@
 
       &::before {
         width: 142px;
-        height: 80px;
+        height: 92px;
         @include smartphone {
-          width: 80px;
+          width: 92px;
         }
       }
     }
@@ -57,10 +57,10 @@
   .article-audio .image-figure__image,
   .article-video .image-figure__image {
     width: 142px;
-    height: 80px;
+    height: 92px;
 
     @include smartphone {
-      width: 80px;
+      width: 92px;
     }
   }
 
