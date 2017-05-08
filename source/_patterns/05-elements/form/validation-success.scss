@@ -1,4 +1,5 @@
 .form__validation {
+  display: none;
   background-color: #1a7ac5;
   color: white;
   margin: 0 auto 30px;
@@ -12,7 +13,7 @@
   }
 
   .form__validation-success {
-    height: 50px;
+    height: 56px;
 
     @include smartphone {
       height: 140px;
@@ -33,7 +34,7 @@
 
   .form__success-message {
     display: block;
-    padding: 15px 0;
+    padding: 7px 0;
 
     @include smartphone {
       text-align: center;
