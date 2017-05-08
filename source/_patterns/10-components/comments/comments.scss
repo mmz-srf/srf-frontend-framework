@@ -462,27 +462,23 @@
   z-index: 2;
   border: 0;
   padding: 0;
-  height: 108px;
+  height: 100px;
   resize: none; // :/
   box-shadow: none;
 
   @include reply_to_comments_area();
 
-  @include tablet-up {
-    height: 60px; // 72 - 12px
+  @include smartphone {
+    + .reply-info__initial{
+      position: absolute;
+      opacity: 0;
+    }
   }
 
   &:focus {
     outline: none;
 
-    @include smartphone {
-      + .reply-info .reply-info__initial {
-        position: absolute;
-        opacity: 0;
-      }
-    }
-
-    + .reply-info .reply-info__count {
+    + .reply-info__count {
       position: static;
       opacity: 1;
     }

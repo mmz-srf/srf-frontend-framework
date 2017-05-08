@@ -1,0 +1,42 @@
+.form__validation {
+  background-color: #1a7ac5;
+  color: white;
+  margin: 0 auto 30px;
+  max-width: 760px;
+  border-radius: 2px;
+  padding: 20px 30px;
+
+  @include smartphone {
+    width: calc(100% - 32px);
+    padding: 20px 25px;
+  }
+
+  .form__validation-success {
+    height: 50px;
+
+    @include smartphone {
+      height: 140px;
+    }
+  }
+
+  .form__success-icon {
+    float: left;
+    margin-right: 20px;
+    width: 56px;
+    height: 56px;
+
+    @include smartphone {
+      float:none;
+      margin: 0 auto;
+    }
+  }
+
+  .form__success-message {
+    display: block;
+    padding: 15px 0;
+
+    @include smartphone {
+      text-align: center;
+    }
+  }
+}
