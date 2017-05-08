@@ -3,11 +3,11 @@
 
 .article-video {
   margin: 32px 0;
-  display: inline-block;
-  width: 100vw;
 
   @include smartphone {
     margin: 24px -8px;
+    display: inline-block;
+    width: 100vw;
   }
 
   &:hover,
