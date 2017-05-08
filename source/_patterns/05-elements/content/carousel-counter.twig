@@ -1,2 +1,5 @@
-<span class="carousel-counter"><span class="h-offscreen">{{ accessibilityInfo }} </span> {{ currentIndex|default(3) }}
-    / {{ totalCount|default(10) }}</span>
+<span class="carousel-counter">
+    {% if accessibilityInfo is defined and accessibilityInfo != '' %}<span
+            class="h-offscreen">{{ accessibilityInfo }} </span> {% endif %}
+    {{ currentIndex|default(3) }} / {{ totalCount|default(10) }}
+</span>
