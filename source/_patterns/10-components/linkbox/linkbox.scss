@@ -1,10 +1,9 @@
 .linkbox {
-  margin: 40px 0;
+  margin: 40px 0 24px;
 
   @include smartphone {
     @include fullwidth-element;
     margin-top: 32px;
-    margin-bottom: 32px;
     padding: 0 8px;
   }
 }
