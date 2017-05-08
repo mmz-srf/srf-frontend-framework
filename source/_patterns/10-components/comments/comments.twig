@@ -75,7 +75,11 @@
             </div>
             {% if popularComments is not empty %}
                 <div id="sectionHits" role="tabpanel" aria-hidden="true" style="display: none;">
-                    <ul class="comments comments--shrink comments--popular"></ul>
+                    <ul class="comments comments--shrink comments--popular">
+                        <li class="comment">
+                            <blockquote class="comment__content">{{ 'Beliebteste Kommentare werden geladen.'|trans }}</blockquote>
+                        </li>
+                    </ul>
                 </div>
             {% endif %}
         {% endif %}
