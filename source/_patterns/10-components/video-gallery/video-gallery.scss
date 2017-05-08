@@ -187,14 +187,14 @@
       content: '•';
       font-size: 28px;
       line-height: 10px;
-      color: #333; // die Farben sind nicht zu erkennen :(
-      opacity: .25;
+      color: #000; // die Farben sind nicht zu erkennen :(
+      opacity: .2;
     }
 
     &:hover, &:focus {
       outline: none;
       &::before {
-        opacity: 1;
+        opacity: .6;
       }
     }
   }
