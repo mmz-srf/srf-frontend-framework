@@ -13,7 +13,7 @@ var commentController = function () {
 
     this.init = function () {
 
-        $(".reply__textarea").on("keyup focus", function (e) {
+        $(".comments-wrapper").on("keyup focus", ".reply__textarea", function (e) {
             that.countChars($(this));
         }).on("focusin", function () {
             $(".reply").addClass("reply--on-focus");
@@ -25,7 +25,7 @@ var commentController = function () {
         });
 
         // main (top) comment
-        $(".comments-header__button").on("click", function (e) {
+        $(".comments-wrapper").on("click", ".comments-header__button", function (e) {
             e.preventDefault();
             $(this).addClass('login-pending');
             $(document).trigger('login:check');
@@ -33,7 +33,7 @@ var commentController = function () {
         });
 
         // movable comment
-        $(".comment__link--reply").on("click", function (e) {
+        $(".comments-wrapper").on("click", ".comment__link--reply", function (e) {
             e.preventDefault();
             $(this).addClass('login-pending');
             $(document).trigger('login:check');
