@@ -1,3 +1,6 @@
+@import "../../variables";
+@import "../../breakpoints";
+
 .related-list {
   color: $color-text-default;
   margin: 24px -8px 32px;
@@ -33,18 +36,18 @@
 
     &__wrapper {
       width: 142px;
-      height: 92px;
+      height: $image-size-preview;
       margin: 16px 0 16px 16px;
 
       @include smartphone {
-        width: 80px;
+        width: $image-size-preview;
       }
 
       &::before {
         width: 142px;
-        height: 92px;
+        height: $image-size-preview;
         @include smartphone {
-          width: 92px;
+          width: $image-size-preview;
         }
       }
     }
@@ -57,10 +60,10 @@
   .article-audio .image-figure__image,
   .article-video .image-figure__image {
     width: 142px;
-    height: 92px;
+    height: $image-size-preview;
 
     @include smartphone {
-      width: 92px;
+      width: $image-size-preview;
     }
   }
 

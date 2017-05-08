@@ -1,4 +1,5 @@
 @import "../../variables";
+@import "../../breakpoints";
 
 .article-audio {
   background-color: $color-bg-caption;
@@ -30,14 +31,14 @@
   }
 
   .image-figure__image {
-    width: 200px;
-    height: 112px;
+    width: 196px;
+    height: 110px;
     object-fit: cover;
 
     // cropped and centered image
     @include smartphone {
-      width: 92px;
-      height: 92px;
+      width: $image-size-preview;
+      height: $image-size-preview;
     }
   }
 }
@@ -47,8 +48,8 @@
   float: left;
 
   @include smartphone {
-    width: 92px;
-    height: 92px;
+    width: $image-size-preview;
+    height: $image-size-preview;
     margin: 16px 0 16px 16px;
   }
 
@@ -60,8 +61,8 @@
     width: 200px;
 
     @include smartphone {
-      width: 92px;
-      height: 92px;
+      width: $image-size-preview;
+      height: $image-size-preview;
     }
   }
 }
