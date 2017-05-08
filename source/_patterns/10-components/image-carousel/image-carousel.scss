@@ -133,15 +133,11 @@
   }
 }
 
-@mixin waggle--right {
+@keyframes waggle--right {
   0%, 100% {
     background-position: 10%;
   }
   50% {
     background-position: 80%;
   }
-}
-
-@keyframes waggle--right {
-  @include waggle--right;
 }
