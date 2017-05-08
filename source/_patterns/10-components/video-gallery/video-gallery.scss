@@ -55,6 +55,7 @@
     }
   }
 
+  // dimming the videos here as well
   .image-figure__image-wrapper {
     &::after {
       content: "";
@@ -66,6 +67,7 @@
     }
   }
 
+  // overwriting the dimming of videos (to prevent errors)
   .image-figure__image-wrapper {
     &::before {
       padding-top: 56.25%;
