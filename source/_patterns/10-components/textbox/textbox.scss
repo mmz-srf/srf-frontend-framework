@@ -57,6 +57,13 @@
     // tip: always be careful with @extend
     @extend .text-list;
     @extend .text-list--unordered;
+
+    padding: 16px 24px;
+
+    @include smartphone {
+      padding-left: 8px;
+      padding-right: 8px;
+    }
   }
 
   & > ol {
