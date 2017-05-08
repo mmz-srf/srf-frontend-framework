@@ -56,6 +56,17 @@
   }
 
   .image-figure__image-wrapper {
+    &::after {
+      content: "";
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      top: 0;
+      background-color: rgba(0, 0, 0, 0.2);
+    }
+  }
+
+  .image-figure__image-wrapper {
     &::before {
       padding-top: 56.25%;
       position: relative;
