@@ -3,7 +3,9 @@
 
 .article-audio {
   background-color: $color-bg-caption;
-  margin: 32px 0;
+  margin: 32px 0 32px 16px;
+  display: inline-block;
+  width: 100%;
 
   &:hover,
   &:active,
@@ -17,9 +19,7 @@
   }
 
   @include smartphone {
-    margin: 16px -8px;
-    display: inline-block;
-    width: 100vw;
+    margin: 16px 0;
 
     &:not(.played) { // very ugly! (handling of touch states)
       background-color: $color-bg-caption;
@@ -78,6 +78,11 @@
   @include smartphone {
     width: 46px;
   }
+}
+
+.article-audio__link,
+.article-audio__link:hover {
+  border: 0;
 }
 
 .audio--playing {
