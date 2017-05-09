@@ -56,6 +56,9 @@
         "source": "Bild: ZVG"
       }
     },
+  "image-carousel": {
+    "ID": "image-carousel"
+  },
   "images": [
     {
       "sources": {
@@ -313,6 +316,9 @@
       "title": "Schweiz aktuell",
       "date": "2016-09-12"
     }
+  },
+  "video-gallery": {
+    "ID": "video-gallery"
   },
   "videos": [
     {

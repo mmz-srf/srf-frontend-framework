@@ -1,5 +1,5 @@
 <div class="video-gallery-container">
-    <div class="video-gallery carousel video_carousel__js">
+    <div class="video-gallery carousel video_carousel__js" id="{{ video-gallery.ID }}">
         {% for video in videos %}
             <div class="carousel__item">
                 {% include 'components-video' %}
