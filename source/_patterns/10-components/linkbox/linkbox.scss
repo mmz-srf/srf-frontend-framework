@@ -13,11 +13,13 @@
   font-family: $font-medium;
   font-size: 20px;
   line-height: 28px;
+  letter-spacing: .3px;
 
   @include article-text-padding;
 
   @include smartphone {
     font-size: 18px;
+    letter-spacing: .5px;
   }
 }
 
