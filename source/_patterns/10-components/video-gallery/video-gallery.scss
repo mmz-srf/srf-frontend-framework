@@ -1,3 +1,5 @@
+@import "../../variables";
+
 .video-gallery-container {
   width: 100%;
   padding: 0 60px;
@@ -96,7 +98,7 @@
 
   .carousel__link--prev {
     left: -60px;
-    background-image: url('../../assets/img/arrows/carousel_arrow_prev-no-background.svg');
+    background-image: url('../img/arrows/carousel_arrow_prev-no-background.svg');
     background-color: transparent;
 
     &:hover,
@@ -107,7 +109,7 @@
 
   .carousel__link--next {
     right: -60px;
-    background-image: url('../../assets/img/arrows/carousel_arrow_next-no-background.svg');
+    background-image: url('../img/arrows/carousel_arrow_next-no-background.svg');
     background-color: transparent;
 
     &:hover,

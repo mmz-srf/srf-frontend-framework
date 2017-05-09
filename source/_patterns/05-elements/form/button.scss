@@ -1,3 +1,5 @@
+@import "../../variables";
+
 .button {
   width: 100%;
   padding: 13px 40px;
@@ -5,6 +7,8 @@
   font: 16px/20px $font-regular;
   letter-spacing: 1px;
   color: #fff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   border: 0;
   margin-top: 20px;
   display: block;
@@ -87,7 +91,7 @@
 
 .button--facebook {
   background-color: $color-bg-facebook;
-  @include tablet-up {background:$color-bg-facebook url("../img/facebook.svg") no-repeat 40px}
+  @include tablet-up {background:$color-bg-facebook url('../img/facebook.svg') no-repeat 40px}
   &:hover {background-color:$color-bg-facebook-hover}
   &:active,
   &:focus {background-color:$color-bg-facebook-active}
@@ -95,7 +99,7 @@
 
 .button--twitter {
   background-color: $color-bg-twitter;
-  @include tablet-up {background:$color-bg-twitter url("../img/twitter.svg") no-repeat 40px}
+  @include tablet-up {background:$color-bg-twitter url('../img/twitter.svg') no-repeat 40px}
   &:hover {background-color:$color-bg-twitter-hover}
   &:active,
   &:focus {background-color:$color-bg-twitter-active}
