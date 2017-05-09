@@ -17,15 +17,17 @@
     margin: 0;
   }
 
-  li::before {
-    background: none;
-
+  li {
     a,
     a:hover,
     a:visited,
     a:active {
       border: 0;
     }
+  }
+
+  li::before {
+    background: none;
   }
 
   .article-audio,
