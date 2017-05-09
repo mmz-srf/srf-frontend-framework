@@ -1,7 +1,7 @@
 {% set commentIds = [] %}
 {% for comment in comments %}
     {% set commentIds = commentIds|merge([comment.id]) %}
-    <li class="comment" data-id="comment_{{ comment.id }}">
+    <li class="comment_{{ comment.id }} comment" data-id="{{ comment.id }}">
         <cite class="comment__user {% if comment.isEditorialAnswer %} comment__user--srf{% endif %}" role="combobox">
             <span class="h-offscreen">{{ 'Kommentar von'|trans }} </span>{{ comment.name }}
             {% if comment.isEditorialAnswer %}<span
@@ -32,7 +32,7 @@
             <ol class="comments comments--replies">
                 {% for reply in comment.children %}
                     {% set commentIds = commentIds|merge([reply.id]) %}
-                    <li class="comment" data-id="comment_{{ reply.id }}">
+                    <li class="comment_{{ reply.id }} comment" data-id="{{ reply.id }}">
                         <span class="h-offscreen">{{ 'Antwort von'|trans }} </span>
                         <cite class="comment__user {% if reply.isEditorialAnswer %} comment__user--srf{% endif %}">
                             {{ reply.name }}{% if not reply.isEditorialAnswer %} ({{ reply.nickname }}){% endif %}</cite>
