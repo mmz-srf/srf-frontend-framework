@@ -15,12 +15,12 @@
 
   .article-audio__wrapper {
     height: $image-size-preview-gallery;
-    width: 100px;
+    width: 120px;
     margin: 16px 0 16px $image-size-preview-gallery;
 
     &::before {
       height: $image-size-preview-gallery;
-      width: 100px;
+      width: 120px;
 
       @include smartphone {
         width: $image-size-preview-gallery;
@@ -39,7 +39,7 @@
   }
 
   .image-figure__image {
-    width: 100px;
+    width: 120px;
     height: $image-size-preview-gallery;
 
     @include smartphone {
@@ -64,10 +64,11 @@
     left: 16px;
     top: 33px;
     color: #555;
-    font: 16px/20px $font-medium;
+    font: 18px/20px $font-medium;
 
     @include smartphone {
       content: none;
+      font-size: 16px;
     }
   }
 }
