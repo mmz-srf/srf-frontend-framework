@@ -6,11 +6,7 @@
   white-space: pre-wrap;
   word-wrap: break-word;
   margin: 12px 16px;
-  height: 108px;
-
-  @include tablet-up {
-    height: 60px;
-  }
+  height: 100px;
 }
 
 .article-comments { // section
@@ -462,14 +458,13 @@
   z-index: 2;
   border: 0;
   padding: 0;
-  height: 100px;
   resize: none; // :/
   box-shadow: none;
 
   @include reply_to_comments_area();
 
   @include smartphone {
-    + .reply-info__initial{
+    .reply-info__initial{
       position: absolute;
       opacity: 0;
     }
