@@ -19,6 +19,13 @@
 
   li::before {
     background: none;
+
+    a,
+    a:hover,
+    a:visited,
+    a:active {
+      border: 0;
+    }
   }
 
   .article-audio,
