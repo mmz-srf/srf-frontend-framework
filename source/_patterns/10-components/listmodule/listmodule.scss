@@ -68,7 +68,7 @@
   margin-top: -12px;
   margin-bottom: -12px;
   @include tablet-up {
-    margin-top: -16px;
+    margin: -16px -16px -12px;
   }
 }
 
