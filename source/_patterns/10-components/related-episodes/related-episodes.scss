@@ -34,6 +34,7 @@
   .article-video {
     background: none;
     margin: 0;
+    display: inline-block;
 
     &:hover {
       background-color: $color-link-bg-hover;
