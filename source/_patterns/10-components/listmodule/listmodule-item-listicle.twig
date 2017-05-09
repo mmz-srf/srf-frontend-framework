@@ -1,37 +1,37 @@
-<li class="listmodule-listicle-element">
-    <h4 class="listmodule-listicle-element__title">1. {{ articleText.title }}</h4>
-    <div class="listmodule-listicle-element__lead">
+<li class="listmodule__item listmodule__item--listicle">
+    <h3 class="listmodule__heading listmodule__heading--listicle">1. {{ articleText.title }}</h3>
+    <div class="listmodule__content listmodule__content--listicle">
         {{ articleHeader.lead }}
     </div>
-    <div class="listmodule-listicle-element__media">
-        {% include 'components-image-figure' with { 'imageCaptionStyle': 'media-caption--no-bg'} %}
+    <div class="listmodule__media listmodule__media--listicle">
+        {% include 'components-image-figure' %}
     </div>
-    <div class="listmodule-listicle-element__content">
+    <div class="listmodule__content listmodule__content--listicle">
         {{ articleText.text }}
     </div>
-    <div class="listmodule-listicle-element__link">
+    <div class="listmodule__link listmodule__link--listicle">
         {% include 'elements-block-link' with {'styleModifier': 'block-link'} %}
     </div>
 </li>
-<li class="listmodule-listicle-element">
-    <h4 class="listmodule-listicle-element__title">2. {{ articleText.title }}</h4>
-    <div class="listmodule-listicle-element__media">
+<li class="listmodule__item listmodule__item--listicle">
+    <h3 class="listmodule__heading listmodule__heading--listicle">2. {{ articleText.title }}</h3>
+    <div class="listmodule__media listmodule__media--listicle">
         {% include 'components-video' %}
     </div>
-    <div class="listmodule-listicle-element__content">
+    <div class="listmodule__content listmodule__content--listicle">
         {{ articleText.text }}
     </div>
-    <div class="listmodule-listicle-element__link">
+    <div class="listmodule__link listmodule__link--listicle">
         {% include 'elements-block-link' with {'styleModifier': 'block-link--external'} %}
     </div>
-    <div class="listmodule-listicle-element__source">Somewhere</div>
+    {% include 'elements-infoline' with {'styleModifier': 'infoline--nospacing', 'infolineSource': 'true', 'infolineElem': image.caption.source} %}
 </li>
-<li class="listmodule-listicle-element">
-    <h4 class="listmodule-listicle-element__title">3. {{ articleText.title }}</h4>
-    <div class="listmodule-listicle-element__media">
+<li class="listmodule__item listmodule__item--listicle last">
+    <h3 class="listmodule__heading listmodule__heading--listicle">3. {{ articleText.title }}</h3>
+    <div class="listmodule__media listmodule__media--listicle">
         {% include 'components-audio' %}
     </div>
-    <div class="listmodule-listicle-element__content">
+    <div class="listmodule__content listmodule__content--listicle">
         {{ articleText.text }}
     </div>
 </li>

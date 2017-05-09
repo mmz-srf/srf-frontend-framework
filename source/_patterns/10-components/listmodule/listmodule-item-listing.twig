@@ -1,24 +1,27 @@
-<li class="listmodule-list__item">
+<li class="listmodule__item listmodule__item--listing">
     {% include 'components-image-figure' with {'styleModifier': 'image-figure--simple'} %}
-    <div class="listmodule-list__itemTextblock">
-        <h2 class="listmodule-list__itemTitle">{{articleText.title}}</h2>
-        <p class="listmodule-list__itemBody">{{articleText.text}}</p>
+    <div class="listmodule__block">
+        <h3 class="listmodule__heading listmodule__heading--listing">{{articleText.title}}</h3>
+        <p class="listmodule__content listmodule__content--listing">{{articleText.text}}</p>
         {% include 'elements-infoline' with {'styleModifier': 'infoline--nospacing h-show-mobile', 'infolineSource': 'true', 'infolineElem': image.caption.source} %}
     </div>
 </li>
-<li class="listmodule-list__item">
+<li class="listmodule__item listmodule__item--listing">
     {% include 'components-video' with {'styleModifierMain': 'article-video--simple', 'styleModifier': 'image-figure--simple'} %}
-    <div class="listmodule-list__itemTextblock">
-        <h2 class="listmodule-list__itemTitle">{{articleText.title}}</h2>
-        <p class="listmodule-list__itemBody">{{articleText.text}}</p>
+    <div class="listmodule__block">
+        <h3 class="listmodule__heading listmodule__heading--listing">{{articleText.title}}</h3>
+        <p class="listmodule__content listmodule__content--listing">{{articleText.text}}</p>
+        <div class="listmodule__link listmodule__link--listing">
+            {% include 'elements-block-link' with {'styleModifier': 'block-link--external'} %}
+        </div>
         {% include 'elements-infoline' with {'styleModifier': 'infoline--nospacing h-show-mobile', 'infolineElem': video.show.title} %}
     </div>
 </li>
-<li class="listmodule-list__item">
+<li class="listmodule__item listmodule__item--listing last">
     {% include 'components-image-figure' with {'styleModifier': 'image-figure--simple'} %}
-    <div class="listmodule-list__itemTextblock">
-        <h2 class="listmodule-list__itemTitle">{{articleText.title}}</h2>
-        <p class="listmodule-list__itemBody">{{articleText.text}}</p>
+    <div class="listmodule__block">
+        <h3 class="listmodule__heading listmodule__heading--listing">{{articleText.title}}</h3>
+        <p class="listmodule__content listmodule__content--listing">{{articleText.text}}</p>
         {% include 'elements-infoline' with {'styleModifier': 'infoline--nospacing h-show-mobile', 'infolineSource': 'true', 'infolineElem': image.caption.source} %}
     </div>
 </li>
