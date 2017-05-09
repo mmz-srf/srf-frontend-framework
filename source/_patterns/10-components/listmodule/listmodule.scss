@@ -1,131 +1,120 @@
-.listmodule-list {margin:24px 0 24px}
-
-.listmodule-list__title {font:normal 500 22px/28px $font-medium;letter-spacing:.3px;color:$color-text-default;margin:0 0 16px;padding:0 16px}
-
-.listmodule-list__list {list-style-type:none;margin:0;padding:0}
-
-.listmodule-list__item {margin:0;padding:0 16px;border-top:1px solid rgb(236,236,230);overflow:hidden}
-.listmodule-list__item:last-of-type {border-bottom:1px solid rgb(236,236,230)}
-.listmodule-list__item:before {display:none}
-
-.listmodule-list__itemTextblock {margin-bottom:16px}
-.listmodule-list__itemTitle {font:normal normal 18px/28px $font-regular;letter-spacing:.5px;color:$color-text-default;margin-top:12px;margin-bottom:8px}
-.listmodule-list__itemBody {font:normal 300 18px/28px $font-light;letter-spacing:.5px;color:$color-text-default;margin:0 0 8px}
-
-@include tablet-up {
-  .listmodule-list {margin:32px 0 32px}
-  .listmodule-list__title {font-size:24px;line-height:32px}
-  .listmodule-list__itemTextblock {float:none;width:100%;margin-bottom:24px}
-  .listmodule-list__itemTitle {font-size:20px;line-height:1.4;letter-spacing:.6px;margin-top:20px}
-  .listmodule-list__itemBody {font-size:20px;line-height:1.4;letter-spacing:.6px;clear:none}
-}
-
-.listmodule-listicle {margin:32px 0 8px;overflow:hidden}
-
-@include smartphone {
-  .listmodule-listicle {margin-top:24px;margin-bottom:12px;
-    @include fullwidth-element;
+.listmodule {
+  margin:24px 0;
+  @include tablet-up {
+    margin:32px 0;
   }
 }
 
-.listmodule-listicle__title {margin:0 24px 16px;font-family:$font-medium;font-size:22px;line-height:28px;letter-spacing:.3px}
-
-@include tablet-up {
-  .listmodule-listicle__title {margin: 0 16px 24px;font-size: 24px;line-height: 32px;letter-spacing: .3px}
+.listmodule__title {
+  font:normal 500 22px/28px $font-medium;
+  letter-spacing:.2px;
+  color:$color-text-default;
+  margin:0 0 16px;
+  padding:0 16px;
 }
-
-.listmodule-listicle__list {list-style-type:none}
-
-@include tablet-up {
-  .listmodule-listicle__list {padding:0}
-}
-
-.listmodule-listicle-element {padding-left:0;margin-top:0;margin-bottom:24px}
-
-@include tablet-up {
-  .listmodule-listicle-element {margin-bottom:32px}
-}
-
-.listmodule-listicle-element::before {content:none}
-
-.listmodule-listicle-element__title {font-family:$font-medium;font-size:18px;line-height:28px;margin-top:16px;margin-bottom:12px;margin-left:8px}
-
-@include tablet-up {
-  .listmodule-listicle-element__title {font-size:20px;line-height:32px;margin-left:16px;margin-top:24px}
-}
-
-.listicle-element__content,
-.listicle-element__lead {font-size:18px;line-height:28px;letter-spacing:.5px;padding:0 24px;margin-bottom:12px}
-
-@include tablet-up {
-  .listicle-element__content,
-  .listicle-element__lead {font-size:20px;line-height:32px;letter-spacing:.3px;padding:0 16px;margin-bottom:16px}
-}
-
-@include smartphone {
-  .listicle-element__content,
-  .listicle-element__lead {
-    @include fullwidth-element;
+.listmodule__title--listicle {
+  @include tablet-up {
+    margin-bottom: 24px;
   }
 }
 
-.listicle-element__content p,
-.listicle-element__lead p {margin:0}
-
-.listicle-element__content h2,
-.listicle-element__lead h2 {font-family:$font-medium;font-size:18px;line-height:28px}
-
-@include tablet-up {
-  .listicle-element__content h2,
-  .listicle-element__lead h2 {font-size:20px;line-height:32px}
+.listmodule__item {
+  margin: 0 -24px;
+  padding: 0 24px;
+  &:before {
+    display: none;
+  }
+  @include tablet-up {
+    margin: 0 -16px;
+    padding: 0 16px;
+  }
+}
+.listmodule__item--listicle {
+  margin-bottom: 24px;
+  @include tablet-up {
+    margin-bottom: 32px;
+  }
+}
+.listmodule__item--listing {
+  border-top: 1px solid rgb(236,236,230);
+}
+.listmodule__item--listing:last-of-type {
+  border-bottom: 1px solid rgb(236,236,230);
 }
 
-
-
-.listmodule-listicle-element__media {margin-top:0;margin-bottom:12px}
-
-@include tablet-up {
-  .listmodule-listicle-element__media {margin-top:4px;margin-bottom:16px}
+.listmodule__heading {
+  font: normal normal 18px/28px $font-regular;
+  letter-spacing: .5px;
+  color: $color-text-default;
+  margin: 12px 0 8px;
+  @include tablet-up {
+    font-size: 20px;
+    letter-spacing: .6px;
+    margin: 19px 0 12px; // 19 instead of 16px 'cause of rendering of custom-font visually needs additional vertical space on top
+  }
 }
-
-@include smartphone {
-  .listmodule-listicle-element__media {
-    @include fullwidth-element;
+.listmodule__heading--listicle {
+  font-weight: 500;
+  font-family: $font-medium;
+  margin: 16px 0 12px;
+  @include tablet-up {
+    line-height: 32px;
+    letter-spacing: .2px;
+    margin: 24px 0 16px;
   }
 }
 
-.listmodule-listicle-element__media .image-figure {background-color:$color-bg-caption;margin-bottom:0;margin-top:0}
-.listmodule-listicle-element__media .image-figure .media-caption--no-bg {border-bottom:0}
-.listmodule-listicle-element__media .article-video {margin:0}
-
-
-
-.listmodule-listicle-element__source {font-size:12px;color:#757266;padding:0 24px}
-
-@include tablet-up{
-  .listmodule-listicle-element__source {padding:0 16px}
-}
-
-@include smartphone {
-  .listmodule-listicle-element__source {
-    @include fullwidth-element;
+.listmodule__media--listicle {
+  margin-top: -12px;
+  margin-bottom: -12px;
+  @include tablet-up {
+    margin-top: -16px;
   }
 }
 
-
-
-.listmodule-listicle-element__link {margin-bottom: 12px}
-
-@include tablet-up {
-  .listmodule-listicle-element__link {margin-bottom: 16px}
+.listmodule__block {
+  margin-bottom:16px;
 }
 
-@include smartphone {
-  .listmodule-listicle-element__link {
-    @include fullwidth-element;
+.listmodule__content {
+  font: normal 300 18px/28px $font-light;
+  letter-spacing: .5px;
+  color: $color-text-default;
+  margin: 8px 0;
+  @include tablet-up {
+    font-size: 20px;
+    letter-spacing: .6px;
+    margin: 12px 0 24px;
+  }
+}
+.listmodule__content--listicle {
+  margin: 12px 0;
+  @include tablet-up {
+    line-height:32px;
+    letter-spacing: .3px;
+    margin:16px 0;
   }
 }
 
+.listmodule__link {
+  margin: 12px -8px 16px;
+  @include tablet-up {
+    margin-top: 24px;
+    margin-bottom: 24px;
+  }
+}
+.listmodule__link--listicle {
+  margin-right: -24px;
+  margin-left: -24px;
+  @include tablet-up {
+    margin: 16px -16px;
+  }
+}
 
-
-.listmodule-listicle-element__link .block-link {border-top:1px solid $color-separator}
+.listmodule__link .block-link {
+  border-top: 1px solid $color-separator;
+}
+.listmodule__link--listing .block-link {
+  padding-right: 8px;
+  padding-left: 8px;
+}
