@@ -1,5 +1,11 @@
 .ticker {
   padding: 0 6px;
+  &__wrapper {
+    padding: 0 16px;
+    & > ul {
+      padding: 0;
+    }
+  }
   margin-top: 30px;
   margin-bottom: 24px;
   padding: 0 20px;
@@ -165,6 +171,7 @@
   font: 22px/28px $font-medium;
   letter-spacing: .3px;
   margin-top: 32px;
+  margin-bottom: 0px;
 
   @include smartphone {
     margin-top: 24px;
@@ -184,4 +191,9 @@
 
 .ticker__info--live {
   color: $color-accentuation-red;
+}
+
+.ticker__spinner {
+  width: 40px;
+  height: 40px;
 }

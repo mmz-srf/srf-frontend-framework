@@ -2,10 +2,10 @@
 {% for comment in comments %}
     {% set commentIds = commentIds|merge([comment.id]) %}
     <li id="comment_{{ comment.id }}" class="comment">
-        <cite class="comment__user {% if comment.isEditorialAnswer %} comment__user--srf{% endif %}" role="combobox">
-            <span class="h-offscreen">{{ default.comment_by|default("Kommentar von") }} </span>{{ comment.name }}
+        <cite class="comment__user {% if comment.isEditorialAnswer %} comment__user--{{ businessUnit }}{% endif %}" role="combobox">
+            <span class="h-offscreen">{{ 'Kommentar von'|trans }} </span>{{ comment.name }}
             {% if comment.isEditorialAnswer %}<span
-                    class="h-offscreen">(SRF)</span>{% else %}({{ comment.nickname }}){% endif %}
+                    class="h-offscreen">({{ businessUnit|upper }})</span>{% else %}({{ comment.nickname }}){% endif %}
         </cite>
         <span class="comment__time">{{ comment.dateFormatted }}</span>
         <blockquote class="comment__content">{{ comment.message }}</blockquote>
@@ -38,8 +38,8 @@
                 {% for reply in comment.children %}
                     {% set commentIds = commentIds|merge([reply.id]) %}
                     <li id="comment_{{ reply.id }}" class="comment">
-                        <span class="h-offscreen">{{ default.reply_by|default("Antwort von") }} </span>
-                        <cite class="comment__user {% if reply.isEditorialAnswer %} comment__user--srf{% endif %}">
+                        <span class="h-offscreen">{{ 'Antwort von'|trans }} </span>
+                        <cite class="comment__user {% if reply.isEditorialAnswer %} comment__user--{{ businessUnit }}{% endif %}">
                             {{ reply.name }}{% if not reply.isEditorialAnswer %} ({{ reply.nickname }}){% endif %}</cite>
                         <span class="comment__time">{{ reply.dateFormatted }}</span>
                         <blockquote class="comment__content">{{ reply.message }}</blockquote>

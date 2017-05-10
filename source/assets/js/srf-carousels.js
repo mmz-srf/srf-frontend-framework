@@ -35,32 +35,36 @@ export function init() {
         slidesToShow: 1,
         slidesToScroll: 1,
         initialSlide: 0,
-        dots: false,
+        dots: true,
         arrows: false,
+        appendArrows: ".slick-list",
         mobileFirst: true,
         centerMode: true,
+        centerPadding: "0",
         responsive: [
             {
                 breakpoint: 1024, // desktop
                 settings: {
                     slidesToShow: 3,
                     slidesToScroll: 3,
-                    dots: true,
+                    // dots: true,
                     arrows: true,
                     prevArrow: '<button class="carousel__link--prev"><span class="h-offscreen h-offscreen-focusable">Vorhergehendes Bild</span></button>',
                     nextArrow: '<button class="carousel__link--next"><span class="h-offscreen h-offscreen-focusable">Nächstes Bild</span></button>',
-                    centerMode: false
+                    centerMode: false,
+                    centerPadding: "60px"
                 }
             }, {
                 breakpoint: 720, // tablet
                 settings: {
                     slidesToShow: 2,
                     slidesToScroll: 2,
-                    dots: true,
+                    // dots: true,
                     arrows: true,
                     prevArrow: '<button class="carousel__link--prev"><span class="h-offscreen h-offscreen-focusable">Vorhergehendes Bild</span></button>',
                     nextArrow: '<button class="carousel__link--next"><span class="h-offscreen h-offscreen-focusable">Nächstes Bild</span></button>',
-                    centerMode: false
+                    centerMode: false,
+                    centerPadding: "60px"
                 }
             }
         ]

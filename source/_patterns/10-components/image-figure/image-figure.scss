@@ -52,10 +52,15 @@ Behaviour:
 
 .image-figure__image {
   background-color: #dadad2;
+
 }
 
 .image-figure--in-box {
   margin-top: 0;
+
+  @include tablet-up {
+    margin: 0 24px 16px 24px;
+  }
 
   @include smartphone {
       // resetting the full width here

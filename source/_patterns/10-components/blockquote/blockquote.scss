@@ -13,6 +13,11 @@
     font-size: 22px;
     line-height: 32px;
   }
+
+  @include tablet-up {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
 }
 
 .blockquote--article-indentation {
