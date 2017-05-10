@@ -21,7 +21,7 @@ export function init() {
             slidesToShow: 1,
             infinite: false,
             prevArrow: '<button class="carousel__link--prev"><span class="h-offscreen h-offscreen-focusable">Vorhergehendes Bild</span></button>',
-            nextArrow: '<button class="carousel__link--next"><span class="h-offscreen h-offscreen-focusable">Nächstes Bild</span></button>',
+            nextArrow: '<button class="carousel__link--next carousel__link--waggle"><span class="h-offscreen h-offscreen-focusable">Nächstes Bild</span></button>',
             slide: ".carousel__item"
         });
         registerListener($carousel);
@@ -76,8 +76,15 @@ function registerListener($carousel) {
         }
     });
 
-    $(css.handles).on("touchstart", function () {
+    $carousel.on('swipe', function (event, slick, direction) {
+        // on "interacting" with the carousel => no more animation
+        $(this).find(".carousel__link--next").removeClass("carousel__link--waggle");
+    });
+
+    $carousel.find(css.handles).on("touchstart mousedown mouseenter", function () {
         $(this).removeClass("untouched");
+        // if the handles are clicked / touched: stop the animation
+        $(this).removeClass("carousel__link--waggle").addClass("js-has-waggled");
     }).on("touchend touchcancel", function () {
         $(this).addClass("untouched");
     });
@@ -93,4 +100,3 @@ function loadLazyImages(images) {
         }
     });
 }
-

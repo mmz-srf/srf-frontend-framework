@@ -1,3 +1,5 @@
+@import "../../variables";
+
 .article-audio {
   background-color: $color-bg-caption;
   margin: 32px 0;
@@ -8,7 +10,7 @@
     background-color: #ebebe5;
 
     .article-audio__play-icon {
-      background-image: url('../../assets/img/play-active.svg');
+      background-image: url('../img/play-active.svg');
       background-size: 100%;
     }
   }
