@@ -56,7 +56,7 @@
         "source": "Bild: ZVG"
       }
     },
-  "image-carousel": {
+  "image_carousel": {
     "ID": "image-carousel"
   },
   "images": [
@@ -317,7 +317,7 @@
       "date": "2016-09-12"
     }
   },
-  "video-gallery": {
+  "video_gallery": {
     "ID": "video-gallery"
   },
   "videos": [
