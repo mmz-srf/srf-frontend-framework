@@ -463,13 +463,6 @@
 
   @include reply_to_comments_area();
 
-  @include smartphone {
-    .reply-info__initial{
-      position: absolute;
-      opacity: 0;
-    }
-  }
-
   &:focus {
     outline: none;
 
@@ -488,6 +481,13 @@
   padding-top: 10px;
   border: 1px solid #ebebe5;
   border-width: 1px 0 0;
+
+  @include smartphone {
+    .reply-info__initial{
+      position: absolute;
+      opacity: 0;
+    }
+  }
 }
 
 .reply-info__netiquette { // link
