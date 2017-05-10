@@ -403,6 +403,7 @@
     "total": "Stimmen wurden abgegeben"
   },
   "allowsComments": true,
+  "businessUnit": "rtr",
   "comments": {
     "title_singular": "Kommentar",
     "title_plural": "Kommentare",

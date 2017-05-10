@@ -52,50 +52,39 @@
   float:left;
 }
 
-.carousel__link--prev {
-  left: 0;
-  background-image: url('../img/arrows/carousel_arrow_prev.svg');
-  border: 8px solid transparent;
-  border-radius: 0 15px 15px 0;
-  border-width: 12px 12px 12px 0; // <= kompromiss: schoene runde ecken UND extended touch area :(
-  background-position: 30%;
-}
-.carousel__link--next {
-  right: 0;
-  background-image: url('../img/arrows/carousel_arrow_next.svg');
-  border: 8px solid transparent;
-  border-radius: 15px 0 0 15px;
-  border-width: 12px 0 12px 12px; // kompromiss :)
-  background-position: 60%;
-}
-
 .carousel__link--prev,
 .carousel__link--next {
   position: absolute;
   height: 64px;
   width: 40px;
-  top: 28vw;
+  top: 37.5vw;
+  transform: translate(0, -50%);
   padding: 0; // reset default button style
   background-color: transparent; // reset default button style
-  cursor: pointer; // reset default button style
   background-repeat: no-repeat;
+  background-position: 50%;
   background-size: 24px;
+  border: 8px solid transparent;
   display: block;
   box-sizing: content-box;
+  cursor: pointer; // reset default button style
   z-index: 100;
+  transition: background-color .2s ease;
+  -moz-background-clip: content;
+  -webkit-background-clip: content;
+  background-clip: content-box;
 
   @include tablet-up {
-    top: 35%;
-    background-size: 34px;
+    top: 246px;
     width: 56px;
     height: 96px;
+    background-size: 28px;
   }
-
-  &:hover,
-  &:active {
-    -moz-background-clip: content;
-    -webkit-background-clip: content;
-    background-clip: content-box;
+  @include desktop-up {
+    top: 267px;
+  }
+  @include desktop-wide {
+    top: 296px;
   }
 
   &:hover {
@@ -111,17 +100,44 @@
   }
 }
 
+.carousel__link--prev {
+  left: 0;
+  background-image: url('../../img/arrows/carousel_arrow_prev.svg');
+  border-radius: 0 15px 15px 0;
+  border-width: 12px 12px 12px 0; // <= kompromiss: schoene runde ecken UND extended touch area :(
+}
+
+.carousel__link--next {
+  right: 0;
+  background-image: url('../../img/arrows/carousel_arrow_next.svg');
+  border-radius: 15px 0 0 15px;
+  border-width: 12px 0 12px 12px; // kompromiss :)
+
+  &.carousel__link--waggle {
+    animation: waggle--right 1.6s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+    animation-iteration-count: infinite;
+  }
+}
+
 .carousel-counter {
   position: absolute;
+  bottom: 8px;
   left: 50%;
   transform: translate(-50%, 0);
-  bottom: 12px;
 
   @include tablet-up {
     bottom: 16px;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 20px;
-    padding: 0 8px;
     font-weight: 500;
+  }
+}
+
+@keyframes waggle--right {
+  0%, 100% {
+    background-position: 10%;
+  }
+  50% {
+    background-position: 80%;
   }
 }
