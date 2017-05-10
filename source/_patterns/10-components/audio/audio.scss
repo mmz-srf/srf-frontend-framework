@@ -32,6 +32,8 @@
   }
 
   @include smartphone {
+    margin: 0 -8px; // override article's padding...
+
     &:not(.played) { // very ugly! (handling of touch states)
       background-color: $color-bg-caption;
     }

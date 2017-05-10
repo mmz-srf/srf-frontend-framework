@@ -78,6 +78,8 @@
   flex-direction: column;
   margin: 12px;
   padding: 0;
+  background-color: transparent; // is defined by the audio component
+  flex: 1;
 
   @include tablet-up {
     margin: 16px;
