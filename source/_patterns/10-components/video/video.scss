@@ -1,4 +1,5 @@
 @import "../../variables";
+@import "../../breakpoints";
 
 .article-video {
   margin: 32px 0;
@@ -40,8 +41,8 @@
   float: left;
 
   @include smartphone {
-    width: 80px;
-    height: 80px;
+    width: $image-size-preview;
+    height: $image-size-preview;
     margin: 16px 0 16px 16px;
   }
 
@@ -53,8 +54,8 @@
     width: 112px;
 
     @include smartphone {
-      width: 80px;
-      height: 80px;
+      width: $image-size-preview;
+      height: $image-size-preview;
     }
   }
 
@@ -65,8 +66,8 @@
     object-fit: cover;
 
     @include smartphone {
-      width: 80px;
-      height: 80px;
+      width: $image-size-preview;
+      height: $image-size-preview;
     }
   }
 

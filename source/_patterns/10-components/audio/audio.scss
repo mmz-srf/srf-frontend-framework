@@ -1,4 +1,5 @@
 @import "../../variables";
+@import "../../breakpoints";
 
 .article-audio__link {
   margin: 24px 0;
@@ -52,8 +53,8 @@
 
 .article-audio__wrapper {
   margin: 16px 0 16px 16px;
-  height: 92px;
-  width: 92px;
+  height: $image-size-preview;
+  width: $image-size-preview;
   flex-shrink: 0;
   position: relative; // so the play icon can be centered absolutely
 
@@ -84,6 +85,11 @@
   @include smartphone {
     width: 46px;
   }
+}
+
+.article-audio__link,
+.article-audio__link:hover {
+  border: 0;
 }
 
 .audio--playing {

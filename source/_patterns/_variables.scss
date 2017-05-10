@@ -38,6 +38,10 @@ $font-regular: 'SRG_SSR_Regular', sans-serif;
 $font-light: 'SRG_SSR_Light', sans-serif;
 $font-serif: 'SRG_SSR_Serif_Regular', serif;
 
+/*** IMAGES SIZES ***/
+$image-size-preview: 92px !default;
+$image-size-preview-gallery: 68px !default;
+
 // System UI font stack, for details see
 // https://www.smashingmagazine.com/2015/11/using-system-ui-fonts-practical-guide/
 $font-system: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",  sans-serif;
