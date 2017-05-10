@@ -15,6 +15,13 @@
   border-bottom: 1px solid #cac8bf;
 }
 
+.media-caption--in-box {
+  @include smartphone {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
 .media-caption__title {
   display: block;
   font-family: $font-regular;
@@ -74,9 +81,7 @@
 }
 
 .media-caption--audio {
-  height: 112px;
   padding: 12px;
-  display: table;
   margin-left: 112px;
   background-color: transparent;
 

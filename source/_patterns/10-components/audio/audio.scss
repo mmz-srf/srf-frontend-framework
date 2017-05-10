@@ -1,8 +1,11 @@
 @import "../../variables";
+@import "../../breakpoints";
 
 .article-audio {
   background-color: $color-bg-caption;
-  margin: 32px 0;
+  margin: 32px 0 32px 16px;
+  display: inline-block;
+  width: 100%;
 
   &:hover,
   &:active,
@@ -16,7 +19,7 @@
   }
 
   @include smartphone {
-    margin: 24px -8px;
+    margin: 16px 0;
 
     &:not(.played) { // very ugly! (handling of touch states)
       background-color: $color-bg-caption;
@@ -28,14 +31,14 @@
   }
 
   .image-figure__image {
-    width: 200px;
-    height: 112px;
+    width: 196px;
+    height: 110px;
     object-fit: cover;
 
     // cropped and centered image
     @include smartphone {
-      width: 80px;
-      height: 80px;
+      width: $image-size-preview;
+      height: $image-size-preview;
     }
   }
 }
@@ -45,8 +48,8 @@
   float: left;
 
   @include smartphone {
-    width: 80px;
-    height: 80px;
+    width: $image-size-preview;
+    height: $image-size-preview;
     margin: 16px 0 16px 16px;
   }
 
@@ -54,12 +57,12 @@
     content: '';
     position: absolute;
     background-color: rgba(0, 0, 0, .2);
-    height: 112px;
-    width: 200px;
+    height: 110px;
+    width: 196px;
 
     @include smartphone {
-      width: 80px;
-      height: 80px;
+      width: $image-size-preview;
+      height: $image-size-preview;
     }
   }
 }
@@ -75,6 +78,11 @@
   @include smartphone {
     width: 46px;
   }
+}
+
+.article-audio__link,
+.article-audio__link:hover {
+  border: 0;
 }
 
 .audio--playing {
