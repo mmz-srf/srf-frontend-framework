@@ -1,5 +1,5 @@
 .image-figure {
-  margin: 32px 0;
+  margin: 32px 0 24px;
   font-size: 12px;
   line-height: 1.3;
 
@@ -8,35 +8,6 @@
     margin-top: 24px;
     margin-bottom: 24px;
   }
-}
-
-.image-figure--simple {
-    float: right;
-    width: 92px;
-    height: auto;
-    margin: 16px 0px 16px 16px;
-    right: auto; /* overwrite */
-    left:auto; /* overwrite */
-
-    @include tablet-up {
-        width: 228px;
-        margin: 24px 0px 24px 24px;
-    }
-
-    .media-caption {
-        padding:8px 16px;
-    }
-
-    @include smartphone {
-        .media-caption {
-            display: none;
-        }
-    }
-
-    .media-caption__title,
-    .media-caption__description {
-        display: none;
-    }
 }
 
 /*
@@ -81,15 +52,10 @@ Behaviour:
 
 .image-figure__image {
   background-color: #dadad2;
-
 }
 
 .image-figure--in-box {
   margin-top: 0;
-
-  @include tablet-up {
-    margin: 0 24px 16px 24px;
-  }
 
   @include smartphone {
       // resetting the full width here
@@ -98,6 +64,11 @@ Behaviour:
     width: auto;
     margin-left: 8px;
     margin-right: 8px;
+  }
+
+  .media-caption {
+    padding-left: 0;
+    padding-right: 0;
   }
 }
 
