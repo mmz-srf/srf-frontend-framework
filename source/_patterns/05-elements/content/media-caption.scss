@@ -74,18 +74,13 @@
 }
 
 .media-caption--audio {
-  height: 112px;
-  padding: 12px;
-  display: table;
-  margin-left: 112px;
-  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  margin: 12px;
+  padding: 0;
 
   @include tablet-up {
-    padding: 16px;
-  }
-
-  @include smartphone {
-    margin-left: 96px;
+    margin: 16px;
   }
 }
 
