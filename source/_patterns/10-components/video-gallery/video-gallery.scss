@@ -16,7 +16,6 @@
   overflow: visible;
   margin: 24px 0 12px;
 
-  // flexbox
   .carousel__item {
     display: flex;
     flex-direction: column;
@@ -34,8 +33,6 @@
     overflow: hidden; // so the rounded corners are "visible"
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .24);
     transition: box-shadow .2s ease-in-out;
-
-    // flexbox
     display: flex;
     flex-direction: column;
 
@@ -86,8 +83,6 @@
     background-color: #fefefd;
     padding: 8px 12px 12px;
     transition: background-color .2s ease-in-out;
-
-    // flexbox
     display: flex;
     flex-direction: column;
     flex: 1 0 auto;
@@ -98,9 +93,7 @@
       font: 16px/24px $font-regular;
       letter-spacing: 0.5px;
       color: #22211d;
-
-      flex: 1 0 auto; // flexbox
-    }
+      flex: 1 0 auto;
   }
 
   // play icon overwrites
