@@ -81,16 +81,15 @@
 }
 
 .media-caption--audio {
+  min-height: 124px;
+  margin-left: 96px;
   padding: 12px;
-  margin-left: 112px;
   background-color: transparent;
 
   @include tablet-up {
+    min-height: 110px;
+    margin-left: 112px;
     padding: 16px;
-  }
-
-  @include smartphone {
-    margin-left: 96px;
   }
 }
 
