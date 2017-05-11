@@ -60,7 +60,7 @@ var commentController = function () {
 
                     // move the form
                     $(".js-comment_place").removeClass("comment--hide")
-                        .appendTo("#" + parent_id.replace("comment", "placeholder"));
+                        .appendTo("." + parent_id.replace("comment", "placeholder"));
                     // set the focus
                     $(".reply__textarea").val("").focus();
 
