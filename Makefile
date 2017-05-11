@@ -19,6 +19,8 @@ install-master:
 	mkdir -p $(TARGET)
 	cp -r public $(TARGET)/
 	./bin/deduplicate-deployed-versions $(MOUNTPOINT)
+	unlink $(MOUNTPOINT)/latest
+	ln -s -r $(MOUNTPOINT)/$(BUILDDATE)-$(COMMIT_ID) $(MOUNTPOINT)/latest
 
 install-test:
 	mkdir -p $(TEST_TARGET)
