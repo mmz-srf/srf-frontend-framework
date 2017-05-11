@@ -1,3 +1,5 @@
+@import "../../variables";
+
 @mixin reply_to_comments_area() {
   font: 16px/24px $font-light;
   letter-spacing: .5px;
@@ -178,20 +180,12 @@
 
 .comment { // ul li
   border-top: 1px solid $color-separator;
-  overflow: hidden;
   padding: 0;
   margin: 0 16px;
 
   @include tablet-up {
     margin: 0;
     padding: 0 16px;
-  }
-
-  @include smartphone {
-    .vertical-separator {
-      margin-left: 6px;
-      margin-right: 6px;
-    }
   }
 
   &::before { // overwrite
@@ -222,6 +216,13 @@
     margin-left: 9px;
     margin-right: 9px;
   }
+
+  @include smartphone {
+    .vertical-separator {
+      margin-left: 6px;
+      margin-right: 6px;
+    }
+  }
 }
 .comments--main, .comments--popular { // ul
   margin-bottom: 13px;
@@ -250,6 +251,10 @@
 
 .comment__user--srf {
   background: transparent url('../img/srf_logo.svg') no-repeat scroll right 2px / 24px auto;
+}
+
+.comment__user--rtr {
+  background: transparent url('../img/rtr_logo.svg') no-repeat scroll right 2px / 24px auto;
 }
 
 .comment__time {
@@ -303,11 +308,24 @@
 
 .comment__link--reply {
   @include smartphone {
-    background: url('../img/linktypes/reply.svg') no-repeat center;
     opacity: .7;
-    width: 40px;
+    width: 30px;
     text-indent: -10000px;
-    margin-left: -8px;
+    margin-left: -4px;
+    position: relative;
+  }
+}
+
+.comment__link--reply:after {
+  // WOW, this is a beauty! Touch area should be 40x40, overlapping all boundries :O
+  @include smartphone {
+    content: '&nbsp;';
+    position: absolute;
+    height: 40px;
+    width: 40px;
+    left: 0;
+    top: -3px;
+    background: url('../img/linktypes/reply.svg') no-repeat 10px center;
   }
 }
 

@@ -1,3 +1,6 @@
+@import "../../variables";
+@import "../../breakpoints";
+
 .article-video {
   margin: 32px 0;
 
@@ -9,7 +12,7 @@
   &:active {
     .article-video__play-icon,
     .media-play__icon {
-      background-image: url('../../assets/img/play-active.svg');
+      background-image: url('../img/play-active.svg');
       background-size: 100%;
     }
 
@@ -38,8 +41,8 @@
   float: left;
 
   @include smartphone {
-    width: 80px;
-    height: 80px;
+    width: $image-size-preview;
+    height: $image-size-preview;
     margin: 16px 0 16px 16px;
   }
 
@@ -51,8 +54,8 @@
     width: 112px;
 
     @include smartphone {
-      width: 80px;
-      height: 80px;
+      width: $image-size-preview;
+      height: $image-size-preview;
     }
   }
 
@@ -63,8 +66,8 @@
     object-fit: cover;
 
     @include smartphone {
-      width: 80px;
-      height: 80px;
+      width: $image-size-preview;
+      height: $image-size-preview;
     }
   }
 

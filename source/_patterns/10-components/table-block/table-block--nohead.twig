@@ -1,0 +1,15 @@
+<div class="table-block">
+    <table>
+        <caption class="h-offscreen">Beschreibender Text für Screenreader</caption>
+        <tbody>
+        {% for item in listItems.four %}
+            <tr>
+                <td>{{ item.name.last|e }}, {{ item.name.first|e }}</td>
+                <td>{{ item.headline.short|e }}</td>
+                <td>{{ item.excerpt.short|e }}</td>
+                <td>{{ item.headline.medium|e }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>

@@ -1,3 +1,5 @@
+@import "../../variables";
+@import "../../breakpoints";
 
 .audio-gallery { // ol
   margin: 32px -16px 24px;
@@ -12,23 +14,23 @@
   }
 
   .article-audio__wrapper {
-    height: 56px;
-    width: 100px;
-    margin: 16px 0 16px 56px;
+    height: $image-size-preview-gallery;
+    width: 120px;
+    margin: 16px 0 16px 60px;
 
     &::before {
-      height: 56px;
-      width: 100px;
+      height: $image-size-preview-gallery;
+      width: 120px;
 
       @include smartphone {
-        width: 56px;
+        width: $image-size-preview-gallery;
       }
     }
 
     @include smartphone {
       margin-left: 16px;
-      height: 56px;
-      width: 56px;
+      height: $image-size-preview-gallery;
+      width: $image-size-preview-gallery;
     }
   }
 
@@ -37,11 +39,11 @@
   }
 
   .image-figure__image {
-    width: 100px;
-    height: 56px;
+    width: 120px;
+    height: $image-size-preview-gallery;
 
     @include smartphone {
-      width: 56px;
+      width: $image-size-preview-gallery;
     }
   }
 }
@@ -62,10 +64,11 @@
     left: 16px;
     top: 33px;
     color: #555;
-    font: 16px/20px $font-medium;
+    font: 18px/20px $font-medium;
 
     @include smartphone {
       content: none;
+      font-size: 16px;
     }
   }
 }

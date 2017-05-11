@@ -403,6 +403,7 @@
     "total": "Stimmen wurden abgegeben"
   },
   "allowsComments": true,
+  "businessUnit": "rtr",
   "comments": {
     "total_count": "8",
     "comments": [

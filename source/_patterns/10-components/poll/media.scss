@@ -4,7 +4,7 @@
   &:hover,
   &:active {
     .article-media__play-icon {
-      background-image: url('../../assets/img/play-active.svg');
+      background-image: url('../img/play-active.svg');
       background-size: 100%;
     }
   }
@@ -59,7 +59,7 @@
     height: 72px;
     right: 0;
     margin: 8px;
-    padding: 8px;
+    padding: 4px;
     float: right;
     z-index: 1; // ???
   }
