@@ -1,6 +1,6 @@
 <div id="spinner-{{ spinnerId|default('default') }}" class="spinner-container">
     <svg class="spinner" width="44" height="44" viewBox="22 22 44 44">
         <circle class="spinner__circle spinner__circle--bg" cx="44" cy="44" r="20" />
-        <circle class="spinner__circle spinner__circle--dash" cx="44" cy="44" r="20" />
+        <circle class="spinner__circle spinner__circle--dash {{ styleModifier }}" cx="44" cy="44" r="20"/>
     </svg>
 </div>
