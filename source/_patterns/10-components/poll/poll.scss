@@ -9,8 +9,7 @@
     margin-top: 0;
     margin-bottom: 0;
     overflow: hidden;
-
-    @include rounded-corners(2px 2px 0 0);
+    border-radius: 2px 2px 0 0;
   }
 
   .image-figure__image {
@@ -40,8 +39,7 @@
   margin-bottom: 2px;
   display: block;
   float:left;
-
-  @include rounded-corners(0 0 2px 2px);
+  border-radius: 0 0 2px 2px;
 }
 
 .poll {
@@ -58,8 +56,7 @@
     &::after {
       content: '';
       position: absolute;
-
-      @include rounded-corners(50%);
+      border-radius: 50%;
     }
     &::before {
       top: 20px;
@@ -166,8 +163,7 @@
   padding: 0;
   margin: 0 0 2px;
   overflow: hidden;
-
-  @include rounded-corners(2px);
+  border-radius: 2px;
 
   // overwrite :(
   &::before {
@@ -207,7 +203,7 @@
   background-color: $color-bg-box;
   padding: 18px 16px;
   cursor: pointer;
-  flex: 1 0 auto; // flexbox
+  flex: 1 0 auto;
 
   &:hover,
   &:focus,
@@ -286,7 +282,8 @@
 
 // last bit
 .poll-form-handling {
-  @include rounded-corners(2px);
+  border-radius: 2px;
+
   .button {
     margin: 6px 0 0;
 
@@ -312,7 +309,6 @@
     background-color: $color-bg-caption;
     margin-bottom: -4px;
     padding: 16px;
-
-    @include rounded-corners(2px);
+    border-radius: 2px;
   }
 }
