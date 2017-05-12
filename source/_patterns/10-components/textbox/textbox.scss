@@ -57,7 +57,7 @@
     @extend .text-list;
     @extend .text-list--unordered;
 
-    padding: 16px 24px;
+    padding: 0 24px;
 
     @include smartphone {
       padding-left: 8px;

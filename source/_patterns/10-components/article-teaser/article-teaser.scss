@@ -1,3 +1,6 @@
+@import "../../variables";
+@import "../../breakpoints";
+
 .article-teaser {
   margin-top: 24px;
   margin-bottom: 20px;
@@ -41,8 +44,8 @@
   float: left;
   border: 0;
   margin-right: 12px;
-  width: 80px;
-  height: 80px;
+  width: $image-size-preview;
+  height: $image-size-preview;
   object-fit: cover;
 
   @include tablet-up {
