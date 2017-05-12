@@ -67,6 +67,7 @@
     background-color: rgba(0, 0, 0, .2);
     height: 110px;
     width: 196px;
+    z-index: 1;
 
     @include smartphone {
       width: $image-size-preview;
@@ -79,9 +80,10 @@
   position: absolute;
   top: 50%;
   left: 50%;
+  width: 68px;
   transform: translate(-50%, -50%);
   text-align: center;
-  width: 68px;
+  z-index: 2;
 
   @include smartphone {
     width: 46px;
