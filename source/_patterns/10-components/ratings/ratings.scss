@@ -1,3 +1,11 @@
+.rating-wrapper {
+  margin: 32px 0;
+
+  @include smartphone {
+    margin: 24px 0;
+  }
+}
+
 .ratingstars {
   margin: 0 auto;
   padding: 0;

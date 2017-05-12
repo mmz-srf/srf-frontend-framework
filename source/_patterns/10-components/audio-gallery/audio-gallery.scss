@@ -2,21 +2,15 @@
 @import "../../breakpoints";
 
 .audio-gallery { // ol
-  margin: 32px -16px 24px;
+  margin: 32px -16px;
 
   @include smartphone {
-    margin: 24px -8px 20px;
-  }
-
-  .article-audio {
-    min-height: 88px;
-    margin: 0;
+    margin: 24px -8px;
   }
 
   .article-audio__wrapper {
     height: $image-size-preview-gallery;
     width: 120px;
-    margin: 16px 0 16px 60px;
 
     &::before {
       height: $image-size-preview-gallery;
@@ -28,9 +22,18 @@
     }
 
     @include smartphone {
-      margin-left: 16px;
       height: $image-size-preview-gallery;
       width: $image-size-preview-gallery;
+    }
+  }
+
+  .article-audio__link {
+    margin: 2px 0;
+  }
+
+  .article-audio__wrapper {
+    @include tablet-up {
+      margin: 16px 0 16px 60px;
     }
   }
 
@@ -52,17 +55,13 @@
   margin: 0 0 2px;
   padding: 0;
 
-  @include smartphone {
-    margin: 0 -16px 2px;
-  }
-
   &:last-of-type {
     margin-bottom: 0;
   }
 
   &::before { // numbering
     left: 16px;
-    top: 33px;
+    top: 39px;
     color: #555;
     font: 18px/20px $font-medium;
 

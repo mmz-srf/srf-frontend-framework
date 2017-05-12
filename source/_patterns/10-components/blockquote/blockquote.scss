@@ -42,7 +42,7 @@
   margin-top: 8px;
   font-family: $font-regular;
   font-size: 14px;
-  line-height: 18px;
+  line-height: 20px;
   letter-spacing: .5px;
   color: $color-text-default;
 
@@ -53,6 +53,7 @@
 .blockquote__function {
   font-family: $font-system;
   font-size: 12px;
-  line-height: 12px;
+  line-height: 16px;
   color: $color-text-light;
+  display: block;
 }
