@@ -140,20 +140,7 @@
 .video--loading,
 .video--playing {
 
-  .article-video__player::before {
-    content: "";
-    display: block;
-    padding-top: 56.25%;
-  }
-
-  .image-figure::before {
-    content: none;
-  }
-}
-
-.video--playing {
-  overflow: hidden;
-
+  // invert caption colours
   &.article-video,
   &.article-video:hover {
     background-color: $color-media-playing;
@@ -180,6 +167,21 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
+  // end invert caption colours
+
+  .article-video__player::before {
+    content: "";
+    display: block;
+    padding-top: 56.25%;
+  }
+
+  .image-figure::before {
+    content: none;
+  }
+}
+
+.video--playing {
+  overflow: hidden;
 
   .image-figure__image-wrapper::before,
   .media-play__icon,
