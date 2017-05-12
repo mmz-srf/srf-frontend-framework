@@ -7,7 +7,7 @@
             {% if comment.isEditorialAnswer %}<span
                     class="h-offscreen">({{ businessUnit|upper }})</span>{% else %}({{ comment.nickname }}){% endif %}
         </cite>
-        <span class="comment__time">{{ comment.dateFormatted }}</span>
+        <span class="comment__time" data-timestamp="{{ comment.date }}">{{ comment.date }}</span>
         <blockquote class="comment__content">{{ comment.message }}</blockquote>
         {% spaceless %}
             <a class="comment__link comment__link--agree" role="link" title="{{ 'Zustimmen'|trans }}" href="#{{ comment.id }}-agree">
@@ -41,7 +41,7 @@
                         <span class="h-offscreen">{{ default.reply_by|default("Antwort von") }} </span>
                         <cite class="comment__user {% if reply.isEditorialAnswer %} comment__user--{{ businessUnit }}{% endif %}">
                             {{ reply.name }}{% if not reply.isEditorialAnswer %} ({{ reply.nickname }}){% endif %}</cite>
-                        <span class="comment__time">{{ reply.dateFormatted }}</span>
+                        <span class="comment__time" data-timestamp="{{ reply.date }}</span>
                         <blockquote class="comment__content">{{ reply.message }}</blockquote>
                         {% spaceless %}
                             <a class="comment__link comment__link--agree" title="{{ 'Zustimmen'|trans }}" role="link" href="#{{ comment.id }}-agree">
