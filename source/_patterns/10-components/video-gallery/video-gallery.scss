@@ -134,9 +134,11 @@
       left: -60px;
       background-image: url('../img/arrows/carousel_arrow_prev-no-background.svg');
     }
-    .carousel__link--next {
-      right: -60px;
-      background-image: url('../img/arrows/carousel_arrow_next-no-background.svg');
+
+  .carousel__link--next {
+    right: -60px;
+    background-image: url('../img/arrows/carousel_arrow_next-no-background.svg');
+
     }
   }
   // end img carousel overwrites
