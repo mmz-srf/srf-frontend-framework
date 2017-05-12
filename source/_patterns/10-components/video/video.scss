@@ -22,7 +22,7 @@
   }
 
   // "image" manipulations: for keeping size / loading bg / dim
-  .image-figure__image-wrapper::before {
+  .image-figure__image-wrapper::after {
     content: "";
     position: absolute;
     height: 100%;
@@ -123,6 +123,32 @@
 
 .article-video__player {
   background-color: #000;
+
+  iframe {
+    position: absolute;
+    height: 100%;
+    width: calc(100% + 2px);
+    top: 50%;
+    transform: translate(0, -50%);
+    left: -1px;
+    right: -1px;
+    background-color: #000;
+  }
+}
+
+// overwriting the above "img frame"
+.video--loading,
+.video--playing {
+
+  .article-video__player::before {
+    content: "";
+    display: block;
+    padding-top: 56.25%;
+  }
+
+  .image-figure::before {
+    content: none;
+  }
 }
 
 .video--playing {
@@ -164,15 +190,6 @@
   // the player (currently) shows a black border left & right :/
   .article-video__player {
     margin: 0 -1px;
-
-    iframe {
-      position: absolute;
-      top: 0;
-      left: -1px;
-      right: -1px;
-      width: calc(100% + 2px);
-      background-color: #000;
-    }
   }
 }
 
