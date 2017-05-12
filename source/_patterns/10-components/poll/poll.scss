@@ -266,10 +266,14 @@
   transform: translate(0, -50%);
   min-width: 72px;
   text-align: right;
-  font: 24px/20px $font-light;
+  font: 18px/20px $font-light;
   letter-spacing: .3px;
   margin: 0 16px 0 0;
   display: none;
+
+  @include tablet-up {
+    font: 24px/20px $font-light;
+  }
 }
 
 .poll-option-rating__bg-color {
