@@ -18,11 +18,6 @@
 .media-caption--in-box {
   padding-left: 0;
   padding-right: 0;
-
-  @include tablet-up {
-    padding-left: 24px;
-    padding-right: 24px;
-  }
 }
 
 .media-caption__title {
