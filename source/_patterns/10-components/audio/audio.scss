@@ -10,7 +10,7 @@
   &:hover,
   &:active,
   &.played {
-    background-color: #ebebe5;
+    background-color: $color-bg-box;
 
     .article-audio__play-icon {
       background-image: url('../img/play-active.svg');
@@ -30,9 +30,7 @@
     .spinner-container {
       display: none;
     }
-    .spinner {
-      animation: none;
-    }
+    .spinner,
     .spinner__circle--dash {
       animation: none;
     }
@@ -111,10 +109,7 @@
   .article-audio__play-icon {
     display: none;
   }
-
-  .article-audio__wrapper::after {
-    // opacity: 0;
-  }
+  // .article-audio__wrapper::after { opacity: 0; }
 
   .media-caption__title {
     color: $color-bg-caption;
