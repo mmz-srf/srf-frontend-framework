@@ -3,9 +3,8 @@
   background-color: #1a7ac5;
   color: white;
   margin: 0 auto 30px;
-  width: calc(100% - 32px);
   border-radius: 2px;
-  padding: 20px 30px;
+  padding: 20px 32px;
 
   @include tablet {
     max-width: 654px;
@@ -17,10 +16,6 @@
 
   @include desktop-wide {
     max-width: 790px;
-  }
-
-  @include smartphone {
-    padding: 20px 25px;
   }
 
   .form__validation-success {
