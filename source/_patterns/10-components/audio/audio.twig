@@ -18,6 +18,10 @@
                          src="{{ audio.img_src }}">
                 {% endblock %}
 
+                {% block audio_dimmer %}
+                    <div class="article-audio__dimmer"></div>
+                {% endblock %}
+
                 {% block play_icon %}
                     {% include 'elements-play-icon' with {'media': 'audio'} %}
                 {% endblock %}
