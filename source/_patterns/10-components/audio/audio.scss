@@ -115,10 +115,6 @@
     cursor: default;
   }
 
-  .article-audio__wrapper::before {
-    opacity: 0;
-  }
-
   .article-audio__play-icon {
     display: none;
   }
@@ -161,6 +157,7 @@
 }
 
 .audio--playing {
+
   .article-audio__wrapper::before {
     opacity: 0;
   }
