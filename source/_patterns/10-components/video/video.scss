@@ -139,6 +139,7 @@
 // overwriting the above "img frame"
 .video--loading,
 .video--playing {
+  overflow: hidden;
 
   // invert caption colours
   &.article-video,
@@ -181,7 +182,6 @@
 }
 
 .video--playing {
-  overflow: hidden;
 
   .image-figure__image-wrapper::before,
   .media-play__icon,
