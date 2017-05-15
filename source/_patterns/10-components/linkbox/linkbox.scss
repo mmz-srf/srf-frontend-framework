@@ -1,10 +1,9 @@
 .linkbox {
-  margin: 40px 0;
+  margin: 40px 0 24px;
 
   @include smartphone {
     @include fullwidth-element;
     margin-top: 32px;
-    margin-bottom: 32px;
     padding: 0 8px;
   }
 }
@@ -12,10 +11,16 @@
 .linkbox__title {
   margin: 0 0 16px;
   font-family: $font-medium;
-  font-size: 22px;
+  font-size: 20px;
   line-height: 28px;
+  letter-spacing: .3px;
 
   @include article-text-padding;
+
+  @include smartphone {
+    font-size: 18px;
+    letter-spacing: .5px;
+  }
 }
 
 .linkbox__list {
