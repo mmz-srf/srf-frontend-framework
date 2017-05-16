@@ -1,14 +1,13 @@
 @import "../../variables";
 
 .video-gallery-container {
-  margin: 24px -8px;
-  padding: 0 20px;
-  // overflow: hidden; // !!! CHECK !!!
+  margin: 0 -8px;
+  padding: 0 20px 12px;
   background-color: #f5f5f2;
 
   @include tablet-up {
-    margin: 32px 0;
-    padding: 0 58px;
+    margin: 0;
+    padding: 0 58px 12px;
   }
 
   // player integration:
@@ -22,7 +21,7 @@
 
 .video-gallery {
   overflow: visible;
-  margin: 24px 0 12px;
+  margin: 24px 0 0;
 
   .carousel__item {
     display: flex;
@@ -220,6 +219,10 @@
 .video-gallery__player {
   height: 0; // initial ...
   transition: height .4s;
+
+  &::after {
+    transition: border-bottom .4s;
+  }
 }
 .video-gallery-container__player-close {
   width: 0
@@ -228,18 +231,28 @@
 // .video-gallery-container
 .video-gallery--playing { // :/
   position: relative;
-  // .video-gallery-container
-  // --> video-gallery__player-container l-full-width-container
-  // --> --> video-gallery-container__player-close // video-gallery__player
 
   .video-gallery__player-container { // fullwidth
     background-color: #22211d;
+
+    &::after { // dreieckli
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+      width: 0;
+      border-left: solid 10px transparent;
+      border-right: solid 10px transparent;
+      border-bottom: solid 10px #f5f5f2;
+    }
   }
 
   .video-gallery-container__player-close { // [x]
     position: absolute;
     top: 16px;
-    right: 64px;
+    right: calc(50% - 265px);
     width: 20px;
     z-index: 1;
     @include desktop-up {
@@ -265,20 +278,6 @@
         margin: 24px 50%;
       }
     }
-
-    &::after { // dreieckli
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      margin: 0 auto;
-      width: 0;
-      border-left: solid 10px transparent;
-      border-right: solid 10px transparent;
-      border-bottom: solid 10px #f5f5f2;
-    }
-
   }
 
   // gallery overwrites
