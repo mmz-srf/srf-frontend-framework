@@ -177,6 +177,8 @@
   margin: 16px 0px 16px 16px;
   right: auto; /* overwrite */
   left: auto; /* overwrite */
+  flex-direction: column;
+  flex-wrap: nowrap;
 
   @include tablet-up {
     width: 228px;
@@ -188,9 +190,8 @@
     height: 92px;
     width: 92px;
     @include tablet-up {
-      float:none;
       width: 100%;
-      height: auto;
+      height: 128px;
     }
   }
 
