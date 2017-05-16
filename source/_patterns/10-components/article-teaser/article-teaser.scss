@@ -34,12 +34,8 @@
 }
 
 .article-teaser__wrapper {
-  display: block;
+  display: inline-block;
   margin: 16px;
-  
-  @include tablet-up {
-    overflow: hidden;
-  }
 }
 
 .article-teaser__image {
@@ -58,6 +54,7 @@
 
 .article-teaser__content {
   margin-left: 92px;
+  overflow: hidden;
 
   @include tablet-up {
     margin-left: 158px;
