@@ -3,7 +3,7 @@
     {% set commentIds = commentIds|merge([comment.id]) %}
     <li id="comment_{{ comment.id }}" class="comment">
         <cite class="comment__user {% if comment.isEditorialAnswer %} comment__user--{{ businessUnit }}{% endif %}" role="combobox">
-            <span class="h-offscreen">{{ default.comment_by|default("Kommentar von") }} </span>{{ comment.name }}
+            <span class="h-offscreen">{{ 'Kommentar von'|trans }} </span>{{ comment.name }}
             {% if comment.isEditorialAnswer %}<span
                     class="h-offscreen">({{ businessUnit|upper }})</span>{% else %}({{ comment.nickname }}){% endif %}
         </cite>
@@ -27,7 +27,7 @@
                 <span class="vertical-separator" aria-hidden="true" role="presentation"></span>
                 <a class="comment__link comment__link--reply" href="#{{ comment.id }}-reply" role="link" title="{{ 'Antworten'|trans }}">
                     {{ 'Antworten'|trans }}
-                    <span class="h-offscreen">{{ default.select_to_reply|default("anwählen um auf den Kommentar zu antworten") }}</span>
+                    <span class="h-offscreen">{{ 'anwählen um auf den Kommentar zu antworten'|trans }}</span>
                 </a>
                 <span class="comment__placeholder" id="placeholder_{{ comment.id }}"></span>
             {% endif %}
@@ -38,7 +38,7 @@
                 {% for reply in comment.children %}
                     {% set commentIds = commentIds|merge([reply.id]) %}
                     <li id="comment_{{ reply.id }}" class="comment">
-                        <span class="h-offscreen">{{ default.reply_by|default("Antwort von") }} </span>
+                        <span class="h-offscreen">{{ 'Antwort von'|trans }} </span>
                         <cite class="comment__user {% if reply.isEditorialAnswer %} comment__user--{{ businessUnit }}{% endif %}">
                             {{ reply.name }}{% if not reply.isEditorialAnswer %} ({{ reply.nickname }}){% endif %}</cite>
                         <span class="comment__time" data-timestamp="{{ reply.date }}"</span>
