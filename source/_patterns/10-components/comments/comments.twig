@@ -1,4 +1,7 @@
-<section class="article-comments l-full-width-container">
+<section class="article-comments l-full-width-container js-article-comments"
+         data-i18n-text-clock="{{ 'Uhr'|trans }}"
+         data-i18n-text-today="{{ 'Heute'|trans }}"
+         data-i18n-text-yesterday="{{ 'Gestern'|trans }}">
     <div class="comments-wrapper" data-total-count="{{ comments.total_count }}" {% block data_attributes %}{% endblock %}>
         <div class="comments-header">
             <h3 class="comments-header__title comments--shrink">
