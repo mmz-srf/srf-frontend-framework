@@ -199,7 +199,7 @@
   outline: none;
 }
 
-.article-video--simple {
+.article-media--simple {
     float: right;
     width: 92px;
     height: auto;
@@ -234,6 +234,10 @@
 
     .media-play {
         width:40px
+    }
+    
+    .media-play__icon {
+      margin-bottom:0;
     }
 
     .image-figure--simple {
