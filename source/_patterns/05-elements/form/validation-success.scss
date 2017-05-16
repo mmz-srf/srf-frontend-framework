@@ -1,6 +1,10 @@
 .form__validation {
   display: none;
   background-color: #1a7ac5;
+  font-family: SRG_SSR_Regular;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.5px;
   color: white;
   margin: 0 auto 30px;
   border-radius: 2px;
@@ -24,6 +28,13 @@
     @include smartphone {
       height: 140px;
     }
+  }
+
+  .form__validation-error {
+    display: none;
+    margin-top: 10px;
+    color: #c91024;
+    font-weight: 300;
   }
 
   .form__success-icon {
