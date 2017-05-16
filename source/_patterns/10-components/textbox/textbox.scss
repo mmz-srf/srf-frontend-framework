@@ -33,7 +33,6 @@
   letter-spacing: .3px;
 
   @include smartphone {
-    margin: 12px 0 8px;
     font-size: 18px;
     line-height: 28px;
     letter-spacing: .5px;
@@ -46,7 +45,7 @@
     margin: 12px 0 24px;
 
     @include smartphone {
-      margin: 12px 0 20px;
+      margin: 8px 0 16px;
       padding: 0 8px;
     }
 
@@ -57,6 +56,13 @@
     // tip: always be careful with @extend
     @extend .text-list;
     @extend .text-list--unordered;
+
+    padding: 16px 24px;
+
+    @include smartphone {
+      padding-left: 8px;
+      padding-right: 8px;
+    }
   }
 
   & > ol {

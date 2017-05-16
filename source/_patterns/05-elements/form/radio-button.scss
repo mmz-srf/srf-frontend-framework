@@ -43,8 +43,7 @@
   &::after {
     content: '';
     position: absolute;
-
-    @include rounded-corners(50%);
+    border-radius: 50%;
   }
 
   &::before { // border

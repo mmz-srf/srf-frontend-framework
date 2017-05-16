@@ -1,3 +1,6 @@
+@import "../../variables";
+@import "../../breakpoints";
+
 .related-list {
   color: $color-text-default;
   margin: 24px -8px 32px;
@@ -14,8 +17,26 @@
     margin: 0;
   }
 
+  li {
+    a,
+    a:hover,
+    a:visited,
+    a:active {
+      border: 0;
+    }
+  }
+
   li::before {
     background: none;
+  }
+
+  .article-audio__link {
+    margin: 0;
+  }
+
+  .article-video {
+    display: inline-block;
+    width: 100%;
   }
 
   .article-audio,
@@ -30,42 +51,41 @@
     &:active {
       background-color: $color-link-bg-active;
     }
+  }
 
-    &__wrapper {
+  .article-audio__wrapper,
+  .article-video__wrapper {
+    width: 142px;
+    height: $image-size-preview;
+    margin: 16px 0 16px 16px;
+
+    @include smartphone {
+      width: $image-size-preview;
+    }
+
+    &::before {
       width: 142px;
-      height: 80px;
-      margin: 16px 0 16px 16px;
+      height: $image-size-preview;
 
       @include smartphone {
-        width: 80px;
-      }
-
-      &::before {
-        width: 142px;
-        height: 80px;
-        @include smartphone {
-          width: 80px;
-        }
+        width: $image-size-preview;
       }
     }
+  }
 
-    &__play-icon {
-      width: 46px;
-    }
+  .article-audio__play-icon,
+  .article-video__play-icon {
+    width: 46px;
   }
 
   .article-audio .image-figure__image,
   .article-video .image-figure__image {
     width: 142px;
-    height: 80px;
+    height: $image-size-preview;
 
     @include smartphone {
-      width: 80px;
+      width: $image-size-preview;
     }
-  }
-
-  .media-caption--audio {
-    margin-left: 96px;
   }
 }
 
