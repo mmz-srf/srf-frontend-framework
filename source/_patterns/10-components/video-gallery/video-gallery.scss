@@ -220,8 +220,9 @@
   height: 0; // initial ...
   transition: height .4s;
 
-  &::after {
-    transition: border-bottom .4s;
+  &::after { // doesn't appear to be working :/
+    bottom: -10px;
+    transition: bottom .4s;
   }
 }
 .video-gallery-container__player-close {
@@ -280,18 +281,33 @@
     }
   }
 
-  // gallery overwrites
-  .video--loading .article-video__player::before {
-    content: none;
-  }
-
+  // video play overwrites
+  .video--loading,
   .video--playing {
+
     .article-video:hover .media-caption--video,
     .media-caption--video {
       background-color: #383732 !important; // :/
     }
+
     .media-caption__title {
       color: #f5f5f2;
+    }
+  }
+
+  // gallery overwrites
+  .video--loading {
+    .article-video__player::before {
+      content: none;
+    }
+    .media-play {
+      display: none;
+    }
+  }
+
+  .video--playing {
+    .article-video__player {
+      margin: 0;
     }
   }
 }
