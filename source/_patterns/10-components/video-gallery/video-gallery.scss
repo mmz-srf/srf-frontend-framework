@@ -217,8 +217,8 @@
 // player integration
 
 .video-gallery__player {
-  height: 0; // initial ...
-  transition: height .4s;
+  // height: 0; // initial ...
+  // transition: height .4s; // <-- let's js!
 
   &::after { // doesn't appear to be working :/
     bottom: -10px;
@@ -288,6 +288,7 @@
     .article-video:hover .media-caption--video,
     .media-caption--video {
       background-color: #383732 !important; // :/
+      transition: none;
     }
 
     .media-caption__title {
