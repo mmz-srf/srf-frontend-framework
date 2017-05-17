@@ -51,14 +51,6 @@
   }
 }
 
-@mixin rounded-corners($border-radius : "2px") {
-  @if $border-radius != "" {
-    -webkit-border-radius: $border-radius;
-    -moz-border-radius: $border-radius;
-    border-radius: $border-radius;
-  }
-}
-
 @mixin rotate-spinner {
   100% {
     transform: rotate(360deg);

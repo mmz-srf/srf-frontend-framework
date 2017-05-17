@@ -1,3 +1,5 @@
+@import "../../variables";
+
 .article-media {
   margin: 0;
 
@@ -55,11 +57,10 @@
 .poll--with-media.poll--submitted {
   .article-media {
     position: relative;
-    width: 72px;
-    height: 72px;
+    width: $image-size-preview-gallery;
+    height: $image-size-preview-gallery;
     right: 0;
-    margin: 8px;
-    padding: 4px;
+    margin: 16px;
     float: right;
     z-index: 1; // ???
   }
