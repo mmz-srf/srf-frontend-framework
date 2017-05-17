@@ -53,8 +53,8 @@
 }
 
 .article-teaser__content {
-  margin-left: 92px;
-  overflow: hidden;
+  margin-left: 104px;
+  min-height: 92px;
 
   @include tablet-up {
     margin-left: 158px;
