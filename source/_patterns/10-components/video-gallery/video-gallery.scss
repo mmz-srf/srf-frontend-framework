@@ -305,6 +305,7 @@
     .article-video:hover .media-caption--video,
     .media-caption--video {
       background-color: #383732 !important; // :/
+      transition: none; // not sure ...
     }
 
     .media-caption__title {

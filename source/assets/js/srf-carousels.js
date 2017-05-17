@@ -13,6 +13,10 @@ export function init() {
         $(css.containers).css("visibility", "visible");
     });
 
+    $(".video_carousel__js").on("init", function () {
+        $(this).css("visibility", "visible");
+    });
+
     // img carousels
     $.each($carousels, function (i, carousel) {
         var $carousel = $(carousel),
