@@ -41,7 +41,7 @@
                         <span class="h-offscreen">{{ 'Antwort von'|trans }} </span>
                         <cite class="comment__user {% if reply.isEditorialAnswer %} comment__user--{{ businessUnit }}{% endif %}">
                             {{ reply.name }}{% if not reply.isEditorialAnswer %} ({{ reply.nickname }}){% endif %}</cite>
-                        <span class="comment__time" data-timestamp="{{ reply.date }}"</span>
+                        <span class="comment__time" data-timestamp="{{ reply.date }}"></span>
                         <blockquote class="comment__content">{{ reply.message }}</blockquote>
                         {% spaceless %}
                             <a class="comment__link comment__link--agree" title="{{ 'Zustimmen'|trans }}" role="link" href="#{{ comment.id }}-agree">
