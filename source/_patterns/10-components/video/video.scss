@@ -127,11 +127,10 @@
   iframe {
     position: absolute;
     height: 100%;
-    width: calc(100% + 2px);
+    // width: calc(100% + 2px);
     top: 50%;
     transform: translate(0, -50%);
-    left: -1px;
-    right: -1px;
+    // left: -1px; right: -1px;
     background-color: #000;
   }
 }
@@ -191,7 +190,7 @@
 
   // the player (currently) shows a black border left & right :/
   .article-video__player {
-    margin: 0 -1px;
+    // margin: 0 -1px;
   }
 }
 

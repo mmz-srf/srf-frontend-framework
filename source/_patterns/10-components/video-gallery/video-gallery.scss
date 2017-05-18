@@ -61,7 +61,6 @@
       &:hover,
       &:active,
       &:focus {
-        // outline: none;
         box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.24);
 
         .media-caption--video {
@@ -100,7 +99,6 @@
   .media-caption--video {
     background-color: #fefefd;
     padding: 8px 12px 12px;
-    // transition: background-color .2s ease-in-out;
     display: flex;
     flex-direction: column;
     flex: 1 0 auto;
@@ -224,9 +222,7 @@
   }
 }
 
-// @include tablet-up {
 // player integration
-
 .video-gallery__player {
   height: 0; // initial ...
   transition: height .4s;
@@ -361,6 +357,21 @@
 
   .media-caption__title {
     color: #f5f5f2;
+  }
+}
+
+.video--visited {
+  // not to have the iframe frame collapse ...
+  .article-video__player::before {
+    content: "";
+    display: block;
+    padding-top: 56.25%;
+  }
+
+  &:not(.video--loading):not(.video--playing) {
+    .image-figure__image-wrapper {
+      margin-top: -56.25%;
+    }
   }
 }
 // end player integration
