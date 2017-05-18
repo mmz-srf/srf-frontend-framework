@@ -5,6 +5,10 @@
   padding: 0 20px 12px;
   background-color: #f5f5f2;
 
+  @include smartphone {
+    overflow: hidden;
+  }
+
   @include tablet-up {
     margin: 0;
     padding: 0 58px 12px;
@@ -138,12 +142,12 @@
     }
 
     .carousel__link--prev {
-      left: -60px;
+      left: -58px;
       background-image: url('../img/arrows/carousel_arrow_prev-no-background.svg');
     }
 
   .carousel__link--next {
-    right: -60px;
+    right: -58px;
     background-image: url('../img/arrows/carousel_arrow_next-no-background.svg');
 
     }
@@ -259,6 +263,16 @@
   }
 
   .video-gallery-container__player-close { // [x]
+    /* // button:
+    background: transparent url("/var/storage/assets/img/close.svg") repeat scroll 0 0;
+    border: 0 none;
+    color: transparent;
+    height: 20px;
+    position: absolute;
+    right: calc(50% - 328px);
+    top: 16px;
+    width: 20px;
+    */
     position: absolute;
     top: 16px;
     right: calc(50% - 328px);
@@ -273,9 +287,7 @@
   .video-gallery__player { // player container
     position: relative;
     height: 448px;
-    @include desktop-up {
-      height: 448px;
-    }
+    // @include desktop-up { height: 448px; }
     @include desktop-wide {
       height: 492px;
     }
