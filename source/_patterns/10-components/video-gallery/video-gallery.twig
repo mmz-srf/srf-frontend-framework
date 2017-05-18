@@ -1,10 +1,6 @@
 <div class="video-gallery-container {{ styleModifierGallery }}">
-    <img src="{{ frameworkAssetPath }}/img/close.svg" class="video-gallery-container__player-close"
-         alt="{{ 'Schliessen'|trans }}">
-    <div class="video-gallery-container__player">
-        {% if styleModifier == 'video--playing' %}
-            <iframe></iframe>{% endif %}
-    </div>
+    <button class="video-gallery-container__player-close" value="{{ 'Schliessen'|trans }}"></button>
+    <div class="video-gallery-container__player"><!-- here we expect a player --></div>
     <div class="video-gallery carousel video_carousel__js" id="{{ video_gallery.ID }}">
         {% for video in videos %}
             <div class="carousel__item">
