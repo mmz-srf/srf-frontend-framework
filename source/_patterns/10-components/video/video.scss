@@ -148,8 +148,8 @@
     cursor: default;
   }
 
-  &:hover .media-caption,
-  .media-caption { // :/
+  &:hover .media-caption--video,
+  .media-caption--video { // :/
     background-color: $color-media-playing;
   }
 
