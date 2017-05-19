@@ -2,7 +2,7 @@
     <div class="carousel carousel__js" id="{{ image_carousel.ID }}">
         {% for image in images %}
             <div class="carousel__item">
-                {% include 'components-image-figure' with {
+                {% include 'molecules-image-figure' with {
                     'styleModifier': imageCaptionStyle,
                     'images': [image],
                     'currentIndex': loop.index,

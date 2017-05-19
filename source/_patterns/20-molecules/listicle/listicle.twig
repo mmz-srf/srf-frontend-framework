@@ -7,7 +7,7 @@
                 {{ articleHeader.lead }}
             </div>
             <div class="listicle-element__media">
-                {% include 'components-image-figure' with { 'imageCaptionStyle': 'media-caption--no-bg'} %}
+                {% include 'molecules-image-figure' with { 'imageCaptionStyle': 'media-caption--no-bg'} %}
             </div>
             <div class="listicle-element__content">
                 {{ articleText.text }}
@@ -19,7 +19,7 @@
         <li class="listicle-element">
             <h4 class="listicle-element__title">2. {{ articleText.title }}</h4>
             <div class="listicle-element__media">
-                {% include 'components-video' %}
+                {% include 'molecules-video' %}
             </div>
             <div class="listicle-element__content">
                 {{ articleText.text }}
@@ -32,7 +32,7 @@
         <li class="listicle-element">
             <h4 class="listicle-element__title">3. {{ articleText.title }}</h4>
             <div class="listicle-element__media">
-                {% include 'components-audio' %}
+                {% include 'molecules-audio' %}
             </div>
             <div class="listicle-element__content">
                 {{ articleText.text }}

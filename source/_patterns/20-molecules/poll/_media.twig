@@ -18,7 +18,7 @@
              src="{{ image.sources.s8.src }}">
         {% if media.type == "audio" or media.type == "video" %}
 
-        {% include 'components-play-icon-with-runtime' with {
+        {% include 'molecules-play-icon-with-runtime' with {
             'media': media.type,
             'runtime': media.length
             }

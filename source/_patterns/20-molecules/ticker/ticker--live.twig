@@ -8,11 +8,11 @@
         <ul class="ticker ticker--live">
             <li class="ticker-item ticker-item--new">{{ ticker.ticker_heading('10:13', 1) }}</li>
             <li class="ticker-item">{{ ticker.ticker_heading('10:07') }}{{ ticker_text|raw }}</li>
-            <li class="ticker-item">{{ ticker.ticker_heading('10:04', 2) }}{% include 'components-audio' %}</li>
-            <li class="ticker-item">{{ ticker.ticker_heading('09:56', 3) }}{% include 'components-image-figure' %}</li>
+            <li class="ticker-item">{{ ticker.ticker_heading('10:04', 2) }}{% include 'molecules-audio' %}</li>
+            <li class="ticker-item">{{ ticker.ticker_heading('09:56', 3) }}{% include 'molecules-image-figure' %}</li>
             <li class="ticker-item">{{ ticker.ticker_heading('09:07', 4) }}{{ articleText.text[0:300]|raw }}...</li>
-            <li class="ticker-item">{{ ticker.ticker_heading('08:42', 5) }}{% include 'components-video' %}</li>
-            <li class="ticker-item">{{ ticker.ticker_heading('08:30', 6) }}{% include 'components-table-block' %}</li>
+            <li class="ticker-item">{{ ticker.ticker_heading('08:42', 5) }}{% include 'molecules-video' %}</li>
+            <li class="ticker-item">{{ ticker.ticker_heading('08:30', 6) }}{% include 'molecules-table-block' %}</li>
             <li class="ticker-item">{{ ticker.ticker_heading('08:13', 7) }}{% include 'atoms-text-list--unordered' %}</li>
         </ul>
     </div>
