@@ -19,10 +19,10 @@
                 {% endblock %}
 
                 {% block play_icon %}
-                    {% include 'elements-play-icon' with {'media': 'audio'} %}
+                    {% include 'atoms-play-icon' with {'media': 'audio'} %}
                 {% endblock %}
                 {% block loading_spinner %}
-                    {% include 'elements-spinner' with { 'styleModifier' : 'spinner__circle--dash-white' } %}
+                    {% include 'atoms-spinner' with { 'styleModifier' : 'spinner__circle--dash-white' } %}
                 {% endblock %}
             </div>
             {% block audio_caption %}

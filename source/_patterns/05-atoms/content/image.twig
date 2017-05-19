@@ -12,7 +12,7 @@
          src="{{ src }}">
     {% block image_carousel_counter %}
         {% if currentIndex and totalCount %}
-            {% include 'elements-carousel-counter' with { 'currentIndex': currentIndex, 'totalCount': totalCount, 'accessibilityInfo' : 'Bild' } %}
+            {% include 'atoms-carousel-counter' with { 'currentIndex': currentIndex, 'totalCount': totalCount, 'accessibilityInfo' : 'Bild' } %}
         {% endif %}
     {% endblock %}
 </div>

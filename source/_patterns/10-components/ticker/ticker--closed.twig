@@ -2,7 +2,7 @@
 
 <div class="ticker__wrapper">
     <h2 class="ticker__title">Ticker closed</h2>
-    {% include 'elements-text-list--unordered' %}
+    {% include 'atoms-text-list--unordered' %}
     <p>Infos zum Ticker</p>
     <p class="ticker__info">Der Ticker ist abgeschlossen</p>
     <div><!-- div to override styling :( -->
@@ -11,7 +11,7 @@
             <li class="ticker-item">{{ ticker.ticker_heading('10:21', 2) }}
                 <div class="linkbox">
                     <ul class="linkbox__list">
-                        <li>{% include 'elements-block-link' with {'styleModifier': 'block-link--internal'} %}</li>
+                        <li>{% include 'atoms-block-link' with {'styleModifier': 'block-link--internal'} %}</li>
                     </ul>
                 </div>
             </li>

@@ -75,7 +75,7 @@
         <figure id="{{ voteId }}" class="polis-map" data-vote="{{ voteId }}" data-api="{{ polis.src }}" data-has-cantonal-majority="{{ vote.needsCantonalMajority }}"
                 aria-hidden="true">
             {% block polis_map %}
-                {% include "elements-chmap.svg" with { 'idReference': voteId } %}
+                {% include 'atoms-chmap.svg' with { 'idReference': voteId } %}
             {% endblock %}
 
             <p class="polis-map__participation{% if vote.results.nationalResults.relative.participation == 0 %} polis--hide{% endif %}">
@@ -84,7 +84,7 @@
                 </p>
 
             {% block polis_legend %}
-                {% include "_polis-legend.twig" %}
+                {% include '_polis-legend.twig' %}
             {% endblock %}
 
         </figure>
@@ -92,7 +92,7 @@
     {# Abstand ... #}
     <div class="polis-cantons-container">
         {% block polis_elements_select %}
-            {% include 'elements-select' with { 'styleModifier': 'js-polis-menu menu--inactive', 'menu': menu, 'fieldID': 'menu-' ~ vote.id } %}
+            {% include 'atoms-select' with { 'styleModifier': 'js-polis-menu menu--inactive', 'menu': menu, 'fieldID': 'menu-' ~ vote.id } %}
         {% endblock %}
         {% block polis_districts %}
             {% include '_polis-districts.twig' %}

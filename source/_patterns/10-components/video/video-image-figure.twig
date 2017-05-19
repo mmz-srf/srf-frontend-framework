@@ -13,7 +13,7 @@
         {% endblock %}
 
         {% block plain_play_icon %}
-            {% include 'elements-play-icon' with { 'media': 'video' } %}
+            {% include 'atoms-play-icon' with { 'media': 'video' } %}
         {% endblock %}
     </div>
 {% else %}
@@ -33,7 +33,7 @@
 
             {% block image_carousel_counter %}
                 {% if currentIndex and totalCount %}
-                    {% include 'elements-carousel-counter' with { 'currentIndex': currentIndex, 'totalCount': totalCount } %}
+                    {% include 'atoms-carousel-counter' with { 'currentIndex': currentIndex, 'totalCount': totalCount } %}
                 {% endif %}
             {% endblock %}
 
