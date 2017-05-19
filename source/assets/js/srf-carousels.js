@@ -17,6 +17,12 @@ export function init() {
         $(this).css("visibility", "visible");
     });
 
+    // desperate measures ...
+    $(".video_carousel__js").on("breakpoint", function (event, slick, breakpoint) {
+        $(document).trigger("srf.slick.resized", event, slick);
+        console.log("breakpoint reached: ", event, slick, breakpoint)
+    });
+    
     // img carousels
     $.each($carousels, function (i, carousel) {
         var $carousel = $(carousel),
