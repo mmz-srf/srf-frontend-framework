@@ -122,10 +122,9 @@
     .media-play__icon {
       margin-bottom: 3px;
     }
-  }
-
+    // }
   // img carousel overwrites
-  @include tablet-up {
+    // @include tablet-up {
     .carousel__link--prev,
     .carousel__link--next {
       width: 56px;
@@ -151,10 +150,16 @@
       background-image: url('../img/arrows/carousel_arrow_prev-no-background.svg');
     }
 
-  .carousel__link--next {
-    right: -58px;
-    background-image: url('../img/arrows/carousel_arrow_next-no-background.svg');
+    .carousel__link--next {
+      right: -58px;
+      background-image: url('../img/arrows/carousel_arrow_next-no-background.svg');
+    }
+  }
 
+  @include smartphone {
+    .carousel__link--prev,
+    .carousel__link--next {
+      display: none !important;
     }
   }
   // end img carousel overwrites
@@ -167,6 +172,21 @@
   @include tablet-up {
     .slick-list {
       overflow: hidden; // cuts the right most img off :/
+      // padding: 0 58px;
+    }
+  }
+
+  .carousel__item {
+    @include smartphone {
+      width: calc(100vw - 40px);
+    }
+
+    @include tablet-up {
+      width: 270px !important;
+    }
+
+    @include desktop-up {
+      width: 199px !important;
     }
   }
 }

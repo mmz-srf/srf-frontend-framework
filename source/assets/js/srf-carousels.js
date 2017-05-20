@@ -19,7 +19,7 @@ export function init() {
 
     // desperate measures ...
     $(".video_carousel__js").on("breakpoint", function (event, slick, breakpoint) {
-        $(document).trigger("srf.slick.resized", event, slick);
+        // $(document).trigger("srf.slick.resized", event, slick);
         console.log("breakpoint reached: ", event, slick, breakpoint)
     });
     
@@ -57,36 +57,15 @@ export function init() {
             slidesToScroll: 1,
             initialSlide: 0,
             dots: true,
-            arrows: false,
+            // arrows: false,
             appendArrows: "#" + id + " .slick-list",
-            mobileFirst: true,
-            centerMode: true,
+            // mobileFirst: true,
+            centerMode: false,
             centerPadding: "0",
-            responsive: [
-                {
-                    breakpoint: 1024, // desktop
-                    settings: {
-                        slidesToShow: 3,
-                        slidesToScroll: 3,
-                        arrows: true,
-                        prevArrow: '<button class="carousel__link--prev"><span class="h-offscreen h-offscreen-focusable">Vorhergehendes Bild</span></button>',
-                        nextArrow: '<button class="carousel__link--next"><span class="h-offscreen h-offscreen-focusable">Nächstes Bild</span></button>',
-                        centerMode: false,
-                        centerPadding: "60px"
-                    }
-                }, {
-                    breakpoint: 720, // tablet
-                    settings: {
-                        slidesToShow: 2,
-                        slidesToScroll: 2,
-                        arrows: true,
-                        prevArrow: '<button class="carousel__link--prev"><span class="h-offscreen h-offscreen-focusable">Vorhergehendes Bild</span></button>',
-                        nextArrow: '<button class="carousel__link--next"><span class="h-offscreen h-offscreen-focusable">Nächstes Bild</span></button>',
-                        centerMode: false,
-                        centerPadding: "60px"
-                    }
-                }
-            ]
+            variableWidth: true,
+            prevArrow: '<button class="carousel__link--prev"><span class="h-offscreen h-offscreen-focusable">Vorhergehendes Bild</span></button>',
+            nextArrow: '<button class="carousel__link--next"><span class="h-offscreen h-offscreen-focusable">Nächstes Bild</span></button>',
+            
         });
     });
 }
