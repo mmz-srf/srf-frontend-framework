@@ -1,7 +1,6 @@
-.form__validation {
+.form__validation-succes {
   display: none;
   background-color: #1a7ac5;
-  font-family: SRG_SSR_Regular;
   font-size: 16px;
   line-height: 1.5;
   letter-spacing: 0.5px;
@@ -10,11 +9,9 @@
   border-radius: 2px;
   padding: 30px 40px;
 
-  .form__validation-success {
-    @include smartphone {
-      height: 140px;
-      text-align: center;
-    }
+  @include smartphone {
+    text-align: center;
+    padding: 30px;
   }
 
   .form__success-icon {
@@ -32,7 +29,6 @@
 
 .form__validation-error {
   display: none;
-  font-family: SRG_SSR_Regular;
   font-size: 16px;
   line-height: 1.5;
   letter-spacing: 0.5px;
