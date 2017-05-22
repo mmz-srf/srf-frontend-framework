@@ -181,15 +181,15 @@
     }
 
     @include tablet-up {
-      width: 270px !important;
+      width: 270px;
     }
 
     @include desktop-up {
-      width: 199px !important;
+      width: 199px;
     }
 
     @include desktop-wide {
-      width: 226px !important;
+      width: 226px;
     }
   }
 }
