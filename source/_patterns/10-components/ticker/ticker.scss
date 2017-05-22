@@ -1,8 +1,8 @@
 .ticker {
-  padding: 0 6px;
   margin-top: 30px;
   margin-bottom: 24px;
   padding: 0 20px;
+
   @include smartphone {
     margin-bottom: 20px;
   }
@@ -96,7 +96,11 @@
     margin-top: 24px;
 
     @include smartphone {
-      margin: 10px -40px 12px -41px;
+      @include calculated-fullwidth-element(8px);
+
+      margin-top: 10px;
+      margin-bottom: 12px;
+
       border: 5px solid #fff;
       border-width: 5px 0;
       box-shadow: 0 0 10px 10px #fff; // like gradient
