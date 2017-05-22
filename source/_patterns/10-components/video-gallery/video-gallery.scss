@@ -119,12 +119,12 @@
       width: 48px;
       transform: translate(-50%, -24px);
     }
+
     .media-play__icon {
       margin-bottom: 3px;
     }
-    // }
-  // img carousel overwrites
-    // @include tablet-up {
+
+    // img carousel overwrites
     .carousel__link--prev,
     .carousel__link--next {
       width: 56px;
@@ -172,7 +172,6 @@
   @include tablet-up {
     .slick-list {
       overflow: hidden; // cuts the right most img off :/
-      // padding: 0 58px;
     }
   }
 
@@ -187,6 +186,10 @@
 
     @include desktop-up {
       width: 199px !important;
+    }
+
+    @include desktop-wide {
+      width: 226px !important;
     }
   }
 }
@@ -225,7 +228,7 @@
       content: '•';
       font-size: 28px;
       line-height: 10px;
-      color: #000; // die Farben sind nicht zu erkennen :(
+      color: #000;
       opacity: .2;
     }
 
@@ -263,7 +266,7 @@
       &::before {
         content: "";
         display: block;
-        padding-top: 67%;
+        padding-top: calc(56.25% + 56px);
       }
     }
 
@@ -387,7 +390,7 @@
     display: block;
     padding-top: 56.25%;
   }
-
+  // nor the image frame
   &:not(.video--loading):not(.video--playing) {
     .image-figure__image-wrapper {
       margin-top: -56.25%;
@@ -395,4 +398,3 @@
   }
 }
 // end player integration
-// } // end @include tablet-up {
