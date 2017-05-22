@@ -96,7 +96,7 @@
     margin-top: 24px;
 
     @include smartphone {
-      @include calculated-fullwidth-element(8px);
+      @include fullwidth-element();
 
       margin-top: 10px;
       margin-bottom: 12px;
