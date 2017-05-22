@@ -488,8 +488,7 @@
 
   @include smartphone {
     .reply-info__initial{
-      position: absolute;
-      opacity: 0;
+      display: none;
     }
   }
 }

@@ -6,48 +6,26 @@
   line-height: 1.5;
   letter-spacing: 0.5px;
   color: white;
-  margin: 0 auto 30px;
+  margin: 16px 16px 20px;
   border-radius: 2px;
-  padding: 20px 32px;
-
-  @include tablet {
-    max-width: 654px;
-  }
-
-  @include desktop-up {
-    max-width: 712px;
-  }
-
-  @include desktop-wide {
-    max-width: 790px;
-  }
+  padding: 30px 40px;
 
   .form__validation-success {
-    height: 56px;
-
     @include smartphone {
       height: 140px;
+      text-align: center;
     }
   }
 
   .form__success-icon {
     float: left;
-    margin-right: 20px;
-    width: 56px;
-    height: 56px;
+    margin-right: 25px;
+    width: 48px;
+    height: 48px;
 
     @include smartphone {
       float: none;
       margin: 0 auto;
-    }
-  }
-
-  .form__success-message {
-    display: block;
-    padding: 7px 0;
-
-    @include smartphone {
-      text-align: center;
     }
   }
 }
