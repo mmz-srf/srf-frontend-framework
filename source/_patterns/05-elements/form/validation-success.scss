@@ -7,10 +7,18 @@
   color: white;
   margin: 16px 16px 20px;
   border-radius: 2px;
-  padding: 30px;
+  padding: 32px 40px;
 
   @include smartphone {
     text-align: center;
+    padding: 32px 16px;
+  }
+
+  .form__success-message {
+    display: block;
+    @include smartphone {
+      padding-top: 12px;
+    }
   }
 
   .form__success-icon {
