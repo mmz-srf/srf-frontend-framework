@@ -470,7 +470,7 @@
   &:focus {
     outline: none;
 
-    + .reply-info__count {
+    .reply-info__count {
       position: static;
       opacity: 1;
     }
