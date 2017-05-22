@@ -28,6 +28,8 @@
     height: 48px;
 
     @include smartphone {
+      width: 56px;
+      height: 56px;
       float: none;
       margin: 0 auto;
     }
