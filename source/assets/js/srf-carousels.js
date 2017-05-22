@@ -13,57 +13,71 @@ export function init() {
         $(css.containers).css("visibility", "visible");
     });
 
+    // img carousels
     $.each($carousels, function (i, carousel) {
-        var $carousel = $(carousel);
-        loadedCarousels[$carousel.attr("id")] = false;
+        var $carousel = $(carousel),
+            id = $carousel.attr("id");
+        loadedCarousels[id] = false;
+
         $carousel.slick({
             speed: 300,
             slidesToShow: 1,
             infinite: false,
+            appendArrows: "#" + id + " .slick-list",
             prevArrow: '<button class="carousel__link--prev"><span class="h-offscreen h-offscreen-focusable">Vorhergehendes Bild</span></button>',
-            nextArrow: '<button class="carousel__link--next"><span class="h-offscreen h-offscreen-focusable">Nächstes Bild</span></button>',
+            nextArrow: '<button class="carousel__link--next carousel__link--waggle"><span class="h-offscreen h-offscreen-focusable">Nächstes Bild</span></button>',
             slide: ".carousel__item"
         });
         registerListener($carousel);
     });
 
-    $('.video_carousel__js').slick({
-        speed: 300,
-        infinite: false,
-        slide: ".carousel__item",
-        lazyLoad: "ondemand",
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        initialSlide: 0,
-        dots: false,
-        arrows: false,
-        mobileFirst: true,
-        centerMode: true,
-        responsive: [
-            {
-                breakpoint: 1024, // desktop
-                settings: {
-                    slidesToShow: 3,
-                    slidesToScroll: 3,
-                    dots: true,
-                    arrows: true,
-                    prevArrow: '<button class="carousel__link--prev"><span class="h-offscreen h-offscreen-focusable">Vorhergehendes Bild</span></button>',
-                    nextArrow: '<button class="carousel__link--next"><span class="h-offscreen h-offscreen-focusable">Nächstes Bild</span></button>',
-                    centerMode: false
+    // video carousels
+    $.each($('.video_carousel__js'), function (i, carousel) {
+        var $carousel = $(carousel),
+            id = $carousel.attr("id");
+
+        loadedCarousels[id] = false;
+
+        $carousel.slick({
+            speed: 300,
+            infinite: false,
+            slide: ".carousel__item",
+            lazyLoad: "ondemand",
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            initialSlide: 0,
+            dots: true,
+            arrows: false,
+            appendArrows: "#" + id + " .slick-list",
+            mobileFirst: true,
+            centerMode: true,
+            centerPadding: "0",
+            responsive: [
+                {
+                    breakpoint: 1024, // desktop
+                    settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 3,
+                        arrows: true,
+                        prevArrow: '<button class="carousel__link--prev"><span class="h-offscreen h-offscreen-focusable">Vorhergehendes Bild</span></button>',
+                        nextArrow: '<button class="carousel__link--next"><span class="h-offscreen h-offscreen-focusable">Nächstes Bild</span></button>',
+                        centerMode: false,
+                        centerPadding: "60px"
+                    }
+                }, {
+                    breakpoint: 720, // tablet
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 2,
+                        arrows: true,
+                        prevArrow: '<button class="carousel__link--prev"><span class="h-offscreen h-offscreen-focusable">Vorhergehendes Bild</span></button>',
+                        nextArrow: '<button class="carousel__link--next"><span class="h-offscreen h-offscreen-focusable">Nächstes Bild</span></button>',
+                        centerMode: false,
+                        centerPadding: "60px"
+                    }
                 }
-            }, {
-                breakpoint: 720, // tablet
-                settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 2,
-                    dots: true,
-                    arrows: true,
-                    prevArrow: '<button class="carousel__link--prev"><span class="h-offscreen h-offscreen-focusable">Vorhergehendes Bild</span></button>',
-                    nextArrow: '<button class="carousel__link--next"><span class="h-offscreen h-offscreen-focusable">Nächstes Bild</span></button>',
-                    centerMode: false
-                }
-            }
-        ]
+            ]
+        });
     });
 }
 
@@ -76,8 +90,15 @@ function registerListener($carousel) {
         }
     });
 
-    $(css.handles).on("touchstart", function () {
+    $carousel.on('swipe', function (event, slick, direction) {
+        // on "interacting" with the carousel => no more animation
+        $(this).find(".carousel__link--next").removeClass("carousel__link--waggle");
+    });
+
+    $carousel.find(css.handles).on("touchstart mousedown mouseenter", function () {
         $(this).removeClass("untouched");
+        // if the handles are clicked / touched: stop the animation
+        $(this).removeClass("carousel__link--waggle");
     }).on("touchend touchcancel", function () {
         $(this).addClass("untouched");
     });
@@ -89,8 +110,6 @@ function loadLazyImages(images) {
         if ($image.data("src")) {
             $image.attr("srcset", $image.data("srcset"));
             $image.attr("src", $image.data("src"));
-
         }
     });
 }
-

@@ -1,3 +1,8 @@
+@import "../../variables";
+@import "../../breakpoints";
+
+$_image-tablet-width: 163px;
+
 .related-list {
   color: $color-text-default;
   margin: 24px -8px 32px;
@@ -6,16 +11,13 @@
     margin: 32px 0 40px;
   }
 
-  ul {
-    border-bottom: 1px solid #ebebe5;
-    border-top: 1px solid #ebebe5;
-    list-style: none;
-    padding: 0;
+  .article-audio__link {
     margin: 0;
   }
 
-  li::before {
-    background: none;
+  .article-video {
+    display: inline-block;
+    width: 100%;
   }
 
   .article-audio,
@@ -30,43 +32,54 @@
     &:active {
       background-color: $color-link-bg-active;
     }
+  }
 
-    &__wrapper {
-      width: 142px;
-      height: 80px;
-      margin: 16px 0 16px 16px;
+  .article-audio__wrapper,
+  .article-video__wrapper {
+    width: $_image-tablet-width;
+    height: $image-size-preview;
+    margin: 16px 0 16px 16px;
+
+    @include smartphone {
+      width: $image-size-preview;
+    }
+
+    &::before {
+      width: $_image-tablet-width;
+      height: $image-size-preview;
 
       @include smartphone {
-        width: 80px;
-      }
-
-      &::before {
-        width: 142px;
-        height: 80px;
-        @include smartphone {
-          width: 80px;
-        }
+        width: $image-size-preview;
       }
     }
+  }
 
-    &__play-icon {
-      width: 46px;
-    }
+  .article-audio__play-icon,
+  .article-video__play-icon {
+    width: 46px;
   }
 
   .article-audio .image-figure__image,
   .article-video .image-figure__image {
-    width: 142px;
-    height: 80px;
+    width: $_image-tablet-width;
+    height: $image-size-preview;
 
     @include smartphone {
-      width: 80px;
+      width: $image-size-preview;
     }
   }
 
-  .media-caption--audio {
-    margin-left: 96px;
+  .linkbox__list {
+    border-bottom: 1px solid #ebebe5;
   }
+}
+
+.related-elements {
+  border-bottom: 1px solid #ebebe5;
+  border-top: 1px solid #ebebe5;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .related-list__heading {
@@ -90,11 +103,12 @@
   margin: 0;
   padding: 0;
 
-  a {
-    text-decoration: none;
+  &:last-child {
+    border-bottom: none;
   }
-}
 
-.related-item:last-child {
-  border-bottom: none;
+  &::before {
+    background: none;
+  }
+
 }

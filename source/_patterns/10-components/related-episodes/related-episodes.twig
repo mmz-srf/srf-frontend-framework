@@ -1,8 +1,8 @@
 <div class="related-list">
     <h2 class="related-list__heading">
-        Sendungen zu diesem Artikel
+        {{ 'Sendungen zu diesem Artikel'|trans }}
     </h2>
-    <ul>
+    <ul class="related-elements">
         <li class="related-item">
             {% include 'components-video' with {'styleModifier': 'RelatedEpisodes' } %}
             {% include 'components-linkbox' with {'styleModifier': 'linkbox--related', 'title': 'Unterrichtsmaterialien'} %}

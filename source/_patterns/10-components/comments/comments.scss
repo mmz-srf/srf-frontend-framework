@@ -220,7 +220,7 @@
     }
   }
 }
-.comments--main { // ul
+.comments--main, .comments--popular { // ul
   margin-bottom: 13px;
   clear: both;
 
@@ -247,6 +247,10 @@
 
 .comment__user--srf {
   background: transparent url('../img/srf_logo.svg') no-repeat scroll right 2px / 24px auto;
+}
+
+.comment__user--rtr {
+  background: transparent url('../img/rtr_logo.svg') no-repeat scroll right 2px / 24px auto;
 }
 
 .comment__time {
@@ -317,7 +321,7 @@
     width: 40px;
     left: 0;
     top: -3px;
-    background: url('../img/linktypes/reply.svg') no-repeat 0 center;
+    background: url('../img/linktypes/reply.svg') no-repeat 10px center;
   }
 }
 

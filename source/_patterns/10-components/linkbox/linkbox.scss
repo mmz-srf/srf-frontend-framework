@@ -1,10 +1,9 @@
 .linkbox {
-  margin: 40px 0;
+  margin: 40px 0 24px;
 
   @include smartphone {
     @include fullwidth-element;
     margin-top: 32px;
-    margin-bottom: 32px;
     padding: 0 8px;
   }
 }
@@ -12,10 +11,16 @@
 .linkbox__title {
   margin: 0 0 16px;
   font-family: $font-medium;
-  font-size: 22px;
+  font-size: 20px;
   line-height: 28px;
+  letter-spacing: .3px;
 
   @include article-text-padding;
+
+  @include smartphone {
+    font-size: 18px;
+    letter-spacing: .5px;
+  }
 }
 
 .linkbox__list {
@@ -43,14 +48,20 @@
   margin-bottom: 16px;
 
   @include tablet-up {
-    margin-left: 158px;
+    margin-left: 171px;
     margin-bottom: 24px;
+    padding-right: 0;
   }
 }
 
 .linkbox--related .block-link {
-  padding-left: 8px;
-  background-position: calc(100% - 8px) center;
+  padding-left: 16px;
+  background-position: calc(100% - 16px) center;
+  
+  @include tablet-up {
+    padding-left: 8px;
+    background-position: calc(100% - 8px) center;
+  }
 }
 
 .linkbox--related li:last-child .block-link {

@@ -1,5 +1,5 @@
 .image-figure {
-  margin: 32px 0 24px;
+  margin: 32px 0;
   font-size: 12px;
   line-height: 1.3;
 
@@ -56,6 +56,8 @@ Behaviour:
 
 .image-figure--in-box {
   margin-top: 0;
+  margin-left: 24px;
+  margin-right: 24px;
 
   @include smartphone {
       // resetting the full width here

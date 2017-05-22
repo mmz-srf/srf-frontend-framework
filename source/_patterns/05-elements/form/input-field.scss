@@ -18,10 +18,9 @@
   padding: 12px 44px 12px 16px;
   margin: 4px 0 2px;
   box-sizing: border-box;
-  border: 1px solid $color-form-field; // ???
+  border: 1px solid $color-form-field;
+  border-radius: 2px;
   transition: border-color 0.2s ease-in-out; // ??
-
-  @include rounded-corners(2px);
 
   &:focus {
     border-color: $color-text-accentuation;
