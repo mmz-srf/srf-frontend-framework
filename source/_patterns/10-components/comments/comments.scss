@@ -432,7 +432,7 @@
   margin-left: 10px;
 
   @include tablet-up {
-    margin-left: 80px;
+    margin-left: 65px;
   }
 }
 
@@ -469,11 +469,6 @@
 
   &:focus {
     outline: none;
-
-    .reply-info__count {
-      position: static;
-      opacity: 1;
-    }
   }
 }
 
@@ -502,8 +497,6 @@
   letter-spacing: .2px;
   color: $color-text-light;
   float: right;
-  position: absolute;
-  opacity: 0;
 }
 
 .reply-info__count--warn {

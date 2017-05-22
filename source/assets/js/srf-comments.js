@@ -45,7 +45,7 @@ var commentController = function () {
             // hide the button
             $(".comments-header__button").removeClass("comment--hide");
             // move the form
-            $("#js-comment_place").addClass("comment--hide")
+            $(".js-comment_place").addClass("comment--hide")
         });
 
         $(document).on('login:checked', function(){
@@ -59,7 +59,7 @@ var commentController = function () {
                     var parent_id = origin.parent("li").attr("data-id");
 
                     // move the form
-                    $("#js-comment_place").removeClass("comment--hide")
+                    $(".js-comment_place").removeClass("comment--hide")
                         .appendTo(".placeholder_" + parent_id);
                     // set the focus
                     $(".reply__textarea").val("").focus();
@@ -69,7 +69,7 @@ var commentController = function () {
                 } else {
                     origin.addClass("comment--hide");
                     // move the form
-                    $("#js-comment_place").removeClass("comment--hide")
+                    $(".js-comment_place").removeClass("comment--hide")
                         .appendTo(".comments-header__placeholder");
                     // set the focus
                     $(".reply__textarea").val("").focus();
@@ -84,6 +84,8 @@ var commentController = function () {
     this.countChars = function ($textarea) {
         var len = $textarea.val().length
             , $button = $(".button");
+
+        $(".reply-info__count").show();
 
         // count up available chars
         $(".js-comment-count-up").text(this.max_input - len);
