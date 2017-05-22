@@ -85,8 +85,6 @@ var commentController = function () {
         var len = $textarea.val().length
             , $button = $(".button");
 
-        $(".reply-info__count").show();
-
         // count up available chars
         $(".js-comment-count-up").text(this.max_input - len);
 
