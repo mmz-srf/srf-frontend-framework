@@ -7,11 +7,10 @@
   color: white;
   margin: 16px 16px 20px;
   border-radius: 2px;
-  padding: 30px 40px;
+  padding: 30px;
 
   @include smartphone {
     text-align: center;
-    padding: 30px;
   }
 
   .form__success-icon {
