@@ -24,8 +24,45 @@ var commentController = function () {
             "input": that.handleInput
         });
 
+
         // main (top) comment
         $(".comments-wrapper").on("click", ".comments-header__button", function (e) {
+            e.preventDefault();
+            if (!$(this).hasClass("login-pending")) {
+                // hide the button
+                $(this).addClass("comment--hide");
+                // move the form
+                $(".js-comment_place").removeClass("comment--hide")
+                    .appendTo(".comments-header__placeholder");
+                // set the focus
+                $(".reply__textarea").val("").focus();
+                // return false;
+            }
+        });
+
+        // movable comment
+        $(".comments-wrapper").on("click", ".comment__link--reply", function (e) {
+            e.preventDefault();
+            if (!$(this).hasClass("login-pending")) {
+                // hide main comment again (if there was one)
+                $(".comments-header__button").removeClass("comment--hide");
+
+                var parent_id = $(this).parent("li").prop("id");
+
+                // move the form
+                $(".js-comment_place").removeClass("comment--hide")
+                    .appendTo("#" + parent_id.replace("comment", "placeholder"));
+                // set the focus
+                $(".reply__textarea").val("").focus();
+
+                parent_id = parent_id.split("_")[1];
+                $(".js-comment_parent_id").val(parent_id);
+                // return false;
+            }
+        });
+
+        // main (top) comment
+        /* $(".comments-wrapper").on("click", ".comments-header__button", function (e) {
             e.preventDefault();
             $(this).addClass('login-pending');
             $(document).trigger('login:check');
@@ -78,7 +115,7 @@ var commentController = function () {
 
             }
             return false;
-        });
+         }); */
 
     };
 
