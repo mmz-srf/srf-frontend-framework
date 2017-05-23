@@ -56,15 +56,16 @@ var commentController = function () {
                     // hide main comment again (if there was one)
                     $(".comments-header__button").removeClass("comment--hide");
 
-                    var parent_id = origin.parent("li").attr("data-id");
+                    var parent_id = origin.parent("li").attr("data-id"),
+                        container = origin.parent("li").find(".comment__placeholder").attr("id");
 
                     // move the form
                     $(".js-comment_place").removeClass("comment--hide")
-                        .appendTo(".placeholder_" + parent_id);
+                        .appendTo("#" + container);
                     // set the focus
                     $(".reply__textarea").val("").focus();
 
-                    $(".js-comment_parent_id").val(parent_id);
+                    $("#js-comment_parent_id").val(parent_id);
 
                 } else {
                     origin.addClass("comment--hide");
