@@ -13,6 +13,10 @@ export function init() {
         $(css.containers).css("visibility", "visible");
     });
 
+    $(".video_carousel__js").on("init", function () {
+        $(this).css("visibility", "visible");
+    });
+    
     // img carousels
     $.each($carousels, function (i, carousel) {
         var $carousel = $(carousel),
@@ -47,36 +51,13 @@ export function init() {
             slidesToScroll: 1,
             initialSlide: 0,
             dots: true,
-            arrows: false,
             appendArrows: "#" + id + " .slick-list",
-            mobileFirst: true,
-            centerMode: true,
+            centerMode: false,
             centerPadding: "0",
-            responsive: [
-                {
-                    breakpoint: 1024, // desktop
-                    settings: {
-                        slidesToShow: 3,
-                        slidesToScroll: 3,
-                        arrows: true,
-                        prevArrow: '<button class="carousel__link--prev"><span class="h-offscreen h-offscreen-focusable">Vorhergehendes Bild</span></button>',
-                        nextArrow: '<button class="carousel__link--next"><span class="h-offscreen h-offscreen-focusable">Nächstes Bild</span></button>',
-                        centerMode: false,
-                        centerPadding: "60px"
-                    }
-                }, {
-                    breakpoint: 720, // tablet
-                    settings: {
-                        slidesToShow: 2,
-                        slidesToScroll: 2,
-                        arrows: true,
-                        prevArrow: '<button class="carousel__link--prev"><span class="h-offscreen h-offscreen-focusable">Vorhergehendes Bild</span></button>',
-                        nextArrow: '<button class="carousel__link--next"><span class="h-offscreen h-offscreen-focusable">Nächstes Bild</span></button>',
-                        centerMode: false,
-                        centerPadding: "60px"
-                    }
-                }
-            ]
+            variableWidth: true,
+            prevArrow: '<button class="carousel__link--prev"><span class="h-offscreen h-offscreen-focusable">Vorhergehendes Video</span></button>',
+            nextArrow: '<button class="carousel__link--next"><span class="h-offscreen h-offscreen-focusable">Nächstes Video</span></button>',
+            
         });
     });
 }
