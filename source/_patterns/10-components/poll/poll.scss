@@ -25,6 +25,14 @@
   }
 }
 
+.poll__title {
+  margin: 0 16px 12px;
+  font-family: $font-medium;
+  font-size: 22px;
+  line-height: 28px;
+  letter-spacing: .2px;
+}
+
 .poll-fieldset {
   padding: 0;
   margin: 0;
