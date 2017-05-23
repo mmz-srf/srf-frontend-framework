@@ -306,6 +306,10 @@
       top: 24px;
       right: 24px;
     }
+
+    &:active, &:focus {
+      outline: none;
+    }
   }
 
   .video-gallery__player { // player container

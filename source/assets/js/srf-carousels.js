@@ -16,12 +16,6 @@ export function init() {
     $(".video_carousel__js").on("init", function () {
         $(this).css("visibility", "visible");
     });
-
-    // desperate measures ...
-    $(".video_carousel__js").on("breakpoint", function (event, slick, breakpoint) {
-        // $(document).trigger("srf.slick.resized", event, slick);
-        console.log("breakpoint reached: ", event, slick, breakpoint)
-    });
     
     // img carousels
     $.each($carousels, function (i, carousel) {
@@ -57,9 +51,7 @@ export function init() {
             slidesToScroll: 1,
             initialSlide: 0,
             dots: true,
-            // arrows: false,
             appendArrows: "#" + id + " .slick-list",
-            // mobileFirst: true,
             centerMode: false,
             centerPadding: "0",
             variableWidth: true,
