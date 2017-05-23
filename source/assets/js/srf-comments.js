@@ -15,15 +15,16 @@ var commentController = function () {
 
         $(".comments-wrapper").on("keyup focus", ".reply__textarea", function (e) {
             that.countChars($(this));
-        }).on("focusin", function () {
+        }).on("focusin", ".reply__textarea", function () {
             $(".reply").addClass("reply--on-focus");
-        }).on("focusout", function () {
+        }).on("focusout", ".reply__textarea", function () {
             $(".reply").removeClass("reply--on-focus");
-        }).on({
+        });
+
+        $(".reply__textarea").on({
             "scroll": that.handleScroll,
             "input": that.handleInput
         });
-
 
         // main (top) comment
         $(".comments-wrapper").on("click", ".comments-header__button", function (e) {
