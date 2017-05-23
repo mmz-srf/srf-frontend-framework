@@ -45,7 +45,6 @@
     border-radius: 2px;
     overflow: hidden; // so the rounded corners are "visible"
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .24);
-    // transition: box-shadow .2s ease-in-out;
     display: flex;
     flex-direction: column;
 
@@ -55,8 +54,6 @@
 
     &:not(.video--loading):not(.video--playing) {
       transition: box-shadow .2s ease-in-out;
-      // should not be necessary:
-      // .media-caption--video { transition: background-color .2s ease-in-out; }
 
       &:hover,
       &:active,
@@ -143,6 +140,9 @@
       &:active {
         background-color: #dadad2;
       }
+      &:active, &:focus {
+        outline: none;
+      }
     }
 
     .carousel__link--prev {
@@ -175,6 +175,7 @@
     }
   }
 
+  // definition of img widths (moved here from js)
   .carousel__item {
     @include smartphone {
       width: calc(100vw - 40px);
@@ -194,7 +195,7 @@
   }
 }
 
-// Dots
+// dots
 .slick-dots {
   height: 16px;
   margin: 0 auto;
@@ -256,13 +257,13 @@
 }
 
 // .video-gallery-container
-.video-gallery--playing { // :/
+.video-gallery--playing {
   position: relative;
 
   .video-gallery__player-container { // fullwidth
     background-color: #22211d;
 
-    @include smartphone { // this shouldn't exist :/
+    @include smartphone { // this shouldn't exist :/ (responsive small screen view)
       &::before {
         content: "";
         display: block;
@@ -336,7 +337,7 @@
 
       @include tablet-up {
         top: 0;
-        width: 656px; // tablet
+        width: 656px;
         height: calc(100% - 80px);
         margin: 56px 50% 24px;
         transform: translate(-50%, 0);
@@ -373,7 +374,6 @@
 .video--loading,
 .video--playing {
 
-  .article-video:hover .media-caption--video,
   .media-caption--video {
     background-color: #383732;
   }
@@ -390,7 +390,8 @@
     display: block;
     padding-top: 56.25%;
   }
-  // nor the image frame
+
+  // nor the image pushed down
   &:not(.video--loading):not(.video--playing) {
     .image-figure__image-wrapper {
       margin-top: -56.25%;
