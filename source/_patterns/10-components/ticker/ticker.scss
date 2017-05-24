@@ -97,6 +97,7 @@
 
     @include smartphone {
       @include fullwidth-element();
+      width: calc(100vw - 1px); // the 1px line on the ticker element *really* messes stuff up...
 
       margin-top: 10px;
       margin-bottom: 12px;
