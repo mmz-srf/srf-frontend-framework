@@ -37,6 +37,7 @@
 }
 .listmodule__item--listing {
   border-top: 1px solid rgb(236,236,230);
+  overflow: hidden;
 }
 .listmodule__item--listing:last-of-type {
   border-bottom: 1px solid rgb(236,236,230);
@@ -102,6 +103,9 @@
     margin-top: 24px;
     margin-bottom: 24px;
   }
+}
+.listmodule__link--listing {
+  clear: both;
 }
 .listmodule__link--listicle {
   margin-right: -24px;
