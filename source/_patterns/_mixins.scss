@@ -9,14 +9,6 @@
   margin-left: -50vw;
   margin-right: -50vw;
 }
-@mixin calculated-fullwidth-element($spacing: 0px) {
-  width: calc(100vw - #{2*$spacing});
-  position: relative;
-  left: 50%;
-  right: 50%;
-  margin-left: calc(-50vw + #{$spacing});
-  margin-right: calc(-50vw + #{$spacing});
-}
 
 /* padding for text elements in the article */
 @mixin article-text-padding {
