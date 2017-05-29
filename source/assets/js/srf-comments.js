@@ -44,8 +44,8 @@ var commentController = function () {
         $(document).on('login:logout', function(){
             // hide the button
             $(".comments-header__button").removeClass("comment--hide");
-            // move the form
-            $("#js-comment_place").addClass("comment--hide")
+            // hide the form
+            $("#comment_form").addClass("comment--hide");
         });
 
         $(document).on('login:checked', function(){
@@ -59,9 +59,10 @@ var commentController = function () {
                     var parent_id = origin.parent("li").attr("data-id"),
                         container = origin.parent("li").find(".comment__placeholder").attr("id");
 
-                    // move the form
-                    $("#js-comment_place").removeClass("comment--hide")
-                        .appendTo("#" + container);
+                    // hide and move the form
+                    $("#comment_form").removeClass("comment--hide");
+                    $("#js-comment_place").appendTo("#" + container);
+
                     // set the focus
                     $(".reply__textarea").val("").focus();
 
@@ -69,9 +70,11 @@ var commentController = function () {
 
                 } else {
                     origin.addClass("comment--hide");
-                    // move the form
-                    $("#js-comment_place").removeClass("comment--hide")
-                        .appendTo(".comments-header__placeholder");
+
+                    // hide and move the form
+                    $("#comment_form").removeClass("comment--hide");
+                    $("#js-comment_place").appendTo(".comments-header__placeholder");
+
                     // set the focus
                     $(".reply__textarea").val("").focus();
                 }
