@@ -38,9 +38,15 @@
 }
 
 .form__validation--success p {
+  margin: 0;
   @include smartphone {
-    padding-top: 12px;
+    margin-top: 12px;
   }
+}
+
+.form__validation--error p {
+  color: #c91024;
+  font-weight: 300;
 }
 
 .form__validation--success img {
@@ -55,10 +61,4 @@
     width: 56px;
     height: 56px;
   }
-}
-
-.form__validation--error p {
-  margin-top: 10px;
-  color: #c91024;
-  font-weight: 300;
 }
