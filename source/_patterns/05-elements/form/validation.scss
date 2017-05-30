@@ -38,9 +38,9 @@
 }
 
 .form__validation--success p {
-  margin: 0;
-  @include smartphone {
-    margin-top: 12px;
+  margin: 12px 0 0;
+  @include tablet {
+    margin: 0;
   }
 }
 
