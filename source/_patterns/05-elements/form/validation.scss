@@ -8,7 +8,6 @@
 .form__validation--success {
   color: white;
   background-color: #1a7ac5;
-  margin: 0 0 30px 16px;
   border-radius: 2px;
   padding: 28px 32px;
   height: 104px;
@@ -33,6 +32,7 @@
   @include smartphone {
     text-align: center;
     height: 204px;
+    margin: 0 0 30px 16px;
     padding: 32px 16px;
   }
 }

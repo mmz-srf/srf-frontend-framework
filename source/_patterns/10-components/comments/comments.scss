@@ -35,7 +35,7 @@
   background-color: $color-link-bg-hover;
   position: relative;
 
-  .reply-container {
+  .reply-container, .form__validation--success {
     @include smartphone {
       margin: 0 16px 28px;
     }
