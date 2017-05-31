@@ -1,6 +1,6 @@
 
 # srf-frontend-framework
-SRF Frontend Framework
+SRF Frontend Framework (now also on Heroku!)
 
 Test: http://www.srfcdn.ch/assets/test/latest/public/
 
