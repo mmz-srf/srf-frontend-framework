@@ -2,7 +2,7 @@
   "name": "srf-frontend-framework",
   "description": "",
   "scripts": {
-    "build": "gulp"
+    "build": "composer install && npm install && gulp"
   },
   "env": {
   },
