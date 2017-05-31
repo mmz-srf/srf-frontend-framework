@@ -2,7 +2,7 @@
   "name": "srf-frontend-framework",
   "description": "",
   "scripts": {
-    "start": "gulp"
+    "build": "gulp"
   },
   "env": {
   },
