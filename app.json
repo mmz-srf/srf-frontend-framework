@@ -13,7 +13,8 @@
   ],
   "buildpacks": [
     {
-      "url": "heroku/php"
+      "url": "heroku/php",
+      "url": "heroku/nodejs"
     }
   ]
 }
