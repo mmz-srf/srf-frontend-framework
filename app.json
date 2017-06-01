@@ -2,7 +2,8 @@
   "name": "srf-frontend-framework",
   "description": "",
   "scripts": {
-    "build": "composer install && npm install && gulp"
+    "build": "composer install && npm install",
+    "postdeploy": "gulp"
   },
   "env": {
   },
@@ -13,7 +14,9 @@
   ],
   "buildpacks": [
     {
-      "url": "heroku/php",
+      "url": "heroku/php"
+    },
+    {
       "url": "heroku/nodejs"
     }
   ]
