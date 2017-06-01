@@ -19,11 +19,10 @@ var commentController = function () {
             $(".reply").addClass("reply--on-focus");
         }).on("focusout", ".reply__textarea", function () {
             $(".reply").removeClass("reply--on-focus");
-        });
+        }).on("input", ".reply__textarea", that.handleInput);
 
         $(".reply__textarea").on({
-            "scroll": that.handleScroll,
-            "input": that.handleInput
+            "scroll": that.handleScroll
         });
 
         // main (top) comment
@@ -157,6 +156,7 @@ var commentController = function () {
     };
 
     this.handleScroll = function () {
+        console.log($(".reply__textarea").scrollTop())
         var scrollTop = $(".reply__textarea").scrollTop();
         $(".reply__highlights").scrollTop(scrollTop);
     };
