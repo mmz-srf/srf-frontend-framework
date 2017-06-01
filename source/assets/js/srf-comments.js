@@ -48,11 +48,12 @@ var commentController = function () {
                 // hide main comment again (if there was one)
                 $(".comments-header__button").removeClass("comment--hide");
 
-                var parent_id = $(this).parent("li").prop("id");
+                var parent_id = $(this).parent("li").data("id");
 
                 // move the form
                 $(".js-comment_place").removeClass("comment--hide")
-                    .appendTo("#" + parent_id.replace("comment", "placeholder"));
+                // .appendTo("#" + parent_id.replace("comment", "placeholder"));
+                    .appendTo("#placeholder_" + parent_id);
                 // set the focus
                 $(".reply__textarea").val("").focus();
 

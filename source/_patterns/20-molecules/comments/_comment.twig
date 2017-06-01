@@ -29,7 +29,8 @@
                     {{ 'Antworten'|trans }}
                     <span class="h-offscreen">{{ 'anwählen um auf den Kommentar zu antworten'|trans }}</span>
                 </a>
-                <span class="placeholder_{{ comment.id }} comment__placeholder"></span>
+                <span class="placeholder_{{ comment.id }} comment__placeholder"
+                      id="placeholder_{{ comment.id }}"></span>
             {% endif %}
         {% endspaceless %}
 
