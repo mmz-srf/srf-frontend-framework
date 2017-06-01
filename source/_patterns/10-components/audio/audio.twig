@@ -27,6 +27,7 @@
             </div>
             {% block audio_caption %}
                 <figcaption class="media-caption media-caption--audio">
+                    <span class="h-offscreen">{{ 'Legende:'|trans }}</span>
                     {% if audio.title %}
                         <div class="media-caption__title media-caption__title--audio">{{ audio.title }}</div>
                     {% endif %}

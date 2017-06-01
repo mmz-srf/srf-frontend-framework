@@ -1,10 +1,11 @@
+<h3 class="h-offscreen">{{ 'Zitat:'|trans }}</h3>
 <blockquote class="blockquote {{ styleModifier }}">
     <div class="blockquote__quote">
         <span class="blockquote__text">{{ blockquote.text }}</span>
     </div>
     <footer class="blockquote__footer">
         <cite>
-            <span class="blockquote__author">{{ blockquote.author }}</span>
+            <span class="blockquote__author"><span class="h-offscreen">{{ 'Autor: '|trans }}</span>{{ blockquote.author }}</span>
             <span class="blockquote__function">{{ blockquote.function }}</span>
         </cite>
     </footer>
