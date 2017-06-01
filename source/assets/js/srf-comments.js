@@ -57,7 +57,7 @@ var commentController = function () {
                 // set the focus
                 $(".reply__textarea").val("").focus();
 
-                parent_id = parent_id.split("_")[1];
+                // parent_id = parent_id.split("_")[1];
                 $(".js-comment_parent_id").val(parent_id);
                 // return false;
             }
