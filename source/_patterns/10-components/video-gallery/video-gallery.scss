@@ -1,5 +1,9 @@
 @import "../../variables";
 
+*:focus {
+  border: 1px solid red !important;
+}
+
 .video-gallery-container {
   margin: 24px -8px;
   padding: 0 20px 12px;
@@ -138,12 +142,10 @@
       &:hover {
         background-color: #ebebe5;
       }
-      &:active {
-        background-color: #dadad2;
-      }
       &:active,
       &:focus {
         outline: none;
+        background-color: #dadad2;
       }
     }
 
@@ -183,11 +185,11 @@
       width: calc(100vw - 40px);
     }
 
-    @include tablet-up {
+    @include tablet {
       width: 270px;
     }
 
-    @include desktop-up {
+    @include desktop {
       width: 199px;
     }
 
@@ -250,6 +252,10 @@
 }
 
 // player integration
+.video-gallery__player-container { // fullwidth
+  background-color: #22211d;
+}
+
 .video-gallery__player {
   height: 0; // initial ...
   transition: height .4s;
@@ -264,7 +270,6 @@
   position: relative;
 
   .video-gallery__player-container { // fullwidth
-    background-color: #22211d;
 
     @include smartphone { // this shouldn't exist :/ (responsive small screen view)
       &::before {
@@ -318,6 +323,7 @@
 
   .video-gallery__player { // player container
     position: relative;
+    visibility: hidden;
 
     @include smartphone {
       position: absolute;
@@ -377,6 +383,10 @@
       margin: 0;
     }
   }
+}
+
+.video-gallery__player--visible {
+  visibility: visible;
 }
 
 // video play overwrites
