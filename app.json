@@ -2,7 +2,7 @@
   "name": "srf-frontend-framework",
   "description": "",
   "scripts": {
-    "postdeploy": "php core/console --generate"
+    "postdeploy": "composer install && php core/console --generate"
   },
   "env": {
     "TZ": "Europe/Zurich"
