@@ -1,0 +1,329 @@
+@import "../../variables";
+@import "../../breakpoints";
+
+.poll-wrapper {
+  margin: 32px 0;
+
+  @include smartphone {
+    margin: 24px 0;
+  }
+
+  .image-figure {
+    margin-top: 0;
+    margin-bottom: 0;
+    overflow: hidden;
+    border-radius: 2px 2px 0 0;
+  }
+
+  .image-figure__image {
+    height: auto;
+    width: 100%;
+  }
+
+  .button {
+    display: none;
+  }
+}
+
+.poll__title {
+  margin: 0 16px 12px;
+  font-family: $font-medium;
+  font-size: 22px;
+  line-height: 28px;
+  letter-spacing: .2px;
+}
+
+.poll-fieldset {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+.poll-fieldset__legend {
+  width: 100%;
+  font-size: 18px;
+  letter-spacing: .5px;
+  line-height: 28px;
+  color: $color-text-accentuation;
+  background-color: $color-bg-caption;
+  padding: 16px;
+  margin-bottom: 2px;
+  display: block;
+  float:left;
+  border-radius: 0 0 2px 2px;
+}
+
+.poll {
+  padding: 0;
+  margin: 2px 0 0;
+  overflow: hidden;
+  clear: left;
+}
+
+.poll--with-radios {
+  .poll-option-label {
+    // custom radios
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      border-radius: 50%;
+    }
+    &::before {
+      top: 20px;
+      left: 20px;
+      width: 14px;
+      height: 14px;
+      display: inline-block;
+      background-color: $color-accentuation-red;
+    }
+
+    &::after {
+      top: 16px;
+      left: 16px;
+      width: 20px;
+      height: 20px;
+      margin-right: 16px;
+      display: inline-block;
+      background-color: $color-bg-box;
+      border: solid 1px $color-text-light;
+    }
+
+    &:hover::after,
+    &:focus::after {
+      background-color: $color-bg-box-hover;
+    }
+
+    &--selected::after,
+    &--selected:hover::after {
+      border: solid 1px $color-accentuation-red;
+      background-color: transparent;
+    }
+    // custom radios end here
+  }
+
+  .poll-option-label__title,
+  .poll-option-label__description {
+    margin: 0 0 0 36px;
+  }
+
+  .poll-form-handling {
+    @include tablet-up {
+      background-color: $color-bg-caption;
+      padding: 16px;
+    }
+  }
+
+  .button {
+    display: block;
+  }
+}
+
+.poll--with-media { // only for polls with media
+  // always valid
+  .poll-option-rating {
+    position: absolute;
+  }
+
+  .poll-option-rating__percent {
+    right: 82px;
+  }
+
+  &.poll--setup {
+    @include tablet-up { // only valid initially :(
+      .poll {
+        // margin-top: 8px;
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      .poll-option { // only valid initially (and only for polls with media)
+        width: calc(50% - 4px);
+        float: left;
+        margin-bottom: 8px;
+        display: flex;
+        flex-direction: column;
+
+        &:nth-of-type(odd) {
+          margin-right: 8px;
+        }
+      }
+    }
+
+    .poll-fieldset__legend, .poll-option {
+      margin-bottom: 4px;
+
+      @include tablet-up {
+        margin-bottom: 8px;
+      }
+    }
+  }
+}
+
+.poll--setup {
+  .poll-option--save-the-margin {
+    margin-bottom: 4px;
+
+    @include tablet-up {
+      margin-bottom: 8px;
+    }
+  }
+}
+
+.poll-option { // list element
+  padding: 0;
+  margin: 0 0 2px;
+  overflow: hidden;
+  border-radius: 2px;
+
+  // overwrite :(
+  &::before {
+    content: none;
+  }
+
+  &.poll-option--rated {
+    width: 100%;
+  }
+}
+
+.poll-option__radio {
+  // for accessibility -> no hiding!
+  position: absolute;
+  opacity: 0;
+
+  &:focus,
+  &:active {
+    + .poll-option-label {
+      background-color: $color-bg-box-hover;
+
+      &::after  {
+        background-color: $color-bg-box-hover;
+      }
+
+      &--selected::after {
+        border: solid 1px $color-accentuation-red;
+        background-color: transparent;
+      }
+    }
+  }
+}
+
+.poll-option-label {
+  position: relative;
+  display: block;
+  background-color: $color-bg-box;
+  padding: 18px 16px;
+  cursor: pointer;
+  flex: 1 0 auto;
+
+  &:hover,
+  &:focus,
+  &--selected {
+    background-color: $color-bg-box-hover;
+  }
+}
+
+.poll-option-label__title {
+  font: 16px/20px $font-regular;
+  letter-spacing: .5px;
+  margin: 0;
+}
+
+.poll-option-label__description {
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: .5px;
+  margin: 0;
+}
+
+// rating / responses
+.poll--submitted {
+  .poll-option-rating {
+    display: block;
+  }
+}
+
+.poll-option-rating {
+  height: 100%;
+  width: 100%;
+  min-height: 56px;
+  background-color: $color-bg-box;
+  display: none; // initial => to be changed in js ..
+
+  &:hover,
+  &:focus {
+    background-color: $color-bg-box-hover;
+  }
+}
+
+.poll-option-rating__answer-copy {
+  position: absolute;
+  top: 50%;
+  width: calc(100% - 88px); // 88 = 72 + 16
+  font: 16px/20px $font-regular;
+  letter-spacing: .5px;
+  margin: 0;
+  padding: 16px;
+  transform: translate(0, -50%);
+}
+
+.poll-option-rating__percent {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translate(0, -50%);
+  min-width: 72px;
+  text-align: right;
+  font: 18px/20px $font-light;
+  letter-spacing: .3px;
+  margin: 0 16px 0 0;
+  display: none;
+
+  @include tablet-up {
+    font: 24px/20px $font-light;
+  }
+}
+
+.poll-option-rating__bg-color {
+  position: absolute;
+  height: 100%;
+  width: 0;
+  background-color: #ff9193; // the color of the looooosers
+}
+
+.poll-option-rating__bg-color--winner {
+  background-color: #ff6669;
+}
+
+// last bit
+.poll-form-handling {
+  border-radius: 2px;
+
+  .button {
+    margin: 6px 0 0;
+
+    @include tablet-up {
+      margin: 0;
+    }
+  }
+}
+
+.poll-form-handling__roundup {
+  margin: 0;
+  padding: 16px;
+  background-color: $color-bg-caption;
+  display: none;
+}
+
+.poll-form-handling__errors--onerror {
+  display: block;
+  color: $color-accentuation-red;
+  margin-bottom: 16px;
+
+  @include smartphone {
+    background-color: $color-bg-caption;
+    margin-bottom: -4px;
+    padding: 16px;
+    border-radius: 2px;
+  }
+}

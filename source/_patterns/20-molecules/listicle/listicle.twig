@@ -1,0 +1,42 @@
+<div class="list listicle {{ styleModifier }}">
+    <h2 class="listicle__title">Listicle</h2>
+    <ul class="listicle__element">
+        <li class="listicle-element">
+            <h4 class="listicle-element__title">1. {{ articleText.title }}</h4>
+            <div class="listicle-element__lead">
+                {{ articleHeader.lead }}
+            </div>
+            <div class="listicle-element__media">
+                {% include 'molecules-image-figure' with { 'imageCaptionStyle': 'media-caption--no-bg'} %}
+            </div>
+            <div class="listicle-element__content">
+                {{ articleText.text }}
+            </div>
+            <div class="listicle-element__link">
+                {% include 'atoms-block-link' with {'styleModifier': 'block-link'} %}
+            </div>
+        </li>
+        <li class="listicle-element">
+            <h4 class="listicle-element__title">2. {{ articleText.title }}</h4>
+            <div class="listicle-element__media">
+                {% include 'molecules-video' %}
+            </div>
+            <div class="listicle-element__content">
+                {{ articleText.text }}
+            </div>
+            <div class="listicle-element__link">
+                {% include 'atoms-block-link' with {'styleModifier': 'block-link--external'} %}
+            </div>
+            <div class="listicle-element__source">Somewhere</div>
+        </li>
+        <li class="listicle-element">
+            <h4 class="listicle-element__title">3. {{ articleText.title }}</h4>
+            <div class="listicle-element__media">
+                {% include 'molecules-audio' %}
+            </div>
+            <div class="listicle-element__content">
+                {{ articleText.text }}
+            </div>
+        </li>
+    </ul>
+</div>
