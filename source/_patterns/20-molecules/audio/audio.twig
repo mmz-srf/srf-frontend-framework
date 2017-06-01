@@ -1,0 +1,47 @@
+{% block audio %}
+    <a  href="{% block direct_player_link %}{{ audio.player_url }}/srf/popup?urn={{ audio.urn }}&autoplay=true{% endblock %}"
+        id="article-media__{{ audio.elementId }}"
+        class="article-audio__link media__js"
+        data-mediatype="audio"
+        data-assetid="{{ audio.assetId }}">
+        <figure class="article-audio {{ styleModifier }}">
+            <div class="article-audio__wrapper">
+                {% block audio_image %}
+                    <img class="image-figure__image"
+                         alt="{{ 'Audio'|trans }} «{{ audio.title }}» {{ 'abspielen'|trans }}" {# this should go into the image container (cms) #}
+                         title="{{ 'Audio'|trans }} «{{ audio.title }}» {{ 'abspielen'|trans }}"
+                         sizes="100vw"
+                         srcset="{% for source in audio.img_srcset %}
+                            {{ source.src }} {{ source.width }}w
+                            {{ loop.last ? '' : ',' }}
+                         {% endfor %}"
+                         src="{{ audio.img_src }}">
+                {% endblock %}
+
+                {% block play_icon %}
+                    {% include 'atoms-play-icon' with {'media': 'audio'} %}
+                {% endblock %}
+                {% block loading_spinner %}
+                    {% include 'atoms-spinner' with { 'styleModifier' : 'spinner__circle--dash-white' } %}
+                {% endblock %}
+            </div>
+            {% block audio_caption %}
+                <figcaption class="media-caption media-caption--audio">
+                    {% if audio.title %}
+                        <div class="media-caption__title media-caption__title--audio">{{ audio.title }}</div>
+                    {% endif %}
+
+                    <div class="media-caption__source media-caption__source--audio">{{ audio.length }} min,
+                        {% if audio.show and audio.show.title %}
+                            aus <strong>{{ audio.show.title }}</strong>
+                        {% endif %}
+                        vom {{ audio.show.date|date("d.m.Y")  }}
+                    </div>
+                </figcaption>
+            {% endblock %}
+            {% block player_wrapper %}
+                <div id="article-audio__{{ audio.elementId }}" class="article-audio__player"></div>
+            {% endblock %}
+        </figure>
+    </a>
+{% endblock %}
