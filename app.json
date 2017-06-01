@@ -2,18 +2,17 @@
   "name": "srf-frontend-framework",
   "description": "",
   "scripts": {
+    "postdeploy": "echo POSTDEPLOY && composer install && npm install && gulp",
     "start": "echo START && composer install && npm install",
     "postinstall": "echo POSTINSTALL && gulp build",
     "heroku-prebuild": "echo PREBUILD",
     "heroku-postbuild": "echo POSTBUILD"
   },
   "env": {
+    "TZ": "Europe/Zurich"
   },
-  "formation": {
-  },
-  "addons": [
-
-  ],
+  "formation": {},
+  "addons": [],
   "buildpacks": [
     {
       "url": "heroku/php"
