@@ -8,15 +8,11 @@ var css = {
 export function init() {
     $carousels = $(css.containers);
 
-    //prevent flicker effect on page load
+    // prevent flicker effect on page load
     $carousels.on('init', function () {
         $(css.containers).css("visibility", "visible");
     });
 
-    $(".video_carousel__js").on("init", function () {
-        $(this).css("visibility", "visible");
-    });
-    
     // img carousels
     $.each($carousels, function (i, carousel) {
         var $carousel = $(carousel),
@@ -36,6 +32,13 @@ export function init() {
     });
 
     // video carousels
+    $(".video_carousel__js").on("init", function (slick) {
+        $(this).css("visibility", "visible");
+    });
+
+    // video carousel:
+    let slidesToShow = getNumberOfSlidesPerScreen(1); // mobile : 1
+
     $.each($('.video_carousel__js'), function (i, carousel) {
         let $carousel = $(carousel),
             id = $carousel.attr("id");
@@ -45,8 +48,8 @@ export function init() {
         $carousel.slick({
             infinite: false,
             slide: ".carousel__item",
-            slidesToShow: 1,
-            slidesToScroll: 1,
+            slidesToShow: slidesToShow,
+            slidesToScroll: slidesToShow,
             accessibility: false,
             appendArrows: "#" + id + " .slick-list",
             dots: true,
@@ -60,14 +63,7 @@ export function init() {
 
     // "position change" (resize page or "activate" slider in any way)
     $('.video_carousel__js').on('setPosition', function (slick) {
-        let slidesToShow = 1; // mobile
-
-        if (matchMedia('screen and (min-width: 720px) and (max-width: 1023px)').matches) {
-            slidesToShow = 2; // tablet
-        }
-        if (matchMedia('screen and (min-width: 1024px)').matches) {
-            slidesToShow = 3; // larger
-        }
+        let slidesToShow = getNumberOfSlidesPerScreen(1); // mobile : 1
 
         $(this).slick("slickSetOption", "slidesToShow", slidesToShow, false);
         $(this).slick("slickSetOption", "slidesToScroll", slidesToShow, false);
@@ -113,4 +109,16 @@ function recalculateDots($carousel, slidesToShow) {
     let x = Math.ceil($carousel.find(".carousel__item").length / slidesToShow) + 1; // todo: shorten!
     $(".slick-dots li").removeClass("h-element--hide").css({"border:": "1px solid pink"});
     $(".slick-dots li:nth-child(1n + " + x + ")").addClass("h-element--hide");
+}
+
+function getNumberOfSlidesPerScreen(slidesToShow = 1) {
+    // let slidesToShow = 1; // mobile
+
+    if (matchMedia('screen and (min-width: 720px) and (max-width: 1023px)').matches) {
+        slidesToShow = 2; // tablet
+    } else if (matchMedia('screen and (min-width: 1024px)').matches) {
+        slidesToShow = 3; // larger
+    }
+
+    return slidesToShow
 }
