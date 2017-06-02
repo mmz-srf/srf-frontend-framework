@@ -31,7 +31,7 @@
 		"pattern-lab/styleguidekit-twig-default": "^3.0.0",
 		"pattern-lab/plugin-reload": "^2.0",
 		"pattern-lab/plugin-twig-extensions": "^2.0",
-		"symfony/translation": "~2.3"
+		"symfony/translation": "~3.3"
 	},
 	"scripts": {
 		"post-install-cmd": [
