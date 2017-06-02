@@ -249,27 +249,11 @@
   }
 }
 
-// player integration
-.video-gallery__player-container { // fullwidth
-  background-color: #22211d;
-  outline: none;
-}
-
-.video-gallery__player {
-  height: 0; // initial ...
-  transition: height .4s;
-  visibility: hidden;
-}
-
-.video-gallery-container__player-close {
-  display: none;
-}
-
 // .video-gallery-container
-.video-gallery--playing {
+.media-window--playing {
   position: relative;
 
-  .video-gallery__player-container { // fullwidth
+  .media-window { // fullwidth
 
     @include smartphone { // this shouldn't exist :/ (responsive small screen view)
       &::before {
@@ -293,80 +277,6 @@
     }
   }
 
-  .video-gallery-container__player-close { // [x]
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    top: 16px;
-    // smartphone:
-    right: 24px;
-    background: transparent url("../img/close.svg");
-    border: 0;
-    cursor: pointer;
-    display: block;
-    z-index: 1;
-
-    @include tablet-up {
-      right: calc(50% - 328px);
-    }
-
-    @include desktop-up {
-      top: 24px;
-      right: 24px;
-    }
-
-    &:active,
-    &:focus {
-      outline: none;
-    }
-  }
-
-  .video-gallery__player { // player container
-    position: relative;
-    // visibility: hidden;
-
-    @include smartphone {
-      position: absolute;
-      height: 100%;
-      width: 100%;
-      top: 0;
-    }
-
-    @include tablet-up {
-      height: 448px;
-    }
-
-    @include desktop-wide {
-      height: 492px;
-    }
-
-    iframe { // the player
-      position: absolute;
-      top: 50%;
-      transform: translate(0, -50%);
-
-      @include smartphone {
-        padding: 56px 24px 24px;
-      }
-
-      @include tablet-up {
-        top: 0;
-        width: 656px;
-        height: calc(100% - 80px);
-        margin: 56px 50% 24px;
-        transform: translate(-50%, 0);
-      }
-      @include desktop-up {
-        width: 712px;
-        height: calc(100% - 48px);
-        margin: 24px 50%;
-      }
-      @include desktop-wide {
-        width: 790px;
-      }
-    }
-  }
-
   // gallery overwrites
   .video--loading {
     .article-video__player::before {
@@ -383,10 +293,6 @@
       margin: 0;
     }
   }
-}
-
-.video-gallery__player--visible {
-  visibility: visible;
 }
 
 // video play overwrites
@@ -407,7 +313,7 @@
   .article-video__player::before {
     content: "";
     display: block;
-    padding-top: 56.25%;
+    padding-top: 56.28%;
   }
 
   // nor the image pushed down
