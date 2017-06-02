@@ -51,7 +51,8 @@
     "vinyl-source-stream": "*"
   },
   "scripts": {
-    "start": "gulp build"
+    "start": "gulp build",
+    "postinstall": "npm install && gulp build"
   },
   "babel": {
     "presets": [
