@@ -52,7 +52,7 @@
   },
   "scripts": {
     "start": "gulp build",
-    "postinstall": "npm install && gulp build"
+    "postinstall": "gulp build"
   },
   "babel": {
     "presets": [
