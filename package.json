@@ -51,7 +51,7 @@
     "vinyl-source-stream": "*"
   },
   "scripts": {
-    "start": "gulp build",
+    "start": "gulp",
     "postinstall": "gulp build"
   },
   "babel": {
