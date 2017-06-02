@@ -252,11 +252,13 @@
 // player integration
 .video-gallery__player-container { // fullwidth
   background-color: #22211d;
+  outline: none;
 }
 
 .video-gallery__player {
   height: 0; // initial ...
   transition: height .4s;
+  visibility: hidden;
 }
 
 .video-gallery-container__player-close {
@@ -383,9 +385,6 @@
   }
 }
 
-.video-gallery__player {
-  visibility: hidden;
-}
 .video-gallery__player--visible {
   visibility: visible;
 }
