@@ -321,7 +321,7 @@
 
   .video-gallery__player { // player container
     position: relative;
-    visibility: hidden;
+    // visibility: hidden;
 
     @include smartphone {
       position: absolute;
@@ -383,6 +383,9 @@
   }
 }
 
+.video-gallery__player {
+  visibility: hidden;
+}
 .video-gallery__player--visible {
   visibility: visible;
 }
