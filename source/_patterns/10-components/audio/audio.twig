@@ -8,8 +8,8 @@
             <div class="article-audio__wrapper">
                 {% block audio_image %}
                     <img class="image-figure__image"
-                         alt="{{ 'Audio'|trans }} «{{ audio.title }}» {{ 'abspielen'|trans }}" {# this should go into the image container (cms) #}
-                         title="{{ 'Audio'|trans }} «{{ audio.title }}» {{ 'abspielen'|trans }}"
+                         alt="{{ 'Audio' }} «{{ audio.title }}» {{ 'abspielen' }}" {# this should go into the image container (cms) #}
+                         title="{{ 'Audio' }} «{{ audio.title }}» {{ 'abspielen' }}"
                          sizes="100vw"
                          srcset="{% for source in audio.img_srcset %}
                             {{ source.src }} {{ source.width }}w
