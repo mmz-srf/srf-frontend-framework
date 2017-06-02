@@ -7,8 +7,8 @@
                 alt="{{ media.title }}"
                 title="{{ media.title }}"
             {% else %}
-                alt="{{ media.type|capitalize }} «{{ media.title }}» {{ 'abspielen' }}"
-                title="{{ media.type|capitalize }} «{{ media.title }}» {{ 'abspielen' }}"
+                alt="{{ media.type|capitalize }} «{{ media.title }}» {{ 'abspielen'|trans }}"
+                title="{{ media.type|capitalize }} «{{ media.title }}» {{ 'abspielen'|trans }}"
             {% endif %}
              sizes="100vw"
              srcset="{% for source in image.sources %}
