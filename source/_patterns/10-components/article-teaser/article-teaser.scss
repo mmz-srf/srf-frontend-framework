@@ -1,9 +1,11 @@
+@import "../../variables";
+@import "../../breakpoints";
+
 .article-teaser {
   margin: 24px 0;
 
   border-top: 1px solid $color-border-medium;
   border-bottom: 1px solid $color-border-medium;
-  padding: 16px;
   display: block;
   width: 100%;
 
@@ -32,25 +34,27 @@
 }
 
 .article-teaser__wrapper {
-  display: inline-block;
+  display: block;
+  margin: 16px;
 }
 
 .article-teaser__image {
   float: left;
   border: 0;
   margin-right: 12px;
-  width: 80px;
-  height: 80px;
+  width: $image-size-preview;
+  height: $image-size-preview;
   object-fit: cover;
 
   @include tablet-up {
     margin-right: 16px;
-    width: 142px;
+    width: 168px;
   }
 }
 
 .article-teaser__content {
-  margin-left: 92px;
+  margin-left: 104px;
+  min-height: 92px;
 
   @include tablet-up {
     margin-left: 158px;

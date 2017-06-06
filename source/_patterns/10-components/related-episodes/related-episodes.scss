@@ -1,33 +1,14 @@
 @import "../../variables";
 @import "../../breakpoints";
 
+$_image-tablet-width: 163px;
+
 .related-list {
   color: $color-text-default;
   margin: 24px -8px 32px;
 
   @include tablet-up {
     margin: 32px 0 40px;
-  }
-
-  ul {
-    border-bottom: 1px solid #ebebe5;
-    border-top: 1px solid #ebebe5;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-
-  li {
-    a,
-    a:hover,
-    a:visited,
-    a:active {
-      border: 0;
-    }
-  }
-
-  li::before {
-    background: none;
   }
 
   .article-audio__link {
@@ -55,7 +36,7 @@
 
   .article-audio__wrapper,
   .article-video__wrapper {
-    width: 142px;
+    width: $_image-tablet-width;
     height: $image-size-preview;
     margin: 16px 0 16px 16px;
 
@@ -64,7 +45,7 @@
     }
 
     &::before {
-      width: 142px;
+      width: $_image-tablet-width;
       height: $image-size-preview;
 
       @include smartphone {
@@ -80,13 +61,25 @@
 
   .article-audio .image-figure__image,
   .article-video .image-figure__image {
-    width: 142px;
+    width: $_image-tablet-width;
     height: $image-size-preview;
 
     @include smartphone {
       width: $image-size-preview;
     }
   }
+
+  .linkbox__list {
+    border-bottom: 1px solid #ebebe5;
+  }
+}
+
+.related-elements {
+  border-bottom: 1px solid #ebebe5;
+  border-top: 1px solid #ebebe5;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .related-list__heading {
@@ -110,11 +103,12 @@
   margin: 0;
   padding: 0;
 
-  a {
-    text-decoration: none;
+  &:last-child {
+    border-bottom: none;
   }
-}
 
-.related-item:last-child {
-  border-bottom: none;
+  &::before {
+    background: none;
+  }
+
 }

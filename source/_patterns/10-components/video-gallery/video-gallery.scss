@@ -2,24 +2,37 @@
 
 .video-gallery-container {
   margin: 24px -8px;
-  padding: 0 20px;
-  overflow: hidden;
+  padding: 0 20px 12px;
   background-color: #f5f5f2;
+
+  @include smartphone {
+    overflow: hidden;
+  }
 
   @include tablet-up {
     margin: 32px 0;
-    padding: 0 58px;
+    padding: 0 58px 12px;
   }
+
+  // player integration:
+  .video--playing {
+    .image-figure__image-wrapper {
+      position: inherit;
+    }
+  }
+  // end player integration
 }
 
 .video-gallery {
   overflow: visible;
-  margin: 24px 0 12px;
+  margin: 0;
+  padding-top: 24px;
 
   .carousel__item {
     display: flex;
     flex-direction: column;
   }
+
   .article-video__link { // :/
     display: flex;
     height: 100%;
@@ -32,7 +45,6 @@
     border-radius: 2px;
     overflow: hidden; // so the rounded corners are "visible"
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .24);
-    transition: box-shadow .2s ease-in-out;
     display: flex;
     flex-direction: column;
 
@@ -40,14 +52,17 @@
       margin: 0 6px 12px;
     }
 
-    &:hover,
-    &:active,
-    &:focus {
-      outline: none;
-      box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.24);
+    &:not(.video--loading):not(.video--playing) {
+      transition: box-shadow .2s ease-in-out;
 
-      .media-caption--video {
-        background-color: #fafaf8;
+      &:hover,
+      &:active,
+      &:focus {
+        box-shadow: 0 4px 4px 0 rgba(0, 0, 0, .24);
+
+        .media-caption--video {
+          background-color: #fafaf8;
+        }
       }
     }
   }
@@ -70,31 +85,29 @@
     }
   }
 
-  .image-figure {
-    &::before {
-      content: none;
-    }
-    .image-figure__image { // overwriting the carousel bg (black)
-      background-color: #dadad2;
-    }
+  .image-figure::before {
+    content: none;
+  }
+
+  .image-figure__image { // overwriting the carousel bg (black)
+    background-color: #dadad2;
   }
 
   .media-caption--video {
     background-color: #fefefd;
     padding: 8px 12px 12px;
-    transition: background-color .2s ease-in-out;
     display: flex;
     flex-direction: column;
     flex: 1 0 auto;
+  }
 
-    .media-caption__title {
-      min-height: 60px;
-      margin-bottom: 4px;
-      font: 16px/24px $font-regular;
-      letter-spacing: 0.5px;
-      color: #22211d;
-      flex: 1 0 auto;
-    }
+  .media-caption__title {
+    min-height: 60px;
+    margin-bottom: 4px;
+    font: 16px/24px $font-regular;
+    letter-spacing: .5px;
+    color: #22211d;
+    flex: 1 0 auto;
   }
 
   // play icon overwrites
@@ -103,13 +116,12 @@
       width: 48px;
       transform: translate(-50%, -24px);
     }
+
     .media-play__icon {
       margin-bottom: 3px;
     }
-  }
 
-  // img carousel overwrites
-  @include tablet-up {
+    // img carousel overwrites
     .carousel__link--prev,
     .carousel__link--next {
       width: 56px;
@@ -119,7 +131,8 @@
       background-size: 16px;
       background-position: 20px;
 
-      &:hover, &:active {
+      &:hover,
+      &:active {
         border-bottom-color: transparent;
       }
       &:hover {
@@ -128,17 +141,27 @@
       &:active {
         background-color: #dadad2;
       }
+      &:active,
+      &:focus {
+        outline: none;
+      }
     }
 
     .carousel__link--prev {
-      left: -60px;
+      left: -58px;
       background-image: url('../img/arrows/carousel_arrow_prev-no-background.svg');
     }
 
-  .carousel__link--next {
-    right: -60px;
-    background-image: url('../img/arrows/carousel_arrow_next-no-background.svg');
+    .carousel__link--next {
+      right: -58px;
+      background-image: url('../img/arrows/carousel_arrow_next-no-background.svg');
+    }
+  }
 
+  @include smartphone {
+    .carousel__link--prev,
+    .carousel__link--next {
+      display: none !important;
     }
   }
   // end img carousel overwrites
@@ -153,9 +176,28 @@
       overflow: hidden; // cuts the right most img off :/
     }
   }
+
+  // definition of img widths (moved here from js)
+  .carousel__item {
+    @include smartphone {
+      width: calc(100vw - 40px);
+    }
+
+    @include tablet-up {
+      width: 270px;
+    }
+
+    @include desktop-up {
+      width: 199px;
+    }
+
+    @include desktop-wide {
+      width: 226px;
+    }
+  }
 }
 
-// Dots
+// dots
 .slick-dots {
   height: 16px;
   margin: 0 auto;
@@ -189,11 +231,12 @@
       content: '•';
       font-size: 28px;
       line-height: 10px;
-      color: #000; // die Farben sind nicht zu erkennen :(
+      color: #000;
       opacity: .2;
     }
 
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
       outline: none;
       &::before {
         opacity: .6;
@@ -205,3 +248,163 @@
     opacity: .6;
   }
 }
+
+// player integration
+.video-gallery__player {
+  height: 0; // initial ...
+  transition: height .4s;
+}
+
+.video-gallery-container__player-close {
+  display: none;
+}
+
+// .video-gallery-container
+.video-gallery--playing {
+  position: relative;
+
+  .video-gallery__player-container { // fullwidth
+    background-color: #22211d;
+
+    @include smartphone { // this shouldn't exist :/ (responsive small screen view)
+      &::before {
+        content: "";
+        display: block;
+        padding-top: calc(56.25% + 56px);
+      }
+    }
+
+    &::after { // dreieckli
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+      width: 0;
+      border-left: solid 10px transparent;
+      border-right: solid 10px transparent;
+      border-bottom: solid 10px #f5f5f2;
+    }
+  }
+
+  .video-gallery-container__player-close { // [x]
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 16px;
+    // smartphone:
+    right: 24px;
+    background: transparent url("../img/close.svg");
+    border: 0;
+    cursor: pointer;
+    display: block;
+    z-index: 1;
+
+    @include tablet-up {
+      right: calc(50% - 328px);
+    }
+
+    @include desktop-up {
+      top: 24px;
+      right: 24px;
+    }
+
+    &:active,
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .video-gallery__player { // player container
+    position: relative;
+
+    @include smartphone {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      top: 0;
+    }
+
+    @include tablet-up {
+      height: 448px;
+    }
+
+    @include desktop-wide {
+      height: 492px;
+    }
+
+    iframe { // the player
+      position: absolute;
+      top: 50%;
+      transform: translate(0, -50%);
+
+      @include smartphone {
+        padding: 56px 24px 24px;
+      }
+
+      @include tablet-up {
+        top: 0;
+        width: 656px;
+        height: calc(100% - 80px);
+        margin: 56px 50% 24px;
+        transform: translate(-50%, 0);
+      }
+      @include desktop-up {
+        width: 712px;
+        height: calc(100% - 48px);
+        margin: 24px 50%;
+      }
+      @include desktop-wide {
+        width: 790px;
+      }
+    }
+  }
+
+  // gallery overwrites
+  .video--loading {
+    .article-video__player::before {
+      content: none;
+    }
+
+    .media-play {
+      display: none;
+    }
+  }
+
+  .video--playing {
+    .article-video__player {
+      margin: 0;
+    }
+  }
+}
+
+// video play overwrites
+.video--loading,
+.video--playing {
+
+  .media-caption--video {
+    background-color: #383732;
+  }
+
+  .media-caption__title {
+    color: #f5f5f2;
+  }
+}
+
+.video--visited {
+  // not to have the iframe frame collapse ...
+  .article-video__player::before {
+    content: "";
+    display: block;
+    padding-top: 56.25%;
+  }
+
+  // nor the image pushed down
+  &:not(.video--loading):not(.video--playing) {
+    .image-figure__image-wrapper {
+      margin-top: -56.25%;
+    }
+  }
+}
+// end player integration

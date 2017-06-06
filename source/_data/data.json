@@ -457,31 +457,6 @@
   "allowsComments": true,
   "businessUnit": "rtr",
   "comments": {
-    "title_singular": "Kommentar",
-    "title_plural": "Kommentare",
-    "greetings": "Sie sind angemeldet als",
-    "let_us_know": "Teilen Sie Ihre Meinung ...",
-    "select_to_comment": "anwählen um einen Kommentar zu schreiben",
-    "logout": "abmelden",
-    "no_comment": "Es wurden noch keine Kommentare erfasst. Seien Sie die erste Person, die diesen Artikel kommentiert.",
-    "comments_disabled": "Kommentarfunktion deaktiviert",
-    "autoclose": "Uns ist es wichtig, Kommentare möglichst schnell zu sichten und freizugeben. Deshalb ist das Kommentieren bei älteren Artikeln und Sendungen nicht mehr möglich.",
-    "pending": "Wir haben die Kommentarfunktion auf dieser Seite aus Kapazitätsgründen deaktiviert. Aktuell warten sehr viele Kommentare auf die Freischaltung, wir werden sie schnellstmöglich sichten. Danach ist die Kommentarfunktion wieder aktiv. Wir bitten um Verständnis.",
-    "reason_for_closure": "",
-    "link_all": "Alle Kommentare",
-    "link_hits": "Beliebteste",
-    "addons": {
-      "link_reply": "Antworten",
-      "comment_by": "Kommentar von",
-      "reply_by": "Antwort von"
-    },
-    "replies": {
-      "title": "Einen Kommentar schreiben",
-      "netiquette": "Netiquette",
-      "letters": "Zeichen",
-      "please_respect": "Bitte beachten Sie unsere",
-      "still_available": "Verfügbar sind noch"
-    },
     "total_count": "8",
     "comments": [
       {
