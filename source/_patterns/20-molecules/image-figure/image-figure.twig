@@ -1,0 +1,9 @@
+<figure class="image-figure {{ styleModifier }}">
+    {% block image_wrapper %}
+        {% include 'atoms-image' with {'styleModifier': imageCaptionStyle } %}
+    {% endblock %}
+
+    {% block image_caption %}
+        {% include 'atoms-media-caption' with {'styleModifier': imageCaptionStyle } %}
+    {% endblock %}
+</figure>
