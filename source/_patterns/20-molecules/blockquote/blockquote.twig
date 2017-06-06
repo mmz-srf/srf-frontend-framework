@@ -3,10 +3,16 @@
     <div class="blockquote__quote">
         <span class="blockquote__text">{{ blockquote.text }}</span>
     </div>
+    {% if blockquote.author or blockquote.function %}
     <footer class="blockquote__footer">
         <cite>
-            <span class="blockquote__author"><span class="h-offscreen">{{ 'Autor: '|trans }}</span>{{ blockquote.author }}</span>
-            <span class="blockquote__function">{{ blockquote.function }}</span>
+            {% if blockquote.author %}
+                <span class="blockquote__author"><span class="h-offscreen">{{ 'Autor: '|trans }}</span>{{ blockquote.author }}</span>
+            {% endif %}
+            {% if blockquote.function %}
+                <span class="blockquote__function">{{ blockquote.function }}</span>
+            {% endif %}
         </cite>
     </footer>
+    {% endif %}
 </blockquote>
