@@ -229,6 +229,7 @@
 
     &::before {
       content: '•';
+      font-family: $font-system;
       font-size: 28px;
       line-height: 10px;
       color: #000;
@@ -246,13 +247,6 @@
 
   .slick-active button::before {
     opacity: .6;
-  }
-}
-
-@media only screen and (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-  /* High-res styles go here */
-  .slick-dots button::before {
-    font-size: 56px;
   }
 }
 
