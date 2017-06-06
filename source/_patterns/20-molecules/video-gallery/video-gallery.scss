@@ -249,6 +249,13 @@
   }
 }
 
+@media only screen and (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  /* High-res styles go here */
+  .slick-dots button::before {
+    font-size: 56px;
+  }
+}
+
 // .video-gallery-container
 .media-window--playing {
   position: relative;
