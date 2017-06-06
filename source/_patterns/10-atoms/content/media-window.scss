@@ -51,7 +51,7 @@
     top: 16px;
     // smartphone:
     right: 24px;
-    background: transparent url("../img/close.svg");
+    background: transparent url("../img/close-sprite.svg") no-repeat;
     border: 0;
     cursor: pointer;
     display: block;
@@ -66,9 +66,11 @@
       right: 24px;
     }
 
+    &:hover,
     &:active,
     &:focus {
       outline: none;
+      background-position: 0 -24px;
     }
   }
 
