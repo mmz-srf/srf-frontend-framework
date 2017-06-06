@@ -1,5 +1,5 @@
 <h3 class="h-offscreen">{{ 'Bildergalerie'|trans }}</h3>
-<span class="h-offscreen">{{ 'Bildergalerie enthält'|trans }} {{ images.length }} {{ 'Bilder'|trans }}</span>
+<span class="h-offscreen">{{ 'Bildergalerie enthält'|trans }} {{ images|length }} {{ 'Bilder'|trans }}</span>
 <div class="l-embed-full-width-container">
     <div class="carousel carousel__js" id="{{ image_carousel.ID }}">
         {% for image in images %}
