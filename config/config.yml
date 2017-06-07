@@ -44,5 +44,3 @@ plugins:
         enabled: true
     dataInheritance:
         enabled: false
-framework:
-    translator: { fallbacks: [de] }
