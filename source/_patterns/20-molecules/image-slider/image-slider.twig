@@ -1,0 +1,30 @@
+<figure class="image-slider">
+    <h3 class="h-offscreen">{{ 'Bildvergleich' }}</h3>
+
+    <div class="image-slider__image-wrapper">
+        <img src="{{ images[2].sources.s12.src }}" class="image-slider__image" alt="" />
+        <div class="image-slider__cover-wrapper">
+            <img src="{{ images[3].sources.s12.src }}" class="image-slider__image image-slider__image--cover" alt="" />
+        </div>
+
+        <img src="{{ frameworkAssetPath }}/img/slider-arrows-left.svg" class="image-slider__slider image-slider__slider--left" alt="" />
+        <img src="{{ frameworkAssetPath }}/img/slider-arrows-right.svg" class="image-slider__slider image-slider__slider--right" alt="" />
+
+    </div>
+
+    <a class="h-offscreen h-offscreen-focusable image-slider__move-left" href="#">{{ 'Regler nach links verschieben' }}</a>
+    <a class="h-offscreen h-offscreen-focusable image-slider__move-right" href="#">{{ 'Regler nach rechts verschieben' }}</a>
+
+    <figcaption class="media-caption">
+        <span class="h-offscreen">{{ 'Legende:' }}</span>
+        <span class="media-caption__title">
+            {{ images[0].caption.title }}
+        </span>
+        <span class="media-caption__description">
+            {{ images[0].caption.description }}
+        </span>
+        <span class="media-caption__source">
+            {{ images[0].caption.source }}
+        </span>
+    </figcaption>
+</figure>

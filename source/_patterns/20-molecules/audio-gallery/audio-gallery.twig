@@ -1,0 +1,16 @@
+<div><!-- this conforms to the cms display -->
+    <ol class="audio-gallery">
+        {% for audio in audios %}
+            <li class="audio-gallery__item">
+                {% include 'molecules-audio' with {
+                  "audios": [audio]
+                } %}
+            </li>
+            <li class="audio-gallery__item">
+                {% include 'molecules-audio' with {
+                  "audios": [audio]
+                } %}
+            </li>
+        {% endfor %}
+    </ol>
+</div>
