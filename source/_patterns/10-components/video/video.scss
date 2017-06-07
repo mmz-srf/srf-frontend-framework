@@ -4,10 +4,6 @@
 .article-video {
   margin: 24px -8px;
   
-  @include smartphone {
-    @include fullwidth-element;
-  }
-
   @include tablet-up {
     margin: 32px 0;
   }

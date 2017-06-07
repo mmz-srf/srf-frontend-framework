@@ -3,6 +3,12 @@
   @include tablet-up {
     margin:32px 0;
   }
+  
+  .article-video {
+    @include smartphone {
+      @include fullwidth-element; // fixes padding-problem
+    }
+  }
 }
 
 .listmodule__title {
