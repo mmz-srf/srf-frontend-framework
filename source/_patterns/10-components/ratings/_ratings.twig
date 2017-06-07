@@ -15,9 +15,9 @@
                                 <label for="star{{ratings_index}}-{{answer_index}}-{{loop.index}}">
                                     <span class="h-offscreen">
                                         {% if loop.index == 1 %}
-                                            1 {{ 'Stern'|trans }}
+                                            1 {{ 'Stern' }}
                                         {% else %}
-                                            {{loop.index}} {{ 'Sterne'|trans }}
+                                            {{loop.index}} {{ 'Sterne' }}
                                         {% endif %}
                                     </span>
                                     <svg class="ratingstars__star ratingstars__star--{{loop.index}} ratingstars__star--{{ratings_index}}-{{answer_index}}-{{loop.index}}" viewBox="0 0 37 37" version="1.1" xmlns="http://www.w3.org/2000/svg">

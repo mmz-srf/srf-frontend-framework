@@ -3,31 +3,31 @@
     {% set commentIds = commentIds|merge([comment.id]) %}
     <li class="comment_{{ comment.id }} comment" data-id="{{ comment.id }}">
         <cite class="comment__user {% if comment.isEditorialAnswer %} comment__user--{{ businessUnit }}{% endif %}" role="combobox">
-            <span class="h-offscreen">{{ 'Kommentar von'|trans }} </span>{{ comment.name }}
+            <span class="h-offscreen">{{ 'Kommentar von' }} </span>{{ comment.name }}
             {% if comment.isEditorialAnswer %}<span
                     class="h-offscreen">({{ businessUnit|upper }})</span>{% else %}({{ comment.nickname }}){% endif %}
         </cite>
         <span class="comment__time" data-timestamp="{{ comment.date }}"></span>
         <blockquote class="comment__content">{{ comment.message }}</blockquote>
         {% spaceless %}
-            <a class="comment__link comment__link--agree" role="link" title="{{ 'Zustimmen'|trans }}" href="#{{ comment.id }}-agree">
-                {{ 'Zustimmen'|trans }}
-                <span class="h-offscreen">{{ 'dem Kommentar zustimmen'|trans }}</span>
+            <a class="comment__link comment__link--agree" role="link" title="{{ 'Zustimmen' }}" href="#{{ comment.id }}-agree">
+                {{ 'Zustimmen' }}
+                <span class="h-offscreen">{{ 'dem Kommentar zustimmen' }}</span>
                 <span class="count"></span>
             </a>
 
             <span class="vertical-separator" aria-hidden="true" role="presentation"></span>
 
-            <a class="comment__link comment__link--deny" role="link" title="{{ 'Ablehnen'|trans }}" href="#{{ comment.id }}-deny">
-                {{ 'Ablehnen'|trans }}
-                <span class="h-offscreen">{{ 'den Kommentar ablehnen'|trans }}</span>
+            <a class="comment__link comment__link--deny" role="link" title="{{ 'Ablehnen' }}" href="#{{ comment.id }}-deny">
+                {{ 'Ablehnen' }}
+                <span class="h-offscreen">{{ 'den Kommentar ablehnen' }}</span>
                 <span class="count"></span>
             </a>
             {% if allowsComments %}
                 <span class="vertical-separator" aria-hidden="true" role="presentation"></span>
-                <a class="comment__link comment__link--reply" href="#{{ comment.id }}-reply" role="link" title="{{ 'Antworten'|trans }}">
-                    {{ 'Antworten'|trans }}
-                    <span class="h-offscreen">{{ 'anwählen um auf den Kommentar zu antworten'|trans }}</span>
+                <a class="comment__link comment__link--reply" href="#{{ comment.id }}-reply" role="link" title="{{ 'Antworten' }}">
+                    {{ 'Antworten' }}
+                    <span class="h-offscreen">{{ 'anwählen um auf den Kommentar zu antworten' }}</span>
                 </a>
                 <span class="placeholder_{{ comment.id }} comment__placeholder"></span>
             {% endif %}
@@ -38,20 +38,20 @@
                 {% for reply in comment.children %}
                     {% set commentIds = commentIds|merge([reply.id]) %}
                     <li class="comment_{{ reply.id }} comment" data-id="{{ reply.id }}">
-                        <span class="h-offscreen">{{ 'Antwort von'|trans }} </span>
+                        <span class="h-offscreen">{{ 'Antwort von' }} </span>
                         <cite class="comment__user {% if reply.isEditorialAnswer %} comment__user--{{ businessUnit }}{% endif %}">
                             {{ reply.name }}{% if not reply.isEditorialAnswer %} ({{ reply.nickname }}){% endif %}</cite>
                         <span class="comment__time" data-timestamp="{{ reply.date }}"></span>
                         <blockquote class="comment__content">{{ reply.message }}</blockquote>
                         {% spaceless %}
-                            <a class="comment__link comment__link--agree" title="{{ 'Zustimmen'|trans }}" role="link" href="#{{ comment.id }}-agree">
-                                {{ 'Zustimmen'|trans }}
-                                <span class="h-offscreen">{{ 'dem Kommentar zustimmen'|trans }}</span>
+                            <a class="comment__link comment__link--agree" title="{{ 'Zustimmen' }}" role="link" href="#{{ comment.id }}-agree">
+                                {{ 'Zustimmen' }}
+                                <span class="h-offscreen">{{ 'dem Kommentar zustimmen' }}</span>
                                 <span class="count"></span>
                             </a><span class="vertical-separator" aria-hidden="true" role="presentation"></span>
-                            <a class="comment__link comment__link--deny" title="{{ 'Ablehnen'|trans }}" role="link" href="#{{ comment.id }}-deny">
-                                {{ 'Ablehnen'|trans }}
-                                <span class="h-offscreen">{{ 'den Kommentar ablehnen'|trans }}</span>
+                            <a class="comment__link comment__link--deny" title="{{ 'Ablehnen' }}" role="link" href="#{{ comment.id }}-deny">
+                                {{ 'Ablehnen' }}
+                                <span class="h-offscreen">{{ 'den Kommentar ablehnen' }}</span>
                                 <span class="count"></span>
                             </a>
                         {% endspaceless %}
