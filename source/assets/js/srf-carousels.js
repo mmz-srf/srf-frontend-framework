@@ -37,8 +37,6 @@ export function init() {
     });
 
     // video carousel:
-    // let slidesToShow = getNumberOfSlidesPerScreen(1); // mobile : 1
-
     $.each($('.video_carousel__js'), function (i, carousel) {
         let $carousel = $(carousel),
             id = $carousel.attr("id");
@@ -56,15 +54,13 @@ export function init() {
             centerPadding: 0,
             variableWidth: true,
             prevArrow: '<button class="carousel__link--prev"><span class="h-offscreen h-offscreen-focusable">Vorhergehender Slide</span></button>',
-            nextArrow: '<button class="carousel__link--next"><span class="h-offscreen h-offscreen-focusable">Nächster Slide</span></button>',
-        }); // .setOption("slidesToShow", slidesToShow).setOption("slidesToScroll", slidesToShow);
+            nextArrow: '<button class="carousel__link--next"><span class="h-offscreen h-offscreen-focusable">Nächster Slide</span></button>'
+        });
     });
 
     // "position change" (resize page or "activate" slider in any way)
     $('.video_carousel__js').on('setPosition', function (slick) {
         let slidesToShow = getNumberOfSlidesPerScreen(1); // mobile : 1
-        console.log("setPosition", slidesToShow)
-
 
         $(this).slick("slickSetOption", "slidesToShow", slidesToShow, false);
         $(this).slick("slickSetOption", "slidesToScroll", slidesToShow, false);
