@@ -103,8 +103,18 @@
 }
 
 .article-audio__player {
+  flex: 0 0 100%;
   height: 0;
-  transition: height .4s;
+  padding: 0;
+  background-color: $color-text-default;
+  transition: height 150ms linear;
+
+  //use margin and dimensions directly on the player iframe instead of the wrapper for a smoother transition
+  iframe {
+    width: calc(100% - 16px);
+    height: calc(100% - 16px);
+    margin: 8px;
+  }
 }
 
 .audio--loading,
@@ -157,15 +167,12 @@
 }
 
 .audio--playing {
-
   .article-audio__wrapper::before {
     opacity: 0;
   }
 
   .article-audio__player {
     height: 42px;
-    padding: 8px;
-    background-color: $color-text-default;
-    flex: 1 0 100%;
+    transition: height 250ms linear;
   }
 }
