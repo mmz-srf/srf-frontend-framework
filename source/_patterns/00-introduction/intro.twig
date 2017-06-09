@@ -26,8 +26,8 @@
         <ul class="text-list text-list--unordered">
             <li>The main idea behind our <a href="#BEM">BEM blocks</a> is that they could be used independently and anywhere. A vision is that - when we are ready to use http/2 - each block will have a separate generated CSS file so that just the styles for blocks used on a web page need to be included. Therefore: Avoid global styles and code a block in a way that all its styling is in one Sass file.</li>
             <li>Maintainability should be the primary goal when writing CSS/Sass-Code for the framework even if it results in more code.</li>
-            <li>Top and bottom spaces between elements/components should be ruled by
-                <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model/Mastering_margin_collapsing" target="_blank">collapsing margins</a>. The element with the larger margin wins.
+            <li>Top and bottom spaces between components should be ruled by
+                <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model/Mastering_margin_collapsing" target="_blank">collapsing margins</a>. The component with the larger margin wins.
                 Therefore only use margins not padding for top and bottom spaces. Sometimes it is necessary to add a wrapper <code>&lt;div&gt;</code> to make margins work as desired.</li>
             <li>You are allowed to use flexbox  - so use it ;-)</li>
         </ul>

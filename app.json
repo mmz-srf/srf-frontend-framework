@@ -1,0 +1,19 @@
+{
+  "name": "srf-frontend-framework",
+  "description": "",
+  "scripts": {
+    "postdeploy": "gulp"
+  },
+  "env": {
+  },
+  "formation": {
+  },
+  "addons": [
+
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/php"
+    }
+  ]
+}

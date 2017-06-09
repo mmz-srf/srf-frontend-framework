@@ -1,0 +1,4 @@
+<div class="article-author">
+    <p class="article-author__name"><span class="h-offscreen">{{ 'Autor: '|trans }}</span>{{ articleAuthor.name }}</p>
+    {% include 'atoms-infoline' with {'styleModifier': 'infoline--nospacing', 'infolineElem': articleAuthor.date} %}
+</div>

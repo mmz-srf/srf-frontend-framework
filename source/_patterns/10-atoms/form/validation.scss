@@ -1,0 +1,65 @@
+.form__validation {
+  display: none;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.5px;
+}
+
+.form__validation--success {
+  color: white;
+  background-color: #1a7ac5;
+  border-radius: 2px;
+  padding: 28px 32px;
+  height: 104px;
+  margin-bottom: 30px;
+
+  @include tablet-up {
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  @include tablet {
+    max-width: 654px;
+  }
+
+  @include desktop-up {
+    max-width: 712px;
+  }
+
+  @include desktop-wide {
+    max-width: 790px;
+  }
+
+  @include smartphone {
+    text-align: center;
+    height: 204px;
+    margin: 0 0 30px 16px;
+    padding: 32px 16px;
+  }
+}
+
+.form__validation--success p {
+  margin: 0;
+  @include smartphone {
+    margin: 12px 0 0;
+  }
+}
+
+.form__validation--error p {
+  color: #c91024;
+  font-weight: 300;
+}
+
+.form__validation--success img {
+  float: left;
+  margin-right: 25px;
+  width: 48px;
+  height: 48px;
+
+  @include smartphone {
+    float: none;
+    margin: 0 auto;
+    width: 56px;
+    height: 56px;
+  }
+}

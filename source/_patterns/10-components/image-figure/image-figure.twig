@@ -1,9 +1,0 @@
-<figure class="image-figure {{ styleModifier }}">
-    {% block image_wrapper %}
-        {% include 'elements-image' with {'styleModifier': imageCaptionStyle } %}
-    {% endblock %}
-
-    {% block image_caption %}
-        {% include 'elements-media-caption' with {'styleModifier': imageCaptionStyle } %}
-    {% endblock %}
-</figure>
