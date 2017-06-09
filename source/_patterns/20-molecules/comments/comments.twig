@@ -1,7 +1,7 @@
 <section class="article-comments l-full-width-container js-article-comments"
-         data-i18n-text-clock="{{ 'Uhr' }}"
-         data-i18n-text-today="{{ 'Heute' }}"
-         data-i18n-text-yesterday="{{ 'Gestern' }}">
+         data-i18n-text-clock="Uhr"
+         data-i18n-text-today="Heute"
+         data-i18n-text-yesterday="Gestern">
     <div class="comments-wrapper" data-total-count="{{ comments.total_count }}" {% block data_attributes %}{% endblock %}>
         <div class="comments-header">
             <h3 class="comments-header__title comments--shrink">
@@ -12,7 +12,7 @@
                     {{ 'Kommentare' }}
                 {% endif %}
             </h3>
-            <p class="comments-header__text comments--shrink {{ styleModifier }}" style="display: none">
+            <p class="comments-header__text comments--shrink {{ styleModifier }}">
                 {{ 'Sie sind angemeldet als' }}
                 <a href="" class="comments-header__logged-in-as">Who ? (whoareyou)</a> (<a href=""
                                                               class="comments-header__logout">{{ 'abmelden' }}</a>)
@@ -80,7 +80,7 @@
                 <div id="sectionHits" role="tabpanel" aria-hidden="true" style="display: none;">
                     <ul class="comments comments--shrink comments--popular">
                         <li class="comment">
-                            <blockquote class="comment__content">{{ 'Beliebteste Kommentare werden geladen.' }}</blockquote>
+                            <blockquote class="comment__content">Beliebteste Kommentare werden geladen.</blockquote>
                         </li>
                     </ul>
                 </div>
