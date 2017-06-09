@@ -9,7 +9,8 @@
   }
 
   &:hover,
-  &:active {
+  &:active,
+  &:focus {
     .article-video__play-icon,
     .media-play__icon {
       background-image: url('../img/play-active.svg');
@@ -142,12 +143,14 @@
 
   // invert caption colours
   &.article-video,
-  &.article-video:hover {
+  &.article-video:hover,
+  &.article-video:focus {
     background-color: $color-media-playing;
     cursor: default;
   }
 
   &:hover .media-caption--video,
+  &:focus .media-caption--video,
   .media-caption--video { // :/
     background-color: $color-media-playing;
   }
@@ -172,7 +175,7 @@
   .article-video__player::before {
     content: "";
     display: block;
-    padding-top: 56.25%;
+    padding-top: 56.28%;
   }
 
   .image-figure::before {
