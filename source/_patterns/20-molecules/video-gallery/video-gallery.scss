@@ -69,6 +69,22 @@
     }
   }
 
+  .video--visited {
+    // not to have the iframe frame collapse ...
+    .article-video__player::before {
+      content: "";
+      display: block;
+      padding-top: 56.28%;
+    }
+
+    // nor the image pushed down
+    &:not(.video--loading):not(.video--playing) {
+      .image-figure__image-wrapper {
+        margin-top: -56.25%;
+      }
+    }
+  }
+
   .image-figure__image-wrapper {
     // dimming the videos here as well
     &::after {
@@ -306,22 +322,6 @@
 
   .media-caption__title {
     color: #f5f5f2;
-  }
-}
-
-.video--visited {
-  // not to have the iframe frame collapse ...
-  .article-video__player::before {
-    content: "";
-    display: block;
-    padding-top: 56.28%;
-  }
-
-  // nor the image pushed down
-  &:not(.video--loading):not(.video--playing) {
-    .image-figure__image-wrapper {
-      margin-top: -56.25%;
-    }
   }
 }
 // end player integration
