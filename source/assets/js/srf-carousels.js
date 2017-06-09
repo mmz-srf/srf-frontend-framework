@@ -104,9 +104,9 @@ function loadLazyImages(images) {
 
 function recalculateDots($carousel, slidesToShow) {
     let x = Math.ceil($carousel.find(".carousel__item").length / slidesToShow) + 1; // todo: shorten!
-    $(".slick-dots li").removeClass("h-element--hide");
-    $(".slick-dots li:nth-child(1n + " + x + ")").addClass("h-element--hide");
-    console.log($(".slick-dots li"));
+    $carousel.find(".slick-dots li").removeClass("h-element--hide");
+    $carousel.find(".slick-dots li:nth-child(1n + " + x + ")").addClass("h-element--hide");
+    // console.log($(".slick-dots li"));
 }
 
 function getNumberOfSlidesPerScreen(slidesToShow = 1) {
