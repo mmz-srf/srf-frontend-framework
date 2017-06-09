@@ -34,6 +34,7 @@ export function init() {
     // video carousels
     $(".video_carousel__js").on("init", function (slick) {
         $(this).css("visibility", "visible");
+        $(window).trigger('resize');
     });
 
     // video carousel:
