@@ -34,6 +34,8 @@ export function init() {
     // video carousels
     $(".video_carousel__js").on("init", function (slick) {
         $(this).css("visibility", "visible");
+        // triggering a "recalculation of dots" (via "setPosition" below)
+        $(window).trigger('resize');
     });
 
     // video carousel:
@@ -62,10 +64,19 @@ export function init() {
     $('.video_carousel__js').on('setPosition', function (slick) {
         let slidesToShow = getNumberOfSlidesPerScreen(1); // mobile : 1
 
-        $(this).slick("slickSetOption", "slidesToShow", slidesToShow, false);
-        $(this).slick("slickSetOption", "slidesToScroll", slidesToShow, false);
-
-        recalculateDots($(this), slidesToShow);
+        // if previous num. of slides shown != the num. we'll see now
+        if ($(this).slick("slickGetOption", "slidesToShow") != slidesToShow) {
+            // if slider not at initial pos. && arrows displayed
+            if ($(this).slick("slickCurrentSlide") > 0 && slidesToShow != 1) {
+                // move it there - so the "arrows" don't get "confused"
+                $(this).slick("slickGoTo", 0, true);
+            }
+            // and adjust num. of slides...
+            $(this).slick("slickSetOption", "slidesToShow", slidesToShow, false);
+            $(this).slick("slickSetOption", "slidesToScroll", slidesToShow, false);
+            // and adjust num. of dots
+            recalculateDots($(this), slidesToShow);
+        }
     });
 }
 
@@ -106,7 +117,6 @@ function recalculateDots($carousel, slidesToShow) {
     let x = Math.ceil($carousel.find(".carousel__item").length / slidesToShow) + 1; // todo: shorten!
     $carousel.find(".slick-dots li").removeClass("h-element--hide");
     $carousel.find(".slick-dots li:nth-child(1n + " + x + ")").addClass("h-element--hide");
-    // console.log($(".slick-dots li"));
 }
 
 function getNumberOfSlidesPerScreen(slidesToShow = 1) {
