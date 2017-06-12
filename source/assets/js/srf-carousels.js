@@ -62,20 +62,32 @@ export function init() {
 
     // "position change" (resize page or "activate" slider in any way)
     $('.video_carousel__js').on('setPosition', function (slick) {
-        let slidesToShow = getNumberOfSlidesPerScreen(1); // mobile : 1
-
+        let slidesToShow = getNumberOfSlidesPerScreen(1), // mobile : 1
+            $carousel = $(this),
+            currentSlide = $carousel.slick("slickCurrentSlide");
         // if previous num. of slides shown != the num. we'll see now
-        if ($(this).slick("slickGetOption", "slidesToShow") != slidesToShow) {
+        if ($carousel.slick("slickGetOption", "slidesToShow") != slidesToShow) {
             // if slider not at initial pos. && arrows displayed
-            if ($(this).slick("slickCurrentSlide") > 0 && slidesToShow != 1) {
+            if (currentSlide > 0 && slidesToShow != 1) {
                 // move it there - so the "arrows" don't get "confused"
-                $(this).slick("slickGoTo", 0, true);
+                $carousel.slick("slickGoTo", 0, true);
             }
+
             // and adjust num. of slides...
-            $(this).slick("slickSetOption", "slidesToShow", slidesToShow, false);
-            $(this).slick("slickSetOption", "slidesToScroll", slidesToShow, false);
+            $carousel.slick("slickSetOption", "slidesToShow", slidesToShow, false);
+            $carousel.slick("slickSetOption", "slidesToScroll", slidesToShow, false);
+
+            let screensToShow = Math.ceil($carousel.find(".carousel__item").length / slidesToShow);
+
             // and adjust num. of dots
-            recalculateDots($(this), slidesToShow);
+            recalculateDots($carousel, screensToShow);
+
+            // if we're at the rightmost position within the carousel - we don't want the right arrow
+            if ((currentSlide + 1) === screensToShow) {
+                $carousel.find(".carousel__link--next").addClass("h-element--hide").attr("aria-disabled", true);
+            } else {
+                $carousel.find(".carousel__link--next").removeClass("h-element--hide").attr("aria-disabled", false);
+            }
         }
     });
 }
@@ -113,8 +125,9 @@ function loadLazyImages(images) {
     });
 }
 
-function recalculateDots($carousel, slidesToShow) {
-    let x = Math.ceil($carousel.find(".carousel__item").length / slidesToShow) + 1; // todo: shorten!
+function recalculateDots($carousel, screensToShow) { // TODO!
+    // let x = Math.ceil($carousel.find(".carousel__item").length / slidesToShow) + 1; // todo: shorten!
+    let x = screensToShow + 1; // todo: shorten!
     $carousel.find(".slick-dots li").removeClass("h-element--hide");
     $carousel.find(".slick-dots li:nth-child(1n + " + x + ")").addClass("h-element--hide");
 }
