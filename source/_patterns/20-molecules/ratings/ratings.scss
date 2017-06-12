@@ -68,7 +68,7 @@
   animation-iteration-count: 1;
   transform-origin: 50% 50%;
   animation-fill-mode: forwards;
-  transform-style: preserve-3d
+  transform-style: preserve-3d;
 }
 
 .is-animated .ratingstars__star--1 {
@@ -128,4 +128,18 @@
 .ratings-wrapper .poll-option-label__title,
 .ratings-wrapper .poll-option-label__description {
   margin-left: 0
+}
+
+.is-visible {
+  .resultWording {
+    opacity: 1;
+    visibility: visible;
+    transition: none;
+  }
+  .ratingstars-list {
+    margin: 0 22px;
+  }
+  .ratingstars__elem {
+    width: 36px;
+  }
 }
