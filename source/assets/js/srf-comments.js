@@ -15,17 +15,55 @@ var commentController = function () {
 
         $(".comments-wrapper").on("keyup focus", ".reply__textarea", function (e) {
             that.countChars($(this));
-        }).on("focusin", function () {
+        }).on("focusin", ".reply__textarea", function () {
             $(".reply").addClass("reply--on-focus");
-        }).on("focusout", function () {
+        }).on("focusout", ".reply__textarea", function () {
             $(".reply").removeClass("reply--on-focus");
-        }).on({
-            "scroll": that.handleScroll,
-            "input": that.handleInput
+        }).on("input", ".reply__textarea", that.handleInput);
+
+        $(".reply__textarea").on({
+            "scroll": that.handleScroll
         });
 
         // main (top) comment
         $(".comments-wrapper").on("click", ".comments-header__button", function (e) {
+            e.preventDefault();
+            if (!$(this).hasClass("login-pending")) {
+                // hide the button
+                $(this).addClass("comment--hide");
+                // move the form
+                $(".js-comment_place").removeClass("comment--hide")
+                    .appendTo(".comments-header__placeholder");
+                // set the focus
+                $(".reply__textarea").val("").focus();
+                // return false;
+            }
+        });
+
+        // movable comment
+        $(".comments-wrapper").on("click", ".comment__link--reply", function (e) {
+            e.preventDefault();
+            if (!$(this).hasClass("login-pending")) {
+                // hide main comment again (if there was one)
+                $(".comments-header__button").removeClass("comment--hide");
+
+                var parent_id = $(this).parent("li").data("id");
+
+                // move the form
+                $(".js-comment_place").removeClass("comment--hide")
+                // .appendTo("#" + parent_id.replace("comment", "placeholder"));
+                    .appendTo("#placeholder_" + parent_id);
+                // set the focus
+                $(".reply__textarea").val("").focus();
+
+                // parent_id = parent_id.split("_")[1];
+                $(".js-comment_parent_id").val(parent_id);
+                // return false;
+            }
+        });
+
+        // main (top) comment
+        /* $(".comments-wrapper").on("click", ".comments-header__button", function (e) {
             e.preventDefault();
             $(this).addClass('login-pending');
             $(document).trigger('login:check');
@@ -81,7 +119,7 @@ var commentController = function () {
 
             }
             return false;
-        });
+         }); */
 
     };
 
@@ -121,6 +159,7 @@ var commentController = function () {
     };
 
     this.handleScroll = function () {
+        console.log($(".reply__textarea").scrollTop())
         var scrollTop = $(".reply__textarea").scrollTop();
         $(".reply__highlights").scrollTop(scrollTop);
     };
