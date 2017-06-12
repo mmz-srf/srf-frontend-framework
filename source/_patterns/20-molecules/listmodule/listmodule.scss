@@ -1,0 +1,130 @@
+.listmodule {
+  margin:24px 0;
+  @include tablet-up {
+    margin:32px 0;
+  }
+  
+  .article-video {
+    @include smartphone {
+      @include fullwidth-element; // fixes padding-problem
+    }
+  }
+}
+
+.listmodule__title {
+  font:normal 500 22px/28px $font-medium;
+  letter-spacing:.2px;
+  color:$color-text-default;
+  margin:0 0 16px;
+  padding:0 16px;
+}
+.listmodule__title--listicle {
+  @include tablet-up {
+    margin-bottom: 24px;
+  }
+}
+
+.listmodule__item {
+  margin: 0 -24px;
+  padding: 0 24px;
+  &:before {
+    display: none;
+  }
+  @include tablet-up {
+    margin: 0 -16px;
+    padding: 0 16px;
+  }
+}
+.listmodule__item--listicle {
+  margin-bottom: 24px;
+  @include tablet-up {
+    margin-bottom: 32px;
+  }
+}
+.listmodule__item--listing {
+  border-top: 1px solid rgb(236,236,230);
+  overflow: hidden;
+}
+.listmodule__item--listing:last-of-type {
+  border-bottom: 1px solid rgb(236,236,230);
+}
+
+.listmodule__heading {
+  font: normal normal 18px/28px $font-regular;
+  letter-spacing: .5px;
+  color: $color-text-default;
+  margin: 12px 0 8px;
+  @include tablet-up {
+    font-size: 20px;
+    letter-spacing: .6px;
+    margin: 19px 0 12px; // 19 instead of 16px 'cause of rendering of custom-font visually needs additional vertical space on top
+  }
+}
+.listmodule__heading--listicle {
+  font-weight: 500;
+  font-family: $font-medium;
+  margin: 16px 0 12px;
+  @include tablet-up {
+    line-height: 32px;
+    letter-spacing: .2px;
+    margin: 24px 0 16px;
+  }
+}
+
+.listmodule__media--listicle {
+  margin-top: -12px;
+  margin-bottom: -12px;
+  @include tablet-up {
+    margin: -16px -16px -12px;
+  }
+}
+
+.listmodule__block {
+  margin-bottom:16px;
+}
+
+.listmodule__content {
+  font: normal 300 18px/28px $font-light;
+  letter-spacing: .5px;
+  color: $color-text-default;
+  margin: 8px 0;
+  @include tablet-up {
+    font-size: 20px;
+    letter-spacing: .6px;
+    margin: 12px 0 24px;
+  }
+}
+.listmodule__content--listicle {
+  margin: 12px 0;
+  @include tablet-up {
+    line-height:32px;
+    letter-spacing: .3px;
+    margin:16px 0;
+  }
+}
+
+.listmodule__link {
+  margin: 12px -8px 16px;
+  @include tablet-up {
+    margin-top: 24px;
+    margin-bottom: 24px;
+  }
+}
+.listmodule__link--listing {
+  clear: both;
+}
+.listmodule__link--listicle {
+  margin-right: -24px;
+  margin-left: -24px;
+  @include tablet-up {
+    margin: 16px -16px;
+  }
+}
+
+.listmodule__link .block-link {
+  border-top: 1px solid $color-separator;
+}
+.listmodule__link--listing .block-link {
+  padding-right: 8px;
+  padding-left: 8px;
+}
