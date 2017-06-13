@@ -134,28 +134,9 @@
 }
 
 .is-visible {
-  &.poll--with-media {
-    .ratings-wrapper {
-      // display: flex;
-      // flex-direction: column;
-    }
-  }
-  // the following too?
-  .poll-option-label__title {
-    flex: 1 0 auto;
-  }
   .resultWording {
     opacity: 1;
     visibility: visible;
     transition: none;
-  }
-  .ratingstars {
-    // margin-top: 16px;
-  }
-  .ratingstars-list {
-    // margin: 6px 22px;
-  }
-  .ratingstars__elem {
-    // width: 35px;
   }
 }
