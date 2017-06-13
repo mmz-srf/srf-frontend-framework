@@ -1,16 +1,16 @@
 <form class="reply-container comment--hide comments--shrink js-comment_place"
       name="comment_form" method="{{ form.method|default("get") }}">
-    <label class="h-offscreen" form="comment_form">{{ 'Einen Kommentar schreiben'|trans }}</label>
+    <label class="h-offscreen" form="comment_form">{{ 'Einen Kommentar schreiben' }}</label>
     <fieldset class="reply">
         <div class="reply__highlights"></div>
         <textarea class="reply__textarea{# reply--mini #}" name="reply" cols="70" rows="7"></textarea>
         <p class="reply-info">
-            <span class="reply-info__initial">{{ 'Bitte beachten Sie unsere'|trans }}</span>
+            <span class="reply-info__initial">{{ 'Bitte beachten Sie unsere' }}</span>
             <a class="reply-info__netiquette"
-               href="//srf.ch/netiquette">{{ 'Netiquette'|trans }}</a>
+               href="//srf.ch/netiquette">{{ 'Netiquette' }}</a>
             <span class="reply-info__count">
-                <span class="h-offscreen">{{ 'verfügbar sind noch'|trans }}</span>
-                <span class="js-comment-count-up">500</span>&nbsp;{{ 'Zeichen'|trans }}
+                <span class="h-offscreen">{{ 'verfügbar sind noch' }}</span>
+                <span class="js-comment-count-up">500</span>&nbsp;{{ 'Zeichen' }}
             </span>
         </p>
         <input type="hidden" name="reply_to" class="js-comment_reply_to" value="0">{# replytocomment #}

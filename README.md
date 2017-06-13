@@ -2,16 +2,19 @@
 # srf-frontend-framework
 SRF Frontend Framework
 
-Test: http://www.srfcdn.ch/assets/test/latest/public/
+Test: https://frontend-framework-test.herokuapp.com
 
-Master: http://www.srf.ch/static/assets/master/
+Stage: https://frontend-framework-stage.herokuapp.com
+
+Master: https://frontend-framework.herokuapp.com
+
+Doc: https://srfmmz.atlassian.net/wiki/display/PRODS/SRF+Frontend+Framework
 
 ## Minimalistic installation guide:
 
 0. Clone via preferred method
 1. `composer install`
 2. `npm install`
-3. `gulp`
 
 ## Other
 

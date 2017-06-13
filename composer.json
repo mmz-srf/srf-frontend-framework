@@ -34,10 +34,12 @@
 	},
 	"scripts": {
 		"post-install-cmd": [
-			"PatternLab\\Installer::postInstallCmd"
+			"PatternLab\\Installer::postInstallCmd",
+			"gulp build"
 		],
 		"post-update-cmd": [
-			"PatternLab\\Installer::postUpdateCmd"
+			"PatternLab\\Installer::postUpdateCmd",
+			"gulp build"
 		],
 		"post-root-package-install": [
 			"PatternLab\\Installer::setProjectInstall",
