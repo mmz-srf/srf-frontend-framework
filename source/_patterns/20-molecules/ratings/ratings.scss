@@ -134,6 +134,7 @@
   &.poll--with-media {
     .ratings-wrapper {
       display: flex;
+      flex-direction: column;
     }
   }
   // the following too?
@@ -154,5 +155,4 @@
   .ratingstars__elem {
     width: 35px;
   }
-  // .display: flex;
 }
