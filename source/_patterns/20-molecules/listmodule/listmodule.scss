@@ -3,12 +3,6 @@
   @include tablet-up {
     margin:32px 0;
   }
-  
-  .article-video {
-    @include smartphone {
-      @include fullwidth-element; // fixes padding-problem
-    }
-  }
 }
 
 .listmodule__title {
@@ -39,6 +33,12 @@
   margin-bottom: 24px;
   @include tablet-up {
     margin-bottom: 32px;
+  }
+  
+  .article-video {
+    @include smartphone {
+      @include fullwidth-element; // fixes padding-problem
+    }
   }
 }
 .listmodule__item--listing {
