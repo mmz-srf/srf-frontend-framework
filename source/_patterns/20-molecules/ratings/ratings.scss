@@ -118,23 +118,26 @@
 
 .ratings-wrapper {
   position: relative;
-  display: block;
+  // display: block;
   background-color: $color-bg-box;
   padding: 18px 16px;
+  display: flex;
+  flex-direction: column;
   flex: 1 0 auto;
   overflow: hidden
 }
 
 .ratings-wrapper .poll-option-label__title,
 .ratings-wrapper .poll-option-label__description {
-  margin-left: 0
+  margin-left: 0;
+  flex: 1 0 auto;
 }
 
 .is-visible {
   &.poll--with-media {
     .ratings-wrapper {
-      display: flex;
-      flex-direction: column;
+      // display: flex;
+      // flex-direction: column;
     }
   }
   // the following too?
@@ -147,12 +150,12 @@
     transition: none;
   }
   .ratingstars {
-    margin-top: 16px;
+    // margin-top: 16px;
   }
   .ratingstars-list {
-    margin: 6px 22px;
+    // margin: 6px 22px;
   }
   .ratingstars__elem {
-    width: 35px;
+    // width: 35px;
   }
 }
