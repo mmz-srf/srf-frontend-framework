@@ -57,6 +57,10 @@
     object-fit: cover;
     position: absolute;
   }
+
+  .image-figure__image--no-image {
+    background-image: radial-gradient(circle at 50% 50%, #6b6960, #222222);
+  }
 }
 
 .article-audio__wrapper {
