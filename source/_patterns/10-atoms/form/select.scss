@@ -38,8 +38,6 @@
   }
 
   // hide default arrow
-  -webkit-appearance: none;
-  -moz-appearance: none;
   appearance: none;
 
   &:-moz-focusring {
@@ -50,14 +48,22 @@
 
 select::-ms-expand {
   display: none;
-  // ie11 also needs some padding-left
 }
 
+// browserspecific indentations :/
+// firefox only:
 @-moz-document url-prefix() {
   .menu {
     text-indent: 8px;
   }
 }
+
+// ie11 & edge only:
+_:-ms-lang(x),
+.menu {
+  padding-left: 8px;
+}
+
 
 .menu-label {
   position: relative;
