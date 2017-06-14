@@ -69,8 +69,9 @@ export function init() {
         if ($carousel.slick("slickGetOption", "slidesToShow") != slidesToShow) {
             // if slider not at initial pos. && arrows displayed
             if (currentSlide > 0 && slidesToShow != 1) {
-                // move it there - so the "arrows" don't get "confused"
-                $carousel.slick("slickGoTo", 0, true);
+                // move it to 0 - so the "arrows" don't get "confused"
+                currentSlide = 0;
+                $carousel.slick("slickGoTo", currentSlide, true);
             }
 
             // and adjust num. of slides...
@@ -80,7 +81,7 @@ export function init() {
             let screensToShow = Math.ceil($carousel.find(".carousel__item").length / slidesToShow);
 
             // and adjust num. of dots
-            recalculateDots($carousel, screensToShow);
+            rePaintDots($carousel, screensToShow);
 
             // if we're at the rightmost position within the carousel - we don't want the right arrow
             handleRightArrow($carousel, currentSlide, screensToShow);
@@ -121,7 +122,7 @@ function loadLazyImages(images) {
     });
 }
 
-function recalculateDots($carousel, screensToShow) {
+function rePaintDots($carousel, screensToShow) {
     let x = screensToShow + 1;
     $carousel.find(".slick-dots li").removeClass("h-element--hide");
     $carousel.find(".slick-dots li:nth-child(1n + " + x + ")").addClass("h-element--hide");
@@ -129,10 +130,7 @@ function recalculateDots($carousel, screensToShow) {
 
 function handleRightArrow($carousel, currentSlide, screensToShow) {
     if ((currentSlide + 1) == screensToShow) {
-        // somehow this appears to "keep the arrow hidden" :/
-        setTimeout(function (e) {
-            $carousel.find(".carousel__link--next").addClass("h-element--hide").attr("aria-disabled", true);
-        }, 1);
+        $carousel.find(".carousel__link--next").addClass("h-element--hide").attr("aria-disabled", true);
     } else {
         $carousel.find(".carousel__link--next").removeClass("h-element--hide").attr("aria-disabled", false);
     }
