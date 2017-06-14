@@ -1,0 +1,125 @@
+@import "../../variables";
+
+.media-window { // fullwidth
+  background-color: #22211d;
+  outline: none;
+}
+
+.media-window__player {
+  height: 0; // initial ...
+  transition: height .4s;
+  visibility: hidden;
+}
+
+// .video-gallery-container__player-close,
+.media-window__close {
+  display: none;
+}
+
+// .video-gallery-container
+.media-window--playing {
+  position: relative;
+
+  .media-window { // fullwidth
+
+    @include smartphone { // this shouldn't exist :/ (responsive small screen view)
+      &::before {
+        content: "";
+        display: block;
+        padding-top: calc(56.25% + 56px);
+      }
+    }
+
+    &::after { // dreieckli
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+      width: 0;
+      border-left: solid 10px transparent;
+      border-right: solid 10px transparent;
+      border-bottom: solid 10px #f5f5f2;
+    }
+  }
+
+  .media-window__close { // [x]
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 16px;
+    // smartphone:
+    right: 24px;
+    background: transparent url("../img/close-sprite.svg") no-repeat;
+    border: 0;
+    cursor: pointer;
+    display: block;
+    z-index: 1;
+
+    @include tablet-up {
+      right: calc(50% - 328px);
+    }
+
+    @include desktop-up {
+      top: 24px;
+      right: 24px;
+    }
+
+    &:hover,
+    &:active,
+    &:focus {
+      outline: none;
+      background-position: 0 -24px;
+    }
+  }
+
+  .media-window__player { // player container
+    position: relative;
+
+    @include smartphone {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      top: 0;
+    }
+
+    @include tablet-up {
+      height: 448px;
+    }
+
+    @include desktop-wide {
+      height: 492px;
+    }
+
+    iframe { // the player
+      position: absolute;
+      top: 50%;
+      transform: translate(0, -50%);
+
+      @include smartphone {
+        padding: 56px 24px 24px;
+      }
+
+      @include tablet-up {
+        top: 0;
+        width: 656px;
+        height: calc(100% - 80px);
+        margin: 56px 50% 24px;
+        transform: translate(-50%, 0);
+      }
+      @include desktop-up {
+        width: 712px;
+        height: calc(100% - 48px);
+        margin: 24px 50%;
+      }
+      @include desktop-wide {
+        width: 790px;
+      }
+    }
+  }
+}
+
+.media-window__player--visible {
+  visibility: visible;
+}
