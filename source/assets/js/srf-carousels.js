@@ -83,11 +83,7 @@ export function init() {
             recalculateDots($carousel, screensToShow);
 
             // if we're at the rightmost position within the carousel - we don't want the right arrow
-            if ((currentSlide + 1) === screensToShow) {
-                $carousel.find(".carousel__link--next").addClass("h-element--hide").attr("aria-disabled", true);
-            } else {
-                $carousel.find(".carousel__link--next").removeClass("h-element--hide").attr("aria-disabled", false);
-            }
+            handleRightArrow($carousel, currentSlide, screensToShow);
         }
     });
 }
@@ -125,11 +121,21 @@ function loadLazyImages(images) {
     });
 }
 
-function recalculateDots($carousel, screensToShow) { // TODO!
-    // let x = Math.ceil($carousel.find(".carousel__item").length / slidesToShow) + 1; // todo: shorten!
-    let x = screensToShow + 1; // todo: shorten!
+function recalculateDots($carousel, screensToShow) {
+    let x = screensToShow + 1;
     $carousel.find(".slick-dots li").removeClass("h-element--hide");
     $carousel.find(".slick-dots li:nth-child(1n + " + x + ")").addClass("h-element--hide");
+}
+
+function handleRightArrow($carousel, currentSlide, screensToShow) {
+    if ((currentSlide + 1) == screensToShow) {
+        // somehow this appears to "keep the arrow hidden" :/
+        setTimeout(function (e) {
+            $carousel.find(".carousel__link--next").addClass("h-element--hide").attr("aria-disabled", true);
+        }, 1);
+    } else {
+        $carousel.find(".carousel__link--next").removeClass("h-element--hide").attr("aria-disabled", false);
+    }
 }
 
 function getNumberOfSlidesPerScreen(slidesToShow = 1) {
