@@ -80,7 +80,7 @@ export function init() {
             let screensToShow = Math.ceil($carousel.find(".carousel__item").length / slidesToShow);
 
             // and adjust num. of dots
-            recalculateDots($carousel, screensToShow);
+            rePaintDots($carousel, screensToShow);
 
             // if we're at the rightmost position within the carousel - we don't want the right arrow
             handleRightArrow($carousel, currentSlide, screensToShow);
@@ -121,7 +121,7 @@ function loadLazyImages(images) {
     });
 }
 
-function recalculateDots($carousel, screensToShow) {
+function rePaintDots($carousel, screensToShow) {
     let x = screensToShow + 1;
     $carousel.find(".slick-dots li").removeClass("h-element--hide");
     $carousel.find(".slick-dots li:nth-child(1n + " + x + ")").addClass("h-element--hide");
