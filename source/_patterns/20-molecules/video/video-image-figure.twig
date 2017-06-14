@@ -2,8 +2,8 @@
     <div class="article-video__wrapper">
         {% block video_image_related_episodes %}
             <img class="image-figure__image"
-                 alt="{{ 'Video'|trans }} «{{ video.title }}» {{ 'abspielen'|trans }}" {# this should go into the image container (cms) #}
-                 title="{{ 'Video'|trans }} «{{ video.title }}» {{ 'abspielen'|trans }}"
+                 alt="{{ 'Video' }} «{{ video.title }}» {{ 'abspielen' }}" {# this should go into the image container (cms) #}
+                 title="{{ 'Video' }} «{{ video.title }}» {{ 'abspielen' }}"
                  sizes="100vw"
                  srcset="{% for source in video.img_srcset %}
                             {{ source.src }} {{ source.width }}w
@@ -21,8 +21,8 @@
         <div class="{% if styleModifier == 'video--playing' %}article-video__player{% else %}image-figure__image-wrapper{% endif %}">
             {% block video_image %}
                 <img class="image-figure__image"
-                     alt="{{ 'Video'|trans }} «{{ video.title }}» {{ 'abspielen'|trans }}"
-                     title="{{ 'Video'|trans }} «{{ video.title }}» {{ 'abspielen'|trans }}"
+                     alt="{{ 'Video' }} «{{ video.title }}» {{ 'abspielen' }}"
+                     title="{{ 'Video' }} «{{ video.title }}» {{ 'abspielen' }}"
                      sizes="100vw"
                      srcset="{% for source in video.img_srcset %}
                             {{ source.src }} {{ source.width }}w

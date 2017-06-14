@@ -1,11 +1,18 @@
+<h3 class="h-offscreen">{{ 'Zitat:' }}</h3>
 <blockquote class="blockquote {{ styleModifier }}">
     <div class="blockquote__quote">
         <span class="blockquote__text">{{ blockquote.text }}</span>
     </div>
+    {% if blockquote.author or blockquote.function %}
     <footer class="blockquote__footer">
         <cite>
-            <span class="blockquote__author">{{ blockquote.author }}</span>
-            <span class="blockquote__function">{{ blockquote.function }}</span>
+            {% if blockquote.author %}
+                <span class="blockquote__author"><span class="h-offscreen">{{ 'Autor: ' }}</span>{{ blockquote.author }}</span>
+            {% endif %}
+            {% if blockquote.function %}
+                <span class="blockquote__function">{{ blockquote.function }}</span>
+            {% endif %}
         </cite>
     </footer>
+    {% endif %}
 </blockquote>

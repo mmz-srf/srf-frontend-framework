@@ -68,7 +68,7 @@
   animation-iteration-count: 1;
   transform-origin: 50% 50%;
   animation-fill-mode: forwards;
-  transform-style: preserve-3d
+  transform-style: preserve-3d;
 }
 
 .is-animated .ratingstars__star--1 {
@@ -118,14 +118,24 @@
 
 .ratings-wrapper {
   position: relative;
-  display: block;
   background-color: $color-bg-box;
   padding: 18px 16px;
+  display: flex;
+  flex-direction: column;
   flex: 1 0 auto;
   overflow: hidden
 }
 
 .ratings-wrapper .poll-option-label__title,
 .ratings-wrapper .poll-option-label__description {
-  margin-left: 0
+  margin-left: 0;
+  flex: 1 0 auto;
+}
+
+.is-visible {
+  .resultWording {
+    opacity: 1;
+    visibility: visible;
+    transition: none;
+  }
 }
