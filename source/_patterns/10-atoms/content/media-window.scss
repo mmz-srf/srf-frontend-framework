@@ -72,6 +72,9 @@
     &:focus {
       outline: none;
       background-position: 0 -24px;
+      @include tablet-up {
+        background-position: 0 -30px;
+      }
     }
   }
 
@@ -118,6 +121,15 @@
         width: 790px;
       }
     }
+  }
+
+  .article-video__play-icon,
+  .article-audio__play-icon {
+    display: none;
+  }
+  .article-video__link,
+  .article-audio__link {
+    cursor: default;
   }
 }
 
