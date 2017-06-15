@@ -34,12 +34,19 @@ $_image-tablet-width: 163px;
     }
   }
 
+  // player overwrites
   .media-window-container {
     .article-video, .article-audio {
       &:hover,
       &:active {
         background-color: #fefefd;
       }
+    }
+  }
+
+  .media-window {
+    &::after { // dreieckli
+      border-bottom: solid 10px #fefefd;
     }
   }
 
@@ -121,7 +128,7 @@ $_image-tablet-width: 163px;
   }
 
   a, a:hover, a:active { // :/
-    border-bottom: 0;
+    // border-bottom: 0;
   }
 
   // different to video / video-gallery
@@ -149,6 +156,7 @@ $_image-tablet-width: 163px;
 .media-caption__source-link {
   font-family: $font-medium;
   color: #4e4d47;
+  border: 0;
   // how does the link work?
   &:hover {
 
