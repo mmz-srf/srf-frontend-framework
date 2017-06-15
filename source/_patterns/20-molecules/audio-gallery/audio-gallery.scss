@@ -51,7 +51,7 @@
   }
 }
 
-.audio-gallery__item { // li
+.audio-gallery__item {
   margin: 0 0 2px;
   padding: 0;
 
@@ -69,5 +69,11 @@
       content: none;
       font-size: 16px;
     }
+  }
+}
+
+.audio-gallery__item--playing {
+  &::before {
+    color: #ffffff;
   }
 }
