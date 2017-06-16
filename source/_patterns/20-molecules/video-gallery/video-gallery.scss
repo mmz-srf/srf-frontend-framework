@@ -1,11 +1,13 @@
 @import "../../variables";
 
-// *:focus { border: 1px solid red !important; }
+.media-window-container {
+  background-color: #f5f5f2;
+}
 
-.video-gallery-container {
+.media-window-container--video-gallery {
   margin: 24px -8px;
   padding: 0 20px 12px;
-  background-color: #f5f5f2;
+  // background-color: #f5f5f2;
 
   @include smartphone {
     overflow: hidden;
@@ -268,31 +270,6 @@
 
 // .video-gallery-container
 .media-window--playing {
-  position: relative;
-
-  .media-window { // fullwidth
-
-    @include smartphone { // this shouldn't exist :/ (responsive small screen view)
-      &::before {
-        content: "";
-        display: block;
-        padding-top: calc(56.25% + 56px);
-      }
-    }
-
-    &::after { // dreieckli
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      margin: 0 auto;
-      width: 0;
-      border-left: solid 10px transparent;
-      border-right: solid 10px transparent;
-      border-bottom: solid 10px #f5f5f2;
-    }
-  }
 
   // gallery overwrites
   .video--loading {

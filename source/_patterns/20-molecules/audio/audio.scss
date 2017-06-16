@@ -10,11 +10,6 @@
   }
 }
 
-.article-audio__link,
-.article-audio__link:hover {
-  border: 0;
-}
-
 .article-audio {
   background-color: $color-bg-caption;
   margin: 0;  // override Browser's figure-styling
@@ -22,15 +17,8 @@
   flex-direction: row;
   flex-wrap: wrap;
 
-  &:hover,
-  &:active,
   &.played {
     background-color: $color-bg-box;
-
-    .article-audio__play-icon {
-      background-image: url('../img/play-active.svg');
-      background-size: 100%;
-    }
   }
 
   @include smartphone {
@@ -56,6 +44,21 @@
     height: 100%;
     object-fit: cover;
     position: absolute;
+  }
+}
+
+.article-audio__link {
+  &:hover {
+    border: 0;
+  }
+
+  &:hover,
+  &:active,
+  &:focus {
+    .article-audio__play-icon {
+      background-image: url('../img/play-active.svg');
+      background-size: 100%;
+    }
   }
 }
 

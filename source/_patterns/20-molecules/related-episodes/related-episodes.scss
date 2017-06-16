@@ -34,6 +34,22 @@ $_image-tablet-width: 163px;
     }
   }
 
+  // player overwrites
+  .media-window-container {
+    .article-video, .article-audio {
+      // &:hover,
+      &:active {
+        background-color: $color-link-bg-hover; // #fefefd;
+      }
+    }
+  }
+
+  .media-window {
+    &::after { // dreieckli
+      border-bottom: solid 10px #fefefd;
+    }
+  }
+
   .article-audio__wrapper,
   .article-video__wrapper {
     width: $_image-tablet-width;
@@ -111,4 +127,38 @@ $_image-tablet-width: 163px;
     background: none;
   }
 
+  a, a:hover, a:active { // :/
+    // border-bottom: 0;
+  }
+
+  // different to video / video-gallery
+  .video--loading,
+  .video--playing {
+
+    &.article-video {
+      background-color: #fefefd; // $color-link-bg-hover;
+    }
+
+    .article-video__play-icon {
+      display: none;
+    }
+
+    .media-caption__title {
+      color: $color-text-default;
+    }
+
+    .media-caption__source {
+      color: $color-text-light;
+    }
+  }
+}
+
+.media-caption__source-link {
+  font-family: $font-medium;
+  color: #4e4d47;
+  border: 0;
+  // how does the link work?
+  &:hover {
+
+  }
 }
