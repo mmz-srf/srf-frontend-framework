@@ -34,7 +34,14 @@
   @include tablet-up {
     margin-bottom: 32px;
   }
-  
+  p{
+    margin:12px 0;
+    @include tablet-up{
+      margin:16px 0;
+    }
+  }
+
+
   .article-video {
     @include smartphone {
       @include fullwidth-element; // fixes padding-problem
