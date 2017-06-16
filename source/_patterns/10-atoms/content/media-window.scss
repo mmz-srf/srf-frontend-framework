@@ -7,7 +7,7 @@
 
 .media-window__player {
   height: 0; // initial ...
-  transition: height .4s;
+  transition: height 0.4s;
   visibility: hidden;
 }
 
@@ -26,15 +26,15 @@
       content: "";
       display: block;
       // responsive player height
-      padding-top: calc(56.25% + 90px);
+      // padding-top: calc(56.25% + 90px);
 
       // preventing break on breakpoint
       @include tablet-up {
-        padding-top: 448px;
+        // padding-top: 448px;
       }
 
       @include desktop-wide {
-        padding-top: 492px;
+        // padding-top: 492px;
       }
     }
 
@@ -87,10 +87,23 @@
   }
 
   .media-window__player { // player container
-    position: absolute;
+    position: relative;
     height: 100%;
     width: 100%;
     top: 0;
+
+    @include smartphone {
+      // there's no other option ...
+      height: calc(56.25vw + 90px);
+    }
+    // preventing break on breakpoint
+    @include tablet-up {
+      height: 448px;
+    }
+
+    @include desktop-wide {
+      height: 492px;
+    }
 
     iframe { // the player
       position: absolute;
