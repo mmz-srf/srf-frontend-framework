@@ -22,11 +22,19 @@
 
   .media-window { // fullwidth
 
-    @include smartphone { // this shouldn't exist :/ (responsive small screen view)
-      &::before {
-        content: "";
-        display: block;
-        padding-top: calc(56.25% + 90px);
+    &::before {
+      content: "";
+      display: block;
+      // responsive player height
+      padding-top: calc(56.25% + 90px);
+
+      // preventing break on breakpoint
+      @include tablet-up {
+        padding-top: 448px;
+      }
+
+      @include desktop-wide {
+        padding-top: 492px;
       }
     }
 
@@ -79,22 +87,10 @@
   }
 
   .media-window__player { // player container
-    position: relative;
-
-    @include smartphone {
-      position: absolute;
-      height: 100%;
-      width: 100%;
-      top: 0;
-    }
-
-    @include tablet-up {
-      height: 448px;
-    }
-
-    @include desktop-wide {
-      height: 492px;
-    }
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
 
     iframe { // the player
       position: absolute;
