@@ -22,7 +22,16 @@ $_image-tablet-width: 163px;
 
   .article-audio,
   .article-video {
+    background: none;
     margin: 0;
+
+    &:hover {
+      background-color: $color-link-bg-hover;
+    }
+
+    &:active {
+      background-color: $color-link-bg-active;
+    }
   }
 
   .article-audio__wrapper,
@@ -99,7 +108,7 @@ $_image-tablet-width: 163px;
   }
 
   &::before {
-    display: none;
+    background: none;
   }
 
 }
