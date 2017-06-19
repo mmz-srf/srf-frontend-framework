@@ -11,12 +11,10 @@
   visibility: hidden;
 }
 
-// .video-gallery-container__player-close,
 .media-window__close {
   display: none;
 }
 
-// .video-gallery-container
 .media-window--playing {
   position: relative;
 
@@ -25,17 +23,6 @@
     &::before {
       content: "";
       display: block;
-      // responsive player height
-      // padding-top: calc(56.25% + 90px);
-
-      // preventing break on breakpoint
-      @include tablet-up {
-        // padding-top: 448px;
-      }
-
-      @include desktop-wide {
-        // padding-top: 492px;
-      }
     }
 
     &::after { // dreieckli
@@ -88,17 +75,14 @@
 
   .media-window__player { // player container
     position: relative;
-    height: 100%;
+    height: 448px;
     width: 100%;
     top: 0;
 
+    // preventing break on breakpoint
     @include smartphone {
       // there's no other option ...
       height: calc(56.25vw + 90px);
-    }
-    // preventing break on breakpoint
-    @include tablet-up {
-      height: 448px;
     }
 
     @include desktop-wide {
