@@ -6,16 +6,22 @@
         data-assetid="{{ audio.assetId }}">
         <figure class="article-audio {{ styleModifierMain }}">
             <div class="article-audio__wrapper">
+
                 {% block audio_image %}
-                    <img class="image-figure__image"
+                    <img class="image-figure__image{{ not audio.img_src ? " image-figure__image--no-image"}}"
                          alt="{{ 'Audio' }} «{{ audio.title }}» {{ 'abspielen' }}" {# this should go into the image container (cms) #}
                          title="{{ 'Audio' }} «{{ audio.title }}» {{ 'abspielen' }}"
-                         sizes="100vw"
-                         srcset="{% for source in audio.img_srcset %}
-                            {{ source.src }} {{ source.width }}w
-                            {{ loop.last ? '' : ',' }}
-                         {% endfor %}"
-                         src="{{ audio.img_src }}">
+                         {% if audio.img_src %}
+                           sizes="100vw"
+                           srcset="{% for source in audio.img_srcset %}
+                              {{ source.src }} {{ source.width }}w
+                              {{ loop.last ? '' : ',' }}
+                           {% endfor %}"
+                           src="{{ audio.img_src }}"
+                         {% else %}
+                           src="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA="
+                         {% endif %}
+                         >
                 {% endblock %}
 
                 {% block play_icon %}
