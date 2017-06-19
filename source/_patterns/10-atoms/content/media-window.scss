@@ -7,7 +7,7 @@
 
 .media-window__player {
   height: 0; // initial ...
-  transition: height 0.4s;
+  transition: height 0.375s ease;
   visibility: hidden;
 }
 
