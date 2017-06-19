@@ -8,6 +8,14 @@
     margin: 32px 0;
   }
 
+  &:hover,
+  &:active,
+  &:focus {
+    .media-caption--video {
+      background-color: $color-bg-box;
+    }
+  }
+
   // "image" manipulations: for keeping size / loading bg / dim
   .image-figure__image-wrapper::after {
     content: "";
@@ -37,6 +45,7 @@
 }
 
 .article-video__link {
+  cursor: pointer;
   &:hover,
   &:active,
   &:focus {
@@ -44,10 +53,6 @@
     .media-play__icon {
       background-image: url('../img/play-active.svg');
       background-size: 100%;
-    }
-
-    .media-caption--video {
-      background-color: $color-bg-box;
     }
   }
 }
