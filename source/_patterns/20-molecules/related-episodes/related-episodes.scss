@@ -127,10 +127,6 @@ $_image-tablet-width: 163px;
     background: none;
   }
 
-  a, a:hover, a:active { // :/
-    // border-bottom: 0;
-  }
-
   // different to video / video-gallery
   .video--loading,
   .video--playing {
@@ -150,15 +146,5 @@ $_image-tablet-width: 163px;
     .media-caption__source {
       color: $color-text-light;
     }
-  }
-}
-
-.media-caption__source-link {
-  font-family: $font-medium;
-  color: #4e4d47;
-  border: 0;
-  // how does the link work?
-  &:hover {
-
   }
 }
