@@ -7,27 +7,22 @@
 
 .media-window__player {
   height: 0; // initial ...
-  transition: height .4s;
+  transition: height 0.375s ease;
   visibility: hidden;
 }
 
-// .video-gallery-container__player-close,
 .media-window__close {
   display: none;
 }
 
-// .video-gallery-container
 .media-window--playing {
   position: relative;
 
   .media-window { // fullwidth
 
-    @include smartphone { // this shouldn't exist :/ (responsive small screen view)
-      &::before {
-        content: "";
-        display: block;
-        padding-top: calc(56.25% + 56px);
-      }
+    &::before {
+      content: "";
+      display: block;
     }
 
     &::after { // dreieckli
@@ -50,7 +45,7 @@
     height: 20px;
     top: 16px;
     // smartphone:
-    right: 24px;
+    right: 12px;
     background: transparent url("../img/close-sprite.svg") no-repeat;
     border: 0;
     cursor: pointer;
@@ -59,6 +54,7 @@
 
     @include tablet-up {
       right: calc(50% - 328px);
+      background-size: 20px;
     }
 
     @include desktop-up {
@@ -71,62 +67,65 @@
     &:focus {
       outline: none;
       background-position: 0 -24px;
+      @include tablet-up {
+        background-position: 0 -30px;
+      }
     }
   }
 
   .media-window__player { // player container
     position: relative;
+    height: 448px;
+    width: 100%;
+    top: 0;
 
+    // preventing break on breakpoint
     @include smartphone {
-      position: absolute;
-      height: 100%;
-      width: 100%;
-      top: 0;
-    }
-
-    @include tablet-up {
-      height: 448px;
+      // there's no other option ...
+      height: calc(56.25vw + 90px);
     }
 
     @include desktop-wide {
       height: 492px;
     }
+
+    iframe { // the player
+      position: absolute;
+      top: 50%;
+      transform: translate(0, -50%);
+
+      @include smartphone {
+        padding: 48px 0 42px;
+      }
+
+      @include tablet-up {
+        top: 0;
+        width: 656px;
+        height: calc(100% - 80px);
+        margin: 56px 50% 24px;
+        transform: translate(-50%, 0);
+      }
+      @include desktop-up {
+        width: 712px;
+        height: calc(100% - 48px);
+        margin: 24px 50%;
+      }
+      @include desktop-wide {
+        width: 790px;
+      }
+    }
   }
 
-  iframe { // the player
-    position: absolute;
-    top: 50%;
-    transform: translate(0, -50%);
-
-    @include smartphone {
-      padding: 56px 24px 24px;
-    }
-
-    @include tablet-up {
-      top: 0;
-      width: 656px;
-      height: calc(100% - 80px);
-      margin: 56px 50% 24px;
-      transform: translate(-50%, 0);
-    }
-    @include desktop-up {
-      width: 712px;
-      height: calc(100% - 48px);
-      margin: 24px 50%;
-    }
-    @include desktop-wide {
-      width: 790px;
-    }
+  .article-video__play-icon,
+  .article-audio__play-icon {
+    display: none;
+  }
+  .article-video__link,
+  .article-audio__link {
+    cursor: default;
   }
 }
 
 .media-window__player--visible {
   visibility: visible;
-}
-
-.media-window-container--fullscreen {
-  iframe {
-    top: 0;
-    transform: translate(0, 0);
-  }
 }

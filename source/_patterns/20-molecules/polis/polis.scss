@@ -82,7 +82,9 @@ $color-polis-no-text: #af001d; // oben: af001d oder unten: #9d0017 ???
 }
 
 .polis-result-title { // solo
-  font: 12px/16px $font-system;
+  font-family: $font-system;
+  font-size: 12px;
+  line-height: 16px;
   margin: 8px 0 4px;
 }
 
@@ -131,7 +133,9 @@ $color-polis-no-text: #af001d; // oben: af001d oder unten: #9d0017 ???
 }
 
 .polis-result__text {
-  font: 12px/16px $font-system;
+  font-family: $font-system;
+  font-size: 12px;
+  line-height: 16px;
   color: #888579;
   margin: 4px 0 0; /// TODO!
   white-space: nowrap;
@@ -218,7 +222,9 @@ $color-polis-no-text: #af001d; // oben: af001d oder unten: #9d0017 ???
 .polis-district-container { // ul (table)
   padding: 0;
   margin: 0 -16px;
-  font: 12px/16px $font-system; // all
+  font-family: $font-system;
+  font-size: 12px;
+  line-height: 16px;
   text-align: right;
   display: table;
 }
@@ -284,7 +290,9 @@ $color-polis-no-text: #af001d; // oben: af001d oder unten: #9d0017 ???
 }
 
 .polis-legend__title {
-  font: 12px/16px $font-system;
+  font-family: $font-system;
+  font-size: 12px;
+  line-height: 16px;
   color: #22211d;
   margin-bottom: 4px;
 }
@@ -303,7 +311,9 @@ $color-polis-no-text: #af001d; // oben: af001d oder unten: #9d0017 ???
 }
 
 .polis-legend-numbers {
-  font: 12px/16px $font-system;
+  font-family: $font-system;
+  font-size: 12px;
+  line-height: 16px;
   color: #888579;
 }
 
@@ -353,7 +363,9 @@ $color-polis-no-text: #af001d; // oben: af001d oder unten: #9d0017 ???
 
 ///// end legend /////
 .polis-map__participation {
-  font: 12px/16px $font-system;
+  font-family: $font-system;
+  font-size: 12px;
+  line-height: 16px;
   color: #888579;
   @include tablet-up {
     position: absolute;
@@ -371,7 +383,9 @@ $color-polis-no-text: #af001d; // oben: af001d oder unten: #9d0017 ???
 }
 
 .chmap-tooltip-text {
-  font: 12px/12px $font-system;
+  font-family: $font-system;
+  font-size: 12px;
+  line-height: 16px;
   color: #6b6960;
   display: inline;
 }
