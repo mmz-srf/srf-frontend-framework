@@ -88,31 +88,31 @@
     @include desktop-wide {
       height: 492px;
     }
+  }
 
-    iframe { // the player
-      position: absolute;
-      top: 50%;
-      transform: translate(0, -50%);
+  iframe { // the player
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
 
-      @include smartphone {
-        padding: 48px 0 42px;
-      }
+    @include smartphone {
+      padding: 48px 0 42px;
+    }
 
-      @include tablet-up {
-        top: 0;
-        width: 656px;
-        height: calc(100% - 80px);
-        margin: 56px 50% 24px;
-        transform: translate(-50%, 0);
-      }
-      @include desktop-up {
-        width: 712px;
-        height: calc(100% - 48px);
-        margin: 24px 50%;
-      }
-      @include desktop-wide {
-        width: 790px;
-      }
+    @include tablet-up {
+      top: 0;
+      width: 656px;
+      height: calc(100% - 80px);
+      margin: 56px 50% 24px;
+      transform: translate(-50%, 0);
+    }
+    @include desktop-up {
+      width: 712px;
+      height: calc(100% - 48px);
+      margin: 24px 50%;
+    }
+    @include desktop-wide {
+      width: 790px;
     }
   }
 
@@ -128,4 +128,11 @@
 
 .media-window__player--visible {
   visibility: visible;
+}
+
+.media-window-container--fullscreen {
+  iframe {
+    top: 0;
+    transform: translate(0, 0);
+  }
 }
