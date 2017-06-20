@@ -134,5 +134,9 @@
 .listmodule__link--listing .block-link {
   padding-left: 8px;
   background-position-x: calc(100% - 8px);
+  padding-right: 50px;
+  @include tablet-up{
+    padding-right: 42px;
+  }
 }
 
