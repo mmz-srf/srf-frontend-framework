@@ -69,6 +69,13 @@
   }
 }
 
+.article-audio__link-episode {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  flex: 1;
+}
+
 .article-audio__wrapper {
   margin: 16px 0 16px 16px;
   height: $image-size-preview;
