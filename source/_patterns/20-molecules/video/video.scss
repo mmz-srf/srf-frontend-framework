@@ -3,7 +3,7 @@
 
 .article-video {
   margin: 24px -8px;
-  
+
   @include tablet-up {
     margin: 32px 0;
   }
@@ -41,6 +41,16 @@
   .image-figure__image {
     position: absolute;
     top: 0;
+  }
+}
+
+.article-video--related {
+  background-color: #ffffff;
+
+  &:hover,
+  &:active,
+  &:focus {
+    background-color: #fafaf8;
   }
 }
 
@@ -245,9 +255,9 @@
     }
 
     .media-play {
-        width:40px
+        width:40px;
     }
-    
+
     .media-play__icon {
       margin-bottom:0;
     }

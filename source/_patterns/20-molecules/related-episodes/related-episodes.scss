@@ -27,8 +27,7 @@ $_image-tablet-width: 163px;
 
   // player overwrites
   .media-window-container {
-    .article-video, .article-audio {
-      // &:hover,
+    .article-video {
       &:active {
         background-color: $color-link-bg-hover; // #fefefd;
       }

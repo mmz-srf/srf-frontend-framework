@@ -10,6 +10,13 @@
   }
 }
 
+.article-audio__link,
+.article-audio__link:hover,
+.article-audio__link-episode,
+.article-audio__link-episode:hover {
+  border: 0;
+}
+
 .article-audio {
   background-color: $color-bg-caption;
   margin: 0;  // override Browser's figure-styling
@@ -51,11 +58,17 @@
   }
 }
 
-.article-audio__link {
-  &:hover {
-    border: 0;
-  }
+.article-audio--related {
+  background-color: #ffffff;
 
+  &:hover,
+  &:active,
+  &:focus {
+    background-color: #fafaf8;
+  }
+}
+
+.article-audio__link {
   &:hover,
   &:active,
   &:focus {
@@ -64,6 +77,13 @@
       background-size: 100%;
     }
   }
+}
+
+.article-audio__link-episode {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  flex: 1;
 }
 
 .article-audio__wrapper {
