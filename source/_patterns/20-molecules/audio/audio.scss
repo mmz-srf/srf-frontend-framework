@@ -58,6 +58,16 @@
   }
 }
 
+.article-audio--related {
+  background-color: #ffffff;
+
+  &:hover,
+  &:active,
+  &:focus {
+    background-color: #fafaf8;
+  }
+}
+
 .article-audio__link {
   &:hover,
   &:active,
