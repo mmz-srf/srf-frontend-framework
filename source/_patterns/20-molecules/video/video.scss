@@ -210,3 +210,10 @@
 .article-video__link {
   outline: none;
 }
+
+.article-video__player--fullscreen {
+  iframe {
+    top: 0;
+    transform: translate(0, 0);
+  }
+}
