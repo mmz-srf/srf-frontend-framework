@@ -129,10 +129,3 @@
 .media-window__player--visible {
   visibility: visible;
 }
-
-.media-window__player--fullscreen {
-  iframe {
-    top: 0;
-    transform: translate(0, 0);
-  }
-}

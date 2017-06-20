@@ -211,7 +211,9 @@
   outline: none;
 }
 
-.article-video__player--fullscreen {
+// "webkit-fullscreen fix" - this css is loaded after media-window
+// but the fix applies to both (inline video & gate to hell)
+.player--fullscreen {
   iframe {
     top: 0;
     transform: translate(0, 0);
