@@ -1,9 +1,13 @@
 @import "../../variables";
 
-.video-gallery-container {
+.media-window-container {
+  background-color: #f5f5f2;
+}
+
+.media-window-container--video-gallery {
   margin: 24px -8px;
   padding: 0 20px 12px;
-  background-color: #f5f5f2;
+  // background-color: #f5f5f2;
 
   @include smartphone {
     overflow: hidden;
@@ -63,6 +67,22 @@
         .media-caption--video {
           background-color: #fafaf8;
         }
+      }
+    }
+  }
+
+  .video--visited {
+    // not to have the iframe frame collapse ...
+    .article-video__player::before {
+      content: "";
+      display: block;
+      padding-top: 56.25%;
+    }
+
+    // nor the image pushed down
+    &:not(.video--loading):not(.video--playing) {
+      .image-figure__image-wrapper {
+        margin-top: -56.25%;
       }
     }
   }
@@ -127,7 +147,7 @@
       width: 56px;
       height: 101px;
       top: 50%;
-      transform: translate(0, calc(-50% - 12px));
+      transform: translate(0px, calc(-50% - 2px)); // translate(0, calc(-50% - 12px));
       background-size: 16px;
       background-position: 20px;
 
@@ -138,12 +158,10 @@
       &:hover {
         background-color: #ebebe5;
       }
-      &:active {
-        background-color: #dadad2;
-      }
       &:active,
       &:focus {
         outline: none;
+        background-color: #dadad2;
       }
     }
 
@@ -183,11 +201,11 @@
       width: calc(100vw - 40px);
     }
 
-    @include tablet-up {
+    @include tablet {
       width: 270px;
     }
 
-    @include desktop-up {
+    @include desktop {
       width: 199px;
     }
 
@@ -229,6 +247,7 @@
 
     &::before {
       content: '•';
+      font-family: $font-system;
       font-size: 28px;
       line-height: 10px;
       color: #000;
@@ -249,117 +268,8 @@
   }
 }
 
-// player integration
-.video-gallery__player {
-  height: 0; // initial ...
-  transition: height .4s;
-}
-
-.video-gallery-container__player-close {
-  display: none;
-}
-
 // .video-gallery-container
-.video-gallery--playing {
-  position: relative;
-
-  .video-gallery__player-container { // fullwidth
-    background-color: #22211d;
-
-    @include smartphone { // this shouldn't exist :/ (responsive small screen view)
-      &::before {
-        content: "";
-        display: block;
-        padding-top: calc(56.25% + 56px);
-      }
-    }
-
-    &::after { // dreieckli
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      margin: 0 auto;
-      width: 0;
-      border-left: solid 10px transparent;
-      border-right: solid 10px transparent;
-      border-bottom: solid 10px #f5f5f2;
-    }
-  }
-
-  .video-gallery-container__player-close { // [x]
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    top: 16px;
-    // smartphone:
-    right: 24px;
-    background: transparent url("../img/close.svg");
-    border: 0;
-    cursor: pointer;
-    display: block;
-    z-index: 1;
-
-    @include tablet-up {
-      right: calc(50% - 328px);
-    }
-
-    @include desktop-up {
-      top: 24px;
-      right: 24px;
-    }
-
-    &:active,
-    &:focus {
-      outline: none;
-    }
-  }
-
-  .video-gallery__player { // player container
-    position: relative;
-
-    @include smartphone {
-      position: absolute;
-      height: 100%;
-      width: 100%;
-      top: 0;
-    }
-
-    @include tablet-up {
-      height: 448px;
-    }
-
-    @include desktop-wide {
-      height: 492px;
-    }
-
-    iframe { // the player
-      position: absolute;
-      top: 50%;
-      transform: translate(0, -50%);
-
-      @include smartphone {
-        padding: 56px 24px 24px;
-      }
-
-      @include tablet-up {
-        top: 0;
-        width: 656px;
-        height: calc(100% - 80px);
-        margin: 56px 50% 24px;
-        transform: translate(-50%, 0);
-      }
-      @include desktop-up {
-        width: 712px;
-        height: calc(100% - 48px);
-        margin: 24px 50%;
-      }
-      @include desktop-wide {
-        width: 790px;
-      }
-    }
-  }
+.media-window--playing {
 
   // gallery overwrites
   .video--loading {
@@ -389,22 +299,6 @@
 
   .media-caption__title {
     color: #f5f5f2;
-  }
-}
-
-.video--visited {
-  // not to have the iframe frame collapse ...
-  .article-video__player::before {
-    content: "";
-    display: block;
-    padding-top: 56.25%;
-  }
-
-  // nor the image pushed down
-  &:not(.video--loading):not(.video--playing) {
-    .image-figure__image-wrapper {
-      margin-top: -56.25%;
-    }
   }
 }
 // end player integration

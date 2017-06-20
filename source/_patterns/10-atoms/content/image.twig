@@ -5,13 +5,15 @@
          alt="{{ alt }}"
          title="{{ alt }}"
          sizes="{{ sizes }}"
-         srcset="{% for source in image.sources %}
+            {% if image.sources is defined %}
+                srcset="{% for source in image.sources %}
                     {{ source.src }} {{ source.width }}w
                     {{ loop.last ? '' : ',' }}
                  {% endfor %}"
+            {% endif %}
          src="{{ src }}">
     {% block image_carousel_counter %}
-        {% if currentIndex and totalCount %}
+        {% if currentIndex is defined and totalCount is defined %}
             {% include 'atoms-carousel-counter' with { 'currentIndex': currentIndex, 'totalCount': totalCount, 'accessibilityInfo' : 'Bild' } %}
         {% endif %}
     {% endblock %}

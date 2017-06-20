@@ -24,15 +24,8 @@
   flex-direction: row;
   flex-wrap: wrap;
 
-  &:hover,
-  &:active,
   &.played {
     background-color: $color-bg-box;
-
-    .article-audio__play-icon {
-      background-image: url('../img/play-active.svg');
-      background-size: 100%;
-    }
   }
 
   @include smartphone {
@@ -62,6 +55,17 @@
 
   .image-figure__image--no-image {
     background-image: radial-gradient(circle at 50% 50%, #6b6960, #222222);
+  }
+}
+
+.article-audio__link {
+  &:hover,
+  &:active,
+  &:focus {
+    .article-audio__play-icon {
+      background-image: url('../img/play-active.svg');
+      background-size: 100%;
+    }
   }
 }
 
