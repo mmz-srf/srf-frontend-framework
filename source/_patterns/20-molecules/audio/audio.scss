@@ -24,16 +24,9 @@
   flex-direction: row;
   flex-wrap: wrap;
 
-  &.played {
-    background-color: $color-bg-box;
-  }
 
   @include smartphone {
     margin: 0 -8px; // override article's padding...
-
-    &:not(.played) { // very ugly! (handling of touch states)
-      background-color: $color-bg-caption;
-    }
   }
 
   &:not(.audio--loading) { // samesame
