@@ -45,3 +45,4 @@ $image-size-preview-gallery: 68px !default;
 // System UI font stack, for details see
 // https://www.smashingmagazine.com/2015/11/using-system-ui-fonts-practical-guide/
 $font-system: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",  sans-serif;
+// => for IE11 support: NEVER use font: size/line-height $font-system; (short form) but font-family: $font-system instead!

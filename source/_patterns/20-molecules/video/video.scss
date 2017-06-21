@@ -9,13 +9,8 @@
   }
 
   &:hover,
-  &:active {
-    .article-video__play-icon,
-    .media-play__icon {
-      background-image: url('../img/play-active.svg');
-      background-size: 100%;
-    }
-
+  &:active,
+  &:focus {
     .media-caption--video {
       background-color: $color-bg-box;
     }
@@ -46,6 +41,19 @@
   .image-figure__image {
     position: absolute;
     top: 0;
+  }
+}
+
+.article-video__link {
+  cursor: pointer;
+  &:hover,
+  &:active,
+  &:focus {
+    .article-video__play-icon,
+    .media-play__icon {
+      background-image: url('../img/play-active.svg');
+      background-size: 100%;
+    }
   }
 }
 
@@ -142,12 +150,14 @@
 
   // invert caption colours
   &.article-video,
-  &.article-video:hover {
+  &.article-video:hover,
+  &.article-video:focus {
     background-color: $color-media-playing;
     cursor: default;
   }
 
   &:hover .media-caption--video,
+  &:focus .media-caption--video,
   .media-caption--video { // :/
     background-color: $color-media-playing;
   }

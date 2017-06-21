@@ -41,6 +41,8 @@
 
 .legend-element__description {
   margin: 0 16px 0 22px;
-  font: 12px/16px $font-system;
+  font-family: $font-system;
+  font-size: 12px;
+  line-height: 16px;
   color: #888579;
 }

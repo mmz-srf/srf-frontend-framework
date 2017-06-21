@@ -33,7 +33,9 @@
 
 .media-caption__source {
   display: block;
-  font: 12px/16px $font-system;
+  font-family: $font-system;
+  font-size: 12px;
+  line-height: 16px;
   letter-spacing: 0;
   text-transform: uppercase;
   color: $color-text-light;

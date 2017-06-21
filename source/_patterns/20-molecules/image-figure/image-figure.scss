@@ -87,6 +87,7 @@ Behaviour:
   margin-top: 0;
   margin-left: 24px;
   margin-right: 24px;
+  margin-bottom: 16px;
 
   @include smartphone {
       // resetting the full width here
@@ -97,7 +98,3 @@ Behaviour:
     margin-right: 8px;
   }
 }
-
-
-
-
