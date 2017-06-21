@@ -3,7 +3,7 @@
 
 .article-video {
   margin: 24px -8px;
-
+  
   @include tablet-up {
     margin: 32px 0;
   }
@@ -205,4 +205,67 @@
 
 .article-video__link {
   outline: none;
+}
+
+.article-media--simple {
+    float: right;
+    width: 92px;
+    height: auto;
+    margin: 16px 0px 16px 16px;
+    right: auto; /* overwrite */
+    left:auto; /* overwrite */
+
+    @include tablet-up {
+        width: 228px;
+        margin: 24px 0px 24px 24px;
+    }
+
+    .media-caption {
+        padding:8px 16px;
+    }
+
+    .media-caption__source--video {
+        margin: 0;
+    }
+
+    @include smartphone {
+        .media-caption,
+        .media-play__length {
+            display: none;
+        }
+    }
+
+    .media-caption__title,
+    .media-caption__description {
+        display: none;
+    }
+
+    .media-play {
+        width:40px
+    }
+    
+    .media-play__icon {
+      margin-bottom:0;
+    }
+
+    .image-figure--simple {
+        height: 92px; /* overwrite of the overwrite */
+        margin-right: 0; /* overwrite of the overwrite */
+
+        .image-figure__image {
+            height: 92px;
+            object-fit: cover;
+        }
+
+        @include tablet-up {
+            height: auto; /* overwrite of the overwrite */
+
+            .image-figure__image {
+                height: auto;
+            }
+
+        }
+
+    }
+
 }

@@ -1,0 +1,6 @@
+<section class="listmodule">
+    <h2 class="listmodule__title">{{articleText.title}}</h2>
+    <ul class="listmodule__list">
+        {% include 'listmodule-item-' ~ type ~ '.twig' %}
+    </ul>
+</section>
