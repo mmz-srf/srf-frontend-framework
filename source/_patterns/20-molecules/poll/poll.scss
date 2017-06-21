@@ -319,8 +319,15 @@
   }
 }
 
-.poll-form-handling__endscreen p {
-  margin-top: 0;
+.poll-form-handling__endscreen {
+  p {
+    margin: 0;
+  }
+
+  & + .poll-form-handling__total {
+    display: inline-block;
+    margin-top: 14px;
+  }
 }
 
 .poll-form-handling__errors--onerror {
