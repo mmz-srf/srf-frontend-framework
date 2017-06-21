@@ -298,6 +298,8 @@
 // last bit
 .poll-form-handling {
   border-radius: 2px;
+  font-size: 16px;
+  line-height: 21px;
 
   .button {
     margin: 6px 0 0;
@@ -310,9 +312,13 @@
 
 .poll-form-handling__roundup {
   margin: 0;
-  padding: 16px;
+  // padding: 16px;
   background-color: $color-bg-caption;
   display: none;
+}
+
+.poll-form-handling__endscreen p {
+  margin-top: 0;
 }
 
 .poll-form-handling__errors--onerror {
