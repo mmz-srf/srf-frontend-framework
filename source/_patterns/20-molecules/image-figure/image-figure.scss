@@ -10,6 +10,35 @@
   }
 }
 
+.image-figure--simple {
+    float: right;
+    width: 92px;
+    height: auto;
+    margin: 16px 0px 16px 16px;
+    right: auto; /* overwrite */
+    left:auto; /* overwrite */
+    
+    @include tablet-up {
+        width: 228px;
+        margin: 24px 0px 24px 24px;
+    }
+    
+    .media-caption {
+        padding:8px 16px;
+    }
+    
+    @include smartphone {
+        .media-caption {
+            display: none;
+        }
+    }
+    
+    .media-caption__title,
+    .media-caption__description {
+        display: none;
+    }
+}
+
 /*
 Cropped image figure
 ====================
@@ -58,6 +87,7 @@ Behaviour:
   margin-top: 0;
   margin-left: 24px;
   margin-right: 24px;
+  margin-bottom: 16px;
 
   @include smartphone {
       // resetting the full width here
@@ -68,7 +98,3 @@ Behaviour:
     margin-right: 8px;
   }
 }
-
-
-
-
