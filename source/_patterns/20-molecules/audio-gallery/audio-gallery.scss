@@ -5,7 +5,8 @@
   margin: 32px -16px;
 
   @include smartphone {
-    margin: 24px -8px;
+    @include fullwidth-element;
+    padding: 0;
   }
 
   .article-audio__wrapper {
@@ -51,9 +52,13 @@
   }
 }
 
-.audio-gallery__item { // li
+.audio-gallery__item {
   margin: 0 0 2px;
   padding: 0;
+
+  @include smartphone {
+    padding: 0 8px;
+  }
 
   &:last-of-type {
     margin-bottom: 0;
@@ -69,5 +74,11 @@
       content: none;
       font-size: 16px;
     }
+  }
+}
+
+.audio-gallery__item--playing {
+  &::before {
+    color: #ffffff;
   }
 }

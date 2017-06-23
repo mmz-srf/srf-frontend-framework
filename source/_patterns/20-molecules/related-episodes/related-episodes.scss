@@ -22,22 +22,12 @@ $_image-tablet-width: 163px;
 
   .article-audio,
   .article-video {
-    background: none;
     margin: 0;
-
-    &:hover {
-      background-color: $color-link-bg-hover;
-    }
-
-    &:active {
-      background-color: $color-link-bg-active;
-    }
   }
 
   // player overwrites
   .media-window-container {
-    .article-video, .article-audio {
-      // &:hover,
+    .article-video {
       &:active {
         background-color: $color-link-bg-hover; // #fefefd;
       }
@@ -124,7 +114,7 @@ $_image-tablet-width: 163px;
   }
 
   &::before {
-    background: none;
+    display: none;
   }
 
   // different to video / video-gallery

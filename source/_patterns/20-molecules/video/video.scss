@@ -44,6 +44,16 @@
   }
 }
 
+.article-video--related {
+  background-color: #ffffff;
+
+  &:hover,
+  &:active,
+  &:focus {
+    background-color: #fafaf8;
+  }
+}
+
 .article-video__link {
   cursor: pointer;
   &:hover,
