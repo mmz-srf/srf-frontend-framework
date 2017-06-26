@@ -1,4 +1,9 @@
-.header { /*does nothing :/*/
+.header { // absolute fullwidth!
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  /* dark bg - does nothing :/*/
   background-image: linear-gradient(to bottom, #313131, #212121);
   background-size: 100% 50px;
   box-shadow: 0 2px 4px 0 #ddd; /* <-- check! */
@@ -8,23 +13,33 @@
   }
 }
 
+.header + .article {
+  margin-top: 88px;
+}
+
 // fixed is @mobile-up!
 @include tablet-up {
   .header--fixed {
     position: fixed;
     width: 100%;
-    top: 0
+    top: 0;
+    left: 0;
   }
 
   .header--fixed + .article {
     margin-top: 88px;
   }
 
-  .header__container {
+  .header__container { // contains icons and so on
     position: relative;
     height: 56px;
-    max-width: 960px;
+    // max-width: 960px;
     margin: 0 auto;
+    padding: 0 48px 0 32px;
+
+    @include desktop-up {
+      max-width: 1280px;
+    }
   }
 }
 
@@ -106,7 +121,7 @@
   @include tablet-up {
     position: absolute;
     width: 280px;
-    right: 0;
+    right: 48px;
     z-index: 1;
   }
 }
@@ -240,11 +255,11 @@
 }
 
 .menu-expand-arrow {
-  width: 20px;
+  width: 24px;
   height: 13px;
   display: inline-block;
-  vertical-align: top;
-  background: transparent url("/img/arrows/menu_arrow_white.svg") no-repeat 0 0 / 21px;
+  vertical-align: baseline;
+  background: transparent url("../img/arrows/menu_arrow_white.svg") no-repeat 0 0 / 24px;
   margin-left: 8px;
 }
 
