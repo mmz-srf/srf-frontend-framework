@@ -1,0 +1,169 @@
+.header { /*does nothing :/*/
+  background-image: linear-gradient(to bottom, #313131, #212121);
+  background-size: 100% 50px;
+  box-shadow: 0 2px 4px 0 #ddd; /* <-- check! */
+}
+
+.header a,
+.header a:hover {
+  border-bottom: 0;
+}
+
+.header__logo {
+  display: inline-block;
+  vertical-align: top;
+  padding: 12px;
+}
+
+.header__logo img {
+  height: 26px;
+}
+
+.menu-handle {
+  float: right;
+  padding: 17px;
+  line-height: 0;
+}
+
+.menu-handle:hover,
+.menu-handle--active {
+  /* check :/ */
+  background-image: linear-gradient(to bottom, #2e2e2e, #333);
+  box-shadow: -1px 0 0 #000008;
+}
+
+.menu-handle__img {
+  width: 18px;
+  display: inline;
+}
+
+.menu-handle__info {
+  display: none;
+}
+
+.navbar {
+  background-color: #333;
+}
+
+.navbar--closed {
+  .navbar__menu {
+    display: none;
+  }
+
+  @include smartphone {
+    .searchbox {
+      display: none;
+    }
+  }
+}
+
+.navbar__menu {
+  margin: -9px 0 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.navbar__menu ul,
+.navbar__menu li {
+  margin: 0;
+  padding: 0;
+}
+
+.navbar__menu li {
+  position: inherit;
+}
+
+.navbar__menu li::before {
+  content: none;
+}
+
+.navbar__menu a {
+  font: 16px/1 "SRG_SSR_Regular", sans-serif;
+  text-decoration: none;
+  color: #fefefd;
+  padding: 15px 24px 17px;
+  display: block;
+}
+
+.navbar__menu a:hover {
+  background-color: #444;
+}
+
+.navbar__menu a:hover {
+  background-color: #555;
+}
+
+.navbar__menu ul[role="group"] {
+  border-bottom: 1px solid #444;
+  padding: 9px 0 7px;
+}
+
+.navbar__menu-radio {
+  background-color: #222;
+  margin: 12px 0;
+}
+
+.navbar__menu-radio a {
+  /* also silly solution!! */
+  text-indent: 32px;
+}
+
+.navbar__menu-radio a:hover {
+  background-color: #333;
+}
+
+.navbar__menu-radio a:active {
+  background-color: #444;
+}
+
+.navbar__menu-radio img {
+  /* silly solution!! */
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  /* clip: rect(0, 24px, 24px, 0); */
+  margin-top: -4px;
+}
+
+.searchbox {
+  padding: 16px 16px 8px;
+}
+
+.searchbox__input {
+  width: 100%;
+  font: 16px/1 "SRG_SSR_Light", sans-serif;
+  letter-spacing: .6px;
+  color: #dadad2;
+  background: #555 url("https://www.srf.ch/programm/tv/assets/img/search-sprite.svg") no-repeat scroll 13px 10px / 17px auto;
+  padding: 11px 4px 9px 40px;
+  border: 0;
+  border-radius: 25px;
+  box-sizing: border-box;
+}
+
+.searchbox__input:focus {
+  color: #4e4d47;
+  background-color: #ebebe5;
+  background-position: 13px -28px;
+  outline: none;
+}
+
+/* --> */
+.srf_play_logo {
+  height: 23px;
+  width: auto;
+}
+
+.menu-expand-arrow {
+  width: 20px;
+  height: 13px;
+  display: inline-block;
+  vertical-align: top;
+  background: transparent url("https://frontend-framework.herokuapp.com/assets/img/arrows/menu_arrow.svg") no-repeat 0 0 / 21px;
+  margin-left: 8px;
+}
+
+.menu-expand-arrow--open {
+  transform: rotate(180deg);
+}
