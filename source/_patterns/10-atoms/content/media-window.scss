@@ -91,9 +91,7 @@
   }
 
   iframe { // the player
-    // position: absolute;
-    /* top: 50%;
-    transform: translate(0, -50%); */
+    position: absolute;
 
     @include smartphone {
       padding: 48px 0 42px;
