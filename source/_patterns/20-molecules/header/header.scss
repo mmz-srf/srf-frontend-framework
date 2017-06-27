@@ -17,76 +17,38 @@
   margin-top: 88px;
 }
 
-@include smartphone {
-  .header--fixed {
+.header--fixed {
+  @include smartphone {
     position: relative;
-    .header__container {
-      position: fixed;
-      width: 100%;
-      top: 0;
-      left: 0;
-      background-image: linear-gradient(to bottom, #313131, #212121);
-      z-index: 1;
-    }
+  }
 
-    .navbar {
+  .header__container {
+    // background-image: linear-gradient(to bottom, #313131, #212121);
+  }
+
+  .navbar {
+
+    @include smartphone {
       position: relative;
       top: 50px;
     }
+
+    @include tablet-up {
+      right: 48px;
+    }
+
+    @include desktop-wide {
+      right: calc(50% - 592px); // something like that
+    }
   }
 
-  .header--fixed + article {
-    position: relative;
-  }
-}
-
-// fixed is @mobile-up!
-@include tablet-up {
-  .header--fixed {
-    // position: relative;
-
-    .header__reserve {
-      position: fixed;
-      height: 56px;
-      width: 100%;
-      left: 0;
-      background-color: pink;
-      background-image: linear-gradient(to bottom, #313131, #212121);
-    }
-
-    .header__container {
-      position: fixed;
-      width: 100%;
-      left: 50%;
-      transform: translate(-50%, 0);
-      background-image: linear-gradient(to bottom, #313131, #212121);
-    }
-
-    .navbar {
-      /* */
-      // scrollbar inside - instead of on page
-      position: fixed;
-      height: 100%;
-      overflow: auto;
-      /**/
-      @include tablet-up {
-        right: 48px;
-      }
-
-      @include desktop-wide {
-        //left: auto;
-        right: calc(50% - 592px); // something like that
-      }
-
-    }
-
+  @include tablet-up {
     .searchbox {
       position: fixed;
       top: 1px;
       right: 129px;
 
       @include desktop-wide {
-        // left: auto;
         right: calc(50% - 512px); // here it gets weird
       }
     }
@@ -97,20 +59,12 @@
       z-index: 1;
     }
   }
+}
 
-  .header--fixed + article {
-    position: fixed;
-    margin-top: 55px !important;
-    left: 50%;
-    right: -50%;
-    transform: translate(-50%, 0);
-    transform: translate(-87.25%, 0);
-  }
-
+@include tablet-up {
   .header__container { // contains icons and so on
     position: relative;
     height: 56px;
-    // max-width: 960px;
     margin: 0 auto;
     padding: 0 48px 0 32px;
 
@@ -343,6 +297,12 @@
       background-position: 6px -30px;
     }
   }
+}
+
+.wrapper--fixed {
+  position: fixed;
+  left: 0;
+  right: 0;
 }
 
 /* --> */
