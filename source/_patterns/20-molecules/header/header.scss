@@ -22,34 +22,66 @@
     position: relative;
   }
 
+  @include tablet-up {
+    .header__reserve {
+      position: fixed;
+      height: 56px;
+      width: 100%;
+      left: 0;
+      background-image: linear-gradient(to bottom, #313131, #212121);
+    }
+  }
+
   .header__container {
-    // background-image: linear-gradient(to bottom, #313131, #212121);
+    @include smartphone {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      background-image: linear-gradient(to bottom, #313131, #212121);
+      z-index: 1;
+    }
+
+    @include tablet-up {
+      position: fixed;
+      width: 100%;
+      left: 50%;
+      transform: translate(-50%, 0);
+      background-image: linear-gradient(to bottom, #313131, #212121);
+    }
   }
 
   .navbar {
-
     @include smartphone {
       position: relative;
       top: 50px;
     }
 
     @include tablet-up {
-      right: 48px;
-    }
+      // scrollbar inside - instead of on page
+      position: fixed;
+      height: 100%;
+      overflow: auto;
+      /**/
+      @include tablet-up {
+        right: 48px;
+        top: 50px; // <-- tmp!!
+      }
 
-    @include desktop-wide {
-      right: calc(50% - 592px); // something like that
+      @include desktop-wide {
+        right: calc(50% - 592px); // something like that
+      }
     }
   }
 
   @include tablet-up {
     .searchbox {
       position: fixed;
-      top: 1px;
-      right: 129px;
+      top: 2px;
+      right: 130px;
 
       @include desktop-wide {
-        right: calc(50% - 512px); // here it gets weird
+        right: calc(50% - 510px); // here it gets weird
       }
     }
 
@@ -59,6 +91,13 @@
       z-index: 1;
     }
   }
+
+  .header--fixed + article {
+    @include smartphone {
+      position: relative;
+    }
+  }
+
 }
 
 @include tablet-up {
@@ -261,6 +300,7 @@
     width: 240px;
     top: -55px;
     // right: 81px;
+    right: 48px;
     padding: 13px 24px 0;
   }
 
