@@ -17,13 +17,13 @@ export function init() {
 
     $(".navbar__menu").on("click", ".js-menu-expand", function (e) {
         e.preventDefault();
-        let $handle = $(this), $arrow = $handle.find(".menu-expand-arrow");
-        if ($arrow.hasClass("menu-expand-arrow--open")) {
-            $arrow.removeClass("menu-expand-arrow--open");
-            $handle.next("ul").addClass("h-element--hide");
+        let $handle = $(this), $arrow = $handle.find(".expand-arrow");
+        if ($arrow.hasClass("expand-arrow--open")) {
+            $arrow.removeClass("expand-arrow--open");
+            $handle.next(".navbar__group--radio").addClass("h-element--hide");
         } else {
-            $arrow.addClass("menu-expand-arrow--open");
-            $handle.next("ul").removeClass("h-element--hide");
+            $arrow.addClass("expand-arrow--open");
+            $handle.next(".navbar__group--radio").removeClass("h-element--hide");
         }
     })
 }

@@ -1,0 +1,14 @@
+// @import "../../variables";
+
+.expand-arrow {
+  width: 24px;
+  height: 13px;
+  display: inline-block;
+  vertical-align: baseline;
+  background: transparent url("../img/arrows/menu_arrow_white.svg") no-repeat 0 0 / 24px;
+  margin-left: 8px;
+}
+
+.expand-arrow--open {
+  transform: rotate(180deg);
+}
