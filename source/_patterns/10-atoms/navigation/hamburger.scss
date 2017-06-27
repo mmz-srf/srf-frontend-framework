@@ -1,0 +1,54 @@
+// @import "../../variables";
+
+.menu-handle {
+  float: right;
+  padding: 17px;
+  line-height: 0;
+  // background: transparent url("../img/hamburger_sprite.svg") no-repeat -6px 6px / 42px;
+
+  @include tablet-up {
+    padding: 20px 8px;
+  }
+}
+
+.menu-handle__info {
+  text-indent: 26px;
+  background: transparent url("../img/hamburger_sprite.svg") no-repeat;
+  background-position: -15px -16px;
+  background-size: 48px;
+
+  @include smartphone {
+    width: 18px;
+    height: 16px;
+    overflow: hidden;
+  }
+
+  @include tablet-up {
+    font: 14px/1.14 $font-regular;
+    letter-spacing: 0.5px;
+    color: #dadad2;
+    text-transform: uppercase;
+    // hamburger:
+    background-position: -13px -14px;
+    background-size: 42px;
+  }
+}
+
+.menu-handle:hover,
+.menu-handle--active {
+  /* check :/ */
+  background-image: /* url("../img/hamburger_sprite.svg") , */
+          linear-gradient(to bottom, #2e2e2e, #333);
+  // background-position: -6px -36px;
+  box-shadow: -1px 0 0 #000008;
+
+  // there's no other way as the menu-handle has/gets a bg (gradient :/) also
+  .menu-handle__info {
+    color: #fff;
+    background-position: -15px -64px;
+
+    @include tablet-up {
+      background-position: -13px -56px;
+    }
+  }
+}

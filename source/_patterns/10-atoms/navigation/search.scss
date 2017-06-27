@@ -1,0 +1,46 @@
+// @import "../../variables";
+
+.searchbox {
+  padding: 16px 16px 8px;
+
+  @include tablet-up {
+    position: absolute;
+    width: 240px;
+    top: -55px;
+    right: 48px;
+    padding: 13px 24px 0;
+  }
+
+  @include desktop-up {
+    right: 81px;
+  }
+}
+
+.searchbox__input {
+  width: 100%;
+  font: 16px/1 $font-light;
+  letter-spacing: .6px;
+  color: #dadad2;
+  background: #555 url("../img/search-sprite.svg") no-repeat scroll 6px 0 / 28px auto;
+  padding: 11px 4px 9px 40px;
+  border: 0;
+  border-radius: 25px;
+  box-sizing: border-box;
+
+  &:focus {
+    color: #4e4d47;
+    background-color: #ebebe5;
+    background-position: 6px -36px;
+    outline: none;
+  }
+
+  @include tablet-up {
+    padding: 6px 6px 6px 36px;
+    background-size: 23px;
+    background-position: 6px 0;
+
+    &:focus {
+      background-position: 6px -30px;
+    }
+  }
+}
