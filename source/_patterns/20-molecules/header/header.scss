@@ -50,11 +50,11 @@
 
     .searchbox {
       position: fixed;
-      top: 2px;
-      right: 130px;
+      top: 1px;
+      right: 129px;
 
       @include desktop-wide {
-        right: calc(50% - 510px); // here it gets weird
+        right: calc(50% - 511px); // here it gets weird
       }
     }
 
@@ -75,6 +75,7 @@
       position: fixed;
       height: 100%;
       right: 48px;
+      top: 50px; // tmp!!!
       overflow: auto;
 
       @include desktop-wide {
@@ -174,7 +175,6 @@
 
 .navbar {
   background-color: #333;
-  border: 1px solid pink;
 
   @include tablet-up {
     position: absolute;
@@ -184,13 +184,10 @@
   }
 
   @include desktop-up {
-    right: calc(50% - 608px); // minus padding
     right: 48px;
-    border: 1px solid green;
   }
 
   @include desktop-wide { // only here we have a max width
-    border: 1px solid yellow;
     right: calc(50% - 592px); // minus padding
   }
 }
