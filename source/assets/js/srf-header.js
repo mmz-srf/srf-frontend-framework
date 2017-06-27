@@ -4,11 +4,13 @@ export function init() {
         let $handle = $(this);
         if ($handle.hasClass("menu-handle--active")) {
             $handle.removeClass("menu-handle--active")
-                .closest(".header").removeClass("header--fixed")
+                .closest(".l-main-wrapper").removeClass("wrapper--fixed")
+                .find(".header").removeClass("header--fixed")
                 .find(".navbar").addClass("navbar--closed");
         } else {
             $handle.addClass("menu-handle--active")
-                .closest(".header").addClass("header--fixed")
+                .closest(".l-main-wrapper").addClass("wrapper--fixed")
+                .find(".header").addClass("header--fixed")
                 .find(".navbar").removeClass("navbar--closed");
         }
     });
