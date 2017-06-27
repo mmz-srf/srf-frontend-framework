@@ -17,17 +17,66 @@
   margin-top: 88px;
 }
 
+@include smartphone {
+  .header--fixed {
+    position: relative;
+    .header__container {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      background-image: linear-gradient(to bottom, #313131, #212121);
+      z-index: 1;
+    }
+
+    .navbar {
+      position: relative;
+      top: 50px;
+    }
+  }
+
+  .header--fixed + article {
+    position: relative;
+  }
+}
+
 // fixed is @mobile-up!
 @include tablet-up {
   .header--fixed {
-    position: fixed;
-    width: 100%;
-    top: 0;
-    left: 0;
+    position: relative;
+    .header__reserve {
+      position: fixed;
+      height: 56px;
+      width: 100%;
+      left: 0;
+      background-color: pink;
+    }
+    .header__container {
+      position: fixed;
+      width: 100%;
+      left: 50%;
+      transform: translate(-50%, 0px);
+      background-image: linear-gradient(to bottom, #313131, #212121);
+    }
+
+    .searchbox {
+      position: fixed;
+      top: 1px;
+      right: 129px;
+      right: calc(50% - 600px);
+    }
+
+    .navbar__menu {
+      position: relative;
+      background-color: #333;
+      z-index: 1;
+    }
   }
 
-  .header--fixed + .article {
-    margin-top: 88px;
+  .header--fixed + article {
+    position: fixed;
+    left: 50%;
+    transform: translate(-50%, 0px);
   }
 
   .header__container { // contains icons and so on
