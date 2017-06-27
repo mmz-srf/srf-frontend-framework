@@ -43,27 +43,52 @@
 // fixed is @mobile-up!
 @include tablet-up {
   .header--fixed {
-    position: relative;
+    // position: relative;
+
     .header__reserve {
       position: fixed;
       height: 56px;
       width: 100%;
       left: 0;
       background-color: pink;
+      background-image: linear-gradient(to bottom, #313131, #212121);
     }
+
     .header__container {
       position: fixed;
       width: 100%;
       left: 50%;
-      transform: translate(-50%, 0px);
+      transform: translate(-50%, 0);
       background-image: linear-gradient(to bottom, #313131, #212121);
+    }
+
+    .navbar {
+      /* */
+      // scrollbar inside - instead of on page
+      position: fixed;
+      height: 100%;
+      overflow: auto;
+      /**/
+      @include tablet-up {
+        right: 48px;
+      }
+
+      @include desktop-wide {
+        //left: auto;
+        right: calc(50% - 592px); // something like that
+      }
+
     }
 
     .searchbox {
       position: fixed;
       top: 1px;
       right: 129px;
-      right: calc(50% - 600px);
+
+      @include desktop-wide {
+        // left: auto;
+        right: calc(50% - 512px); // here it gets weird
+      }
     }
 
     .navbar__menu {
@@ -75,8 +100,11 @@
 
   .header--fixed + article {
     position: fixed;
+    margin-top: 55px !important;
     left: 50%;
-    transform: translate(-50%, 0px);
+    right: -50%;
+    transform: translate(-50%, 0);
+    transform: translate(-87.25%, 0);
   }
 
   .header__container { // contains icons and so on
@@ -166,12 +194,27 @@
 
 .navbar {
   background-color: #333;
+  border: 1px solid pink;
 
   @include tablet-up {
     position: absolute;
     width: 280px;
-    right: 48px;
+    // right: 48px;
+    right: 81px;
     z-index: 1;
+  }
+
+  @include desktop-up {
+    right: calc(50% - 640px); // bis zum Rand vom container
+    right: calc(50% - 608px); // minus padding
+    right: 48px;
+    border: 1px solid green;
+  }
+
+  @include desktop-wide { // only here we have a max width
+    right: calc(50% - 608px); // minus padding
+    border: 1px solid yellow;
+    right: calc(50% - 592px);
   }
 }
 
@@ -263,8 +306,13 @@
     position: absolute;
     width: 240px;
     top: -55px;
-    right: 81px;
+    // right: 81px;
     padding: 13px 24px 0;
+  }
+
+  @include desktop-up {
+    // left: -50px;
+    right: 81px;
   }
 }
 
