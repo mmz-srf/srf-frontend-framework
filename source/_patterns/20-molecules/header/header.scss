@@ -1,0 +1,344 @@
+.header { // absolute fullwidth!
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  /* dark bg - does nothing :/*/
+  background-image: linear-gradient(to bottom, #313131, #212121);
+  background-size: 100% 50px;
+  box-shadow: 0 2px 4px 0 #ddd; /* <-- check! */
+
+  @include tablet-up {
+    background-size: auto;
+  }
+}
+
+.header + .article {
+  margin-top: 88px;
+}
+
+@include smartphone {
+  .header--fixed + article {
+    position: relative;
+  }
+}
+
+.header--fixed {
+  @include smartphone {
+    position: relative;
+  }
+
+  @include tablet-up {
+    .header__reserve {
+      position: fixed;
+      height: 56px;
+      width: 100%;
+      left: 0;
+      background-image: linear-gradient(to bottom, #313131, #212121);
+    }
+  }
+
+  @include tablet-up {
+
+    .header__container {
+      position: fixed;
+      width: 100%;
+      left: 50%;
+      transform: translate(-50%, 0);
+      background-image: linear-gradient(to bottom, #313131, #212121);
+    }
+
+    .searchbox {
+      position: fixed;
+      top: 1px;
+      right: 129px;
+
+      @include desktop-wide {
+        right: calc(50% - 511px); // here it gets weird
+      }
+    }
+
+    .navbar__menu {
+      position: relative;
+      background-color: #333;
+      z-index: 1;
+    }
+  }
+
+  .navbar {
+    @include smartphone {
+      position: relative;
+    }
+
+    @include tablet-up {
+      // scrollbar inside - instead of on page
+      position: fixed;
+      height: 100%;
+      right: 48px;
+      // top: 50px; // tmp!!!
+      overflow: auto;
+
+      @include desktop-wide {
+        right: calc(50% - 592px); // something like that
+      }
+    }
+  }
+  // end .navbar
+}
+
+// end .header--fixed
+
+@include tablet-up {
+  .header__container { // contains icons and so on
+    position: relative;
+    height: 56px;
+    margin: 0 auto;
+    padding: 0 48px 0 32px;
+
+    @include desktop-up {
+      max-width: 1280px;
+    }
+  }
+}
+
+.header a,
+.header a:hover {
+  border-bottom: 0;
+}
+
+.header__logo {
+  display: inline-block;
+  vertical-align: top;
+  padding: 12px;
+
+  @include tablet-up {
+    padding: 15px 16px;
+  }
+}
+
+.header__logo img {
+  height: 26px;
+}
+
+.menu-handle {
+  float: right;
+  padding: 17px;
+  line-height: 0;
+  // background: transparent url("../img/hamburger_sprite.svg") no-repeat -6px 6px / 42px;
+
+  @include tablet-up {
+    padding: 20px 8px;
+  }
+}
+
+.menu-handle__info {
+  text-indent: 26px;
+  background: transparent url("../img/hamburger_sprite.svg") no-repeat;
+  background-position: -15px -16px;
+  background-size: 48px;
+
+  @include smartphone {
+    width: 18px;
+    height: 16px;
+    overflow: hidden;
+  }
+
+  @include tablet-up {
+    font: 14px/1.14 $font-regular;
+    letter-spacing: 0.5px;
+    color: #dadad2;
+    text-transform: uppercase;
+    // hamburger:
+    background-position: -13px -14px;
+    background-size: 42px;
+  }
+}
+
+.menu-handle:hover,
+.menu-handle--active {
+  /* check :/ */
+  background-image: /* url("../img/hamburger_sprite.svg") , */
+          linear-gradient(to bottom, #2e2e2e, #333);
+  // background-position: -6px -36px;
+  box-shadow: -1px 0 0 #000008;
+
+  // there's no other way as the menu-handle has/gets a bg (gradient :/) also
+  .menu-handle__info {
+    color: #fff;
+    background-position: -15px -64px;
+
+    @include tablet-up {
+      background-position: -13px -56px;
+    }
+  }
+}
+
+.navbar {
+  background-color: #333;
+
+  @include tablet-up {
+    position: absolute;
+    width: 280px;
+    right: 81px;
+    z-index: 1;
+  }
+
+  @include desktop-up {
+    right: 48px;
+  }
+
+  @include desktop-wide { // only here we have a max width
+    right: calc(50% - 592px); // minus padding
+  }
+}
+
+.navbar--closed {
+  .navbar__menu {
+    display: none;
+  }
+
+  @include smartphone {
+    .searchbox {
+      display: none;
+    }
+  }
+}
+
+.navbar__menu {
+  margin: -9px 0 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.navbar__menu ul,
+.navbar__menu li {
+  margin: 0;
+  padding: 0;
+}
+
+.navbar__menu li {
+  position: inherit;
+
+  &::before {
+    content: none;
+  }
+}
+
+.navbar__menu a {
+  font: 16px/1 $font-regular;
+  text-decoration: none;
+  color: #fefefd;
+  padding: 15px 24px 17px;
+  display: block;
+
+  &:hover {
+    background-color: #444;
+  }
+
+  &:active {
+    background-color: #555;
+  }
+}
+
+.navbar__menu ul[role="group"] {
+  border-bottom: 1px solid #444;
+  padding: 9px 0 7px;
+}
+
+.navbar__menu-radio {
+  background-color: #222;
+  margin: 12px 0;
+}
+
+.navbar__menu-radio a {
+  /* also silly solution!! */
+  text-indent: 32px;
+
+  &:hover {
+    background-color: #333;
+  }
+
+  &:active {
+    background-color: #444;
+  }
+}
+
+.navbar__menu-radio img {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  margin-top: -4px;
+}
+
+.searchbox {
+  padding: 16px 16px 8px;
+
+  @include tablet-up {
+    position: absolute;
+    width: 240px;
+    top: -55px;
+    right: 48px;
+    padding: 13px 24px 0;
+  }
+
+  @include desktop-up {
+    right: 81px;
+  }
+}
+
+.searchbox__input {
+  width: 100%;
+  font: 16px/1 $font-light;
+  letter-spacing: .6px;
+  color: #dadad2;
+  background: #555 url("../img/search-sprite.svg") no-repeat scroll 6px 0 / 28px auto;
+  padding: 11px 4px 9px 40px;
+  border: 0;
+  border-radius: 25px;
+  box-sizing: border-box;
+
+  &:focus {
+    color: #4e4d47;
+    background-color: #ebebe5;
+    background-position: 6px -36px;
+    outline: none;
+  }
+
+  @include tablet-up {
+    padding: 6px 6px 6px 36px;
+    background-size: 23px;
+    background-position: 6px 0;
+
+    &:focus {
+      background-position: 6px -30px;
+    }
+  }
+}
+
+@include tablet-up {
+  .wrapper--fixed {
+    position: fixed;
+    left: 0;
+    right: 0;
+  }
+}
+
+/* --> */
+.srf_play_logo {
+  height: 23px;
+  width: auto;
+}
+
+.menu-expand-arrow {
+  width: 24px;
+  height: 13px;
+  display: inline-block;
+  vertical-align: baseline;
+  background: transparent url("../img/arrows/menu_arrow_white.svg") no-repeat 0 0 / 24px;
+  margin-left: 8px;
+}
+
+.menu-expand-arrow--open {
+  transform: rotate(180deg);
+}
