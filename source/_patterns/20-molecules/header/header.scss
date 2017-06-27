@@ -17,6 +17,12 @@
   margin-top: 88px;
 }
 
+@include smartphone {
+  .header--fixed + article {
+    position: relative;
+  }
+}
+
 .header--fixed {
   @include smartphone {
     position: relative;
@@ -32,49 +38,16 @@
     }
   }
 
-  .header__container {
-    @include smartphone {
-      position: fixed;
-      width: 100%;
-      top: 0;
-      left: 0;
-      background-image: linear-gradient(to bottom, #313131, #212121);
-      z-index: 1;
-    }
+  @include tablet-up {
 
-    @include tablet-up {
+    .header__container {
       position: fixed;
       width: 100%;
       left: 50%;
       transform: translate(-50%, 0);
       background-image: linear-gradient(to bottom, #313131, #212121);
     }
-  }
 
-  .navbar {
-    @include smartphone {
-      position: relative;
-      top: 50px;
-    }
-
-    @include tablet-up {
-      // scrollbar inside - instead of on page
-      position: fixed;
-      height: 100%;
-      overflow: auto;
-      /**/
-      @include tablet-up {
-        right: 48px;
-        top: 50px; // <-- tmp!!
-      }
-
-      @include desktop-wide {
-        right: calc(50% - 592px); // something like that
-      }
-    }
-  }
-
-  @include tablet-up {
     .searchbox {
       position: fixed;
       top: 2px;
@@ -92,13 +65,27 @@
     }
   }
 
-  .header--fixed + article {
+  .navbar {
     @include smartphone {
       position: relative;
     }
-  }
 
+    @include tablet-up {
+      // scrollbar inside - instead of on page
+      position: fixed;
+      height: 100%;
+      right: 48px;
+      overflow: auto;
+
+      @include desktop-wide {
+        right: calc(50% - 592px); // something like that
+      }
+    }
+  }
+  // end .navbar
 }
+
+// end .header--fixed
 
 @include tablet-up {
   .header__container { // contains icons and so on
@@ -192,22 +179,19 @@
   @include tablet-up {
     position: absolute;
     width: 280px;
-    // right: 48px;
     right: 81px;
     z-index: 1;
   }
 
   @include desktop-up {
-    right: calc(50% - 640px); // bis zum Rand vom container
     right: calc(50% - 608px); // minus padding
     right: 48px;
     border: 1px solid green;
   }
 
   @include desktop-wide { // only here we have a max width
-    right: calc(50% - 608px); // minus padding
     border: 1px solid yellow;
-    right: calc(50% - 592px);
+    right: calc(50% - 592px); // minus padding
   }
 }
 
@@ -284,11 +268,9 @@
 }
 
 .navbar__menu-radio img {
-  /* silly solution!! */
   position: absolute;
   width: 24px;
   height: 24px;
-  /* clip: rect(0, 24px, 24px, 0); */
   margin-top: -4px;
 }
 
@@ -299,13 +281,11 @@
     position: absolute;
     width: 240px;
     top: -55px;
-    // right: 81px;
     right: 48px;
     padding: 13px 24px 0;
   }
 
   @include desktop-up {
-    // left: -50px;
     right: 81px;
   }
 }
@@ -339,10 +319,12 @@
   }
 }
 
-.wrapper--fixed {
-  position: fixed;
-  left: 0;
-  right: 0;
+@include tablet-up {
+  .wrapper--fixed {
+    position: fixed;
+    left: 0;
+    right: 0;
+  }
 }
 
 /* --> */
