@@ -84,7 +84,7 @@
       overflow: auto;
 
       @include desktop-wide {
-        right: calc(50% - 592px); // something like that
+        // right: calc(50% - 592px); // something like that
         right: calc(50% - 640px); // something like that
       }
     }
@@ -141,8 +141,9 @@
 
 // navigation
 .navbar {
-  // background-color: #333;
-
+  @include smartphone {
+    background-color: #333;
+  }
   @include tablet-up {
     position: absolute;
     width: 280px;
@@ -269,13 +270,13 @@
 
 // end nativation
 
-@include tablet-up {
-  .wrapper--fixed {
-    position: fixed;
-    left: 0;
-    right: 0;
-  }
+.wrapper--fixed { // valid for "all"
+  position: fixed;
+  left: 0;
+  right: 0;
+}
 
+@include tablet-up {
   .body--foggy {
     background-color: rgba(0, 0, 0, .2);
   }
