@@ -13,19 +13,21 @@
   }
 }
 
-.header + .article {
-  margin-top: 88px;
-}
-
-@include smartphone {
-  .header--fixed + article {
-    position: relative;
+@include tablet-up {
+  .header + .article {
+    margin-top: 88px;
   }
 }
 
-.header--fixed {
+@include smartphone {
+  // .header--fixed + article { position: relative; }
+}
+
+.wrapper--fixed {
   @include smartphone {
-    position: relative;
+    .header {
+      position: relative;
+    }
   }
 
   @include tablet-up {
@@ -57,7 +59,7 @@
     }
 
     .navbar__menu {
-      position: relative;
+      // position: relative;
       background-color: #333;
       z-index: 1;
     }
@@ -69,22 +71,40 @@
     }
 
     @include tablet-up {
+      // transition: right 3.6s ease;
+      // transition: top 3.6s ease;
+      // top: -1500px;
+      // right: -300px; //0;
       // scrollbar inside - instead of on page
       position: fixed;
       height: 100%;
       right: 48px;
+      right: 0; // start position
       // top: 50px; // tmp!!!
       overflow: auto;
 
       @include desktop-wide {
         right: calc(50% - 592px); // something like that
+        right: calc(50% - 640px); // something like that
       }
     }
   }
+
+  // nix worx
+  /* .navbar--come-in {
+    @include tablet-up {
+      right: 48px;
+      top: 0;
+    }
+
+    @include desktop-wide {
+      right: calc(50% - 592px);
+    }
+  } */
   // end .navbar
 }
 
-// end .header--fixed
+// end .wrapper--fixed
 
 @include tablet-up {
   .header__container { // contains icons and so on
@@ -100,7 +120,8 @@
 }
 
 .header a,
-.header a:hover {
+.header a:hover,
+.header__logo, .header__logo:hover {
   border-bottom: 0;
 }
 
@@ -114,19 +135,25 @@
   }
 }
 
-.header__logo img {
+.header__logo-img {
   height: 26px;
 }
 
 // navigation
 .navbar {
-  background-color: #333;
+  // background-color: #333;
 
   @include tablet-up {
     position: absolute;
     width: 280px;
     right: 81px;
     z-index: 1;
+
+    // animation
+    // transition: top 3.6s ease;
+    // top: -1000px;
+    // transition: right 3.6s linear;
+    // right: -300px;
   }
 
   @include desktop-up {
@@ -140,7 +167,9 @@
 
 .navbar--closed {
   .navbar__menu {
-    display: none;
+    // display: none;
+    position: absolute;
+    width: 0;
   }
 
   // this only makes sense in context
@@ -156,6 +185,20 @@
   padding: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+// animations
+@include tablet-up {
+  .navbar__menu {
+    position: relative;
+    width: auto;
+    right: -280px;
+    transition: right 3.6s ease;
+  }
+
+  .navbar__menu--come-in {
+    right: 0;
+  }
 }
 
 .navbar__group,
@@ -231,5 +274,9 @@
     position: fixed;
     left: 0;
     right: 0;
+  }
+
+  .body--foggy {
+    background-color: rgba(0, 0, 0, .2);
   }
 }
