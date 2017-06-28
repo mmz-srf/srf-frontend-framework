@@ -13,37 +13,45 @@
   }
 }
 
-@include tablet-up {
+// @include tablet-up {
   .header + .article {
-    margin-top: 88px;
+    margin-top: 88px; // todo: check!!
   }
-}
 
-@include smartphone {
-  // .header--fixed + article { position: relative; }
-}
+// }
 
-.wrapper--fixed {
+.wrapper--fixed { // navigation expanded
+  .header__container {
+    position: fixed;
+    width: 100%;
+    background-image: linear-gradient(to bottom, #313131, #212121);
+
+    @include smartphone {
+      z-index: 2;
+    }
+
+    @include tablet-up {
+      left: 50%;
+      transform: translate(-50%, 0);
+    }
+  }
+
   @include smartphone {
-    .header {
-      position: relative;
+    .article {
+      position: fixed;
     }
   }
 
   @include tablet-up {
+    position: fixed;
+    left: 0;
+    right: 0;
+
     .header__reserve {
       position: fixed;
       height: 56px;
       width: 100%;
       left: 0;
-      background-image: linear-gradient(to bottom, #313131, #212121);
-    }
-
-    .header__container {
-      position: fixed;
-      width: 100%;
-      left: 50%;
-      transform: translate(-50%, 0);
       background-image: linear-gradient(to bottom, #313131, #212121);
     }
 
@@ -59,7 +67,6 @@
     }
 
     .navbar__menu {
-      // position: relative;
       background-color: #333;
       z-index: 1;
     }
@@ -68,40 +75,24 @@
   .navbar {
     @include smartphone {
       position: relative;
+      top: 50px;
+      background-color: #333;
+      z-index: 1;
     }
 
     @include tablet-up {
-      // transition: right 3.6s ease;
-      // transition: top 3.6s ease;
-      // top: -1500px;
-      // right: -300px; //0;
-      // scrollbar inside - instead of on page
       position: fixed;
       height: 100%;
-      right: 48px;
       right: 0; // start position
-      // top: 50px; // tmp!!!
+      top: 56px; // tmp!!!
       overflow: auto;
 
       @include desktop-wide {
-        // right: calc(50% - 592px); // something like that
         right: calc(50% - 640px); // something like that
+        // top: 56px;
       }
     }
   }
-
-  // nix worx
-  /* .navbar--come-in {
-    @include tablet-up {
-      right: 48px;
-      top: 0;
-    }
-
-    @include desktop-wide {
-      right: calc(50% - 592px);
-    }
-  } */
-  // end .navbar
 }
 
 // end .wrapper--fixed
@@ -141,20 +132,11 @@
 
 // navigation
 .navbar {
-  @include smartphone {
-    background-color: #333;
-  }
   @include tablet-up {
     position: absolute;
     width: 280px;
     right: 81px;
     z-index: 1;
-
-    // animation
-    // transition: top 3.6s ease;
-    // top: -1000px;
-    // transition: right 3.6s linear;
-    // right: -300px;
   }
 
   @include desktop-up {
@@ -166,10 +148,11 @@
   }
 }
 
-.navbar--closed {
+.navbar--closed { // only add after transitionend
   .navbar__menu {
     // display: none;
     position: absolute;
+    overflow: hidden;
     width: 0;
   }
 
@@ -199,6 +182,9 @@
 
   .navbar__menu--come-in {
     right: 0;
+  }
+  .navbar__menu--go {
+    right: -280px;
   }
 }
 
@@ -242,6 +228,7 @@
 .navbar__group--radio {
   background-color: #222;
   padding: 12px 0;
+  border-bottom: 0;
 }
 
 .navbar__link--radio {
@@ -267,14 +254,8 @@
   height: 23px;
   width: auto;
 }
-
 // end nativation
 
-.wrapper--fixed { // valid for "all"
-  position: fixed;
-  left: 0;
-  right: 0;
-}
 
 @include tablet-up {
   .body--foggy {

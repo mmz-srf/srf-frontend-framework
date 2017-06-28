@@ -8,7 +8,7 @@ export function init() {
             // .find(".header").removeClass("header--fixed")
                 .find(".navbar").addClass("navbar--closed");
             $("body").removeClass("body--foggy");
-            $(".navbar__menu").removeClass("navbar__menu--come-in");
+            $(".navbar__menu").removeClass("navbar__menu--come-in").addClass("navbar__menu--go");
 
         } else {
             $handle.addClass("menu-handle--active")
@@ -16,7 +16,7 @@ export function init() {
             // .find(".header").addClass("header--fixed")
                 .find(".navbar").removeClass("navbar--closed");
             $("body").addClass("body--foggy");
-            $(".navbar__menu").addClass("navbar__menu--come-in");
+            $(".navbar__menu").addClass("navbar__menu--come-in").removeClass("navbar__menu--go");
         }
     });
 
