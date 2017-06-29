@@ -671,7 +671,13 @@
     "legend_title": "JA-Anteil in %"
   },
   "breadcrumbs": {
-    "1": "Sport",
-    "2": "Fussball"
+    "1": {
+      "url": "www.srf.ch/sport",
+      "name": "Sport"
+    },
+    "2": {
+      "url": "www.srf.ch/sport/fussball",
+      "name": "Fussball"
+    }
   }
 }

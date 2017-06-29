@@ -1,5 +1,6 @@
 <ul class="breadcrumbs {{ styleModifier }}">
     {% for crumb in breadcrumbs %}
-        <li class="breadcrumbs__item"><a class="breadcrumbs__link" href="{{ crumb.url }}">{{ crumb.name }}</a></li>
+        <li class="breadcrumbs__item">
+            {% include 'atoms-breadcrumb-link' with { 'url': crumb.url, 'name': crumb.name } %}<!-- a class="breadcrumbs__link" href="{{ crumb.url }}">{{ crumb.name }}</a --></li>
     {% endfor %}
 </ul>
