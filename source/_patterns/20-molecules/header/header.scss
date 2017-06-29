@@ -18,8 +18,6 @@
     margin-top: 88px; // todo: check!!
   }
 
-// }
-
 .wrapper--fixed { // navigation expanded
   .header__container {
     position: fixed;
@@ -73,10 +71,10 @@
   }
 
   .navbar {
+    background-color: #333;
     @include smartphone {
       position: relative;
       top: 50px;
-      background-color: #333;
       z-index: 1;
     }
 
@@ -86,6 +84,7 @@
       right: 0; // start position
       top: 56px; // tmp!!!
       overflow: auto;
+      opacity: 1;
 
       @include desktop-wide {
         right: calc(50% - 640px); // something like that
@@ -138,6 +137,7 @@
     width: 280px;
     right: 81px;
     z-index: 1;
+    // animation:
   }
 
   @include desktop-up {
@@ -177,15 +177,15 @@
   .navbar__menu {
     position: relative;
     width: auto;
-    right: -280px;
-    transition: right 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
+    opacity: 0;
+    // right: -280px;
+    // transition: right 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
+    transition: opacity 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
   }
 
   .navbar__menu--come-in {
     right: 0;
-  }
-  .navbar__menu--go {
-    right: -280px;
+    opacity: 1;
   }
 }
 
@@ -203,6 +203,9 @@
   }
 }
 
+.navbar__menu-item:last-child {
+  border-bottom: 89px solid #333;
+}
 .navbar__link {
   font: 16px/1 $font-regular;
   text-decoration: none;

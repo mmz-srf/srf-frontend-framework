@@ -3,17 +3,15 @@ export function init() {
         e.preventDefault();
         let $handle = $(this);
         if ($handle.hasClass("menu-handle--active")) {
-            console.log("ak!", $handle);
             $handle.removeClass("menu-handle--active");
             $(".navbar__menu").removeClass("navbar__menu--come-in").one("transitionend", function () {
                 $(this).closest(".navbar").addClass("navbar--closed")
-                    .closest(".l-main-wrapper").removeClass("wrapper--fixed")
+                    .closest(".l-main-wrapper").removeClass("wrapper--fixed");
                 // .find(".menu-handle").removeClass("menu-handle--active");
                 $("body").removeClass("body--foggy");
             }); // .addClass("navbar__menu--go");
 
         } else {
-            console.log("nak", $handle);
             $handle.addClass("menu-handle--active")
                 .closest(".l-main-wrapper").addClass("wrapper--fixed")
             // .find(".header").addClass("header--fixed")
