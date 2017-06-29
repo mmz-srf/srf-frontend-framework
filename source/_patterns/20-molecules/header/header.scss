@@ -18,6 +18,19 @@
     margin-top: 88px; // todo: check!!
   }
 
+.l-main-wrapper {
+  &::after {
+    opacity: 0;
+    height: 0;
+    width: 0;
+    transition: all 1004s ease;
+
+    // meeeek!
+    // cursor: pointer;
+    // pointer-events: all;
+  }
+}
+
 .wrapper--fixed { // navigation expanded
   .header__container {
     position: fixed;
@@ -44,6 +57,20 @@
     position: fixed;
     left: 0;
     right: 0;
+
+    &.l-main-wrapper {
+      &::after {
+        content: "";
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        opacity: .6;
+        background-color: #000;
+        // background-color: rgba(0, 0, 0, 0.2);
+      }
+    }
 
     .header__reserve {
       position: fixed;
@@ -82,7 +109,7 @@
       position: fixed;
       height: 100%;
       right: 0; // start position
-      top: 56px; // tmp!!!
+      // top: 56px; // tmp!!!
       overflow: auto;
       opacity: 1;
 
@@ -258,11 +285,5 @@
   height: 23px;
   width: auto;
 }
+
 // end nativation
-
-
-@include tablet-up {
-  .body--foggy {
-    background-color: rgba(0, 0, 0, .2);
-  }
-}
