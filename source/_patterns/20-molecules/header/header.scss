@@ -178,7 +178,7 @@
     position: relative;
     width: auto;
     right: -280px;
-    transition: right 3.6s ease;
+    transition: right 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
   }
 
   .navbar__menu--come-in {
