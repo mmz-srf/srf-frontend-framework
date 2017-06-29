@@ -1,5 +1,5 @@
 <ul class="breadcrumbs">
     {% for crumb in breadcrumbs %}
-        <li class="breadcrumbs__item"><a class="breadcrumbs__link" href="#">{{ crumb }}</a></li>
+        <li class="breadcrumbs__item"><a class="breadcrumbs__link" href="{{ crumb.url }}">{{ crumb.name }}</a></li>
     {% endfor %}
 </ul>
