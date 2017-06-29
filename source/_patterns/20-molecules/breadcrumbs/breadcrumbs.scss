@@ -1,6 +1,20 @@
 .breadcrumbs { // ul
-  margin: 3px 0 24px;
-  padding: 0;
+  margin: 3px auto 24px;
+  padding: 0 24px;
+
+  @include tablet-up {
+    max-width: 624px;
+    margin: 15px auto 32px;
+    padding: 0;
+  }
+
+  @include desktop {
+    max-width: 680px;
+  }
+
+  @include desktop-wide {
+    max-width: 760px;
+  }
 }
 
 .breadcrumbs__item { // li
