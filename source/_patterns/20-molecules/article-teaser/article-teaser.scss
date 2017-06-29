@@ -35,10 +35,7 @@
 
 .article-teaser__wrapper {
   display: block;
-  margin: 16px 16px 16px 24px;
-  @include tablet-up {
-    margin: 16px;
-  }
+  margin: 16px;
 }
 
 .article-teaser__image {
