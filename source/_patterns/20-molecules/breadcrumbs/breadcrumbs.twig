@@ -1,4 +1,4 @@
-<ul class="breadcrumbs">
+<ul class="breadcrumbs {{ styleModifier }}">
     {% for crumb in breadcrumbs %}
         <li class="breadcrumbs__item"><a class="breadcrumbs__link" href="{{ crumb.url }}">{{ crumb.name }}</a></li>
     {% endfor %}

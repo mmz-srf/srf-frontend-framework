@@ -1,10 +1,10 @@
 .breadcrumbs { // ul
-  margin: 3px auto 24px;
+  margin: 3px auto 15px; // 12 / 24 - 9 each
   padding: 0 24px;
 
   @include tablet-up {
     max-width: 624px;
-    margin: 15px auto 32px;
+    margin: 15px auto 23px; // 24 / 32 - 9 each
     padding: 0;
   }
 
@@ -14,6 +14,14 @@
 
   @include desktop-wide {
     max-width: 760px;
+  }
+}
+
+.breadcrumbs--foot {
+  margin: 15px auto 23px; // 24 / 32 - 9 each
+
+  @include tablet-up {
+    margin: 23px auto 15px; // 32 / 24 - 9 each
   }
 }
 
