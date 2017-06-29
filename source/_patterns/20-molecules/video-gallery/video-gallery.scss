@@ -198,7 +198,7 @@
   // definition of img widths (moved here from js)
   .carousel__item {
     @include smartphone {
-      width: calc(100vw - 50px);
+      width: calc(100vw - 40px);
     }
 
     @include tablet {
