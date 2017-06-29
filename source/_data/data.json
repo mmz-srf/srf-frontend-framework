@@ -669,5 +669,9 @@
     "at": "vom",
     "o_clock": "Uhr",
     "legend_title": "JA-Anteil in %"
+  },
+  "breadcrumbs": {
+    "1": "Sport",
+    "2": "Fussball"
   }
 }
