@@ -10,7 +10,7 @@
   letter-spacing:.2px;
   color:$color-text-default;
   margin:0 0 16px;
-  padding:0 16px;
+  padding:0 24px;
 }
 .listmodule__title--listicle {
   @include tablet-up {
@@ -79,8 +79,7 @@
 }
 
 .listmodule__media--listicle {
-  margin-top: -12px;
-  margin-bottom: -12px;
+  margin: -12px -8px;
   @include tablet-up {
     margin: -16px -16px -12px;
   }
@@ -112,6 +111,7 @@
 
 .listmodule__link {
   margin: 12px -8px 16px;
+
   @include tablet-up {
     margin-top: 24px;
     margin-bottom: 24px;

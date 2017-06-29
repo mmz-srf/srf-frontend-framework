@@ -12,6 +12,7 @@ body {
   margin: 0;
   font-family: $font-light;
   background-color: #fefefd;
+  overflow-x: hidden; // because of scrollbars caused by fullwith (100vw) elements
 }
 
 ul {
