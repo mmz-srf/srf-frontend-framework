@@ -6,10 +6,10 @@
   display: inline-block;
   vertical-align: middle;
   position: relative;
-  border-radius: 11px;
+  border-radius: 10px;
 
   // touch area :/
-  border: 9px solid transparent;
+  border: 8px solid transparent;
   // border-width: 9px 0;
   background-clip: padding-box;
 
@@ -24,7 +24,7 @@
   &::before {
     content: "";
     position: absolute;
-    top: 11px;
+    top: 10px;
     left: auto;
     right: 11px;
     width: 7px;
