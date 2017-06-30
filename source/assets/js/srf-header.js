@@ -3,10 +3,10 @@ export function init() {
         e.preventDefault();
         let $handle = $(this);
         if ($handle.hasClass("menu-handle--active")) {
-            $(".l-main-wrapper").removeClass("js-wrapper-observer");
+            $(".l-main-wrapper").removeClass("js-wrapper-observer")// .find(".navbar").addClass("navbar--go-away");
             $handle.removeClass("menu-handle--active");
             $(".navbar__menu").removeClass("navbar__menu--come-in").one("transitionend", function () {
-                $(this).closest(".navbar").addClass("navbar--closed")
+                $(this).closest(".navbar").addClass("navbar--closed")// .removeClass("navbar--go-away")
                     .closest(".l-main-wrapper").removeClass("wrapper--fixed");
             });
 
@@ -14,7 +14,7 @@ export function init() {
             e.stopPropagation();
             $handle.addClass("menu-handle--active")
                 .closest(".l-main-wrapper").addClass("wrapper--fixed").addClass("js-wrapper-observer")
-                .find(".navbar").removeClass("navbar--closed")
+                .find(".navbar").removeClass("navbar--closed")// .addClass("navbar--come-in")
                 .find(".navbar__menu").addClass("navbar__menu--come-in");
         }
     });

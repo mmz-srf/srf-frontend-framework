@@ -1,3 +1,43 @@
+@mixin bg-animation( $start, $end, $transTime, $fromSize, $toSize, $fromPos, $toPos) {
+  background: transparent linear-gradient($start 100%, $end 100%) no-repeat;
+  // background-size: 200% 200%;
+
+  animation: go_ahead $transTime cubic-bezier(0.4, 0.0, 0.2, 1) infinite;
+  animation-iteration-count: 1;
+
+  @keyframes go_ahead {
+    from {
+      background-size: $fromSize; // 0;
+      background-position: $fromPos; // 280px;
+    }
+    to {
+      background-size: $toSize; // 100%;
+      background-position: $toPos; // 0;
+    }
+  }
+}
+
+@mixin bla-reverse( $start, $end, $transTime ) {
+  background: transparent linear-gradient($start 100%, $end 100%) no-repeat;
+
+  animation: go_ahead $transTime cubic-bezier(0.4, 0.0, 0.2, 1) infinite;
+  animation-iteration-count: 1;
+
+  @keyframes go_ahead {
+    from {
+      background-size: 100%;
+      background-position: 0;
+    }
+    to {
+      background-size: 0;
+      background-position: 280px;
+    }
+  }
+}
+
+$rightPos: 0;
+$naviTransitionTime: 0.4s;
+
 .header { // absolute fullwidth!
   position: absolute;
   top: 0;
@@ -58,7 +98,7 @@
     left: 0;
     right: 0;
 
-    &.l-main-wrapper {
+    &.js-wrapper-observer { // <---- TMP!!!! // l-main-wrapper { // the bg dim!
       &::after {
         content: "";
         position: absolute;
@@ -92,13 +132,14 @@
     }
 
     .navbar__menu {
-      background-color: #333;
+      background-color: #333; // just in case the navi covers the search field :/
+      min-height: 100%;
       z-index: 1;
     }
   }
 
   .navbar {
-    background-color: #333;
+    // background-color: #333;
     @include smartphone {
       position: relative;
       top: 50px;
@@ -108,19 +149,21 @@
     @include tablet-up {
       position: fixed;
       height: 100%;
-      right: 0; // start position
+      // right: 0; // start position
+      $rightPos: 280px;
       // top: 56px; // tmp!!!
       overflow: auto;
-      opacity: 1;
+      // opacity: 1;
+      // @include bg-animation( #333, transparent, 0.4s );// gradient animation mixin usage
 
       @include desktop-wide {
-        right: calc(50% - 640px); // something like that
+        $rightPos: calc(50% - 640px);
+        right: $rightPos; // something like that
         // top: 56px;
       }
     }
   }
 }
-
 // end .wrapper--fixed
 
 @include tablet-up {
@@ -164,7 +207,6 @@
     width: 280px;
     right: 81px;
     z-index: 1;
-    // animation:
   }
 
   @include desktop-up {
@@ -193,7 +235,7 @@
 }
 
 .navbar__menu {
-  margin: -9px 0 0;
+  margin: 0; // margin: -9px 0 0;
   padding: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -204,15 +246,15 @@
   .navbar__menu {
     position: relative;
     width: auto;
-    opacity: 0;
-    // right: -280px;
-    // transition: right 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
-    transition: opacity 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
+    // opacity: 0;
+    right: -280px;
+    transition: right $naviTransitionTime cubic-bezier(0.4, 0.0, 0.2, 1);
+    // transition: opacity 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
   }
 
   .navbar__menu--come-in {
     right: 0;
-    opacity: 1;
+    // opacity: 1;
   }
 }
 
@@ -231,7 +273,8 @@
 }
 
 .navbar__menu-item:last-child {
-  border-bottom: 89px solid #333;
+  // border-bottom: 89px solid #333; // if top: 56px
+  border-bottom: 24px solid transparent;
 }
 .navbar__link {
   font: 16px/1 $font-regular;

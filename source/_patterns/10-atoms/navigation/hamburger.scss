@@ -36,12 +36,6 @@
 
 .menu-handle:hover,
 .menu-handle--active {
-  /* check :/ */
-  background-image: /* url("../img/hamburger_sprite.svg") , */
-          linear-gradient(to bottom, #2e2e2e, #333);
-  // background-position: -6px -36px;
-  box-shadow: -1px 0 0 #000008;
-
   // there's no other way as the menu-handle has/gets a bg (gradient :/) also
   .menu-handle__info {
     color: #fff;
@@ -51,4 +45,8 @@
       background-position: -13px -56px;
     }
   }
+}
+
+.menu-handle--active {
+  background-image: linear-gradient(to bottom, #2e2e2e, #333);
 }
