@@ -10,7 +10,7 @@
                 {% set imageSources = [] %}
                 {% for source in image.sources %}
                     {% set imageSource = [source.src, ' ', source.width, 'w']|join() %}
-                    {% set imageSources = imageSources|merge(imageSource) %}
+                    {% set imageSources = imageSources|merge([imageSource]) %}
                 {% endfor %}
                 srcset="{{ imageSources|join(',') }}"
             {% endif %}
