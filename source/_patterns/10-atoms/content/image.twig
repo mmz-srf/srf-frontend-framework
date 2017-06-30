@@ -9,7 +9,8 @@
             {% if image.sources is defined %}
                 {% set imageSources = [] %}
                 {% for source in image.sources %}
-                    {% set imageSources = imageSources|merge(source.src . source.width . w) %}
+                    {% set imageSource = [source.src, ' ', source.width, w]|join() %}
+                    {% set imageSources = imageSources|merge(imageSource) %}
                 {% endfor %}
                 srcset="{{ imageSources|join(',') }}"
             {% endif %}
