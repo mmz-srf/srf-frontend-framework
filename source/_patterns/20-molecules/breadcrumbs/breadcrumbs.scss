@@ -28,10 +28,14 @@
 .breadcrumbs__item { // li
   display: inline;
   // reacting to "rounded corners"
-  margin: 0 -1px 0 -9px;
+  margin: 0 -1px 0 -12px;
   padding: 0;
 
   &::before {
     content: none;
+  }
+
+  &:first-of-type {
+    margin-left: -8px;
   }
 }
