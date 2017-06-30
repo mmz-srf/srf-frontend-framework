@@ -7,8 +7,11 @@
          title="{{ alt }}"
          sizes="{{ sizes }}"
             {% if image.sources is defined %}
-                {% set imageSources = image.sources|map(source => source.src . source.width . w) %}
-                srcset="{{ imageSource|join(',') }}"
+                {% set imageSources = [] %}
+                {% for source in image.sources %}
+                    {% set imageSources = imageSources|merge(source.src . source.width . w) %}
+                {% endfor %}
+                srcset="{{ imageSources|join(',') }}"
             {% endif %}
          src="{{ src }}">
     {% block image_carousel_counter %}
