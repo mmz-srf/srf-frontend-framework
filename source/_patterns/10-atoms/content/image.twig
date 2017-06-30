@@ -7,10 +7,10 @@
          title="{{ alt }}"
          sizes="{{ sizes }}"
             {% if image.sources is defined %}
-                srcset="{% for source in image.sources %}
+                srcset="{% spaceless %}{% for source in image.sources %}
                     {{ source.src }} {{ source.width }}w
                     {{ loop.last ? '' : ',' }}
-                 {% endfor %}"
+                 {% endfor %}{% endspaceless %}"
             {% endif %}
          src="{{ src }}">
     {% block image_carousel_counter %}
