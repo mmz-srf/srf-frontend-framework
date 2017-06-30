@@ -20,8 +20,9 @@ export function init() {
     });
 
     $(document).on("click", ".js-wrapper-observer", function (e) {
+        $target = $(e.target);
         // make it possible to use search while page is dimmed and navi is visible
-        if (!$(e.target).hasClass("searchbox__input")) {
+        if (!$target.hasClass("searchbox__input") && !$target.hasClass("navbar__link")) {
             $(".menu-handle").trigger("click");
         }
     });
@@ -29,10 +30,10 @@ export function init() {
     $(".navbar__menu").on("click", ".js-expand-arrow", function (e) {
         e.preventDefault();
         let $handle = $(this), $arrow = $handle.find(".expand-arrow");
-        if ($arrow.hasClass("expand-arrow--open")) {
+        if ($arrow.hasClass("expand-arrow--open")) { // radio menu is open
             $arrow.removeClass("expand-arrow--open");
             $handle.next(".navbar__group--radio").addClass("h-element--hide");
-        } else {
+        } else { // it's closed
             $arrow.addClass("expand-arrow--open");
             $handle.next(".navbar__group--radio").removeClass("h-element--hide");
         }

@@ -303,6 +303,12 @@ $naviTransitionTime: 0.4s;
   background-color: #222;
   padding: 12px 0;
   border-bottom: 0;
+  // height: 0;
+  // transition: height $naviTransitionTime cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+.navbar__group--radio-open {
+  height: auto;
 }
 
 .navbar__link--radio {
