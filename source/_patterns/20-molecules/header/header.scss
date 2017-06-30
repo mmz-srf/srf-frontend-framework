@@ -18,7 +18,18 @@
     margin-top: 88px; // todo: check!!
   }
 
-// }
+.l-main-wrapper {
+  &::after {
+    opacity: 0;
+    height: 0;
+    width: 0;
+    transition: all 1004s ease;
+
+    // meeeek!
+    // cursor: pointer;
+    // pointer-events: all;
+  }
+}
 
 .wrapper--fixed { // navigation expanded
   .header__container {
@@ -47,6 +58,20 @@
     left: 0;
     right: 0;
 
+    &.l-main-wrapper {
+      &::after {
+        content: "";
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        opacity: .2;
+        background-color: #000;
+        // background-color: rgba(0, 0, 0, 0.2);
+      }
+    }
+
     .header__reserve {
       position: fixed;
       height: 56px;
@@ -73,10 +98,10 @@
   }
 
   .navbar {
+    background-color: #333;
     @include smartphone {
       position: relative;
       top: 50px;
-      background-color: #333;
       z-index: 1;
     }
 
@@ -84,8 +109,9 @@
       position: fixed;
       height: 100%;
       right: 0; // start position
-      top: 56px; // tmp!!!
+      // top: 56px; // tmp!!!
       overflow: auto;
+      opacity: 1;
 
       @include desktop-wide {
         right: calc(50% - 640px); // something like that
@@ -138,6 +164,7 @@
     width: 280px;
     right: 81px;
     z-index: 1;
+    // animation:
   }
 
   @include desktop-up {
@@ -177,15 +204,15 @@
   .navbar__menu {
     position: relative;
     width: auto;
-    right: -280px;
-    transition: right 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
+    opacity: 0;
+    // right: -280px;
+    // transition: right 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
+    transition: opacity 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
   }
 
   .navbar__menu--come-in {
     right: 0;
-  }
-  .navbar__menu--go {
-    right: -280px;
+    opacity: 1;
   }
 }
 
@@ -203,6 +230,9 @@
   }
 }
 
+.navbar__menu-item:last-child {
+  border-bottom: 89px solid #333;
+}
 .navbar__link {
   font: 16px/1 $font-regular;
   text-decoration: none;
@@ -255,11 +285,5 @@
   height: 23px;
   width: auto;
 }
+
 // end nativation
-
-
-@include tablet-up {
-  .body--foggy {
-    background-color: rgba(0, 0, 0, .2);
-  }
-}

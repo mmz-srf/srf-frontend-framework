@@ -3,23 +3,26 @@ export function init() {
         e.preventDefault();
         let $handle = $(this);
         if ($handle.hasClass("menu-handle--active")) {
-            console.log("ak!", $handle);
+            $(".l-main-wrapper").removeClass("js-wrapper-observer");
             $handle.removeClass("menu-handle--active");
             $(".navbar__menu").removeClass("navbar__menu--come-in").one("transitionend", function () {
                 $(this).closest(".navbar").addClass("navbar--closed")
-                    .closest(".l-main-wrapper").removeClass("wrapper--fixed")
-                // .find(".menu-handle").removeClass("menu-handle--active");
-                $("body").removeClass("body--foggy");
-            }); // .addClass("navbar__menu--go");
+                    .closest(".l-main-wrapper").removeClass("wrapper--fixed");
+            });
 
         } else {
-            console.log("nak", $handle);
+            e.stopPropagation();
             $handle.addClass("menu-handle--active")
-                .closest(".l-main-wrapper").addClass("wrapper--fixed")
-            // .find(".header").addClass("header--fixed")
+                .closest(".l-main-wrapper").addClass("wrapper--fixed").addClass("js-wrapper-observer")
                 .find(".navbar").removeClass("navbar--closed")
                 .find(".navbar__menu").addClass("navbar__menu--come-in");
-            $("body").addClass("body--foggy");
+        }
+    });
+
+    $(document).on("click", ".js-wrapper-observer", function (e) {
+        // make it possible to use search while page is dimmed and navi is visible
+        if (!$(e.target).hasClass("searchbox__input")) {
+            $(".menu-handle").trigger("click");
         }
     });
 
@@ -33,5 +36,5 @@ export function init() {
             $arrow.addClass("expand-arrow--open");
             $handle.next(".navbar__group--radio").removeClass("h-element--hide");
         }
-    })
+    });
 }
