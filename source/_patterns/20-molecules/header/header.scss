@@ -8,6 +8,7 @@ $naviTransitionTime: 0.4s;
   /* dark bg - does nothing :/*/
   background-image: linear-gradient(to bottom, #313131, #212121);
   background-size: 100% 50px;
+  background-repeat: no-repeat;
   box-shadow: 0 2px 4px 0 #ddd; /* <-- check! */
 
   @include tablet-up {
@@ -15,10 +16,9 @@ $naviTransitionTime: 0.4s;
   }
 }
 
-// @include tablet-up {
-  .header + .article {
-    margin-top: 88px; // todo: check!!
-  }
+.header + .article {
+  margin-top: 88px; // todo: check!!
+}
 
 .l-main-wrapper {
   &::after {
@@ -26,7 +26,7 @@ $naviTransitionTime: 0.4s;
     opacity: 0;
     height: 0;
     width: 0;
-    transition: all 0.4s ease;
+    transition: opacity 0.4s ease;
   }
 }
 
@@ -57,9 +57,8 @@ $naviTransitionTime: 0.4s;
     left: 0;
     right: 0;
 
-    &.js-wrapper-observer { // <---- TMP!!!! // l-main-wrapper { // the bg dim!
+    &.wrapper--observer { // the bg dim!
       &::after {
-        // content: "";
         position: absolute;
         height: 100%;
         width: 100%;
@@ -91,6 +90,9 @@ $naviTransitionTime: 0.4s;
     }
 
     .navbar__menu {
+      position: absolute; // covering up safari pos. fixed bug :/
+      width: 280px;
+      right: 0;
       background-color: #333; // just in case the navi covers the search field :/
       min-height: 100%;
       z-index: 1;
@@ -111,6 +113,7 @@ $naviTransitionTime: 0.4s;
       position: fixed;
       height: 100%;
       right: 0; // start position
+      width: 350px; // covering up safari pos. fixed bug :/
       // top: 56px; // tmp!!!
       overflow: auto;
 
@@ -137,8 +140,8 @@ $naviTransitionTime: 0.4s;
   }
 }
 
-.header a,
-.header a:hover,
+// .header a,
+// .header a:hover,
 .header__logo, .header__logo:hover {
   border-bottom: 0;
 }
@@ -184,7 +187,6 @@ $naviTransitionTime: 0.4s;
 
 .navbar--closed { // only add after transitionend
   .navbar__menu {
-    // display: none;
     position: absolute;
     overflow: hidden;
     width: 0;
@@ -199,23 +201,23 @@ $naviTransitionTime: 0.4s;
 }
 
 .navbar__menu {
-  margin: 0; // margin: -9px 0 0;
+  margin: 0;
   padding: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
 
-// animations
-@include tablet-up {
-  .navbar__menu {
+  // animations
+  @include tablet-up {
     position: relative;
     width: auto;
     right: -280px;
     transition: right $naviTransitionTime cubic-bezier(0.4, 0.0, 0.2, 1);
   }
-
+}
+@include tablet-up {
+  // more animations
   .navbar__menu--come-in {
-    right: 0;
+    right: 0; // end position
   }
 }
 
@@ -233,10 +235,15 @@ $naviTransitionTime: 0.4s;
   }
 }
 
-.navbar__menu-item:last-child {
-  // border-bottom: 89px solid transparent; // if top: 56px
-  border-bottom: 24px solid transparent;
-  margin-bottom: 1px;
+.navbar__menu-item {
+  &:first-child {
+    margin-top: -9px;
+  }
+
+  &:last-child {
+    border-bottom: 24px solid transparent; // 89px solid transparent; // if top: 56px
+    margin-bottom: 1px;
+  }
 }
 
 .navbar__link {
@@ -246,6 +253,7 @@ $naviTransitionTime: 0.4s;
   padding: 15px 24px 17px;
   display: block;
   cursor: pointer;
+  border-bottom: 0;
 
   &:hover {
     color: #fff;
@@ -256,6 +264,11 @@ $naviTransitionTime: 0.4s;
     color: #fefefd;
     background-color: #555;
   }
+
+  &:hover,
+  &:active {
+    border-bottom: 0;
+  }
 }
 
 .navbar__group {
@@ -263,8 +276,10 @@ $naviTransitionTime: 0.4s;
   padding: 9px 0 7px;
 }
 
-.navbar__group:first-of-type {
-  padding-top: 0;
+// tst (s. u. top...)
+.navbar__group-item:nth-of-type(5n) {
+  background-color: #333;
+  overflow: hidden;
 }
 
 .navbar__group--radio {
@@ -272,13 +287,24 @@ $naviTransitionTime: 0.4s;
   border-bottom: 0;
 
   // animation:
+  position: relative;
+  // top: -456px;
+
   height: 0;
   padding: 0; // padding: 12px 0;
   transition: height 0.4s ease, // height 5.5s cubic-bezier(0.4, 0.0, 0.2, 1),
   padding 0.4s ease;
+  // transition: top 0.4s ease; // height 5.5s cubic-bezier(0.4, 0.0, 0.2, 1),
+}
+
+// tmp!!!!
+.js-expand-arrow {
+  position: relative;
+  z-index: 2;
 }
 
 .navbar__group--radio-open {
+  top: 0;
   height: 456px; // we "do" know the height (must - to animate it)
   padding: 12px 0;
 }

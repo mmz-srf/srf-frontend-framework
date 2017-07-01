@@ -3,7 +3,7 @@ export function init() {
         e.preventDefault();
         let $handle = $(this);
         if ($handle.hasClass("menu-handle--active")) {
-            $(".l-main-wrapper").removeClass("js-wrapper-observer");
+            $(".l-main-wrapper").removeClass("wrapper--observer");
             $handle.removeClass("menu-handle--active");
 
             if (!$(window).width() > 719) { // there are animations we have to wait for....
@@ -26,7 +26,7 @@ export function init() {
         } else {
             e.stopPropagation();
             $handle.addClass("menu-handle--active")
-                .closest(".l-main-wrapper").addClass("wrapper--fixed").addClass("js-wrapper-observer")
+                .closest(".l-main-wrapper").addClass("wrapper--fixed").addClass("wrapper--observer")
                 .find(".navbar").removeClass("navbar--closed")// .addClass("navbar--come-in")
                 .find(".navbar__menu").addClass("navbar__menu--come-in");
         }
@@ -34,7 +34,6 @@ export function init() {
 
     $(document).on("click", ".js-wrapper-observer", function (e) {
         let $target = $(e.target);
-        console.log($target)
         // make it possible to use search while page is dimmed and navi is visible
         if (!$target.hasClass("searchbox__input") && !$target.hasClass("navbar__link") && !$target.hasClass("expand-arrow")) {
             $(".menu-handle").trigger("click");
