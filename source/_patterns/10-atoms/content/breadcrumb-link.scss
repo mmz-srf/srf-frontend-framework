@@ -2,7 +2,7 @@
   font: 14px/1.14 $font-regular;
   letter-spacing: 0.2px;
   background-color: #ebebe5;
-  padding: 8px 23px 7px 12px;
+  padding: 7px 23px 7px 12px;
   display: inline-block;
   vertical-align: middle;
   position: relative;
@@ -10,7 +10,6 @@
 
   // touch area :/
   border: 8px solid transparent;
-  // border-width: 9px 0;
   background-clip: padding-box;
 
   &:hover {
@@ -38,6 +37,6 @@
 .breadcrumb-link:active,
 .breadcrumb-link:focus {
   color: #4e4d47;
-  border-bottom: 9px solid transparent;
+  border-bottom: 8px solid transparent;
   outline: none;
 }

@@ -1,6 +1,8 @@
 .breadcrumbs { // ul
   margin: 3px auto 15px; // 12 / 24 - 9 each
   padding: 0 24px;
+  white-space: nowrap;
+  overflow-y: scroll;
 
   @include tablet-up {
     max-width: 624px;
@@ -28,14 +30,10 @@
 .breadcrumbs__item { // li
   display: inline;
   // reacting to "rounded corners"
-  margin: 0 -1px 0 -12px;
+  margin: 0 -3px 0 -8px; // 0 -1px 0 -12px;
   padding: 0;
 
   &::before {
     content: none;
-  }
-
-  &:first-of-type {
-    margin-left: -8px;
   }
 }
