@@ -4,11 +4,16 @@
   float: right;
   padding: 17px;
   line-height: 0;
-  // background: transparent url("../img/hamburger_sprite.svg") no-repeat -6px 6px / 42px;
 
   @include tablet-up {
     padding: 20px 8px;
   }
+}
+
+.menu-handle,
+.menu-handle:hover,
+.menu-handle:active {
+  border-bottom: 0;
 }
 
 .menu-handle__info {

@@ -32,7 +32,7 @@ export function init() {
         }
     });
 
-    $(document).on("click", ".js-wrapper-observer", function (e) {
+    $(document).on("click", ".wrapper--observer", function (e) {
         let $target = $(e.target);
         // make it possible to use search while page is dimmed and navi is visible
         if (!$target.hasClass("searchbox__input") && !$target.hasClass("navbar__link") && !$target.hasClass("expand-arrow")) {
