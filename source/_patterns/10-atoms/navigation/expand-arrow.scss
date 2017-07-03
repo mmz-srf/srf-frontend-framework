@@ -7,6 +7,7 @@
   vertical-align: baseline;
   background: transparent url("../img/arrows/menu_arrow_white.svg") no-repeat 0 0 / 17px;
   margin-left: 8px;
+  transition: transform 0.4s ease;
 }
 
 .expand-arrow--open {

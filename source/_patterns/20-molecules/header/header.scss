@@ -237,7 +237,7 @@ $naviTransitionTime: 0.4s;
 
 .navbar__menu-item {
   &:first-child {
-    margin-top: -9px;
+    // margin-top: -9px;
   }
 
   &:last-child {
@@ -314,11 +314,11 @@ $naviTransitionTime: 0.4s;
 
   // animating the links as well :/
   opacity: 0;
-  height: 0;
-  padding: 0 24px;
-  transition: opacity 0.4s ease,
-  height 0.4s ease,
-  padding 0.4s ease;
+  // height: 0;
+  // padding: 0 24px;
+  transition: opacity 0.4s ease;
+  // height 0.4s ease,
+  // padding 0.4s ease;
 
   &:hover {
     background-color: #333;
