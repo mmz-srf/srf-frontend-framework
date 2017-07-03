@@ -59,4 +59,8 @@ export function init() {
             $handle.next(".navbar__group--radio").addClass("navbar__group--radio-open"); // .removeClass("h-element--hide");
         }
     });
+    
+    // no touch highlight - but css :active-styles for links
+    document.addEventListener("touchstart", function () {
+    }, false);
 }
