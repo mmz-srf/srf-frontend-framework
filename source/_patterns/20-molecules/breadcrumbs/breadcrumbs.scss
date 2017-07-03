@@ -1,12 +1,16 @@
 .breadcrumbs { // ul
-  margin: 3px auto 15px; // 12 / 24 - 9 each
+  margin: 4px auto 16px; // 12 / 24 - 8 each
   padding: 0 24px;
   white-space: nowrap;
   overflow-y: scroll;
 
+  & + .article { // from above come 8px hidden border - for extended touch area
+    margin-top: -8px;
+  }
+
   @include tablet-up {
     max-width: 624px;
-    margin: 15px auto 23px; // 24 / 32 - 9 each
+    margin: 16px auto 24px; // 24 / 32 - 8 each
     padding: 0;
   }
 
