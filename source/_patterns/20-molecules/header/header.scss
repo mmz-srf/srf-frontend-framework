@@ -92,7 +92,7 @@ $naviTransitionTime: 0.4s;
     .navbar__menu {
       position: absolute; // covering up safari pos. fixed bug :/
       width: 280px;
-      right: 0;
+      // right: 0;
       background-color: #333; // just in case the navi covers the search field :/
       min-height: 100%;
       z-index: 1;
@@ -214,6 +214,7 @@ $naviTransitionTime: 0.4s;
     transition: right $naviTransitionTime cubic-bezier(0.4, 0.0, 0.2, 1);
   }
 }
+
 @include tablet-up {
   // more animations
   .navbar__menu--come-in {
@@ -277,59 +278,33 @@ $naviTransitionTime: 0.4s;
   @include smartphone {
     display: none;
   }
+
   @include tablet-up {
-    position: fixed;
-    height: 57px;
+    // position: fixed;
+    height: 56px;
     width: 280px;
-    background: #333 url("../img/close-sprite.svg") no-repeat;
-    background-position: calc(100% - 16px) 10px;
-    border: 15px solid #333;
+    background: #333 url("../img/close-sprite.svg") no-repeat scroll 100% 5px;
+    border: 16px solid #333;
     margin-top: -9px;
+    padding: 0;
     z-index: 1;
 
     &:hover {
       background-color: #333;
-      background-position: calc(100% - 16px) -14px;
+      background-position: 100% -19px;
     }
   }
 }
 
-/*
-  .media-window__close { // [x]
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    top: 16px;
-    // smartphone:
-    right: 12px;
-    background: transparent url("../img/close-sprite.svg") no-repeat;
-    border: 0;
-    cursor: pointer;
-    display: block;
-    z-index: 1;
+.navbar__link--home {
+  margin-top: 46px;
+}
 
-    @include tablet-up {
-      right: calc(50% - 328px);
-      background-size: 20px;
-    }
-
-    @include desktop-up {
-      top: 24px;
-      right: 24px;
-    }
-
-    &:hover,
-    &:active,
-    &:focus {
-      outline: none;
-      background-position: 0 -24px;
-      @include tablet-up {
-        background-position: 0 -30px;
-      }
-    }
+@include tablet-up {
+  .navbar__link--fixed {
+    position: fixed;
   }
-*/
-
+}
 
 .navbar__group {
   border-bottom: 1px solid #444;
