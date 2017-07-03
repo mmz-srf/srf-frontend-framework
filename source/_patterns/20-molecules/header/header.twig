@@ -4,10 +4,14 @@
         <a class="header__logo" href="https://www.srf.ch/"><img class="header__logo-img"
                                                                 src="../../assets/img/srf_logo.svg"
                                                                 alt="Startseite SRF"></a>
+        {% block hamburger %}
         {% include 'atoms-hamburger' with { 'styleModifier': '' } %}
+        {% endblock %}
     </header>
     <nav class="navbar navbar--closed" role="navigation">
+        {% block search %}
         {% include 'atoms-search' with { 'styleModifier': '' } %}
+        {% endblock %}
         <ul class="navbar__menu" role="menu">
             <li class="navbar__menu-item">
                 <ul class="navbar__group" role="group">
@@ -41,7 +45,9 @@
                     </li>
                     <li class="navbar__group-item" role="menuitem">
                         <a class="navbar__link js-expand-arrow" href="#">Radiosender
+                            {% block expand_arrow %}
                             {% include 'atoms-expand-arrow' with { 'styleModifier': '' } %}
+                            {% endblock %}
                         </a>
                         <!-- ul role="group" class="navbar__group navbar__group--radio h-element--hide" -->
                         <ul role="group" class="navbar__group navbar__group--radio">
