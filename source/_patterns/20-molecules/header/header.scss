@@ -273,6 +273,53 @@ $naviTransitionTime: 0.4s;
   }
 }
 
+.navbar__link--close {
+  background: transparent url("../img/close-sprite.svg") no-repeat;
+  background-position: calc(100% - 16px) 10px;
+
+  &:hover {
+    background-color: transparent;
+    background-position: calc(100% - 16px) -14px;
+  }
+}
+
+/*
+  .media-window__close { // [x]
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 16px;
+    // smartphone:
+    right: 12px;
+    background: transparent url("../img/close-sprite.svg") no-repeat;
+    border: 0;
+    cursor: pointer;
+    display: block;
+    z-index: 1;
+
+    @include tablet-up {
+      right: calc(50% - 328px);
+      background-size: 20px;
+    }
+
+    @include desktop-up {
+      top: 24px;
+      right: 24px;
+    }
+
+    &:hover,
+    &:active,
+    &:focus {
+      outline: none;
+      background-position: 0 -24px;
+      @include tablet-up {
+        background-position: 0 -30px;
+      }
+    }
+  }
+*/
+
+
 .navbar__group {
   border-bottom: 1px solid #444;
   padding: 9px 0 7px;
