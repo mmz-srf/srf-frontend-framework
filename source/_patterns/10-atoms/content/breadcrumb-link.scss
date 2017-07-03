@@ -7,7 +7,6 @@
   vertical-align: middle;
   position: relative;
   border-radius: 10px;
-  box-sizing: content-box;
 
   // touch area :/
   border: 8px solid transparent;
@@ -21,12 +20,6 @@
 
   &:active {
     background-color: #cac8bf;
-    outline: none;
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  }
-
-  &:focus {
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   }
 
   &::before {
