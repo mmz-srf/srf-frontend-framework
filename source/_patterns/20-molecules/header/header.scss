@@ -281,6 +281,7 @@ $naviTransitionTime: 0.4s;
 
   @include tablet-up {
     // position: fixed;
+    position: absolute;
     height: 56px;
     width: 280px;
     background: #333 url("../img/close-sprite.svg") no-repeat scroll 100% 5px;
@@ -296,13 +297,13 @@ $naviTransitionTime: 0.4s;
   }
 }
 
-.navbar__link--home {
-  margin-top: 46px;
-}
-
 @include tablet-up {
   .navbar__link--fixed {
     position: fixed;
+  }
+
+  .navbar__link--home {
+    margin-top: 46px;
   }
 }
 
