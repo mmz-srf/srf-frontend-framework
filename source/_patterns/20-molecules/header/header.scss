@@ -274,12 +274,17 @@ $naviTransitionTime: 0.4s;
 }
 
 .navbar__link--close {
-  background: transparent url("../img/close-sprite.svg") no-repeat;
-  background-position: calc(100% - 16px) 10px;
+  @include smartphone {
+    display: none;
+  }
+  @include tablet-up {
+    background: transparent url("../img/close-sprite.svg") no-repeat;
+    background-position: calc(100% - 16px) 10px;
 
-  &:hover {
-    background-color: transparent;
-    background-position: calc(100% - 16px) -14px;
+    &:hover {
+      background-color: transparent;
+      background-position: calc(100% - 16px) -14px;
+    }
   }
 }
 
