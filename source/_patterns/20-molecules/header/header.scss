@@ -14,20 +14,26 @@ $naviTransitionTime: 0.4s;
   @include tablet-up {
     background-size: auto;
   }
-}
 
-.header + .article {
-  margin-top: 88px; // todo: check!!
-}
-
-.l-main-wrapper {
-  &::after {
-    content: "";
-    opacity: 0;
-    height: 0;
-    width: 0;
-    transition: opacity 0.4s ease;
+  & + .breadcrumbs {
+    margin-top: 66px; // mobile: 50 + 24 - 8
+    @include tablet-up {
+      margin-top: 80px; // dt: 56 + 32 - 8
+    }
   }
+
+  & + .article {
+    margin-top: 88px; // todo: check!!
+  }
+}
+
+// providing the "dim" on opening the navi
+.l-main-wrapper::after {
+  content: "";
+  opacity: 0;
+  height: 0;
+  width: 0;
+  transition: opacity 0.4s ease;
 }
 
 .wrapper--fixed { // navigation expanded
