@@ -1,3 +1,5 @@
+$naviTransitionTime: 0.4s;
+
 .header { // absolute fullwidth!
   position: absolute;
   top: 0;
@@ -6,6 +8,7 @@
   /* dark bg - does nothing :/*/
   background-image: linear-gradient(to bottom, #313131, #212121);
   background-size: 100% 50px;
+  background-repeat: no-repeat;
   box-shadow: 0 2px 4px 0 #ddd; /* <-- check! */
 
   @include tablet-up {
@@ -13,21 +16,17 @@
   }
 }
 
-// @include tablet-up {
-  .header + .article {
-    margin-top: 88px; // todo: check!!
-  }
+.header + .article {
+  margin-top: 88px; // todo: check!!
+}
 
 .l-main-wrapper {
   &::after {
+    content: "";
     opacity: 0;
     height: 0;
     width: 0;
-    transition: all 1004s ease;
-
-    // meeeek!
-    // cursor: pointer;
-    // pointer-events: all;
+    transition: opacity 0.4s ease;
   }
 }
 
@@ -58,9 +57,8 @@
     left: 0;
     right: 0;
 
-    &.l-main-wrapper {
+    &.wrapper--observer { // the bg dim!
       &::after {
-        content: "";
         position: absolute;
         height: 100%;
         width: 100%;
@@ -92,26 +90,32 @@
     }
 
     .navbar__menu {
-      background-color: #333;
+      position: absolute; // covering up safari pos. fixed bug :/
+      width: 280px;
+      right: 0;
+      background-color: #333; // just in case the navi covers the search field :/
+      min-height: 100%;
       z-index: 1;
     }
   }
 
   .navbar {
-    background-color: #333;
+    // background-color: #333;
     @include smartphone {
       position: relative;
       top: 50px;
       z-index: 1;
+      background-color: #333;
+      // height: 863px; // just in case of transition :/
     }
 
     @include tablet-up {
       position: fixed;
       height: 100%;
       right: 0; // start position
+      width: 350px; // covering up safari pos. fixed bug :/
       // top: 56px; // tmp!!!
       overflow: auto;
-      opacity: 1;
 
       @include desktop-wide {
         right: calc(50% - 640px); // something like that
@@ -136,8 +140,8 @@
   }
 }
 
-.header a,
-.header a:hover,
+// .header a,
+// .header a:hover,
 .header__logo, .header__logo:hover {
   border-bottom: 0;
 }
@@ -159,12 +163,17 @@
 
 // navigation
 .navbar {
+  /* @include smartphone {
+    height: 0;
+    transition: height .4s ease;
+  } */
+  // <-- no transition for the moment! it looks terrible!!
+
   @include tablet-up {
     position: absolute;
     width: 280px;
     right: 81px;
     z-index: 1;
-    // animation:
   }
 
   @include desktop-up {
@@ -178,7 +187,6 @@
 
 .navbar--closed { // only add after transitionend
   .navbar__menu {
-    // display: none;
     position: absolute;
     overflow: hidden;
     width: 0;
@@ -193,26 +201,23 @@
 }
 
 .navbar__menu {
-  margin: -9px 0 0;
+  margin: 0;
   padding: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
 
-// animations
-@include tablet-up {
-  .navbar__menu {
+  // animations
+  @include tablet-up {
     position: relative;
     width: auto;
-    opacity: 0;
-    // right: -280px;
-    // transition: right 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
-    transition: opacity 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
+    right: -280px;
+    transition: right $naviTransitionTime cubic-bezier(0.4, 0.0, 0.2, 1);
   }
-
+}
+@include tablet-up {
+  // more animations
   .navbar__menu--come-in {
-    right: 0;
-    opacity: 1;
+    right: 0; // end position
   }
 }
 
@@ -230,15 +235,25 @@
   }
 }
 
-.navbar__menu-item:last-child {
-  border-bottom: 89px solid #333;
+.navbar__menu-item {
+  &:first-child {
+    margin-top: -9px;
+  }
+
+  &:last-child {
+    border-bottom: 24px solid transparent; // 89px solid transparent; // if top: 56px
+    margin-bottom: 1px;
+  }
 }
+
 .navbar__link {
   font: 16px/1 $font-regular;
   text-decoration: none;
-  color: #fff; // #fefefd;
+  color: #fff;
   padding: 15px 24px 17px;
   display: block;
+  cursor: pointer;
+  border-bottom: 0;
 
   &:hover {
     color: #fff;
@@ -249,6 +264,11 @@
     color: #fefefd;
     background-color: #555;
   }
+
+  &:hover,
+  &:active {
+    border-bottom: 0;
+  }
 }
 
 .navbar__group {
@@ -256,14 +276,49 @@
   padding: 9px 0 7px;
 }
 
+// tst (s. u. top...)
+.navbar__group-item:nth-of-type(5n) {
+  background-color: #333;
+  overflow: hidden;
+}
+
 .navbar__group--radio {
   background-color: #222;
-  padding: 12px 0;
   border-bottom: 0;
+
+  // animation:
+  position: relative;
+  // top: -456px;
+
+  height: 0;
+  padding: 0; // padding: 12px 0;
+  transition: height 0.4s ease, // height 5.5s cubic-bezier(0.4, 0.0, 0.2, 1),
+  padding 0.4s ease;
+  // transition: top 0.4s ease; // height 5.5s cubic-bezier(0.4, 0.0, 0.2, 1),
+}
+
+// tmp!!!!
+.js-expand-arrow {
+  position: relative;
+  z-index: 2;
+}
+
+.navbar__group--radio-open {
+  top: 0;
+  height: 456px; // we "do" know the height (must - to animate it)
+  padding: 12px 0;
 }
 
 .navbar__link--radio {
   text-indent: 32px;
+
+  // animating the links as well :/
+  opacity: 0;
+  height: 0;
+  padding: 0 24px;
+  transition: opacity 0.4s ease,
+  height 0.4s ease,
+  padding 0.4s ease;
 
   &:hover {
     background-color: #333;
@@ -272,6 +327,13 @@
   &:active {
     background-color: #444;
   }
+}
+
+// radio animations pt. 2
+.navbar__group--radio-open .navbar__link--radio {
+  opacity: 1;
+  height: 48px;
+  padding: 15px 24px 17px;
 }
 
 .navbar__img {
@@ -285,5 +347,4 @@
   height: 23px;
   width: auto;
 }
-
 // end nativation
