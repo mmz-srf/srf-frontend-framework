@@ -92,7 +92,7 @@ $naviTransitionTime: 0.4s;
     .navbar__menu {
       position: absolute; // covering up safari pos. fixed bug :/
       width: 280px;
-      right: 0;
+      // right: 0;
       background-color: #333; // just in case the navi covers the search field :/
       min-height: 100%;
       z-index: 1;
@@ -214,6 +214,7 @@ $naviTransitionTime: 0.4s;
     transition: right $naviTransitionTime cubic-bezier(0.4, 0.0, 0.2, 1);
   }
 }
+
 @include tablet-up {
   // more animations
   .navbar__menu--come-in {
@@ -236,8 +237,10 @@ $naviTransitionTime: 0.4s;
 }
 
 .navbar__menu-item {
-  &:first-child {
-    // margin-top: -9px;
+  @include smartphone {
+    &:first-child {
+      margin-top: -9px;
+    }
   }
 
   &:last-child {
@@ -268,6 +271,39 @@ $naviTransitionTime: 0.4s;
   &:hover,
   &:active {
     border-bottom: 0;
+  }
+}
+
+.navbar__link--close {
+  @include smartphone {
+    display: none;
+  }
+
+  @include tablet-up {
+    // position: fixed;
+    position: absolute;
+    height: 56px;
+    width: 280px;
+    background: #333 url("../img/close-sprite.svg") no-repeat scroll 100% 5px;
+    border: 16px solid #333;
+    margin-top: -9px;
+    padding: 0;
+    z-index: 1;
+
+    &:hover {
+      background-color: #333;
+      background-position: 100% -19px;
+    }
+  }
+}
+
+@include tablet-up {
+  .navbar__link--fixed {
+    position: fixed;
+  }
+
+  .navbar__link--home {
+    margin-top: 46px;
   }
 }
 

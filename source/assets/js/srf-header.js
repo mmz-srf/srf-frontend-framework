@@ -3,15 +3,16 @@ export function init() {
         e.preventDefault();
         let $handle = $(this);
         if ($handle.hasClass("menu-handle--active")) {
-            $(".l-main-wrapper").removeClass("wrapper--observer");
+            $(".l-main-wrapper").removeClass("wrapper--observer").find(".navbar__link--close").removeClass("navbar__link--fixed");
             $handle.removeClass("menu-handle--active");
 
-            if (!$(window).width() > 719) { // there are animations we have to wait for....
+            if ($(window).width() > 719) { // there are animations we have to wait for....
                 $(".navbar__menu").removeClass("navbar__menu--come-in").one("transitionend", function () {
                     $(this).closest(".navbar").addClass("navbar--closed")
-                        .closest(".l-main-wrapper").removeClass("wrapper--fixed");
+                        .closest(".l-main-wrapper").removeClass("wrapper--fixed")
+                    // .find(".navbar__link--close").removeClass("navbar__link--fixed");
                 });
-            } else {
+            } else { // on mobile
                 /* $handle.closest(".l-main-wrapper").removeClass("wrapper--fixed")
                  .find(".navbar").one("transitionend", function () {
                  // $(".navbar__menu").removeClass("navbar__menu--come-in").one("transitionend", function () {
@@ -27,15 +28,22 @@ export function init() {
             e.stopPropagation();
             $handle.addClass("menu-handle--active")
                 .closest(".l-main-wrapper").addClass("wrapper--fixed").addClass("wrapper--observer")
-                .find(".navbar").removeClass("navbar--closed")// .addClass("navbar--come-in")
+                .find(".navbar").removeClass("navbar--closed") // .addClass("navbar--come-in")
                 .find(".navbar__menu").addClass("navbar__menu--come-in");
+            // .find(".navbar__link--close").addClass("navbar__link--fixed");
+
+            if ($(window).width() > 719) { // there are animations we have to wait for....
+                $(".navbar__menu").one("transitionend", function () {
+                    $(this).find(".navbar__link--close").addClass("navbar__link--fixed");
+                });
+            }
         }
     });
 
     $(document).on("click", ".wrapper--observer", function (e) {
         let $target = $(e.target);
         // make it possible to use search while page is dimmed and navi is visible
-        if (!$target.hasClass("searchbox__input") && !$target.hasClass("navbar__link") && !$target.hasClass("expand-arrow")) {
+        if (!$target.hasClass("searchbox__input") && (!$target.hasClass("navbar__link") || $target.hasClass("navbar__link--close") ) && !$target.hasClass("expand-arrow")) {
             $(".menu-handle").trigger("click");
         }
     });
