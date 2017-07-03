@@ -236,8 +236,10 @@ $naviTransitionTime: 0.4s;
 }
 
 .navbar__menu-item {
-  &:first-child {
-    // margin-top: -9px;
+  @include smartphone {
+    &:first-child {
+      margin-top: -9px;
+    }
   }
 
   &:last-child {
