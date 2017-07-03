@@ -11,6 +11,8 @@
   // touch area :/
   border: 8px solid transparent;
   background-clip: padding-box;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding;
 
   &:hover {
     background-color: #dadad2;
