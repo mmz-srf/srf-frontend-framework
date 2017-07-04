@@ -46,7 +46,7 @@ export function init() {
         } else {
             e.stopPropagation();
             $handle.addClass("menu-handle--active")
-                .closest(".body").addClass("body--fixed").addClass("body--observer")
+                .closest("body").addClass("body--fixed").addClass("body--observer")
                 .find(".navbar").removeClass("navbar--closed") // .addClass("navbar--come-in")
                 .find(".navbar__menu").addClass("navbar__menu--come-in");
             // .find(".navbar__link--close").addClass("navbar__link--fixed");
