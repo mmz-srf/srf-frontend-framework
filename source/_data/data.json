@@ -669,5 +669,12 @@
     "at": "vom",
     "o_clock": "Uhr",
     "legend_title": "JA-Anteil in %"
+  },
+  "header": {
+    "menu": "Menü",
+    "search": "Suche",
+    "searching": "Suchen",
+    "expand": "aufklappen",
+    "close": "schliessen"
   }
 }
