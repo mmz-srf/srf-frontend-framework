@@ -28,7 +28,7 @@ $naviTransitionTime: 0.4s;
 }
 
 // providing the "dim" on opening the navi
-.l-main-wrapper::after {
+body::after {
   content: "";
   opacity: 0;
   height: 0;
@@ -36,7 +36,7 @@ $naviTransitionTime: 0.4s;
   transition: opacity 0.4s ease;
 }
 
-.wrapper--fixed { // navigation expanded
+.body--fixed { // navigation expanded
   .header__container {
     position: fixed;
     width: 100%;
@@ -63,7 +63,7 @@ $naviTransitionTime: 0.4s;
     left: 0;
     right: 0;
 
-    &.wrapper--observer { // the bg dim!
+    &.body--observer { // the bg dim!
       &::after {
         position: absolute;
         height: 100%;
@@ -98,6 +98,8 @@ $naviTransitionTime: 0.4s;
     .navbar__menu {
       position: absolute; // covering up safari pos. fixed bug :/
       width: 280px;
+      // top: 0;
+      // bottom: -900px;
       // right: 0;
       background-color: #333; // just in case the navi covers the search field :/
       min-height: 100%;
@@ -131,7 +133,7 @@ $naviTransitionTime: 0.4s;
   }
 }
 
-// end .wrapper--fixed
+// end .body--fixed
 
 @include tablet-up {
   .header__container { // contains icons and so on
@@ -146,8 +148,6 @@ $naviTransitionTime: 0.4s;
   }
 }
 
-// .header a,
-// .header a:hover,
 .header__logo, .header__logo:hover {
   border-bottom: 0;
 }
@@ -169,12 +169,6 @@ $naviTransitionTime: 0.4s;
 
 // navigation
 .navbar {
-  /* @include smartphone {
-    height: 0;
-    transition: height .4s ease;
-  } */
-  // <-- no transition for the moment! it looks terrible!!
-
   @include tablet-up {
     position: absolute;
     width: 280px;
@@ -250,7 +244,7 @@ $naviTransitionTime: 0.4s;
   }
 
   &:last-child {
-    border-bottom: 24px solid transparent; // 89px solid transparent; // if top: 56px
+    border-bottom: 24px solid transparent;
     margin-bottom: 1px;
   }
 }
@@ -269,7 +263,7 @@ $naviTransitionTime: 0.4s;
     background-color: #444;
   }
 
-  &:active {
+  &:active, &:focus {
     color: #fefefd;
     background-color: #555;
   }
@@ -286,17 +280,17 @@ $naviTransitionTime: 0.4s;
   }
 
   @include tablet-up {
-    // position: fixed;
     position: absolute;
     height: 56px;
-    width: 264px;
+    width: 280px;
     background: #333 url("../img/close-sprite.svg") no-repeat scroll 100% 5px;
     border: 16px solid #333;
+    border-width: 16px 32px;
     margin-top: -9px;
     padding: 0;
     z-index: 1;
 
-    &:hover {
+    &:hover, &:focus {
       background-color: #333;
       background-position: 100% -19px;
     }
@@ -318,49 +312,37 @@ $naviTransitionTime: 0.4s;
   padding: 9px 0 7px;
 }
 
-// tst (s. u. top...)
-.navbar__group-item:nth-of-type(5n) {
-  background-color: #333;
-  overflow: hidden;
-}
-
 .navbar__group--radio {
   background-color: #222;
   border-bottom: 0;
 
   // animation:
-  position: relative;
-  // top: -456px;
+  // position: relative;
 
   height: 0;
-  padding: 0; // padding: 12px 0;
+  padding: 0;
   transition: height 0.4s ease, // height 5.5s cubic-bezier(0.4, 0.0, 0.2, 1),
   padding 0.4s ease;
-  // transition: top 0.4s ease; // height 5.5s cubic-bezier(0.4, 0.0, 0.2, 1),
 }
 
 // tmp!!!!
 .js-expand-arrow {
-  position: relative;
-  z-index: 2;
+  // position: relative;
+  // z-index: 2;
 }
 
 .navbar__group--radio-open {
-  top: 0;
+  // top: 0;
   height: 456px; // we "do" know the height (must - to animate it)
   padding: 12px 0;
 }
 
 .navbar__link--radio {
+  height: 0;
   text-indent: 32px;
 
-  // animating the links as well :/
   opacity: 0;
-  // height: 0;
-  // padding: 0 24px;
   transition: opacity 0.4s ease;
-  // height 0.4s ease,
-  // padding 0.4s ease;
 
   &:hover {
     background-color: #333;
