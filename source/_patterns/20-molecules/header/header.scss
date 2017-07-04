@@ -348,7 +348,7 @@ body::after {
     background-color: #333;
   }
 
-  &:active {
+  &:active, &:focus {
     background-color: #444;
   }
 }
