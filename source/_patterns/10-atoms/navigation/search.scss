@@ -35,6 +35,11 @@
     outline: none;
   }
 
+  &::-webkit-input-placeholder {
+    line-height: 21px !important;
+    color: #dadad2;
+  }
+
   @include tablet-up {
     height: 28px; // safari has a problem with paddings :/
     padding: 0 6px 0 36px; // 6px 6px 5px 36px; // adjusting from 6 6 6 36 to line-height above
@@ -45,9 +50,4 @@
       background-position: 6px -32px;
     }
   }
-}
-
-input::-webkit-input-placeholder {
-  line-height: 21px !important;
-  color: #dadad2;
 }
