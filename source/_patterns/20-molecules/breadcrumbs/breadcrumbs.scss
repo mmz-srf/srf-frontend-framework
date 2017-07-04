@@ -1,0 +1,44 @@
+.breadcrumbs { // ul
+  margin: 4px auto 16px; // 12 / 24 - 8 each
+  padding: 0 24px;
+  white-space: nowrap;
+  overflow-y: scroll;
+
+  & + .article,
+  & + .l-main-wrapper { // from above come 8px hidden border - for extended touch area
+    margin-top: -8px;
+  }
+
+  @include tablet-up {
+    max-width: 624px;
+    margin: 16px auto 24px; // 24 / 32 - 8 each
+    padding: 0;
+  }
+
+  @include desktop {
+    max-width: 680px;
+  }
+
+  @include desktop-wide {
+    max-width: 760px;
+  }
+}
+
+.breadcrumbs--foot {
+  margin: 16px auto 24px; // 24 / 32 - 8 each
+
+  @include tablet-up {
+    margin: 24px auto 16px; // 32 / 24 - 8 each
+  }
+}
+
+.breadcrumbs__item { // li
+  display: inline;
+  // reacting to "rounded corners"
+  margin: 0 -3px 0 -8px;
+  padding: 0;
+
+  &::before {
+    content: none;
+  }
+}
