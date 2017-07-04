@@ -246,7 +246,7 @@ body::after {
 
   &:last-child {
     border-bottom: 24px solid transparent;
-    margin-bottom: 1px;
+    // margin-bottom: 1px;
   }
 }
 
@@ -316,34 +316,32 @@ body::after {
 .navbar__group--radio {
   background-color: #222;
   border-bottom: 0;
-
-  // animation:
-  // position: relative;
-
+  // radio animations:
   height: 0;
   padding: 0;
   transition: height 0.4s ease, // height 5.5s cubic-bezier(0.4, 0.0, 0.2, 1),
   padding 0.4s ease;
 }
 
-// tmp!!!!
-.js-expand-arrow {
-  // position: relative;
-  // z-index: 2;
-}
-
 .navbar__group--radio-open {
-  // top: 0;
   height: 456px; // we "do" know the height (must - to animate it)
   padding: 12px 0;
+
+  // radio animations pt. 2
+  .navbar__link--radio {
+    // position: relative;
+    opacity: 1;
+    height: 48px;
+    padding: 15px 24px 17px;
+  }
 }
 
 .navbar__link--radio {
+  // position: absolute;
   height: 0;
-  text-indent: 32px;
-
   opacity: 0;
-  transition: opacity 0.4s ease;
+  transition: opacity 0.4s ease, height 0.4s ease;
+  text-indent: 32px;
 
   &:hover {
     background-color: #333;
@@ -352,13 +350,6 @@ body::after {
   &:active, &:focus {
     background-color: #444;
   }
-}
-
-// radio animations pt. 2
-.navbar__group--radio-open .navbar__link--radio {
-  opacity: 1;
-  height: 48px;
-  padding: 15px 24px 17px;
 }
 
 .navbar__img {

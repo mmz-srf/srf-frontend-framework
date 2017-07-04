@@ -8,6 +8,13 @@
   background: transparent url("../img/arrows/menu_arrow_white.svg") no-repeat 0 0 / 17px;
   margin-left: 8px;
   transition: transform 0.4s ease;
+
+  // TODO: trying to "fix safari issue" --> nothing seems to help
+  -webkit-backface-visibility: hidden;
+  -webkit-transform: translateZ(0) scale(1.0, 1.0);
+  -webkit-transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  -webkit-transform-style: preserve-3d;
 }
 
 .expand-arrow--open {

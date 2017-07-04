@@ -672,9 +672,12 @@
   },
   "header": {
     "menu": "Menü",
+    "home": "Startseite SRF",
     "search": "Suche",
     "searching": "Suchen",
     "expand": "aufklappen",
+    "reduce": "zuklappen",
+    "navigation": "schliessen",
     "close": "schliessen"
   }
 }
