@@ -29,10 +29,11 @@
     margin: 0 -8px; // override article's padding...
   }
 
-  &:not(.audio--loading) { // samesame
+  &:not(.audio--loading) {
     .spinner-container {
       display: none;
     }
+
     .spinner,
     .spinner__circle--dash {
       animation: none;
@@ -58,6 +59,10 @@
   &:active,
   &:focus {
     background-color: #fafaf8;
+  }
+
+  &.article-media--last-played {
+    background-color: #ebebe5;
   }
 }
 
@@ -251,5 +256,11 @@
     .media-play__length {
       display: none;
     }
+  }
+}
+
+.article-media--last-played {
+  .article-audio {
+    background-color: #ebebe5;
   }
 }

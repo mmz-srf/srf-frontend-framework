@@ -3,7 +3,7 @@
 
 .article-video {
   margin: 24px -8px;
-  
+
   @include tablet-up {
     margin: 32px 0;
   }
@@ -51,6 +51,10 @@
   &:active,
   &:focus {
     background-color: #fafaf8;
+  }
+
+  &.article-media--last-played {
+    background-color: #ebebe5;
   }
 }
 
@@ -155,8 +159,23 @@
 
 // overwriting the above "img frame"
 .video--loading,
-.video--playing {
+.video--playing,
+.video--pausing {
   overflow: hidden;
+
+  .article-video__player::before {
+    content: "";
+    display: block;
+    padding-top: 56.25%;
+  }
+
+  .image-figure::before {
+    content: none;
+  }
+}
+
+.video--loading,
+.video--playing {
 
   // invert caption colours
   &.article-video,
@@ -188,20 +207,10 @@
     -moz-osx-font-smoothing: grayscale;
   }
   // end invert caption colours
-
-  .article-video__player::before {
-    content: "";
-    display: block;
-    padding-top: 56.25%;
-  }
-
-  .image-figure::before {
-    content: none;
-  }
 }
 
-.video--playing {
-
+.video--playing,
+.video--pausing {
   .image-figure__image-wrapper::before,
   .media-play__icon,
   .media-play__length {
@@ -275,4 +284,19 @@
             }
         }
     }
+}
+
+// "webkit-fullscreen fix" - this css is loaded after media-window
+// but the fix applies to both (inline video & gate to hell)
+.player--fullscreen {
+  iframe {
+    top: 0;
+    transform: translate(0, 0);
+  }
+}
+
+.article-media--last-played {
+  .media-caption {
+    background-color: #ebebe5;
+  }
 }
