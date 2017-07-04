@@ -22,7 +22,8 @@ $naviTransitionTime: 0.4s;
     }
   }
 
-  & + .article {
+  & + .article,
+  & + .l-main-wrapper {
     margin-top: 88px; // todo: check!!
   }
 }
