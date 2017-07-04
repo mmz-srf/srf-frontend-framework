@@ -6,7 +6,7 @@
 
   @include smartphone {
     @include fullwidth-element;
-    padding: 0;
+    padding: 0 8px;
   }
 
   .article-audio__wrapper {

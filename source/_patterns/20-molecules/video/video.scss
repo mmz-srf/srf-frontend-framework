@@ -2,7 +2,7 @@
 @import "../../breakpoints";
 
 .article-video {
-  margin: 24px -8px;
+  margin: 24px 0;
 
   @include tablet-up {
     margin: 32px 0;
