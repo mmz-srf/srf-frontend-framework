@@ -9,7 +9,7 @@ $naviTransitionTime: 0.4s;
   background-image: linear-gradient(to bottom, #313131, #212121);
   background-size: 100% 50px;
   background-repeat: no-repeat;
-  box-shadow: 0 2px 4px 0 #ddd; /* <-- check! */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .24);
 
   @include tablet-up {
     background-size: auto;
@@ -22,7 +22,7 @@ $naviTransitionTime: 0.4s;
     }
   }
 
-  & + .article,
+  & + .article, // todo: cleanup fef (differs from cms pagelayout setup!)
   & + .l-main-wrapper {
     margin-top: 88px; // todo: check!!
   }
@@ -72,8 +72,7 @@ body::after {
         top: 0;
         left: 0;
         opacity: .2;
-        background-color: #000;
-        // background-color: rgba(0, 0, 0, 0.2);
+        background-color: #000; // background-color: rgba(0, 0, 0, 0.2);
       }
     }
 
@@ -246,7 +245,7 @@ body::after {
 
   &:last-child {
     border-bottom: 24px solid transparent;
-    margin-bottom: 1px;
+    // margin-bottom: 1px;
   }
 }
 
@@ -281,7 +280,7 @@ body::after {
   }
 
   @include tablet-up {
-    position: absolute;
+    position: fixed;
     height: 56px;
     width: 280px;
     background: #333 url("../img/close-sprite.svg") no-repeat scroll 100% 5px;
@@ -290,6 +289,10 @@ body::after {
     margin-top: -9px;
     padding: 0;
     z-index: 1;
+
+    @include desktop-wide {
+      position: absolute;
+    }
 
     &:hover, &:focus {
       background-color: #333;
@@ -316,34 +319,42 @@ body::after {
 .navbar__group--radio {
   background-color: #222;
   border-bottom: 0;
-
-  // animation:
-  // position: relative;
-
+  // radio animations:
   height: 0;
   padding: 0;
-  transition: height 0.4s ease, // height 5.5s cubic-bezier(0.4, 0.0, 0.2, 1),
+  transition: height 0.4s ease, // height 0.4s cubic-bezier(0.4, 0.0, 0.2, 1),
   padding 0.4s ease;
+
+  .navbar__group-item {
+    height: 0;
+    transition: height 0.4s ease;
+  }
 }
 
-// tmp!!!!
-.js-expand-arrow {
-  // position: relative;
-  // z-index: 2;
-}
-
+// radio animations pt. 2
 .navbar__group--radio-open {
-  // top: 0;
   height: 456px; // we "do" know the height (must - to animate it)
   padding: 12px 0;
+
+  .navbar__group-item {
+    // preventing the menu (on scroll) from not reaching the bottom
+    height: 48px;
+  }
+
+  .navbar__link--radio {
+    position: relative;
+    opacity: 1;
+    height: 48px;
+    padding: 15px 24px 17px;
+  }
 }
 
 .navbar__link--radio {
+  position: absolute;
   height: 0;
-  text-indent: 32px;
-
   opacity: 0;
-  transition: opacity 0.4s ease;
+  transition: opacity 0.4s ease, height 0.4s ease;
+  text-indent: 32px;
 
   &:hover {
     background-color: #333;
@@ -352,13 +363,6 @@ body::after {
   &:active, &:focus {
     background-color: #444;
   }
-}
-
-// radio animations pt. 2
-.navbar__group--radio-open .navbar__link--radio {
-  opacity: 1;
-  height: 48px;
-  padding: 15px 24px 17px;
 }
 
 .navbar__img {

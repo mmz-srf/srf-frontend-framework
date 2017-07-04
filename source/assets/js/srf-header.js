@@ -1,7 +1,7 @@
 export function init() {
 
     $(".header").on("keypress", ".menu-handle", function (e) {
-        // on tabbing in [Menu] + <enter>
+        // on tabbing into [Menu] + <enter>
         if (e.keyCode === 13) {
             // focus on [x]
             $(".navbar__link--close").focus();
@@ -10,7 +10,7 @@ export function init() {
     });
 
     $(".header").on("keypress", ".navbar__link--close", function (e) {
-        // on tabbing in [x] + <enter>
+        // on tabbing into [x] + <enter>
         if (e.keyCode === 13) {
             // focus on [menu]
             $(".menu-handle").focus();
@@ -69,13 +69,17 @@ export function init() {
 
     $(".navbar__menu").on("click", ".js-expand-arrow", function (e) {
         e.preventDefault();
-        let $handle = $(this), $arrow = $handle.find(".expand-arrow");
+        let $handle = $(this),
+            $arrow = $handle.find(".expand-arrow"),
+            $info = $(".js-expand-info");
         if ($arrow.hasClass("expand-arrow--open")) { // radio menu is open
             $arrow.removeClass("expand-arrow--open");
             $handle.next(".navbar__group--radio").removeClass("navbar__group--radio-open"); // .addClass("h-element--hide");
+            $info.text($info.data("text-open"));
         } else { // it's closed
             $arrow.addClass("expand-arrow--open");
             $handle.next(".navbar__group--radio").addClass("navbar__group--radio-open"); // .removeClass("h-element--hide");
+            $info.text($info.data("text-close"));
         }
     });
     
