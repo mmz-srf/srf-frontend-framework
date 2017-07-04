@@ -52,6 +52,10 @@
   &:focus {
     background-color: #fafaf8;
   }
+
+  &.article-media--last-played {
+    background-color: #ebebe5;
+  }
 }
 
 .article-video__link {
