@@ -9,7 +9,7 @@ $naviTransitionTime: 0.4s;
   background-image: linear-gradient(to bottom, #313131, #212121);
   background-size: 100% 50px;
   background-repeat: no-repeat;
-  box-shadow: 0 2px 4px 0 #ddd; /* <-- check! */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .24);
 
   @include tablet-up {
     background-size: auto;
@@ -22,7 +22,7 @@ $naviTransitionTime: 0.4s;
     }
   }
 
-  & + .article,
+  & + .article, // todo: cleanup fef (differs from cms pagelayout setup!)
   & + .l-main-wrapper {
     margin-top: 88px; // todo: check!!
   }
@@ -71,9 +71,9 @@ body::after {
         width: 100%;
         top: 0;
         left: 0;
-        opacity: .2;
-        background-color: #000;
-        // background-color: rgba(0, 0, 0, 0.2);
+        // opacity: .2;
+        // background-color: #000;
+        background-color: rgba(0, 0, 0, 0.2);
       }
     }
 
