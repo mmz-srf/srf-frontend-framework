@@ -1,15 +1,34 @@
 export function init() {
+
+    $(".header").on("keypress", ".menu-handle", function (e) {
+        // on tabbing in [Menu] + <enter>
+        if (e.keyCode === 13) {
+            // focus on [x]
+            $(".navbar__link--close").focus();
+            // return false;
+        }
+    });
+
+    $(".header").on("keypress", ".navbar__link--close", function (e) {
+        // on tabbing in [x] + <enter>
+        if (e.keyCode === 13) {
+            // focus on [menu]
+            $(".menu-handle").focus();
+            // return false;
+        }
+    });
+
     $(".header").on("click", ".menu-handle", function (e) {
         e.preventDefault();
         let $handle = $(this);
         if ($handle.hasClass("menu-handle--active")) {
-            $(".l-main-wrapper").removeClass("wrapper--observer").find(".navbar__link--close").removeClass("navbar__link--fixed");
+            $("body").removeClass("body--observer").find(".navbar__link--close").removeClass("navbar__link--fixed");
             $handle.removeClass("menu-handle--active");
 
             if ($(window).width() > 719) { // there are animations we have to wait for....
                 $(".navbar__menu").removeClass("navbar__menu--come-in").one("transitionend", function () {
                     $(this).closest(".navbar").addClass("navbar--closed")
-                        .closest(".l-main-wrapper").removeClass("wrapper--fixed")
+                        .closest("body").removeClass("body--fixed")
                     // .find(".navbar__link--close").removeClass("navbar__link--fixed");
                 });
             } else { // on mobile
@@ -21,13 +40,13 @@ export function init() {
                  }); */ // <-- this looks shite!
                 $(".navbar__menu").removeClass("navbar__menu--come-in")
                     .closest(".navbar").addClass("navbar--closed")
-                    .closest(".l-main-wrapper").removeClass("wrapper--fixed");
+                    .closest("body").removeClass("body--fixed");
             }
 
         } else {
             e.stopPropagation();
             $handle.addClass("menu-handle--active")
-                .closest(".l-main-wrapper").addClass("wrapper--fixed").addClass("wrapper--observer")
+                .closest("body").addClass("body--fixed").addClass("body--observer")
                 .find(".navbar").removeClass("navbar--closed") // .addClass("navbar--come-in")
                 .find(".navbar__menu").addClass("navbar__menu--come-in");
             // .find(".navbar__link--close").addClass("navbar__link--fixed");
@@ -40,7 +59,7 @@ export function init() {
         }
     });
 
-    $(document).on("click", ".wrapper--observer", function (e) {
+    $(document).on("click", ".body--observer", function (e) {
         let $target = $(e.target);
         // make it possible to use search while page is dimmed and navi is visible
         if (!$target.hasClass("searchbox__input") && (!$target.hasClass("navbar__link") || $target.hasClass("navbar__link--close") ) && !$target.hasClass("expand-arrow")) {

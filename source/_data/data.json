@@ -679,5 +679,12 @@
       "url": "www.srf.ch/sport/fussball",
       "name": "Fussball"
     }
+  },
+  "header": {
+    "menu": "Menü",
+    "search": "Suche",
+    "searching": "Suchen",
+    "expand": "aufklappen",
+    "close": "schliessen"
   }
 }

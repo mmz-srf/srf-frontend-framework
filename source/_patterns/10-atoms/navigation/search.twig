@@ -1,5 +1,5 @@
-<form class="searchbox" role="search">{# todo: translate! #}
-    <label for="search" class="h-offscreen">Suchen</label>
-    <input class="searchbox__input" type="text" id="search" placeholder="Suche">
-    <button type="submit" class="h-offscreen">Suchen</button>
+<form class="searchbox" role="search">
+    <label for="search" class="h-offscreen">{{ header.searching|default("Suchen") }}</label>
+    <input class="searchbox__input" type="text" id="search" placeholder="{{ header.search|default("Suche") }}">
+    <button type="submit" class="h-offscreen">{{ header.searching|default("Suchen") }}</button>
 </form>

@@ -1,9 +1,8 @@
 <section class="header">
     <div class="header__reserve" role="presentation"></div>
     <header class="header__container"><!-- // todo: h1 ?? -->
-        <a class="header__logo" href="https://www.srf.ch/"><img class="header__logo-img"
-                                                                src="../../assets/img/srf_logo.svg"
-                                                                alt="Startseite SRF"></a>
+        <a class="header__logo" href="https://www.srf.ch/">
+            <img class="header__logo-img" src="{{ frameworkAssetPath }}/img/srf_logo.svg" alt="Startseite SRF"></a>
         {% block hamburger %}
         {% include 'atoms-hamburger' with { 'styleModifier': '' } %}
         {% endblock %}
@@ -16,7 +15,9 @@
             <li class="navbar__menu-item">
                 <ul class="navbar__group" role="group">
                     <li class="navbar__group-item" role="menuitem">
-                        <a class="navbar__link navbar__link--close" href="#"></a>
+                        <a class="navbar__link navbar__link--close" href="#">
+                            <span class="h-offscreen">{{ header.close|default("schliessen") }}</span>
+                        </a>
                     </li>
                     <li class="navbar__group-item" role="menuitem"><a class="navbar__link navbar__link--home" href="/">Home</a>
                     </li>
@@ -33,8 +34,8 @@
                 <ul class="navbar__group" role="group">
                     <li class="navbar__group-item" role="menuitem">
                         <a class="navbar__link" href="/play">
-                            <img class="navbar__img-play"
-                                 src="https://www.srf.ch/programm/tv/assets/img/play_srf_logo.svg" alt="Play SRF">
+                            <img class="navbar__img-play" src="{{ frameworkAssetPath }}/img/play_srf_logo.svg"
+                                 alt="Play SRF">
                         </a>
                     </li>
                     <li class="navbar__group-item" role="menuitem"><a class="navbar__link" href="/sendungen-a-z">Sendungen
@@ -53,43 +54,52 @@
                         <ul role="group" class="navbar__group navbar__group--radio">
                             <li class="navbar__group-item" role="menuitem">
                                 <a class="navbar__link navbar__link--radio" href="/radio-srf-1">
-                                    <img class="navbar__img" src="../../assets/img/radiologos/radio-srf-1.png" alt="">Radio
+                                    <img class="navbar__img"
+                                         src="{{ frameworkAssetPath }}/img/radiologos/radio-srf-1.png" alt="">Radio
                                     SRF 1
                                 </a>
                             </li>
                             <li class="navbar__group-item" role="menuitem">
                                 <a class="navbar__link navbar__link--radio" href="/radio-srf-2">
-                                    <img class="navbar__img" src="../../assets/img/radiologos/radio-srf-2.png" alt="">Radio
+                                    <img class="navbar__img"
+                                         src="{{ frameworkAssetPath }}/img/radiologos/radio-srf-2.png" alt="">Radio
                                     SRF 2 Kultur</a></li>
                             <li class="navbar__group-item" role="menuitem">
                                 <a class="navbar__link navbar__link--radio" href="/radio-srf-3">
-                                    <img class="navbar__img" src="../../assets/img/radiologos/radio-srf-3.png" alt="">Radio
+                                    <img class="navbar__img"
+                                         src="{{ frameworkAssetPath }}/img/radiologos/radio-srf-3.png" alt="">Radio
                                     SRF 3</a></li>
                             <li class="navbar__group-item" role="menuitem">
                                 <a class="navbar__link navbar__link--radio" href="/radio-srf-4-news">
-                                    <img class="navbar__img" src="../../assets/img/radiologos/radio-srf-4.png" alt="">Radio
+                                    <img class="navbar__img"
+                                         src="{{ frameworkAssetPath }}/img/radiologos/radio-srf-4.png" alt="">Radio
                                     SRF 4 News</a></li>
                             <li class="navbar__group-item" role="menuitem">
                                 <a class="navbar__link navbar__link--radio" href="/radio-srf-musikwelle">
-                                    <img class="navbar__img" src="../../assets/img/radiologos/radio-srf-musikwelle.png"
+                                    <img class="navbar__img"
+                                         src="{{ frameworkAssetPath }}/img/radiologos/radio-srf-musikwelle.png"
                                          alt="">Radio SRF Musikwelle</a></li>
                             <li class="navbar__group-item" role="menuitem">
                                 <a class="navbar__link navbar__link--radio" href="/radio-srf-virus">
-                                    <img class="navbar__img" src="../../assets/img/radiologos/radio-srf-virus.png"
+                                    <img class="navbar__img"
+                                         src="{{ frameworkAssetPath }}/img/radiologos/radio-srf-virus.png"
                                          alt="">Radio SRF Virus</a></li>
                             <li class="navbar__group-item" role="menuitem">
                                 <a class="navbar__link navbar__link--radio" href="http://www.radioswissclassic.ch/de">
-                                    <img class="navbar__img" src="../../assets/img/radiologos/radio-swiss-classic.png"
+                                    <img class="navbar__img"
+                                         src="{{ frameworkAssetPath }}/img/radiologos/radio-swiss-classic.png"
                                          alt="">Radio
                                     Swiss Classic</a></li>
                             <li class="navbar__group-item" role="menuitem">
                                 <a class="navbar__link navbar__link--radio" href="http://www.radioswissjazz.ch/de">
-                                    <img class="navbar__img" src="../../assets/img/radiologos/radio-swiss-jazz.png"
+                                    <img class="navbar__img"
+                                         src="{{ frameworkAssetPath }}/img/radiologos/radio-swiss-jazz.png"
                                          alt="">Radio
                                     Swiss Jazz</a></li>
                             <li class="navbar__group-item" role="menuitem">
                                 <a class="navbar__link navbar__link--radio" href="http://www.radioswisspop.ch/de">
-                                    <img class="navbar__img" src="../../assets/img/radiologos/radio-swiss-pop.png"
+                                    <img class="navbar__img"
+                                         src="{{ frameworkAssetPath }}/img/radiologos/radio-swiss-pop.png"
                                          alt="">Radio
                                     Swiss Pop</a>
                             </li>

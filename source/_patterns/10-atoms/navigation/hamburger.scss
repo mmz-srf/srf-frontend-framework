@@ -12,7 +12,8 @@
 
 .menu-handle,
 .menu-handle:hover,
-.menu-handle:active {
+.menu-handle:active,
+.menu-handle:focus {
   border-bottom: 0;
 }
 
@@ -40,6 +41,7 @@
 }
 
 .menu-handle:hover,
+.menu-handle:focus,
 .menu-handle--active {
   // there's no other way as the menu-handle has/gets a bg (gradient :/) also
   .menu-handle__info {
