@@ -319,17 +319,27 @@ body::after {
   // radio animations:
   height: 0;
   padding: 0;
-  transition: height 0.4s ease, // height 5.5s cubic-bezier(0.4, 0.0, 0.2, 1),
+  transition: height 0.4s ease, // height 0.4s cubic-bezier(0.4, 0.0, 0.2, 1),
   padding 0.4s ease;
+
+  .navbar__group-item {
+    height: 0;
+    transition: height 0.4s ease;
+  }
 }
 
+// radio animations pt. 2
 .navbar__group--radio-open {
   height: 456px; // we "do" know the height (must - to animate it)
   padding: 12px 0;
 
-  // radio animations pt. 2
+  .navbar__group-item {
+    // preventing the menu (on scroll) from not reaching the bottom
+    height: 48px;
+  }
+
   .navbar__link--radio {
-    // position: relative;
+    position: relative;
     opacity: 1;
     height: 48px;
     padding: 15px 24px 17px;
@@ -337,7 +347,7 @@ body::after {
 }
 
 .navbar__link--radio {
-  // position: absolute;
+  position: absolute;
   height: 0;
   opacity: 0;
   transition: opacity 0.4s ease, height 0.4s ease;
