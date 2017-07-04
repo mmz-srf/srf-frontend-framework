@@ -37,6 +37,8 @@
     // hamburger:
     background-position: -13px -14px;
     background-size: 42px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 }
 
@@ -56,4 +58,5 @@
 
 .menu-handle--active {
   background-image: linear-gradient(to bottom, #2e2e2e, #333);
+  border-left: 1px solid #000;
 }
