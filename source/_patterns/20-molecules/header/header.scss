@@ -283,9 +283,9 @@ body::after {
     position: fixed;
     height: 56px;
     width: 280px;
-    background: #333 url("../img/close-sprite.svg") no-repeat scroll 100% 5px;
-    border: 16px solid #333;
-    border-width: 16px 32px;
+    background: #333 url("../img/close-sprite.svg") no-repeat scroll 100% 0 / 20px;
+    border: 18px solid #333;
+    border-width: 18px 32px; // (56 - 20) / 2 = 18
     margin-top: -9px;
     padding: 0;
     z-index: 1;
@@ -296,7 +296,7 @@ body::after {
 
     &:hover, &:focus {
       background-color: #333;
-      background-position: 100% -19px;
+      background-position: 100% -30px;
     }
   }
 }
