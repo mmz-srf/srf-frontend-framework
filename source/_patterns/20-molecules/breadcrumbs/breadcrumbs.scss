@@ -2,7 +2,7 @@
   margin: 4px auto 16px; // 12 / 24 - 8 each
   padding: 0 24px;
   white-space: nowrap;
-  overflow-x: scroll;
+  overflow-x: auto;
 
   & + .article { // from above come 8px hidden border - for extended touch area
     margin-top: -8px;
