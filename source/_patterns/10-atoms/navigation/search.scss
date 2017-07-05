@@ -27,14 +27,16 @@
   border: 0;
   border-radius: 25px;
   box-sizing: border-box;
-  // -webkit-font-smoothing: antialiased;
-  // -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 
   &:focus {
     color: #4e4d47;
     background-color: #ebebe5;
     background-position: 6px -36px;
     outline: none;
+    -webkit-font-smoothing: auto;
+    -moz-osx-font-smoothing: auto;
 
     &::placeholder {
       opacity: 0;
