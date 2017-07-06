@@ -76,7 +76,7 @@ export function init() {
             }
 
             if (slidesToShow > 1) { // this option is terrible for screen sizes showing more than 1 elm
-                $carousel.slick("focusOnSelect", false);
+                $carousel.slick("slickSetOption", "focusOnSelect", false);
             }
 
             // and adjust num. of slides...
