@@ -5,7 +5,6 @@ $naviTransitionTime: 0.4s;
   top: 0;
   left: 0;
   width: 100%;
-  /* dark bg - does nothing :/*/
   background-image: linear-gradient(to bottom, #313131, #212121);
   background-size: 100% 50px;
   background-repeat: no-repeat;
@@ -72,7 +71,7 @@ body::after {
         top: 0;
         left: 0;
         opacity: .2;
-        background-color: #000; // background-color: rgba(0, 0, 0, 0.2);
+        background-color: #000;
       }
     }
 

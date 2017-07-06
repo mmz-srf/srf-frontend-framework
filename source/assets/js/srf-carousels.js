@@ -53,7 +53,6 @@ export function init() {
             accessibility: false,
             appendArrows: "#" + id + " .slick-list",
             dots: true,
-            // focusOnSelect: true,
             centerPadding: 0,
             variableWidth: true,
             prevArrow: '<button class="carousel__link--prev"><span class="h-offscreen h-offscreen-focusable">Vorhergehender Slide</span></button>',
