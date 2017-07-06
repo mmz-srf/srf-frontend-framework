@@ -1,55 +1,49 @@
 export function init() {
 
-    $(".header").on("keypress", ".menu-handle", function (e) {
+    let menuHasFocus = false;
+
+    $(".header").on("keydown", ".menu-handle", function (e) {
         // on tabbing into [Menu] + <enter>
         if (e.keyCode === 13) {
             // focus on [x]
-            $(".navbar__link--close").focus();
-            // return false;
+            setTimeout(function () { // accessibility: menu is hidden for everyone
+                $(".navbar__link--close").focus();
+            }, 10); // we need to wait ... until "things" are available :/
+            menuHasFocus = true;
         }
-    });
-
-    $(".header").on("keypress", ".navbar__link--close", function (e) {
+    }).on("keydown", ".navbar__link--close", function (e) {
         // on tabbing into [x] + <enter>
         if (e.keyCode === 13) {
             // focus on [menu]
+            $(".menu-handle").trigger("click");
             $(".menu-handle").focus();
-            // return false;
+            menuHasFocus = false;
         }
-    });
-
-    $(".header").on("click", ".menu-handle", function (e) {
+    }).on("click", ".menu-handle", function (e) { // hamburger clicking management
         e.preventDefault();
         let $handle = $(this);
-        if ($handle.hasClass("menu-handle--active")) {
-            $("body").removeClass("body--observer").find(".navbar__link--close").removeClass("navbar__link--fixed");
+        if ($handle.hasClass("menu-handle--active")) { // the menu is open
+            $("body").removeClass("body--observer").find(".navbar__link--close")
+                .removeClass("navbar__link--fixed");
             $handle.removeClass("menu-handle--active");
 
             if ($(window).width() > 719) { // there are animations we have to wait for....
                 $(".navbar__menu").removeClass("navbar__menu--come-in").one("transitionend", function () {
                     $(this).closest(".navbar").addClass("navbar--closed")
                         .closest("body").removeClass("body--fixed")
-                    // .find(".navbar__link--close").removeClass("navbar__link--fixed");
                 });
-            } else { // on mobile
-                /* $handle.closest(".l-main-wrapper").removeClass("wrapper--fixed")
-                 .find(".navbar").one("transitionend", function () {
-                 // $(".navbar__menu").removeClass("navbar__menu--come-in").one("transitionend", function () {
-                 $(this).addClass("navbar--closed").find(".navbar__menu").removeClass("navbar__menu--come-in")
-                 // .closest(".l-main-wrapper").removeClass("wrapper--fixed");
-                 }); */ // <-- this looks shite!
-                $(".navbar__menu").removeClass("navbar__menu--come-in")
-                    .closest(".navbar").addClass("navbar--closed")
+            } else { // on mobile: no animations
+                $(".navbar__menu").removeClass("navbar__menu--come-in") // slide menu back
+                    .closest(".navbar").addClass("navbar--closed")  // set
                     .closest("body").removeClass("body--fixed");
             }
 
-        } else {
+        } else { // the menu is closed
             e.stopPropagation();
             $handle.addClass("menu-handle--active")
                 .closest("body").addClass("body--fixed").addClass("body--observer")
-                .find(".navbar").removeClass("navbar--closed") // .addClass("navbar--come-in")
+                .find(".navbar").removeClass("navbar--closed")
                 .find(".navbar__menu").addClass("navbar__menu--come-in");
-            // .find(".navbar__link--close").addClass("navbar__link--fixed");
 
             if ($(window).width() > 719) { // there are animations we have to wait for....
                 $(".navbar__menu").one("transitionend", function () {
@@ -67,18 +61,29 @@ export function init() {
         }
     });
 
+    // accessibility: if menu loses focus => we close it
+    $(".article").on("keydown", function () {
+        if (menuHasFocus) {
+            $(".menu-handle").trigger("click");
+            menuHasFocus = false;
+        }
+    });
+
+    // radiostation navigation opening & closing
     $(".navbar__menu").on("click", ".js-expand-arrow", function (e) {
         e.preventDefault();
         let $handle = $(this),
             $arrow = $handle.find(".expand-arrow"),
             $info = $(".js-expand-info");
-        if ($arrow.hasClass("expand-arrow--open")) { // radio menu is open
+        if ($arrow.hasClass("expand-arrow--open")) { // radio menu is open => close it
             $arrow.removeClass("expand-arrow--open");
-            $handle.next(".navbar__group--radio").removeClass("navbar__group--radio-open"); // .addClass("h-element--hide");
+            $handle.attr("aria-expanded", false).next(".navbar__group--radio")
+                .removeClass("navbar__group--radio-open");
             $info.text($info.data("text-open"));
-        } else { // it's closed
+        } else { // it's closed => open it
             $arrow.addClass("expand-arrow--open");
-            $handle.next(".navbar__group--radio").addClass("navbar__group--radio-open"); // .removeClass("h-element--hide");
+            $handle.attr("aria-expanded", true).next(".navbar__group--radio")
+                .addClass("navbar__group--radio-open");
             $info.text($info.data("text-close"));
         }
     });
