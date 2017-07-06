@@ -98,6 +98,7 @@ body::after {
     .navbar__menu {
       position: absolute; // covering up safari pos. fixed bug :/
       width: 280px;
+      visibility: visible; // accessibility
       // top: 0;
       // bottom: -900px;
       // right: 0;
@@ -108,6 +109,7 @@ body::after {
   }
 
   .navbar {
+    visibility: visible;
     // background-color: #333;
     @include smartphone {
       position: relative;
@@ -187,8 +189,8 @@ body::after {
 
 .navbar--closed { // only add after transitionend
   .navbar__menu {
-    position: absolute;
-    overflow: hidden;
+    // position: absolute;
+    // overflow: hidden;
     width: 0;
   }
 
@@ -201,6 +203,8 @@ body::after {
 }
 
 .navbar__menu {
+  visibility: hidden; // accessibility
+
   margin: 0;
   padding: 0;
   -webkit-font-smoothing: antialiased;
@@ -319,6 +323,7 @@ body::after {
 .navbar__group--radio {
   background-color: #222;
   border-bottom: 0;
+  visibility: hidden;
   // radio animations:
   height: 0;
   padding: 0;
@@ -335,6 +340,7 @@ body::after {
 .navbar__group--radio-open {
   height: 456px; // we "do" know the height (must - to animate it)
   padding: 12px 0;
+  visibility: visible;
 
   .navbar__group-item {
     // preventing the menu (on scroll) from not reaching the bottom

@@ -44,6 +44,7 @@
   }
 
   &::-webkit-input-placeholder {
+    color: #dadad2;
     line-height: 21px; // safari needs it's own line-height
     opacity: 1; // and opacity :)
   }

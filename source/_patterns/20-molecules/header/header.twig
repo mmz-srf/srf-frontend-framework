@@ -11,12 +11,12 @@
         {% block search %}
             {% include 'atoms-search' with { 'styleModifier': '' } %}
         {% endblock %}
-        <ul class="navbar__menu" role="menu">
+        <ul class="navbar__menu" role="menu" aria-live="assertive">
             <li class="navbar__menu-item">
                 <ul class="navbar__group" role="group">
                     <li class="navbar__group-item">
                         <a class="navbar__link navbar__link--close" href="#">
-                            <span class="h-offscreen">{{ header.navigation|default("Navigation") }} {{ header.close|default("schliessen") }}</span>
+                            <span class="h-offscreen">{{ header.navigation_open|default("Navigation geöffnet") }}: {{ header.close|default("schliessen") }}</span>
                         </a>
                     </li>
                     <li class="navbar__group-item"><a class="navbar__link navbar__link--home" href="/">Home</a></li>
@@ -38,13 +38,13 @@
                     <li class="navbar__group-item"><a class="navbar__link" href="/programm/tv">TV-Programm</a></li>
                     <li class="navbar__group-item"><a class="navbar__link" href="/programm/radio">Radio-Programm</a></li>
                     <li class="navbar__group-item">
-                        <a class="navbar__link js-expand-arrow" href="#" role="link">Radiosender
+                        <a class="navbar__link js-expand-arrow" href="#" role="link" aria-expanded="false" aria-haspopup="true">Radiosender
                             {% block expand_arrow %}
                                 {% include 'atoms-expand-arrow' with { 'styleModifier': '' } %}
                             {% endblock %}
                         </a>
                         <!-- ul role="group" class="navbar__group navbar__group--radio h-element--hide" -->
-                        <ul class="navbar__group navbar__group--radio" role="group">
+                        <ul class="navbar__group navbar__group--radio" role="group" aria-hidden="true">
                             <li class="navbar__group-item">
                                 <a class="navbar__link navbar__link--radio" href="/radio-srf-1">
                                     <img class="navbar__img" src="{{ frameworkAssetPath }}/img/radiologos/radio-srf-1.png" alt="">Radio SRF 1

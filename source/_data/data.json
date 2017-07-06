@@ -677,7 +677,10 @@
     "searching": "Suchen",
     "expand": "aufklappen",
     "reduce": "zuklappen",
-    "navigation": "schliessen",
-    "close": "schliessen"
+    "navigation": "Navigation",
+    "navigation_open": "Navigation geöffnet",
+    "close": "schliessen",
+    "show": "anzeigen",
+    "is_open": "geöffnet"
   }
 }
