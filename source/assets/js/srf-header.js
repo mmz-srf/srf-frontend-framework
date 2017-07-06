@@ -2,7 +2,7 @@ export function init() {
 
     let menuHasFocus = false;
 
-    $(".header").on("keydown", ".menu-handle", function (e) {
+    $(".header").on("keyup", ".menu-handle", function (e) {
         // on tabbing into [Menu] + <enter>
         if (e.keyCode === 13) {
             // focus on [x]
@@ -17,16 +17,15 @@ export function init() {
             // focus on [menu]
             $(".menu-handle").trigger("click");
             $(".menu-handle").focus();
-            menuHasFocus = false;
+            // menuHasFocus = false;
         }
     }).on("click", ".menu-handle", function (e) { // hamburger clicking management
         e.preventDefault();
         let $handle = $(this);
-        if ($handle.hasClass("menu-handle--active")) { // the menu is open
+        if ($handle.hasClass("menu-handle--active")) { // the menu is open => close it
             $("body").removeClass("body--observer").find(".navbar__link--close")
                 .removeClass("navbar__link--fixed");
             $handle.removeClass("menu-handle--active");
-            menuHasFocus = true;
 
             if ($(window).width() > 719) { // there are animations we have to wait for....
                 $(".navbar__menu").removeClass("navbar__menu--come-in").one("transitionend", function () {
@@ -38,8 +37,9 @@ export function init() {
                     .closest(".navbar").addClass("navbar--closed")  // set
                     .closest("body").removeClass("body--fixed");
             }
+            menuHasFocus = false;
 
-        } else { // the menu is closed
+        } else { // the menu is closed => open it
             e.stopPropagation();
             $handle.addClass("menu-handle--active")
                 .closest("body").addClass("body--fixed").addClass("body--observer")
@@ -49,9 +49,9 @@ export function init() {
             if ($(window).width() > 719) { // there are animations we have to wait for....
                 $(".navbar__menu").one("transitionend", function () {
                     $(this).find(".navbar__link--close").addClass("navbar__link--fixed");
-                    menuHasFocus = false;
                 });
             }
+            menuHasFocus = true;
         }
     });
 
@@ -64,10 +64,11 @@ export function init() {
     });
 
     // accessibility: if menu loses focus => we close it
-    $(".article").on("keydown", function () {
-        if (menuHasFocus) {
+    $(".article").on("keyup", function (e) {
+        // we tabbed "into article"
+        if (e.keyCode === 9 && menuHasFocus) { // and the menu was open
             $(".menu-handle").trigger("click");
-            menuHasFocus = false;
+            // menuHasFocus = false;
         }
     });
 
