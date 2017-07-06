@@ -2,10 +2,10 @@
   position: relative;
   margin: 32px 0;
   display: flex;
-  align-content: center;
+  align-items: center;
   justify-content: center;
 
   @include smartphone {
-    margin: 24px -8px;
+    margin: 24px 0x;
   }
 }

@@ -27,8 +27,12 @@
   border-top: 1px solid #ebebe5;
   padding: 0;
 
+  @include tablet-up {
+    margin-left: 8px;
+  }
+
   @include smartphone {
-    margin: 0 -8px;
+    margin: 0;
   }
 
   > li {
@@ -42,13 +46,11 @@
 }
 
 .linkbox--related {
-  padding-left: 16px;
-  padding-right: 16px;
   margin-top: 0;
   margin-bottom: 16px;
 
   @include tablet-up {
-    margin-left: 171px;
+    margin-left: 180px;
     margin-bottom: 24px;
     padding-right: 0;
   }
@@ -70,7 +72,7 @@
 
 .linkbox--related .linkbox__title {
   font-size: 14px;
-  margin: 0 0 8px 8px;
+  margin: 0 0 8px 16px;
   padding: 0;
   color: $color-text-light;
   font-family: $font-regular;

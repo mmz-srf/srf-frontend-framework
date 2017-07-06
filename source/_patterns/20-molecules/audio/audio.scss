@@ -24,9 +24,8 @@
   flex-direction: row;
   flex-wrap: wrap;
 
-
   @include smartphone {
-    margin: 0 -8px; // override article's padding...
+    margin: 0;
   }
 
   &:not(.audio--loading) { // samesame
