@@ -4,13 +4,13 @@
         class="article-audio__link media__js"
         data-mediatype="audio"
         data-assetid="{{ audio.assetId }}">
-        <figure class="article-audio {{ styleModifierMain }}">
+        <figure class="article-audio {{ styleModifier }}">
             <div class="article-audio__wrapper">
 
                 {% block audio_image %}
                     <img class="image-figure__image{{ not audio.img_src ? " image-figure__image--no-image"}}"
-                         alt="{{ 'Audio' }} «{{ audio.title }}» {{ 'abspielen' }}" {# this should go into the image container (cms) #}
-                         title="{{ 'Audio' }} «{{ audio.title }}» {{ 'abspielen' }}"
+                         alt="Audio «{{ audio.title }}» abspielen"
+                         title="Audio «{{ audio.title }}» abspielen"
                         {% spaceless %}
                         {% if audio.img_src %}
                           sizes="100vw"
@@ -29,13 +29,15 @@
                 {% block play_icon %}
                     {% include 'atoms-play-icon' with {'media': 'audio'} %}
                 {% endblock %}
+
                 {% block loading_spinner %}
                     {% include 'atoms-spinner' with { 'styleModifier' : 'spinner__circle--dash-white' } %}
                 {% endblock %}
+
             </div>
             {% block audio_caption %}
                 <figcaption class="media-caption media-caption--audio">
-                    <span class="h-offscreen">{{ 'Legende:' }}</span>
+                    <span class="h-offscreen">Legende:</span>
                     {% if audio.title %}
                         <div class="media-caption__title media-caption__title--audio">{{ audio.title }}</div>
                     {% endif %}

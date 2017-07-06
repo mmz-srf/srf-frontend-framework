@@ -51,8 +51,10 @@ export function init() {
             slidesToShow: 1, // we need all dots - initially
             slidesToScroll: 1,
             accessibility: false,
+            focusOnSelect: true, // let's try this
             appendArrows: "#" + id + " .slick-list",
             dots: true,
+            // focusOnSelect: true,
             centerPadding: 0,
             variableWidth: true,
             prevArrow: '<button class="carousel__link--prev"><span class="h-offscreen h-offscreen-focusable">Vorhergehender Slide</span></button>',
@@ -74,11 +76,19 @@ export function init() {
                 $carousel.slick("slickGoTo", currentSlide, true);
             }
 
+            if (slidesToShow > 1) { // this option is terrible for screen sizes showing more than 1 elm
+                $carousel.slick("slickSetOption", "focusOnSelect", false);
+            }
+
             // and adjust num. of slides...
             $carousel.slick("slickSetOption", "slidesToShow", slidesToShow, false);
             $carousel.slick("slickSetOption", "slidesToScroll", slidesToShow, false);
 
             let screensToShow = Math.ceil($carousel.find(".carousel__item").length / slidesToShow);
+
+            (slidesToShow >= screensToShow) // are there more slides than elements?
+                ? $(".slick-dots").removeClass(".h-element--hide")  // show dots
+                : $(".slick-dots").addClass(".h-element--hide");    // else hide them
 
             // and adjust num. of dots
             rePaintDots($carousel, screensToShow);

@@ -1,0 +1,388 @@
+$naviTransitionTime: 0.4s;
+
+.header { // absolute fullwidth!
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  /* dark bg - does nothing :/*/
+  background-image: linear-gradient(to bottom, #313131, #212121);
+  background-size: 100% 50px;
+  background-repeat: no-repeat;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .24);
+
+  @include tablet-up {
+    background-size: auto;
+  }
+
+  & + .breadcrumbs {
+    margin-top: 66px; // mobile: 50 + 24 - 8
+    @include tablet-up {
+      margin-top: 80px; // dt: 56 + 32 - 8
+    }
+  }
+
+  & + .article, // todo: cleanup fef (differs from cms pagelayout setup!)
+  & + .l-main-wrapper {
+    margin-top: 88px; // todo: check!!
+  }
+}
+
+// providing the "dim" on opening the navi
+body::after {
+  content: "";
+  opacity: 0;
+  height: 0;
+  width: 0;
+  transition: opacity 0.4s ease;
+}
+
+.body--fixed { // navigation expanded
+  .header__container {
+    position: fixed;
+    width: 100%;
+    background-image: linear-gradient(to bottom, #313131, #212121);
+
+    @include smartphone {
+      z-index: 2;
+    }
+
+    @include tablet-up {
+      left: 50%;
+      transform: translate(-50%, 0);
+    }
+  }
+
+  @include smartphone {
+    .article {
+      position: fixed;
+    }
+  }
+
+  @include tablet-up {
+    position: fixed;
+    left: 0;
+    right: 0;
+
+    &.body--observer { // the bg dim!
+      &::after {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        opacity: .2;
+        background-color: #000; // background-color: rgba(0, 0, 0, 0.2);
+      }
+    }
+
+    .header__reserve {
+      position: fixed;
+      height: 56px;
+      width: 100%;
+      left: 0;
+      background-image: linear-gradient(to bottom, #313131, #212121);
+    }
+
+    // positioning in context
+    .searchbox {
+      position: fixed;
+      top: 1px;
+      right: 129px;
+
+      @include desktop-wide {
+        right: calc(50% - 511px); // here it gets weird :/
+      }
+    }
+
+    .navbar__menu {
+      position: absolute; // covering up safari pos. fixed bug :/
+      width: 280px;
+      // visibility: visible; // accessibility
+      box-shadow: 0 8px 16px 0 rgba(0, 0, 0, .24); // this does look a little funny ...
+
+      // top: 0;
+      // bottom: -900px;
+      // right: 0;
+      background-color: #333; // just in case the navi covers the search field :/
+      min-height: 100%;
+      z-index: 1;
+    }
+  }
+
+  .navbar {
+    visibility: visible;
+
+    @include smartphone {
+      position: relative;
+      top: 50px;
+      z-index: 1;
+      background-color: #333;
+    }
+
+    @include tablet-up {
+      position: fixed;
+      height: 100%;
+      right: 0; // start position
+      width: 350px; // covering up safari pos. fixed bug :/
+      overflow: auto;
+
+      @include desktop-wide {
+        right: calc(50% - 640px); // something like that
+      }
+    }
+  }
+
+  .navbar__menu {
+    visibility: visible; // accessibility
+  }
+}
+
+// end .body--fixed
+
+@include tablet-up {
+  .header__container { // contains icons and so on
+    position: relative;
+    height: 56px;
+    margin: 0 auto;
+    padding: 0 48px 0 32px;
+
+    @include desktop-up {
+      max-width: 1280px;
+    }
+  }
+}
+
+.header__logo, .header__logo:hover {
+  border-bottom: 0;
+}
+
+.header__logo {
+  display: inline-block;
+  vertical-align: top;
+  padding: 12px;
+
+  @include tablet-up {
+    padding: 15px 16px;
+  }
+}
+
+.header__logo-img {
+  height: 26px;
+  width: 40px;
+}
+
+// navigation
+.navbar {
+  @include tablet-up {
+    position: absolute;
+    width: 280px;
+    right: 81px;
+    z-index: 1;
+  }
+
+  @include desktop-up {
+    right: 48px;
+  }
+
+  @include desktop-wide { // only here we have a max width
+    right: calc(50% - 592px); // minus padding
+  }
+}
+
+.navbar--closed { // only add after transitionend
+  .navbar__menu {
+    position: absolute;
+    // overflow: hidden;
+    width: 0;
+  }
+
+  // this only makes sense in context
+  @include smartphone {
+    .searchbox {
+      display: none;
+    }
+  }
+}
+
+.navbar__menu {
+  visibility: hidden; // accessibility
+
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  // animations
+  @include tablet-up {
+    position: relative;
+    width: auto;
+    right: -280px;
+    transition: right $naviTransitionTime cubic-bezier(0.4, 0.0, 0.2, 1);
+  }
+}
+
+@include tablet-up {
+  // more animations
+  .navbar__menu--come-in {
+    right: 0; // end position
+  }
+}
+
+.navbar__group,
+.navbar__group-item,
+.navbar__menu-item {
+  margin: 0;
+  padding: 0;
+}
+
+.navbar__group-item,
+.navbar__menu-item {
+  &::before {
+    content: none;
+  }
+}
+
+.navbar__menu-item {
+  @include smartphone {
+    &:first-child {
+      margin-top: -9px;
+    }
+  }
+
+  &:last-child {
+    border-bottom: 24px solid transparent;
+    // margin-bottom: 1px;
+  }
+}
+
+.navbar__link {
+  font: 16px/1 $font-regular;
+  text-decoration: none;
+  color: #fff;
+  padding: 15px 24px 17px;
+  display: block;
+  cursor: pointer;
+  border-bottom: 0;
+
+  &:hover {
+    color: #fff;
+    background-color: #444;
+  }
+
+  &:active, &:focus {
+    color: #fefefd;
+    background-color: #555;
+  }
+
+  &:hover,
+  &:active {
+    border-bottom: 0;
+  }
+}
+
+.navbar__link--close {
+  @include smartphone {
+    display: none;
+  }
+
+  @include tablet-up {
+    position: fixed;
+    height: 56px;
+    width: 280px;
+    background: #333 url("../img/close-sprite.svg") no-repeat scroll 100% 0 / 20px;
+    border: 18px solid #333;
+    border-width: 18px 32px; // (56 - 20) / 2 = 18
+    margin-top: -9px;
+    padding: 0;
+    z-index: 1;
+
+    @include desktop-wide {
+      position: absolute;
+    }
+
+    &:hover, &:focus {
+      background-color: #333;
+      background-position: 100% -30px;
+    }
+  }
+}
+
+@include tablet-up {
+  .navbar__link--fixed {
+    position: fixed;
+  }
+
+  .navbar__link--home {
+    margin-top: 46px;
+  }
+}
+
+.navbar__group {
+  border-bottom: 1px solid #444;
+  padding: 9px 0 7px;
+}
+
+.navbar__group--radio {
+  background-color: #222;
+  border-bottom: 0;
+  visibility: hidden;
+  // radio animations:
+  height: 0;
+  padding: 0;
+  transition: height 0.4s ease, // height 0.4s cubic-bezier(0.4, 0.0, 0.2, 1),
+  padding 0.4s ease;
+
+  .navbar__group-item {
+    height: 0;
+    transition: height 0.4s ease;
+  }
+}
+
+// radio animations pt. 2
+.navbar__group--radio-open {
+  height: 456px; // we "do" know the height (must - to animate it)
+  padding: 12px 0;
+  visibility: visible;
+
+  .navbar__group-item {
+    // preventing the menu (on scroll) from not reaching the bottom
+    height: 48px;
+  }
+
+  .navbar__link--radio {
+    position: relative;
+    opacity: 1;
+    height: 48px;
+    padding: 15px 24px 17px;
+  }
+}
+
+.navbar__link--radio {
+  position: absolute;
+  height: 0;
+  opacity: 0;
+  transition: opacity 0.4s ease, height 0.4s ease;
+  text-indent: 32px;
+
+  &:hover {
+    background-color: #333;
+  }
+
+  &:active, &:focus {
+    background-color: #444;
+  }
+}
+
+.navbar__img {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  margin-top: -4px;
+}
+
+.navbar__img-play {
+  height: 23px;
+  width: auto;
+}
+// end nativation

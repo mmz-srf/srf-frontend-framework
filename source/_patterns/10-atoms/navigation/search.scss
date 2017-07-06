@@ -1,0 +1,62 @@
+// @import "../../variables";
+
+.searchbox {
+  padding: 16px 16px 8px;
+
+  @include tablet-up {
+    position: absolute;
+    width: 240px;
+    top: -55px;
+    right: 48px;
+    padding: 13px 24px 0;
+  }
+
+  @include desktop-up {
+    right: 81px;
+  }
+}
+
+.searchbox__input {
+  width: 100%;
+  height: 36px;
+  font: 16px/1.1 $font-light; // line-height 1 cuts off "bottom parts of letters"
+  letter-spacing: .6px;
+  color: #dadad2;
+  background: #555 url("../img/search-sprite.svg") no-repeat scroll 6px 0 / 28px auto;
+  padding: 10px 4px 8px 40px; // adjusting from 11 4 9 40 to line-height above
+  border: 0;
+  border-radius: 25px;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  &:focus {
+    color: #4e4d47;
+    background-color: #ebebe5;
+    background-position: 6px -36px;
+    outline: none;
+    -webkit-font-smoothing: auto;
+    -moz-osx-font-smoothing: auto;
+
+    &::placeholder {
+      opacity: 0;
+    }
+  }
+
+  &::-webkit-input-placeholder {
+    color: #dadad2;
+    line-height: 21px; // safari needs it's own line-height
+    opacity: 1; // and opacity :)
+  }
+
+  @include tablet-up {
+    height: 28px; // safari has a problem with paddings :/
+    padding: 0 6px 0 36px; // 6px 6px 5px 36px; // adjusting from 6 6 6 36 to line-height above
+    background-size: 23px;
+    background-position: 6px -2px;
+
+    &:focus {
+      background-position: 6px -32px;
+    }
+  }
+}

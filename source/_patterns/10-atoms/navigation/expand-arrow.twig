@@ -1,0 +1,7 @@
+<span class="expand-arrow {{ styleModifier }}">
+    <span class="h-offscreen">{{ header.navigation|default("Navigation") }}
+        <span class="js-expand-info"
+              data-text-open="{{ header.expand|default("aufklappen") }}"
+              data-text-close="{{ header.reduce|default("zuklappen") }}">{{ header.expand|default("aufklappen") }}</span>
+    </span>
+</span>
