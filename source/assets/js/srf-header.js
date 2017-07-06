@@ -26,6 +26,7 @@ export function init() {
             $("body").removeClass("body--observer").find(".navbar__link--close")
                 .removeClass("navbar__link--fixed");
             $handle.removeClass("menu-handle--active");
+            menuHasFocus = true;
 
             if ($(window).width() > 719) { // there are animations we have to wait for....
                 $(".navbar__menu").removeClass("navbar__menu--come-in").one("transitionend", function () {
@@ -48,6 +49,7 @@ export function init() {
             if ($(window).width() > 719) { // there are animations we have to wait for....
                 $(".navbar__menu").one("transitionend", function () {
                     $(this).find(".navbar__link--close").addClass("navbar__link--fixed");
+                    menuHasFocus = false;
                 });
             }
         }
