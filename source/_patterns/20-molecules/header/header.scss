@@ -98,27 +98,22 @@ body::after {
     .navbar__menu {
       position: absolute; // covering up safari pos. fixed bug :/
       width: 280px;
-      visibility: visible; // accessibility
-      box-shadow: 0 8px 16px 0 rgba(0, 0, 0, .24); // this does look a little funny ...
-
-      // top: 0;
-      // bottom: -900px;
-      // right: 0;
-      background-color: #333; // just in case the navi covers the search field :/
       min-height: 100%;
+      visibility: visible; // accessibility
+      background-color: #333; // just in case the navi covers the search field :/
+      box-shadow: 0 8px 16px 0 rgba(0, 0, 0, .24);
       z-index: 1;
     }
   }
 
   .navbar {
     visibility: visible;
-    // background-color: #333;
+
     @include smartphone {
       position: relative;
       top: 50px;
       z-index: 1;
       background-color: #333;
-      // height: 863px; // just in case of transition :/
     }
 
     @include tablet-up {
@@ -126,12 +121,10 @@ body::after {
       height: 100%;
       right: 0; // start position
       width: 350px; // covering up safari pos. fixed bug :/
-      // top: 56px; // tmp!!!
       overflow: auto;
 
       @include desktop-wide {
         right: calc(50% - 640px); // something like that
-        // top: 56px;
       }
     }
   }
@@ -152,7 +145,8 @@ body::after {
   }
 }
 
-.header__logo, .header__logo:hover {
+.header__logo,
+.header__logo:hover {
   border-bottom: 0;
 }
 
@@ -192,7 +186,6 @@ body::after {
 .navbar--closed { // only add after transitionend
   .navbar__menu {
     position: absolute;
-    // overflow: hidden;
     width: 0;
   }
 
@@ -206,7 +199,6 @@ body::after {
 
 .navbar__menu {
   visibility: hidden; // accessibility
-
   margin: 0;
   padding: 0;
   -webkit-font-smoothing: antialiased;
@@ -251,7 +243,6 @@ body::after {
 
   &:last-child {
     border-bottom: 24px solid transparent;
-    // margin-bottom: 1px;
   }
 }
 
@@ -269,7 +260,8 @@ body::after {
     background-color: #444;
   }
 
-  &:active, &:focus {
+  &:active,
+  &:focus {
     color: #fefefd;
     background-color: #555;
   }
@@ -368,7 +360,8 @@ body::after {
     background-color: #333;
   }
 
-  &:active, &:focus {
+  &:active,
+  &:focus {
     background-color: #444;
   }
 }
