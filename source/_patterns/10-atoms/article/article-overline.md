@@ -1,1 +1,0 @@
-### Spitzmarke (Article overline)

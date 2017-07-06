@@ -14,3 +14,16 @@
     letter-spacing: .2px;
   }
 }
+
+.article-title--overline {
+  margin: 32px 0 16px;
+  font-family: $font-regular;
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: .5px;
+  color: $color-accentuation-red;
+
+  @include smartphone {
+    margin: 24px 0 12px;
+  }
+}
