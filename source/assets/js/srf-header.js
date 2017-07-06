@@ -64,9 +64,9 @@ export function init() {
     });
 
     // accessibility: if menu loses focus => we close it
-    $(".article").on("keyup", function (e) {
+    $(".l-main-wrapper, .breadcrumbs").on("keyup", function (e) {
         // we tabbed "into article"
-        if (e.keyCode === 9 && menuHasFocus) { // and the menu was open
+        if (menuHasFocus && e.keyCode === 9) { // and the menu was open
             $(".menu-handle").trigger("click");
             // menuHasFocus = false;
         }
