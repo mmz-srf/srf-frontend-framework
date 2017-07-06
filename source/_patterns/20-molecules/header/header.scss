@@ -99,6 +99,8 @@ body::after {
       position: absolute; // covering up safari pos. fixed bug :/
       width: 280px;
       visibility: visible; // accessibility
+      box-shadow: 0 8px 16px 0 rgba(0, 0, 0, .24); // this does look a little funny ...
+
       // top: 0;
       // bottom: -900px;
       // right: 0;
