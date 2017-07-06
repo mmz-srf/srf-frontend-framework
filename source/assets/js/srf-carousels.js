@@ -75,8 +75,17 @@ export function init() {
                 $carousel.slick("slickGoTo", currentSlide, true);
             }
 
-            if (slidesToShow > 1) { // this option is terrible for screen sizes showing more than 1 elm
+            if (slidesToShow > 1) {
+                // the following option is terrible for screen sizes showing more than 1 elm
                 $carousel.slick("slickSetOption", "focusOnSelect", false);
+
+                // unhide the following slidesToShow - 1 from screenreaders as well:
+                $carousel.find(".carousel__item").each(function (i) {
+                    if (i <= slidesToShow) {
+                        $(this).attr("aria-hidden", false);
+                    }
+                    console.log($carousel, $(this), i)
+                });
             }
 
             // and adjust num. of slides...
@@ -85,7 +94,7 @@ export function init() {
 
             let screensToShow = Math.ceil($carousel.find(".carousel__item").length / slidesToShow);
 
-            (slidesToShow >= screensToShow) // are there more slides than elements?
+            (slidesToShow > screensToShow) // are there more slides than elements?
                 ? $(".slick-dots").removeClass(".h-element--hide")  // show dots
                 : $(".slick-dots").addClass(".h-element--hide");    // else hide them
 
