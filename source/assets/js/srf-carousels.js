@@ -51,6 +51,7 @@ export function init() {
             slidesToShow: 1, // we need all dots - initially
             slidesToScroll: 1,
             accessibility: false,
+            focusOnSelect: true, // let's try this
             appendArrows: "#" + id + " .slick-list",
             dots: true,
             centerPadding: 0,
@@ -72,6 +73,10 @@ export function init() {
                 // move it to 0 - so the "arrows" don't get "confused"
                 currentSlide = 0;
                 $carousel.slick("slickGoTo", currentSlide, true);
+            }
+
+            if (slidesToShow > 1) { // this option is terrible for screen sizes showing more than 1 elm
+                $carousel.slick("focusOnSelect", false);
             }
 
             // and adjust num. of slides...
