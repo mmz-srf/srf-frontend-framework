@@ -191,7 +191,7 @@ body::after {
 
 .navbar--closed { // only add after transitionend
   .navbar__menu {
-    // position: absolute;
+    position: absolute;
     // overflow: hidden;
     width: 0;
   }
