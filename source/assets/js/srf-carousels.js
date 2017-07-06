@@ -85,10 +85,10 @@ export function init() {
             $carousel.slick("slickSetOption", "slidesToScroll", slidesToShow, false);
 
             let screensToShow = Math.ceil($carousel.find(".carousel__item").length / slidesToShow);
-
-            (slidesToShow > screensToShow) // are there more slides than elements?
-                ? $(".slick-dots").removeClass(".h-element--hide")  // show dots
-                : $(".slick-dots").addClass(".h-element--hide");    // else hide them
+            
+            (screensToShow > 1) // are there more slides than one?
+                ? $(".slick-dots").removeClass("h-element--hide")  // show dots
+                : $(".slick-dots").addClass("h-element--hide");    // else hide the one :)
 
             // and adjust num. of dots
             rePaintDots($carousel, screensToShow);
