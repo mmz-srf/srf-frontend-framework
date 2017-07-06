@@ -56,6 +56,10 @@
       margin: 0 6px 12px;
     }
 
+    @include desktop-wide {
+      margin: 0 6px 12px 2px; // not so sure - but even :/
+    }
+
     &:not(.video--loading):not(.video--playing) {
       transition: box-shadow .2s ease-in-out;
 
