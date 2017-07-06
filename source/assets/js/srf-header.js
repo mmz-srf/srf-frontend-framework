@@ -2,7 +2,7 @@ export function init() {
 
     let menuHasFocus = false;
 
-    $(".header").on("keydown", ".menu-handle", function (e) {
+    $(".header").on("keyup", ".menu-handle", function (e) {
         // on tabbing into [Menu] + <enter>
         if (e.keyCode === 13) {
             // focus on [x]
@@ -49,9 +49,9 @@ export function init() {
             if ($(window).width() > 719) { // there are animations we have to wait for....
                 $(".navbar__menu").one("transitionend", function () {
                     $(this).find(".navbar__link--close").addClass("navbar__link--fixed");
-                    menuHasFocus = true;
                 });
             }
+            menuHasFocus = true;
         }
     });
 
