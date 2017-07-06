@@ -2,7 +2,7 @@
 @import "../../breakpoints";
 
 .article-video {
-  margin: 24px -8px;
+  margin: 24px 0;
 
   @include tablet-up {
     margin: 32px 0;
@@ -148,9 +148,7 @@
     // the following two lines would fix a player problem :/ we don't - for now
     // width: calc(100% + 2px);
     // left: -1px; right: -1px;
-    // chrome & safari have a problem with the following
-    top: 50%;
-    transform: translate(0, -50%);
+    top: 0;
     background-color: #000;
   }
 }
@@ -277,13 +275,4 @@
             }
         }
     }
-}
-
-// "webkit-fullscreen fix" - this css is loaded after media-window
-// but the fix applies to both (inline video & gate to hell)
-.player--fullscreen {
-  iframe {
-    top: 0;
-    transform: translate(0, 0);
-  }
 }
