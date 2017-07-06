@@ -98,7 +98,7 @@ body::after {
     .navbar__menu {
       position: absolute; // covering up safari pos. fixed bug :/
       width: 280px;
-      visibility: visible; // accessibility
+      // visibility: visible; // accessibility
       box-shadow: 0 8px 16px 0 rgba(0, 0, 0, .24); // this does look a little funny ...
 
       // top: 0;
@@ -112,13 +112,12 @@ body::after {
 
   .navbar {
     visibility: visible;
-    // background-color: #333;
+
     @include smartphone {
       position: relative;
       top: 50px;
       z-index: 1;
       background-color: #333;
-      // height: 863px; // just in case of transition :/
     }
 
     @include tablet-up {
@@ -126,14 +125,16 @@ body::after {
       height: 100%;
       right: 0; // start position
       width: 350px; // covering up safari pos. fixed bug :/
-      // top: 56px; // tmp!!!
       overflow: auto;
 
       @include desktop-wide {
         right: calc(50% - 640px); // something like that
-        // top: 56px;
       }
     }
+  }
+
+  .navbar__menu {
+    visibility: visible; // accessibility
   }
 }
 
