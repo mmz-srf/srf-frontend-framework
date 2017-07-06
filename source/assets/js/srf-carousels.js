@@ -79,14 +79,6 @@ export function init() {
             if (slidesToShow > 1) {
                 // the following option is terrible for screen sizes showing more than 1 elm
                 $carousel.slick("slickSetOption", "focusOnSelect", false);
-
-                // unhide the following slidesToShow - 1 from screenreaders as well:
-                $carousel.find(".carousel__item").each(function (i) {
-                    if (i <= slidesToShow) {
-                        $(this).attr("aria-hidden", false);
-                    }
-                    console.log($carousel, $(this), i)
-                });
             }
 
             // and adjust num. of slides...
@@ -104,6 +96,16 @@ export function init() {
 
             // if we're at the rightmost position within the carousel - we don't want the right arrow
             handleRightArrow($carousel, currentSlide, screensToShow);
+        }
+
+        if (slidesToShow > 1) {
+            // unhide the following slidesToShow - 1 from screenreaders as well:
+            let maxSlideVisible = currentSlide + slidesToShow - 1;
+            $carousel.find(".carousel__item").each(function (i) {
+                (i >= currentSlide && i <= maxSlideVisible)
+                    ? $(this).attr("aria-hidden", false)
+                    : $(this).attr("aria-hidden", true);
+            });
         }
     });
 }
