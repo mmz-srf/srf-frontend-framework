@@ -74,6 +74,7 @@ export function init() {
             $carousel = $(this),
             currentSlide = $carousel.slick("slickCurrentSlide");
         currentElement = currentSlide;
+
         // if previous num. of slides shown != the num. we'll see now
         if ($carousel.slick("slickGetOption", "slidesToShow") != slidesToShow) {
 
@@ -100,6 +101,8 @@ export function init() {
 
             // if we're at the rightmost position within the carousel - we don't want the right arrow
             handleRightArrow($carousel, currentSlide, screensToShow);
+        } else if ($carousel.find(".slick-dots button"), $carousel.find(".slick-dots button").first().text() == "1") {
+            addTextToDots($carousel);
         }
 
         // accessibility:
@@ -173,16 +176,20 @@ function loadLazyImages(images) {
 
 function rePaintDots($carousel, screensToShow) {
     let x = screensToShow + 1;
-    let $li = $carousel.find(".slick-dots li").removeClass("h-element--hide");
+    $carousel.find(".slick-dots li").removeClass("h-element--hide");
     // adding text to dots
-    $li.each(function (i) {
+    addTextToDots($carousel);
+    $carousel.find(".slick-dots li:nth-child(1n + " + x + ")").addClass("h-element--hide");
+}
+
+function addTextToDots($carousel) {
+    // adding text to dots
+    $carousel.find(".slick-dots li").each(function (i) {
         let $elm = $(this);
-        let $button = $elm.find("button");
-        $button.text($elm.hasClass("slick-active") // TODO: go CMS
+        $elm.find("button").text($elm.hasClass("slick-active")
             ? $carousel.data("dot-current")
             : (i + 1) + $carousel.data("dot-info"));
     }); // this is silly and not informative :/
-    $carousel.find(".slick-dots li:nth-child(1n + " + x + ")").addClass("h-element--hide");
 }
 
 function handleRightArrow($carousel, currentSlide, screensToShow) {
