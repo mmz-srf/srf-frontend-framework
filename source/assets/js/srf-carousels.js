@@ -53,7 +53,7 @@ export function init() {
             slidesToShow: 1, // we need all dots - initially
             slidesToScroll: 1,
             accessibility: false,
-            focusOnSelect: false, // let's try this
+            // focusOnSelect: false, // <-- not adjustable "on the fly" :/
             appendArrows: "#" + id + " .slick-list",
             dots: true,
             centerPadding: 0,
@@ -72,14 +72,6 @@ export function init() {
         currentElement = currentSlide;
         // if previous num. of slides shown != the num. we'll see now
         if ($carousel.slick("slickGetOption", "slidesToShow") != slidesToShow) {
-
-            // this is not working :/
-            if (slidesPerScreen === 1) {
-                // console.log("fosb", $carousel.slick("slickGetOption", "focusOnSelect"))
-                // the following option is terrible for screen sizes showing more than 1 elm
-                $carousel.slick("slickSetOption", "focusOnSelect", true);
-                // console.log("fosb", $carousel.slick("slickGetOption", "focusOnSelect"))
-            }
 
             // if slider not at initial pos. && arrows displayed
             if (currentSlide > 0 && slidesToShow != 1) {
@@ -125,7 +117,7 @@ export function init() {
     });
 
     // unfortunately $carousel.slick("slickSetOption", "focusOnSelect", ...); cannot be set "on the fly" :/
-    $(".article-video__link").on("click", function (e) {
+    $(".video_carousel__js").on("click", ".article-video__link", function (e) {
         let $carousel = $(this).closest(".video_carousel__js");
         if (slidesPerScreen === 1) {
             $carousel.slick("slickGoTo", $(this).closest(".carousel__item").data("slick-index"));
