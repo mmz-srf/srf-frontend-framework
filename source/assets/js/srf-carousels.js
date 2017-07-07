@@ -62,7 +62,7 @@ export function init() {
     });
 
     // "position change" (resize page or "activate" slider in any way)
-    $('.video_carousel__js').on('setPosition', function (slick) {
+    $(".video_carousel__js").on("setPosition", function (slick) {
         let slidesToShow = getNumberOfSlidesPerScreen(1), // mobile : 1
             $carousel = $(this),
             currentSlide = $carousel.slick("slickCurrentSlide");
@@ -75,9 +75,12 @@ export function init() {
                 $carousel.slick("slickGoTo", currentSlide, true);
             }
 
+            // this is not working :/
             if (slidesToShow > 1) {
+                console.log("fosb", $carousel.slick("slickGetOption", "focusOnSelect"))
                 // the following option is terrible for screen sizes showing more than 1 elm
                 $carousel.slick("slickSetOption", "focusOnSelect", false);
+                console.log("fosb", $carousel.slick("slickGetOption", "focusOnSelect"))
             }
 
             // and adjust num. of slides...
@@ -101,9 +104,15 @@ export function init() {
             // unhide the following slidesToShow - 1 from screenreaders as well:
             let maxSlideVisible = currentSlide + slidesToShow - 1;
             $carousel.find(".carousel__item").each(function (i) {
+                let $elm = $(this);
+                // focus on "currentSlide" - just in case someone tabbs - and might come from a button or dot
+                if (i === currentSlide) {
+                    $elm.find(".article-video__link").focus();
+                }
+                // remove not currently visible slides from tabindex
                 (i >= currentSlide && i <= maxSlideVisible)
-                    ? $(this).attr("aria-hidden", false)
-                    : $(this).attr("aria-hidden", true);
+                    ? $elm.attr("aria-hidden", false).find(".article-video__link").attr("tabindex", 0)
+                    : $elm.attr("aria-hidden", true).find(".article-video__link").attr("tabindex", -1);
             });
         }
     });
@@ -144,7 +153,15 @@ function loadLazyImages(images) {
 
 function rePaintDots($carousel, screensToShow) {
     let x = screensToShow + 1;
-    $carousel.find(".slick-dots li").removeClass("h-element--hide");
+    let $li = $carousel.find(".slick-dots li").removeClass("h-element--hide");
+    // adding text to dots
+    $li.each(function (i) {
+        let $elm = $(this);
+        let $button = $elm.find("button");
+        $button.text($elm.hasClass("slick-active")
+            ? $carousel.data("dot-current")
+            : (i + 1) + $carousel.data("dot-info"));
+    }); // this is silly and not informative :/
     $carousel.find(".slick-dots li:nth-child(1n + " + x + ")").addClass("h-element--hide");
 }
 
