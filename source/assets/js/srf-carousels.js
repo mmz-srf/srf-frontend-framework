@@ -1,6 +1,8 @@
-var $carousels = [];
-var loadedCarousels = {};
-var css = {
+let $carousels = [];
+let loadedCarousels = {};
+let slidesPerScreen = 1;
+let currentElement = 1; // <--- or something ...
+let css = {
     'containers': '.carousel__js',
     'handles': '.carousel__link--next, .carousel__link--prev'
 };
@@ -51,7 +53,7 @@ export function init() {
             slidesToShow: 1, // we need all dots - initially
             slidesToScroll: 1,
             accessibility: false,
-            focusOnSelect: true, // let's try this
+            focusOnSelect: false, // let's try this
             appendArrows: "#" + id + " .slick-list",
             dots: true,
             centerPadding: 0,
@@ -63,24 +65,28 @@ export function init() {
 
     // "position change" (resize page or "activate" slider in any way)
     $(".video_carousel__js").on("setPosition", function (slick) {
-        let slidesToShow = getNumberOfSlidesPerScreen(1), // mobile : 1
+        slidesPerScreen = getNumberOfSlidesPerScreen(1);
+        let slidesToShow = slidesPerScreen, // mobile : 1
             $carousel = $(this),
             currentSlide = $carousel.slick("slickCurrentSlide");
+        currentElement = currentSlide;
         // if previous num. of slides shown != the num. we'll see now
         if ($carousel.slick("slickGetOption", "slidesToShow") != slidesToShow) {
+
+            // this is not working :/
+            if (slidesPerScreen === 1) {
+                // console.log("fosb", $carousel.slick("slickGetOption", "focusOnSelect"))
+                // the following option is terrible for screen sizes showing more than 1 elm
+                $carousel.slick("slickSetOption", "focusOnSelect", true);
+                // console.log("fosb", $carousel.slick("slickGetOption", "focusOnSelect"))
+            }
+
             // if slider not at initial pos. && arrows displayed
             if (currentSlide > 0 && slidesToShow != 1) {
                 // move it to 0 - so the "arrows" don't get "confused"
                 currentSlide = 0;
+                currentElement = currentSlide;
                 $carousel.slick("slickGoTo", currentSlide, true);
-            }
-
-            // this is not working :/
-            if (slidesToShow > 1) {
-                console.log("fosb", $carousel.slick("slickGetOption", "focusOnSelect"))
-                // the following option is terrible for screen sizes showing more than 1 elm
-                $carousel.slick("slickSetOption", "focusOnSelect", false);
-                console.log("fosb", $carousel.slick("slickGetOption", "focusOnSelect"))
             }
 
             // and adjust num. of slides...
@@ -90,8 +96,8 @@ export function init() {
             let screensToShow = Math.ceil($carousel.find(".carousel__item").length / slidesToShow);
             
             (screensToShow > 1) // are there more slides than one?
-                ? $(".slick-dots").removeClass("h-element--hide")  // show dots
-                : $(".slick-dots").addClass("h-element--hide");    // else hide the one :)
+                ? $carousel.find(".slick-dots").removeClass("h-element--hide")  // show dots
+                : $carousel.find(".slick-dots").addClass("h-element--hide");    // else hide the one :)
 
             // and adjust num. of dots
             rePaintDots($carousel, screensToShow);
@@ -100,6 +106,7 @@ export function init() {
             handleRightArrow($carousel, currentSlide, screensToShow);
         }
 
+        // accessibility:
         if (slidesToShow > 1) {
             // unhide the following slidesToShow - 1 from screenreaders as well:
             let maxSlideVisible = currentSlide + slidesToShow - 1;
@@ -114,6 +121,14 @@ export function init() {
                     ? $elm.attr("aria-hidden", false).find(".article-video__link").attr("tabindex", 0)
                     : $elm.attr("aria-hidden", true).find(".article-video__link").attr("tabindex", -1);
             });
+        }
+    });
+
+    // unfortunately $carousel.slick("slickSetOption", "focusOnSelect", ...); cannot be set "on the fly" :/
+    $(".article-video__link").on("click", function (e) {
+        let $carousel = $(this).closest(".video_carousel__js");
+        if (slidesPerScreen === 1) {
+            $carousel.slick("slickGoTo", $(this).closest(".carousel__item").data("slick-index"));
         }
     });
 }
@@ -181,6 +196,5 @@ function getNumberOfSlidesPerScreen(slidesToShow = 1) {
     } else if (matchMedia('screen and (min-width: 1024px)').matches) {
         slidesToShow = 3; // larger
     }
-
     return slidesToShow
 }
