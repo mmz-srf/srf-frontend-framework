@@ -315,10 +315,16 @@
     "show": {
       "title": "Schweiz aktuell",
       "date": "2016-09-12"
-    }
+    },
+    "video": "Video",
+    "play": "abspielen",
+    "plays_within_page": "Video spielt innerhalb der Seite ab",
+    "plays_externally": "Video wird im Player abgespielt"
   },
   "video_gallery": {
-    "ID": "video-gallery"
+    "ID": "video-gallery",
+    "slide_current": "Gewählter Slide",
+    "slide_select": ". Slide wählen"
   },
   "videos": [
     {

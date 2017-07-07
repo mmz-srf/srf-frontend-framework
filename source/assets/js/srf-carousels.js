@@ -1,6 +1,8 @@
-var $carousels = [];
-var loadedCarousels = {};
-var css = {
+let $carousels = [];
+let loadedCarousels = {};
+let slidesPerScreen = 1;
+let currentElement = 1; // <--- or something ...
+let css = {
     'containers': '.carousel__js',
     'handles': '.carousel__link--next, .carousel__link--prev'
 };
@@ -51,7 +53,7 @@ export function init() {
             slidesToShow: 1, // we need all dots - initially
             slidesToScroll: 1,
             accessibility: false,
-            focusOnSelect: true, // let's try this
+            // focusOnSelect: false, // <-- not adjustable "on the fly" :/
             appendArrows: "#" + id + " .slick-list",
             dots: true,
             // focusOnSelect: true,
@@ -63,22 +65,21 @@ export function init() {
     });
 
     // "position change" (resize page or "activate" slider in any way)
-    $('.video_carousel__js').on('setPosition', function (slick) {
-        let slidesToShow = getNumberOfSlidesPerScreen(1), // mobile : 1
+    $(".video_carousel__js").on("setPosition", function (slick) {
+        slidesPerScreen = getNumberOfSlidesPerScreen(1);
+        let slidesToShow = slidesPerScreen, // mobile : 1
             $carousel = $(this),
             currentSlide = $carousel.slick("slickCurrentSlide");
+        currentElement = currentSlide;
         // if previous num. of slides shown != the num. we'll see now
         if ($carousel.slick("slickGetOption", "slidesToShow") != slidesToShow) {
+
             // if slider not at initial pos. && arrows displayed
             if (currentSlide > 0 && slidesToShow != 1) {
                 // move it to 0 - so the "arrows" don't get "confused"
                 currentSlide = 0;
+                currentElement = currentSlide;
                 $carousel.slick("slickGoTo", currentSlide, true);
-            }
-
-            if (slidesToShow > 1) {
-                // the following option is terrible for screen sizes showing more than 1 elm
-                $carousel.slick("slickSetOption", "focusOnSelect", false);
             }
 
             // and adjust num. of slides...
@@ -88,8 +89,8 @@ export function init() {
             let screensToShow = Math.ceil($carousel.find(".carousel__item").length / slidesToShow);
             
             (screensToShow > 1) // are there more slides than one?
-                ? $(".slick-dots").removeClass("h-element--hide")  // show dots
-                : $(".slick-dots").addClass("h-element--hide");    // else hide the one :)
+                ? $carousel.find(".slick-dots").removeClass("h-element--hide")  // show dots
+                : $carousel.find(".slick-dots").addClass("h-element--hide");    // else hide the one :)
 
             // and adjust num. of dots
             rePaintDots($carousel, screensToShow);
@@ -98,14 +99,27 @@ export function init() {
             handleRightArrow($carousel, currentSlide, screensToShow);
         }
 
+        // accessibility:
         if (slidesToShow > 1) {
             // unhide the following slidesToShow - 1 from screenreaders as well:
             let maxSlideVisible = currentSlide + slidesToShow - 1;
             $carousel.find(".carousel__item").each(function (i) {
+                let $elm = $(this);
+                // focus on "currentSlide" - just in case someone tabbs - and might come from a button or dot
+                if (i === currentSlide) {
+                    $elm.find(".article-video__link").focus();
+                }
+                // remove not currently visible slides from tabindex
                 (i >= currentSlide && i <= maxSlideVisible)
-                    ? $(this).attr("aria-hidden", false)
-                    : $(this).attr("aria-hidden", true);
+                    ? $elm.attr("aria-hidden", false).find(".article-video__link").attr("tabindex", 0)
+                    : $elm.attr("aria-hidden", true).find(".article-video__link").attr("tabindex", -1);
             });
+        }
+    }).on("click", ".article-video__link", function (e) {
+        // unfortunately $carousel.slick("slickSetOption", "focusOnSelect", ...); cannot be set "on the fly" :/
+        let $carousel = $(this).closest(".video_carousel__js");
+        if (slidesPerScreen === 1) {
+            $carousel.slick("slickGoTo", $(this).closest(".carousel__item").data("slick-index"));
         }
     });
 }
@@ -145,7 +159,15 @@ function loadLazyImages(images) {
 
 function rePaintDots($carousel, screensToShow) {
     let x = screensToShow + 1;
-    $carousel.find(".slick-dots li").removeClass("h-element--hide");
+    let $li = $carousel.find(".slick-dots li").removeClass("h-element--hide");
+    // adding text to dots
+    $li.each(function (i) {
+        let $elm = $(this);
+        let $button = $elm.find("button");
+        $button.text($elm.hasClass("slick-active")
+            ? $carousel.data("dot-current")
+            : (i + 1) + $carousel.data("dot-info"));
+    }); // this is silly and not informative :/
     $carousel.find(".slick-dots li:nth-child(1n + " + x + ")").addClass("h-element--hide");
 }
 
@@ -165,6 +187,5 @@ function getNumberOfSlidesPerScreen(slidesToShow = 1) {
     } else if (matchMedia('screen and (min-width: 1024px)').matches) {
         slidesToShow = 3; // larger
     }
-
     return slidesToShow
 }
