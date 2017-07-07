@@ -80,7 +80,7 @@
     }
 
     // nor the image pushed down
-    &:not(.video--loading):not(.video--playing) {
+    &:not(.video--loading):not(.video--playing):not(.video--pausing) {
       .image-figure__image-wrapper {
         margin-top: -56.25%;
       }
@@ -282,7 +282,8 @@
     }
   }
 
-  .video--playing {
+  .video--playing,
+  .video--pausing {
     .article-video__player {
       margin: 0;
     }
@@ -302,3 +303,9 @@
   }
 }
 // end player integration
+
+.article-media--last-played {
+  .media-caption {
+    background-color: #ebebe5;
+  }
+}
