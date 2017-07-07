@@ -10,6 +10,10 @@ let css = {
 export function init() {
     $carousels = $(css.containers);
 
+    /* $(".article-video__link").on("click", function (e) {
+     e.preventDefault();
+     }); */
+
     // prevent flicker effect on page load
     $carousels.on('init', function () {
         $(css.containers).css("visibility", "visible");
@@ -113,14 +117,25 @@ export function init() {
                     ? $elm.attr("aria-hidden", false).find(".article-video__link").attr("tabindex", 0)
                     : $elm.attr("aria-hidden", true).find(".article-video__link").attr("tabindex", -1);
             });
+        } else {
+            $carousel.find(".carousel__item").attr("aria-hidden", false);
         }
     }).on("click", ".article-video__link", function (e) {
         // unfortunately $carousel.slick("slickSetOption", "focusOnSelect", ...); cannot be set "on the fly" :/
-        let $carousel = $(this).closest(".video_carousel__js");
         if (slidesPerScreen === 1) {
-            $carousel.slick("slickGoTo", $(this).closest(".carousel__item").data("slick-index"));
+            gotTo($(this));
+        }
+    }).on("keyup", ".article-video__link", function (e) {
+        // someone is tabbing
+        if (e.keyCode === 9 && slidesPerScreen === 1) {
+            gotTo($(this));
         }
     });
+}
+
+function gotTo($selectedLink) {
+    $selectedLink.closest(".video_carousel__js")
+        .slick("slickGoTo", $(this).closest(".carousel__item").data("slick-index"));
 }
 
 function registerListener($carousel) {
@@ -163,7 +178,7 @@ function rePaintDots($carousel, screensToShow) {
     $li.each(function (i) {
         let $elm = $(this);
         let $button = $elm.find("button");
-        $button.text($elm.hasClass("slick-active")
+        $button.text($elm.hasClass("slick-active") // TODO: go CMS
             ? $carousel.data("dot-current")
             : (i + 1) + $carousel.data("dot-info"));
     }); // this is silly and not informative :/
