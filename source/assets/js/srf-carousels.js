@@ -114,10 +114,8 @@ export function init() {
                     : $elm.attr("aria-hidden", true).find(".article-video__link").attr("tabindex", -1);
             });
         }
-    });
-
-    // unfortunately $carousel.slick("slickSetOption", "focusOnSelect", ...); cannot be set "on the fly" :/
-    $(".video_carousel__js").on("click", ".article-video__link", function (e) {
+    }).on("click", ".article-video__link", function (e) {
+        // unfortunately $carousel.slick("slickSetOption", "focusOnSelect", ...); cannot be set "on the fly" :/
         let $carousel = $(this).closest(".video_carousel__js");
         if (slidesPerScreen === 1) {
             $carousel.slick("slickGoTo", $(this).closest(".carousel__item").data("slick-index"));
