@@ -101,7 +101,7 @@ export function init() {
 
             // if we're at the rightmost position within the carousel - we don't want the right arrow
             handleRightArrow($carousel, currentSlide, screensToShow);
-        } else if ($carousel.find(".slick-dots button"), $carousel.find(".slick-dots button").first().text() == "1") {
+        } else if ($carousel.find(".slick-dots button").first().text() == "1") {
             addTextToDots($carousel);
         }
 
@@ -110,15 +110,10 @@ export function init() {
             // unhide the following slidesToShow - 1 from screenreaders as well:
             let maxSlideVisible = currentSlide + slidesToShow - 1;
             $carousel.find(".carousel__item").each(function (i) {
-                let $elm = $(this);
-                // focus on "currentSlide" - just in case someone tabbs - and might come from a button or dot
-                if (i === currentSlide) {
-                    $elm.find(".article-video__link").focus();
-                }
                 // remove not currently visible slides from tabindex
                 (i >= currentSlide && i <= maxSlideVisible)
-                    ? $elm.attr("aria-hidden", false).find(".article-video__link").attr("tabindex", 0)
-                    : $elm.attr("aria-hidden", true).find(".article-video__link").attr("tabindex", -1);
+                    ? $(this).attr("aria-hidden", false).find(".article-video__link").attr("tabindex", 0)
+                    : $(this).attr("aria-hidden", true).find(".article-video__link").attr("tabindex", -1);
             });
         } else {
             $carousel.find(".carousel__item").attr("aria-hidden", false);
