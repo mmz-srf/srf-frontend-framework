@@ -1,5 +1,9 @@
 @import "../../variables";
 
+*:focus {
+  // border: 3px dotted red !important;
+}
+
 .media-window-container {
   background-color: #f5f5f2;
 }
@@ -35,8 +39,11 @@
   .carousel__item {
     display: flex;
     flex-direction: column;
-  }
 
+    @media all and (-ms-high-contrast: none) {
+      display: block; /* IE11 */
+    }
+  }
   .article-video__link { // :/
     display: flex;
     height: 100%;
