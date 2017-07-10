@@ -2,25 +2,15 @@ export function init() {
 
     let menuHasFocus = false;
 
-    $(".header").on("keyup", ".menu-handle", function (e) {
-        // on tabbing into [Menu] + <enter>
-        if (e.keyCode === 13) {
-            // focus on [x]
-            setTimeout(function () { // accessibility: menu is hidden for everyone
-                $(".navbar__link--close").focus();
-            }, 10); // we need to wait ... until "things" are available :/
-            menuHasFocus = true;
-        }
-    }).on("keydown", ".navbar__link--close", function (e) {
+    $(".header").on("keypress", ".navbar__link--close", function (e) {
         // on tabbing into [x] + <enter>
         if (e.keyCode === 13) {
             // focus on [menu]
             $(".menu-handle").trigger("click");
             $(".menu-handle").focus();
-            // menuHasFocus = false;
         }
-    }).on("click", ".menu-handle", function (e) { // hamburger clicking management
-        e.preventDefault();
+    }).on("click keypress", ".menu-handle", function (e) { // hamburger clicking management
+        e.preventDefault(); // chrome has "a problem" (bug!) with keypress!
         let $handle = $(this);
         if ($handle.hasClass("menu-handle--active")) { // the menu is open => close it
             $("body").removeClass("body--observer").find(".navbar__link--close")
@@ -34,13 +24,12 @@ export function init() {
                 });
             } else { // on mobile: no animations
                 $(".navbar__menu").removeClass("navbar__menu--come-in") // slide menu back
-                    .closest(".navbar").addClass("navbar--closed")  // set
+                    .closest(".navbar").addClass("navbar--closed")
                     .closest("body").removeClass("body--fixed");
             }
             menuHasFocus = false;
 
         } else { // the menu is closed => open it
-            e.stopPropagation();
             $handle.addClass("menu-handle--active")
                 .closest("body").addClass("body--fixed").addClass("body--observer")
                 .find(".navbar").removeClass("navbar--closed")
@@ -52,6 +41,13 @@ export function init() {
                 });
             }
             menuHasFocus = true;
+
+            if (e.keyCode === 13) {
+                // focus on [x]
+                $(".navbar__link--close").focus();
+            } else {
+                e.stopPropagation();
+            }
         }
     });
 
@@ -64,11 +60,13 @@ export function init() {
     });
 
     // accessibility: if menu loses focus => we close it
-    $(".l-main-wrapper, .breadcrumbs").on("keyup", function (e) {
+    $(".breadcrumbs").on("keyup", function (e) {
         // we tabbed "into article"
         if (menuHasFocus && e.keyCode === 9) { // and the menu was open
+            if ($(".expand-arrow").hasClass("expand-arrow--open")) {
+                $(".js-expand-arrow").trigger("click");
+            }
             $(".menu-handle").trigger("click");
-            // menuHasFocus = false;
         }
     });
 

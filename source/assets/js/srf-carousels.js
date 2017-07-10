@@ -56,7 +56,6 @@ export function init() {
             // focusOnSelect: false, // <-- not adjustable "on the fly" :/
             appendArrows: "#" + id + " .slick-list",
             dots: true,
-            // focusOnSelect: true,
             centerPadding: 0,
             variableWidth: true,
             prevArrow: '<button class="carousel__link--prev"><span class="h-offscreen h-offscreen-focusable">Vorhergehender Slide</span></button>',

@@ -676,16 +676,6 @@
     "o_clock": "Uhr",
     "legend_title": "JA-Anteil in %"
   },
-  "breadcrumbs": {
-    "1": {
-      "url": "www.srf.ch/sport",
-      "name": "Sport"
-    },
-    "2": {
-      "url": "www.srf.ch/sport/fussball",
-      "name": "Fussball"
-    }
-  },
   "header": {
     "menu": "Menü",
     "home": "Startseite SRF",
@@ -698,5 +688,14 @@
     "close": "schliessen",
     "show": "anzeigen",
     "is_open": "geöffnet"
-  }
+  },
+  "breadcrumbs": [
+    {
+      "url": "www.srf.ch/sport",
+      "name": "Sport"
+    }, {
+      "url": "www.srf.ch/sport/fussball",
+      "name": "Fussball"
+    }
+  ]
 }
