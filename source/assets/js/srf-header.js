@@ -2,7 +2,7 @@ export function init() {
 
     let menuHasFocus = false;
 
-    $(".header").on("keydown", ".navbar__link--close", function (e) {
+    $(".header").on("keypress", ".navbar__link--close", function (e) {
         // on tabbing into [x] + <enter>
         if (e.keyCode === 13) {
             // focus on [menu]
@@ -10,7 +10,7 @@ export function init() {
             $(".menu-handle").focus();
         }
     }).on("click keypress", ".menu-handle", function (e) { // hamburger clicking management
-        e.preventDefault();
+        e.preventDefault(); // chrome has "a problem" (bug!) with keypress!
         let $handle = $(this);
         if ($handle.hasClass("menu-handle--active")) { // the menu is open => close it
             $("body").removeClass("body--observer").find(".navbar__link--close")
@@ -24,7 +24,7 @@ export function init() {
                 });
             } else { // on mobile: no animations
                 $(".navbar__menu").removeClass("navbar__menu--come-in") // slide menu back
-                    .closest(".navbar").addClass("navbar--closed")  // set
+                    .closest(".navbar").addClass("navbar--closed")
                     .closest("body").removeClass("body--fixed");
             }
             menuHasFocus = false;
@@ -63,6 +63,9 @@ export function init() {
     $(".breadcrumbs").on("keyup", function (e) {
         // we tabbed "into article"
         if (menuHasFocus && e.keyCode === 9) { // and the menu was open
+            if ($(".expand-arrow").hasClass("expand-arrow--open")) {
+                $(".js-expand-arrow").trigger("click");
+            }
             $(".menu-handle").trigger("click");
         }
     });
