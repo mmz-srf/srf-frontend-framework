@@ -125,6 +125,7 @@ body::after {
 
       @include desktop-wide {
         right: calc(50% - 640px); // something like that
+        box-shadow: 8px 0 16px -8px rgba(0, 0, 0, 0.24);
       }
     }
   }
