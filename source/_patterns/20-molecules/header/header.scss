@@ -81,6 +81,7 @@ body::after {
       width: 100%;
       left: 0;
       background-image: linear-gradient(to bottom, #313131, #212121);
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .24);
     }
 
     // positioning in context
