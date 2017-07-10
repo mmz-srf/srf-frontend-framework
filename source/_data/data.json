@@ -682,5 +682,14 @@
     "close": "schliessen",
     "show": "anzeigen",
     "is_open": "geöffnet"
-  }
+  },
+  "breadcrumbs": [
+    {
+      "url": "www.srf.ch/sport",
+      "name": "Sport"
+    }, {
+      "url": "www.srf.ch/sport/fussball",
+      "name": "Fussball"
+    }
+  ]
 }

@@ -52,6 +52,10 @@
   &:focus {
     background-color: #fafaf8;
   }
+
+  &.article-media--last-played {
+    background-color: #ebebe5;
+  }
 }
 
 .article-video__link {
@@ -155,8 +159,23 @@
 
 // overwriting the above "img frame"
 .video--loading,
-.video--playing {
+.video--playing,
+.video--pausing {
   overflow: hidden;
+
+  .article-video__player::before {
+    content: "";
+    display: block;
+    padding-top: 56.25%;
+  }
+
+  .image-figure::before {
+    content: none;
+  }
+}
+
+.video--loading,
+.video--playing {
 
   // invert caption colours
   &.article-video,
@@ -188,20 +207,10 @@
     -moz-osx-font-smoothing: grayscale;
   }
   // end invert caption colours
-
-  .article-video__player::before {
-    content: "";
-    display: block;
-    padding-top: 56.25%;
-  }
-
-  .image-figure::before {
-    content: none;
-  }
 }
 
-.video--playing {
-
+.video--playing,
+.video--pausing {
   .image-figure__image-wrapper::before,
   .media-play__icon,
   .media-play__length {
@@ -275,4 +284,10 @@
             }
         }
     }
+}
+
+.article-media--last-played {
+  .media-caption {
+    background-color: #ebebe5;
+  }
 }
