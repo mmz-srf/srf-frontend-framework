@@ -240,6 +240,7 @@
 .poll--submitted {
   .poll-option-rating {
     display: block;
+    height: 100px;
   }
 }
 
@@ -259,12 +260,15 @@
 .poll-option-rating__answer-copy {
   position: absolute;
   top: 50%;
-  width: calc(100% - 88px); // 88 = 72 + 16
+  width: calc(100% - 130px); // calc(100% - 88px); // 88 = 72 + 16 // --> 100% - 124px ?? ( img + votes% !)
   font: 16px/20px $font-regular;
   letter-spacing: .5px;
   margin: 0;
   padding: 16px;
   transform: translate(0, -50%);
+  @include tablet-up {
+    width: calc(100% - 150px);
+  }
 }
 
 .poll-option-rating__percent {
@@ -324,9 +328,9 @@
   margin: 0;
   background-color: $color-bg-caption;
   display: none;
-  @include smartphone {
+  // @include smartphone {
     padding: 16px;
-  }
+  // }
 }
 
 .poll-form-handling__endscreen {
@@ -352,3 +356,64 @@
     border-radius: 2px;
   }
 }
+
+// player
+
+.poll--setup {
+  // ie11 flexbox fix :/
+  @media all and (-ms-high-contrast: none) {
+    .poll-option-wrapper {
+      height: 100%;
+    }
+  }
+
+  // videos - initial
+  .video--playing .image-figure__image {
+    display: none;
+  }
+
+  // audios - initial
+  .article-media__link:before {
+    padding-top: calc(56.25%);
+    transition: padding 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
+  }
+
+  .audio--playing {
+    // make the img fit (there's a player underneath)
+    .article-media__link:before {
+      content: "";
+      display: block;
+      padding-top: calc(56.25% - 42px);
+      position: relative;
+    }
+
+    .image-figure__image {
+      background-color: #000;
+      bottom: 0;
+      height: 100%;
+      left: 0;
+      min-width: 100%;
+      object-fit: contain;
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 1px;
+    }
+
+    .media-play {
+      display: none;
+    }
+  }
+}
+
+.poll--submitted {
+  .poll-option-wrapper { // so the audio sits at the bottom
+    height: 100px;
+  }
+
+  .media-window--playing .media-window::after { // dreieckli
+    border-bottom: 10px solid #ebebe5;
+  }
+}
+
+// do something about <strong> !!

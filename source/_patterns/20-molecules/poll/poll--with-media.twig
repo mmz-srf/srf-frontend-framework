@@ -15,8 +15,9 @@
                 {{ option.question_label( pollIndex, i, poll.answers.0 ) }}
                 {# // Image #}
             </li>{% set i = i + 1 %}{# if poll--with-media && total no of list entries % 2 == 0 => #}
-            <li class="poll-option{% if list_entries % 2 == 0 and styleModifier != 'poll--with-radios' %} poll-option--save-the-margin{% endif %}">{# this would be <li class="poll-option poll-option--save-the-margin"> #}
+            <li class="poll-option{% if list_entries % 2 == 0 and styleModifier != 'poll--with-radios' %} poll-option--save-the-margin{% endif %} {{ styleModifier }}">{# this would be <li class="poll-option poll-option--save-the-margin"> #}
                 {# Video #}
+                {% include 'atoms-media-window' %}
                 {% set media_options = { "media": { "type": "video", "title" : videos[0].title, "length" : videos[0].length, "player_url": videos[0].player_url, "urn" : videos[0].urn }, "image" : images[2] } %}
                 {{ option.rating_box( i, poll.answers.0, media_options) }}
                 {{ option.question_label( pollIndex, i, poll.answers.1.title, poll.answers.1.description ) }}
@@ -27,6 +28,8 @@
                 {% set media_options = { "media": { "type": "audio", "title" : audios[0].title, "length" : audios[0].length, "player_url": audios[0].player_url, "urn" : audios[0].urn }, "image" : images[2] } %}
                 {{ option.rating_box( i, poll.answers.0, media_options ) }}
                 {{ option.question_label( pollIndex, i, poll.answers.0 ) }}
+                {# <div id="" class="article-{{ media.type }}__player player-wrapper--js"></div> #}
+                <div id="" class="article-audiox__player player-wrapper--js"></div>
                 {# // Audio #}
             </li>
         </ol>
