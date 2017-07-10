@@ -29,6 +29,9 @@
 @import "10-atoms/content/legend";
 @import "10-atoms/content/tooltip";
 @import "10-atoms/content/media-window";
+@import "10-atoms/navigation/hamburger";
+@import "10-atoms/navigation/search";
+@import "10-atoms/navigation/expand-arrow";
 @import "10-atoms/content/breadcrumb-link";
 @import "10-atoms/separators/horizontal-separator";
 @import "10-atoms/separators/vertical-separator";
@@ -61,4 +64,4 @@
 @import "20-molecules/comments/comments";
 @import "20-molecules/polis/polis";
 @import "20-molecules/breadcrumbs/breadcrumbs";
-
+@import "20-molecules/header/header";
