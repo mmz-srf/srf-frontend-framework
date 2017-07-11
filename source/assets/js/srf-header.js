@@ -51,7 +51,7 @@ export function init() {
         }
     });
 
-    $(document).on("click", ".body--observer", function (e) {
+    $(document).on("click touchstart", ".body--observer", function (e) {
         let $target = $(e.target);
         // make it possible to use search while page is dimmed and navi is visible
         if (!$target.hasClass("searchbox__input") && (!$target.hasClass("navbar__link") || $target.hasClass("navbar__link--close") ) && !$target.hasClass("expand-arrow")) {
