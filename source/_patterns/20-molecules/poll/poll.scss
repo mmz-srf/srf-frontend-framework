@@ -357,11 +357,6 @@
     }
   }
 
-  // videos - initial
-  .video--playing .image-figure__image {
-    display: none;
-  }
-
   // audios - initial
   .article-media__link:before {
     padding-top: calc(56.25%);
@@ -394,20 +389,5 @@
       display: none;
     }
   }
-}
-
-.poll--submitted {
-  .poll-option-wrapper { // so the audio sits at the bottom
-    height: 100px;
-  }
-
-  .media-window--playing .media-window::after { // dreieckli
-    border-bottom: 10px solid #ebebe5;
-  }
-}
-
-// cms differs from fef :/
-.image-figure__image-wrapper {
-  height: 100%;
 }
 // do something about <strong> !!

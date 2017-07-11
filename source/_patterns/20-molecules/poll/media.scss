@@ -93,3 +93,51 @@
     display: none;
   }
 }
+
+.poll--with-media { // TODO: CHECK!!!
+
+  // videos - initial
+  .video--loading,
+  .video--playing {
+    .image-figure__image {
+      display: none;
+    }
+  }
+
+  .video--loading,
+  .video--playing,
+  .audio--loading,
+  .audio--playing {
+    .media-play {
+      display: none;
+    }
+  }
+}
+
+.article-media {
+  // general
+  .image-figure__image-wrapper {
+    height: 100%;
+  }
+
+  // audio
+  &:not(.audio--loading) {
+    .spinner-container {
+      display: none;
+    }
+
+    .spinner,
+    .spinner__circle--dash {
+      animation: none;
+    }
+  }
+
+  .article-audio__link {
+    margin: 0; // WHAT WAS THAT!? (a link with MARGINS!!)
+  }
+
+  // video
+  .article-video__player {
+    position: relative;
+  }
+}
