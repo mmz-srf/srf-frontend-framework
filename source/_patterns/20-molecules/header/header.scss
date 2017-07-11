@@ -64,6 +64,8 @@ body::after {
     right: 0;
 
     &.body--observer { // the bg dim!
+      cursor: pointer; // makes it react to tap (instead of click) as well
+
       &::after {
         position: absolute;
         height: 100%;
