@@ -10,6 +10,10 @@ let css = {
 export function init() {
     $carousels = $(css.containers);
 
+    /* $(".article-video__link").on("click", function (e) {
+     e.preventDefault();
+     }); */
+
     // prevent flicker effect on page load
     $carousels.on('init', function () {
         $(css.containers).css("visibility", "visible");
@@ -70,6 +74,7 @@ export function init() {
             $carousel = $(this),
             currentSlide = $carousel.slick("slickCurrentSlide");
         currentElement = currentSlide;
+
         // if previous num. of slides shown != the num. we'll see now
         if ($carousel.slick("slickGetOption", "slidesToShow") != slidesToShow) {
 
@@ -96,6 +101,8 @@ export function init() {
 
             // if we're at the rightmost position within the carousel - we don't want the right arrow
             handleRightArrow($carousel, currentSlide, screensToShow);
+        } else if ($carousel.find(".slick-dots button").first().text() == "1") {
+            addTextToDots($carousel);
         }
 
         // accessibility:
@@ -103,24 +110,30 @@ export function init() {
             // unhide the following slidesToShow - 1 from screenreaders as well:
             let maxSlideVisible = currentSlide + slidesToShow - 1;
             $carousel.find(".carousel__item").each(function (i) {
-                let $elm = $(this);
-                // focus on "currentSlide" - just in case someone tabbs - and might come from a button or dot
-                if (i === currentSlide) {
-                    $elm.find(".article-video__link").focus();
-                }
                 // remove not currently visible slides from tabindex
                 (i >= currentSlide && i <= maxSlideVisible)
-                    ? $elm.attr("aria-hidden", false).find(".article-video__link").attr("tabindex", 0)
-                    : $elm.attr("aria-hidden", true).find(".article-video__link").attr("tabindex", -1);
+                    ? $(this).attr("aria-hidden", false).find(".article-video__link").attr("tabindex", 0)
+                    : $(this).attr("aria-hidden", true).find(".article-video__link").attr("tabindex", -1);
             });
+        } else {
+            $carousel.find(".carousel__item").attr("aria-hidden", false);
         }
     }).on("click", ".article-video__link", function (e) {
         // unfortunately $carousel.slick("slickSetOption", "focusOnSelect", ...); cannot be set "on the fly" :/
-        let $carousel = $(this).closest(".video_carousel__js");
         if (slidesPerScreen === 1) {
-            $carousel.slick("slickGoTo", $(this).closest(".carousel__item").data("slick-index"));
+            gotTo($(this));
+        }
+    }).on("keyup", ".article-video__link", function (e) {
+        // someone is tabbing
+        if (e.keyCode === 9 && slidesPerScreen === 1) {
+            gotTo($(this));
         }
     });
+}
+
+function gotTo($selectedLink) {
+    $selectedLink.closest(".video_carousel__js")
+        .slick("slickGoTo", $(this).closest(".carousel__item").data("slick-index"));
 }
 
 function registerListener($carousel) {
@@ -158,16 +171,20 @@ function loadLazyImages(images) {
 
 function rePaintDots($carousel, screensToShow) {
     let x = screensToShow + 1;
-    let $li = $carousel.find(".slick-dots li").removeClass("h-element--hide");
+    $carousel.find(".slick-dots li").removeClass("h-element--hide");
     // adding text to dots
-    $li.each(function (i) {
+    addTextToDots($carousel);
+    $carousel.find(".slick-dots li:nth-child(1n + " + x + ")").addClass("h-element--hide");
+}
+
+function addTextToDots($carousel) {
+    // adding text to dots
+    $carousel.find(".slick-dots li").each(function (i) {
         let $elm = $(this);
-        let $button = $elm.find("button");
-        $button.text($elm.hasClass("slick-active")
+        $elm.find("button").text($elm.hasClass("slick-active")
             ? $carousel.data("dot-current")
             : (i + 1) + $carousel.data("dot-info"));
     }); // this is silly and not informative :/
-    $carousel.find(".slick-dots li:nth-child(1n + " + x + ")").addClass("h-element--hide");
 }
 
 function handleRightArrow($carousel, currentSlide, screensToShow) {
