@@ -190,6 +190,7 @@ body::after {
   .navbar__menu {
     position: absolute;
     width: 0;
+    visibility: hidden; // accessibility
   }
 
   // this only makes sense in context
@@ -201,7 +202,6 @@ body::after {
 }
 
 .navbar__menu {
-  visibility: hidden; // accessibility
   margin: 0;
   padding: 0;
   -webkit-font-smoothing: antialiased;
