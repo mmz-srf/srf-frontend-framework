@@ -80,7 +80,7 @@
     }
 
     // nor the image pushed down
-    &:not(.video--loading):not(.video--playing) {
+    &:not(.video--loading):not(.video--playing):not(.video--pausing) {
       .image-figure__image-wrapper {
         margin-top: -56.25%;
       }
@@ -167,12 +167,12 @@
 
     .carousel__link--prev {
       left: -58px;
-      background-image: url('../img/arrows/carousel_arrow_prev-no-background.svg');
+      background-image: url('../img/carousel/previous_no_bg.svg');
     }
 
     .carousel__link--next {
       right: -58px;
-      background-image: url('../img/arrows/carousel_arrow_next-no-background.svg');
+      background-image: url('../img/carousel/next_no_bg.svg');
     }
   }
 
@@ -282,7 +282,8 @@
     }
   }
 
-  .video--playing {
+  .video--playing,
+  .video--pausing {
     .article-video__player {
       margin: 0;
     }
@@ -302,3 +303,9 @@
   }
 }
 // end player integration
+
+.article-media--last-played {
+  .media-caption {
+    background-color: #ebebe5;
+  }
+}

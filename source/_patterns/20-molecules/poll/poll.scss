@@ -295,6 +295,16 @@
   background-color: #ff6669;
 }
 
+// for hidden results ...
+.h-element--hide + .poll-form-handling {
+  display: inline-block;
+  width: 100%;
+
+  @include tablet-up {
+    padding-top: 16px;
+  }
+}
+
 // last bit
 .poll-form-handling {
   border-radius: 2px;

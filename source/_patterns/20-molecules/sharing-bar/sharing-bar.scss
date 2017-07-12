@@ -3,7 +3,7 @@
 .sharing-bar {
   margin: 20px 0 24px 0;
   width: 100%;
-  position: relative;
+  // position: relative;
   background-color: transparent;
   text-align: center;
 
@@ -49,7 +49,7 @@
   font-family: $font-system;
   line-height: 1.33;
   text-align: center;
-  color: #888579;
+  color: $color-text-light;
 
   b {
     color: #22211D;
