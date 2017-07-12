@@ -54,16 +54,23 @@
 }
 
 .poll--with-media {
-  .media-play { // how many different play icons do we actually use???
-    transform: translate(-50%, -34px);
+  &.poll--setup {
+    .media-play { // how many different play icons do we actually use???
+      transform: translate(-50%, -34px);
+    }
+
+    .media-play__icon {
+      margin-bottom: 4px; // not sure if this is right :/
+    }
   }
 
   .media-play__icon {
-    margin-bottom: 4px; // not sure if this is right :/
+    margin-bottom: 0;
   }
 }
 
 // img cropping ...
+// poll-wrapper poll--with-radios poll--with-media js-poll--with-media poll--submitted
 .poll--with-media.poll--submitted {
   .article-media {
     position: relative;
@@ -85,55 +92,35 @@
   }
 
   .media-play {
-    top: 50%;
-    width: 40px;
+    width: 37px;
   }
 
   .media-play__length {
     display: none;
   }
-}
 
-.poll--with-media { // TODO: CHECK!!!
-
-  // videos - initial
-  .video--loading,
-  .video--playing,
-  .video--pausing {
-    .image-figure__image {
-      display: none;
-    }
-  }
-
-  .video--loading,
-  .video--playing,
-  .video--pausing
-  .audio--loading,
-  .audio--playing,
-  .audio--pausing {
-    .media-play {
-      display: none;
-    }
+  .poll-option-wrapper {
+    height: 100px;
   }
 }
 
-.article-media {
+.article-media { // image figure
   // general
   .image-figure__image-wrapper {
     height: 100%;
   }
 
   // audio
-  &:not(.audio--loading) {
-    .spinner-container {
-      display: none;
-    }
-
-    .spinner,
-    .spinner__circle--dash {
-      animation: none;
-    }
+  // &:not(.audio--loading) {
+  .spinner-container {
+    display: none;
   }
+
+  .spinner,
+  .spinner__circle--dash {
+    animation: none;
+  }
+  // }
 
   .article-audio__link {
     margin: 0; // WHAT WAS THAT!? (a link with MARGINS!!)
@@ -142,5 +129,51 @@
   // video
   .article-video__player {
     position: relative;
+  }
+}
+
+.poll--with-media { // TODO: CHECK!!!
+
+  // videos - initial
+  &.poll--setup {
+    .video--loading,
+    .video--playing,
+    .video--pausing {
+      .image-figure__image {
+        display: none;
+      }
+    }
+  }
+
+  // always
+  .video--loading,
+  .video--playing,
+  .video--pausing,
+  .audio--loading,
+  .audio--playing,
+  .audio--pausing {
+    .media-play {
+      display: none;
+    }
+  }
+
+  // audio
+  .audio--loading {
+    .spinner-container {
+      display: block;
+    }
+
+    .spinner,
+    .spinner__circle--dash {
+      animation: spinner_dash 1.5s ease-in-out infinite;
+    }
+  }
+}
+
+.poll--submitted {
+  .audio--loading {
+    .spinner-container {
+      width: 40px;
+    }
   }
 }
