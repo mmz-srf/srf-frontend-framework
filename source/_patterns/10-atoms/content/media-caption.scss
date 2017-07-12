@@ -74,8 +74,8 @@
   .media-caption__source--video {
     text-transform: none;
 
-    strong {
-      color: $color-text-accentuation;
+    strong, .media-caption__source-strong {
+      // color: $color-text-accentuation; // samesame - I think??
     }
   }
 }
@@ -101,7 +101,8 @@
 .media-caption__source--audio {
   text-transform: none;
 
-  strong {
+  // strong,
+  .media-caption__source-strong {
     color: $color-text-accentuation;
   }
 }
@@ -118,7 +119,8 @@
   margin-top: 4px;
   text-transform: none;
 
-  strong {
+  // strong,
+  .media-caption__source-strong {
     color: $color-text-accentuation;
   }
 }

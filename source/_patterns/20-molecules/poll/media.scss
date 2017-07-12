@@ -53,6 +53,16 @@
   }
 }
 
+.poll--with-media {
+  .media-play { // how many different play icons do we actually use???
+    transform: translate(-50%, -34px);
+  }
+
+  .media-play__icon {
+    margin-bottom: 4px; // not sure if this is right :/
+  }
+}
+
 // img cropping ...
 .poll--with-media.poll--submitted {
   .article-media {

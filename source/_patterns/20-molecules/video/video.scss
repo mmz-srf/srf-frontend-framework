@@ -196,13 +196,15 @@
   }
 
   .media-caption__source,
-  strong {
+    // strong,
+  .media-caption__source-strong {
     color: $color-border;
   }
 
   .media-caption__title,
   .media-caption__source,
-  strong {
+    // strong,
+  .media-caption__source-strong {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -284,15 +286,6 @@
             }
         }
     }
-}
-
-// "webkit-fullscreen fix" - this css is loaded after media-window
-// but the fix applies to both (inline video & gate to hell)
-.player--fullscreen {
-  iframe {
-    top: 0;
-    transform: translate(0, 0);
-  }
 }
 
 .article-media--last-played {

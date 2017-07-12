@@ -25,12 +25,14 @@
   &::before {
     content: "";
     position: absolute;
-    top: 10px;
+    top: 11px;
     left: auto;
-    right: 11px;
-    width: 7px;
-    height: 10px;
-    background: transparent url("../img/arrows/breadcrumb_arrow.svg") no-repeat scroll 0 0 / 7px auto;
+    right: 12px;
+    height: 6px;
+    width: 6px;
+    border-bottom: 1px solid #6c6960;
+    border-right: 1px solid #6c6960;
+    transform: rotate(-45deg);
   }
 }
 

@@ -5,7 +5,6 @@ $naviTransitionTime: 0.4s;
   top: 0;
   left: 0;
   width: 100%;
-  /* dark bg - does nothing :/*/
   background-image: linear-gradient(to bottom, #313131, #212121);
   background-size: 100% 50px;
   background-repeat: no-repeat;
@@ -65,6 +64,8 @@ body::after {
     right: 0;
 
     &.body--observer { // the bg dim!
+      cursor: pointer; // makes it react to tap (instead of click) as well
+
       &::after {
         position: absolute;
         height: 100%;
@@ -72,7 +73,7 @@ body::after {
         top: 0;
         left: 0;
         opacity: .2;
-        background-color: #000; // background-color: rgba(0, 0, 0, 0.2);
+        background-color: #000;
       }
     }
 
@@ -82,6 +83,7 @@ body::after {
       width: 100%;
       left: 0;
       background-image: linear-gradient(to bottom, #313131, #212121);
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .24);
     }
 
     // positioning in context
@@ -98,12 +100,9 @@ body::after {
     .navbar__menu {
       position: absolute; // covering up safari pos. fixed bug :/
       width: 280px;
-      // visibility: visible; // accessibility
+      min-height: 100%;
+      visibility: visible; // accessibility
       box-shadow: 0 8px 16px 0 rgba(0, 0, 0, .24); // this does look a little funny ...
-
-      // top: 0;
-      // bottom: -900px;
-      // right: 0;
       background-color: #333; // just in case the navi covers the search field :/
       min-height: 100%;
       z-index: 1;
@@ -129,6 +128,7 @@ body::after {
 
       @include desktop-wide {
         right: calc(50% - 640px); // something like that
+        box-shadow: 8px 0 16px -8px rgba(0, 0, 0, 0.24);
       }
     }
   }
@@ -153,7 +153,8 @@ body::after {
   }
 }
 
-.header__logo, .header__logo:hover {
+.header__logo,
+.header__logo:hover {
   border-bottom: 0;
 }
 
@@ -193,8 +194,8 @@ body::after {
 .navbar--closed { // only add after transitionend
   .navbar__menu {
     position: absolute;
-    // overflow: hidden;
     width: 0;
+    visibility: hidden; // accessibility
   }
 
   // this only makes sense in context
@@ -206,8 +207,6 @@ body::after {
 }
 
 .navbar__menu {
-  visibility: hidden; // accessibility
-
   margin: 0;
   padding: 0;
   -webkit-font-smoothing: antialiased;
@@ -252,7 +251,6 @@ body::after {
 
   &:last-child {
     border-bottom: 24px solid transparent;
-    // margin-bottom: 1px;
   }
 }
 
@@ -270,7 +268,8 @@ body::after {
     background-color: #444;
   }
 
-  &:active, &:focus {
+  &:active,
+  &:focus {
     color: #fefefd;
     background-color: #555;
   }
@@ -314,7 +313,7 @@ body::after {
   }
 
   .navbar__link--home {
-    margin-top: 46px;
+    border-top: 47px solid #333;
   }
 }
 
@@ -369,7 +368,8 @@ body::after {
     background-color: #333;
   }
 
-  &:active, &:focus {
+  &:active,
+  &:focus {
     background-color: #444;
   }
 }

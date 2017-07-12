@@ -158,13 +158,15 @@
   }
 
   .media-caption__source,
-  strong {
+    // strong,
+  .media-caption__source-strong {
     color: $color-border;
   }
 
   .media-caption__title,
   .media-caption__source,
-  strong {
+    // strong,
+  .media-caption__source-strong {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
