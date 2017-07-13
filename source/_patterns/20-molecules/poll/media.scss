@@ -164,6 +164,11 @@
     }
   }
 
+  .spinner-container {
+    height: 62px;
+    width: 62px;
+  }
+
   // ie11 flexbox fix :/
   @media all and (-ms-high-contrast: none) {
     .poll-option-wrapper {
