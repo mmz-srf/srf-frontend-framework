@@ -32,78 +32,6 @@
   }
 }
 
-.article-media--image {
-  position: relative;
-
-  &::after {
-    content: '';
-    display: block;
-    padding-top: 56.25%;
-  }
-
-  .image-figure__image {
-    height: 100%;
-    left: 0;
-    min-width: 100%;
-    object-fit: contain;
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 1px;
-  }
-}
-
-.poll--with-media {
-  &.poll--setup {
-    .media-play { // how many different play icons do we actually use???
-      transform: translate(-50%, -34px);
-    }
-
-    .media-play__icon {
-      margin-bottom: 4px; // not sure if this is right :/
-    }
-  }
-
-  .media-play__icon {
-    margin-bottom: 0;
-  }
-}
-
-// img cropping ...
-// poll-wrapper poll--with-radios poll--with-media js-poll--with-media poll--submitted
-.poll--with-media.poll--submitted {
-  .article-media {
-    position: relative;
-    width: $image-size-preview-gallery;
-    height: $image-size-preview-gallery;
-    right: 0;
-    margin: 16px;
-    float: right;
-    z-index: 1; // ???
-  }
-
-  .article-media__link {
-    height: 100%;
-  }
-
-  .image-figure__image {
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .media-play {
-    width: 37px;
-  }
-
-  .media-play__length {
-    display: none;
-  }
-
-  .poll-option-wrapper {
-    height: 100px;
-  }
-}
-
 .article-media { // image figure
   // general
   .image-figure__image-wrapper {
@@ -132,18 +60,28 @@
   }
 }
 
-.poll--with-media { // TODO: CHECK!!!
+.article-media--image {
+  position: relative;
 
-  // videos - initial
-  &.poll--setup {
-    .video--loading,
-    .video--playing,
-    .video--pausing {
-      .image-figure__image {
-        display: none;
-      }
-    }
+  &::after {
+    content: '';
+    display: block;
+    padding-top: 56.25%;
   }
+
+  .image-figure__image {
+    height: 100%;
+    left: 0;
+    min-width: 100%;
+    object-fit: contain;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 1px;
+  }
+}
+
+.poll--with-media { // TODO: CHECK!!!
 
   // always
   .video--loading,
@@ -168,13 +106,118 @@
       animation: spinner_dash 1.5s ease-in-out infinite;
     }
   }
+
+  .media-play__icon {
+    margin-bottom: 0;
+  }
 }
+
+// player
+.poll--setup {
+
+  .media-play { // how many different play icons do we actually use???
+    transform: translate(-50%, -34px);
+  }
+
+  .media-play__icon {
+    margin-bottom: 4px; // not sure if this is right :/
+  }
+
+  // audios - initial
+  .article-media__link:before {
+    padding-top: calc(56.25%);
+    transition: padding 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
+  }
+
+  .video--loading,
+  .video--playing,
+  .video--pausing {
+    .image-figure__image {
+      display: none;
+    }
+  }
+
+  .audio--playing {
+    // make the img fit (there's a player underneath)
+    .article-media__link:before {
+      content: "";
+      display: block;
+      padding-top: calc(56.25% - 42px);
+      position: relative;
+    }
+
+    .image-figure__image {
+      background-color: #000;
+      bottom: 0;
+      height: 100%;
+      left: 0;
+      min-width: 100%;
+      object-fit: contain;
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 1px;
+    }
+
+    .media-play {
+      display: none;
+    }
+  }
+
+  // ie11 flexbox fix :/
+  @media all and (-ms-high-contrast: none) {
+    .poll-option-wrapper {
+      height: 100%;
+    }
+  }
+}
+
+// img cropping ...
+.poll--submitted {
+
+  .poll-option-wrapper {
+    height: 100px;
+  }
+
+  .article-media {
+    position: relative;
+    width: $image-size-preview-gallery;
+    height: $image-size-preview-gallery;
+    right: 0;
+    margin: 16px;
+    float: right;
+    z-index: 1; // ???
+  }
+
+  .article-media__link {
+    height: 100%;
+  }
+
+  .image-figure__image {
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .media-play {
+    width: 37px;
+  }
+
+  .media-play__length {
+    display: none;
+  }
+}
+
+// do something about <strong> !!
 
 .poll--submitted {
   .audio--loading {
     .spinner-container {
       width: 40px;
     }
+  }
+
+  .media-window::after {
+    border-bottom: 10px solid #ebebe5;
   }
 
   .article-video__player {
