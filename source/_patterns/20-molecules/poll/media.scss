@@ -32,6 +32,34 @@
   }
 }
 
+.article-media { // image figure
+  // general
+  .image-figure__image-wrapper {
+    height: 100%;
+  }
+
+  // audio
+  // &:not(.audio--loading) {
+  .spinner-container {
+    display: none;
+  }
+
+  .spinner,
+  .spinner__circle--dash {
+    animation: none;
+  }
+  // }
+
+  .article-audio__link {
+    margin: 0; // WHAT WAS THAT!? (a link with MARGINS!!)
+  }
+
+  // video
+  .article-video__player {
+    position: relative;
+  }
+}
+
 .article-media--image {
   position: relative;
 
@@ -53,7 +81,40 @@
   }
 }
 
-.poll--with-media {
+.poll--with-media { // TODO: CHECK!!!
+
+  // always
+  .video--loading,
+  .video--playing,
+  .video--pausing,
+  .audio--loading,
+  .audio--playing {
+    // .audio--pausing {
+    .media-play {
+      display: none;
+    }
+  }
+
+  // audio
+  .audio--loading {
+    .spinner-container {
+      display: block;
+    }
+
+    .spinner,
+    .spinner__circle--dash {
+      animation: spinner_dash 1.5s ease-in-out infinite;
+    }
+  }
+
+  .media-play__icon {
+    margin-bottom: 0;
+  }
+}
+
+// player
+.poll--setup {
+
   .media-play { // how many different play icons do we actually use???
     transform: translate(-50%, -34px);
   }
@@ -61,10 +122,63 @@
   .media-play__icon {
     margin-bottom: 4px; // not sure if this is right :/
   }
+
+  // audios - initial
+  .article-media__link:before {
+    padding-top: calc(56.25%);
+    transition: padding 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
+  }
+
+  .video--loading,
+  .video--playing,
+  .video--pausing {
+    .image-figure__image {
+      display: none;
+    }
+  }
+
+  .audio--playing {
+    // make the img fit (there's a player underneath)
+    .article-media__link:before {
+      content: "";
+      display: block;
+      padding-top: calc(56.25% - 42px);
+      position: relative;
+    }
+
+    .image-figure__image {
+      background-color: #000;
+      bottom: 0;
+      height: 100%;
+      left: 0;
+      min-width: 100%;
+      object-fit: contain;
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 1px;
+    }
+
+    .media-play {
+      display: none;
+    }
+  }
+
+  // ie11 flexbox fix :/
+  @media all and (-ms-high-contrast: none) {
+    .poll-option-wrapper {
+      height: 100%;
+    }
+  }
 }
 
 // img cropping ...
-.poll--with-media.poll--submitted {
+.poll--submitted {
+
+  .poll-option-wrapper {
+    height: 100px;
+  }
+
   .article-media {
     position: relative;
     width: $image-size-preview-gallery;
@@ -85,11 +199,32 @@
   }
 
   .media-play {
-    top: 50%;
-    width: 40px;
+    width: 37px;
   }
 
   .media-play__length {
     display: none;
   }
+}
+
+// do something about <strong> !!
+
+.poll--submitted {
+  .audio--loading {
+    .spinner-container {
+      width: 40px;
+    }
+  }
+
+  .media-window::after {
+    border-bottom: 10px solid #ebebe5;
+  }
+
+  .article-video__player {
+    display: none;
+  }
+}
+
+.poll-option.media-window--playing {
+  overflow: visible;
 }
