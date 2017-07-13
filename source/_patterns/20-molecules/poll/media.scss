@@ -150,8 +150,8 @@
   .video--playing,
   .video--pausing,
   .audio--loading,
-  .audio--playing,
-  .audio--pausing {
+  .audio--playing {
+    // .audio--pausing {
     .media-play {
       display: none;
     }
@@ -176,4 +176,12 @@
       width: 40px;
     }
   }
+
+  .article-video__player {
+    display: none;
+  }
+}
+
+.poll-option.media-window--playing {
+  overflow: visible;
 }
