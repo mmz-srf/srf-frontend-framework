@@ -21,12 +21,17 @@
 .h-offscreen-focusable {
   &:active,
   &:focus {
-    position: static;
+    position: relative;
     width: auto;
     height: auto;
     margin: 0;
-    overflow: visible;
     clip: auto;
+    border: 1px solid #c91024;
+    background: #fff;
+    padding: 10px;
+    z-index: 1000;
+    top: 0;
+    left: 0;
   }
 }
 
