@@ -1,5 +1,9 @@
 @import "../../variables";
 
+*:focus {
+  // border: 3px dotted red !important;
+}
+
 .media-window-container {
   background-color: #f5f5f2;
 }
@@ -35,12 +39,24 @@
   .carousel__item {
     display: flex;
     flex-direction: column;
-  }
 
+    @media all and (-ms-high-contrast: none) {
+      display: block; /* IE11 */
+    }
+  }
   .article-video__link { // :/
     display: flex;
     height: 100%;
     flex: 1;
+
+    // accessibility:
+    &:focus .article-video:not(.video--loading):not(.video--playing) {
+      // transition: box-shadow .2s ease-in-out;
+      box-shadow: 0 4px 4px 0 rgba(0, 0, 0, .24);
+      .media-caption--video {
+        background-color: #fafaf8;
+      }
+    }
   }
 
   .article-video {
@@ -56,12 +72,16 @@
       margin: 0 6px 12px;
     }
 
+    @include desktop-wide {
+      margin: 0 6px 12px 2px; // not so sure - but even :/
+    }
+
     &:not(.video--loading):not(.video--playing) {
       transition: box-shadow .2s ease-in-out;
 
       &:hover,
-      &:active,
-      &:focus {
+      &:active {
+        // &:focus {
         box-shadow: 0 4px 4px 0 rgba(0, 0, 0, .24);
 
         .media-caption--video {
@@ -147,7 +167,7 @@
       width: 56px;
       height: 101px;
       top: 50%;
-      transform: translate(0px, calc(-50% - 2px)); // translate(0, calc(-50% - 12px));
+      transform: translate(0px, calc(-50% - 2px));
       background-size: 16px;
       background-position: 20px;
 

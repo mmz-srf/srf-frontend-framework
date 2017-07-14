@@ -8,7 +8,6 @@
 @import "01-global/05-fonts";
 @import "01-global/20-helpers";
 @import "40-templates/article";
-@import "10-atoms/article/article-overline";
 @import "10-atoms/article/article-title";
 @import "10-atoms/article/article-lead";
 @import "10-atoms/article/article-author";
@@ -63,5 +62,5 @@
 @import "20-molecules/form/form";
 @import "20-molecules/comments/comments";
 @import "20-molecules/polis/polis";
-@import "20-molecules/breadcrumbs/breadcrumbs";
 @import "20-molecules/header/header";
+@import "20-molecules/breadcrumbs/breadcrumbs";

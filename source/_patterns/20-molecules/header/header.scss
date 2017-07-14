@@ -102,8 +102,9 @@ body::after {
       width: 280px;
       min-height: 100%;
       visibility: visible; // accessibility
+      box-shadow: 0 8px 16px 0 rgba(0, 0, 0, .24); // this does look a little funny ...
       background-color: #333; // just in case the navi covers the search field :/
-      box-shadow: 0 8px 16px 0 rgba(0, 0, 0, .24);
+      min-height: 100%;
       z-index: 1;
     }
   }
@@ -130,6 +131,10 @@ body::after {
         box-shadow: 8px 0 16px -8px rgba(0, 0, 0, 0.24);
       }
     }
+  }
+
+  .navbar__menu {
+    visibility: visible; // accessibility
   }
 }
 

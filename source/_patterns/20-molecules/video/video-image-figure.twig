@@ -21,8 +21,8 @@
         <div class="{% if styleModifier == 'video--playing' %}article-video__player{% else %}image-figure__image-wrapper{% endif %}">
             {% block video_image %}
                 <img class="image-figure__image"
-                     alt="{{ 'Video' }} «{{ video.title }}» {{ 'abspielen' }}"
-                     title="{{ 'Video' }} «{{ video.title }}» {{ 'abspielen' }}"
+                     alt="{{ 'Video «' ~ video.title ~ '» abspielen' }}"
+                     title="{{ 'Video «' ~ video.title ~ '» abspielen' }}"
                      sizes="100vw"
                      srcset="{% for source in video.img_srcset %}
                             {{ source.src }} {{ source.width }}w

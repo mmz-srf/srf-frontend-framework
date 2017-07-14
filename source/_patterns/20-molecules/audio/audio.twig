@@ -4,7 +4,7 @@
         class="article-audio__link js-media"
         data-mediatype="audio"
         data-assetid="{{ audio.assetId }}">
-        <figure class="article-audio {{ styleModifierMain }}">
+        <figure class="article-audio {{ styleModifier }}">
             <div class="article-audio__wrapper">
 
                 {% block audio_image %}
@@ -44,7 +44,7 @@
 
                     <div class="media-caption__source media-caption__source--audio">{{ audio.length }} min,
                         {% if audio.show and audio.show.title %}
-                            aus <strong>{{ audio.show.title }}</strong>
+                            aus <strong class="media-caption__source-strong">{{ audio.show.title }}</strong>
                         {% endif %}
                         vom {{ audio.show.date|date("d.m.Y")  }}
                     </div>

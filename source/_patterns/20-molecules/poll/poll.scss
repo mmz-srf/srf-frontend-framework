@@ -56,7 +56,7 @@
 .poll {
   padding: 0;
   margin: 2px 0 0;
-  overflow: hidden;
+  // overflow: hidden; // scream!! because of dth
   clear: left;
 }
 
@@ -240,6 +240,7 @@
 .poll--submitted {
   .poll-option-rating {
     display: block;
+    height: 100px;
   }
 }
 
@@ -259,12 +260,15 @@
 .poll-option-rating__answer-copy {
   position: absolute;
   top: 50%;
-  width: calc(100% - 88px); // 88 = 72 + 16
+  width: calc(100% - 130px); // calc(100% - 88px); // 88 = 72 + 16 // --> 100% - 124px ?? ( img + votes% !)
   font: 16px/20px $font-regular;
   letter-spacing: .5px;
   margin: 0;
   padding: 16px;
   transform: translate(0, -50%);
+  @include tablet-up {
+    width: calc(100% - 150px);
+  }
 }
 
 .poll-option-rating__percent {
@@ -324,9 +328,9 @@
   margin: 0;
   background-color: $color-bg-caption;
   display: none;
-  @include smartphone {
+  // @include smartphone {
     padding: 16px;
-  }
+  // }
 }
 
 .poll-form-handling__endscreen {
