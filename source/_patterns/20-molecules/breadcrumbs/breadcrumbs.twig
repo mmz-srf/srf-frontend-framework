@@ -1,0 +1,9 @@
+<ul class="breadcrumbs {{ styleModifier }}">
+    {% for crumb in breadcrumbs %}
+        <li class="breadcrumbs__item">
+            {% block breadcrumb_link %}
+                {% include 'atoms-breadcrumb-link' with { 'url': crumb.url, 'name': crumb.name } %}
+            {% endblock %}
+        </li>
+    {% endfor %}
+</ul>

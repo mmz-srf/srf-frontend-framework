@@ -10,6 +10,7 @@
     width: 42px;
     height: 42px;
   }
+
   @include smartphone {
     width: 34px;
     height: 34px;
@@ -24,7 +25,7 @@
 
 .spinner {
   width: 100%;
-  height: auto;
+  height: 100%;
   animation: spinner_rotate 2s linear infinite;
 }
 

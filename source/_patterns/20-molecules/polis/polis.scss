@@ -1,3 +1,5 @@
+@import "../../variables";
+
 
 // result colors red-blue
 $res-0: #8d0614;
@@ -96,7 +98,7 @@ $color-polis-no-text: #af001d; // oben: af001d oder unten: #9d0017 ???
 .polis-result-title__time,
 .polis-result-title--canton-time,
 .polis-result-title--canton-o_clock {
-  color: #888579;
+  color: $color-text-light;
 }
 
 .polis-result { // li
@@ -136,7 +138,7 @@ $color-polis-no-text: #af001d; // oben: af001d oder unten: #9d0017 ???
   font-family: $font-system;
   font-size: 12px;
   line-height: 16px;
-  color: #888579;
+  color: $color-text-light;
   margin: 4px 0 0; /// TODO!
   white-space: nowrap;
 }
@@ -215,7 +217,7 @@ $color-polis-no-text: #af001d; // oben: af001d oder unten: #9d0017 ???
 }
 
 .polis-result-title--canton-time {
-  color: #888579;
+  color: $color-text-light;
 }
 
 /// here comes the zebra / districts ///
@@ -314,7 +316,7 @@ $color-polis-no-text: #af001d; // oben: af001d oder unten: #9d0017 ???
   font-family: $font-system;
   font-size: 12px;
   line-height: 16px;
-  color: #888579;
+  color: $color-text-light;
 }
 
 .polis-legend-numbers__element {
@@ -366,7 +368,7 @@ $color-polis-no-text: #af001d; // oben: af001d oder unten: #9d0017 ???
   font-family: $font-system;
   font-size: 12px;
   line-height: 16px;
-  color: #888579;
+  color: $color-text-light;
   @include tablet-up {
     position: absolute;
     bottom: -12px;
