@@ -133,7 +133,7 @@ export function init() {
 
 function gotTo($selectedLink) {
     $selectedLink.closest(".video_carousel__js")
-        .slick("slickGoTo", $(this).closest(".carousel__item").data("slick-index"));
+        .slick("slickGoTo", $selectedLink.closest(".carousel__item").data("slick-index"));
 }
 
 function registerListener($carousel) {
