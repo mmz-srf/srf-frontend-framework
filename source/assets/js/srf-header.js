@@ -2,17 +2,28 @@ export function init() {
 
     let menuHasFocus = false;
 
-    $(".header").on("keypress", ".navbar__link--close", function (e) {
+    $(".header").on("keydown", ".menu-handle", function (e) {
+        // e.stopPropagation();
         // on tabbing into [x] + <enter>
         if (e.keyCode === 13) {
             // focus on [menu]
-            $(".menu-handle").trigger("click");
-            $(".menu-handle").focus();
+            $(".menu-handle").trigger("srf.handle-menu");
+            return false;
         }
-    }).on("click keypress", ".menu-handle", function (e) { // hamburger clicking management
+    }).on("keydown", ".navbar__link--close", function (e) {
+        // e.stopPropagation();
+        // on tabbing into [x] + <enter>
+        if (e.keyCode === 13) {
+            // focus on [menu]
+            $(".menu-handle").trigger("srf.handle-menu");
+            $(".menu-handle").focus();
+            return false;
+        }
+    }).on("click srf.handle-menu", ".menu-handle", function (e) { // hamburger clicking management
         e.preventDefault(); // chrome has "a problem" (bug!) with keypress!
+        // e.stopPropagation();
         let $handle = $(this);
-        if ($handle.hasClass("menu-handle--active")) { // the menu is open => close it
+        if (menuHasFocus) { // the menu is open => close it
             $("body").removeClass("body--observer").find(".navbar__link--close")
                 .removeClass("navbar__link--fixed");
             $handle.removeClass("menu-handle--active");
@@ -42,11 +53,9 @@ export function init() {
             }
             menuHasFocus = true;
 
-            if (e.keyCode === 13) {
+            if (e.type !== "srf.handle-menu") {
                 // focus on [x]
                 $(".navbar__link--close").focus();
-            } else {
-                e.stopPropagation();
             }
         }
     });

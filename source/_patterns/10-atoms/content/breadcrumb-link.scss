@@ -18,7 +18,7 @@
     background-color: #dadad2;
   }
 
-  &:active {
+  &:active, &:focus {
     background-color: #cac8bf;
   }
 
