@@ -3,7 +3,7 @@ export function init() {
     let menuHasFocus = false;
 
     $(".header").on("keydown", ".menu-handle", function (e) {
-        // e.stopPropagation();
+        e.stopPropagation();
         // on tabbing into [x] + <enter>
         if (e.keyCode === 13) {
             // focus on [menu]
@@ -21,7 +21,7 @@ export function init() {
         }
     }).on("click srf.handle-menu", ".menu-handle", function (e) { // hamburger clicking management
         e.preventDefault(); // chrome has "a problem" (bug!) with keypress!
-        // e.stopPropagation();
+        e.stopPropagation();
         let $handle = $(this);
         if (menuHasFocus) { // the menu is open => close it
             $("body").removeClass("body--observer").find(".navbar__link--close")
