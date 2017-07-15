@@ -53,7 +53,7 @@ export function init() {
             }
             menuHasFocus = true;
 
-            if (e.type !== "srf.handle-menu") {
+            if (e.type === "srf.handle-menu") {
                 // focus on [x]
                 $(".navbar__link--close").focus();
             }
