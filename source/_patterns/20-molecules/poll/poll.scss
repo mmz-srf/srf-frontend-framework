@@ -238,6 +238,10 @@
 
 // rating / responses
 .poll--submitted {
+  .poll-option {
+    overflow: visible; // because of media window :/
+  }
+
   .poll-option-rating {
     display: block;
     height: 100px;
