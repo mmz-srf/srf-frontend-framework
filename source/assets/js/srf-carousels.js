@@ -56,7 +56,7 @@ export function init() {
             slide: ".carousel__item",
             slidesToShow: 1, // we need all dots - initially
             slidesToScroll: 1,
-            accessibility: false,
+            accessibility: true,
             // focusOnSelect: false, // <-- not adjustable "on the fly" :/
             appendArrows: "#" + id + " .slick-list",
             dots: true,
@@ -122,12 +122,32 @@ export function init() {
         // unfortunately $carousel.slick("slickSetOption", "focusOnSelect", ...); cannot be set "on the fly" :/
         if (slidesPerScreen === 1) {
             gotTo($(this));
+            // console.log("click: ", $(this).closest(".carousel__item").data("slick-index"))
         }
     }).on("keyup", ".article-video__link", function (e) {
         // someone is tabbing
         if (e.keyCode === 9 && slidesPerScreen === 1) {
             // gotTo($(this));
         }
+    });
+
+    $(".article-video__link").on("focusin", function (e) {
+        // $(".article-video__link").on("focusin", function (e) {
+        // console.log("focus", $(this).closest(".carousel__item").data("slick-index"), e)
+        // $(".article-video__link").css({"background": "transparent"})
+        // $(this).css({"background": "pink"})
+        // gotTo($(this));
+    });
+
+    $(".article-video__link").on("keyup", function (e) {
+        // e.preventDefault();
+        if (slidesPerScreen === 1 && e.keyCode == 13) { // enter
+            // let index = $(this).closest(".carousel__item").data("slick-index");
+            // gotTo($(this));
+            // console.log("keyup: ", $(this).closest(".carousel__item").data("slick-index"),
+            //             "current", $(this).closest(".video_carousel__js").slick("slickCurrentSlide"))
+        }
+        // return false;
     });
 }
 
