@@ -126,7 +126,7 @@ export function init() {
     }).on("keyup", ".article-video__link", function (e) {
         // someone is tabbing
         if (e.keyCode === 9 && slidesPerScreen === 1) {
-            gotTo($(this));
+            // gotTo($(this));
         }
     });
 }

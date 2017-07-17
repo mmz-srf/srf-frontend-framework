@@ -73,7 +73,7 @@
     }
 
     @include desktop-wide {
-      margin: 0 6px 12px 2px; // not so sure - but even :/
+      margin: 0 4px 12px 3px; // margin: 0 6px 12px 2px; // not so sure - but even :/
     }
 
     &:not(.video--loading):not(.video--playing) {
@@ -230,7 +230,7 @@
     }
 
     @include desktop-wide {
-      width: 226px;
+      width: 225px;
     }
   }
 }
