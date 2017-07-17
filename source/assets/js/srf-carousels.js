@@ -58,7 +58,7 @@ export function init() {
             slidesToScroll: 1,
             accessibility: true,
             // focusOnSelect: false, // <-- not adjustable "on the fly" :/
-            appendArrows: "#" + id + " .slick-list",
+            appendArrows: "#" + id, //  + " .slick-list",
             dots: true,
             centerPadding: 0,
             variableWidth: true,
