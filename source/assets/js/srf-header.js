@@ -7,7 +7,7 @@ export function init() {
         // on tabbing into [x] + <enter>
         if (e.keyCode === 13) {
             // focus on [menu]
-            $(".menu-handle").trigger("srf.handle-menu");
+            $(".menu-handle").trigger("srf_handle-menu");
             return false;
         }
     }).on("keydown", ".navbar__link--close", function (e) {
@@ -15,11 +15,12 @@ export function init() {
         // on tabbing into [x] + <enter>
         if (e.keyCode === 13) {
             // focus on [menu]
-            $(".menu-handle").trigger("srf.handle-menu");
+            $(".menu-handle").trigger("srf_handle-menu");
             $(".menu-handle").focus();
             return false;
         }
-    }).on("click srf.handle-menu", ".menu-handle", function (e) { // hamburger clicking management
+    }).on("click srf_handle-menu", ".menu-handle", function (e) { // hamburger clicking management
+        console.log(e, e.type)
         e.preventDefault(); // chrome has "a problem" (bug!) with keypress!
         e.stopPropagation();
         let $handle = $(this);
@@ -53,7 +54,7 @@ export function init() {
             }
             menuHasFocus = true;
 
-            if (e.type === "srf.handle-menu") {
+            if (e.type === "srf_handle-menu") {
                 // focus on [x]
                 $(".navbar__link--close").focus();
             }
