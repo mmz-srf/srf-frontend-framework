@@ -22,6 +22,10 @@
     padding: 0 58px 12px;
   }
 
+  @include desktop-wide {
+    padding: 0 60px 12px;
+  }
+
   // player integration:
   .video--playing {
     .image-figure__image-wrapper {
@@ -73,7 +77,7 @@
     }
 
     @include desktop-wide {
-      margin: 0 4px 12px 3px; // margin: 0 6px 12px 2px; // not so sure - but even :/
+      margin: 0 6px 12px 4px; // margin: 0 4px 12px 3px; // margin: 0 6px 12px 2px; // not so sure - but even :/
     }
 
     &:not(.video--loading):not(.video--playing) {
@@ -86,7 +90,6 @@
 
         .media-caption--video {
           background-color: #fafaf8;
-        }
       }
     }
   }
@@ -188,11 +191,19 @@
     .carousel__link--prev {
       left: -58px;
       background-image: url('../img/carousel/previous_no_bg.svg');
+
+      @include desktop-wide {
+        // left: -60px;
+      }
     }
 
     .carousel__link--next {
       right: -58px;
       background-image: url('../img/carousel/next_no_bg.svg');
+
+      @include desktop-wide {
+        // right: -60px;
+      }
     }
   }
 
@@ -230,7 +241,7 @@
     }
 
     @include desktop-wide {
-      width: 225px;
+      width: 224px;
     }
   }
 }
