@@ -20,7 +20,6 @@ export function init() {
             return false;
         }
     }).on("click srf_handle-menu", ".menu-handle", function (e) { // hamburger clicking management
-        console.log(e, e.type)
         e.preventDefault(); // chrome has "a problem" (bug!) with keypress!
         e.stopPropagation();
         let $handle = $(this);
@@ -32,12 +31,18 @@ export function init() {
             if ($(window).width() > 719) { // there are animations we have to wait for....
                 $(".navbar__menu").removeClass("navbar__menu--come-in").one("transitionend", function () {
                     $(this).closest(".navbar").addClass("navbar--closed")
-                        .closest("body").removeClass("body--fixed")
+                        .closest("body").removeClass("body--fixed");
+                    if ($(".expand-arrow").hasClass("expand-arrow--open")) {
+                        $(".js-expand-arrow").trigger("click");
+                    }
                 });
             } else { // on mobile: no animations
                 $(".navbar__menu").removeClass("navbar__menu--come-in") // slide menu back
                     .closest(".navbar").addClass("navbar--closed")
                     .closest("body").removeClass("body--fixed");
+                if ($(".expand-arrow").hasClass("expand-arrow--open")) {
+                    $(".js-expand-arrow").trigger("click");
+                }
             }
             menuHasFocus = false;
 
@@ -73,9 +78,6 @@ export function init() {
     $(".breadcrumbs").on("keyup", function (e) {
         // we tabbed "into article"
         if (menuHasFocus && e.keyCode === 9) { // and the menu was open
-            if ($(".expand-arrow").hasClass("expand-arrow--open")) {
-                $(".js-expand-arrow").trigger("click");
-            }
             $(".menu-handle").trigger("click");
         }
     });
