@@ -236,7 +236,7 @@
   }
 
   .media-window::after {
-    border-bottom: 10px solid #ebebe5;
+    border-bottom: 10px solid #f5f5f2;
   }
 
   .article-video__player {
@@ -244,6 +244,12 @@
   }
 }
 
-.poll-option.media-window--playing {
-  overflow: visible;
+.media-window--playing {
+  .media-window {
+    border-bottom: 2px solid #f5f5f2;
+  }
+
+  .poll-option {
+    overflow: visible;
+  }
 }
