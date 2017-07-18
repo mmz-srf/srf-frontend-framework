@@ -106,7 +106,7 @@ export function init() {
         }
 
         // accessibility:
-        if (slidesToShow > 1) {
+        if (slidesToShow > 1) { // only for more than one slide / dots
             // unhide the following slidesToShow - 1 from screenreaders as well:
             let maxSlideVisible = currentSlide + slidesToShow - 1;
             $carousel.find(".carousel__item").each(function (i) {
@@ -118,6 +118,7 @@ export function init() {
         } else {
             $carousel.find(".carousel__item").attr("aria-hidden", false);
         }
+
     }).on("click", ".article-video__link", function (e) {
         // unfortunately $carousel.slick("slickSetOption", "focusOnSelect", ...); cannot be set "on the fly" :/
         if (slidesPerScreen === 1) {
@@ -198,12 +199,17 @@ function rePaintDots($carousel, screensToShow) {
 }
 
 function addTextToDots($carousel) {
-    // adding text to dots
+    if (slidesPerScreen > 1) { // "no dots" (to be read / tabbed through) for desktop
+        $carousel.find(".slick-dots button").attr("tabindex", "-1").attr("aria-hidden", true).attr("role", "presentation");
+        return;
+    }
+    // else (mobile): adding text to dots
     $carousel.find(".slick-dots li").each(function (i) {
         let $elm = $(this);
         $elm.find("button").text($elm.hasClass("slick-active")
             ? $carousel.data("dot-current")
-            : (i + 1) + $carousel.data("dot-info"));
+            : (i + 1) + $carousel.data("dot-info")
+        ).attr("tabindex", "0").attr("aria-hidden", false).attr("role", "button");
     }); // this is silly and not informative :/
 }
 
