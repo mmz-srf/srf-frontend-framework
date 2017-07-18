@@ -15,7 +15,7 @@
   display: none;
 }
 
-.media-window--playing {
+.media-window-container--playing {
   position: relative;
 
   .media-window { // fullwidth
@@ -35,7 +35,7 @@
       width: 0;
       border-left: solid 10px transparent;
       border-right: solid 10px transparent;
-      border-bottom: solid 10px #f5f5f2;
+      border-bottom: solid 10px #FFF;
     }
   }
 
@@ -121,6 +121,36 @@
   .article-video__link,
   .article-audio__link {
     cursor: default;
+  }
+}
+
+.media-window-container--video-gallery {
+  margin: 24px 0;
+  padding: 0 20px 12px;
+  background-color: #f5f5f2;
+
+  @include smartphone {
+    overflow: hidden;
+  }
+
+  @include tablet-up {
+    margin: 32px 0;
+    padding: 0 58px 12px;
+  }
+
+  .video--playing {
+    .image-figure__image-wrapper {
+      position: inherit;
+    }
+  }
+
+  // different "dreieckli" color in video gallery
+  &.media-window-container--playing {
+    .media-window {
+      &::after { // dreieckli
+        border-bottom: solid 10px $color-bg-caption;
+      }
+    }
   }
 }
 

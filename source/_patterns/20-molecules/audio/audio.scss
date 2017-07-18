@@ -194,6 +194,10 @@
   .article-audio__player {
     height: 42px;
   }
+
+  .article-audio__player--inactive {
+    height: 0;
+  }
 }
 
 .article-media--simple {
