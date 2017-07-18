@@ -64,7 +64,7 @@
         </div>{# here ends the header #}
         {% if comments.total_count > 0 %}
             <div id="sectionAll" role="tabpanel">
-                <ul class="comments comments--shrink comments--main">
+                <ul class="comments comments--shrink comments--main" aria-live="polite">
                     {% block comments %}
                         {% include 'molecules-comment' with { 'comments': comments.comments, 'allowsComments': true } %}
                     {% endblock %}
