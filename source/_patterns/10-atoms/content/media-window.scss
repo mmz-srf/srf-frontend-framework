@@ -9,6 +9,7 @@
   height: 0; // initial ...
   transition: height 0.375s ease;
   visibility: hidden;
+  opacity: 0;
 }
 
 .media-window__close {
@@ -127,4 +128,5 @@
 
 .media-window__player--visible {
   visibility: visible;
+  opacity: 1; // safari doesn't get visibility !!
 }
