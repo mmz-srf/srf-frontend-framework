@@ -64,6 +64,8 @@ body::after {
     right: 0;
 
     &.body--observer { // the bg dim!
+      cursor: pointer; // makes it react to tap (instead of click) as well
+
       &::after {
         position: absolute;
         height: 100%;
@@ -81,6 +83,7 @@ body::after {
       width: 100%;
       left: 0;
       background-image: linear-gradient(to bottom, #313131, #212121);
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .24);
     }
 
     // positioning in context
@@ -124,6 +127,7 @@ body::after {
 
       @include desktop-wide {
         right: calc(50% - 640px); // something like that
+        box-shadow: 8px 0 16px -8px rgba(0, 0, 0, 0.24);
       }
     }
   }
@@ -186,6 +190,7 @@ body::after {
   .navbar__menu {
     position: absolute;
     width: 0;
+    visibility: hidden; // accessibility
   }
 
   // this only makes sense in context
@@ -197,7 +202,6 @@ body::after {
 }
 
 .navbar__menu {
-  visibility: hidden; // accessibility
   margin: 0;
   padding: 0;
   -webkit-font-smoothing: antialiased;
@@ -304,7 +308,7 @@ body::after {
   }
 
   .navbar__link--home {
-    margin-top: 46px;
+    border-top: 47px solid #333;
   }
 }
 

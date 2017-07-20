@@ -1,12 +1,12 @@
 <section class="header">
     <div class="header__reserve" role="presentation"></div>
-    <header class="header__container"><!-- // todo: h1 ?? -->
+    <div class="header__container">
         <a class="header__logo" href="/">
             <img class="header__logo-img" src="{{ frameworkAssetPath }}/img/srf_logo.svg" alt="{{ header.home|default("Startseite SRF") }}"></a>
         {% block hamburger %}
             {% include 'atoms-hamburger' with { 'styleModifier': '' } %}
         {% endblock %}
-    </header>
+    </div>
     <nav class="navbar navbar--closed" role="navigation">
         {% block search %}
             {% include 'atoms-search' with { 'styleModifier': '' } %}
