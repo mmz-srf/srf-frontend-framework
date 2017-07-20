@@ -1,6 +1,6 @@
 <form {% if form.id != '' %}id="{{ form.id|default("form-ID") }}" {% endif %}class="form {{ styleModifier }}"
       name="{{ form.id|default("form-ID") }}" method="{{ form.method|default("get") }}">
-    <label class="form__label">{{ form.title }}</label>
+    <label form="{{ form.id|default("form-ID") }}" class="form__label">{{ form.title }}</label>
     <fieldset class="form-fieldset">
         <legend class="form-fieldset__legend">{{ form.legend }}</legend>
         {% set hintFieldID = 'checkbox-fieldset-ID' %}
