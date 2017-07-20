@@ -171,7 +171,7 @@
       width: 56px;
       height: 101px;
       top: 50%;
-      transform: translate(0px, calc(-50% - 2px));
+      transform: translate(0, calc(-50% - 2px));
       background-size: 16px;
       background-position: 20px;
 
@@ -192,19 +192,11 @@
     .carousel__link--prev {
       left: -58px;
       background-image: url('../img/carousel/previous_no_bg.svg');
-
-      @include desktop-wide {
-        // left: -60px;
-      }
     }
 
     .carousel__link--next {
       right: -58px;
       background-image: url('../img/carousel/next_no_bg.svg');
-
-      @include desktop-wide {
-        // right: -60px;
-      }
     }
   }
 
