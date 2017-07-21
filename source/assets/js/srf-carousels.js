@@ -123,37 +123,42 @@ export function init() {
                     ? $(this).attr("aria-hidden", false).find(".article-video__link").attr("tabindex", 0)
                     : $(this).attr("aria-hidden", true).find(".article-video__link").attr("tabindex", -1);
             });
-        } // else { $carousel.find(".carousel__item").attr("aria-hidden", false); } // slick li elements
-        else { // mobile: reenable buttons (dots) after video has been selected :/
-            // addTextToDots($carousel);
         }
+        /* else { // mobile: reenable buttons (dots) after video has been selected :/
+         $carousel.find(".carousel__item").each(function (i) {
+         // doesn't appear to help the issue :(
+         ($(this).hasClass("slick-current"))
+         ? $(this).attr("aria-hidden", false).attr("tabindex", 0).css({"background":"yellow"})
+         .find(".article-video__link").attr("aria-hidden", false).attr("tabindex", 0) // displayed video
+         : $(this).attr("aria-hidden", true).attr("tabindex", -1).css({"background":"transparent"})
+         .find(".article-video__link").attr("aria-hidden", true).attr("tabindex", -1); // others
+         });
+         } */
 
     }).on("click playIt", ".article-video__link", function (e) {
-        // alert("click / playIt")
         // unfortunately $carousel.slick("slickSetOption", "focusOnSelect", ...); cannot be set "on the fly" :/
+
         if (e.type == "click" && slidesPerScreen === 1) {
-            // alert("clicked")
-            gotTo($(this)); // <------ enable selecting "barely visible next video"
+            /// vo has a crazy problem: fires click for the wrong video (the one left to the chosen one, from the 3rd on)
+            /* let $clickedLink = $(this),
+             $chosenItem = $clickedLink.closest(".video_carousel__js").find(".slick-current");
+
+             /* if ($clickedLink.closest(".carousel__item") != $chosenItem) {
+             $chosenItem.css({"border":"1px dotted blue"});
+             gotTo($chosenItem.find(".article-video__link")); // TODO: try to properly disable the wrong elm!!
+             } else { // regularly :/
+             gotTo($clickedLink);
+             } */
+            gotTo($(this)); // enable selecting "barely visible next video"
+            /// :( ///
         } else if (e.type == "playIt") {
-            // alert("come playId")
             $(this).trigger("click"); // desktop only :/ --> mobile "goes all wrong" with this - or it's not this at all ...
         }
     }).on("keyup", ".article-video__link", function (e) {
-        // someone is tabbing
-        // $(".article-video__link").attr("tabindex", -1).attr("aria-hidden", true);
-        // $(this).attr("tabindex", 0).attr("aria-hidden", false).css({"background": "pink"});
-        console.log("keyup ...", $(this).closest(".carousel__item").data("slick-index"))
+        // someone is tabbing (desktop
         if (e.keyCode === 13) {
-            alert("keyup ...")
-            $(this).closest(".video_carousel__js").find(".slick-dots li").each(function (i) {
-                let $elm = $(this);
-                $elm.css({"border": "1px dotted pink"});
-                if ($elm.hasClass("slick-active")) {
-                    $elm.css({"border": "1px dotted green"});
-                }
-                $elm.attr("aria-hidden", false).attr("tabindex", "0") // li
-            });
-            $(this).css({"border": "1px dotted pink"}).trigger("playIt");
+
+            $(this).trigger("playIt");
         }
     });
 }
@@ -209,11 +214,16 @@ function addTextToDots($carousel) {
     $carousel.find(".slick-dots li").each(function (i) {
         let $elm = $(this);
         // reenabling buttons (after slick) for mobile :/
-        $elm.attr("aria-hidden", false) // .attr("tabindex", "0") // li
-            .find("button").text($elm.hasClass("slick-active") // and provide textual info
+        $elm.find("button").text($elm.hasClass("slick-active") // and provide textual info
             ? $carousel.data("dot-current")
             : (i + 1) + $carousel.data("dot-info")
-        ).attr("tabindex", "0").attr("aria-hidden", false).attr("role", "button"); // button (dot)
+        ); // button (dot)
+
+        // reenabling dots for mobile
+        if (slidesPerScreen == 1) {
+            $elm.attr("aria-hidden", false).find("button")
+                .attr("tabindex", "0").attr("aria-hidden", false).attr("role", "button"); // .attr("tabindex", "0") // li
+        }
     }); // this is silly and not informative :/
 }
 
