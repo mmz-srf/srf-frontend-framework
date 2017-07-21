@@ -3,12 +3,17 @@
   margin: 16px 0 32px;
 
   @include smartphone {
-    margin: 16px -8px 24px 12px;
+    margin: 16px -8px 24px 0px;
   }
 
   table {
     width: 100%;
     border-collapse: collapse;
+
+    @include smartphone {
+      width: calc(100% - 12px);
+      margin-left: 12px;
+    }
   }
 
   th {
@@ -27,10 +32,12 @@
     }
   }
 
-  // Adds a 8-Pixel-Spacing on the right of every scrollable table-box (… 'cause of how CSS works with elements inside overflow-x)
+  // Adds a spacing on the right of every scrollable table-box (… 'cause of how CSS works with elements inside overflow-x)
   @include smartphone {
     thead th:last-of-type,
-    tbody td:last-of-type {border-right-width:8px}
+    tbody td:last-of-type {
+      border-right-width: 20px
+    }
   }
 
   // if there is a thead, begin with a light bg-color
