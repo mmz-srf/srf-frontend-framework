@@ -56,7 +56,7 @@ export function init() {
             slide: ".carousel__item",
             slidesToShow: 1, // we need all dots - initially
             slidesToScroll: 1,
-            accessibility: true,
+            accessibility: true, // default?
             // focusOnSelect: false, // <-- not adjustable "on the fly" :/
             appendArrows: "#" + id, //  + " .slick-list",
             dots: true,
@@ -73,40 +73,48 @@ export function init() {
         let slidesToShow = slidesPerScreen, // mobile : 1
             $carousel = $(this),
             currentSlide = $carousel.slick("slickCurrentSlide");
+
+        // button / dot text info for screenreaders
+        if ($carousel.find(".slick-dots button").first().text() == "1" || currentElement != currentSlide) {
+            addTextToDots($carousel);
+        }
         currentElement = currentSlide;
 
-        // if previous num. of slides shown != the num. we'll see now
+        // if previous num. of slides shown != the num. we'll see now (window resize)
         if ($carousel.slick("slickGetOption", "slidesToShow") != slidesToShow) {
+            let screensToShow = Math.ceil($carousel.find(".carousel__item").length / slidesToShow);
 
-            // if slider not at initial pos. && arrows displayed
-            if (currentSlide > 0 && slidesToShow != 1) {
-                // move it to 0 - so the "arrows" don't get "confused"
-                currentSlide = 0;
-                currentElement = currentSlide;
-                $carousel.slick("slickGoTo", currentSlide, true);
+            // desktop / more than one slide / arrows displayed
+            if (slidesToShow > 1) {
+                // slider not at initial pos.
+                if (currentSlide > 0) {
+                    // move it to 0 - so the "arrows" don't get "confused"
+                    currentSlide = 0;
+                    currentElement = currentSlide;
+                    $carousel.slick("slickGoTo", currentSlide, true);
+                }
+
+                // disabling dots if arrows present (accessibility)
+                disableDots($carousel);
+
+                // no right arrow when at the rightmost position within the carousel
+                handleRightArrow($carousel, currentSlide, screensToShow);
+
+                // adjust num. of dots (after resize)
+                rePaintDots($carousel, screensToShow);
+
+                $carousel.find(".slick-dots").removeClass("h-element--hide");  // show dots (container) if more than one
+            } else {
+                $carousel.find(".slick-dots").addClass("h-element--hide");    // else hide the one :)
             }
 
-            // and adjust num. of slides...
+            // adjust num. of slides per page
             $carousel.slick("slickSetOption", "slidesToShow", slidesToShow, false);
             $carousel.slick("slickSetOption", "slidesToScroll", slidesToShow, false);
-
-            let screensToShow = Math.ceil($carousel.find(".carousel__item").length / slidesToShow);
-            
-            (screensToShow > 1) // are there more slides than one?
-                ? $carousel.find(".slick-dots").removeClass("h-element--hide")  // show dots
-                : $carousel.find(".slick-dots").addClass("h-element--hide");    // else hide the one :)
-
-            // and adjust num. of dots
-            rePaintDots($carousel, screensToShow);
-
-            // if we're at the rightmost position within the carousel - we don't want the right arrow
-            handleRightArrow($carousel, currentSlide, screensToShow);
-        } else if ($carousel.find(".slick-dots button").first().text() == "1") {
-            addTextToDots($carousel);
         }
 
         // accessibility:
-        if (slidesToShow > 1) { // only for more than one slide / dots
+        if (slidesToShow > 1) { // desktop: only for more than one slide / dots
             // unhide the following slidesToShow - 1 from screenreaders as well:
             let maxSlideVisible = currentSlide + slidesToShow - 1;
             $carousel.find(".carousel__item").each(function (i) {
@@ -115,40 +123,38 @@ export function init() {
                     ? $(this).attr("aria-hidden", false).find(".article-video__link").attr("tabindex", 0)
                     : $(this).attr("aria-hidden", true).find(".article-video__link").attr("tabindex", -1);
             });
-        } else {
-            $carousel.find(".carousel__item").attr("aria-hidden", false);
+        } // else { $carousel.find(".carousel__item").attr("aria-hidden", false); } // slick li elements
+        else { // mobile: reenable buttons (dots) after video has been selected :/
+            // addTextToDots($carousel);
         }
 
-    }).on("click", ".article-video__link", function (e) {
+    }).on("click playIt", ".article-video__link", function (e) {
+        // alert("click / playIt")
         // unfortunately $carousel.slick("slickSetOption", "focusOnSelect", ...); cannot be set "on the fly" :/
-        if (slidesPerScreen === 1) {
-            gotTo($(this));
-            // console.log("click: ", $(this).closest(".carousel__item").data("slick-index"))
+        if (e.type == "click" && slidesPerScreen === 1) {
+            // alert("clicked")
+            gotTo($(this)); // <------ enable selecting "barely visible next video"
+        } else if (e.type == "playIt") {
+            // alert("come playId")
+            $(this).trigger("click"); // desktop only :/ --> mobile "goes all wrong" with this - or it's not this at all ...
         }
     }).on("keyup", ".article-video__link", function (e) {
         // someone is tabbing
-        if (e.keyCode === 9 && slidesPerScreen === 1) {
-            // gotTo($(this));
+        // $(".article-video__link").attr("tabindex", -1).attr("aria-hidden", true);
+        // $(this).attr("tabindex", 0).attr("aria-hidden", false).css({"background": "pink"});
+        console.log("keyup ...", $(this).closest(".carousel__item").data("slick-index"))
+        if (e.keyCode === 13) {
+            alert("keyup ...")
+            $(this).closest(".video_carousel__js").find(".slick-dots li").each(function (i) {
+                let $elm = $(this);
+                $elm.css({"border": "1px dotted pink"});
+                if ($elm.hasClass("slick-active")) {
+                    $elm.css({"border": "1px dotted green"});
+                }
+                $elm.attr("aria-hidden", false).attr("tabindex", "0") // li
+            });
+            $(this).css({"border": "1px dotted pink"}).trigger("playIt");
         }
-    });
-
-    $(".article-video__link").on("focusin", function (e) {
-        // $(".article-video__link").on("focusin", function (e) {
-        // console.log("focus", $(this).closest(".carousel__item").data("slick-index"), e)
-        // $(".article-video__link").css({"background": "transparent"})
-        // $(this).css({"background": "pink"})
-        // gotTo($(this));
-    });
-
-    $(".article-video__link").on("keyup", function (e) {
-        // e.preventDefault();
-        if (slidesPerScreen === 1 && e.keyCode == 13) { // enter
-            // let index = $(this).closest(".carousel__item").data("slick-index");
-            // gotTo($(this));
-            // console.log("keyup: ", $(this).closest(".carousel__item").data("slick-index"),
-            //             "current", $(this).closest(".video_carousel__js").slick("slickCurrentSlide"))
-        }
-        // return false;
     });
 }
 
@@ -199,18 +205,21 @@ function rePaintDots($carousel, screensToShow) {
 }
 
 function addTextToDots($carousel) {
-    if (slidesPerScreen > 1) { // "no dots" (to be read / tabbed through) for desktop
-        $carousel.find(".slick-dots button").attr("tabindex", "-1").attr("aria-hidden", true).attr("role", "presentation");
-        return;
-    }
-    // else (mobile): adding text to dots
+    // mobile: adding text to dots
     $carousel.find(".slick-dots li").each(function (i) {
         let $elm = $(this);
-        $elm.find("button").text($elm.hasClass("slick-active")
+        // reenabling buttons (after slick) for mobile :/
+        $elm.attr("aria-hidden", false) // .attr("tabindex", "0") // li
+            .find("button").text($elm.hasClass("slick-active") // and provide textual info
             ? $carousel.data("dot-current")
             : (i + 1) + $carousel.data("dot-info")
-        ).attr("tabindex", "0").attr("aria-hidden", false).attr("role", "button");
+        ).attr("tabindex", "0").attr("aria-hidden", false).attr("role", "button"); // button (dot)
     }); // this is silly and not informative :/
+}
+
+function disableDots($carousel) {
+    $carousel.find(".slick-dots button").attr("tabindex", "-1")
+        .attr("aria-hidden", true).attr("role", "presentation");
 }
 
 function handleRightArrow($carousel, currentSlide, screensToShow) {
