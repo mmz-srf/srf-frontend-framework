@@ -1,6 +1,7 @@
-var $carousels = [];
-var loadedCarousels = {};
-var css = {
+let $carousels = [];
+let loadedCarousels = {};
+let slidesPerScreen = 1;
+let css = {
     'containers': '.carousel__js',
     'handles': '.carousel__link--next, .carousel__link--prev'
 };
@@ -15,7 +16,7 @@ export function init() {
 
     // img carousels
     $.each($carousels, function (i, carousel) {
-        var $carousel = $(carousel),
+        let $carousel = $(carousel),
             id = $carousel.attr("id");
         loadedCarousels[id] = false;
 
@@ -62,7 +63,8 @@ export function init() {
 
     // "position change" (resize page or "activate" slider in any way)
     $('.video_carousel__js').on('setPosition', function (slick) {
-        let slidesToShow = getNumberOfSlidesPerScreen(1), // mobile : 1
+        slidesPerScreen = getNumberOfSlidesPerScreen(1); // mobile : 1
+        let slidesToShow = slidesPerScreen, // mobile : 1
             $carousel = $(this),
             currentSlide = $carousel.slick("slickCurrentSlide");
         // if previous num. of slides shown != the num. we'll see now
@@ -86,7 +88,17 @@ export function init() {
             // if we're at the rightmost position within the carousel - we don't want the right arrow
             handleRightArrow($carousel, currentSlide, screensToShow);
         }
+    }).on("click", ".article-video__link", function (e) {
+        // unfortunately $carousel.slick("slickSetOption", "focusOnSelect", ...); cannot be set "on the fly" :/
+        if (slidesPerScreen === 1) {
+            gotTo($(this));
+        }
     });
+}
+
+function gotTo($selectedLink) {
+    $selectedLink.closest(".video_carousel__js")
+        .slick("slickGoTo", $selectedLink.closest(".carousel__item").data("slick-index"));
 }
 
 function registerListener($carousel) {
@@ -114,7 +126,7 @@ function registerListener($carousel) {
 
 function loadLazyImages(images) {
     images.each(function (i, image) {
-        var $image = $(image);
+        let $image = $(image);
         if ($image.data("src")) {
             $image.attr("srcset", $image.data("srcset"));
             $image.attr("src", $image.data("src"));
