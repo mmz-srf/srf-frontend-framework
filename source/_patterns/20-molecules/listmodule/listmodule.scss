@@ -42,7 +42,6 @@
     }
   }
 
-
   .article-video {
     @include smartphone {
       @include fullwidth-element; // fixes padding-problem
@@ -51,7 +50,18 @@
 }
 .listmodule__item--listing {
   border-top: 1px solid rgb(236,236,230);
-  overflow: hidden;
+
+  /* clearfix */
+  &:after {
+    content: " ";
+    display: block;
+    clear: both;
+  }
+
+  .article-audio__link {
+    margin: 0;
+  }
+
 }
 .listmodule__item--listing:last-of-type {
   border-bottom: 1px solid rgb(236,236,230);
