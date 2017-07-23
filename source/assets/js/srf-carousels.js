@@ -74,7 +74,7 @@ export function init() {
             $carousel = $(this),
             currentSlide = $carousel.slick("slickCurrentSlide");
 
-        // button / dot text info for screenreaders
+        // button / dot text info for screenreaders, initial & on slide change
         if ($carousel.find(".slick-dots button").first().text() == "1" || currentElement != currentSlide) {
             addTextToDots($carousel);
         }
@@ -114,7 +114,7 @@ export function init() {
         }
 
         // accessibility:
-        if (slidesToShow > 1) { // desktop: only for more than one slide / dots
+        if (slidesToShow > 1) { // desktop: only for more than one slide
             // unhide the following slidesToShow - 1 from screenreaders as well:
             let maxSlideVisible = currentSlide + slidesToShow - 1;
             $carousel.find(".carousel__item").each(function (i) {
@@ -124,43 +124,57 @@ export function init() {
                     : $(this).attr("aria-hidden", true).find(".article-video__link").attr("tabindex", -1);
             });
         }
-        /* else { // mobile: reenable buttons (dots) after video has been selected :/
-         $carousel.find(".carousel__item").each(function (i) {
-         // doesn't appear to help the issue :(
-         ($(this).hasClass("slick-current"))
-         ? $(this).attr("aria-hidden", false).attr("tabindex", 0).css({"background":"yellow"})
-         .find(".article-video__link").attr("aria-hidden", false).attr("tabindex", 0) // displayed video
-         : $(this).attr("aria-hidden", true).attr("tabindex", -1).css({"background":"transparent"})
-         .find(".article-video__link").attr("aria-hidden", true).attr("tabindex", -1); // others
-         });
-         } */
 
-    }).on("click playIt", ".article-video__link", function (e) {
+    }).on("click", ".article-video__link", function (e) {
         // unfortunately $carousel.slick("slickSetOption", "focusOnSelect", ...); cannot be set "on the fly" :/
 
         if (e.type == "click" && slidesPerScreen === 1) {
-            /// vo has a crazy problem: fires click for the wrong video (the one left to the chosen one, from the 3rd on)
+            /// vo has a crazy problem: it fires click for the video left to the "selected" one - from the 3rd on
             /* let $clickedLink = $(this),
              $chosenItem = $clickedLink.closest(".video_carousel__js").find(".slick-current");
 
-             /* if ($clickedLink.closest(".carousel__item") != $chosenItem) {
-             $chosenItem.css({"border":"1px dotted blue"});
-             gotTo($chosenItem.find(".article-video__link")); // TODO: try to properly disable the wrong elm!!
+             if ($clickedLink.closest(".carousel__item") != $chosenItem) {
+             e.preventDefault();
+             // gotTo($chosenItem.find(".article-video__link")); // select the proper link
+             // the following interferes with "design wish" without any positive effect
+             // $chosenItem.find(".article-video__link").trigger("click"); // click that one too
              } else { // regularly :/
              gotTo($clickedLink);
              } */
+
             gotTo($(this)); // enable selecting "barely visible next video"
-            /// :( ///
-        } else if (e.type == "playIt") {
-            $(this).trigger("click"); // desktop only :/ --> mobile "goes all wrong" with this - or it's not this at all ...
         }
     }).on("keyup", ".article-video__link", function (e) {
-        // someone is tabbing (desktop
+        // someone is tabbing => clicked <enter> (desktop)
         if (e.keyCode === 13) {
-
-            $(this).trigger("playIt");
+            $(this).trigger("click");
+        }
+    }).on("keyup", ".carousel__link--prev, .carousel__link--next", function (e) {
+        // someone is tabbing => clicked <enter> on the arrow going to the next page
+        if (e.keyCode === 13) {
+            // we select the first video-link available on the page
+            $(this).closest(".video_carousel__js").find(".slick-current .article-video__link").css({"border": "2px dotted pink"}).focus();
         }
     });
+
+    /* $(".video_carousel__js").on("click", ".slick-dots button", function (e) {
+     let $carousel = $(this).closest(".video_carousel__js");
+
+     $carousel.find(".carousel__item").each(function (i) {
+     let $elm = $(this);
+     if ($elm.hasClass("slick-current")) { // selected element
+     $elm.find(".article-video__link")
+     .attr("tabindex", 0).attr("aria-hidden", false).attr("aria-disabled", false)
+     .removeAttr("disabled")
+     .css({"pointer-events":"auto", "border": "2px dotted pink", "background":"yellow"})
+     } else {
+     $elm.find(".article-video__link") // I'd do ANYTHING to make vo / safari understand!!
+     .attr("tabindex", -1).attr("aria-hidden", true).attr("aria-disabled", true)
+     .attr("disabled", "disabled")
+     // .css({"pointer-events":"none"})
+     }
+     }); // this was meant to help along the hitting of the "correct" link with vo
+     }); */
 }
 
 function gotTo($selectedLink) {
@@ -210,7 +224,7 @@ function rePaintDots($carousel, screensToShow) {
 }
 
 function addTextToDots($carousel) {
-    // mobile: adding text to dots
+    // adding text to dots
     $carousel.find(".slick-dots li").each(function (i) {
         let $elm = $(this);
         // reenabling buttons (after slick) for mobile :/
@@ -221,10 +235,14 @@ function addTextToDots($carousel) {
 
         // reenabling dots for mobile
         if (slidesPerScreen == 1) {
-            $elm.attr("aria-hidden", false).find("button")
-                .attr("tabindex", "0").attr("aria-hidden", false).attr("role", "button"); // .attr("tabindex", "0") // li
+            enableDots($elm);
         }
     }); // this is silly and not informative :/
+}
+
+function enableDots($list) {
+    $list.attr("aria-hidden", false).find("button")
+        .attr("tabindex", "0").attr("aria-hidden", false).attr("role", "button"); // li
 }
 
 function disableDots($carousel) {
