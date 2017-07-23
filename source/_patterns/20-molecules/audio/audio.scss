@@ -191,7 +191,7 @@
     opacity: 0;
   }
 
-  .article-audio__player {
+  & + .article-audio__player {
     height: 42px;
   }
 }

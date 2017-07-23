@@ -50,9 +50,9 @@
                     </div>
                 </figcaption>
             {% endblock %}
-            {% block player_wrapper %}
-                <div id="article-audio__{{ audio.elementId }}" class="article-audio__player"></div>
-            {% endblock %}
         </figure>
+        {% block player_wrapper %}
+            <div id="article-audio__{{ audio.elementId }}" class="article-audio__player"></div>
+        {% endblock %}
     </a>
 {% endblock %}
