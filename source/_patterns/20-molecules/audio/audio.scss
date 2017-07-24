@@ -191,7 +191,8 @@
     opacity: 0;
   }
 
-  & + .article-audio__player {
+  & + .article-audio__player,
+  .article-audio__player {
     height: 42px;
   }
 }
@@ -200,7 +201,7 @@
   float: right;
   width: 92px;
   height: auto;
-  margin: 16px 0px 16px 16px;
+  margin: 16px 0 16px 16px;
   right: auto; /* overwrite */
   left: auto; /* overwrite */
   flex-direction: column;
@@ -208,7 +209,7 @@
 
   @include tablet-up {
     width: 228px;
-    margin: 24px 0px 24px 24px;
+    margin: 24px 0 24px 24px;
   }
 
   .article-audio__wrapper {
