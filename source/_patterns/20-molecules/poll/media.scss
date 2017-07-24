@@ -244,17 +244,17 @@
   }
   // }
 
-  .media-window::after {
-    border-bottom: 10px solid #f5f5f2;
+  .media-window-container::after {
+    border-bottom: 10px solid #fefefd;
   }
 
   .article-video__player {
     display: none;
   }
 
-  .media-window--playing {
+  .media-window-container--playing {
     .media-window {
-      border-bottom: 2px solid #f5f5f2;
+      border-bottom: 2px solid #fefefd;
     }
 
     .poll-option {
