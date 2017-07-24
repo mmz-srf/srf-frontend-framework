@@ -88,8 +88,8 @@
   }
 
   .article-video,
-  .article-audio,
-  .image-figure {
+  .article-audio { //,
+    // .image-figure {
     margin: 12px 0;
     @include tablet-up {
       margin: 20px 0;
