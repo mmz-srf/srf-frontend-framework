@@ -1,4 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="18" height="34" viewBox="0 0 18 34">
-    <polyline fill="none" stroke="#6C6960" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              points="17 33 1 17 17 1"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="18" height="34" viewBox="0 0 18 34"><path fill="none" stroke="#6C6960" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 33L1 17 17 1"/></svg>
