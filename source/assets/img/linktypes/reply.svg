@@ -1,1 +1,7 @@
-<svg width="19" height="15" viewBox="0 0 19 15" xmlns="http://www.w3.org/2000/svg"><path d="M18 13.857C14.571 7.43 7.286 9.571 7.286 9.571V13L0 7l7.286-6v3.429S18 3.143 18 13.857z" stroke="#D0011B" fill="none" fill-rule="evenodd" stroke-linejoin="round"/></svg>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="19px" height="15px" viewBox="0 0 19 15" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linejoin="round">
+        <path d="M18,13.8571429 C14.5714286,7.42857143 7.28571429,9.57142857 7.28571429,9.57142857 L7.28571429,13 L5.68434189e-14,7 L7.28571429,1 L7.28571429,4.42857143 C7.28571429,4.42857143 18,3.14285714 18,13.8571429 Z" id="Stroke-975-Copy" stroke="#D0011B"></path>
+    </g>
+</svg>

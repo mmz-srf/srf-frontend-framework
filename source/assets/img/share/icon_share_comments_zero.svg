@@ -1,1 +1,21 @@
-<svg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><rect id="a" width="40" height="40" rx="20"/></defs><g fill="none" fill-rule="evenodd"><use fill="#4E4D47" xlink:href="#a"/><path d="M17.448 25.5l-2.957 3.97V25.5h-1.995a2.004 2.004 0 0 1-1.996-2.009V15.51a2 2 0 0 1 1.997-2.009h15.006c1.103 0 1.997.902 1.997 2.009v7.982c0 1.11-.886 2.009-1.99 2.009H17.448z" stroke="#FFF" stroke-linecap="round" stroke-linejoin="round" fill="#FFF"/><path d="M15 21.5h10m-10-2h10m-10-2h7" stroke="#4E4D47" stroke-linecap="round" stroke-linejoin="round"/></g></svg>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="40px" height="40px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="40" height="40" rx="20"></rect>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-7-Copy-3">
+            <g id="Rectangle-1254-Copy-6">
+                <use fill="#4E4D47" xlink:href="#path-1"></use>
+            </g>
+            <path d="M17.4480019,25.5 L14.4914801,29.4703315 L14.4914801,25.5 L12.4957401,25.5 C11.3935233,25.5 10.5,24.5980496 10.5,23.4914698 L10.5,15.5085302 C10.5,14.3992496 11.3909254,13.5 12.4974219,13.5 L27.5025781,13.5 C28.6057238,13.5 29.5,14.4019504 29.5,15.5085302 L29.5,23.4914698 C29.5,24.6007504 28.6137878,25.5 27.5098576,25.5 L17.4480019,25.5 Z" id="Stroke-1059" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" fill="#FFFFFF"></path>
+            <g id="Group-3" transform="translate(15.000000, 16.500000)" stroke="#4E4D47" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M0,5 L10,5" id="Stroke-1062"></path>
+                <path d="M0,3 L10,3" id="Stroke-1062"></path>
+                <path d="M0,1 L7,1" id="Stroke-1062"></path>
+            </g>
+        </g>
+    </g>
+</svg>

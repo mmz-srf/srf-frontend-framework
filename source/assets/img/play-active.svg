@@ -1,1 +1,6 @@
-<svg width="72" height="72" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg"><circle stroke="#FFF" stroke-width="3" fill-opacity=".32" cx="30" cy="30" r="30" transform="translate(6 6)" fill-rule="evenodd"/></svg>
+<svg width="72" height="72" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
+    <title>play-active</title>
+    <g transform="translate(6 6)" fill="none" fill-rule="evenodd">
+        <circle stroke="#FFF" stroke-width="3" fill-opacity=".32" fill="#000" cx="30" cy="30" r="30"/>
+    </g>
+</svg>

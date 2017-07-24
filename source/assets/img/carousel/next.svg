@@ -1,1 +1,23 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="26" height="41" viewBox="0 0 26 41"><defs><path id="b" d="M6.293 30.293a1 1 0 0 0 1.414 1.414l12-12a1 1 0 0 0 0-1.414l-12-12a1 1 0 0 0-1.414 1.414L17.586 19 6.293 30.293z"/><filter id="a" width="292.9%" height="203.8%" x="-96.4%" y="-40.4%" filterUnits="objectBoundingBox"><feOffset dy="3" in="SourceAlpha" result="soo1"/><feGaussianBlur in="soo1" result="sbo1" stdDeviation="3"/><feColorMatrix in="sbo1" result="smo1" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.8 0"/><feOffset in="SourceAlpha" result="soo2"/><feGaussianBlur in="soo2" result="sbo2" stdDeviation="1.5"/><feColorMatrix in="sbo2" result="smo2" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.56 0"/><feMerge><feMergeNode in="smo1"/><feMergeNode in="smo2"/></feMerge></filter></defs><g fill="none"><use fill="#000" filter="url(#a)" xlink:href="#b"/><use fill="#FEFEFE" fill-rule="evenodd" xlink:href="#b"/></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="26" height="41"
+     viewBox="0 0 26 41">
+    <defs>
+        <path id="b"
+              d="M6.293 30.293c-.39.39-.39 1.024 0 1.414.39.39 1.024.39 1.414 0l12-12c.39-.39.39-1.024 0-1.414l-12-12c-.39-.39-1.024-.39-1.414 0-.39.39-.39 1.024 0 1.414L17.586 19 6.293 30.293z"/>
+        <filter id="a" width="292.9%" height="203.8%" x="-96.4%" y="-40.4%" filterUnits="objectBoundingBox">
+            <feOffset dy="3" in="SourceAlpha" result="soo1"/>
+            <feGaussianBlur in="soo1" result="sbo1" stdDeviation="3"/>
+            <feColorMatrix in="sbo1" result="smo1" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.8 0"/>
+            <feOffset in="SourceAlpha" result="soo2"/>
+            <feGaussianBlur in="soo2" result="sbo2" stdDeviation="1.5"/>
+            <feColorMatrix in="sbo2" result="smo2" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.56 0"/>
+            <feMerge>
+                <feMergeNode in="smo1"/>
+                <feMergeNode in="smo2"/>
+            </feMerge>
+        </filter>
+    </defs>
+    <g fill="none">
+        <use fill="#000" filter="url(#a)" xlink:href="#b"/>
+        <use fill="#FEFEFE" fill-rule="evenodd" xlink:href="#b"/>
+    </g>
+</svg>
