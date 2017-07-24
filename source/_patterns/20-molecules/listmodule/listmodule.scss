@@ -45,7 +45,9 @@
 
   .article-video {
     @include smartphone {
-      @include fullwidth-element; // fixes padding-problem
+      margin-left: -24px;
+      margin-right: -24px;
+      // @include fullwidth-element; // fixes padding-problem
     }
   }
 }
@@ -80,10 +82,18 @@
 }
 
 .listmodule__media--listicle {
-  margin: 12px auto;
-  // margin: 12px -8px; // margin: -12px -8px;
+  margin: 12px auto; // margin: 12px -8px;
   @include tablet-up {
     margin: 16px 0; // margin: -16px -16px -12px;
+  }
+
+  .article-video,
+  .article-audio,
+  .image-figure {
+    margin: 12px 0;
+    @include tablet-up {
+      margin: 20px 0;
+    }
   }
 }
 
