@@ -153,7 +153,7 @@ export function init() {
         // someone is tabbing => clicked <enter> on the arrow going to the next page
         if (e.keyCode === 13) {
             // we select the first video-link available on the page
-            $(this).closest(".video_carousel__js").find(".slick-current .article-video__link").css({"border": "2px dotted pink"}).focus();
+            $(this).closest(".video_carousel__js").find(".slick-current .article-video__link").focus();
         }
     });
 
