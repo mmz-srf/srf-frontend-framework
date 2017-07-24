@@ -159,7 +159,6 @@ var commentController = function () {
     };
 
     this.handleScroll = function () {
-        console.log($(".reply__textarea").scrollTop())
         var scrollTop = $(".reply__textarea").scrollTop();
         $(".reply__highlights").scrollTop(scrollTop);
     };

@@ -1,12 +1,5 @@
 <form class="searchbox" role="search">
     <label for="search" class="h-offscreen">{{ header.searching|default("Suchen") }}</label>
-    {% block searchbox %}
-        <input class="searchbox__input"
-               action="https://m.srf.ch/suche" name="q" id="search-site"
-               type="text" placeholder="{{ header.search|default("Suche") }}">
-        {# <input class="searchbox__input"
-               name="q" id="search"
-               type="text" placeholder="{{ header.search|default("Suche") }}"> #}
-    {% endblock %}
+    <input class="searchbox__input" id="search" type="text" placeholder="{{ header.search|default("Suche") }}">
     <button type="submit" class="h-offscreen" tabindex="-1">{{ header.searching|default("Suchen") }}</button>
 </form>

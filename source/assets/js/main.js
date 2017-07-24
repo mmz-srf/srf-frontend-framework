@@ -9,6 +9,7 @@ import {init as SrfFormFieldInit} from './srf-form-fields';
 import {init as SrfCommentsInit} from './srf-comments';
 import {init as SrfPolisInit} from './srf-polis';
 import {init as SrfHeaderInit} from './srf-header';
+import {init as SrfSearchInit} from './srf-search';
 
 document.addEventListener("DOMContentLoaded", function(event) {
     SrfCarouselsInit();
@@ -22,4 +23,5 @@ document.addEventListener("DOMContentLoaded", function(event) {
     SrfCommentsInit();
     SrfPolisInit();
     SrfHeaderInit();
+    SrfSearchInit();
 });
