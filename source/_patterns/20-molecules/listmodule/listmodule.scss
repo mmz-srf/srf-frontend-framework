@@ -80,9 +80,10 @@
 }
 
 .listmodule__media--listicle {
-  margin: -12px -8px;
+  margin: 12px auto;
+  // margin: 12px -8px; // margin: -12px -8px;
   @include tablet-up {
-    margin: -16px -16px -12px;
+    margin: 16px 0; // margin: -16px -16px -12px;
   }
 }
 
