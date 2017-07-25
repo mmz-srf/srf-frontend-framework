@@ -87,13 +87,26 @@
     margin: 16px 0; // margin: -16px -16px -12px;
   }
 
-  .article-video,
-  .article-audio { //,
+  .image-figure {
+    margin-top: 12px;
+    margin-bottom: 12px;
+    @include tablet-up {
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+  }
+
+  .article-video { //,
+    // .article-audio { //,
     // .image-figure {
     margin: 12px 0;
     @include tablet-up {
       margin: 20px 0;
     }
+  }
+
+  .media-caption--video {
+    margin: 0 -24px;
   }
 }
 
