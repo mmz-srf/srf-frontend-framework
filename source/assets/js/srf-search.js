@@ -13,5 +13,11 @@ function registerListener() {
             $button.attr("tabindex", -1);
         }
     });
+
+    $(".searchbox").on("submit", function () {
+        let $input = $(this).find(".searchbox__input");
+        $input.val("");
+        $input.closest(".searchbox").find("button").attr("tabindex", -1);
+    });
 }
 
