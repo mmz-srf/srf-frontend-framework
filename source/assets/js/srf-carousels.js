@@ -1,7 +1,7 @@
 let $carousels = [];
 let loadedCarousels = {};
 let slidesPerScreen = 1;
-let currentElement = 1; // <--- or something ...
+let currentElement = 1;
 let css = {
     'containers': '.carousel__js',
     'handles': '.carousel__link--next, .carousel__link--prev'
@@ -116,14 +116,28 @@ export function init() {
         // accessibility:
         if (slidesToShow > 1) { // desktop: only for more than one slide
             // unhide the following slidesToShow - 1 from screenreaders as well:
-            let maxSlideVisible = currentSlide + slidesToShow - 1;
+            let currentPage = Math.floor(currentElement / slidesPerScreen) + 1; // [ok] $carousel.find(".slick-dots .slick-active").data("page-no"); // Math.floor(currentElement / slidesPerScreen) + 1; // [0,1,2|3,4,5|6,7,8]
             $carousel.find(".carousel__item").each(function (i) {
+
                 // remove not currently visible slides from tabindex
-                (i >= currentSlide && i <= maxSlideVisible)
-                    ? $(this).attr("aria-hidden", false).find(".article-video__link").attr("tabindex", 0)
-                    : $(this).attr("aria-hidden", true).find(".article-video__link").attr("tabindex", -1);
+                let to = (slidesPerScreen * currentPage) - 1; // zero indexed
+                let from = to - (slidesPerScreen - 1);
+
+                ((i >= from && i <= to) && i < 8)
+                    ? $(this).attr("aria-hidden", false).find(".article-video__link").addClass("video--" + i).removeClass("gone--" + i).attr("tabindex", 0)
+                    : $(this).attr("aria-hidden", true).find(".article-video__link").removeClass("video--" + i).addClass("gone--" + i).attr("tabindex", -1);
+
+                if ($(this).data("slick-index") < from) {
+                    // I insist!!!
+                    $(this).find(".article-video__link").attr("tabindex", -1)
+                    // AND IT DOES absolutely nothing!
+                }
             });
         }
+
+    }).on("afterChange", function (slick, currentSlide) { // instead of: ... .on("keyup", ".carousel__link--next", function (e) {
+        // as soon as slick's ready, we put the focus on the current elm
+        $(this).find(".slick-current .article-video__link").focus();
 
     }).on("click", ".article-video__link", function (e) {
         // unfortunately $carousel.slick("slickSetOption", "focusOnSelect", ...); cannot be set "on the fly" :/
@@ -149,7 +163,8 @@ export function init() {
         if (e.keyCode === 13) {
             $(this).trigger("click");
         }
-    }).on("keyup", ".carousel__link--prev, .carousel__link--next", function (e) {
+        // }).on("keyup", ".carousel__link--prev, .carousel__link--next", function (e) {
+    }).on("keyup", ".carousel__link--next", function (e) { // this is too late!
         // someone is tabbing => clicked <enter> on the arrow going to the next page
         if (e.keyCode === 13) {
             // we select the first video-link available on the page
