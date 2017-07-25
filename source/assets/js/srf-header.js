@@ -28,6 +28,9 @@ export function init() {
                 .removeClass("navbar__link--fixed");
             $handle.removeClass("menu-handle--active");
 
+            let $infotext = $handle.find(".menu-handle__info span");
+            $infotext.text($infotext.data("menu-show"));
+
             if ($(window).width() > 719) { // there are animations we have to wait for....
                 $(".navbar__menu").removeClass("navbar__menu--come-in").one("transitionend", function () {
                     $(this).closest(".navbar").addClass("navbar--closed")
@@ -51,6 +54,9 @@ export function init() {
                 .closest("body").addClass("body--fixed").addClass("body--observer")
                 .find(".navbar").removeClass("navbar--closed")
                 .find(".navbar__menu").addClass("navbar__menu--come-in");
+
+            let $infotext = $handle.find(".menu-handle__info span");
+            $infotext.text($infotext.data("menu-close"));
 
             if ($(window).width() > 719) { // there are animations we have to wait for....
                 $(".navbar__menu").one("transitionend", function () {
