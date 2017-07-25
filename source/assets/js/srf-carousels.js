@@ -56,7 +56,7 @@ export function init() {
             slide: ".carousel__item",
             slidesToShow: 1, // we need all dots - initially
             slidesToScroll: 1,
-            accessibility: true, // default?
+            accessibility: false, // default?
             // focusOnSelect: false, // <-- not adjustable "on the fly" :/
             appendArrows: "#" + id, //  + " .slick-list",
             dots: true,
@@ -114,26 +114,22 @@ export function init() {
         }
 
         // accessibility:
-        if (slidesToShow > 1) { // desktop: only for more than one slide
+        // if (slidesToShow > 1) { // desktop: only for more than one slide
+
             // unhide the following slidesToShow - 1 from screenreaders as well:
             let currentPage = Math.floor(currentElement / slidesPerScreen) + 1; // [ok] $carousel.find(".slick-dots .slick-active").data("page-no"); // Math.floor(currentElement / slidesPerScreen) + 1; // [0,1,2|3,4,5|6,7,8]
+
+        // remove not currently visible slides from tabindex
+        let to = (slidesPerScreen * currentPage) - 1; // zero indexed
+        let from = to - (slidesPerScreen - 1);
+
             $carousel.find(".carousel__item").each(function (i) {
 
-                // remove not currently visible slides from tabindex
-                let to = (slidesPerScreen * currentPage) - 1; // zero indexed
-                let from = to - (slidesPerScreen - 1);
-
                 ((i >= from && i <= to) && i < 8)
-                    ? $(this).attr("aria-hidden", false).find(".article-video__link").addClass("video--" + i).removeClass("gone--" + i).attr("tabindex", 0)
-                    : $(this).attr("aria-hidden", true).find(".article-video__link").removeClass("video--" + i).addClass("gone--" + i).attr("tabindex", -1);
-
-                if ($(this).data("slick-index") < from) {
-                    // I insist!!!
-                    $(this).find(".article-video__link").attr("tabindex", -1)
-                    // AND IT DOES absolutely nothing!
-                }
+                    ? $(this).attr("aria-hidden", false).find(".article-video__link").attr("tabindex", 0)
+                    : $(this).attr("aria-hidden", true).find(".article-video__link").attr("tabindex", -1);
             });
-        }
+        // }
 
     }).on("afterChange", function (slick, currentSlide) { // instead of: ... .on("keyup", ".carousel__link--next", function (e) {
         // as soon as slick's ready, we put the focus on the current elm
