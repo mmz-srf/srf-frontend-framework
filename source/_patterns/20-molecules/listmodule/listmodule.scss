@@ -88,7 +88,7 @@
   }
 
   .image-figure {
-    // margin-top: 12px;
+    margin-top: 12px;
     margin-bottom: 12px;
     @include tablet-up {
       margin-top: 20px;
@@ -97,7 +97,10 @@
   }
 
   .article-audio__link {
-    margin: 20px 0;
+    margin: 12px 0;
+    @include tablet-up {
+      margin: 20px 0;
+    }
   }
 
   .article-audio { //,
@@ -113,6 +116,10 @@
     margin: 12px 0;
     @include tablet-up {
       margin: 20px 0;
+    }
+
+    .image-figure {
+      margin-bottom: 0;
     }
   }
 
