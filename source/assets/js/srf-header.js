@@ -20,7 +20,7 @@ export function init() {
             return false;
         }
     }).on("click srf_handle-menu", ".menu-handle", function (e) { // hamburger clicking management
-        e.preventDefault(); // chrome has "a problem" (bug!) with keypress!
+        e.preventDefault();
         e.stopPropagation();
         let $handle = $(this);
         if (menuHasFocus) { // the menu is open => close it
@@ -75,7 +75,8 @@ export function init() {
     $(document).on("click touchstart", ".body--observer", function (e) {
         let $target = $(e.target);
         // make it possible to use search while page is dimmed and navi is visible
-        if (!$target.hasClass("searchbox__input") && (!$target.hasClass("navbar__link") || $target.hasClass("navbar__link--close") ) && !$target.hasClass("expand-arrow")) {
+        if (!$target.hasClass("searchbox__input") && (!$target.hasClass("navbar__link") || $target.hasClass("navbar__link--close") )
+            && !$target.hasClass("expand-arrow") && !$target.hasClass("menu-handle")) {
             $(".menu-handle").trigger("click");
         }
     });
