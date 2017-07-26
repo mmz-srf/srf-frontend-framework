@@ -44,7 +44,7 @@
 
                     <div class="media-caption__source media-caption__source--audio">{{ audio.length }} min,
                         {% if audio.show and audio.show.title %}
-                            aus <strong>{{ audio.show.title }}</strong>
+                            aus <strong class="media-caption__source-title">{{ audio.show.title }}</strong>
                         {% endif %}
                         vom {{ audio.show.date|date("d.m.Y")  }}
                     </div>

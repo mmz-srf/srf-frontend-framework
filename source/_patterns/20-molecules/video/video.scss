@@ -196,13 +196,13 @@
   }
 
   .media-caption__source,
-  strong {
+  .media-caption__source-title {
     color: $color-border;
   }
 
   .media-caption__title,
   .media-caption__source,
-  strong {
+  .media-caption__source-title {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }

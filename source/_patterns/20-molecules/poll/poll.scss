@@ -56,7 +56,6 @@
 .poll {
   padding: 0;
   margin: 2px 0 0;
-  overflow: hidden;
   clear: left;
 }
 
@@ -238,8 +237,13 @@
 
 // rating / responses
 .poll--submitted {
+  .poll-option {
+    overflow: visible; // because of media window :/
+  }
+
   .poll-option-rating {
     display: block;
+    height: 100px;
   }
 }
 
@@ -259,12 +263,15 @@
 .poll-option-rating__answer-copy {
   position: absolute;
   top: 50%;
-  width: calc(100% - 88px); // 88 = 72 + 16
+  width: calc(100% - 130px); // prevent overlapping of text over the result in %
   font: 16px/20px $font-regular;
   letter-spacing: .5px;
   margin: 0;
   padding: 16px;
   transform: translate(0, -50%);
+  @include tablet-up {
+    width: calc(100% - 150px);
+  }
 }
 
 .poll-option-rating__percent {
@@ -324,9 +331,7 @@
   margin: 0;
   background-color: $color-bg-caption;
   display: none;
-  @include smartphone {
-    padding: 16px;
-  }
+  padding: 16px;
 }
 
 .poll-form-handling__endscreen {

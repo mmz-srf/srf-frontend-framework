@@ -1,4 +1,4 @@
-<a class="article-video__link" href="{{ video.player_url }}/srf/popup?urn={{ video.urn }}&autoplay=true">
+<a class="article-video__link" href="{{ video.player_url }}/srf/popup?urn={{ video.urn }}&autoplay=true" role="link">
     <figure class="article-video {{ styleModifierMain }}">
 
         {% include 'molecules-video-image-figure' with {
@@ -8,12 +8,12 @@
         %}
 
         <figcaption class="media-caption media-caption--video{{ styleModifier == 'RelatedEpisodes' ? '-related-episodes' : '' }}">
-            <span class="h-offscreen">{{ 'Video «' }}</span>
+            <span class="h-offscreen">{{ 'Video' }} «</span>
             <div class="media-caption__title media-caption__title--video">{{ video.title }}</div>
-            <div class="media-caption__source media-caption__source--video">Aus <strong>{{ video.show.title }}</strong> vom {{ video.show.date|date("d.m.Y")  }}</div>
-            <span class="h-offscreen">{{ '» abspielen' }}</span>
+            <div class="media-caption__source media-caption__source--video">Aus <strong class="media-caption__source-title">{{ video.show.title }}</strong> vom {{ video.show.date|date("d.m.Y") }}</div>
+            <span class="h-offscreen">» {{ 'abspielen' }}</span>
             {% block player_info %}
-                <span class="h-offscreen">{{ ', Video wird im Player abgespielt' }}</span>
+                <span class="h-offscreen">, {{ 'Video wird im Player abgespielt' }}</span>
             {% endblock %}
         </figcaption>
     </figure>

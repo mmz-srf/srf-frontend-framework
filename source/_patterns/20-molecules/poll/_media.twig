@@ -1,21 +1,23 @@
-<figure class="article-media{% if media.type == "bild" %} article-media--image{% endif %}">
+<figure class="article-media{% if media.type == "bild" %} article-media--image{% endif %} {{ styleModifier }}">
     {% if media.type == "audio" or media.type == "video" %}
     <a class="article-media__link" href="{{ media.player_url }}/srf/popup?urn={{ media.urn }}&autoplay=true">
     {% endif %}
-        <img class="image-figure__image"
-            {% if media.type == "bild" %}
-                alt="{{ media.title }}"
-                title="{{ media.title }}"
-            {% else %}
-                alt="{{ media.type|capitalize }} «{{ media.title }}» {{ 'abspielen' }}"
-                title="{{ media.type|capitalize }} «{{ media.title }}» {{ 'abspielen' }}"
-            {% endif %}
-             sizes="100vw"
-             srcset="{% for source in image.sources %}
-                        {{ source.src }} {{ source.width }}w
-                        {{ loop.last ? '' : ',' }}
-                     {% endfor %}"
-             src="{{ image.sources.s8.src }}">
+        <div class="image-figure__image-wrapper">
+            <img class="image-figure__image"
+                    {% if media.type == "bild" %}
+                        alt="{{ media.title }}"
+                        title="{{ media.title }}"
+                    {% else %}
+                        alt="{{ media.type|capitalize }} «{{ media.title }}» {{ 'abspielen' }}"
+                        title="{{ media.type|capitalize }} «{{ media.title }}» {{ 'abspielen' }}"
+                    {% endif %}
+                 sizes="100vw"
+                 srcset="{% for source in image.sources %}
+                            {{ source.src }} {{ source.width }}w
+                            {{ loop.last ? '' : ',' }}
+                         {% endfor %}"
+                 src="{{ image.sources.s8.src }}">
+        </div>
         {% if media.type == "audio" or media.type == "video" %}
 
         {% include 'molecules-play-icon-with-runtime' with {
@@ -24,6 +26,7 @@
             }
         %}
     </a> {# no links for images - and no dim #}
+    <div class="article-{{ media.type }}__player player-wrapper--js"></div>
     {% endif %}
     <!-- figcaption deliberately omitted (design) -->
 </figure>

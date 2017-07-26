@@ -32,6 +32,32 @@
   }
 }
 
+.article-media { // image figure
+  // general
+  .image-figure__image-wrapper {
+    height: 100%;
+  }
+
+  // audio
+  .spinner-container {
+    display: none;
+  }
+
+  .spinner,
+  .spinner__circle--dash {
+    animation: none;
+  }
+
+  .article-audio__link {
+    margin: 0; // WHAT WAS THAT!? (a link with MARGINS!!)
+  }
+
+  // video
+  .article-video__player {
+    position: relative;
+  }
+}
+
 .article-media--image {
   position: relative;
 
@@ -53,8 +79,118 @@
   }
 }
 
+.poll--with-media {
+
+  // always
+  .video--loading,
+  .video--playing,
+  .audio--loading,
+  .audio--playing {
+    .media-play {
+      display: none;
+    }
+  }
+
+  // audio
+  .audio--loading {
+    .spinner-container {
+      display: block;
+    }
+
+    .spinner {
+      animation: spinner_rotate 2s linear infinite;
+    }
+
+    .spinner__circle--dash {
+      animation: spinner_dash 1.5s ease-in-out infinite;
+    }
+  }
+
+  .media-play__icon {
+    margin-bottom: 0;
+  }
+}
+
+// player
+.poll--setup {
+
+  .media-play { // how many different play icons do we actually use???
+    transform: translate(-50%, -34px);
+  }
+
+  .article-audio__player {
+    position: relative;
+    margin-top: 0;
+    height: 0;
+    transition: height 0.4s cubic-bezier(0.4, 0.0, 0.2, 1),
+    margin 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
+
+    iframe {
+      margin: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .video--loading,
+  .video--playing,
+  .video--pausing {
+    .image-figure__image {
+      display: none;
+    }
+  }
+
+  .audio--playing {
+    // make the img fit (there's a player underneath)
+    .article-media__link:before {
+      content: "";
+      display: block;
+      padding-top: calc(56.25%);
+      position: relative;
+    }
+
+    .image-figure__image {
+      background-color: #000;
+      bottom: 0;
+      height: 100%;
+      left: 0;
+      min-width: 100%;
+      object-fit: contain;
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 1px;
+    }
+
+    .media-play {
+      display: none;
+    }
+
+    .article-audio__player {
+      margin-top: -25px;
+      height: 25px;
+    }
+  }
+
+  .spinner-container {
+    height: 62px;
+    width: 62px;
+  }
+
+  // ie11 flexbox fix :/
+  @media all and (-ms-high-contrast: none) {
+    .poll-option-wrapper {
+      height: 100%;
+    }
+  }
+}
+
 // img cropping ...
-.poll--with-media.poll--submitted {
+.poll--submitted {
+  .poll-option-wrapper {
+    height: 100px;
+  }
+
   .article-media {
     position: relative;
     width: $image-size-preview-gallery;
@@ -75,11 +211,36 @@
   }
 
   .media-play {
-    top: 50%;
-    width: 40px;
+    width: 37px;
+  }
+
+  .video--pausing .media-play__icon {
+    display: block;
   }
 
   .media-play__length {
     display: none;
+  }
+
+  .spinner-container {
+    width: 34px;
+  }
+
+  .media-window-container::after {
+    border-bottom: 10px solid #fefefd;
+  }
+
+  .article-video__player {
+    display: none;
+  }
+
+  .media-window-container--playing {
+    .media-window {
+      border-bottom: 2px solid #fefefd;
+    }
+
+    .poll-option {
+      overflow: visible;
+    }
   }
 }
