@@ -208,7 +208,7 @@ function addTextToDots($carousel) {
         // reenabling buttons (after slick) for mobile :/
         $elm.find("button").text($elm.hasClass("slick-active") // and provide textual info
             ? $carousel.data("dot-current")
-            : (i + 1) + $carousel.data("dot-info")
+            : (i + 1) + ". " + $carousel.data("dot-info")
         ); // button (dot)
 
         // reenabling dots for mobile
