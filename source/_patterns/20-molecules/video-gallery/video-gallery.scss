@@ -318,8 +318,13 @@
 .video--loading,
 .video--playing {
 
-  .media-caption--video {
-    background-color: #383732;
+  &,
+  &:hover,
+  &:active,
+  &:focus {
+    .media-caption--video {
+      background-color: #383732;
+    }
   }
 
   .media-caption__title {
