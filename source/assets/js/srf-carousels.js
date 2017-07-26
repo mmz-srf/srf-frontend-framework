@@ -113,9 +113,6 @@ export function init() {
             $carousel.slick("slickSetOption", "slidesToScroll", slidesToShow, false);
         }
 
-        // accessibility:
-        // if (slidesToShow > 1) { // desktop: only for more than one slide ==> not any longer!
-
         // unhide the following slidesToShow - 1 from screenreaders as well:
         let currentPage = Math.floor(currentElement / slidesPerScreen) + 1; // [ok] $carousel.find(".slick-dots .slick-active").data("page-no"); // Math.floor(currentElement / slidesPerScreen) + 1; // [0,1,2|3,4,5|6,7,8]
 
@@ -123,13 +120,12 @@ export function init() {
         let to = (slidesPerScreen * currentPage) - 1; // zero indexed
         let from = to - (slidesPerScreen - 1);
 
-            $carousel.find(".carousel__item").each(function (i) {
+        $carousel.find(".carousel__item").each(function (i) {
 
-                ((i >= from && i <= to) && i < 8)
-                    ? $(this).attr("aria-hidden", false).find(".article-video__link").attr("tabindex", 0)
-                    : $(this).attr("aria-hidden", true).find(".article-video__link").attr("tabindex", -1);
-            });
-        // }
+            ((i >= from && i <= to) && i < 8)
+                ? $(this).attr("aria-hidden", false).find(".article-video__link").attr("tabindex", 0)
+                : $(this).attr("aria-hidden", true).find(".article-video__link").attr("tabindex", -1);
+        });
 
     }).on("afterChange", function (slick, currentSlide) { // instead of: ... .on("keyup", ".carousel__link--next", function (e) {
         // as soon as slick's ready, we put the focus on the current elm
@@ -142,18 +138,6 @@ export function init() {
 
         if (e.type == "click" && slidesPerScreen === 1) {
             /// vo has a crazy problem: it fires click for the video left to the "selected" one - from the 3rd on
-            /* let $clickedLink = $(this),
-             $chosenItem = $clickedLink.closest(".video_carousel__js").find(".slick-current");
-
-             if ($clickedLink.closest(".carousel__item") != $chosenItem) {
-             e.preventDefault();
-             // gotTo($chosenItem.find(".article-video__link")); // select the proper link
-             // the following interferes with "design wish" without any positive effect
-             // $chosenItem.find(".article-video__link").trigger("click"); // click that one too
-             } else { // regularly :/
-             gotTo($clickedLink);
-             } */
-
             gotTo($(this)); // enable selecting "barely visible next video"
         }
     }).on("keyup", ".article-video__link", function (e) {
@@ -169,25 +153,6 @@ export function init() {
             $(this).closest(".video_carousel__js").find(".slick-current .article-video__link").focus();
         }
     });
-
-    /* $(".video_carousel__js").on("click", ".slick-dots button", function (e) {
-     let $carousel = $(this).closest(".video_carousel__js");
-
-     $carousel.find(".carousel__item").each(function (i) {
-     let $elm = $(this);
-     if ($elm.hasClass("slick-current")) { // selected element
-     $elm.find(".article-video__link")
-     .attr("tabindex", 0).attr("aria-hidden", false).attr("aria-disabled", false)
-     .removeAttr("disabled")
-     .css({"pointer-events":"auto", "border": "2px dotted pink", "background":"yellow"})
-     } else {
-     $elm.find(".article-video__link") // I'd do ANYTHING to make vo / safari understand!!
-     .attr("tabindex", -1).attr("aria-hidden", true).attr("aria-disabled", true)
-     .attr("disabled", "disabled")
-     // .css({"pointer-events":"none"})
-     }
-     }); // this was meant to help along the hitting of the "correct" link with vo
-     }); */
 }
 
 function gotTo($selectedLink) {
