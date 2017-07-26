@@ -37,10 +37,10 @@
     outline: none;
     -webkit-font-smoothing: auto;
     -moz-osx-font-smoothing: auto;
+  }
 
-    &::placeholder {
-      opacity: 0;
-    }
+  &:focus::placeholder { // this cannot be combined with the above
+    opacity: 0;
   }
 
   &::-webkit-input-placeholder {
@@ -55,7 +55,7 @@
     background-size: 23px;
     background-position: 6px -2px;
 
-    &:focus {
+    &:focus, &:not(placeholder-shown) {
       background-position: 6px -32px;
     }
   }
