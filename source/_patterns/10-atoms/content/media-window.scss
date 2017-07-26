@@ -9,6 +9,7 @@
   height: 0; // initial ...
   transition: height 0.375s ease;
   visibility: hidden;
+  opacity: 0;
 }
 
 .media-window__close {
@@ -48,6 +49,7 @@
     right: 12px;
     background: transparent url("../img/close-sprite.svg") no-repeat;
     border: 0;
+    padding: 0;
     cursor: pointer;
     display: block;
     z-index: 1;
@@ -126,4 +128,5 @@
 
 .media-window__player--visible {
   visibility: visible;
+  opacity: 1; // safari doesn't get visibility !!
 }

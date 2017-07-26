@@ -51,3 +51,11 @@
 .h-element--hide {
   display: none !important;
 }
+
+.h-element--invisible {
+  visibility: hidden;
+}
+
+.h-element--visible {
+  visibility: visible;
+}
