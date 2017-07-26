@@ -103,13 +103,6 @@
     }
   }
 
-  .article-audio { //,
-    margin: 0 -24px;
-    @include tablet-up {
-      // margin: 20px 0;
-    }
-  }
-
   .article-video { //,
     // .article-audio { //,
     // .image-figure {
@@ -124,6 +117,10 @@
   }
 
   @include smartphone {
+    .article-audio {
+      margin: 0 -24px;
+    }
+
     .media-caption--video {
       margin: 0 -24px;
     }
