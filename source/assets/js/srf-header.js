@@ -55,6 +55,7 @@ export function init() {
                 .find(".navbar").removeClass("navbar--closed")
                 .find(".navbar__menu").addClass("navbar__menu--come-in");
 
+            // adjust the infotext on the menu-handle (open => close)
             let $infotext = $handle.find(".menu-handle__info span");
             $infotext.text($infotext.data("menu-close"));
 
@@ -62,7 +63,13 @@ export function init() {
                 $(".navbar__menu").one("transitionend", function () {
                     $(this).find(".navbar__link--close").addClass("navbar__link--fixed");
                 });
+            } else {
+                // clear out any possible search input => TODO: much neater!!
+                let $input = $handle.closest(".header").find(".searchbox__input").css({"border": "1px dotted green"});
+                $input.val("");
+                $input.closest(".searchbox").find("button").attr("tabindex", -1).attr("aria-hidden", true).css({"border": "1px dotted pink"});
             }
+
             menuHasFocus = true;
 
             if (e.type === "srf_handle-menu") {
