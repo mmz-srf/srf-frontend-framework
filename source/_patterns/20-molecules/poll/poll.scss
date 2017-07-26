@@ -263,7 +263,7 @@
 .poll-option-rating__answer-copy {
   position: absolute;
   top: 50%;
-  width: calc(100% - 130px); // calc(100% - 88px); // 88 = 72 + 16 // --> 100% - 124px ?? ( img + votes% !)
+  width: calc(100% - 130px); // prevent overlapping of text over the result in %
   font: 16px/20px $font-regular;
   letter-spacing: .5px;
   margin: 0;
@@ -331,9 +331,7 @@
   margin: 0;
   background-color: $color-bg-caption;
   display: none;
-  // @include smartphone {
-    padding: 16px;
-  // }
+  padding: 16px;
 }
 
 .poll-form-handling__endscreen {
