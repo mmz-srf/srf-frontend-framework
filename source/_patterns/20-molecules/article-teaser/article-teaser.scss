@@ -13,10 +13,6 @@
     margin: 32px 0;
   }
 
-  @include smartphone {
-    @include fullwidth-element;
-  }
-
   &:hover,
   &:focus {
     background-color: $color-link-bg-hover;
