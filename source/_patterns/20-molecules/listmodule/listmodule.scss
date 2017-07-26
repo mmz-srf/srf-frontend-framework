@@ -123,8 +123,10 @@
     }
   }
 
-  .media-caption--video {
-    margin: 0 -24px;
+  @include smartphone {
+    .media-caption--video {
+      margin: 0 -24px;
+    }
   }
 }
 
