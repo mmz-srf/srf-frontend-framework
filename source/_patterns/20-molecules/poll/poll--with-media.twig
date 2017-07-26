@@ -28,7 +28,6 @@
                 {% set media_options = { "media": { "type": "audio", "title" : audios[0].title, "length" : audios[0].length, "player_url": audios[0].player_url, "urn" : audios[0].urn }, "image" : images[2] } %}
                 {{ option.rating_box( i, poll.answers.0, media_options ) }}
                 {{ option.question_label( pollIndex, i, poll.answers.0 ) }}
-                <div class="article-audiox__player player-wrapper--js"></div>
                 {# // Audio #}
             </li>
         </ol>
