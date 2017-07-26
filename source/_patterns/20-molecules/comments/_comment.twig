@@ -10,7 +10,7 @@
         <span class="comment__time" data-timestamp="{{ comment.date }}"></span>
         <blockquote class="comment__content">{{ comment.message }}</blockquote>
         {% spaceless %}
-            <a class="comment__link comment__link--agree" role="link" title="{{ 'Zustimmen' }}" href="#{{ comment.id }}-agree">
+            <a class="js-comment-like comment__link comment__link--like" role="link" title="{{ 'Zustimmen' }}" href="#{{ comment.id }}-like">
                 {{ 'Zustimmen' }}
                 <span class="h-offscreen">{{ 'dem Kommentar zustimmen' }}</span>
                 <span class="count"></span>
@@ -18,7 +18,7 @@
 
             <span class="vertical-separator" aria-hidden="true" role="presentation"></span>
 
-            <a class="comment__link comment__link--deny" role="link" title="{{ 'Ablehnen' }}" href="#{{ comment.id }}-deny">
+            <a class="js-comment-dislike comment__link comment__link--dislike" role="link" title="{{ 'Ablehnen' }}" href="#{{ comment.id }}-dislike">
                 {{ 'Ablehnen' }}
                 <span class="h-offscreen">{{ 'den Kommentar ablehnen' }}</span>
                 <span class="count"></span>
@@ -44,12 +44,12 @@
                         <span class="comment__time" data-timestamp="{{ reply.date }}"></span>
                         <blockquote class="comment__content">{{ reply.message }}</blockquote>
                         {% spaceless %}
-                            <a class="comment__link comment__link--agree" title="{{ 'Zustimmen' }}" role="link" href="#{{ comment.id }}-agree">
+                            <a class="comment__link comment__link--like" title="{{ 'Zustimmen' }}" role="link" href="#{{ comment.id }}-like">
                                 {{ 'Zustimmen' }}
                                 <span class="h-offscreen">{{ 'dem Kommentar zustimmen' }}</span>
                                 <span class="count"></span>
                             </a><span class="vertical-separator" aria-hidden="true" role="presentation"></span>
-                            <a class="comment__link comment__link--deny" title="{{ 'Ablehnen' }}" role="link" href="#{{ comment.id }}-deny">
+                            <a class="js-comment-dislike comment__link comment__link--dislike" title="{{ 'Ablehnen' }}" role="link" href="#{{ comment.id }}-dislike">
                                 {{ 'Ablehnen' }}
                                 <span class="h-offscreen">{{ 'den Kommentar ablehnen' }}</span>
                                 <span class="count"></span>
