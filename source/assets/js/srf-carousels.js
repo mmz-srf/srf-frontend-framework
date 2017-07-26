@@ -121,8 +121,7 @@ export function init() {
         let from = to - (slidesPerScreen - 1);
 
         $carousel.find(".carousel__item").each(function (i) {
-
-            ((i >= from && i <= to) && i < 8)
+            i >= from && i <= to
                 ? $(this).attr("aria-hidden", false).find(".article-video__link").attr("tabindex", 0)
                 : $(this).attr("aria-hidden", true).find(".article-video__link").attr("tabindex", -1);
         });
@@ -132,7 +131,6 @@ export function init() {
         if (slidesPerScreen > 1) {
             $(this).find(".slick-current .article-video__link").focus();
         }
-
     }).on("click", ".article-video__link", function (e) {
         // unfortunately $carousel.slick("slickSetOption", "focusOnSelect", ...); cannot be set "on the fly" :/
 
