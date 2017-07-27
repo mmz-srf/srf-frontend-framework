@@ -20,6 +20,7 @@
     outline: none;
   }
 }
+
 .chmap-wrapper {
   position: relative;
   background-color: $color-bg-caption;
@@ -29,6 +30,11 @@
     margin: 24px 8px;
   }
 }
+
+.chmap-wrapper__figure {
+  margin: 0;
+}
+
 .chmap__location {
   stroke: #fff; // cantons
   stroke-width: .5px;
