@@ -178,7 +178,6 @@
   font: 22px/28px $font-medium;
   letter-spacing: .3px;
   margin: 32px 0 12px;
-
   @include smartphone {
     margin-top: 24px;
   }
@@ -191,7 +190,7 @@
   letter-spacing: .2px;
   color: $color-text-light;
   border-bottom: 5px solid #fff;
-  box-shadow: 0 0 10px 10px #fff; // like gradient
+  box-shadow: 0 5px 10px 8px #fff; // like gradient
   position: relative;
   z-index: 1;
 }
