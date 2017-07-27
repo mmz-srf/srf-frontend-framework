@@ -25,7 +25,7 @@
 
 body[data-representation=web] {
   .embed-inline.no-swear {
-    display: blockd;
+    display: block;
     @include tablet-up {
       display: none;
     }
