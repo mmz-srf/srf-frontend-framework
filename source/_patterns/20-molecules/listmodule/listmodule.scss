@@ -11,8 +11,8 @@
   color: $color-text-default;
   margin: 0 0 16px;
   @include article-text-padding;
-
 }
+
 .listmodule__title--listicle {
   @include tablet-up {
     margin-bottom: 24px;
@@ -25,36 +25,42 @@
   &:before {
     display: none;
   }
+
   @include tablet-up {
     margin: 0 -16px;
     padding: 0 16px;
   }
 }
+
 .listmodule__item--listicle {
   margin-bottom: 24px;
+
   @include tablet-up {
     margin-bottom: 32px;
   }
-  p{
-    margin:12px 0;
+
+  p {
+    margin: 12px 0;
     @include tablet-up{
-      margin:16px 0;
+      // margin: 16px 0;
     }
   }
 
-
   .article-video {
+
     @include smartphone {
-      margin-left: -24px;
-      margin-right: -24px;
+      // margin-left: -24px;
+      // margin-right: -24px;
       // @include fullwidth-element; // fixes padding-problem
     }
   }
 }
+
 .listmodule__item--listing {
   border-top: 1px solid rgb(236,236,230);
   overflow: hidden;
 }
+
 .listmodule__item--listing:last-of-type {
   border-bottom: 1px solid rgb(236,236,230);
 }
@@ -77,7 +83,7 @@
   @include tablet-up {
     line-height: 32px;
     letter-spacing: .2px;
-    margin: 24px 0 16px;
+    margin: 24px 0 12px;
   }
 }
 
@@ -91,15 +97,16 @@
     margin-top: 12px;
     margin-bottom: 12px;
     @include tablet-up {
-      margin-top: 20px;
-      margin-bottom: 20px;
+      // margin-top: 20px;
+      // margin-bottom: 20px;
+      margin: 16px -16px;
     }
   }
 
   .article-audio__link {
-    margin: 12px 0;
+    margin: 16px 0;
     @include tablet-up {
-      margin: 20px 0;
+      margin: 16px -16px;
     }
   }
 
@@ -108,7 +115,7 @@
     // .image-figure {
     margin: 12px 0;
     @include tablet-up {
-      margin: 20px 0;
+      margin: 16px -16px;
     }
 
     .image-figure {
