@@ -14,10 +14,6 @@ function registerListener() {
         } else if ($input.val().length == 0 && $button.attr("tabindex") == 0) {
             $button.attr("tabindex", -1).attr("aria-hidden", true);
         }
-
-        // after submit we
-    }).on("submit", function (e) { // after submit disable the submit button
-        // $(this).find("button").attr("tabindex", -1).attr("aria-hidden", true);
     });
 }
 

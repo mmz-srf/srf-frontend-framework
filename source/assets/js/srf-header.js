@@ -64,12 +64,11 @@ export function init() {
                     $(this).find(".navbar__link--close").addClass("navbar__link--fixed");
                 });
             } else {
-                // clear out any possible search input => TODO: much neater!!
+                // clear out any possible search input
                 let $input = $handle.closest(".header").find(".searchbox__input");
                 $input.val("");
                 $input.closest(".searchbox").find("button").attr("tabindex", -1).attr("aria-hidden", true);
             }
-
             menuHasFocus = true;
 
             if (e.type === "srf_handle-menu") {
@@ -81,9 +80,10 @@ export function init() {
 
     $(document).on("click touchstart", ".body--observer", function (e) {
         let $target = $(e.target);
+        console.log("-->", e.target, e)
         // make it possible to use search while page is dimmed and navi is visible
         if (!$target.hasClass("searchbox__input") && (!$target.hasClass("navbar__link") || $target.hasClass("navbar__link--close") )
-            && !$target.hasClass("expand-arrow") && !$target.hasClass("menu-handle")) {
+            && !$target.hasClass("expand-arrow") && !$target.hasClass("menu-handle") && !$target.hasClass("js-searchbox__button") && !$target.hasClass("searchbox")) {
             $(".menu-handle").trigger("click");
         }
     });
