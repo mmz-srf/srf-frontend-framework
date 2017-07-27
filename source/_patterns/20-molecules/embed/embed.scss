@@ -1,15 +1,46 @@
+
 .embed-inline {
   position: relative;
   margin: 32px 0;
-  display: flex;
+  display: block;
   align-items: center;
   justify-content: center;
 
   @include smartphone {
     margin: 24px 0x;
   }
+
+  .embed-inline__title{
+    padding: 0 16px;
+    font-family: $font-medium;
+    margin-bottom: 12px;
+
+    @include smartphone{
+      padding: 0 24px;
+      margin-bottom: 8px;
+    }
+  }
+
 }
 
-.embed-inline iframe {
-  display: none;
+body[data-representation=web] {
+  .embed-inline.no-swear {
+    display: blockd;
+    @include tablet-up {
+      display: none;
+    }
+  }
+  .linkbox.no-swear {
+    display: none;
+    @include tablet-up {
+      display: block;
+    }
+  }
+
+}
+
+body[data-representation=webview] {
+  .embed-inline.no-swear {
+    display: none;
+  }
 }
