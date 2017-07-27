@@ -190,9 +190,9 @@
   letter-spacing: .2px;
   color: $color-text-light;
   border-bottom: 5px solid #fff;
-  box-shadow: 0 0 10px 10px #fff; // like gradient
+  box-shadow: 0 5px 10px 8px #fff; // like gradient
   position: relative;
-  z-index: -1;
+  z-index: 1;
 }
 
 .ticker__info--live {
