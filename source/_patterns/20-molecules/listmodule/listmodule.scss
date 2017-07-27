@@ -76,10 +76,12 @@
     margin: 19px 0 12px; // 19 instead of 16px 'cause of rendering of custom-font visually needs additional vertical space on top
   }
 }
+
 .listmodule__heading--listicle {
   font-weight: 500;
   font-family: $font-medium;
   margin: 16px 0 12px;
+
   @include tablet-up {
     line-height: 32px;
     letter-spacing: .2px;
@@ -88,32 +90,32 @@
 }
 
 .listmodule__media--listicle {
-  margin: 12px auto; // margin: 12px -8px;
+  margin: 12px auto;
+
   @include tablet-up {
-    margin: 16px 0; // margin: -16px -16px -12px;
+    margin: 16px 0;
   }
 
   .image-figure {
     margin-top: 12px;
     margin-bottom: 12px;
+
     @include tablet-up {
-      // margin-top: 20px;
-      // margin-bottom: 20px;
       margin: 16px -16px;
     }
   }
 
   .article-audio__link {
     margin: 16px 0;
+
     @include tablet-up {
       margin: 16px -16px;
     }
   }
 
-  .article-video { //,
-    // .article-audio { //,
-    // .image-figure {
+  .article-video {
     margin: 12px 0;
+
     @include tablet-up {
       margin: 16px -16px;
     }
@@ -125,6 +127,7 @@
 
   .media-caption--video {
     margin: 0 -24px;
+
     @include tablet-up {
       margin: 0 -16px;
     }
@@ -146,6 +149,7 @@
   letter-spacing: .5px;
   color: $color-text-default;
   margin: 8px 0;
+
   @include tablet-up {
     font-size: 20px;
     letter-spacing: .6px;
@@ -157,7 +161,6 @@
   @include tablet-up {
     line-height:32px;
     letter-spacing: .3px;
-    // margin:16px 0;
   }
 }
 
