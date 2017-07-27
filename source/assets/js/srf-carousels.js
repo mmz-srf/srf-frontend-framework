@@ -41,7 +41,7 @@ export function init() {
     $(".video_carousel__js").on("init", function (slick) {
         $(this).css("visibility", "visible");
         // triggering a "recalculation of dots" (via "setPosition" below)
-        $(".video_carousel__js").trigger('setPosition');
+        $(window).trigger('resize');
     });
 
     // video carousel:
