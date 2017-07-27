@@ -65,9 +65,9 @@ export function init() {
                 });
             } else {
                 // clear out any possible search input => TODO: much neater!!
-                let $input = $handle.closest(".header").find(".searchbox__input").css({"border": "1px dotted green"});
+                let $input = $handle.closest(".header").find(".searchbox__input");
                 $input.val("");
-                $input.closest(".searchbox").find("button").attr("tabindex", -1).attr("aria-hidden", true).css({"border": "1px dotted pink"});
+                $input.closest(".searchbox").find("button").attr("tabindex", -1).attr("aria-hidden", true);
             }
 
             menuHasFocus = true;
