@@ -178,7 +178,8 @@
   font: 22px/28px $font-medium;
   letter-spacing: .3px;
   margin: 32px 0 12px;
-
+  position: relative;
+  z-index: 2; //place title on top of .ticker__info
   @include smartphone {
     margin-top: 24px;
   }
