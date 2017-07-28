@@ -1,4 +1,3 @@
-
 .embed-inline {
   position: relative;
   margin: 32px 0;
@@ -9,18 +8,21 @@
   @include smartphone {
     margin: 24px 0px;
   }
+}
 
-  .embed-inline__title{
-    padding: 0 16px;
-    font-family: $font-medium;
-    margin-bottom: 12px;
+.embed-inline__title {
+  padding: 0 16px;
+  font-family: $font-medium;
+  margin-bottom: 12px;
 
-    @include smartphone{
-      padding: 0 24px;
-      margin-bottom: 8px;
-    }
+  @include smartphone {
+    padding: 0 24px;
+    margin-bottom: 8px;
   }
+}
 
+.embed-inline__content > * {
+  margin: 0 auto;
 }
 
 body[data-representation=web] {
