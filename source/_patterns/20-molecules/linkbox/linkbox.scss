@@ -77,3 +77,12 @@
   color: $color-text-light;
   font-family: $font-regular;
 }
+
+//Special Case for Mobile view of HTML EMbeds
+.linkbox.no-swear {
+  margin: 40px 0;
+
+  @include smartphone{
+    margin: 32px 0;
+  }
+}
