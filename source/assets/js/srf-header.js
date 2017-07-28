@@ -1,6 +1,5 @@
 export function init() {
 
-    let MENU_EVENT = "srf_handle-menu";
     let HANDLE_CLASS = ".menu-handle";
     let SUBMENU_CLASS = ".js-expand-arrow";
     let DESKTOP_CLOSE_BTN_CLASS = ".navbar__link--close";
@@ -22,7 +21,8 @@ export function init() {
 
     $header.on("keydown", HANDLE_CLASS, (e) => handleKeyPress(e) )
         .on("keydown", DESKTOP_CLOSE_BTN_CLASS, (e) => handleKeyPress(e) )
-        .on("click MENU_EVENT", HANDLE_CLASS, (e) => onMenuHandling(e) );
+        .on("click", HANDLE_CLASS, (e) => onMenuHandling(e) )
+        .on("click", DESKTOP_CLOSE_BTN_CLASS, (e) => onMenuHandling(e) );
 
     $(document).on("click touchstart", ".body--observer", (e) => handleBodyClick(e) );
 
@@ -63,9 +63,9 @@ export function init() {
 
         // Desktop: there are animations we have to wait for
         if (isDesktop()) {
+            $desktopCloseBtn.removeClass("navbar__link--fixed");
             $(".navbar__menu").removeClass("navbar__menu--come-in").one("transitionend", () => {
                 finishClosingMenu();
-                $desktopCloseBtn.removeClass("navbar__link--fixed");
             });
         } else {
             $(".navbar__menu").removeClass("navbar__menu--come-in");
@@ -100,6 +100,10 @@ export function init() {
         }
     }
 
+    /**
+     * Opens/Closes the submenu (radio stations). Currently only handles one submenu.
+     * @param e jQuery.event
+     */
     function handleExpandArrowClick(e) {
         typeof e !== "undefined" ? e.preventDefault() : null;
 
@@ -116,23 +120,28 @@ export function init() {
         }
     }
 
+    /**
+     * Tabbing to the breadcrumbs = leaving the menu = close it
+     * @param e jQuery.event
+     */
     function handleBreadcrumbsFocus(e) {
         if (menuHasFocus && e.keyCode === KEYCODES.tab) {
             closeMenu();
         }
     }
 
+    /**
+     * Clicks on anything that isn't in the menu, the menu handle or the search box should close the menu.
+     * @param e jQuery.event
+     */
     function handleBodyClick(e) {
         let $target = $(e.target);
 
-        // make it possible to use search while page is dimmed and navi is visible
-        if (!$target.hasClass("searchbox__input")
-            && (!$target.hasClass("navbar__link") || $target.hasClass("navbar__link--close") )
-            && !$target.hasClass("expand-arrow")
-            && !$target.hasClass("menu-handle")
-            && !$target.hasClass("menu-handle__info") ) {
-
-            onMenuHandling(e);
+        if (menuHasFocus &&
+            !$target.parents(".navbar").length &&
+            !$target.hasClass("searchbox__input") &&
+            !$target.parents(".menu-handle").length ) {
+            closeMenu();
         }
     }
 
