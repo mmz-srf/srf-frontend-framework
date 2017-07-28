@@ -139,8 +139,8 @@ export function init() {
 
         if (menuHasFocus &&
             !$target.parents(".navbar").length &&
-            !$target.hasClass("searchbox__input") &&
-            !$target.parents(".menu-handle").length ) {
+            !$target.parents(".menu-handle").length &&
+            !$target.is(".searchbox__input, .menu-handle") ) {
             closeMenu();
         }
     }
