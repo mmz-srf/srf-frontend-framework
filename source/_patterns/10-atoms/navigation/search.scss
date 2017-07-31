@@ -30,7 +30,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  &:focus, &:not(placeholder-shown) {
+  &:focus, &:not(:placeholder-shown) {
     color: $color-text-accentuation;
     background-color: $color-bg-box;
     background-position: 6px -36px;
@@ -55,7 +55,7 @@
     background-size: 23px;
     background-position: 6px -2px;
 
-    &:focus, &:not(placeholder-shown) {
+    &:focus, &:not(:placeholder-shown) {
       background-position: 6px -32px;
     }
   }
