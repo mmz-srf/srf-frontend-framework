@@ -189,6 +189,7 @@ function loadLazyImages(images) {
 
 function rePaintDots($carousel, screensToShow) {
     if (screensToShow > 1) {
+        $carousel.find(".slick-dots").removeClass("h-element--hide");
         let x = screensToShow + 1;
         $carousel.find(".slick-dots li").removeClass("h-element--hide");
         // adding text to dots
