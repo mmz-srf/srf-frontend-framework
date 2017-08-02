@@ -110,7 +110,7 @@ export function init() {
         }
 
         // unhide the following slidesToShow - 1 from screenreaders as well:
-        let currentPage = Math.floor(currentElement / slidesPerScreen) + 1; // $carousel.find(".slick-dots .slick-active").data("page-no"); // Math.floor(currentElement / slidesPerScreen) + 1; // [0,1,2|3,4,5|6,7,8]
+        let currentPage = Math.floor(currentElement / slidesPerScreen) + 1;
 
         // remove not currently visible slides from tabindex
         let to = (slidesPerScreen * currentPage) - 1; // zero indexed
@@ -139,7 +139,6 @@ export function init() {
         if (e.keyCode === 13) {
             $(this).trigger("click");
         }
-        // }).on("keyup", ".carousel__link--prev, .carousel__link--next", function (e) {
     }).on("keyup", ".carousel__link--next", function (e) { // this is too late!
         // someone is tabbing => clicked <enter> on the arrow going to the next page
         if (e.keyCode === 13) {
