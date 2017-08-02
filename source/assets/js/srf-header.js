@@ -20,13 +20,16 @@ export function init() {
             return false;
         }
     }).on("click srf_handle-menu", ".menu-handle", function (e) { // hamburger clicking management
-        e.preventDefault(); // chrome has "a problem" (bug!) with keypress!
+        e.preventDefault();
         e.stopPropagation();
         let $handle = $(this);
         if (menuHasFocus) { // the menu is open => close it
             $("body").removeClass("body--observer").find(".navbar__link--close")
                 .removeClass("navbar__link--fixed");
             $handle.removeClass("menu-handle--active");
+
+            let $infotext = $handle.find(".menu-handle__info span");
+            $infotext.text($infotext.data("menu-show"));
 
             if ($(window).width() > 719) { // there are animations we have to wait for....
                 $(".navbar__menu").removeClass("navbar__menu--come-in").one("transitionend", function () {
@@ -52,10 +55,19 @@ export function init() {
                 .find(".navbar").removeClass("navbar--closed")
                 .find(".navbar__menu").addClass("navbar__menu--come-in");
 
+            // adjust the infotext on the menu-handle (open => close)
+            let $infotext = $handle.find(".menu-handle__info span");
+            $infotext.text($infotext.data("menu-close"));
+
             if ($(window).width() > 719) { // there are animations we have to wait for....
                 $(".navbar__menu").one("transitionend", function () {
                     $(this).find(".navbar__link--close").addClass("navbar__link--fixed");
                 });
+            } else {
+                // clear out any possible search input
+                let $input = $handle.closest(".header").find(".searchbox__input");
+                $input.val("");
+                $input.closest(".searchbox").find("button").attr("tabindex", -1).attr("aria-hidden", true);
             }
             menuHasFocus = true;
 
@@ -68,8 +80,10 @@ export function init() {
 
     $(document).on("click touchstart", ".body--observer", function (e) {
         let $target = $(e.target);
+        console.log("-->", e.target, e)
         // make it possible to use search while page is dimmed and navi is visible
-        if (!$target.hasClass("searchbox__input") && (!$target.hasClass("navbar__link") || $target.hasClass("navbar__link--close") ) && !$target.hasClass("expand-arrow")) {
+        if (!$target.hasClass("searchbox__input") && (!$target.hasClass("navbar__link") || $target.hasClass("navbar__link--close") )
+            && !$target.hasClass("expand-arrow") && !$target.hasClass("menu-handle") && !$target.hasClass("js-searchbox__button") && !$target.hasClass("searchbox")) {
             $(".menu-handle").trigger("click");
         }
     });
