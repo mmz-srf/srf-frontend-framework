@@ -1,7 +1,7 @@
 let $carousels = [];
 let loadedCarousels = {};
 let slidesPerScreen = 1;
-let currentElement = 1;
+let currentElement = null;
 let css = {
     'containers': '.carousel__js',
     'handles': '.carousel__link--next, .carousel__link--prev'
@@ -58,7 +58,7 @@ export function init() {
             slidesToScroll: 1,
             accessibility: false, // default?
             // focusOnSelect: false, // <-- not adjustable "on the fly" :/
-            appendArrows: "#" + id, //  + " .slick-list",
+            appendArrows: "#" + id,
             dots: true,
             centerPadding: 0,
             variableWidth: true,
@@ -77,8 +77,8 @@ export function init() {
         // button / dot text info for screenreaders, initial & on slide change
         if ($carousel.find(".slick-dots button").first().text() == "1" || currentElement != currentSlide) {
             addTextToDots($carousel);
+            currentElement = currentSlide;
         }
-        currentElement = currentSlide;
 
         // if previous num. of slides shown != the num. we'll see now (window resize)
         if ($carousel.slick("slickGetOption", "slidesToShow") != slidesToShow) {
@@ -99,14 +99,10 @@ export function init() {
 
                 // no right arrow when at the rightmost position within the carousel
                 handleRightArrow($carousel, currentSlide, screensToShow);
-
-                // adjust num. of dots (after resize)
-                rePaintDots($carousel, screensToShow);
-
-                $carousel.find(".slick-dots").removeClass("h-element--hide");  // show dots (container) if more than one
-            } else {
-                $carousel.find(".slick-dots").addClass("h-element--hide");    // else hide the one :)
             }
+
+            // adjust num. of dots (after resize)
+            rePaintDots($carousel, screensToShow);
 
             // adjust num. of slides per page
             $carousel.slick("slickSetOption", "slidesToShow", slidesToShow, false);
@@ -114,7 +110,7 @@ export function init() {
         }
 
         // unhide the following slidesToShow - 1 from screenreaders as well:
-        let currentPage = Math.floor(currentElement / slidesPerScreen) + 1; // [ok] $carousel.find(".slick-dots .slick-active").data("page-no"); // Math.floor(currentElement / slidesPerScreen) + 1; // [0,1,2|3,4,5|6,7,8]
+        let currentPage = Math.floor(currentElement / slidesPerScreen) + 1;
 
         // remove not currently visible slides from tabindex
         let to = (slidesPerScreen * currentPage) - 1; // zero indexed
@@ -143,7 +139,6 @@ export function init() {
         if (e.keyCode === 13) {
             $(this).trigger("click");
         }
-        // }).on("keyup", ".carousel__link--prev, .carousel__link--next", function (e) {
     }).on("keyup", ".carousel__link--next", function (e) { // this is too late!
         // someone is tabbing => clicked <enter> on the arrow going to the next page
         if (e.keyCode === 13) {
@@ -192,11 +187,16 @@ function loadLazyImages(images) {
 }
 
 function rePaintDots($carousel, screensToShow) {
-    let x = screensToShow + 1;
-    $carousel.find(".slick-dots li").removeClass("h-element--hide");
-    // adding text to dots
-    addTextToDots($carousel);
-    $carousel.find(".slick-dots li:nth-child(1n + " + x + ")").addClass("h-element--hide");
+    if (screensToShow > 1) {
+        $carousel.find(".slick-dots").removeClass("h-element--hide");
+        let x = screensToShow + 1;
+        $carousel.find(".slick-dots li").removeClass("h-element--hide");
+        // adding text to dots
+        addTextToDots($carousel);
+        $carousel.find(".slick-dots li:nth-child(1n + " + x + ")").addClass("h-element--hide");
+    } else {
+        $carousel.find(".slick-dots").addClass("h-element--hide");
+    }
 }
 
 function addTextToDots($carousel) {
