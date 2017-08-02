@@ -7,7 +7,7 @@ export function init() {
         "enter": 13,
         "tab": 9
     };
-    let WIN_SIZE_DESKTOP = 719;
+    let WIN_SIZE_NOT_MOBILE = 719;
 
     let $header = $(".header");
     let $handle = $(HANDLE_CLASS);
@@ -146,6 +146,6 @@ export function init() {
     }
 
     function isDesktop() {
-        return $(window).width() > WIN_SIZE_DESKTOP;
+        return $(window).width() > WIN_SIZE_NOT_MOBILE;
     }
 }
