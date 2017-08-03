@@ -1,121 +1,161 @@
 export function init() {
 
+    let HANDLE_CLASS = ".menu-handle";
+    let SUBMENU_CLASS = ".js-expand-arrow";
+    let DESKTOP_CLOSE_BTN_CLASS = ".navbar__link--close";
+    let KEYCODES = {
+        "enter": 13,
+        "tab": 9
+    };
+    let WIN_SIZE_NOT_MOBILE = 719;
+
+    let $header = $(".header");
+    let $handle = $(HANDLE_CLASS);
+    let $infotext = $handle.find(".menu-handle__info span");
+    let $arrow = $(".expand-arrow");
+    let $info = $(".js-expand-info");
+    let $subMenuHeader = $(SUBMENU_CLASS);
+    let $subMenuContent = $(".navbar__group--radio");
+    let $desktopCloseBtn = $(DESKTOP_CLOSE_BTN_CLASS);
+    let $input = $header.find(".searchbox__input");
+
     let menuHasFocus = false;
 
-    $(".header").on("keydown", ".menu-handle", function (e) {
-        e.stopPropagation();
-        // on tabbing into [x] + <enter>
-        if (e.keyCode === 13) {
-            // focus on [menu]
-            $(".menu-handle").trigger("srf_handle-menu");
-            return false;
-        }
-    }).on("keydown", ".navbar__link--close", function (e) {
-        // e.stopPropagation();
-        // on tabbing into [x] + <enter>
-        if (e.keyCode === 13) {
-            // focus on [menu]
-            $(".menu-handle").trigger("srf_handle-menu");
-            $(".menu-handle").focus();
-            return false;
-        }
-    }).on("click srf_handle-menu", ".menu-handle", function (e) { // hamburger clicking management
-        e.preventDefault();
-        e.stopPropagation();
-        let $handle = $(this);
-        if (menuHasFocus) { // the menu is open => close it
-            $("body").removeClass("body--observer").find(".navbar__link--close")
-                .removeClass("navbar__link--fixed");
-            $handle.removeClass("menu-handle--active");
+    $header.on("keydown", HANDLE_CLASS, (e) => handleKeyPress(e) )
+        .on("keydown", DESKTOP_CLOSE_BTN_CLASS, (e) => handleKeyPress(e) )
+        .on("click", HANDLE_CLASS, (e) => onMenuHandling(e) )
+        .on("click", DESKTOP_CLOSE_BTN_CLASS, (e) => onMenuHandling(e) );
 
-            let $infotext = $handle.find(".menu-handle__info span");
-            $infotext.text($infotext.data("menu-show"));
-
-            if ($(window).width() > 719) { // there are animations we have to wait for....
-                $(".navbar__menu").removeClass("navbar__menu--come-in").one("transitionend", function () {
-                    $(this).closest(".navbar").addClass("navbar--closed")
-                        .closest("body").removeClass("body--fixed");
-                    if ($(".expand-arrow").hasClass("expand-arrow--open")) {
-                        $(".js-expand-arrow").trigger("click");
-                    }
-                });
-            } else { // on mobile: no animations
-                $(".navbar__menu").removeClass("navbar__menu--come-in") // slide menu back
-                    .closest(".navbar").addClass("navbar--closed")
-                    .closest("body").removeClass("body--fixed");
-                if ($(".expand-arrow").hasClass("expand-arrow--open")) {
-                    $(".js-expand-arrow").trigger("click");
-                }
-            }
-            menuHasFocus = false;
-
-        } else { // the menu is closed => open it
-            $handle.addClass("menu-handle--active")
-                .closest("body").addClass("body--fixed").addClass("body--observer")
-                .find(".navbar").removeClass("navbar--closed")
-                .find(".navbar__menu").addClass("navbar__menu--come-in");
-
-            // adjust the infotext on the menu-handle (open => close)
-            let $infotext = $handle.find(".menu-handle__info span");
-            $infotext.text($infotext.data("menu-close"));
-
-            if ($(window).width() > 719) { // there are animations we have to wait for....
-                $(".navbar__menu").one("transitionend", function () {
-                    $(this).find(".navbar__link--close").addClass("navbar__link--fixed");
-                });
-            } else {
-                // clear out any possible search input
-                let $input = $handle.closest(".header").find(".searchbox__input");
-                $input.val("");
-                $input.closest(".searchbox").find("button").attr("tabindex", -1).attr("aria-hidden", true);
-            }
-            menuHasFocus = true;
-
-            if (e.type === "srf_handle-menu") {
-                // focus on [x]
-                $(".navbar__link--close").focus();
-            }
-        }
-    });
-
-    $(document).on("click touchstart", ".body--observer", function (e) {
-        let $target = $(e.target);
-        console.log("-->", e.target, e)
-        // make it possible to use search while page is dimmed and navi is visible
-        if (!$target.hasClass("searchbox__input") && (!$target.hasClass("navbar__link") || $target.hasClass("navbar__link--close") )
-            && !$target.hasClass("expand-arrow") && !$target.hasClass("menu-handle") && !$target.hasClass("js-searchbox__button") && !$target.hasClass("searchbox")) {
-            $(".menu-handle").trigger("click");
-        }
-    });
+    $(document).on("click touchstart", ".body--observer", (e) => handleBodyClick(e) );
 
     // accessibility: if menu loses focus => we close it
-    $(".breadcrumbs").on("keyup", function (e) {
-        // we tabbed "into article"
-        if (menuHasFocus && e.keyCode === 9) { // and the menu was open
-            $(".menu-handle").trigger("click");
-        }
-    });
+    $(".breadcrumbs").on("keyup", (e) => handleBreadcrumbsFocus(e) );
 
     // radiostation navigation opening & closing
-    $(".navbar__menu").on("click", ".js-expand-arrow", function (e) {
-        e.preventDefault();
-        let $handle = $(this),
-            $arrow = $handle.find(".expand-arrow"),
-            $info = $(".js-expand-info");
-        if ($arrow.hasClass("expand-arrow--open")) { // radio menu is open => close it
-            $arrow.removeClass("expand-arrow--open");
-            $handle.attr("aria-expanded", false).next(".navbar__group--radio")
-                .removeClass("navbar__group--radio-open");
+    $(".navbar__menu").on("click", SUBMENU_CLASS, (e) => handleExpandArrowClick(e) );
+
+    function onMenuHandling(e) {
+        e.preventDefault(); // chrome has a problem (bug!) with keypress!
+        e.stopPropagation();
+
+        if (menuHasFocus) {
+            closeMenu(e);
+        } else {
+            openMenu(e);
+        }
+    }
+
+    function closeMenu(e) {
+        $("body").removeClass("body--observer");
+
+        $handle.removeClass("menu-handle--active");
+
+        $infotext.text($infotext.data("menu-show"));
+
+        let finishClosingMenu = () => {
+            $(".navbar__menu").closest(".navbar").addClass("navbar--closed")
+                .closest("body").removeClass("body--fixed");
+
+            if ($arrow.hasClass("expand-arrow--open")) {
+                handleExpandArrowClick();
+            }
+
+            if (e && e.type === "keydown") {
+                $handle.focus();
+            }
+        };
+
+        // Desktop: there are animations we have to wait for
+        if (isDesktop()) {
+            $desktopCloseBtn.removeClass("navbar__link--fixed");
+            $(".navbar__menu").removeClass("navbar__menu--come-in").one("transitionend", () => {
+                finishClosingMenu();
+            });
+        } else {
+            $(".navbar__menu").removeClass("navbar__menu--come-in");
+            finishClosingMenu();
+        }
+
+        menuHasFocus = false;
+    }
+
+    function openMenu(e) {
+        $handle.addClass("menu-handle--active")
+            .closest("body").addClass("body--fixed body--observer")
+            .find(".navbar").removeClass("navbar--closed")
+            .find(".navbar__menu").addClass("navbar__menu--come-in");
+
+        $infotext.text($infotext.data("menu-close"));
+
+        if (isDesktop()) {
+            $(".navbar__menu").one("transitionend", () => {
+                $desktopCloseBtn.addClass("navbar__link--fixed");
+
+                if (e && e.type === "keydown") {
+                    $desktopCloseBtn.focus();
+                }
+            });
+        } else {
+            // clear out any possible search input
+            $input.val("");
+            $input.closest(".searchbox").find("button").attr("tabindex", -1).attr("aria-hidden", true);
+        }
+
+        menuHasFocus = true;
+    }
+
+    function handleKeyPress(e) {
+        if (e.keyCode === KEYCODES.enter) {
+            onMenuHandling(e);
+        }
+    }
+
+    /**
+     * Opens/Closes the submenu (radio stations). Currently only handles one submenu.
+     * @param e jQuery.event
+     */
+    function handleExpandArrowClick(e) {
+        typeof e !== "undefined" ? e.preventDefault() : null;
+
+        let subMenuIsOpen = $arrow.hasClass("expand-arrow--open");
+
+        $arrow.toggleClass("expand-arrow--open", !subMenuIsOpen);
+        $subMenuHeader.attr("aria-expanded", !subMenuIsOpen);
+        $subMenuContent.toggleClass("navbar__group--radio-open", !subMenuIsOpen);
+
+        if (subMenuIsOpen) {
             $info.text($info.data("text-open"));
-        } else { // it's closed => open it
-            $arrow.addClass("expand-arrow--open");
-            $handle.attr("aria-expanded", true).next(".navbar__group--radio")
-                .addClass("navbar__group--radio-open");
+        } else {
             $info.text($info.data("text-close"));
         }
-    });
-    
-    // no touch highlight - but css :active-styles for links
-    document.addEventListener("touchstart", function () {
-    }, false);
+    }
+
+    /**
+     * Tabbing to the breadcrumbs = leaving the menu = close it
+     * @param e jQuery.event
+     */
+    function handleBreadcrumbsFocus(e) {
+        if (menuHasFocus && e.keyCode === KEYCODES.tab) {
+            closeMenu();
+        }
+    }
+
+    /**
+     * Clicks on anything that isn't in the menu, the menu handle or the search box should close the menu.
+     * @param e jQuery.event
+     */
+    function handleBodyClick(e) {
+        let $target = $(e.target);
+
+        if (menuHasFocus &&
+            !$target.parents(".navbar").length &&
+            !$target.parents(".menu-handle").length &&
+            !$target.is(".searchbox__input, .menu-handle") ) {
+            closeMenu();
+        }
+    }
+
+    function isDesktop() {
+        return $(window).width() > WIN_SIZE_NOT_MOBILE;
+    }
 }

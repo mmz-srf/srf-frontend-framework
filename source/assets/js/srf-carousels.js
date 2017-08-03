@@ -10,10 +10,6 @@ let css = {
 export function init() {
     $carousels = $(css.containers);
 
-    /* $(".article-video__link").on("click", function (e) {
-     e.preventDefault();
-     }); */
-
     // prevent flicker effect on page load
     $carousels.on('init', function () {
         $(css.containers).css("visibility", "visible");
