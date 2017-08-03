@@ -188,7 +188,7 @@ body::after {
 
 .navbar--closed { // only add after transitionend
   .navbar__menu {
-    // position: absolute;
+    position: absolute;
     width: 0;
     visibility: hidden; // accessibility
   }
@@ -209,7 +209,7 @@ body::after {
 
   // animations
   @include tablet-up {
-    position: relative;
+    // position: relative;
     width: auto;
     right: -280px;
     transition: right $naviTransitionTime cubic-bezier(0.4, 0.0, 0.2, 1);
@@ -298,7 +298,7 @@ body::after {
   }
 
   @include desktop-wide {
-    // position: absolute;
+    position: absolute; // and back again!
   }
 }
 
@@ -381,3 +381,27 @@ body::after {
   width: auto;
 }
 // end nativation
+
+/* safari "hack" (chrome must do the same) */
+@supports (-webkit-appearance:none) {
+  .navbar--closed {
+    .navbar__menu {
+      position: relative; // absolute;
+    }
+
+    .navbar__link--close {
+      @include desktop-wide {
+        width: 0;
+        transition: width $naviTransitionTime cubic-bezier(0.4, 0.0, 0.2, 1);
+      }
+    }
+  }
+
+  .navbar__link--close {
+    @include desktop-wide {
+      width: 280px;
+    }
+  }
+}
+
+/* end special treatment for safari */
