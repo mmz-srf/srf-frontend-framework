@@ -188,7 +188,7 @@ body::after {
 
 .navbar--closed { // only add after transitionend
   .navbar__menu {
-    position: absolute;
+    // position: absolute;
     width: 0;
     visibility: hidden; // accessibility
   }
@@ -291,14 +291,14 @@ body::after {
     padding: 0;
     z-index: 1;
 
-    @include desktop-wide {
-      position: absolute;
-    }
-
     &:hover, &:focus {
       background-color: #333;
       background-position: 100% -30px;
     }
+  }
+
+  @include desktop-wide {
+    // position: absolute;
   }
 }
 
