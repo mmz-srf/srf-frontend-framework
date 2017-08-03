@@ -386,22 +386,18 @@ body::after {
 @supports (-webkit-appearance:none) {
   .navbar--closed {
     .navbar__menu {
-      position: relative; // absolute;
-    }
-
-    .navbar__link--close {
-      @include desktop-wide {
-        width: 0;
-        transition: width $naviTransitionTime cubic-bezier(0.4, 0.0, 0.2, 1);
-      }
-    }
-  }
-
-  .navbar__link--close {
-    @include desktop-wide {
-      width: 280px;
+      position: fixed; // absolute;
     }
   }
 }
+
+/* @media screen and (min-color-index:0)
+  and(-webkit-min-device-pixel-ratio:0) { @media {
+  .navbar--closed {
+    .navbar__menu {
+      position: fixed; // absolute;
+    }
+  }
+}} */
 
 /* end special treatment for safari */
