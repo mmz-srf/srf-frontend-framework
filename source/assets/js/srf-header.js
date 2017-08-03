@@ -11,11 +11,13 @@ export function init() {
 
     let $header = $(".header");
     let $handle = $(HANDLE_CLASS);
+    let $infotext = $handle.find(".menu-handle__info span");
     let $arrow = $(".expand-arrow");
     let $info = $(".js-expand-info");
     let $subMenuHeader = $(SUBMENU_CLASS);
     let $subMenuContent = $(".navbar__group--radio");
     let $desktopCloseBtn = $(DESKTOP_CLOSE_BTN_CLASS);
+    let $input = $header.find(".searchbox__input");
 
     let menuHasFocus = false;
 
@@ -47,6 +49,8 @@ export function init() {
         $("body").removeClass("body--observer");
 
         $handle.removeClass("menu-handle--active");
+
+        $infotext.text($infotext.data("menu-show"));
 
         let finishClosingMenu = () => {
             $(".navbar__menu").closest(".navbar").addClass("navbar--closed")
@@ -81,6 +85,8 @@ export function init() {
             .find(".navbar").removeClass("navbar--closed")
             .find(".navbar__menu").addClass("navbar__menu--come-in");
 
+        $infotext.text($infotext.data("menu-close"));
+
         if (isDesktop()) {
             $(".navbar__menu").one("transitionend", () => {
                 $desktopCloseBtn.addClass("navbar__link--fixed");
@@ -89,6 +95,10 @@ export function init() {
                     $desktopCloseBtn.focus();
                 }
             });
+        } else {
+            // clear out any possible search input
+            $input.val("");
+            $input.closest(".searchbox").find("button").attr("tabindex", -1).attr("aria-hidden", true);
         }
 
         menuHasFocus = true;
