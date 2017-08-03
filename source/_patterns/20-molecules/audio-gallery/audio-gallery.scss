@@ -29,7 +29,11 @@
   }
 
   .article-audio__link {
-    margin: 2px 0;
+    margin: 2px -16px;
+
+    @include tablet-up {
+      margin: 2px 0;
+    }
   }
 
   .article-audio__wrapper {
