@@ -29,7 +29,7 @@
   // player integration:
   .video--playing {
     .image-figure__image-wrapper {
-      position: inherit;
+      // position: inherit;
     }
   }
   // end player integration
@@ -48,6 +48,7 @@
       display: block; /* IE11 */
     }
   }
+
   .article-video__link { // :/
     display: flex;
     height: 100%;
@@ -57,6 +58,7 @@
     &:focus .article-video:not(.video--loading):not(.video--playing) {
       // transition: box-shadow .2s ease-in-out;
       box-shadow: 0 4px 4px 0 rgba(0, 0, 0, .24);
+
       .media-caption--video {
         background-color: #fafaf8;
       }
@@ -106,31 +108,34 @@
     // nor the image pushed down
     &:not(.video--loading):not(.video--playing):not(.video--pausing) {
       .image-figure__image-wrapper {
-        margin-top: -56.25%;
+        // margin-top: -56.25%;
       }
     }
   }
 
   .image-figure__image-wrapper {
+    position: unset;
     // dimming the videos here as well
     &::after {
-      content: "";
+      /* content: "";
       position: absolute;
       height: 100%;
       width: 100%;
       top: 0;
-      background-color: rgba(0, 0, 0, 0.2);
+      background-color: rgba(0, 0, 0, 0.2); */
     }
 
     // overwriting the dimming of videos (to prevent errors)
     &::before {
-      padding-top: 56.25%;
-      position: relative;
+      padding-top: 0;
+      // padding-top: 56.25%;
+      // position: relative;
     }
   }
 
   .image-figure::before {
-    content: none;
+    // content: none;
+    // border: 1px solid pink;
   }
 
   .image-figure__image { // overwriting the carousel bg (black)
@@ -155,12 +160,16 @@
   }
 
   // play icon overwrites
-  @include tablet-up {
-    .media-play {
+  .media-play {
+    transform: translate(-50%, -34px);
+
+    @include tablet-up {
       width: 48px;
       transform: translate(-50%, -24px);
     }
+  }
 
+  @include tablet-up {
     .media-play__icon {
       margin-bottom: 3px;
     }
