@@ -132,7 +132,6 @@ body::after {
     }
   }
 }
-
 // end .body--fixed
 
 @include tablet-up {
@@ -209,7 +208,6 @@ body::after {
 
   // animations
   @include tablet-up {
-    // position: relative;
     width: auto;
     right: -280px;
     transition: right $naviTransitionTime cubic-bezier(0.4, 0.0, 0.2, 1);
@@ -382,22 +380,13 @@ body::after {
 }
 // end nativation
 
-/* safari "hack" (chrome must do the same) */
+/* safari "hack" */
 @supports (-webkit-appearance:none) {
   .navbar--closed {
     .navbar__menu {
-      position: fixed; // absolute;
+      position: fixed; // absolute; <-- produces scrollbars in safari!
     }
   }
 }
 
-/* @media screen and (min-color-index:0)
-  and(-webkit-min-device-pixel-ratio:0) { @media {
-  .navbar--closed {
-    .navbar__menu {
-      position: fixed; // absolute;
-    }
-  }
-}} */
-
-/* end special treatment for safari */
+/* end safari "hack" */
