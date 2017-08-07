@@ -83,6 +83,7 @@
   margin: 40px 0;
 
   @include smartphone{
+    @include fullwidth-element;
     margin: 32px 0;
   }
 }
