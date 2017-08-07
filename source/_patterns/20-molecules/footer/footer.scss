@@ -1,0 +1,45 @@
+.footer {
+  background: #222;
+  color: #fff;
+}
+
+.footer-top {
+  background: #333;
+}
+
+.footer-bottom {
+  
+}
+
+.footer-secnav {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: 160px;
+}
+
+.footer-secnav li {
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+}
+.footer-secnav li:before {
+  display:none;
+}
+.footer-secnav a {
+  font: 14px/1.14 $font-regular;
+  letter-spacing: .5px;
+  color: #dadad2;
+  display:block;
+  border-bottom: none;
+  border-radius: 2px;
+  margin-bottom: 16px;
+  padding: 12px 16px;
+}
+.footer-secnav a:before {
+  display: none;
+}
+.footer-secnav a:hover {
+  background-color: #444;
+  color: #fff;
+}
