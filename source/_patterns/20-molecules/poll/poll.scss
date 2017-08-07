@@ -18,6 +18,7 @@
   .image-figure__image {
     height: auto;
     width: 100%;
+    background-color: #222222;
   }
 
   .button {
@@ -44,13 +45,17 @@
   font-size: 18px;
   letter-spacing: .5px;
   line-height: 28px;
-  color: $color-text-accentuation;
+  color: $color-text-default;
   background-color: $color-bg-caption;
   padding: 16px;
   margin-bottom: 2px;
   display: block;
   float:left;
   border-radius: 0 0 2px 2px;
+
+  @include tablet-up {
+    font-size: 20px;
+  }
 }
 
 .poll {
@@ -69,7 +74,7 @@
       border-radius: 50%;
     }
     &::before {
-      top: 20px;
+      top: 21px;
       left: 20px;
       width: 14px;
       height: 14px;
@@ -78,7 +83,7 @@
     }
 
     &::after {
-      top: 16px;
+      top: 17px;
       left: 16px;
       width: 20px;
       height: 20px;
@@ -244,6 +249,20 @@
   .poll-option-rating {
     display: block;
     height: 100px;
+
+    &:hover,
+    &:focus {
+      background-color: $color-bg-box;
+    }
+  }
+
+  .poll-option-rating--selected {
+    background-color: $color-bg-box-hover;
+
+    &:hover,
+    &:focus {
+      background-color: $color-bg-box-hover;
+    }
   }
 }
 
@@ -269,6 +288,7 @@
   margin: 0;
   padding: 16px;
   transform: translate(0, -50%);
+
   @include tablet-up {
     width: calc(100% - 150px);
   }
@@ -315,8 +335,11 @@
 // last bit
 .poll-form-handling {
   border-radius: 2px;
-  font-size: 16px;
-  line-height: 21px;
+  font: 16px/21px $font-regular;
+
+  @include tablet-up {
+    font-size: 18px;
+  }
 
   .button {
     margin: 6px 0 0;
@@ -349,6 +372,8 @@
   display: block;
   color: $color-accentuation-red;
   margin-bottom: 16px;
+
+  font-size: 16px;
 
   @include smartphone {
     background-color: $color-bg-caption;
