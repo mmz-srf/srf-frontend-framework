@@ -1,26 +1,27 @@
+const HANDLE_CLASS = ".menu-handle";
+const SUBMENU_CLASS = ".js-expand-arrow";
+const DESKTOP_CLOSE_BTN_CLASS = ".navbar__link--close";
+const KEYCODES = {
+    "enter": 13,
+    "tab": 9
+};
+const WIN_SIZE_NOT_MOBILE = 719;
+
+let $header = $(".header");
+let $handle = $(HANDLE_CLASS);
+let $infotext = $handle.find(".menu-handle__info span");
+let $arrow = $(".expand-arrow");
+let $info = $(".js-expand-info");
+let $subMenuHeader = $(SUBMENU_CLASS);
+let $subMenuContent = $(".navbar__group--radio");
+let $desktopCloseBtn = $(DESKTOP_CLOSE_BTN_CLASS);
+let $input = $header.find(".searchbox__input");
+
+let menuHasFocus = false;
+
+
 export function init() {
-
-    const HANDLE_CLASS = ".menu-handle";
-    const SUBMENU_CLASS = ".js-expand-arrow";
-    const DESKTOP_CLOSE_BTN_CLASS = ".navbar__link--close";
-    const KEYCODES = {
-        "enter": 13,
-        "tab": 9
-    };
-    const WIN_SIZE_NOT_MOBILE = 719;
-
-    let $header = $(".header");
-    let $handle = $(HANDLE_CLASS);
-    let $infotext = $handle.find(".menu-handle__info span");
-    let $arrow = $(".expand-arrow");
-    let $info = $(".js-expand-info");
-    let $subMenuHeader = $(SUBMENU_CLASS);
-    let $subMenuContent = $(".navbar__group--radio");
-    let $desktopCloseBtn = $(DESKTOP_CLOSE_BTN_CLASS);
-    let $input = $header.find(".searchbox__input");
-
-    let menuHasFocus = false;
-
+    
     $header.on("keydown", HANDLE_CLASS, (e) => handleKeyPress(e))
         .on("keydown", DESKTOP_CLOSE_BTN_CLASS, (e) => handleKeyPress(e))
         .on("click", HANDLE_CLASS, (e) => onMenuHandling(e))
