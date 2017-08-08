@@ -382,3 +382,19 @@
     border-radius: 2px;
   }
 }
+
+.container-phone,
+.container-passcode {
+  padding: 16px 20px 16px 21px;
+  font-size: 16px;
+  background-color: $color-bg-caption;
+}
+
+.mobile-number-container,
+.passcode-container {
+  display: none;
+}
+
+.container-passcode--footer-text {
+  padding-top: 16px;
+}
