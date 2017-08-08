@@ -7,21 +7,28 @@ const KEYCODES = {
 };
 const WIN_SIZE_NOT_MOBILE = 719;
 
-let $header = $(".header");
-let $handle = $(HANDLE_CLASS);
-let $infotext = $handle.find(".menu-handle__info span");
-let $arrow = $(".expand-arrow");
-let $info = $(".js-expand-info");
-let $subMenuHeader = $(SUBMENU_CLASS);
-let $subMenuContent = $(".navbar__group--radio");
-let $desktopCloseBtn = $(DESKTOP_CLOSE_BTN_CLASS);
-let $input = $header.find(".searchbox__input");
-
-let menuHasFocus = false;
-
+let menuHasFocus = false,
+    $header = null,
+    $handle = null,
+    $infotext = null,
+    $arrow = null,
+    $info = null,
+    $subMenuHeader = null,
+    $subMenuContent = null,
+    $desktopCloseBtn = null,
+    $input = null;
 
 export function init() {
-    
+    $header = $(".header");
+    $handle = $(HANDLE_CLASS);
+    $infotext = $handle.find(".menu-handle__info span");
+    $arrow = $(".expand-arrow");
+    $info = $(".js-expand-info");
+    $subMenuHeader = $(SUBMENU_CLASS);
+    $subMenuContent = $(".navbar__group--radio");
+    $desktopCloseBtn = $(DESKTOP_CLOSE_BTN_CLASS);
+    $input = $header.find(".searchbox__input");
+
     $header.on("keydown", HANDLE_CLASS, (e) => handleKeyPress(e))
         .on("keydown", DESKTOP_CLOSE_BTN_CLASS, (e) => handleKeyPress(e))
         .on("click", HANDLE_CLASS, (e) => onMenuHandling(e))
