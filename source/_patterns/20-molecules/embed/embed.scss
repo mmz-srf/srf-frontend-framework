@@ -26,15 +26,15 @@
 
 body[data-representation=web] {
   .embed-inline.no-swear {
-    display: none;
-    @include desktop {
-      display: block;
+    display: block;
+    @include smartphone {
+      display: none;
     }
   }
   .linkbox.no-swear {
-    display: block;
-    @include desktop {
-      display: none;
+    display: none;
+    @include smartphone {
+      display: block;
     }
   }
 
