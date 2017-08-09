@@ -1,5 +1,9 @@
-<form class="searchbox" role="search">
-    <label for="search" class="h-offscreen">{{ header.searching|default("Suchen") }}</label>
-    <input class="searchbox__input" id="search" type="text" placeholder="{{ header.search|default("Suche") }}">
-    <button type="submit" class="h-offscreen" tabindex="-1" aria-hidden="true">{{ header.searching|default("Suchen") }}</button>
+<form class="searchbox" action="{{ header.form_action|default('#') }}" role="search">
+    <label for="search-site" class="h-offscreen">{{ header.searching }}</label>
+    <input data-typeahead-url="{{ header.typeahead_url|default('') }}" class="searchbox__input" name="q"
+           id="search-site" data-referrer-track="srf_suchfeld=header"
+           type="text" placeholder="{{ header.search|default("Suche") }}">
+    <button type="submit" class="h-offscreen" tabindex="-1" aria-hidden="true">{{ header.searching }}</button>
+    <ul class="searchbox__results" role="listbox" tabindex="0" style="display: none;"></ul>
 </form>
+
