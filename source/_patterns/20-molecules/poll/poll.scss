@@ -112,8 +112,9 @@
   }
 
   .poll-form-handling {
+    background-color: $color-bg-caption;
+
     @include tablet-up {
-      background-color: $color-bg-caption;
       padding: 16px;
     }
   }
@@ -352,7 +353,6 @@
 
 .poll-form-handling__roundup {
   margin: 0;
-  background-color: $color-bg-caption;
   display: none;
   padding: 16px;
 }

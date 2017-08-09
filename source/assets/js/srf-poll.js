@@ -26,7 +26,6 @@ var pollController = function() {
                     that.polls[pollId] = new Poll(pollId, data);
                 },
                 error: function() {
-                    // alert('Error occured');
                 }
             });
         });
@@ -51,12 +50,9 @@ var pollController = function() {
                 $form.find(".poll-option-label--selected")
                     .removeClass("poll-option-label--selected");
 
-                var $errButton = $form.find(".button--error");
                 var $err = $form.find(".poll-form-handling__errors--onerror");
                 // if there was a previous err
                 if ($err.length) {
-                    // remove err colour from button
-                    // $errButton.removeClass("button--error");
                     // remove err msg
                     $err.removeClass("poll-form-handling__errors--onerror")
                         .text("");
@@ -77,11 +73,12 @@ var pollController = function() {
             // currently err = no option chosen
             if (that.hasErrors($poll, optionId)) {
                 return false;
-            } // else ...
+            }
 
             // find the selected button index
             var radioIndex = 0 // this is hopefully temporary ...?
                 , winner, mostVotes = 0;
+
             $poll.find("input[type=radio]").each(function (i) {
                 // which one (nr) is it?
                 if ($(this).attr("id") == optionId) {
@@ -108,13 +105,14 @@ var pollController = function() {
 
             // total number of votes
             var total = that.getTotalVotes(that.polls[pollId].data);
+
             // some visual trickery ...
             $poll.removeClass("poll--setup").addClass("poll--submitted");
             if ($poll.hasClass("poll--with-media")) {
                 $poll.find(".article-media--image").removeClass("article-media--image");
             }
             $poll.find(".poll-form-handling__roundup").show()
-                .find("strong").text(total);
+                 .find("strong").text(total);
 
 
             var width, sum = 0;
@@ -138,7 +136,8 @@ var pollController = function() {
 
             var $submit = $poll.find(".button");
             if ($submit.length > 0) {
-                $submit.val("✔").fadeOut(1500, function () {
+
+                $submit.val("✔").text("Danke").addClass("button--success").delay(700).fadeOut(375, () => {
                     that.animateBars($poll, widths);
                 });
             } else {
