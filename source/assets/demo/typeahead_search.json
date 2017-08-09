@@ -1,0 +1,1571 @@
+[{
+    "name": "#SRFglobal",
+    "showType": "tv",
+    "keymatches": "Ausland, Magazin, Weltgeschehen",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/srfglobal"
+}, {
+    "name": "1 gegen 100",
+    "showType": "tv",
+    "keymatches": "1gegen100, 1, gegen, 100, eins, hundert, 1 gegen, gegen 100",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/1gegen100"
+}, {
+    "name": "100 Sekunden Wissen",
+    "showType": "radio",
+    "keymatches": "100, sekunden, wissen, 100 sekunden, hundert, ttttttttttttttttttt",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/100-sekunden-wissen"
+}, {
+    "name": "10vor10",
+    "showType": "tv",
+    "keymatches": "10, vor, 10 vor 10, 10vor, 10 vor, aaaaaaaaaaaaaa",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/10vor10"
+}, {
+    "name": "3 vo 5",
+    "showType": "radio",
+    "keymatches": "dr\u00fc vo f\u00fcf, 3vo5,",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/3-vo-5"
+}, {
+    "name": "360\u00b0 - GEO Reportage",
+    "showType": "tv",
+    "keymatches": "",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/geo360"
+}, {
+    "name": "4x4",
+    "showType": "radio",
+    "keymatches": "",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/4x4"
+}, {
+    "name": "52 Beste B\u00fccher",
+    "showType": "radio",
+    "keymatches": "52, beste, b\u00fccher, beste b\u00fccher, 52 beste, Literatur, Neuerscheinung",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/52-beste-buecher"
+}, {
+    "name": "8x15.",
+    "showType": "tv",
+    "keymatches": "",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/8x15"
+}, {
+    "name": "ABC SRF 3",
+    "showType": "radio",
+    "keymatches": "abc, srf, 3, abc drs 3, drs 3, ABC, Buchstaben, SRF3",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/abcsrf3"
+}, {
+    "name": "Abstimmungen (teilw. in Geb\u00e4rdensprache)",
+    "showType": "tv",
+    "keymatches": "",
+    "url": "http:\/\/www.srf.ch\/play\/tv\/sendung\/abstimmungen-teilw--in-gebaerdensprache?id=c5e431c3-ab90-0001-3228-16001350159c"
+}, {
+    "name": "Aeschbacher",
+    "showType": "tv",
+    "keymatches": "",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/aeschbacher"
+}, {
+    "name": "Alisa - Folge deinem Herzen",
+    "showType": "tv",
+    "keymatches": "",
+    "url": "http:\/\/www.srf.ch\/play\/tv\/sendung\/alisa-folge-deinem-herzen?id=80f42b1e-8940-4627-98ee-e8fda96a6042"
+}, {
+    "name": "Arena",
+    "showType": "tv",
+    "keymatches": "Arena",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/arena"
+}, {
+    "name": "Arena\/Reporter",
+    "showType": "tv",
+    "keymatches": "",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/arenareporter"
+}, {
+    "name": "Auf und davon",
+    "showType": "tv",
+    "keymatches": "auf, davon, DOK, auf und davon, auf und, und davon",
+    "url": "http:\/\/www.srf.ch\/sendungen\/auf-und-davon"
+}, {
+    "name": "Basler Zeitung Standpunkte",
+    "showType": "tv",
+    "keymatches": "",
+    "url": "http:\/\/www.srf.ch\/play\/tv\/sendung\/baz-standpunkte?id=e2c72a57-50ad-461d-9c89-171e7b2651c1"
+}, {
+    "name": "BekanntMachung",
+    "showType": "tv",
+    "keymatches": "Kultur",
+    "url": "http:\/\/www.srf.ch\/play\/tv\/sendung\/bekanntmachung?id=c6f5688a-9d70-0001-b32e-a00c490018e2"
+}, {
+    "name": "Besser als B\u00fcsser",
+    "showType": "radio",
+    "keymatches": "",
+    "url": "http:\/\/www.srf.ch\/sendungen\/besser-als-buesser\/tretet-gegen-buessi-an"
+}, {
+    "name": "Best Talent",
+    "showType": "radio",
+    "keymatches": "",
+    "url": "\/radio-srf-3\/musik\/best-talent"
+}, {
+    "name": "Bestseller auf dem Plattenteller",
+    "showType": "radio",
+    "keymatches": "bestseller, plattenteller, bestseller plattenteller, ",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/bestseller-auf-dem-plattenteller"
+}, {
+    "name": "Bettys Diagnose",
+    "showType": "tv",
+    "keymatches": "",
+    "url": "http:\/\/www.srf.ch\/play\/tv\/sendung\/bettys-diagnose?id=cb56eace-10b3-4976-b49f-b62a1ddfa4b5"
+}, {
+    "name": "BILANZ Standpunkte",
+    "showType": "tv",
+    "keymatches": "",
+    "url": "http:\/\/www.srf.ch\/play\/tv\/sendung\/bilanz-standpunkte?id=c5890634-1340-0001-86e3-1cfb117b4bd0"
+}, {
+    "name": "Bilder zum Feiertag",
+    "showType": "tv",
+    "keymatches": "",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/bilder-zum-feiertag"
+}, {
+    "name": "Black Music Special",
+    "showType": "radio",
+    "keymatches": "Black Music, Black, Music, special",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/black-music-special"
+}, {
+    "name": "Blickpunkt Religion",
+    "showType": "radio",
+    "keymatches": "Blickpunkt, Religion, Ethik, Theologie, Kirche",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/blickpunkt-religion"
+}, {
+    "name": "Bounce",
+    "showType": "radio",
+    "keymatches": "Hip Hop",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/bounce-hip-hop"
+}, {
+    "name": "Brooklyn Nine-Nine",
+    "showType": "tv",
+    "keymatches": "99",
+    "url": "http:\/\/www.srf.ch\/play\/tv\/sendung\/brooklyn-nine-nine?id=e4dabc87-5bf3-494c-bab7-eb82fcf11d76"
+}, {
+    "name": "BuchZeichen",
+    "showType": "radio",
+    "keymatches": "Buch-Zeichen, Buchzeichen, Buch, B\u00fccher",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/buchzeichen"
+}, {
+    "name": "CH Beats",
+    "showType": "radio",
+    "keymatches": "Dance, Dance Music, DJ, Rosanna Gr\u00fcter, John B\u00fcrgin",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/chbeats"
+}, {
+    "name": "CH-Musik",
+    "showType": "radio",
+    "keymatches": "CH, Musik, Schweizer Musikszene",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/ch-musik"
+}, {
+    "name": "CH:Filmszene",
+    "showType": "tv",
+    "keymatches": "CH: Filmszene, CH-Filmszene, Filmszene, Schweizer Filmproduktionen, ",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/ch-filmszene"
+}, {
+    "name": "Chicago Med ",
+    "showType": "tv",
+    "keymatches": "",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/chicagomed"
+}, {
+    "name": "Chicago PD ",
+    "showType": "tv",
+    "keymatches": "",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/chicagopd"
+}, {
+    "name": "Club",
+    "showType": "tv",
+    "keymatches": "Club, Zischtigsclub, klub,",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/club"
+}, {
+    "name": "Concertino",
+    "showType": "radio",
+    "keymatches": "Conzertino, Konzertino, Koncertino",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/concertino"
+}, {
+    "name": "Concerto",
+    "showType": "radio",
+    "keymatches": "Konzerto, Conzerto, Koncerto",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/concerto"
+}, {
+    "name": "Country Special",
+    "showType": "radio",
+    "keymatches": "country, special",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/country-special"
+}, {
+    "name": "Cuntrasts",
+    "showType": "tv",
+    "keymatches": "",
+    "url": "http:\/\/www.rtr.ch\/play\/tv\/emissiuns\/cuntrasts?id=c482ae3c-b1d0-0001-99ed-6cb01b8b12b6"
+}, {
+    "name": "Das erste Mal",
+    "showType": "radio",
+    "keymatches": "",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/das-erste-mal"
+}, {
+    "name": "Das Gl\u00fcck liegt auf dem Teller",
+    "showType": "tv",
+    "keymatches": "",
+    "url": "https:\/\/www.srf.ch\/play\/tv\/sendung\/das-glueck-liegt-auf-dem-teller?id=ecc52bf0-2e89-40c6-bf48-9d26c3bb650b"
+}, {
+    "name": "Das war der Tag",
+    "showType": "radio",
+    "keymatches": "",
+    "url": "http:\/\/www.srf.ch\/play\/radio\/sendung\/das-war-der-tag?id=2af6722d-b40b-4d1c-a854-2d8d7c542682"
+}, {
+    "name": "Der Alte",
+    "showType": "tv",
+    "keymatches": "",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/der-alte"
+}, {
+    "name": "Der Kriminalist",
+    "showType": "tv",
+    "keymatches": "",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/der-kriminalist"
+}, {
+    "name": "Deville",
+    "showType": "tv",
+    "keymatches": "",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/deville"
+}, {
+    "name": "Die Anderen - Les Autres",
+    "showType": "radio",
+    "keymatches": "die anderen, anderen, les autres, autres, anderen autres",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/die-anderen-les-autres"
+}, {
+    "name": "Die Brocki-Profis",
+    "showType": "tv",
+    "keymatches": "",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/brockiprofis"
+}, {
+    "name": "Die Freitagsrunde",
+    "showType": "radio",
+    "keymatches": "",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/freitagsrunde"
+}, {
+    "name": "Die f\u00fcnfte Schweiz",
+    "showType": "radio",
+    "keymatches": "f\u00fcnfte Schweiz, f\u00fcnfte, schweiz, 5.",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/die-fuenfte-schweiz"
+}, {
+    "name": "Die Parkour-Profis \u2013 Absprung ins Leben",
+    "showType": "tv",
+    "keymatches": "",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/dieparkourprofis"
+}, {
+    "name": "Die Pr\u00fcfung",
+    "showType": "webexklusiv",
+    "keymatches": "",
+    "url": "http:\/\/www.srf.ch\/sendungen\/zambo\/zambo\/die-pruefung"
+}, {
+    "name": "Die Schweiz bauen",
+    "showType": "tv",
+    "keymatches": "",
+    "url": "http:\/\/www.srf.ch\/play\/tv\/sendung\/die-schweiz-bauen?id=c4a8fe38-cdb0-0001-1cff-16bb119ed1e0"
+}, {
+    "name": "Die Woche in Tessin und Romandie",
+    "showType": "radio",
+    "keymatches": "Woche, Tessin, Romandie, Welschland, Ticino",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/die-woche-in-tessin-und-romandie"
+}, {
+    "name": "Digital Podcast",
+    "showType": "radio",
+    "keymatches": "Technologie-Podcast, Enhanced Podcast",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/digital-plus"
+}, {
+    "name": "Diskothek ",
+    "showType": "radio",
+    "keymatches": "Discothek, Discotheque",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/diskothek"
+}, {
+    "name": "DOK",
+    "showType": "tv",
+    "keymatches": "DOK, Dok, Dokumentarfilm, Dokumentation",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/dok"
+}, {
+    "name": "DOK - Gr\u00fcezi Schweiz",
+    "showType": "tv",
+    "keymatches": "",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/grueezi-schweiz"
+}, {
+    "name": "DOK \u2013 Auf und davon",
+    "showType": "tv",
+    "keymatches": "auf, davon, DOK, auf und davon, auf und, und davon",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/auf-und-davon"
+}, {
+    "name": "Doku Plus",
+    "showType": "tv",
+    "keymatches": "",
+    "url": "http:\/\/www.srf.ch\/play\/tv\/sendung\/dok-plus?id=c6f8056e-5de0-0001-8f42-1ca0170015de"
+}, {
+    "name": "Donna Leon",
+    "showType": "tv",
+    "keymatches": "",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/donnaleon"
+}, {
+    "name": "Donna Leon mit Audiodeskription",
+    "showType": "tv",
+    "keymatches": "",
+    "url": "http:\/\/www.srf.ch\/play\/tv\/sendung\/donna-leon-mit-audiodeskription?id=49b01a1e-0130-4576-8904-bb99bdf74a07"
+}, {
+    "name": "Donnschtig-Jass",
+    "showType": "tv",
+    "keymatches": "Donnstig, Donschtig, Donnschtigs",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/donnschtig-jass"
+}, {
+    "name": "Doppelpunkt",
+    "showType": "radio",
+    "keymatches": "Doppelpunkt, Doppel-Punkt, Doppel Punkt",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/doppelpunkt"
+}, {
+    "name": "Dorfplatz",
+    "showType": "radio",
+    "keymatches": "",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/dorfplatz"
+}, {
+    "name": "Durch die Blume",
+    "showType": "tv",
+    "keymatches": "",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/durch-die-blume"
+}, {
+    "name": "Echo der Zeit ",
+    "showType": "radio",
+    "keymatches": "Echo, Zeit, Echo Zeit,",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/echo-der-zeit"
+}, {
+    "name": "ECO",
+    "showType": "tv",
+    "keymatches": "ECO, Eco, ",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/eco"
+}, {
+    "name": "ECO Talk",
+    "showType": "tv",
+    "keymatches": "",
+    "url": "http:\/\/www.srf.ch\/sendungen\/eco\/ecotalk"
+}, {
+    "name": "Ein Fall f\u00fcr zwei",
+    "showType": "tv",
+    "keymatches": "fall f\u00fcr zwei, fall, zwei, ein fall, ein fall f\u00fcr",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/ein-fall-fuer-zwei"
+}, {
+    "name": "Ein Wort aus der Bibel",
+    "showType": "radio",
+    "keymatches": "wort, bibel, ein wort, wort bibel",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/ein-wort-aus-der-bibel"
+}, {
+    "name": "Einstein",
+    "showType": "tv",
+    "keymatches": "wissen, forschung, tobias m\u00fcller, katrin h\u00f6negger",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/einstein"
+}, {
+    "name": "Espresso ",
+    "showType": "radio",
+    "keymatches": "Konsum, Geld, Arbeit, Konsumentenmagazin, Express",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/kassensturz-espresso"
+}, {
+    "name": "Eurovision Song Contest",
+    "showType": "tv",
+    "keymatches": "Eurovision, song contest, esc, eurovision song, eurovision contest, concours d'eurovision, concours eurovision, euro vision",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/eurovision-song-contest"
+}, {
+    "name": "Eusi Landchuchi",
+    "showType": "tv",
+    "keymatches": "Kochen",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/eusilandchuchi"
+}, {
+    "name": "Fenster zum Sonntag",
+    "showType": "tv",
+    "keymatches": "",
+    "url": "http:\/\/www.srf.ch\/play\/tv\/sendung\/fenster-zum-sonntag?id=9c6c1084-9aeb-423e-b472-d7a3104350d2"
+}, {
+    "name": "Fertig lustig",
+    "showType": "tv",
+    "keymatches": "",
+    "url": "http:\/\/www.srf.ch\/play\/tv\/sendung\/fertiglustig?id=89ea14c3-d653-400b-97ed-ca1bb2ebc3f7"
+}, {
+    "name": "Festivalsommer",
+    "showType": "tv",
+    "keymatches": "",
+    "url": "https:\/\/www.srf.ch\/play\/tv\/sendung\/festivalsommer?id=ec044362-1921-4149-96f2-98a8ef3df1bb"
+}, {
+    "name": "Fiirabig",
+    "showType": "tv",
+    "keymatches": "",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/fiirabig"
+}, {
+    "name": "Fiirabigmusig",
+    "showType": "radio",
+    "keymatches": "Feierabendmusik, Fiirabig, Musig, firobig",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/fiirabigmusig"
+}, {
+    "name": "Film",
+    "showType": "tv",
+    "keymatches": "Kinofilm, Stars, Film, Spielfilm, Blockbuster, Darama, Kom\u00f6die, Thriller, Romanze",
+    "url": "http:\/\/www.srf.ch\/play\/tv\/sendung\/film?id=c5f011e6-e1d0-0001-94b7-cb557740172f"
+}, {
+    "name": "Filmpodcast: Kino im Kopf",
+    "showType": "radio",
+    "keymatches": "Film-Podcast, ",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/film"
+}, {
+    "name": "Fiori Musicali ",
+    "showType": "radio",
+    "keymatches": "Fiori, Musicali",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/fiori-musicali"
+}, {
+    "name": "Focus",
+    "showType": "radio",
+    "keymatches": "Fokus, Focus-Talk",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/focus"
+}, {
+    "name": "Forum ",
+    "showType": "radio",
+    "keymatches": "Forum, Live-Forum",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/forum"
+}, {
+    "name": "Fr\u00fch-St\u00fcck",
+    "showType": "radio",
+    "keymatches": "",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/frueh-stueck"
+}, {
+    "name": "Gast am Mittag",
+    "showType": "radio",
+    "keymatches": "Mittagsgast, Gast, Mittag, Gast-am-Mittag",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/gastammittag"
+}, {
+    "name": "Geboren am",
+    "showType": "tv",
+    "keymatches": "",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/geborenam"
+}, {
+    "name": "Geek-Sofa",
+    "showType": "radio",
+    "keymatches": "",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/geek-sofa"
+}, {
+    "name": "gesundheitheute",
+    "showType": "tv",
+    "keymatches": "",
+    "url": "http:\/\/www.srf.ch\/play\/tv\/sendung\/gesundheitheute?id=c587c143-0230-0001-52eb-1fa09adf1ae0"
+}, {
+    "name": "Giacobbo \/ M\u00fcller",
+    "showType": "tv",
+    "keymatches": "Giaccobo, M\u00fcller, Giacobbo, Giaccobo \/ M\u00fcller, Giacobbo M\u00fcller, Giaccobo M\u00fcller",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/giacobbo-mueller"
+}, {
+    "name": "Glanz & Gloria",
+    "showType": "tv",
+    "keymatches": "glanz und gloria, G&G, Gug, GundG",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/glanz-und-gloria"
+}, {
+    "name": "Glocken der Heimat",
+    "showType": "radio",
+    "keymatches": "Glocken-der-Heimat, Kirchenglocken, Schweizer Kirchenglocken",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/glocken-der-heimat"
+}, {
+    "name": "Gottesdienst",
+    "showType": "tv",
+    "keymatches": "",
+    "url": "http:\/\/www.srf.ch\/sendungen\/gottesdienst"
+}, {
+    "name": "Gratulationen",
+    "showType": "radio",
+    "keymatches": "Gratulieren, Geburtstag, Hochzeit",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/gratulationen"
+}, {
+    "name": "Grey's Anatomy",
+    "showType": "tv",
+    "keymatches": "greys",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/greys-anatomy"
+}, {
+    "name": "Gr\u00fcter & B\u00fcrgin",
+    "showType": "radio",
+    "keymatches": "",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/grueter-und-buergin"
+}, {
+    "name": "Guetnachtgschichtli",
+    "showType": "tv",
+    "keymatches": "",
+    "url": "https:\/\/www.srf.ch\/sendungen\/zambo\/guetnachtgschichtli"
+}, {
+    "name": "Guetnachtgschichtli in Geb\u00e4rdensprache",
+    "showType": "tv",
+    "keymatches": "",
+    "url": "http:\/\/www.srf.ch\/play\/tv\/sendung\/guetnachtgschichtli-in-gebaerdensprache?id=c6c8a6d3-1de0-0001-551a-15901700f060"
+}, {
+    "name": "Handelszeitung Standpunkte",
+    "showType": "tv",
+    "keymatches": "",
+    "url": "http:\/\/www.srf.ch\/play\/tv\/sendung\/handelszeitung-standpunkte?id=63a26f3a-9801-4a10-80c1-5ea49ba0572b"
+}, {
+    "name": "Happy Day",
+    "showType": "tv",
+    "keymatches": "Happy Day, Happyday",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/happy-day"
+}, {
+    "name": "Harnas",
+    "showType": "tv",
+    "keymatches": "",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/harnas"
+}, {
+    "name": "Hello Again!",
+    "showType": "tv",
+    "keymatches": "hallo",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/hello-again"
+}, {
+    "name": "Heute um F\u00fcnf",
+    "showType": "radio",
+    "keymatches": "heute, heute um, f\u00fcnf, 5",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/heute-um-fuenf"
+}, {
+    "name": "Heute um halb F\u00fcnf",
+    "showType": "radio",
+    "keymatches": "halb, halb fuenf, heute, heute um, 5",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/heute-um-halb-fuenf"
+}, {
+    "name": "Heute um Vier",
+    "showType": "radio",
+    "keymatches": "heute, vier, heute um, 4",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/heute-um-vier"
+}, {
+    "name": "HeuteMorgen",
+    "showType": "radio",
+    "keymatches": "heute morgen, heute, morgen",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/heutemorgen"
+}, {
+    "name": "Hit-Welle",
+    "showType": "radio",
+    "keymatches": "Hitparade, Hitwelle, Hits",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/hit-welle"
+}, {
+    "name": "Hitparade",
+    "showType": "radio",
+    "keymatches": "srf 3, hitparade, drs 3",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/srf-3-hitparade"
+}, {
+    "name": "H\u00f6rpunkt",
+    "showType": "radio",
+    "keymatches": "H\u00f6r-Punkt",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/hoerpunkt"
+}, {
+    "name": "H\u00f6rspiel ",
+    "showType": "radio",
+    "keymatches": "H\u00f6r-Spiel, H\u00f6rgeschichten",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/hoerspiel"
+}, {
+    "name": "Ich sch\u00e4nke dir es Lied!",
+    "showType": "tv",
+    "keymatches": "",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/ichschaenkedireslied"
+}, {
+    "name": "Im Konzertsaal ",
+    "showType": "radio",
+    "keymatches": "",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/im-konzertsaal"
+}, {
+    "name": "In aller Freundschaft",
+    "showType": "tv",
+    "keymatches": "Arzt-Serie, Klink, Soap",
+    "url": "http:\/\/www.srf.ch\/play\/tv\/sendung\/in-aller-freundschaft?id=c6c8ec0b-d820-0001-e478-1d409b4016fd"
+}, {
+    "name": "Info 3 ",
+    "showType": "radio",
+    "keymatches": "Info drei, Info, 3",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/info-3"
+}, {
+    "name": "Input",
+    "showType": "radio",
+    "keymatches": "",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/input"
+}, {
+    "name": "Input Kompakt",
+    "showType": "radio",
+    "keymatches": "",
+    "url": "https:\/\/www.srf.ch\/sendungen\/input"
+}, {
+    "name": "International",
+    "showType": "radio",
+    "keymatches": "Internartionale Aktualit\u00e4t",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/international"
+}, {
+    "name": "Ja oder Nein",
+    "showType": "radio",
+    "keymatches": "quiz, ja oder nei",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/ja-oder-nein"
+}, {
+    "name": "Jamie Oliver",
+    "showType": "tv",
+    "keymatches": "",
+    "url": "https:\/\/www.srf.ch\/play\/tv\/sendung\/jamie-oliver?id=479e767e-a28b-4709-b579-66a6eaf32b6d"
+}, {
+    "name": "Jass-Service",
+    "showType": "radio",
+    "keymatches": "Jass, Service, Jassen",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/jass-service"
+}, {
+    "name": "Jazz Collection",
+    "showType": "radio",
+    "keymatches": "Jazz-Collection, Kollektion",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/jazz-collection"
+}, {
+    "name": "Jazz und World aktuell",
+    "showType": "radio",
+    "keymatches": "Jazz-aktuell, Jazz Aktualit\u00e4t",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/jazz-aktuell"
+}, {
+    "name": "Jukebox ",
+    "showType": "radio",
+    "keymatches": "Juke Box, ",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/jukebox"
+}, {
+    "name": "Julia - Wege zum Gl\u00fcck",
+    "showType": "tv",
+    "keymatches": "Julia und Daniel lernen sich in S\u00fcdafrika kennen und verlieben sich ineinander, verlieren einander aber wieder aus den Augen. Doch die grosse Liebe ist nicht verloren.  ",
+    "url": "http:\/\/www.srf.ch\/play\/tv\/sendung\/julia-wege-zum-glueck?id=80ae4896-b529-4a4a-ac78-eeac11a024ca"
+}, {
+    "name": "Kassensturz",
+    "showType": "tv",
+    "keymatches": "konsum, tests, rechtsfrage, arbeit, geld, wohnen, versicherungen, konsumentenmagazin",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/kassensturz-espresso"
+}, {
+    "name": "Kassensturz in Geb\u00e4rdensprache",
+    "showType": "tv",
+    "keymatches": "",
+    "url": "http:\/\/www.srf.ch\/play\/tv\/sendung\/kassensturz-mit-gebaerdensprache?id=c52bbcf3-e560-0001-7dd8-b260ec101d2c"
+}, {
+    "name": "Keine 3 Minuten \u2013 Die Filmkritik f\u00fcr Eilige",
+    "showType": "tv",
+    "keymatches": "",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/keine3minuten"
+}, {
+    "name": "Kilchspergers Jass-Show",
+    "showType": "tv",
+    "keymatches": "jassen, Roman Kilchsperger",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/kilchspergers-jass-show"
+}, {
+    "name": "Klangfenster",
+    "showType": "radio",
+    "keymatches": "Klang-Fenster",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/klangfenster"
+}, {
+    "name": "Klassiktelefon",
+    "showType": "radio",
+    "keymatches": "Klassik, Telefon, Klassik-Telefon",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/klassiktelefon"
+}, {
+    "name": "Knack&Nuss ",
+    "showType": "radio",
+    "keymatches": "Knacknuss, Knack und Nuss, Knackundnuss",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/knack-und-nuss"
+}, {
+    "name": "Kompass",
+    "showType": "radio",
+    "keymatches": "",
+    "url": "http:\/\/www.srf.ch\/radio-srf-virus\/kompass"
+}, {
+    "name": "Kontext ",
+    "showType": "radio",
+    "keymatches": "",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/kontext"
+}, {
+    "name": "KREUZ & QUEER",
+    "showType": "webexklusiv",
+    "keymatches": "",
+    "url": "http:\/\/www.srf.ch\/play\/tv\/sendung\/kreuz--queer?id=44e71846-fa35-446d-94e0-aef6db17685c"
+}, {
+    "name": "Kulinarische Abenteuer",
+    "showType": "tv",
+    "keymatches": "",
+    "url": "http:\/\/www.srf.ch\/play\/tv\/sendung\/kulinarische-abenteuer?id=10eaf75f-41de-442f-ba67-e08b49fcedda"
+}, {
+    "name": "Kult auf R\u00e4dern",
+    "showType": "tv",
+    "keymatches": "",
+    "url": "http:\/\/www.srf.ch\/sendungen\/tacho\/kultaufraedern-sendungen"
+}, {
+    "name": "Kultur kompakt",
+    "showType": "radio",
+    "keymatches": "Kompakt Kultur, Kulturkompakt, Kultur-kompakt",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/kultur-kompakt"
+}, {
+    "name": "Kultur-Stammtisch",
+    "showType": "radio",
+    "keymatches": "Kulturstammtisch, Stammtisch Kultur, Kulturgespr\u00e4ch",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/kultur-stammtisch"
+}, {
+    "name": "Kulturplatz",
+    "showType": "tv",
+    "keymatches": "Kultur-Platz",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/kulturplatz"
+}, {
+    "name": "Late Night Concert",
+    "showType": "radio",
+    "keymatches": "",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/late-night-concert"
+}, {
+    "name": "Late Night Jazz",
+    "showType": "radio",
+    "keymatches": "",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/late-night-jazz"
+}, {
+    "name": "Les Revenants ",
+    "showType": "tv",
+    "keymatches": "",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/lesrevenants"
+}, {
+    "name": "Liebesleben",
+    "showType": "tv",
+    "keymatches": "",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/liebesleben"
+}, {
+    "name": "Literaturclub",
+    "showType": "tv",
+    "keymatches": "Literatur-Club",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/literaturclub"
+}, {
+    "name": "Lyrik am Mittag",
+    "showType": "radio",
+    "keymatches": "Lyrik, Mittag, am Mittag, Kultur",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/lyrik-am-mittag"
+}, {
+    "name": "Maloney",
+    "showType": "radio",
+    "keymatches": "Philipp Maloney, Malony, Maloni, Die haarstr\u00e4ubenden F\u00e4lle, Privatdetektiv Maloney, Malony",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/maloney"
+}, {
+    "name": "Medienclub",
+    "showType": "tv",
+    "keymatches": "",
+    "url": "http:\/\/www.srf.ch\/sendungen\/club\/sendungen-2"
+}, {
+    "name": "Mein Haustier",
+    "showType": "webexklusiv",
+    "keymatches": "",
+    "url": "http:\/\/www.srf.ch\/sendungen\/zambo\/zambo\/mein-haustier"
+}, {
+    "name": "Meine fremde Heimat",
+    "showType": "tv",
+    "keymatches": "",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/meinefremdeheimat"
+}, {
+    "name": "Menschen und Horizonte",
+    "showType": "radio",
+    "keymatches": "menschen, horizonte, menschen horizonte",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/menschen-und-horizonte"
+}, {
+    "name": "Mental X",
+    "showType": "radio",
+    "keymatches": "",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/mental-x"
+}, {
+    "name": "Michel muss mal",
+    "showType": "webexklusiv",
+    "keymatches": "",
+    "url": "http:\/\/www.srf.ch\/play\/tv\/sendung\/michel-muss-mal?id=0d2b94c4-db18-4440-af83-52f3a3c14a73"
+}, {
+    "name": "Mini Beiz, dini Beiz",
+    "showType": "tv",
+    "keymatches": "Beizentour, Beiz,",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/mini-beiz-dini-beiz"
+}, {
+    "name": "Mini Lehr und ich",
+    "showType": "tv",
+    "keymatches": "Lehre, meine,",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/mini-lehr-und-ich"
+}, {
+    "name": "Mission Surprise",
+    "showType": "tv",
+    "keymatches": "",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/mission-surprise"
+}, {
+    "name": "Mitenand",
+    "showType": "tv",
+    "keymatches": "Miteinander, ",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/mitenand"
+}, {
+    "name": "Mord mit Aussicht",
+    "showType": "tv",
+    "keymatches": "",
+    "url": "http:\/\/www.srf.ch\/play\/tv\/sendung\/mord-mit-aussicht?id=4a549500-fa30-4445-affb-3ec938338339"
+}, {
+    "name": "Morgengeschichte ",
+    "showType": "radio",
+    "keymatches": "Morgen-Geschichte, Morgegschicht, Geschichte am Morgen",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/morgengeschichte"
+}, {
+    "name": "Morgenstund hat Gold im Mund",
+    "showType": "radio",
+    "keymatches": "morgenstund, gold, mund, morgenstund gold im mund, gold im mund, gold mund, morgenstund hat",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/morgenstund-hat-gold-im-mund"
+}, {
+    "name": "M\u00fcsl\u00fcm TV",
+    "showType": "tv",
+    "keymatches": "",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/muesluemtv"
+}, {
+    "name": "Musik f\u00fcr einen Gast",
+    "showType": "radio",
+    "keymatches": "musik gast, musik, einen, gast, einen gast, musik f\u00fcr einen",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/musik-fuer-einen-gast"
+}, {
+    "name": "Musik unserer Zeit",
+    "showType": "radio",
+    "keymatches": "Musik, unsere Zeit, Zeit Musik",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/musik-unserer-zeit"
+}, {
+    "name": "Musikabend",
+    "showType": "radio",
+    "keymatches": "",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/musikabend"
+}, {
+    "name": "Musikmagazin",
+    "showType": "radio",
+    "keymatches": "Musik-Magazin, ",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/musikmagazin"
+}, {
+    "name": "Musikpavillon",
+    "showType": "radio",
+    "keymatches": "Musik-Pavillon, Music-Pavillon",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/musikpavillon"
+}, {
+    "name": "Musikwelle Magazin",
+    "showType": "radio",
+    "keymatches": "Musikwellemagazin, Musikwelle, Musik-Welle-Magazin",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/musikwelle-magazin"
+}, {
+    "name": "Mysteri\u00f6se Schweiz",
+    "showType": "tv",
+    "keymatches": "",
+    "url": "http:\/\/www.srf.ch\/play\/tv\/sendung\/mysterioese-schweiz?id=3a850429-dbee-42a9-86e3-14f309e183d4"
+}, {
+    "name": "Nachrichten",
+    "showType": "radio",
+    "keymatches": "Nachrichten, News, Radio",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/nachrichten"
+}, {
+    "name": "Nachtclub",
+    "showType": "radio",
+    "keymatches": "",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/nachtclub-mit-ralph-wicki"
+}, {
+    "name": "Nachtexpress ",
+    "showType": "radio",
+    "keymatches": "Nacht-Express, Wunschkonzert",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/nachtexpress"
+}, {
+    "name": "Nachtflug",
+    "showType": "radio",
+    "keymatches": "",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/nachtflug"
+}, {
+    "name": "nachtwach",
+    "showType": "radio",
+    "keymatches": "nachtwach, Nachtwache, Telefontalk, Lebensgeschichten, Alltagsgeschichten",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/nachtwach"
+}, {
+    "name": "nachtwach",
+    "showType": "tv",
+    "keymatches": "nachtwach, Nachtwache, Telefontalk, Lebensgeschichten, Alltagsgeschichten",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/nachtwach-tv"
+}, {
+    "name": "NETZ NATUR",
+    "showType": "tv",
+    "keymatches": "netz, natur",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/netz-natur"
+}, {
+    "name": "Neue Musik im Konzert",
+    "showType": "radio",
+    "keymatches": "Neue Musik, Musik im Konzert, Musik Konzert",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/neue-musik-im-konzert"
+}, {
+    "name": "Newsflash",
+    "showType": "tv",
+    "keymatches": "",
+    "url": "http:\/\/www.srf.ch\/play\/tv\/sendung\/newsflash?id=76a1ba23-9c06-4b31-9a8e-c19bd1011c22"
+}, {
+    "name": "Notturno ",
+    "showType": "radio",
+    "keymatches": "",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/notturno"
+}, {
+    "name": "NZZ Standpunkte",
+    "showType": "tv",
+    "keymatches": "",
+    "url": "http:\/\/www.srf.ch\/play\/tv\/sendung\/nzz-standpunkte?id=80d0894d-b845-4339-b714-b223ffabd4eb"
+}, {
+    "name": "Oli Mega Vlog",
+    "showType": "tv",
+    "keymatches": "oli, oli mega, olis, olis mega, vlog, mega vlog",
+    "url": "https:\/\/www.srf.ch\/sendungen\/zambo\/oli-mega-vlog"
+}, {
+    "name": "P\u00e4tagei",
+    "showType": "webexklusiv",
+    "keymatches": "",
+    "url": "https:\/\/www.srf.ch\/sendungen\/zambo\/paetagei"
+}, {
+    "name": "Passage",
+    "showType": "radio",
+    "keymatches": "Passage, Passagen",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/passage"
+}, {
+    "name": "Pers\u00f6nlich",
+    "showType": "radio",
+    "keymatches": "",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/persoenlich"
+}, {
+    "name": "Perspektiven ",
+    "showType": "radio",
+    "keymatches": "Perspektive",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/perspektiven"
+}, {
+    "name": "PET - das Satiremagazin",
+    "showType": "radio",
+    "keymatches": "PET, Pet, Satiremagazin, Satire",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/pet-das-satiremagazin"
+}, {
+    "name": "Peter Schneider",
+    "showType": "radio",
+    "keymatches": "peter, schneider",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/peter-schneider"
+}, {
+    "name": "Politikum",
+    "showType": "radio",
+    "keymatches": "Demokratie",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/politikum"
+}, {
+    "name": "Pop Routes",
+    "showType": "radio",
+    "keymatches": "Pop, Routen,",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/pop-routes"
+}, {
+    "name": "Potzmusig",
+    "showType": "radio",
+    "keymatches": "Potzmusig, Potz Musig, Potz Musik, Potzmusik, Volksmusik",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/potzmusig-radio"
+}, {
+    "name": "Potzmusig",
+    "showType": "tv",
+    "keymatches": "Potzmusig, Potz Musig, Potz Musik, Potzmusik, Volksmusik",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/potzmusig"
+}, {
+    "name": "Puls",
+    "showType": "tv",
+    "keymatches": "gesundheit, thomas kissling, corinne waldmeier",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/puls"
+}, {
+    "name": "Querdenker \u2013 Smart Late Night mit Michel Gammenthaler",
+    "showType": "tv",
+    "keymatches": "",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/querdenker"
+}, {
+    "name": "Radiogottesdienst",
+    "showType": "radio",
+    "keymatches": "Gottes-dienst, Predigt",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/radiogottesdienst"
+}, {
+    "name": "Radiopredigt",
+    "showType": "radio",
+    "keymatches": "Die Predigt, Sonntagspredigt, ",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/predigt"
+}, {
+    "name": "Ratgeber",
+    "showType": "radio",
+    "keymatches": "Rat-Geber, Ratschlag",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/ratgeber"
+}, {
+    "name": "Reflexe",
+    "showType": "radio",
+    "keymatches": "",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/reflexe"
+}, {
+    "name": "Reggae Special",
+    "showType": "radio",
+    "keymatches": "",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/reggae-special"
+}, {
+    "name": "Reggae Special Megamix",
+    "showType": "radio",
+    "keymatches": "",
+    "url": "https:\/\/www.srf.ch\/sendungen\/reggae-special"
+}, {
+    "name": "Reggae Special Shortcast",
+    "showType": "webexklusiv",
+    "keymatches": "",
+    "url": "https:\/\/www.srf.ch\/sendungen\/reggae-special"
+}, {
+    "name": "Regional Diagonal",
+    "showType": "radio",
+    "keymatches": "regional, diagonal, regional diagonal",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/regional-diagonal"
+}, {
+    "name": "Regionaljournal Aargau Solothurn ",
+    "showType": "radio",
+    "keymatches": "regionaljournal, aargau, solothurn, regionaljournal aargau, regionaljournal solothurn, regional",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/regionaljournal-aargau-solothurn"
+}, {
+    "name": "Regionaljournal Basel Baselland ",
+    "showType": "radio",
+    "keymatches": "regionaljournal, Basel, baselland, regionaljournal basel, regionaljournal baselland, regional",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/regionaljournal-basel-baselland"
+}, {
+    "name": "Regionaljournal Bern Freiburg Wallis ",
+    "showType": "radio",
+    "keymatches": "regionaljournal, bern, freiburg, wallis, regionaljournal bern, regionaljournal freiburg, regionaljournal wallis, regional",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/regionaljournal-bern-freiburg-wallis"
+}, {
+    "name": "Regionaljournal Graub\u00fcnden ",
+    "showType": "radio",
+    "keymatches": "regionaljournal, graub\u00fcnden, regional",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/regionaljournal-graubuenden"
+}, {
+    "name": "Regionaljournal Ostschweiz ",
+    "showType": "radio",
+    "keymatches": "regionaljournal, ostschweiz, regional",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/regionaljournal-ostschweiz"
+}, {
+    "name": "Regionaljournal Zentralschweiz ",
+    "showType": "radio",
+    "keymatches": "regionaljournal, zentralschweiz, regional",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/regionaljournal-zentralschweiz"
+}, {
+    "name": "Regionaljournal Z\u00fcrich Schaffhausen ",
+    "showType": "radio",
+    "keymatches": "regionaljournal, z\u00fcrich, schaffhausen, regionaljournal z\u00fcrich, regionaljournal schaffhausen, regional",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/regionaljournal-zuerich-schaffhausen"
+}, {
+    "name": "Rehmann",
+    "showType": "radio",
+    "keymatches": "",
+    "url": "http:\/\/www.srf.ch\/radio-srf-virus\/rehmann"
+}, {
+    "name": "Rehmann S.O.S. - Sick of Silence",
+    "showType": "tv",
+    "keymatches": "",
+    "url": "http:\/\/www.srf.ch\/play\/tv\/sendung\/rehmann-s-o-s--sick-of-silence?id=193b46cb-d61c-48c2-82e6-d6c4676d176e"
+}, {
+    "name": "Reisegeschichten",
+    "showType": "tv",
+    "keymatches": "",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/reisegeschichten"
+}, {
+    "name": "Rendez-vous ",
+    "showType": "radio",
+    "keymatches": "rendezvous, rendez, vous, rendez vous",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/rendez-vous"
+}, {
+    "name": "Reporter",
+    "showType": "tv",
+    "keymatches": "Reportage",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/reporter"
+}, {
+    "name": "Rick Stein",
+    "showType": "tv",
+    "keymatches": "Tierschutz, Forscher, Hilfe, Afrika, Tierwelt",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/rickstein"
+}, {
+    "name": "Rock Special",
+    "showType": "radio",
+    "keymatches": "Rock, Special, Rockspecial, Rock spezial, Rockspezial",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/rock-special"
+}, {
+    "name": "Rundschau",
+    "showType": "tv",
+    "keymatches": "",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/rundschau"
+}, {
+    "name": "Rundschau talk",
+    "showType": "tv",
+    "keymatches": "",
+    "url": "https:\/\/www.srf.ch\/sendungen\/rundschau\/rundschautalk"
+}, {
+    "name": "sakral\/vokal",
+    "showType": "radio",
+    "keymatches": "sakralvokal, vokal sakral",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/sakral-vokal"
+}, {
+    "name": "Sammlung D\u00fcr",
+    "showType": "radio",
+    "keymatches": "",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/sammlungduer"
+}, {
+    "name": "Samschtig-Jass",
+    "showType": "tv",
+    "keymatches": "Samschtig, jass, samstig, jassen, samstigjass, samschtigjass, jassspiel, jass-spiel, onlinejass, online-jass, einzelspieler, mehrspieler",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/samschtig-jass"
+}, {
+    "name": "Samstagsrundschau",
+    "showType": "radio",
+    "keymatches": "Rundschau am Samstag, Samstag Rundschau",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/samstagsrundschau"
+}, {
+    "name": "Scharfer Ecken",
+    "showType": "webexklusiv",
+    "keymatches": "",
+    "url": "http:\/\/www.srf.ch\/player\/tv\/sendung\/scharfer-ecken-%E2%80%93-reloaded?id=c6749fed-cc00-0001-a5fd-1b7014b714b3"
+}, {
+    "name": "Schawinski",
+    "showType": "tv",
+    "keymatches": "Schawinski, Schawinsky",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/schawinski"
+}, {
+    "name": "Schlag auf Schlager",
+    "showType": "radio",
+    "keymatches": "Schlager, Schlag an Schlager",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/schlag-auf-schlager"
+}, {
+    "name": "Schnabelweid",
+    "showType": "radio",
+    "keymatches": "",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/schnabelweid"
+}, {
+    "name": "Schnipseljagd",
+    "showType": "radio",
+    "keymatches": "Schnitzeljagd,",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/schnipseljagd"
+}, {
+    "name": "Schreckm\u00fcmpfeli",
+    "showType": "radio",
+    "keymatches": "Schreck, M\u00fcmpfeli",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/schreckmuempfeli"
+}, {
+    "name": "Schweiz aktuell",
+    "showType": "tv",
+    "keymatches": "schweiz, aktuell",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/schweiz-aktuell"
+}, {
+    "name": "Schweizer Film",
+    "showType": "tv",
+    "keymatches": "",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/schweizer-film"
+}, {
+    "name": "Schwiiz und d\u00fctlich",
+    "showType": "radio",
+    "keymatches": "",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/schwiiz-und-duetlich"
+}, {
+    "name": "Sechsel\u00e4uten",
+    "showType": "tv",
+    "keymatches": "",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/sechselaeuten"
+}, {
+    "name": "Sinerzyt",
+    "showType": "radio",
+    "keymatches": "Sinerzit, Synerzyt, Seinerzeit, Synerzit",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/sinerzyt"
+}, {
+    "name": "SOKO Wien ",
+    "showType": "tv",
+    "keymatches": "",
+    "url": "http:\/\/www.srf.ch\/play\/tv\/sendung\/soko-wien?id=c64e0cd1-f2c0-0001-2a44-2b10be00dd00"
+}, {
+    "name": "Sommer-Challenge",
+    "showType": "tv",
+    "keymatches": "Sport, Herausforderung, Sommer, Sportler",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/sommerchallenge"
+}, {
+    "name": "SommerLacher",
+    "showType": "tv",
+    "keymatches": "Schweizer Komiker, Archiv, Comedy, ",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/sommerlacher"
+}, {
+    "name": "Songmates",
+    "showType": "tv",
+    "keymatches": "",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/songmates"
+}, {
+    "name": "Sounds!",
+    "showType": "radio",
+    "keymatches": "Sound ",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/sounds"
+}, {
+    "name": "Spasspartout",
+    "showType": "radio",
+    "keymatches": "Spass, partout, Passpartout",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/spasspartout"
+}, {
+    "name": "Sport",
+    "showType": "tv",
+    "keymatches": "",
+    "url": "http:\/\/www.srf.ch\/play\/tv\/sendung\/sport?id=2c065d7d-b5a7-4f3d-8c67-44f223dcf40b"
+}, {
+    "name": "sportaktuell",
+    "showType": "tv",
+    "keymatches": "sportaktuell, Sport aktuell, Sport, Sportbilder",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/sportaktuell"
+}, {
+    "name": "sportflash",
+    "showType": "tv",
+    "keymatches": "",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/sportflashtv"
+}, {
+    "name": "sportlounge",
+    "showType": "tv",
+    "keymatches": "sportlounge, Sport Lounge, Sporthintergrund",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/sportlounge"
+}, {
+    "name": "sportpanorama",
+    "showType": "tv",
+    "keymatches": "sportpanorama, Sport Panorama, ",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/sportpanorama"
+}, {
+    "name": "SRF 3 punkt CH",
+    "showType": "radio",
+    "keymatches": "",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/srf-3-punkt-ch"
+}, {
+    "name": "SRF 3 Wirtschaft",
+    "showType": "radio",
+    "keymatches": "Wirtschaft, Geld, Finanzen, Markt, M\u00e4rkte, B\u00f6rse",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/srf3wirtschaft"
+}, {
+    "name": "SRF 4 News Medientalk",
+    "showType": "radio",
+    "keymatches": "Medientalk",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/medientalk"
+}, {
+    "name": "SRF 4 News Tageschronik",
+    "showType": "radio",
+    "keymatches": "Tageschronik, News Tageschronik, Tageschronik, ",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/tageschronik"
+}, {
+    "name": "SRF bi de L\u00fct",
+    "showType": "tv",
+    "keymatches": "srf, bi, de, l\u00fct, luet, bi de l\u00fct",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/srf-bi-de-luet"
+}, {
+    "name": "SRF bi de L\u00fct Liveshows",
+    "showType": "tv",
+    "keymatches": "",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/srf-bi-de-luet-live"
+}, {
+    "name": "SRF bi de L\u00fct \u2013 M\u00e4nnerk\u00fcche",
+    "showType": "tv",
+    "keymatches": "SRF bi de L\u00fct \u2013 M\u00e4nnerk\u00fcche, SRF bi de L\u00fct,  M\u00e4nnerk\u00fcche, K\u00fcche",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/srf-bi-de-luet-maennerkueche"
+}, {
+    "name": "SRF bi de L\u00fct \u2013 Wunderland",
+    "showType": "tv",
+    "keymatches": "wanderland Wandern",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/srf-bi-de-luet-wunderland"
+}, {
+    "name": "SRF B\u00f6rse",
+    "showType": "tv",
+    "keymatches": "SRF B\u00f6rse, SRF Boerse, SF B\u00f6rse, SF Boerse, B\u00f6rse, Schweizer B\u00f6rse",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/srf-boerse"
+}, {
+    "name": "SRF Heimatland",
+    "showType": "tv",
+    "keymatches": "",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/heimatland"
+}, {
+    "name": "SRF Meteo",
+    "showType": "tv",
+    "keymatches": "Meteo, Wetter",
+    "url": "http:\/\/meteo.srf.ch\/"
+}, {
+    "name": "SRF Musikwelle Brunch",
+    "showType": "radio",
+    "keymatches": "SRF Musikwelle Brunch, SRF, Musikwelle, Brunch",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/srf-musikwelle-brunch"
+}, {
+    "name": "SRF Musikwelle Horoskop",
+    "showType": "radio",
+    "keymatches": "Astrologie, Horoskop",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/horoskop"
+}, {
+    "name": "SRF mySchool",
+    "showType": "tv",
+    "keymatches": "mySchool, Schule, Schulfernsehen",
+    "url": "http:\/\/www.srf.ch\/sendungen\/myschool"
+}, {
+    "name": "Sternstunde Kunst",
+    "showType": "tv",
+    "keymatches": "sternstunde, kunst",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/sternstunde-kunst"
+}, {
+    "name": "Sternstunde Musik",
+    "showType": "tv",
+    "keymatches": "sternstunde, musik",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/sternstunde-musik"
+}, {
+    "name": "Sternstunde Philosophie",
+    "showType": "tv",
+    "keymatches": "sternstunde, philosophie",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/sternstunde-philosophie"
+}, {
+    "name": "Sternstunde Religion",
+    "showType": "tv",
+    "keymatches": "sternstunde, religion",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/sternstunde-religion"
+}, {
+    "name": "S\u00fcdostschweiz Standpunkte",
+    "showType": "tv",
+    "keymatches": "",
+    "url": "http:\/\/www.srf.ch\/play\/tv\/sendung\/suedostschweiz-standpunkte?id=211e7573-c565-45ce-8a46-c3dd456879ce"
+}, {
+    "name": "Swissmade",
+    "showType": "radio",
+    "keymatches": "Swiss Made, Suissemaide, Swiss-Made, Made in Swiss",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/swissmade"
+}, {
+    "name": "Tacho - das Automagazin",
+    "showType": "tv",
+    "keymatches": "",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/tacho"
+}, {
+    "name": "Tagesgespr\u00e4ch ",
+    "showType": "radio",
+    "keymatches": "Gespr\u00e4ch des Tages, Thema des Tages, Taggespr\u00e4ch",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/tagesgespraech"
+}, {
+    "name": "Tagesschau",
+    "showType": "tv",
+    "keymatches": "Tagesschau, TS",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/tagesschau"
+}, {
+    "name": "Tagesschau am Mittag",
+    "showType": "tv",
+    "keymatches": "",
+    "url": "https:\/\/www.srf.ch\/play\/tv\/sendung\/tagesschau-am-mittag?id=79711131-5a04-4238-804e-de46850b67de"
+}, {
+    "name": "Tagesschau in Geb\u00e4rdensprache",
+    "showType": "tv",
+    "keymatches": "",
+    "url": "https:\/\/www.srf.ch\/play\/tv\/sendung\/tagesschau-in-gebaerdensprache?id=c40bed81-b150-0001-2b5a-1e90e100c1c0"
+}, {
+    "name": "Tagesschau Sp\u00e4tausgabe Wochenende",
+    "showType": "tv",
+    "keymatches": "",
+    "url": "http:\/\/www.srf.ch\/play\/tv\/sendung\/tagesschau-spaetausgabe-wochenende?id=279705ff-5dd0-47de-8bf6-6e6798b9b283"
+}, {
+    "name": "Tagesschau Spezial",
+    "showType": "tv",
+    "keymatches": "",
+    "url": "https:\/\/www.srf.ch\/play\/tv\/sendung\/tagesschau-spezial?id=c4b213cd-9790-0001-3063-e4001037ebe0"
+}, {
+    "name": "Tama Gotcha!",
+    "showType": "tv",
+    "keymatches": "",
+    "url": "http:\/\/www.srf.ch\/play\/tv\/sendung\/tama-gotcha?id=ccde80e5-7b64-4c21-8080-fb85172974f9"
+}, {
+    "name": "Tatort",
+    "showType": "tv",
+    "keymatches": "Krimi",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/tatort"
+}, {
+    "name": "Tatort mit Audiodeskription",
+    "showType": "tv",
+    "keymatches": "",
+    "url": "https:\/\/www.srf.ch\/play\/tv\/sendung\/tatort-mit-audiodeskription?id=c6a2b57a-8bc0-0001-9a95-12a61390af60"
+}, {
+    "name": "Tattoo",
+    "showType": "tv",
+    "keymatches": "Musik. Show, Orchester",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/tattoo"
+}, {
+    "name": "Text zum Sonntag",
+    "showType": "radio",
+    "keymatches": "Sonntagstext, Text zum Sonntag",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/text-zum-sonntag"
+}, {
+    "name": "Time to swing!",
+    "showType": "radio",
+    "keymatches": "Swingtime, Time Swing, Swing",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/time-to-swing"
+}, {
+    "name": "Tonreisen",
+    "showType": "radio",
+    "keymatches": "tonreisen",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/tonreisen"
+}, {
+    "name": "Top Secret",
+    "showType": "tv",
+    "keymatches": "top, secret",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/top-secret"
+}, {
+    "name": "Traumberuf",
+    "showType": "webexklusiv",
+    "keymatches": "",
+    "url": "https:\/\/www.srf.ch\/sendungen\/zambo\/zambo\/traumberuf"
+}, {
+    "name": "Treffpunkt",
+    "showType": "radio",
+    "keymatches": "Treffpunkt",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/treffpunkt"
+}, {
+    "name": "Trend ",
+    "showType": "radio",
+    "keymatches": "",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/trend"
+}, {
+    "name": "Trick 77",
+    "showType": "radio",
+    "keymatches": "Trick, ",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/trick-77"
+}, {
+    "name": "Tricked \u2013 Ausgetrickst",
+    "showType": "tv",
+    "keymatches": "",
+    "url": "https:\/\/www.srf.ch\/play\/tv\/sendung\/tricked---ausgetrickst?id=15610f4e-12f8-4b5a-bcfb-256c1843d084"
+}, {
+    "name": "Trigger",
+    "showType": "tv",
+    "keymatches": "",
+    "url": "http:\/\/www.srf.ch\/play\/tv\/sendung\/trigger---kurzfilm-der-woche?id=c6eca7fe-2260-0001-2f82-1fcb14801f76"
+}, {
+    "name": "True Talk",
+    "showType": "webexklusiv",
+    "keymatches": "",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/truetalk"
+}, {
+    "name": "\u00dcse Buurehof",
+    "showType": "tv",
+    "keymatches": "",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/uesebuurehof"
+}, {
+    "name": "Verkehrte Welt",
+    "showType": "tv",
+    "keymatches": "",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/verkehrte-welt"
+}, {
+    "name": "Vetters T\u00f6ne",
+    "showType": "radio",
+    "keymatches": "Vetter, Gabriel Vetter, Vetter t\u00f6nt, Vettert\u00f6ne",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/vetters-toene"
+}, {
+    "name": "Visite",
+    "showType": "radio",
+    "keymatches": "Kranken-Wunschkonzert, Kranken-Visite",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/visite"
+}, {
+    "name": "Vo Mutzeb\u00e4cher",
+    "showType": "webexklusiv",
+    "keymatches": "",
+    "url": "http:\/\/www.srf.ch\/play\/tv\/sendung\/vo-mutzebaecher?id=38b74ea4-169f-4380-98af-00e1c04b2ec4"
+}, {
+    "name": "Volksmusik Aktuell",
+    "showType": "radio",
+    "keymatches": "",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/volksmusikaktuell"
+}, {
+    "name": "Wege zum Gl\u00fcck",
+    "showType": "tv",
+    "keymatches": "Telenovela, Romaze,",
+    "url": "http:\/\/www.srf.ch\/play\/tv\/sendung\/wege-zum-glueck?id=c67a1403-4ac0-0001-8a1f-c5f01b4b13cd"
+}, {
+    "name": "Weitere Unterhaltungs-Sendungen",
+    "showType": "tv",
+    "keymatches": "",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/unterhaltungssendungen"
+}, {
+    "name": "Weltklasse auf SRF 2 Kultur",
+    "showType": "radio",
+    "keymatches": "Weltklasse, SRF 2, Kultur",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/weltklasse-auf-srf2-kultur"
+}, {
+    "name": "Wetterbox",
+    "showType": "radio",
+    "keymatches": "Wetter, Wetterb\u00fcchse, Wetterph\u00e4nomen, Wetter Box",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/wetterbox"
+}, {
+    "name": "Wetterwoche",
+    "showType": "radio",
+    "keymatches": "Wetter der Woche, Wetterwoche, Die Wetterwoche",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/die-wetterwoche"
+}, {
+    "name": "Wir mal vier",
+    "showType": "tv",
+    "keymatches": "Familie, Show, Quiz, Quizsendung",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/wirmalvier"
+}, {
+    "name": "Wirtschaftswoche",
+    "showType": "radio",
+    "keymatches": "Wirtschaftswoche, Wirtschafts-Woche, ",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/wirtschaftswoche"
+}, {
+    "name": "Wissenschaftsmagazin ",
+    "showType": "radio",
+    "keymatches": "Magazin der Wissenschaft, Wissenschaft im Magazin",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/wissenschaftsmagazin"
+}, {
+    "name": "WochenRundShow",
+    "showType": "radio",
+    "keymatches": "",
+    "url": "http:\/\/www.srf.ch\/sendungen\/wochenrundshow"
+}, {
+    "name": "World Music Special",
+    "showType": "radio",
+    "keymatches": "world, music, special, worldmusic special, worldmusic",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/world-music-special"
+}, {
+    "name": "Wort zum Sonntag",
+    "showType": "tv",
+    "keymatches": "wort sonntag, wort, sonntag",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/wort-zum-sonntag"
+}, {
+    "name": "WortSchatz",
+    "showType": "radio",
+    "keymatches": "Wortsatz, Wort Schatz",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/wortschatz"
+}, {
+    "name": "W\u00fcnsch dir was",
+    "showType": "radio",
+    "keymatches": "Musikwunsch, W\u00fcnsch mir was, Musikw\u00fcnsche",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/wuensch-dir-was"
+}, {
+    "name": "Zambo",
+    "showType": "webexklusiv",
+    "keymatches": "",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/zambo"
+}, {
+    "name": "Zambo Geschichten",
+    "showType": "radio",
+    "keymatches": "",
+    "url": "http:\/\/www.srf.ch\/play\/radio\/sendung\/zambo-geschichten?id=4cb87c7d-8988-47a4-b9f9-49b3de508503"
+}, {
+    "name": "Zambo im Radio",
+    "showType": "radio",
+    "keymatches": "Kinder, ",
+    "url": "http:\/\/www.srf.ch\/play\/radio\/sendung\/zambo?id=27fbe150-ade2-4bbe-84ab-a4d745f8e492"
+}, {
+    "name": "Zeitblende",
+    "showType": "radio",
+    "keymatches": "Zitblende",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/zeitblende"
+}, {
+    "name": "Zoog\u00e4-n-am Boog\u00e4",
+    "showType": "radio",
+    "keymatches": "Zogenamboge, Gezogen am Bogen, Zoge am Boge, Zoge-n-am-Boge, Zog\u00e4-n-am-Bog\u00e4",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/zoogae-n-am-boogae"
+}, {
+    "name": "Zum Gl\u00fcck ist Freitag",
+    "showType": "radio",
+    "keymatches": "zum gl\u00fcck isch fritig, gl\u00fcck, freitag, fritig, gl\u00fcck freitag, gl\u00fcck fritig, zum gl\u00fcck ",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/zum-glueck-ist-freitag"
+}, {
+    "name": "Zwischen den Schlagzeilen",
+    "showType": "radio",
+    "keymatches": "zwischen schlagzeilen, schlagzeilen",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/zwischen-den-schlagzeilen"
+}, {
+    "name": "Zwischenhalt",
+    "showType": "radio",
+    "keymatches": "Zw\u00fcschehalt, ",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/zwischenhalt"
+}, {
+    "name": "Zw\u00f6lf Schauspielsch\u00fcler",
+    "showType": "tv",
+    "keymatches": "\"die\", \"dreizehn\"",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/die-schauspielschueler"
+}, {
+    "name": "Zytlupe",
+    "showType": "radio",
+    "keymatches": "Zeitlupe, Satire Samstagmittag, Zitlupe",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/zytlupe"
+}, {
+    "name": "\u00abGlanz & Moser\u00bb",
+    "showType": "webexklusiv",
+    "keymatches": "und",
+    "url": "https:\/\/www.srf.ch\/play\/tv\/sendung\/glanz--moser?id=42d7db7e-640d-4629-82ea-0b9aa98721dd"
+}, {
+    "name": "\u00c0 point",
+    "showType": "radio",
+    "keymatches": "a point, apoint, point, \u00e0",
+    "url": "https:\/\/www-test.srf.ch\/sendungen\/a-point"
+}]

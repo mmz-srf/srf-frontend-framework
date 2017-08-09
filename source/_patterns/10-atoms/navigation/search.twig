@@ -1,7 +1,9 @@
-<form class="searchbox" action="{{ header.form_action|default('#') }}" role="search">
+<form autocomplete="off" class="searchbox" action="{{ header.form_action|default('#') }}" role="search">
     <label for="search-site" class="h-offscreen">{{ header.searching }}</label>
-    <input data-typeahead-url="{{ header.typeahead_url|default('') }}" class="searchbox__input" name="q"
-           id="search-site" data-referrer-track="srf_suchfeld=header"
+    <input class="searchbox__input" name="q"
+           id="search-site"
+           data-typeahead-url="{{ header.typeahead_url|default('/assets/demo/typeahead_search.json') }}"
+           data-referrer-track="srf_suchfeld=header"
            type="text" placeholder="{{ header.search|default("Suche") }}">
     <button type="submit" class="h-offscreen" tabindex="-1" aria-hidden="true">{{ header.searching }}</button>
     <ul class="searchbox__results" role="listbox" tabindex="0" style="display: none;"></ul>

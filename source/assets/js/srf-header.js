@@ -20,9 +20,7 @@ let menuHasFocus = false,
     $info = null,
     $subMenuHeader = null,
     $subMenuContent = null,
-    $desktopCloseBtn = null,
-    $searchInput = null,
-    $searchSubmit = null;
+    $desktopCloseBtn = null;
 
 export function init() {
     $header = $(".header");
@@ -33,10 +31,12 @@ export function init() {
     $subMenuHeader = $(SUBMENU_CLASS);
     $subMenuContent = $(".navbar__group--radio");
     $desktopCloseBtn = $(DESKTOP_CLOSE_BTN_CLASS);
-    $searchInput = $header.find(".searchbox__input");
-    $searchSubmit = $searchInput.closest(".searchbox").find("button");
 
-    srfSearch = new SrfSearch($searchInput, $searchSubmit);
+    let $searchInput = $header.find(".searchbox__input");
+    let $searchSubmit = $searchInput.closest(".searchbox").find("button");
+    let $searchMenu = $header.find(".searchbox__results");
+
+    srfSearch = new SrfSearch($searchInput, $searchSubmit, $searchMenu);
 
 
     $header.on("keydown", HANDLE_CLASS, (e) => handleKeyPress(e))
