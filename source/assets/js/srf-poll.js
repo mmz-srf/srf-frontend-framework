@@ -100,7 +100,11 @@ var pollController = function() {
             // mostVotes = Math.max.apply( null, that.polls[pollId].data );
 
             // tbd: send data .. :)
-            // selected id was optionId / radioIndex ...?
+
+            // mark selected option
+            $poll.find(".poll-option-label[for=" + optionId + "]")
+                .parent().find(".poll-option-rating")
+                .addClass("poll-option-rating--selected");
 
             // total number of votes
             var total = that.getTotalVotes(that.polls[pollId].data);
@@ -112,7 +116,6 @@ var pollController = function() {
             $poll.find(".poll-form-handling__roundup").show()
                 .find("strong").text(total);
 
-            // $poll.find(".button").remove();
 
             var width, sum = 0;
             var widths = [];
@@ -130,12 +133,6 @@ var pollController = function() {
 
                 widths[i] = width;
 
-                /* $element.find(".poll-option-rating__bg-color")
-                    .delay(delay).animate({
-                        width: width + "%"
-                    }, 3000, function() { // Animation complete
-                    }); */
-
                 $element.find(".poll-option-rating__percent strong").text(width);
             });
 
@@ -143,16 +140,6 @@ var pollController = function() {
             if ($submit.length > 0) {
                 $submit.val("✔").fadeOut(1500, function () {
                     that.animateBars($poll, widths);
-                    /* var delay = 0;
-                     $poll.find(".poll-option-rating__bg-color").each(function(i) {
-                     $(this).delay(delay).animate({
-                     width: widths[i] + "%"
-                     }, 500, function () {
-                     $(this).closest(".poll-option-rating")
-                     .find(".poll-option-rating__percent").fadeIn();
-                     });
-                     delay += 500;
-                     }); */
                 });
             } else {
                 that.animateBars($poll, widths);
@@ -163,14 +150,24 @@ var pollController = function() {
 
     this.animateBars = function ($poll, widths) {
         var delay = 0;
+        let animationDuration = 375;
+        let delayIncrease = 225;
+
         $poll.find(".poll-option-rating__bg-color").each(function(i) {
             $(this).delay(delay).animate({
                 width: widths[i] + "%"
-            }, 500, function () {
-                $(this).closest(".poll-option-rating")
-                    .find(".poll-option-rating__percent").fadeIn(500);
-            });
-            delay += 500;
+            }, animationDuration);
+
+            // move to the left & make invisible, show and after a delay (sync with bar-animation) show + slide to the right.
+            $(this).closest(".poll-option-rating").find(".poll-option-rating__percent").css({
+                opacity: 0,
+                right: "+=20px"
+            }).show().delay(delay).animate({
+                opacity: 1,
+                right: "-=20px"
+            }, animationDuration);
+
+            delay += delayIncrease;
         });
     };
 
