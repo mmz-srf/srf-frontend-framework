@@ -136,7 +136,6 @@ var pollController = function() {
 
             var $submit = $poll.find(".button");
             if ($submit.length > 0) {
-
                 $submit.val("✔").text("Danke").addClass("button--success").delay(900).fadeOut(375, () => {
                     that.animateBars($poll, widths);
                 });
