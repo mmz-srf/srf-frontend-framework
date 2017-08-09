@@ -1,3 +1,6 @@
+import {SrfSearch} from './srf-search';
+
+
 const HANDLE_CLASS = ".menu-handle";
 const SUBMENU_CLASS = ".js-expand-arrow";
 const DESKTOP_CLOSE_BTN_CLASS = ".navbar__link--close";
@@ -6,6 +9,8 @@ const KEYCODES = {
     "tab": 9
 };
 const WIN_SIZE_NOT_MOBILE = 719;
+
+let srfSearch = null;
 
 let menuHasFocus = false,
     $header = null,
@@ -16,7 +21,8 @@ let menuHasFocus = false,
     $subMenuHeader = null,
     $subMenuContent = null,
     $desktopCloseBtn = null,
-    $input = null;
+    $searchInput = null,
+    $searchSubmit = null;
 
 export function init() {
     $header = $(".header");
@@ -27,7 +33,11 @@ export function init() {
     $subMenuHeader = $(SUBMENU_CLASS);
     $subMenuContent = $(".navbar__group--radio");
     $desktopCloseBtn = $(DESKTOP_CLOSE_BTN_CLASS);
-    $input = $header.find(".searchbox__input");
+    $searchInput = $header.find(".searchbox__input");
+    $searchSubmit = $searchInput.closest(".searchbox").find("button");
+
+    srfSearch = new SrfSearch($searchInput, $searchSubmit);
+
 
     $header.on("keydown", HANDLE_CLASS, (e) => handleKeyPress(e))
         .on("keydown", DESKTOP_CLOSE_BTN_CLASS, (e) => handleKeyPress(e))
@@ -105,9 +115,7 @@ function openMenu(e) {
             }
         });
     } else {
-        // clear out any possible search input
-        $input.val("");
-        $input.closest(".searchbox").find("button").attr("tabindex", -1).attr("aria-hidden", true);
+        srfSearch.clearInput();
     }
 
     menuHasFocus = true;
