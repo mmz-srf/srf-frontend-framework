@@ -265,6 +265,14 @@
       background-color: $color-bg-box-hover;
     }
   }
+
+  .poll-form-handling {
+    background-color: $color-bg-caption;
+
+    @include tablet-up {
+      padding: 16px;
+    }
+  }
 }
 
 .poll-option-rating {

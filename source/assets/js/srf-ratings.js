@@ -45,9 +45,7 @@ var ratingController = function(){
                     that.rating[ratingsId] = new Rating(ratingsId,data);
                     that.rating[ratingsId].loadAnswers(ratingsId);
                 },
-                error: function(){
-                    // alert('Error occured');
-                }
+                error: function(){}
             });
         });
     };
@@ -119,19 +117,29 @@ var ratingController = function(){
 
                 // remove err msg
                 that.handleErrors($that,false);
-            
-                $.each(that.rating[rating_id].stars,function(){
-                    // do the dance ... if possible
-                    if (this.value !== undefined) {
-                        tmp = this.value.split('-'); // bsp. this.value = 'star1-2-3'
-                        answer_index = tmp[1];
-                        star_index = tmp[2];
-                        that.doTheDance(rating_index,answer_index,star_index);
-                        rated++;
-                    }
+
+                // First animate the button, then show the ratings/starts
+                $that.find(".poll-form-handling button").text("Danke").addClass("button--success").delay(900).fadeOut(200, () => {
+
+                    $.each(that.rating[rating_id].stars,function(){
+                        // do the dance ... if possible
+                        if (this.value !== undefined) {
+                            tmp = this.value.split('-'); // bsp. this.value = 'star1-2-3'
+                            answer_index = tmp[1];
+                            star_index = tmp[2];
+                            that.doTheDance(rating_index,answer_index,star_index);
+                            rated++;
+                        }
+                    });
+
+                    // Show the "X votes have been cast"
+                    $that.find(".poll-form-handling__roundup strong").text("12");
+                    $that.find(".poll-form-handling__roundup").slideDown(200);
+
+                    if (rated === 0) { that.handleErrors($that,true); }
+
                 });
 
-                if (rated === 0) { that.handleErrors($that,true); }
 
                 // ==> submit all votes!!!
                 return false; // but nothing else
@@ -212,7 +220,7 @@ var ratingController = function(){
         }
         that.animateStars(ratings_index,answer_index,myVote,resultVote,newStyle);
 
-        // remove input-fields and label-wrapper arount svg-star -> TODO
+        // remove input-fields and label-wrapper around svg-star -> TODO
         $thisRating.addClass(submittedClassName).find('input').remove();
         $thisRating.find('label').replaceWith(function(){ return $(this).contents(); });
     };

@@ -58,6 +58,8 @@
   background-size: 100% 200%;
   background-position: left bottom;
 
+  transition-delay: .1s;
+
   &:hover,
   &:focus,
   &:active {
