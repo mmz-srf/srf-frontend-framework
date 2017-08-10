@@ -1,4 +1,15 @@
-<form autocomplete="off" class="searchbox" action="{{ header.form_action|default('#') }}" role="search">
+<style>
+.typeahead-suggestion.active {
+
+    background-color: yellow;
+}
+.typeahead-suggestion a {
+
+}
+
+</style>
+
+<form autocomplete="off" class="searchbox" action="{{ header.form_action|default('suche') }}" role="search">
     <label for="search-site" class="h-offscreen">{{ header.searching }}</label>
     <input class="searchbox__input" name="q"
            id="search-site"
@@ -8,4 +19,5 @@
     <button type="submit" class="h-offscreen" tabindex="-1" aria-hidden="true">{{ header.searching }}</button>
     <ul class="searchbox__results" role="listbox" tabindex="0" style="display: none;"></ul>
 </form>
+
 

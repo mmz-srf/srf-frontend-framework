@@ -11,7 +11,7 @@ export class SrfSearch {
         this.typeaheadUrl = this.$inputField.data("typeahead-url");
         this.typeaheadData = null;
 
-        this.isShown = false;
+        this.suggestionUrl = '';
 
         this.registerListeners();
 
@@ -26,13 +26,14 @@ export class SrfSearch {
         });
 
         this.$inputField.on("keyup", (e) => {
-            e.stopPropagation()
-            e.preventDefault()
-
             this.enhanceAccessibility();
             this.onKeyUp(e);
-            //  this.lookup(this.$inputField.val());
         });
+
+        this.$inputField.on("keydown", (e) => {
+            this.onKeyDown(e);
+        });
+
 
         this.$inputField.on("blur", (e) => {
             setTimeout(() => {
@@ -40,30 +41,9 @@ export class SrfSearch {
             }, 150);
         });
 
-        /*
-         this.$inputField.on("keypress", (e) => {
-         this.onKeypress();
-         });
-         */
-
-
-        this.$inputField.on("keypress", (e) => {
-            this.onKeyUp(e);
-        });
-
-        /*
-         needed????
-         if ($.browser.chrome || $.browser.webkit || $.browser.msie) {
-         this.$inputField.on("keydown", (e) => {
-         this.onKeyDown();
-         });
-         }
-         */
 
         this.$menu.on("click", (e) => {
-            e.stopPropagation()
-            e.preventDefault()
-            this.selectOption();
+
         });
 
         this.$menu.on("mouseenter", (e) => {
@@ -76,20 +56,18 @@ export class SrfSearch {
 
     }
 
+
     onKeyUp(e) {
+
         switch (e.keyCode) {
             case 40: // down arrow
             case 38: // up arrow
                 break;
-
             case 9: // tab
-            case 13: // enter
-                if (!this.isShown) return;
-                this.selectOption();
+                // to DO
                 break;
 
             case 27: // escape
-                if (!this.isShown) return;
                 this.hideMenu();
                 break;
 
@@ -98,65 +76,74 @@ export class SrfSearch {
         }
     }
 
+    onKeyDown(e) {
+        // if no suggestion is selected fall back to default browser behavior for form submission
+        if (e.keyCode === 13) {
+            if (this.suggestionUrl != '') {
+                e.stopPropagation();
+                e.preventDefault();
+                location.href = this.suggestionUrl;
+            }
+        }
+        if (e.keyCode === 40 || e.keyCode === 38) {
+            let direction = e.keyCode === 40 ? 'down' : 'up';
+            this.moveInMenu(direction);
+
+        }
+
+    }
+
     onMenuMouseenter(e) {
+
         this.$menu.find('.active').removeClass('active');
         $(e.currentTarget).addClass('active');
     }
 
-    selectOption() {
-        console.log("option selected: execute sendungs-url or go to search page");
-        // get selected option
-        // location.href = url;
-    }
 
     hideMenu() {
-        this.$menu.hide()
-        this.isShown = false
+        this.$menu.hide();
+        this.suggestionUrl = '';
     }
 
-    moveInMenu(e) {
-        if (!this.isShown) return;
+    clearInput() {
+        this.$inputField.val("");
+        this.$submitButton.attr("tabindex", -1).attr("aria-hidden", true);
+        this.suggestionUrl = '';
+    }
 
-        switch (e.keyCode) {
-            case 9: // tab
-            case 13: // enter
-            case 27: // escape
-                e.preventDefault();
-                break;
-
-            case 38: // up arrow
-                e.preventDefault();
-                this.prevOption();
-                break
-
-            case 40: // down arrow
-                e.preventDefault();
-                this.nextOption();
-                break
+    moveInMenu(direction) {
+        if (direction === 'down') {
+            this.nextOption();
         }
+        else if (direction === 'up') {
+            this.prevOption();
+        }
+    }
 
-        e.stopPropagation()
+    selectFirstOption() {
+
     }
 
     prevOption() {
         let $active = this.$menu.find('.active').removeClass('active');
-        let $prev = $active.prev()
+        let $prev = $active.prev();
 
-        if ($prev.length > 0) {
+        if ($prev.length === 0) {
             $prev = this.$menu.find('li').last();
         }
-        $prev.addClass('active')
+        this.suggestionUrl = $prev.find("a").attr('href');
+        $prev.addClass('active');
     }
 
     nextOption() {
         let $active = this.$menu.find('.active').removeClass('active');
-        let $next = $active.next()
+        let $next = $active.next();
 
-        if ($next.length > 0) {
-            $next = $(this.$menu.find('li')[0])
+        if ($next.length === 0) {
+            $next = $(this.$menu.find('li').first());
         }
+        this.suggestionUrl = $next.find("a").attr('href');
         $next.addClass('active');
-
     }
 
     enhanceAccessibility() {
@@ -171,10 +158,6 @@ export class SrfSearch {
         }
     }
 
-    clearInput() {
-        this.$inputField.val("");
-        this.$submitButton.attr("tabindex", -1).attr("aria-hidden", true);
-    }
 
     initTypeahead() {
 
@@ -185,29 +168,35 @@ export class SrfSearch {
         }
     }
 
-    lookup(query) {
+    lookup() {
         let results = [];
-        query = this.$inputField.val().toString().toLowerCase();
+        let query = this.$inputField.val().toString().toLowerCase();
 
         this.typeaheadData.forEach((item) => {
             let matchIndex = item.name.toString().toLowerCase().indexOf(query);
             if (matchIndex >= 0) {
                 results.push({name: item.name, url: item.url, matchIndex: matchIndex});
             }
-        })
-        results = results.slice(0, this.options.maxSuggestionCount);
-        this.renderResults(results, query);
+        });
+        if (results.length > 0) {
+            results = results.slice(0, this.options.maxSuggestionCount);
+            this.renderResults(results, query);
+        }
+        else {
+            this.hideMenu();
+        }
 
     }
 
     renderResults(results, query) {
         let html = '';
+
         results.forEach((result) => {
             let name = this.highlightQuery(query, result.name);
-            html += `<li data-url="${result.url}">${name}</li>`;
+            html += `<li class="typeahead-suggestion"> <a href="${result.url}">${name}</a> </li>`;
         })
         this.$menu.html(html).show();
-        console.log(results);
+
     }
 
     highlightQuery(query, name) {
