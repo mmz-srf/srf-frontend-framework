@@ -115,10 +115,10 @@ export class SrfSearch {
 
     moveInMenu(direction) {
         if (direction === 'down') {
-            this.nextOption();
+            this.nextSuggestion();
         }
         else if (direction === 'up') {
-            this.prevOption();
+            this.prevSuggestion();
         }
     }
 
@@ -126,12 +126,12 @@ export class SrfSearch {
         $old.attr("id", "");
 
         $new.attr("aria-selected", true);
-        this.$inputField.attr("aria-activedescendant", "selectedOption");
-        $new.attr("id", "selectedOption");
+        this.$inputField.attr("aria-activedescendant", "selectedSuggestion");
+        $new.attr("id", "selectedSuggestion");
 
     }
 
-    prevOption() {
+    prevSuggestion() {
         let $active = this.$menu.find('.active').removeClass('active');
         let $prev = $active.prev();
 
@@ -143,7 +143,7 @@ export class SrfSearch {
         this.addScreenreaderSupport($active, $prev);
     }
 
-    nextOption() {
+    nextSuggestion() {
         let $active = this.$menu.find('.active').removeClass('active');
         let $next = $active.next();
 
