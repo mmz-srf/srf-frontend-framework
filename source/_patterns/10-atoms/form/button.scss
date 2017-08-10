@@ -20,7 +20,7 @@
               0 0 2px 0 rgba(0, 0, 0, .12);
   transition: background-color .2s ease-in-out,
               box-shadow .2s ease-in-out,
-              background-position .195s cubic-bezier(.175, .885, .3, 1.75);
+              background-position .3s cubic-bezier(.175, .885, .3, 1.75);
 
   @include tablet-up {
     width: auto;
