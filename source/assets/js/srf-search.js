@@ -1,6 +1,6 @@
 export class SrfSearch {
 
-    constructor($inputField, $submitButton, $menu, options = {maxSuggestionCount: 6}) {
+    constructor($inputField, $submitButton, $menu, options = {maxSuggestionCount: 7}) {
         this.$inputField = $inputField;
         // inputField and submitButton are distinct html elements for accessibility
         this.$submitButton = $submitButton;
@@ -103,6 +103,7 @@ export class SrfSearch {
     hideMenu() {
         this.$menu.hide();
         this.$inputField.attr("aria-expanded", false);
+        this.$inputField.attr("aria-activedescendant", "");
         this.suggestionUrl = '';
     }
 
@@ -125,7 +126,7 @@ export class SrfSearch {
         $old.attr("id", "");
 
         $new.attr("aria-selected", true);
-        this.$inputField.attr("aria-activedescendant","selectedOption");
+        this.$inputField.attr("aria-activedescendant", "selectedOption");
         $new.attr("id", "selectedOption");
 
     }

@@ -1,11 +1,27 @@
 <style>
-.typeahead-suggestion.active {
+    .searchbox {
+        position: relative;
+    }
 
-    background-color: yellow;
-}
-.typeahead-suggestion a {
+    .searchbox ul {
+        position: absolute;
+        %;
+        list-style-type: none;
 
-}
+        border: 1px solid grey;
+    }
+
+    .searchbox ul li {
+    }
+
+    .typeahead-suggestion.active {
+
+        background-color: yellow;
+    }
+
+    .typeahead-suggestion a {
+        display: block;
+    }
 
 </style>
 
@@ -15,12 +31,15 @@
            id="search-site"
            data-typeahead-url="{{ header.typeahead_url|default('/assets/demo/typeahead_search.json') }}"
            data-referrer-track="srf_suchfeld=header"
-           type="text" placeholder="{{ header.search|default("Suche")}}"
-           aria-describedby="searchbox-accessible-instructions" aria-owns="searchbox__results" aria-expanded="false" aria-autocomplete="both" aria-activedescendant=""
-        >
+           type="text" placeholder="{{ header.search|default("Suche") }}"
+           aria-describedby="searchbox-accessible-instructions" aria-owns="searchbox__results" aria-expanded="false"
+           aria-autocomplete="both" aria-activedescendant=""
+    >
     <button type="submit" class="h-offscreen" tabindex="-1" aria-hidden="true">{{ header.searching }}</button>
-    <ul id="searchbox__results" class="searchbox__results" role="listbox" tabindex="0" role="listbox" style="display: none;"></ul>
-    <span id="searchbox-accessible-instructions" style="display: none;">{{header.searchOffscreenText|default('When autocomplete results are available use up and down arrows to review and enter to select.')}}</span>
+    <ul id="searchbox__results" class="searchbox__results" role="listbox" tabindex="0" role="listbox"
+        style="display: none;"></ul>
+    <span id="searchbox-accessible-instructions"
+          style="display: none;">{{ header.searchOffscreenText|default('When autocomplete results are available use up and down arrows to review and enter to select.') }}</span>
 </form>
 
 
