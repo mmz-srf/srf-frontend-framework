@@ -64,7 +64,7 @@ export class SrfSearch {
             case 38: // up arrow
                 break;
             case 9: // tab
-                // to DO
+                this.hideMenu();
                 break;
 
             case 27: // escape
@@ -102,6 +102,7 @@ export class SrfSearch {
 
     hideMenu() {
         this.$menu.hide();
+        this.$inputField.attr("aria-expanded", false);
         this.suggestionUrl = '';
     }
 
@@ -120,7 +121,12 @@ export class SrfSearch {
         }
     }
 
-    selectFirstOption() {
+    addScreenreaderSupport($old, $new) {
+        $old.attr("id", "");
+
+        $new.attr("aria-selected", true);
+        this.$inputField.attr("aria-activedescendant","selectedOption");
+        $new.attr("id", "selectedOption");
 
     }
 
@@ -133,6 +139,7 @@ export class SrfSearch {
         }
         this.suggestionUrl = $prev.find("a").attr('href');
         $prev.addClass('active');
+        this.addScreenreaderSupport($active, $prev);
     }
 
     nextOption() {
@@ -144,6 +151,8 @@ export class SrfSearch {
         }
         this.suggestionUrl = $next.find("a").attr('href');
         $next.addClass('active');
+        this.addScreenreaderSupport($active, $next);
+
     }
 
     enhanceAccessibility() {
@@ -180,6 +189,7 @@ export class SrfSearch {
         });
         if (results.length > 0) {
             results = results.slice(0, this.options.maxSuggestionCount);
+            this.$inputField.attr("aria-expanded", true);
             this.renderResults(results, query);
         }
         else {
@@ -193,7 +203,7 @@ export class SrfSearch {
 
         results.forEach((result) => {
             let name = this.highlightQuery(query, result.name);
-            html += `<li class="typeahead-suggestion"> <a href="${result.url}">${name}</a> </li>`;
+            html += `<li role="option" aria-selected="false" class="typeahead-suggestion" tabindex="-1"> <a href="${result.url}">${name}</a> </li>`;
         })
         this.$menu.html(html).show();
 
