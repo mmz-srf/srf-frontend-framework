@@ -60,3 +60,42 @@
     }
   }
 }
+
+
+.searchbox ul {
+  position: absolute;
+  top: 34px;
+  list-style-type: none;
+  list-style: none;
+  border: 1px solid grey;
+  background-color: #ffffff;
+  width: 100%; /* will be adjusted */
+  li {
+    list-style-type: none;
+    background-image: none;
+    &:before {
+      content: '';
+    }
+  }
+
+  a {
+    color: black;
+    background-iamge:none;
+    text-decoration: none;
+  }
+}
+
+.searchbox ul li {
+  list-style-type: none;
+  background-image: none;
+}
+
+
+.typeahead-suggestion.active {
+
+  background-color: yellow;
+}
+
+.typeahead-suggestion a {
+  display: block;
+}
