@@ -1,6 +1,6 @@
 export class SrfSearch {
 
-    constructor($inputField, $submitButton, $menu, options = {maxSuggestionCount: 7}) {
+    constructor($inputField, $submitButton, $menu, options = {maxSuggestionCount: 7, minSearchLength: 2}) {
         this.$inputField = $inputField;
         // inputField and submitButton are distinct html elements for accessibility
         this.$submitButton = $submitButton;
@@ -163,6 +163,11 @@ export class SrfSearch {
         if (this.typeaheadData === null) {
             return true;
         }
+        if(query.length < this.options.minSearchLength) {
+            this.hideMenu();
+            return true;
+        }
+
         this.typeaheadData.forEach((item) => {
             let matchIndex = item.name.toString().toLowerCase().indexOf(query);
             if (matchIndex >= 0) {
