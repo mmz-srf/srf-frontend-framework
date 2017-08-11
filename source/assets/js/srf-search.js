@@ -5,22 +5,16 @@ export class SrfSearch {
         // inputField and submitButton are distinct html elements for accessibility
         this.$submitButton = $submitButton;
         this.$menu = $menu;
-        // dont show more than x suggestions
         this.options = options;
 
         this.typeaheadUrl = this.$inputField.data("typeahead-url");
         this.typeaheadData = null;
-
         this.suggestionUrl = '';
 
         this.registerListeners();
-
-
     }
 
-
     registerListeners() {
-
         this.$inputField.on("focus", (e) => {
             this.initTypeahead();
         });
@@ -34,31 +28,22 @@ export class SrfSearch {
             this.onKeyDown(e);
         });
 
-
         this.$inputField.on("blur", (e) => {
             setTimeout(() => {
                 this.hideMenu()
             }, 150);
         });
 
-
-        this.$menu.on("click", (e) => {
-
-        });
-
-        this.$menu.on("mouseenter", (e) => {
+        this.$menu.on("mouseenter", 'li', (e) => {
             this.onMenuMouseenter(e);
         });
 
-        this.$menu.on("touchstart", (e) => {
-            this.onMenuMouseenter();
+        this.$menu.on("touchstart", 'li', (e) => {
+            this.onMenuMouseenter(e);
         });
-
     }
 
-
     onKeyUp(e) {
-
         switch (e.keyCode) {
             case 40: // down arrow
             case 38: // up arrow
@@ -88,13 +73,10 @@ export class SrfSearch {
         if (e.keyCode === 40 || e.keyCode === 38) {
             let direction = e.keyCode === 40 ? 'down' : 'up';
             this.moveInMenu(direction);
-
         }
-
     }
 
     onMenuMouseenter(e) {
-
         this.$menu.find('.active').removeClass('active');
         $(e.currentTarget).addClass('active');
     }
@@ -124,17 +106,14 @@ export class SrfSearch {
 
     addScreenreaderSupport($old, $new) {
         $old.attr("id", "");
-
         $new.attr("aria-selected", true);
         this.$inputField.attr("aria-activedescendant", "selectedSuggestion");
         $new.attr("id", "selectedSuggestion");
-
     }
 
     prevSuggestion() {
         let $active = this.$menu.find('.active').removeClass('active');
         let $prev = $active.prev();
-
         if ($prev.length === 0) {
             $prev = this.$menu.find('li').last();
         }
@@ -146,14 +125,12 @@ export class SrfSearch {
     nextSuggestion() {
         let $active = this.$menu.find('.active').removeClass('active');
         let $next = $active.next();
-
         if ($next.length === 0) {
             $next = $(this.$menu.find('li').first());
         }
         this.suggestionUrl = $next.find("a").attr('href');
         $next.addClass('active');
         this.addScreenreaderSupport($active, $next);
-
     }
 
     enhanceAccessibility() {
@@ -168,9 +145,7 @@ export class SrfSearch {
         }
     }
 
-
     initTypeahead() {
-
         if (this.typeaheadData === null) {
             $.getJSON(this.typeaheadUrl, (data) => {
                 this.typeaheadData = data;
@@ -181,7 +156,9 @@ export class SrfSearch {
     lookup() {
         let results = [];
         let query = this.$inputField.val().toString().toLowerCase();
-
+        if (this.typeaheadData === null) {
+            return true;
+        }
         this.typeaheadData.forEach((item) => {
             let matchIndex = item.name.toString().toLowerCase().indexOf(query);
             if (matchIndex >= 0) {
@@ -196,7 +173,6 @@ export class SrfSearch {
         else {
             this.hideMenu();
         }
-
     }
 
     renderResults(results, query) {
@@ -207,7 +183,6 @@ export class SrfSearch {
             html += `<li role="option" aria-selected="false" class="typeahead-suggestion" tabindex="-1"> <a href="${result.url}">${name}</a> </li>`;
         })
         this.$menu.html(html).show();
-
     }
 
     highlightQuery(query, name) {
