@@ -85,7 +85,7 @@ export class SrfSearch {
 
 
     hideMenu() {
-        this.$menu.hide();
+        this.$menu.addClass('h-element--hide');
         this.$inputField.attr("aria-expanded", false);
         this.$inputField.attr("aria-activedescendant", "");
         this.suggestionUrl = '';
@@ -191,7 +191,8 @@ export class SrfSearch {
             let name = this.highlightQuery(query, result.name);
             html += `<li role="option" aria-selected="false" class="typeahead-suggestion" tabindex="-1"> <a href="${result.url}">${name}</a> </li>`;
         })
-        this.$menu.html(html).show();
+
+        this.$menu.html(html).removeClass('h-element--hide');
     }
 
     highlightQuery(query, name) {
