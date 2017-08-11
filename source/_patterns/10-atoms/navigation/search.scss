@@ -14,6 +14,16 @@
   @include desktop-up {
     right: 81px;
   }
+  .close-search {
+    position: absolute;
+    text-decoration: none;
+    float:right;
+    border: 0px;
+    img {
+      width: 13px;
+      height: 13px;
+    }
+  }
 }
 
 .searchbox__input {
@@ -60,6 +70,7 @@
     }
   }
 }
+
 
 
 .searchbox ul {

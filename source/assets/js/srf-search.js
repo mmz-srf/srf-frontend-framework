@@ -5,12 +5,13 @@ export class SrfSearch {
         // inputField and submitButton are distinct html elements for accessibility
         this.$submitButton = $submitButton;
         this.$menu = $menu;
-
+        this.$closeIcon = $menu.parent().find('.close-search');
         this.options = options;
 
         this.typeaheadUrl = this.$inputField.data("typeahead-url");
         this.typeaheadData = null;
         this.suggestionUrl = '';
+
 
         this.registerListeners();
     }
@@ -89,6 +90,7 @@ export class SrfSearch {
         this.$inputField.attr("aria-expanded", false);
         this.$inputField.attr("aria-activedescendant", "");
         this.suggestionUrl = '';
+        this.hideCloseIcon();
     }
 
     clearInput() {
@@ -178,6 +180,7 @@ export class SrfSearch {
             results = results.slice(0, this.options.maxSuggestionCount);
             this.$inputField.attr("aria-expanded", true);
             this.renderResults(results, query);
+            this.showCloseIcon();
         }
         else {
             this.hideMenu();
@@ -193,6 +196,7 @@ export class SrfSearch {
         })
 
         this.$menu.html(html).removeClass('h-element--hide');
+
     }
 
     highlightQuery(query, name) {
@@ -200,6 +204,18 @@ export class SrfSearch {
         return name.replace(new RegExp('(' + query + ')', 'ig'), function ($1, match) {
             return '<strong>' + match + '</strong>'
         })
+    }
+
+    showCloseIcon() {
+        let y = this.$inputField.position().top;
+        let x = this.$inputField.width() + parseInt(this.$inputField.css('padding-left') + parseInt(this.$inputField.css('padding-right'))); // padding
+        // for some reason jquery width is off by approx. 10 pixels, correct it.
+        this.$closeIcon.css({'top': y + 5, 'left': x + 7});
+        this.$closeIcon.removeClass('h-element--hide');
+    }
+
+    hideCloseIcon() {
+        this.$closeIcon.addClass('h-element--hide');
     }
 }
 
