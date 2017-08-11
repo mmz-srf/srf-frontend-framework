@@ -17,6 +17,7 @@
 }
 
 .searchbox__input {
+
   width: 100%;
   height: 36px;
   font: 16px/1.1 $font-light; // line-height 1 cuts off "bottom parts of letters"
@@ -25,7 +26,6 @@
   background: #555 url("../img/search-sprite.svg") no-repeat scroll 6px 0 / 28px auto;
   padding: 10px 4px 8px 40px; // adjusting from 11 4 9 40 to line-height above
   border: 0;
-  border-radius: 25px;
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -63,39 +63,39 @@
 
 
 .searchbox ul {
-  position: absolute;
-  top: 34px;
-  list-style-type: none;
-  list-style: none;
-  border: 1px solid grey;
-  background-color: #ffffff;
-  width: 100%; /* will be adjusted */
+  position: relative;
+  z-index:1000;
+  margin-top: 0px;
+  padding-top: 1px;
+  padding-right: 0px;
+  padding-left: 0px;
+  background-color: #fafaf8;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.36);
+
   li {
-    list-style-type: none;
+    display: block;
     background-image: none;
+    border-bottom: 0px;
+
     &:before {
-      content: '';
+      display: none;
     }
   }
-
   a {
-    color: black;
-    background-iamge:none;
+    width: 264px;
+    height: 24px;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.5;
+    letter-spacing: 0.5px;
+    text-align: left;
+    color: #22211d;
     text-decoration: none;
+    border: 0px;
   }
 }
 
-.searchbox ul li {
-  list-style-type: none;
-  background-image: none;
-}
-
-
 .typeahead-suggestion.active {
-
-  background-color: yellow;
+  background-color: #ecece6;
 }
 
-.typeahead-suggestion a {
-  display: block;
-}

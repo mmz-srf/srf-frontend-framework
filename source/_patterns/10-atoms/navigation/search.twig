@@ -9,8 +9,8 @@
            aria-autocomplete="both" aria-activedescendant=""
     >
     <button type="submit" class="h-offscreen" tabindex="-1" aria-hidden="true">{{ header.searching }}</button>
-    <ul id="searchbox__results" class="searchbox__results" role="listbox" tabindex="0" role="listbox"
-        style="display: none;"></ul>
+    <ul id="searchbox__results" class="searchbox__results h-element--hide" role="listbox" tabindex="0" role="listbox"
+        ></ul>
     <span id="searchbox-accessible-instructions"
           style="display: none;">{{ header.search_offscreen_text|default('Wenn Autocomplete Vorschläge vorhanden sind, verwenden Sie bitte die Oben- und Unten-Pfeiltasten um durch die Vorschläge zu navigieren. Mit der Enter Taste können Sie einen Vorschlag auswählen.') }}</span>
 </form>

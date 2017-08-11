@@ -5,6 +5,7 @@ export class SrfSearch {
         // inputField and submitButton are distinct html elements for accessibility
         this.$submitButton = $submitButton;
         this.$menu = $menu;
+
         this.options = options;
 
         this.typeaheadUrl = this.$inputField.data("typeahead-url");
@@ -77,8 +78,9 @@ export class SrfSearch {
     }
 
     onMenuMouseenter(e) {
-        this.$menu.find('.active').removeClass('active');
-        $(e.currentTarget).addClass('active');
+        // TODO: decide if we have to highlight a menu item if its hovered by mouse
+        //this.$menu.find('.active').removeClass('active');
+        //$(e.currentTarget).addClass('active');
     }
 
 
@@ -151,6 +153,8 @@ export class SrfSearch {
                 this.typeaheadData = data;
             })
         }
+        /* adjust with of ul to current with of search fiekd */
+        // this.$menu.width(this.$inputField.width());
     }
 
     lookup() {
