@@ -14,10 +14,13 @@
   @include desktop-up {
     right: 81px;
   }
+  /* closing x icon */
   .close-search {
     position: absolute;
     text-decoration: none;
     float:right;
+    padding-top: 8px;
+    padding-right: 2px;
     border: 0px;
     img {
       width: 13px;
