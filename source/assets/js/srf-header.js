@@ -1,3 +1,6 @@
+import {SrfSearch} from './srf-search';
+
+
 const HANDLE_CLASS = ".menu-handle";
 const SUBMENU_CLASS = ".js-expand-arrow";
 const DESKTOP_CLOSE_BTN_CLASS = ".navbar__link--close";
@@ -7,6 +10,8 @@ const KEYCODES = {
 };
 const WIN_SIZE_NOT_MOBILE = 719;
 
+let srfSearch = null;
+
 let menuHasFocus = false,
     $header = null,
     $handle = null,
@@ -15,8 +20,7 @@ let menuHasFocus = false,
     $info = null,
     $subMenuHeader = null,
     $subMenuContent = null,
-    $desktopCloseBtn = null,
-    $input = null;
+    $desktopCloseBtn = null;
 
 export function init() {
     $header = $(".header");
@@ -27,7 +31,13 @@ export function init() {
     $subMenuHeader = $(SUBMENU_CLASS);
     $subMenuContent = $(".navbar__group--radio");
     $desktopCloseBtn = $(DESKTOP_CLOSE_BTN_CLASS);
-    $input = $header.find(".searchbox__input");
+
+    let $searchInput = $header.find(".searchbox__input");
+    let $searchSubmit = $searchInput.closest(".searchbox").find("button");
+    let $searchMenu = $header.find(".searchbox__results");
+
+    srfSearch = new SrfSearch($searchInput, $searchSubmit, $searchMenu);
+
 
     $header.on("keydown", HANDLE_CLASS, (e) => handleKeyPress(e))
         .on("keydown", DESKTOP_CLOSE_BTN_CLASS, (e) => handleKeyPress(e))
@@ -105,9 +115,7 @@ function openMenu(e) {
             }
         });
     } else {
-        // clear out any possible search input
-        $input.val("");
-        $input.closest(".searchbox").find("button").attr("tabindex", -1).attr("aria-hidden", true);
+        srfSearch.clearInput();
     }
 
     menuHasFocus = true;
