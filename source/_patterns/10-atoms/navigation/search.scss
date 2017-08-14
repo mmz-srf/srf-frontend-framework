@@ -29,6 +29,7 @@
   }
 }
 
+
 .searchbox__input {
 
   width: 100%;
@@ -75,7 +76,6 @@
 }
 
 
-
 .searchbox ul {
   position: relative;
   z-index:1000;
@@ -113,3 +113,26 @@
   background-color: #ecece6;
 }
 
+
+
+/* footer variant */
+.searchbox.search--variant {
+  position: relative;
+  width: 100%;
+  top: auto;
+  right: auto;
+  max-width: 458px;
+  margin: auto;
+  padding:  13px 24px 0;
+
+  @include desktop-up {
+    max-width: 500px;
+  }
+
+}
+
+.search--variant .searchbox__input {
+  height: 40px;
+  background-size: auto;
+  background-position: auto;
+}

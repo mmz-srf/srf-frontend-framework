@@ -1,4 +1,4 @@
-<form autocomplete="off" class="searchbox" action="{{ header.form_action|default('suche') }}" role="search">
+<form autocomplete="off" class="searchbox {{ styleModifier }}" action="{{ header.form_action|default('suche') }}" role="search">
     <a href="#" class="close-search h-element--hide"><img src="{{ frameworkAssetPath }}/img/close.svg" with="10" height="10"/></a>
 
     <label for="search-site" class="h-offscreen">{{ header.searching }}</label>

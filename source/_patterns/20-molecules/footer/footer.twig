@@ -1,6 +1,8 @@
 <footer class="footer l-full-width-container">
   <section class="footerTop l-main-wrapper">
-    <div class="TODO">SEARCH</div>
+      {% block search %}
+          {% include 'atoms-search' with { 'styleModifier': 'search--variant' } %}
+      {% endblock %}
     <div class="TODO">NAVIGATION</div>
     <ul class="footerTop-secnav">
       <li class="footerTop-secnavElem"><a href="#" title="" class="footerTop-secnavLink">Hallo SRF</a></li>
