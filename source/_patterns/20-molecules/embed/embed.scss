@@ -1,15 +1,47 @@
 .embed-inline {
   position: relative;
   margin: 32px 0;
-  display: flex;
   align-items: center;
   justify-content: center;
 
   @include smartphone {
-    margin: 24px 0x;
+    margin: 24px 0;
   }
 }
 
-.embed-inline iframe {
-  display: none;
+.embed-inline__title {
+  padding: 0 16px;
+  font-family: $font-medium;
+  margin-bottom: 12px;
+
+  @include smartphone {
+    padding: 0 24px;
+    margin-bottom: 8px;
+  }
+}
+
+.embed-inline__content > * {
+  margin: 0 auto;
+}
+
+body[data-representation=web] {
+  .embed-inline.no-swear {
+    display: block;
+    @include smartphone {
+      display: none;
+    }
+  }
+  .linkbox.no-swear {
+    display: none;
+    @include smartphone {
+      display: block;
+    }
+  }
+
+}
+
+body[data-representation=webview] {
+  .embed-inline.no-swear {
+    display: none;
+  }
 }
