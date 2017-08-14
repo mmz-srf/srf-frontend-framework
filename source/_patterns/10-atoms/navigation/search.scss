@@ -14,9 +14,23 @@
   @include desktop-up {
     right: 81px;
   }
+  /* closing x icon */
+  .close-search {
+    position: absolute;
+    text-decoration: none;
+    float:right;
+    padding-top: 8px;
+    padding-right: 2px;
+    border: 0px;
+    img {
+      width: 13px;
+      height: 13px;
+    }
+  }
 }
 
 .searchbox__input {
+
   width: 100%;
   height: 36px;
   font: 16px/1.1 $font-light; // line-height 1 cuts off "bottom parts of letters"
@@ -25,7 +39,6 @@
   background: #555 url("../img/search-sprite.svg") no-repeat scroll 6px 0 / 28px auto;
   padding: 10px 4px 8px 40px; // adjusting from 11 4 9 40 to line-height above
   border: 0;
-  border-radius: 25px;
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -60,3 +73,43 @@
     }
   }
 }
+
+
+
+.searchbox ul {
+  position: relative;
+  z-index:1000;
+  margin-top: 0px;
+  padding-top: 1px;
+  padding-right: 0px;
+  padding-left: 0px;
+  background-color: #fafaf8;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.36);
+
+  li {
+    display: block;
+    background-image: none;
+    border-bottom: 0px;
+
+    &:before {
+      display: none;
+    }
+  }
+  a {
+    width: 264px;
+    height: 24px;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.5;
+    letter-spacing: 0.5px;
+    text-align: left;
+    color: #22211d;
+    text-decoration: none;
+    border: 0px;
+  }
+}
+
+.typeahead-suggestion.active {
+  background-color: #ecece6;
+}
+
