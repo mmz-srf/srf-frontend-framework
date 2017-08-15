@@ -33,9 +33,13 @@
 
 .media-window__player {
   height: 0; // initial ...
-  transition: height 0.375s ease;
   visibility: hidden;
   opacity: 0;
+  transition: height 0.3s linear; // no easing here so that this animation is in sync with the js positioning animation
+  //transform: translate3d(0, 0, 0); // moving the animation to 3d space for smoother movements in safari
+  //backface-visibility: hidden;
+  //perspective: 1000;
+
 }
 
 .media-window__close {
