@@ -107,7 +107,7 @@
     text-decoration: none;
     border: 0px;
   }
-  a:hover {
+  a:hover, li.active a, .typeahead-suggestion.active a {
     text-decoration: underline;
   }
 
@@ -116,8 +116,6 @@
 .typeahead-suggestion.active {
   background-color: #ecece6;
 }
-
-
 
 /* footer variant */
 .searchbox.search--variant {
