@@ -361,10 +361,14 @@
 }
 
 .poll-form-handling__roundup {
-  font-family: $font-medium;
+  font-family: $font-light;
   margin: 0;
   display: none;
   padding: 16px;
+
+  @include tablet-up {
+    padding: 0;
+  }
 }
 
 .poll-form-handling__endscreen {
