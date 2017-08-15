@@ -86,6 +86,7 @@ export class SrfSearch {
 
 
     hideMenu() {
+        return;
         this.$menu.addClass('h-element--hide');
         this.$inputField.attr("aria-expanded", false);
         this.$inputField.attr("aria-activedescendant", "");
@@ -155,8 +156,6 @@ export class SrfSearch {
                 this.typeaheadData = data;
             })
         }
-        /* adjust with of ul to current with of search fiekd */
-        // this.$menu.width(this.$inputField.width());
     }
 
     lookup() {
