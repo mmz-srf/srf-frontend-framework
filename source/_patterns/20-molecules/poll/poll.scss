@@ -344,10 +344,11 @@
 // last bit
 .poll-form-handling {
   border-radius: 2px;
-  font: 16px/21px $font-regular;
+  font: 16px/24px $font-regular;
 
   @include tablet-up {
     font-size: 18px;
+    line-height: 28px;
   }
 
   .button {
@@ -360,6 +361,7 @@
 }
 
 .poll-form-handling__roundup {
+  font-family: $font-medium;
   margin: 0;
   display: none;
   padding: 16px;
@@ -386,6 +388,7 @@
   margin-bottom: 16px;
 
   font-size: 16px;
+  line-height: 24px;
 
   @include smartphone {
     background-color: $color-bg-caption;
