@@ -87,7 +87,6 @@ export class SrfSearch {
 
 
     hideMenu() {
-        return;
         this.$menu.addClass('h-element--hide');
         this.suggestionUrl = '';
         this.hideCloseIcon();
