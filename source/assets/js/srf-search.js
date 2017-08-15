@@ -88,8 +88,6 @@ export class SrfSearch {
 
     hideMenu() {
         this.$menu.addClass('h-element--hide');
-        this.$inputField.attr("aria-expanded", false);
-        this.$inputField.attr("aria-activedescendant", "");
         this.suggestionUrl = '';
         this.hideCloseIcon();
     }
@@ -109,13 +107,6 @@ export class SrfSearch {
         }
     }
 
-    addScreenreaderSupport($old, $new) {
-        $old.attr("id", "");
-        $new.attr("aria-selected", true);
-        this.$inputField.attr("aria-activedescendant", "selectedSuggestion");
-        $new.attr("id", "selectedSuggestion");
-    }
-
     prevSuggestion() {
         let $active = this.$menu.find('.active').removeClass('active');
         let $prev = $active.prev();
@@ -124,7 +115,6 @@ export class SrfSearch {
         }
         this.suggestionUrl = $prev.find("a").attr('href');
         $prev.addClass('active');
-        this.addScreenreaderSupport($active, $prev);
     }
 
     nextSuggestion() {
@@ -135,7 +125,6 @@ export class SrfSearch {
         }
         this.suggestionUrl = $next.find("a").attr('href');
         $next.addClass('active');
-        this.addScreenreaderSupport($active, $next);
     }
 
     enhanceAccessibility() {
@@ -179,7 +168,6 @@ export class SrfSearch {
         });
         if (results.length > 0) {
             results = results.slice(0, this.options.maxSuggestionCount);
-            this.$inputField.attr("aria-expanded", true);
             this.renderResults(results, query);
             this.showCloseIcon();
         }
@@ -193,7 +181,7 @@ export class SrfSearch {
 
         results.forEach((result) => {
             let name = this.highlightQuery(query, result.name);
-            html += `<li role="option" aria-selected="false" class="typeahead-suggestion" tabindex="-1"> <a href="${result.url}">${name}</a> </li>`;
+            html += `<li role="option" class="typeahead-suggestion" tabindex="-1"> <a href="${result.url}">${name}</a> </li>`;
         })
 
         this.$menu.html(html).removeClass('h-element--hide');
