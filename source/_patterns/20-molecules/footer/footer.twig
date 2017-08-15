@@ -1,9 +1,11 @@
 <footer class="footer l-full-width-container">
   <section class="footerTop l-main-wrapper">
-      {% block search %}
-          {% include 'atoms-search' with { 'styleModifier': 'search--variant' } %}
-      {% endblock %}
-    <div class="TODO">NAVIGATION</div>
+    {% block search %}
+      {% include 'atoms-search' with { 'styleModifier': 'search--variant' } %}
+    {% endblock %}
+    {% block navigation %}
+      {% include 'molecules-navigation' with { 'styleModifier': 'navigation__menu--footer' } %}
+    {% endblock %}
     <ul class="footerTop-secnav">
       <li class="footerTop-secnavElem"><a href="#" title="" class="footerTop-secnavLink">Hallo SRF</a></li>
       <li class="footerTop-secnavElem"><a href="#" title="" class="footerTop-secnavLink">SRF Apps</a></li>
