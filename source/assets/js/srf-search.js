@@ -22,6 +22,10 @@ export class SrfSearch {
             this.initTypeahead();
         });
 
+        this.$closeIcon.on('click', (e) => {
+            this.clearInput();
+        })
+
         this.$inputField.on("keyup", (e) => {
             this.enhanceAccessibility();
             this.onKeyUp(e);
@@ -49,6 +53,7 @@ export class SrfSearch {
                 break;
 
             case 27: // escape
+
                 this.hideMenu();
                 break;
 
@@ -73,6 +78,7 @@ export class SrfSearch {
     }
 
     hideMenu() {
+        return;
         this.$menu.addClass('h-element--hide');
         this.suggestionUrl = '';
         this.hideCloseIcon();

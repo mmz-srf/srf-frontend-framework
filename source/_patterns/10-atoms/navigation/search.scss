@@ -6,7 +6,7 @@
   @include tablet-up {
     position: absolute;
     width: 240px;
-    top: -55px;
+    top: -59px;
     right: 48px;
     padding: 13px 24px 0;
   }
@@ -19,12 +19,12 @@
     position: absolute;
     text-decoration: none;
     float:right;
-    padding-top: 8px;
-    padding-right: 2px;
+    padding-top: 10px;
+    padding-right: 10px;
     border: 0px;
     img {
-      width: 13px;
-      height: 13px;
+      width: 15px;
+      height: 15px;
     }
   }
 }
@@ -33,7 +33,7 @@
 .searchbox__input {
   display: none; // visible on document.ready to prevent problems with events firing before document.ready
   width: 100%;
-  height: 36px;
+  height: 40px;
   font: 16px/1.1 $font-light; // line-height 1 cuts off "bottom parts of letters"
   letter-spacing: .6px;
   color: $color-bg-box-hover;
@@ -64,7 +64,7 @@
   }
 
   @include tablet-up {
-    height: 28px; // safari has a problem with paddings :/
+    height: 36px; // safari has a problem with paddings :/
     padding: 0 6px 0 36px; // adjusting from 6 6 6 36 to line-height above
     background-size: 23px;
     background-position: 6px -2px;
@@ -90,7 +90,8 @@
     display: block;
     background-image: none;
     border-bottom: 0px;
-
+    margin: 0px;
+    padding: 0px;
     &:before {
       display: none;
     }
@@ -100,21 +101,23 @@
     width: 100%;
     font-size: 16px;
     font-weight: 300;
-    line-height: 1.5;
     letter-spacing: 0.5px;
     text-align: left;
     color: #22211d;
     text-decoration: none;
     border: 0px;
+    padding: 11px 16px 5px 13px;
+
+    line-height: 1.5;
+    letter-spacing: 0.5px;
+    color: #22211d;
+    @include tablet-up {
+      padding-left: 24px;
+    }
   }
   a:hover, li.active a, .typeahead-suggestion.active a {
-    text-decoration: underline;
+    background-color: #ecece6;
   }
-
-}
-
-.typeahead-suggestion.active {
-  background-color: #ecece6;
 }
 
 /* footer variant */
