@@ -12,7 +12,8 @@ export class SrfSearch {
         this.typeaheadData = null;
         this.suggestionUrl = '';
 
-
+        // search field is hidden before document.ready (events firing before document.ready can get lost)
+        this.$inputField.show();
         this.registerListeners();
     }
 
