@@ -3,7 +3,7 @@ import {SrfSearch} from './srf-search';
 
 const HANDLE_CLASS = ".menu-handle";
 const SUBMENU_CLASS = ".js-expand-arrow";
-const DESKTOP_CLOSE_BTN_CLASS = ".navbar__link--close";
+const DESKTOP_CLOSE_BTN_CLASS = ".navigation__link--close";
 const KEYCODES = {
     "enter": 13,
     "tab": 9
@@ -29,7 +29,7 @@ export function init() {
     $arrow = $(".expand-arrow");
     $info = $(".js-expand-info");
     $subMenuHeader = $(SUBMENU_CLASS);
-    $subMenuContent = $(".navbar__group--radio");
+    $subMenuContent = $(".navigation__group--radio");
     $desktopCloseBtn = $(DESKTOP_CLOSE_BTN_CLASS);
 
     let $searchInput = $header.find(".searchbox__input");
@@ -50,7 +50,7 @@ export function init() {
     $(".breadcrumbs").on("keyup", (e) => handleBreadcrumbsFocus(e));
 
     // radiostation navigation opening & closing
-    $(".navbar__menu").on("click", SUBMENU_CLASS, (e) => handleExpandArrowClick(e));
+    $(".navigation").on("click", SUBMENU_CLASS, (e) => handleExpandArrowClick(e));
 }
 
 function onMenuHandling(e) {
@@ -72,7 +72,7 @@ function closeMenu(e) {
     $infotext.text($infotext.data("menu-show"));
 
     let finishClosingMenu = () => {
-        $(".navbar__menu").closest(".navbar").addClass("navbar--closed")
+        $(".navigation").closest(".navbar").addClass("navbar--closed")
             .closest("body").removeClass("body--fixed");
 
         if ($arrow.hasClass("expand-arrow--open")) {
@@ -86,12 +86,12 @@ function closeMenu(e) {
 
     // Desktop: there are animations we have to wait for
     if (isDesktop()) {
-        $desktopCloseBtn.removeClass("navbar__link--fixed");
-        $(".navbar__menu").removeClass("navbar__menu--come-in").one("transitionend", () => {
+        $desktopCloseBtn.removeClass("navigation__link--fixed");
+        $(".navigation").removeClass("navigation--come-in").one("transitionend", () => {
             finishClosingMenu();
         });
     } else {
-        $(".navbar__menu").removeClass("navbar__menu--come-in");
+        $(".navigation").removeClass("navigation--come-in");
         finishClosingMenu();
     }
 
@@ -102,13 +102,13 @@ function openMenu(e) {
     $handle.addClass("menu-handle--active")
         .closest("body").addClass("body--fixed body--observer")
         .find(".navbar").removeClass("navbar--closed")
-        .find(".navbar__menu").addClass("navbar__menu--come-in");
+        .find(".navigation").addClass("navigation--come-in");
 
     $infotext.text($infotext.data("menu-close"));
 
     if (isDesktop()) {
-        $(".navbar__menu").one("transitionend", () => {
-            $desktopCloseBtn.addClass("navbar__link--fixed");
+        $(".navigation").one("transitionend", () => {
+            $desktopCloseBtn.addClass("navigation__link--fixed");
 
             if (e && e.type === "keydown") {
                 $desktopCloseBtn.focus();
@@ -138,7 +138,7 @@ function handleExpandArrowClick(e) {
 
     $arrow.toggleClass("expand-arrow--open", !subMenuIsOpen);
     $subMenuHeader.attr("aria-expanded", !subMenuIsOpen);
-    $subMenuContent.toggleClass("navbar__group--radio-open", !subMenuIsOpen);
+    $subMenuContent.toggleClass("navigation__group--radio-open", !subMenuIsOpen);
 
     if (subMenuIsOpen) {
         $info.text($info.data("text-open"));

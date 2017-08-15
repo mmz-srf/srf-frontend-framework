@@ -131,8 +131,6 @@ export class SrfSearch {
                 this.typeaheadData = data;
             })
         }
-        /* adjust with of ul to current with of search fiekd */
-        // this.$menu.width(this.$inputField.width());
     }
 
     lookup() {
@@ -169,7 +167,7 @@ export class SrfSearch {
             let name = this.highlightQuery(query, result.name);
             html += `<li role="option" class="typeahead-suggestion" tabindex="-1"> <a href="${result.url}">${name}</a> </li>`;
         })
-
+        this.$menu.css('width', this.$inputField.outerWidth() + "px");
         this.$menu.html(html).removeClass('h-element--hide');
 
     }
@@ -184,7 +182,6 @@ export class SrfSearch {
     showCloseIcon() {
         let y = this.$inputField.position().top;
         let x = this.$inputField.outerWidth();
-        // for some reason jquery width is off by approx. 10 pixels, correct it.
         this.$closeIcon.css({'top': y, 'left': x });
         this.$closeIcon.removeClass('h-element--hide');
     }
