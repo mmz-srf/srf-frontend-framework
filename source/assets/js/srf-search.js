@@ -209,7 +209,6 @@ export class SrfSearch {
     showCloseIcon() {
         let y = this.$inputField.position().top;
         let x = this.$inputField.outerWidth();
-        // for some reason jquery width is off by approx. 10 pixels, correct it.
         this.$closeIcon.css({'top': y, 'left': x });
         this.$closeIcon.removeClass('h-element--hide');
     }
