@@ -107,6 +107,10 @@
     text-decoration: none;
     border: 0px;
   }
+  a:hover {
+    text-decoration: underline;
+  }
+
 }
 
 .typeahead-suggestion.active {

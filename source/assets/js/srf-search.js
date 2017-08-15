@@ -37,13 +37,6 @@ export class SrfSearch {
             }, 150);
         });
 
-        this.$menu.on("mouseenter", 'li', (e) => {
-            this.onMenuMouseenter(e);
-        });
-
-        this.$menu.on("touchstart", 'li', (e) => {
-            this.onMenuMouseenter(e);
-        });
     }
 
     onKeyUp(e) {
@@ -79,15 +72,7 @@ export class SrfSearch {
         }
     }
 
-    onMenuMouseenter(e) {
-        // TODO: decide if we have to highlight a menu item if its hovered by mouse
-        //this.$menu.find('.active').removeClass('active');
-        //$(e.currentTarget).addClass('active');
-    }
-
-
     hideMenu() {
-        return;
         this.$menu.addClass('h-element--hide');
         this.suggestionUrl = '';
         this.hideCloseIcon();
