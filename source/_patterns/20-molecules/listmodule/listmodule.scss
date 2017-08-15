@@ -41,24 +41,23 @@
 
   p {
     margin: 12px 0;
-    @include tablet-up{
-      // margin: 16px 0;
-    }
-  }
-
-  .article-video {
-
-    @include smartphone {
-      // margin-left: -24px;
-      // margin-right: -24px;
-      // @include fullwidth-element; // fixes padding-problem
-    }
   }
 }
 
 .listmodule__item--listing {
   border-top: 1px solid rgb(236,236,230);
-  overflow: hidden;
+
+  /* clearfix */
+  &:after {
+    content: " ";
+    display: block;
+    clear: both;
+  }
+
+  .article-audio__link {
+    margin: 0;
+  }
+
 }
 
 .listmodule__item--listing:last-of-type {

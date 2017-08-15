@@ -198,6 +198,11 @@
   & + .article-audio__player,
   .article-audio__player {
     height: 42px;
+
+    // needed here because BEM was ignored and therefore high specificity introduced earlier :-(
+    &.article-audio__player--inactive {
+      height: 0;
+    }
   }
 }
 
