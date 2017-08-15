@@ -21,8 +21,7 @@ ul.footerTop-secnav {
   justify-content: start;
   height: calc(4 * 39px + 2 * 16px);
   margin: 0;
-  padding-top:16px;
-  padding-bottom:16px;
+  padding:16px 16px;
   
   @include tablet-up {
     flex-direction: row;
@@ -46,14 +45,14 @@ ul.footerTop-secnav {
   display:none;
 }
 
-.footerTop-secnav a {
+a.footerTop-secnavLink {
   font: 14px/1.14 $font-regular;
   letter-spacing: .5px;
   color: #dadad2;
   display: block;
   border-bottom: none;
   border-radius: 2px;
-  padding: 12px 16px;
+  padding: 12px 8px;
 }
 
 .footerTop-secnavLink::before {

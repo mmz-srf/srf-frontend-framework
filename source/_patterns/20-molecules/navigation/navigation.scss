@@ -12,6 +12,16 @@
   }
 }
 
+.navigation--footer {
+  @include tablet-up {
+    display: flex;
+    flex-grow: 1;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    margin: 0 32px;
+  }
+}
+
 @include tablet-up {
   // more animations
   .navigation--come-in {
@@ -33,7 +43,7 @@
   }
 }
 
-.navigation-item {
+.navigation--header .navigation-item {
   @include smartphone {
     &:first-child {
       margin-top: -9px;
@@ -44,6 +54,16 @@
     border-bottom: 24px solid transparent;
   }
 }
+
+.navigation--footer .navigation-item {
+  @include tablet-up {
+    flex: 1 0 auto;
+    border-right: 1px solid #444;
+  }
+}
+
+
+
 
 .navigation__link {
   font: 16px/1 $font-regular;
@@ -69,9 +89,16 @@
   &:active {
     border-bottom: 0;
   }
+  
+  .navigation--footer & {
+    @include tablet-up {
+      padding-right: 16px;
+      padding-left: 16px;
+    }
+  }
 }
 
-.navigation__link--close {
+.navigation--header .navigation__link--close {
   @include smartphone {
     display: none;
   }
@@ -98,20 +125,32 @@
   }
 }
 
+.navigation--footer .navigation__group-item--close {
+  display: none;
+}
+
 @include tablet-up {
-  .navigation__link--fixed {
+  .navigation--header .navigation__link--fixed {
     position: fixed;
   }
 
-  .navigation__link--home {
+  .navigation--header .navigation__link--home {
     border-top: 47px solid #333;
   }
 }
 
-.navigation__group {
+.navigation--header .navigation__group {
   border-bottom: 1px solid #444;
-  padding: 9px 0 7px;
+  padding: 9px 0 7px; 
 }
+
+.navigation--footer .navigation__group {
+  @include smartphone {
+    border-bottom: 1px solid #444;
+    padding: 9px 0 7px;
+  }
+}
+
 
 .navigation__group--radio {
   background-color: #222;
@@ -175,6 +214,10 @@
 .navigation__img-play {
   height: 23px;
   width: auto;
+  display: inline-block;
+  margin-top: -4px;
+  margin-left: 8px;
+  position: absolute;
 }
 // end nativation
 
