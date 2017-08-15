@@ -376,6 +376,10 @@
   }
 }
 
+.poll-form-handling__errors {
+  font-family: $font-light;
+}
+
 .poll-form-handling__errors--onerror {
   display: block;
   color: $color-accentuation-red;
