@@ -59,6 +59,11 @@
   @include tablet-up {
     flex: 1 0 auto;
     border-right: 1px solid #444;
+    width: 33.334%;
+    
+    &:last-child {
+      border-right: none;
+    }
   }
 }
 
