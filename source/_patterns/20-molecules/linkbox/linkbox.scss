@@ -2,9 +2,7 @@
   margin: 40px 0 24px;
 
   @include smartphone {
-    @include fullwidth-element;
     margin-top: 32px;
-    padding: 0 8px;
   }
 }
 
@@ -26,10 +24,6 @@
 .linkbox__list {
   border-top: 1px solid #ebebe5;
   padding: 0;
-
-  @include tablet-up {
-    margin-left: 8px;
-  }
 
   @include smartphone {
     margin: 0;
