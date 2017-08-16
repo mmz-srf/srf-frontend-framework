@@ -18,20 +18,18 @@
   .close-search {
     position: absolute;
     text-decoration: none;
-    float:right;
     border: 0px;
     padding-top: 10px;
     padding-right: 10px;
     img {
       position: relative;
-      left: -10px;
+      margin-left: -10px;
       width: 15px;
       height: 15px;
       @include tablet-up {
-        left: 0px;
+        margin-left: 0px;
       }
     }
-
   }
 }
 
@@ -89,7 +87,7 @@
 
 .searchbox ul {
   position: absolute;
-  z-index:1000;
+  z-index: 100;
   margin-top: 0px; /* override border edges */
   padding-top: 1px;
   padding-right: 0px;
