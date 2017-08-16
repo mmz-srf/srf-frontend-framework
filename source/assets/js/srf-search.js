@@ -78,6 +78,8 @@ export class SrfSearch {
     }
 
     hideMenu() {
+        this.$inputField.removeClass('search--has-results' );
+
         this.$menu.addClass('h-element--hide');
         this.suggestionUrl = '';
         this.hideCloseIcon();
@@ -155,13 +157,16 @@ export class SrfSearch {
                 results.push({name: item.name, url: item.url, matchIndex: matchIndex});
             }
         });
+
         if (results.length > 0) {
             results = results.slice(0, this.options.maxSuggestionCount);
             this.renderResults(results, query);
+            this.$inputField.addClass('search--has-results' );
             this.showCloseIcon();
         }
         else {
             this.hideMenu();
+
         }
     }
 
