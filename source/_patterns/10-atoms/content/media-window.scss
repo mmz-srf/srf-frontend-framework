@@ -33,9 +33,9 @@
 
 .media-window__player {
   height: 0; // initial ...
-  transition: height 0.375s ease;
   visibility: hidden;
   opacity: 0;
+  transition: height 0.3s linear; // no easing here so that this animation is in sync with the js positioning animation
 }
 
 .media-window__close {
