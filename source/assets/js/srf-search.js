@@ -37,26 +37,20 @@ export class SrfSearch {
 
         this.$inputField.on("blur", (e) => {
             setTimeout(() => {
-                this.hideCloseIcon();
-                this.hideMenu()
+                this.reset();
             }, 150);
         });
     }
 
     onKeyUp(e) {
         switch (e.keyCode) {
-            case 40: // down arrow
+            case 40: // down arrow or 
             case 38: // up arrow
                 break;
-            case 9: // tab
-                this.hideMenu();
-                break;
-
+            case 9: // tab or
             case 27: // escape
-
-                this.hideMenu();
+                this.reset();
                 break;
-
             default:
                 this.lookup();
         }
@@ -173,6 +167,13 @@ export class SrfSearch {
         } else {
             this.hideMenu();
         }
+    }
+
+    reset() {
+        console.log("resetting");
+        this.$inputField.val('');
+        this.hideCloseIcon();
+        this.hideMenu();
     }
 
     renderResults(results, query) {
