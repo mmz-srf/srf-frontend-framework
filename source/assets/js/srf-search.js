@@ -37,10 +37,10 @@ export class SrfSearch {
 
         this.$inputField.on("blur", (e) => {
             setTimeout(() => {
+                this.hideCloseIcon();
                 this.hideMenu()
             }, 150);
         });
-
     }
 
     onKeyUp(e) {
@@ -79,10 +79,8 @@ export class SrfSearch {
 
     hideMenu() {
         this.$inputField.removeClass('search--has-results' );
-
         this.$menu.addClass('h-element--hide');
         this.suggestionUrl = '';
-        this.hideCloseIcon();
     }
 
     clearInput() {
@@ -141,11 +139,20 @@ export class SrfSearch {
     }
 
     lookup() {
+        // adjust close icon state regardless of search results
+        if (this.$inputField.val() === '') {
+            this.hideCloseIcon();
+        } else {
+            this.showCloseIcon();
+        }
+
         let results = [];
         let query = this.$inputField.val().toString().toLowerCase();
         if (this.typeaheadData === null) {
             return true;
         }
+
+
         if(query.length < this.options.minSearchLength) {
             this.hideMenu();
             return true;
@@ -162,11 +169,8 @@ export class SrfSearch {
             results = results.slice(0, this.options.maxSuggestionCount);
             this.renderResults(results, query);
             this.$inputField.addClass('search--has-results' );
-            this.showCloseIcon();
-        }
-        else {
+        } else {
             this.hideMenu();
-
         }
     }
 
