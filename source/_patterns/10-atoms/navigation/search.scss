@@ -19,16 +19,21 @@
     position: absolute;
     text-decoration: none;
     float:right;
+    border: 0px;
     padding-top: 10px;
     padding-right: 10px;
-    border: 0px;
     img {
+      position: relative;
+      left: -10px;
       width: 15px;
       height: 15px;
+      @include tablet-up {
+        left: 0px;
+      }
     }
+
   }
 }
-
 
 .searchbox__input {
   display: none; // visible on document.ready to prevent problems with events firing before document.ready
@@ -44,11 +49,6 @@
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
-  &.search--has-results {
-    border-bottom-left-radius: 0px;
-    border-bottom-right-radius: 0px;
-  }
 
   &:focus, &:not(:placeholder-shown) {
     color: $color-text-accentuation;
@@ -81,6 +81,11 @@
   }
 }
 
+.searchbox__input.search--has-results {
+  /* when results are shown, bottom-radius must be reset */
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
 
 .searchbox ul {
   position: absolute;
