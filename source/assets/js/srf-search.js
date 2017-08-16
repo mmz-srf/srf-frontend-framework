@@ -136,6 +136,7 @@ export class SrfSearch {
                 this.typeaheadData = data;
             })
         }
+        this.showCloseIconIfNeeded();
     }
 
     lookup() {
@@ -202,6 +203,14 @@ export class SrfSearch {
 
     hideCloseIcon() {
         this.$closeIcon.addClass('h-element--hide');
+    }
+
+    showCloseIconIfNeeded() {
+        if (this.$inputField.val() === '') {
+            this.hideCloseIcon();
+        } else {
+            this.showCloseIcon();
+        }
     }
 }
 
