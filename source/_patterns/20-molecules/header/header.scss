@@ -89,7 +89,7 @@ body::after {
     // positioning in context
     .searchbox {
       position: fixed;
-      top: 1px;
+      top: -3px;
       right: 129px;
 
       @include desktop-wide {
