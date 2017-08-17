@@ -1,5 +1,15 @@
-<form class="searchbox" role="search">
-    <label for="search" class="h-offscreen">{{ header.searching|default("Suchen") }}</label>
-    <input class="searchbox__input" id="search" type="text" placeholder="{{ header.search|default("Suche") }}">
-    <button type="submit" class="h-offscreen" tabindex="-1" aria-hidden="true">{{ header.searching|default("Suchen") }}</button>
+<form autocomplete="off" class="searchbox {{ styleModifier|default('') }}" action="{{ search.form_action|default('suche') }}" role="search">
+    <a href="#" class="close-search h-element--hide"><img src="{{ frameworkAssetPath }}/img/close.svg" width="10" height="10"/></a>
+
+    <label for="search-site" class="h-offscreen">{{ search.searching|default("Suchen") }}</label>
+    <input class="searchbox__input" name="q"
+           id="search-site"
+           data-typeahead-url="{{ search.typeahead_url|default('/assets/demo/typeahead_search.json') }}"
+           data-referrer-track="srf_suchfeld={{ search.referrerTrack|default('') }}"
+           type="text" placeholder="{{ search.search|default("Suche") }}"
+    >
+    <button type="submit" class="h-offscreen" tabindex="-1" aria-hidden="true">{{ search.searching|default("Suchen") }}</button>
+    <ul id="searchbox__results" class="searchbox__results h-element--hide" role="listbox" tabindex="0" role="listbox"></ul>
 </form>
+
+

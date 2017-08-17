@@ -1,0 +1,37 @@
+<footer class="footer l-full-width-container">
+  <section class="footerTop">
+    <div class="l-main-wrapper">
+      {% block search %}
+        {% include 'atoms-search' with { 'styleModifier': 'search--variant' } %}
+      {% endblock %}
+      {% block navigation %}
+        {% include 'molecules-navigation' with { 'styleModifier': 'navigation--footer' } %}
+      {% endblock %}
+      <ul class="footerTop-secnav">
+        <li class="footerTop-secnavElem"><a href="#" title="" class="footerTop-secnavLink">Hallo SRF</a></li>
+        <li class="footerTop-secnavElem"><a href="#" title="" class="footerTop-secnavLink">SRF Apps</a></li>
+        <li class="footerTop-secnavElem"><a href="#" title="" class="footerTop-secnavLink">Rechtliches</a></li>
+        <li class="footerTop-secnavElem"><a href="#" title="" class="footerTop-secnavLink">Impressum</a></li>
+        <li class="footerTop-secnavElem"><a href="#" title="" class="footerTop-secnavLink">Shop</a></li>
+        <li class="footerTop-secnavElem"><a href="#" title="" class="footerTop-secnavLink">Hilfe</a></li>
+        <li class="footerTop-secnavElem"><a href="#" title="" class="footerTop-secnavLink">Korrekturen</a></li>
+        <li class="footerTop-secnavElem"><a href="#" title="" class="footerTop-secnavLink">Kundendienst</a></li>
+      </ul>
+    </div>
+  </section>
+  <section class="footerBottom l-main-wrapper">
+    <div class="footerBottom-container footerBottom-container--srg">
+      <img src="{{ frameworkAssetPath }}/img/srgssr_logo.svg" class="footerBottom-srglogo" alt="Logo der SRG SSR" />
+      <p class="footerBottom-paragraph">SRF Schweizer Radio und Fernsehen, Zweigniederlassung der Schweizerischen Radio- und Fernsehgesellschaft</p>
+    </div>
+    <div class="footerBottom-container footerBottom-container--bu">
+      <ul class="footerBottom-buList">
+        <li class="footerBottom-buElem"><a href="#" title="" class="footerBottom-buLink"><span>RTS</span></a></li>
+        <li class="footerBottom-buElem"><a href="#" title="" class="footerBottom-buLink"><span>RSI</span></a></li>
+        <li class="footerBottom-buElem"><a href="#" title="" class="footerBottom-buLink"><span>RTR</span></a></li>
+        <li class="footerBottom-buElem"><a href="#" title="" class="footerBottom-buLink"><span>SWI</span></a></li>
+        <li class="footerBottom-buElem"><a href="#" title="" class="footerBottom-buLink"><span>3SAT</span></a></li>
+      </ul>
+    </div>
+  </section>
+</footer>
