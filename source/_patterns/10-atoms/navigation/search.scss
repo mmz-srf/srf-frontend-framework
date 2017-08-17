@@ -131,7 +131,10 @@
     }
   }
   a:hover, li.active a, .typeahead-suggestion.active a {
-    background-color: #ecece6;
+    background-color: #f5f5f2;
+  }
+  a:active, a:active {
+    background-color: #ebebe5;
   }
 }
 

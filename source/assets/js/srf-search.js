@@ -11,6 +11,8 @@ export class SrfSearch {
         this.typeaheadUrl = this.$inputField.data("typeahead-url");
         this.typeaheadData = null;
         this.suggestionUrl = '';
+        this.currTimeout = null;
+
 
         // search field is hidden before document.ready (events firing before document.ready can get lost)
         this.$inputField.show();
@@ -36,9 +38,19 @@ export class SrfSearch {
         });
 
         this.$inputField.on("blur", (e) => {
-            setTimeout(() => {
+            this.currTimeout = setTimeout(() => {
                 this.hideMenu();
             }, 150);
+        });
+
+        this.$menu.on('click', (e) => {
+            if (this.blurTimeout !== null) {
+                //
+                clearTimeout(this.currTimeout);
+                this.currTimeout = setTimeout(() => {
+                    this.hideMenu();
+                }, 150); // give some time to show active state
+            }
         });
     }
 
@@ -179,7 +191,6 @@ export class SrfSearch {
         })
         this.$menu.css('width', this.$inputField.outerWidth() + "px");
         this.$menu.html(html).removeClass('h-element--hide');
-
     }
 
     highlightQuery(query, name) {
