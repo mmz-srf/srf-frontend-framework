@@ -23,7 +23,7 @@ export class SrfSearch {
         });
 
         this.$closeIcon.on('click', (e) => {
-            this.clearInput();
+            this.reset();
         })
 
         this.$inputField.on("keyup", (e) => {
@@ -37,7 +37,7 @@ export class SrfSearch {
 
         this.$inputField.on("blur", (e) => {
             setTimeout(() => {
-                this.reset();
+                this.hideMenu();
             }, 150);
         });
     }
@@ -49,7 +49,7 @@ export class SrfSearch {
                 break;
             case 9: // tab or
             case 27: // escape
-                this.reset();
+                this.hideMenu();
                 break;
             default:
                 this.lookup();
@@ -80,7 +80,13 @@ export class SrfSearch {
     clearInput() {
         this.$inputField.val("");
         this.$submitButton.attr("tabindex", -1).attr("aria-hidden", true);
+        this.hideCloseIcon();
         this.suggestionUrl = '';
+    }
+
+    reset() {
+        this.clearInput();
+        this.hideMenu();
     }
 
     moveInMenu(direction) {
@@ -162,13 +168,6 @@ export class SrfSearch {
         } else {
             this.hideMenu();
         }
-    }
-
-    reset() {
-        console.log("resetting");
-        this.$inputField.val('');
-        this.hideCloseIcon();
-        this.hideMenu();
     }
 
     renderResults(results, query) {

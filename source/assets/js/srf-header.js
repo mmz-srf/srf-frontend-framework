@@ -115,7 +115,7 @@ function openMenu(e) {
             }
         });
     } else {
-        srfSearch.clearInput();
+        srfSearch.reset();
     }
 
     menuHasFocus = true;
