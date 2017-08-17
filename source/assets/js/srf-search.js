@@ -141,12 +141,7 @@ export class SrfSearch {
 
     lookup() {
         // adjust close icon state regardless of search results
-        if (this.$inputField.val() === '') {
-            this.hideCloseIcon();
-        } else {
-            this.showCloseIcon();
-        }
-
+        this.showCloseIconIfNeeded();
         let results = [];
         let query = this.$inputField.val().toString().toLowerCase();
         if (this.typeaheadData === null) {
