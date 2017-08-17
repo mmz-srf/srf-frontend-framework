@@ -26,7 +26,6 @@ var pollController = function() {
                     that.polls[pollId] = new Poll(pollId, data);
                 },
                 error: function() {
-                    // alert('Error occured');
                 }
             });
         });
@@ -44,19 +43,17 @@ var pollController = function() {
             }
 
         }).on("change poll_radio_check", function(e) {
-            var $form = $(this).parents(".poll-wrapper")
-                ,radioId = $(this).attr("id");
+            var $form = $(this).parents(".poll-wrapper"),
+                radioId = $(this).attr("id");
+
             if ($form.hasClass("poll--with-radios")) {
                 // unmark the "radio"
                 $form.find(".poll-option-label--selected")
                     .removeClass("poll-option-label--selected");
 
-                var $errButton = $form.find(".button--error");
                 var $err = $form.find(".poll-form-handling__errors--onerror");
                 // if there was a previous err
                 if ($err.length) {
-                    // remove err colour from button
-                    // $errButton.removeClass("button--error");
                     // remove err msg
                     $err.removeClass("poll-form-handling__errors--onerror")
                         .text("");
@@ -70,25 +67,28 @@ var pollController = function() {
         });
 
         $(".poll-wrapper").on("submit", function(e) {
-            var $poll = $(this)
-                , pollId = $poll.attr("id")
-                , optionId = $poll.find(".poll-option__radio:checked").attr("id");
+            let $poll = $(this),
+                pollId = $poll.attr("id"),
+                selectedOptionId = $poll.find(".poll-option__radio:checked").attr("id");
 
             // currently err = no option chosen
-            if (that.hasErrors($poll, optionId)) {
+            if (that.hasErrors($poll, selectedOptionId)) {
                 return false;
-            } // else ...
+            }
 
             // find the selected button index
-            var radioIndex = 0 // this is hopefully temporary ...?
-                , winner, mostVotes = 0;
+            let radioIndex = 0,
+                winner,
+                mostVotes = 0;
+
             $poll.find("input[type=radio]").each(function (i) {
                 // which one (nr) is it?
-                if ($(this).attr("id") == optionId) {
+                if ($(this).attr("id") == selectedOptionId) {
                     radioIndex = i;
                     // adjust selected vote
                     that.polls[pollId].data[radioIndex]++
                 }
+
                 // find the current winner
                 if (mostVotes < that.polls[pollId].data[i]) {
                     mostVotes = that.polls[pollId].data[i];
@@ -96,88 +96,111 @@ var pollController = function() {
                 }
             });
 
-            // we need the winner after all :(
-            // mostVotes = Math.max.apply( null, that.polls[pollId].data );
-
-            // tbd: send data .. :)
-            // selected id was optionId / radioIndex ...?
+            // mark selected option
+            $poll.find(".poll-option-label[for=" + selectedOptionId + "]")
+                .parent().find(".poll-option-rating")
+                .addClass("poll-option-rating--selected");
 
             // total number of votes
-            var total = that.getTotalVotes(that.polls[pollId].data);
-            // some visual trickery ...
-            $poll.removeClass("poll--setup").addClass("poll--submitted");
-            if ($poll.hasClass("poll--with-media")) {
-                $poll.find(".article-media--image").removeClass("article-media--image");
-            }
-            $poll.find(".poll-form-handling__roundup").show()
-                .find("strong").text(total);
+            let total = that.getTotalVotes(that.polls[pollId].data);
+            let widths = that.calcWidths($poll, total);
 
-            // $poll.find(".button").remove();
-
-            var width, sum = 0;
-            var widths = [];
-            $poll.find("li").each(function (i) {
-                width = Math.round(that.polls[pollId].data[i] * 100 / total);
-                sum += width;
-
-                var $element = $(this);
-                $element.find(".poll-option__radio").remove();
-                $element.find(".poll-option-label").remove();
-                
-                if (i === winner) {
-                    $element.find(".poll-option-rating__bg-color").addClass("poll-option-rating__bg-color--winner");
-                }
-
-                widths[i] = width;
-
-                /* $element.find(".poll-option-rating__bg-color")
-                    .delay(delay).animate({
-                        width: width + "%"
-                    }, 3000, function() { // Animation complete
-                    }); */
-
-                $element.find(".poll-option-rating__percent strong").text(width);
-            });
-
-            var $submit = $poll.find(".button");
-            if ($submit.length > 0) {
-                $submit.val("✔").fadeOut(1500, function () {
-                    that.animateBars($poll, widths);
-                    /* var delay = 0;
-                     $poll.find(".poll-option-rating__bg-color").each(function(i) {
-                     $(this).delay(delay).animate({
-                     width: widths[i] + "%"
-                     }, 500, function () {
-                     $(this).closest(".poll-option-rating")
-                     .find(".poll-option-rating__percent").fadeIn();
-                     });
-                     delay += 500;
-                     }); */
-                });
+            if ($poll.hasClass("poll--with-radios")) {
+                $poll.find(".button").val("✔")
+                    .text("Danke")
+                    .addClass("button--success")
+                    .delay(900)
+                    .fadeOut(375, () => {
+                        $poll.fadeOut(200, () => {
+                            that.prepareBars($poll, widths, winner);
+                            that.visualTrickery($poll);
+                        }).fadeIn(100, () => {
+                            that.animateBars($poll, widths);
+                            that.showVoteTotal($poll, total);
+                        });
+                    });
             } else {
+
+                that.prepareBars($poll, widths, winner);
+                that.visualTrickery($poll);
                 that.animateBars($poll, widths);
+                that.showVoteTotal($poll, total);
             }
             return false;
         });
     };
 
+    this.visualTrickery = function($poll) {
+        // some visual trickery ...
+        $poll.removeClass("poll--setup").addClass("poll--submitted");
+
+        if ($poll.hasClass("poll--with-media")) {
+            $poll.find(".article-media--image").removeClass("article-media--image");
+        }
+    };
+
+
+    this.calcWidths = function($poll, total) {
+        let widths = [];
+        let pollId = $poll.attr("id");
+
+        $poll.find("li").each((i) => {
+            widths[i] = Math.round(that.polls[pollId].data[i] * 100 / total);
+        });
+
+        return widths;
+    };
+
+    this.prepareBars = function($poll, widths, winner) {
+
+        $poll.find("li").each(function (i) {
+            let $element = $(this);
+
+            $element.find(".poll-option__radio").remove();
+            $element.find(".poll-option-label").remove();
+
+            if (i === winner) {
+                $element.find(".poll-option-rating__bg-color").addClass("poll-option-rating__bg-color--winner");
+            }
+
+            $element.find(".poll-option-rating__percent strong").text(widths[i]);
+        });
+    };
+
+    this.showVoteTotal = function($poll, total) {
+        let $roundUp = $poll.find(".poll-form-handling__roundup");
+
+        $roundUp.find("strong").text(total);
+        $roundUp.slideDown(200);
+    };
+
     this.animateBars = function ($poll, widths) {
-        var delay = 0;
+        let delay = 0;
+        let animationDuration = 375;
+        let delayIncrease = 225;
+
         $poll.find(".poll-option-rating__bg-color").each(function(i) {
             $(this).delay(delay).animate({
                 width: widths[i] + "%"
-            }, 500, function () {
-                $(this).closest(".poll-option-rating")
-                    .find(".poll-option-rating__percent").fadeIn(500);
-            });
-            delay += 500;
+            }, animationDuration);
+
+            // move to the left & make invisible, show and after a delay (sync with bar-animation) show + slide to the right.
+            $(this).closest(".poll-option-rating").find(".poll-option-rating__percent").css({
+                opacity: 0,
+                right: "+=20px"
+            }).show().delay(delay).animate({
+                opacity: 1,
+                right: "-=20px"
+            }, animationDuration);
+
+            delay += delayIncrease;
         });
     };
 
     this.getTotalVotes = function (data) {
-        var total = 0;
+        let total = 0;
         $.each( data, function( index, value ) {
-            total = total + value;
+            total += value;
         });
         return total;
     };
@@ -185,12 +208,12 @@ var pollController = function() {
     this.hasErrors = function ($poll, optionId) {
         if (optionId === undefined) {
             // $poll.find(".button").addClass("button--error");
-            var errMsg = "Bitte wählen Sie eine Option aus."; // todo: translate!
+            let errMsg = "Bitte wählen Sie eine Option aus."; // todo: translate!
+
             $poll.find(".poll-form-handling__errors")
                 .addClass("poll-form-handling__errors--onerror")
                 .text(errMsg);
             return true;
-            // anything else?
         } else {
             // remove err msg (whether it's there or not)
             $poll.find(".poll-form-handling__errors")

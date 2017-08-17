@@ -4,10 +4,14 @@
   @include smartphone {
     margin: 24px 0;
   }
+
+  .image-figure__image {
+    background-color: #222222;
+  }
 }
 
 .ratingstars {
-  margin: 0 auto;
+  margin: 8px auto 0;
   padding: 0;
   text-align: center;
   position: relative
@@ -41,8 +45,8 @@
 }
 
 .ratingstars__star {
-  width: 45px;
-  height: 45px;
+  width: 44px;
+  height: 44px;
   padding: 4px;
   fill: rgb(185, 183, 173);
   border-radius: 1em
@@ -103,8 +107,9 @@
   visibility: hidden;
   opacity: 0;
   font-size: 14px;
+  line-height: 20px;
   position: absolute;
-  top: 20px;
+  top: 30px;
   right: 0;
   left: 0;
   transition: all .4s linear .6s

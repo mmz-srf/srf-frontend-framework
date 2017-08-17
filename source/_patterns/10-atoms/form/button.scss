@@ -18,7 +18,9 @@
   background-color: $color-text-accentuation;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .24),
               0 0 2px 0 rgba(0, 0, 0, .12);
-  transition: background-color .2s ease-in-out, box-shadow .2s ease-in-out;
+  transition: background-color .2s ease-in-out,
+              box-shadow .2s ease-in-out,
+              background-position .3s cubic-bezier(.175, .885, .3, 1.75);
 
   @include tablet-up {
     width: auto;
@@ -52,11 +54,28 @@
 }
 
 .button--success {
-  background: $color-button-success url('../img/white_tick.svg') no-repeat 40px;
-  padding-left: 73px;
+  background: $color-button-success linear-gradient(to bottom, $color-text-accentuation 50%, $color-button-success 50%) no-repeat;
+  background-size: 100% 200%;
+  background-position: left bottom;
 
-  &:hover {
+  transition-delay: .1s;
+
+  &:hover,
+  &:focus,
+  &:active {
     background-color: $color-button-success;
+  }
+
+  &:before {
+    content: '';
+    background: url('../img/white_tick.svg') no-repeat;
+    height: 25px;
+    width: 25px;
+    display: block;
+    margin-right: 12px;
+    margin-top: -2px;
+    float: left;
+    margin-bottom: -3px;
   }
 }
 
