@@ -120,11 +120,20 @@
     background-image: url('../img/white_tick.svg');
   }
 
+  // Background animation
+  height: 46px;
+
   &::before {
     background-color: $color-button-success;
     transition: height .3s cubic-bezier(0.18, 0.89, 0.32, 1.28);;
     height: 100%;
     border-radius: 2px;
+  }
+
+  .button-wrapper {
+    padding-top: 50px;
+    margin-top: -50px;
+    transition: margin-top .3s cubic-bezier(0.18, 0.89, 0.32, 1.28);
   }
 }
 

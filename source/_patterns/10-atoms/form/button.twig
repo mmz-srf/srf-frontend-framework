@@ -1,5 +1,7 @@
-<button class="button {{ styleModifier|default("") }}"
-        aria-label="{{ ariaLabelText }}">
-  <span class="button-icon"></span>
-  <span class="button-text">{{ buttonText|default("Senden") }}</span>
+<button class="button {{ styleModifier|default("") }}">
+  <span class="h-offscreen">{{ screenReaderText|default("Screenreader-Text für Schaltfläche") }}</span>
+  <div class="button-wrapper">
+    <span class="button-icon"></span>
+    <span class="button-text">{{ buttonText|default("Senden") }}</span>
+  </div>
 </button>
