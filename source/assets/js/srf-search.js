@@ -40,6 +40,7 @@ export class SrfSearch {
         this.$inputField.on("blur", (e) => {
             this.currTimeout = setTimeout(() => {
                 this.hideMenu();
+                this.unexpandSearch();
             }, 150);
         });
 
@@ -60,8 +61,9 @@ export class SrfSearch {
             case 38: // up arrow
                 break;
             case 9: // tab or
-            case 27: // escape
+            case 27: // escape must unexpand the menu but not clear it.
                 this.hideMenu();
+                this.unexpandSearch();
                 break;
             default:
                 this.lookup();
@@ -99,6 +101,7 @@ export class SrfSearch {
     reset() {
         this.clearInput();
         this.hideMenu();
+        this.unexpandSearch();
     }
 
     moveInMenu(direction) {
@@ -211,11 +214,39 @@ export class SrfSearch {
         this.$closeIcon.addClass('h-element--hide');
     }
 
-    showCloseIconIfNeeded() {
-        if (this.$inputField.val() === '') {
-            this.hideCloseIcon();
+    showCloseIconIfNeeded(deferred) {
+        if (!deferred) {
+            if (this.$inputField.val() === '') {
+                this.hideCloseIcon();
+            } else {
+                this.showCloseIcon();
+            }
         } else {
-            this.showCloseIcon();
+            if (this.currTimeout) {
+                clearTimeout(this.currTimeout);
+            }
+            this.currTimeout = setTimeout(() => {this.showCloseIconIfNeeded()}, deferred);
+        }
+    }
+
+
+    expandSearch() {
+        this.hideCloseIcon();
+        this.showCloseIconIfNeeded(500);
+        $('.searchbox').addClass('centered'); // add margin: 50% and animations and calculate the new width (90% of container, adjusted by width).
+        let right = parseInt($('.searchbox').css('right'));
+        this.hideCloseIcon();
+        $('.searchbox').css('width', $('.header__container').width() * 0.9 - right);
+    }
+
+    unexpandSearch() {
+        this.hideCloseIcon();
+        this.showCloseIconIfNeeded(50);
+        if ($('.searchbox').hasClass('centered')) {
+            this.hideCloseIcon();
+            $('.searchbox').removeClass('centered'); // add margin: 50% and animations and calculate the new width (90% of container, adjusted by width).
+            let right = parseInt($('.searchbox').css('right'));
+            $('.searchbox').css('width', this.initialWidth);
         }
     }
 }
