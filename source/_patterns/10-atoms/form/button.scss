@@ -48,6 +48,16 @@
     outline: none;
     box-shadow: $shadow-button-hover;
   }
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 0;
+    left: 0;
+    bottom: 0;
+    background-color: transparent;
+  }
 }
 
 .button--pending {
@@ -88,7 +98,13 @@
 }
 
 .button--success {
-  background: $color-button-success;
+  overflow: hidden;
+  position: relative;
+
+  .button-text,
+  .button-icon {
+    position: relative;
+  }
 
   &:hover,
   &:focus,
@@ -102,6 +118,13 @@
   .button-icon {
     display: inline-block;
     background-image: url('../img/white_tick.svg');
+  }
+
+  &::before {
+    background-color: $color-button-success;
+    transition: height .3s cubic-bezier(0.18, 0.89, 0.32, 1.28);;
+    height: 100%;
+    border-radius: 2px;
   }
 }
 
