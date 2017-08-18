@@ -91,3 +91,46 @@
     background-color: $color-bg-box-hover;
   }
 }
+
+@mixin spinner($lineWidth: 2px, $dashColor: #e31f2b, $bgColor: #dadad2) {
+  position: relative;
+  height: 24px;
+  width: 24px;
+  animation: rotateAnimation 2s linear infinite;
+  border: $lineWidth $dashColor solid;
+  border-radius: 50%;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    box-sizing: border-box;
+
+    width: calc(50% + #{$lineWidth});
+    height: calc(100% + #{2 * $lineWidth});
+
+    border: $lineWidth solid $bgColor;
+  }
+
+  &::before {
+    animation: rotateAnimation 2s infinite ease 1.5s;
+    border-radius: 9999px 0 0 9999px;
+    border-right: none;
+    left: -$lineWidth;
+    top: -$lineWidth;
+    transform-origin: 100% 50%;
+  }
+  &::after {
+    animation: rotateAnimation 2s infinite ease;
+    border-radius: 0 9999px 9999px 0;
+    border-left: none;
+    left: 50%;
+    top: -$lineWidth;
+    transform-origin: 0 50%;
+  }
+}
+
+@keyframes rotateAnimation {
+  0% {   transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

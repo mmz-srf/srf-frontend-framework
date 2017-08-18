@@ -1,4 +1,6 @@
 @import "../../variables";
+@import "../../mixins";
+@import "../../breakpoints";
 
 .button {
   width: 100%;
@@ -16,66 +18,87 @@
   // the following makes iOs display the button with css
   -webkit-appearance: none;
   background-color: $color-text-accentuation;
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .24),
-              0 0 2px 0 rgba(0, 0, 0, .12);
+  box-shadow: $shadow-button-default;
   transition: background-color .2s ease-in-out,
-              box-shadow .2s ease-in-out,
-              background-position .3s cubic-bezier(.175, .885, .3, 1.75);
+              box-shadow .2s ease-in-out;
+
+  .button-icon {
+    width: 24px;
+    height: 24px;
+    margin: -6px 12px -6px -44px;
+    display: none;
+  }
 
   @include tablet-up {
     width: auto;
-  }
 
-  &:hover {
-    background-color: #6b6960;
-    cursor: pointer;
-  }
-
-  &:active,
-  &:focus {
-    background-color: $color-text-light;
-    outline: none;
+    .button-icon {
+      margin: -6px 12px -6px 0;
+    }
   }
 
   &:hover,
+  &:focus,
   &:active {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .24),
-                0 0 8px 0 rgba(0, 0, 0, .12);
+    background-color: $color-text-light;
+    cursor: pointer;
+    outline: none;
+    box-shadow: $shadow-button-hover;
   }
 }
 
-.button--on-error {
-  background: $color-accentuation-red url('../img/exclamation-mark.svg') no-repeat 40px;
-  padding-left: 73px;
+.button--pending {
 
-  &:hover {
+  &:hover,
+  &:active,
+  &:focus {
+    cursor: default;
+    background-color: $color-text-accentuation;
+    box-shadow: $shadow-button-default;
+    transition: none;
+  }
+
+  .button-icon {
+    display: inline-block;
+    @include spinner(1px, #fff, #7a7a7a);
+  }
+}
+
+
+.button--alert,
+.button--on-error {
+  background: $color-accentuation-red;
+
+  &:hover,
+  &:focus,
+  &:active {
     background-color: $color-accentuation-red;
+    cursor: default;
+    box-shadow: $shadow-button-default;
+    transition: none;
+  }
+
+  .button-icon {
+    display: inline-block;
+    background: url('../img/exclamation-mark.svg') no-repeat;
   }
 }
 
 .button--success {
-  background: $color-button-success linear-gradient(to bottom, $color-text-accentuation 50%, $color-button-success 50%) no-repeat;
-  background-size: 100% 200%;
-  background-position: left bottom;
-
-  transition-delay: .1s;
+  background: $color-button-success;
 
   &:hover,
   &:focus,
   &:active {
     background-color: $color-button-success;
+    cursor: default;
+    box-shadow: $shadow-button-default;
+    transition: none;
   }
 
-  &:before {
-    content: '';
+  .button-icon {
+    display: inline-block;
     background: url('../img/white_tick.svg') no-repeat;
-    height: 25px;
-    width: 25px;
-    display: block;
-    margin-right: 12px;
-    margin-top: -2px;
-    float: left;
-    margin-bottom: -3px;
   }
 }
 
@@ -83,13 +106,10 @@
   color: $color-text-accentuation;
   background-color: $color-bg-box;
 
-  &:hover {
-    background-color: $color-bg-box-hover;
-  }
-
+  &:hover,
   &:active,
   &:focus {
-    background-color: $color-border;
+    background-color: $color-bg-box-hover;
   }
 }
 
@@ -101,31 +121,7 @@
   &:focus {
     cursor: default;
     background-color: $color-text-accentuation;
-    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .24),
-                0 0 2px 0 rgba(0, 0, 0, .12);
+    box-shadow: $shadow-button-default;
     transition: none;
   }
-}
-
-.button--facebook {
-  background-color: $color-bg-facebook;
-  @include tablet-up {background:$color-bg-facebook url('../img/facebook.svg') no-repeat 40px}
-  &:hover {background-color:$color-bg-facebook-hover}
-  &:active,
-  &:focus {background-color:$color-bg-facebook-active}
-}
-
-.button--twitter {
-  background-color: $color-bg-twitter;
-  @include tablet-up {background:$color-bg-twitter url('../img/twitter.svg') no-repeat 40px}
-  &:hover {background-color:$color-bg-twitter-hover}
-  &:active,
-  &:focus {background-color:$color-bg-twitter-active}
-}
-
-.button--alert {
-  background-color: $color-accentuation-red;
-  &:hover {background-color:$color-accentuation-red}
-  &:active,
-  &:focus {background-color:$color-accentuation-red}
 }
