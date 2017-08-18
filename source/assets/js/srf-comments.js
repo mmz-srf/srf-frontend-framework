@@ -61,71 +61,11 @@ var commentController = function () {
                 // return false;
             }
         });
-
-        // main (top) comment
-        /* $(".comments-wrapper").on("click", ".comments-header__button", function (e) {
-            e.preventDefault();
-            $(this).addClass('login-pending');
-            $(document).trigger('login:check');
-            return false;
-        });
-
-        // movable comment
-        $(".comments-wrapper").on("click", ".comment__link--reply", function (e) {
-            e.preventDefault();
-            $(this).addClass('login-pending');
-            $(document).trigger('login:check');
-
-            return false;
-        });
-
-        $(document).on('login:logout', function(){
-            // hide the button
-            $(".comments-header__button").removeClass("comment--hide");
-            // hide the form
-            $("#comment_form").addClass("comment--hide");
-        });
-
-        $(document).on('login:checked', function(){
-            var origin = $('.login-pending').first();
-            if (origin.length > 0) {
-                origin.removeClass('login-pending');
-                if (origin.hasClass('comment__link--reply')){
-                    // hide main comment again (if there was one)
-                    $(".comments-header__button").removeClass("comment--hide");
-
-                    var parent_id = origin.parent("li").attr("data-id"),
-                        container = origin.parent("li").find(".comment__placeholder").attr("id");
-
-                    // hide and move the form
-                    $("#comment_form").removeClass("comment--hide");
-                    $("#js-comment_place").appendTo("#" + container);
-
-                    // set the focus
-                    $(".reply__textarea").val("").focus();
-
-                    $(".js-comment_parent_id").val(parent_id);
-
-                } else {
-                    origin.addClass("comment--hide");
-
-                    // hide and move the form
-                    $("#comment_form").removeClass("comment--hide");
-                    $("#js-comment_place").appendTo(".comments-header__placeholder");
-
-                    // set the focus
-                    $(".reply__textarea").val("").focus();
-                }
-
-            }
-            return false;
-         }); */
-
     };
 
     this.countChars = function ($textarea) {
         var len = $textarea.val().length
-            , $button = $(".button");
+            , $button = $(".comments-wrapper .button");
 
         // count up available chars
         $(".js-comment-count-up").text(this.max_input - len);
