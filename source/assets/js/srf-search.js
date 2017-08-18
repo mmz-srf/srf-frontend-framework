@@ -21,6 +21,7 @@ export class SrfSearch {
 
     registerListeners() {
         this.$inputField.on("focus", (e) => {
+            // $("body").addClass("body--observer body--fixed body-overlay--search");
             this.initTypeahead();
         });
 
@@ -44,13 +45,21 @@ export class SrfSearch {
             }, 150);
         });
 
+        this.$inputField.on("click", (e) => {
+            e.stopPropagation();
+        });
+
         this.$menu.on('click', (e) => {
+            e.stopPropagation();
+            e.preventDefault();
             if (this.blurTimeout !== null) {
-                //
-                clearTimeout(this.currTimeout);
+                // blur could already have been set a timeout. Delay it.
+                if (this.currTimeout) {
+                    clearTimeout(this.currTimeout);
+                }
                 this.currTimeout = setTimeout(() => {
                     this.hideMenu();
-                }, 150); // give some time to show active state
+                }, 500); // give some time to show active state before closing.
             }
         });
     }
@@ -99,6 +108,7 @@ export class SrfSearch {
     }
 
     reset() {
+        $("body").removeClass("body--observer").removeClass("body--fixed");
         this.clearInput();
         this.hideMenu();
         this.unexpandSearch();
@@ -231,6 +241,9 @@ export class SrfSearch {
 
 
     expandSearch() {
+        if ($(window).width() < 720) {
+            return;
+        }
         this.hideCloseIcon();
         this.showCloseIconIfNeeded(500);
         $('.searchbox').addClass('centered'); // add margin: 50% and animations and calculate the new width (90% of container, adjusted by width).
@@ -240,9 +253,12 @@ export class SrfSearch {
     }
 
     unexpandSearch() {
-        this.hideCloseIcon();
-        this.showCloseIconIfNeeded(50);
+        if ($(window).width() < 720) {
+            return;
+        }
         if ($('.searchbox').hasClass('centered')) {
+            this.hideCloseIcon();
+            this.showCloseIconIfNeeded(50);
             this.hideCloseIcon();
             $('.searchbox').removeClass('centered'); // add margin: 50% and animations and calculate the new width (90% of container, adjusted by width).
             let right = parseInt($('.searchbox').css('right'));
