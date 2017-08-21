@@ -1,0 +1,78 @@
+.article-media {
+  margin: 0;
+
+  &:hover,
+  &:active {
+    .article-media__play-icon {
+      background-image: url('../img/play-active.svg');
+      background-size: 100%;
+    }
+  }
+}
+
+.article-media__link {
+  position: relative;
+  display: block;
+  // covering up the link
+  border: 0;
+
+  &:hover {
+    border: 0;
+  }
+
+  &::before {
+    // this is the only place that works (must be div or link or similar..)
+    content: '';
+    position: absolute;
+    background-color: rgba(0, 0, 0, .2);
+    height: 100%;
+    width: 100%;
+  }
+}
+
+.article-media { // image figure
+  // general
+  .image-figure__image-wrapper {
+    height: 100%;
+  }
+
+  // audio
+  .spinner-container {
+    display: none;
+  }
+
+  .spinner,
+  .spinner__circle--dash {
+    animation: none;
+  }
+
+  .article-audio__link {
+    margin: 0;
+  }
+
+  // video
+  .article-video__player {
+    position: relative;
+  }
+}
+
+.article-media--image {
+  position: relative;
+
+  &::after {
+    content: '';
+    display: block;
+    padding-top: 56.25%;
+  }
+
+  .image-figure__image {
+    height: 100%;
+    left: 0;
+    min-width: 100%;
+    object-fit: contain;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 1px;
+  }
+}
