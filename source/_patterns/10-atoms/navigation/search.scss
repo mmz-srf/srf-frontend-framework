@@ -168,13 +168,21 @@
   background-position: auto;
 }
 
-div.searchbox--overlay {
+div.search--overlay {
   position: absolute;
   display: block;
-  top: 50px;
+  top: 0px;
   width: 100%;
-  height: 300%;
+  height: 100%;
   background-color: #000000;
   margin-top: 50px;
   opacity: 0.2;
+  transition: background 2s fade-in;
+}
+
+body.search--overlay {
+  position: absolute;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
 }

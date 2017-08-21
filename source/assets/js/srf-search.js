@@ -22,8 +22,8 @@ export class SrfSearch {
 
     registerListeners() {
         this.$inputField.on("focus", (e) => {
-            this.disableArticle();
             this.initTypeahead();
+            this.disableArticle();
             this.expandSearch();
         });
 
@@ -41,6 +41,8 @@ export class SrfSearch {
         });
 
         this.$inputField.on("blur", (e) => {
+            this.enableArticle(); // in case of a click always leave.
+
             this.currTimeout = setTimeout(() => {
                 this.hideMenu();
                 this.unexpandSearch();
@@ -275,12 +277,16 @@ export class SrfSearch {
     }
 
     disableArticle() {
-        console.log(2)
-        $('body').append('div class="search--overlay"');
+        if (! $('div.searchOverlay')[0] &&  $(window).width() > 720) {
+            // add it once
+            $('body').append('<div class="search--overlay"> </div>');
+            $('body').addClass('search--overlay');
+        }
     }
 
     enableArticle() {
-        $('body').remove('div.search--overlay');
+        $('div.search--overlay').remove();
+        $('body').removeClass('search--overlay');
     }
 }
 
