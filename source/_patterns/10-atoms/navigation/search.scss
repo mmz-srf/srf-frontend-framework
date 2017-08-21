@@ -40,6 +40,8 @@
   }
 }
 
+
+
 .searchbox__input {
   display: none; // visible on document.ready to prevent problems with events firing before document.ready
   width: 100%;
@@ -164,4 +166,15 @@
   height: 40px;
   background-size: auto;
   background-position: auto;
+}
+
+div.searchbox--overlay {
+  position: absolute;
+  display: block;
+  top: 50px;
+  width: 100%;
+  height: 300%;
+  background-color: #000000;
+  margin-top: 50px;
+  opacity: 0.2;
 }

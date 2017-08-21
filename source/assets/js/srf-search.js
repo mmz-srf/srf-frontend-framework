@@ -22,7 +22,7 @@ export class SrfSearch {
 
     registerListeners() {
         this.$inputField.on("focus", (e) => {
-            // $("body").addClass("body--observer body--fixed body-overlay--search");
+            this.disableArticle();
             this.initTypeahead();
             this.expandSearch();
         });
@@ -68,7 +68,6 @@ export class SrfSearch {
     }
 
     onKeyUp(e) {
-
 
         switch (e.keyCode) {
             case 40: // down arrow or 
@@ -251,7 +250,6 @@ export class SrfSearch {
         }
     }
 
-
     expandSearch() {
         if ($(window).width() < 720) {
             return;
@@ -276,8 +274,13 @@ export class SrfSearch {
         }
     }
 
-    isExpanded() {
-        return $('.searchbox').hasClass('centered');
+    disableArticle() {
+        console.log(2)
+        $('body').append('div class="search--overlay"');
+    }
+
+    enableArticle() {
+        $('body').remove('div.search--overlay');
     }
 }
 

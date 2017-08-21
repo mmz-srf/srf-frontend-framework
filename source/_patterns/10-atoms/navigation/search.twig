@@ -1,4 +1,5 @@
 <form autocomplete="off" class="searchbox {{ styleModifier|default('') }}" action="{{ search.form_action|default('suche') }}" role="search">
+
     <a href="#" class="close-search h-element--hide"><img src="{{ frameworkAssetPath }}/img/close.svg" width="10" height="10"/></a>
 
     <label for="search-site" class="h-offscreen">{{ search.searching|default("Suchen") }}</label>
@@ -11,5 +12,6 @@
     <button type="submit" class="h-offscreen" tabindex="-1" aria-hidden="true">{{ search.searching|default("Suchen") }}</button>
     <ul id="searchbox__results" class="searchbox__results h-element--hide" role="listbox" tabindex="0" role="listbox"></ul>
 </form>
+
 
 
