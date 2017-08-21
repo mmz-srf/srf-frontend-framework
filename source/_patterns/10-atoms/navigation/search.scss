@@ -177,8 +177,9 @@ div.search--overlay {
   height: 100%;
   background-color: #000000;
   margin-top: 50px;
-  opacity: 0.2;
-  transition: background 2s fade_in();
+  opacity: 0.3;
+  transition: background 2s ease-in;
+  cursor: pointer;
 }
 
 body.search--overlay {

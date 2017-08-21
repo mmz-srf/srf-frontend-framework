@@ -263,7 +263,6 @@ export class SrfSearch {
         let right = parseInt($('.searchbox').css('right'));
         let newWidth = $('.header__container').width() * 0.85 - right;
         newWidth = newWidth > maxWidth ? maxWidth : newWidth;
-
         $('.searchbox').css('width', newWidth);
     }
 
@@ -279,7 +278,8 @@ export class SrfSearch {
     }
 
     disableArticle() {
-        if (! $('div.searchOverlay')[0] &&  $(window).width() > 720) {
+        if (! $('div.searchOverlay')[0] &&  $(window).width() > 720 && $('body').hasClass('body--fixed') == false) {
+
             // add classes once
             $('body').append('<div class="search--overlay"> </div>');
             $('body').addClass('search--overlay');
