@@ -2,6 +2,7 @@
 
 .searchbox {
   padding: 16px 16px 8px;
+  max-width: 918px;
 
   @include tablet-up {
     position: absolute;
