@@ -12,6 +12,7 @@ export class SrfSearch {
         this.typeaheadData = null;
         this.suggestionUrl = '';
         this.currTimeout = null;
+        this.initialWidth = 0;
 
 
         // search field is hidden before document.ready (events firing before document.ready can get lost)
@@ -22,7 +23,9 @@ export class SrfSearch {
     registerListeners() {
         this.$inputField.on("focus", (e) => {
             // $("body").addClass("body--observer body--fixed body-overlay--search");
+            console.log("focuus");
             this.initTypeahead();
+            this.expandSearch();
         });
 
         this.$closeIcon.on('click', (e) => {
@@ -49,6 +52,20 @@ export class SrfSearch {
             e.stopPropagation();
         });
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         this.$menu.on('click', (e) => {
             e.stopPropagation();
             e.preventDefault();
@@ -65,14 +82,20 @@ export class SrfSearch {
     }
 
     onKeyUp(e) {
+
+
         switch (e.keyCode) {
             case 40: // down arrow or 
             case 38: // up arrow
                 break;
             case 9: // tab or
-            case 27: // escape must unexpand the menu but not clear it.
+            case 27: // escape must unexpand the menu but not clear it
+                console.log("got it!")
                 this.hideMenu();
-                this.unexpandSearch();
+                // if searchbox is expanding (e.g. due to a focus event before) its ok. If its unexpanding, dont start it again.
+                if (! this.currTimeout) {
+                    this.unexpandSearch();
+                }
                 break;
             default:
                 this.lookup();
@@ -144,7 +167,8 @@ export class SrfSearch {
     }
 
     enhanceAccessibility() {
-        // a search button only makes sense on desktop - when it's actually working
+        // a search button only makes sense on desktop - when it's actually workin.
+        // TODO: What is still needed here?
         if (!(('ontouchstart' in window) || (navigator.msMaxTouchPoints > 0))) {
             // this works mobile as well unlike <enter>-keys an d the likes
             if (this.$inputField.val().length > 2 && this.$submitButton.attr("tabindex") == -1) {
@@ -160,8 +184,11 @@ export class SrfSearch {
             $.getJSON(this.typeaheadUrl, (data) => {
                 this.typeaheadData = data;
             })
+            this.initialWidth = parseInt($('.searchbox:first').css('width'));
         }
         this.showCloseIconIfNeeded();
+        this.expandSearch();
+
     }
 
     lookup() {
@@ -253,17 +280,27 @@ export class SrfSearch {
     }
 
     unexpandSearch() {
-        if ($(window).width() < 720) {
-            return;
-        }
+
+        this.hideCloseIcon();
+        this.showCloseIconIfNeeded(50);
         if ($('.searchbox').hasClass('centered')) {
             this.hideCloseIcon();
-            this.showCloseIconIfNeeded(50);
-            this.hideCloseIcon();
-            $('.searchbox').removeClass('centered'); // add margin: 50% and animations and calculate the new width (90% of container, adjusted by width).
-            let right = parseInt($('.searchbox').css('right'));
-            $('.searchbox').css('width', this.initialWidth);
+            if ($(window).width() < 720) {
+                return;
+            }
+            if ($('.searchbox').hasClass('centered')) {
+                this.hideCloseIcon();
+                this.showCloseIconIfNeeded(50);
+                this.hideCloseIcon();
+                $('.searchbox').removeClass('centered'); // add margin: 50% and animations and calculate the new width (90% of container, adjusted by width).
+                let right = parseInt($('.searchbox').css('right'));
+                $('.searchbox').css('width', this.initialWidth);
+            }
         }
+    }
+
+    isExpanded() {
+        return $('.searchbox').hasClass('centered');
     }
 }
 
