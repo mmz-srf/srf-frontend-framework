@@ -117,7 +117,6 @@ export class SrfSearch {
     }
 
     reset() {
-        $("body").removeClass("body--observer").removeClass("body--fixed");
         this.clearInput();
         this.hideMenu();
         this.unexpandSearch();
@@ -261,8 +260,7 @@ export class SrfSearch {
         this.showCloseIconIfNeeded(500); // currTimeout gets set here
         $('.searchbox').addClass('centered'); // add margin: 50% and animations and calculate the new width (90% of container, adjusted by width).
         let right = parseInt($('.searchbox').css('right'));
-        this.hideCloseIcon();
-        $('.searchbox').css('width', $('.header__container').width() * 0.9 - right);
+        $('.searchbox').css('width', $('.header__container').width() * 0.85 - right);
     }
 
     unexpandSearch() {
