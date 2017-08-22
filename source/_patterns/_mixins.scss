@@ -92,7 +92,7 @@
   }
 }
 
-@mixin spinner($lineWidth: 2px, $dashColor: #e31f2b, $bgColor: #dadad2) {
+@mixin spinner($lineWidth: 1px, $dashColor: #e31f2b, $bgColor: #dadad2) {
   position: relative;
   height: 24px;
   width: 24px;
@@ -106,18 +106,18 @@
     position: absolute;
     box-sizing: border-box;
 
-    width: calc(50% + #{$lineWidth});
-    height: calc(100% + #{2 * $lineWidth});
+    width: calc(50% + #{$lineWidth * 1.2});
+    height: calc(100% + #{$lineWidth * 2.4});
 
-    border: $lineWidth solid $bgColor;
+    border: #{$lineWidth * 1.4} solid $bgColor;
   }
 
   &::before {
     animation: rotateAnimation 2s infinite ease 1.5s;
     border-radius: 9999px 0 0 9999px;
     border-right: none;
-    left: -$lineWidth;
-    top: -$lineWidth;
+    left: -#{$lineWidth * 1.2};
+    top: -#{$lineWidth * 1.2};
     transform-origin: 100% 50%;
   }
   &::after {
@@ -125,7 +125,7 @@
     border-radius: 0 9999px 9999px 0;
     border-left: none;
     left: 50%;
-    top: -$lineWidth;
+    top: -#{$lineWidth * 1.2};
     transform-origin: 0 50%;
   }
 }

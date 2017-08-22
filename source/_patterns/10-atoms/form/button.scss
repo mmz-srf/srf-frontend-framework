@@ -2,8 +2,11 @@
 @import "../../mixins";
 @import "../../breakpoints";
 
+$button-height: 48px;
+
 .button {
   width: 100%;
+  min-height: $button-height;
   padding: 13px 40px;
   text-transform: uppercase;
   font: 16px/20px $font-regular;
@@ -25,7 +28,7 @@
   .button-icon {
     width: 24px;
     height: 24px;
-    margin: -6px 12px -6px -44px;
+    margin: -1px 8px -6px -44px;
     display: none;
     background-repeat: no-repeat;
     background-size: contain;
@@ -121,7 +124,7 @@
   }
 
   // Background animation
-  height: 46px;
+  height: $button-height;
 
   &::before {
     background-color: $color-button-success;
