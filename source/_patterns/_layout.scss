@@ -6,6 +6,21 @@
   margin: 0 auto;
 }
 
+
+// .l-content-wrapper = Grid
+.l-content-wrapper {
+  max-width: $content-width;
+  min-width:320px;
+  
+  @include tablet-up {
+    margin: 0 32px;
+  }
+  
+  @include desktop-wide {
+    margin: 0 auto;
+  }
+}
+
 .l-full-width-container {
   @include fullwidth-element;
 }

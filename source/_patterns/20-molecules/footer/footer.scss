@@ -27,6 +27,7 @@ ul.footerTop-secnav {
     flex-direction: row;
     flex-grow: 0;
     height: auto;
+    padding: 16px 8px;
   }
 }
 
@@ -74,7 +75,7 @@ a.footerTop-secnavLink {
     flex-wrap: nowrap;
     align-content: start;
     justify-content: space-between;
-    padding-bottom: 20px;
+    padding: 20px 16px;
   }
 }
 
