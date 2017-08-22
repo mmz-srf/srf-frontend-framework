@@ -65,7 +65,6 @@ export class SrfSearch {
             e.stopPropagation();
             e.preventDefault();
             if (this.currTimeout !== null) {
-                // blur could already have been set a timeout. Delay it.
                 if (this.currTimeout) {
                     clearTimeout(this.currTimeout);
                 }
@@ -77,18 +76,16 @@ export class SrfSearch {
     }
 
     onKeyUp(e) {
-
         switch (e.keyCode) {
             case 40: // down arrow or 
             case 38: // up arrow
                 break;
             case 9: // tab or
-            case 27: // escape must unexpand the menu but not clear it
                 this.hideMenu();
-                // if searchbox is expanding (e.g. due to a focus event before) its ok. If its unexpanding, dont start it again.
-                if (! this.currTimeout) {
-                    this.unexpandSearch();
-                }
+                break;
+            case 27: // escape must unexpand the menu but not clear it
+                this.$inputField.blur();
+                //}
                 break;
             default:
                 this.lookup();
