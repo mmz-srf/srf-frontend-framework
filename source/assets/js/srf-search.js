@@ -53,6 +53,13 @@ export class SrfSearch {
             e.stopPropagation();
         });
 
+        $(window).on('resize', (e) => {
+            console.log('resize');
+            if ($(window).width() < 720) {
+                $('.searchbox').css('width', "");
+            }
+        });
+
 
         this.$menu.on('click', (e) => {
             e.stopPropagation();
@@ -253,6 +260,7 @@ export class SrfSearch {
 
     expandSearch() {
         if ($(window).width() < 720) {
+            $('.searchbox').css('width', "");
             return;
         }
         //console.log($('.header__logo-img').css('position', 'absolute').position());
@@ -267,10 +275,6 @@ export class SrfSearch {
 
         let right = $('.menu-handle__info').offset().left;
         let left = $('.header__logo-img').offset().left;
-
-        console.log(right - left);
-
-        console.log($('.menu-handle__info').offset().left);
         let maxWidth = parseInt($('.searchbox').css('max-width'));
 
         //let right = parseInt($('.searchbox').css('right'));
