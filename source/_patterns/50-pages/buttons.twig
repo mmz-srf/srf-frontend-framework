@@ -22,11 +22,27 @@
     let states = ["",       "button--pending", "button--success", "button--pending", "button--on-error", "button--retry"];
     let texts =  ["Senden", "Senden",          "Gesendet",        "Senden",          "Fehlgeschlagen",   "Senden?"      ];
 
+    jQuery.fn.animateAuto = function(className, text, speed, callback){
+        let elem, width;
+        return this.each(function(i, el){
+            el = jQuery(el);
+            elem = el.clone().css({"height":"auto","width":"auto"}).appendTo("body");
+            elem.attr("class", className )
+                .find(".button-text").text( text );
+            width = elem.css("width");
+            elem.remove();
+
+            el.animate({"width":width}, speed, callback);
+        });
+    };
+
     $(".js-toggle-classes").on("click", function() {
         state = (++state)%states.length;
 
-        $btn.attr("class", "button " + states[state] )
-            .find(".button-text").text( texts[state] );
+        $btn.stop().animateAuto("button " + states[state], texts[state], 200, function() {
+            $btn.attr("class", "button " + states[state] )
+                .find(".button-text").text( texts[state] );
+        });
 
     });
 </script>

@@ -61,6 +61,11 @@ $button-height: 48px;
     bottom: 0;
     background-color: transparent;
   }
+
+  .button-wrapper {
+    // prevent line-breaking of child elements when animating via JS
+    white-space: nowrap;
+  }
 }
 
 .button--pending {
