@@ -3,7 +3,7 @@
   "version": "0.2.0",
   "private": true,
   "engines": {
-    "node": "6.11.*"
+    "node": ">=6.11.0"
   },
   "dependencies": {
     "babel-preset-es2015": "*",
