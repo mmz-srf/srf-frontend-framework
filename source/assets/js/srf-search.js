@@ -54,10 +54,11 @@ export class SrfSearch {
         });
 
         $(window).on('resize', (e) => {
-            console.log('resize');
             if ($(window).width() < 720) {
                 $('.searchbox').css('width', "");
             }
+            this.enableArticle();
+            this.unexpandSearch();
         });
 
 
@@ -260,25 +261,16 @@ export class SrfSearch {
             $('.searchbox').css('width', "");
             return;
         }
-        //console.log($('.header__logo-img').css('position', 'absolute').position());
 
         this.hideCloseIcon();
         this.showCloseIconIfNeeded(500); // currTimeout gets set here
         $('.searchbox').addClass('centered'); // add margin: 50% and animations and calculate the new width (90% of container, adjusted by width).
-        let logoOffset = 0;
-        if($('.header__logo-img').offset().left < 50) {
-            logoOffset = 100;
-        }
+
 
         let right = $('.menu-handle__info').offset().left;
         let left = $('.header__logo-img').offset().left;
         let maxWidth = parseInt($('.searchbox').css('max-width'));
-
-        //let right = parseInt($('.searchbox').css('right'));
-
-        let newWidth = right - left - 55; //$('.header__container').width() * 1 - right - logoOffset;
-
-        newWidth = newWidth > maxWidth ? maxWidth : newWidth;
+        let newWidth = right - left - 77; // logo width
         $('.searchbox').css('width', newWidth);
     }
 
@@ -287,7 +279,7 @@ export class SrfSearch {
             this.hideCloseIcon();
             this.showCloseIconIfNeeded(50);
             this.hideCloseIcon();
-            $('.searchbox').removeClass('centered'); // add margin: 50% and animations and calculate the new width (90% of container, adjusted by width).
+            $('.searchbox').removeClass('centered');
             let right = parseInt($('.searchbox').css('right'));
             $('.searchbox').css('width', this.initialWidth);
         }
