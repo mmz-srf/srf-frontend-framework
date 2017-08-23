@@ -13,6 +13,7 @@ export class SrfSearch {
         this.suggestionUrl = '';
         this.currTimeout = null;
         this.initialWidth = 0;
+        this.resizeTimout = 0;
 
 
         // search field is hidden before document.ready (events firing before document.ready can get lost)
@@ -57,9 +58,8 @@ export class SrfSearch {
             if ($(window).width() < 720) {
                 $('.searchbox').css('width', "");
             }
-            this.enableArticle();
-            this.hideMenu();
-            this.unexpandSearch();
+            
+            this.$inputField.blur();
         });
 
 
