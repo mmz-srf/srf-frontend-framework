@@ -3,6 +3,7 @@
     {% include 'atoms-button' with {'buttonText' : 'Primary Button'} %}
     {% include 'atoms-button' with {'buttonText' : 'Senden'} %}
     {% include 'atoms-button' with {'styleModifier' : 'button--pending',   'buttonText' : 'Senden'} %}
+    {% include 'atoms-button' with {'styleModifier' : 'button--success',   'buttonText' : 'Gesendet'} %}
     {% include 'atoms-button' with {'styleModifier' : 'button--on-error',  'buttonText' : 'Fehlgeschlagen'} %}
     {% include 'atoms-button' with {'styleModifier' : 'button--retry',     'buttonText' : 'Senden'} %}
     {% include 'atoms-button' with {'styleModifier' : 'button--secondary', 'buttonText' : 'Secondary Button'} %}
@@ -37,12 +38,18 @@
     };
 
     $(".js-toggle-classes").on("click", function() {
-        state = (++state)%states.length;
+        state = (++state) % states.length;
 
-        $btn.stop().animateAuto("button " + states[state], texts[state], 200, function() {
-            $btn.attr("class", "button " + states[state] )
-                .find(".button-text").text( texts[state] );
-        });
+        if ($(window).width() > 720) {
+            $btn.stop().animateAuto("button " + states[state], texts[state], 200, function () {
+                $btn.attr("class", "button " + states[state])
+                    .find(".button-text").text(texts[state]);
+            });
+        } else {
+            $btn.css("width", "100%")
+                .attr("class", "button " + states[state])
+                .find(".button-text").text(texts[state]);
+        }
 
     });
 </script>
