@@ -44,9 +44,12 @@
 
 .searchbox--footer {
   padding: 16px 12px 8px;
+  margin: 0 auto;
 
-  @include tablet {
+  @include tablet-up {
     max-width: 458px;
+    padding-top: 32px;
+    padding-bottom: 32px;
   }
 
   @include desktop-up {
