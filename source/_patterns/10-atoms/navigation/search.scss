@@ -33,13 +33,12 @@
     padding: 13px 24px 0;
     &.centered {
       position: absolute;
-      transition: width 0.1s;
+      transition: width 0.2s cubic-bezier(0.4, 0.0, 0.2, 1);
     }
   }
 
   @include desktop-up {
     right: 81px;
-    max-width: 1055px; /* max width when menu is extended */
   }
 }
 
@@ -105,7 +104,14 @@
     &:focus, &:not(:placeholder-shown) {
       background-position: 6px -28px;
     }
+
+    &:not(:focus) {
+      background: #555 url("../img/search-sprite.svg") no-repeat scroll 6px 0 / 28px auto;
+      color: $color-bg-box-hover;
+    }
   }
+
+
 }
 
 .searchbox__input.search--has-results {
@@ -176,7 +182,6 @@ div.search--overlay {
   background-color: #000000;
   margin-top: 50px;
   opacity: 0.3;
-  transition: background 2s ease-in;
   cursor: pointer;
 }
 
