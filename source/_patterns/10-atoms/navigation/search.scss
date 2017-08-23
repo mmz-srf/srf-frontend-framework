@@ -1,24 +1,8 @@
 // @import "../../variables";
 
 .searchbox {
-  padding: 16px 16px 8px;
+  width: 100%;
 
-  @include tablet-up {
-    position: absolute;
-    width: 240px;
-    top: -59px;
-    right: 48px;
-    padding: 13px 24px 0;
-    &.centered {
-      position: absolute;
-      transition: width 0.1s;
-    }
-  }
-
-  @include desktop-up {
-    right: 81px;
-    max-width: 1055px; /* max width when menu is extended */
-  }
   /* closing x icon */
   .close-search {
     position: absolute;
@@ -38,6 +22,44 @@
   }
 }
 
+.searchbox--header {
+  padding: 16px 16px 8px;
+  
+  @include tablet-up {
+    position: absolute;
+    width: 240px;
+    top: -59px;
+    right: 48px;
+    padding: 13px 24px 0;
+    &.centered {
+      position: absolute;
+      transition: width 0.1s;
+    }
+  }
+
+  @include desktop-up {
+    right: 81px;
+    max-width: 1055px; /* max width when menu is extended */
+  }
+}
+
+.searchbox--footer {
+  padding: 16px 12px 8px;
+
+  @include tablet {
+    max-width: 458px;
+  }
+
+  @include desktop-up {
+    max-width: 500px;
+  }
+  
+  & .searchbox__input {
+    height: 40px;
+    background-size: auto;
+    background-position: auto;
+  }
+}
 
 
 .searchbox__input {
@@ -143,27 +165,6 @@
   a:active, a:active {
     background-color: #ebebe5;
   }
-}
-
-/* footer variant */
-.searchbox.search--variant {
-  position: relative;
-  width: 100%;
-  top: auto;
-  right: auto;
-  max-width: 458px;
-  margin: auto;
-  padding:  13px 24px 0;
-
-  @include desktop-up {
-    max-width: 500px;
-  }
-}
-
-.search--variant .searchbox__input {
-  height: 40px;
-  background-size: auto;
-  background-position: auto;
 }
 
 div.search--overlay {
