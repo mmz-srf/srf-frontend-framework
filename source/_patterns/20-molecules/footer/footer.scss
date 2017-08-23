@@ -29,9 +29,6 @@ ul.footerTop-secnav {
     height: auto;
     padding: 32px 8px;
   }
-  @include desktop-up {
-    padding: 36px 8px;
-  }
 }
 
 .footerTop-secnavElem {
@@ -57,6 +54,10 @@ a.footerTop-secnavLink {
   border-bottom: none;
   border-radius: 2px;
   padding: 12px 8px;
+  
+  @include tablet-up {
+    margin-right:8px;
+  }
 }
 
 .footerTop-secnavLink::before {

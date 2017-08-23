@@ -60,9 +60,14 @@
     flex: 1 0 auto;
     border-right: 1px solid #444;
     width: 33.334%;
+    padding:0 12px;
     
+    &:first-child {
+      padding-left:0;
+    }
     &:last-child {
       border-right: none;
+      padding-right:0;
     }
   }
 }
