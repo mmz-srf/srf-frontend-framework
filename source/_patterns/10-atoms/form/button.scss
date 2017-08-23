@@ -3,6 +3,7 @@
 @import "../../breakpoints";
 
 $button-height: 48px;
+$button-animation-duration: .3s;
 
 .button {
   width: 100%;
@@ -22,8 +23,8 @@ $button-height: 48px;
   -webkit-appearance: none;
   background-color: $color-text-accentuation;
   box-shadow: $shadow-button-default;
-  transition: background-color .2s ease-in-out,
-              box-shadow .2s ease-in-out;
+  transition: background-color $button-animation-duration ease-in-out,
+              box-shadow $button-animation-duration ease-in-out;
 
   .button-icon {
     width: 24px;
@@ -93,10 +94,15 @@ $button-height: 48px;
   }
 }
 
-
 .button--alert,
 .button--on-error {
-  background: $color-accentuation-red;
+  overflow: hidden;
+  position: relative;
+
+  .button-text,
+  .button-icon {
+    position: relative;
+  }
 
   &:hover,
   &:focus,
@@ -110,6 +116,23 @@ $button-height: 48px;
   .button-icon {
     display: inline-block;
     background-image: url('../img/exclamation-mark.svg');
+  }
+
+  // Background animation
+  height: $button-height;
+
+  &::before {
+    background-color: $color-accentuation-red;
+    transition: height $button-animation-duration cubic-bezier(0.18, 0.89, 0.32, 1.28);
+    height: 100%;
+    border-radius: 2px;
+    top: 0px; //start animation on the top, grow downwards
+  }
+
+  .button-wrapper {
+    padding-top: 50px;
+    margin-top: -50px;
+    transition: padding-top $button-animation-duration cubic-bezier(0.18, 0.89, 0.32, 1.28);
   }
 }
 
@@ -141,7 +164,7 @@ $button-height: 48px;
 
   &::before {
     background-color: $color-button-success;
-    transition: height .3s cubic-bezier(0.18, 0.89, 0.32, 1.28);;
+    transition: height $button-animation-duration cubic-bezier(0.18, 0.89, 0.32, 1.28);
     height: 100%;
     border-radius: 2px;
   }
@@ -149,7 +172,7 @@ $button-height: 48px;
   .button-wrapper {
     padding-top: 50px;
     margin-top: -50px;
-    transition: margin-top .3s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+    transition: margin-top $button-animation-duration cubic-bezier(0.18, 0.89, 0.32, 1.28);
   }
 }
 
