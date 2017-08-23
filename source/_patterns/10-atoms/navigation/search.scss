@@ -52,7 +52,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  &:focus, &:not(:placeholder-shown) {
+  &:focus  {
     color: $color-text-accentuation;
     background-color: $color-bg-box;
     background-position: 6px -35px;

@@ -58,6 +58,7 @@ export class SrfSearch {
                 $('.searchbox').css('width', "");
             }
             this.enableArticle();
+            this.hideMenu();
             this.unexpandSearch();
         });
 
@@ -266,22 +267,21 @@ export class SrfSearch {
         this.showCloseIconIfNeeded(500); // currTimeout gets set here
         $('.searchbox').addClass('centered'); // add margin: 50% and animations and calculate the new width (90% of container, adjusted by width).
 
-
+        // calculate new width (bar must be centered)
         let right = $('.menu-handle__info').offset().left;
         let left = $('.header__logo-img').offset().left;
-        let maxWidth = parseInt($('.searchbox').css('max-width'));
-        let newWidth = right - left - 77; // logo width
+        let newWidth = right - left - 77; // srf logo width and  margins and paddings :/
         $('.searchbox').css('width', newWidth);
     }
 
     unexpandSearch() {
         if ($('.searchbox').hasClass('centered')) {
             this.hideCloseIcon();
-            this.showCloseIconIfNeeded(50);
-            this.hideCloseIcon();
+            // this.showCloseIconIfNeeded(50);
             $('.searchbox').removeClass('centered');
             let right = parseInt($('.searchbox').css('right'));
             $('.searchbox').css('width', this.initialWidth);
+
         }
     }
 
