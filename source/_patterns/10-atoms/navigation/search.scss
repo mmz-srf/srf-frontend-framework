@@ -11,13 +11,12 @@
     padding: 13px 24px 0;
     &.centered {
       position: absolute;
-      transition: width 0.1s;
+      transition: width 0.2s cubic-bezier(0.4, 0.0, 0.2, 1);
     }
   }
 
   @include desktop-up {
     right: 81px;
-    max-width: 1055px; /* max width when menu is extended */
   }
   /* closing x icon */
   .close-search {
@@ -173,7 +172,6 @@ div.search--overlay {
   background-color: #000000;
   margin-top: 50px;
   opacity: 0.3;
-  transition: background 2s ease-in;
   cursor: pointer;
 }
 
