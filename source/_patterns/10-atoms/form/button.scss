@@ -46,10 +46,18 @@ $button-height: 48px;
   &:hover,
   &:focus,
   &:active {
-    background-color: $color-text-light;
     cursor: pointer;
     outline: none;
     box-shadow: $shadow-button-hover;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: $color-text-light;
+  }
+
+  &:active {
+    background-color: $color-button-active;
   }
 
   &::before {
@@ -158,9 +166,12 @@ $button-height: 48px;
   background-color: $color-bg-box;
 
   &:hover,
-  &:active,
-  &:focus {
+  &:active {
     background-color: $color-bg-box-hover;
+  }
+
+  &:focus {
+    background-color: $color-button-active-secondary;
   }
 }
 
