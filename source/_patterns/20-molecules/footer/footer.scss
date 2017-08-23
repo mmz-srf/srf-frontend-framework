@@ -27,7 +27,10 @@ ul.footerTop-secnav {
     flex-direction: row;
     flex-grow: 0;
     height: auto;
-    padding: 16px 8px;
+    padding: 32px 8px;
+  }
+  @include desktop-up {
+    padding: 36px 8px;
   }
 }
 
