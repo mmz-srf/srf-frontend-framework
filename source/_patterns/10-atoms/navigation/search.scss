@@ -52,7 +52,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  &:focus  {
+  &:focus, &:not(:placeholder-shown) {
     color: $color-text-accentuation;
     background-color: $color-bg-box;
     background-position: 6px -35px;
@@ -80,7 +80,14 @@
     &:focus, &:not(:placeholder-shown) {
       background-position: 6px -28px;
     }
+
+    &:not(:focus) {
+      background: #555 url("../img/search-sprite.svg") no-repeat scroll 6px 0 / 28px auto;
+      color: $color-bg-box-hover;
+    }
   }
+
+
 }
 
 .searchbox__input.search--has-results {
