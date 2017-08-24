@@ -1,23 +1,8 @@
 // @import "../../variables";
 
 .searchbox {
-  padding: 16px 16px 8px;
+  width: 100%;
 
-  @include tablet-up {
-    position: absolute;
-    width: 240px;
-    top: -59px;
-    right: 48px;
-    padding: 13px 24px 0;
-    &.centered {
-      position: absolute;
-      transition: width 0.2s cubic-bezier(0.4, 0.0, 0.2, 1);
-    }
-  }
-
-  @include desktop-up {
-    right: 81px;
-  }
   /* closing x icon */
   .close-search {
     position: absolute;
@@ -94,7 +79,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  &:focus
+  &:focus {
     color: $color-text-accentuation;
     background-color: $color-bg-box;
     background-position: 6px -35px;
