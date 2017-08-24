@@ -29,7 +29,7 @@ $button-animation-duration: .3s;
   .button-icon {
     width: 24px;
     height: 24px;
-    margin: -1px 8px -6px -44px;
+    margin: -1px 8px -7px -44px;
     display: none;
     background-repeat: no-repeat;
     background-size: contain;
@@ -40,7 +40,7 @@ $button-animation-duration: .3s;
     width: auto;
 
     .button-icon {
-      margin: -6px 8px -6px 0;
+      margin-left: 0;
     }
   }
 
