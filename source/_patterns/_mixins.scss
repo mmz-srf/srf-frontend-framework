@@ -92,7 +92,8 @@
   }
 }
 
-@mixin spinner($lineWidth: 1px, $dashColor: #e31f2b, $bgColor: #dadad2) {
+@mixin spinner($lineWidth: 1px, $dashColor: #e31f2b, $bgColor: #dadad2, $parentColor: #4e4d47) {
+
   position: relative;
   height: 24px;
   width: 24px;
@@ -100,33 +101,58 @@
   border: $lineWidth $dashColor solid;
   border-radius: 50%;
 
+  /* NON-RETINA - spinner looks ugly with the grey half-circles, so hide them by painting them in the same color as the parent (see param) */
   &::before,
   &::after {
     content: '';
     position: absolute;
     box-sizing: border-box;
 
-    width: calc(50% + #{$lineWidth});
-    height: calc(100% + #{$lineWidth * 2});
+    animation: rotateAnimation 2s infinite ease;
 
-    border: #{$lineWidth} solid $bgColor;
+    width: calc(50% + #{$lineWidth * 3});
+    height: calc(100% + #{$lineWidth * 6});
+
+    top: -#{$lineWidth * 3};
+
+    border: #{$lineWidth * 3} solid $parentColor;
+    background-color: $parentColor;
   }
 
   &::before {
-    animation: rotateAnimation 2s infinite ease 1.5s;
+    animation-delay: 1.5s;
     border-radius: 9999px 0 0 9999px;
     border-right: none;
-    left: -#{$lineWidth};
-    top: -#{$lineWidth};
+    left: -#{$lineWidth * 3};
     transform-origin: 100% 50%;
   }
+
   &::after {
-    animation: rotateAnimation 2s infinite ease;
     border-radius: 0 9999px 9999px 0;
     border-left: none;
     left: 50%;
-    top: -#{$lineWidth};
     transform-origin: 0 50%;
+  }
+
+
+  /* RETINA: show the grey half-circles */
+  @media screen and (-webkit-min-device-pixel-ratio:2 ),
+                    (min-resolution: 192dpi),
+                    (min-resolution: 2dppx),
+                    (-o-min-device-pixel-ratio:20/10) {
+    &::before,
+    &::after {
+      width: calc(50% + #{$lineWidth});
+      height: calc(100% + #{$lineWidth * 2});
+      top: -#{$lineWidth};
+      border-width: #{$lineWidth};
+      border-color: $bgColor;
+      background-color: transparent;
+    }
+
+    &::before {
+      left: -#{$lineWidth};
+    }
   }
 }
 
