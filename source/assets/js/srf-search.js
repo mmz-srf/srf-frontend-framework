@@ -289,13 +289,11 @@ export class SrfSearch {
         if (! $('div.searchOverlay')[0] &&  $(window).width() > 720 && $('body').hasClass('body--fixed') == false) {
 
             // add classes once
-            $('body').append('<div class="search--overlay"> </div>');
             $('body').addClass('search--overlay');
         }
     }
 
     enableArticle() {
-        $('div.search--overlay').remove();
         $('body').removeClass('search--overlay');
     }
 }
