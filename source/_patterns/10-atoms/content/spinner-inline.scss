@@ -7,9 +7,9 @@ $dashColorDark: #fff;
 $lineWidth: 2px;
 
 .spinner-inline {
-  @include spinner($lineWidth, $dashColor, $bgColor);
+  @include spinner($lineWidth, $dashColor, $bgColor, #fff);
 }
 
 .spinner-inline--dark {
-  @include spinner($lineWidth, $dashColorDark, $bgColorDark);
+  @include spinner($lineWidth, $dashColorDark, $bgColorDark, #fff);
 }
