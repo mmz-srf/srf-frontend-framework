@@ -262,7 +262,6 @@ export class SrfSearch {
             $('.searchbox').css('width', "");
             return;
         }
-
         this.hideCloseIcon();
         this.showCloseIconIfNeeded(500); // currTimeout gets set here
         $('.searchbox').addClass('centered'); // add margin: 50% and animations and calculate the new width (90% of container, adjusted by width).
