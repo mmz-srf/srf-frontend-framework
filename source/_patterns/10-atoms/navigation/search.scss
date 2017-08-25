@@ -98,13 +98,18 @@
     opacity: 1; // and opacity :)
   }
 
+  // Remove IE closing x icon because (we do the same for all browsers) :/
+  &::-ms-clear {
+    display: none;
+  }
+
   @include tablet-up {
     height: 36px; // safari has a problem with paddings :/
     padding: 0 30px 0 36px; // adjusting from 6 6 6 36 to line-height above
     background-size: 23px;
     background-position: 6px 2px;
 
-    .searchbox--header &:focus,
+    .searchbox--header &:focus {
       background-position: 6px -28px;
     }
   }
