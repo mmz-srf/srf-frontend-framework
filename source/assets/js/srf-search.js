@@ -110,6 +110,7 @@ export class SrfSearch {
     }
 
     hideMenu() {
+        return;
         this.$inputField.removeClass('search--has-results' );
         this.$menu.addClass('h-element--hide');
         this.suggestionUrl = '';
