@@ -8,6 +8,8 @@ export class SrfSearch {
         this.$closeIcon = $menu.parent().find('.close-search');
         this.options = options;
 
+        this.expandable = (options && options.expandable) ? options.expandable : false;
+        console.log(this.expandable);
         this.typeaheadUrl = this.$inputField.data("typeahead-url");
         this.typeaheadData = null;
         this.suggestionUrl = '';
@@ -58,7 +60,7 @@ export class SrfSearch {
             if ($(window).width() < 720) {
                 $('.searchbox').css('width', "");
             }
-            
+
             this.$inputField.blur();
         });
 
@@ -79,7 +81,7 @@ export class SrfSearch {
 
     onKeyUp(e) {
         switch (e.keyCode) {
-            case 40: // down arrow or 
+            case 40: // down arrow or
             case 38: // up arrow
                 break;
             case 9: // tab or
@@ -232,10 +234,12 @@ export class SrfSearch {
     }
 
     showCloseIcon() {
-        let y = this.$inputField.position().top;
-        let x = this.$inputField.outerWidth();
-        this.$closeIcon.css({'top': y, 'left': x });
         this.$closeIcon.removeClass('h-element--hide');
+        let y = this.$inputField.position().top;
+        let x = this.$inputField.position().left;
+        x = x + this.$inputField.outerWidth() - this.$closeIcon.outerWidth();
+        console.log(x, y);
+        this.$closeIcon.css({'top': y, 'left': x + (this.expandable ? 0 : 440) });
     }
 
     hideCloseIcon() {
@@ -262,6 +266,11 @@ export class SrfSearch {
             $('.searchbox').css('width', "");
             return;
         }
+
+        if (!this.expandable) {
+            console.log("returning");
+            return;
+        }
         this.hideCloseIcon();
         this.showCloseIconIfNeeded(500); // currTimeout gets set here
         $('.searchbox').addClass('centered'); // add margin: 50% and animations and calculate the new width (90% of container, adjusted by width).
@@ -274,25 +283,31 @@ export class SrfSearch {
     }
 
     unexpandSearch() {
+        if (!this.expandable) {
+            return;
+        }
         if ($('.searchbox').hasClass('centered')) {
             this.hideCloseIcon();
-            // this.showCloseIconIfNeeded(50);
             $('.searchbox').removeClass('centered');
             let right = parseInt($('.searchbox').css('right'));
             $('.searchbox').css('width', this.initialWidth);
-
         }
     }
 
     disableArticle() {
-        if (! $('div.searchOverlay')[0] &&  $(window).width() > 720 && $('body').hasClass('body--fixed') == false) {
-
+        if (!this.expandable) {
+            return;
+        }
+        if ($(window).width() > 720 && $('body').hasClass('body--fixed') == false) {
             // add classes once
             $('body').addClass('search--overlay');
         }
     }
 
     enableArticle() {
+        if (!this.expandable) {
+            return;
+        }
         $('body').removeClass('search--overlay');
     }
 }
