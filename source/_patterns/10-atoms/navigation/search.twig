@@ -10,7 +10,7 @@
            type="text" placeholder="{{ search.search|default("Suche") }}"
     >
 
-    <a href="#" class="close-search h-element--hide"><img src="{{ frameworkAssetPath }}/img/close.svg" title={{ "search.close"|default("Suchfeld schliessen") }} width="10" height="10"/></a>
+    <a href="#" class="close-search h-element--hide"><img src="{{ frameworkAssetPath }}/img/close.svg" title={{ search.close|default("Suchfeld schliessen") }} width="10" height="10"/></a>
 
 
     <button type="submit" class="h-offscreen" tabindex="-1" aria-hidden="true">{{ search.searching|default("Suchen") }}</button>
