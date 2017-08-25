@@ -65,14 +65,14 @@ export class SrfSearch {
 
         this.$menu.on('click', (e) => {
             e.stopPropagation();
-            e.preventDefault();
+            // do not prevent default to allow menu links be clicked.
             if (this.currTimeout !== null) {
                 if (this.currTimeout) {
                     clearTimeout(this.currTimeout);
                 }
                 this.currTimeout = setTimeout(() => {
                     this.hideMenu();
-                }, 500); // give some time to show active state before closing.
+                }, 500); // defer menu hiding to allow some time to show active state before closing.
             }
         });
     }
