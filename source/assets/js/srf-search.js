@@ -86,8 +86,8 @@ export class SrfSearch {
                 this.hideMenu();
                 break;
             case 27: // escape must unexpand the menu but not clear it
+                this.clearInput();
                 this.$inputField.blur();
-                //}
                 break;
             default:
                 this.lookup();
@@ -110,7 +110,6 @@ export class SrfSearch {
     }
 
     hideMenu() {
-        return;
         this.$inputField.removeClass('search--has-results' );
         this.$menu.addClass('h-element--hide');
         this.suggestionUrl = '';

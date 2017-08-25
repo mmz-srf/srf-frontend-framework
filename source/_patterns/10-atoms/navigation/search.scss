@@ -108,11 +108,6 @@
     .searchbox--header &:not(:placeholder-shown) {
       background-position: 6px -28px;
     }
-
-    &:not(:focus) {
-      background: #555 url("../img/search-sprite.svg") no-repeat scroll 6px 0 / 28px auto;
-      color: $color-bg-box-hover;
-    }
   }
 
 
