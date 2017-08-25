@@ -60,7 +60,7 @@ export class SrfSearch {
             if ($(window).width() < 720) {
                 $('.searchbox').css('width', "");
             }
-
+            
             this.$inputField.blur();
         });
 
@@ -238,8 +238,7 @@ export class SrfSearch {
         let y = this.$inputField.position().top;
         let x = this.$inputField.position().left;
         x = x + this.$inputField.outerWidth() - this.$closeIcon.outerWidth();
-        console.log(x, y);
-        this.$closeIcon.css({'top': y, 'left': x + (this.expandable ? 0 : 440) });
+        this.$closeIcon.css({'top': y, 'left': x});
     }
 
     hideCloseIcon() {
@@ -268,7 +267,6 @@ export class SrfSearch {
         }
 
         if (!this.expandable) {
-            console.log("returning");
             return;
         }
         this.hideCloseIcon();
