@@ -105,12 +105,9 @@
     background-position: 6px 2px;
 
     .searchbox--header &:focus,
-    .searchbox--header &:not(:placeholder-shown) {
       background-position: 6px -28px;
     }
   }
-
-
 }
 
 .searchbox__input.search--has-results {
