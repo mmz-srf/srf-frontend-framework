@@ -269,10 +269,8 @@ export class SrfSearch {
         }
 */
         if (name.toLowerCase().indexOf(key.toLowerCase()) > -1) {
-            console.log("case insensitive match");
             weight+= 50 - (name.toLowerCase().indexOf(key.toLowerCase()));
         }
-        console.log("weight for key" +  key + " " + name + "was: " + weight);
         return weight;
     }
 
