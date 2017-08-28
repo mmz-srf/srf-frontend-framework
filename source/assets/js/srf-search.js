@@ -61,7 +61,7 @@ export class SrfSearch {
             if ($(window).width() < 720) {
                 $('.searchbox').css('width', "");
             }
-            
+
             this.$inputField.blur();
         });
 
@@ -105,9 +105,10 @@ export class SrfSearch {
                 e.preventDefault();
                 location.href = this.suggestionUrl;
             } else {
+                this.$menu.hide(); // do not "show" it on voiceOver :/
                 e.stopPropagation();
                 e.preventDefault();
-                $.inputField.closest('form').submit();
+                this.$inputField.closest('form').submit();
             }
         }
         if (e.keyCode === 40 || e.keyCode === 38) {
@@ -225,7 +226,7 @@ export class SrfSearch {
 
         results.forEach((result) => {
             let name = this.highlightQuery(query, result.name);
-            html += `<li role="option" class="typeahead-suggestion" tabindex="-1"> <a href="${result.url}">${name}</a> </li>`;
+            html += `<li role="option" class="typeahead-suggestion" tabindex="-1" aria-hidden="true"> <a href="${result.url}">${name}</a> </li>`;
         })
         this.$menu.css('width', this.$inputField.outerWidth() + "px");
         this.$menu.html(html).removeClass('h-element--hide');
