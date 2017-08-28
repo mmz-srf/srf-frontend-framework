@@ -206,6 +206,7 @@ export class SrfSearch {
 
         if (results.length > 0) {
             results = results.slice(0, this.options.maxSuggestionCount);
+            results = this.sortResults(results, query);
             this.renderResults(results, query);
             this.$inputField.addClass('search--has-results' );
         } else {
@@ -222,6 +223,17 @@ export class SrfSearch {
         })
         this.$menu.css('width', this.$inputField.outerWidth() + "px");
         this.$menu.html(html).removeClass('h-element--hide');
+    }
+
+    sortResults(results, key) {
+        console.log("sorting results");
+        let r = results.sort(
+            function(a, b) {
+                return a.name.toLowerCase().indexOf(key) >= b.name.toLowerCase().indexOf(key);
+            }
+        )
+        console.log(r);
+        return r;
     }
 
     highlightQuery(query, name) {
