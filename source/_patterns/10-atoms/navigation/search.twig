@@ -9,12 +9,11 @@
            type="text" placeholder="{{ search.search|default("Suche") }}"
     >
 
-
     <a href="#" class="close-search h-element--hide"><img src="{{ frameworkAssetPath }}/img/close.svg" title="{{ search.close|default("Suchfeld schliessen") }}" width="10" height="10"/></a>
 
 
     <button type="submit" class="h-offscreen" tabindex="-1" aria-hidden="true">{{ search.searching|default("Suchen") }}</button>
-    <ul id="searchbox__results" class="searchbox__results h-element--hide" role="listbox" tabindex="0" role="listbox"></ul>
+    <ul id="searchbox__results" class="searchbox__results h-element--hide" tabindex="-1" aria-hidden="true"></ul>
 </form>
 
 

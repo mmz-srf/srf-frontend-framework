@@ -30,13 +30,11 @@ export class SrfSearch {
         });
 
         this.$closeIcon.on('click', (e) => {
-            e.stopPropagation();
-            e.preventDefault();
             this.reset();
         })
 
         this.$inputField.on("keyup", (e) => {
-            this.enhanceAccessibility();
+            // this.enhanceAccessibility();
             this.onKeyUp(e);
         });
 
@@ -106,6 +104,10 @@ export class SrfSearch {
                 e.stopPropagation();
                 e.preventDefault();
                 location.href = this.suggestionUrl;
+            } else {
+                e.stopPropagation();
+                e.preventDefault();
+                $.inputField.closest('form').submit();
             }
         }
         if (e.keyCode === 40 || e.keyCode === 38) {
@@ -163,8 +165,8 @@ export class SrfSearch {
     }
 
     enhanceAccessibility() {
+        return;
         // a search button only makes sense on desktop - when it's actually workin.
-        // TODO: What is still needed here?
         if (!(('ontouchstart' in window) || (navigator.msMaxTouchPoints > 0))) {
             // this works mobile as well unlike <enter>-keys an d the likes
             if (this.$inputField.val().length > 2 && this.$submitButton.attr("tabindex") == -1) {
