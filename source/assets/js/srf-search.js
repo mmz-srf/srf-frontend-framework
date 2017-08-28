@@ -9,7 +9,6 @@ export class SrfSearch {
         this.options = options;
 
         this.expandable = (options && options.expandable) ? options.expandable : false;
-        console.log(this.expandable);
         this.typeaheadUrl = this.$inputField.data("typeahead-url");
         this.typeaheadData = null;
         this.suggestionUrl = '';
