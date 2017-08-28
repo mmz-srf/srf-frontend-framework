@@ -92,13 +92,13 @@
   }
 }
 
-@mixin spinner($lineWidth: 1px, $dashColor: #e31f2b, $bgColor: #dadad2, $parentColor: #4e4d47) {
+@mixin spinner($line-width: 1px, $dash-color: #e31f2b, $bg-color: #dadad2, $parent-color: #4e4d47) {
 
   position: relative;
   height: 24px;
   width: 24px;
   animation: rotateAnimation 2s linear infinite;
-  border: $lineWidth $dashColor solid;
+  border: $line-width $dash-color solid;
   border-radius: 50%;
 
   /* NON-RETINA - spinner looks ugly with the grey half-circles, so hide them by painting them in the same color as the parent (see param) */
@@ -110,20 +110,20 @@
 
     animation: rotateAnimation 2s infinite ease;
 
-    width: calc(50% + #{$lineWidth * 3});
-    height: calc(100% + #{$lineWidth * 6});
+    width: calc(50% + #{$line-width * 3});
+    height: calc(100% + #{$line-width * 6});
 
-    top: -#{$lineWidth * 3};
+    top: -#{$line-width * 3};
 
-    border: #{$lineWidth * 3} solid $parentColor;
-    background-color: $parentColor;
+    border: #{$line-width * 3} solid $parent-color;
+    background-color: $parent-color;
   }
 
   &::before {
     animation-delay: 1.5s;
     border-radius: 9999px 0 0 9999px;
     border-right: none;
-    left: -#{$lineWidth * 3};
+    left: -#{$line-width * 3};
     transform-origin: 100% 50%;
   }
 
@@ -142,16 +142,16 @@
                     (-o-min-device-pixel-ratio:20/10) {
     &::before,
     &::after {
-      width: calc(50% + #{$lineWidth});
-      height: calc(100% + #{$lineWidth * 2});
-      top: -#{$lineWidth};
-      border-width: #{$lineWidth};
-      border-color: $bgColor;
+      width: calc(50% + #{$line-width});
+      height: calc(100% + #{$line-width * 2});
+      top: -#{$line-width};
+      border-width: #{$line-width};
+      border-color: $bg-color;
       background-color: transparent;
     }
 
     &::before {
-      left: -#{$lineWidth};
+      left: -#{$line-width};
     }
   }
 }
