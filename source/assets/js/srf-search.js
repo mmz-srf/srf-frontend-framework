@@ -227,13 +227,53 @@ export class SrfSearch {
 
     sortResults(results, key) {
         console.log("sorting results");
+        var self = this;
+
         let r = results.sort(
             function(a, b) {
-                return a.name.toLowerCase().indexOf(key) >= b.name.toLowerCase().indexOf(key);
+                return self.weight(a.name, key) < self.weight(b.name, key);
             }
         )
         console.log(r);
         return r;
+    }
+
+    weight(name, key) {
+        // first, split the string and iterate over each key case-sensitive
+
+        let tokens = name.split(" ");
+        if (parseInt(name) > 0) {
+            tokens.push(parseInt(name) + "");
+        }
+
+        let weight = -1;
+        /*
+        for (let i = 0; i < tokens.length; i++) {
+
+            if (tokens[i] === key) {
+                console.log("exact word:" + tokens[i]);
+                return (50 - i) * 10000;
+            }
+        }*/
+        for (let i = 0; i < tokens.length; i++) {
+            if (tokens[i].toLowerCase() === key.toLowerCase()) {
+                console.log("unexact word match")
+                weight+= (50 - i) * 1000;
+            }
+        }
+        // match case sensitive
+/*
+        if (name.indexOf(key) > -1) {
+            console.log("case sensitive match");
+            weight+= (50 -name.indexOf(key)) * 10;
+        }
+*/
+        if (name.toLowerCase().indexOf(key.toLowerCase()) > -1) {
+            console.log("case insensitive match");
+            weight+= 50 - (name.toLowerCase().indexOf(key.toLowerCase()));
+        }
+        console.log("weight for key" +  key + " " + name + "was: " + weight);
+        return weight;
     }
 
     highlightQuery(query, name) {
