@@ -31,6 +31,8 @@ export class SrfSearch {
         });
 
         this.$closeIcon.on('click', (e) => {
+            e.stopPropagation();
+            e.preventDefault();
             this.reset();
         })
 
@@ -42,6 +44,8 @@ export class SrfSearch {
         this.$inputField.on("keydown", (e) => {
             this.onKeyDown(e);
         });
+
+
 
         this.$inputField.on("blur", (e) => {
             this.enableArticle(); // in case of a click always leave.
@@ -87,7 +91,7 @@ export class SrfSearch {
             case 9: // tab or
                 this.hideMenu();
                 break;
-            case 27: // escape must unexpand the menu but not clear it
+            case 27: // escape must leave the search and clear input
                 this.clearInput();
                 this.$inputField.blur();
                 break;
@@ -237,12 +241,20 @@ export class SrfSearch {
         this.$closeIcon.removeClass('h-element--hide');
         let y = this.$inputField.position().top;
         let x = this.$inputField.position().left;
+
         x = x + this.$inputField.outerWidth() - this.$closeIcon.outerWidth();
         this.$closeIcon.css({'top': y, 'left': x});
+        if ($(window).width() > 720) {
+            this.$closeIcon.attr("tabindex", -1).attr("aria-hidden", true);
+        }
+
     }
 
     hideCloseIcon() {
         this.$closeIcon.addClass('h-element--hide');
+        if ($(window).width() > 720) {
+            this.$closeIcon.attr("tabindex", "").attr("aria-hidden", false);
+        }
     }
 
     showCloseIconIfNeeded(deferred) {
