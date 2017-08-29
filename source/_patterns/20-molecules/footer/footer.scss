@@ -27,6 +27,7 @@ ul.footerTop-secnav {
     flex-direction: row;
     flex-grow: 0;
     height: auto;
+    padding: 32px 8px;
   }
 }
 
@@ -53,6 +54,10 @@ a.footerTop-secnavLink {
   border-bottom: none;
   border-radius: 2px;
   padding: 12px 8px;
+  
+  @include tablet-up {
+    margin-right:8px;
+  }
 }
 
 .footerTop-secnavLink::before {
@@ -74,7 +79,7 @@ a.footerTop-secnavLink {
     flex-wrap: nowrap;
     align-content: start;
     justify-content: space-between;
-    padding-bottom: 20px;
+    padding: 20px 16px;
   }
 }
 

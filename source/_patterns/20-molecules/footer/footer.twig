@@ -1,6 +1,6 @@
-<footer class="footer l-full-width-container">
+<footer class="footer">
   <section class="footerTop">
-    <div class="l-main-wrapper">
+    <div class="l-content-wrapper">
       {% block search %}
         {% include 'atoms-search' with { 'search': { 'styleModifier': 'searchbox--footer' } } %}
       {% endblock %}
@@ -19,7 +19,7 @@
       </ul>
     </div>
   </section>
-  <section class="footerBottom l-main-wrapper">
+  <section class="footerBottom l-content-wrapper">
     <div class="footerBottom-container footerBottom-container--srg">
       <img src="{{ frameworkAssetPath }}/img/srgssr_logo.svg" class="footerBottom-srglogo" alt="Logo der SRG SSR" />
       <p class="footerBottom-paragraph">SRF Schweizer Radio und Fernsehen, Zweigniederlassung der Schweizerischen Radio- und Fernsehgesellschaft</p>

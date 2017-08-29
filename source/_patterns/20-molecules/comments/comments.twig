@@ -2,7 +2,7 @@
          data-i18n-text-clock="Uhr"
          data-i18n-text-today="Heute"
          data-i18n-text-yesterday="Gestern">
-    <div class="comments-wrapper" data-total-count="{{ comments.total_count }}" {% block data_attributes %}{% endblock %}>
+    <div class="comments-wrapper l-content-wrapper" data-total-count="{{ comments.total_count }}" {% block data_attributes %}{% endblock %}>
         <div class="comments-header">
             <h3 class="comments-header__title comments--shrink">
                 {% if comments.total_count > 0 %}{{ comments.total_count }} {% endif %}
