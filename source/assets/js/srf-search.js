@@ -34,7 +34,6 @@ export class SrfSearch {
         })
 
         this.$inputField.on("keyup", (e) => {
-            // this.enhanceAccessibility();
             this.onKeyUp(e);
         });
 
@@ -326,7 +325,7 @@ export class SrfSearch {
         if (!this.expandable) {
             return;
         }
-        if ($('.searchbox.searchbox--header').hasClass('centered')) {
+        if ($('.searchbox--header').hasClass('centered')) {
             this.hideCloseIcon();
             $('.searchbox--header').removeClass('centered');
             let right = parseInt($('.searchbox').css('right'));
