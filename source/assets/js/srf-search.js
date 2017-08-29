@@ -41,6 +41,8 @@ export class SrfSearch {
             this.onKeyDown(e);
         });
 
+
+
         this.$inputField.on("blur", (e) => {
             this.enableArticle(); // in case of a click always leave.
 
@@ -58,7 +60,7 @@ export class SrfSearch {
             if ($(window).width() < 720) {
                 $('.searchbox').css('width', "");
             }
-            
+
             this.$inputField.blur();
         });
 
@@ -246,7 +248,7 @@ export class SrfSearch {
             if (tokens[i] && tokens[i].toString().indexOf(key) > -1) {
                 // start position of key and token position are rated, name length is used as sort criteria.
                 // (startPosition * 10 -  length of whole world) / position of token:
-                weight = weight + ((100 - tokens[i].indexOf(key)) * 20 - name.length) / ((i + 1) * 3);
+                weight = weight + ((100 - tokens[i].indexOf(key)) * 20 - name.length) / ((i + 1) *2);
             }
         }
 
