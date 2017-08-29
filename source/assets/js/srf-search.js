@@ -8,6 +8,7 @@ export class SrfSearch {
         this.$closeIcon = $menu.parent().find('.close-search');
         this.options = options;
 
+        this.expandable = (options && options.expandable) ? options.expandable : false;
         this.typeaheadUrl = this.$inputField.data("typeahead-url");
         this.typeaheadData = null;
         this.suggestionUrl = '';
@@ -33,13 +34,15 @@ export class SrfSearch {
         })
 
         this.$inputField.on("keyup", (e) => {
-            this.enhanceAccessibility();
+            // this.enhanceAccessibility();
             this.onKeyUp(e);
         });
 
         this.$inputField.on("keydown", (e) => {
             this.onKeyDown(e);
         });
+
+
 
         this.$inputField.on("blur", (e) => {
             this.enableArticle(); // in case of a click always leave.
@@ -58,36 +61,36 @@ export class SrfSearch {
             if ($(window).width() < 720) {
                 $('.searchbox').css('width', "");
             }
-            
+
             this.$inputField.blur();
         });
 
 
         this.$menu.on('click', (e) => {
             e.stopPropagation();
-            e.preventDefault();
+            // do not prevent default to allow menu links be clicked.
             if (this.currTimeout !== null) {
                 if (this.currTimeout) {
                     clearTimeout(this.currTimeout);
                 }
                 this.currTimeout = setTimeout(() => {
                     this.hideMenu();
-                }, 500); // give some time to show active state before closing.
+                }, 500); // defer menu hiding to allow some time to show active state before closing.
             }
         });
     }
 
     onKeyUp(e) {
         switch (e.keyCode) {
-            case 40: // down arrow or 
+            case 40: // down arrow or
             case 38: // up arrow
                 break;
             case 9: // tab or
                 this.hideMenu();
                 break;
-            case 27: // escape must unexpand the menu but not clear it
+            case 27: // escape must leave the search and clear input
+                this.clearInput();
                 this.$inputField.blur();
-                //}
                 break;
             default:
                 this.lookup();
@@ -101,6 +104,11 @@ export class SrfSearch {
                 e.stopPropagation();
                 e.preventDefault();
                 location.href = this.suggestionUrl;
+            } else {
+                this.$menu.hide(); // do not "show" it on voiceOver :/
+                e.stopPropagation();
+                e.preventDefault();
+                this.$inputField.closest('form').submit();
             }
         }
         if (e.keyCode === 40 || e.keyCode === 38) {
@@ -158,8 +166,8 @@ export class SrfSearch {
     }
 
     enhanceAccessibility() {
+        return;
         // a search button only makes sense on desktop - when it's actually workin.
-        // TODO: What is still needed here?
         if (!(('ontouchstart' in window) || (navigator.msMaxTouchPoints > 0))) {
             // this works mobile as well unlike <enter>-keys an d the likes
             if (this.$inputField.val().length > 2 && this.$submitButton.attr("tabindex") == -1) {
@@ -205,8 +213,9 @@ export class SrfSearch {
         });
 
         if (results.length > 0) {
-            results = results.slice(0, this.options.maxSuggestionCount);
             results = this.sortResults(results, query);
+            results = results.slice(0, this.options.maxSuggestionCount);
+
             this.renderResults(results, query);
             this.$inputField.addClass('search--has-results' );
         } else {
@@ -219,59 +228,50 @@ export class SrfSearch {
 
         results.forEach((result) => {
             let name = this.highlightQuery(query, result.name);
-            html += `<li role="option" class="typeahead-suggestion" tabindex="-1"> <a href="${result.url}">${name}</a> </li>`;
+            html += `<li role="option" class="typeahead-suggestion" tabindex="-1" aria-hidden="true"> <a href="${result.url}">${name}</a> </li>`;
         })
         this.$menu.css('width', this.$inputField.outerWidth() + "px");
         this.$menu.html(html).removeClass('h-element--hide');
     }
 
     sortResults(results, key) {
-        console.log("sorting results");
         var self = this;
-
         let r = results.sort(
             function(a, b) {
-                return self.weight(a.name, key) < self.weight(b.name, key);
+                return  self.weight(b.name, key) - self.weight(a.name, key) ;
             }
         )
-        console.log(r);
         return r;
     }
 
     weight(name, key) {
-        // first, split the string and iterate over each key case-sensitive
+        let weight = 0;
+        // key is already normalized to lowercase
+        name = name.toLowerCase();
+        let tokens = name.split(/[,\/; -]/);
 
-        let tokens = name.split(" ");
-        if (parseInt(name) > 0) {
-            tokens.push(parseInt(name) + "");
-        }
-
-        let weight = -1;
-        /*
-        for (let i = 0; i < tokens.length; i++) {
-
-            if (tokens[i] === key) {
-                console.log("exact word:" + tokens[i]);
-                return (50 - i) * 10000;
+        // weight each token:
+        for (let i = 0; i <tokens.length; i++) {
+            // exact match rates high
+            if (tokens[i] == key) {
+                // exact matches in a token are rated high (tokens which come first higher):
+                weight =  weight + ((10 - i) * 1000);
             }
-        }*/
-        for (let i = 0; i < tokens.length; i++) {
-            if (tokens[i].toLowerCase() === key.toLowerCase()) {
-                console.log("unexact word match")
-                weight+= (50 - i) * 1000;
+            // inexact match
+            if (tokens[i] && tokens[i].toString().indexOf(key) > -1) {
+                // start position of key and token position are rated, name length is used as sort criteria.
+                // (startPosition * 10 -  length of whole world) / position of token:
+                weight = weight + ((100 - tokens[i].indexOf(key)) * 20 - name.length) / (i + 1);
+
             }
         }
-        // match case sensitive
-/*
-        if (name.indexOf(key) > -1) {
-            console.log("case sensitive match");
-            weight+= (50 -name.indexOf(key)) * 10;
+
+        if (weight > 0) {
+            return weight;
         }
-*/
-        if (name.toLowerCase().indexOf(key.toLowerCase()) > -1) {
-            weight+= 50 - (name.toLowerCase().indexOf(key.toLowerCase()));
-        }
-        return weight;
+
+        // no match found
+        return -1;
     }
 
     highlightQuery(query, name) {
@@ -282,14 +282,23 @@ export class SrfSearch {
     }
 
     showCloseIcon() {
-        let y = this.$inputField.position().top;
-        let x = this.$inputField.outerWidth();
-        this.$closeIcon.css({'top': y, 'left': x });
         this.$closeIcon.removeClass('h-element--hide');
+        let y = this.$inputField.position().top;
+        let x = this.$inputField.position().left;
+
+        x = x + this.$inputField.outerWidth() - this.$closeIcon.outerWidth();
+        this.$closeIcon.css({'top': y, 'left': x});
+        if ($(window).width() > 720) {
+            this.$closeIcon.attr("tabindex", -1).attr("aria-hidden", true);
+        }
+
     }
 
     hideCloseIcon() {
         this.$closeIcon.addClass('h-element--hide');
+        if ($(window).width() > 720) {
+            this.$closeIcon.attr("tabindex", "").attr("aria-hidden", false);
+        }
     }
 
     showCloseIconIfNeeded(deferred) {
@@ -313,39 +322,47 @@ export class SrfSearch {
             return;
         }
 
+        if (!this.expandable) {
+            return;
+        }
+
         this.hideCloseIcon();
         this.showCloseIconIfNeeded(500); // currTimeout gets set here
-        $('.searchbox').addClass('centered'); // add margin: 50% and animations and calculate the new width (90% of container, adjusted by width).
+        $('.searchbox.searchbox--header').addClass('centered'); // add margin: 50% and animations and calculate the new width (90% of container, adjusted by width).
 
         // calculate new width (bar must be centered)
         let right = $('.menu-handle__info').offset().left;
         let left = $('.header__logo-img').offset().left;
         let newWidth = right - left - 77; // srf logo width and  margins and paddings :/
-        $('.searchbox').css('width', newWidth);
+        $('.searchbox.searchbox--header').css('width', newWidth);
     }
 
     unexpandSearch() {
-        if ($('.searchbox').hasClass('centered')) {
+        if (!this.expandable) {
+            return;
+        }
+        if ($('.searchbox.searchbox--header').hasClass('centered')) {
             this.hideCloseIcon();
-            // this.showCloseIconIfNeeded(50);
-            $('.searchbox').removeClass('centered');
+            $('.searchbox.searchbox--header').removeClass('centered');
             let right = parseInt($('.searchbox').css('right'));
-            $('.searchbox').css('width', this.initialWidth);
-
+            $('.searchbox.searchbox--header').css('width', this.initialWidth);
         }
     }
 
     disableArticle() {
-        if (! $('div.searchOverlay')[0] &&  $(window).width() > 720 && $('body').hasClass('body--fixed') == false) {
-
+        if (!this.expandable) {
+            return;
+        }
+        if ($(window).width() > 720 && $('body').hasClass('body--fixed') == false) {
             // add classes once
-            $('body').append('<div class="search--overlay"> </div>');
             $('body').addClass('search--overlay');
         }
     }
 
     enableArticle() {
-        $('div.search--overlay').remove();
+        if (!this.expandable) {
+            return;
+        }
         $('body').removeClass('search--overlay');
     }
 }
