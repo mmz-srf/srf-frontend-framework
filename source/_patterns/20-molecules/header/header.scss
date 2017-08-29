@@ -97,7 +97,7 @@ body::after {
       }
     }
 
-    .navigation {
+    .navigation--header {
       position: absolute; // covering up safari pos. fixed bug :/
       width: 280px;
       min-height: 100%;
