@@ -2,7 +2,7 @@
   <section class="article-content">
     {% include 'atoms-button' with {'buttonText' : 'Primary Button'} %}
     {% include 'atoms-button' with {'buttonText' : 'Senden'} %}
-    {% include 'atoms-button' with {'styleModifier' : 'button--pending',   'buttonText' : 'Senden'} %}
+    {% include 'atoms-button' with {'styleModifier' : 'button--pending',   'buttonText' : ''} %}
     {% include 'atoms-button' with {'styleModifier' : 'button--success',   'buttonText' : 'Gesendet'} %}
     {% include 'atoms-button' with {'styleModifier' : 'button--on-error',  'buttonText' : 'Fehlgeschlagen'} %}
     {% include 'atoms-button' with {'styleModifier' : 'button--retry',     'buttonText' : 'Senden'} %}
@@ -10,7 +10,7 @@
     {% include 'atoms-button' with {'styleModifier' : 'button--inactive',  'buttonText' : 'Inactive Button'} %}
 
     <div class="js-toggle-container">
-      {% include 'atoms-button' with {'buttonText' : 'Abgesendet'} %}
+      {% include 'atoms-button' with {'buttonText' : 'Senden'} %}
       <button class="js-toggle-classes">Toggle Different States</button>
     </div>
 
@@ -21,7 +21,7 @@
     let $btn = $(".js-toggle-container .button");
     let state = 0;
     let states = ["",       "button--pending", "button--success", "button--pending", "button--on-error", "button--retry"];
-    let texts =  ["Senden", "Senden",          "Gesendet",        "Senden",          "Fehlgeschlagen",   "Senden?"      ];
+    let texts =  ["Senden", "",                "Gesendet",        "",                "Fehlgeschlagen",   "Senden?"      ];
 
     jQuery.fn.animateAuto = function(className, text, speed, callback){
         let elem, width;
@@ -33,7 +33,7 @@
             width = elem.css("width");
             elem.remove();
 
-            el.animate({"width":width}, speed, callback);
+            el.animate({"width": width}, speed, callback);
         });
     };
 

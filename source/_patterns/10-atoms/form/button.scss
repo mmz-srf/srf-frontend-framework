@@ -94,6 +94,10 @@ $button-animation-duration: .3s;
 
     margin: -1px auto -7px auto;
   }
+
+  .button-text {
+    display: none;
+  }
 }
 
 .button--alert,
