@@ -245,7 +245,7 @@ export class SrfSearch {
             if (tokens[i] && tokens[i].toString().indexOf(key) > -1) {
                 // start position of key and token position are rated, name length is used as sort criteria.
                 // (startPosition * 10 -  length of whole world) / position of token:
-                weight = weight + ((100 - tokens[i].indexOf(key)) * 20 - name.length) / (i + 1);
+                weight = weight + ((100 - tokens[i].indexOf(key)) * 20 - name.length) / ((i + 1) * 3);
 
             }
         }
