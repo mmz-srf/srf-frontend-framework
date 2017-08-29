@@ -237,16 +237,16 @@ export class SrfSearch {
         // weight each token:
         for (let i = 0; i <tokens.length; i++) {
             // exact match rates high
+            /*
             if (tokens[i] == key) {
                 // exact matches in a token are rated high (tokens which come first higher):
                 weight =  weight + ((10 - i) * 1000);
-            }
+            }*/
             // inexact match
             if (tokens[i] && tokens[i].toString().indexOf(key) > -1) {
                 // start position of key and token position are rated, name length is used as sort criteria.
                 // (startPosition * 10 -  length of whole world) / position of token:
                 weight = weight + ((100 - tokens[i].indexOf(key)) * 20 - name.length) / ((i + 1) * 3);
-
             }
         }
 
