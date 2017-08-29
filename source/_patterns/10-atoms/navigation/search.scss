@@ -1,23 +1,8 @@
 // @import "../../variables";
 
 .searchbox {
-  padding: 16px 16px 8px;
+  width: 100%;
 
-  @include tablet-up {
-    position: absolute;
-    width: 240px;
-    top: -59px;
-    right: 48px;
-    padding: 13px 24px 0;
-    &.centered {
-      position: absolute;
-      transition: width 0.2s cubic-bezier(0.4, 0.0, 0.2, 1);
-    }
-  }
-
-  @include desktop-up {
-    right: 81px;
-  }
   /* closing x icon */
   .close-search {
     position: absolute;
@@ -37,6 +22,48 @@
   }
 }
 
+.searchbox--header {
+  padding: 16px 16px 8px;
+
+  @include tablet-up {
+    position: absolute;
+    width: 240px;
+    top: -59px;
+    right: 48px;
+    padding: 13px 24px 0;
+    &.centered {
+      position: absolute;
+      transition: width 0.2s cubic-bezier(0.4, 0.0, 0.2, 1);
+    }
+  }
+
+  @include desktop-up {
+    right: 81px;
+  }
+}
+
+.searchbox--footer {
+  padding: 16px 12px 8px;
+  margin: 0 auto;
+
+  @include tablet-up {
+    max-width: 458px;
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
+
+  @include desktop-up {
+    max-width: 500px;
+  }
+
+  & .searchbox__input {
+    height: 40px;
+    background-size: auto;
+    background-position: auto;
+  }
+}
+
+
 .searchbox__input {
   display: none; // visible on document.ready to prevent problems with events firing before document.ready
   width: 100%;
@@ -52,7 +79,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  &:focus, &:not(:placeholder-shown) {
+  &:focus {
     color: $color-text-accentuation;
     background-color: $color-bg-box;
     background-position: 6px -35px;
@@ -71,23 +98,21 @@
     opacity: 1; // and opacity :)
   }
 
+  // Remove IE closing x icon because (we do the same for all browsers) :/
+  &::-ms-clear {
+    display: none;
+  }
+
   @include tablet-up {
     height: 36px; // safari has a problem with paddings :/
     padding: 0 30px 0 36px; // adjusting from 6 6 6 36 to line-height above
     background-size: 23px;
     background-position: 6px 2px;
 
-    &:focus, &:not(:placeholder-shown) {
+    .searchbox--header &:focus {
       background-position: 6px -28px;
     }
-
-    &:not(:focus) {
-      background: #555 url("../img/search-sprite.svg") no-repeat scroll 6px 0 / 28px auto;
-      color: $color-bg-box-hover;
-    }
   }
-
-
 }
 
 .searchbox__input.search--has-results {
@@ -126,6 +151,7 @@
     display: block;
     width: 100%;
     font-size: 16px;
+    height: 48px;
     font-weight: 300;
     letter-spacing: 0.5px;
     text-align: left;
@@ -141,16 +167,34 @@
       padding-left: 24px;
     }
   }
-  a:hover, li.active a, .typeahead-suggestion.active a {
+  a:hover,
+  li.active a,
+  .typeahead-suggestion.active a {
     background-color: #f5f5f2;
   }
-  a:active, a:active {
+  a:active {
     background-color: #ebebe5;
   }
 }
 
+.search--overlay {
+  position: absolute;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  &:after {
+    background-color: #000;
+    height: 100%;
+    left: 0;
+    opacity: 0.2;
+    position: absolute;
+    top: 56px;
+    width: 100%;
+  }
+}
+
 /* footer variant */
-.searchbox.search--variant {
+.searchbox.search--footer {
   position: relative;
   width: 100%;
   top: auto;
@@ -164,27 +208,8 @@
   }
 }
 
-.search--variant .searchbox__input {
+.search--footer .searchbox__input {
   height: 40px;
   background-size: auto;
   background-position: auto;
-}
-
-div.search--overlay {
-  position: absolute;
-  display: block;
-  top: 0px;
-  width: 100%;
-  height: 100%;
-  background-color: #000000;
-  margin-top: 50px;
-  opacity: 0.3;
-  cursor: pointer;
-}
-
-body.search--overlay {
-  position: absolute;
-  overflow: hidden;
-  width: 100%;
-  height: 100%;
 }

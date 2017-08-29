@@ -42,8 +42,6 @@ export class SrfSearch {
             this.onKeyDown(e);
         });
 
-
-
         this.$inputField.on("blur", (e) => {
             this.enableArticle(); // in case of a click always leave.
 
@@ -61,7 +59,7 @@ export class SrfSearch {
             if ($(window).width() < 720) {
                 $('.searchbox').css('width', "");
             }
-
+            
             this.$inputField.blur();
         });
 
@@ -165,25 +163,12 @@ export class SrfSearch {
         $next.addClass('active');
     }
 
-    enhanceAccessibility() {
-        return;
-        // a search button only makes sense on desktop - when it's actually workin.
-        if (!(('ontouchstart' in window) || (navigator.msMaxTouchPoints > 0))) {
-            // this works mobile as well unlike <enter>-keys an d the likes
-            if (this.$inputField.val().length > 2 && this.$submitButton.attr("tabindex") == -1) {
-                this.$submitButton.attr("tabindex", 0).attr("aria-hidden", false);
-            } else if (this.$inputField.val().length == 0 && this.$submitButton.attr("tabindex") == 0) {
-                this.$submitButton.attr("tabindex", -1).attr("aria-hidden", true);
-            }
-        }
-    }
-
     initTypeahead() {
         if (this.typeaheadData === null) {
             $.getJSON(this.typeaheadUrl, (data) => {
                 this.typeaheadData = data;
             })
-            this.initialWidth = parseInt($('.searchbox:first').css('width'));
+            this.initialWidth = parseInt($('.searchbox--header').css('width'));
         }
         this.showCloseIconIfNeeded();
         this.expandSearch();
@@ -328,13 +313,13 @@ export class SrfSearch {
 
         this.hideCloseIcon();
         this.showCloseIconIfNeeded(500); // currTimeout gets set here
-        $('.searchbox.searchbox--header').addClass('centered'); // add margin: 50% and animations and calculate the new width (90% of container, adjusted by width).
+        $('.searchbox--header').addClass('centered'); // add margin: 50% and animations and calculate the new width (90% of container, adjusted by width).
 
         // calculate new width (bar must be centered)
         let right = $('.menu-handle__info').offset().left;
         let left = $('.header__logo-img').offset().left;
         let newWidth = right - left - 77; // srf logo width and  margins and paddings :/
-        $('.searchbox.searchbox--header').css('width', newWidth);
+        $('.searchbox--header').css('width', newWidth);
     }
 
     unexpandSearch() {
@@ -343,9 +328,9 @@ export class SrfSearch {
         }
         if ($('.searchbox.searchbox--header').hasClass('centered')) {
             this.hideCloseIcon();
-            $('.searchbox.searchbox--header').removeClass('centered');
+            $('.searchbox--header').removeClass('centered');
             let right = parseInt($('.searchbox').css('right'));
-            $('.searchbox.searchbox--header').css('width', this.initialWidth);
+            $('.searchbox--header').css('width', this.initialWidth);
         }
     }
 
@@ -353,7 +338,7 @@ export class SrfSearch {
         if (!this.expandable) {
             return;
         }
-        if ($(window).width() > 720 && $('body').hasClass('body--fixed') == false) {
+        if ($('body').hasClass('body--fixed') == false) {
             // add classes once
             $('body').addClass('search--overlay');
         }
