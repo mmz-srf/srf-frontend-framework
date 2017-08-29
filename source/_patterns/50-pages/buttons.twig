@@ -27,7 +27,7 @@
         let elem, width;
         return this.each(function(i, el){
             el = jQuery(el);
-            elem = el.clone().css({"height":"auto","width":"auto"}).appendTo("body");
+            elem = el.clone().css({"width": "auto"}).appendTo("body");
             elem.attr("class", className )
                 .find(".button-text").text( text );
             width = elem.css("width");
@@ -39,6 +39,15 @@
 
     $(".js-toggle-classes").on("click", function() {
         state = (++state) % states.length;
+
+        // Special case for pending: No text, and don't resize!
+        if (states[state] === "button--pending") {
+            let currentWidth = $btn.css("width");
+            $btn.css("width", currentWidth);
+            $btn.attr("class", "button " + states[state])
+                .find(".button-text").text("");
+            return;
+        }
 
         if ($(window).width() > 720) {
             $btn.stop().animateAuto("button " + states[state], texts[state], 200, function () {
