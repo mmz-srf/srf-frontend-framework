@@ -32,11 +32,8 @@ export function init() {
     $subMenuContent = $(".navigation__group--radio");
     $desktopCloseBtn = $(DESKTOP_CLOSE_BTN_CLASS);
 
-    let $searchInput = $header.find(".searchbox__input");
-    let $searchSubmit = $searchInput.closest(".searchbox").find("button");
-    let $searchMenu = $header.find(".searchbox__results");
-
-    srfSearch = new SrfSearch($searchInput, $searchSubmit, $searchMenu);
+    initSearch($header, {'expandable': true, 'minSearchLength': 2, 'maxSuggestionCount': 6});
+    initSearch($('.footer'), {'expandable': false, 'minSearchLength': 2, 'maxSuggestionCount': 6});
 
 
     $header.on("keydown", HANDLE_CLASS, (e) => handleKeyPress(e))
@@ -167,6 +164,18 @@ function handleBodyClick(e) {
     if (menuHasFocus && !$target.parents(".navbar").length && !$target.parents(".menu-handle").length && !$target.is(".searchbox__input, .menu-handle")) {
         closeMenu();
     }
+}
+
+function initSearch($elem, options) {
+    if (!$elem[0]) {
+        return;
+    }
+
+    let $searchInput = $elem.find(".searchbox__input");
+    let $searchSubmit = $elem.closest(".searchbox").find("button");
+    let $searchMenu = $elem.find(".searchbox__results");
+
+    srfSearch = new SrfSearch($searchInput, $searchSubmit, $searchMenu, options);
 }
 
 function isDesktop() {

@@ -161,6 +161,12 @@
   }
 }
 
+.navigation-item:first-child .navigation__group {
+  @include smartphone {
+    padding-top: 0;
+  }
+}
+
 
 .navigation__group--radio {
   background-color: #222;
