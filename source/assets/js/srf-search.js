@@ -42,7 +42,6 @@ export class SrfSearch {
         });
 
 
-
         this.$inputField.on("blur", (e) => {
             this.enableArticle(); // in case of a click always leave.
 
@@ -64,6 +63,9 @@ export class SrfSearch {
             this.$inputField.blur();
         });
 
+        this.$closeIcon.on("click", e => {
+            e.preventDefault();
+        });
 
         this.$menu.on('click', (e) => {
             e.stopPropagation();
@@ -281,11 +283,11 @@ export class SrfSearch {
     }
 
     unexpandSearch() {
+        this.hideCloseIcon();
         if (!this.expandable) {
             return;
         }
         if ($('.searchbox--header').hasClass('centered')) {
-            this.hideCloseIcon();
             $('.searchbox--header').removeClass('centered');
             let right = parseInt($('.searchbox').css('right'));
             $('.searchbox--header').css('width', this.initialWidth);
