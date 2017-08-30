@@ -8,9 +8,14 @@ export class SrfSearch {
         this.$closeIcon = $menu.parent().find('.close-search');
         this.options = options;
 
+        this.expandable = (options && options.expandable) ? options.expandable : false;
         this.typeaheadUrl = this.$inputField.data("typeahead-url");
         this.typeaheadData = null;
         this.suggestionUrl = '';
+        this.currTimeout = null;
+        this.initialWidth = 0;
+        this.resizeTimout = 0;
+
 
         // search field is hidden before document.ready (events firing before document.ready can get lost)
         this.$inputField.show();
@@ -20,6 +25,8 @@ export class SrfSearch {
     registerListeners() {
         this.$inputField.on("focus", (e) => {
             this.initTypeahead();
+            this.disableArticle();
+            this.expandSearch();
         });
 
         this.$closeIcon.on('click', (e) => {
@@ -27,7 +34,6 @@ export class SrfSearch {
         })
 
         this.$inputField.on("keyup", (e) => {
-            this.enhanceAccessibility();
             this.onKeyUp(e);
         });
 
@@ -35,21 +41,57 @@ export class SrfSearch {
             this.onKeyDown(e);
         });
 
+
         this.$inputField.on("blur", (e) => {
-            setTimeout(() => {
+            this.enableArticle(); // in case of a click always leave.
+
+            this.currTimeout = setTimeout(() => {
                 this.hideMenu();
+                this.unexpandSearch();
             }, 150);
+        });
+
+        this.$inputField.on("click", (e) => {
+            e.stopPropagation();
+        });
+
+        $(window).on('resize', (e) => {
+            if ($(window).width() < 720) {
+                $('.searchbox').css('width', "");
+            }
+
+            this.$inputField.blur();
+        });
+
+        this.$closeIcon.on("click", e => {
+            e.preventDefault();
+        });
+
+        this.$menu.on('click', (e) => {
+            e.stopPropagation();
+            // do not prevent default to allow menu links be clicked.
+            if (this.currTimeout !== null) {
+                if (this.currTimeout) {
+                    clearTimeout(this.currTimeout);
+                }
+                this.currTimeout = setTimeout(() => {
+                    this.hideMenu();
+                }, 500); // defer menu hiding to allow some time to show active state before closing.
+            }
         });
     }
 
     onKeyUp(e) {
         switch (e.keyCode) {
-            case 40: // down arrow or 
+            case 40: // down arrow or
             case 38: // up arrow
                 break;
             case 9: // tab or
-            case 27: // escape
                 this.hideMenu();
+                break;
+            case 27: // escape must leave the search and clear input
+                this.clearInput();
+                this.$inputField.blur();
                 break;
             default:
                 this.lookup();
@@ -63,6 +105,11 @@ export class SrfSearch {
                 e.stopPropagation();
                 e.preventDefault();
                 location.href = this.suggestionUrl;
+            } else {
+                this.$menu.hide(); // do not "show" it on voiceOver :/
+                e.stopPropagation();
+                e.preventDefault();
+                this.$inputField.closest('form').submit();
             }
         }
         if (e.keyCode === 40 || e.keyCode === 38) {
@@ -87,6 +134,7 @@ export class SrfSearch {
     reset() {
         this.clearInput();
         this.hideMenu();
+        this.unexpandSearch();
     }
 
     moveInMenu(direction) {
@@ -118,25 +166,16 @@ export class SrfSearch {
         $next.addClass('active');
     }
 
-    enhanceAccessibility() {
-        // a search button only makes sense on desktop - when it's actually working
-        if (!(('ontouchstart' in window) || (navigator.msMaxTouchPoints > 0))) {
-            // this works mobile as well unlike <enter>-keys an d the likes
-            if (this.$inputField.val().length > 2 && this.$submitButton.attr("tabindex") == -1) {
-                this.$submitButton.attr("tabindex", 0).attr("aria-hidden", false);
-            } else if (this.$inputField.val().length == 0 && this.$submitButton.attr("tabindex") == 0) {
-                this.$submitButton.attr("tabindex", -1).attr("aria-hidden", true);
-            }
-        }
-    }
-
     initTypeahead() {
         if (this.typeaheadData === null) {
             $.getJSON(this.typeaheadUrl, (data) => {
                 this.typeaheadData = data;
             })
+            this.initialWidth = parseInt($('.searchbox--header').css('width'));
         }
         this.showCloseIconIfNeeded();
+        this.expandSearch();
+
     }
 
     lookup() {
@@ -175,11 +214,10 @@ export class SrfSearch {
 
         results.forEach((result) => {
             let name = this.highlightQuery(query, result.name);
-            html += `<li role="option" class="typeahead-suggestion" tabindex="-1"> <a href="${result.url}">${name}</a> </li>`;
+            html += `<li role="option" class="typeahead-suggestion" tabindex="-1" aria-hidden="true"> <a href="${result.url}">${name}</a> </li>`;
         })
         this.$menu.css('width', this.$inputField.outerWidth() + "px");
         this.$menu.html(html).removeClass('h-element--hide');
-
     }
 
     highlightQuery(query, name) {
@@ -190,22 +228,87 @@ export class SrfSearch {
     }
 
     showCloseIcon() {
-        let y = this.$inputField.position().top;
-        let x = this.$inputField.outerWidth();
-        this.$closeIcon.css({'top': y, 'left': x });
         this.$closeIcon.removeClass('h-element--hide');
+        let y = this.$inputField.position().top;
+        let x = this.$inputField.position().left;
+
+        x = x + this.$inputField.outerWidth() - this.$closeIcon.outerWidth();
+        this.$closeIcon.css({'top': y, 'left': x});
+        if ($(window).width() > 720) {
+            this.$closeIcon.attr("tabindex", -1).attr("aria-hidden", true);
+        }
+
     }
 
     hideCloseIcon() {
         this.$closeIcon.addClass('h-element--hide');
+        if ($(window).width() > 720) {
+            this.$closeIcon.attr("tabindex", "").attr("aria-hidden", false);
+        }
     }
 
-    showCloseIconIfNeeded() {
-        if (this.$inputField.val() === '') {
-            this.hideCloseIcon();
+    showCloseIconIfNeeded(deferred) {
+        if (!deferred) {
+            if (this.$inputField.val() === '') {
+                this.hideCloseIcon();
+            } else {
+                this.showCloseIcon();
+            }
         } else {
-            this.showCloseIcon();
+            if (this.currTimeout) {
+                clearTimeout(this.currTimeout);
+            }
+            this.currTimeout = setTimeout(() => {this.showCloseIconIfNeeded()}, deferred);
         }
+    }
+
+    expandSearch() {
+        if ($(window).width() < 720) {
+            $('.searchbox').css('width', "");
+            return;
+        }
+
+        if (!this.expandable) {
+            return;
+        }
+        this.hideCloseIcon();
+        this.showCloseIconIfNeeded(500); // currTimeout gets set here
+        $('.searchbox--header').addClass('centered'); // add margin: 50% and animations and calculate the new width (90% of container, adjusted by width).
+
+        // calculate new width (bar must be centered)
+        let right = $('.menu-handle__info').offset().left;
+        let left = $('.header__logo-img').offset().left;
+        let newWidth = right - left - 77; // srf logo width and  margins and paddings :/
+        $('.searchbox--header').css('width', newWidth);
+    }
+
+    unexpandSearch() {
+        this.hideCloseIcon();
+        if (!this.expandable) {
+            return;
+        }
+        if ($('.searchbox--header').hasClass('centered')) {
+            $('.searchbox--header').removeClass('centered');
+            let right = parseInt($('.searchbox').css('right'));
+            $('.searchbox--header').css('width', this.initialWidth);
+        }
+    }
+
+    disableArticle() {
+        if (!this.expandable) {
+            return;
+        }
+        if ($('body').hasClass('body--fixed') == false) {
+            // add classes once
+            $('body').addClass('search--overlay');
+        }
+    }
+
+    enableArticle() {
+        if (!this.expandable) {
+            return;
+        }
+        $('body').removeClass('search--overlay');
     }
 }
 
