@@ -161,7 +161,7 @@
   }
 }
 
-.navigation-item:first-child .navigation__group {
+.navigation--footer .navigation-item:first-child .navigation__group {
   @include smartphone {
     padding-top: 0;
   }
