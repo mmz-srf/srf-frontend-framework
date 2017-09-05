@@ -91,3 +91,72 @@
     background-color: $color-bg-box-hover;
   }
 }
+
+@mixin spinner($line-width: 1px, $dash-color: #e31f2b, $bg-color: #dadad2, $parent-color: #4e4d47) {
+
+  position: relative;
+  height: 24px;
+  width: 24px;
+  animation: rotateAnimation 2s linear infinite;
+  border: $line-width $dash-color solid;
+  border-radius: 50%;
+
+  /* NON-RETINA - spinner looks ugly with the grey half-circles, so hide them by painting them in the same color as the parent (see param) */
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    box-sizing: border-box;
+
+    animation: rotateAnimation 2s infinite ease;
+
+    width: calc(50% + #{$line-width * 3});
+    height: calc(100% + #{$line-width * 6});
+
+    top: -#{$line-width * 3};
+
+    border: #{$line-width * 3} solid $parent-color;
+    background-color: $parent-color;
+  }
+
+  &::before {
+    animation-delay: 1.5s;
+    border-radius: 9999px 0 0 9999px;
+    border-right: none;
+    left: -#{$line-width * 3};
+    transform-origin: 100% 50%;
+  }
+
+  &::after {
+    border-radius: 0 9999px 9999px 0;
+    border-left: none;
+    left: 50%;
+    transform-origin: 0 50%;
+  }
+
+
+  /* RETINA: show the grey half-circles */
+  @media screen and (-webkit-min-device-pixel-ratio:2 ),
+                    (min-resolution: 192dpi),
+                    (min-resolution: 2dppx),
+                    (-o-min-device-pixel-ratio:20/10) {
+    &::before,
+    &::after {
+      width: calc(50% + #{$line-width});
+      height: calc(100% + #{$line-width * 2});
+      top: -#{$line-width};
+      border-width: #{$line-width};
+      border-color: $bg-color;
+      background-color: transparent;
+    }
+
+    &::before {
+      left: -#{$line-width};
+    }
+  }
+}
+
+@keyframes rotateAnimation {
+  0% {   transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

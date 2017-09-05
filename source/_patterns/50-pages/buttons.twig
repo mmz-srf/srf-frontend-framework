@@ -1,0 +1,64 @@
+<article class="article">
+  <section class="article-content">
+    {% include 'atoms-button' with {'buttonText' : 'Primary Button'} %}
+    {% include 'atoms-button' with {'buttonText' : 'Senden'} %}
+    {% include 'atoms-button' with {'styleModifier' : 'button--pending',   'buttonText' : ''} %}
+    {% include 'atoms-button' with {'styleModifier' : 'button--success',   'buttonText' : 'Gesendet'} %}
+    {% include 'atoms-button' with {'styleModifier' : 'button--on-error',  'buttonText' : 'Fehlgeschlagen'} %}
+    {% include 'atoms-button' with {'styleModifier' : 'button--retry',     'buttonText' : 'Senden'} %}
+    {% include 'atoms-button' with {'styleModifier' : 'button--secondary', 'buttonText' : 'Secondary Button'} %}
+    {% include 'atoms-button' with {'styleModifier' : 'button--inactive',  'buttonText' : 'Inactive Button'} %}
+
+    <div class="js-toggle-container">
+      {% include 'atoms-button' with {'buttonText' : 'Senden'} %}
+      <button class="js-toggle-classes">Toggle Different States</button>
+    </div>
+
+  </section>
+</article>
+
+<script>
+    let $btn = $(".js-toggle-container .button");
+    let state = 0;
+    let states = ["",       "button--pending", "button--success", "button--pending", "button--on-error", "button--retry"];
+    let texts =  ["Senden", "",                "Gesendet",        "",                "Fehlgeschlagen",   "Senden?"      ];
+
+    jQuery.fn.animateAuto = function(className, text, speed, callback){
+        let elem, width;
+        return this.each(function(i, el){
+            el = jQuery(el);
+            elem = el.clone().css({"width": "auto"}).appendTo("body");
+            elem.attr("class", className )
+                .find(".button-text").text( text );
+            width = elem.css("width");
+            elem.remove();
+
+            el.animate({"width": width}, speed, callback);
+        });
+    };
+
+    $(".js-toggle-classes").on("click", function() {
+        state = (++state) % states.length;
+
+        // Special case for pending: No text, and don't resize!
+        if (states[state] === "button--pending") {
+            let currentWidth = $btn.css("width");
+            $btn.css("width", currentWidth);
+            $btn.attr("class", "button " + states[state])
+                .find(".button-text").text("");
+            return;
+        }
+
+        if ($(window).width() > 720) {
+            $btn.stop().animateAuto("button " + states[state], texts[state], 200, function () {
+                $btn.attr("class", "button " + states[state])
+                    .find(".button-text").text(texts[state]);
+            });
+        } else {
+            $btn.css("width", "100%")
+                .attr("class", "button " + states[state])
+                .find(".button-text").text(texts[state]);
+        }
+
+    });
+</script>

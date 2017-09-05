@@ -1,0 +1,15 @@
+$bg-color: #dadad2;
+$dash-color: #e31f2b;
+
+$bg-color-dark: #7a7a7a;
+$dash-color-dark: #fff;
+
+$line-width: 2px;
+
+.spinner-inline {
+  @include spinner($line-width, $dash-color, $bg-color, #fff);
+}
+
+.spinner-inline--dark {
+  @include spinner($line-width, $dash-color-dark, $bg-color-dark, #fff);
+}

@@ -20,6 +20,8 @@ $color-border: #cac8bf;
 $color-border-medium: #D2D2D2;
 $color-tab-option-link: #6b6960;
 $color-button-default: #6b6960;
+$color-button-active: #888579;
+$color-button-active-secondary: $color-border;
 $color-button-success: #1a7ac5;
 $color-form-field: #b9b7ac;
 $color-form-field-hint: #6b6960;
@@ -46,3 +48,7 @@ $image-size-preview-gallery: 68px !default;
 // https://www.smashingmagazine.com/2015/11/using-system-ui-fonts-practical-guide/
 $font-system: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",  sans-serif;
 // => for IE11 support: NEVER use font: size/line-height $font-system; (short form) but font-family: $font-system instead!
+
+/*** SHADOWS ***/
+$shadow-button-default: 0 1px 2px 0 rgba(0, 0, 0, .24), 0 0 2px 0 rgba(0, 0, 0, .12);
+$shadow-button-hover:   0 4px 8px 0 rgba(0, 0, 0, .24), 0 0 8px 0 rgba(0, 0, 0, .12);

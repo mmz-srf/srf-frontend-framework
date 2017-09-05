@@ -1,2 +1,7 @@
-<button class="button {{ styleModifier }}" aria-label="{{ ariaLabelText }}"
-        type="submit">{{ buttonText|default("senden") }}</button>
+<button class="button {{ styleModifier|default("") }}">
+  <span class="h-offscreen">{{ screenReaderText|default("Screenreader-Text für Schaltfläche") }}</span>
+  <div class="button-wrapper">
+    <span class="button-icon"></span>
+    <span class="button-text">{{ buttonText|default("Senden") }}</span>
+  </div>
+</button>
