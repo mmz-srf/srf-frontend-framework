@@ -161,6 +161,12 @@
   }
 }
 
+.navigation--footer .navigation-item:first-child .navigation__group {
+  @include smartphone {
+    padding-top: 0;
+  }
+}
+
 
 .navigation__group--radio {
   background-color: #222;
@@ -170,7 +176,18 @@
   height: 0;
   padding: 0;
   transition: height 0.4s ease, // height 0.4s cubic-bezier(0.4, 0.0, 0.2, 1),
-  padding 0.4s ease;
+  padding-top 0.4s ease,
+  padding-bottom 0.4s ease;
+  
+  .navigation--header & {
+    padding: 0;
+  }
+
+  .navigation--footer & {
+    @include smartphone {
+      padding: 0;
+    }
+  }
 
   .navigation__group-item {
     height: 0;
@@ -181,12 +198,25 @@
 // radio animations pt. 2
 .navigation__group--radio-open {
   height: 456px; // we "do" know the height (must - to animate it)
-  padding: 12px 0;
+  padding: 12px;
   visibility: visible;
 
   .navigation__group-item {
     // preventing the menu (on scroll) from not reaching the bottom
     height: 48px;
+  }
+  
+  .navigation--header & {
+    padding: 12px;
+    border-bottom: none;
+  }
+   
+  .navigation--footer & {
+    margin: 0 -12px;
+    @include smartphone {
+      padding: 12px;
+      border-bottom: none;
+    }
   }
 
   .navigation__link--radio {

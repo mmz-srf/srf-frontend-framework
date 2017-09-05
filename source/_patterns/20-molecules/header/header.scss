@@ -87,7 +87,7 @@ body::after {
     }
 
     // positioning in context
-    .searchbox {
+    .searchbox--header {
       position: fixed;
       top: -3px;
       right: 129px;
@@ -97,7 +97,7 @@ body::after {
       }
     }
 
-    .navigation {
+    .navigation--header {
       position: absolute; // covering up safari pos. fixed bug :/
       width: 280px;
       min-height: 100%;
