@@ -14,7 +14,6 @@
 @import "10-atoms/article/article-author";
 @import "10-atoms/content/block-link/block-link";
 @import "10-atoms/content/content-header";
-@import "10-atoms/content/media-caption";
 @import "10-atoms/content/text-list/text-list";
 @import "10-atoms/content/carousel-counter";
 @import "10-atoms/content/infoline/infoline";
@@ -34,8 +33,8 @@
 @import "10-atoms/navigation/search";
 @import "10-atoms/navigation/expand-arrow";
 @import "10-atoms/content/breadcrumb-link";
-@import "10-atoms/separators/horizontal-separator";
-@import "10-atoms/separators/vertical-separator";
+@import "10-atoms/content/horizontal-separator";
+@import "10-atoms/content/vertical-separator";
 @import "20-molecules/article-content/article-content";
 @import "20-molecules/article-header/article-header";
 @import "20-molecules/article-teaser/article-teaser";
@@ -43,6 +42,7 @@
 @import "20-molecules/image-carousel/image-carousel";
 @import "20-molecules/image-figure/image-figure";
 @import "20-molecules/linkbox/linkbox";
+@import "20-molecules/media-caption/media-caption";
 @import "20-molecules/table-block/table-block";
 @import "20-molecules/textbox/textbox";
 @import "20-molecules/video/video";
