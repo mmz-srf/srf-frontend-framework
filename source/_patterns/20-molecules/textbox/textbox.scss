@@ -50,8 +50,10 @@
 .textbox__content {
   & > p {
     padding: 0 24px;
-    margin: 12px 0 24px;
-
+    margin: 12px 0 16px;
+    &:last-of-type {
+      margin-bottom: 24px;
+    }
     @include smartphone {
       margin: 8px 0 16px;
       padding: 0 8px;
