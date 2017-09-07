@@ -1,6 +1,12 @@
-<figure class="image-figure {{ styleModifier }}">
+<figure class="image-figure {{ styleModifier|default("") }}">
     {% block image_wrapper %}
         {% include 'atoms-image' with {'styleModifier': imageCaptionStyle } %}
+    {% endblock %}
+
+    {% block image_carousel_counter %}
+      {% if 'image-figure--indicator' in styleModifier and currentIndex is defined and totalCount is defined %}
+        {% include 'atoms-carousel-counter' with { 'currentIndex': currentIndex, 'totalCount': totalCount, 'accessibilityInfo' : 'Bild' } %}
+      {% endif %}
     {% endblock %}
 
     {% block image_caption %}
