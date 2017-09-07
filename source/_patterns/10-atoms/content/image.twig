@@ -1,7 +1,7 @@
 {% set alt = alt is defined ? alt : image.caption.title %}
 {% set src = src is defined ? src : image.sources.s8.src %}
 {% spaceless %}
-<div class="image-figure__image-wrapper imageType-{{ imageType|default('article_body_fullwidth') }}">
+<div class="image {{ styleModifier|default("") }} imageType-{{ imageType|default('article_body_fullwidth') }}">
     <img class="image-figure__image"
          alt="{{ alt }}"
          title="{{ alt }}"
