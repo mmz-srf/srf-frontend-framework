@@ -12,6 +12,7 @@
 @import "10-atoms/article/article-title";
 @import "10-atoms/article/article-lead";
 @import "10-atoms/article/article-author";
+@import "10-atoms/article/breadcrumbs";
 @import "10-atoms/content/block-link/block-link";
 @import "10-atoms/content/content-header";
 @import "10-atoms/content/text-list/text-list";
@@ -31,7 +32,6 @@
 @import "10-atoms/navigation/hamburger";
 @import "10-atoms/navigation/search";
 @import "10-atoms/navigation/expand-arrow";
-@import "10-atoms/content/breadcrumb-link";
 @import "10-atoms/content/horizontal-separator";
 @import "10-atoms/content/vertical-separator";
 @import "20-molecules/article-content/article-content";
@@ -60,7 +60,6 @@
 @import "20-molecules/form/form";
 @import "20-molecules/comments/comments";
 @import "20-molecules/polis/polis";
-@import "20-molecules/breadcrumbs/breadcrumbs";
 @import "20-molecules/header/header";
 @import "20-molecules/navigation/navigation";
 @import "20-molecules/footer/footer";
