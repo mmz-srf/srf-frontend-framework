@@ -1,8 +1,11 @@
 .form__validation {
-  display: none;
   font-size: 16px;
   line-height: 1.5;
   letter-spacing: 0.5px;
+}
+
+.form__validation--hide {
+  display: none;
 }
 
 .form__validation--success {
