@@ -34,7 +34,7 @@
 
 .textbox__title {
   padding: 0 8px;
-  margin: 16px 0 8px;
+  margin: 24px 0 12px;
   font-family: $font-medium;
   font-size: 20px;
   line-height: 32px;
@@ -50,13 +50,16 @@
 .textbox__content {
   & > p {
     padding: 0 24px;
-    margin: 12px 0 16px;
+    margin: 8px 0 16px;
+    line-height: 28px;
     &:last-of-type {
       margin-bottom: 24px;
     }
     @include smartphone {
       margin: 8px 0 16px;
       padding: 0 8px;
+      line-height: 24px;
+
     }
 
   }
