@@ -31,12 +31,6 @@
                      src="{{ video.img_src }}">
             {% endblock %}
 
-            {% block image_carousel_counter %}
-                {% if currentIndex and totalCount %}
-                    {% include 'atoms-carousel-counter' with { 'currentIndex': currentIndex, 'totalCount': totalCount } %}
-                {% endif %}
-            {% endblock %}
-
             {% include 'molecules-play-icon-with-runtime' with { 'media': 'video', 'runtime': video.length } %}
         </div>
     </figure>
