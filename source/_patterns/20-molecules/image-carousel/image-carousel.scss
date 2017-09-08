@@ -55,6 +55,10 @@
 .carousel__item {
   position: relative;
   float:left;
+
+  &:focus {
+    outline: none;
+  }
 }
 
 .carousel__link--prev,
