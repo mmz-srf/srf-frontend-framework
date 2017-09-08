@@ -1,18 +1,26 @@
-<form autocomplete="off" class="searchbox {{ search.styleModifier|default('searchbox--header') }}" action="{{ search.form_action|default('suche') }}" role="search">
+<form autocomplete="off"
+      class="searchbox {{ styleModifier|default("") }}"
+      action="suche"
+      role="search">
 
-    <label for="search-site" class="h-offscreen">{{ search.searching|default("Suchen") }}</label>
-    <input class="searchbox__input" name="q"
+    <label for="search-site" class="h-offscreen">"Suchen"</label>
+    <input class="searchbox__input"
+           name="q"
            id="search-site"
-           data-typeahead-url="{{ search.typeahead_url|default('/assets/demo/typeahead_search.json') }}"
-           data-referrer-track="srf_suchfeld={{ search.referrerTrack|default('') }}"
-           type="text" placeholder="{{ search.search|default("Suche") }}"
-    >
+           data-typeahead-url="/assets/demo/typeahead_search.json"
+           data-referrer-track="srf_suchfeld=''"
+           type="text"
+           placeholder="Suche">
 
-    <a href="#" class="close-search h-element--hide"><img src="{{ frameworkAssetPath }}/img/close.svg" title="{{ search.close|default("Suchfeld schliessen") }}" width="10" height="10"/></a>
+    <a href="#" class="close-search h-element--hide">
+        <img src="{{ frameworkAssetPath }}/img/close.svg" title="Suchfeld schliessen" width="10" height="10"/>
+    </a>
 
+    <button type="submit" class="h-offscreen" tabindex="-1" aria-hidden="true">Suchen</button>
 
-    <button type="submit" class="h-offscreen" tabindex="-1" aria-hidden="true">{{ search.searching|default("Suchen") }}</button>
-    <ul id="searchbox__results" class="searchbox__results h-element--hide" tabindex="-1" aria-hidden="true"></ul>
+    <ul id="searchbox__results"
+        class="searchbox__results h-element--hide"
+        tabindex="-1"
+        aria-hidden="true">
+    </ul>
 </form>
-
-
