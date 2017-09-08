@@ -18,7 +18,7 @@
     </div>
 {% else %}
     <figure class="image-figure {{ styleModifier }}">
-        <div class="{% if styleModifier == 'video--playing' %}article-video__player{% else %}image-figure__image-wrapper{% endif %}">
+        <div class="{% if styleModifier == 'video--playing' %}article-video__player{% else %}image{% endif %}">
             {% block video_image %}
                 <img class="image-figure__image"
                      alt="{{ 'Video «' ~ video.title ~ '» abspielen' }}"
