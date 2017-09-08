@@ -42,6 +42,9 @@
     position: absolute;
     top: 0;
   }
+  &.video--playing .image-figure__image {
+    position: relative;
+  }
 }
 
 .article-video--related {
