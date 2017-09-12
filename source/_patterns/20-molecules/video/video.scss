@@ -17,7 +17,7 @@
   }
 
   // "image" manipulations: for keeping size / loading bg / dim
-  .image-figure__image-wrapper::after {
+  .image::after {
     content: "";
     position: absolute;
     height: 100%;
@@ -41,6 +41,9 @@
   .image-figure__image {
     position: absolute;
     top: 0;
+  }
+  &.video--playing .image-figure__image {
+    position: relative;
   }
 }
 
@@ -187,7 +190,7 @@
 
   &:hover .media-caption--video,
   &:focus .media-caption--video,
-  .media-caption--video { // :/
+  .media-caption--video {
     background-color: $color-media-playing;
   }
 
@@ -211,7 +214,7 @@
 
 .video--playing,
 .video--pausing {
-  .image-figure__image-wrapper::before,
+  .image::before,
   .media-play__icon,
   .media-play__length {
     display: none;
