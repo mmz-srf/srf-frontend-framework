@@ -1,0 +1,7 @@
+<ul class="breadcrumbs {{ styleModifier|default("") }}">
+    {% for crumb in breadcrumbs %}
+    <li class="breadcrumbs__item">
+        <a class="breadcrumb__link" href="{{ crumb.url|default("#") }}">{{ crumb.name|default("click me!") }}</a>
+    </li>
+    {% endfor %}
+</ul>

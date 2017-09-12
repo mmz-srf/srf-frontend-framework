@@ -12,9 +12,17 @@
     @media all and (-ms-high-contrast: none) {
       display: block; /* IE11 */
     }
+
+    .video--loading,
+    .video--playing,
+    .video--pausing {
+      .article-video__player::before {
+        position: absolute;
+      }
+    }
   }
 
-  .article-video__link { // :/
+  .article-video__link {
     display: flex;
     height: 100%;
     flex: 1;
@@ -70,7 +78,7 @@
     }
   }
 
-  .image-figure__image-wrapper {
+  .image {
     position: unset;
 
     // overwriting the dimming of videos (to prevent errors)
@@ -165,7 +173,7 @@
 
   @include tablet-up {
     .slick-list {
-      overflow: hidden; // cuts the right most img off :/
+      overflow: hidden; // cuts the right most img off
     }
   }
 

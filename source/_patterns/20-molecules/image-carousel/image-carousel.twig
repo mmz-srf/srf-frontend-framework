@@ -5,7 +5,7 @@
         {% for image in images %}
             <div class="carousel__item">
                 {% include 'molecules-image-figure' with {
-                    'styleModifier': imageCaptionStyle,
+                    'styleModifier': imageCaptionStyle ~ " image-figure--indicator",
                     'images': [image],
                     'currentIndex': loop.index,
                     'totalCount': loop.length,

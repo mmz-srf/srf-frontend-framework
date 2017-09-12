@@ -1,43 +1,29 @@
-{% if styleModifier == 'RelatedEpisodes' %}
+{% if 'RelatedEpisodes' in styleModifier %}
     <div class="article-video__wrapper">
-        {% block video_image_related_episodes %}
-            <img class="image-figure__image"
-                 alt="{{ 'Video' }} «{{ video.title }}» {{ 'abspielen' }}" {# this should go into the image container (cms) #}
-                 title="{{ 'Video' }} «{{ video.title }}» {{ 'abspielen' }}"
-                 sizes="100vw"
-                 srcset="{% for source in video.img_srcset %}
-                            {{ source.src }} {{ source.width }}w
-                            {{ loop.last ? '' : ',' }}
-                         {% endfor %}"
-                 src="{{ video.img_src }}">
-        {% endblock %}
+        {% include 'atoms-image' with {
+            'styleModifier': styleModifier,
+            'alt': 'Video «' ~ video.title ~ '» abspielen',
+            'sizes': '100vw',
+            'image': {
+                'sources': video.img_srcset
+            },
+            'src': video.img_src
+        } %}
 
-        {% block plain_play_icon %}
-            {% include 'atoms-play-icon' with { 'media': 'video' } %}
-        {% endblock %}
+        {% include 'atoms-play-icon' with { 'media': 'video' } %}
     </div>
 {% else %}
     <figure class="image-figure {{ styleModifier }}">
-        <div class="{% if styleModifier == 'video--playing' %}article-video__player{% else %}image-figure__image-wrapper{% endif %}">
-            {% block video_image %}
-                <img class="image-figure__image"
-                     alt="{{ 'Video «' ~ video.title ~ '» abspielen' }}"
-                     title="{{ 'Video «' ~ video.title ~ '» abspielen' }}"
-                     sizes="100vw"
-                     srcset="{% for source in video.img_srcset %}
-                            {{ source.src }} {{ source.width }}w
-                            {{ loop.last ? '' : ',' }}
-                         {% endfor %}"
-                     src="{{ video.img_src }}">
-            {% endblock %}
+        {% include 'atoms-image' with {
+            'styleModifier': styleModifier == 'video--playing' ? 'article-video__player' : '',
+            'alt': 'Video «' ~ video.title ~ '» abspielen',
+            'sizes': '100vw',
+            'image': {
+                'sources': video.img_srcset
+            },
+            'src': video.img_src
+        } %}
 
-            {% block image_carousel_counter %}
-                {% if currentIndex and totalCount %}
-                    {% include 'atoms-carousel-counter' with { 'currentIndex': currentIndex, 'totalCount': totalCount } %}
-                {% endif %}
-            {% endblock %}
-
-            {% include 'molecules-play-icon-with-runtime' with { 'media': 'video', 'runtime': video.length } %}
-        </div>
+        {% include 'molecules-play-icon-with-runtime' with { 'media': 'video', 'runtime': video.length } %}
     </figure>
 {% endif %}

@@ -1,5 +1,7 @@
-<a class="menu-handle" href="#" aria-haspopup="true" role="combobox">
-    <div class="menu-handle__info {{ styleModifier }}">{{ header.menu|default("Menü") }}
-        <span class="h-offscreen" data-menu-show="{{ header.show|default("anzeigen") }}" data-menu-close="{{ header.close|default("schliessen") }}">{{ header.show|default("anzeigen") }}</span>
+<a class="menu-handle" href="#" aria-haspopup role="combobox">
+    <div class="menu-handle__info {{ styleModifier|default("") }}">Menü
+        <span class="h-offscreen"
+              data-menu-show="anzeigen"
+              data-menu-close="schliessen">anzeigen</span>
     </div>
 </a>
