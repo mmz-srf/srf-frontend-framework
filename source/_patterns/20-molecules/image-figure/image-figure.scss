@@ -2,6 +2,7 @@
   margin: 32px 0;
   font-size: 12px;
   line-height: 1.3;
+  overflow-y: hidden;
 
   @include smartphone {
     @include fullwidth-element;
