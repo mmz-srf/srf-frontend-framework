@@ -3,7 +3,7 @@
       action="{{ search.form_action|default('suche') }}"
       role="search">
 
-    <label for="search-site" class="h-offscreen">{{ search.searching|default("Suchen") }}</label>
+    <label for="{{ search.id|default('search') }}" class="h-offscreen">{{ search.searching|default("Suchen") }}</label>
     <input class="searchbox__input" name="q"
            id="{{ search.id|default('search') }}"
            data-typeahead-url="{{ search.typeahead_url|default('/assets/demo/typeahead_search.json') }}"
