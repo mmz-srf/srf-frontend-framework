@@ -678,6 +678,15 @@
     "show": "anzeigen",
     "is_open": "geöffnet"
   },
+  "search": {
+    "search": "Suche",
+    "searching": "Suchen",
+    "referrerTrack": "header",
+    "form_action": "/suche",
+    "id": "search",
+    "typeahead_url": "/assets/demo/typeahead_search.json",
+    "styleModifier": "searchbox--header"
+  },
   "breadcrumbs": [
     {
       "url": "www.srf.ch/sport",
