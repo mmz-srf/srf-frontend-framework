@@ -2,7 +2,7 @@
 <article class="article demo-documentation">
 
     <header class="article-header">
-        <h1 class="article-title"><p class="article-title__overline">Introduction</p>SRF Frontend Framework</h1>
+        <h1 class="article-title"><p class="article-title__overline">Introduction</p>SRF Frontend Framework (FEF)</h1>
         <p class="article-lead"></p>
     </header>
 
@@ -10,14 +10,92 @@
 
     <section class="article-content">
 
-    <h2>Table of content</h2>
     <div class="js-demo-toc"></div>
 
     <hr class="horizontal-separator" role="presentation" aria-hidden="true">
 
         <p><strong>Please note:</strong> This page uses patterns of the SRF Frontend Framework but is no reference for its usage in general (there are also some specific styles only for this page in use).</p>
 
-        <h2>CSS/Sass Development Guidelines</h2>
+        <h2>General considerations</h2>
+
+        <h3>Code structure</h3>
+        <p>Code has to be in the <em>source</em> folder. There you find a subfolder "_paterns" where you'll find the atoms, molecules etc.</p>
+        <p>Each element usually consists of:</p>
+
+        <ul>
+            <li>myelement.scss</li>
+            <li>myelement.twig</li>
+            <li>myelement.md</li>
+        </ul>
+
+        <h4>Styles</h4>
+
+        <p>
+            Styles has to be included in the <em>source/_patterns/main.scss</em> : <br>
+            <code>@import "10-atoms/charts/charts";</code>
+        </p>
+
+        <p>See <a href="#style_guidelines">CSS/Sass Development Guideline</a> for further informations.</p>
+
+        <h4>Javascript</h4>
+
+        <p>
+            The javascript for your atome or molecule has to be in the folder <em>source/assets/js</em>. Use a <code>srf-</code> prefix and include the file in the <em>main.js</em> (only for usage in FEF).
+        </p>
+
+        <p><strong>Important:</strong> Do not write JS code in FEF which is only usable in a SRF context. FEF components should always be independent and reusable.</p>
+
+        <h3>What to include in the FEF?</h3>
+        <p>Frontend elements, which</p>
+        <ul>
+            <li>generally reusable</li>
+            <li>are expected to be reused (follow the YAGNI principle)</li>
+            <li>don’t have a complex logic</li>
+        </ul>
+
+        <p>Examples:</p>
+
+        <ul>
+            <li>Buttons</li>
+            <li>Textbox</li>
+            <li>Image carousel</li>
+            <li>...</li>
+        </ul>
+
+        <h3>What <strong>not</strong> to include in the FEF?</h3>
+
+        <p>Frontend elements, which are</p>
+
+        <ul>
+            <li>application specific</li>
+            <li>not content-agnostic</li>
+        </ul>
+
+        <p>Examples:</p>
+
+        <ul>
+            <li>Polis-Map</li>
+            <li>External Charts (i.e. AMCharts)</li>
+            <li>Carto-Maps</li>
+            <li>SRF Embed Element</li>
+            <li>...</li>
+        </ul>
+
+        <h3>Atomic design</h3>
+
+        <img src="http://atomicdesign.bradfrost.com/images/content/atomic-design-process.png" />
+
+        <div class="linkbox">
+            <ul class="linkbox__list">
+                <li>
+                    <a href="http://atomicdesign.bradfrost.com/chapter-2/" class="block-link block-link--external" target="_blank">
+                        Atomic Design by Brad Frost
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <h2><a id="style_guidelines"></a>CSS/Sass Development Guidelines</h2>
 
         <p>This guidelines describe the development within the SRF Frontend Framework, not it's use.</p>
 
