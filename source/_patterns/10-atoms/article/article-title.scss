@@ -22,6 +22,7 @@
   line-height: 16px;
   letter-spacing: .5px;
   color: $color-accentuation-red;
+  display: block;
 
   @include smartphone {
     margin: 24px 0 12px;
