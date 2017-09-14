@@ -177,6 +177,7 @@ function loadLazyImages(images) {
         var $image = $(image);
         if ($image.data("src")) {
             $image.attr("srcset", $image.data("srcset"));
+            $image.attr("sizes", $image.data("sizes"));
             $image.attr("src", $image.data("src"));
         }
     });
