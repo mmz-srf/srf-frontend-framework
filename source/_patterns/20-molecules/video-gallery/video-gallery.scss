@@ -13,12 +13,8 @@
       display: block; /* IE11 */
     }
 
-    .video--loading,
-    .video--playing,
-    .video--pausing {
-      .article-video__player::before {
-        position: absolute;
-      }
+    [data-disable-internal-player] .article-video__player::before {
+      position: absolute;
     }
   }
 
