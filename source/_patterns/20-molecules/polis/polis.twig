@@ -8,7 +8,7 @@
         {# Endresultat #}
         <p class="polis-result-title polis-result-title--main js-polis-result-total--statusline">
             <span class="polis-result-title__type"></span>&nbsp;
-            <time class="polis-result-title__time"></time>
+            <span class="polis-result-title__time"></span>
         </p>
         {% set resultRelativeYes = vote.results.nationalResults.relative.yes|number_format(1, '.', '') %}
         {% set resultRelativeNo = vote.results.nationalResults.relative.no|number_format(1, '.', '') %}
