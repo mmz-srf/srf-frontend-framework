@@ -1,7 +1,7 @@
-<section class="header">
+<div class="header">
     <div class="header__reserve" role="presentation"></div>
     <div class="header__container">
-        <a class="header__logo" href="/" role="link">
+        <a class="header__logo" href="/">
             <img class="header__logo-img" src="{{ frameworkAssetPath }}/img/srf_logo.svg" alt="Startseite SRF">
         </a>
         {% block hamburger %}
@@ -17,4 +17,4 @@
             {% include 'molecules-navigation' with { 'styleModifier': 'navigation--header' } %}
         {% endblock %}
     </nav>
-</section>
+</div>
