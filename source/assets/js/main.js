@@ -5,7 +5,6 @@ import {init as SrfImageSliderInit} from './srf-image-slider';
 import {init as SrfTooltipInit} from './srf-tooltip';
 import {init as SrfFormFieldInit} from './srf-form-fields';
 import {init as SrfCommentsInit} from './srf-comments';
-import {init as SrfPolisInit} from './srf-polis';
 import {init as SrfHeaderInit} from './srf-header';
 
 document.addEventListener("DOMContentLoaded", function(event) {
@@ -16,6 +15,5 @@ document.addEventListener("DOMContentLoaded", function(event) {
     SrfTooltipInit();
     SrfFormFieldInit();
     SrfCommentsInit();
-    SrfPolisInit();
     SrfHeaderInit();
 });
