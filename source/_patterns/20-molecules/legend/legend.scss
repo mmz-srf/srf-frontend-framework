@@ -18,11 +18,11 @@
   column-gap: 0;
 }
 
-.legend-element { // li
+.legend__item { // li
   overflow: hidden;
   padding: 0;
   margin: 0 0 8px;
-  // safari has a bug here :(
+  // safari has a bug here
   -webkit-column-break-inside: avoid;
   -webkit-margin-after: 0;
   -webkit-padding-after: 8px;
@@ -32,7 +32,7 @@
   }
 }
 
-.legend-element__box {
+.legend__colorbox {
   height: 12px;
   width: 12px;
   float: left;
@@ -41,7 +41,7 @@
   margin-top: 1px;
 }
 
-.legend-element__description {
+.legend__description {
   margin: 0 16px 0 22px;
   font-family: $font-system;
   font-size: 12px;
