@@ -1,5 +1,5 @@
 <footer class="footer">
-  <section class="footerTop">
+  <div class="footerTop">
     <div class="l-content-wrapper">
       {% block search %}
         {% include 'atoms-search' with { 'styleModifier': 'searchbox--footer' } %}
@@ -17,8 +17,8 @@
         </ul>
       {% endblock %}
     </div>
-  </section>
-    <section class="footerBottom l-content-wrapper">
+  </div>
+    <div class="footerBottom l-content-wrapper">
       <div class="footerBottom-container footerBottom-container--srg">
         <img src="{{ frameworkAssetPath }}/img/srgssr_logo.svg" class="footerBottom-srglogo" alt="Fancy Alt Text" />
         <p class="footerBottom-paragraph">Super duper Television Company</p>
@@ -34,5 +34,5 @@
           </ul>
         {% endblock %}
       </div>
-    </section>
+    </div>
 </footer>

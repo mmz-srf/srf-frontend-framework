@@ -5,13 +5,13 @@
     <img class="image-figure__image"
          alt="{{ alt }}"
          title="{{ alt }}"
-         sizes="{{ sizes }}"
             {% if image.sources is defined %}
                 {% set imageSources = [] %}
                 {% for source in image.sources %}
                     {% set imageSource = source.src ~ ' ' ~ source.width ~ 'w' %}
                     {% set imageSources = imageSources|merge([imageSource]) %}
                 {% endfor %}
+                sizes="{{ sizes }}"
                 srcset="{{ imageSources|join(',') }}"
             {% endif %}
          src="{{ src }}">
