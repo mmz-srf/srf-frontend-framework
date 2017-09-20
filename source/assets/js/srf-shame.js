@@ -1,7 +1,7 @@
 /*
  * This file exists solely for nasty browser hacks, fallbacks and fixes.
  * 
- * Is it envisaged that we DELETE the code-snippets as soon as support for each targeted browser is deprecated. Therefore watch out for the «TARGETED BROWSER»-comments at the beginning of each function in this file.
+ * It is envisaged that we DELETE the code-snippets as soon as support for each targeted browser is deprecated. Therefore watch out for the «TARGETED BROWSER»-comments at the beginning of each function in this file.
  * 
  */
 
