@@ -400,6 +400,10 @@
     color: $color-accentuation-red;
     border-bottom: 2px solid $color-accentuation-red;
   }
+
+  &:focus {
+    outline: none;
+  }
 }
 
 /// replies (interactive commenting)
