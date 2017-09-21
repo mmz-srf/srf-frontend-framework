@@ -24,43 +24,6 @@ var commentController = function () {
         $(".reply__textarea").on({
             "scroll": that.handleScroll
         });
-
-        // main (top) comment
-        $(".comments-wrapper").on("click", ".comments-header__button", function (e) {
-            e.preventDefault();
-            if (!$(this).hasClass("login-pending")) {
-                // hide the button
-                $(this).addClass("comment--hide");
-                // move the form
-                $(".js-comment_place").removeClass("comment--hide")
-                    .appendTo(".comments-header__placeholder");
-                // set the focus
-                $(".reply__textarea").val("").focus();
-                // return false;
-            }
-        });
-
-        // movable comment
-        $(".comments-wrapper").on("click", ".comment__link--reply", function (e) {
-            e.preventDefault();
-            if (!$(this).hasClass("login-pending")) {
-                // hide main comment again (if there was one)
-                $(".comments-header__button").removeClass("comment--hide");
-
-                var parent_id = $(this).parent("li").data("id");
-
-                // move the form
-                $(".js-comment_place").removeClass("comment--hide")
-                // .appendTo("#" + parent_id.replace("comment", "placeholder"));
-                    .appendTo("#placeholder_" + parent_id);
-                // set the focus
-                $(".reply__textarea").val("").focus();
-
-                // parent_id = parent_id.split("_")[1];
-                $(".js-comment_parent_id").val(parent_id);
-                // return false;
-            }
-        });
     };
 
     this.countChars = function ($textarea) {
