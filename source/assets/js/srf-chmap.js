@@ -11,7 +11,6 @@ var chmapController = function() {
     this.maps = {};
 
     this.init = function() {
-        // $("#loader").addClass("active");
         this.loadData();
         if (!(('ontouchstart' in window) || (navigator.msMaxTouchPoints > 0))) {
             $(".chmap").addClass("chmap--desktop");
@@ -94,7 +93,7 @@ var chmapController = function() {
         });
 
         // it's near to impossible to tell whether a select menu is open :( - in order to swap the triangle
-        $('.chmap-wrapper .menu').on('change', function () { // canton select navigation
+        $('.js-chmap-menu').on('change', function () { // canton select navigation
             var cantonId = that.extractCantonId($(this).val())
                 , mapId = that.getCurrentMapId($(this))
                 , map = that.getMapById(mapId);
@@ -161,7 +160,7 @@ var chmapController = function() {
             $map.find(".chmap__location").removeClass("chmap__location--shadow");
             $map.find("#" + cantonId + "-" + this.id).addClass("chmap__location--shadow");
             // select menu
-            $map.find(".menu option[value='" + cantonId + "']").prop('selected', true);
+            $map.find(".js-chmap-menu option[value='" + cantonId + "']").prop('selected', true);
 
             var $tooltip = $("#infowindow-" + this.id);
             if ($tooltip.find("p").length === 0) {
