@@ -73,6 +73,14 @@
     @include tablet-up {
         padding: 0 24px;
     }
+
+    li::before {
+      top: 10px;
+
+      @include tablet-up {
+          top: 12px; // font size is bigger
+      }
+    }
   }
 
   & > ol {
