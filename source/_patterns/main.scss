@@ -14,7 +14,6 @@
 @import "10-atoms/navigation/breadcrumbs";
 @import "10-atoms/links/block-link";
 @import "10-atoms/text/content-heading";
-@import "20-molecules/text-list/text-list";
 @import "10-atoms/indicators/carousel-counter";
 @import "10-atoms/text/infoline";
 @import "10-atoms/form/select";
@@ -25,9 +24,7 @@
 @import "10-atoms/form/validation";
 @import "10-atoms/buttons/load-more";
 @import "10-atoms/feedback/spinner";
-@import "20-molecules/legend/legend";
 @import "10-atoms/text/tooltip";
-@import "20-molecules/media-window/media-window";
 @import "10-atoms/navigation/hamburger";
 @import "10-atoms/navigation/search";
 @import "10-atoms/navigation/expand-arrow";
@@ -62,3 +59,6 @@
 @import "20-molecules/header/header";
 @import "20-molecules/navigation/navigation";
 @import "20-molecules/footer/footer";
+@import "20-molecules/legend/legend";
+@import "20-molecules/media-window/media-window";
+@import "20-molecules/text-list/text-list";
