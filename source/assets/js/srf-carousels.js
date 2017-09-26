@@ -54,7 +54,7 @@ export function init() {
             slidesToShow: 1, // we need all dots - initially
             slidesToScroll: 1,
             accessibility: false, // default?
-            // focusOnSelect: false, // <-- not adjustable "on the fly" :/
+            focusOnChange: false,
             appendArrows: "#" + id,
             dots: true,
             centerPadding: 0,
