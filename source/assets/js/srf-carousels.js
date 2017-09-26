@@ -25,6 +25,7 @@ export function init() {
             speed: 300,
             slidesToShow: 1,
             infinite: false,
+            focusOnChange: false,
             appendArrows: "#" + id + " .slick-list",
             prevArrow: '<button class="carousel__link--prev"><span class="h-offscreen h-offscreen-focusable">Vorhergehendes Bild</span></button>',
             nextArrow: '<button class="carousel__link--next carousel__link--waggle"><span class="h-offscreen h-offscreen-focusable">Nächstes Bild</span></button>',
