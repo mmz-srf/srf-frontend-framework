@@ -532,107 +532,107 @@
       "val": "Kanton wählen"
     },
     {
-      "key": "AG",
+      "key": "AG-ID",
       "val": "Aargau"
     },
     {
-      "key": "AI",
+      "key": "AI-ID",
       "val": "Appenzell Innerrhoden"
     },
     {
-      "key": "AR",
+      "key": "AR-ID",
       "val": "Appenzell Ausserrhoden"
     },
     {
-      "key": "BE",
+      "key": "BE-ID",
       "val": "Bern"
     },
     {
-      "key": "BL",
+      "key": "BL-ID",
       "val": "Basel-Landschaft"
     },
     {
-      "key": "BS",
+      "key": "BS-ID",
       "val": "Basel-Stadt"
     },
     {
-      "key": "FR",
+      "key": "FR-ID",
       "val": "Fribourg"
     },
     {
-      "key": "GE",
+      "key": "GE-ID",
       "val": "Genf"
     },
     {
-      "key": "GL",
+      "key": "GL-ID",
       "val": "Glarus"
     },
     {
-      "key": "GR",
+      "key": "GR-ID",
       "val": "Graubünden"
     },
     {
-      "key": "JU",
+      "key": "JU-ID",
       "val": "Jura"
     },
     {
-      "key": "LU",
+      "key": "LU-ID",
       "val": "Luzern"
     },
     {
-      "key": "NE",
+      "key": "NE-ID",
       "val": "Neuenburg"
     },
     {
-      "key": "NW",
+      "key": "NW-ID",
       "val": "Nidwalden"
     },
     {
-      "key": "OW",
+      "key": "OW-ID",
       "val": "Obwalden"
     },
     {
-      "key": "SG",
+      "key": "SG-ID",
       "val": "St. Gallen"
     },
     {
-      "key": "SH",
+      "key": "SH-ID",
       "val": "Schaffhausen"
     },
     {
-      "key": "SO",
+      "key": "SO-ID",
       "val": "Solothurn"
     },
     {
-      "key": "SZ",
+      "key": "SZ-ID",
       "val": "Schwyz"
     },
     {
-      "key": "TG",
+      "key": "TG-ID",
       "val": "Thurgau"
     },
     {
-      "key": "TI",
+      "key": "TI-ID",
       "val": "Tessin"
     },
     {
-      "key": "UR",
+      "key": "UR-ID",
       "val": "Uri"
     },
     {
-      "key": "VD",
+      "key": "VD-ID",
       "val": "Waadt"
     },
     {
-      "key": "VS",
+      "key": "VS-ID",
       "val": "Wallis"
     },
     {
-      "key": "ZG",
+      "key": "ZG-ID",
       "val": "Zug"
     },
     {
-      "key": "ZH",
+      "key": "ZH-ID",
       "val": "Zürich"
     }
   ],

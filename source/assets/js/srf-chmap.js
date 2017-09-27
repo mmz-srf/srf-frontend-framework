@@ -176,6 +176,7 @@ var chmapController = function() {
             }
             $tooltip.find("p").html("<span class=\"h-offscreen\">" + canton.name + legend + "</span>" + canton.txt);
             $tooltip.addClass('chmap-infowindow--padded').show();
+            this.updateSelectMenu(cantonId);
         };
 
         this.resetSelectedCanton = function(mapId) {
@@ -183,6 +184,12 @@ var chmapController = function() {
             $tooltip.html("");
             $("#map-" + this.id + " .chmap__location").removeClass("chmap__location--shadow");
         };
+
+
+        this.updateSelectMenu = function(cantonId) {
+            $("#map-" + this.id ).parent().find(".js-chmap-menu").val(cantonId+"-"+this.id);
+        }
+
 
         this.loadResults = function() { // colors
             var that = this;
