@@ -2,7 +2,7 @@
 
 <div class="ticker__wrapper">
     <h2 class="ticker__title">Ticker live</h2>
-    {% include 'atoms-text-list--unordered' %}
+    {% include 'molecules-text-list--unordered' %}
     <p class="ticker__info ticker__info--live">LIVE seit 3 Stunden</p>
     <div><!-- div to override styling :( -->
         <ul class="ticker ticker--live">
@@ -13,7 +13,7 @@
             <li class="ticker-item">{{ ticker.ticker_heading('09:07', 4) }}{{ articleText.text[0:300]|raw }}...</li>
             <li class="ticker-item">{{ ticker.ticker_heading('08:42', 5) }}{% include 'molecules-video' %}</li>
             <li class="ticker-item">{{ ticker.ticker_heading('08:30', 6) }}{% include 'molecules-table-block' %}</li>
-            <li class="ticker-item">{{ ticker.ticker_heading('08:13', 7) }}{% include 'atoms-text-list--unordered' %}</li>
+            <li class="ticker-item">{{ ticker.ticker_heading('08:13', 7) }}{% include 'molecules-text-list--unordered' %}</li>
         </ul>
     </div>
 </div>
