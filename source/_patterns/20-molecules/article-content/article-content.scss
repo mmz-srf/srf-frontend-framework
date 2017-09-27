@@ -47,6 +47,7 @@ ul {
   // tip: always be careful with @extend
   @extend .text-list;
   @extend .text-list--unordered;
+
 }
 
 ol {
@@ -55,3 +56,15 @@ ol {
   @extend .text-list;
   @extend .text-list--ordered;
 }
+
+.article-content > .text-list--unordered {
+  li::before {
+    top: 10px;
+
+    @include tablet-up {
+      top: 12px;
+    }
+  }
+}
+
+

@@ -1,8 +1,0 @@
-{
-  "name": "srf-frontend-framework",
-  "description": "SRF Frontend Framework",
-  "private": true,
-  "dependencies": {},
-  "devDependencies": {},
-  "ignore": []
-}
