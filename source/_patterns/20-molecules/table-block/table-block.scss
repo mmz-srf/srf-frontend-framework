@@ -3,7 +3,7 @@
   margin: 16px 0 32px;
 
   @include smartphone {
-    margin: 16px -8px 24px 0px;
+    margin: 16px 0px 24px;
   }
 
   table {
@@ -36,7 +36,7 @@
   @include smartphone {
     thead th:last-of-type,
     tbody td:last-of-type {
-      border-right-width: 20px
+      border-right-width: 12px
     }
   }
 

@@ -22,12 +22,11 @@
 .text-list--unordered > li::before {
   position: absolute;
   left: 0;
-  top: 11px;
+  top: 7px;
   display: inline-block;
   width: 6px;
   height: 6px;
-  border: 1px solid #fff;
-  border-radius: 50%;
+  border-radius: 20%;
   background-color: $color-list-bullet;
   content: ' ';
 }
