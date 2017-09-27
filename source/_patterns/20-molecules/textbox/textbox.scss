@@ -68,11 +68,18 @@
     @extend .text-list;
     @extend .text-list--unordered;
 
-    padding: 0 24px;
+    padding: 0 8px;
 
-    @include smartphone {
-      padding-left: 8px;
-      padding-right: 8px;
+    @include tablet-up {
+        padding: 0 24px;
+    }
+
+    li::before {
+      top: 10px;
+
+      @include tablet-up {
+          top: 12px; // font size is bigger
+      }
     }
   }
 
@@ -81,6 +88,12 @@
     // tip: always be careful with @extend
     @extend .text-list;
     @extend .text-list--ordered;
+
+    padding: 0 8px;
+
+    @include tablet-up {
+      padding: 0 24px;
+    }
   }
   & > h4 {
     padding: 0 8px;
