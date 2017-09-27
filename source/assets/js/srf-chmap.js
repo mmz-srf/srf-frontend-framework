@@ -14,6 +14,7 @@ var chmapController = function() {
         this.loadData();
         if (!(('ontouchstart' in window) || (navigator.msMaxTouchPoints > 0))) {
             $(".chmap").addClass("chmap--desktop");
+            $(".chmap-wrapper").append('<div class="js-chmap-tooltip chmap-tooltip" style="display: none"></div>');
         }
         this.initObservers();
     };
@@ -35,36 +36,19 @@ var chmapController = function() {
 
     this.initObservers = function() {
 
-        // tooltips for cantons
-        $('.chmap-wrapper .chmap--desktop').on('mousemove', function (event) {
-            var $target = $(event.target);
-            if ($target.hasClass("chmap--desktop")) {
-                return
-            }
+        $('.chmap__location', '.chmap--desktop').on('mousemove', function (event) {
+
             $(':focus').focusout();
-            var parentOffset = $('.chmap--desktop').parent().offset(),
-            	pageY = event.pageY - parentOffset.top - 58,
+
+            var $wrapper = $(this).closest('.chmap-wrapper'),
+                $tooltip = $('.js-chmap-tooltip', $wrapper),
+                parentOffset = $wrapper.offset(),
+                pageY = event.pageY - parentOffset.top - 58,
                 pageX = event.pageX - parentOffset.left,
-                $tooltip = $("#chmap-tooltip"),
-                mapId = that.getCurrentMapId($target),
-                map = that.getMapById(mapId),
-                canton = null;
-            if ($target.is("use")) {
-                canton = map.getCantonById(that.extractCantonId($target.attr("xlink:href").substr(1)));
-            } else {
-                canton = map.getCantonById(that.extractCantonId($target.parent().attr("id")));
-            }
+                cssClass = "left";
 
-            // if not there yet: create it
-            if ($tooltip.length === 0) {
-                // TODO: check what happens if there are two maps!
-                $("#map-" + mapId).append('<div id="chmap-tooltip" class="chmap-tooltip"></div>');
-                $tooltip = $("#chmap-tooltip"); // :(
-            }
-
-            // tooltip positioning
-            var cssClass = "left";
-            if (pageX > $(this).parent().width() / 2) {
+            // position of the tooltip
+            if (pageX > $wrapper.width() / 2) {
                 cssClass = "right";
                 pageX = pageX - $tooltip.outerWidth();
             }
@@ -72,14 +56,21 @@ var chmapController = function() {
                 .removeClass("chmap-tooltip--left chmap-tooltip--right")
                 .addClass("chmap-tooltip--" + cssClass);
 
-            // naming it
-            $tooltip.html(canton.name);
-            $tooltip.show();
+            // get canton name and show tooltip - only if the map is available
+            var cantonId = $(this).attr('id').split("-")[0];
+            var map = that.getMapById(that.getCurrentMapId($(this)));
+            if (map){
+                var canton = map.getCantonById(cantonId);
+                $tooltip.text(canton.name).show();
+            }
+        });
 
-        }).on("mouseleave", "a", function() {
-            // hide tooltip!
-            $('#chmap-tooltip').hide();
-        }).on("focus mousedown", "a", function( e ) { // access...
+
+        $('.chmap__location', '.chmap--desktop').on("mouseleave", function() {
+            $(this).closest('.chmap-wrapper').find('.js-chmap-tooltip').hide();
+        });
+
+        $('.chmap-wrapper .chmap--desktop').on("focus mousedown", "a", function( e ) { // access...
             e.preventDefault();
             e.stopPropagation();
             var mapId = that.getCurrentMapId($(this))
