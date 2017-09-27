@@ -26,17 +26,17 @@ function objectFitForIE() {
 
     for(var i = 0; i < containers.length; i++) {
 
+      var objectFitVal = 'cover';
+
       if ( containers[i].querySelector('img').currentStyle ) {
-        var objectFitVal = containers[i].querySelector('img').currentStyle.getAttribute('object-fit');
-      } else {
-        var objectFitVal = 'cover'
+        objectFitVal = containers[i].querySelector('img').currentStyle.getAttribute('object-fit');
       }
 
-      if (objectFitVal == 'contain' || objectFitVal == 'cover') {
+      if (objectFitVal === 'contain' || objectFitVal === 'cover') {
 
         var oldImg = containers[i].querySelector('img'),
             imageSource = oldImg.src,
-            imageClass = oldImg.classList,
+            imageClasses = oldImg.className,
             fakeImg = document.createElement('div');
 
         oldImg.style.display = 'none';
@@ -44,7 +44,7 @@ function objectFitForIE() {
         fakeImg.style.backgroundImage = 'url(' + imageSource + ')';
         fakeImg.style.backgroundPosition = 'center center';
         fakeImg.style.backgroundRepeat = 'no-repeat';
-        fakeImg.classList.add(imageClass);
+        fakeImg.className = imageClasses;
         oldImg.parentNode.insertBefore(fakeImg, oldImg.parentNode.childNodes[0]);
 
       }
