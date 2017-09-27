@@ -22,7 +22,7 @@ function objectFitForIE() {
 
   if('objectFit' in document.documentElement.style === false) {
 
-    var containers = document.querySelectorAll('.article-teaser__wrapper, .article-audio__wrapper, .carousel__item, .article-video__wrapper, .article-media--simple, .article-media--image');
+    var containers = document.querySelectorAll('.article-teaser__wrapper, .article-audio__wrapper, .carousel__item, .article-video__wrapper, .article-media--simple, .article-media--image, .poll-media--image');
 
     for(var i = 0; i < containers.length; i++) {
 
