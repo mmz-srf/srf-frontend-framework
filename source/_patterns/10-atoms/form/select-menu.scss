@@ -1,6 +1,6 @@
 @import "../../variables";
 
-.menu {
+.select-menu {
   // height: 48px;
   width: 100%;
   color: $color-text-accentuation;
@@ -53,19 +53,19 @@ select::-ms-expand {
 // browserspecific indentations :/
 // firefox only:
 @-moz-document url-prefix() {
-  .menu {
+  .select-menu {
     text-indent: 8px;
   }
 }
 
 // ie11 & edge only:
 _:-ms-lang(x),
-.menu {
+.select-menu {
   padding-left: 8px;
 }
 
 
-.menu-label {
+.select-menu-label {
   position: relative;
   display: block;
   font: 16px/24px $font-regular;
@@ -74,7 +74,7 @@ _:-ms-lang(x),
   margin: 20px 0 4px;
 }
 
-.menu--inactive {
+.select-menu--inactive {
   opacity: .48;
   transition: none;
 

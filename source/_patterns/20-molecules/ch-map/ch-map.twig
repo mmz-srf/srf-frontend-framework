@@ -5,8 +5,8 @@
 
         {% include 'molecules-media-caption-with-legend' with { 'styleModifier': 'media-caption--chmap', 'styleModifierContent': 'media-caption__content--chmap' } %}
     </figure>
-    <div class="menu-wrapper">
-        {% include 'atoms-select' %}
+    <div class="chmap__menu-wrapper">
+        {% include 'atoms-select-menu' with { 'styleModifier': 'js-chmap-menu' } %}
     </div>
     <div id="infowindow-{{ chmap.id }}" class="chmap-infowindow"></div>
 </div>
