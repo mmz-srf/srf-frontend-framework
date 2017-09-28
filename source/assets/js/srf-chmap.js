@@ -42,12 +42,14 @@ var chmapController = function() {
 
             var $wrapper = $(this).closest('.chmap-wrapper'),
                 $tooltip = $('.js-chmap-tooltip', $wrapper),
-                parentOffset = $wrapper.offset(),
-                pageY = event.pageY - parentOffset.top - 58,
-                pageX = event.pageX - parentOffset.left,
                 cssClass = "left";
 
-            // position of the tooltip
+            // getting position of mouse pointer within the wrapper (needed for tooltip orientation)
+            var parentOffset = $wrapper.offset(),
+                pageY = event.pageY - parentOffset.top - 58,
+                pageX = event.pageX - parentOffset.left;
+
+            // change orientation of tooltip when mouse pointer is in the right half of the wrapper
             if (pageX > $wrapper.width() / 2) {
                 cssClass = "right";
                 pageX = pageX - $tooltip.outerWidth();
@@ -56,7 +58,7 @@ var chmapController = function() {
                 .removeClass("chmap-tooltip--left chmap-tooltip--right")
                 .addClass("chmap-tooltip--" + cssClass);
 
-            // get canton name and show tooltip - only if the map is available
+            // get canton name and show tooltip - only if the map object is available
             var cantonId = $(this).attr('id').split("-")[0];
             var map = that.getMapById(that.getCurrentMapId($(this)));
             if (map){
