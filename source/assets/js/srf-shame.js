@@ -6,51 +6,74 @@
  */
 
 export function init() {
-  objectFitForIE();
+    objectFitForIE();
 }
 
 function objectFitForIE() {
+    var copyPropertiesFromOldImage = function (oldImg, fakeImg, objectFitVal) {
+            var imageSource = oldImg.src,
+                imageClasses = oldImg.className;
 
-  /*
-   * TARGETED BROWSER: IE 11 and Edge <= 15
-   * 
-   * This one is a object-fit-Fallback for Browsers not supporting object-fit --> IE 11 and Edge <= 15.
-   *
-   * It looks what kind of object-fit is used on the img ('contain' or 'cover') and sets the appropriate alternative BackgroundSize.
-   * Except in Edge, where we set the 'cover'-value per default (because we use 'cover' more often than 'contain'). We do this, because Edge does not let us read out the value of the prop it does not understand (object-fit) - unlike good-old IE :-O.
-   */
+            oldImg.style.display = 'none';
+            fakeImg.style.backgroundSize = objectFitVal;
+            fakeImg.style.backgroundImage = 'url(' + imageSource + ')';
+            fakeImg.style.backgroundPosition = 'center center';
+            fakeImg.style.backgroundRepeat = 'no-repeat';
+            fakeImg.className = imageClasses + " js-fake-image-object-fit";
+        },
+        getObjectFitValue = function (elem) {
+            var objectFitVal = 'contain';
 
-  if('objectFit' in document.documentElement.style === false) {
+            if ( elem.currentStyle ) {
+                objectFitVal = elem.currentStyle.getAttribute('object-fit');
+            }
 
-    var containers = document.querySelectorAll('.article-teaser__wrapper, .article-audio__wrapper, .carousel__item, .article-video__wrapper, .article-media--simple, .article-media--image, .poll-media--image');
+            return objectFitVal;
+        };
 
-    for(var i = 0; i < containers.length; i++) {
 
-      var objectFitVal = 'cover';
+    /*
+    * TARGETED BROWSER: IE 11 and Edge <= 15
+    *
+    * This one is a object-fit-Fallback for Browsers not supporting object-fit --> IE 11 and Edge <= 15.
+    *
+    * It checks what kind of object-fit is used on the img ('contain' or 'cover') and sets the appropriate alternative
+    * BackgroundSize. Except in Edge, where we set the 'contain'-value per default (because we use 'contain' more often
+    * than 'cover' in the RA). We do this, because Edge does not let us read out the value of the prop it does not
+    * understand (object-fit) - unlike good-old IE.
+    * Additionally, a load-event-listener is bound to the image. If the source is changed (e.g. in image galleries,
+    * where images after the 2nd are only loaded on interaction with the gallery), we do the same procedure again.
+    */
 
-      if ( containers[i].querySelector('img').currentStyle ) {
-        objectFitVal = containers[i].querySelector('img').currentStyle.getAttribute('object-fit');
-      }
+    if('objectFit' in document.documentElement.style === false) {
 
-      if (objectFitVal === 'contain' || objectFitVal === 'cover') {
+        var containers = document.querySelectorAll('.article-teaser__wrapper, .article-audio__wrapper, .carousel__item, .article-video__wrapper, .article-media--simple, .article-media--image, .poll-media--image');
 
-        var oldImg = containers[i].querySelector('img'),
-            imageSource = oldImg.src,
-            imageClasses = oldImg.className,
-            fakeImg = document.createElement('div');
+        for(var i = 0; i < containers.length; i++) {
 
-        oldImg.style.display = 'none';
-        fakeImg.style.backgroundSize = objectFitVal;
-        fakeImg.style.backgroundImage = 'url(' + imageSource + ')';
-        fakeImg.style.backgroundPosition = 'center center';
-        fakeImg.style.backgroundRepeat = 'no-repeat';
-        fakeImg.className = imageClasses;
-        oldImg.parentNode.insertBefore(fakeImg, oldImg.parentNode.childNodes[0]);
+            var oldImg = containers[i].querySelector('img'),
+                objectFitVal = getObjectFitValue(oldImg);
 
-      }
+            if (objectFitVal === 'contain' || objectFitVal === 'cover') {
+
+                var fakeImg = document.createElement('div');
+
+                oldImg.parentNode.insertBefore(fakeImg, oldImg.parentNode.childNodes[0]);
+
+                oldImg.addEventListener("load", function(event) {
+                    var oldImg = event.currentTarget,
+                        fakeImg = oldImg.parentElement.getElementsByClassName("js-fake-image-object-fit")[0],
+                        objectFitVal = getObjectFitValue(oldImg);
+
+                    copyPropertiesFromOldImage(oldImg, fakeImg, objectFitVal);
+                });
+
+                copyPropertiesFromOldImage(oldImg, fakeImg, objectFitVal);
+
+            }
+
+        }
 
     }
-
-  }
 
 };
