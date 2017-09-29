@@ -58,8 +58,8 @@ function objectFitForIE() {
             ],
             containers = document.querySelectorAll( relevantClasses.join(", ") );
 
-        containers.forEach(container =>  {
-            let oldImg = container.querySelector('img'),
+        for(let i = 0; i < containers.length; i++) {
+            let oldImg = containers[i].querySelector('img'),
                 objectFitVal = getObjectFitValue(oldImg);
 
             if (objectFitVal === 'contain' || objectFitVal === 'cover') {
@@ -79,7 +79,7 @@ function objectFitForIE() {
                 copyPropertiesFromOldImage(oldImg, fakeImg, objectFitVal);
 
             }
-        });
+        };
     }
 
 };
