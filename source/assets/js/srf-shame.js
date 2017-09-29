@@ -10,8 +10,8 @@ export function init() {
 }
 
 function objectFitForIE() {
-    var copyPropertiesFromOldImage = function (oldImg, fakeImg, objectFitVal) {
-            var imageSource = oldImg.src,
+    let copyPropertiesFromOldImage = (oldImg, fakeImg, objectFitVal) => {
+            let imageSource = oldImg.src,
                 imageClasses = oldImg.className;
 
             oldImg.style.display = 'none';
@@ -21,8 +21,8 @@ function objectFitForIE() {
             fakeImg.style.backgroundRepeat = 'no-repeat';
             fakeImg.className = imageClasses + " js-fake-image-object-fit";
         },
-        getObjectFitValue = function (elem) {
-            var objectFitVal = 'contain';
+        getObjectFitValue = elem => {
+            let objectFitVal = 'contain';
 
             if ( elem.currentStyle ) {
                 objectFitVal = elem.currentStyle.getAttribute('object-fit');
@@ -47,21 +47,29 @@ function objectFitForIE() {
 
     if('objectFit' in document.documentElement.style === false) {
 
-        var containers = document.querySelectorAll('.article-teaser__wrapper, .article-audio__wrapper, .carousel__item, .article-video__wrapper, .article-media--simple, .article-media--image, .poll-media--image');
+        const relevantClasses = [
+                '.article-teaser__wrapper',
+                '.article-audio__wrapper',
+                '.carousel__item',
+                '.article-video__wrapper',
+                '.article-media--simple',
+                '.article-media--image',
+                '.poll-media--image'
+            ],
+            containers = document.querySelectorAll( relevantClasses.join(", ") );
 
-        for(var i = 0; i < containers.length; i++) {
-
-            var oldImg = containers[i].querySelector('img'),
+        containers.forEach(container =>  {
+            let oldImg = container.querySelector('img'),
                 objectFitVal = getObjectFitValue(oldImg);
 
             if (objectFitVal === 'contain' || objectFitVal === 'cover') {
 
-                var fakeImg = document.createElement('div');
+                let fakeImg = document.createElement('div');
 
                 oldImg.parentNode.insertBefore(fakeImg, oldImg.parentNode.childNodes[0]);
 
-                oldImg.addEventListener("load", function(event) {
-                    var oldImg = event.currentTarget,
+                oldImg.addEventListener("load", event => {
+                    let oldImg = event.currentTarget,
                         fakeImg = oldImg.parentElement.getElementsByClassName("js-fake-image-object-fit")[0],
                         objectFitVal = getObjectFitValue(oldImg);
 
@@ -71,9 +79,7 @@ function objectFitForIE() {
                 copyPropertiesFromOldImage(oldImg, fakeImg, objectFitVal);
 
             }
-
-        }
-
+        });
     }
 
 };
