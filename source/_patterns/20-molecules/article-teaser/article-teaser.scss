@@ -2,16 +2,8 @@
 @import "../../breakpoints";
 
 .article-teaser {
-  margin: 24px 0;
-
-  border-top: 1px solid $color-border-medium;
-  border-bottom: 1px solid $color-border-medium;
   display: block;
   width: 100%;
-
-  @include tablet-up {
-    margin: 32px 0;
-  }
 
   &:hover,
   &:focus {
@@ -21,17 +13,11 @@
   &:active {
     background-color: $color-bg-caption;
   }
-
-  &:hover,
-  &:focus,
-  &:active {
-    border-bottom-color: $color-border-medium;
-  }
 }
 
 .article-teaser__wrapper {
   display: block;
-  margin: 16px;
+  padding: 16px;
 }
 
 .article-teaser__image {
