@@ -2,7 +2,7 @@
 @import "../../breakpoints";
 
 .audio-gallery { // ol
-  margin: 32px -16px;
+  margin: 32px 0;
 
   @include smartphone {
     @include fullwidth-element;
