@@ -7,6 +7,12 @@
   border: none;
 
   &:hover,
+  &:focus,
+  &:active {
+    border: none;
+  }
+
+  &:hover,
   &:focus {
     background-color: $color-link-bg-hover;
   }
