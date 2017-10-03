@@ -3,11 +3,13 @@
   padding: 24px 8px;
   
   @include tablet-up {
-    padding: 24px 0;
+    padding: 24px 32px;
   }
 }
 
 .swipemod-container {
+  max-width: $content-width;
+  margin: 0 auto;
   padding: 16px 16px 4px;
   background: $color-bg-caption;
   border-radius: 2px;
@@ -65,6 +67,16 @@
   overflow-x: scroll;
   margin:0 -28px;
   padding:0 24px;
+  
+  @include tablet {
+    margin: 0 -48px;
+    padding: 0 48px;
+  }
+  
+  @include desktop-up {
+    margin: 0 -16px;
+    padding: 0 16px;
+  }
 }
 
 .swipemod-item {
