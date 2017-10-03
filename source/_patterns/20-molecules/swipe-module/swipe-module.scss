@@ -2,48 +2,109 @@
   background: $color-bg-box;
   padding: 24px 8px;
   
-  @include tablet {
+  @include tablet-up {
     padding: 24px 32px;
   }
 }
 
 .swipemod-container {
-  padding: 16px;
+  padding: 16px 16px 4px;
   background: $color-bg-caption;
   border-radius: 2px;
   box-shadow: 0 1px 2px 0 rgba(0,0,0,.24), 0 0 2px 0 rgba(0,0,0,.12);
+}
+
+.swipemod-titlecontainer {
+  display: flex;
+  justify-content: space-between;
+}
   
-  h3 {
-    margin: 0;
-    font-family: $font-regular;
-    font-size: 22px;
-    line-height: 1.27;
-    letter-spacing: .2px;
-    color: $color-text-accentuation;
+.swipemod-title {
+  flex: 0 1 auto;
+  margin: 0;
+  font-family: $font-regular;
+  font-size: 22px;
+  line-height: 1.27;
+  letter-spacing: .2px;
+  color: $color-text-accentuation;
+}
+
+.swipemod-showall {
+  flex: 0 1 auto;
+  font-size: 16px;
+  line-height: 1;
+  letter-spacing: .5px;
+  border-bottom: none;
+  top: 3px;
+  padding: 0 24px 0 0;
+  position: relative;
+    
+  &:hover,
+  &:active,
+  &:focus {
+    border: none; // overwrite of global a-stlyes :rolling-eyes:
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: auto;
+    right: 4px;
+    height: 12px;
+    width: 12px;
+    border-bottom: 1px solid #c91024;
+    border-right: 1px solid #c91024;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg)
   }
 }
 
 .swipemod-swipe {
   display: flex;
-  // overflow-x: scroll;
-  // margin: 0 -24px;
-  // padding: 0 24px;
+  overflow-x: scroll;
+  margin:0 -28px;
+  padding:0 24px;
 }
 
 .swipemod-item {
   flex: none;
-  margin: 12px 8px 0 0;
+  margin: 12px 4px;
   width: 240px;
   background: $color-bg-card;
   border-radius: 2px;
+  border: none;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.24), 0 0 2px 0 rgba(0, 0, 0, 0.12);
   
   @include tablet {
     width: 312px;
   }
   
-  @include desktop-up {
+  @include desktop {
+    width: 289px;
+  }
+  
+  @include desktop-wide {
     width: 356px;
+  }
+  
+  &:hover,
+  &:active,
+  &:focus {
+    border: none; // overwrite of global a-stlyes :rolling-eyes:
+  }
+}
+
+.swipemod-item--single {
+  width: calc(100% - 8px); // 100% minus double 4px margin
+  max-width: 330px;
+}
+
+.swipemod-item--duo {
+  @include tablet-up {
+    width: auto;
+    max-width: 330px;
+    flex: 0 1 auto;
   }
 }
 
@@ -76,7 +137,27 @@
     height: 175px;
   }
   
-  @include desktop-up {
+  @include desktop {
+    height: 164px;
+  }
+  
+  @include desktop-wide {
     height: 200px;
+  }
+}
+
+.swipemod-item--single {
+  .swipemod-image {
+    height: 153px;
+    
+    @include tablet-up {
+      height: 185px;
+    }
+  }
+}
+
+.swipemod-item--duo {
+  .swipemod-image {
+    height: 185px;
   }
 }
