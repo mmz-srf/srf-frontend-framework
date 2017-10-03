@@ -1,6 +1,7 @@
 .swipemod {
   background: $color-bg-box;
   padding: 24px 8px;
+  overflow-x: hidden;
   
   @include tablet-up {
     padding: 24px 32px;
@@ -75,7 +76,7 @@
   
   @include desktop-up {
     margin: 0 -16px;
-    padding: 0 16px;
+    padding: 0 14px;
   }
 }
 
