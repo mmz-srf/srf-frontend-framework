@@ -2,11 +2,11 @@
 @import "../../breakpoints";
 
 .article-audio__link {
-  margin: 24px 0;
+  margin: 24px 16px;
   display: block;
 
   @include tablet-up {
-    margin: 32px 16px;
+    margin: 32px 0;
   }
 }
 

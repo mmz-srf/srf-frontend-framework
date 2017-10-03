@@ -2,11 +2,13 @@
 @import "../../breakpoints";
 
 .audio-gallery { // ol
-  margin: 32px 0;
+  margin: 32px -16px;
 
   @include smartphone {
     @include fullwidth-element;
     padding: 0 8px;
+    margin-left: 16px;
+    margin-right: 16px;
   }
 
   .article-audio__wrapper {
