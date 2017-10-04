@@ -1,0 +1,26 @@
+<div class="medium">
+    <div class="medium__object">
+
+    </div>
+    <div class="medium__figure"></div>
+</div>
+
+
+<div class="medium medium--video">
+    <div class="medium__object">
+
+    </div>
+    <div class="medium__figure"></div>
+</div>
+
+<div class="medium medium--audio">
+    <div class="medium__object">
+        {% include 'atoms-image' %}
+        {% include 'atoms-play-icon' with {'media': 'audio'} %}
+        {% include 'atoms-spinner' with { 'styleModifier' : 'spinner__circle--dash-white' } %}
+    </div>
+    <div class="medium__figure">
+        {% include 'molecules-media-caption-audio' %}
+    </div>
+
+</div>

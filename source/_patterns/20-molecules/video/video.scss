@@ -15,17 +15,7 @@
       background-color: $color-bg-box;
     }
   }
-
-  // "image" manipulations: for keeping size / loading bg / dim
-  .image::after {
-    content: "";
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    top: 0;
-    background-color: rgba(0, 0, 0, .2);
-  }
-
+  
   .image-figure {
     margin-top: 0;
     margin-bottom: 0;

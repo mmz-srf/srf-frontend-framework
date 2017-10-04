@@ -1,0 +1,23 @@
+.medium {
+  display: flex;
+  align-items: flex-start;
+  margin: 24px 0;
+  display: block;
+
+  @include tablet-up {
+    margin: 32px 0;
+  }
+}
+
+.medium--video {
+  flex-direction: column;
+}
+
+.medium__object {
+  margin-right: 1em;
+}
+
+.medium__figure {
+  flex: 1;
+
+}
