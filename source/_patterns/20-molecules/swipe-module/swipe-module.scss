@@ -100,12 +100,12 @@
   
   @include tablet {
     margin: 12px 6px;
-    max-width: calc((100% / 2) - 12px);
+    width: calc((100% / 2) - 12px);
   }
   
   @include desktop-up {
     margin: 12px 6px;
-    max-width: calc((100% / 3) - 12px);
+    width: calc((100% / 3) - 12px);
   }
   
   &:hover,
@@ -125,17 +125,17 @@
 
 .swipemod-swipecontainer--3ormore .swipemod-item {
   @include tablet {
-    max-width: calc((100% / 2) - 52px + (2 * 12px));
+    width: calc((100% / 2) - 52px + (2 * 12px));
   }
 }
 
 .swipemod-swipecontainer--4ormore .swipemod-item {
   @include desktop-up {
-    max-width: calc((100% / 3) - 52px + 28px);
+    width: calc((100% / 3) - 52px + 28px);
   }
   
   @include desktop-wide {
-    max-width: calc((100% / 3) - 92px + 56px);
+    width: calc((100% / 3) - 92px + 56px);
   }
 }
 
