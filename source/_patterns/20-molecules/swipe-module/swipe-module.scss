@@ -32,7 +32,6 @@
   display: flex;
   justify-content: space-between;
 }
-
 .swipemod-title {
   flex: 0 1 auto;
   margin: 0;
@@ -42,7 +41,6 @@
   letter-spacing: .2px;
   color: $color-text-accentuation;
 }
-
 .swipemod-showall {
   flex: 0 1 auto;
   font-size: 16px;
@@ -74,7 +72,6 @@
   }
 }
 
-
 .swipemod-swipecontainer {
   display: flex;
   overflow-x: auto;
@@ -91,7 +88,6 @@
     padding: 0 12px;
   }
 }
-
 .swipemod-swipecontainer--2ormore {
   &::after {
     content: "";
@@ -142,7 +138,6 @@
     border: none; // overwrite of global a-stlyes :rolling-eyes:
   }
 }
-
 .swipemod-swipecontainer--2ormore .swipemod-item {
   flex: 1 0 calc(100% - 48px + 8px);
   
@@ -150,13 +145,11 @@
     flex: 1 0 calc(100% - (48px + 32px) + 12px);
   }
 }
-
 .swipemod-swipecontainer--3ormore .swipemod-item {
   @include tablet {
     max-width: calc((100% / 2) - 52px + (2 * 12px));
   }
 }
-
 .swipemod-swipecontainer--4ormore .swipemod-item {
   @include desktop-up {
     max-width: calc((100% / 3) - 52px + 28px);
@@ -176,7 +169,6 @@
   letter-spacing: .2px;
   color: $color-text-default;
 }
-
 .swipemod-item__overline {
   margin: 0 0 4px 0;
   font-family: $font-regular;
@@ -193,7 +185,6 @@
   padding-bottom: 56.25%;
   position: relative;
 }
-
 .swipemod-image {
   position: absolute;
   width: 100%;
