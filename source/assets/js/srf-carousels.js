@@ -25,6 +25,8 @@ export function init() {
             speed: 300,
             slidesToShow: 1,
             infinite: false,
+            accessibility: false,
+            focusOnChange: false,
             appendArrows: "#" + id + " .slick-list",
             prevArrow: '<button class="carousel__link--prev"><span class="h-offscreen h-offscreen-focusable">Vorhergehendes Bild</span></button>',
             nextArrow: '<button class="carousel__link--next carousel__link--waggle"><span class="h-offscreen h-offscreen-focusable">Nächstes Bild</span></button>',
@@ -52,8 +54,8 @@ export function init() {
             slide: ".carousel__item",
             slidesToShow: 1, // we need all dots - initially
             slidesToScroll: 1,
-            accessibility: false, // default?
-            // focusOnSelect: false, // <-- not adjustable "on the fly" :/
+            accessibility: false,
+            focusOnChange: false,
             appendArrows: "#" + id,
             dots: true,
             centerPadding: 0,
