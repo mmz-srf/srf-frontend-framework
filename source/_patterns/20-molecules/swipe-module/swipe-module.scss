@@ -98,16 +98,8 @@
   border: none;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.24), 0 0 2px 0 rgba(0, 0, 0, 0.12);
   
-/*  @include tablet {
-    width: 312px;
-  }
-  
-  @include desktop {
-    width: 289px;
-  }
-  
-  @include desktop-wide {
-    width: 356px;
+  /*@include desktop-wide {
+    max-width: 356px;
   }*/
   
   &:hover,
