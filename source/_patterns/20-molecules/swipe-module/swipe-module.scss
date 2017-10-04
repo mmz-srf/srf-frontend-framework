@@ -15,6 +15,17 @@
   background: $color-bg-caption;
   border-radius: 2px;
   box-shadow: 0 1px 2px 0 rgba(0,0,0,.24), 0 0 2px 0 rgba(0,0,0,.12);
+  
+  @include tablet {
+    background-color: gray;
+    background-image: linear-gradient(90deg, transparent 50%, rgba(255,255,255,.5) 50%);
+    background-size: 100% 100%;
+  }
+  @include desktop-up {
+    background-color: gray;
+    background-image: linear-gradient(90deg, transparent 50%, rgba(255,255,255,.5) 50%);
+    background-size: 66.67% 66.67%;
+  }
 }
 
 .swipemod-titlecontainer {
@@ -70,7 +81,7 @@
   margin: 0 calc((8px + 16px + 4px) * -1);
   padding: 0 calc(8px + 16px);
   
-  @include tablet {
+  /*@include tablet {
     margin: 0 calc((12px + 32px + 4px) * -1);
     padding: 0 calc(12px + 32px);
   }
@@ -78,7 +89,7 @@
   @include desktop-up {
     margin: 0 calc((12px + 4px) * -1);
     padding: 0 12px;
-  }
+  }*/
 }
 
 /*.swipemod-swipecontainer--2ormore::after {
@@ -100,12 +111,12 @@
   
   @include tablet {
     margin: 12px 6px;
-    width: calc((100% / 2) - 12px);
+    max-width: calc((100% / 2) - 12px);
   }
   
   @include desktop-up {
     margin: 12px 6px;
-    width: calc((100% / 3) - 12px);
+    max-width: calc((100% / 3) - 12px);
   }
   
   &:hover,
@@ -125,17 +136,17 @@
 
 .swipemod-swipecontainer--3ormore .swipemod-item {
   @include tablet {
-    width: calc((100% / 2) - 52px + (2 * 12px));
+    max-width: calc((100% / 2) - 52px + (2 * 12px));
   }
 }
 
 .swipemod-swipecontainer--4ormore .swipemod-item {
   @include desktop-up {
-    width: calc((100% / 3) - 52px + 28px);
+    max-width: calc((100% / 3) - 52px + 28px);
   }
   
   @include desktop-wide {
-    width: calc((100% / 3) - 92px + 56px);
+    max-width: calc((100% / 3) - 92px + 56px);
   }
 }
 
@@ -159,40 +170,18 @@
   display: block;
 }
 
-.swipemod-image {
+.swipemod-imagecontainer {
+  background-color: #000;
   width: 100%;
-  height: 135px;
+  padding-bottom: 56.25%;
+  position: relative;
+}
+
+.swipemod-image {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  height: 100%;
   object-fit: cover;
-  
-  @include tablet {
-    height: 175px;
-  }
-  
-  @include desktop {
-    height: 164px;
-  }
-  
-  @include desktop-wide {
-    height: 200px;
-  }
-
-
-
-.image-wrapper {
-    background-color: #000;
-    width: 100%;
-    padding-bottom: 56.25%;
-    position: relative;
-}
-.image-wrapper img {
-    position: absolute;
-    width: 100%;
-    top: 0;
-    left: 0;
-    height: 100%;
-}
-
-
-
-
 }
