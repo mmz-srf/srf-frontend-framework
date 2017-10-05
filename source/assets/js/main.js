@@ -8,6 +8,7 @@ import {init as SrfCommentsInit} from './srf-comments';
 import {init as SrfPolisInit} from './srf-polis';
 import {init as SrfHeaderInit} from './srf-header';
 import {init as SrfShameInit} from  './srf-shame';
+import {SrfSwiper} from "./srf-swipe-module";
 
 document.addEventListener("DOMContentLoaded", function(event) {
     SrfCarouselsInit();
@@ -19,5 +20,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
     SrfCommentsInit();
     SrfPolisInit();
     SrfHeaderInit();
+    $(".swipemod").each(elem => {
+        new SrfSwiper(elem);
+    });
     SrfShameInit(); // this should propably be last, because it may contain code that depends on the previous scripts
 });
