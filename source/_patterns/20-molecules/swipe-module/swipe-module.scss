@@ -172,16 +172,16 @@ $item-max-width: 400px;
 }
 .swipemod-container--3ormore .swipemod-item {
   @include tablet {
-    max-width: calc((100% / #{$row-count-tablet}) - #{$swipe-remains} + 22px); // maybe ((2 * #{$half-gutter-padding}) + #{$half-gutter-padding}) …??? 2x half gutter = padding between 2 Elements plus half gutter (from negative margin on left)
+    max-width: calc(((100% + (2 * -#{$half-gutter-padding})) - (#{$swipe-remains} - #{$inner-outher-padding}) - ((#{$row-count-tablet} - 1) * 2 * #{$half-gutter-padding})) / #{$row-count-tablet});
   }
 }
 .swipemod-container--4ormore .swipemod-item {
   @include desktop-up {
-    max-width: calc((100% / #{$row-count-desktop}) - #{$swipe-remains} + 24px);
+    max-width: calc(((100% + (2 * -#{$half-gutter-padding})) - (#{$swipe-remains} - #{$inner-outher-padding}) - ((#{$row-count-desktop} - 1) * 2 * #{$half-gutter-padding})) / #{$row-count-desktop});
   }
   
   @include desktop-wide {
-    max-width: calc((100% / #{$row-count-desktop}) - #{$swipe-remains-large} + 54px);
+    max-width: calc(((100% + (2 * -#{$half-gutter-padding})) - (#{$swipe-remains-large} - #{$inner-outher-padding}) - ((#{$row-count-desktop} - 1) * 2 * #{$half-gutter-padding})) / #{$row-count-desktop});
   }
 }
 
