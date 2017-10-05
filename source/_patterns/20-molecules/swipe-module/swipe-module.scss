@@ -13,6 +13,9 @@ $half-gutter-padding: 6px;
 $swipe-remains-small: 48px;
 $swipe-remains: 52px;
 $swipe-remains-large: 92px;
+$row-count-tablet: 2;
+$row-count-desktop: 3;
+$item-max-width: 400px;
 
 .swipemod {
   background: $color-bg-box;
@@ -97,25 +100,25 @@ $swipe-remains-large: 92px;
   
   @include tablet {
     margin: 0 calc((12px + 32px + 4px) * -1);
-    padding: 0 calc(12px + 32px);
+    padding: 0 calc((#{$inner-outher-padding} - #{$half-gutter-padding}) + #{$outher-padding});
   }
   
   @include desktop-up {
-    margin: 0 calc((12px + 4px) * -1);
-    padding: 0 12px;
+    margin: 0 calc(16px * -1);
+    padding: 0 calc(#{$inner-outher-padding} - #{$half-gutter-padding});
   }
 }
 .swipemod-container--2ormore .swipemod-swipecontainer {
   &::after {
     content: "";
-    flex: 0 0 24px;
+    flex: 0 0 calc(#{$outher-padding-small} + #{$inner-outher-padding});
     
     @include tablet {
-      flex: 0 0 44px;
+      flex: 0 0 calc((#{$outher-padding} + #{$inner-outher-padding})  - #{$half-gutter-padding});
     }
     
     @include desktop-up {
-      flex: 0 0 12px;
+      flex: 0 0 calc(#{$inner-outher-padding} - #{$half-gutter-padding});
     }
   }
 }
@@ -132,21 +135,21 @@ $swipe-remains-large: 92px;
   flex: 1 0;
   display: flex;
   flex-direction: column;
-  margin: 12px 4px;
-  max-width: 400px;
+  margin: 12px $half-gutter-padding-small;
+  max-width: $item-max-width;
   background: $color-bg-card;
   border-radius: 2px;
   border: none;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.24), 0 0 2px 0 rgba(0, 0, 0, 0.12);
   
   @include tablet {
-    margin: 12px 6px;
-    max-width: calc((100% / 2) - 12px);
+    margin: 12px $half-gutter-padding;
+    max-width: calc((100% / #{$row-count-tablet}) - #{$gutter-padding});
   }
   
   @include desktop-up {
-    margin: 12px 6px;
-    max-width: calc((100% / 3) - 12px);
+    margin: 12px $half-gutter-padding;
+    max-width: calc((100% / #{$row-count-desktop}) - #{$gutter-padding});
   }
   
   &:hover,
@@ -156,24 +159,24 @@ $swipe-remains-large: 92px;
   }
 }
 .swipemod-container--2ormore .swipemod-item {
-  flex: 1 0 calc(100% - 48px + 8px);
+  flex: 1 0 calc(100% - #{$swipe-remains-small} + #{$gutter-padding-small});
   
   @include tablet-up {
-    flex: 1 0 calc(100% - (48px + 32px) + 12px);
+    flex: 1 0 calc(100% - (#{$swipe-remains-small} + #{$outher-padding}) + #{$gutter-padding});
   }
 }
 .swipemod-container--3ormore .swipemod-item {
   @include tablet {
-    max-width: calc((100% / 2) - 52px + (2 * 12px));
+    max-width: calc((100% / #{$row-count-tablet}) - #{$swipe-remains} + (2 * #{$gutter-padding}));
   }
 }
 .swipemod-container--4ormore .swipemod-item {
   @include desktop-up {
-    max-width: calc((100% / 3) - 52px + 28px);
+    max-width: calc((100% / #{$row-count-desktop}) - #{$swipe-remains} + 28px);
   }
   
   @include desktop-wide {
-    max-width: calc((100% / 3) - 92px + 56px);
+    max-width: calc((100% / #{$row-count-desktop}) - #{$swipe-remains-large} + 56px);
   }
 }
 
