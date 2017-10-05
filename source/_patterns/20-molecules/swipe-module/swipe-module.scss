@@ -97,6 +97,9 @@ $item-max-width: 400px;
   overflow-x: auto;
   margin: 0 calc((8px + 16px + 4px) * -1);
   padding: 0 calc(8px + 16px);
+
+  -webkit-scroll-snap-type: mandatory;
+  -webkit-scroll-snap-destination: 50% 50%;
   
   @include tablet {
     margin: 0 calc((12px + 32px + 4px) * -1);
@@ -141,6 +144,8 @@ $item-max-width: 400px;
   border-radius: 2px;
   border: none;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.24), 0 0 2px 0 rgba(0, 0, 0, 0.12);
+
+  -webkit-scroll-snap-coordinate: 50% 50%;
   
   @include tablet {
     margin: 12px $half-gutter-padding;
@@ -218,22 +223,26 @@ $item-max-width: 400px;
 .swipemod-button {
   position: absolute;
   width: 56px;
-  height: 101px;
-  top: 50%;
-  transform: translate(0, calc(-50% - 2px));
+  height: 100%;
+  top: 0;
   background-size: 16px;
   background-position: 20px;
   background-repeat: no-repeat;
   background-color: transparent;
   border: none;
+  display: none;
+}
+.swipemod-container--2ormore .swipemod-button {
+  display: block;
 }
 
+
 .swipemod-button__left {
-  left: -58px;
+  left: -38px;
   background-image: url('../img/carousel/previous_no_bg.svg');
 }
 
 .swipemod-button__right {
-  right: -58px;
+  right: -38px;
   background-image: url('../img/carousel/next_no_bg.svg');
 }
