@@ -1,10 +1,26 @@
+/*** LAYOUT ***/
+$outher-padding-small: 8px;
+$outher-padding: 32px;
+$inner-outher-padding: 16px;
+
+/*** SPACING ***/
+$gutter-padding-small: 8px;
+$gutter-padding: 12px;
+$half-gutter-padding-small: 4px;
+$half-gutter-padding: 6px;
+
+/*** UI ***/
+$swipe-remains-small: 48px;
+$swipe-remains: 52px;
+$swipe-remains-large: 92px;
+
 .swipemod {
   background: $color-bg-box;
-  padding: 24px 8px;
+  padding: 24px $outher-padding-small;
   overflow-x: hidden;
   
   @include tablet-up {
-    padding: 24px 32px;
+    padding: 24px $outher-padding;
   }
 }
 
@@ -89,7 +105,7 @@
     padding: 0 12px;
   }
 }
-.swipemod-swipecontainer--2ormore {
+.swipemod-container--2ormore .swipemod-swipecontainer {
   &::after {
     content: "";
     flex: 0 0 24px;
@@ -103,14 +119,14 @@
     }
   }
 }
-.swipemod-swipecontainer--3ormore {
+/*.swipemod-container--3ormore .swipemod-swipecontainer {
   @include desktop-up {
     overflow-x: hidden;
   }
 }
-.swipemod-swipecontainer--4ormore {
+.swipemod-container--4ormore .swipemod-swipecontainer {
   overflow-x: scroll;
-}
+}*/
 
 .swipemod-item {
   flex: 1 0;
@@ -139,19 +155,19 @@
     border: none; // overwrite of global a-stlyes :rolling-eyes:
   }
 }
-.swipemod-swipecontainer--2ormore .swipemod-item {
+.swipemod-container--2ormore .swipemod-item {
   flex: 1 0 calc(100% - 48px + 8px);
   
   @include tablet-up {
     flex: 1 0 calc(100% - (48px + 32px) + 12px);
   }
 }
-.swipemod-swipecontainer--3ormore .swipemod-item {
+.swipemod-container--3ormore .swipemod-item {
   @include tablet {
     max-width: calc((100% / 2) - 52px + (2 * 12px));
   }
 }
-.swipemod-swipecontainer--4ormore .swipemod-item {
+.swipemod-container--4ormore .swipemod-item {
   @include desktop-up {
     max-width: calc((100% / 3) - 52px + 28px);
   }
