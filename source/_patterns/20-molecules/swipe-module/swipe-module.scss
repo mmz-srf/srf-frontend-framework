@@ -94,6 +94,9 @@ $swipe-remains-large: 92px;
   overflow-x: auto;
   margin: 0 calc((8px + 16px + 4px) * -1);
   padding: 0 calc(8px + 16px);
+
+  -webkit-scroll-snap-type: mandatory;
+  -webkit-scroll-snap-destination: 50% 50%;
   
   @include tablet {
     margin: 0 calc((12px + 32px + 4px) * -1);
@@ -138,6 +141,8 @@ $swipe-remains-large: 92px;
   border-radius: 2px;
   border: none;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.24), 0 0 2px 0 rgba(0, 0, 0, 0.12);
+
+  -webkit-scroll-snap-coordinate: 50% 50%;
   
   @include tablet {
     margin: 12px 6px;
@@ -224,7 +229,7 @@ $swipe-remains-large: 92px;
   border: none;
   display: none;
 }
-.swipemod-swipecontainer--2ormore .swipemod-button {
+.swipemod-container--2ormore .swipemod-button {
   display: block;
 }
 
