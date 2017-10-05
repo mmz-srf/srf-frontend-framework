@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     SrfCommentsInit();
     SrfPolisInit();
     SrfHeaderInit();
-    $(".swipemod").each(elem => {
+    $(".swipemod").each((index, elem) => {
         new SrfSwiper(elem);
     });
     SrfShameInit(); // this should propably be last, because it may contain code that depends on the previous scripts

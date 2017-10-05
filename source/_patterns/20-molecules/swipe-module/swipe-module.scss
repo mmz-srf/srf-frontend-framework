@@ -220,26 +220,47 @@ $swipe-remains-large: 92px;
 .swipemod-button {
   position: absolute;
   width: 56px;
-  height: 100%;
-  top: 0;
-  background-size: 16px;
-  background-position: 20px;
+  height: 108px;
+  top: 50%;
+  transform: translateY(-50%);
+  background-size: 32px;
+  background-position: 14px;
   background-repeat: no-repeat;
   background-color: transparent;
   border: none;
   display: none;
+  border-radius: 2px;
+
+  &:hover,
+  &:focus {
+    background-color: rgba(0, 0, 0, 0.48);
+  }
+
+  &:active {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
 }
-.swipemod-container--2ormore .swipemod-button {
-  display: block;
+
+@include tablet-up {
+  .swipemod-container--2ormore .swipemod-button {
+    display: block;
+    opacity: 0;
+
+    &:hover,
+    &:active,
+    &:focus {
+      opacity: 1;
+    }
+  }
 }
 
 
 .swipemod-button__left {
-  left: -38px;
-  background-image: url('../img/carousel/previous_no_bg.svg');
+  left: -40px;
+  background-image: url('../img/carousel/previous.svg');
 }
 
 .swipemod-button__right {
-  right: -38px;
-  background-image: url('../img/carousel/next_no_bg.svg');
+  right: -40px;
+  background-image: url('../img/carousel/next.svg');
 }
