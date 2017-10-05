@@ -95,19 +95,19 @@ $item-max-width: 400px;
 .swipemod-swipecontainer {
   display: flex;
   overflow-x: auto;
-  margin: 0 calc((8px + 16px + 4px) * -1);
-  padding: 0 calc(8px + 16px);
+  margin: 0 calc((#{$outher-padding-small} + #{$inner-outher-padding} + #{$half-gutter-padding-small}) * -1);
+  padding: 0 calc(#{$outher-padding-small} + #{$inner-outher-padding});
 
   -webkit-scroll-snap-type: mandatory;
   -webkit-scroll-snap-destination: 50% 50%;
   
   @include tablet {
-    margin: 0 calc((12px + 32px + 4px) * -1);
+    margin: 0 calc((#{$inner-outher-padding} + #{$outher-padding}) * -1);
     padding: 0 calc((#{$inner-outher-padding} - #{$half-gutter-padding}) + #{$outher-padding});
   }
   
   @include desktop-up {
-    margin: 0 calc(16px * -1);
+    margin: 0 calc(#{$inner-outher-padding} * -1);
     padding: 0 calc(#{$inner-outher-padding} - #{$half-gutter-padding});
   }
 }
@@ -172,16 +172,16 @@ $item-max-width: 400px;
 }
 .swipemod-container--3ormore .swipemod-item {
   @include tablet {
-    max-width: calc((100% / #{$row-count-tablet}) - #{$swipe-remains} + (2 * #{$gutter-padding}));
+    max-width: calc((100% / #{$row-count-tablet}) - #{$swipe-remains} + 22px); // maybe ((2 * #{$half-gutter-padding}) + #{$half-gutter-padding}) …??? 2x half gutter = padding between 2 Elements plus half gutter (from negative margin on left)
   }
 }
 .swipemod-container--4ormore .swipemod-item {
   @include desktop-up {
-    max-width: calc((100% / #{$row-count-desktop}) - #{$swipe-remains} + 28px);
+    max-width: calc((100% / #{$row-count-desktop}) - #{$swipe-remains} + 24px);
   }
   
   @include desktop-wide {
-    max-width: calc((100% / #{$row-count-desktop}) - #{$swipe-remains-large} + 56px);
+    max-width: calc((100% / #{$row-count-desktop}) - #{$swipe-remains-large} + 54px);
   }
 }
 
