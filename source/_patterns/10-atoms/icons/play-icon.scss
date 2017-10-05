@@ -30,13 +30,7 @@
   }
 }
 
-// trigger class for parent element: if a parent or sibling of a parent has this class, it triggers
-// the hover state of the button on mouse move over the parent/parent sibling element
-.play-icon-hover-trigger:hover ~ * {
-  .play-icon {
-    @extend .play-icon:hover;
-  }
-  .play-icon--audio {
-    @extend .play-icon--audio:hover;
-  }
+// use case: see srf-media-still.js
+.play-icon--hover {
+  @extend .play-icon:hover;
 }
