@@ -15,6 +15,7 @@
   background: $color-bg-caption;
   border-radius: 2px;
   box-shadow: 0 1px 2px 0 rgba(0,0,0,.24), 0 0 2px 0 rgba(0,0,0,.12);
+  position: relative;
   
   @include tablet {
     background-color: gray;
@@ -50,7 +51,7 @@
   top: 3px;
   padding: 0 24px 0 0;
   position: relative;
-    
+
   &:hover,
   &:active,
   &:focus {
@@ -192,4 +193,28 @@
   left: 0;
   height: 100%;
   object-fit: cover;
+}
+
+/* TODO: unify with video gallery! */
+.swipemod-button {
+  position: absolute;
+  width: 56px;
+  height: 101px;
+  top: 50%;
+  transform: translate(0, calc(-50% - 2px));
+  background-size: 16px;
+  background-position: 20px;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  border: none;
+}
+
+.swipemod-button__left {
+  left: -58px;
+  background-image: url('../img/carousel/previous_no_bg.svg');
+}
+
+.swipemod-button__right {
+  right: -58px;
+  background-image: url('../img/carousel/next_no_bg.svg');
 }
