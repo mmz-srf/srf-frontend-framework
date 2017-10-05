@@ -30,9 +30,9 @@
   }
 }
 
-// trigger class for parent element: if a parent has this class, it triggers the hover state of the button on mouse move over the parent
+// trigger class for parent element: if a parent or sibling of a parent has this class, it triggers
+// the hover state of the button on mouse move over the parent/parent sibling element
 .play-icon-hover-trigger:hover ~ * {
-
   .play-icon {
     @extend .play-icon:hover;
   }

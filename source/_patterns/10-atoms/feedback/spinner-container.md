@@ -1,7 +1,7 @@
 ### spinner container
 
-this element exists is for backwards-compatibility
+this element exists for backwards-compatibility, because the original spinner
+was absolutely positioned.
 
-the original "spinner" atom corresponds to the new "spinner-container" atom.
-the new spinner atom now only contains the spinner itself so that it
-can be used without a positioned container.
+this "spinner-container" atom corresponds to the original "spinner" atom and the
+new "spinner" atom now only contains the spinner itself without a positioned container.
