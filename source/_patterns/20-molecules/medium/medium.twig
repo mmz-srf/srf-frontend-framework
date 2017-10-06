@@ -1,26 +1,17 @@
 <div class="medium">
     <div class="medium__object">
-
+        {% include 'molecules-media-still' %}
     </div>
-    <div class="medium__figure"></div>
+    <div class="medium__caption">
+        {% include 'molecules-media-caption-audio' with { 'styleModifier' : 'media-caption--audio' } %}
+    </div>
 </div>
 
-
-<div class="medium medium--video">
+<div class="medium medium--vertical">
     <div class="medium__object">
-
+        {% include 'molecules-media-still--video' %}
     </div>
-    <div class="medium__figure"></div>
-</div>
-
-<div class="medium medium--audio">
-    <div class="medium__object">
-        {% include 'atoms-image' %}
-        {% include 'atoms-play-icon' with {'media': 'audio'} %}
-        {% include 'atoms-spinner' with { 'styleModifier' : 'spinner__circle--dash-white' } %}
+    <div class="medium__caption">
+        {% include 'molecules-media-caption-video' %}
     </div>
-    <div class="medium__figure">
-        {% include 'molecules-media-caption-audio' %}
-    </div>
-
 </div>

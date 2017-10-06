@@ -1,23 +1,47 @@
 .medium {
   display: flex;
   align-items: flex-start;
-  margin: 24px 0;
-  display: block;
+  margin: 32px 0;
+  background-color: $color-bg-caption;
 
-  @include tablet-up {
-    margin: 32px 0;
+  @include smartphone {
+    margin: 24px 0;
   }
 }
 
-.medium--video {
-  flex-direction: column;
+.medium__wrapper {
+  display: flex;
+  align-items: flex-start;
 }
 
 .medium__object {
-  margin-right: 1em;
+  flex-shrink: 0;
+  width: 196px;
+  height: 110px;
+
+  @include smartphone {
+    margin: 16px 0 16px 16px;
+    height: 92px;
+    width: 92px;
+  }
 }
 
-.medium__figure {
-  flex: 1;
+.medium__caption {
+  flex-grow: 1;
+}
+
+
+.medium--vertical {
+  display: block;
+
+  .medium__object {
+    width: inherit;
+    height: inherit;
+
+    @include smartphone {
+      margin: 0;
+    }
+
+  }
 
 }
