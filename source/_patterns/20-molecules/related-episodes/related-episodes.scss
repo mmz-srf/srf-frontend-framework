@@ -130,14 +130,13 @@ $_image-tablet-width: 163px;
 }
 
 .related-item {
-  border-top: 1px solid #ebebe5;
   border-bottom: 1px solid #ebebe5;
   background: none;
   margin: 0;
   padding: 0;
 
-  &:nth-child(2n) {
-    border-top: none;
+  &:first-child {
+    border-top: 1px solid #ebebe5;
   }
 
   &::before {
