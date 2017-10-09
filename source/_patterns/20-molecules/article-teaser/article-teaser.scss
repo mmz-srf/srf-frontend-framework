@@ -5,15 +5,26 @@
   display: block;
   width: 100%;
   border: none;
+
+  &:hover,
+  &:focus,
+  &:active {
+    border: none;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: $color-link-bg-hover;
+  }
+
+  &:active {
+    background-color: $color-bg-caption;
+  }
 }
 
 .article-teaser__wrapper {
   display: block;
-  padding: 16px 16px 16px 0;
-
-  @include tablet-up {
-    padding: 16px;
-  }
+  padding: 16px;
 }
 
 .article-teaser__image {
