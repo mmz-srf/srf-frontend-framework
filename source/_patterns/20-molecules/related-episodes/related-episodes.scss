@@ -113,7 +113,6 @@ $_image-tablet-width: 163px;
   padding: 0;
 
   @include tablet-up {
-    padding: 10px 16px;
     margin: 0;
   }
 
@@ -126,10 +125,6 @@ $_image-tablet-width: 163px;
     }
   }
   
-  &:nth-child(even){
-    border-top: none;
-  }
-
   &:nth-child(even){
     border-top: none;
   }
