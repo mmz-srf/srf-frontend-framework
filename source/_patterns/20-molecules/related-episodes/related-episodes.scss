@@ -47,6 +47,7 @@ $_image-tablet-width: 163px;
     margin: 16px 0 16px 16px;
 
     @include smartphone {
+      margin: 16px 0 16px 0;
       width: $image-size-preview;
     }
 
@@ -98,7 +99,12 @@ $_image-tablet-width: 163px;
       margin: 0;
 
       .article-teaser__wrapper {
-        padding: 16px;
+        padding: 16px 16px 16px 24px;
+      }
+
+      .article-audio__wrapper,
+      .article-video__wrapper {
+        margin: 16px 0px 16px 24px;
       }
     }
   }
