@@ -88,24 +88,7 @@ $_image-tablet-width: 163px;
 .related-elements {
   list-style: none;
   padding: 0;
-  margin: 0 0 0 24px;
-
-  @include smartphone {
-    &:hover,
-    &:active,
-    &:focus {
-      margin: 0;
-
-      .article-teaser__wrapper {
-        padding: 16px 16px 16px 24px;
-      }
-
-      .article-audio__wrapper,
-      .article-video__wrapper {
-        margin: 16px 0px 16px 24px;
-      }
-    }
-  }
+  margin: 0;
 }
 
 .related-list__heading {
@@ -127,8 +110,25 @@ $_image-tablet-width: 163px;
   border-top: 1px solid #ebebe5;
   border-bottom: 1px solid #ebebe5;
   background: none;
-  margin: 0;
+  margin: 0 0 0 24px;
   padding: 0;
+
+  @include smartphone {
+    &:hover,
+    &:active,
+    &:focus {
+      margin: 0;
+
+      .article-teaser__wrapper {
+        padding: 16px 16px 16px 24px;
+      }
+
+      .article-audio__wrapper,
+      .article-video__wrapper {
+        margin: 16px 0px 16px 24px;
+      }
+    }
+  }
 
   &:nth-child(even) {
     border-top: none;
