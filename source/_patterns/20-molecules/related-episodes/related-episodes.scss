@@ -117,11 +117,13 @@ $_image-tablet-width: 163px;
     margin: 0;
   }
 
-  &:hover,
-  &:active,
-  &:focus {
-    margin: 0;
-    padding-left: 24px;
+  @include smartphone {
+    &:hover,
+    &:active,
+    &:focus {
+      margin: 0;
+      padding-left: 24px;
+    }
   }
   
   &:nth-child(even){
