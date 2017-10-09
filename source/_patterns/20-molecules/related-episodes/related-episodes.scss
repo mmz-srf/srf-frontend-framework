@@ -86,8 +86,6 @@ $_image-tablet-width: 163px;
 }
 
 .related-elements {
-  border-bottom: 1px solid #ebebe5;
-  border-top: 1px solid #ebebe5;
   list-style: none;
   padding: 0;
   margin: 0 0 0 24px;
@@ -126,13 +124,14 @@ $_image-tablet-width: 163px;
 }
 
 .related-item {
+  border-top: 1px solid #ebebe5;
   border-bottom: 1px solid #ebebe5;
   background: none;
   margin: 0;
   padding: 0;
 
-  &:last-child {
-    border-bottom: none;
+  &:nth-child(even) {
+    border-top: none;
   }
 
   &::before {
