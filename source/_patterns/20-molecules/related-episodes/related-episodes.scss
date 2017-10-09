@@ -88,6 +88,16 @@ $_image-tablet-width: 163px;
   list-style: none;
   padding: 0;
   margin: 0;
+
+  @include smartphone {
+    margin-left: 24px;
+
+    &:hover,
+    &:focus,
+    &:active {
+      margin: 0;
+    }
+  }
 }
 
 .related-list__heading {
@@ -109,11 +119,21 @@ $_image-tablet-width: 163px;
   border-top: 1px solid #ebebe5;
   border-bottom: 1px solid #ebebe5;
   background: none;
-  margin: 0 0 0 24px;
+  margin: 0;
   padding: 0;
 
-  @include tablet-up {
-    margin: 0;
+  @include smartphone {
+    &:hover,
+    &:active,
+    &:focus {
+      padding-left: 24px;
+    }
+  }
+
+  &:hover,
+  &:focus,
+  &:active {
+    border: none;
   }
 
   &:hover,
@@ -123,15 +143,6 @@ $_image-tablet-width: 163px;
 
   &:active {
     background-color: $color-bg-caption;
-  }
-
-  @include smartphone {
-    &:hover,
-    &:active,
-    &:focus {
-      margin: 0;
-      padding-left: 24px;
-    }
   }
   
   &:nth-child(even){
