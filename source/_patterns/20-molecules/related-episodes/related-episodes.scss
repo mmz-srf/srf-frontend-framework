@@ -89,13 +89,13 @@ $_image-tablet-width: 163px;
   border-top: 1px solid #ebebe5;
   list-style: none;
   padding: 0;
-  margin: 0;
+  margin: 0 0 0 24px;
 
   @include smartphone {
     &:hover,
     &:active,
     &:focus {
-      margin-left: 24px;
+      margin: 0;
 
       .article-teaser__wrapper {
         padding: 16px;
