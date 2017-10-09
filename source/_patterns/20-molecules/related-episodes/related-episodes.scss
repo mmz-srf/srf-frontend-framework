@@ -85,8 +85,6 @@ $_image-tablet-width: 163px;
 }
 
 .related-elements {
-  border-bottom: 1px solid #ebebe5;
-  border-top: 1px solid #ebebe5;
   list-style: none;
   padding: 0;
   margin: 0;
@@ -108,13 +106,30 @@ $_image-tablet-width: 163px;
 }
 
 .related-item {
+  border-top: 1px solid #ebebe5;
   border-bottom: 1px solid #ebebe5;
   background: none;
-  margin: 0;
+  margin: 0 0 0 24px;
   padding: 0;
 
-  &:last-child {
-    border-bottom: none;
+  @include tablet-up {
+    padding: 10px 16px;
+    margin: 0;
+  }
+
+  &:hover,
+  &:active,
+  &:focus {
+    margin: 0;
+    padding-left: 24px;
+  }
+  
+  &:nth-child(even){
+    border-top: none;
+  }
+
+  &:nth-child(even){
+    border-top: none;
   }
 
   &::before {
