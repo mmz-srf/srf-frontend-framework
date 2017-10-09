@@ -136,7 +136,7 @@ $_image-tablet-width: 163px;
   margin: 0;
   padding: 0;
 
-  &:nth-child(even) {
+  &:nth-child(2n) {
     border-top: none;
   }
 
