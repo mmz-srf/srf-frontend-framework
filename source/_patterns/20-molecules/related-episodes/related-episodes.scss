@@ -116,6 +116,15 @@ $_image-tablet-width: 163px;
     margin: 0;
   }
 
+  &:hover,
+  &:focus {
+    background-color: $color-link-bg-hover;
+  }
+
+  &:active {
+    background-color: $color-bg-caption;
+  }
+
   @include smartphone {
     &:hover,
     &:active,
