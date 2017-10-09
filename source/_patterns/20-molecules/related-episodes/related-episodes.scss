@@ -90,6 +90,18 @@ $_image-tablet-width: 163px;
   list-style: none;
   padding: 0;
   margin: 0;
+
+  @include smartphone {
+    &:hover,
+    &:active,
+    &:focus {
+      margin-left: 24px;
+
+      .article-teaser__wrapper {
+        padding: 16px;
+      }
+    }
+  }
 }
 
 .related-list__heading {
@@ -110,7 +122,7 @@ $_image-tablet-width: 163px;
 .related-item {
   border-bottom: 1px solid #ebebe5;
   background: none;
-  margin: 0 0 0 24px;
+  margin: 0;
   padding: 0;
 
   &:last-child {
