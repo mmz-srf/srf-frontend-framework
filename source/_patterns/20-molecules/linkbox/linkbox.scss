@@ -27,6 +27,20 @@
   margin-left: 16px;
 
   @include smartphone {
+    margin: 0 0 0 24px;
+
+    &:hover,
+    &:active,
+    &:focus {
+      margin-left: 0;
+
+      .block-link {
+        padding: 12px 66px 12px 24px;
+      }
+    }
+  }
+
+  @include smartphone {
     margin-left: 24px;
   }
 
@@ -44,7 +58,11 @@
   margin-top: 0;
   margin-bottom: 16px;
 
-  @include tablet-up {
+  .linkbox__list {
+    margin-left: 0;
+  }
+
+    @include tablet-up {
     margin-left: 180px;
     margin-bottom: 24px;
     padding-right: 0;
@@ -52,7 +70,7 @@
 }
 
 .linkbox--related .block-link {
-  padding-left: 16px;
+  padding-left: 0;
   background-position: calc(100% - 16px) center;
   
   @include tablet-up {

@@ -13,7 +13,7 @@
   background-size: 18px 18px;
 
   @include smartphone {
-    padding: 12px 66px 12px 24px;
+    padding: 12px 66px 12px 0;
     background-position: calc(100% - 24px) center;
   }
 

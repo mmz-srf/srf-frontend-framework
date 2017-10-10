@@ -77,10 +77,6 @@ $_image-tablet-width: 163px;
 
   .linkbox__list {
     border-bottom: 1px solid #ebebe5;
-
-    @include tablet-up {
-      margin-left: 8px;
-    }
   }
 }
 
@@ -107,15 +103,7 @@ $_image-tablet-width: 163px;
       }
 
       .linkbox--related {
-        margin-left: 24px;
-      }
-
-      .linkbox__list {
-        margin: 0;
-      }
-
-      .block-link {
-        padding: 12px 50px 12px 24px;
+        margin-left: 0;
       }
     }
   }
