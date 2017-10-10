@@ -3,7 +3,7 @@ import {init as SrfChartsInit} from './srf-charts';
 import {init as SrfCHMapInit} from './srf-chmap';
 import {init as SrfImageSliderInit} from './srf-image-slider';
 import {init as SrfTooltipInit} from './srf-tooltip';
-import {init as SrfMediaStillInit} from  './srf-media-still';
+import {init as SrfMediumHoverInit} from  './srf-medium-hover';
 import {init as SrfFormFieldInit} from './srf-form-fields';
 import {init as SrfCommentsInit} from './srf-comments';
 import {init as SrfHeaderInit} from './srf-header';
@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     SrfCHMapInit();
     SrfImageSliderInit();
     SrfTooltipInit();
-    SrfMediaStillInit();
+    SrfMediumHoverInit();
     SrfFormFieldInit();
     SrfCommentsInit();
     SrfHeaderInit();

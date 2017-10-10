@@ -7,6 +7,10 @@
   @include smartphone {
     margin: 24px 0;
   }
+
+  &:hover {
+    background-color: $color-bg-box;
+  }
 }
 
 .medium__wrapper {
@@ -43,5 +47,4 @@
     }
 
   }
-
 }
