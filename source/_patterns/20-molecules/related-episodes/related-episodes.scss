@@ -44,10 +44,9 @@ $_image-tablet-width: 163px;
   .article-video__wrapper {
     width: $_image-tablet-width;
     height: $image-size-preview;
-    margin: 16px 0 16px 16px;
+    margin: 16px 0;
 
     @include smartphone {
-      margin: 16px 0 16px 0;
       width: $image-size-preview;
     }
 
@@ -109,6 +108,14 @@ $_image-tablet-width: 163px;
 
       .linkbox--related {
         margin-left: 24px;
+      }
+
+      .linkbox__list {
+        margin: 0;
+      }
+
+      .block-link {
+        padding: 12px 50px 12px 24px;
       }
     }
   }
