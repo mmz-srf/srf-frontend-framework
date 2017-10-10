@@ -11,7 +11,7 @@ export function init() {
     $('.js-medium-hover').on('mouseenter mouseleave', function (){
         let $element = $(this);
         $element.find('.media-caption').toggleClass('media-caption--hover');
-        $element.find('.play-icon').toggleClass('play-icon--hover');
+        $element.find('.play-icon-ng').toggleClass('play-icon-ng--hover');
         $element.find('.media-still__image').toggleClass('media-still__image--hover');
     });
 }
