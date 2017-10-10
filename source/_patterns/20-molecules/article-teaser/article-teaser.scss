@@ -60,7 +60,8 @@
   font-size: 12px;
   letter-spacing: .2px;
   line-height: 1.33;
-  margin: 0 0 4px;
+  margin: 0;
+  padding-bottom: 4px;
 
   @include tablet-up {
     font-size: 14px;
@@ -75,13 +76,15 @@
   font-size: 16px;
   letter-spacing: .2px;
   line-height: 24px;
-  margin: 0 0 6px;
+  margin: 0;
+  padding-bottom: 6px;
 
   @include tablet-up {
     font-size: 18px;
     letter-spacing: .5px;
     line-height: 28px;
-    margin: 0 0 8px;
+    margin: 0;
+    padding-bottom: 8px;
   }
 }
 
