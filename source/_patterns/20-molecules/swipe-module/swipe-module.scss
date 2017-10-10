@@ -36,6 +36,9 @@ $item-max-width: 400px;
   box-shadow: 0 1px 2px 0 rgba(0,0,0,.24), 0 0 2px 0 rgba(0,0,0,.12);
   position: relative;
   
+  /*
+   * VISUAL ASSISTANCE FOR DEBUGING
+   *
   @include tablet {
     background-color: gray;
     background-image: linear-gradient(90deg, transparent 50%, rgba(255,255,255,.5) 50%);
@@ -46,6 +49,7 @@ $item-max-width: 400px;
     background-image: linear-gradient(90deg, transparent 50%, rgba(255,255,255,.5) 50%);
     background-size: 66.67% 66.67%;
   }
+  */
 }
 
 .swipemod-titlecontainer {
@@ -125,14 +129,6 @@ $item-max-width: 400px;
     }
   }
 }
-/*.swipemod-container--3ormore .swipemod-swipecontainer {
-  @include desktop-up {
-    overflow-x: hidden;
-  }
-}
-.swipemod-container--4ormore .swipemod-swipecontainer {
-  overflow-x: scroll;
-}*/
 
 .swipemod-item {
   flex: 1 0;
@@ -260,8 +256,8 @@ $item-max-width: 400px;
   }
 }
 
-@include tablet-up {
-  .swipemod-container--2ormore .swipemod-button {
+.swipemod-container--2ormore .swipemod-button {
+  @include tablet-up {
     display: block;
     opacity: 0;
 
@@ -273,12 +269,10 @@ $item-max-width: 400px;
   }
 }
 
-
 .swipemod-button__left {
   left: -40px;
   background-image: url('../img/carousel/previous.svg');
 }
-
 .swipemod-button__right {
   right: -40px;
   background-image: url('../img/carousel/next.svg');
