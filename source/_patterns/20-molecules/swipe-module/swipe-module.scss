@@ -91,7 +91,6 @@ $item-max-width: 400px;
     width: 12px;
     border-bottom: 1px solid #c91024;
     border-right: 1px solid #c91024;
-    -webkit-transform: rotate(-45deg);
     transform: rotate(-45deg)
   }
 }
@@ -102,8 +101,8 @@ $item-max-width: 400px;
   margin: 0 -#{$outer-padding-small + $inner-outer-padding + $half-gutter-padding-small};
   padding: 0 #{$outer-padding-small + $inner-outer-padding};
 
-  -webkit-scroll-snap-type: mandatory;
-  -webkit-scroll-snap-destination: 50% 0;
+  scroll-snap-type: mandatory;
+  scroll-snap-destination: 50% 0;
   
   @include tablet {
     margin: 0 -#{$inner-outer-padding + $outer-padding};
