@@ -104,6 +104,10 @@ $_image-tablet-width: 163px;
 
       .linkbox--related {
         margin-left: 0;
+
+        .block-link {
+          padding: 12px 66px 12px 24px;
+        }
       }
     }
   }
