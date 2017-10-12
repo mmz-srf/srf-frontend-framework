@@ -8,7 +8,7 @@
   line-height: 24px;
   letter-spacing: .5px;
   color: $color-link-default;
-  border-bottom: 1px solid $color-separator;
+  border: none;
   background: url('../img/linktypes/internal.svg') calc(100% - 16px) center no-repeat;
   background-size: 18px 18px;
 
@@ -17,17 +17,9 @@
     background-position: calc(100% - 24px) center;
   }
 
-  &:hover {
-    background-color: $color-link-bg-hover;
-  }
-
-  &:active {
-    background-color: $color-link-bg-active;
-  }
-
   &:hover,
   &:active {
-    border-bottom: 1px solid $color-separator;
+    border: none;
     color: $color-link-default;
   }
 }

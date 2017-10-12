@@ -74,43 +74,12 @@ $_image-tablet-width: 163px;
       width: $image-size-preview;
     }
   }
-
-  .linkbox__list {
-    border-bottom: 1px solid #ebebe5;
-  }
 }
 
 .related-elements {
   list-style: none;
   padding: 0;
-  margin: 0 0 0 16px;
-
-  @include smartphone {
-    margin: 0 0 0 24px;
-
-    &:hover,
-    &:active,
-    &:focus {
-      margin: 0;
-
-      .article-teaser__wrapper {
-        padding: 16px 16px 16px 24px;
-      }
-
-      .article-audio__wrapper,
-      .article-video__wrapper {
-        margin: 16px 0px 16px 24px;
-      }
-
-      .linkbox--related {
-        margin-left: 0;
-
-        .block-link {
-          padding: 12px 66px 12px 24px;
-        }
-      }
-    }
-  }
+  margin: 0;
 }
 
 .related-list__heading {
@@ -129,13 +98,34 @@ $_image-tablet-width: 163px;
 }
 
 .related-item {
-  border-bottom: 1px solid #ebebe5;
   background: none;
   margin: 0;
   padding: 0;
+  border-top: 1px solid $color-bg-box;
+  margin-left: 16px;
 
-  &:first-child {
-    border-top: 1px solid #ebebe5;
+  @include smartphone {
+    margin-left: 24px;
+  }
+
+  &:hover,
+  &:focus,
+  &:active {
+    padding-left: 16px;
+    margin-left: 0;
+    border-bottom: 1px solid $color-bg-box;
+
+    @include smartphone {
+      padding-left: 24px;
+    }
+
+    & + li {
+      border-top: 0;
+    }
+  }
+
+  &:last-child {
+    border-bottom: 1px solid $color-bg-box;
   }
 
   &::before {
