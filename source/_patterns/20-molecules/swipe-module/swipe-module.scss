@@ -147,7 +147,7 @@ $item-max-width: 400px;
   flex: 1 0;
   display: flex;
   flex-direction: column;
-  margin: 12px $half-gutter-padding-small;
+  margin: 8px $half-gutter-padding-small;
   max-width: $item-max-width;
   background: $color-bg-card;
   border-radius: 2px;
@@ -157,13 +157,13 @@ $item-max-width: 400px;
   scroll-snap-coordinate: calc(50% - (2 * #{$inner-outer-padding}) + #{$gutter-padding-small}) 0;
   
   @include tablet {
-    margin: 12px $half-gutter-padding;
+    margin: 8px $half-gutter-padding;
     max-width: calc((100% / #{$row-count-tablet}) - #{$gutter-padding});
     scroll-snap-coordinate: calc((100% / #{$row-count-tablet}) - (#{$swipe-remains-small} - #{$half-gutter-padding})) 0;
   }
   
   @include desktop-up {
-    margin: 12px $half-gutter-padding;
+    margin: 8px $half-gutter-padding;
     max-width: calc((100% / #{$row-count-desktop}) - #{$gutter-padding});
   }
   
