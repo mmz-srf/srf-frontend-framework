@@ -111,16 +111,29 @@ $_image-tablet-width: 163px;
   &:hover,
   &:focus,
   &:active {
-    padding-left: 16px;
     margin-left: 0;
     border-bottom: 1px solid $color-bg-box;
 
-    @include smartphone {
-      padding-left: 24px;
+    .article-teaser,
+    .article-video--related,
+    .article-audio--related {
+      padding-left: 16px;
+
+      @include smartphone {
+        padding-left: 24px;
+      }
     }
 
     & + li {
       border-top: 0;
+    }
+
+    .linkbox--related .linkbox__list li {
+      margin-left: 16px;
+
+      @include smartphone {
+        margin-left: 24px;
+      }
     }
   }
 
