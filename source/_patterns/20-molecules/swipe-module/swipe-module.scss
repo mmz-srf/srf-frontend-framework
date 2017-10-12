@@ -19,18 +19,18 @@ $item-max-width: 400px;
 
 .swipemod {
   background: $color-bg-box;
-  padding: 24px $outer-padding-small;
+  padding: 24px $outer-padding-small 32px;
   overflow-x: hidden;
   
   @include tablet-up {
-    padding: 24px $outer-padding;
+    padding: 24px $outer-padding 40px;
   }
 }
 
 .swipemod-container {
   max-width: $content-width;
   margin: 0 auto;
-  padding: 16px 16px 4px;
+  padding: 20px 16px 4px;
   background: $color-bg-caption;
   border-radius: 2px;
   box-shadow: 0 1px 2px 0 rgba(0,0,0,.24), 0 0 2px 0 rgba(0,0,0,.12);
@@ -72,7 +72,7 @@ $item-max-width: 400px;
   letter-spacing: .5px;
   border-bottom: none;
   top: 3px;
-  padding: 0 24px 0 0;
+  padding: 0 16px 0 0;
   position: relative;
 
   &:hover,
@@ -89,9 +89,18 @@ $item-max-width: 400px;
     right: 4px;
     height: 12px;
     width: 12px;
-    border-bottom: 1px solid #c91024;
-    border-right: 1px solid #c91024;
+    border-bottom: 1px solid $color-link-default;
+    border-right: 1px solid $color-link-default;
     transform: rotate(-45deg)
+  }
+  &:hover::before,
+  &:focus::before {
+    border-bottom-color: $color-link-hover;
+    border-right-color: $color-link-hover;
+  }
+  &:active::before {
+    border-bottom-color: $color-link-active;
+    border-right-color: $color-link-active;
   }
 }
 
@@ -109,7 +118,12 @@ $item-max-width: 400px;
     padding: 0 #{$inner-outer-padding - $half-gutter-padding + $outer-padding};
   }
   
-  @include desktop-up {
+  @include desktop {
+    margin: 0 -#{$inner-outer-padding + $outer-padding};
+    padding: 0 #{$inner-outer-padding - $half-gutter-padding + $outer-padding};
+  }
+  
+  @include desktop-wide {
     margin: 0 -#{$inner-outer-padding};
     padding: 0 #{$inner-outer-padding - $half-gutter-padding};
   }
@@ -119,11 +133,11 @@ $item-max-width: 400px;
     content: "";
     flex: 0 0 #{$outer-padding-small + $inner-outer-padding};
     
-    @include tablet {
+    @include tablet-up {
       flex: 0 0 #{$outer-padding + $inner-outer-padding - $half-gutter-padding};
     }
     
-    @include desktop-up {
+    @include desktop-wide {
       flex: 0 0 #{$inner-outer-padding - $half-gutter-padding};
     }
   }
@@ -148,17 +162,17 @@ $item-max-width: 400px;
     scroll-snap-coordinate: calc((100% / #{$row-count-tablet}) - (#{$swipe-remains-small} - #{$half-gutter-padding})) 0;
   }
   
+  @include desktop-up {
+    margin: 12px $half-gutter-padding;
+    max-width: calc((100% / #{$row-count-desktop}) - #{$gutter-padding});
+  }
+  
   @include desktop {
     scroll-snap-coordinate: calc((100% / #{$row-count-desktop}) + 43px) 0;
   }
   
   @include desktop-wide {
     scroll-snap-coordinate: calc((100% / #{$row-count-desktop}) + 49px) 0;
-  }
-  
-  @include desktop-up {
-    margin: 12px $half-gutter-padding;
-    max-width: calc((100% / #{$row-count-desktop}) - #{$gutter-padding});
   }
   
   &:hover,
