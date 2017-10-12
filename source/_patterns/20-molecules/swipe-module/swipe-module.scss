@@ -68,11 +68,12 @@ $item-max-width: 400px;
 .swipemod-showall {
   flex: 0 1 auto;
   font-size: 16px;
+  font-family: $font-regular;
   line-height: 1;
   letter-spacing: .5px;
   border-bottom: none;
-  top: 3px;
-  padding: 0 16px 0 0;
+  top: 2px;
+  padding: 0 20px 0 0;
   position: relative;
 
   &:hover,
@@ -86,9 +87,9 @@ $item-max-width: 400px;
     position: absolute;
     top: 2px;
     left: auto;
-    right: 4px;
-    height: 12px;
-    width: 12px;
+    right: 6px;
+    height: 11px;
+    width: 11px;
     border-bottom: 1px solid $color-link-default;
     border-right: 1px solid $color-link-default;
     transform: rotate(-45deg)
