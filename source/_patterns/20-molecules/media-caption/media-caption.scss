@@ -28,12 +28,14 @@
 .media-caption__title {
   display: block;
   font-family: $font-regular;
+  letter-spacing: .5px;
 }
 
 .media-caption__description {
   display: block;
   margin-bottom: 4px;
   color: $color-text-accentuation;
+  letter-spacing: .5px;
 }
 
 .media-caption__source {
