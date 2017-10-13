@@ -1,36 +1,51 @@
 .play-icon-ng {
   height: 100%;
   width: 100%;
-  background: url(../img/icon/play-video.svg) 55% center no-repeat / auto 36.666666666667%, rgba(0, 0, 0, 0.32);
-  border: 2px solid rgba(255, 255, 255, 0.8);
+
+  /* three background-layers are used: 1. circle (svg in data url), 2. play symbol, 3. overlay
+     a transparent border with border-radius 50% is used to contain the overlay within the icon's circle */
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='31' stroke='#FFF' stroke-opacity='.8' stroke-width='2' fill='none'/%3E%3C/svg%3E") 0 0 no-repeat / auto 100%,
+              url(../img/icon/play-video.svg) 0 0 no-repeat / auto 100%,
+              rgba(0, 0, 0, 0.32);
+  border: 1px solid rgba(0, 0, 0, 0);
   border-radius: 50%;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.24), 0 0 4px 0 rgba(0, 0, 0, 0.12);
   transition: all 200ms cubic-bezier(0.4, 0.0, 0.2, 1);
 
   &:hover {
     border-color: #e31f2b;
-    background: url(../img/icon/play-video.svg) 55% center no-repeat / auto 36.666666666667%, #e31f2b;
+    background: url(../img/icon/play-video.svg) 0 0 no-repeat / auto 100%,
+                #e31f2b;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.24), 0 0 8px 0 rgba(0, 0, 0, 0.12);
     transform: scale(1.05);
   }
 
   &:active {
     border-color: #f1434a;
-    background: url(../img/icon/play-video.svg) 55% center no-repeat / auto 36.666666666667%, #f1434a;
+    background: url(../img/icon/play-video.svg) 0 0 no-repeat / auto 100%,
+                #f1434a;
   }
 }
 
 .play-icon-ng--audio {
-  background-image: url(../img/icon/play-audio.svg), none;
-  background-position: 50% center;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='31' stroke='#FFF' stroke-opacity='.8' stroke-width='2' fill='none'/%3E%3C/svg%3E") 0 0 no-repeat / auto 100%,
+              url(../img/icon/play-audio.svg) 0 0 no-repeat / auto 100%,
+              rgba(0, 0, 0, 0.32);
 
   &:hover {
-    background-image: url(../img/icon/play-audio.svg), none;
-    background-position: 50% center;
+    background: url(../img/icon/play-audio.svg) 0 0 no-repeat / auto 100%, #e31f2b;
+  }
+
+  &:active {
+    border-color: #f1434a;
+    background: url(../img/icon/play-audio.svg) 0 0 no-repeat / auto 100%, #f1434a;
   }
 }
 
 // use case: see srf-media-still.js
 .play-icon-ng--hover {
   @extend .play-icon-ng:hover;
+}
+.play-icon-ng--audio.play-icon-ng--hover {
+  @extend .play-icon-ng--audio:hover;
 }
