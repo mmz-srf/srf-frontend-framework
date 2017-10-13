@@ -11,7 +11,7 @@
 
   /* three background-layers are used: 1. circle (svg in data url), 2. play symbol, 3. overlay
      a transparent border with border-radius 50% is used to contain the overlay within the icon's circle */
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='31' stroke='#FFF' stroke-opacity='.8' stroke-width='2' fill='none'/%3E%3C/svg%3E"),
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='31' stroke='%23FFF' stroke-opacity='.8' stroke-width='2' fill='none'/%3E%3C/svg%3E"),
               url("../img/icon/play-video.svg"),
               rgba(0, 0, 0, 0.32);
   @include bg-settings;
@@ -38,7 +38,7 @@
 }
 
 .play-icon-ng--audio {
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='31' stroke='#FFF' stroke-opacity='.8' stroke-width='2' fill='none'/%3E%3C/svg%3E"),
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='31' stroke='%23FFF' stroke-opacity='.8' stroke-width='2' fill='none'/%3E%3C/svg%3E"),
               url("../img/icon/play-audio.svg"),
               rgba(0, 0, 0, 0.32);
   @include bg-settings;
