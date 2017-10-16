@@ -4,12 +4,13 @@ export function init() {
     });
 }
 
-const animationSpeed = 500;
+const ANIMATIONSPEED = 500;
 const DIRECTION = {LEFT: "left", RIGHT: "right"};
-const BREAKPOINT_2 = 768;
-const isSize2 = () => {
-    return window.innerWidth >= BREAKPOINT_2;
-};
+const isSize2        = () => { return window.innerWidth >= 768 && window.innerWidth < 1024; };
+const isSize2Plus    = () => { return window.innerWidth >= 768; };
+const isSize3Plus    = () => { return window.innerWidth >= 1024; };
+const isSize4        = () => { return window.innerWidth >= 1280; };
+const potentialSlots = () => { return isSize3Plus() ? 3 : isSize2() ? 2 : 1; };
 const debounce = (fn, time) => {
     let timeout;
 
@@ -98,7 +99,7 @@ export class SrfSwiper {
             showRight = false;
 
 
-        if (isSize2()) {
+        if (isSize2Plus()) {
             showLeft = this.canScrollLeft();
             showRight = this.canScrollRight();
         }
@@ -135,7 +136,7 @@ export class SrfSwiper {
             }
         });
 
-        this.showHidePrevNextButtons();
+        this.afterScroll();
     }
 
     scrollRight() {
@@ -146,28 +147,82 @@ export class SrfSwiper {
             }
         });
 
-        this.showHidePrevNextButtons();
+        this.afterScroll();
     }
 
+    /**
+     * How to center an element in 3 easy steps:
+     * 1) Calculate how far away the item's center IS from the windows's left side
+     * 2) Calculate how far away the item's center SHOULD BE from the window's left side
+     * 3) add the difference to the previously scrolled amount
+     *
+     * @param $itemElem
+     */
+    centerElement($itemElem) {
+        let newScrollPos = this.$swipeContainer.scrollLeft();
+
+        // Center Element: The additional distance to scroll is the difference between the current and the target distance to the left edge from the center of the window.
+        let currentDistanceToLeftEdge = $itemElem.offset().left;
+        let targetDistanceToLeftEdge = (window.innerWidth - $itemElem.outerWidth()) / 2;
+        newScrollPos += currentDistanceToLeftEdge - targetDistanceToLeftEdge;
+
+        this.scrollTo(newScrollPos);
+    }
+
+    /**
+     * How to arrange your items:
+     * If you have space for 1 item it should be centered. Easy peasy.
+     *
+     * If you have space for 2 items, it gets trickier. We don't have to center an item, but we
+     * can still align the item on the window's center - but not the item's center, instead we
+     * align the left side of the item to the window's center if the element was out of bounds
+     * on the right side. Otherwise, we align the right side of it to to the window's center.
+     *
+     * If you have space for 3 items, a different item needs to be centered. Which one that is
+     * depends on the direction we have to scroll. If the item that we want to scroll to was out
+     * of bounds on the left side, we have to center the one to the right of it.
+     *
+     * @param $itemElem
+     */
     scrollItemIntoView($itemElem) {
-        let currentScrollPos = this.$swipeContainer.scrollLeft(),
-            newScrollPos = currentScrollPos;
+        if (potentialSlots() === 1) {
+            this.centerElement($itemElem);
+        } else if (potentialSlots() === 2) {
+            let itemPadding = ($itemElem.outerWidth(true) - $itemElem.outerWidth()) / 2,
+                currentDistanceToCenter = $itemElem.offset().left - (window.innerWidth / 2),
+                newScrollPos = this.$swipeContainer.scrollLeft();
 
-        if (this.isOutOfBoundsLeft($itemElem)) {
-            newScrollPos -= this.$container.offset().left - $itemElem.offset().left;
-            newScrollPos -= this.containerPadding;
-        } else {
-            let rightEdgeItem = $itemElem.offset().left + $itemElem.outerWidth(),
-                rightEdgeContainer = this.$container.offset().left + this.$container.outerWidth();
+            if (this.isOutOfBoundsLeft($itemElem)) {
+                currentDistanceToCenter += $itemElem.outerWidth(true);
+            }
 
-            newScrollPos += rightEdgeItem - rightEdgeContainer;
-            newScrollPos += this.containerPadding;
+            newScrollPos += currentDistanceToCenter - itemPadding;
+            this.scrollTo(newScrollPos);
+        } else if (potentialSlots() === 3) {
+            // same as #1 but with the next/previous element.
+            let indexToCenter = this.$items.index($itemElem);
+
+            if (this.isOutOfBoundsLeft($itemElem)) {
+                indexToCenter++;
+            } else {
+                indexToCenter--;
+            }
+
+            if (indexToCenter < 0) {
+                indexToCenter = 0;
+            } else if (indexToCenter >= this.$items.length) {
+                indexToCenter = this.$items.length - 1;
+            }
+
+            this.centerElement( $(this.$items.get(indexToCenter)) );
         }
+    }
 
+    scrollTo(targetPos) {
         this.$swipeContainer.animate({
-            scrollLeft: newScrollPos
-        }, animationSpeed, () => {
-            this.showHidePrevNextButtons();
+            scrollLeft: targetPos
+        }, ANIMATIONSPEED, () => {
+            this.afterScroll();
         });
     }
 }
