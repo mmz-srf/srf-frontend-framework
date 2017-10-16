@@ -7,6 +7,19 @@ export function init() {
 const animationSpeed = 500;
 const DIRECTION = {LEFT: "left", RIGHT: "right"};
 const BREAKPOINT_2 = 768;
+const isSize2 = () => {
+    return window.innerWidth >= BREAKPOINT_2;
+};
+const debounce = (fn, time) => {
+    let timeout;
+
+    return function() {
+        const functionCall = () => fn.apply(this, arguments);
+
+        clearTimeout(timeout);
+        timeout = setTimeout(functionCall, time);
+    }
+};
 
 export class SrfSwiper {
 
@@ -29,6 +42,12 @@ export class SrfSwiper {
         this.$element.on("click", ".swipemod-button", event => this.onButtonClick(event) );
 
         this.$element.on("click", ".swipemod-item", event => this.onItemClick(event) );
+
+        this.$swipeContainer.on("scroll", debounce(() => this.afterScroll(), 100) );
+    }
+
+    afterScroll() {
+        this.showHidePrevNextButtons();
     }
 
     onButtonClick(event) {
@@ -79,7 +98,7 @@ export class SrfSwiper {
             showRight = false;
 
 
-        if (this.isSize2()) {
+        if (isSize2()) {
             showLeft = this.canScrollLeft();
             showRight = this.canScrollRight();
         }
@@ -150,9 +169,5 @@ export class SrfSwiper {
         }, animationSpeed, () => {
             this.showHidePrevNextButtons();
         });
-    }
-
-    isSize2() {
-        return window.innerWidth >= BREAKPOINT_2;
     }
 }
