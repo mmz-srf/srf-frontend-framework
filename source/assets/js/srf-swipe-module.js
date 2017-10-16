@@ -53,12 +53,13 @@ export class SrfSwiper {
 
     onButtonClick(event) {
         let $btn = $(event.currentTarget),
-            direction = $btn.data("direction");
+            direction = $btn.data("direction"),
+            nrOfElements = potentialSlots() - 1;
 
         if (direction === DIRECTION.LEFT) {
-            this.scrollLeft();
+            this.scrollLeft(nrOfElements);
         } else if (direction === DIRECTION.RIGHT) {
-            this.scrollRight();
+            this.scrollRight(nrOfElements);
         }
     }
 
@@ -128,10 +129,13 @@ export class SrfSwiper {
         return rightEdgeItem > rightEdgeContainer;
     }
 
-    scrollLeft() {
+    scrollLeft(nrOfElements) {
         $(this.$items.get().reverse()).each( (index, el) => {
             if ( this.isOutOfBoundsLeft( $(el) ) ) {
-                this.scrollItemIntoView( $(el) );
+                // Since the order is reversed, the index is of course wrong - have to subtract it from the length-1
+                let prevIndex = (this.$items.length - 1 - index) - nrOfElements;
+                let $elemToScrollTo = prevIndex < 0 ? this.$items.first() : $(this.$items.get(prevIndex));
+                this.scrollItemIntoView( $elemToScrollTo );
                 return false;
             }
         });
@@ -139,10 +143,12 @@ export class SrfSwiper {
         this.afterScroll();
     }
 
-    scrollRight() {
+    scrollRight(nrOfElements) {
         this.$items.each( (index, el) => {
             if ( this.isOutOfBoundsRight( $(el) ) ) {
-                this.scrollItemIntoView( $(el) );
+                let next = index + nrOfElements;
+                let $elemToScrollTo = next >= this.$items.length - 1 ? this.$items.last() : $(this.$items.get(next));
+                this.scrollItemIntoView( $elemToScrollTo );
                 return false;
             }
         });
