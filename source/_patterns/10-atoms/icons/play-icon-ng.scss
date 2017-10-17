@@ -1,9 +1,8 @@
 @mixin bg-settings {
-  background-size: contain, contain;
-  background-position: top left;
+  background-size: auto 100%;
+  background-position: center;
   background-repeat: no-repeat;
 }
-
 
 .play-icon-ng {
   height: 100%;
@@ -15,25 +14,27 @@
               url("../img/icon/play-video.svg"),
               rgba(0, 0, 0, 0.32);
   @include bg-settings;
+
   border: 1px solid rgba(0, 0, 0, 0);
   border-radius: 50%;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.24), 0 0 4px 0 rgba(0, 0, 0, 0.12);
-  transition: transform 200ms cubic-bezier(0.4, 0.0, 0.2, 1);
+  transition: border 200ms cubic-bezier(0.4, 0.0, 0.2, 1),
+              background-color 200ms cubic-bezier(0.4, 0.0, 0.2, 1);
 
   &:hover {
-    border-color: #e31f2b;
     background: url("../img/icon/play-video.svg"),
                 #e31f2b;
     @include bg-settings;
+    background-size: auto calc(100% + 2px);
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.24), 0 0 8px 0 rgba(0, 0, 0, 0.12);
-    transform: scale(1.05);
+    border-color: #e31f2b;
   }
 
   &:active {
-    border-color: #f1434a;
     background: url("../img/icon/play-video.svg"),
                 #f1434a;
     @include bg-settings;
+    border-color: #f1434a;
   }
 }
 
@@ -47,13 +48,15 @@
     background: url("../img/icon/play-audio.svg"),
                 #e31f2b;
     @include bg-settings;
+    background-size: auto calc(100% + 2px);
+    border-color: #e31f2b;
   }
 
   &:active {
-    border-color: #f1434a;
     background: url("../img/icon/play-audio.svg"),
                 #f1434a;
     @include bg-settings;
+    border-color: #f1434a;
   }
 }
 
