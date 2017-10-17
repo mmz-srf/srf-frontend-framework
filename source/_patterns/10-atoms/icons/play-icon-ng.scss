@@ -4,15 +4,22 @@
   background-repeat: no-repeat;
 }
 
+$normal-play-icon-red: rgba(0, 0, 0, 0.32);
+$active-play-icon-red: #f1434a;
+$hover-play-icon-red:  #e31f2b;
+
 .play-icon-ng {
   height: 100%;
   width: 100%;
 
-  /* three background-layers are used: 1. circle (svg in data url), 2. play symbol, 3. overlay
-     a transparent border with border-radius 50% is used to contain the overlay within the icon's circle */
+  /* three background-layers are used:
+      1. circle (svg in data url)
+      2. play symbol
+      3. overlay
+     A transparent border with border-radius 50% is used to contain the overlay within the icon's circle */
   background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='31' stroke='%23FFF' stroke-opacity='.8' stroke-width='2' fill='none'/%3E%3C/svg%3E"),
               url("../img/icon/play-video.svg"),
-              rgba(0, 0, 0, 0.32);
+              $normal-play-icon-red;
   @include bg-settings;
 
   border: 1px solid rgba(0, 0, 0, 0);
@@ -23,40 +30,40 @@
 
   &:hover {
     background: url("../img/icon/play-video.svg"),
-                #e31f2b;
+                $hover-play-icon-red;
     @include bg-settings;
     background-size: auto calc(100% + 2px);
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.24), 0 0 8px 0 rgba(0, 0, 0, 0.12);
-    border-color: #e31f2b;
+    border-color: $hover-play-icon-red;
   }
 
   &:active {
     background: url("../img/icon/play-video.svg"),
-                #f1434a;
+                $active-play-icon-red;
     @include bg-settings;
-    border-color: #f1434a;
+    border-color: $active-play-icon-red;
   }
 }
 
 .play-icon-ng--audio {
   background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='31' stroke='%23FFF' stroke-opacity='.8' stroke-width='2' fill='none'/%3E%3C/svg%3E"),
               url("../img/icon/play-audio.svg"),
-              rgba(0, 0, 0, 0.32);
+              $normal-play-icon-red;
   @include bg-settings;
 
   &:hover {
     background: url("../img/icon/play-audio.svg"),
-                #e31f2b;
+                $hover-play-icon-red;
     @include bg-settings;
     background-size: auto calc(100% + 2px);
-    border-color: #e31f2b;
+    border-color: $hover-play-icon-red;
   }
 
   &:active {
     background: url("../img/icon/play-audio.svg"),
-                #f1434a;
+                $active-play-icon-red;
     @include bg-settings;
-    border-color: #f1434a;
+    border-color: $active-play-icon-red;
   }
 }
 
