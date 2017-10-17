@@ -33,6 +33,7 @@
   position: absolute;
   bottom: 8px;
   right: 8px;
+  line-height: 1;
 
   @include tablet-up {
     bottom: 16px;
