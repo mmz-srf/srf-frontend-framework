@@ -3,7 +3,6 @@
   background-color: $color-bg-caption;
   font: 16px/24px $font-light;
   color: $color-text-default;
-  overflow: hidden;
 
   @include smartphone {
     padding: 12px 24px;
@@ -26,20 +25,20 @@
 }
 
 .media-caption__title {
-  display: block;
+  flex: 1;
   font-family: $font-regular;
   letter-spacing: .5px;
 }
 
 .media-caption__description {
-  display: block;
+  flex: 1;
   margin-bottom: 4px;
   color: $color-text-accentuation;
   letter-spacing: .5px;
 }
 
 .media-caption__source {
-  display: block;
+  flex: 1;
   font-family: $font-system;
   font-size: 12px;
   line-height: 16px;
@@ -84,8 +83,6 @@
 }
 
 .media-caption--audio {
-  display: flex;
-  flex-direction: column;
   margin: 12px 24px 12px 12px;
   padding: 0;
   background-color: transparent; // is defined by the audio component

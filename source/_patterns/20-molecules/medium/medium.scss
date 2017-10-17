@@ -32,19 +32,24 @@
 
 .medium__caption {
   flex-grow: 1;
+  display: flex;
 }
 
 
 .medium--vertical {
-  display: block;
+  flex-direction: column;
 
   .medium__object {
-    width: inherit;
-    height: inherit;
+    height: auto;
+    width: 100%;
 
     @include smartphone {
       margin: 0;
     }
+  }
 
+  .medium__caption {
+    display: block;
+    width: 100%;
   }
 }
