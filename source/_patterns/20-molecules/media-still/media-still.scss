@@ -4,9 +4,11 @@
 
 .media-still__image {
   transition: filter 200ms cubic-bezier(0.4, 0.0, 0.2, 1);
+  transform: translateZ(0); // avoids blurring/jumping during transition for safari
+  backface-visibility: hidden;
 
   &:hover {
-    filter: brightness(90%); // does not work in IE, but we accept that
+    filter: brightness(0.9); // does not work in IE, but we accept that
   }
 }
 
