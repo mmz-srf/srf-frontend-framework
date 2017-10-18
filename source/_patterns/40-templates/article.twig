@@ -1,19 +1,21 @@
-<article class="article">
-    <div class="l-full-width-container l-main-media-container">
+<article class="article l-card">
+
+    {% block breadcrumbs_container %}
+        [-- BREADCRUMB CONTAINER --]
+    {% endblock %}
+    
+    {#<div class="l-full-width-container l-main-media-container">
         {% block main_media_container %}
             [-- MAIN MEDIA CONTAINER --]
         {% endblock %}
-    </div>
+    </div>#}
+
     {% include 'molecules-article-header' %}
+
     <section class="article-content">
         {% block article_content %}
             [-- ARTICLE CONTENT --]
         {% endblock %}
     </section>
-    {% block comments_container %}
-        [-- COMMENTS CONTAINER --]
-    {% endblock %}
+
 </article>
-{% block footer_container %}
-    [-- FOOTER CONTAINER --]
-{% endblock %}

@@ -1,9 +1,14 @@
 {% include 'molecules-header' %}
-{% include 'atoms-breadcrumbs' %}
+
 {% embed 'templates-article' %}
 
-    {% block main_media_container %}
+    {% block breadcrumbs_container %}
+      {% include 'atoms-breadcrumbs' %}
     {% endblock %}
+    
+    {#% block main_media_container %}
+        {% include 'molecules-image-figure'  with {'styleModifier': 'image-figure--cropped-img demo-simulate-removed-html-elements'} %}
+    {% endblock %#}
 
     {% block article_content %}
         {% include 'molecules-sharing-bar' %}
@@ -14,11 +19,12 @@
         {% include 'atoms-article-author--short' %}
     {% endblock %}
 
-    {% block comments_container %}
-    {% endblock %}
-
-    {% block footer_container %}
-        {% include 'molecules-footer' %}
-    {% endblock %}
-
 {% endembed %}
+
+{% block comments_container %}
+    {% include 'molecules-comments' %}
+{% endblock %}
+
+{% block footer_container %}
+    {% include 'molecules-footer' %}
+{% endblock %}

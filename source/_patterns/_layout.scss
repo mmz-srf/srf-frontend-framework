@@ -1,9 +1,11 @@
 
 
-.l-main-wrapper {
+.l-card {
   max-width: $content-max-width;
-  min-width: 320px;
+  min-width: $size1;
   margin: 0 auto;
+  background-color: $color-bg-card;
+  box-shadow: $shadow-default;
 }
 
 
