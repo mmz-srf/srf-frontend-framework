@@ -1,10 +1,10 @@
 {% include 'molecules-header' %}
 
-{% embed 'templates-article' %}
+<div class="l-main-wrapper l-card">
 
-    {% block breadcrumbs_container %}
-      {% include 'atoms-breadcrumbs' %}
-    {% endblock %}
+{% include 'atoms-breadcrumbs' %}
+
+{% embed 'templates-article' %}
 
     {#% block main_media_container %}
         {% include 'molecules-image-figure'  with {'styleModifier': 'image-figure--cropped-img demo-simulate-removed-html-elements'} %}
@@ -52,10 +52,9 @@
 
 {% endembed %}
 
-{% block comments_container %}
-    {% include 'molecules-comments' %}
-{% endblock %}
+</div>
 
-{% block footer_container %}
-    {% include 'molecules-footer' %}
-{% endblock %}
+{#% include 'molecules-swipe-module' %#}
+{% include 'molecules-comments' %}
+
+{% include 'molecules-footer' %}

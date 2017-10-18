@@ -1,18 +1,30 @@
-
-
-.l-card {
-  max-width: $content-max-width;
+.l-main-wrapper {
+  max-width: $content-width;
   min-width: $size1;
   margin: 0 auto;
+}
+
+.l-card {
   background-color: $color-bg-card;
-  box-shadow: $shadow-default;
+  margin-bottom: 20px;
+  
+  padding-top: 1px; // prevent collapsing margin; part I
+  margin-top: -1px; // prevent collapsing margin; part II
+  
+  @include tablet-up {
+    margin-bottom: 24px;
+  }
+  
+  @include desktop-up {
+    box-shadow: $shadow-default;
+  }
 }
 
 
 // .l-content-wrapper = Grid
 .l-content-wrapper {
   max-width: $content-width;
-  min-width:320px;
+  min-width: $size1;
   
   @include tablet-up {
     margin: 0 32px;
