@@ -10,22 +10,13 @@
 }
 
 .article-comments { // section
-  padding: 24px 32px;
   position: relative;
-
-  @include smartphone {
-    padding: 20px 8px;
-  }
 
   .spinner-container {
     position: relative;
     margin-top: 30px;
     display: none;
   }
-}
-.comments-wrapper {
-  background-color: #fefefd;
-  box-shadow: $shadow-default;
 }
 
 .comments-header {

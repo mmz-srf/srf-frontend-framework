@@ -2,21 +2,37 @@
   max-width: $content-width;
   min-width: $size1;
   margin: 0 auto;
+  
+  @include desktop {
+    margin-right: 32px;
+    margin-left: 32px;
+  }
+}
+
+.l-main-wrapper__space {
+  margin-right: 8px;
+  margin-left: 8px;
+  
+  @include tablet {
+    margin-right: 32px;
+    margin-left: 32px;
+  }
+
+  @include desktop-up {
+    margin-right: auto;
+    margin-left: auto;
+  }
 }
 
 .l-card {
   background-color: $color-bg-card;
+  box-shadow: $shadow-default;
+  margin-top: -1px; // prevent collapsing margin; part I
+  padding-top: 1px; // prevent collapsing margin; part II
   margin-bottom: 20px;
-  
-  padding-top: 1px; // prevent collapsing margin; part I
-  margin-top: -1px; // prevent collapsing margin; part II
   
   @include tablet-up {
     margin-bottom: 24px;
-  }
-  
-  @include desktop-up {
-    box-shadow: $shadow-default;
   }
 }
 
