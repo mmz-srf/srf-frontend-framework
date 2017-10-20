@@ -1,7 +1,9 @@
+
 @mixin bg-settings {
-  background-size: auto 100%, auto 116%;
-  background-position: center;
+  background-size: contain, contain;
+  background-position: center center;
   background-repeat: no-repeat;
+  background-clip: content-box;
 }
 
 $color-play-icon-normal: rgba(0, 0, 0, 0.32);
@@ -11,59 +13,64 @@ $color-play-icon-hover:  #e31f2b;
 .play-icon-ng {
   height: 100%;
   width: 100%;
-
+  overflow: hidden;
   /* three background-layers are used:
-      1. circle (svg in data url)
-      2. play symbol
-      3. overlay
-     A transparent border with border-radius 50% is used to contain the overlay within the icon's circle */
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='31' stroke='%23FFF' stroke-opacity='.8' stroke-width='2' fill='none'/%3E%3C/svg%3E"),
+    1. circle (svg in data url)
+    2. play symbol
+    3. overlay
+    A transparent border with border-radius 50% is used to contain the overlay within the icon's circle */
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='31' stroke='%23FFF' stroke-opacity='1' stroke-width='2' fill='none'/%3E%3C/svg%3E"),
               url("../img/icon/play-video.svg"),
               $color-play-icon-normal;
   @include bg-settings;
-  background-clip: content-box;
-  border: 1px solid rgba(0, 0, 0, 0);
+  border: 0 solid rgba(0, 0, 0, 0);
   border-radius: 50%;
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.24), 0 0 4px 0 rgba(0, 0, 0, 0.12);
-  transition: border 200ms cubic-bezier(0.4, 0.0, 0.2, 1),
-              background-color 200ms cubic-bezier(0.4, 0.0, 0.2, 1);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.24), 0 0 8px 0 rgba(0, 0, 0, 0.12);
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  transform-origin: center;
+  animation: scale-down-center 200ms linear backwards;
 
   &:hover {
-    background: url("../img/icon/play-video.svg"),
-                $color-play-icon-hover;
+    width: 100%;
+    height: 100%;
+    border: 0 solid rgba(0, 0, 0, 0);
+    border-radius: 50%;
     @include bg-settings;
-    background-size: auto calc(116% + 2px);
+    background-image: url("../img/icon/play-video.svg");
+    background-color: $color-play-icon-hover;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.24), 0 0 8px 0 rgba(0, 0, 0, 0.12);
-    border-color: $color-play-icon-hover;
+    animation: scale-up-center 200ms linear forwards;
   }
 
   &:active {
-    background: url("../img/icon/play-video.svg"),
-                $color-play-icon-active;
-    @include bg-settings;
-    border-color: $color-play-icon-active;
+    background-color: $color-play-icon-active;
   }
 }
 
 .play-icon-ng--audio {
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='31' stroke='%23FFF' stroke-opacity='.8' stroke-width='2' fill='none'/%3E%3C/svg%3E"),
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='31' stroke='%23FFF' stroke-opacity='1' stroke-width='2' fill='none'/%3E%3C/svg%3E"),
               url("../img/icon/play-audio.svg"),
               $color-play-icon-normal;
   @include bg-settings;
 
   &:hover {
-    background: url("../img/icon/play-audio.svg"),
-                $color-play-icon-hover;
+    background-image: url("../img/icon/play-audio.svg");
+    background-color: $color-play-icon-hover;
     @include bg-settings;
-    background-size: auto calc(116% + 2px);
-    border-color: $color-play-icon-hover;
   }
 
   &:active {
-    background: url("../img/icon/play-audio.svg"),
-                $color-play-icon-active;
-    @include bg-settings;
-    border-color: $color-play-icon-active;
+    background-color: $color-play-icon-active;
+  }
+}
+
+
+/* alternative image for windows high contrast mode */
+@media screen and (-ms-high-contrast: active) {
+  .play-icon-ng,
+  .play-icon-ng--audio {
+    background-image: url("../img/icon/play-generic-high-contrast.svg");
   }
 }
 
@@ -73,4 +80,28 @@ $color-play-icon-hover:  #e31f2b;
 }
 .play-icon-ng--audio.play-icon-ng--hover {
   @extend .play-icon-ng--audio:hover;
+}
+
+
+@keyframes scale-up-center {
+  0% {
+    transform: scale(1.000);
+
+  }
+  50% {
+    transform: scale(1.030);
+  }
+  100% {
+    transform: scale(1.040);
+  }
+}
+
+@keyframes scale-down-center {
+  0% {
+    transform: scale(1.040);
+
+  }
+  100% {
+    transform: scale(1.000);
+  }
 }
