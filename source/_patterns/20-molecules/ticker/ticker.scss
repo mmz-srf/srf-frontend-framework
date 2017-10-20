@@ -16,6 +16,14 @@
   & > ul {
     padding: 0;
     margin-left: 7px;
+
+    li::before {
+      top: 10px;
+
+      @include tablet-up {
+          top: 12px; // font size is bigger
+      }
+    }
   }
 }
 

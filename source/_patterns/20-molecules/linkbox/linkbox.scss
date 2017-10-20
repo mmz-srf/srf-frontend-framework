@@ -22,16 +22,47 @@
 }
 
 .linkbox__list {
-  border-top: 1px solid #ebebe5;
   padding: 0;
-
-  @include smartphone {
-    margin: 0;
-  }
+  margin: 0;
 
   > li {
     margin: 0;
     padding: 0;
+    border-top: 1px solid $color-bg-box;
+    margin-left: 16px;
+
+    @include smartphone {
+      margin-left: 24px;
+    }
+
+    &:hover,
+    &:focus {
+      background-color: $color-link-bg-hover;
+    }
+
+    &:active {
+      background-color: $color-link-bg-active;
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+      padding-left: 16px;
+      margin-left: 0;
+      border-bottom: 1px solid $color-bg-box;
+
+      @include smartphone {
+        padding-left: 24px;
+      }
+
+      & + li {
+        border-top: 0;
+      }
+    }
+
+    &:last-child {
+      border-bottom: 1px solid $color-bg-box;
+    }
 
     &::before {
       content: none;
@@ -43,6 +74,21 @@
   margin-top: 0;
   margin-bottom: 16px;
 
+  .linkbox__list {
+    > li {
+      margin-left: 0;
+
+      &:hover,
+      &:focus,
+      &:active {
+        padding-left: 0;
+        @include smartphone {
+          padding-left: 0;
+        }
+      }
+    }
+  }
+
   @include tablet-up {
     margin-left: 180px;
     margin-bottom: 24px;
@@ -53,15 +99,11 @@
 .linkbox--related .block-link {
   padding-left: 16px;
   background-position: calc(100% - 16px) center;
-  
+
   @include tablet-up {
     padding-left: 8px;
     background-position: calc(100% - 8px) center;
   }
-}
-
-.linkbox--related li:last-child .block-link {
-  border-bottom: 0;
 }
 
 .linkbox--related .linkbox__title {
@@ -86,4 +128,3 @@
     margin-left: 0;
   }
 }
-

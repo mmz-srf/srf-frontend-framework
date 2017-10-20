@@ -2,15 +2,14 @@
 @import "../../breakpoints";
 
 .article-teaser {
-  margin: 24px 0;
-
-  border-top: 1px solid $color-border-medium;
-  border-bottom: 1px solid $color-border-medium;
   display: block;
   width: 100%;
+  border: none;
 
-  @include tablet-up {
-    margin: 32px 0;
+  &:hover,
+  &:focus,
+  &:active {
+    border: none;
   }
 
   &:hover,
@@ -21,17 +20,15 @@
   &:active {
     background-color: $color-bg-caption;
   }
-
-  &:hover,
-  &:focus,
-  &:active {
-    border-bottom-color: $color-border-medium;
-  }
 }
 
 .article-teaser__wrapper {
   display: block;
-  margin: 16px;
+  padding: 16px 0;
+
+  @include smartphone {
+    padding: 16px 16px 16px 0;
+  }
 }
 
 .article-teaser__image {
@@ -44,7 +41,7 @@
 
   @include tablet-up {
     margin-right: 16px;
-    width: 168px;
+    width: 163px;
   }
 }
 
@@ -63,7 +60,8 @@
   font-size: 12px;
   letter-spacing: .2px;
   line-height: 1.33;
-  margin: 0 0 4px;
+  margin: 0;
+  padding-bottom: 4px;
 
   @include tablet-up {
     font-size: 14px;
@@ -78,13 +76,15 @@
   font-size: 16px;
   letter-spacing: .2px;
   line-height: 24px;
-  margin: 0 0 6px;
+  margin: 0;
+  padding-bottom: 6px;
 
   @include tablet-up {
     font-size: 18px;
     letter-spacing: .5px;
     line-height: 28px;
-    margin: 0 0 8px;
+    margin: 0;
+    padding-bottom: 8px;
   }
 }
 
