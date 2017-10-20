@@ -19,6 +19,7 @@
 
     li::before {
       top: 10px;
+      left: 2px;
 
       @include tablet-up {
           top: 12px; // font size is bigger
