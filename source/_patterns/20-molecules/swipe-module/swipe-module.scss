@@ -33,7 +33,7 @@ $item-max-width: 400px;
   padding: 20px 16px 4px;
   background: $color-bg-caption;
   border-radius: 2px;
-  box-shadow: 0 1px 2px 0 rgba(0,0,0,.24), 0 0 2px 0 rgba(0,0,0,.12);
+  box-shadow: $shadow-default;
   position: relative;
   
   /*
@@ -153,7 +153,7 @@ $item-max-width: 400px;
   background: $color-bg-card;
   border-radius: 2px;
   border: none;
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.24), 0 0 2px 0 rgba(0, 0, 0, 0.12);
+  box-shadow: $shadow-default;
 
   scroll-snap-coordinate: calc(50% - (2 * #{$inner-outer-padding}) + #{$gutter-padding-small}) 0;
   

@@ -1,41 +1,35 @@
-/*** breakpoint related variables ***/
-$content-width: 1200px; // max-width 1280px - 2 * 40px Outside Gutter
-$content-max-width: 1480px;
-
-
-/*** breakpoint related mixins ***/
 @mixin smartphone {
-  @media (max-width: 719px) {
+  @media (max-width: #{$size2 - 1px}) {
     @content;
   }
 }
 
 @mixin tablet {
-  @media (min-width: 720px) and (max-width: 1023px) {
+  @media (min-width: $size2) and (max-width: #{$size3 - 1px}) {
     @content;
   }
 }
 
 @mixin tablet-up {
-  @media (min-width: 720px) {
+  @media (min-width: $size2) {
     @content;
   }
 }
 
 @mixin desktop {
-  @media (min-width: 1024px) and (max-width: 1279px){
+  @media (min-width: $size3) and (max-width: #{$size4 - 1px}){
     @content;
   }
 }
 
 @mixin desktop-up {
-  @media (min-width: 1024px) {
+  @media (min-width: $size3) {
     @content;
   }
 }
 
 @mixin desktop-wide {
-  @media (min-width: 1280px) {
+  @media (min-width: $size4) {
     @content;
   }
 }
