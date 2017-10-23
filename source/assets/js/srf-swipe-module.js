@@ -4,7 +4,11 @@ export function init() {
     });
 }
 
+$.extend(jQuery.easing,{
+    easeOutCubic: function (x, t, b, c, d) { return c*((t=t/d-1)*t*t + 1) + b; },
+});
 const ANIMATIONSPEED = 500;
+const DEBOUNCETIME = 100;
 const DIRECTION = {LEFT: "left", RIGHT: "right"};
 const isSize2        = () => { return window.innerWidth >= 768 && window.innerWidth < 1024; };
 const isSize2Plus    = () => { return window.innerWidth >= 768; };
@@ -28,7 +32,7 @@ export class SrfSwiper {
         this.$element = $(element);
         this.$swipeContainer = this.$element.find(".swipemod-swipecontainer");
         this.$container = this.$element.find(".swipemod-container");
-        this.containerPadding = parseInt(this.$container.css("paddingLeft"));
+        this.isAutoScrolling = false;
 
         this.$items = this.$element.find(".swipemod-item");
         this.$prevBtn = this.$element.find(".swipemod-button[data-direction='left']");
@@ -44,10 +48,18 @@ export class SrfSwiper {
 
         this.$element.on("click", ".swipemod-item", event => this.onItemClick(event) );
 
-        this.$swipeContainer.on("scroll", debounce(() => this.afterScroll(), 100) );
+        this.$swipeContainer.on("scroll", debounce(() => this.afterUserScrolled(), DEBOUNCETIME) );
+
+        $(window).on("resize", debounce(() => this.afterResize(), DEBOUNCETIME) );
     }
 
-    afterScroll() {
+    afterUserScrolled() {
+        if (!this.isAutoScrolling) {
+            this.showHidePrevNextButtons();
+        }
+    }
+
+    afterResize() {
         this.showHidePrevNextButtons();
     }
 
@@ -95,19 +107,26 @@ export class SrfSwiper {
         return this.isOutOfBoundsRight( this.$items.last() );
     }
 
+    /**
+     * Whether or not the prev/next button should be available depends on the screen size and if it's
+     * possible to scroll left/right any further.
+     */
     showHidePrevNextButtons() {
         let showLeft = false,
             showRight = false;
-
 
         if (isSize2Plus()) {
             showLeft = this.canScrollLeft();
             showRight = this.canScrollRight();
         }
 
+        this.togglePrevNextButtons(showLeft, showRight);
+    };
+
+    togglePrevNextButtons(showLeft, showRight) {
         this.$prevBtn.toggle( showLeft );
         this.$nextBtn.toggle( showRight );
-    };
+    }
 
     /**
      * An element is inside its parent's boundaries if it doesn't go over the left or right side.
@@ -139,8 +158,6 @@ export class SrfSwiper {
                 return false;
             }
         });
-
-        this.afterScroll();
     }
 
     scrollRight(nrOfElements) {
@@ -152,8 +169,6 @@ export class SrfSwiper {
                 return false;
             }
         });
-
-        this.afterScroll();
     }
 
     /**
@@ -164,7 +179,7 @@ export class SrfSwiper {
      *
      * @param $itemElem
      */
-    centerElement($itemElem) {
+    centerElement($itemElem, checkButtons) {
         let newScrollPos = this.$swipeContainer.scrollLeft();
 
         // Center Element: The additional distance to scroll is the difference between the current and the target distance to the left edge from the center of the window.
@@ -172,7 +187,7 @@ export class SrfSwiper {
         let targetDistanceToLeftEdge = (window.innerWidth - $itemElem.outerWidth()) / 2;
         newScrollPos += currentDistanceToLeftEdge - targetDistanceToLeftEdge;
 
-        this.scrollTo(newScrollPos);
+        this.scrollTo(newScrollPos, checkButtons);
     }
 
     /**
@@ -191,24 +206,34 @@ export class SrfSwiper {
      * @param $itemElem
      */
     scrollItemIntoView($itemElem) {
-        if (potentialSlots() === 1) {
-            this.centerElement($itemElem);
-        } else if (potentialSlots() === 2) {
+        let availableSlots = potentialSlots(),
+            needsButtonCheck = true,
+            isOutOfBoundsLeft = this.isOutOfBoundsLeft($itemElem);
+
+        // UX Improvement: If scrolling to 1st or last item, immediately disable the button in this direction.
+        if (availableSlots >= 2 && ($itemElem.is(this.$items.first()) || $itemElem.is(this.$items.last()) ) ) {
+            this.togglePrevNextButtons(!isOutOfBoundsLeft, isOutOfBoundsLeft);
+            needsButtonCheck = false;
+        }
+
+        if (availableSlots === 1) {
+            this.centerElement($itemElem, needsButtonCheck);
+        } else if (availableSlots === 2) {
             let itemPadding = ($itemElem.outerWidth(true) - $itemElem.outerWidth()) / 2,
                 currentDistanceToCenter = $itemElem.offset().left - (window.innerWidth / 2),
                 newScrollPos = this.$swipeContainer.scrollLeft();
 
-            if (this.isOutOfBoundsLeft($itemElem)) {
+            if (isOutOfBoundsLeft) {
                 currentDistanceToCenter += $itemElem.outerWidth(true);
             }
 
             newScrollPos += currentDistanceToCenter - itemPadding;
-            this.scrollTo(newScrollPos);
-        } else if (potentialSlots() === 3) {
+            this.scrollTo(newScrollPos, needsButtonCheck);
+        } else if (availableSlots === 3) {
             // same as #1 but with the next/previous element.
             let indexToCenter = this.$items.index($itemElem);
 
-            if (this.isOutOfBoundsLeft($itemElem)) {
+            if (isOutOfBoundsLeft) {
                 indexToCenter++;
             } else {
                 indexToCenter--;
@@ -220,15 +245,25 @@ export class SrfSwiper {
                 indexToCenter = this.$items.length - 1;
             }
 
-            this.centerElement( $(this.$items.get(indexToCenter)) );
+            this.centerElement( $(this.$items.get(indexToCenter)), needsButtonCheck );
         }
     }
 
-    scrollTo(targetPos) {
+    /**
+     * Scroll to the defined position and check, if necessary, the buttons' states.
+     * @param Number targetPos
+     * @param Boolean checkButtons
+     */
+    scrollTo(targetPos, checkButtons) {
+        this.isAutoScrolling = true;
+
         this.$swipeContainer.animate({
             scrollLeft: targetPos
-        }, ANIMATIONSPEED, () => {
-            this.afterScroll();
+        }, ANIMATIONSPEED, "easeOutCubic", () => {
+            this.isAutoScrolling = false;
+            if (checkButtons) {
+                this.showHidePrevNextButtons();
+            }
         });
     }
 }
