@@ -112,7 +112,7 @@ $item-max-width: 400px;
   padding: 0 #{$outer-padding-small + $inner-outer-padding};
 
   scroll-snap-type: mandatory;
-  scroll-snap-destination: 50% 0;
+  scroll-snap-destination: 50% 0%;
   
   @include tablet {
     margin: 0 -#{$inner-outer-padding + $outer-padding};
@@ -161,25 +161,27 @@ $item-max-width: 400px;
   border: none;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.24), 0 0 2px 0 rgba(0, 0, 0, 0.12);
 
-  scroll-snap-coordinate: calc(50% - (2 * #{$inner-outer-padding}) + #{$gutter-padding-small}) 0;
-  
+  scroll-snap-align: center;      // "new" spec
+  scroll-snap-coordinate: 50% 0%; // "old" spec
+
+  &:first-child {
+    scroll-snap-align: start;
+    scroll-snap-coordinate: 0% 0%, 50% 0%;
+  }
+
+  &:last-child {
+    scroll-snap-align: end;
+    scroll-snap-coordinate: 50% 0%, 100% 0%;
+  }
+
   @include tablet {
     margin: 8px $half-gutter-padding;
     max-width: calc((100% / #{$row-count-tablet}) - #{$gutter-padding});
-    scroll-snap-coordinate: calc((100% / #{$row-count-tablet}) - (#{$swipe-remains-small} - #{$half-gutter-padding})) 0;
   }
   
   @include desktop-up {
     margin: 8px $half-gutter-padding;
     max-width: calc((100% / #{$row-count-desktop}) - #{$gutter-padding});
-  }
-  
-  @include desktop {
-    scroll-snap-coordinate: calc((100% / #{$row-count-desktop}) + 43px) 0;
-  }
-  
-  @include desktop-wide {
-    scroll-snap-coordinate: calc((100% / #{$row-count-desktop}) + 49px) 0;
   }
   
   &:hover,
