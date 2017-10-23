@@ -300,6 +300,8 @@ $item-max-width: 400px;
 .swipemod-container--2ormore .swipemod-button {
   @include tablet-up {
     display: block;
+    cursor: pointer;
+    cursor: hand;
 
     &::after {
       opacity: 0;
