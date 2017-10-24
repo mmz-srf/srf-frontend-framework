@@ -7,7 +7,7 @@
 {% embed 'templates-article' %}
     
     {% block article_content %}
-        {#% include 'molecules-sharing-bar' %#}
+        {% include 'molecules-sharing-bar' %}
         {% include 'atoms-content-heading' %}
         {% include 'atoms-article-text' %}
         {% include 'molecules-video' %}
@@ -19,7 +19,7 @@
 
 </div>
 
-{#% include 'molecules-swipe-module' %#}
+{% include 'molecules-swipe-module' %}
 {% include 'molecules-comments' %}
 
 {% include 'molecules-footer' %}
