@@ -1,0 +1,54 @@
+.medium {
+  display: flex;
+  align-items: flex-start;
+  margin: 32px 0;
+  background-color: $color-bg-caption;
+
+  @include smartphone {
+    margin: 24px 0;
+  }
+
+  &:hover {
+    background-color: $color-bg-box;
+  }
+}
+
+.medium__wrapper {
+  display: flex;
+  align-items: flex-start;
+}
+
+.medium__object {
+  flex-shrink: 0;
+  width: 196px;
+  height: 110px;
+
+  @include smartphone {
+    margin: 16px 0 16px 16px;
+    height: 92px;
+    width: 92px;
+  }
+}
+
+.medium__caption {
+  flex-grow: 1;
+  display: flex;
+}
+
+.medium--vertical {
+  flex-direction: column;
+
+  .medium__object {
+    height: auto;
+    width: 100%;
+
+    @include smartphone {
+      margin: 0;
+    }
+  }
+
+  .medium__caption {
+    display: block;
+    width: 100%;
+  }
+}
