@@ -5,7 +5,7 @@
   margin-left: -24px;
   height: 1px;
   border: 0;
-  background: red 50% 0 no-repeat; // $color-bg-box
+  background: $color-bg-box 50% 0 no-repeat;
 
   @include tablet-up {
     margin-top: 32px;
