@@ -40,6 +40,7 @@ export class SrfSwiper {
             let nrOfItemsToRemove = this.$items.length - MAXITEMS;
 
             this.$items.slice(-nrOfItemsToRemove).remove();
+            this.$items = this.$element.find(".swipemod-item");
         }
 
         this.$prevBtn = this.$element.find(".swipemod-button[data-direction='left']");
@@ -131,8 +132,12 @@ export class SrfSwiper {
     };
 
     togglePrevNextButtons(showLeft, showRight) {
-        this.$prevBtn.toggle( showLeft );
-        this.$nextBtn.toggle( showRight );
+        this.$prevBtn
+            .toggle( showLeft )
+            .attr({"aria-hidden": !showLeft, "role": showLeft ? "" : "presentation"});
+        this.$nextBtn
+            .toggle( showRight )
+            .attr({"aria-hidden": !showRight, "role": showRight ? "" : "presentation"});;
     }
 
     /**
