@@ -3,6 +3,8 @@
   background-color: $color-bg-caption;
   font: 16px/24px $font-light;
   color: $color-text-default;
+  display: flex;
+  flex-direction: column;
 
   @include smartphone {
     padding: 12px 24px;
@@ -25,20 +27,20 @@
 }
 
 .media-caption__title {
-  flex: 1;
+  flex: 0 0 auto;
   font-family: $font-regular;
   letter-spacing: .5px;
 }
 
 .media-caption__description {
-  flex: 1;
+  flex: 0 0 auto;
   margin-bottom: 4px;
   color: $color-text-accentuation;
   letter-spacing: .5px;
 }
 
 .media-caption__source {
-  flex: 1;
+  flex: 0 0 auto;
   font-family: $font-system;
   font-size: 12px;
   line-height: 16px;
@@ -133,10 +135,16 @@
 .media-caption--chmap {
   padding: 12px 16px;
   border-bottom: 2px solid #fff;
+
+  @include tablet-up {
+    flex-direction: row;
+  }
 }
 
 .media-caption__content {
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 .media-caption__content--chmap {

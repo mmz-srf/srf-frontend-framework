@@ -18,6 +18,10 @@
   @include smartphone {
     margin: 24px 0;
   }
+
+  .media-caption {
+    flex-direction: row;
+  }
 }
 
 .amcharts-legend-div {
