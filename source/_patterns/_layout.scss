@@ -50,7 +50,6 @@
   }
 }
 
-
 /* used solely by:
    - media-window.twig
    - swipe-module.twig
@@ -58,3 +57,4 @@
 .l-full-width-container {
   @include fullwidth-element;
 }
+

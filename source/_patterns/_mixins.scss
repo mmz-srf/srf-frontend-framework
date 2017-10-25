@@ -19,6 +19,21 @@
   }
 }
 
+@mixin fullwidth-container {
+  @include tablet {
+    margin-right: calc(((100vw - 100%) / 2) * -1);
+    margin-left:  calc(((100vw - 100%) / 2) * -1);
+  }
+  @include desktop {
+    margin-right: calc((((100vw - 100%) / 2) - 32px) * -1);
+    margin-left:  calc((((100vw - 100%) / 2) - 32px) * -1);
+  }
+  @include desktop-wide {
+    margin-right: calc((1200px - 100%) / 2 * -1);
+    margin-left:  calc((1200px - 100%) / 2 * -1);
+  }
+}
+
 @mixin article-element-indentation {
 
   @include tablet {
