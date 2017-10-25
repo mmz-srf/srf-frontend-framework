@@ -7,7 +7,7 @@
   },
   "dependencies": {
     "babel-preset-env": "*",
-    "babelify": "*",
+    "babelify": "7.3.0",
     "browser-sync": "^2.14.0",
     "browserify": "*",
     "del": "^2.2.2",
