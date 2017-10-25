@@ -129,7 +129,11 @@
   height: 30px;
   width: auto;
   margin: 4px 12px 0 0;
-  float: left;
+  position: absolute;
+
+  + * {
+    margin-left: 50px;
+  }
 }
 
 .media-caption--chmap {
