@@ -25,16 +25,5 @@
 // it is fairly important to place this --content-max-width modifier AFTER the --withcontent modifier!
 // Why? 'cause of overwrites and stuff, duh!
 .horizontal-separator--content-max-width {
-  @include tablet {
-    margin-right: calc(((100vw - 100%) / 2) * -1);
-    margin-left:  calc(((100vw - 100%) / 2) * -1);
-  }
-  @include desktop {
-    margin-right: calc((((100vw - 100%) / 2) - 32px) * -1);
-    margin-left:  calc((((100vw - 100%) / 2) - 32px) * -1);
-  }
-  @include desktop-wide {
-    margin-right: calc((1200px - 100%) / 2 * -1);
-    margin-left:  calc((1200px - 100%) / 2 * -1);
-  }
+  @include fullwidth-container;
 }
