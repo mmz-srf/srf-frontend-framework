@@ -30,6 +30,7 @@
   margin-top: -1px; // prevent collapsing margin; part I
   padding-top: 1px; // prevent collapsing margin; part II
   margin-bottom: 20px;
+  border-radius: 2px;
   
   @include tablet-up {
     margin-bottom: 24px;
