@@ -1,13 +1,15 @@
 @import "../../variables";
 
 .sharing-bar {
-  margin: 28px 0 24px 0;
+  margin-top: 28px;
+  margin-bottom: 24px;
   width: 100%;
   background-color: transparent;
   text-align: center;
 
   @include tablet-up {
-    margin: 20px 0 24px 0;
+    margin-top: 20px;
+    margin-bottom: 24px;
   }
 }
 
