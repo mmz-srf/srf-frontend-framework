@@ -3,6 +3,7 @@
   display: block;
   fill: #d2d2d2;
   padding: 24px 16px 0;
+  max-width: 100%;
 
   @include smartphone {
     padding-bottom: 12px;
