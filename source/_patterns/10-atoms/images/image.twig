@@ -1,10 +1,8 @@
-{% set alt = alt is defined ? alt : image.caption.title %}
-{% set src = src is defined ? src : image.sources.s8.src %}
 {% spaceless %}
-<div class="image {{ styleModifier|default("") }} imageType-{{ imageType|default('article_body_fullwidth') }}">
+<div class="image {{ styleModifier }}">
     <img class="image-figure__image"
-         alt="{{ alt }}"
-         title="{{ alt }}"
+         alt="{{ image.caption.title }}"
+         title="{{ image.caption.title }}"
             {% if image.sources is defined %}
                 {% set imageSources = [] %}
                 {% for source in image.sources %}
@@ -14,6 +12,6 @@
                 sizes="{{ sizes }}"
                 srcset="{{ imageSources|join(',') }}"
             {% endif %}
-         src="{{ src }}">
+         src="{{ image.sources.s8.src }}">
 </div>
 {% endspaceless %}

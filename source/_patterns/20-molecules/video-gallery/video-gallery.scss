@@ -75,7 +75,7 @@
   }
 
   .image {
-    position: unset;
+    position: static;
 
     // overwriting the dimming of videos (to prevent errors)
     &::before {
