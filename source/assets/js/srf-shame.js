@@ -48,12 +48,13 @@ function objectFitForIE() {
     if('objectFit' in document.documentElement.style === false) {
 
         const relevantClasses = [
-                '.article-teaser__wrapper',
                 '.article-audio__wrapper',
-                '.carousel__item',
-                '.article-video__wrapper',
-                '.article-media--simple',
                 '.article-media--image',
+                '.article-media--simple',
+                '.article-teaser__wrapper',
+                '.article-video__wrapper',
+                '.carousel__item',
+                '.media-still__image',
                 '.poll-media--image'
             ],
             containers = document.querySelectorAll( relevantClasses.join(", ") );

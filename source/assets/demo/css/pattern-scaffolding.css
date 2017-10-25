@@ -28,6 +28,12 @@
   width: 24.5vw;
 }
 
+.demo-play-icons__container {
+  width: 64px;
+  height: 64px;
+  margin: 16px;
+}
+
 .demo-swatch {
   display: block;
   margin: 0.5rem;
