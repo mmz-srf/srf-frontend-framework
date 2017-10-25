@@ -79,7 +79,7 @@ $item-max-width: 400px;
   &:hover,
   &:active,
   &:focus {
-    border: none; // overwrite of global a-stlyes :rolling-eyes:
+    border: none; // overwrite of global a-styles :rolling-eyes:
   }
 
   &::before {
@@ -112,7 +112,7 @@ $item-max-width: 400px;
   padding: 0 #{$outer-padding-small + $inner-outer-padding};
 
   scroll-snap-type: mandatory;
-  scroll-snap-destination: 50% 0;
+  scroll-snap-destination: 50% 0%;
   
   @include tablet {
     margin: 0 -#{$inner-outer-padding + $outer-padding};
@@ -128,7 +128,13 @@ $item-max-width: 400px;
     margin: 0 -#{$inner-outer-padding};
     padding: 0 #{$inner-outer-padding - $half-gutter-padding};
   }
+
+  // Browser-specific way to disable scrollbars - non-trivial with flex layout otherwise!
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
+
 .swipemod-container--2ormore .swipemod-swipecontainer {
   &::after {
     content: "";
@@ -155,25 +161,27 @@ $item-max-width: 400px;
   border: none;
   box-shadow: $shadow-default;
 
-  scroll-snap-coordinate: calc(50% - (2 * #{$inner-outer-padding}) + #{$gutter-padding-small}) 0;
-  
+  scroll-snap-align: center;      // "new" spec
+  scroll-snap-coordinate: 50% 0%; // "old" spec
+
+  &:first-child {
+    scroll-snap-align: start;
+    scroll-snap-coordinate: 0% 0%, 50% 0%;
+  }
+
+  &:last-child {
+    scroll-snap-align: end;
+    scroll-snap-coordinate: 50% 0%, 100% 0%;
+  }
+
   @include tablet {
     margin: 8px $half-gutter-padding;
     max-width: calc((100% / #{$row-count-tablet}) - #{$gutter-padding});
-    scroll-snap-coordinate: calc((100% / #{$row-count-tablet}) - (#{$swipe-remains-small} - #{$half-gutter-padding})) 0;
   }
   
   @include desktop-up {
     margin: 8px $half-gutter-padding;
     max-width: calc((100% / #{$row-count-desktop}) - #{$gutter-padding});
-  }
-  
-  @include desktop {
-    scroll-snap-coordinate: calc((100% / #{$row-count-desktop}) + 43px) 0;
-  }
-  
-  @include desktop-wide {
-    scroll-snap-coordinate: calc((100% / #{$row-count-desktop}) + 49px) 0;
   }
   
   &:hover,
@@ -182,6 +190,7 @@ $item-max-width: 400px;
     border: none; // overwrite of global a-styles
   }
 }
+
 .swipemod-container--2ormore .swipemod-item {
   flex: 1 0 calc(100% - #{$swipe-remains-small} + #{$gutter-padding-small});
   
@@ -218,6 +227,7 @@ $item-max-width: 400px;
   letter-spacing: .2px;
   color: $color-text-default;
 }
+
 .swipemod-item__overline {
   margin: 0 0 4px 0;
   font-family: $font-regular;
@@ -233,9 +243,11 @@ $item-max-width: 400px;
   width: 100%;
   position: relative;
 }
+
 .swipemod-imagecontainer__inner {
   padding-bottom: 56.25%;
 }
+
 .swipemod-image {
   position: absolute;
   width: 100%;
@@ -245,51 +257,91 @@ $item-max-width: 400px;
   object-fit: cover;
 }
 
-/* TODO: unify with video gallery! */
 .swipemod-button {
   position: absolute;
-  width: 56px;
-  height: 108px;
-  top: 50%;
-  transform: translateY(-50%);
-  background-size: 32px;
-  background-position: 14px;
-  background-repeat: no-repeat;
-  background-color: transparent;
-  border: none;
+  width: 100px;
+  top: 55px;
+  bottom: 12px;
   display: none;
-  border-radius: 2px;
+  border: none;
+  background-color: transparent;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    height: 108px;
+    width: 56px;
+    transform: translateY(-50%);
+    background-size: 32px;
+    background-position: 14px;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    border-radius: 2px;
+  }
 
   &:hover,
   &:focus {
-    background-color: rgba(0, 0, 0, 0.48);
+    &::after {
+      background-color: rgba(0, 0, 0, 0.48);
+    }
   }
 
   &:active {
-    background-color: rgba(0, 0, 0, 0.8);
+    &::after {
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+  }
+
+  &:focus,
+  &:active {
+    outline: none;
   }
 }
 
 .swipemod-container--2ormore .swipemod-button {
   @include tablet-up {
     display: block;
-    opacity: 0;
+    cursor: pointer;
+    cursor: hand;
+
+    &::after {
+      opacity: 0;
+    }
 
     &:hover,
     &:active,
     &:focus {
-      opacity: 1;
+      &::after {
+        opacity: 1;
+      }
     }
   }
 }
 
 .swipemod-button__left {
   left: -40px;
-  background-image: url('../img/carousel/previous.svg');
+
+  @include desktop-wide {
+    left: 0;
+  }
+
+  &::after {
+    left: 0;
+    background-image: url('../img/carousel/previous.svg');
+  }
 }
 
 .swipemod-button__right {
   right: -40px;
-  background-image: url('../img/carousel/next.svg');
+
+  @include desktop-wide {
+    right: 0;
+  }
+
+  &::after {
+    right: 0;
+    background-image: url('../img/carousel/next.svg');
+  }
 }
 
