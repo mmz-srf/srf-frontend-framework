@@ -8,6 +8,7 @@ import {init as SrfFormFieldInit} from './srf-form-fields';
 import {init as SrfCommentsInit} from './srf-comments';
 import {init as SrfHeaderInit} from './srf-header';
 import {init as SrfShameInit} from  './srf-shame';
+import {init as SrfSwipeModuleInit} from './srf-swipe-module';
 
 document.addEventListener("DOMContentLoaded", function(event) {
     SrfCarouselsInit();
@@ -19,5 +20,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
     SrfFormFieldInit();
     SrfCommentsInit();
     SrfHeaderInit();
+    SrfSwipeModuleInit();
     SrfShameInit(); // this should propably be last, because it may contain code that depends on the previous scripts
 });
