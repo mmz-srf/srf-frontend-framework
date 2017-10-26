@@ -1,20 +1,6 @@
-.footer {
-  background: #222;
-  color: #fff;
-  
-  .l-main-wrapper {
-    @include tablet-up {
-      margin: 0 32px;
-    }
-  
-    @include desktop-wide {
-      margin: 0 auto;
-    }
-  }
-}
-
 .footerTop {
   background: #333;
+  color: #fff;
 }
 
 ul.footerTop-secnav {
@@ -76,14 +62,18 @@ a.footerTop-secnavLink {
 
 
 .footerBottom {
+  background: #222;
+  color: #fff;
   padding: 20px 24px 7px;
   
-  @include tablet-up {
-    display: flex;
-    flex-wrap: nowrap;
-    align-content: start;
-    justify-content: space-between;
-    padding: 20px 16px;
+  > div {
+    @include tablet-up {
+      display: flex;
+      flex-wrap: nowrap;
+      align-content: start;
+      justify-content: space-between;
+      padding: 20px 16px;
+    }
   }
 }
 
@@ -181,4 +171,16 @@ a.footerBottom-buLink {
 .footerBottom-buLink.selected span {// DEV ONLY
   background-color: #444;
   color: #fff;
+}
+
+
+.footerTop > div,
+.footerBottom > div {
+  @include tablet-up {
+    margin: 0 32px;
+  }
+
+  @include desktop-wide {
+    margin: 0 auto;
+  }
 }
