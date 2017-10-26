@@ -1,6 +1,6 @@
 <footer class="footer">
   <div class="footerTop">
-    <div class="l-content-wrapper">
+    <div class="l-main-wrapper">
       {% block search %}
         {% include 'atoms-search' with { 'styleModifier': 'searchbox--footer' } %}
       {% endblock %}
@@ -18,21 +18,21 @@
       {% endblock %}
     </div>
   </div>
-    <div class="footerBottom l-content-wrapper">
-      <div class="footerBottom-container footerBottom-container--srg">
-        <img src="{{ frameworkAssetPath }}/img/srgssr_logo.svg" class="footerBottom-srglogo" alt="Fancy Alt Text" />
-        <p class="footerBottom-paragraph">Super duper Television Company</p>
-      </div>
-      <div class="footerBottom-container footerBottom-container--bu">
-        {% block buList %}
-          <ul class="footerBottom-buList">
-            <li class="footerBottom-buElem"><a href="#" title="" class="footerBottom-buLink"><span>RTS</span></a></li>
-            <li class="footerBottom-buElem"><a href="#" title="" class="footerBottom-buLink"><span>RSI</span></a></li>
-            <li class="footerBottom-buElem"><a href="#" title="" class="footerBottom-buLink"><span>RTR</span></a></li>
-            <li class="footerBottom-buElem"><a href="#" title="" class="footerBottom-buLink"><span>SWI</span></a></li>
-            <li class="footerBottom-buElem"><a href="#" title="" class="footerBottom-buLink"><span>3SAT</span></a></li>
-          </ul>
-        {% endblock %}
-      </div>
+  <div class="footerBottom l-main-wrapper">
+    <div class="footerBottom-container footerBottom-container--srg">
+      <img src="{{ frameworkAssetPath }}/img/srgssr_logo.svg" class="footerBottom-srglogo" alt="Fancy Alt Text" />
+      <p class="footerBottom-paragraph">Super duper Television Company</p>
     </div>
+    <div class="footerBottom-container footerBottom-container--bu">
+      {% block buList %}
+        <ul class="footerBottom-buList">
+          <li class="footerBottom-buElem"><a href="#" title="" class="footerBottom-buLink"><span>RTS</span></a></li>
+          <li class="footerBottom-buElem"><a href="#" title="" class="footerBottom-buLink"><span>RSI</span></a></li>
+          <li class="footerBottom-buElem"><a href="#" title="" class="footerBottom-buLink"><span>RTR</span></a></li>
+          <li class="footerBottom-buElem"><a href="#" title="" class="footerBottom-buLink"><span>SWI</span></a></li>
+          <li class="footerBottom-buElem"><a href="#" title="" class="footerBottom-buLink"><span>3SAT</span></a></li>
+        </ul>
+      {% endblock %}
+    </div>
+  </div>
 </footer>

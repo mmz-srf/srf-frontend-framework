@@ -1,6 +1,16 @@
 .footer {
   background: #222;
   color: #fff;
+  
+  .l-main-wrapper {
+    @include tablet-up {
+      margin: 0 32px;
+    }
+  
+    @include desktop-wide {
+      margin: 0 auto;
+    }
+  }
 }
 
 .footerTop {
