@@ -24,6 +24,8 @@
   }
 }
 
+
+/* Adds Card-Design (bg-color, shadow etc.) to Element */
 .l-card {
   background-color: $color-bg-card;
   box-shadow: $shadow-default;
@@ -49,12 +51,3 @@
     margin: 0 auto;
   }
 }
-
-/* used solely by:
-   - media-window.twig
-   - swipe-module.twig
-*/
-.l-full-width-container {
-  @include fullwidth-element;
-}
-
