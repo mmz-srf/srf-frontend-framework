@@ -146,3 +146,23 @@
     margin-right: 16px;
   }
 }
+
+.media-caption--inverted {
+  background-color: $color-media-playing;
+
+  .media-caption__title {
+    color: $color-bg-caption;
+  }
+
+  .media-caption__source,
+  .media-caption__source-title {
+    color: $color-border;
+  }
+
+  .media-caption__title,
+  .media-caption__source,
+  .media-caption__source-title {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}

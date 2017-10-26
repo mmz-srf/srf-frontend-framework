@@ -8,10 +8,16 @@ export function init() {
     $('.js-medium-hover .js-medium-hover').removeClass('js-medium-hover');
 
     // hover for medium element
-    $('.js-medium-hover').on('mouseenter mouseleave', function (){
+    $('.js-medium-hover').on('mouseenter', function (){
         let $element = $(this);
-        $element.find('.media-caption').toggleClass('media-caption--hover');
-        $element.find('.play-icon-ng').toggleClass('play-icon-ng--hover');
-        $element.find('.media-still__image').toggleClass('media-still__image--hover');
+        $element.find('.media-caption').addClass('media-caption--hover');
+        $element.find('.play-icon-ng').addClass('play-icon-ng--hover');
+        $element.find('.media-still__image').addClass('media-still__image--hover');
+    });
+    $('.js-medium-hover').on('mouseleave', function (){
+        let $element = $(this);
+        $element.find('.media-caption').removeClass('media-caption--hover');
+        $element.find('.play-icon-ng').removeClass('play-icon-ng--hover');
+        $element.find('.media-still__image').removeClass('media-still__image--hover');
     });
 }
