@@ -19,21 +19,28 @@ $item-max-width: 400px;
 
 .swipemod {
   background: $color-bg-box;
-  padding: 24px $outer-padding-small 32px;
+  padding: 24px 0 32px;
   overflow-x: hidden;
-  
+
   @include tablet-up {
-    padding: 24px $outer-padding 40px;
+    padding: 24px 0 40px;
+  }
+
+  @include desktop-up {
+    overflow-x: visible;
+  }
+
+  > .l-card {
+    background: $color-bg-caption;
+    
+    @include desktop-up {
+      overflow-x: hidden;
+    }
   }
 }
 
 .swipemod-container {
-  max-width: $content-width;
-  margin: 0 auto;
   padding: 20px 16px 4px;
-  background: $color-bg-caption;
-  border-radius: 2px;
-  box-shadow: $shadow-default;
   position: relative;
   
   /*
