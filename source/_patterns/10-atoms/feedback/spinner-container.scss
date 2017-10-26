@@ -1,0 +1,24 @@
+.spinner-container {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 64px;
+  height: 64px;
+
+  @include tablet {
+    width: 42px;
+    height: 42px;
+  }
+
+  @include smartphone {
+    width: 34px;
+    height: 34px;
+  }
+}
+
+.spinner-container--bottom {
+  position: relative;
+  top: auto;
+  bottom: 0;
+}

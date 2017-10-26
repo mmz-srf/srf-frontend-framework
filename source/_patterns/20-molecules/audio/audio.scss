@@ -23,7 +23,6 @@
   margin: 0;  // override Browser's figure-styling
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
 
   &:hover {
     background-color: #ebebe5;
@@ -99,16 +98,6 @@
     width: 196px;
     height: 110px;
     margin: 0;
-  }
-
-  // dimming overlay over the picture
-  &::before {
-    content: '';
-    position: absolute;
-    background-color: rgba(0, 0, 0, .2);
-    height: 100%;
-    width: 100%;
-    z-index: 1;
   }
 }
 

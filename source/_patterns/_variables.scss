@@ -61,3 +61,6 @@ $size3: 1024px;
 $size4: 1280px;
 $content-width: 1200px; // max-width ($size4 = 1280) - 2 * 40px (Outside Gutter)
 $content-max-width: 1480px;
+
+/*** ANIMATIONS ***/
+$easing-in-out-standard: cubic-bezier(0.4, 0.0, 0.2, 1);

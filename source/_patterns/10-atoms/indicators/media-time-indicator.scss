@@ -1,0 +1,17 @@
+.media-time-indicator {
+  display: inline-block;
+  padding: 3px 6px;
+  font-family: $font-system;
+  font-size: 12px;
+  font-weight: normal;
+  line-height: 12px;
+  text-align: center;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.7);
+
+  @include tablet-up() {
+    padding: 4px 7px;
+    font-size: 16px;
+    line-height: 16px;
+  }
+}

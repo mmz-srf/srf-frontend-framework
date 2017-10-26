@@ -107,7 +107,8 @@ $item-max-width: 400px;
 
 .swipemod-swipecontainer {
   display: flex;
-  overflow-x: auto;
+  overflow-x: scroll;
+  -webkit-overflow-scrolling: touch;
   margin: 0 -#{$outer-padding-small + $inner-outer-padding + $half-gutter-padding-small};
   padding: 0 #{$outer-padding-small + $inner-outer-padding};
 
