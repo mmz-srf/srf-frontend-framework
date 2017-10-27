@@ -1,0 +1,42 @@
+<section class="listicle">
+    <h2 class="listicle__title">{{articleText.title}}</h2>
+    <ul class="listicle__list">
+        <li class="listicle__item">
+            <h3 class="listicle__heading">1. {{ articleText.title }}</h3>
+            <div class="listicle__content">
+                {{ articleHeader.lead }}
+            </div>
+            <div class="listicle__media">
+                {% include 'molecules-image-figure' %}
+            </div>
+            <div class="listicle__content">
+                {{ articleText.text }}
+            </div>
+            <div class="listicle__link">
+                {% include 'atoms-block-link' with {'styleModifier': 'block-link'} %}
+            </div>
+        </li>
+        <li class="listicle__item">
+            <h3 class="listicle__heading">2. {{ articleText.title }}</h3>
+            <div class="listicle__media">
+                {% include 'molecules-medium--vertical' %}
+            </div>
+            <div class="listicle__content">
+                {{ articleText.text }}
+            </div>
+            <div class="listicle__link">
+                {% include 'atoms-block-link' with {'styleModifier': 'block-link--external'} %}
+            </div>
+            {% include 'atoms-infoline' with {'styleModifier': 'infoline--nospacing', 'infolineSource': 'true', 'infolineElem': image.caption.source} %}
+        </li>
+        <li class="listicle__item last">
+            <h3 class="listicle__heading">3. {{ articleText.title }}</h3>
+            <div class="listicle__media">
+                {% include 'molecules-medium' %}
+            </div>
+            <div class="listicle__content">
+                {{ articleText.text }}
+            </div>
+        </li>
+    </ul>
+</section>

@@ -1,0 +1,92 @@
+.listicle {
+  margin:24px 0;
+  @include tablet-up {
+    margin:32px 0;
+  }
+}
+
+.listicle__title {
+  font:normal 500 22px/28px $font-medium;
+  letter-spacing:.2px;
+  color: $color-text-default;
+  margin: 0 0 16px;
+  @include article-text-padding;
+
+  @include tablet-up {
+    margin-bottom: 24px;
+  }
+}
+
+.listicle__item {
+  margin: 0 -24px 24px;
+  padding: 0 24px;
+
+  &:before {
+    display: none;
+  }
+
+  @include tablet-up {
+    margin: 0 -16px 32px;
+    padding: 0 16px;
+  }
+
+  p {
+    margin: 12px 0;
+  }
+}
+
+.listicle__heading {
+  margin: 16px 0 12px;
+  font-size: 18px;
+  line-height: 28px;
+  font-weight: 500;
+  font-family: $font-medium;
+  letter-spacing: .5px;
+  color: $color-text-default;
+  @include tablet-up {
+    font-size: 20px;
+    line-height: 32px;
+    letter-spacing: .2px;
+    margin: 24px 0 12px;
+  }
+}
+
+.listicle__media {
+  margin: 12px auto;
+
+  @include tablet-up {
+    margin: 16px -16px;
+  }
+}
+
+.listicle__content {
+  font: normal 300 18px/28px $font-light;
+  letter-spacing: .5px;
+  color: $color-text-default;
+  margin: 12px 0;
+
+  @include tablet-up {
+    font-size: 20px;
+    line-height:32px;
+    letter-spacing: .3px;
+    margin: 12px 0 24px;
+  }
+}
+
+.listicle__link {
+  margin: 12px -24px 16px;
+
+  @include tablet-up {
+    margin: 16px -16px;
+  }
+}
+
+.listicle__link .block-link {
+  border-top: 1px solid $color-separator;
+  padding-left: 8px;
+  background-position-x: calc(100% - 8px);
+  padding-right: 48px;
+  @include tablet-up{
+    padding-right: 50px;
+  }
+}

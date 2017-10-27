@@ -4,7 +4,7 @@
          data-dot-info="{{ video_gallery.slide_select|default(". Slide wählen") }}"
          data-dot-current="{{ video_gallery.slide_current|default("Gewählter Slide") }}">
         {% for video in videos %}
-            <div class="carousel__item">
+            <div class="video-galery__item carousel__item">
                 {% include 'molecules-video' with { 'styleModifier' : styleModifier } %}
             </div>
         {% endfor %}
