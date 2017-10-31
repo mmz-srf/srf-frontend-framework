@@ -1,7 +1,7 @@
 /* centers element with content-max-width */
 .l-main-wrapper {
   max-width: $content-width;
-  min-width: $size1;
+  min-width: $smartphonesize;
   margin: 0 auto;
   
   @include desktop {
