@@ -113,6 +113,7 @@ $item-max-width: 400px;
 }
 
 .swipemod-swipecontainer {
+  list-style-type: none; // overwrite global li-styles :-/
   display: flex;
   overflow-x: scroll;
   -webkit-overflow-scrolling: touch;
@@ -163,6 +164,7 @@ $item-max-width: 400px;
   display: flex;
   flex-direction: column;
   margin: 8px $half-gutter-padding-small;
+  padding-left: 0; // overwrite global li-styles :-/
   max-width: $item-max-width;
   background: $color-bg-card;
   border-radius: 2px;
@@ -171,6 +173,10 @@ $item-max-width: 400px;
 
   scroll-snap-align: center;      // "new" spec
   scroll-snap-coordinate: 50% 0%; // "old" spec
+  
+  &::before {
+    display: none; // overwrite global li-styles :-/
+  }
 
   &:first-child {
     scroll-snap-align: start;
@@ -192,10 +198,14 @@ $item-max-width: 400px;
     max-width: calc((100% / #{$row-count-desktop}) - #{$gutter-padding});
   }
   
-  &:hover,
-  &:active,
-  &:focus {
-    border: none; // overwrite of global a-styles
+  & > a { // overwrite global a-styles :-/
+    border: none;
+    
+    &:hover,
+    &:active,
+    &:focus {
+      border: none;
+    }
   }
 }
 
