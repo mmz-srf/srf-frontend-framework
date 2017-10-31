@@ -188,14 +188,24 @@ $item-max-width: 400px;
     scroll-snap-coordinate: 50% 0%, 100% 0%;
   }
 
+  min-width: $smartphone-size - 2 * $outer-padding-small - 2 * $inner-outer-padding; //272px = 320 - 2*8 - 2*16
+
   @include tablet {
     margin: 8px $half-gutter-padding;
     max-width: calc((100% / #{$row-count-tablet}) - #{$gutter-padding});
+
+    min-width: ($tablet-size - 2 * $outer-padding - 2 * $inner-outer-padding - $gutter-padding) / 2; //306px = (720 - 2*32 - 2*16 - 12) / 2
   }
   
   @include desktop-up {
     margin: 8px $half-gutter-padding;
     max-width: calc((100% / #{$row-count-desktop}) - #{$gutter-padding});
+
+    min-width: ($desktop-size - 2 * $outer-padding - 2 * $inner-outer-padding - 2 * $gutter-padding) / 3; //301.3px = (1024 - 2*32 - 2*16 - 2*12) / 3
+  }
+
+  @include desktop-wide {
+    min-width: ($content-width - 2 * $inner-outer-padding - 2 * $gutter-padding) / 3; //381.3px = (1200 - 2*16 - 2*12) / 3
   }
   
   & > a { // overwrite global a-styles :-/
@@ -211,6 +221,8 @@ $item-max-width: 400px;
 
 .swipemod-container--2ormore .swipemod-item {
   flex: 1 0 calc(100% - #{$swipe-remains-small} + #{$gutter-padding-small});
+
+  min-width: $smartphone-size - 2 * $outer-padding-small - $inner-outer-padding - $swipe-remains-small; //240px = 320 - 2*8 - 16 - 48
   
   @include tablet-up {
     flex: 1 0 calc(100% - #{$swipe-remains-small + $outer-padding} + #{$gutter-padding});
@@ -224,15 +236,21 @@ $item-max-width: 400px;
 .swipemod-container--3ormore .swipemod-item {
   @include tablet {
     @include maxWidthCalculator($row-count-tablet, $swipe-remains);
+
+    min-width: ($tablet-size - 2 * $outer-padding - $inner-outer-padding - $gutter-padding - $swipe-remains) / 2; //288px = (720 - 2*32 - 16 - 12 - 52) / 2
   }
 }
 .swipemod-container--4ormore .swipemod-item {
   @include desktop-up {
     @include maxWidthCalculator($row-count-desktop, $swipe-remains);
+
+    min-width: ($desktop-size - 2 * $outer-padding - $inner-outer-padding - 2 * $gutter-padding - $swipe-remains) / 3; //289px = (1024 - 2*32 - 16 - 2*12 - 52) / 3
   }
   
   @include desktop-wide {
     @include maxWidthCalculator($row-count-desktop, $swipe-remains-large);
+
+    min-width: ($content-width - $inner-outer-padding - 2 * $gutter-padding - $swipe-remains-large) / 3; //356px = (1200 - 16 - 2*12 - 92) / 3
   }
 }
 
