@@ -1,8 +1,5 @@
 .horizontal-separator {
-  margin-top: 24px;
-  margin-right: -24px;
-  margin-bottom: 20px;
-  margin-left: -24px;
+  margin: 24px -24px 20px;
   height: 1px;
   border: 0;
   background: $color-bg-box 50% 0 no-repeat;
@@ -16,10 +13,7 @@
 .horizontal-separator--withcontent {
   position: relative;
   top: 25px;
-  margin-top: 0;
-  margin-right: 0;
-  margin-bottom: 0;
-  margin-left: 0;
+  margin: 0;
 }
 
 // it is fairly important to place this --content-max-width modifier AFTER the --withcontent modifier!

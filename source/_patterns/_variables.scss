@@ -55,10 +55,10 @@ $shadow-default: 0 1px 2px 0 rgba(0, 0, 0, .24), 0 0 2px 0 rgba(0, 0, 0, .12);
 $shadow-hover:   0 4px 8px 0 rgba(0, 0, 0, .24), 0 0 8px 0 rgba(0, 0, 0, .12);
 
 /*** BREAKPOINT AND CONTENT related variables ***/
-$smartphonesize: 320px;
-$tabletsize: 720px;
-$desktopsize: 1024px;
-$widedesktopsize: 1280px;
+$smartphone-size: 320px;
+$tablet-size: 720px;
+$desktop-size: 1024px;
+$desktop-wide-size: 1280px;
 $content-width: 1200px; // max-width ($widedesktopsize = 1280) - 2 * 40px (Outside Gutter)
 $content-max-width: 1480px;
 

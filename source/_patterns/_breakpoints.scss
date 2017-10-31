@@ -1,35 +1,35 @@
 @mixin smartphone {
-  @media (max-width: #{$tabletsize - 1px}) {
+  @media (max-width: #{$tablet-size - 1px}) {
     @content;
   }
 }
 
 @mixin tablet {
-  @media (min-width: $tabletsize) and (max-width: #{$desktopsize - 1px}) {
+  @media (min-width: $tablet-size) and (max-width: #{$desktop-size - 1px}) {
     @content;
   }
 }
 
 @mixin tablet-up {
-  @media (min-width: $tabletsize) {
+  @media (min-width: $tablet-size) {
     @content;
   }
 }
 
 @mixin desktop {
-  @media (min-width: $desktopsize) and (max-width: #{$widedesktopsize - 1px}){
+  @media (min-width: $desktop-size) and (max-width: #{$desktop-wide-size - 1px}){
     @content;
   }
 }
 
 @mixin desktop-up {
-  @media (min-width: $desktopsize) {
+  @media (min-width: $desktop-size) {
     @content;
   }
 }
 
 @mixin desktop-wide {
-  @media (min-width: $widedesktopsize) {
+  @media (min-width: $desktop-wide-size) {
     @content;
   }
 }
