@@ -1,10 +1,11 @@
 $naviTransitionTime: 0.4s;
 
 .header { // absolute fullwidth!
-  position: absolute;
+  /*position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 100%;*/
+  position: relative;
   background-image: linear-gradient(to bottom, #313131, #212121);
   background-size: 100% 50px;
   background-repeat: no-repeat;
@@ -14,7 +15,7 @@ $naviTransitionTime: 0.4s;
     background-size: auto;
   }
 
-  & + .breadcrumbs {
+  /*& + .breadcrumbs {
     margin-top: 66px; // mobile: 50 + 24 - 8
     @include tablet-up {
       margin-top: 80px; // dt: 56 + 32 - 8
@@ -24,7 +25,7 @@ $naviTransitionTime: 0.4s;
   & + .article, // todo: cleanup fef (differs from cms pagelayout setup!)
   & + .l-main-wrapper {
     margin-top: 88px; // todo: check!!
-  }
+  }*/
 }
 
 // providing the "dim" on opening the navi

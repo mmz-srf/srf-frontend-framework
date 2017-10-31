@@ -1,5 +1,14 @@
 @import "../../variables";
 
+/* smaller devices treat embed components like full-width containers */
+.carousel-container {
+  /* overwrite in component; components in loading state have a grey background */
+  background-color: #dadad2;
+  @include smartphone {
+    @include fullwidth-element;
+  }
+}
+
 .carousel {
   position: relative;
   width: 100%;

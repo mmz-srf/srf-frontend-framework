@@ -29,6 +29,10 @@
 .media-window { // fullwidth
   background-color: #22211d;
   outline: none;
+  margin-right: -20px;
+  margin-left: -20px;
+  
+  @include fullwidth-container;
 }
 
 .media-window__player {
