@@ -1,0 +1,150 @@
+$naviTransitionTime: 0.4s;
+
+.main-header {
+  background: linear-gradient(to bottom, #313131, #212121);
+  box-shadow: $shadow-default;
+}
+
+.main-header-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.main-header-startlink {
+  flex: 0 1 auto;
+  display: block;
+  padding: 12px;
+  border: none; // overwrite of global anchor-styles
+  
+  &:hover,
+  &:active,
+  &:focus { // overwrite of global anchor-styles
+    border: none;
+  }
+  
+  @include tablet-up {
+    padding: 15px 16px;
+  }
+}
+
+.main-header-logo {
+  width: 39px;
+  height: 26px;
+}
+
+
+
+
+
+
+
+.menu-trigger {
+  flex: 0 1 auto;
+  padding: 16px 16px 15px;
+
+  font: 14px/1.14 "SRG_SSR_Regular", sans-serif;
+  letter-spacing: .5px;
+  color: #dadad2;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  
+  border: none; // overwrite of global anchor-styles
+  
+  &:hover,
+  &:active,
+  &:focus { // overwrite of global anchor-styles
+    border: none;
+    color: #dadad2;
+  }
+  
+  @include tablet-up {
+    padding: 20px 16px;
+  }
+}
+
+.menu-icon {
+  width: 18px;
+  height: 16px;
+  position: relative;
+  transform: rotate(0deg);
+  transition: .2s ease-in-out;
+  cursor: pointer;
+  display: inline-block;
+}
+.menu-icon span {
+  display: block;
+  position: absolute;
+  height: 2px;
+  width: 100%;
+  background: #d8d8d8;
+  opacity: 1;
+  left: 0;
+  transform: rotate(0deg);
+  transition: .25s ease-in-out;
+}
+.menu-icon span:nth-child(1) {
+  top: 0px;
+}
+.menu-icon span:nth-child(2),
+.menu-icon span:nth-child(3) {
+  top: 7px;
+}
+.menu-icon span:nth-child(4) {
+  top: 14px;
+}
+
+.menu-icon.open span {
+  background: #ffffff;
+}
+.menu-icon.open span:nth-child(1) {
+  top: 7px;
+  width: 0%;
+  left: 50%;
+}
+.menu-icon.open span:nth-child(2) {
+  transform: rotate(45deg) scale(1.25);
+}
+.menu-icon.open span:nth-child(3) {
+  transform: rotate(-45deg) scale(1.25);
+}
+.menu-icon.open span:nth-child(4) {
+  top: 7px;
+  width: 0%;
+  left: 50%;
+}
+
+@media (min-width: 720px) {
+  .menu-icon {
+    width: 14px;
+    height: 10px;
+  }
+  .menu-icon span {
+    height: 1px;
+  }
+  .menu-icon span:nth-child(1) {
+    top: 0px;
+  }
+  .menu-icon span:nth-child(2),
+  .menu-icon span:nth-child(3) {
+    top: 5px;
+  }
+  .menu-icon span:nth-child(4) {
+    top: 10px;
+  }
+  
+  .menu-icon.open span:nth-child(1) {
+    top: 5px;
+  }
+  .menu-icon.open span:nth-child(2) {
+    transform: rotate(45deg) scale(1.1);
+  }
+  .menu-icon.open span:nth-child(3) {
+    transform: rotate(-45deg) scale(1.1);
+  }
+  .menu-icon.open span:nth-child(4) {
+    top: 5px;
+  }
+}
