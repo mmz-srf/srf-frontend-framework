@@ -36,6 +36,15 @@
   overflow: hidden;
 }
 
+.seemore-image.seemore-image--disabled {
+  .seemore-image--front {
+    transform: perspective(525px) translateZ(0px) rotateX(0deg) rotateY(0deg) !important;
+  }
+  .seemore-image--back {
+    transform: perspective(525px) translateZ(-100px) rotateX(0deg) rotateY(0deg) !important;
+  }
+}
+
 .seemore-image--front,
 .seemore-image--back {
   position: absolute;

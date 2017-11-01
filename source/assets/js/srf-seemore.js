@@ -4,11 +4,14 @@ export function init() {
 
 class SeeMore {
     constructor() {
+        this.enabled = false;
         this.vid = document.getElementsByClassName('seemore-video--element')[0];
         this.vid_width = this.vid.width;
         this.vid_height = this.vid.height;
         this.overlay = document.getElementsByClassName('seemore-video--overlay')[0];
         this.overlayCC = this.overlay.getContext('2d');
+
+        this.img = document.getElementsByClassName("seemore-image")[0];
         this.front = document.getElementsByClassName("seemore-image--front")[0];
         this.back  = document.getElementsByClassName("seemore-image--back")[0];
 
@@ -34,6 +37,11 @@ class SeeMore {
         }
 
         this.vid.addEventListener('canplay', () => {this.startVideo();}, false);
+
+        this.img.addEventListener('click', () => {
+            this.enabled = !this.enabled;
+            this.img.classList.toggle('seemore-image--disabled');
+        });
     }
 
     /*********** Setup of video/webcam and checking for webGL support *********/
