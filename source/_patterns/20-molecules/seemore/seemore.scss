@@ -1,0 +1,79 @@
+.seemore {
+  position: relative;
+}
+
+.seemore-video {
+  position: absolute;
+  transform: scale(0.4) translateX(70%) translateY(80%);
+  z-index: 1000;
+  right: 0px;
+  bottom: 0px;
+  width : 370px;
+}
+
+.seemore-video--overlay {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  -o-transform : scaleX(-1);
+  -webkit-transform : scaleX(-1);
+  transform : scaleX(-1);
+  -ms-filter : fliph; /*IE*/
+  filter : fliph; /*IE*/
+}
+
+.seemore-video--element {
+  -o-transform : scaleX(-1);
+  -webkit-transform : scaleX(-1);
+  transform : scaleX(-1);
+}
+
+.seemore-image {
+  position: relative;
+  height: 500px;
+  width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.seemore-image--front,
+.seemore-image--back {
+  position: absolute;
+  transform-style: preserve-3d;
+  transition: all 150ms linear 0s;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.seemore-image--front {
+  background-image: url("../../assets/img/seemore/trump2.png");
+  background-position: 50% 75%;
+  width: 140%;
+  height: 140%;
+  top: -20%;
+  left: -20%;
+
+  z-index: 20;
+  transform: perspective(525px) translateZ(0px) rotateX(0deg) rotateY(0deg);
+}
+
+.seemore-image--back {
+  background-image: url("../../assets/img/seemore/putin.png");
+  z-index: 10;
+
+  width: 80%;
+  height: 80%;
+  top: 15%;
+  left: 10%;
+  background-position: center bottom;
+
+  transform: perspective(525px) translateZ(-100px) rotateX(0deg) rotateY(0deg);
+}
+
+.seemore-image--bg {
+  width: 100%;
+  height: 100%;
+  background-image: url("../../assets/img/seemore/white_house.jpg");
+  background-size: cover;
+  background-position: center;
+}

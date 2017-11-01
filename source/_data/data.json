@@ -4,13 +4,13 @@
   "bodyClass": "body",
   "a11yInfo": "Accessible Text goes here",
   "articleHeader": {
-    "kicker": "Pendler-Chaos",
-    "title": "Vor 20 Jahren forderte Cyberpionier Barlow: «Lasst uns in Ruhe!»",
-    "lead": "1996 schrieb John Perry Barlow die «Unabhängigkeitserklärung des Cyberspace». Darin kritisierte der Poet und Aktivist erstaunlich früh die staatliche Kontrolle."
+    "kicker": "US-Politik",
+    "title": "Donald Trump ist US-Präsident",
+    "lead": "Am 8. November wurde Donald John Trump als 45. Präsident der Vereinigten Staaten von Amerika gewählt."
   },
   "articleAuthor": {
     "name": "Emilie Buri",
-    "date": "Sonntag, 22. Mai 2016, 19:55 Uhr",
+    "date": "8. November 2016, 19:55 Uhr",
     "shortname": "srf/sda/embu"
   },
   "articleText": {
@@ -690,10 +690,10 @@
   "breadcrumbs": [
     {
       "url": "www.srf.ch/sport",
-      "name": "Sport"
+      "name": "News"
     }, {
       "url": "www.srf.ch/sport/fussball",
-      "name": "Fussball"
+      "name": "International"
     }
   ]
 }
