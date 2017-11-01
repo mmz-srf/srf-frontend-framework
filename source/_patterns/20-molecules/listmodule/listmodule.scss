@@ -186,6 +186,10 @@
   border-top: 1px solid $color-separator;
 }
 
+.listmodule__link .block-link:last-child {
+    border-bottom: 1px solid $color-separator;
+}
+
 .listmodule__link--listing .block-link {
   padding-left: 8px;
   background-position-x: calc(100% - 8px);
