@@ -2,6 +2,15 @@ $naviTransitionTime: 0.4s;
 
 .header {
   box-shadow: $shadow-default;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 100000;
+}
+
+.header + .l-card {
+  margin-top: 56px;
 }
 
 .main-header {
