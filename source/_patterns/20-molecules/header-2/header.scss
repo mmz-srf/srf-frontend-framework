@@ -1,8 +1,11 @@
 $naviTransitionTime: 0.4s;
 
+.header {
+  box-shadow: $shadow-default;
+}
+
 .main-header {
   background: linear-gradient(to bottom, #313131, #212121);
-  box-shadow: $shadow-default;
 }
 
 .main-header-wrapper {
@@ -31,9 +34,6 @@ $naviTransitionTime: 0.4s;
   width: 39px;
   height: 26px;
 }
-
-
-
 
 
 
@@ -147,4 +147,10 @@ $naviTransitionTime: 0.4s;
   .menu-icon.open span:nth-child(4) {
     top: 5px;
   }
+}
+
+
+
+.main-navigation {
+  background: #343434;
 }
