@@ -75,7 +75,7 @@
   }
 
   .image {
-    position: unset;
+    position: static;
 
     // overwriting the dimming of videos (to prevent errors)
     &::before {
@@ -93,6 +93,7 @@
     display: flex;
     flex-direction: column;
     flex: 1 0 auto;
+    justify-content: space-between;
   }
 
   .media-caption__title {
@@ -101,7 +102,7 @@
     font: 16px/24px $font-regular;
     letter-spacing: .5px;
     color: #22211d;
-    flex: 1 0 auto;
+    flex: 0 0 auto;
   }
 
   // play icon overwrites

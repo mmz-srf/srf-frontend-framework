@@ -1,19 +1,23 @@
 .horizontal-separator {
-  margin: 32px 0 24px;
+  margin: 24px -24px 20px;
   height: 1px;
   border: 0;
-  background: #ebebe5 50% 0 no-repeat;
+  background: $color-bg-box 50% 0 no-repeat;
 
-  @include smartphone {
-    margin: 24px 0 20px;
+  @include tablet-up {
+    margin-top: 32px;
+    margin-bottom: 24px;
   }
 }
 
-.horizontal-separator--content-max-width {
-  margin-left: -16px;
-  margin-right: -16px;
+.horizontal-separator--withcontent {
+  position: relative;
+  top: 25px;
+  margin: 0;
+}
 
-  @include desktop-widest-down {
-    @include fullwidth-element;
-  }
+// it is fairly important to place this --content-max-width modifier AFTER the --withcontent modifier!
+// Why? 'cause of overwrites and stuff, duh!
+.horizontal-separator--content-max-width {
+  @include fullwidth-container;
 }

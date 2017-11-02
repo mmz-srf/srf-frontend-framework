@@ -19,21 +19,28 @@ $item-max-width: 400px;
 
 .swipemod {
   background: $color-bg-box;
-  padding: 24px $outer-padding-small 32px;
+  padding: 24px 0 32px;
   overflow-x: hidden;
-  
+
   @include tablet-up {
-    padding: 24px $outer-padding 40px;
+    padding: 24px 0 40px;
+  }
+
+  @include desktop-up {
+    overflow-x: visible;
+  }
+
+  > .l-card {
+    background: $color-bg-caption;
+    
+    @include desktop-up {
+      overflow-x: hidden;
+    }
   }
 }
 
 .swipemod-container {
-  max-width: $content-width;
-  margin: 0 auto;
   padding: 20px 16px 4px;
-  background: $color-bg-caption;
-  border-radius: 2px;
-  box-shadow: 0 1px 2px 0 rgba(0,0,0,.24), 0 0 2px 0 rgba(0,0,0,.12);
   position: relative;
   
   /*
@@ -79,7 +86,7 @@ $item-max-width: 400px;
   &:hover,
   &:active,
   &:focus {
-    border: none; // overwrite of global a-stlyes :rolling-eyes:
+    border: none; // overwrite of global a-styles :rolling-eyes:
   }
 
   &::before {
@@ -106,13 +113,15 @@ $item-max-width: 400px;
 }
 
 .swipemod-swipecontainer {
+  list-style-type: none; // overwrite global li-styles :-/
   display: flex;
-  overflow-x: auto;
+  overflow-x: scroll;
+  -webkit-overflow-scrolling: touch;
   margin: 0 -#{$outer-padding-small + $inner-outer-padding + $half-gutter-padding-small};
   padding: 0 #{$outer-padding-small + $inner-outer-padding};
 
   scroll-snap-type: mandatory;
-  scroll-snap-destination: 50% 0;
+  scroll-snap-destination: 50% 0%;
   
   @include tablet {
     margin: 0 -#{$inner-outer-padding + $outer-padding};
@@ -128,7 +137,13 @@ $item-max-width: 400px;
     margin: 0 -#{$inner-outer-padding};
     padding: 0 #{$inner-outer-padding - $half-gutter-padding};
   }
+
+  // Browser-specific way to disable scrollbars - non-trivial with flex layout otherwise!
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
+
 .swipemod-container--2ormore .swipemod-swipecontainer {
   &::after {
     content: "";
@@ -149,41 +164,65 @@ $item-max-width: 400px;
   display: flex;
   flex-direction: column;
   margin: 8px $half-gutter-padding-small;
+  padding-left: 0; // overwrite global li-styles :-/
   max-width: $item-max-width;
   background: $color-bg-card;
   border-radius: 2px;
   border: none;
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.24), 0 0 2px 0 rgba(0, 0, 0, 0.12);
+  box-shadow: $shadow-default;
 
-  scroll-snap-coordinate: calc(50% - (2 * #{$inner-outer-padding}) + #{$gutter-padding-small}) 0;
+  scroll-snap-align: center;      // "new" spec
+  scroll-snap-coordinate: 50% 0%; // "old" spec
   
+  &::before {
+    display: none; // overwrite global li-styles :-/
+  }
+
+  &:first-child {
+    scroll-snap-align: start;
+    scroll-snap-coordinate: 0% 0%, 50% 0%;
+  }
+
+  &:last-child {
+    scroll-snap-align: end;
+    scroll-snap-coordinate: 50% 0%, 100% 0%;
+  }
+
+  min-width: $smartphone-size - 2 * $outer-padding-small - 2 * $inner-outer-padding; //272px = 320 - 2*8 - 2*16
+
   @include tablet {
     margin: 8px $half-gutter-padding;
     max-width: calc((100% / #{$row-count-tablet}) - #{$gutter-padding});
-    scroll-snap-coordinate: calc((100% / #{$row-count-tablet}) - (#{$swipe-remains-small} - #{$half-gutter-padding})) 0;
+
+    min-width: ($tablet-size - 2 * $outer-padding - 2 * $inner-outer-padding - $gutter-padding) / 2; //306px = (720 - 2*32 - 2*16 - 12) / 2
   }
   
   @include desktop-up {
     margin: 8px $half-gutter-padding;
     max-width: calc((100% / #{$row-count-desktop}) - #{$gutter-padding});
+
+    min-width: ($desktop-size - 2 * $outer-padding - 2 * $inner-outer-padding - 2 * $gutter-padding) / 3; //301.3px = (1024 - 2*32 - 2*16 - 2*12) / 3
   }
-  
-  @include desktop {
-    scroll-snap-coordinate: calc((100% / #{$row-count-desktop}) + 43px) 0;
-  }
-  
+
   @include desktop-wide {
-    scroll-snap-coordinate: calc((100% / #{$row-count-desktop}) + 49px) 0;
+    min-width: ($content-width - 2 * $inner-outer-padding - 2 * $gutter-padding) / 3; //381.3px = (1200 - 2*16 - 2*12) / 3
   }
   
-  &:hover,
-  &:active,
-  &:focus {
-    border: none; // overwrite of global a-styles
+  & > a { // overwrite global a-styles :-/
+    border: none;
+    
+    &:hover,
+    &:active,
+    &:focus {
+      border: none;
+    }
   }
 }
+
 .swipemod-container--2ormore .swipemod-item {
   flex: 1 0 calc(100% - #{$swipe-remains-small} + #{$gutter-padding-small});
+
+  min-width: $smartphone-size - 2 * $outer-padding-small - $inner-outer-padding - $swipe-remains-small; //240px = 320 - 2*8 - 16 - 48
   
   @include tablet-up {
     flex: 1 0 calc(100% - #{$swipe-remains-small + $outer-padding} + #{$gutter-padding});
@@ -197,15 +236,21 @@ $item-max-width: 400px;
 .swipemod-container--3ormore .swipemod-item {
   @include tablet {
     @include maxWidthCalculator($row-count-tablet, $swipe-remains);
+
+    min-width: ($tablet-size - 2 * $outer-padding - $inner-outer-padding - $gutter-padding - $swipe-remains) / 2; //288px = (720 - 2*32 - 16 - 12 - 52) / 2
   }
 }
 .swipemod-container--4ormore .swipemod-item {
   @include desktop-up {
     @include maxWidthCalculator($row-count-desktop, $swipe-remains);
+
+    min-width: ($desktop-size - 2 * $outer-padding - $inner-outer-padding - 2 * $gutter-padding - $swipe-remains) / 3; //289px = (1024 - 2*32 - 16 - 2*12 - 52) / 3
   }
   
   @include desktop-wide {
     @include maxWidthCalculator($row-count-desktop, $swipe-remains-large);
+
+    min-width: ($content-width - $inner-outer-padding - 2 * $gutter-padding - $swipe-remains-large) / 3; //356px = (1200 - 16 - 2*12 - 92) / 3
   }
 }
 
@@ -218,6 +263,7 @@ $item-max-width: 400px;
   letter-spacing: .2px;
   color: $color-text-default;
 }
+
 .swipemod-item__overline {
   margin: 0 0 4px 0;
   font-family: $font-regular;
@@ -233,9 +279,11 @@ $item-max-width: 400px;
   width: 100%;
   position: relative;
 }
+
 .swipemod-imagecontainer__inner {
   padding-bottom: 56.25%;
 }
+
 .swipemod-image {
   position: absolute;
   width: 100%;
@@ -245,51 +293,91 @@ $item-max-width: 400px;
   object-fit: cover;
 }
 
-/* TODO: unify with video gallery! */
 .swipemod-button {
   position: absolute;
-  width: 56px;
-  height: 108px;
-  top: 50%;
-  transform: translateY(-50%);
-  background-size: 32px;
-  background-position: 14px;
-  background-repeat: no-repeat;
-  background-color: transparent;
-  border: none;
+  width: 100px;
+  top: 55px;
+  bottom: 12px;
   display: none;
-  border-radius: 2px;
+  border: none;
+  background-color: transparent;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    height: 108px;
+    width: 56px;
+    transform: translateY(-50%);
+    background-size: 32px;
+    background-position: 14px;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    border-radius: 2px;
+  }
 
   &:hover,
   &:focus {
-    background-color: rgba(0, 0, 0, 0.48);
+    &::after {
+      background-color: rgba(0, 0, 0, 0.48);
+    }
   }
 
   &:active {
-    background-color: rgba(0, 0, 0, 0.8);
+    &::after {
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+  }
+
+  &:focus,
+  &:active {
+    outline: none;
   }
 }
 
 .swipemod-container--2ormore .swipemod-button {
   @include tablet-up {
     display: block;
-    opacity: 0;
+    cursor: pointer;
+    cursor: hand;
+
+    &::after {
+      opacity: 0;
+    }
 
     &:hover,
     &:active,
     &:focus {
-      opacity: 1;
+      &::after {
+        opacity: 1;
+      }
     }
   }
 }
 
 .swipemod-button__left {
   left: -40px;
-  background-image: url('../img/carousel/previous.svg');
+
+  @include desktop-wide {
+    left: 0;
+  }
+
+  &::after {
+    left: 0;
+    background-image: url('../img/carousel/previous.svg');
+  }
 }
 
 .swipemod-button__right {
   right: -40px;
-  background-image: url('../img/carousel/next.svg');
+
+  @include desktop-wide {
+    right: 0;
+  }
+
+  &::after {
+    right: 0;
+    background-image: url('../img/carousel/next.svg');
+  }
 }
 
