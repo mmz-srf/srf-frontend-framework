@@ -1,7 +1,7 @@
 {
   "title" : "SRF Frontend Framework",
   "htmlClass": "pl",
-  "bodyClass": "body",
+  "bodyClass": "demo-pattern-page",
   "a11yInfo": "Accessible Text goes here",
   "articleHeader": {
     "kicker": "Pendler-Chaos",
