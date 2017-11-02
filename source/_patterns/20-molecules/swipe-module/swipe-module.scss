@@ -19,12 +19,7 @@ $item-max-width: 400px;
 
 .swipemod {
   background: $color-bg-box;
-  padding: 24px 0 32px;
   overflow-x: hidden;
-
-  @include tablet-up {
-    padding: 24px 0 40px;
-  }
 
   @include desktop-up {
     overflow-x: visible;
