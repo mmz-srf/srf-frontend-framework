@@ -6,19 +6,14 @@
 
   // animations
   @include tablet-up {
-    width: auto;
-    right: -280px;
-    transition: right $naviTransitionTime cubic-bezier(0.4, 0.0, 0.2, 1);
-  }
-}
-
-.navigation--footer {
-  @include tablet-up {
     display: flex;
     flex-grow: 1;
     flex-wrap: nowrap;
     align-items: stretch;
     margin: 0;
+    width: auto;
+    right: -280px;
+    transition: right $naviTransitionTime cubic-bezier(0.4, 0.0, 0.2, 1);
   }
 }
 
@@ -43,19 +38,7 @@
   }
 }
 
-.navigation--header .navigation-item {
-  @include smartphone {
-    &:first-child {
-      margin-top: -9px;
-    }
-  }
-
-  &:last-child {
-    border-bottom: 24px solid transparent;
-  }
-}
-
-.navigation--footer .navigation-item {
+.navigation-item {
   @include tablet-up {
     flex: 1 0 auto;
     border-right: 1px solid #444;
@@ -100,68 +83,24 @@
     border-bottom: 0;
   }
   
-  .navigation--footer & {
-    @include tablet-up {
-      padding-right: 16px;
-      padding-left: 16px;
-    }
-  }
-}
-
-.navigation--header .navigation__link--close {
-  @include smartphone {
-    display: none;
-  }
-
   @include tablet-up {
-    position: fixed;
-    height: 56px;
-    width: 280px;
-    background: #333 url("../img/close-sprite.svg") no-repeat scroll 100% 0 / 20px;
-    border: 18px solid #333;
-    border-width: 18px 32px; // (56 - 20) / 2 = 18
-    margin-top: -9px;
-    padding: 0;
-    z-index: 1;
-
-    &:hover, &:focus {
-      background-color: #333;
-      background-position: 100% -30px;
-    }
-  }
-
-  @include desktop-wide {
-    position: absolute; // and back again!
+    padding-right: 16px;
+    padding-left: 16px;
   }
 }
 
-.navigation--footer .navigation__group-item--close {
+.navigation__group-item--close {
   display: none;
 }
 
-@include tablet-up {
-  .navigation--header .navigation__link--fixed {
-    position: fixed;
-  }
-
-  .navigation--header .navigation__link--home {
-    border-top: 47px solid #333;
-  }
-}
-
-.navigation--header .navigation__group {
-  border-bottom: 1px solid #444;
-  padding: 9px 0 7px; 
-}
-
-.navigation--footer .navigation__group {
+.navigation__group {
   @include smartphone {
     border-bottom: 1px solid #444;
     padding: 9px 0 7px;
   }
 }
 
-.navigation--footer .navigation-item:first-child .navigation__group {
+.navigation-item:first-child .navigation__group {
   @include smartphone {
     padding-top: 0;
   }
@@ -179,14 +118,8 @@
   padding-top 0.4s ease,
   padding-bottom 0.4s ease;
   
-  .navigation--header & {
+  @include smartphone {
     padding: 0;
-  }
-
-  .navigation--footer & {
-    @include smartphone {
-      padding: 0;
-    }
   }
 
   .navigation__group-item {
@@ -200,25 +133,17 @@
   height: 456px; // we "do" know the height (must - to animate it)
   padding: 12px;
   visibility: visible;
+  margin: 0 -12px;
+  @include smartphone {
+    padding: 12px;
+    border-bottom: none;
+  }
 
   .navigation__group-item {
     // preventing the menu (on scroll) from not reaching the bottom
     height: 48px;
   }
   
-  .navigation--header & {
-    padding: 12px;
-    border-bottom: none;
-  }
-   
-  .navigation--footer & {
-    margin: 0 -12px;
-    @include smartphone {
-      padding: 12px;
-      border-bottom: none;
-    }
-  }
-
   .navigation__link--radio {
     position: relative;
     opacity: 1;
