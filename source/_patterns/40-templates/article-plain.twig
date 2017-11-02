@@ -1,21 +1,9 @@
-{% include 'molecules-header' %}
-
 <div class="l-main-wrapper l-card">
     <article class="article">
-
-        {% include 'atoms-breadcrumbs' %}
-        {% include 'molecules-article-header' %}
-
         <section class="article-content">
             {% block article_content %}
                 [-- ARTICLE CONTENT --]
             {% endblock %}
         </section>
-
     </article>
 </div>
-
-{% include 'molecules-comments' %}
-{% include 'molecules-swipe-module' %}
-
-{% include 'molecules-footer' %}
