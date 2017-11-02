@@ -9,6 +9,10 @@
   padding: 0 0.5rem;
 }
 
+body.demo-pattern-page {
+  background-color: #FFF;
+}
+
 .demo-colors,
 .demo-fonts {
   display: flex;
