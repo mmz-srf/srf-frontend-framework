@@ -334,7 +334,6 @@ $item-max-width: 400px;
   @include tablet-up {
     display: block;
     cursor: pointer;
-    cursor: hand;
 
     &::after {
       opacity: 0;
