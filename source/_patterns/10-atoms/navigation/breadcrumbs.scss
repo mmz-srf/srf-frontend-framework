@@ -67,6 +67,7 @@
 
   &::before {
     content: '';
+    position: absolute;
     top: 11px;
     left: auto;
     right: 12px;
@@ -74,6 +75,7 @@
     width: 6px;
     border-bottom: 1px solid #6c6960;
     border-right: 1px solid #6c6960;
+    transform: rotate(-45deg);
   }
 }
 
