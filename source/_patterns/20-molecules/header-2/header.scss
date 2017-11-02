@@ -13,16 +13,23 @@ $naviTransitionTime: 0.4s;
   margin-top: 56px;
 }
 
-.main-header {
+
+
+/*
+ * BAR
+ *
+*/
+
+.header-bar {
   background: linear-gradient(to bottom, #313131, #212121);
 }
 
-.main-header-wrapper {
+.header-wrapper {
   display: flex;
   justify-content: space-between;
 }
 
-.main-header-startlink {
+.header-startlink {
   flex: 0 1 auto;
   display: block;
   padding: 12px;
@@ -39,13 +46,17 @@ $naviTransitionTime: 0.4s;
   }
 }
 
-.main-header-logo {
+.header-logo {
   width: 39px;
   height: 26px;
 }
 
 
 
+/*
+ * MENÜ
+ *
+*/
 
 .menu-trigger {
   flex: 0 1 auto;
@@ -160,6 +171,16 @@ $naviTransitionTime: 0.4s;
 
 
 
-.main-navigation {
+/*
+ * NAVIGATION
+ *
+*/
+
+.header-navigation {
   background: #343434;
+}
+
+.navigation-wrapper {
+  padding-top: 32px;
+  padding-bottom: 32px;
 }

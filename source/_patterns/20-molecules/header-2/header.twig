@@ -1,18 +1,18 @@
 <div class="header">
-  <div class="main-header">
-    <div class="main-header-wrapper l-main-wrapper">
-      <a href="/" class="main-header-startlink" title="Startseite SRF"><img class="main-header-logo" src="{{ frameworkAssetPath }}/img/srf_logo.svg" alt="Logo SRF" /></a>
-      {% block search %}
+  <div class="header-bar">
+    <div class="header-wrapper l-main-wrapper">
+      <a href="/" class="header-startlink" title="Startseite SRF"><img class="header-logo" src="{{ frameworkAssetPath }}/img/srf_logo.svg" alt="Logo SRF" /></a>
+      {#% block search %}
         {% include 'atoms-search' %}
-      {% endblock %}
+      {% endblock %#}
       <a href="#" class="menu-trigger" aria-haspopup role="combobox">
         <div class="menu-icon"><span></span><span></span><span></span><span></span></div>
         <span class="menu-name h-show-tablet-up">Menü</span>
       </a>
     </div>
   </div>
-  <div class="main-navigation">
-    <div class="main-navigation-wrapper l-main-wrapper">
+  <div class="header-navigation">
+    <div class="navigation-wrapper l-main-wrapper">
       {% block navigation %}
         {% include 'molecules-navigation' with { 'styleModifier': 'navigation--footer' } %}
       {% endblock %}
