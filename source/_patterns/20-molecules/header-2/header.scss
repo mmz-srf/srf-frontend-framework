@@ -24,7 +24,7 @@ $naviTransitionTime: 0.4s;
   background: linear-gradient(to bottom, #313131, #212121);
 }
 
-.header-wrapper {
+.header-bar-wrapper {
   display: flex;
   justify-content: space-between;
 }
@@ -180,7 +180,7 @@ $naviTransitionTime: 0.4s;
   background: #343434;
 }
 
-.navigation-wrapper {
+.header-navigation-wrapper {
   padding-top: 32px;
   padding-bottom: 32px;
 }

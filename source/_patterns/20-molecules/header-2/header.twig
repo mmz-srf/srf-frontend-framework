@@ -1,6 +1,6 @@
 <div class="header">
   <div class="header-bar">
-    <div class="header-wrapper l-main-wrapper">
+    <div class="header-bar-wrapper l-main-wrapper">
       <a href="/" class="header-startlink" title="Startseite SRF"><img class="header-logo" src="{{ frameworkAssetPath }}/img/srf_logo.svg" alt="Logo SRF" /></a>
       {#% block search %}
         {% include 'atoms-search' %}
@@ -12,7 +12,7 @@
     </div>
   </div>
   <div class="header-navigation">
-    <div class="navigation-wrapper l-main-wrapper">
+    <div class="header-navigation-wrapper l-main-wrapper">
       {% block navigation %}
         {% include 'molecules-navigation' with { 'styleModifier': 'navigation--footer' } %}
       {% endblock %}
