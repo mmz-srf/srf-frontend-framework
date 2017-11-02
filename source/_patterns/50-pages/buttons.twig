@@ -1,5 +1,6 @@
-<article class="article">
-  <section class="article-content">
+{% embed 'templates-article-plain' %}
+
+    {% block article_content %}
     {% include 'atoms-button' with {'buttonText' : 'Primary Button'} %}
     {% include 'atoms-button' with {'buttonText' : 'Senden'} %}
     {% include 'atoms-button' with {'styleModifier' : 'button--pending',   'buttonText' : ''} %}
@@ -13,9 +14,9 @@
       {% include 'atoms-button' with {'buttonText' : 'Senden'} %}
       <button class="js-toggle-classes">Toggle Different States</button>
     </div>
+    {% endblock %}
 
-  </section>
-</article>
+{% endembed %}
 
 <script>
     let $btn = $(".js-toggle-container .button");
