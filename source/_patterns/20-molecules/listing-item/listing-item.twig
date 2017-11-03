@@ -1,0 +1,27 @@
+<li class="listing-item">
+    {% include 'molecules-image-figure' with {'styleModifier': 'image-figure--simple'} %}
+    <div class="listing-item__block">
+        <h3 class="listing-item__heading">{{articleText.title}}</h3>
+        <p class="listing-item__content">{{articleText.text}}</p>
+        {% include 'atoms-infoline' with {'styleModifier': 'infoline--nospacing h-show-mobile', 'infolineSource': 'true', 'infolineElem': image.caption.source} %}
+    </div>
+</li>
+<li class="listing-item">
+    {% include 'molecules-video' with {'styleModifierMain': 'article-media--simple', 'styleModifier': 'image-figure--simple'} %}
+    <div class="listing-item__block">
+        <h3 class="listing-item__heading">{{articleText.title}}</h3>
+        <p class="listing-item__content">{{articleText.text}}</p>
+        <div class="listing-item__link">
+            {% include 'atoms-block-link' with {'styleModifier': 'block-link--with-separator block-link--external'} %}
+        </div>
+        {% include 'atoms-infoline' with {'styleModifier': 'infoline--nospacing h-show-mobile', 'infolineElem': video.show.title} %}
+    </div>
+</li>
+<li class="listing-item">
+    {% include 'molecules-audio' with {'styleModifierMain': 'article-media--simple'} %}
+    <div class="listing-item__block">
+        <h3 class="listing-item__heading">{{articleText.title}}</h3>
+        <p class="listing-item__content">{{articleText.text}}</p>
+        {% include 'atoms-infoline' with {'styleModifier': 'infoline--nospacing h-show-mobile', 'infolineSource': 'true', 'infolineElem': image.caption.source} %}
+    </div>
+</li>

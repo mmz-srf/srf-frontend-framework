@@ -1,23 +1,4 @@
-.listicle {
-  margin:24px 0;
-  @include tablet-up {
-    margin:32px 0;
-  }
-}
-
-.listicle__title {
-  font:normal 500 22px/28px $font-medium;
-  letter-spacing:.2px;
-  color: $color-text-default;
-  margin: 0 0 16px;
-  @include article-text-padding;
-
-  @include tablet-up {
-    margin-bottom: 24px;
-  }
-}
-
-.listicle__item {
+.listicle-item {
   margin: 0 -24px 24px;
   padding: 0 24px;
 
@@ -35,7 +16,7 @@
   }
 }
 
-.listicle__heading {
+.listicle-item__heading {
   margin: 16px 0 12px;
   font-size: 18px;
   line-height: 28px;
@@ -51,15 +32,13 @@
   }
 }
 
-.listicle__media {
+.listicle-item__media {
   margin: 12px -24px;
 
   @include tablet-up {
     margin: 16px -16px;
   }
-}
 
-.listicle__media--override-child-margins {
   // removes top/bottom margins of first child - i.e. an included video
   & > *:first-child {
     margin-top: 0;
@@ -67,7 +46,7 @@
   }
 }
 
-.listicle__content {
+.listicle-item__content {
   font: normal 300 18px/28px $font-light;
   letter-spacing: .5px;
   color: $color-text-default;
@@ -81,7 +60,7 @@
   }
 }
 
-.listicle__link {
+.listicle-item__link {
   margin: 12px -24px 16px 0;
 
   @include tablet-up {
