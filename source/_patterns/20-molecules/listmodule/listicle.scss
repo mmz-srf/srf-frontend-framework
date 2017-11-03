@@ -52,10 +52,18 @@
 }
 
 .listicle__media {
-  margin: 12px auto;
+  margin: 12px -24px;
 
   @include tablet-up {
     margin: 16px -16px;
+  }
+}
+
+.listicle__media--override-child-margins {
+  // removes top/bottom margins of first child - i.e. an included video
+  & > *:first-child {
+    margin-top: 0;
+    margin-bottom: 0;
   }
 }
 
@@ -74,19 +82,9 @@
 }
 
 .listicle__link {
-  margin: 12px -24px 16px;
+  margin: 12px -24px 16px 0;
 
   @include tablet-up {
-    margin: 16px -16px;
-  }
-}
-
-.listicle__link .block-link {
-  border-top: 1px solid $color-separator;
-  padding-left: 8px;
-  background-position-x: calc(100% - 8px);
-  padding-right: 48px;
-  @include tablet-up{
-    padding-right: 50px;
+    margin: 24px -24px 24px 0;
   }
 }

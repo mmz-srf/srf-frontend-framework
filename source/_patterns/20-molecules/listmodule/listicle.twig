@@ -6,32 +6,33 @@
             <div class="listicle__content">
                 {{ articleHeader.lead }}
             </div>
-            <div class="listicle__media">
+            <div class="listicle__media listicle__media--override-child-margins">
                 {% include 'molecules-image-figure' %}
             </div>
             <div class="listicle__content">
                 {{ articleText.text }}
             </div>
             <div class="listicle__link">
-                {% include 'atoms-block-link' with {'styleModifier': 'block-link'} %}
+                {% include 'atoms-block-link' with {'styleModifier': 'block-link--with-separator'} %}
             </div>
         </li>
         <li class="listicle__item">
             <h3 class="listicle__heading">2. {{ articleText.title }}</h3>
-            <div class="listicle__media">
+            <div class="listicle__media listicle__media--override-child-margins">
                 {% include 'molecules-medium--vertical' %}
             </div>
             <div class="listicle__content">
                 {{ articleText.text }}
             </div>
             <div class="listicle__link">
-                {% include 'atoms-block-link' with {'styleModifier': 'block-link--external'} %}
+                {% include 'atoms-block-link' with {'styleModifier': 'block-link--external block-link--with-separator'} %}
+                {% include 'atoms-block-link' with {'styleModifier': 'block-link--pdf block-link--with-separator'} %}
             </div>
             {% include 'atoms-infoline' with {'styleModifier': 'infoline--nospacing', 'infolineSource': 'true', 'infolineElem': image.caption.source} %}
         </li>
         <li class="listicle__item last">
             <h3 class="listicle__heading">3. {{ articleText.title }}</h3>
-            <div class="listicle__media">
+            <div class="listicle__media listicle__media--override-child-margins">
                 {% include 'molecules-medium' %}
             </div>
             <div class="listicle__content">
