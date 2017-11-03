@@ -1,16 +1,29 @@
 <div class="header">
+
   <div class="header-bar">
     <div class="header-bar-wrapper l-main-wrapper">
-      <a href="/" class="header-startlink" title="Startseite SRF"><img class="header-logo" src="{{ frameworkAssetPath }}/img/srf_logo.svg" alt="Logo SRF" /></a>
+      <a href="/" class="header-startlink" title="Startseite SRF">
+        <img class="header-logo" src="{{ frameworkAssetPath }}/img/srf_logo.svg" alt="Logo SRF" />
+      </a>
+
       {#% block search %}
         {% include 'atoms-search' %}
       {% endblock %#}
-      <a href="#" class="menu-trigger" aria-haspopup role="combobox">
-        <div class="menu-icon"><span></span><span></span><span></span><span></span></div>
-        <span class="menu-name h-show-tablet-up">Menü</span>
+
+      <a href="#" class="menu-button js-menu-button" aria-haspopup role="combobox">
+        <div class="menu-button__icon">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <span class="menu-button__text h-show-tablet-up" aria-hidden="true" role="presentation">Menü</span>
+        <span class="menu-button__a11y-open h-offscreen">Menu öffnen</span>
+        <span class="menu-button__a11y-close h-offscreen">Menu schliessen</span>
       </a>
     </div>
   </div>
+
   <div class="header-navigation">
     <div class="header-navigation-wrapper l-main-wrapper">
       {% block navigation %}
@@ -18,4 +31,5 @@
       {% endblock %}
     </div>
   </div>
+
 </div>

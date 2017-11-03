@@ -1,13 +1,90 @@
 import {SrfSearch} from './srf-search';
 
-
-const HANDLE_CLASS = ".menu-handle";
-const SUBMENU_CLASS = ".js-expand-arrow";
-const DESKTOP_CLOSE_BTN_CLASS = ".navigation__link--close";
 const KEYCODES = {
     "enter": 13,
     "tab": 9
 };
+
+export function init() {
+    $(".header").each((i, elem) => {
+        new SrfHeader((elem));
+    });
+}
+
+export class SrfHeader {
+
+    constructor(element) {
+        this.$element = $(element);
+        this.$menuButton = this.$element.find(".js-menu-button");
+        this.$subMenuButton = this.$element.find(".js-expand-arrow");
+        this.menuIsOpen = this.getInitialMenuState();
+
+        // Submenu (Radio)
+        this.$subMenuContent = $(".navigation__group--radio");
+        this.$arrow = $(".expand-arrow");
+        this.$info = $(".js-expand-info");
+
+        this.registerListeners();
+
+        this.changeMenuState(this.menuIsOpen);
+    }
+
+    registerListeners() {
+        this.$menuButton.on("click", event => this.onMenuButtonClicked(event) );
+
+        $(document).on("click", event => this.onDocumentClicked(event) );
+
+        // sub menu opening & closing
+        this.$subMenuButton.on("click", event => this.onSubMenuButtonClicked(event) );
+    }
+
+    onDocumentClicked(e) {
+        // TODO - close menu if click outside of menu & menu is open
+    }
+
+    onMenuButtonClicked(e) {
+        this.changeMenuState(!this.menuIsOpen);
+    }
+
+    changeMenuState(newState) {
+        this.menuIsOpen = newState;
+
+        this.$element.toggleClass("header--open", this.menuIsOpen);
+
+        this.saveMenuState(this.menuIsOpen);
+    }
+
+    getInitialMenuState() {
+        // TODO via SrfStorage
+        return false;
+    }
+
+    saveMenuState(state) {
+        // TODO via SrfStorage
+    }
+
+    onSubMenuButtonClicked(e) {
+        typeof e !== "undefined" ? e.preventDefault() : null;
+
+        let subMenuIsOpen = this.$arrow.hasClass("expand-arrow--open");
+
+        this.$arrow.toggleClass("expand-arrow--open", !subMenuIsOpen);
+        this.$subMenuButton.attr("aria-expanded", !subMenuIsOpen);
+        this.$subMenuContent.toggleClass("navigation__group--radio-open", !subMenuIsOpen);
+
+        if (subMenuIsOpen) {
+            this.$info.text(this.$info.data("text-open"));
+        } else {
+            this.$info.text(this.$info.data("text-close"));
+        }
+    }
+}
+
+/*
+
+const HANDLE_CLASS = ".menu-handle";
+const SUBMENU_CLASS = ".js-expand-arrow";
+const DESKTOP_CLOSE_BTN_CLASS = ".navigation__link--close";
 const WIN_SIZE_NOT_MOBILE = 719;
 
 let srfSearch = null;
@@ -49,6 +126,7 @@ export function init() {
     // radiostation navigation opening & closing
     $(".navigation").on("click", SUBMENU_CLASS, (e) => handleExpandArrowClick(e));
 }
+*/
 
 function onMenuHandling(e) {
     e.preventDefault(); // chrome has a problem (bug!) with keypress!
@@ -181,4 +259,3 @@ function initSearch($elem, options) {
 function isDesktop() {
     return $(window).width() > WIN_SIZE_NOT_MOBILE;
 }
-
