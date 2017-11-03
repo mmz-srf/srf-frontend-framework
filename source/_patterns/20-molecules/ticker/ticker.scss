@@ -141,6 +141,17 @@
     @include smartphone {
       margin: 23px 0;
     }
+
+    li {
+      margin-left: 0;
+      padding-left: 8px;
+
+      &:hover,
+      &:active,
+      &:focus {
+        padding-left: 8px;
+      }
+    }
   }
 
   .linkbox__title {
