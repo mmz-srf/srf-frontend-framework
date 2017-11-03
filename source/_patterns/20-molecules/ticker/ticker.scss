@@ -151,6 +151,12 @@
       &:focus {
         padding-left: 8px;
       }
+
+      margin-right: -32px;
+
+      @include tablet-up {
+        margin-right: 0;
+      }
     }
   }
 
