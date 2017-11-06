@@ -2,7 +2,8 @@ import {SrfSearch} from './srf-search';
 
 const KEYCODES = {
     "enter": 13,
-    "tab": 9
+    "tab": 9,
+    "escape": 27
 };
 
 export function init() {
@@ -39,8 +40,8 @@ export class SrfHeader {
         this.$menuButton.on("click", event => this.onMenuButtonClicked(event) );
 
         $(document).on("click", event => this.onDocumentClicked(event) );
+        $(document).on("keydown", event => this.onKeyPressed(event) );
 
-        // sub menu opening & closing
         this.$subMenuButton.on("click", event => this.onSubMenuButtonClicked(event) );
     }
 
@@ -51,7 +52,7 @@ export class SrfHeader {
      */
     onDocumentClicked(e) {
         if (this.menuIsOpen && !$.contains(this.$element[0], e.target) || $(e.target).hasClass("js-close-menu") ) {
-            this.changeMenuState(false);
+            this.close();
         }
     }
 
@@ -82,6 +83,16 @@ export class SrfHeader {
         this.$subMenuContent.toggleClass("navigation__group--radio-open", subMenuIsOpen);
 
         this.submenuToggleCallback(subMenuIsOpen);
+    }
+
+    onKeyPressed(e) {
+        if (e.keyCode === KEYCODES.escape && this.menuIsOpen ) {
+            this.close();
+        }
+    }
+
+    close() {
+        this.changeMenuState(false);
     }
 }
 
