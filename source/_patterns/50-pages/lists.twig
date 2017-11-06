@@ -1,6 +1,8 @@
-    <article class="article">
-      <section class="article-content">
+{% embed 'templates-article' %}
+
+    {% block article_content %}
         {% include 'molecules-listmodule-listing' %}
         {% include 'molecules-listmodule-listicle' %}
-      </section>
-    </article>
+    {% endblock %}
+
+{% endembed %}

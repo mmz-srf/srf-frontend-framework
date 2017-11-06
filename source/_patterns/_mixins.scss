@@ -1,5 +1,3 @@
-
-
 /* let's an element break out of its parent container and stretch to the full width */
 @mixin fullwidth-element {
   width: 100vw;
@@ -16,6 +14,39 @@
 
   @include tablet-up {
     padding: 0 16px;
+  }
+}
+
+
+/*
+ * 
+ * @mixin fullwidth-container
+ *
+ * This lets an element break out of its parent container and stretch it to the width of the wrapping card container
+ *
+ * This is just **plain simple negative margin magic**
+ * It lets the element break out and size/move it to the borders of the card-container
+ *
+ *       @tablet = here we have to substract the spacing on the right and left from the viewport-width (100vw)
+ *                 … therefore 100vw minus 100% (the width of the parent = content-container)
+ *                 … diveded by 2 ('cause spacing is left and right) AND multiplied by -1 to get a negative number
+ *      @desktop = same-same as tablet, but additional 32px of spacing
+ * @desktop-wide = same-same as tablet, but parent is always 1200px
+ *
+ */
+
+@mixin fullwidth-container {
+  @include tablet {
+    margin-right: calc(((100vw - 100%) / 2) * -1);
+    margin-left:  calc(((100vw - 100%) / 2) * -1);
+  }
+  @include desktop {
+    margin-right: calc((((100vw - 100%) / 2) - 32px) * -1);
+    margin-left:  calc((((100vw - 100%) / 2) - 32px) * -1);
+  }
+  @include desktop-wide {
+    margin-right: calc((1200px - 100%) / 2 * -1);
+    margin-left:  calc((1200px - 100%) / 2 * -1);
   }
 }
 

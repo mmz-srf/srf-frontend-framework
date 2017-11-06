@@ -1,35 +1,16 @@
 @import "../../variables";
+@import "../../breakpoints";
 
 .sharing-bar {
-  margin: 20px 0 24px 0;
+  margin-top: 28px;
+  margin-bottom: 24px;
   width: 100%;
-  // position: relative;
   background-color: transparent;
   text-align: center;
 
-  @include smartphone {
-    margin: 28px 0 24px 0;
-  }
-
-  > .horizontal-separator { // TODO: should not be part of the sharing bar
-    position: absolute;
-    margin-top: 0;
-    margin-bottom: 0;
-    top: 44px;
-    @include smartphone {
-      top: 52px;
-    }
-    z-index: -1;
-  }
-
-  > .horizontal-separator--content-max-width {  // TODO: should not be part of the sharing bar
-    position: relative;
-    top: 25px;
-
-    @include desktop-widest {
-      margin-left: 0;
-      margin-right: 0;
-    }
+  @include tablet-up {
+    margin-top: 20px;
+    margin-bottom: 24px;
   }
 }
 
@@ -38,6 +19,7 @@
   background-color: #fff;
   margin: 0 auto;
   display: inline-block;
+  position: relative;
 
   @include smartphone {
     padding: 0 12px;
@@ -53,10 +35,6 @@
 
   b {
     color: #22211D;
-  }
-
-  @include smartphone {
-    margin: 0 -8px;
   }
 
 }

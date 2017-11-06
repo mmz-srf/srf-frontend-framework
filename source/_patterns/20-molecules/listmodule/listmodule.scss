@@ -164,40 +164,89 @@
 }
 
 .listmodule__link {
-  margin: 12px -8px 16px;
+  margin: 12px 0 16px;
 
   @include tablet-up {
     margin-top: 24px;
     margin-bottom: 24px;
   }
 }
+
+
+.listmodule__link--listicle {
+  margin-right: -24px;
+  margin-left: 0;
+}
+
 .listmodule__link--listing {
   clear: both;
 }
-.listmodule__link--listicle {
-  margin-right: -24px;
-  margin-left: -24px;
-  @include tablet-up {
-    margin: 16px -16px;
-  }
-}
+
 
 .listmodule__link .block-link {
+
   border-top: 1px solid $color-separator;
+
+  &:hover,
+  &:focus,
+  &:active {
+    width: auto;
+
+    padding-left: 24px;
+    margin-left: -24px;
+
+    border-bottom: 1px solid $color-separator;
+    background-color: $color-link-bg-hover;
+
+    @include tablet-up {
+      padding-left: 16px;
+      margin-left: -24px;
+
+      margin-right: -24px;
+    }
+  }
+
+  &:last-child {
+    border-bottom: 1px solid $color-separator;
+  }
+
+
 }
 
 .listmodule__link--listing .block-link {
-  padding-left: 8px;
-  background-position-x: calc(100% - 8px);
+  background-position-x: calc(100% - 24px);
   padding-right: 32px;
+  margin-right: -24px;
+
+  width: auto;
+
   @include tablet-up{
     padding-right: 42px;
+    margin-right: 0px;
+
+    &:hover,
+    &:focus,
+    &:active {
+      margin-right: 0px;
+      margin-left: -16px;
+    }
   }
 }
 
 .listmodule__link--listicle .block-link {
   padding-right: 48px;
+  width: auto;
+
   @include tablet-up{
     padding-right: 50px;
+    padding-right: 42px;
+    margin-right: 8px;
+
+    &:hover,
+    &:focus,
+    &:active {
+        margin-right: 8px;
+        margin-left: -16px;
+    }
   }
 }

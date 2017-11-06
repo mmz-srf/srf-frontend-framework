@@ -1,43 +1,49 @@
-
-
+/* centers element with content-max-width */
 .l-main-wrapper {
-  max-width: $content-max-width;
-  min-width: 320px;
+  max-width: $content-width;
+  min-width: $smartphone-size;
   margin: 0 auto;
+  
+  @include desktop {
+    margin-right: 32px;
+    margin-left: 32px;
+  }
 }
 
+/* Adds some special spacing to the main-wrapper (i.e. for boxes like comments, swipe-module etc.) */
+.l-main-wrapper__space {
+  margin-right: 8px;
+  margin-left: 8px;
+  
+  @include tablet {
+    margin-right: 32px;
+    margin-left: 32px;
+  }
 
-// .l-content-wrapper = Grid
-.l-content-wrapper {
-  max-width: $content-width;
-  min-width:320px;
+  @include desktop-up {
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+
+/* Adds Card-Design (bg-color, shadow etc.) to Element */
+.l-card {
+  background-color: $color-bg-card;
+  box-shadow: $shadow-default;
+  margin-top: -1px; // prevent collapsing margin; part I
+  padding-top: 1px; // prevent collapsing margin; part II
+  margin-bottom: 20px;
+  border-radius: 2px;
   
   @include tablet-up {
-    margin: 0 32px;
+    margin-bottom: 24px;
   }
   
-  @include desktop-wide {
-    margin: 0 auto;
-  }
-}
-
-.l-full-width-container {
-  @include fullwidth-element;
-}
-
-.l-main-media-container {
-  margin-top: -32px;
-
-  @include smartphone {
-    margin-top: -24px;
-  }
-}
-
-/* smaller devices treat embed components like full-width containers */
-.l-embed-full-width-container {
-  /* overwrite in component; components in loading state have a grey background */
-  background-color: #dadad2;
-  @include smartphone {
-    @include fullwidth-element;
+  // Clears collapsing margin for elements on the bottom of the card
+  &::after {
+    content: '';
+    display: block;
+    height: 1px;
+    margin-top: -1px;
   }
 }

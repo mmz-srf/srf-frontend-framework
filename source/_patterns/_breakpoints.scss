@@ -1,52 +1,35 @@
-/*** breakpoint related variables ***/
-$mobile-min-width: 320px;
-$mobile-max-width: 719px;
-
-$tablet-min-width: 720px;
-$tablet-max-width: 1023px;
-
-$desktop-min-width: 1024px;
-$desktop-max-width: 1279px;
-
-$desktop-wide-min-width: 1280px;
-
-$content-width: 1200px; // max-width 1280px - 2 * 40px Outside Gutter
-$content-max-width: 1480px;
-
-
-/*** breakpoint related mixins ***/
 @mixin smartphone {
-  @media (max-width: $mobile-max-width) {
+  @media (max-width: #{$tablet-size - 1px}) {
     @content;
   }
 }
 
 @mixin tablet {
-  @media (min-width: $tablet-min-width) and (max-width: $tablet-max-width) {
+  @media (min-width: $tablet-size) and (max-width: #{$desktop-size - 1px}) {
     @content;
   }
 }
 
 @mixin tablet-up {
-  @media (min-width: $tablet-min-width) {
+  @media (min-width: $tablet-size) {
     @content;
   }
 }
 
 @mixin desktop {
-  @media (min-width: $desktop-min-width) and (max-width: $desktop-max-width){
+  @media (min-width: $desktop-size) and (max-width: #{$desktop-wide-size - 1px}){
     @content;
   }
 }
 
 @mixin desktop-up {
-  @media (min-width: $desktop-min-width) {
+  @media (min-width: $desktop-size) {
     @content;
   }
 }
 
 @mixin desktop-wide {
-  @media (min-width: $desktop-wide-min-width) {
+  @media (min-width: $desktop-wide-size) {
     @content;
   }
 }

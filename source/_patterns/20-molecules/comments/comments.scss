@@ -10,25 +10,13 @@
 }
 
 .article-comments { // section
-  background-color: $color-bg-caption;
-  box-shadow: 0 4px 4px -5px #003 inset; // fake!
-  padding: 24px 32px;
   position: relative;
-
-  @include smartphone {
-    padding: 20px 8px;
-  }
 
   .spinner-container {
     position: relative;
     margin-top: 30px;
     display: none;
   }
-}
-.comments-wrapper {
-  background-color: #fefefd;
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.24),
-              0 0 2px 0 rgba(0, 0, 0, 0.12);
 }
 
 .comments-header {
