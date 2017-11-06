@@ -1,4 +1,6 @@
 $naviTransitionTime: 0.4s;
+$headerHeight: 50px;
+$headerHeightTabletUp: 56px;
 
 .header {
   position: absolute;
@@ -8,8 +10,17 @@ $naviTransitionTime: 0.4s;
   z-index: 100000;
 }
 
+.header--open {
+  background-color: rgba(0, 0, 0, 0.08);
+  height: 100%;
+}
+
 .header + .l-card {
-  margin-top: 56px;
+  margin-top: $headerHeight;
+
+  @include tablet-up {
+    margin-top: $headerHeightTabletUp;
+  }
 }
 
 /*
@@ -166,6 +177,13 @@ $naviTransitionTime: 0.4s;
   transform-origin: top;
   z-index: 100001;
   transform: translateY(-100%);
+
+  overflow-y: auto;
+  max-height: calc(100vh - #{$headerHeight});
+
+  @include tablet-up {
+    max-height: calc(100vh - #{$headerHeightTabletUp});
+  }
 }
 
 .header--open .header-navigation {
@@ -179,3 +197,9 @@ $naviTransitionTime: 0.4s;
 
 .menu-button__a11y-open  { display: block; }
 .menu-button__a11y-close { display: none; }
+
+
+// Prevent scrolling the page when the menu is opened
+.menu--opened {
+  overflow: hidden;
+}

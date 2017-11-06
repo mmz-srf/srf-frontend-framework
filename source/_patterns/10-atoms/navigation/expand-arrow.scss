@@ -13,3 +13,11 @@
 .expand-arrow--open {
   transform: translateZ(0) rotate(180deg); // HACK: «translateZ(0)» is because of 1px-jumping-bug in Safari (rechstst)
 }
+
+.expand-arrow--open {
+  .expand-arrow__a11y-open  { display: none; }
+  .expand-arrow__a11y-close { display: block; }
+}
+
+.expand-arrow__a11y-open  { display: block; }
+.expand-arrow__a11y-close { display: none; }

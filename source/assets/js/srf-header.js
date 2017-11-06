@@ -9,32 +9,30 @@ export function init() {
     $(".header").each((i, elem) => {
         new SrfHeader(
             elem,
-            true,
-            () => {console.log("opening...");},
-            () => {console.log("closing...");}
+            {
+                menuToggleCallback: (isOpen) => {console.log("Menu is now " + (isOpen ? "open" : "closed"));},
+                submenuToggleCallback: (isOpen) => {console.log("Submenu is now " + (isOpen ? "open" : "closed"));}
+            }
         );
     });
 }
 
 export class SrfHeader {
 
-    constructor(element, initialState, callbackOnOpen, callbackOnClose) {
+    constructor(element, options) {
         this.$element = $(element);
         this.$menuButton = this.$element.find(".js-menu-button");
         this.$subMenuButton = this.$element.find(".js-expand-arrow");
-        this.menuIsOpen = initialState || false;
 
-        this.callbackOnOpen  = callbackOnOpen  && typeof callbackOnOpen  == 'function' ? callbackOnOpen  : () => {};
-        this.callbackOnClose = callbackOnClose && typeof callbackOnClose == 'function' ? callbackOnClose : () => {};
+        this.menuIsOpen = false;
+        this.menuToggleCallback  = options.menuToggleCallback && typeof options.menuToggleCallback == 'function' ? options.menuToggleCallback : () => {};
+        this.submenuToggleCallback  = options.submenuToggleCallback && typeof options.submenuToggleCallback == 'function' ? options.submenuToggleCallback : () => {};
 
         // Submenu (Radio)
         this.$subMenuContent = $(".navigation__group--radio");
         this.$arrow = $(".expand-arrow");
-        this.$info = $(".js-expand-info");
 
         this.registerListeners();
-
-        this.changeMenuState(this.menuIsOpen);
     }
 
     registerListeners() {
@@ -49,10 +47,10 @@ export class SrfHeader {
     /**
      * Click on any element outside of the header should close the menu if it's open.
      *
-     * @param e
+     * @param e jQuery.event
      */
     onDocumentClicked(e) {
-        if (this.menuIsOpen && !$.contains(this.$element[0], e.target) ) {
+        if (this.menuIsOpen && !$.contains(this.$element[0], e.target) || $(e.target).hasClass("js-close-menu") ) {
             this.changeMenuState(false);
         }
     }
@@ -69,27 +67,21 @@ export class SrfHeader {
 
         this.$element.toggleClass("header--open", this.menuIsOpen);
 
-        if (this.menuIsOpen) {
-            this.callbackOnOpen();
-        } else {
-            this.callbackOnClose();
-        }
+        $('html').toggleClass("menu--opened", this.menuIsOpen);
+
+        this.menuToggleCallback(this.menuIsOpen);
     }
 
     onSubMenuButtonClicked(e) {
         typeof e !== "undefined" ? e.preventDefault() : null;
 
-        let subMenuIsOpen = this.$arrow.hasClass("expand-arrow--open");
+        let subMenuIsOpen = !this.$arrow.hasClass("expand-arrow--open");
 
-        this.$arrow.toggleClass("expand-arrow--open", !subMenuIsOpen);
-        this.$subMenuButton.attr("aria-expanded", !subMenuIsOpen);
-        this.$subMenuContent.toggleClass("navigation__group--radio-open", !subMenuIsOpen);
+        this.$arrow.toggleClass("expand-arrow--open", subMenuIsOpen);
+        this.$subMenuButton.attr("aria-expanded", subMenuIsOpen);
+        this.$subMenuContent.toggleClass("navigation__group--radio-open", subMenuIsOpen);
 
-        if (subMenuIsOpen) {
-            this.$info.text(this.$info.data("text-open"));
-        } else {
-            this.$info.text(this.$info.data("text-close"));
-        }
+        this.submenuToggleCallback(subMenuIsOpen);
     }
 }
 
