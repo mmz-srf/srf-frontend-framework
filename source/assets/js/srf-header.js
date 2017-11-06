@@ -7,17 +7,25 @@ const KEYCODES = {
 
 export function init() {
     $(".header").each((i, elem) => {
-        new SrfHeader((elem));
+        new SrfHeader(
+            elem,
+            true,
+            () => {console.log("opening...");},
+            () => {console.log("closing...");}
+        );
     });
 }
 
 export class SrfHeader {
 
-    constructor(element) {
+    constructor(element, initialState, callbackOnOpen, callbackOnClose) {
         this.$element = $(element);
         this.$menuButton = this.$element.find(".js-menu-button");
         this.$subMenuButton = this.$element.find(".js-expand-arrow");
-        this.menuIsOpen = this.getInitialMenuState();
+        this.menuIsOpen = initialState || false;
+
+        this.callbackOnOpen  = callbackOnOpen  && typeof callbackOnOpen  == 'function' ? callbackOnOpen  : () => {};
+        this.callbackOnClose = callbackOnClose && typeof callbackOnClose == 'function' ? callbackOnClose : () => {};
 
         // Submenu (Radio)
         this.$subMenuContent = $(".navigation__group--radio");
@@ -38,12 +46,22 @@ export class SrfHeader {
         this.$subMenuButton.on("click", event => this.onSubMenuButtonClicked(event) );
     }
 
+    /**
+     * Click on any element outside of the header should close the menu if it's open.
+     *
+     * @param e
+     */
     onDocumentClicked(e) {
-        // TODO - close menu if click outside of menu & menu is open
+        if (this.menuIsOpen && !$.contains(this.$element[0], e.target) ) {
+            this.changeMenuState(false);
+        }
     }
 
     onMenuButtonClicked(e) {
+        typeof e !== "undefined" ? e.preventDefault() : null;
+
         this.changeMenuState(!this.menuIsOpen);
+        return false;
     }
 
     changeMenuState(newState) {
@@ -51,16 +69,11 @@ export class SrfHeader {
 
         this.$element.toggleClass("header--open", this.menuIsOpen);
 
-        this.saveMenuState(this.menuIsOpen);
-    }
-
-    getInitialMenuState() {
-        // TODO via SrfStorage
-        return false;
-    }
-
-    saveMenuState(state) {
-        // TODO via SrfStorage
+        if (this.menuIsOpen) {
+            this.callbackOnOpen();
+        } else {
+            this.callbackOnClose();
+        }
     }
 
     onSubMenuButtonClicked(e) {
