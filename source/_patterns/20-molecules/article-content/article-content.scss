@@ -59,10 +59,10 @@ ol {
 
 .article-content > .text-list--unordered {
   li::before {
-    top: 10px;
+    // top: 10px;
 
     @include tablet-up {
-      top: 12px;
+      // top: 12px;
     }
   }
 }
