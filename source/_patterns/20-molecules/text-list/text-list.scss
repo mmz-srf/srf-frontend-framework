@@ -21,17 +21,14 @@
 
 .text-list--unordered > li::before {
   position: absolute;
-  left: 2px;
-  top: 10px;
+  left: 3px;
+  top: 11px;
   display: inline-block;
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
   background-color: $color-list-bullet;
   content: ' ';
-  @include tablet-up {
-    top: 12px;
-  }
 }
 
 .text-list--ordered > li {

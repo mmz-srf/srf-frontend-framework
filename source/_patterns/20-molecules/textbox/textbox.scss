@@ -73,10 +73,10 @@
     }
 
     li::before {
-      top: 8px;
+      top: 9px;
 
       @include tablet-up {
-          top: 10px; // font size is bigger
+          top: 11px; // font size is bigger
       }
     }
   }
