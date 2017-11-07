@@ -3,16 +3,16 @@
   padding: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  display: flex;
+  align-items: stretch;
+  flex-direction: column;
 
   // animations
   @include tablet-up {
-    display: flex;
-    flex-grow: 1;
+    flex-direction: row;
     flex-wrap: nowrap;
-    align-items: stretch;
     margin: 0;
     width: auto;
-    right: -280px;
     transition: right $naviTransitionTime cubic-bezier(0.4, 0.0, 0.2, 1);
   }
 }
@@ -121,6 +121,8 @@
   padding: 0;
   transition: height 0.4s ease, padding-top 0.4s ease, padding-bottom 0.4s ease;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
   
   @include smartphone {
     padding: 0;
@@ -129,6 +131,10 @@
   .navigation__group-item {
     height: 0;
     transition: height 0.4s ease;
+  }
+
+  @include tablet-up {
+    flex-direction: row;
   }
 }
 
