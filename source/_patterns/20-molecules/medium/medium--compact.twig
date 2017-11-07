@@ -1,0 +1,9 @@
+{% set mediumType = mediumType|default('audio') %}
+<div class="medium medium--compact medium--vertical js-medium-hover">
+    <div class="medium__object">
+        {% include 'molecules-media-still--compact' with { 'styleModifier' : 'media-still--compact' } %}
+    </div>
+    <div class="medium__caption">
+        {% include 'molecules-media-caption-' ~ mediumType with { 'styleModifier' : 'media-caption--compact' } %}
+    </div>
+</div>

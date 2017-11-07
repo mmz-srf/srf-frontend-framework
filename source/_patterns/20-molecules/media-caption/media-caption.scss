@@ -182,3 +182,17 @@
 .media-caption--active {
   background-color: $color-bg-box;
 }
+
+.media-caption--compact {
+  padding-top: 4px;
+  padding-bottom: 4px;
+
+  .media-caption__title {
+    display: none;
+  }
+
+  @include smartphone {
+    display: none;
+  }
+
+}

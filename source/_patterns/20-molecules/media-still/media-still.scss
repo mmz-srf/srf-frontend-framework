@@ -43,8 +43,8 @@
   }
 }
 
-.media-still--video {
-  background-color: #000;
+.media-still--video,
+.media-still--compact {
   position: relative;
 
   /* forcing 16:9 aspect ratio of container */
@@ -73,5 +73,24 @@
   .media-still__icon {
       width: 64px;
       height: 64px;
+  }
+}
+
+
+// media-still--compact behaves like a media-still--video on desktop
+// but results in a square still without caption and time indicator on mobile
+.media-still--compact {
+
+  @include smartphone {
+    position: relative;
+
+    /* forcing 1:1 aspect ratio of container */
+    &::before {
+      padding-top: 100%;
+    }
+
+    .media-still__indicator {
+      display: none;
+    }
   }
 }

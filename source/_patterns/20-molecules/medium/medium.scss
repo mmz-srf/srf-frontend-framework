@@ -22,6 +22,7 @@
   flex-shrink: 0;
   width: 196px;
   height: 110px;
+  background-color: #000;
 
   @include smartphone {
     margin: 16px 0 16px 16px;
@@ -51,4 +52,9 @@
     display: block;
     width: 100%;
   }
+}
+
+.medium--compact {
+  margin-top: 0;
+  margin-bottom: 0;
 }

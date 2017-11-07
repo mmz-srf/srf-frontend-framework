@@ -1,5 +1,7 @@
 <li class="listing-item">
-    {% include 'molecules-image-figure' with {'styleModifier': 'image-figure--simple'} %}
+    <div class="listing-item__media">
+        {% include 'molecules-image-figure' with {'styleModifier': 'image-figure--simple'} %}
+    </div>
     <div class="listing-item__block">
         <h3 class="listing-item__heading">{{articleText.title}}</h3>
         <p class="listing-item__content">{{articleText.text}}</p>
@@ -7,7 +9,9 @@
     </div>
 </li>
 <li class="listing-item">
-    {% include 'molecules-video' with {'styleModifierMain': 'article-media--simple', 'styleModifier': 'image-figure--simple'} %}
+    <div class="listing-item__media">
+        {% include 'molecules-medium--compact' with {'mediumType': 'video'} %}
+    </div>
     <div class="listing-item__block">
         <h3 class="listing-item__heading">{{articleText.title}}</h3>
         <p class="listing-item__content">{{articleText.text}}</p>
@@ -18,7 +22,9 @@
     </div>
 </li>
 <li class="listing-item">
-    {% include 'molecules-audio' with {'styleModifierMain': 'article-media--simple'} %}
+    <div class="listing-item__media">
+        {% include 'molecules-audio' with {'styleModifierMain': 'article-media--simple'} %}
+    </div>
     <div class="listing-item__block">
         <h3 class="listing-item__heading">{{articleText.title}}</h3>
         <p class="listing-item__content">{{articleText.text}}</p>
