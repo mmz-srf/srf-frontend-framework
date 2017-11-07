@@ -3,26 +3,41 @@
   color: #fff;
 }
 
+.footerBottom {
+  background: #222;
+  color: #fff;
+}
+
+.footerBottom-container-wrapper {
+  @include tablet-up {
+    display: flex;
+    flex-wrap: nowrap;
+    align-content: start;
+    justify-content: space-between;
+    padding: 0 16px 20px;
+  }
+}
+
 ul.footerTop-secnav {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  flex-grow: 1;
-  justify-content: start;
+  @include smartphone {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    flex-grow: 1;
+    justify-content: start;
+  }
   height: calc(4 * 39px + 2 * 16px);
   margin: 0;
-  padding:16px 16px;
+  padding: 16px 16px;
   
   @include tablet-up {
-    flex-direction: row;
-    flex-grow: 0;
     height: auto;
-    padding: 32px 8px;
+    padding: 20px 8px;
   }
 }
 
 .footerTop-secnavElem {
-  flex: 1 0 auto;
+  flex: 0 0 auto;
   margin: 0;
   padding: 0;
   display: inline-block;
@@ -59,25 +74,10 @@ a.footerTop-secnavLink {
   color: #fff;
 }
 
-
-
-.footerBottom {
-  background: #222;
-  color: #fff;
-  padding: 20px 24px 7px;
-  
-  > div {
-    @include tablet-up {
-      display: flex;
-      flex-wrap: nowrap;
-      align-content: start;
-      justify-content: space-between;
-      padding: 20px 16px;
-    }
-  }
-}
-
 .footerBottom-container {
+  @include smartphone {
+    padding: 0 24px;
+  }
   @include tablet-up {
     flex: 0 0 auto;
   }
@@ -172,7 +172,6 @@ a.footerBottom-buLink {
   background-color: #444;
   color: #fff;
 }
-
 
 .footerTop > div,
 .footerBottom > div {

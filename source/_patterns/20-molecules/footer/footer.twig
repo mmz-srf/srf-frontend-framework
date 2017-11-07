@@ -8,32 +8,37 @@
       {% block navigation %}
         {% include 'molecules-navigation' with { 'styleModifier': 'navigation--footer' } %}
       {% endblock %}
-
+    </div>
+  </div>
+  <div class="footerBottom">
+    <div class="l-main-wrapper">
       {% block secnavigation %}
         <ul class="footerTop-secnav">
           <li class="footerTop-secnavElem"><a href="#" title="" class="footerTop-secnavLink">Foo</a></li>
           <li class="footerTop-secnavElem"><a href="#" title="" class="footerTop-secnavLink">Bar</a></li>
-          <li class="footerTop-secnavElem"><a href="#" title="" class="footerTop-secnavLink">Long Bar With Words</a></li>
+          <li class="footerTop-secnavElem"><a href="#" title="" class="footerTop-secnavLink">With Words</a></li>
+          <li class="footerTop-secnavElem"><a href="#" title="" class="footerTop-secnavLink">And more</a></li>
+          <li class="footerTop-secnavElem"><a href="#" title="" class="footerTop-secnavLink">Never setop</a></li>
+          <li class="footerTop-secnavElem"><a href="#" title="" class="footerTop-secnavLink">Imfall</a></li>
+          <li class="footerTop-secnavElem"><a href="#" title="" class="footerTop-secnavLink">Oh ja</a></li>
         </ul>
       {% endblock %}
-    </div>
-  </div>
-  <div class="footerBottom">
-    <div class=" l-main-wrapper">
-      <div class="footerBottom-container footerBottom-container--srg">
-        <img src="{{ frameworkAssetPath }}/img/srgssr_logo.svg" class="footerBottom-srglogo" alt="Fancy Alt Text" />
-        <p class="footerBottom-paragraph">Super duper Television Company</p>
-      </div>
-      <div class="footerBottom-container footerBottom-container--bu">
-        {% block buList %}
-          <ul class="footerBottom-buList">
-            <li class="footerBottom-buElem"><a href="#" title="" class="footerBottom-buLink"><span>RTS</span></a></li>
-            <li class="footerBottom-buElem"><a href="#" title="" class="footerBottom-buLink"><span>RSI</span></a></li>
-            <li class="footerBottom-buElem"><a href="#" title="" class="footerBottom-buLink"><span>RTR</span></a></li>
-            <li class="footerBottom-buElem"><a href="#" title="" class="footerBottom-buLink"><span>SWI</span></a></li>
-            <li class="footerBottom-buElem"><a href="#" title="" class="footerBottom-buLink"><span>3SAT</span></a></li>
-          </ul>
-        {% endblock %}
+      <div class="footerBottom-container-wrapper">
+        <div class="footerBottom-container footerBottom-container--srg">
+          <img src="{{ frameworkAssetPath }}/img/srgssr_logo.svg" class="footerBottom-srglogo" alt="Fancy Alt Text" />
+          <p class="footerBottom-paragraph">Super duper Television Company</p>
+        </div>
+        <div class="footerBottom-container footerBottom-container--bu">
+          {% block buList %}
+            <ul class="footerBottom-buList">
+              <li class="footerBottom-buElem"><a href="#" title="" class="footerBottom-buLink"><span>RTS</span></a></li>
+              <li class="footerBottom-buElem"><a href="#" title="" class="footerBottom-buLink"><span>RSI</span></a></li>
+              <li class="footerBottom-buElem"><a href="#" title="" class="footerBottom-buLink"><span>RTR</span></a></li>
+              <li class="footerBottom-buElem"><a href="#" title="" class="footerBottom-buLink"><span>SWI</span></a></li>
+              <li class="footerBottom-buElem"><a href="#" title="" class="footerBottom-buLink"><span>3SAT</span></a></li>
+            </ul>
+          {% endblock %}
+        </div>
       </div>
     </div>
   </div>
