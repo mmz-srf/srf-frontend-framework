@@ -123,7 +123,7 @@
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  
+
   @include smartphone {
     padding: 0;
   }
@@ -151,11 +151,16 @@
     border-bottom: none;
   }
 
+  .navigation__sender .navigation-item,
+  .navigation__sender .navigation__group {
+    border: none;
+  }
+
   .navigation__group-item {
     // preventing the menu (on scroll) from not reaching the bottom
     height: 48px;
   }
-  
+
   .navigation__link--radio {
     position: relative;
     opacity: 1;
