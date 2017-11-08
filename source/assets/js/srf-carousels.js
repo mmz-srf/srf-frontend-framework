@@ -39,8 +39,8 @@ export function init() {
             accessibility: false,
             focusOnChange: false,
             appendArrows: "#" + id + " .slick-list",
-            prevArrow: '<button class="carousel__link--prev"><span class="h-offscreen h-offscreen-focusable">' + textNextImage + '</span></button>',
-            nextArrow: '<button class="carousel__link--next carousel__link--waggle"><span class="h-offscreen h-offscreen-focusable"> + textPreviousImage + </span></button>',
+            prevArrow: '<button class="carousel__link--prev"><span class="h-offscreen h-offscreen-focusable">' + textPreviousImage + '</span></button>',
+            nextArrow: '<button class="carousel__link--next carousel__link--waggle"><span class="h-offscreen h-offscreen-focusable"> + textNextImage + </span></button>',
             slide: ".carousel__item"
         });
         registerListener($carousel);
