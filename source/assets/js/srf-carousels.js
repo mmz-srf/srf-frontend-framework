@@ -18,7 +18,18 @@ export function init() {
     // img carousels
     $.each($carousels, function (i, carousel) {
         var $carousel = $(carousel),
-            id = $carousel.attr("id");
+            id = $carousel.attr("id"),
+            textNextImage = $carousel.data('i18n-text-next-images'),
+            textPreviousImage = $carousel.data('i18n-text-next-images');
+
+        if (!textNextImage) {
+            textNextImage = 'Nächstes Bild';
+        }
+
+        if (!textPreviousImage) {
+            textPreviousImage = 'Vorhergehendes Bild';
+        }
+
         loadedCarousels[id] = false;
 
         $carousel.slick({
@@ -28,8 +39,8 @@ export function init() {
             accessibility: false,
             focusOnChange: false,
             appendArrows: "#" + id + " .slick-list",
-            prevArrow: '<button class="carousel__link--prev"><span class="h-offscreen h-offscreen-focusable">Vorhergehendes Bild</span></button>',
-            nextArrow: '<button class="carousel__link--next carousel__link--waggle"><span class="h-offscreen h-offscreen-focusable">Nächstes Bild</span></button>',
+            prevArrow: '<button class="carousel__link--prev"><span class="h-offscreen h-offscreen-focusable">' + textNextImage + '</span></button>',
+            nextArrow: '<button class="carousel__link--next carousel__link--waggle"><span class="h-offscreen h-offscreen-focusable"> + textPreviousImage + </span></button>',
             slide: ".carousel__item"
         });
         registerListener($carousel);
@@ -45,7 +56,17 @@ export function init() {
     // video carousel:
     $.each($('.video_carousel__js'), function (i, carousel) {
         let $carousel = $(carousel),
-            id = $carousel.attr("id");
+            id = $carousel.attr("id"),
+            textNextSlide = $carousel.data('i18n-text-next-slide'),
+            textPreviousSlide = $carousel.data('i18n-text-next-slide');
+
+        if (!textNextSlide) {
+            textNextSlide = 'Nächster Slide';
+        }
+
+        if (!textPreviousSlide) {
+            textPreviousSlide = 'Vorhergehender Slide';
+        }
 
         loadedCarousels[id] = false;
 
@@ -60,8 +81,8 @@ export function init() {
             dots: true,
             centerPadding: 0,
             variableWidth: true,
-            prevArrow: '<button class="carousel__link--prev"><span class="h-offscreen h-offscreen-focusable">Vorhergehender Slide</span></button>',
-            nextArrow: '<button class="carousel__link--next"><span class="h-offscreen h-offscreen-focusable">Nächster Slide</span></button>'
+            prevArrow: '<button class="carousel__link--prev"><span class="h-offscreen h-offscreen-focusable">' + textPreviousSlide + '</span></button>',
+            nextArrow: '<button class="carousel__link--next"><span class="h-offscreen h-offscreen-focusable">' + textNextSlide + '</span></button>'
         });
     });
 
