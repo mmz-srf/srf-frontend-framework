@@ -1,0 +1,24 @@
+{% include 'molecules-header' %}
+
+<div class="l-main-wrapper l-card">
+
+  {% include 'atoms-breadcrumbs' %}
+
+  {% embed 'templates-article' %}
+
+    {% block article_content %}
+      {% include 'molecules-sharing-bar' %}
+      {% include 'molecules-seemore' %}
+      {% include 'atoms-article-text' %}
+      {% include 'atoms-article-text' %}
+      {% include 'atoms-article-author--short' %}
+    {% endblock %}
+
+  {% endembed %}
+
+</div>
+
+{% include 'molecules-swipe-module' %}
+{% include 'molecules-comments' %}
+
+{% include 'molecules-footer' %}
