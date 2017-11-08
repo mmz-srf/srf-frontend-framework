@@ -1,88 +1,48 @@
-<ul class="navigation {{ styleModifier }}" role="menu">
+<ul class="navigation navigation--demo {{ styleModifier }}" role="menu">
     <li class="navigation-item">
         <ul class="navigation__group" role="group">
-            <li class="navigation__group-item"><a class="navigation__link navigation__link--home" href="/">Home</a></li>
-            <li class="navigation__group-item"><a class="navigation__link" href="/news">News</a></li>
-            <li class="navigation__group-item"><a class="navigation__link" href="/sport">Sport</a></li>
-            <li class="navigation__group-item"><a class="navigation__link" href="/meteo">Meteo</a></li>
-            <li class="navigation__group-item"><a class="navigation__link" href="/kultur">Kultur</a></li>
-            <li class="navigation__group-item"><a class="navigation__link" href="/sendungen/dok">DOK</a></li>
+            <li class="navigation__group-item">{% include 'atoms-navigation-link' with {'text': 'Home', 'url': '/'} %}</li>
+            <li class="navigation__group-item">{% include 'atoms-navigation-link' with {'text': 'News', 'url': '/news'} %}</li>
+            <li class="navigation__group-item">{% include 'atoms-navigation-link' with {'text': 'Sport', 'url': '/sport'} %}</li>
+            <li class="navigation__group-item">{% include 'atoms-navigation-link' with {'text': 'Meteo', 'url': '/meteo'} %}</li>
+            <li class="navigation__group-item">{% include 'atoms-navigation-link' with {'text': 'Kultur', 'url': '/kultur'} %}</li>
+            <li class="navigation__group-item">{% include 'atoms-navigation-link' with {'text': 'DOK', 'url': '/sendungen/dok'} %}</li>
         </ul>
     </li>
     <li class="navigation-item">
         <ul class="navigation__group" role="group">
+            <li class="navigation__group-item">{% include 'atoms-navigation-link' with {'text': 'Startseite', 'url': '/play', 'img': '/img/play_srf_logo.svg'} %}</li>
+            <li class="navigation__group-item">{% include 'atoms-navigation-link' with {'text': 'Sendungen A-Z', 'url': '/sendungen-a-z'} %}</li>
+            <li class="navigation__group-item">{% include 'atoms-navigation-link' with {'text': 'Podcasts', 'url': '/podcasts'} %}</li>
+            <li class="navigation__group-item">{% include 'atoms-navigation-link' with {'text': 'TV-Programm', 'url': '/programm/tv'} %}</li>
+            <li class="navigation__group-item">{% include 'atoms-navigation-link' with {'text': 'Radio-Programm', 'url': '/programm/radio'} %}</li>
             <li class="navigation__group-item">
-                <a class="navigation__link" href="/play" role="button">
-                    Startseite <img class="navigation__img-play" src="{{ frameworkAssetPath }}/img/play_srf_logo.svg" alt="Play SRF">
-                </a>
-            </li>
-            <li class="navigation__group-item"><a class="navigation__link" href="/sendungen-a-z">Sendungen A-Z</a></li>
-            <li class="navigation__group-item"><a class="navigation__link" href="/podcasts">Podcasts</a></li>
-            <li class="navigation__group-item"><a class="navigation__link" href="/programm/tv">TV-Programm</a></li>
-            <li class="navigation__group-item"><a class="navigation__link" href="/programm/radio">Radio-Programm</a></li>
-            <li class="navigation__group-item">
-                <a class="navigation__link js-expand-arrow" href="#" aria-expanded="false" aria-haspopup="true">Radiosender
+                <a class="navigation-link js-expand-arrow" href="#" aria-expanded="false" aria-haspopup="true">Radiosender
                     {% include navigation.atomsPath|default('atoms-expand-arrow') with { 'styleModifier': '' } %}
                 </a>
                 <div class="navigation__sender">
-                  <ul class="navigation__group navigation__group--radio l-main-wrapper" role="group">
+                  <ul class="navigation navigation--radio navigation--borderless l-main-wrapper" role="group">
                       <li class="navigation-item">
                           <ul class="navigation__group">
-                              <li class="navigation__group-item">
-                                  <a class="navigation__link navigation__link--radio" href="/radio-srf-1">
-                                      <img class="navigation__img" src="{{ frameworkAssetPath }}/img/radiologos/radio-srf-1.png" alt="">Radio SRF 1
-                                  </a>
-                              </li>
-                              <li class="navigation__group-item">
-                                  <a class="navigation__link navigation__link--radio" href="/radio-srf-2">
-                                      <img class="navigation__img" src="{{ frameworkAssetPath }}/img/radiologos/radio-srf-2.png" alt="">Radio SRF 2 Kultur
-                                  </a>
-                              </li>
-                              <li class="navigation__group-item">
-                                  <a class="navigation__link navigation__link--radio" href="/radio-srf-3">
-                                      <img class="navigation__img" src="{{ frameworkAssetPath }}/img/radiologos/radio-srf-3.png" alt="">Radio SRF 3
-                                  </a>
-                              </li>
+                              <li class="navigation__group-item">{% include 'atoms-navigation-link' with {'text': 'Radio SRF 1', 'url': '/radio-srf-1', 'img': '/img/radiologos/radio-srf-1.png', 'alt': '', 'styleModifier': 'navigation-link--dark'} %}</li>
+                              <li class="navigation__group-item">{% include 'atoms-navigation-link' with {'text': 'Radio SRF 2 Kultur', 'url': '/radio-srf-2', 'img': '/img/radiologos/radio-srf-2.png', 'alt': '', 'styleModifier': 'navigation-link--dark'} %}</li>
+                              <li class="navigation__group-item">{% include 'atoms-navigation-link' with {'text': 'Radio SRF 3', 'url': '/radio-srf-3', 'img': '/img/radiologos/radio-srf-3.png', 'alt': '', 'styleModifier': 'navigation-link--dark'} %}</li>
                           </ul>
                       </li>
 
                       <li class="navigation-item">
                           <ul class="navigation__group">
-                              <li class="navigation__group-item">
-                                  <a class="navigation__link navigation__link--radio" href="/radio-srf-4-news">
-                                      <img class="navigation__img" src="{{ frameworkAssetPath }}/img/radiologos/radio-srf-4.png" alt="">Radio SRF 4 News
-                                  </a>
-                              </li>
-                              <li class="navigation__group-item">
-                                  <a class="navigation__link navigation__link--radio" href="/radio-srf-musikwelle">
-                                      <img class="navigation__img" src="{{ frameworkAssetPath }}/img/radiologos/radio-srf-musikwelle.png" alt="">Radio SRF Musikwelle
-                                  </a>
-                              </li>
-                              <li class="navigation__group-item">
-                                  <a class="navigation__link navigation__link--radio" href="/radio-srf-virus">
-                                      <img class="navigation__img" src="{{ frameworkAssetPath }}/img/radiologos/radio-srf-virus.png" alt="">Radio SRF Virus
-                                  </a>
-                              </li>
+                              <li class="navigation__group-item">{% include 'atoms-navigation-link' with {'text': 'Radio SRF 4 News', 'url': '/radio-srf-4-news', 'img': '/img/radiologos/radio-srf-4.png', 'alt': '', 'styleModifier': 'navigation-link--dark'} %}</li>
+                              <li class="navigation__group-item">{% include 'atoms-navigation-link' with {'text': 'Radio SRF Musikwelle', 'url': '/radio-srf-musikwelle', 'img': '/img/radiologos/radio-srf-musikwelle.png', 'alt': '', 'styleModifier': 'navigation-link--dark'} %}</li>
+                              <li class="navigation__group-item">{% include 'atoms-navigation-link' with {'text': 'Radio SRF Virus', 'url': '/radio-srf-virus', 'img': '/img/radiologos/radio-srf-virus.png', 'alt': '', 'styleModifier': 'navigation-link--dark'} %}</li>
                           </ul>
                       </li>
 
                       <li class="navigation-item">
                           <ul class="navigation__group">
-                              <li class="navigation__group-item">
-                                  <a class="navigation__link navigation__link--radio" href="http://www.radioswissclassic.ch/de">
-                                      <img class="navigation__img" src="{{ frameworkAssetPath }}/img/radiologos/radio-swiss-classic.png" alt="">Radio Swiss Classic
-                                  </a>
-                              </li>
-                              <li class="navigation__group-item">
-                                  <a class="navigation__link navigation__link--radio" href="http://www.radioswissjazz.ch/de">
-                                      <img class="navigation__img" src="{{ frameworkAssetPath }}/img/radiologos/radio-swiss-jazz.png" alt="">Radio Swiss Jazz
-                                  </a>
-                              </li>
-                              <li class="navigation__group-item">
-                                  <a class="navigation__link navigation__link--radio" href="http://www.radioswisspop.ch/de">
-                                      <img class="navigation__img" src="{{ frameworkAssetPath }}/img/radiologos/radio-swiss-pop.png" alt="">Radio Swiss Pop
-                                  </a>
-                              </li>
+                              <li class="navigation__group-item">{% include 'atoms-navigation-link' with {'text': 'Radio Swiss Classic', 'url': 'http://www.radioswissclassic.ch/de', 'img': '/img/radiologos/radio-swiss-classic.png', 'alt': '', 'styleModifier': 'navigation-link--dark'} %}</li>
+                              <li class="navigation__group-item">{% include 'atoms-navigation-link' with {'text': 'Radio Swiss Jazz', 'url': 'http://www.radioswissjazz.ch/de', 'img': '/img/radiologos/radio-swiss-jazz.png', 'alt': '', 'styleModifier': 'navigation-link--dark'} %}</li>
+                              <li class="navigation__group-item">{% include 'atoms-navigation-link' with {'text': 'Radio Swiss Pop', 'url': 'http://www.radioswisspop.ch/de', 'img': '/img/radiologos/radio-swiss-pop.png', 'alt': '', 'styleModifier': 'navigation-link--dark'} %}</li>
                           </ul>
                       </li>
                   </ul>
@@ -92,9 +52,9 @@
     </li>
     <li class="navigation-item">
         <ul class="navigation__group" role="group">
-            <li class="navigation__group-item"><a class="navigation__link" href="/verkehr">Verkehr</a></li>
-            <li class="navigation__group-item"><a class="navigation__link" href="/sendungen/zambo">Zambo</a></li>
-            <li class="navigation__group-item"><a class="navigation__link" href="/unternehmen">Über SRF</a></li>
+            <li class="navigation__group-item">{% include 'atoms-navigation-link' with {'text': 'Verkehr', 'url': '/verkehr'} %}</li>
+            <li class="navigation__group-item">{% include 'atoms-navigation-link' with {'text': 'Zambo', 'url': '/sendungen/zambo'} %}</li>
+            <li class="navigation__group-item">{% include 'atoms-navigation-link' with {'text': 'Über SRF', 'url': '/unternehmen'} %}</li>
         </ul>
     </li>
 </ul>

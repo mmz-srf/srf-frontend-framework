@@ -138,6 +138,11 @@
   }
 }
 
+.navigation__sender .navigation-item,
+.navigation__sender .navigation__group {
+  border: none;
+}
+
 // radio animations pt. 2
 .navigation__group--radio-open {
   height: 188px; // we "do" know the height (must - to animate it)
@@ -149,11 +154,6 @@
     height: 481px;
     padding: 12px;
     border-bottom: none;
-  }
-
-  .navigation__sender .navigation-item,
-  .navigation__sender .navigation__group {
-    border: none;
   }
 
   .navigation__group-item {
