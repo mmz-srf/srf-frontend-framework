@@ -44,7 +44,7 @@
     border-right: 1px solid #444;
     width: 33.334%;
     padding:0 12px;
-    
+
     &:first-child {
       padding-left:0;
     }
@@ -81,7 +81,7 @@
   &:active {
     border-bottom: 0;
   }
-  
+
   @include tablet-up {
     padding-right: 16px;
     padding-left: 16px;
@@ -140,10 +140,13 @@
 
 // radio animations pt. 2
 .navigation__group--radio-open {
-  height: 456px; // we "do" know the height (must - to animate it)
+  height: 188px; // we "do" know the height (must - to animate it)
   padding: 12px;
   visibility: visible;
+  margin: 0 auto;
+
   @include smartphone {
+    height: 481px;
     padding: 12px;
     border-bottom: none;
   }
