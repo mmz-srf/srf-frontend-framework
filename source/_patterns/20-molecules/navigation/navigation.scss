@@ -1,26 +1,27 @@
 .navigation {
-  margin: 0;
+  width: 100%;
+  margin: 0 auto;
   padding: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
   display: flex;
   align-items: stretch;
   flex-direction: column;
 
-  // animations
   @include tablet-up {
     flex-direction: row;
-    flex-wrap: nowrap;
-    margin: 0;
-    width: auto;
-    transition: right $naviTransitionTime cubic-bezier(0.4, 0.0, 0.2, 1);
   }
 }
 
-@include tablet-up {
-  // more animations
-  .navigation--come-in {
-    right: 0; // end position
+.navigation--demo {
+  background-color: #343434;
+}
+
+.navigation--borderless {
+  .navigation-item,
+  .navigation__group {
+    border: none;
   }
 }
 
@@ -31,6 +32,7 @@
   padding: 0;
 }
 
+// Override li's :before pseudo element
 .navigation__group-item,
 .navigation-item {
   &::before {
@@ -40,9 +42,8 @@
 
 .navigation-item {
   @include tablet-up {
-    flex: 1 0 auto;
+    flex: 1 1 0;
     border-right: 1px solid #444;
-    width: 33.334%;
     padding:0 12px;
 
     &:first-child {
@@ -55,53 +56,17 @@
   }
 }
 
-
-
-.navigation__link {
-  font: 16px/1 $font-regular;
-  text-decoration: none;
-  color: #fff;
-  padding: 15px 24px 17px;
-  display: block;
-  cursor: pointer;
-  border-bottom: 0;
-
-  &:hover {
-    color: #fff;
-    background-color: #444;
-  }
-
-  &:active,
-  &:focus {
-    color: #fefefd;
-    background-color: #555;
-  }
-
-  &:hover,
-  &:active {
-    border-bottom: 0;
-  }
-
-  @include tablet-up {
-    padding-right: 16px;
-    padding-left: 16px;
-  }
-}
-
 .navigation__group-item--close {
   display: none;
 }
 
 .navigation__group {
-  @include smartphone {
-    border-bottom: 1px solid #444;
-    padding: 9px 0 7px;
-  }
-}
+  border-bottom: 1px solid #444;
+  padding: 9px 0 7px;
 
-.navigation-item:first-child .navigation__group {
-  @include smartphone {
-    padding-top: 0;
+  @include tablet-up {
+    border-bottom: none;
+    padding: 0;
   }
 }
 
@@ -136,11 +101,6 @@
   @include tablet-up {
     flex-direction: row;
   }
-}
-
-.navigation__sender .navigation-item,
-.navigation__sender .navigation__group {
-  border: none;
 }
 
 // radio animations pt. 2
@@ -186,13 +146,6 @@
   }
 }
 
-.navigation__img {
-  position: absolute;
-  width: 24px;
-  height: 24px;
-  margin-top: -4px;
-}
-
 .navigation__img-play {
   height: 23px;
   width: auto;
@@ -201,15 +154,3 @@
   margin-left: 8px;
   position: absolute;
 }
-// end nativation
-
-/* safari "hack" */
-@supports (-webkit-appearance:none) {
-  .navigation--closed {
-    .navigation {
-      position: fixed; // absolute; <-- produces scrollbars in safari!
-    }
-  }
-}
-
-/* end safari "hack" */
