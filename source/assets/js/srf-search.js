@@ -1,3 +1,17 @@
+
+export function init() {
+    $(".searchbox").each((i, elem) => {
+        let $elem = $(elem);
+
+        let $searchInput = $elem.find(".searchbox__input");
+        let $searchSubmit = $elem.closest(".searchbox").find("button");
+        let $searchMenu = $elem.find(".searchbox__results");
+
+        new SrfSearch($searchInput, $searchSubmit, $searchMenu);
+    });
+}
+
+
 export class SrfSearch {
 
     constructor($inputField, $submitButton, $menu, options = {maxSuggestionCount: 7, minSearchLength: 2}) {
