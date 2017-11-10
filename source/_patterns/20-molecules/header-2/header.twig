@@ -6,9 +6,11 @@
         <img class="header-logo" src="{{ frameworkAssetPath }}/img/srf_logo.svg" alt="Logo SRF" />
       </a>
 
-      {#% block search %}
-        {% include 'atoms-search' %}
-      {% endblock %#}
+      <div class="header-search">
+        {% block search %}
+          {% include 'atoms-search' with {'styleModifier': 'searchbox--header'} %}
+        {% endblock %}
+      </div>
 
       <a href="#" class="menu-button js-menu-button" aria-haspopup role="combobox">
         <div class="menu-button__icon">
@@ -27,7 +29,7 @@
   <div class="header-navigation js-header-navigation" aria-hidden="true" role="presentation">
     <div class="header-navigation-wrapper l-main-wrapper">
       {% block navigation %}
-        {% include 'molecules-navigation' %}
+        {% include 'molecules-navigation' with {'styleModifier': 'navigation--header'} %}
       {% endblock %}
     </div>
   </div>

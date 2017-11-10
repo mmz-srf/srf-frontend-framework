@@ -35,7 +35,6 @@ $headerHeightTabletUp: 56px;
 
 .header-bar-wrapper {
   display: flex;
-  justify-content: space-between;
 }
 
 .header-startlink {
@@ -58,6 +57,12 @@ $headerHeightTabletUp: 56px;
 .header-logo {
   width: 39px;
   height: 26px;
+}
+
+.header-search {
+  flex: 1;
+  align-self: center;
+  margin: 0 8px;
 }
 
 /*
