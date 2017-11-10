@@ -108,6 +108,7 @@
   flex-direction: row;
   flex-wrap: wrap;
   padding: 0 12px;
+  overflow: hidden;
 
   @include tablet-up {
     padding: 0;
