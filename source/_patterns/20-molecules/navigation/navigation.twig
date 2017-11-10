@@ -1,5 +1,12 @@
 <ul class="navigation {{ styleModifier }}" role="menu">
-    <li class="navigation-item">
+
+    <li class="navigation-item navigation-item--fullwidth">
+        {% block search %}
+            {% include 'atoms-search' with {'styleModifier': 'search--footer'} %}
+        {% endblock %}
+    </li>
+
+    <li class="navigation-item navigation-item--column">
         <ul class="navigation__group" role="group">
             <li class="navigation__group-item">{% include 'atoms-navigation-link' with {'text': 'Home', 'url': '/'} %}</li>
             <li class="navigation__group-item">{% include 'atoms-navigation-link' with {'text': 'News', 'url': '/news'} %}</li>
@@ -9,7 +16,7 @@
             <li class="navigation__group-item">{% include 'atoms-navigation-link' with {'text': 'DOK', 'url': '/sendungen/dok'} %}</li>
         </ul>
     </li>
-    <li class="navigation-item">
+    <li class="navigation-item navigation-item--column">
         <ul class="navigation__group" role="group">
             <li class="navigation__group-item">{% include 'atoms-navigation-link' with {'text': 'Startseite', 'url': '/play', 'img': '/img/play_srf_logo.svg'} %}</li>
             <li class="navigation__group-item">{% include 'atoms-navigation-link' with {'text': 'Sendungen A-Z', 'url': '/sendungen-a-z'} %}</li>
@@ -33,7 +40,7 @@
             </li>
         </ul>
     </li>
-    <li class="navigation-item">
+    <li class="navigation-item navigation-item--column">
         <ul class="navigation__group" role="group">
             <li class="navigation__group-item">{% include 'atoms-navigation-link' with {'text': 'Verkehr', 'url': '/verkehr'} %}</li>
             <li class="navigation__group-item">{% include 'atoms-navigation-link' with {'text': 'Zambo', 'url': '/sendungen/zambo'} %}</li>
