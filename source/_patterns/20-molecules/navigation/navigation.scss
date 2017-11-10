@@ -65,15 +65,28 @@
 }
 
 .navigation--subnav-wrapper {
-  margin-top: 32px;
-  margin-right: calc((100vw - 100%) / 2 * -1);
-  margin-bottom: -32px;
-  margin-left: calc((100vw - 100%) / 2 * -1);
   background-color: #222;
-  padding: 8px 12px;
+  margin: 8px -12px -8px -12px;
+  width: 100vw;
+  padding: 0;
 
   @include tablet-up {
-    padding: 20px 32px;
+    margin-top: 32px;
+    margin-right: calc((100vw - 100%) / 2 * -1);
+    margin-bottom: -32px;
+    margin-left: calc((100vw - 100%) / 2 * -1);
+    padding: 0 32px;
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: -32px;
+      width: 100%;
+      height: 32px;
+      left: 0;
+      background-color: #353535;
+    }
   }
 }
 
@@ -81,9 +94,45 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  padding: 0 12px;
+
+  @include tablet-up {
+    padding: 0;
+  }
+}
+
+.navigation--subnav-wrapper--open {
+
+  @include smartphone {
+    margin-top: 8px;
+    margin-bottom: 0;
+
+    .navigation--subnav {
+      margin-top: 8px;
+      padding-top: 8px;
+      padding-bottom: 8px;
+    }
+  }
+
+  @include tablet-up {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  .navigation--subnav-item {
+    max-height: 100px;
+    opacity: 1;
+  }
 }
 
 .navigation--subnav-item {
+  transition: margin .2s ease,
+              opacity .2s ease,
+              max-height .2s ease;
+  max-height: 0;
+  opacity: 0;
+  margin-top: 0;
+  margin-bottom: 0;
 
   @include smartphone {
     flex: 1 1 100%;
@@ -91,7 +140,7 @@
 
   @include tablet-up {
     flex: 1 0 30%;
-    margin: 1px 13px 1px 12px;
+    margin: 0 13px 0 12px;
     align-self: stretch;
 
     &:nth-child(3n+1) { order: 0;}
@@ -105,74 +154,5 @@
     &:nth-child(7),
     &:nth-child(8),
     &:nth-child(9) { margin-right: 0; }
-  }
-}
-
-
-.navigation__group--radio {
-  border-bottom: 0;
-  visibility: hidden;
-  // radio animations:
-  height: 0;
-  padding: 0;
-  transition: height 0.4s ease, padding-top 0.4s ease, padding-bottom 0.4s ease;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-
-  @include smartphone {
-    padding: 0;
-  }
-
-  .navigation__group-item {
-    height: 0;
-    transition: height 0.4s ease;
-  }
-
-  @include tablet-up {
-    flex-direction: row;
-  }
-}
-
-// radio animations pt. 2
-.navigation__group--radio-open {
-  height: 188px; // we "do" know the height (must - to animate it)
-  padding: 12px;
-  visibility: visible;
-  margin: 0 auto;
-
-  @include smartphone {
-    height: 481px;
-    padding: 12px;
-    border-bottom: none;
-  }
-
-  .navigation__group-item {
-    // preventing the menu (on scroll) from not reaching the bottom
-    height: 48px;
-  }
-
-  .navigation__link--radio {
-    position: relative;
-    opacity: 1;
-    height: 48px;
-    padding: 15px 24px 17px;
-  }
-}
-
-.navigation__link--radio {
-  position: absolute;
-  height: 0;
-  opacity: 0;
-  transition: opacity 0.4s ease, height 0.4s ease;
-  text-indent: 32px;
-
-  &:hover {
-    background-color: #333;
-  }
-
-  &:active,
-  &:focus {
-    background-color: #444;
   }
 }

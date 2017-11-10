@@ -29,7 +29,10 @@ export class SrfHeader {
         this.$subMenuButton = this.$element.find(".js-expand-arrow");
         this.menuIsOpen = false;
 
-        // Submenu (Radio)
+        // Submenu (Radio Channels)
+        this.$submenuWrapper = this.$element.find(".navigation--subnav-wrapper");
+
+
         this.$subMenuContent = $(".navigation__group--radio");
         this.$arrow = $(".expand-arrow");
 
@@ -103,7 +106,9 @@ export class SrfHeader {
 
         this.$arrow.toggleClass("expand-arrow--open", subMenuIsOpen);
         this.$subMenuButton.attr("aria-expanded", subMenuIsOpen);
-        this.$subMenuContent.toggleClass("navigation__group--radio-open", subMenuIsOpen);
+
+        this.$submenuWrapper.toggleClass("navigation--subnav-wrapper--open", subMenuIsOpen);
+        //this.$subMenuContent.toggleClass("navigation__group--radio-open", subMenuIsOpen);
 
         this.submenuToggleCallback(subMenuIsOpen);
     }
