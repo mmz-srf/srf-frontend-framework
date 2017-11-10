@@ -169,8 +169,15 @@ $headerHeightTabletUp: 56px;
 }
 
 .header-navigation-wrapper {
-  padding-top: 32px;
-  padding-bottom: 32px;
+  margin: 0;
+
+  @include tablet-up {
+    margin: 32px;
+  }
+
+  @include desktop-wide {
+    margin: 32px auto;
+  }
 }
 
 .header-navigation {

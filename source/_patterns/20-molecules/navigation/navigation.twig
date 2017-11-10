@@ -1,4 +1,4 @@
-<ul class="navigation navigation--demo {{ styleModifier }}" role="menu">
+<ul class="navigation {{ styleModifier }}" role="menu">
     <li class="navigation-item">
         <ul class="navigation__group" role="group">
             <li class="navigation__group-item">{% include 'atoms-navigation-link' with {'text': 'Home', 'url': '/'} %}</li>
@@ -16,36 +16,19 @@
             <li class="navigation__group-item">{% include 'atoms-navigation-link' with {'text': 'Podcasts', 'url': '/podcasts'} %}</li>
             <li class="navigation__group-item">{% include 'atoms-navigation-link' with {'text': 'TV-Programm', 'url': '/programm/tv'} %}</li>
             <li class="navigation__group-item">{% include 'atoms-navigation-link' with {'text': 'Radio-Programm', 'url': '/programm/radio'} %}</li>
-            <li class="navigation__group-item">
-                <a class="navigation-link js-expand-arrow" href="#" aria-expanded="false" aria-haspopup="true">Radiosender
-                    {% include navigation.atomsPath|default('atoms-expand-arrow') with { 'styleModifier': '' } %}
-                </a>
-                <div class="navigation__sender">
-                  <ul class="navigation navigation--radio navigation--borderless l-main-wrapper" role="group">
-                      <li class="navigation-item">
-                          <ul class="navigation__group">
-                              <li class="navigation__group-item">{% include 'atoms-navigation-link' with {'text': 'Radio SRF 1', 'url': '/radio-srf-1', 'img': '/img/radiologos/radio-srf-1.png', 'alt': '', 'styleModifier': 'navigation-link--dark'} %}</li>
-                              <li class="navigation__group-item">{% include 'atoms-navigation-link' with {'text': 'Radio SRF 2 Kultur', 'url': '/radio-srf-2', 'img': '/img/radiologos/radio-srf-2.png', 'alt': '', 'styleModifier': 'navigation-link--dark'} %}</li>
-                              <li class="navigation__group-item">{% include 'atoms-navigation-link' with {'text': 'Radio SRF 3', 'url': '/radio-srf-3', 'img': '/img/radiologos/radio-srf-3.png', 'alt': '', 'styleModifier': 'navigation-link--dark'} %}</li>
-                          </ul>
-                      </li>
-
-                      <li class="navigation-item">
-                          <ul class="navigation__group">
-                              <li class="navigation__group-item">{% include 'atoms-navigation-link' with {'text': 'Radio SRF 4 News', 'url': '/radio-srf-4-news', 'img': '/img/radiologos/radio-srf-4.png', 'alt': '', 'styleModifier': 'navigation-link--dark'} %}</li>
-                              <li class="navigation__group-item">{% include 'atoms-navigation-link' with {'text': 'Radio SRF Musikwelle', 'url': '/radio-srf-musikwelle', 'img': '/img/radiologos/radio-srf-musikwelle.png', 'alt': '', 'styleModifier': 'navigation-link--dark'} %}</li>
-                              <li class="navigation__group-item">{% include 'atoms-navigation-link' with {'text': 'Radio SRF Virus', 'url': '/radio-srf-virus', 'img': '/img/radiologos/radio-srf-virus.png', 'alt': '', 'styleModifier': 'navigation-link--dark'} %}</li>
-                          </ul>
-                      </li>
-
-                      <li class="navigation-item">
-                          <ul class="navigation__group">
-                              <li class="navigation__group-item">{% include 'atoms-navigation-link' with {'text': 'Radio Swiss Classic', 'url': 'http://www.radioswissclassic.ch/de', 'img': '/img/radiologos/radio-swiss-classic.png', 'alt': '', 'styleModifier': 'navigation-link--dark'} %}</li>
-                              <li class="navigation__group-item">{% include 'atoms-navigation-link' with {'text': 'Radio Swiss Jazz', 'url': 'http://www.radioswissjazz.ch/de', 'img': '/img/radiologos/radio-swiss-jazz.png', 'alt': '', 'styleModifier': 'navigation-link--dark'} %}</li>
-                              <li class="navigation__group-item">{% include 'atoms-navigation-link' with {'text': 'Radio Swiss Pop', 'url': 'http://www.radioswisspop.ch/de', 'img': '/img/radiologos/radio-swiss-pop.png', 'alt': '', 'styleModifier': 'navigation-link--dark'} %}</li>
-                          </ul>
-                      </li>
-                  </ul>
+            <li class="navigation__group-item">{% include 'atoms-navigation-link' with {'text': 'Radiosender', 'url': '#', 'styleModifier': 'navigation-link--expandable js-expand-arrow'} %}
+                <div class="navigation--subnav-wrapper">
+                    <ul class="navigation navigation--subnav l-main-wrapper" role="group">
+                        <li class="navigation--subnav-item">{% include 'atoms-navigation-link' with {'text': 'Radio SRF 1', 'url': '/radio-srf-1', 'img': '/img/radiologos/radio-srf-1.png', 'alt': '', 'styleModifier': 'navigation-link--dark'} %}</li>
+                        <li class="navigation--subnav-item">{% include 'atoms-navigation-link' with {'text': 'Radio SRF 2 Kultur', 'url': '/radio-srf-2', 'img': '/img/radiologos/radio-srf-2.png', 'alt': '', 'styleModifier': 'navigation-link--dark'} %}</li>
+                        <li class="navigation--subnav-item">{% include 'atoms-navigation-link' with {'text': 'Radio SRF 3', 'url': '/radio-srf-3', 'img': '/img/radiologos/radio-srf-3.png', 'alt': '', 'styleModifier': 'navigation-link--dark'} %}</li>
+                        <li class="navigation--subnav-item">{% include 'atoms-navigation-link' with {'text': 'Radio SRF 4 News', 'url': '/radio-srf-4-news', 'img': '/img/radiologos/radio-srf-4.png', 'alt': '', 'styleModifier': 'navigation-link--dark'} %}</li>
+                        <li class="navigation--subnav-item">{% include 'atoms-navigation-link' with {'text': 'Radio SRF Musikwelle', 'url': '/radio-srf-musikwelle', 'img': '/img/radiologos/radio-srf-musikwelle.png', 'alt': '', 'styleModifier': 'navigation-link--dark'} %}</li>
+                        <li class="navigation--subnav-item">{% include 'atoms-navigation-link' with {'text': 'Radio SRF Virus', 'url': '/radio-srf-virus', 'img': '/img/radiologos/radio-srf-virus.png', 'alt': '', 'styleModifier': 'navigation-link--dark'} %}</li>
+                        <li class="navigation--subnav-item">{% include 'atoms-navigation-link' with {'text': 'Radio Swiss Classic', 'url': 'http://www.radioswissclassic.ch/de', 'img': '/img/radiologos/radio-swiss-classic.png', 'alt': '', 'styleModifier': 'navigation-link--dark'} %}</li>
+                        <li class="navigation--subnav-item">{% include 'atoms-navigation-link' with {'text': 'Radio Swiss Jazz', 'url': 'http://www.radioswissjazz.ch/de', 'img': '/img/radiologos/radio-swiss-jazz.png', 'alt': '', 'styleModifier': 'navigation-link--dark'} %}</li>
+                        <li class="navigation--subnav-item">{% include 'atoms-navigation-link' with {'text': 'Radio Swiss Pop', 'url': 'http://www.radioswisspop.ch/de', 'img': '/img/radiologos/radio-swiss-pop.png', 'alt': '', 'styleModifier': 'navigation-link--dark'} %}</li>
+                    </ul>
                 </div>
             </li>
         </ul>

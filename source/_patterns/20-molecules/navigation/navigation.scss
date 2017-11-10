@@ -6,7 +6,7 @@
   -moz-osx-font-smoothing: grayscale;
 
   display: flex;
-  align-items: stretch;
+  align-items: flex-start;
   flex-direction: column;
 
   @include tablet-up {
@@ -14,35 +14,29 @@
   }
 }
 
-.navigation--demo {
-  background-color: #343434;
-}
-
-.navigation--borderless {
-  .navigation-item,
-  .navigation__group {
-    border: none;
-  }
-}
-
 .navigation__group,
 .navigation__group-item,
-.navigation-item {
+.navigation-item,
+.navigation--subnav-item {
   margin: 0;
   padding: 0;
 }
 
 // Override li's :before pseudo element
 .navigation__group-item,
-.navigation-item {
+.navigation-item,
+.navigation--subnav-item {
   &::before {
     content: none;
   }
 }
 
 .navigation-item {
+  width: 100%;
+
   @include tablet-up {
     flex: 1 1 0;
+    width: calc(100% / 3);
     border-right: 1px solid #444;
     padding:0 12px;
 
@@ -62,7 +56,7 @@
 
 .navigation__group {
   border-bottom: 1px solid #444;
-  padding: 9px 0 7px;
+  padding: 8px 12px;
 
   @include tablet-up {
     border-bottom: none;
@@ -70,13 +64,50 @@
   }
 }
 
-.navigation__sender {
+.navigation--subnav-wrapper {
   margin-top: 32px;
   margin-right: calc((100vw - 100%) / 2 * -1);
   margin-bottom: -32px;
   margin-left: calc((100vw - 100%) / 2 * -1);
   background-color: #222;
+  padding: 8px 12px;
+
+  @include tablet-up {
+    padding: 20px 32px;
+  }
 }
+
+.navigation--subnav {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.navigation--subnav-item {
+
+  @include smartphone {
+    flex: 1 1 100%;
+  }
+
+  @include tablet-up {
+    flex: 1 0 30%;
+    margin: 1px 13px 1px 12px;
+    align-self: stretch;
+
+    &:nth-child(3n+1) { order: 0;}
+    &:nth-child(3n+2) { order: 1;}
+    &:nth-child(3n+3) { order: 2;}
+
+    &:nth-child(1),
+    &:nth-child(2),
+    &:nth-child(3) { margin-left: 0; }
+
+    &:nth-child(7),
+    &:nth-child(8),
+    &:nth-child(9) { margin-right: 0; }
+  }
+}
+
 
 .navigation__group--radio {
   border-bottom: 0;
@@ -144,13 +175,4 @@
   &:focus {
     background-color: #444;
   }
-}
-
-.navigation__img-play {
-  height: 23px;
-  width: auto;
-  display: inline-block;
-  margin-top: -4px;
-  margin-left: 8px;
-  position: absolute;
 }

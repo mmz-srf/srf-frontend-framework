@@ -148,53 +148,8 @@ export class SrfHeader {
     }
 }
 
-/*
-
-const HANDLE_CLASS = ".menu-handle";
-const SUBMENU_CLASS = ".js-expand-arrow";
-const DESKTOP_CLOSE_BTN_CLASS = ".navigation__link--close";
-const WIN_SIZE_NOT_MOBILE = 719;
-
-let srfSearch = null;
-
-let menuHasFocus = false,
-    $header = null,
-    $handle = null,
-    $infotext = null,
-    $arrow = null,
-    $info = null,
-    $subMenuHeader = null,
-    $subMenuContent = null,
-    $desktopCloseBtn = null;
-
-export function init() {
-    $header = $(".header");
-    $handle = $(HANDLE_CLASS);
-    $infotext = $handle.find(".menu-handle__info span");
-    $arrow = $(".expand-arrow");
-    $info = $(".js-expand-info");
-    $subMenuHeader = $(SUBMENU_CLASS);
-    $subMenuContent = $(".navigation__group--radio");
-    $desktopCloseBtn = $(DESKTOP_CLOSE_BTN_CLASS);
-
-    initSearch($header, {'expandable': true, 'minSearchLength': 2, 'maxSuggestionCount': 6});
-    initSearch($('.footer'), {'expandable': false, 'minSearchLength': 2, 'maxSuggestionCount': 6});
 
 
-    $header.on("keydown", HANDLE_CLASS, (e) => handleKeyPress(e))
-        .on("keydown", DESKTOP_CLOSE_BTN_CLASS, (e) => handleKeyPress(e))
-        .on("click", HANDLE_CLASS, (e) => onMenuHandling(e))
-        .on("click", DESKTOP_CLOSE_BTN_CLASS, (e) => onMenuHandling(e));
-
-    $(document).on("click touchstart", ".body--observer", (e) => handleBodyClick(e));
-
-    // accessibility: if menu loses focus => we close it
-    $(".breadcrumbs").on("keyup", (e) => handleBreadcrumbsFocus(e));
-
-    // radiostation navigation opening & closing
-    $(".navigation").on("click", SUBMENU_CLASS, (e) => handleExpandArrowClick(e));
-}
-*/
 
 function onMenuHandling(e) {
     e.preventDefault(); // chrome has a problem (bug!) with keypress!
