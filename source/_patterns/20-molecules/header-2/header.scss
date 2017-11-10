@@ -190,7 +190,10 @@ $headerHeightTabletUp: 56px;
   z-index: 100001;
   transform: translateY(-100%);
 
+  // Make header-content scrollable but prevent <-> scrollbars on IE etc.
   overflow-y: auto;
+  overflow-x: hidden;
+
   max-height: calc(100vh - #{$headerHeight});
 
   @include tablet-up {

@@ -108,7 +108,6 @@ export class SrfHeader {
         this.$subMenuButton.attr("aria-expanded", subMenuIsOpen);
 
         this.$submenuWrapper.toggleClass("navigation--subnav-wrapper--open", subMenuIsOpen);
-        //this.$subMenuContent.toggleClass("navigation__group--radio-open", subMenuIsOpen);
 
         this.submenuToggleCallback(subMenuIsOpen);
     }
