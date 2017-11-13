@@ -6,11 +6,21 @@ export function init() {
         let $searchInput = $elem.find(".searchbox__input");
         let $searchSubmit = $elem.closest(".searchbox").find("button");
         let $searchMenu = $elem.find(".searchbox__results");
+        let options = {
+            expandable: true
+        };
 
-        new SrfSearch($searchInput, $searchSubmit, $searchMenu);
+        new SrfSearch($searchInput, $searchSubmit, $searchMenu, options);
     });
 }
 
+const KEYCODES = {
+    "enter": 13,
+    "tab": 9,
+    "escape": 27,
+    "down": 40,
+    "up": 38
+};
 
 export class SrfSearch {
 
@@ -45,7 +55,7 @@ export class SrfSearch {
 
         this.$closeIcon.on('click', (e) => {
             this.reset();
-        })
+        });
 
         this.$inputField.on("keyup", (e) => {
             this.onKeyUp(e);
@@ -69,14 +79,6 @@ export class SrfSearch {
             e.stopPropagation();
         });
 
-        $(window).on('resize', (e) => {
-            if ($(window).width() < 720) {
-                $('.searchbox').css('width', "");
-            }
-
-            this.$inputField.blur();
-        });
-
         this.$closeIcon.on("click", e => {
             e.preventDefault();
         });
@@ -97,13 +99,13 @@ export class SrfSearch {
 
     onKeyUp(e) {
         switch (e.keyCode) {
-            case 40: // down arrow or
-            case 38: // up arrow
+            case KEYCODES.down:
+            case KEYCODES.up:
                 break;
-            case 9: // tab or
+            case KEYCODES.tab:
                 this.hideMenu();
                 break;
-            case 27: // escape must leave the search and clear input
+            case KEYCODES.escape: // escape must leave the search and clear input
                 this.clearInput();
                 this.$inputField.blur();
                 break;
@@ -114,7 +116,7 @@ export class SrfSearch {
 
     onKeyDown(e) {
         // if no suggestion is selected fall back to default browser behavior for form submission
-        if (e.keyCode === 13) {
+        if (e.keyCode === KEYCODES.enter) {
             if (this.suggestionUrl != '') {
                 e.stopPropagation();
                 e.preventDefault();
@@ -126,8 +128,8 @@ export class SrfSearch {
                 this.$inputField.closest('form').submit();
             }
         }
-        if (e.keyCode === 40 || e.keyCode === 38) {
-            let direction = e.keyCode === 40 ? 'down' : 'up';
+        if (e.keyCode === KEYCODES.down || e.keyCode === KEYCODES.up) {
+            let direction = e.keyCode === KEYCODES.down? 'down' : 'up';
             this.moveInMenu(direction);
         }
     }
@@ -229,16 +231,16 @@ export class SrfSearch {
         results.forEach((result) => {
             let name = this.highlightQuery(query, result.name);
             html += `<li role="option" class="typeahead-suggestion" tabindex="-1" aria-hidden="true"> <a href="${result.url}">${name}</a> </li>`;
-        })
+        });
         this.$menu.css('width', this.$inputField.outerWidth() + "px");
         this.$menu.html(html).removeClass('h-element--hide');
     }
 
     highlightQuery(query, name) {
-        query = query.replace(/[\-\[\]{}()*+?.,\\\^$|#\s]/g, '\\$&')
+        query = query.replace(/[\-\[\]{}()*+?.,\\\^$|#\s]/g, '\\$&');
         return name.replace(new RegExp('(' + query + ')', 'ig'), function ($1, match) {
-            return '<strong>' + match + '</strong>'
-        })
+            return `<strong>${match}</strong>`;
+        });
     }
 
     showCloseIcon() {
@@ -312,7 +314,7 @@ export class SrfSearch {
         if (!this.expandable) {
             return;
         }
-        if ($('body').hasClass('body--fixed') == false) {
+        if (!$('body').hasClass('body--fixed')) {
             // add classes once
             $('body').addClass('search--overlay');
         }
