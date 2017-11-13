@@ -104,3 +104,11 @@ body.demo-pattern-page {
 .demo-navigation-link.navigation-link--dark {
   background-color: #222;
 }
+
+h2.demo-heading {
+  width: 100%;
+  clear: both;
+  padding: 20px 0 10px 0;
+  margin: 0;
+  background-color: #ddd;
+}

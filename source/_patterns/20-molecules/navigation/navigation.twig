@@ -2,7 +2,7 @@
 
     <li class="navigation-item navigation-item--fullwidth">
         {% block search %}
-            {% include 'atoms-search' with {'styleModifier': 'searchbox--navigation searchbox--' ~ styleModifier } %}
+            {% include 'atoms-search' with {'styleModifier': 'searchbox--navigation ' ~ ('navigation--header' in styleModifier ? 'searchbox--header-navigation' : '') } %}
         {% endblock %}
     </li>
 
