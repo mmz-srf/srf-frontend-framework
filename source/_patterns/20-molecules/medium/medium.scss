@@ -58,3 +58,23 @@
   margin-top: 0;
   margin-bottom: 0;
 }
+
+.medium--related-episodes {
+  background-color: transparent;
+  margin: 0;
+
+  &:hover {
+    background-color: $color-link-bg-hover;
+  }
+
+  .medium__object {
+    @include smartphone {
+      margin: 0;
+    }
+
+    @include tablet-up {
+      width: 163px;
+      height: 92px;
+    }
+  }
+}

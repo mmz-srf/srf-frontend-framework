@@ -1,9 +1,10 @@
+{% set mediumType = mediumType|default('audio') %}
 <div class="media-still {{ styleModifier }} js-medium-hover">
     <div class="media-still__image">
         {% include 'atoms-image' with { 'styleModifier' : 'image--media-still' } %}
     </div>
     <div class="media-still__icon">
-        {% include 'atoms-play-icon-ng' with { 'styleModifier' : 'play-icon-ng--audio' } %}
+        {% include 'atoms-play-icon-ng' with { 'styleModifier' : 'play-icon-ng--' ~ mediumType } %}
     </div>
 </div>
 

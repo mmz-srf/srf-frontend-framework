@@ -1,8 +1,36 @@
+<div class="related-episodes">
+    <h2 class="related-episodes__heading">
+        {{ 'Sendungen zu diesem Artikel' }}
+    </h2>
+    <ul class="related-episodes__list">
+        <li class="related-episodes__item">
+            <div class="related-episodes__media">
+            {% include 'molecules-medium--related-episodes' with { 'mediumType': 'video'} %}
+            </div>
+        </li>
+        <li class="related-episodes__item">
+            <div class="related-episodes__media">
+            {% include 'molecules-medium--related-episodes' with { 'mediumType': 'video'} %}
+            </div>
+                {% include 'molecules-linkbox' with {'styleModifier': 'linkbox--related', 'title': 'Unterrichtsmaterialien'} %}
+        </li>
+        <li class="related-episodes__item">
+            <div class="related-episodes__media">
+            {% include 'molecules-medium--related-episodes' with { 'mediumType': 'audio'} %}
+            </div>
+        </li>
+    </ul>
+</div>
+
+{#
 <div class="related-list">
     <h2 class="related-list__heading">
         {{ 'Sendungen zu diesem Artikel' }}
     </h2>
     <ul class="related-elements">
+        <li class="related-item">
+            {% include 'molecules-medium--compact' with {'mediumType': 'video'} %}
+        </li>
         <li class="related-item">
             {% include 'molecules-video' with {'styleModifier': 'RelatedEpisodes' } %}
             {% include 'molecules-linkbox' with {'styleModifier': 'linkbox--related', 'title': 'Unterrichtsmaterialien'} %}
@@ -13,3 +41,4 @@
         <li class="related-item">{% include 'molecules-video' with {'styleModifier': 'RelatedEpisodes'} %}</li>
     </ul>
 </div>
+#}

@@ -196,3 +196,13 @@
   }
 
 }
+
+.media-caption--related-episodes {
+  padding-top: 0;
+  margin-top: 0;
+  background-color: transparent;
+
+  &.media-caption--hover {
+    background-color: transparent;
+  }
+}

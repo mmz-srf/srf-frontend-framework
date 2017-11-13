@@ -1,7 +1,78 @@
-@import "../../variables";
-@import "../../breakpoints";
+
+.related-episodes {
+  color: $color-text-default;
+  margin: 24px 0 32px;
+
+  @include tablet-up {
+    margin: 32px 0 40px;
+  }
+}
+
+.related-episodes__heading {
+  font-family: $font-regular;
+  font-size: 14px;
+  line-height: 1.41;
+  letter-spacing: .5px;
+  color: $color-text-light;
+  margin: 0;
+  padding: 10px 25px;
+  text-transform: uppercase;
+
+  @include tablet-up {
+    padding: 10px 16px;
+  }
+}
+
+.related-episodes__list {
+  padding: 0;
+
+  @include tablet-up {
+    margin-left: 16px;
+  }
+}
+
+.related-episodes__item {
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid $color-bg-box;
+
+  @include smartphone {
+    margin-left: 24px;
+  }
+
+  &::before {
+    display: none;
+  }
+
+  &:last-child {
+    border-bottom: 1px solid $color-bg-box;
+  }
+}
+
+.related-episodes__media {
+  padding: 16px 0;
+
+  &:hover {
+    background-color: $color-link-bg-hover;
+
+    @include smartphone {
+      margin-left: -24px;
+      padding-left: 24px;
+    }
+  }
+}
+
+
+
+
+
+
+/*** old stuff
 
 $_image-tablet-width: 163px;
+
+//@import "../../variables";
+//@import "../../breakpoints";
 
 .related-list {
   color: $color-text-default;
@@ -166,3 +237,4 @@ $_image-tablet-width: 163px;
     }
   }
 }
+***/
