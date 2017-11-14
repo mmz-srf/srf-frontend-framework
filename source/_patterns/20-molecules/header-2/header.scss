@@ -196,7 +196,7 @@ $headerHeightTabletUp: 56px;
 }
 
 .header-navigation {
-  transition: transform .4s ease;
+  transition: transform .2s ease-in-out;
   transform-origin: top;
   z-index: 100001;
   transform: translateY(-100%);

@@ -82,6 +82,7 @@
   background-color: #222;
   margin: 8px -12px -8px -12px;
   padding: 0;
+  transition: padding .2s ease-in-out;
 
   @include tablet-up {
     margin-top: 32px;
@@ -140,9 +141,9 @@
 }
 
 .navigation--subnav-item {
-  transition: margin .2s ease,
-              opacity .2s ease,
-              max-height .2s ease;
+  transition: margin .2s ease-in-out,
+              opacity .2s ease-in-out,
+              max-height .2s ease-in-out;
   max-height: 0;
   opacity: 0;
   margin-top: 0;
