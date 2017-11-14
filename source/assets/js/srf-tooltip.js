@@ -1,3 +1,6 @@
+/**
+ * @deprecated
+ */
 export function init() {
 
     $(document).ready(function() {

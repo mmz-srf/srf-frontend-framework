@@ -17,12 +17,29 @@
 - Initialize components by passing the DOM-root element of the component in the constructor
 - If possible, try to use  `js`-prefixed classes instead of style-related classes.
 - Always develop components which can be used multiple times on the page without interference. This makes global DOM queries (e.g. `$(.my-component)`) usually a bad idea.   
+- Components are supposed to initialize themselves on page load (Tooltips) or created on demand
 
 
 ### JavaScript - Naming
 
+- Name your component JS file with a ```fef-``` prefix (```fef-tooltip.js```, ```fef-search.js```, ...)
 - Use CamelCase notation for class and variable names
 - Names of classes start with a capital letter
 - Constants should use only upper case characters (THIS_IS_A_CONSTANT)
 - Always indicate a jQuery element with "$" in front of the variable name
 
+
+### JavaScript - Events
+
+- Your component may fire events which can trigger actions outside of the frontend framework
+- Always use ```fef``` as the prefix of your event name
+- Event names are not camel case, concatenate your event description like this
+
+```javascript
+this.$element.trigger('fef.button.of.my.component.clicked');
+```
+- Document in detail what your event is for and what it indicates
+- Provide callback functions in your component if you want to interact with the outside world
+- Do not limit components which possibly subscribe to an event (Avoid documentation like: *"When triggered, outside 
+component A should do action B"*)
+- Add your event to event documentation (We do this to keep track of events happening in the frontend framework)
