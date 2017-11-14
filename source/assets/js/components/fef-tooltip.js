@@ -1,12 +1,13 @@
 import {FefTouchDetection} from '../classes/fef-touch-detection';
+import {DOM_CHANGED_EVENT} from '../classes/fef-dom-observer';
 
-export function init() {
+$(window).on(DOM_CHANGED_EVENT, (e) => {
 
     $('[data-tooltip-toggle]').each((index, element) => {
         new FefTooltip($(element));
     });
 
-}
+});
 
 export class FefTooltip {
 
