@@ -1,5 +1,5 @@
 export function init() {
-    $(".navigation").each((i, elem) => {
+    $(".js-navigation").each((i, elem) => {
         new SrfNavigation(
             elem,
             (isOpen) => {console.log("Submenu is now " + (isOpen ? "open" : "closed"));}
@@ -14,6 +14,8 @@ export class SrfNavigation {
         this.$subMenuButton = this.$element.find(".js-expand-arrow");
         this.$arrow = this.$element.find(".expand-arrow");
         this.submenuToggleCallback  = this.checkFunctionParam(onSubmenuToggle);
+
+        this.$a11yElem = this.$element.find(".js-navigation-subnav-a11y");
 
         this.registerListeners();
     }
@@ -41,5 +43,10 @@ export class SrfNavigation {
         this.$subMenuButton.attr("aria-expanded", subMenuIsOpen);
         this.$submenuWrapper.toggleClass("navigation--subnav-wrapper--open", subMenuIsOpen);
         this.submenuToggleCallback(subMenuIsOpen);
+
+        this.$a11yElem.attr({
+            "aria-hidden": !subMenuIsOpen,
+            "role": subMenuIsOpen ? "" : "presentation"
+        });
     }
 }
