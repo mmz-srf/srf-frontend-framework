@@ -19,12 +19,7 @@ $item-max-width: 400px;
 
 .swipemod {
   background: $color-bg-box;
-  padding: 24px 0 32px;
   overflow-x: hidden;
-
-  @include tablet-up {
-    padding: 24px 0 40px;
-  }
 
   @include desktop-up {
     overflow-x: visible;
@@ -33,7 +28,7 @@ $item-max-width: 400px;
   > .l-card {
     background: $color-bg-caption;
     
-    @include desktop-up {
+    @include desktop-wide {
       overflow-x: hidden;
     }
   }
@@ -310,7 +305,7 @@ $item-max-width: 400px;
     width: 56px;
     transform: translateY(-50%);
     background-size: 32px;
-    background-position: 14px;
+    background-position: 16px 32px;
     background-repeat: no-repeat;
     background-color: transparent;
     border-radius: 2px;
@@ -339,7 +334,6 @@ $item-max-width: 400px;
   @include tablet-up {
     display: block;
     cursor: pointer;
-    cursor: hand;
 
     &::after {
       opacity: 0;
@@ -356,7 +350,7 @@ $item-max-width: 400px;
 }
 
 .swipemod-button__left {
-  left: -40px;
+  left: -32px;
 
   @include desktop-wide {
     left: 0;
@@ -365,11 +359,12 @@ $item-max-width: 400px;
   &::after {
     left: 0;
     background-image: url('../img/carousel/previous.svg');
+    background-position: 8px 32px;
   }
 }
 
 .swipemod-button__right {
-  right: -40px;
+  right: -32px;
 
   @include desktop-wide {
     right: 0;

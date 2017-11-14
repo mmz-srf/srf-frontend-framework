@@ -38,4 +38,12 @@
   @include tablet-up {
     margin-bottom: 24px;
   }
+  
+  // Clears collapsing margin for elements on the bottom of the card
+  &::after {
+    content: '';
+    display: block;
+    height: 1px;
+    margin-top: -1px;
+  }
 }

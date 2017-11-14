@@ -9,7 +9,6 @@
     padding: 0 8px;
     font-size: 16px;
   }
-
 }
 
 .textbox--article-indentation {
@@ -59,7 +58,6 @@
       padding: 0 8px;
       line-height: 24px;
     }
-
   }
 
   & > ul {
@@ -75,10 +73,10 @@
     }
 
     li::before {
-      top: 10px;
+      top: 9px;
 
       @include tablet-up {
-          top: 12px; // font size is bigger
+          top: 11px; // font size is bigger
       }
     }
   }
