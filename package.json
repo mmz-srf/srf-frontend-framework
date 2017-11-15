@@ -37,5 +37,9 @@
     "presets": [
       "env"
     ]
+  },
+  "devDependencies": {
+    "gulp-scss-lint": "^0.5.0",
+    "sass-lint": "^1.12.1"
   }
 }

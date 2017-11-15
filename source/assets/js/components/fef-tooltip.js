@@ -27,7 +27,10 @@ export class FefTooltip {
         // Explicit check for provided data-tooltip-content attribute
         if (typeof this.title !== 'undefined') {
             this.tooltipEnabled = true;
+
+        // eslint-disable-next-line no-console
         } else if (console && console.warn) {
+            // eslint-disable-next-line no-console
             console.warn('Tooltip used without content, please add data-tooltip-content to enable tooltip');
         }
 
@@ -70,9 +73,9 @@ export class FefTooltip {
             let topPosition = ($tooltip.height() + 25) * -1;
 
             $tooltip.css({
-                "top": topPosition,
-                "left": leftPosition - 8,
-                "position": "absolute"
+                'top': topPosition,
+                'left': leftPosition - 8,
+                'position': 'absolute'
             });
         });
 

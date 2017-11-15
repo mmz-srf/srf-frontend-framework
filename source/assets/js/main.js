@@ -12,7 +12,7 @@ import {init as FefSwipeModuleInit} from './srf-swipe-module';
 /** Self loading components, without init **/
 import {FefTooltip} from './components/fef-tooltip';
 
-document.addEventListener("DOMContentLoaded", function(event) {
+document.addEventListener('DOMContentLoaded', function(event) {
     FefCarouselsInit();
     FefChartsInit();
     FefCHMapInit();

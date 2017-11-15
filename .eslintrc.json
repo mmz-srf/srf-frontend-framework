@@ -7,6 +7,16 @@
         }
     },
     "rules": {
-        "semi": 2
+        "indent": ["error", 4],
+        "semi": 2,
+        "eqeqeq": "off",
+        "curly": "error",
+        "quotes": ["error", "single"],
+        "no-console": "error",
+        "no-var": "error",
+        "no-mixed-spaces-and-tabs": "error",
+        "no-lonely-if": "error",
+        "no-mixed-spaces-and-tabs": "error",
+        "space-before-blocks": ["error", "always"]
     }
 }
