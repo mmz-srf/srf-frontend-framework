@@ -25,5 +25,5 @@ document.addEventListener('DOMContentLoaded', function(event) {
     FefSearchInit();
     FefNavigationInit();
     FefSwipeModuleInit();
-    FefShameInit(); // this should propably be last, because it may contain code that depends on the previous scripts
+    FefShameInit(); // this should probably be last, because it may contain code that depends on the previous scripts
 });
