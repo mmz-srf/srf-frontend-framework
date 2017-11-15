@@ -13,7 +13,7 @@ export class FefStorage {
             return optionalDefaultValue;
         }
 
-        let item = localStorage.getItem(key);
+        const item = localStorage.getItem(key);
 
         if (!item && optionalDefaultValue) {
             return optionalDefaultValue;
@@ -104,7 +104,7 @@ export class FefStorage {
      * @returns {boolean}
      */
     static isLocalStorageAvailable() {
-        let check = 'fefLocalStorage';
+        const check = 'fefLocalStorage';
         try {
             localStorage.setItem(check, check);
             localStorage.removeItem(check);
