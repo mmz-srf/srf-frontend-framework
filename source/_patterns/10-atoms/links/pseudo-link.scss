@@ -1,0 +1,15 @@
+
+.pseudo-link {
+  color: $color-link-default;
+  border-bottom: 1px solid $color-link-default;
+
+  &:hover {
+    color: $color-link-hover;
+    border-bottom: 1px solid $color-link-hover;
+  }
+
+  &:active {
+    color: $color-link-active;
+    border-bottom: 1px solid $color-link-active;
+  }
+}
