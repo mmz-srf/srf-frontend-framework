@@ -6,6 +6,8 @@ import {init as FefMediumHoverInit} from  './srf-medium-hover';
 import {init as FefFormFieldInit} from './srf-form-fields';
 import {init as FefCommentsInit} from './srf-comments';
 import {init as FefHeaderInit} from './srf-header';
+import {init as FefSearchInit} from './srf-search';
+import {init as FefNavigationInit} from './srf-navigation';
 import {init as FefShameInit} from  './srf-shame';
 import {init as FefSwipeModuleInit} from './srf-swipe-module';
 
@@ -21,6 +23,8 @@ document.addEventListener('DOMContentLoaded', function(event) {
     FefFormFieldInit();
     FefCommentsInit();
     FefHeaderInit();
+    FefSearchInit();
+    FefNavigationInit();
     FefSwipeModuleInit();
     FefShameInit(); // this should propably be last, because it may contain code that depends on the previous scripts
 });

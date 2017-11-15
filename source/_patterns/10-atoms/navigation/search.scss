@@ -1,15 +1,17 @@
-// @import "../../variables";
-
 .searchbox {
-  width: 100%;
+  padding: 0 12px;
 
-  /* closing x icon */
+  @include tablet-up {
+    padding: 0;
+  }
+
   .close-search {
     position: absolute;
     text-decoration: none;
     border: 0px;
     padding-top: 10px;
     padding-right: 10px;
+
     img {
       position: relative;
       margin-left: -10px;
@@ -21,44 +23,6 @@
     }
   }
 }
-
-.searchbox--header {
-  padding: 16px 16px 8px;
-
-  @include tablet-up {
-    position: absolute;
-    width: 240px;
-    top: -59px;
-    right: 48px;
-    padding: 13px 24px 0;
-    &.centered {
-      position: absolute;
-      transition: width 0.2s cubic-bezier(0.4, 0.0, 0.2, 1);
-    }
-  }
-
-  @include desktop-up {
-    right: 81px;
-  }
-}
-
-.searchbox--footer {
-  @include article-element-indentation;
-  
-  padding: 16px 12px 8px;
-  margin: 0 auto;
-
-  @include tablet-up {
-    padding: 32px 0;
-  }
-
-  & .searchbox__input {
-    height: 40px;
-    background-size: auto;
-    background-position: auto;
-  }
-}
-
 
 .searchbox__input {
   display: none; // visible on document.ready to prevent problems with events firing before document.ready
@@ -84,43 +48,33 @@
     -moz-osx-font-smoothing: auto;
   }
 
-  &:focus::placeholder { // this cannot be combined with the above
+  &:focus::placeholder {
     opacity: 0;
   }
 
+  // safari needs it's own line-height and opacity
   &::-webkit-input-placeholder {
     color: $color-bg-box-hover;
-    line-height: 21px; // safari needs it's own line-height
-    opacity: 1; // and opacity :)
+    line-height: 21px;
+    opacity: 1;
   }
 
-  // Remove IE closing x icon because (we do the same for all browsers) :/
+  // Remove IE closing x icon because (we do the same for all browsers)
   &::-ms-clear {
     display: none;
   }
 
-  @include tablet-up {
-    height: 36px; // safari has a problem with paddings :/
-    padding: 0 30px 0 36px; // adjusting from 6 6 6 36 to line-height above
-    background-size: 23px;
-    background-position: 6px 2px;
-
-    .searchbox--header &:focus {
-      background-position: 6px -28px;
-    }
+  &.search--has-results {
+    // when results are shown, bottom-radius must be reset
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
   }
 }
 
-.searchbox__input.search--has-results {
-  /* when results are shown, bottom-radius must be reset */
-  border-bottom-left-radius: 0px;
-  border-bottom-right-radius: 0px;
-}
-
-.searchbox ul {
+.searchbox__results {
   position: absolute;
   z-index: 100;
-  margin-top: 0px; /* override border edges */
+  margin-top: 0px; // override border edges
   padding-top: 1px;
   padding-right: 0px;
   padding-left: 0px;
@@ -133,16 +87,20 @@
     border-bottom: 0px;
     margin: 0px;
     padding: 0px;
+
     &:before {
       display: none;
     }
+
     &:last-child {
       padding-bottom: 8px;
     }
+
     &:first-child {
       padding-top: 8px;
     }
   }
+
   a {
     display: block;
     width: 100%;
@@ -153,21 +111,30 @@
     text-align: left;
     color: #22211d;
     text-decoration: none;
-    border: 0px;
+    border: 0;
     padding: 11px 16px 5px 13px;
 
     line-height: 1.5;
-    letter-spacing: 0.5px;
-    color: #22211d;
+
     @include tablet-up {
       padding-left: 24px;
     }
+
+    // Override <a> styles
+    &:hover,
+    &:focus,
+    &:active {
+      border: 0;
+      color: #22211d;
+    }
   }
+
   a:hover,
   li.active a,
   .typeahead-suggestion.active a {
     background-color: #f5f5f2;
   }
+
   a:active {
     background-color: #ebebe5;
   }
@@ -178,7 +145,8 @@
   overflow: hidden;
   width: 100%;
   height: 100%;
-  &:after {
+
+  &::after {
     background-color: #000;
     height: 100%;
     left: 0;
@@ -189,23 +157,56 @@
   }
 }
 
-/* footer variant */
-.searchbox.search--footer {
+.searchbox--navigation {
   position: relative;
   width: 100%;
   top: auto;
   right: auto;
   max-width: 458px;
   margin: auto;
-  padding:  13px 24px 0;
+  padding: 0 12px;
 
   @include desktop-up {
     max-width: 500px;
   }
+
+  @include tablet-up {
+    margin-bottom: 32px;
+  }
+
+  .searchbox__input {
+    height: 40px;
+    background-size: auto;
+  }
 }
 
-.search--footer .searchbox__input {
-  height: 40px;
-  background-size: auto;
-  background-position: auto;
+// Inside of the header navigation, the searchbox should only be visible on Size 1 (Mobile)
+.searchbox--header-navigation {
+  margin-top: 16px;
+
+  @include tablet-up {
+    display: none;
+  }
+}
+
+// Expandable searchboxes have a fixed initial with and can, surprisingly, expand to 100%
+.searchbox--expandable {
+  float: right;
+  width: 180px;
+  transition: width .2s ease;
+}
+
+.searchbox--header {
+  .searchbox__input {
+    @include tablet-up {
+      height: 36px; // safari has a problem with paddings
+      padding: 0 30px 0 36px; // adjusting from 6 6 6 36 to line-height above
+      background-size: 23px;
+      background-position: 6px 2px;
+
+      &:focus {
+        background-position: 6px -28px;
+      }
+    }
+  }
 }

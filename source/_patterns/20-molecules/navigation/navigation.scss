@@ -1,70 +1,58 @@
 .navigation {
-  margin: 0;
+  width: 100%;
+  margin: 0 auto;
   padding: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  // animations
-  @include tablet-up {
-    width: auto;
-    right: -280px;
-    transition: right $naviTransitionTime cubic-bezier(0.4, 0.0, 0.2, 1);
-  }
-}
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  flex-wrap: wrap;
 
-.navigation--footer {
   @include tablet-up {
-    display: flex;
-    flex-grow: 1;
-    flex-wrap: nowrap;
-    align-items: stretch;
-    margin: 0;
-  }
-}
-
-@include tablet-up {
-  // more animations
-  .navigation--come-in {
-    right: 0; // end position
+    flex-direction: row;
   }
 }
 
 .navigation__group,
 .navigation__group-item,
-.navigation-item {
+.navigation-item,
+.navigation--subnav-item {
   margin: 0;
   padding: 0;
 }
 
+// Override li's :before pseudo element
 .navigation__group-item,
-.navigation-item {
+.navigation-item,
+.navigation--subnav-item {
   &::before {
     content: none;
   }
 }
 
-.navigation--header .navigation-item {
-  @include smartphone {
-    &:first-child {
-      margin-top: -9px;
-    }
-  }
-
-  &:last-child {
-    border-bottom: 24px solid transparent;
-  }
+.navigation-item {
+  width: 100%;
 }
 
-.navigation--footer .navigation-item {
+.navigation-item--column {
   @include tablet-up {
-    flex: 1 0 auto;
+    flex: 1 1 0;
+    width: calc(100% / 3);
     border-right: 1px solid #444;
-    width: 33.334%;
-    padding:0 12px;
-    
-    &:first-child {
-      padding-left:0;
+
+    // Workaround due to lack of :first-of-class selector.
+    // We want padding on both sides but only on the left of the first
+    // and on the right of the last element with this class.
+    // So we set the style of the 1st on all and "unset" it for all with a prev. neighbor of the same class.
+    // See: https://stackoverflow.com/questions/2717480/css-selector-for-first-element-with-class (accepted answer)
+    padding-right: 12px;
+
+    & ~ .navigation-item--column {
+      padding:0 12px;
     }
+
     &:last-child {
       border-right: none;
       padding-right:0;
@@ -72,202 +60,114 @@
   }
 }
 
-
-
-
-.navigation__link {
-  font: 16px/1 $font-regular;
-  text-decoration: none;
-  color: #fff;
-  padding: 15px 24px 17px;
-  display: block;
-  cursor: pointer;
-  border-bottom: 0;
-
-  &:hover {
-    color: #fff;
-    background-color: #444;
-  }
-
-  &:active,
-  &:focus {
-    color: #fefefd;
-    background-color: #555;
-  }
-
-  &:hover,
-  &:active {
-    border-bottom: 0;
-  }
-  
-  .navigation--footer & {
-    @include tablet-up {
-      padding-right: 16px;
-      padding-left: 16px;
-    }
-  }
+.navigation-item--fullwidth {
+  flex: 1 1 100%;
 }
 
-.navigation--header .navigation__link--close {
-  @include smartphone {
-    display: none;
-  }
-
-  @include tablet-up {
-    position: fixed;
-    height: 56px;
-    width: 280px;
-    background: #333 url("../img/close-sprite.svg") no-repeat scroll 100% 0 / 20px;
-    border: 18px solid #333;
-    border-width: 18px 32px; // (56 - 20) / 2 = 18
-    margin-top: -9px;
-    padding: 0;
-    z-index: 1;
-
-    &:hover, &:focus {
-      background-color: #333;
-      background-position: 100% -30px;
-    }
-  }
-
-  @include desktop-wide {
-    position: absolute; // and back again!
-  }
-}
-
-.navigation--footer .navigation__group-item--close {
+.navigation__group-item--close {
   display: none;
 }
 
-@include tablet-up {
-  .navigation--header .navigation__link--fixed {
-    position: fixed;
-  }
-
-  .navigation--header .navigation__link--home {
-    border-top: 47px solid #333;
-  }
-}
-
-.navigation--header .navigation__group {
+.navigation__group {
   border-bottom: 1px solid #444;
-  padding: 9px 0 7px; 
-}
+  padding: 8px 12px;
 
-.navigation--footer .navigation__group {
-  @include smartphone {
-    border-bottom: 1px solid #444;
-    padding: 9px 0 7px;
-  }
-}
-
-.navigation--footer .navigation-item:first-child .navigation__group {
-  @include smartphone {
-    padding-top: 0;
-  }
-}
-
-
-.navigation__group--radio {
-  background-color: #222;
-  border-bottom: 0;
-  visibility: hidden;
-  // radio animations:
-  height: 0;
-  padding: 0;
-  transition: height 0.4s ease, // height 0.4s cubic-bezier(0.4, 0.0, 0.2, 1),
-  padding-top 0.4s ease,
-  padding-bottom 0.4s ease;
-  
-  .navigation--header & {
+  @include tablet-up {
+    border-bottom: none;
     padding: 0;
   }
-
-  .navigation--footer & {
-    @include smartphone {
-      padding: 0;
-    }
-  }
-
-  .navigation__group-item {
-    height: 0;
-    transition: height 0.4s ease;
-  }
 }
 
-// radio animations pt. 2
-.navigation__group--radio-open {
-  height: 456px; // we "do" know the height (must - to animate it)
-  padding: 12px;
-  visibility: visible;
+.navigation--subnav-wrapper {
+  background-color: #222;
+  margin: 8px -12px -8px -12px;
+  padding: 0;
+  transition: padding .2s ease-in-out;
 
-  .navigation__group-item {
-    // preventing the menu (on scroll) from not reaching the bottom
-    height: 48px;
-  }
-  
-  .navigation--header & {
-    padding: 12px;
-    border-bottom: none;
-  }
-   
-  .navigation--footer & {
-    margin: 0 -12px;
-    @include smartphone {
-      padding: 12px;
-      border-bottom: none;
-    }
-  }
-
-  .navigation__link--radio {
+  @include tablet-up {
+    margin-top: 32px;
+    margin-right: calc((100vw - 100%) / 2 * -1);
+    margin-bottom: -32px;
+    margin-left: calc((100vw - 100%) / 2 * -1);
+    padding: 0 32px;
     position: relative;
-    opacity: 1;
-    height: 48px;
-    padding: 15px 24px 17px;
-  }
-}
 
-.navigation__link--radio {
-  position: absolute;
-  height: 0;
-  opacity: 0;
-  transition: opacity 0.4s ease, height 0.4s ease;
-  text-indent: 32px;
-
-  &:hover {
-    background-color: #333;
-  }
-
-  &:active,
-  &:focus {
-    background-color: #444;
-  }
-}
-
-.navigation__img {
-  position: absolute;
-  width: 24px;
-  height: 24px;
-  margin-top: -4px;
-}
-
-.navigation__img-play {
-  height: 23px;
-  width: auto;
-  display: inline-block;
-  margin-top: -4px;
-  margin-left: 8px;
-  position: absolute;
-}
-// end nativation
-
-/* safari "hack" */
-@supports (-webkit-appearance:none) {
-  .navigation--closed {
-    .navigation {
-      position: fixed; // absolute; <-- produces scrollbars in safari!
+    &::before {
+      content: "";
+      position: absolute;
+      top: -32px;
+      width: 100%;
+      height: 32px;
+      left: 0;
+      background-color: #333;
     }
   }
 }
 
-/* end safari "hack" */
+.navigation--subnav {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 0 12px;
+  overflow: hidden;
+
+  @include tablet-up {
+    padding: 0;
+  }
+}
+
+.navigation--subnav-wrapper--open {
+
+  @include smartphone {
+    margin-top: 8px;
+    margin-bottom: 0;
+
+    .navigation--subnav {
+      margin-top: 8px;
+      padding-top: 8px;
+      padding-bottom: 8px;
+    }
+  }
+
+  @include tablet-up {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  .navigation--subnav-item {
+    max-height: 100px;
+    opacity: 1;
+  }
+}
+
+.navigation--subnav-item {
+  transition: margin .2s ease-in-out,
+              opacity .2s ease-in-out,
+              max-height .2s ease-in-out;
+  max-height: 0;
+  opacity: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+
+  @include smartphone {
+    flex: 1 1 100%;
+  }
+
+  @include tablet-up {
+    flex: 1 0 30%;
+    margin: 0 13px 0 12px;
+    align-self: stretch;
+
+    &:nth-child(3n+1) { order: 0;}
+    &:nth-child(3n+2) { order: 1;}
+    &:nth-child(3n+3) { order: 2;}
+
+    &:nth-child(1),
+    &:nth-child(2),
+    &:nth-child(3) { margin-left: 0; }
+
+    &:nth-child(7),
+    &:nth-child(8),
+    &:nth-child(9) { margin-right: 0; }
+  }
+}
