@@ -1,5 +1,5 @@
 /**
- * @deprecated
+ * @deprecated Please use 'components/fef-tooltip' instead
  */
 export function init() {
 

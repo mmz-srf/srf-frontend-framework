@@ -65,12 +65,12 @@ export class FefTooltip {
 
             $element.find('.tooltip-content').html(this.title);
 
-            let $tooltip = $element.children('.tooltip');
+            const $tooltip = $element.children('.tooltip');
 
             // Move tooltip in right position relative to its parent
-            let leftPosition = (this.originalWidth - $tooltip.width()) / 2;
+            const leftPosition = (this.originalWidth - $tooltip.width()) / 2;
 
-            let topPosition = ($tooltip.height() + 25) * -1;
+            const topPosition = ($tooltip.height() + 25) * -1;
 
             $tooltip.css({
                 'top': topPosition,

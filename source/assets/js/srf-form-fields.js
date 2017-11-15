@@ -1,3 +1,6 @@
+/**
+ * @deprecated Please use 'components/fef-form-field' instead
+ */
 export function init() {
 
     $('.radio-button, .checkbox').on('keypress', function (e) {
