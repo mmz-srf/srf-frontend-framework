@@ -1,0 +1,56 @@
+<div class="related-items-list">
+    <h2 class="related-items-list__heading">
+        {{ 'Sendungen zu diesem Artikel' }}
+    </h2>
+    <ul class="related-items-list__list">
+        <li class="related-items-list__item">
+            <div class="related-items-list__media-window">
+                {% include 'molecules-media-window' %}
+            </div>
+            <a href="#link_to_open_player">
+                <div class="related-items-list__media">
+                {% include 'molecules-medium--related-items' with { 'mediumType': 'video'} %}
+                </div>
+            </a>
+        </li>
+        <li class="related-items-list__item">
+            <div class="related-items-list__media-window">
+                {% include 'molecules-media-window' %}
+            </div>
+            <a href="#link_to_open_player">
+                <div class="related-items-list__media">
+                    {% include 'molecules-medium--related-items' with { 'mediumType': 'video'} %}
+                </div>
+            </a>
+            {% include 'molecules-linkbox' with {'styleModifier': 'linkbox--related', 'title': 'Unterrichtsmaterialien'} %}
+        </li>
+        <li class="related-items-list__item">
+            <a href="#link_to_open_player">
+                <div class="related-items-list__media">
+                    {% include 'molecules-medium--related-items' with { 'mediumType': 'audio'} %}
+                </div>
+            </a>
+        </li>
+    </ul>
+</div>
+
+{#
+<div class="related-list">
+    <h2 class="related-list__heading">
+        {{ 'Sendungen zu diesem Artikel' }}
+    </h2>
+    <ul class="related-elements">
+        <li class="related-item">
+            {% include 'molecules-medium--compact' with {'mediumType': 'video'} %}
+        </li>
+        <li class="related-item">
+            {% include 'molecules-video' with {'styleModifier': 'RelatedEpisodes' } %}
+            {% include 'molecules-linkbox' with {'styleModifier': 'linkbox--related', 'title': 'Unterrichtsmaterialien'} %}
+        </li>
+        <li class="related-item">{% include 'molecules-audio' with {'styleModifier': 'audio--playing'} %}</li>
+        <li class="related-item">{% include 'molecules-video' with {'styleModifier': 'RelatedEpisodes'} %}</li>
+        <li class="related-item">{% include 'molecules-audio' %}</li>
+        <li class="related-item">{% include 'molecules-video' with {'styleModifier': 'RelatedEpisodes'} %}</li>
+    </ul>
+</div>
+#}

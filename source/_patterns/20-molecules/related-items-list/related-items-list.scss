@@ -1,5 +1,5 @@
 
-.related-episodes {
+.related-items-list {
   color: $color-text-default;
   margin: 24px 0 32px;
 
@@ -8,22 +8,22 @@
   }
 }
 
-.related-episodes__heading {
+.related-items-list__heading {
+  margin: 10px 25px;
+  padding: 0;
   font-family: $font-regular;
   font-size: 14px;
   line-height: 1.41;
   letter-spacing: .5px;
   color: $color-text-light;
-  margin: 0;
-  padding: 10px 25px;
   text-transform: uppercase;
 
   @include tablet-up {
-    padding: 10px 16px;
+    margin: 10px 16px;
   }
 }
 
-.related-episodes__list {
+.related-items-list__list {
   padding: 0;
 
   @include tablet-up {
@@ -31,7 +31,7 @@
   }
 }
 
-.related-episodes__item {
+.related-items-list__item {
   margin: 0;
   padding: 0;
   border-top: 1px solid $color-bg-box;
@@ -49,7 +49,13 @@
   }
 }
 
-.related-episodes__media {
+.related-items-list__media-window {
+  @include tablet-up {
+    margin-left: -16px;
+  }
+}
+
+.related-items-list__media {
   padding: 16px 0;
 
   &:hover {
