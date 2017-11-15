@@ -181,7 +181,7 @@ var chmapController = function() {
 
         this.updateSelectMenu = function(cantonId) {
             $("#map-" + this.id ).parent().find(".js-chmap-menu").val(cantonId+"-"+this.id);
-        }
+        };
 
 
         this.loadResults = function() { // colors

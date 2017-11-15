@@ -262,5 +262,5 @@ function getNumberOfSlidesPerScreen(slidesToShow = 1) {
     } else if (matchMedia('screen and (min-width: 1024px)').matches) {
         slidesToShow = 3; // larger
     }
-    return slidesToShow
+    return slidesToShow;
 }

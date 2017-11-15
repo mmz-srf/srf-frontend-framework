@@ -31,7 +31,7 @@ export class SrfSearch {
 
         this.$closeIcon.on('click', (e) => {
             this.reset();
-        })
+        });
 
         this.$inputField.on("keyup", (e) => {
             this.onKeyUp(e);
@@ -170,7 +170,7 @@ export class SrfSearch {
         if (this.typeaheadData === null) {
             $.getJSON(this.typeaheadUrl, (data) => {
                 this.typeaheadData = data;
-            })
+            });
             this.initialWidth = parseInt($('.searchbox--header').css('width'));
         }
         this.showCloseIconIfNeeded();
@@ -215,16 +215,16 @@ export class SrfSearch {
         results.forEach((result) => {
             let name = this.highlightQuery(query, result.name);
             html += `<li role="option" class="typeahead-suggestion" tabindex="-1" aria-hidden="true"> <a href="${result.url}">${name}</a> </li>`;
-        })
+        });
         this.$menu.css('width', this.$inputField.outerWidth() + "px");
         this.$menu.html(html).removeClass('h-element--hide');
     }
 
     highlightQuery(query, name) {
-        query = query.replace(/[\-\[\]{}()*+?.,\\\^$|#\s]/g, '\\$&')
+        query = query.replace(/[\-\[\]{}()*+?.,\\\^$|#\s]/g, '\\$&');
         return name.replace(new RegExp('(' + query + ')', 'ig'), function ($1, match) {
-            return '<strong>' + match + '</strong>'
-        })
+            return '<strong>' + match + '</strong>';
+        });
     }
 
     showCloseIcon() {
@@ -258,7 +258,7 @@ export class SrfSearch {
             if (this.currTimeout) {
                 clearTimeout(this.currTimeout);
             }
-            this.currTimeout = setTimeout(() => {this.showCloseIconIfNeeded()}, deferred);
+            this.currTimeout = setTimeout(() => {this.showCloseIconIfNeeded();}, deferred);
         }
     }
 

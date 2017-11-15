@@ -24,7 +24,7 @@ const debounce = (fn, time) => {
 
         clearTimeout(timeout);
         timeout = setTimeout(functionCall, time);
-    }
+    };
 };
 
 export class SrfSwiper {
