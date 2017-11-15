@@ -3,6 +3,7 @@
   align-items: flex-start;
   margin: 32px 0;
   background-color: $color-bg-caption;
+  flex-wrap: wrap;
 
   @include smartphone {
     margin: 24px 0;
@@ -33,7 +34,12 @@
 
 .medium__caption {
   flex-grow: 1;
+  flex-basis: 0;
   display: flex;
+}
+
+.medium__player-wrapper {
+  flex: 0 0 100%;
 }
 
 .medium--vertical {
