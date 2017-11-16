@@ -158,7 +158,7 @@ rules:
     - 0
     - properties: []
   variable-name-format:
-    - 0
+    - 1
     - allow-leading-underscore: false
       convention: hyphenatedlowercase
   zero-unit: 0
