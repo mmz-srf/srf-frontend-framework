@@ -25,9 +25,22 @@
 }
 
 @keyframes spinner_rotate {
-  @include rotate-spinner;
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 @keyframes spinner_dash {
-  @include dash-spinner;
+  0% {
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -35;
+  }
+  100% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -124;
+  }
 }

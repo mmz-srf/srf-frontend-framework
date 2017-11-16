@@ -220,7 +220,7 @@
 
   width: auto;
 
-  @include tablet-up{
+  @include tablet-up {
     padding-right: 42px;
     margin-right: 0px;
 
@@ -237,16 +237,15 @@
   padding-right: 48px;
   width: auto;
 
-  @include tablet-up{
-    padding-right: 50px;
+  @include tablet-up {
     padding-right: 42px;
     margin-right: 8px;
 
     &:hover,
     &:focus,
     &:active {
-        margin-right: 8px;
-        margin-left: -16px;
+      margin-right: 8px;
+      margin-left: -16px;
     }
   }
 }

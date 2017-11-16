@@ -11,7 +11,8 @@ var gulp = require('gulp'),
     source = require('vinyl-source-stream'),
     buffer = require('vinyl-buffer'),
     exec = require('child_process').exec,
-    eslint = require('gulp-eslint');
+    eslint = require('gulp-eslint'),
+    sassLint = require('gulp-sass-lint');
 
 var $ = gulpLoadPlugins();
 var reload = browserSync.reload;
@@ -133,7 +134,7 @@ gulp.task('gh-pages-deploy', function() {
         .pipe($.ghPages());
 });
 
-gulp.task('lint', () => {
+gulp.task('js-lint', () => {
     // ESLint ignores files with "node_modules" paths.
     // So, it's best to have gulp ignore the directory as well.
     // Also, Be sure to return the stream from the task;
@@ -148,6 +149,31 @@ gulp.task('lint', () => {
         // To have the process exit with an error code (1) on
         // lint error, return the stream and pipe to failAfterError last.
         .pipe(eslint.failAfterError());
+});
+
+//gulp.task('sass-lint', function () {
+//    return gulp.src('source/**/*.s+(a|c)ss')
+//        //.pipe(sassLint({
+//        //    options: {
+//        //        configFile: '.sass-lint.yml'
+//        //    }
+//        //}))
+//        .pipe(sassLint())
+//        .pipe(sassLint.format())
+//        .pipe(sassLint.failOnError())
+//});
+
+gulp.task('sass-lint', function () {
+    return gulp.src('source/_patterns/**/*.s+(a|c)ss')
+        .pipe(sassLint({
+            options: {
+                formatter: 'stylish',
+                'merge-default-rules': true
+            },
+            configFile: '.sass-lint.yml'
+        }))
+        .pipe(sassLint.format())
+        .pipe(sassLint.failOnError())
 });
 
 

@@ -42,13 +42,13 @@ $headerHeightTabletUp: 56px;
   display: block;
   padding: 12px;
   border: none; // overwrite of global anchor-styles
-  
+
   &:hover,
   &:active,
   &:focus { // overwrite of global anchor-styles
     border: none;
   }
-  
+
   @include tablet-up {
     padding: 15px 16px;
   }
@@ -87,16 +87,16 @@ $headerHeightTabletUp: 56px;
   white-space: nowrap;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  
+
   border: none; // overwrite of global anchor-styles
-  
+
   &:hover,
   &:active,
   &:focus { // overwrite of global anchor-styles
     border: none;
     color: #dadad2;
   }
-  
+
   @include tablet-up {
     padding: 20px 16px;
   }
@@ -107,9 +107,7 @@ $headerHeightTabletUp: 56px;
   height: 16px;
   position: relative;
   transform: rotate(0deg);
-  transition: top .2s ease-in-out,
-              left .2s ease-in-out,
-              rotate .2s ease-in-out;
+  transition: top .2s ease-in-out, left .2s ease-in-out, rotate .2s ease-in-out;
 
   @include tablet-up {
     display: inline-block;
@@ -128,20 +126,39 @@ $headerHeightTabletUp: 56px;
     transition: .25s ease-in-out;
   }
 
-  span:nth-child(1) { top: 0px; }
+  span:nth-child(1) {
+    top: 0px;
+  }
+
   span:nth-child(2),
-  span:nth-child(3) { top: 7px; }
-  span:nth-child(4) { top: 14px; }
+  span:nth-child(3) {
+    top: 7px;
+  }
+
+  span:nth-child(4) {
+    top: 14px;
+  }
 
   @media (min-width: 720px) {
     width: 14px;
     height: 10px;
 
-    span { height: 1px; }
-    span:nth-child(1) { top: 0px; }
+    span {
+      height: 1px;
+    }
+
+    span:nth-child(1) {
+      top: 0px;
+    }
+
     span:nth-child(2),
-    span:nth-child(3) { top: 5px; }
-    span:nth-child(4) { top: 10px; }
+    span:nth-child(3) {
+      top: 5px;
+    }
+
+    span:nth-child(4) {
+      top: 10px;
+    }
   }
 }
 
@@ -164,10 +181,21 @@ $headerHeightTabletUp: 56px;
   }
 
   @media (min-width: 720px) {
-    span:nth-child(1) { top: 5px; }
-    span:nth-child(2) { transform: rotate( 45deg) scale(1.1); }
-    span:nth-child(3) { transform: rotate(-45deg) scale(1.1); }
-    span:nth-child(4) { top: 5px; }
+    span:nth-child(1) {
+      top: 5px;
+    }
+
+    span:nth-child(2) {
+      transform: rotate(45deg) scale(1.1);
+    }
+
+    span:nth-child(3) {
+      transform: rotate(-45deg) scale(1.1);
+    }
+
+    span:nth-child(4) {
+      top: 5px;
+    }
   }
 }
 

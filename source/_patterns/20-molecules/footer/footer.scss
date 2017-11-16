@@ -37,7 +37,7 @@ ul.footer-top-secnav {
   height: calc(4 * 39px + 2 * 16px);
   margin: 0;
   padding: 16px 16px;
-  
+
   @include tablet-up {
     height: auto;
     padding: 20px 8px;
@@ -49,7 +49,7 @@ ul.footer-top-secnav {
   margin: 0;
   padding: 0;
   display: inline-block;
-  
+
   @include tablet-up {
     flex: 0 0 auto;
   }
@@ -67,7 +67,7 @@ a.footer-top-secnavLink {
   border-bottom: none;
   border-radius: 2px;
   padding: 12px 8px;
-  
+
   @include tablet-up {
     margin-right:8px;
   }
@@ -116,7 +116,7 @@ a.footer-top-secnavLink {
 .footer-bottom-srglogo {
   width: 46px;
   height: 16px;
-  
+
   /* JUST DEV */
   background: #af001e;
 }
@@ -132,10 +132,10 @@ a.footer-top-secnavLink {
 
 .footer-bottom-buElem {
   flex: 1 0 auto;
-  
+
   margin: 0;
   padding: 0;
-  
+
   &::before {
     display: none;
   }
