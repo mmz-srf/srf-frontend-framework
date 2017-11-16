@@ -1,13 +1,13 @@
 .listmodule {
-  margin:24px 0;
+  margin: 24px 0;
   @include tablet-up {
-    margin:32px 0;
+    margin: 32px 0;
   }
 }
 
 .listmodule__title {
-  font:normal 500 22px/28px $font-medium;
-  letter-spacing:.2px;
+  font: normal 500 22px/28px $font-medium;
+  letter-spacing: .2px;
   color: $color-text-default;
   margin: 0 0 16px;
   @include article-text-padding;
@@ -140,7 +140,7 @@
 }
 
 .listmodule__block {
-  margin-bottom:16px;
+  margin-bottom: 16px;
 }
 
 .listmodule__content {
@@ -158,7 +158,7 @@
 .listmodule__content--listicle {
   margin: 12px 0;
   @include tablet-up {
-    line-height:32px;
+    line-height: 32px;
     letter-spacing: .3px;
   }
 }

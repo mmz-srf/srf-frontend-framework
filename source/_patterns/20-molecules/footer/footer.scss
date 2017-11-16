@@ -56,7 +56,7 @@ ul.footer-top-secnav {
 }
 
 .footer-top-secnavElem::before {
-  display:none;
+  display: none;
 }
 
 a.footer-top-secnavLink {
@@ -69,7 +69,7 @@ a.footer-top-secnavLink {
   padding: 12px 8px;
 
   @include tablet-up {
-    margin-right:8px;
+    margin-right: 8px;
   }
 }
 
@@ -164,7 +164,7 @@ a.footer-bottom-buLink {
   margin-right: -1px;
 }
 .footer-bottom-buElem:not(:nth-last-child(1)) .footer-bottom-buLink:hover::after {
-  display:none;
+  display: none;
 }
 
 .footer-bottom-buLink span {

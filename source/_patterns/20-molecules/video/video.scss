@@ -225,7 +225,7 @@
   height: auto;
   margin: 16px 0px 16px 16px;
   right: auto; /* overwrite */
-  left:auto; /* overwrite */
+  left: auto; /* overwrite */
 
   @include tablet-up {
     width: 228px;
@@ -233,7 +233,7 @@
   }
 
   .media-caption {
-    padding:8px 16px;
+    padding: 8px 16px;
   }
 
   .media-caption__source--video {
@@ -257,7 +257,7 @@
   }
 
   .media-play__icon {
-    margin-bottom:0;
+    margin-bottom: 0;
   }
 
   .image-figure--simple {
