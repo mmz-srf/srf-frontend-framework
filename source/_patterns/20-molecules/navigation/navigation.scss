@@ -79,10 +79,14 @@
 }
 
 .navigation--subnav-wrapper {
-  background-color: #222;
+  background-color: rgba(0, 0, 0, .2);
   margin: 8px -12px -8px -12px;
   padding: 0;
-  transition: padding .2s ease-in-out;
+  transition: padding .2s ease-in-out,
+              border .2s ease-in-out;
+
+  border-top: none;
+  border-bottom: none;
 
   @include tablet-up {
     margin-top: 32px;
@@ -92,10 +96,11 @@
     padding: 0 32px;
     position: relative;
 
+    // Least ugly way to cover up the | border on the navigation group
     &::before {
-      content: "";
+      content: '';
       position: absolute;
-      top: -32px;
+      top: -33px;
       width: 100%;
       height: 32px;
       left: 0;
@@ -117,6 +122,9 @@
 }
 
 .navigation--subnav-wrapper--open {
+
+  border-top: 1px solid rgba(0, 0, 0, .2);
+  border-bottom: 1px solid rgba(0, 0, 0, .2);
 
   @include smartphone {
     margin-top: 8px;

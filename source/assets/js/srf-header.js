@@ -8,7 +8,7 @@ export function init() {
     $(".header").each((i, elem) => {
         new SrfHeader(
             elem,
-            (isOpen) => {console.log("Menu is now " + (isOpen ? "open" : "closed"));}
+            (isOpen) => {/* Header is now open or closed */}
         );
     });
 }

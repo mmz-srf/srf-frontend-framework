@@ -2,13 +2,14 @@ export function init() {
     $(".js-navigation").each((i, elem) => {
         new SrfNavigation(
             elem,
-            (isOpen) => {console.log("Submenu is now " + (isOpen ? "open" : "closed"));}
+            false,
+            (isOpen) => {/* Submenu is now open or closed */}
         );
     });
 }
 
 export class SrfNavigation {
-    constructor(element, onSubmenuToggle) {
+    constructor(element, isOpenOnStart = false, onSubmenuToggle) {
         this.$element = $(element);
         this.$submenuWrapper = this.$element.find(".navigation--subnav-wrapper");
         this.$subMenuButton = this.$element.find(".js-expand-arrow");
@@ -18,6 +19,10 @@ export class SrfNavigation {
         this.$a11yElem = this.$element.find(".js-navigation-subnav-a11y");
 
         this.registerListeners();
+
+        if (isOpenOnStart) {
+            this.toggleMenu(true);
+        }
     }
 
     /**
@@ -39,10 +44,15 @@ export class SrfNavigation {
 
         let subMenuIsOpen = !this.$arrow.hasClass("expand-arrow--open");
 
+        this.toggleMenu(subMenuIsOpen);
+
+        this.submenuToggleCallback(subMenuIsOpen);
+    }
+
+    toggleMenu(subMenuIsOpen) {
         this.$arrow.toggleClass("expand-arrow--open", subMenuIsOpen);
         this.$subMenuButton.attr("aria-expanded", subMenuIsOpen);
         this.$submenuWrapper.toggleClass("navigation--subnav-wrapper--open", subMenuIsOpen);
-        this.submenuToggleCallback(subMenuIsOpen);
 
         this.$a11yElem.attr({
             "aria-hidden": !subMenuIsOpen,

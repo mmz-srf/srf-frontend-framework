@@ -8,6 +8,7 @@ $headerHeightTabletUp: 56px;
   right: 0;
   left: 0;
   z-index: 100000;
+  overflow: hidden;
 }
 
 .header--open {
@@ -94,11 +95,15 @@ $headerHeightTabletUp: 56px;
   &:active,
   &:focus { // overwrite of global anchor-styles
     border: none;
-    color: #dadad2;
+    color: #ffffff;
   }
   
   @include tablet-up {
     padding: 20px 16px;
+  }
+
+  .header--open & {
+    color: #ffffff;
   }
 }
 
@@ -145,7 +150,6 @@ $headerHeightTabletUp: 56px;
   }
 }
 
-
 .header--open .menu-button__icon {
   span {
     background: #ffffff;
@@ -181,6 +185,9 @@ $headerHeightTabletUp: 56px;
   width: 100%;
   box-shadow: $shadow-default;
   display: block;
+
+  // enable inertia scrolling on ios devices
+  -webkit-overflow-scrolling: touch;
 }
 
 .header-navigation-wrapper {
