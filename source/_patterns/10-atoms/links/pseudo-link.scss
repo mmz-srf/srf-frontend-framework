@@ -1,5 +1,6 @@
 
 .pseudo-link {
+  position: relative;
   color: $color-link-default;
   border-bottom: 1px solid $color-link-default;
 
@@ -11,5 +12,15 @@
   &:active {
     color: $color-link-active;
     border-bottom: 1px solid $color-link-active;
+  }
+
+  //creates larger touch area for the pseudo link
+  &::before {
+    content: "";
+    position: absolute;
+    left: -0.25em;
+    top: -0.5em;
+    height: 2.5em;
+    width: calc(100% + 0.5em);
   }
 }
