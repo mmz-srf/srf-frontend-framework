@@ -79,14 +79,15 @@
 }
 
 .navigation--subnav-wrapper {
-  background-color: rgba(0, 0, 0, .2);
+  background-color: #2C2C2C;
   margin: 8px -12px -8px -12px;
   padding: 0;
-  transition: padding .2s ease-in-out,
+  transition: margin .2s ease-in-out,
+              padding .2s ease-in-out,
               border .2s ease-in-out;
 
-  border-top: none;
-  border-bottom: none;
+  border-top: 0 solid transparent;
+  border-bottom: 0 solid transparent;
 
   @include tablet-up {
     margin-top: 32px;
@@ -122,13 +123,12 @@
 }
 
 .navigation--subnav-wrapper--open {
-
   border-top: 1px solid rgba(0, 0, 0, .2);
   border-bottom: 1px solid rgba(0, 0, 0, .2);
 
   @include smartphone {
-    margin-top: 8px;
-    margin-bottom: 0;
+    // hide the border of the parent element by subtracting 1 more pix.
+    margin-bottom: -9px;
 
     .navigation--subnav {
       margin-top: 8px;
