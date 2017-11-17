@@ -1,1 +1,2 @@
-<span class="pseudo-link" role="link" tabindex="0">{{ video.show.title }}</span>
+{% set linkText = linkText|default('Dies ist ein Pseudo-Link.') %}
+<span class="pseudo-link" role="link" tabindex="0">{{ linkText }}</span>
