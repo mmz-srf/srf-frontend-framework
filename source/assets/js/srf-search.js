@@ -201,7 +201,9 @@ export class SrfSearch {
         });
 
         if (results.length > 0) {
+            results = this.sortResults(results, query);
             results = results.slice(0, this.options.maxSuggestionCount);
+
             this.renderResults(results, query);
             this.$inputField.addClass('search--has-results' );
         } else {
@@ -218,6 +220,46 @@ export class SrfSearch {
         })
         this.$menu.css('width', this.$inputField.outerWidth() + "px");
         this.$menu.html(html).removeClass('h-element--hide');
+    }
+
+    sortResults(results, key) {
+        var self = this;
+        let r = results.sort(
+            function(a, b) {
+                return  self.weight(b.name, key) - self.weight(a.name, key) ;
+            }
+        )
+        return r;
+    }
+
+    weight(name, key) {
+        let weight = 0;
+        // key is already normalized to lowercase
+        name = name.toLowerCase();
+        let tokens = name.split(/[,\/; -]/);
+
+        // weight each token:
+        for (let i = 0; i <tokens.length; i++) {
+            // exact match rates high
+            /*
+            if (tokens[i] == key) {
+                // exact matches in a token are rated high (tokens which come first higher):
+                weight =  weight + ((10 - i) * 1000);
+            }*/
+            // inexact match
+            if (tokens[i] && tokens[i].toString().indexOf(key) > -1) {
+                // start position of key and token position are rated, name length is used as sort criteria.
+                // (startPosition * 10 -  length of whole world) / position of token:
+                weight = weight + ((100 - tokens[i].indexOf(key)) * 20 - name.length) / ((i + 1) *2);
+            }
+        }
+
+        if (weight > 0) {
+            return weight;
+        }
+
+        // no match found
+        return -1;
     }
 
     highlightQuery(query, name) {
@@ -271,6 +313,7 @@ export class SrfSearch {
         if (!this.expandable) {
             return;
         }
+
         this.hideCloseIcon();
         this.showCloseIconIfNeeded(500); // currTimeout gets set here
         $('.searchbox--header').addClass('centered'); // add margin: 50% and animations and calculate the new width (90% of container, adjusted by width).
