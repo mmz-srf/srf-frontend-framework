@@ -1,6 +1,6 @@
 <ul class="navigation js-navigation {{ styleModifier }}" role="menu">
 
-    <li class="navigation-item navigation-item--fullwidth">
+    <li class="navigation-item">
         {% block search %}
             {% include 'atoms-search' with {'styleModifier': 'searchbox--navigation ' ~ ('navigation--header' in styleModifier ? 'searchbox--header-navigation' : '') } %}
         {% endblock %}
