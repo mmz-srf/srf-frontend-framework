@@ -1,6 +1,6 @@
-$naviTransitionTime: 0.4s;
-$headerHeight: 50px;
-$headerHeightTabletUp: 56px;
+$navigation-transition-time: 0.4s;
+$header-height: 50px;
+$header-height-tablet-up: 56px;
 
 .header {
   position: absolute;
@@ -17,10 +17,10 @@ $headerHeightTabletUp: 56px;
 }
 
 .header + .l-card {
-  margin-top: $headerHeight;
+  margin-top: $header-height;
 
   @include tablet-up {
-    margin-top: $headerHeightTabletUp;
+    margin-top: $header-height-tablet-up;
   }
 }
 
@@ -212,10 +212,10 @@ $headerHeightTabletUp: 56px;
   overflow-y: auto;
   overflow-x: hidden;
 
-  max-height: calc(100vh - #{$headerHeight});
+  max-height: calc(100vh - #{$header-height});
 
   @include tablet-up {
-    max-height: calc(100vh - #{$headerHeightTabletUp});
+    max-height: calc(100vh - #{$header-height-tablet-up});
   }
 }
 

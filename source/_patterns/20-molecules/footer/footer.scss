@@ -1,111 +1,128 @@
+.footer {
+  color: #ffffff;
+}
+
 .footer-top {
   background: #333;
-  color: #fff;
 }
 
 .footer-bottom {
   background: #222;
-  color: #fff;
 }
 
-.footer-navigation {
-  padding: 16px 0;
+.footer-top,
+.footer-bottom {
+  @include tablet {
+    padding: 0 32px;
+  }
+}
+
+.footer-top__navigation {
+  padding: 16px 0 0;
 
   @include tablet-up {
     padding: 32px 0;
   }
 }
 
-.footer-bottom-container-wrapper {
-  @include tablet-up {
-    display: flex;
-    flex-wrap: nowrap;
-    align-content: start;
-    justify-content: space-between;
-    padding: 0 16px 20px;
-  }
-}
+.footer-bottom__navigation {
+  margin: 0;
+  padding: 16px 16px;
 
-ul.footer-top-secnav {
   @include smartphone {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     flex-wrap: wrap;
     flex-grow: 1;
     justify-content: start;
   }
-  height: calc(4 * 39px + 2 * 16px);
-  margin: 0;
-  padding: 16px 16px;
-  
+
   @include tablet-up {
     height: auto;
     padding: 20px 8px;
   }
 }
 
-.footer-top-secnavElem {
-  flex: 0 0 auto;
+.footer-bottom__navigation-item {
+  flex: 1 0 50%;
   margin: 0;
   padding: 0;
-  display: inline-block;
-  
+  display: flex;
+
+  @include smartphone {
+    &:nth-child(1) { order: 1; };
+    &:nth-child(2) { order: 3; };
+    &:nth-child(3) { order: 5; };
+    &:nth-child(4) { order: 7; };
+    &:nth-child(5) { order: 2; };
+    &:nth-child(6) { order: 4; };
+    &:nth-child(7) { order: 6; };
+    &:nth-child(8) { order: 8; };
+  }
+
   @include tablet-up {
-    flex: 0 0 auto;
+    display: inline-block;
+  }
+
+  &::before {
+    display:none;
   }
 }
 
-.footer-top-secnavElem::before {
-  display:none;
-}
-
-a.footer-top-secnavLink {
+.footer-bottom__navigation-link {
   font: 14px/1.14 $font-regular;
   letter-spacing: .5px;
   color: #dadad2;
   display: block;
-  border-bottom: none;
+  border-bottom: 0;
   border-radius: 2px;
   padding: 12px 8px;
-  
+  align-self: center;
+  flex: 1 1 100%;
+
   @include tablet-up {
-    margin-right:8px;
+    margin-right: 8px;
+  }
+
+  &::before {
+    display:none;
+  }
+
+  &:hover {
+    border-bottom: 0;
+    background-color: #444;
+    color: #fff;
   }
 }
 
-.footer-top-secnavLink::before {
-  display: none;
+.footer-bottom__imprint {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+
+  @include tablet-up {
+    flex-direction: row;
+    align-content: start;
+    justify-content: space-between;
+    padding: 0 16px 20px;
+  }
 }
 
-.footer-top-secnavLink:hover {
-  background-color: #444;
-  color: #fff;
-}
+.footer-bottom__imprint-content,
+.footer-bottom__imprint-links {
+  flex: 1 1 50%;
 
-.footer-bottom-container {
   @include smartphone {
     padding: 0 24px;
   }
-  @include tablet-up {
-    flex: 0 0 auto;
-  }
 }
 
-.footer-bottom-container--srg {
-  @include tablet-up {
-    width: calc(100% - 272px - 32px);
-    max-width: 434px;
-  }
+.footer-bottom__logo {
+  width: 46px;
+  height: 16px;
 }
 
-.footer-bottom-container--bu {
-  @include tablet-up {
-    width: 272px;
-    margin-top: 11px;
-  }
-}
-
-.footer-bottom-paragraph {
+.footer-bottom__description {
   font-size: 12px;
   font-weight: 300;
   line-height: 1.33;
@@ -113,81 +130,81 @@ a.footer-top-secnavLink {
   color: #fff;
 }
 
-.footer-bottom-srglogo {
-  width: 46px;
-  height: 16px;
-  
-  /* JUST DEV */
-  background: #af001e;
-}
-
-.footer-bottom-buList {
+.footer-bottom__imprint-links {
   display: flex;
   flex-grow: 1;
   flex-wrap: nowrap;
   margin: 0;
-  padding: 0;
-  width: 100%;
-}
 
-.footer-bottom-buElem {
-  flex: 1 0 auto;
-  
-  margin: 0;
-  padding: 0;
-  
-  &::before {
-    display: none;
+  @include tablet-up {
+    align-self: center;
+    padding: 0;
+    justify-content: flex-end;
   }
 }
 
-a.footer-bottom-buLink {
+.footer-bottom__link-item {
+  flex: 1 0 0%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+
+  // override global <a> style
+  &::before {
+    display: none;
+  }
+
+  // border on the right side has to be ::after because element is taller than the "border" --> can't be a border
+  &::after {
+    content: '';
+    height: 1em;
+    border-right: 1px solid #444;
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-right: -1px;
+  }
+
+  // "borders" are only between the elements, not at the end --> last child has none
+  &:nth-last-child(1)::after {
+    display: none;
+  }
+
+  &:hover::after {
+    display: none;
+  }
+
+  @include tablet-up {
+    flex-grow: 0;
+  }
+}
+
+.footer-bottom__link {
   display: inline-block;
-  width: 100%;
   padding: 12px 0 13px;
   font: 14px/1.14 $font-regular;
   letter-spacing: .5px;
   text-align: center;
   color: $color-bg-box-hover;
-  border-bottom: none;
-}
-
-.footer-bottom-buElem:not(:nth-last-child(1)) .footer-bottom-buLink::after {
-  content: '';
-  height: 1em;
-  border-right: 1px solid #444;
-  display: block;
-  position: absolute;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  margin-right: -1px;
-}
-.footer-bottom-buElem:not(:nth-last-child(1)) .footer-bottom-buLink:hover::after {
-  display:none;
-}
-
-.footer-bottom-buLink span {
-  display: block;
-  border-radius: 2px;
-  padding-top: 4px;
-  padding-bottom: 4px;
+  border-bottom: 0;
   width: 100%;
-}
+  flex: 1 1 auto;
+  align-self: center;
 
-.footer-bottom-buLink:hover span,
-.footer-bottom-buLink.selected span {// DEV ONLY
-  background-color: #444;
-  color: #fff;
-}
-
-.footer-top > div,
-.footer-bottom > div {
-  @include tablet-up {
-    margin: 0 32px;
+  & span {
+    display: block;
+    border-radius: 2px;
+    padding: 4px 12px;
   }
 
-  @include desktop-wide {
-    margin: 0 auto;
+  &:hover {
+    border-bottom: 0;
+
+    span {
+      background-color: #444;
+      color: #fff;
+    }
   }
 }

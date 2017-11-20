@@ -175,3 +175,10 @@
     &:nth-child(9) { margin-right: 0; }
   }
 }
+
+.navigation--footer {
+  .navigation-item--column:nth-last-of-type(1) .navigation__group {
+    // in the footer, the last column has no border afterwards
+    border-bottom: 0;
+  }
+}
