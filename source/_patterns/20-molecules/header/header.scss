@@ -1,4 +1,3 @@
-$navigation-transition-time: 0.4s;
 $header-height: 50px;
 $header-height-tablet-up: 56px;
 
@@ -42,15 +41,15 @@ $header-height-tablet-up: 56px;
   display: block;
   padding: 12px;
   border: none; // overwrite of global anchor-styles
-  
+
+  @include tablet-up {
+    padding: 15px 16px;
+  }
+
   &:hover,
   &:active,
   &:focus { // overwrite of global anchor-styles
     border: none;
-  }
-  
-  @include tablet-up {
-    padding: 15px 16px;
   }
 }
 
@@ -87,7 +86,9 @@ $header-height-tablet-up: 56px;
   white-space: nowrap;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  
+
+  transition: color .2s ease-in-out;
+
   border: none; // overwrite of global anchor-styles
   
   &:hover,
@@ -95,6 +96,10 @@ $header-height-tablet-up: 56px;
   &:focus { // overwrite of global anchor-styles
     border: none;
     color: #ffffff;
+
+    .menu-button__icon span {
+      background-color: #ffffff;
+    }
   }
   
   @include tablet-up {
