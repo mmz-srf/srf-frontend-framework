@@ -22,6 +22,8 @@ export class SrfNavigation {
 
         if (isOpenOnStart) {
             this.toggleMenu(true);
+        } else {
+            this.$submenuWrapper.hide();
         }
     }
 
@@ -53,6 +55,15 @@ export class SrfNavigation {
         this.$arrow.toggleClass("expand-icon--open", subMenuIsOpen);
         this.$subMenuButton.attr("aria-expanded", subMenuIsOpen);
         this.$submenuWrapper.toggleClass("navigation--subnav-wrapper--open", subMenuIsOpen);
+
+        // FeF 2:12 - Thou shall not be able to tab over the submenu when it's closed!
+        if (subMenuIsOpen) {
+            this.$submenuWrapper.show();
+        } else {
+            this.$submenuWrapper.one('transitionend', () => {
+                this.$submenuWrapper.hide();
+            });
+        }
 
         this.$a11yElem.attr({
             "aria-hidden": !subMenuIsOpen,
