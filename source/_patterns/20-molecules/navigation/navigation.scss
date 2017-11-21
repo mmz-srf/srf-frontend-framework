@@ -38,8 +38,9 @@
 
 .navigation-item--column {
   @include tablet-up {
-    flex: 1 1 0;
-    width: calc(100% / 3);
+    flex: 1 1 0%;
+    // IE11 can't handle calc(100% / 3) and rounds weirdly - let's stick to 33.33%
+    width: 33.33%;
     border-right: 1px solid #444;
 
     // Workaround due to lack of :first-of-class selector.
