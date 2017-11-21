@@ -12,8 +12,8 @@ export class SrfNavigation {
     constructor(element, isOpenOnStart = false, onSubmenuToggle) {
         this.$element = $(element);
         this.$submenuWrapper = this.$element.find(".navigation--subnav-wrapper");
-        this.$subMenuButton = this.$element.find(".js-expand-arrow");
-        this.$arrow = this.$element.find(".expand-arrow");
+        this.$subMenuButton = this.$element.find(".js-expand-icon");
+        this.$arrow = this.$element.find(".expand-icon");
         this.submenuToggleCallback  = this.checkFunctionParam(onSubmenuToggle);
 
         this.$a11yElem = this.$element.find(".js-navigation-subnav-a11y");
@@ -42,7 +42,7 @@ export class SrfNavigation {
     onSubMenuButtonClicked(e) {
         typeof e !== "undefined" ? e.preventDefault() : null;
 
-        let subMenuIsOpen = !this.$arrow.hasClass("expand-arrow--open");
+        let subMenuIsOpen = !this.$arrow.hasClass("expand-icon--open");
 
         this.toggleMenu(subMenuIsOpen);
 
@@ -50,7 +50,7 @@ export class SrfNavigation {
     }
 
     toggleMenu(subMenuIsOpen) {
-        this.$arrow.toggleClass("expand-arrow--open", subMenuIsOpen);
+        this.$arrow.toggleClass("expand-icon--open", subMenuIsOpen);
         this.$subMenuButton.attr("aria-expanded", subMenuIsOpen);
         this.$submenuWrapper.toggleClass("navigation--subnav-wrapper--open", subMenuIsOpen);
 
