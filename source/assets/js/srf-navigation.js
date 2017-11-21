@@ -52,10 +52,6 @@ export class SrfNavigation {
     }
 
     toggleMenu(subMenuIsOpen) {
-        this.$arrow.toggleClass("expand-icon--open", subMenuIsOpen);
-        this.$subMenuButton.attr("aria-expanded", subMenuIsOpen);
-        this.$submenuWrapper.toggleClass("navigation--subnav-wrapper--open", subMenuIsOpen);
-
         // FeF 2:12 - Thou shall not be able to tab over the submenu when it's closed!
         if (subMenuIsOpen) {
             this.$submenuWrapper.show();
@@ -64,6 +60,10 @@ export class SrfNavigation {
                 this.$submenuWrapper.hide();
             });
         }
+
+        this.$arrow.toggleClass("expand-icon--open", subMenuIsOpen);
+        this.$subMenuButton.attr("aria-expanded", subMenuIsOpen);
+        this.$submenuWrapper.toggleClass("navigation--subnav-wrapper--open", subMenuIsOpen);
 
         this.$a11yElem.attr({
             "aria-hidden": !subMenuIsOpen,

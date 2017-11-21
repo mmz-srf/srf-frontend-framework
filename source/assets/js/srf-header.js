@@ -29,6 +29,9 @@ export class SrfHeader {
         this.setA11YProperties(this.menuIsOpen);
 
         this.registerListeners();
+
+        // Set initial state
+        this.$navigation.hide();
     }
 
     /**
@@ -45,6 +48,10 @@ export class SrfHeader {
         this.$menuButton.on("click", event => this.onMenuButtonClicked(event) );
 
         $(document).on("click", event => this.onDocumentClicked(event) );
+
+        // A11Y Helper: when tabbing out of the menu, the first element is and will always be a breadcrumb. --> on focus, close the menu.
+        $(".breadcrumb__link").first().on('focus', event => this.closeIfOpen());
+        $(".footer-bottom__link").last().on('focus', event => this.closeIfOpen());
     }
 
     /**
@@ -59,6 +66,12 @@ export class SrfHeader {
         }
     }
 
+    closeIfOpen() {
+        if (this.menuIsOpen) {
+            this.close();
+        }
+    }
+
     onMenuButtonClicked(e) {
         typeof e !== "undefined" ? e.preventDefault() : null;
 
@@ -69,39 +82,33 @@ export class SrfHeader {
     changeMenuState(newState) {
         this.menuIsOpen = newState;
 
+        if (this.menuIsOpen) {
+            $(document).on("keydown.header", event => this.onKeyPressed(event));
+
+            this.$navigation.show();
+        } else {
+            this.$navigation.one('transitionend', () => {
+                this.$navigation.hide();
+            });
+        }
+
         this.$element.toggleClass("header--open", this.menuIsOpen);
 
         $('html').toggleClass("menu--opened", this.menuIsOpen);
 
         this.setA11YProperties(this.menuIsOpen);
         this.menuToggleCallback(this.menuIsOpen);
-
-        if (this.menuIsOpen) {
-            $(document).on("keydown.header", event => this.onKeyPressed(event));
-
-            // don't stay on the same element when opening the menu - focus on the first element inside of the menu
-            if ($(window).width() > 720) {
-                this.$navigation.find(".navigation-link").first().focus();
-            } else {
-                this.$navigation.find(".searchbox__input").first().focus();
-            }
-        } else {
-            $(document).off("keydown.header");
-        }
     }
 
     /**
-     * Multiple key events concern us:
+     * The following key events concern us:
      * - Escape if the menu's open --> close it
-     * - trying to Tab out of the menu --> re-focus on the beginning
      *
      * @param e {jQuery.Event}
      */
     onKeyPressed(e) {
-        if (e.keyCode === KEYCODES.escape ) {
+        if (e.keyCode === KEYCODES.escape && this.menuIsOpen) {
             this.close();
-        } else if (e.keyCode === KEYCODES.tab && this.$element.find(".navigation__link").last().is(e.target)) {
-            this.$logo.focus();
         }
     }
 

@@ -179,11 +179,6 @@
   }
 }
 
-.navigation--header {
-  opacity: 0;
-  transition: opacity 0s ease-in-out .2s;
-}
-
 .navigation--footer {
   .navigation-item--column:nth-last-of-type(1) .navigation__group {
     // in the footer, the last column has no border afterwards
