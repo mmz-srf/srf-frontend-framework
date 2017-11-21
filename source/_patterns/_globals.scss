@@ -61,3 +61,9 @@ strong {
 th {
   font-weight: normal;
 }
+
+a:focus {
+  outline: 1px solid #42a3f1;
+  border: 1px double #91CEFF;
+  border-radius: 2px;
+}
