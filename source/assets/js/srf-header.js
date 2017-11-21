@@ -78,6 +78,13 @@ export class SrfHeader {
 
         if (this.menuIsOpen) {
             $(document).on("keydown.header", event => this.onKeyPressed(event));
+
+            // don't stay on the same element when opening the menu - focus on the first element inside of the menu
+            if ($(window).width() > 720) {
+                this.$navigation.find(".navigation-link").first().focus();
+            } else {
+                this.$navigation.find(".searchbox__input").first().focus();
+            }
         } else {
             $(document).off("keydown.header");
         }
