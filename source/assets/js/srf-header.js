@@ -23,7 +23,6 @@ export class SrfHeader {
         this.menuIsOpen = false;
 
         // A11Y
-        this.$logo = this.$element.find(".header-startlink");
         this.$navigation = this.$element.find(".js-header-navigation");
         this.$A11YElements = $("body > div, body > section, body > footer").not(".header");
         this.setA11YProperties(this.menuIsOpen);
@@ -49,6 +48,8 @@ export class SrfHeader {
 
         $(document).on("click", event => this.onDocumentClicked(event) );
 
+        $(document).on("keydown.header", event => this.onKeyPressed(event));
+
         // A11Y Helper: when tabbing out of the menu, the first element is and will always be a breadcrumb. --> on focus, close the menu.
         $(".breadcrumb__link").first().on('focus', event => this.closeIfOpen());
         $(".footer-bottom__link").last().on('focus', event => this.closeIfOpen());
@@ -61,8 +62,8 @@ export class SrfHeader {
      * @param e {jQuery.Event}
      */
     onDocumentClicked(e) {
-        if (this.menuIsOpen && !$.contains(this.$element[0], e.target)) {
-            this.close();
+        if (!$.contains(this.$element[0], e.target)) {
+            this.closeIfOpen();
         }
     }
 
@@ -82,17 +83,28 @@ export class SrfHeader {
     changeMenuState(newState) {
         this.menuIsOpen = newState;
 
+        // Show then animate via class OR animate via class then hide
         if (this.menuIsOpen) {
-            $(document).on("keydown.header", event => this.onKeyPressed(event));
-
             this.$navigation.show();
+
+            this.$element.addClass("header--open");
+
+            this.$navigation.one('transitionend', () => {
+                // don't stay on the same element when opening the menu - focus on the first element inside of the menu
+                if ($(window).width() > 720) {
+                    this.$navigation.find(".navigation-link").first().focus();
+                } else {
+                    this.$navigation.find(".searchbox__input").first().focus();
+                }
+            });
+
         } else {
+            this.$element.removeClass("header--open");
+
             this.$navigation.one('transitionend', () => {
                 this.$navigation.hide();
             });
         }
-
-        this.$element.toggleClass("header--open", this.menuIsOpen);
 
         $('html').toggleClass("menu--opened", this.menuIsOpen);
 
@@ -107,8 +119,8 @@ export class SrfHeader {
      * @param e {jQuery.Event}
      */
     onKeyPressed(e) {
-        if (e.keyCode === KEYCODES.escape && this.menuIsOpen) {
-            this.close();
+        if (e.keyCode === KEYCODES.escape) {
+            this.closeIfOpen();
         }
     }
 
