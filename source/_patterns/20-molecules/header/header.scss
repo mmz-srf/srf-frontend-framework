@@ -223,6 +223,12 @@ $header-height-tablet-up: 56px;
 }
 
 .header--open {
+
+  .navigation--header {
+    opacity: 1;
+    transition: opacity 0s linear;
+  }
+
   .menu-button__a11y-open  { display: none; }
   .menu-button__a11y-close { display: block; }
 }
