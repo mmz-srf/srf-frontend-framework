@@ -50,12 +50,12 @@
 }
 .ticker--live {
   .ticker-item--new::before { // red center
-    content: "•";
-    color: $color-link-default;
-    font-size: 1.5rem; // 30px;
-    line-height: 11px;
-    text-indent: 1px; // ~
-    transition: opacity .9s linear;
+    left: -6px;
+    border: 2px solid #fff;
+    background-color: $color-accentuation-red;
+    box-shadow: 0 0 0 1px $color-border;
+    box-sizing: border-box;
+    transition: opacity 0.9s linear 0s;
   }
 }
 
