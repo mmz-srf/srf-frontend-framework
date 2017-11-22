@@ -146,15 +146,21 @@ $item-max-width: 400px;
   & > a { // overwrite global a-styles :-/
     border: none;
 
+
+    &:hover,
+    &:focus,
+    &:active {
+      box-shadow: 0 4px 4px 0 rgba(0,0,0,0.24);
+      border: none;
+    }
+
     &:hover,
     &:focus {
       background-color: #fafaf8;
-      border: none;
     }
 
     &:active {
       background-color: #f5f5f2;
-      border: none;
     }
   }
 }
