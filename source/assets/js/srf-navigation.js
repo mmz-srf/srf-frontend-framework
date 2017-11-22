@@ -1,3 +1,7 @@
+const KEYCODES = {
+    "enter": 13
+};
+
 export function init() {
     $(".js-navigation").each((i, elem) => {
         new SrfNavigation(
@@ -39,6 +43,7 @@ export class SrfNavigation {
 
     registerListeners() {
         this.$subMenuButton.on("click", event => this.onSubMenuButtonClicked(event) );
+        this.$subMenuButton.on("keydown", event => this.onSubMenuKeyPressed(event) );
     }
 
     onSubMenuButtonClicked(e) {
@@ -49,6 +54,20 @@ export class SrfNavigation {
         this.toggleMenu(subMenuIsOpen);
 
         this.submenuToggleCallback(subMenuIsOpen);
+    }
+
+    onSubMenuKeyPressed(e) {
+        if (e.keyCode === KEYCODES.enter) {
+            let subMenuIsOpen = !this.$arrow.hasClass("expand-icon--open");
+
+            this.onSubMenuButtonClicked(e);
+
+            if( subMenuIsOpen) {
+                this.$submenuWrapper.find(".navigation-link").first().focus();
+            }
+
+            return false;
+        }
     }
 
     toggleMenu(subMenuIsOpen) {
