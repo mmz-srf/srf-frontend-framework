@@ -86,6 +86,7 @@
     z-index: 1;
 
     @include tablet-up {
+      top: 20px;
       right: calc(50% - 328px);
       background-size: 20px;
     }
