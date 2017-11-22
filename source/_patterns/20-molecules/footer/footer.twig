@@ -1,40 +1,45 @@
 <footer class="footer">
-  <div class="footerTop">
+
+  <div class="footer-top">
     <div class="l-main-wrapper">
-      {% block search %}
-        {% include 'atoms-search' with { 'styleModifier': 'searchbox--footer' } %}
-      {% endblock %}
-
-      {% block navigation %}
+      <div class="footer-top__navigation">
         {% include 'molecules-navigation' with { 'styleModifier': 'navigation--footer' } %}
-      {% endblock %}
+      </div>
+    </div>
+  </div>
 
-      {% block secnavigation %}
-        <ul class="footerTop-secnav">
-          <li class="footerTop-secnavElem"><a href="#" title="" class="footerTop-secnavLink">Foo</a></li>
-          <li class="footerTop-secnavElem"><a href="#" title="" class="footerTop-secnavLink">Bar</a></li>
-          <li class="footerTop-secnavElem"><a href="#" title="" class="footerTop-secnavLink">Long Bar With Words</a></li>
+  <div class="footer-bottom">
+    <div class="l-main-wrapper">
+
+      <ul class="footer-bottom__navigation">
+        <li class="footer-bottom__navigation-item"><a href="#" title="" class="footer-bottom__navigation-link">First: Foo</a></li>
+        <li class="footer-bottom__navigation-item"><a href="#" title="" class="footer-bottom__navigation-link">Second: Bar</a></li>
+        <li class="footer-bottom__navigation-item"><a href="#" title="" class="footer-bottom__navigation-link">Third: More</a></li>
+        <li class="footer-bottom__navigation-item"><a href="#" title="" class="footer-bottom__navigation-link">Fourth: And more</a></li>
+        <li class="footer-bottom__navigation-item"><a href="#" title="" class="footer-bottom__navigation-link">Fifth: Never stop</a></li>
+        <li class="footer-bottom__navigation-item"><a href="#" title="" class="footer-bottom__navigation-link">Sixth: Must be</a></li>
+        <li class="footer-bottom__navigation-item"><a href="#" title="" class="footer-bottom__navigation-link">Seventh: exactly</a></li>
+        <li class="footer-bottom__navigation-item"><a href="#" title="" class="footer-bottom__navigation-link">Eigth: 8 Items</a></li>
+      </ul>
+
+      <div class="footer-bottom__imprint">
+
+        <div class="footer-bottom__imprint-content">
+          <img class="footer-bottom__logo" src="{{ frameworkAssetPath }}/img/srgssr_logo.svg" alt="Logo of the Awesome Broadcasting Company" />
+          <p class="footer-bottom__description">Awesome Broadcasting Company</p>
+        </div>
+
+        <ul class="footer-bottom__imprint-links">
+          <li class="footer-bottom__link-item"><a href="#" title="" class="footer-bottom__link"><span>RTS</span></a></li>
+          <li class="footer-bottom__link-item"><a href="#" title="" class="footer-bottom__link"><span>RSI</span></a></li>
+          <li class="footer-bottom__link-item"><a href="#" title="" class="footer-bottom__link"><span>RTR</span></a></li>
+          <li class="footer-bottom__link-item"><a href="#" title="" class="footer-bottom__link"><span>SWI</span></a></li>
+          <li class="footer-bottom__link-item"><a href="#" title="" class="footer-bottom__link"><span>3SAT</span></a></li>
         </ul>
-      {% endblock %}
+
+      </div>
+
     </div>
   </div>
-  <div class="footerBottom">
-    <div class=" l-main-wrapper">
-      <div class="footerBottom-container footerBottom-container--srg">
-        <img src="{{ frameworkAssetPath }}/img/srgssr_logo.svg" class="footerBottom-srglogo" alt="Fancy Alt Text" />
-        <p class="footerBottom-paragraph">Super duper Television Company</p>
-      </div>
-      <div class="footerBottom-container footerBottom-container--bu">
-        {% block buList %}
-          <ul class="footerBottom-buList">
-            <li class="footerBottom-buElem"><a href="#" title="" class="footerBottom-buLink"><span>RTS</span></a></li>
-            <li class="footerBottom-buElem"><a href="#" title="" class="footerBottom-buLink"><span>RSI</span></a></li>
-            <li class="footerBottom-buElem"><a href="#" title="" class="footerBottom-buLink"><span>RTR</span></a></li>
-            <li class="footerBottom-buElem"><a href="#" title="" class="footerBottom-buLink"><span>SWI</span></a></li>
-            <li class="footerBottom-buElem"><a href="#" title="" class="footerBottom-buLink"><span>3SAT</span></a></li>
-          </ul>
-        {% endblock %}
-      </div>
-    </div>
-  </div>
+
 </footer>

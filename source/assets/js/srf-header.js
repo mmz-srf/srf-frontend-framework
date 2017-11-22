@@ -1,184 +1,182 @@
-import {SrfSearch} from './srf-search';
-
-
-const HANDLE_CLASS = ".menu-handle";
-const SUBMENU_CLASS = ".js-expand-arrow";
-const DESKTOP_CLOSE_BTN_CLASS = ".navigation__link--close";
 const KEYCODES = {
     "enter": 13,
-    "tab": 9
+    "tab": 9,
+    "escape": 27
 };
-const WIN_SIZE_NOT_MOBILE = 719;
-
-let srfSearch = null;
-
-let menuHasFocus = false,
-    $header = null,
-    $handle = null,
-    $infotext = null,
-    $arrow = null,
-    $info = null,
-    $subMenuHeader = null,
-    $subMenuContent = null,
-    $desktopCloseBtn = null;
 
 export function init() {
-    $header = $(".header");
-    $handle = $(HANDLE_CLASS);
-    $infotext = $handle.find(".menu-handle__info span");
-    $arrow = $(".expand-arrow");
-    $info = $(".js-expand-info");
-    $subMenuHeader = $(SUBMENU_CLASS);
-    $subMenuContent = $(".navigation__group--radio");
-    $desktopCloseBtn = $(DESKTOP_CLOSE_BTN_CLASS);
-
-    initSearch($header, {'expandable': true, 'minSearchLength': 2, 'maxSuggestionCount': 6});
-    initSearch($('.footer'), {'expandable': false, 'minSearchLength': 2, 'maxSuggestionCount': 6});
-
-
-    $header.on("keydown", HANDLE_CLASS, (e) => handleKeyPress(e))
-        .on("keydown", DESKTOP_CLOSE_BTN_CLASS, (e) => handleKeyPress(e))
-        .on("click", HANDLE_CLASS, (e) => onMenuHandling(e))
-        .on("click", DESKTOP_CLOSE_BTN_CLASS, (e) => onMenuHandling(e));
-
-    $(document).on("click touchstart", ".body--observer", (e) => handleBodyClick(e));
-
-    // accessibility: if menu loses focus => we close it
-    $(".breadcrumbs").on("keyup", (e) => handleBreadcrumbsFocus(e));
-
-    // radiostation navigation opening & closing
-    $(".navigation").on("click", SUBMENU_CLASS, (e) => handleExpandArrowClick(e));
+    $(".header").each((i, elem) => {
+        new SrfHeader(
+            elem,
+            (isOpen) => {/* Header is now open or closed */}
+        );
+    });
 }
 
-function onMenuHandling(e) {
-    e.preventDefault(); // chrome has a problem (bug!) with keypress!
-    e.stopPropagation();
+export class SrfHeader {
 
-    if (menuHasFocus) {
-        closeMenu(e);
-    } else {
-        openMenu(e);
-    }
-}
+    constructor(element, onMenuToggle) {
+        this.$element = $(element);
+        this.menuToggleCallback  = this.checkFunctionParam(onMenuToggle);
 
-function closeMenu(e) {
-    $("body").removeClass("body--observer");
+        this.$menuButton = this.$element.find(".js-menu-button");
+        this.menuIsOpen = false;
 
-    $handle.removeClass("menu-handle--active");
+        // A11Y
+        this.$navigation = this.$element.find(".js-header-navigation");
+        this.$A11YElements = $("body > div, body > section, body > footer").not(".header");
+        this.setA11YProperties(this.menuIsOpen);
 
-    $infotext.text($infotext.data("menu-show"));
+        this.registerListeners();
 
-    let finishClosingMenu = () => {
-        $(".navigation").closest(".navbar").addClass("navbar--closed")
-            .closest("body").removeClass("body--fixed");
-
-        if ($arrow.hasClass("expand-arrow--open")) {
-            handleExpandArrowClick();
-        }
-
-        if (e && e.type === "keydown") {
-            $handle.focus();
-        }
-    };
-
-    // Desktop: there are animations we have to wait for
-    if (isDesktop()) {
-        $desktopCloseBtn.removeClass("navigation__link--fixed");
-        $(".navigation").removeClass("navigation--come-in").one("transitionend", () => {
-            finishClosingMenu();
-        });
-    } else {
-        $(".navigation").removeClass("navigation--come-in");
-        finishClosingMenu();
+        // Set initial state
+        this.$navigation.hide();
     }
 
-    menuHasFocus = false;
-}
+    /**
+     * Make sure a parameter is actually a function - return an empty function if it's not.
+     *
+     * @param param any
+     * @return {function()}
+     */
+    checkFunctionParam(param) {
+        return param && typeof param == 'function' ? param : () => {};
+    }
 
-function openMenu(e) {
-    $handle.addClass("menu-handle--active")
-        .closest("body").addClass("body--fixed body--observer")
-        .find(".navbar").removeClass("navbar--closed")
-        .find(".navigation").addClass("navigation--come-in");
+    registerListeners() {
+        this.$menuButton.on("click", event => this.onMenuButtonClicked(event) );
+        this.$menuButton.on("keydown", event => this.onMenuButtonKeyPressed(event));
 
-    $infotext.text($infotext.data("menu-close"));
+        $(document).on("click", event => this.onDocumentClicked(event) );
 
-    if (isDesktop()) {
-        $(".navigation").one("transitionend", () => {
-            $desktopCloseBtn.addClass("navigation__link--fixed");
+        $(document).on("keydown.header", event => this.onKeyPressed(event));
 
-            if (e && e.type === "keydown") {
-                $desktopCloseBtn.focus();
+        // A11Y Helper: when tabbing out of the menu, the first element is and will always be a breadcrumb. --> on focus, close the menu.
+        $(".breadcrumb__link").first().on('focus', event => this.closeIfOpen());
+        $(".footer-bottom__link").last().on('focus', event => this.closeIfOpen());
+    }
+
+    /**
+     * Click on any element outside of the header or on the root element of the header itself should close the menu if
+     * it's open.
+     *
+     * @param e {jQuery.Event}
+     */
+    onDocumentClicked(e) {
+        if (!$.contains(this.$element[0], e.target)) {
+            this.closeIfOpen();
+        }
+    }
+
+    closeIfOpen() {
+        if (this.menuIsOpen) {
+            this.close();
+        }
+    }
+
+    onMenuButtonClicked(e) {
+        typeof e !== "undefined" ? e.preventDefault() : null;
+
+        this.changeMenuState(!this.menuIsOpen);
+        return false;
+    }
+
+    /**
+     * Keypress on menu is slightly different than a click.
+     * Only the enter key is relevant here and it should set the focus to the
+     * appropriate element inside (see SetMenuFocus())
+     *
+     * @param e {jQuery.event}
+     * @return {boolean}
+     */
+    onMenuButtonKeyPressed(e) {
+        if (e.keyCode === KEYCODES.enter) {
+            typeof e !== "undefined" ? e.preventDefault() : null;
+
+            this.changeMenuState(!this.menuIsOpen, true);
+
+            if( this.menuIsOpen) {
+                this.setInnerFocus();
             }
+            return false;
+        }
+    }
+
+    /**
+     * Core functionality: Open or close the menu.
+     * The menu wrapper is hidden when not opened and has to be animated, so opening it
+     * consists of showing and then animating it (by setting a class). Hiding means
+     * removing the class and then hiding it ("then" = on transition end).
+     *
+     * Additionally, other elements in the body will be hidden from screenreaders.
+     *
+     * @param newState {boolean}
+     */
+    changeMenuState(newState) {
+        this.menuIsOpen = newState;
+
+        // Show then animate via class OR animate via class then hide
+        if (this.menuIsOpen) {
+            this.$navigation.show();
+
+            this.$element.addClass("header--open");
+        } else {
+            this.$element.removeClass("header--open");
+
+            this.$navigation.one('transitionend', () => {
+                this.$navigation.hide();
+            });
+        }
+
+        $('html').toggleClass("menu--opened", this.menuIsOpen);
+
+        this.setA11YProperties(this.menuIsOpen);
+        this.menuToggleCallback(this.menuIsOpen);
+    }
+
+    /**
+     * The following key events concern us:
+     * - Escape if the menu's open --> close it
+     *
+     * @param e {jQuery.Event}
+     */
+    onKeyPressed(e) {
+        if (e.keyCode === KEYCODES.escape) {
+            this.closeIfOpen();
+        }
+    }
+
+    close() {
+        this.changeMenuState(false);
+    }
+
+    /**
+     * When the menu is open, make the navigation accessible to screenreaders and
+     * hide the rest of the page from them.
+     *
+     * @param menuIsOpened {boolean}
+     */
+    setA11YProperties(menuIsOpened) {
+        this.$navigation.attr({
+            "aria-hidden": !menuIsOpened,
+            "role": menuIsOpened ? "" : "presentation"
         });
-    } else {
-        srfSearch.reset();
+
+        this.$A11YElements.attr({
+            "aria-hidden": menuIsOpened,
+            "role": menuIsOpened ? "presentation": ""
+        });
     }
 
-    menuHasFocus = true;
-}
-
-function handleKeyPress(e) {
-    if (e.keyCode === KEYCODES.enter) {
-        onMenuHandling(e);
+    /**
+     * don't stay on the same element when opening the menu - focus on the first element inside of the menu.
+     * Which element that is depends on the screen width as the inner search field is hidden on 720px+
+     */
+    setInnerFocus() {
+        if ($(window).width() > 720) {
+            this.$navigation.find(".navigation-link").first().focus();
+        } else {
+            this.$navigation.find(".searchbox__input").first().focus();
+        }
     }
 }
-
-/**
- * Opens/Closes the submenu (radio stations). Currently only handles one submenu.
- * @param e jQuery.event
- */
-function handleExpandArrowClick(e) {
-    typeof e !== "undefined" ? e.preventDefault() : null;
-
-    let subMenuIsOpen = $arrow.hasClass("expand-arrow--open");
-
-    $arrow.toggleClass("expand-arrow--open", !subMenuIsOpen);
-    $subMenuHeader.attr("aria-expanded", !subMenuIsOpen);
-    $subMenuContent.toggleClass("navigation__group--radio-open", !subMenuIsOpen);
-
-    if (subMenuIsOpen) {
-        $info.text($info.data("text-open"));
-    } else {
-        $info.text($info.data("text-close"));
-    }
-}
-
-/**
- * Tabbing to the breadcrumbs = leaving the menu = close it
- * @param e jQuery.event
- */
-function handleBreadcrumbsFocus(e) {
-    if (menuHasFocus && e.keyCode === KEYCODES.tab) {
-        closeMenu();
-    }
-}
-
-/**
- * Clicks on anything that isn't in the menu, the menu handle or the search box should close the menu.
- * @param e jQuery.event
- */
-function handleBodyClick(e) {
-    let $target = $(e.target);
-
-    if (menuHasFocus && !$target.parents(".navbar").length && !$target.parents(".menu-handle").length && !$target.is(".searchbox__input, .menu-handle")) {
-        closeMenu();
-    }
-}
-
-function initSearch($elem, options) {
-    if (!$elem[0]) {
-        return;
-    }
-
-    let $searchInput = $elem.find(".searchbox__input");
-    let $searchSubmit = $elem.closest(".searchbox").find("button");
-    let $searchMenu = $elem.find(".searchbox__results");
-
-    srfSearch = new SrfSearch($searchInput, $searchSubmit, $searchMenu, options);
-}
-
-function isDesktop() {
-    return $(window).width() > WIN_SIZE_NOT_MOBILE;
-}
-
