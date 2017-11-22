@@ -147,8 +147,13 @@ $item-max-width: 400px;
     border: none;
 
     &:hover,
-    &:active,
     &:focus {
+      background-colo: #fafaf8;
+      border: none;
+    }
+
+    &:active {
+      background-colo: #f5f5f2;
       border: none;
     }
   }
@@ -222,13 +227,8 @@ $item-max-width: 400px;
     border: none;
     
     &:hover,
+    &:active,
     &:focus {
-      background-colo: #fafaf8;
-      border: none;
-    }
-
-    &:active {
-      background-colo: #f5f5f2;
       border: none;
     }
   }
