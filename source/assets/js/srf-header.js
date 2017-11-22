@@ -45,6 +45,7 @@ export class SrfHeader {
 
     registerListeners() {
         this.$menuButton.on("click", event => this.onMenuButtonClicked(event) );
+        this.$menuButton.on("keydown", event => this.onMenuButtonKeyPressed(event));
 
         $(document).on("click", event => this.onDocumentClicked(event) );
 
@@ -80,6 +81,37 @@ export class SrfHeader {
         return false;
     }
 
+    /**
+     * Keypress on menu is slightly different than a click.
+     * Only the enter key is relevant here and it should set the focus to the
+     * appropriate element inside (see SetMenuFocus())
+     *
+     * @param e {jQuery.event}
+     * @return {boolean}
+     */
+    onMenuButtonKeyPressed(e) {
+        if (e.keyCode === KEYCODES.enter) {
+            typeof e !== "undefined" ? e.preventDefault() : null;
+
+            this.changeMenuState(!this.menuIsOpen, true);
+
+            if( this.menuIsOpen) {
+                this.setInnerFocus();
+            }
+            return false;
+        }
+    }
+
+    /**
+     * Core functionality: Open or close the menu.
+     * The menu wrapper is hidden when not opened and has to be animated, so opening it
+     * consists of showing and then animating it (by setting a class). Hiding means
+     * removing the class and then hiding it ("then" = on transition end).
+     *
+     * Additionally, other elements in the body will be hidden from screenreaders.
+     *
+     * @param newState {boolean}
+     */
     changeMenuState(newState) {
         this.menuIsOpen = newState;
 
@@ -88,16 +120,6 @@ export class SrfHeader {
             this.$navigation.show();
 
             this.$element.addClass("header--open");
-
-            this.$navigation.one('transitionend', () => {
-                // don't stay on the same element when opening the menu - focus on the first element inside of the menu
-                if ($(window).width() > 720) {
-                    this.$navigation.find(".navigation-link").first().focus();
-                } else {
-                    this.$navigation.find(".searchbox__input").first().focus();
-                }
-            });
-
         } else {
             this.$element.removeClass("header--open");
 
@@ -129,9 +151,10 @@ export class SrfHeader {
     }
 
     /**
-     * When the menu is open, make the navigation accessible to screenreaders and hide the rest of the page from them.
+     * When the menu is open, make the navigation accessible to screenreaders and
+     * hide the rest of the page from them.
      *
-     * @param menuIsOpened {Boolean}
+     * @param menuIsOpened {boolean}
      */
     setA11YProperties(menuIsOpened) {
         this.$navigation.attr({
@@ -143,5 +166,17 @@ export class SrfHeader {
             "aria-hidden": menuIsOpened,
             "role": menuIsOpened ? "presentation": ""
         });
+    }
+
+    /**
+     * don't stay on the same element when opening the menu - focus on the first element inside of the menu.
+     * Which element that is depends on the screen width as the inner search field is hidden on 720px+
+     */
+    setInnerFocus() {
+        if ($(window).width() > 720) {
+            this.$navigation.find(".navigation-link").first().focus();
+        } else {
+            this.$navigation.find(".searchbox__input").first().focus();
+        }
     }
 }
