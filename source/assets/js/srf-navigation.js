@@ -23,7 +23,7 @@ export class SrfNavigation {
 
         this.registerListeners();
 
-        let isOpenOnStart = this.checkAndSetupStorage();
+        const isOpenOnStart = this.checkAndSetupStorage();
         if (isOpenOnStart) {
             this.toggleMenu(true);
         } else {
@@ -101,7 +101,7 @@ export class SrfNavigation {
             return false;
         }
 
-        let storedNavigationData = FefStorage.getItemJsonParsed(STORAGE_KEY);
+        const storedNavigationData = FefStorage.getItemJsonParsed(STORAGE_KEY);
 
         if (storedNavigationData[this.id]) {
             return storedNavigationData[this.id].open;
