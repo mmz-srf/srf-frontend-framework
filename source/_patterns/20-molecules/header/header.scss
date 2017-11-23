@@ -111,12 +111,15 @@ $header-height-tablet-up: 56px;
   }
 }
 
+// sass-lint:disable indentation
 .menu-button__icon {
   width: 18px;
   height: 16px;
   position: relative;
   transform: rotate(0deg);
-  transition: top .2s ease-in-out, left .2s ease-in-out, rotate .2s ease-in-out;
+  transition: top .2s ease-in-out,
+              left .2s ease-in-out,
+              rotate .2s ease-in-out;
 
   @include tablet-up {
     display: inline-block;
