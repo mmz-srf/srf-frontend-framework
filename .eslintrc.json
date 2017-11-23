@@ -1,0 +1,20 @@
+{
+    "parserOptions": {
+        "ecmaVersion": 6,
+        "sourceType": "module",
+        "ecmaFeatures": {
+            "jsx": false
+        }
+    },
+    "rules": {
+        "indent": ["error", 4, { "SwitchCase": 1 }],
+        "semi": 2,
+        "curly": "error",
+        "quotes": ["error", "single"],
+        "no-console": "error",
+        "no-var": "error",
+        "no-mixed-spaces-and-tabs": "error",
+        "no-lonely-if": "error",
+        "space-before-blocks": ["error", "always"]
+    }
+}

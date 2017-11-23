@@ -23,8 +23,7 @@ $button-animation-duration: .3s;
   -webkit-appearance: none;
   background-color: $color-text-accentuation;
   box-shadow: $shadow-default;
-  transition: background-color $button-animation-duration ease-in-out,
-              box-shadow $button-animation-duration ease-in-out;
+  transition: background-color $button-animation-duration ease-in-out, box-shadow $button-animation-duration ease-in-out;
 
   .button-icon {
     width: 24px;

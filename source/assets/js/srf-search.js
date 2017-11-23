@@ -1,6 +1,6 @@
 
 export function init() {
-    $(".searchbox").each((i, elem) => {
+    $('.searchbox').each((i, elem) => {
         new SrfSearch(elem);
     });
 }
@@ -8,11 +8,11 @@ export function init() {
 const DEFAULT_MAX_SUGGESTIONS = 7;
 const DEFAULT_MIN_SEARCH_LENGTH = 2;
 const KEYCODES = {
-    "enter": 13,
-    "tab": 9,
-    "escape": 27,
-    "down": 40,
-    "up": 38
+    'enter': 13,
+    'tab': 9,
+    'escape': 27,
+    'down': 40,
+    'up': 38
 };
 
 export class SrfSearch {
@@ -20,18 +20,18 @@ export class SrfSearch {
     constructor(element, options) {
 
         this.$element = $(element);
-        this.$inputField = this.$element.find(".searchbox__input");
-        this.$submitButton = this.$element.find("button");
-        this.$searchResults = this.$element.find(".searchbox__results");
+        this.$inputField = this.$element.find('.searchbox__input');
+        this.$submitButton = this.$element.find('button');
+        this.$searchResults = this.$element.find('.searchbox__results');
         this.$closeIcon = this.$element.find('.close-search');
 
         this.options = $.extend({}, {
-                maxSuggestionCount: DEFAULT_MAX_SUGGESTIONS,
-                minSearchLength: DEFAULT_MIN_SEARCH_LENGTH
-            }, options);
+            maxSuggestionCount: DEFAULT_MAX_SUGGESTIONS,
+            minSearchLength: DEFAULT_MIN_SEARCH_LENGTH
+        }, options);
 
-        this.expandable = typeof this.options.expandable !== "undefined" ? this.options.expandable : this.$element.hasClass("searchbox--expandable");
-        this.typeaheadUrl = this.$inputField.data("typeahead-url");
+        this.expandable = typeof this.options.expandable !== 'undefined' ? this.options.expandable : this.$element.hasClass('searchbox--expandable');
+        this.typeaheadUrl = this.$inputField.data('typeahead-url');
         this.typeaheadData = null;
         this.suggestionUrl = '';
         this.currTimeout = null;
@@ -42,7 +42,7 @@ export class SrfSearch {
     }
 
     registerListeners() {
-        this.$inputField.on("focus", (e) => {
+        this.$inputField.on('focus', (e) => {
             this.initTypeahead();
             this.disableArticle();
             this.expandSearch();
@@ -52,16 +52,16 @@ export class SrfSearch {
             this.reset();
         });
 
-        this.$inputField.on("keyup", (e) => {
+        this.$inputField.on('keyup', (e) => {
             this.onKeyUp(e);
         });
 
-        this.$inputField.on("keydown", (e) => {
+        this.$inputField.on('keydown', (e) => {
             this.onKeyDown(e);
         });
 
 
-        this.$inputField.on("blur", (e) => {
+        this.$inputField.on('blur', (e) => {
             this.enableArticle(); // in case of a click always leave.
 
             this.currTimeout = setTimeout(() => {
@@ -70,11 +70,11 @@ export class SrfSearch {
             }, 150);
         });
 
-        this.$inputField.on("click", (e) => {
+        this.$inputField.on('click', (e) => {
             e.stopPropagation();
         });
 
-        this.$closeIcon.on("click", e => {
+        this.$closeIcon.on('click', e => {
             e.preventDefault();
         });
 
@@ -117,7 +117,7 @@ export class SrfSearch {
                 e.preventDefault();
                 location.href = this.suggestionUrl;
             } else {
-                this.$searchResults.hide(); // do not "show" it on voiceOver
+                this.$searchResults.hide(); // do not 'show' it on voiceOver
                 e.stopPropagation();
                 e.preventDefault();
                 this.$element.submit();
@@ -135,8 +135,8 @@ export class SrfSearch {
     }
 
     clearInput() {
-        this.$inputField.val("");
-        this.$submitButton.attr("tabindex", -1).attr("aria-hidden", true);
+        this.$inputField.val('');
+        this.$submitButton.attr('tabindex', -1).attr('aria-hidden', true);
         this.hideCloseIcon();
         this.suggestionUrl = '';
     }
@@ -161,7 +161,7 @@ export class SrfSearch {
         if ($prev.length === 0) {
             $prev = this.$searchResults.find('li').last();
         }
-        this.suggestionUrl = $prev.find("a").attr('href');
+        this.suggestionUrl = $prev.find('a').attr('href');
         $prev.addClass('active');
     }
 
@@ -171,7 +171,7 @@ export class SrfSearch {
         if ($next.length === 0) {
             $next = $(this.$searchResults.find('li').first());
         }
-        this.suggestionUrl = $next.find("a").attr('href');
+        this.suggestionUrl = $next.find('a').attr('href');
         $next.addClass('active');
     }
 
@@ -228,7 +228,7 @@ export class SrfSearch {
             let name = this.highlightQuery(query, result.name);
             html += `<li role="option" class="typeahead-suggestion" tabindex="-1" aria-hidden="true"><a href="${result.url}">${name}</a></li>`;
         });
-        this.$searchResults.css('width', this.$inputField.outerWidth() + "px");
+        this.$searchResults.css('width', this.$inputField.outerWidth() + 'px');
         this.$searchResults.html(html).removeClass('h-element--hide');
     }
 
@@ -245,7 +245,7 @@ export class SrfSearch {
         x = x + this.$inputField.outerWidth() - this.$closeIcon.outerWidth();
         this.$closeIcon.css({'top': y, 'left': x});
         if ($(window).width() > 720) {
-            this.$closeIcon.attr("tabindex", -1).attr("aria-hidden", true);
+            this.$closeIcon.attr('tabindex', -1).attr('aria-hidden', true);
         }
 
     }
@@ -253,7 +253,7 @@ export class SrfSearch {
     hideCloseIcon() {
         this.$closeIcon.addClass('h-element--hide');
         if ($(window).width() > 720) {
-            this.$closeIcon.attr("tabindex", "").attr("aria-hidden", false);
+            this.$closeIcon.attr('tabindex', '').attr('aria-hidden', false);
         }
     }
 
@@ -268,7 +268,7 @@ export class SrfSearch {
             if (this.currTimeout) {
                 clearTimeout(this.currTimeout);
             }
-            this.currTimeout = setTimeout(() => {this.showCloseIconIfNeeded()}, deferred);
+            this.currTimeout = setTimeout(() => {this.showCloseIconIfNeeded();}, deferred);
         }
     }
 

@@ -8,7 +8,7 @@ export function init() {
     $('.js-medium-hover .js-medium-hover').removeClass('js-medium-hover');
 
     // hover for medium element
-    $('.js-medium-hover').on('mouseenter mouseleave', function (){
+    $('.js-medium-hover').on('mouseenter mouseleave', function () {
         let $element = $(this);
         $element.find('.media-caption').toggleClass('media-caption--hover');
         $element.find('.play-icon-ng').toggleClass('play-icon-ng--hover');
