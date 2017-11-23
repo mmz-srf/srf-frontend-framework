@@ -112,6 +112,16 @@
     }
   }
 
+  .related-list__heading,
+  .related-item:hover .article-teaser {
+    padding-left: 0;
+  }
+
+  .related-item {
+    margin-left: 0;
+
+  }
+
   // html embeds special :(
   .embed-inline {
     background-color: #fff;
