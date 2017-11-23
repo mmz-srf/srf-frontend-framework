@@ -75,11 +75,16 @@
   }
 }
 
+// sass-lint:disable indentation
 .navigation--subnav-wrapper {
   background-color: #2C2C2C;
   margin: 8px -12px -8px -12px;
   padding: 0;
-  transition: margin-top .2s ease-in-out, margin-bottom .2s ease-in-out, padding-top .2s ease-in-out, padding-bottom .2s ease-in-out, border .2s ease-in-out;
+  transition: margin-top .2s ease-in-out,
+              margin-bottom .2s ease-in-out,
+              padding-top .2s ease-in-out,
+              padding-bottom .2s ease-in-out,
+              border .2s ease-in-out;
 
   border-top: 0 solid transparent;
   border-bottom: 0 solid transparent;
