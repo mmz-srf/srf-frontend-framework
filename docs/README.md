@@ -9,6 +9,9 @@
 
 - Validate and lint your code before committing to ensure your changes follow our coding standards
 
+  ```gulp js-lint```
+
+
 ### JavaScript - Creating components
 
 - Try to write ES6 modules as general as possible (don't over-engineer)
