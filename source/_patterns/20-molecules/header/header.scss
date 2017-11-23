@@ -90,7 +90,7 @@ $header-height-tablet-up: 56px;
   transition: color .2s ease-in-out;
 
   border: none; // overwrite of global anchor-styles
-  
+
   &:hover,
   &:active,
   &:focus { // overwrite of global anchor-styles
@@ -101,7 +101,7 @@ $header-height-tablet-up: 56px;
       background-color: #ffffff;
     }
   }
-  
+
   @include tablet-up {
     padding: 20px 16px;
   }
@@ -116,9 +116,7 @@ $header-height-tablet-up: 56px;
   height: 16px;
   position: relative;
   transform: rotate(0deg);
-  transition: top .2s ease-in-out,
-              left .2s ease-in-out,
-              rotate .2s ease-in-out;
+  transition: top .2s ease-in-out, left .2s ease-in-out, rotate .2s ease-in-out;
 
   @include tablet-up {
     display: inline-block;
@@ -137,20 +135,39 @@ $header-height-tablet-up: 56px;
     transition: .25s ease-in-out;
   }
 
-  span:nth-child(1) { top: 0px; }
+  span:nth-child(1) {
+    top: 0px;
+  }
+
   span:nth-child(2),
-  span:nth-child(3) { top: 7px; }
-  span:nth-child(4) { top: 14px; }
+  span:nth-child(3) {
+    top: 7px;
+  }
+
+  span:nth-child(4) {
+    top: 14px;
+  }
 
   @media (min-width: 720px) {
     width: 14px;
     height: 10px;
 
-    span { height: 1px; }
-    span:nth-child(1) { top: 0px; }
+    span {
+      height: 1px;
+    }
+
+    span:nth-child(1) {
+      top: 0px;
+    }
+
     span:nth-child(2),
-    span:nth-child(3) { top: 5px; }
-    span:nth-child(4) { top: 10px; }
+    span:nth-child(3) {
+      top: 5px;
+    }
+
+    span:nth-child(4) {
+      top: 10px;
+    }
   }
 }
 
@@ -163,8 +180,15 @@ $header-height-tablet-up: 56px;
     width: 0%;
     left: 50%;
   }
-  span:nth-child(2) { transform: rotate(45deg) scale(1.25); }
-  span:nth-child(3) { transform: rotate(-45deg) scale(1.25); }
+
+  span:nth-child(2) {
+    transform: rotate(45deg) scale(1.25);
+  }
+
+  span:nth-child(3) {
+    transform: rotate(-45deg) scale(1.25);
+  }
+
   span:nth-child(4) {
     top: 7px;
     width: 0%;
@@ -172,10 +196,21 @@ $header-height-tablet-up: 56px;
   }
 
   @media (min-width: 720px) {
-    span:nth-child(1) { top: 5px; }
-    span:nth-child(2) { transform: rotate( 45deg) scale(1.1); }
-    span:nth-child(3) { transform: rotate(-45deg) scale(1.1); }
-    span:nth-child(4) { top: 5px; }
+    span:nth-child(1) {
+      top: 5px;
+    }
+
+    span:nth-child(2) {
+      transform: rotate(45deg) scale(1.1);
+    }
+
+    span:nth-child(3) {
+      transform: rotate(-45deg) scale(1.1);
+    }
+
+    span:nth-child(4) {
+      top: 5px;
+    }
   }
 }
 
