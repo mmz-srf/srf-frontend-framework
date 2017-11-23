@@ -119,7 +119,6 @@
 
   .related-item {
     margin-left: 0;
-
   }
 
   // html embeds special :(
@@ -145,6 +144,7 @@
 
     li {
       margin-left: 0;
+      margin-right: -32px;
       padding-left: 8px;
 
       &:hover,
@@ -153,14 +153,13 @@
         padding-left: 8px;
       }
 
-      margin-right: -32px;
-
       @include tablet-up {
         margin-right: 0;
       }
     }
   }
 
+  .content-heading,
   .linkbox__title {
     padding: 0;
   }
@@ -172,10 +171,6 @@
   .block-link {
     padding-left: 8px;
     background-position: right 8px center;
-  }
-
-  .content-heading {
-    padding: 0;
   }
 }
 
@@ -205,6 +200,7 @@
   font: 22px/28px $font-medium;
   letter-spacing: .3px;
   margin: 32px 0 12px;
+
   @include smartphone {
     margin-top: 24px;
   }
