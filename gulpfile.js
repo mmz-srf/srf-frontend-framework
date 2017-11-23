@@ -151,18 +151,6 @@ gulp.task('js-lint', () => {
         .pipe(eslint.failAfterError());
 });
 
-//gulp.task('sass-lint', function () {
-//    return gulp.src('source/**/*.s+(a|c)ss')
-//        //.pipe(sassLint({
-//        //    options: {
-//        //        configFile: '.sass-lint.yml'
-//        //    }
-//        //}))
-//        .pipe(sassLint())
-//        .pipe(sassLint.format())
-//        .pipe(sassLint.failOnError())
-//});
-
 gulp.task('sass-lint', function () {
     return gulp.src('source/_patterns/**/*.s+(a|c)ss')
         .pipe(sassLint({
