@@ -118,13 +118,13 @@
 .linkbox.no-swear {
   margin: 40px 0;
 
-  @include smartphone{
+  @include smartphone {
     margin: 32px 0;
     position: inherit;
     padding: 0;
   }
 
-  .linkbox__list{
+  .linkbox__list {
     margin-left: 0;
   }
 }

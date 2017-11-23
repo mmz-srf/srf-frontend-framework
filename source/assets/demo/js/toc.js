@@ -27,12 +27,12 @@
      *
      * @return {Number}
      */
-    var getLevel = function (header) {
+    let getLevel = function (header) {
         if (typeof header !== 'string') {
             return 0;
         }
 
-        var decs = header.match(/\d/g);
+        let decs = header.match(/\d/g);
         return decs ? Math.min.apply(null, decs) : 1;
     };
 
@@ -43,7 +43,7 @@
      *
      * @return {jQuery} list
      */
-    var createList = function ($wrapper, count) {
+    let createList = function ($wrapper, count) {
         while (count--) {
             $wrapper = $('<ol/>').appendTo($wrapper);
 
@@ -62,7 +62,7 @@
      *
      * @return {jQuery} insert point
      */
-    var jumpBack = function ($currentWrapper, offset) {
+    let jumpBack = function ($currentWrapper, offset) {
         while (offset--) {
             $currentWrapper = $currentWrapper.parent();
         }
@@ -77,15 +77,15 @@
      *
      * @return {Function}
      */
-    var setAttrs = function (overwrite, prefix) {
+    let setAttrs = function (overwrite, prefix) {
         return function ($src, $target, index) {
-            var content = $src.text();
-            var pre = prefix + '-' + index;
+            let content = $src.text();
+            let pre = prefix + '-' + index;
             $target.text(content);
 
-            var src = $src[0];
-            var target = $target[0];
-            var id = overwrite ? pre : (src.id || pre);
+            let src = $src[0];
+            let target = $target[0];
+            let id = overwrite ? pre : (src.id || pre);
 
             id = encodeURIComponent(id);
 
@@ -100,22 +100,22 @@
      *
      * @return {jQuery} list
      */
-    var buildTOC = function (options) {
-        var selector = options.selector;
-        var scope = options.scope;
+    let buildTOC = function (options) {
+        let selector = options.selector;
+        let scope = options.scope;
 
-        var $ret = $('<ol/>');
-        var $wrapper = $ret;
-        var $lastLi = null;
+        let $ret = $('<ol/>');
+        let $wrapper = $ret;
+        let $lastLi = null;
 
-        var prevDepth = getLevel(selector);
-        var _setAttrs = setAttrs(options.overwrite, options.prefix);
+        let prevDepth = getLevel(selector);
+        let _setAttrs = setAttrs(options.overwrite, options.prefix);
 
         $(scope)
             .find(selector)
             .each(function (index, elem) {
-                var currentDepth = getLevel(elem.tagName);
-                var offset = currentDepth - prevDepth;
+                let currentDepth = getLevel(elem.tagName);
+                let offset = currentDepth - prevDepth;
 
                 if (offset > 0) {
                     $wrapper = createList($lastLi, offset);
@@ -138,8 +138,8 @@
                     $wrapper = $ret;
                 }
 
-                var $li = $('<li/>');
-                var $a = $('<a/>');
+                let $li = $('<li/>');
+                let $a = $('<a/>');
 
                 _setAttrs($(elem), $a, index);
 
@@ -163,7 +163,7 @@
      * @return {jQuery} $this
      */
     $.fn.initTOC = function (options) {
-        var defaultOpts = {
+        let defaultOpts = {
             selector: 'h1, h2, h3, h4, h5, h6',
             scope: 'body',
             overwrite: false,
@@ -172,7 +172,7 @@
 
         options = $.extend(defaultOpts, options);
 
-        var selector = options.selector;
+        let selector = options.selector;
 
         if (typeof selector !== 'string') {
             throw new TypeError('selector must be a string');
@@ -184,7 +184,7 @@
 
         $(this).append(buildTOC(options));
 
-        var currentHash = location.hash;
+        let currentHash = location.hash;
 
         if (currentHash) {
             // fix hash

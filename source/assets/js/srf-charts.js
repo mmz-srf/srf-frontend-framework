@@ -1,5 +1,5 @@
 export function init() {
-    if (typeof AmCharts !== "undefined") {
+    if (typeof AmCharts !== 'undefined') {
         if (AmCharts.isReady) {
             $('.chart').each(function () {
                 loadChart($(this));
@@ -29,31 +29,31 @@ function loadChart($element) {
             }
         }
 
-        var chart = AmCharts.makeChart($element.attr('id'), settings);
-        chart.addListener("drawn", updateTextLength);
+        let chart = AmCharts.makeChart($element.attr('id'), settings);
+        chart.addListener('drawn', updateTextLength);
         updateTextLength();
     });
 }
 
 function updateTextLength() {
-    var boxWidth = 0;
-    $(".chart").each(function () {
-        var chart = $(this);
-        var legend = chart.find(".amcharts-legend-bg");
+    let boxWidth = 0;
+    $('.chart').each(function () {
+        let chart = $(this);
+        let legend = chart.find('.amcharts-legend-bg');
         if (legend.length) {
             boxWidth = parseInt(legend[0].getBoundingClientRect().width, 10) - 24;
-            var string = "";
-            chart.find(".amcharts-legend-label").each(function () {
-                var that = $(this);
-                string = that.find("tspan");
+            let string = '';
+            chart.find('.amcharts-legend-label').each(function () {
+                let that = $(this);
+                string = that.find('tspan');
                 if (that[0].getBoundingClientRect().width >= boxWidth) {
-                    var k = 6;
-                    var end = parseInt((boxWidth / k), 10);
+                    let k = 6;
+                    let end = parseInt((boxWidth / k), 10);
                     if (string.text().length <= end) {
                         k = 7;
                         end = parseInt((boxWidth / k), 10);
                     }
-                    string.text(string.text().substring(0, end) + " ...");
+                    string.text(string.text().substring(0, end) + ' ...');
                 }
             });
         }

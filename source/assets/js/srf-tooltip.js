@@ -1,13 +1,16 @@
+/**
+ * @deprecated Please use 'components/fef-tooltip' instead
+ */
 export function init() {
 
     $(document).ready(function() {
 
-        var clientTouchSupported = ('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch;
+        let clientTouchSupported = ('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch;
 
         // Bind mouseenter and mouseleave handlers
         $('[data-tooltip-toggle]').each(function() {
 
-            var $that = $(this);
+            let $that = $(this);
 
             $that.title = $that.data('tooltipContent');
 
@@ -20,7 +23,8 @@ export function init() {
             if (typeof $that.title !== 'undefined') {
                 $that.tooltipEnabled = true;
             } else {
-                console.warn("Tooltip used without content, please add data-tooltip-content to enable tooltip");
+                // eslint-disable-next-line no-console
+                console.warn('Tooltip used without content, please add data-tooltip-content to enable tooltip');
             }
 
             // We need the original size before insertion of tooltip content
@@ -46,17 +50,17 @@ export function init() {
 
                     $that.find('.tooltip-content').html($that.title);
 
-                    var $tooltip = $that.children('.tooltip');
+                    let $tooltip = $that.children('.tooltip');
 
                     // Move tooltip in right position relative to its parent
-                    var leftPosition = ($that.originalWidth - $tooltip.width()) / 2;
+                    let leftPosition = ($that.originalWidth - $tooltip.width()) / 2;
 
-                    var topPosition = ($tooltip.height() + 25) * -1;
+                    let topPosition = ($tooltip.height() + 25) * -1;
 
                     $tooltip.css({
-                        "top": topPosition,
-                        "left": leftPosition - 8,
-                        "position": "absolute"
+                        'top': topPosition,
+                        'left': leftPosition - 8,
+                        'position': 'absolute'
                     });
                 });
 

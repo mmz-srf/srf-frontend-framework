@@ -1,7 +1,7 @@
 @import "../../variables";
 @import "../../breakpoints";
 
-$_image-tablet-width: 163px;
+$image-tablet-width: 163px;
 
 .related-list {
   color: $color-text-default;
@@ -42,7 +42,7 @@ $_image-tablet-width: 163px;
 
   .article-audio__wrapper,
   .article-video__wrapper {
-    width: $_image-tablet-width;
+    width: $image-tablet-width;
     height: $image-size-preview;
     margin: 16px 0;
 
@@ -51,7 +51,7 @@ $_image-tablet-width: 163px;
     }
 
     &::before {
-      width: $_image-tablet-width;
+      width: $image-tablet-width;
       height: $image-size-preview;
 
       @include smartphone {
@@ -67,7 +67,7 @@ $_image-tablet-width: 163px;
 
   .article-audio .image-figure__image,
   .article-video .image-figure__image {
-    width: $_image-tablet-width;
+    width: $image-tablet-width;
     height: $image-size-preview;
 
     @include smartphone {

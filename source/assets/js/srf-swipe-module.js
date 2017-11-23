@@ -1,5 +1,5 @@
 export function init() {
-    $(".swipemod").each((index, elem) => {
+    $('.swipemod').each((index, elem) => {
         new SrfSwiper(elem);
     });
 }
@@ -10,7 +10,7 @@ $.extend(jQuery.easing,{
 const MAXITEMS = 6;
 const ANIMATIONSPEED = 500;
 const DEBOUNCETIME = 100;
-const DIRECTION = {LEFT: "left", RIGHT: "right"};
+const DIRECTION = {LEFT: 'left', RIGHT: 'right'};
 const isSize2        = () => { return window.innerWidth >= 768 && window.innerWidth < 1024; };
 const isSize2Plus    = () => { return window.innerWidth >= 768; };
 const isSize3Plus    = () => { return window.innerWidth >= 1024; };
@@ -24,27 +24,27 @@ const debounce = (fn, time) => {
 
         clearTimeout(timeout);
         timeout = setTimeout(functionCall, time);
-    }
+    };
 };
 
 export class SrfSwiper {
 
     constructor(element) {
         this.$element = $(element);
-        this.$swipeContainer = this.$element.find(".swipemod-swipecontainer");
-        this.$container = this.$element.find(".swipemod-container");
+        this.$swipeContainer = this.$element.find('.swipemod-swipecontainer');
+        this.$container = this.$element.find('.swipemod-container');
         this.isAutoScrolling = false;
 
-        this.$items = this.$element.find(".swipemod-item");
+        this.$items = this.$element.find('.swipemod-item');
         if (this.$items.length > MAXITEMS) {
             let nrOfItemsToRemove = this.$items.length - MAXITEMS;
 
             this.$items.slice(-nrOfItemsToRemove).remove();
-            this.$items = this.$element.find(".swipemod-item");
+            this.$items = this.$element.find('.swipemod-item');
         }
 
-        this.$prevBtn = this.$element.find(".swipemod-button[data-direction='left']");
-        this.$nextBtn = this.$element.find(".swipemod-button[data-direction='right']");
+        this.$prevBtn = this.$element.find('.swipemod-button[data-direction="left"]');
+        this.$nextBtn = this.$element.find('.swipemod-button[data-direction="right"]');
 
         this.registerListeners();
 
@@ -52,13 +52,13 @@ export class SrfSwiper {
     }
 
     registerListeners() {
-        this.$element.on("click", ".swipemod-button", event => this.onButtonClick(event) );
+        this.$element.on('click', '.swipemod-button', event => this.onButtonClick(event) );
 
-        this.$element.on("click", ".swipemod-item", event => this.onItemClick(event) );
+        this.$element.on('click', '.swipemod-item', event => this.onItemClick(event) );
 
-        this.$swipeContainer.on("scroll", debounce(() => this.afterUserScrolled(), DEBOUNCETIME) );
+        this.$swipeContainer.on('scroll', debounce(() => this.afterUserScrolled(), DEBOUNCETIME) );
 
-        $(window).on("resize", debounce(() => this.afterResize(), DEBOUNCETIME) );
+        $(window).on('resize', debounce(() => this.afterResize(), DEBOUNCETIME) );
     }
 
     afterUserScrolled() {
@@ -73,7 +73,7 @@ export class SrfSwiper {
 
     onButtonClick(event) {
         let $btn = $(event.currentTarget),
-            direction = $btn.data("direction"),
+            direction = $btn.data('direction'),
             nrOfElements = potentialSlots() - 1;
 
         if (direction === DIRECTION.LEFT) {
@@ -98,7 +98,7 @@ export class SrfSwiper {
     }
 
     /**
-     * We can scroll to the left as long as the first item is "too far left".
+     * We can scroll to the left as long as the first item is 'too far left'.
      *
      * @return {Boolean}
      */
@@ -107,7 +107,7 @@ export class SrfSwiper {
     }
 
     /**
-     * We can scroll to the right as long as the last item is "too far right".
+     * We can scroll to the right as long as the last item is 'too far right'.
      *
      * @return {Boolean}
      */
@@ -134,10 +134,10 @@ export class SrfSwiper {
     togglePrevNextButtons(showLeft, showRight) {
         this.$prevBtn
             .toggle( showLeft )
-            .attr({"aria-hidden": !showLeft, "role": showLeft ? "" : "presentation"});
+            .attr({'aria-hidden': !showLeft, 'role': showLeft ? '' : 'presentation'});
         this.$nextBtn
             .toggle( showRight )
-            .attr({"aria-hidden": !showRight, "role": showRight ? "" : "presentation"});;
+            .attr({'aria-hidden': !showRight, 'role': showRight ? '' : 'presentation'});;
     }
 
     /**
@@ -271,7 +271,7 @@ export class SrfSwiper {
 
         this.$swipeContainer.animate({
             scrollLeft: targetPos
-        }, ANIMATIONSPEED, "easeOutCubic", () => {
+        }, ANIMATIONSPEED, 'easeOutCubic', () => {
             this.isAutoScrolling = false;
             if (checkButtons) {
                 this.showHidePrevNextButtons();

@@ -1,9 +1,9 @@
 const KEYCODES = {
-    "enter": 13
+    'enter': 13
 };
 
 export function init() {
-    $(".js-navigation").each((i, elem) => {
+    $('.js-navigation').each((i, elem) => {
         new SrfNavigation(
             elem,
             false,
@@ -15,12 +15,12 @@ export function init() {
 export class SrfNavigation {
     constructor(element, isOpenOnStart = false, onSubmenuToggle) {
         this.$element = $(element);
-        this.$submenuWrapper = this.$element.find(".navigation--subnav-wrapper");
-        this.$subMenuButton = this.$element.find(".js-expand-icon");
-        this.$arrow = this.$element.find(".expand-icon");
+        this.$submenuWrapper = this.$element.find('.navigation--subnav-wrapper');
+        this.$subMenuButton = this.$element.find('.js-expand-icon');
+        this.$arrow = this.$element.find('.expand-icon');
         this.submenuToggleCallback  = this.checkFunctionParam(onSubmenuToggle);
 
-        this.$a11yElem = this.$element.find(".js-navigation-subnav-a11y");
+        this.$a11yElem = this.$element.find('.js-navigation-subnav-a11y');
 
         this.registerListeners();
 
@@ -42,14 +42,14 @@ export class SrfNavigation {
     }
 
     registerListeners() {
-        this.$subMenuButton.on("click", event => this.onSubMenuButtonClicked(event) );
-        this.$subMenuButton.on("keydown", event => this.onSubMenuKeyPressed(event) );
+        this.$subMenuButton.on('click', event => this.onSubMenuButtonClicked(event) );
+        this.$subMenuButton.on('keydown', event => this.onSubMenuKeyPressed(event) );
     }
 
     onSubMenuButtonClicked(e) {
-        typeof e !== "undefined" ? e.preventDefault() : null;
+        typeof e !== 'undefined' ? e.preventDefault() : null;
 
-        let subMenuIsOpen = !this.$arrow.hasClass("expand-icon--open");
+        let subMenuIsOpen = !this.$arrow.hasClass('expand-icon--open');
 
         this.toggleMenu(subMenuIsOpen);
 
@@ -58,12 +58,12 @@ export class SrfNavigation {
 
     onSubMenuKeyPressed(e) {
         if (e.keyCode === KEYCODES.enter) {
-            let subMenuIsOpen = !this.$arrow.hasClass("expand-icon--open");
+            let subMenuIsOpen = !this.$arrow.hasClass('expand-icon--open');
 
             this.onSubMenuButtonClicked(e);
 
             if( subMenuIsOpen) {
-                this.$submenuWrapper.find(".navigation-link").first().focus();
+                this.$submenuWrapper.find('.navigation-link').first().focus();
             }
 
             return false;
@@ -80,13 +80,13 @@ export class SrfNavigation {
             });
         }
 
-        this.$arrow.toggleClass("expand-icon--open", subMenuIsOpen);
-        this.$subMenuButton.attr("aria-expanded", subMenuIsOpen);
-        this.$submenuWrapper.toggleClass("navigation--subnav-wrapper--open", subMenuIsOpen);
+        this.$arrow.toggleClass('expand-icon--open', subMenuIsOpen);
+        this.$subMenuButton.attr('aria-expanded', subMenuIsOpen);
+        this.$submenuWrapper.toggleClass('navigation--subnav-wrapper--open', subMenuIsOpen);
 
         this.$a11yElem.attr({
-            "aria-hidden": !subMenuIsOpen,
-            "role": subMenuIsOpen ? "" : "presentation"
+            'aria-hidden': !subMenuIsOpen,
+            'role': subMenuIsOpen ? '' : 'presentation'
         });
     }
 }

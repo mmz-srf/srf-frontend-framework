@@ -1,11 +1,11 @@
 const KEYCODES = {
-    "enter": 13,
-    "tab": 9,
-    "escape": 27
+    'enter': 13,
+    'tab': 9,
+    'escape': 27
 };
 
 export function init() {
-    $(".header").each((i, elem) => {
+    $('.header').each((i, elem) => {
         new SrfHeader(
             elem,
             (isOpen) => {/* Header is now open or closed */}
@@ -19,12 +19,12 @@ export class SrfHeader {
         this.$element = $(element);
         this.menuToggleCallback  = this.checkFunctionParam(onMenuToggle);
 
-        this.$menuButton = this.$element.find(".js-menu-button");
+        this.$menuButton = this.$element.find('.js-menu-button');
         this.menuIsOpen = false;
 
         // A11Y
-        this.$navigation = this.$element.find(".js-header-navigation");
-        this.$A11YElements = $("body > div, body > section, body > footer").not(".header");
+        this.$navigation = this.$element.find('.js-header-navigation');
+        this.$A11YElements = $('body > div, body > section, body > footer').not('.header');
         this.setA11YProperties(this.menuIsOpen);
 
         this.registerListeners();
@@ -44,16 +44,16 @@ export class SrfHeader {
     }
 
     registerListeners() {
-        this.$menuButton.on("click", event => this.onMenuButtonClicked(event) );
-        this.$menuButton.on("keydown", event => this.onMenuButtonKeyPressed(event));
+        this.$menuButton.on('click', event => this.onMenuButtonClicked(event) );
+        this.$menuButton.on('keydown', event => this.onMenuButtonKeyPressed(event));
 
-        $(document).on("click", event => this.onDocumentClicked(event) );
+        $(document).on('click', event => this.onDocumentClicked(event) );
 
-        $(document).on("keydown.header", event => this.onKeyPressed(event));
+        $(document).on('keydown.header', event => this.onKeyPressed(event));
 
         // A11Y Helper: when tabbing out of the menu, the first element is and will always be a breadcrumb. --> on focus, close the menu.
-        $(".breadcrumb__link").first().on('focus', event => this.closeIfOpen());
-        $(".footer-bottom__link").last().on('focus', event => this.closeIfOpen());
+        $('.breadcrumb__link').first().on('focus', event => this.closeIfOpen());
+        $('.footer-bottom__link').last().on('focus', event => this.closeIfOpen());
     }
 
     /**
@@ -75,7 +75,7 @@ export class SrfHeader {
     }
 
     onMenuButtonClicked(e) {
-        typeof e !== "undefined" ? e.preventDefault() : null;
+        typeof e !== 'undefined' ? e.preventDefault() : null;
 
         this.changeMenuState(!this.menuIsOpen);
         return false;
@@ -91,7 +91,7 @@ export class SrfHeader {
      */
     onMenuButtonKeyPressed(e) {
         if (e.keyCode === KEYCODES.enter) {
-            typeof e !== "undefined" ? e.preventDefault() : null;
+            typeof e !== 'undefined' ? e.preventDefault() : null;
 
             this.changeMenuState(!this.menuIsOpen, true);
 
@@ -106,7 +106,7 @@ export class SrfHeader {
      * Core functionality: Open or close the menu.
      * The menu wrapper is hidden when not opened and has to be animated, so opening it
      * consists of showing and then animating it (by setting a class). Hiding means
-     * removing the class and then hiding it ("then" = on transition end).
+     * removing the class and then hiding it ('then' = on transition end).
      *
      * Additionally, other elements in the body will be hidden from screenreaders.
      *
@@ -119,16 +119,16 @@ export class SrfHeader {
         if (this.menuIsOpen) {
             this.$navigation.show();
 
-            this.$element.addClass("header--open");
+            this.$element.addClass('header--open');
         } else {
-            this.$element.removeClass("header--open");
+            this.$element.removeClass('header--open');
 
             this.$navigation.one('transitionend', () => {
                 this.$navigation.hide();
             });
         }
 
-        $('html').toggleClass("menu--opened", this.menuIsOpen);
+        $('html').toggleClass('menu--opened', this.menuIsOpen);
 
         this.setA11YProperties(this.menuIsOpen);
         this.menuToggleCallback(this.menuIsOpen);
@@ -158,13 +158,13 @@ export class SrfHeader {
      */
     setA11YProperties(menuIsOpened) {
         this.$navigation.attr({
-            "aria-hidden": !menuIsOpened,
-            "role": menuIsOpened ? "" : "presentation"
+            'aria-hidden': !menuIsOpened,
+            'role': menuIsOpened ? '' : 'presentation'
         });
 
         this.$A11YElements.attr({
-            "aria-hidden": menuIsOpened,
-            "role": menuIsOpened ? "presentation": ""
+            'aria-hidden': menuIsOpened,
+            'role': menuIsOpened ? 'presentation': ''
         });
     }
 
@@ -174,9 +174,9 @@ export class SrfHeader {
      */
     setInnerFocus() {
         if ($(window).width() > 720) {
-            this.$navigation.find(".navigation-link").first().focus();
+            this.$navigation.find('.navigation-link').first().focus();
         } else {
-            this.$navigation.find(".searchbox__input").first().focus();
+            this.$navigation.find('.searchbox__input').first().focus();
         }
     }
 }
