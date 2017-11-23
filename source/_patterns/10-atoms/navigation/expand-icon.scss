@@ -1,6 +1,4 @@
-// @import "../../variables";
-
-.expand-arrow {
+.expand-icon {
   width: 17px;
   height: 9px;
   display: inline-block;
@@ -10,24 +8,14 @@
   transition: transform 0.4s ease;
 }
 
-.expand-arrow--open {
+.expand-icon--open {
   transform: translateZ(0) rotate(180deg); // HACK: «translateZ(0)» is because of 1px-jumping-bug in Safari (rechstst)
 }
 
-.expand-arrow--open {
-  .expand-arrow__a11y-open  {
-    display: none;
-  }
-
-  .expand-arrow__a11y-close {
-    display: block;
-  }
+.expand-icon--open {
+  .expand-icon__a11y-open  { display: none; }
+  .expand-icon__a11y-close { display: block; }
 }
 
-.expand-arrow__a11y-open  {
-  display: block;
-}
-
-.expand-arrow__a11y-close {
-  display: none;
-}
+.expand-icon__a11y-open  { display: block; }
+.expand-icon__a11y-close { display: none; }

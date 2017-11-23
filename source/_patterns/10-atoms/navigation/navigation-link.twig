@@ -1,4 +1,4 @@
-<a class="navigation-link {% if "navigation-link--expandable" in styleModifier %}js-expand-arrow {% endif %}{{ styleModifier|default("") }}" href="{{ url|default("#") }}">
+<a class="navigation-link {% if "navigation-link--expandable" in styleModifier %}js-expand-icon {% endif %}{{ styleModifier|default("") }}" href="{{ url|default("#") }}">
   {% if img is defined %}
     <img class="navigation-link__img" src="{{ frameworkAssetPath }}{{ img }}" alt="{{ alt|default("") }}">
   {% endif %}
@@ -7,7 +7,7 @@
   </span>
   {% if "navigation-link--expandable" in styleModifier %}
   <span class="navigation-link__icon">
-    {% include 'atoms-expand-arrow' with { 'styleModifier': '' } %}
+    {% include 'atoms-expand-icon' with { 'styleModifier': '' } %}
   </span>
   {% endif %}
 </a>

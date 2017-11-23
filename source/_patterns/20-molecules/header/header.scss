@@ -1,202 +1,242 @@
-$navi-transition-time: 0.4s;
+$header-height: 50px;
+$header-height-tablet-up: 56px;
 
-.header { // absolute fullwidth!
-  /*position: absolute;
+.header {
+  position: absolute;
   top: 0;
+  right: 0;
   left: 0;
-  width: 100%;*/
+  z-index: 100000;
+}
+
+.header--open {
+  background-color: rgba(0, 0, 0, 0.08);
+  height: 100%;
+}
+
+.header + .l-card {
+  margin-top: $header-height;
+
+  @include tablet-up {
+    margin-top: $header-height-tablet-up;
+  }
+}
+
+/*
+ * BAR
+ */
+
+.header-bar {
+  background: linear-gradient(to bottom, #313131, #212121);
+  z-index: 100002;
   position: relative;
-  background-image: linear-gradient(to bottom, #313131, #212121);
-  background-size: 100% 50px;
-  background-repeat: no-repeat;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .24);
-
-  @include tablet-up {
-    background-size: auto;
-  }
-
-  /*& + .breadcrumbs {
-    margin-top: 66px; // mobile: 50 + 24 - 8
-    @include tablet-up {
-      margin-top: 80px; // dt: 56 + 32 - 8
-    }
-  }
-
-  & + .article, // todo: cleanup fef (differs from cms pagelayout setup!)
-  & + .l-main-wrapper {
-    margin-top: 88px; // todo: check!!
-  }*/
 }
 
-// providing the "dim" on opening the navi
-body::after {
-  content: "";
-  opacity: 0;
-  height: 0;
-  width: 0;
-  transition: opacity 0.4s ease;
+.header-bar-wrapper {
+  display: flex;
 }
 
-.body--fixed { // navigation expanded
-  .header__container {
-    position: fixed;
-    width: 100%;
-    background-image: linear-gradient(to bottom, #313131, #212121);
-
-    @include smartphone {
-      z-index: 2;
-    }
-
-    @include tablet-up {
-      left: 50%;
-      transform: translate(-50%, 0);
-    }
-  }
-
-  @include smartphone {
-    .article {
-      position: fixed;
-    }
-  }
-
-  @include tablet-up {
-    position: fixed;
-    left: 0;
-    right: 0;
-
-    &.body--observer { // the bg dim!
-      cursor: pointer; // makes it react to tap (instead of click) as well
-
-      &::after {
-        position: absolute;
-        height: 100%;
-        width: 100%;
-        top: 0;
-        left: 0;
-        opacity: .2;
-        background-color: #000;
-      }
-    }
-
-    .header__reserve {
-      position: fixed;
-      height: 56px;
-      width: 100%;
-      left: 0;
-      background-image: linear-gradient(to bottom, #313131, #212121);
-      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .24);
-    }
-
-    // positioning in context
-    .searchbox--header {
-      position: fixed;
-      top: -3px;
-      right: 129px;
-
-      @include desktop-wide {
-        right: calc(50% - 511px); // here it gets weird :/
-      }
-    }
-
-    .navigation--header {
-      position: absolute; // covering up safari pos. fixed bug :/
-      width: 280px;
-      min-height: 100%;
-      visibility: visible; // accessibility
-      background-color: #333; // just in case the navi covers the search field :/
-      box-shadow: 0 8px 16px 0 rgba(0, 0, 0, .24);
-      z-index: 1;
-    }
-  }
-
-  .navbar {
-    visibility: visible;
-
-    @include smartphone {
-      position: relative;
-      top: 50px;
-      z-index: 1;
-      background-color: #333;
-    }
-
-    @include tablet-up {
-      position: fixed;
-      height: 100%;
-      right: 0; // start position
-      width: 350px; // covering up safari pos. fixed bug :/
-      overflow: auto;
-
-      @include desktop-wide {
-        right: calc(50% - 640px); // something like that
-        box-shadow: 8px 0 16px -8px rgba(0, 0, 0, 0.24);
-      }
-    }
-  }
-}
-// end .body--fixed
-
-@include tablet-up {
-  .header__container { // contains icons and so on
-    position: relative;
-    height: 56px;
-    margin: 0 auto;
-    padding: 0 48px 0 32px;
-
-    @include desktop-up {
-      max-width: 1280px;
-    }
-  }
-}
-
-.header__logo,
-.header__logo:hover {
-  border-bottom: 0;
-}
-
-.header__logo {
-  display: inline-block;
-  vertical-align: top;
+.header-startlink {
+  flex: 0 1 auto;
+  display: block;
   padding: 12px;
+  border: none; // overwrite of global anchor-styles
 
   @include tablet-up {
     padding: 15px 16px;
   }
+
+  &:hover,
+  &:active,
+  &:focus { // overwrite of global anchor-styles
+    border: none;
+  }
 }
 
-.header__logo-img {
+.header-logo {
+  width: 39px;
   height: 26px;
-  width: 40px;
 }
 
-// navigation
-.navbar {
-  @include tablet-up {
-    position: absolute;
-    width: 280px;
-    right: 81px;
-    z-index: 1;
-  }
+.header-search {
+  flex: 1;
+  align-self: center;
+  margin: 0 8px;
 
-  @include desktop-up {
-    right: 48px;
-  }
-
-  @include desktop-wide { // only here we have a max width
-    right: calc(50% - 592px); // minus padding
-  }
-}
-
-.navbar--closed { // only add after transitionend
-  .navigation {
-    position: absolute;
-    width: 0;
-    visibility: hidden; // accessibility
-  }
-
-  // this only makes sense in context
   @include smartphone {
-    .searchbox {
+    * {
       display: none;
     }
   }
+}
+
+/*
+ * MENÜ
+ */
+
+.menu-button {
+  flex: 0 1 auto;
+  padding: 16px 16px 15px;
+
+  font: 14px/1.14 "SRG_SSR_Regular", sans-serif;
+  letter-spacing: .5px;
+  color: #dadad2;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  transition: color .2s ease-in-out;
+
+  border: none; // overwrite of global anchor-styles
+  
+  &:hover,
+  &:active,
+  &:focus { // overwrite of global anchor-styles
+    border: none;
+    color: #ffffff;
+
+    .menu-button__icon span {
+      background-color: #ffffff;
+    }
+  }
+  
+  @include tablet-up {
+    padding: 20px 16px;
+  }
+
+  .header--open & {
+    color: #ffffff;
+  }
+}
+
+.menu-button__icon {
+  width: 18px;
+  height: 16px;
+  position: relative;
+  transform: rotate(0deg);
+  transition: top .2s ease-in-out,
+              left .2s ease-in-out,
+              rotate .2s ease-in-out;
+
+  @include tablet-up {
+    display: inline-block;
+    margin-right: 8px;
+  }
+
+  span {
+    display: block;
+    position: absolute;
+    height: 2px;
+    width: 100%;
+    background: #d8d8d8;
+    opacity: 1;
+    left: 0;
+    transform: rotate(0deg);
+    transition: .25s ease-in-out;
+  }
+
+  span:nth-child(1) { top: 0px; }
+  span:nth-child(2),
+  span:nth-child(3) { top: 7px; }
+  span:nth-child(4) { top: 14px; }
+
+  @media (min-width: 720px) {
+    width: 14px;
+    height: 10px;
+
+    span { height: 1px; }
+    span:nth-child(1) { top: 0px; }
+    span:nth-child(2),
+    span:nth-child(3) { top: 5px; }
+    span:nth-child(4) { top: 10px; }
+  }
+}
+
+.header--open .menu-button__icon {
+  span {
+    background: #ffffff;
+  }
+  span:nth-child(1) {
+    top: 7px;
+    width: 0%;
+    left: 50%;
+  }
+  span:nth-child(2) { transform: rotate(45deg) scale(1.25); }
+  span:nth-child(3) { transform: rotate(-45deg) scale(1.25); }
+  span:nth-child(4) {
+    top: 7px;
+    width: 0%;
+    left: 50%;
+  }
+
+  @media (min-width: 720px) {
+    span:nth-child(1) { top: 5px; }
+    span:nth-child(2) { transform: rotate( 45deg) scale(1.1); }
+    span:nth-child(3) { transform: rotate(-45deg) scale(1.1); }
+    span:nth-child(4) { top: 5px; }
+  }
+}
+
+/*
+ * NAVIGATION
+ */
+
+.header-navigation {
+  background: #333;
+  position: absolute;
+  width: 100%;
+  box-shadow: $shadow-default;
+  display: block;
+
+  // enable inertia scrolling on ios devices
+  -webkit-overflow-scrolling: touch;
+}
+
+.header-navigation-wrapper {
+  margin: 0;
+
+  @include tablet-up {
+    margin: 32px;
+  }
+
+  @include desktop-wide {
+    margin: 32px auto;
+  }
+}
+
+.header-navigation {
+  transition: transform .2s ease-in-out;
+  transform-origin: top;
+  z-index: 100001;
+  transform: translateY(-100%);
+
+  // Make header-content scrollable but prevent <-> scrollbars on IE etc.
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  max-height: calc(100vh - #{$header-height});
+
+  @include tablet-up {
+    max-height: calc(100vh - #{$header-height-tablet-up});
+  }
+}
+
+.header--open .header-navigation {
+  transform: translateY(0);
+}
+
+.header--open {
+  .menu-button__a11y-open  { display: none; }
+  .menu-button__a11y-close { display: block; }
+}
+
+.menu-button__a11y-open  { display: block; }
+.menu-button__a11y-close { display: none; }
+
+
+// Prevent scrolling the page when the menu is opened
+.menu--opened {
+  overflow: hidden;
 }
