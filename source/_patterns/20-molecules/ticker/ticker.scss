@@ -112,7 +112,10 @@
     }
   }
 
-  .related-list__heading,
+  .related-list__heading {
+    display: none;
+  }
+
   .related-item:hover .article-teaser,
   .blockquote {
     padding-left: 0;
