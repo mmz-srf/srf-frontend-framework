@@ -10,7 +10,7 @@
   margin: -1px;
   padding: 0;
   overflow: hidden;
-  clip: rect(0,0,0,0);
+  clip: rect(0, 0, 0, 0);
   border: 0;
 }
 
@@ -35,17 +35,19 @@
 }
 
 .h-show-mobile {
-    display:inline-block;
-    @include tablet-up {
-        display:none;
-    }
+  display: inline-block;
+
+  @include tablet-up {
+    display: none;
+  }
 }
 
 .h-show-tablet-up {
-    display:none;
-    @include tablet-up {
-        display:inline-block;
-    }
+  display: none;
+
+  @include tablet-up {
+    display: inline-block;
+  }
 }
 
 .h-element--hide {

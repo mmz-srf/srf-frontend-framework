@@ -1,8 +1,8 @@
 /*
  * This file exists solely for nasty browser hacks, fallbacks and fixes.
- * 
+ *
  * It is envisaged that we DELETE the code-snippets as soon as support for each targeted browser is deprecated. Therefore watch out for the «TARGETED BROWSER»-comments at the beginning of each function in this file.
- * 
+ *
  */
 
 export function init() {
@@ -19,7 +19,7 @@ function objectFitForIE() {
             fakeImg.style.backgroundImage = 'url(' + imageSource + ')';
             fakeImg.style.backgroundPosition = 'center center';
             fakeImg.style.backgroundRepeat = 'no-repeat';
-            fakeImg.className = imageClasses + " js-fake-image-object-fit";
+            fakeImg.className = imageClasses + ' js-fake-image-object-fit';
         },
         getObjectFitValue = elem => {
             let objectFitVal = 'contain';
@@ -57,7 +57,7 @@ function objectFitForIE() {
                 '.media-still__image',
                 '.poll-media--image'
             ],
-            containers = document.querySelectorAll( relevantClasses.join(", ") );
+            containers = document.querySelectorAll( relevantClasses.join(', ') );
 
         for(let i = 0; i < containers.length; i++) {
             let oldImg = containers[i].querySelector('img'),
@@ -69,9 +69,9 @@ function objectFitForIE() {
 
                 oldImg.parentNode.insertBefore(fakeImg, oldImg.parentNode.childNodes[0]);
 
-                oldImg.addEventListener("load", event => {
+                oldImg.addEventListener('load', event => {
                     let oldImg = event.currentTarget,
-                        fakeImg = oldImg.parentElement.getElementsByClassName("js-fake-image-object-fit")[0],
+                        fakeImg = oldImg.parentElement.getElementsByClassName('js-fake-image-object-fit')[0],
                         objectFitVal = getObjectFitValue(oldImg);
 
                     copyPropertiesFromOldImage(oldImg, fakeImg, objectFitVal);

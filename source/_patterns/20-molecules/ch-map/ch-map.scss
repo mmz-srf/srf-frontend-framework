@@ -58,8 +58,7 @@
   letter-spacing: .3px;
   padding: 4px 12px;
   background-color: $color-link-bg-hover;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .24),
-              0 0 8px 0 rgba(0, 0, 0, .12);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .24), 0 0 8px 0 rgba(0, 0, 0, .12);
   border-radius: 2px;
   white-space: nowrap;
 
@@ -121,6 +120,6 @@
 // ie11 has a problem with height: 100% :/
 @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
   .chmap--desktop {
-    height: 300px
+    height: 300px;
   }
 }

@@ -39,7 +39,7 @@ $default-input-background: #fff;
     background: $default-input-background url('../img/exclamation-mark-red.svg') no-repeat right 16px center;
 
     &:focus {
-        background: $default-input-background none;
+      background: $default-input-background none;
     }
   }
 
@@ -47,7 +47,7 @@ $default-input-background: #fff;
     background: $default-input-background url('../img/blue_tick.svg') no-repeat right 16px center;
 
     &:focus {
-        background: $default-input-background none;
+      background: $default-input-background none;
     }
   }
 }

@@ -12,32 +12,32 @@
 }
 
 .image-figure--simple {
-    float: right;
-    width: 92px;
-    height: auto;
-    margin: 16px 0px 16px 16px;
-    right: auto; /* overwrite */
-    left:auto; /* overwrite */
-    
-    @include tablet-up {
-        width: 228px;
-        margin: 24px 0px 24px 24px;
-    }
-    
+  float: right;
+  width: 92px;
+  height: auto;
+  margin: 16px 0px 16px 16px;
+  right: auto; /* overwrite */
+  left: auto; /* overwrite */
+
+  @include tablet-up {
+    width: 228px;
+    margin: 24px 0px 24px 24px;
+  }
+
+  .media-caption {
+    padding: 8px 16px;
+  }
+
+  @include smartphone {
     .media-caption {
-        padding:8px 16px;
+      display: none;
     }
-    
-    @include smartphone {
-        .media-caption {
-            display: none;
-        }
-    }
-    
-    .media-caption__title,
-    .media-caption__description {
-        display: none;
-    }
+  }
+
+  .media-caption__title,
+  .media-caption__description {
+    display: none;
+  }
 }
 
 /*
@@ -64,7 +64,7 @@ Behaviour:
     max-height: 9000px;
     max-width: 16000px;
     height: calc(100vw * 9000.0 / 16000.0);
-    background-color:#dadad2;
+    background-color: #dadad2;
 
     @include desktop-up {
       // using max-width and max-height as 16:8 ratio for calculating the height
@@ -91,7 +91,7 @@ Behaviour:
   margin-bottom: 16px;
 
   @include smartphone {
-      // resetting the full width here
+    // resetting the full width here
     left: 0;
     right: 0;
     width: auto;

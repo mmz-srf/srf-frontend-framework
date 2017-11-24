@@ -36,7 +36,7 @@
   @include smartphone {
     thead th:last-of-type,
     tbody td:last-of-type {
-      border-right-width: 12px
+      border-right-width: 12px;
     }
   }
 
@@ -45,8 +45,8 @@
   thead + tbody tr:nth-child(odd) {background-color: $color-table-bg-zebra-light}
 
   // otherwise begin with a dark bg-color
-  tbody tr:nth-child(even) {background-color:$color-table-bg-zebra-light}
-  tbody tr:nth-child(odd) {background-color:$color-table-bg-zebra-dark}
+  tbody tr:nth-child(even) {background-color: $color-table-bg-zebra-light}
+  tbody tr:nth-child(odd) {background-color: $color-table-bg-zebra-dark}
 
   td {
     font-size: 16px;

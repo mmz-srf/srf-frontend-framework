@@ -134,9 +134,11 @@
       &:active {
         border-bottom-color: transparent;
       }
+
       &:hover {
         background-color: #ebebe5;
       }
+
       &:active,
       &:focus {
         outline: none;
@@ -236,6 +238,7 @@
     &:hover,
     &:focus {
       outline: none;
+
       &::before {
         opacity: .6;
       }

@@ -91,3 +91,24 @@ body.demo-pattern-page {
   font-family: "SRG_SSR_Regular", sans-serif;
   font-size: 20px;
 }
+
+
+.demo-navigation {
+  background-color: #343434;
+}
+
+.demo-navigation-link {
+  background-color: #333;
+}
+
+.demo-navigation-link.navigation-link--dark {
+  background-color: #222;
+}
+
+h2.demo-heading {
+  width: 100%;
+  clear: both;
+  padding: 20px 0 10px 0;
+  margin: 0;
+  background-color: #ddd;
+}

@@ -22,8 +22,8 @@
     }
   }
 
-   &:checked,
-   &:focus:checked {
+  &:checked,
+  &:focus:checked {
     + .checkbox-label {
       &::after {
         border-color: $color-accentuation-red;

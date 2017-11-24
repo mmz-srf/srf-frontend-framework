@@ -27,7 +27,12 @@ $item-max-width: 400px;
 
   > .l-card {
     background: $color-bg-caption;
-    
+    margin-bottom: 32px;
+
+    @include tablet-up {
+      margin-bottom: 40px;
+    }
+
     @include desktop-wide {
       overflow-x: hidden;
     }
@@ -37,7 +42,7 @@ $item-max-width: 400px;
 .swipemod-container {
   padding: 20px 16px 4px;
   position: relative;
-  
+
   /*
    * VISUAL ASSISTANCE FOR DEBUGING
    *
@@ -73,7 +78,7 @@ $item-max-width: 400px;
   font-family: $font-regular;
   line-height: 1;
   letter-spacing: .5px;
-  border-bottom: none;
+  border-bottom: 0;
   top: 2px;
   padding: 0 20px 0 0;
   position: relative;
@@ -81,7 +86,7 @@ $item-max-width: 400px;
   &:hover,
   &:active,
   &:focus {
-    border: none; // overwrite of global a-styles :rolling-eyes:
+    border: 0; // overwrite of global a-styles :rolling-eyes:
   }
 
   &::before {
@@ -94,7 +99,7 @@ $item-max-width: 400px;
     width: 11px;
     border-bottom: 1px solid $color-link-default;
     border-right: 1px solid $color-link-default;
-    transform: rotate(-45deg)
+    transform: rotate(-45deg);
   }
   &:hover::before,
   &:focus::before {
@@ -117,17 +122,17 @@ $item-max-width: 400px;
 
   scroll-snap-type: mandatory;
   scroll-snap-destination: 50% 0%;
-  
+
   @include tablet {
     margin: 0 -#{$inner-outer-padding + $outer-padding};
     padding: 0 #{$inner-outer-padding - $half-gutter-padding + $outer-padding};
   }
-  
+
   @include desktop {
     margin: 0 -#{$inner-outer-padding + $outer-padding};
     padding: 0 #{$inner-outer-padding - $half-gutter-padding + $outer-padding};
   }
-  
+
   @include desktop-wide {
     margin: 0 -#{$inner-outer-padding};
     padding: 0 #{$inner-outer-padding - $half-gutter-padding};
@@ -137,17 +142,37 @@ $item-max-width: 400px;
   &::-webkit-scrollbar {
     display: none;
   }
+
+  & > a { // overwrite global a-styles :-/
+    border: none;
+
+    &:hover,
+    &:focus,
+    &:active {
+      box-shadow: 0 4px 4px 0 rgba(0,0,0,0.24);
+      border: none;
+    }
+
+    &:hover,
+    &:focus {
+      background-color: #fafaf8;
+    }
+
+    &:active {
+      background-color: #f5f5f2;
+    }
+  }
 }
 
 .swipemod-container--2ormore .swipemod-swipecontainer {
   &::after {
     content: "";
     flex: 0 0 #{$outer-padding-small + $inner-outer-padding};
-    
+
     @include tablet-up {
       flex: 0 0 #{$outer-padding + $inner-outer-padding - $half-gutter-padding};
     }
-    
+
     @include desktop-wide {
       flex: 0 0 #{$inner-outer-padding - $half-gutter-padding};
     }
@@ -163,12 +188,12 @@ $item-max-width: 400px;
   max-width: $item-max-width;
   background: $color-bg-card;
   border-radius: 2px;
-  border: none;
+  border: 0;
   box-shadow: $shadow-default;
 
   scroll-snap-align: center;      // "new" spec
   scroll-snap-coordinate: 50% 0%; // "old" spec
-  
+
   &::before {
     display: none; // overwrite global li-styles :-/
   }
@@ -191,7 +216,7 @@ $item-max-width: 400px;
 
     min-width: ($tablet-size - 2 * $outer-padding - 2 * $inner-outer-padding - $gutter-padding) / 2; //306px = (720 - 2*32 - 2*16 - 12) / 2
   }
-  
+
   @include desktop-up {
     margin: 8px $half-gutter-padding;
     max-width: calc((100% / #{$row-count-desktop}) - #{$gutter-padding});
@@ -202,10 +227,10 @@ $item-max-width: 400px;
   @include desktop-wide {
     min-width: ($content-width - 2 * $inner-outer-padding - 2 * $gutter-padding) / 3; //381.3px = (1200 - 2*16 - 2*12) / 3
   }
-  
+
   & > a { // overwrite global a-styles :-/
     border: none;
-    
+
     &:hover,
     &:active,
     &:focus {
@@ -218,7 +243,7 @@ $item-max-width: 400px;
   flex: 1 0 calc(100% - #{$swipe-remains-small} + #{$gutter-padding-small});
 
   min-width: $smartphone-size - 2 * $outer-padding-small - $inner-outer-padding - $swipe-remains-small; //240px = 320 - 2*8 - 16 - 48
-  
+
   @include tablet-up {
     flex: 1 0 calc(100% - #{$swipe-remains-small + $outer-padding} + #{$gutter-padding});
   }
@@ -241,7 +266,7 @@ $item-max-width: 400px;
 
     min-width: ($desktop-size - 2 * $outer-padding - $inner-outer-padding - 2 * $gutter-padding - $swipe-remains) / 3; //289px = (1024 - 2*32 - 16 - 2*12 - 52) / 3
   }
-  
+
   @include desktop-wide {
     @include maxWidthCalculator($row-count-desktop, $swipe-remains-large);
 
@@ -294,7 +319,7 @@ $item-max-width: 400px;
   top: 55px;
   bottom: 12px;
   display: none;
-  border: none;
+  border: 0;
   background-color: transparent;
 
   &::after {

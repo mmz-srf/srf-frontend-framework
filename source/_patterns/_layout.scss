@@ -3,7 +3,7 @@
   max-width: $content-width;
   min-width: $smartphone-size;
   margin: 0 auto;
-  
+
   @include desktop {
     margin-right: 32px;
     margin-left: 32px;
@@ -14,7 +14,7 @@
 .l-main-wrapper__space {
   margin-right: 8px;
   margin-left: 8px;
-  
+
   @include tablet {
     margin-right: 32px;
     margin-left: 32px;
@@ -34,11 +34,11 @@
   padding-top: 1px; // prevent collapsing margin; part II
   margin-bottom: 20px;
   border-radius: 2px;
-  
+
   @include tablet-up {
     margin-bottom: 24px;
   }
-  
+
   // Clears collapsing margin for elements on the bottom of the card
   &::after {
     content: '';
