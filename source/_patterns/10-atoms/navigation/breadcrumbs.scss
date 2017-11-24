@@ -52,17 +52,20 @@
   display: inline-block;
   vertical-align: middle;
   position: relative;
-  border-radius: 10px;
-  border: 8px solid transparent;
+  border-radius: 2px;
+  margin: 8px;
   background-clip: padding-box;
+  border-bottom: 0;
 
   &:hover {
     background-color: #dadad2;
+    border-bottom: 0;
   }
 
   &:active,
   &:focus {
     background-color: #cac8bf;
+    border-bottom: 0;
   }
 
   &::before {
@@ -84,7 +87,6 @@
 .breadcrumb__link:active,
 .breadcrumb__link:focus {
   color: #4e4d47;
-  border-bottom: 8px solid transparent;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   -webkit-touch-callout: none;
   outline: none;
