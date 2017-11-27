@@ -101,7 +101,6 @@
 
     @include smartphone {
       @include fullwidth-element();
-      // width: calc(100vw - 18px); // the 1px line on the ticker element *really* messes stuff up...
       margin-left: calc(-50vw - 4px); // in the wild, 4 more pixels are necessary to be removed
 
       margin-top: 10px;
