@@ -254,27 +254,62 @@ $header-height-tablet-up: 56px;
   overflow-y: auto;
   overflow-x: hidden;
 
-  max-height: calc(100vh - #{$header-height});
-
   @include tablet-up {
     max-height: calc(100vh - #{$header-height-tablet-up});
   }
 }
 
-.header--open .header-navigation {
-  transform: translateY(0);
-}
-
 .header--open {
-  .menu-button__a11y-open  { display: none; }
-  .menu-button__a11y-close { display: block; }
+  .header-navigation {
+    transform: translateY(0);
+  }
+
+  @include smartphone {
+    .header-bar {
+      position: fixed;
+      width: 100%;
+      top: 0;
+    }
+
+    .header-navigation {
+      min-height: calc(100vh - #{$header-height});
+      margin-top: #{$header-height};
+    }
+  }
+
+  .menu-button__a11y-open {
+    display: none;
+  }
+
+  .menu-button__a11y-close {
+    display: block;
+  }
 }
 
-.menu-button__a11y-open  { display: block; }
-.menu-button__a11y-close { display: none; }
+.menu-button__a11y-open {
+  display: block;
+}
+
+.menu-button__a11y-close {
+  display: none;
+}
 
 
 // Prevent scrolling the page when the menu is opened
 .menu--opened {
-  overflow: hidden;
+  @include tablet-up {
+    overflow: hidden;
+
+  }
+
+  @include smartphone {
+    body > * {
+      display: none;
+    }
+
+    body > .header {
+      display: block;
+    }
+
+  }
 }

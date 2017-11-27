@@ -120,15 +120,19 @@ export class SrfHeader {
             this.$navigation.show();
 
             this.$element.addClass('header--open');
+
+            this.$navigation.one('transitionend', () => {
+                $('html').toggleClass('menu--opened', this.menuIsOpen);
+            });
         } else {
+            $('html').toggleClass('menu--opened', this.menuIsOpen);
+
             this.$element.removeClass('header--open');
 
             this.$navigation.one('transitionend', () => {
                 this.$navigation.hide();
             });
         }
-
-        $('html').toggleClass('menu--opened', this.menuIsOpen);
 
         this.setA11YProperties(this.menuIsOpen);
         this.menuToggleCallback(this.menuIsOpen);
