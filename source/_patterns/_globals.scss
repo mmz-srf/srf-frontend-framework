@@ -64,12 +64,13 @@ th {
 
 .focus-ring-overlay {
   background: rgba(145, 206, 255, 0.25) !important;
-  transition: top 0.25s, left 0.25s, width 0.25s, height 0.25s, opacity 0.125s !important;
+  transition: top 0.25s, left 0.25s, width 0.25s, height 0.25s, opacity 0.1s !important;
 }
 
 .focus-ring {
   outline: none;
   box-shadow: 0 0 2px 1px rgba(66, 163, 241,1), 0 0 0 1px #42A3F1, inset 0 0 0 1px #91CEFF; border-radius: 2px;
+  transition: ease-out 0.5s;
 }
 
 :focus:not(.focus-ring) {
