@@ -1,5 +1,5 @@
 .ticker {
-  margin: 30px 0 7px 24px;
+  margin: 30px 0 7px 7px;
   padding: 0;
 
   @include smartphone {
@@ -112,6 +112,28 @@
     }
   }
 
+  .related-list__heading {
+    display: none;
+  }
+
+  .related-item:hover .article-teaser,
+  .blockquote {
+    padding-left: 0;
+  }
+
+  .blockquote {
+    margin: 24px 0 10px;
+  }
+
+  .related-list {
+    margin-top: 24px;
+    margin-bottom: 10px;
+  }
+
+  .related-item {
+    margin-left: 0;
+  }
+
   // html embeds special :(
   .embed-inline {
     background-color: #fff;
@@ -135,6 +157,7 @@
 
     li {
       margin-left: 0;
+      margin-right: -32px;
       padding-left: 8px;
 
       &:hover,
@@ -143,14 +166,13 @@
         padding-left: 8px;
       }
 
-      margin-right: -32px;
-
       @include tablet-up {
         margin-right: 0;
       }
     }
   }
 
+  .content-heading,
   .linkbox__title {
     padding: 0;
   }
@@ -162,10 +184,6 @@
   .block-link {
     padding-left: 8px;
     background-position: right 8px center;
-  }
-
-  .content-heading {
-    padding: 0;
   }
 }
 
@@ -195,6 +213,7 @@
   font: 22px/28px $font-medium;
   letter-spacing: .3px;
   margin: 32px 0 12px;
+
   @include smartphone {
     margin-top: 24px;
   }
