@@ -1,9 +1,11 @@
 {% set mediumType = mediumType|default('audio') %}
-<div class="medium medium--related-items {{ styleModifier }} js-medium-hover">
-    <div class="medium__object">
-        {% include 'molecules-media-still' with { 'mediumType': mediumType } %}
+<a href="#LINK_TO_PLAYER">
+    <div class="medium medium--related-items {{ styleModifier }} js-medium-hover">
+        <div class="medium__object">
+            {% include 'molecules-media-still' with { 'mediumType': mediumType } %}
+        </div>
+        <div class="medium__caption">
+            {% include 'molecules-media-caption-' ~ mediumType with { 'styleModifier' : 'media-caption--related-items', 'usePseudoLink': true } %}
+        </div>
     </div>
-    <div class="medium__caption">
-        {% include 'molecules-media-caption-' ~ mediumType with { 'styleModifier' : 'media-caption--related-items', 'usePseudoLink': true } %}
-    </div>
-</div>
+</a>

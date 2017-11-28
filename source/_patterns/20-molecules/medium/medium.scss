@@ -32,6 +32,16 @@
   }
 }
 
+.medium__object--tiny {
+  width: 120px;
+  height: auto;
+
+  @include smartphone {
+    width: 68px;
+  }
+}
+
+
 .medium__caption {
   flex-grow: 1;
   flex-basis: 0;
