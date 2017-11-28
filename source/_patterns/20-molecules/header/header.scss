@@ -12,6 +12,10 @@ $header-height-tablet-up: 56px;
 .header--open {
   background-color: rgba(0, 0, 0, 0.08);
   height: 100%;
+
+  @include tablet-up {
+    position: fixed;
+  }
 }
 
 .header + .l-card {
@@ -299,7 +303,6 @@ $header-height-tablet-up: 56px;
 .menu--opened {
   @include tablet-up {
     overflow: hidden;
-
   }
 
   @include smartphone {
