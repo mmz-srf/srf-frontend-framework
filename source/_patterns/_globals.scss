@@ -74,7 +74,7 @@ animated focus ring styles
 .focus-ring {
   outline: none !important;
   box-shadow: 0 0 2px 1px rgba(66, 163, 241,1), 0 0 0 1px #42A3F1, inset 0 0 0 1px #91CEFF; border-radius: 2px !important;
-  transition: ease-out 0.5s !important;
+  transition: ease-out 0.3s !important;
 }
 
 :focus:not(.focus-ring) {
