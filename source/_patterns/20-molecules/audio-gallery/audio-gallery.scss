@@ -1,16 +1,14 @@
 
-.audio-gallery { // ol
+.audio-gallery {
   margin: 32px 0;
-
-  @include smartphone {
-    padding: 0;
-  }
+  padding: 0;
 }
 
 .audio-gallery__item {
+  position: relative;
   margin: 0 0 2px;
-  padding: 0 0 0 60px;
-  background-color: $color-bg-box;
+  padding: 0;
+  background-color: $color-bg-caption;
 
   &:hover {
     background-color: $color-bg-box;
@@ -21,14 +19,16 @@
   }
 
   &::before { // numbering
+    content: counter(item) ".";
+    counter-increment: item;
+    position: absolute;
     left: 16px;
-    top: 40px;
+    top: calc(50% - 10px);
     color: #555;
     font: 18px/20px $font-medium;
 
     @include smartphone {
       content: none;
-      font-size: 16px;
     }
   }
 }
