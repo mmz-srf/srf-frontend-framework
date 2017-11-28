@@ -100,3 +100,8 @@
 .medium--inverted:hover {
   background-color: $color-media-playing;
 }
+
+.medium--lastplayed,
+.medium--lastplayed:hover {
+  background-color: $color-bg-box;
+}
