@@ -117,6 +117,7 @@
   cursor: pointer;
 
   @include tablet-up {
+    max-width: 624px;
     margin-bottom: 24px;
   }
 
