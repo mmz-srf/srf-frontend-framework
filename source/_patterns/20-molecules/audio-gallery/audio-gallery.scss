@@ -23,102 +23,18 @@
     counter-increment: item;
     position: absolute;
     left: 16px;
-    top: calc(50% - 10px);
-    color: #555;
-    font: 18px/20px $font-medium;
-
-    @include smartphone {
-      content: none;
-    }
-  }
-}
-
-/**
-
-.audio-gallery { // ol
-  margin: 32px -16px;
-
-  @include smartphone {
-    @include fullwidth-element;
-    padding: 0 8px;
-  }
-
-  .article-audio__wrapper {
-    height: $image-size-preview-gallery;
-    width: 120px;
-
-    &::before {
-      height: $image-size-preview-gallery;
-      width: 120px;
-
-      @include smartphone {
-        width: $image-size-preview-gallery;
-      }
-    }
-
-    @include smartphone {
-      height: $image-size-preview-gallery;
-      width: $image-size-preview-gallery;
-    }
-  }
-
-  .article-audio__link {
-    margin: 2px -16px;
-
-    @include tablet-up {
-      margin: 2px 0;
-    }
-  }
-
-  .article-audio__wrapper {
-    @include tablet-up {
-      margin: 16px 0 16px 60px;
-    }
-  }
-
-  .article-audio__play-icon {
-    width: 36px;
-  }
-
-  .image-figure__image {
-    width: 120px;
-    height: $image-size-preview-gallery;
-
-    @include smartphone {
-      width: $image-size-preview-gallery;
-    }
-  }
-}
-
-.audio-gallery__item {
-  margin: 0 0 2px;
-  padding: 0;
-
-  @include smartphone {
-    padding: 0 8px;
-  }
-
-  &:last-of-type {
-    margin-bottom: 0;
-  }
-
-  &::before { // numbering
-    left: 16px;
     top: 40px;
     color: #555;
     font: 18px/20px $font-medium;
 
     @include smartphone {
       content: none;
-      font-size: 16px;
     }
   }
 }
 
 .audio-gallery__item--playing {
   &::before {
-    color: #ffffff;
+    color: #fff;
   }
 }
-
-**/
