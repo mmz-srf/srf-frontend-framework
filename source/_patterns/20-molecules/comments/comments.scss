@@ -30,6 +30,12 @@
     }
   }
 
+  .comments-header__button {
+    @include tablet {
+      max-width: 624px;
+    }
+  }
+
   .reply-container, .form__validation--success {
     @include smartphone {
       margin: 0 16px 28px;
@@ -117,7 +123,6 @@
   cursor: pointer;
 
   @include tablet-up {
-    max-width: 624px;
     margin-bottom: 24px;
   }
 
