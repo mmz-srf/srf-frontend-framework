@@ -76,7 +76,7 @@
 
 
 // media-still--compact behaves like a media-still--video on desktop
-// but results in a square still without caption and time indicator on mobile
+// but results in a square still without time indicator on mobile
 .media-still--compact {
 
   .media-still__indicator {
@@ -97,3 +97,13 @@
     }
   }
 }
+
+.media-still--active {
+  .media-still__icon,
+  .media-still__indicator {
+    transition: opacity 375ms $easing-in-out-standard;
+    opacity: 0;
+  }
+}
+
+

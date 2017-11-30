@@ -64,6 +64,11 @@
 .medium--compact {
   margin-top: 0;
   margin-bottom: 0;
+
+  .medium__player-wrapper {
+    display: none;
+  }
+
 }
 
 .medium--related-items {
