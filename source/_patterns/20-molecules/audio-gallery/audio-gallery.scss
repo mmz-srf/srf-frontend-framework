@@ -26,6 +26,7 @@
     top: 40px;
     color: #555;
     font: 18px/20px $font-medium;
+    pointer-events: none;
 
     @include smartphone {
       content: none;
