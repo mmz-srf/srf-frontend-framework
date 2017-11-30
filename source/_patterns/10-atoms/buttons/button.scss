@@ -5,6 +5,7 @@
 $button-height: 48px;
 $button-animation-duration: .3s;
 
+// sass-lint:disable indentation
 .button {
   width: 100%;
   min-height: $button-height;

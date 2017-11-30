@@ -55,7 +55,7 @@
 
 // login info
 .comments-header__text,
-  // deactivation info
+// deactivation info
 .comments-infobox__text,
 .comments-header__info-text {
   font-size: 14px;
@@ -220,7 +220,7 @@
   clear: both;
 
   @include tablet-up {
-    margin: 0 auto 32px
+    margin: 0 auto 32px;
   }
 
   > .comment:first-child {
@@ -286,7 +286,7 @@
   @include tablet-up {
     margin-bottom: 24px;
     font: 16px/24px $font-light;
-      letter-spacing: .5px;
+    letter-spacing: .5px;
   }
 
   &:hover {
@@ -294,8 +294,8 @@
   }
 
   .count b {
-      font-family: $font-regular;
-      font-weight: normal;
+    font-family: $font-regular;
+    font-weight: normal;
   }
 }
 
@@ -487,7 +487,7 @@
   border-width: 1px 0 0;
 
   @include smartphone {
-    .reply-info__initial{
+    .reply-info__initial {
       display: none;
     }
   }

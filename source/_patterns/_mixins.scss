@@ -19,7 +19,7 @@
 
 
 /*
- * 
+ *
  * @mixin fullwidth-container
  *
  * This lets an element break out of its parent container and stretch it to the width of the wrapping card container
@@ -86,26 +86,6 @@
   }
 }
 
-@mixin rotate-spinner {
-  100% {
-    transform: rotate(360deg);
-  }
-}
-@mixin dash-spinner {
-  0% {
-    stroke-dasharray: 1, 200;
-    stroke-dashoffset: 0;
-  }
-  50% {
-    stroke-dasharray: 89, 200;
-    stroke-dashoffset: -35;
-  }
-  100% {
-    stroke-dasharray: 89, 200;
-    stroke-dashoffset: -124;
-  }
-}
-
 @mixin button-label {
   position: relative;
   display: block;
@@ -167,10 +147,7 @@
 
 
   /* RETINA: show the grey half-circles */
-  @media screen and (-webkit-min-device-pixel-ratio:2 ),
-                    (min-resolution: 192dpi),
-                    (min-resolution: 2dppx),
-                    (-o-min-device-pixel-ratio:20/10) {
+  @media screen and (-webkit-min-device-pixel-ratio: 2 ), (min-resolution: 192dpi), (min-resolution: 2dppx), (-o-min-device-pixel-ratio: 20/10) {
     &::before,
     &::after {
       width: calc(50% + #{$line-width});
