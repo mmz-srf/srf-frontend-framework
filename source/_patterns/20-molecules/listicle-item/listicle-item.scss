@@ -36,7 +36,7 @@
   margin: 12px -24px;
 
   @include tablet-up {
-    margin: 16px -16px;
+    margin: -8px -16px;
   }
 
   // removes top/bottom margins of first child - i.e. an included video
