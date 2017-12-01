@@ -46,13 +46,11 @@
   @include tablet-up {
     padding-left: 0;
     padding-right: 42px;
-    margin-right: 8px;
 
     &:hover,
     &:focus,
     &:active {
       padding-left: 16px;
-      margin-right: 8px;
       margin-left: -16px;
     }
   }
