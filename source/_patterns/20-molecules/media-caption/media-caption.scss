@@ -1,10 +1,10 @@
 .media-caption {
   padding: 12px 16px;
-  background-color: $color-bg-caption;
   font: 16px/24px $font-light;
   color: $color-text-default;
   display: flex;
   flex-direction: column;
+  background-color: transparent;
 
   @include smartphone {
     padding: 12px 24px;
@@ -14,14 +14,6 @@
 .media-caption--hover {
   transition: background 200ms $easing-in-out-standard;
   background-color: $color-bg-box;
-}
-
-.media-caption--no-bg {
-  background-color: transparent;
-
-  &:hover {
-    background-color: transparent;
-  }
 }
 
 .media-caption--with-separator {
@@ -91,19 +83,6 @@
   }
 }
 
-/***
-.media-caption--audio {
-  margin: 12px 24px 12px 12px;
-  padding: 0;
-  background-color: transparent; // is defined by the audio component
-  flex: 1;
-
-  @include tablet-up {
-    margin: 16px;
-  }
-}
-***/
-
 .media-caption__title--audio {
   color: $color-text-default;
   margin-bottom: 4px;
@@ -114,13 +93,6 @@
 
   .media-caption__source-title {
     color: $color-text-accentuation;
-  }
-}
-
-// overwrite :(
-.audio-gallery {
-  .media-caption--audio {
-    height: auto;
   }
 }
 
@@ -169,7 +141,6 @@
 }
 
 .media-caption--inverted {
-  background-color: transparent;
 
   .media-caption__title {
     color: $color-bg-caption;
@@ -185,6 +156,11 @@
   .media-caption__source-title {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+  }
+
+  &.media-caption--hover {
+    transition: none;
+    background-color: transparent;
   }
 }
 

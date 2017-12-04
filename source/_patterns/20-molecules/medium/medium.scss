@@ -124,16 +124,24 @@
   }
 }
 
-.medium--inverted,
-.medium--inverted:hover {
+.medium--active:not(.medium--related-items),
+.medium--active:not(.medium--related-items):hover {
   background-color: $color-media-playing;
+}
+
+.medium--active,
+.medium--active:hover {
+  background-color: $color-media-playing;
+
+  &.medium--related-items {
+    background-color: $color-media-playing;
+  }
 }
 
 .medium--lastplayed,
 .medium--lastplayed:hover {
   background-color: $color-bg-box;
 }
-
 
 .medium--no-bg,
 .medium--no-bg:hover {

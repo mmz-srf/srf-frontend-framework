@@ -1,4 +1,4 @@
-<figcaption class="media-caption {{ styleModifier }}">
+<div class="media-caption {{ styleModifier }}">
     <span class="h-offscreen">Legende:</span>
     {% if audio.title %}
         <div class="media-caption__title media-caption__title--audio">{{ audio.title }}</div>
@@ -10,4 +10,4 @@
         {% endif %}
         vom {{ audio.show.date|date("d.m.Y")  }}
     </div>
-</figcaption>
+</div>
