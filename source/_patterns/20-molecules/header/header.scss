@@ -12,10 +12,6 @@ $header-height-tablet-up: 56px;
 .header--open {
   background-color: rgba(0, 0, 0, 0.08);
   height: 100%;
-
-  @include tablet-up {
-    position: fixed;
-  }
 }
 
 .header + .l-card {
@@ -254,12 +250,12 @@ $header-height-tablet-up: 56px;
   z-index: 100001;
   transform: translateY(-100%);
 
-  // Make header-content scrollable but prevent <-> scrollbars on IE etc.
-  overflow-y: auto;
-  overflow-x: hidden;
-
-  @include tablet-up {
+  @include desktop-up {
     max-height: calc(100vh - #{$header-height-tablet-up});
+
+    // Make header-content scrollable but prevent <-> scrollbars on IE etc.
+    overflow-y: auto;
+    overflow-x: hidden;
   }
 }
 
@@ -268,13 +264,13 @@ $header-height-tablet-up: 56px;
     transform: translateY(0);
   }
 
-  @include smartphone {
-    .header-bar {
-      position: fixed;
-      width: 100%;
-      top: 0;
-    }
+  .header-bar {
+    position: fixed;
+    width: 100%;
+    top: 0;
+  }
 
+  @include smartphone {
     .header-navigation {
       min-height: calc(100vh - #{$header-height});
       margin-top: #{$header-height};
@@ -298,11 +294,15 @@ $header-height-tablet-up: 56px;
   display: none;
 }
 
-
-// Prevent scrolling the page when the menu is opened
 .menu--opened {
-  @include tablet-up {
+  @include desktop-up {
     overflow: hidden;
+  }
+
+  @include tablet-up {
+    body {
+      position: relative;
+    }
   }
 
   @include smartphone {

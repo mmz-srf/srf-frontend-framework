@@ -48,7 +48,7 @@ export class SrfHeader {
         this.$menuButton.on('click', event => this.onMenuButtonClicked(event) );
         this.$menuButton.on('keydown', event => this.onMenuButtonKeyPressed(event));
 
-        $(document).on('click', event => this.onDocumentClicked(event) );
+        $(document).on('touchstart click', event => this.onDocumentClicked(event) );
 
         $(document).on('keydown.header', event => this.onKeyPressed(event));
 
@@ -66,6 +66,7 @@ export class SrfHeader {
     onDocumentClicked(e) {
         if (!$.contains(this.$element[0], e.target)) {
             this.closeIfOpen();
+            e.preventDefault();
         }
     }
 
@@ -132,9 +133,7 @@ export class SrfHeader {
         } else {
             $('html').toggleClass('menu--opened', this.menuIsOpen);
 
-            if ($(window).width() < 720) {
-                window.scrollTo(0, 0);
-            }
+            window.scrollTo(0, 0);
 
             this.$element.removeClass('header--open');
 
