@@ -124,17 +124,13 @@
   }
 }
 
-.medium--active:not(.medium--related-items),
-.medium--active:not(.medium--related-items):hover {
-  background-color: $color-media-playing;
-}
-
 .medium--active,
 .medium--active:hover {
   background-color: $color-media-playing;
 
-  &.medium--related-items {
-    background-color: $color-media-playing;
+  &.medium--related-items,
+  &.medium--related-items:hover {
+    background-color: $color-link-bg-hover;
   }
 }
 
