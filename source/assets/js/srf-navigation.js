@@ -19,6 +19,7 @@ export class SrfNavigation {
         this.$arrow = this.$element.find('.expand-icon');
         this.id = this.$element.attr('id');
 
+        this.isInTransition = false;
         this.$a11yElem = this.$element.find('.js-navigation-subnav-a11y');
 
         this.registerListeners();
@@ -49,13 +50,14 @@ export class SrfNavigation {
     onSubMenuButtonClicked(e) {
         typeof e !== 'undefined' ? e.preventDefault() : null;
 
-        let subMenuIsOpen = !this.$arrow.hasClass('expand-icon--open');
-
-        this.toggleMenu(subMenuIsOpen);
+        if (!this.isInTransition) {
+            let subMenuIsOpen = !this.$arrow.hasClass('expand-icon--open');
+            this.toggleMenu(subMenuIsOpen);
+        }
     }
 
     onSubMenuKeyPressed(e) {
-        if (e.keyCode === KEYCODES.enter) {
+        if (e.keyCode === KEYCODES.enter && !this.isInTransition) {
             let subMenuIsOpen = !this.$arrow.hasClass('expand-icon--open');
 
             this.onSubMenuButtonClicked(e);
@@ -69,12 +71,15 @@ export class SrfNavigation {
     }
 
     toggleMenu(subMenuIsOpen) {
-        // FeF 2:12 - Thou shall not be able to tab over the submenu when it's closed!
+        // User should not be able to tab over the submenu when it's closed
         if (subMenuIsOpen) {
+            this.isInTransition = false;
             this.$submenuWrapper.show();
         } else {
+            this.isInTransition = true;
             this.$submenuWrapper.one('transitionend', () => {
                 this.$submenuWrapper.hide();
+                this.isInTransition = false;
             });
         }
 
