@@ -124,6 +124,17 @@
   }
 }
 
+.medium--video-gallery {
+  margin: 0;
+  height: 100%;
+  align-items: stretch;
+
+  .media-caption--video {
+    height: 100%;
+    justify-content: space-between;
+  }
+}
+
 .medium--active,
 .medium--active:hover {
   background-color: $color-media-playing;

@@ -3,7 +3,7 @@ let loadedCarousels = {};
 let slidesPerScreen = 1;
 let currentElement = null;
 let css = {
-    'containers': '.carousel__js',
+    'containers': '.js-slick',
     'handles': '.carousel__link--next, .carousel__link--prev'
 };
 
@@ -41,20 +41,20 @@ export function init() {
             appendArrows: '#' + id + ' .slick-list',
             prevArrow: '<button class="carousel__link--prev"><span class="h-offscreen h-offscreen-focusable">' + textPreviousImage + '</span></button>',
             nextArrow: '<button class="carousel__link--next carousel__link--waggle"><span class="h-offscreen h-offscreen-focusable"> + textNextImage + </span></button>',
-            slide: '.carousel__item'
+            slide: '.js-slick-item'
         });
         registerListener($carousel);
     });
 
     // video carousels
-    $('.video_carousel__js').on('init', function (slick) {
+    $('.js-video-gallery').on('init', function (slick) {
         $(this).css('visibility', 'visible');
         // triggering a "recalculation of dots" (via "setPosition" below)
         $(window).trigger('resize');
     });
 
     // video carousel:
-    $.each($('.video_carousel__js'), function (i, carousel) {
+    $.each($('.js-video-gallery'), function (i, carousel) {
         let $carousel = $(carousel),
             id = $carousel.attr('id'),
             textNextSlide = $carousel.data('i18n-text-next-slide'),
@@ -72,7 +72,7 @@ export function init() {
 
         $carousel.slick({
             infinite: false,
-            slide: '.carousel__item',
+            slide: '.js-video-gallery-item',
             slidesToShow: 1, // we need all dots - initially
             slidesToScroll: 1,
             accessibility: false,
@@ -87,7 +87,7 @@ export function init() {
     });
 
     // "position change" (resize page or "activate" slider in any way)
-    $('.video_carousel__js').on('setPosition', function (slick) {
+    $('.js-video-gallery').on('setPosition', function (slick) {
         slidesPerScreen = getNumberOfSlidesPerScreen(1);
         let slidesToShow = slidesPerScreen, // mobile : 1
             $carousel = $(this),
@@ -162,13 +162,13 @@ export function init() {
         // someone is tabbing => clicked <enter> on the arrow going to the next page
         if (e.keyCode === 13) {
             // we select the first video-link available on the page
-            $(this).closest('.video_carousel__js').find('.slick-current .article-video__link').focus();
+            $(this).closest('.js-video-gallery').find('.slick-current .article-video__link').focus();
         }
     });
 }
 
 function gotTo($selectedLink) {
-    $selectedLink.closest('.video_carousel__js')
+    $selectedLink.closest('.js-video-gallery')
         .slick('slickGoTo', $selectedLink.closest('.carousel__item').data('slick-index'));
 }
 
