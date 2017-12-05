@@ -54,14 +54,3 @@
     margin-left: -16px;
   }
 }
-
-.related-items-list__media {
-  &:hover {
-    background-color: $color-link-bg-hover;
-
-    @include smartphone {
-      margin-left: -24px;
-      padding-left: 24px;
-    }
-  }
-}
