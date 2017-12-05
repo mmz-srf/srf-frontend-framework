@@ -53,8 +53,7 @@
   color: #22211D;
 
   // Make hover area circled so corners don't trigger mouseenter/hover
-  // Has to be important because of the animated focus state
-  border-radius: 50% !important;
+  border-radius: 50%;
   cursor: pointer;
 
   @include smartphone {
