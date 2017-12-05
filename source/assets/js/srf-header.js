@@ -64,9 +64,8 @@ export class SrfHeader {
      * @param e {jQuery.Event}
      */
     onDocumentClicked(e) {
-        if (!$.contains(this.$element[0], e.target)) {
-            this.closeIfOpen();
-            e.preventDefault();
+        if (this.menuIsOpen && !$.contains(this.$element[0], e.target)) {
+            this.close();
         }
     }
 
