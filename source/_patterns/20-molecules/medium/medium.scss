@@ -129,7 +129,12 @@
   width: 100%;
   align-items: stretch;
 
+  .media-caption__title {
+    min-height: 60px;
+  }
+
   .media-caption--video {
+    padding: 8px 12px 12px;
     height: 100%;
     justify-content: space-between;
   }
