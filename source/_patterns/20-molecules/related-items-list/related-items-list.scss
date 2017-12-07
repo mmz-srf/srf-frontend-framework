@@ -25,10 +25,6 @@
 
 .related-items-list__list {
   padding: 0;
-
-  @include tablet-up {
-    margin-left: 16px;
-  }
 }
 
 .related-items-list__item {
@@ -37,6 +33,8 @@
   border-top: 1px solid $color-bg-box;
 
   @include smartphone {
+    padding-right: 0px;
+    padding-left: 0px;
     margin-left: 24px;
   }
 
@@ -52,5 +50,23 @@
 .related-items-list__media-window {
   @include tablet-up {
     margin-left: -16px;
+  }
+}
+
+.related-items-list__content {
+  &:hover {
+    margin-left: -16px;
+    margin-top: -1px;
+    margin-bottom: -1px;
+    padding: 0 16px;
+    background-color: $color-link-bg-hover;
+    border-top: 1px solid $color-bg-box;
+    border-bottom: 1px solid $color-bg-box;
+
+    @include smartphone {
+      margin-left: -24px;
+      margin-right: -24px;
+      padding: 0 24px;
+    }
   }
 }

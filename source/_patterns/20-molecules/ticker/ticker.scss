@@ -112,11 +112,11 @@
     }
   }
 
-  .related-list__heading {
+  .related-items-list__heading {
     display: none;
   }
 
-  .related-item:hover .article-teaser,
+  .related-items-list__item:hover .article-teaser,
   .blockquote {
     padding-left: 0;
   }
@@ -125,12 +125,12 @@
     margin: 24px 0 10px;
   }
 
-  .related-list {
+  .related-items-list {
     margin-top: 24px;
     margin-bottom: 10px;
   }
 
-  .related-item {
+  .related-items-list__item {
     margin-left: 0;
   }
 
