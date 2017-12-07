@@ -6,7 +6,7 @@ let keycodes = {
     enter: 13
 };
 let css = {
-    'containers': '.js-slick',
+    'containers': '.js-carousel',
     'handles': '.carousel__link--next, .carousel__link--prev'
 };
 
@@ -36,7 +36,7 @@ export function init() {
             appendArrows: `#${id} .slick-list`,
             prevArrow: `<button class="carousel__link--prev"><span class="h-offscreen h-offscreen-focusable">${textPreviousImage}</span></button>`,
             nextArrow: `<button class="carousel__link--next carousel__link--waggle"><span class="h-offscreen h-offscreen-focusable">${textNextImage}</span></button>`,
-            slide: '.js-slick-item'
+            slide: '.js-carousel-item'
         });
         registerListener($carousel);
     });
