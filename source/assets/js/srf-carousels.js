@@ -101,7 +101,7 @@ export function init() {
 
         // if previous num. of slides shown != the num. we'll see now (window resize)
         if ($carousel.slick('slickGetOption', 'slidesToShow') != slidesToShow) {
-            let screensToShow = Math.ceil($carousel.find('.carousel__item').length / slidesToShow);
+            let screensToShow = Math.ceil($carousel.find('.js-carousel-item').length / slidesToShow);
 
             // desktop / more than one slide / arrows displayed
             if (slidesToShow > 1) {
@@ -135,7 +135,7 @@ export function init() {
         let to = (slidesPerScreen * currentPage) - 1; // zero indexed
         let from = to - (slidesPerScreen - 1);
 
-        $carousel.find('.carousel__item').each(function (i) {
+        $carousel.find('.js-carousel-item').each(function (i) {
             i >= from && i <= to
                 ? $(this).attr('aria-hidden', false).find('.article-video__link').attr('tabindex', 0)
                 : $(this).attr('aria-hidden', true).find('.article-video__link').attr('tabindex', -1);
@@ -169,7 +169,7 @@ export function init() {
 
 function gotTo($selectedLink) {
     $selectedLink.closest('.js-video-gallery')
-        .slick('slickGoTo', $selectedLink.closest('.carousel__item').data('slick-index'));
+        .slick('slickGoTo', $selectedLink.closest('.js-carousel-item').data('slick-index'));
 }
 
 function registerListener($carousel) {

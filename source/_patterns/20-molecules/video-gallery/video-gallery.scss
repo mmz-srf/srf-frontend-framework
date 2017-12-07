@@ -93,6 +93,10 @@
         outline: none;
         background-color: #dadad2;
       }
+
+      &.slick-disabled {
+        display: none;
+      }
     }
 
     .carousel__link--prev {
