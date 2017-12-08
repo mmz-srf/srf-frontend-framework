@@ -121,16 +121,16 @@ export function init() {
     }).on('afterChange', function (slick, currentSlide) {
         // as soon as slick's ready, we put the focus on the current elm
         if (slidesPerScreen > 1) {
-            $(this).find('.slick-current .article-video__link').focus();
+            $(this).find('.slick-current a').focus();
         }
-    }).on('click', '.article-video__link', function (e) {
+    }).on('click', 'a', function (e) {
         // unfortunately $carousel.slick('slickSetOption', 'focusOnSelect', ...); cannot be set 'on the fly' :/
 
         if (e.type == 'click' && slidesPerScreen === 1) {
             /// vo has a crazy problem: it fires click for the video left to the 'selected' one - from the 3rd on
             gotTo($(this)); // enable selecting 'barely visible next video'
         }
-    }).on('keyup', '.article-video__link', function (e) {
+    }).on('keyup', 'a', function (e) {
         // someone is tabbing => clicked <enter> (desktop)
         if (e.keyCode === keycodes.enter) {
             $(this).trigger('click');
@@ -139,7 +139,7 @@ export function init() {
         // someone is tabbing => clicked <enter> on the arrow going to the next page
         if (e.keyCode === keycodes.enter) {
             // we select the first video-link available on the page
-            $(this).closest('.js-video-gallery').find('.slick-current .article-video__link').focus();
+            $(this).closest('.js-video-gallery').find('.slick-current a').focus();
         }
     });
 }
@@ -153,7 +153,7 @@ function changeTabIndexIfNotVisible($carousel, slidesPerScreen, currentElement) 
     $carousel.find('.js-carousel-item').each((i, carouselItem) => {
         let isVisible = i >= from && i <= to;
 
-        $(carouselItem).attr('aria-hidden', !isVisible).find('.article-video__link').attr('tabindex', isVisible ? 0 : -1);
+        $(carouselItem).attr('aria-hidden', !isVisible).find('a').attr('tabindex', isVisible ? 0 : -1);
     });
 }
 
@@ -212,23 +212,25 @@ function rePaintDots($carousel, screensToShow) {
 function addTextToDots($carousel) {
     // adding text to dots
     $carousel.find('.slick-dots li').each(function (i) {
-        let $elm = $(this);
-        // reenabling buttons (after slick) for mobile :/
-        $elm.find('button').text($elm.hasClass('slick-active') // and provide textual info
-            ? $carousel.data('dot-current')
-            : (i + 1) + '. ' + $carousel.data('dot-info')
-        ); // button (dot)
+        let $elm = $(this),
+            dotText = $elm.hasClass('slick-active') ? $carousel.data('dot-current') : `${i+1}. ${$carousel.data('dot-info')}`;
+
+        // reenabling buttons (after slick) for mobile
+        $elm.find('button').text(dotText);
 
         // reenabling dots for mobile
-        if (slidesPerScreen == 1) {
-            enableDots($elm);
+        if (slidesPerScreen === 1) {
+            showDotsToScreenReader($elm);
         }
-    }); // this is silly and not informative :/
+    }); // this is silly and not informative
 }
 
-function enableDots($list) {
-    $list.attr('aria-hidden', false).find('button')
-        .attr('tabindex', '0').attr('aria-hidden', false).attr('role', 'button'); // li
+function showDotsToScreenReader($list) {
+    $list.attr('aria-hidden', false).find('button').attr({
+        'tabindex': '0',
+        'aria-hidden': false,
+        'role': 'button'
+    });
 }
 
 function hideDotsFromScreenReader($carousel) {
@@ -247,8 +249,11 @@ function hideDotsFromScreenReader($carousel) {
  * @param screensToShow
  */
 function handleRightArrow($carousel, currentSlide, screensToShow) {
-    let hideRightArrow = (currentSlide + 1) == screensToShow;
-    $carousel.find('.carousel__link--next').toggleClass('h-element--hide', hideRightArrow).attr('aria-disabled', hideRightArrow);
+    let hideRightArrow = (currentSlide + 1) === screensToShow;
+
+    $carousel.find('.carousel__link--next')
+        .toggleClass('h-element--hide', hideRightArrow)
+        .attr('aria-disabled', hideRightArrow);
 }
 
 function getNumberOfSlidesPerScreen() {

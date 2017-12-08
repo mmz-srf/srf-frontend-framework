@@ -6,53 +6,14 @@
   padding-top: 24px;
   position: relative;
 
-
-  .article-video__link {
+  a {
     display: flex;
     height: 100%;
     flex: 1;
   }
 
-  .article-video {
-    width: 100%;
-
-    display: flex;
-    flex-direction: column;
-
-    @include tablet-up {
-      margin: 0 6px 12px;
-    }
-
-    @include desktop-wide {
-      margin: 0 6px 12px 4px;
-    }
-  }
-
-  .video--visited {
-    // not to have the iframe frame collapse ...
-    .article-video__player::before {
-      content: "";
-      display: block;
-      padding-top: 56.25%;
-    }
-  }
-
-  // play icon overwrites
-  .media-play {
-    transform: translate(-50%, -34px);
-
-    @include tablet-up {
-      width: 48px;
-      transform: translate(-50%, -24px);
-    }
-  }
-
+  // img carousel overwrites
   @include tablet-up {
-    .media-play__icon {
-      margin-bottom: 3px;
-    }
-
-    // img carousel overwrites
     .carousel__link--prev,
     .carousel__link--next {
       width: 56px;
@@ -101,7 +62,6 @@
   }
   // end img carousel overwrites
 
-  // slick slider
   .slick-track {
     display: flex;
     flex-direction: row;
@@ -109,7 +69,7 @@
 
   @include tablet-up {
     .slick-list {
-      overflow: hidden; // cuts the right most img off
+      overflow: hidden; // cut off the rightmost img
     }
   }
 }
@@ -147,7 +107,6 @@
 
   &:hover,
   &:active {
-    // &:focus {
     box-shadow: 0 4px 4px 0 rgba(0, 0, 0, .24);
   }
 
@@ -159,23 +118,12 @@
     position: absolute;
   }
 
-  height: 100%;
-
   // Override <a> styles
   &,
   &:hover,
   &:focus,
   &:active {
     border: 0;
-  }
-
-  // accessibility:
-  &:focus .article-video:not(.video--loading):not(.video--playing) {
-    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, .24);
-
-    .media-caption--video {
-      background-color: #fafaf8;
-    }
   }
 }
 
@@ -230,52 +178,5 @@
 
   .slick-active button::before {
     opacity: .6;
-  }
-}
-
-// .video-gallery-container
-.media-window--playing {
-
-  // gallery overwrites
-  .video--loading {
-    .article-video__player::before {
-      content: none;
-    }
-
-    .media-play {
-      display: none;
-    }
-  }
-
-  .video--playing,
-  .video--pausing {
-    .article-video__player {
-      margin: 0;
-    }
-  }
-}
-
-// video play overwrites
-.video--loading,
-.video--playing {
-
-  &,
-  &:hover,
-  &:active,
-  &:focus {
-    .media-caption--video {
-      background-color: #383732;
-    }
-  }
-
-  .media-caption__title {
-    color: #f5f5f2;
-  }
-}
-// end player integration
-
-.article-media--last-played {
-  .media-caption {
-    background-color: #ebebe5;
   }
 }
