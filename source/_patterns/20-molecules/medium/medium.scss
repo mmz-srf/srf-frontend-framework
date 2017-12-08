@@ -77,14 +77,12 @@
   padding: 16px 0;
 
   &:hover {
-    background-color: $color-link-bg-hover;
+    background-color: transparent;
   }
 
   @include smartphone {
     margin-left: -24px;
     padding-left: 24px;
-
-
   }
 
   .medium__object {
