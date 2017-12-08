@@ -167,6 +167,9 @@ export class SrfSwiper {
                 let prevIndex = (this.$items.length - 1 - index) - nrOfElements;
                 let $elemToScrollTo = prevIndex < 0 ? this.$items.first() : $(this.$items.get(prevIndex));
                 this.scrollItemIntoView( $elemToScrollTo );
+                $elemToScrollTo.attr('tabindex', -1).on('blur focusout', function () {
+                    $(this).removeAttr('tabindex');
+                }).focus();
                 return false;
             }
         });
@@ -178,6 +181,9 @@ export class SrfSwiper {
                 let next = index + nrOfElements;
                 let $elemToScrollTo = next >= this.$items.length - 1 ? this.$items.last() : $(this.$items.get(next));
                 this.scrollItemIntoView( $elemToScrollTo );
+                $elemToScrollTo.attr('tabindex', -1).on('blur focusout', function () {
+                    $(this).removeAttr('tabindex');
+                }).focus();
                 return false;
             }
         });
