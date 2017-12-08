@@ -9,7 +9,7 @@
             <div class="related-items-list__media-window">
                 {% include 'molecules-media-window' %}
             </div>
-            <div class="related-items-list__media">
+            <div class="related-items-list__content">
                 {% include 'molecules-medium--related-items' with { 'mediumType': 'video'} %}
             </div>
         </li>
@@ -18,14 +18,14 @@
             <div class="related-items-list__media-window">
                 {% include 'molecules-media-window' %}
             </div>
-            <div class="related-items-list__media">
+            <div class="related-items-list__content">
                 {% include 'molecules-medium--related-items' with { 'mediumType': 'video'} %}
             </div>
             {% include 'molecules-linkbox' with {'styleModifier': 'linkbox--related', 'title': 'Unterrichtsmaterialien'} %}
         </li>
 
         <li class="related-items-list__item">
-            <div class="related-items-list__media">
+            <div class="related-items-list__content">
                 {% include 'molecules-medium--related-items' with { 'mediumType': 'audio'} %}
             </div>
         </li>

@@ -74,29 +74,21 @@
   margin: 0 16px 16px 0;
 
   @include tablet-up {
-    margin: 0 0 24px 180px;
+    margin: 0 0 24px 172px;
     padding-right: 0;
   }
 
   .linkbox__list {
     > li {
       margin-left: 0;
-
-      &:hover,
-      &:focus,
-      &:active {
-        padding-left: 0;
-        @include smartphone {
-          padding-left: 0;
-        }
-      }
+      padding-left: 8px;
     }
   }
 
   .linkbox__title {
     font-size: 14px;
     margin: 0 0 8px 0;
-    padding: 0;
+    padding: 0 0 0 8px;
     color: $color-text-light;
     font-family: $font-regular;
   }

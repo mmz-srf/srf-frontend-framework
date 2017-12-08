@@ -80,6 +80,13 @@
     background-color: $color-link-bg-hover;
   }
 
+  @include smartphone {
+    margin-left: -24px;
+    padding-left: 24px;
+
+
+  }
+
   .medium__object {
     @include smartphone {
       margin: 0;
