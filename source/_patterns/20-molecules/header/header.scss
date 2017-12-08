@@ -306,6 +306,10 @@ $header-height-tablet-up: 56px;
   }
 
   @include smartphone {
+    body {
+      background-color: #333333;
+    }
+
     body > * {
       display: none;
     }
