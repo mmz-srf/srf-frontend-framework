@@ -114,10 +114,6 @@
     display: block; /* IE11 */
   }
 
-  [data-disable-internal-player] .article-video__player::before {
-    position: absolute;
-  }
-
   // Override <a> styles
   &,
   &:hover,
