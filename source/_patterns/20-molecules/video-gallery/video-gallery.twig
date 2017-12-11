@@ -6,7 +6,7 @@
          data-dot-current="{{ video_gallery.slide_current|default("Gewählter Slide") }}">
 
         {% for video in videos %}
-            <div class="video-gallery__item js-video-gallery-item">
+            <div class="video-gallery__item js-carousel-item">
                 {% include 'molecules-medium--video-gallery' %}
             </div>
         {% endfor %}

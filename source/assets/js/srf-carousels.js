@@ -59,7 +59,7 @@ export function init() {
 
         $carousel.slick({
             infinite: false,
-            slide: '.js-video-gallery-item',
+            slide: '.js-carousel-item',
             slidesToShow: 1, // we need all dots - initially
             slidesToScroll: 1,
             accessibility: false,
@@ -121,7 +121,7 @@ export function init() {
     }).on('afterChange', function (slick, currentSlide) {
         // as soon as slick's ready, we put the focus on the current elm
         if (slidesPerScreen > 1) {
-            $(this).find('.slick-current a').focus();
+            $(this).find('.slick-current > a').focus();
         }
     }).on('click', 'a', function (e) {
         // unfortunately $carousel.slick('slickSetOption', 'focusOnSelect', ...); cannot be set 'on the fly' :/
@@ -139,7 +139,7 @@ export function init() {
         // someone is tabbing => clicked <enter> on the arrow going to the next page
         if (e.keyCode === keycodes.enter) {
             // we select the first video-link available on the page
-            $(this).closest('.js-video-gallery').find('.slick-current a').focus();
+            $(this).closest('.js-video-gallery').find('.slick-current > a').focus();
         }
     });
 }
@@ -210,19 +210,17 @@ function rePaintDots($carousel, screensToShow) {
 }
 
 function addTextToDots($carousel) {
-    // adding text to dots
     $carousel.find('.slick-dots li').each(function (i) {
         let $elm = $(this),
             dotText = $elm.hasClass('slick-active') ? $carousel.data('dot-current') : `${i+1}. ${$carousel.data('dot-info')}`;
 
-        // reenabling buttons (after slick) for mobile
         $elm.find('button').text(dotText);
 
         // reenabling dots for mobile
         if (slidesPerScreen === 1) {
             showDotsToScreenReader($elm);
         }
-    }); // this is silly and not informative
+    });
 }
 
 function showDotsToScreenReader($list) {
