@@ -10,13 +10,18 @@
 }
 
 .embed-inline__title {
-  padding: 0 16px;
+  font-size: 20px;
+  letter-spacing: .3px;
   font-family: $font-medium;
+  line-height: 28px;
   margin-bottom: 12px;
+  padding: 0 16px;
 
   @include smartphone {
-    padding: 0 24px;
+    font-size: 18px;
+    letter-spacing: .5px;
     margin-bottom: 8px;
+    padding: 0 24px;
   }
 }
 
