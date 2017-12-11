@@ -120,8 +120,7 @@
   }
 }
 
-.media-caption--inverted {
-
+.media-caption--active {
   .media-caption__title {
     color: $color-bg-caption;
   }
@@ -142,10 +141,6 @@
     transition: none;
     background-color: transparent;
   }
-}
-
-.media-caption--active {
-  background-color: $color-bg-box;
 }
 
 .media-caption--compact {

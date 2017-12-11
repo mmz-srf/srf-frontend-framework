@@ -39,7 +39,7 @@
       }
 
       &.slick-disabled {
-        display: none;
+        display: none !important; // Slick sets an inline-style for display, even in newest version
       }
     }
 
