@@ -63,26 +63,6 @@
   }
 }
 
-.media-caption--video-related-episodes {
-  display: block;
-  min-height: 112px;
-  padding: 12px;
-  background-color: transparent;
-
-  @include tablet-up {
-    padding: 16px;
-  }
-
-  .media-caption__title--video {
-    color: $color-text-default;
-    margin-bottom: 4px;
-  }
-
-  .media-caption__source--video {
-    text-transform: none;
-  }
-}
-
 .media-caption__title--audio {
   color: $color-text-default;
   margin-bottom: 4px;
@@ -183,11 +163,26 @@
 }
 
 .media-caption--related-items {
-  padding-top: 0;
-  margin-top: 0;
+  padding: 0 12px;
   background-color: transparent;
 
-  &.media-caption--hover {
+  @include tablet-up {
+    padding: 0 16px;
+  }
+
+  &.media-caption--hover,
+  &.media-caption--hover:active,
+  &.media-caption--hover:focus
+   {
     background-color: transparent;
+  }
+
+  .media-caption__title--video {
+    color: $color-text-default;
+    margin-bottom: 4px;
+  }
+
+  .media-caption__source--video {
+    text-transform: none;
   }
 }

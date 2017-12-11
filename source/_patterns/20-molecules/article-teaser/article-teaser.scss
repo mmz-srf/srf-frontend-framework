@@ -11,24 +11,11 @@
   &:active {
     border: none;
   }
-
-  &:hover,
-  &:focus {
-    background-color: $color-link-bg-hover;
-  }
-
-  &:active {
-    background-color: $color-bg-caption;
-  }
 }
 
 .article-teaser__wrapper {
   display: block;
-  padding: 16px 0;
-
-  @include smartphone {
-    padding: 16px 16px 16px 0;
-  }
+  padding: 16px 16px 16px 0;
 }
 
 .article-teaser__image {
