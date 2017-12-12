@@ -24,10 +24,8 @@ $color-play-icon-hover:  #e31f2b;
   border: 0 solid rgba(0, 0, 0, 0);
   border-radius: 50%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.24), 0 0 8px 0 rgba(0, 0, 0, 0.12);
-  transform: translate3d(0, 0, 0);
-  backface-visibility: hidden;
   transform-origin: center;
-  animation: scale-down-center 200ms linear backwards;
+  transition: transform 200ms ease-out;
 
   &:hover {
     width: 100%;
@@ -38,12 +36,26 @@ $color-play-icon-hover:  #e31f2b;
     background-image: url("../img/icon/play-video.svg");
     background-color: $color-play-icon-hover;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.24), 0 0 8px 0 rgba(0, 0, 0, 0.12);
-    animation: scale-up-center 200ms linear forwards;
+    /* the rotation was added to fix shaky zoom movements in firefox
+       @see https://gielberkers.com/how-to-fix-shaking-css-transitions-in-firefox */
+    transform: scale(1.04) rotate(0.02deg);
   }
 
   &:active {
     background-color: $color-play-icon-active;
   }
+
+  /* forcing 1:1 aspect ratio */
+  &::before {
+    content: "";
+    width: 1px;
+    margin-left: -1px;
+    float: left;
+    height: 0;
+    padding-top: 100%;
+  }
+
+
 }
 
 .play-icon-ng--audio {
@@ -76,28 +88,4 @@ $color-play-icon-hover:  #e31f2b;
 }
 .play-icon-ng--audio.play-icon-ng--hover {
   @extend .play-icon-ng--audio:hover;
-}
-
-
-@keyframes scale-up-center {
-  0% {
-    transform: scale(1.000);
-
-  }
-  50% {
-    transform: scale(1.030);
-  }
-  100% {
-    transform: scale(1.040);
-  }
-}
-
-@keyframes scale-down-center {
-  0% {
-    transform: scale(1.040);
-
-  }
-  100% {
-    transform: scale(1.000);
-  }
 }

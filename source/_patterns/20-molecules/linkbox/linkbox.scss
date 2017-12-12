@@ -71,47 +71,27 @@
 }
 
 .linkbox--related {
-  margin-top: 0;
-  margin-bottom: 16px;
+  margin: 0 16px 16px 0;
+
+  @include tablet-up {
+    margin: 0 0 24px 172px;
+    padding-right: 0;
+  }
 
   .linkbox__list {
     > li {
       margin-left: 0;
-
-      &:hover,
-      &:focus,
-      &:active {
-        padding-left: 0;
-        @include smartphone {
-          padding-left: 0;
-        }
-      }
+      padding-left: 8px;
     }
   }
 
-  @include tablet-up {
-    margin-left: 180px;
-    margin-bottom: 24px;
-    padding-right: 0;
+  .linkbox__title {
+    font-size: 14px;
+    margin: 0 0 8px 0;
+    padding: 0 0 0 8px;
+    color: $color-text-light;
+    font-family: $font-regular;
   }
-}
-
-.linkbox--related .block-link {
-  padding-left: 16px;
-  background-position: calc(100% - 16px) center;
-
-  @include tablet-up {
-    padding-left: 8px;
-    background-position: calc(100% - 8px) center;
-  }
-}
-
-.linkbox--related .linkbox__title {
-  font-size: 14px;
-  margin: 0 0 8px 16px;
-  padding: 0;
-  color: $color-text-light;
-  font-family: $font-regular;
 }
 
 //Special Case for Mobile view of HTML EMbeds

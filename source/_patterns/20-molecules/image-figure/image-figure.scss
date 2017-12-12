@@ -2,6 +2,7 @@
   margin: 32px 0;
   font-size: 12px;
   line-height: 1.3;
+  background-color: $color-bg-caption;
   overflow-y: hidden;
 
   @include smartphone {
@@ -89,6 +90,7 @@ Behaviour:
   margin-left: 24px;
   margin-right: 24px;
   margin-bottom: 16px;
+  background-color: transparent;
 
   @include smartphone {
     // resetting the full width here

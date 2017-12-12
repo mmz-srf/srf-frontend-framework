@@ -1,12 +1,7 @@
-<div><!-- this conforms to the cms display -->
-    <ol class="audio-gallery">
-        {% for audio in audios %}
-            <li class="audio-gallery__item {{ styleModifierItem }}">
-                {% include 'molecules-audio' with {
-                  "audios": [audios],
-                  "styleModifierMain": styleModifierMain
-                } %}
-            </li>
-        {% endfor %}
-    </ol>
-</div>
+<ol class="audio-gallery">
+    {% for audio in audios %}
+        <li class="audio-gallery__item {{ styleModifierItem }}">
+            {% include 'molecules-medium--audio-gallery' %}
+        </li>
+    {% endfor %}
+</ol>
