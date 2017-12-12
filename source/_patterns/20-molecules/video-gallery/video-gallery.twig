@@ -1,11 +1,13 @@
 <div class="media-window-container media-window-container--video-gallery {{ styleModifierGallery }}">
     {% include 'molecules-media-window' %}
-    <div class="video-gallery carousel video_carousel__js" id="{{ video_gallery.ID }}" style="visibility:hidden;"
+
+    <div class="video-gallery js-video-gallery" id="{{ video_gallery.ID }}" style="visibility:hidden;"
          data-dot-info="{{ video_gallery.slide_select|default(". Slide wählen") }}"
          data-dot-current="{{ video_gallery.slide_current|default("Gewählter Slide") }}">
+
         {% for video in videos %}
-            <div class="video-galery__item carousel__item">
-                {% include 'molecules-video' with { 'styleModifier' : styleModifier } %}
+            <div class="video-gallery__item js-carousel-item">
+                {% include 'molecules-medium--video-gallery' %}
             </div>
         {% endfor %}
     </div>
