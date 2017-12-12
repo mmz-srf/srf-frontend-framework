@@ -451,9 +451,9 @@
   border: 1px solid $color-form-field;
   border-radius: 2px;
   padding: 0;
-  margin: 0;
   background-color: #fff;
   position: relative;
+  margin: 4px 0 0;
 }
 
 .reply--on-focus {
@@ -482,6 +482,7 @@
     }
   }
 }
+
 .reply__label, reply__help {
   display: block;
   font: 16px/24px "SRG_SSR_Regular", sans-serif;
@@ -494,9 +495,13 @@
     margin-top: 0;
   }
 }
+
 .reply__help {
-  color: #383732;
+  color: #6b6960;
+  font-family: "SRG_SSR_Light", sans-serif;
+  margin-top: 4px;
 }
+
 .reply__form-row {
   margin-bottom: 20px;
 }
