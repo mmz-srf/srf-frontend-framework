@@ -113,6 +113,12 @@ $header-height-tablet-up: 56px;
   }
 }
 
+.menu-button__text {
+  @include smartphone {
+    display: none;
+  }
+}
+
 // sass-lint:disable indentation
 .menu-button__icon {
   width: 18px;
