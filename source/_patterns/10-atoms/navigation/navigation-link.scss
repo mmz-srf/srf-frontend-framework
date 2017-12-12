@@ -36,8 +36,12 @@
   flex: 0 0 0;
   align-self: center;
   height: 24px;
-  width: auto;
+  width: 24px;
   margin-right: 8px;
+}
+
+.navigation-link__img--wide {
+  width: 72px;
 }
 
 .navigation-link__text {
