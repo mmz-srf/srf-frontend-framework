@@ -40,31 +40,35 @@ $item-max-width: 400px;
 }
 
 .swipemod-container {
-  padding: 20px 16px 4px;
+  padding: 0 16px 4px;
   position: relative;
-
-  /*
-   * VISUAL ASSISTANCE FOR DEBUGING
-   *
-  @include tablet {
-    background-color: gray;
-    background-image: linear-gradient(90deg, transparent 50%, rgba(255,255,255,.5) 50%);
-    background-size: 100% 100%;
-  }
-  @include desktop-up {
-    background-color: gray;
-    background-image: linear-gradient(90deg, transparent 50%, rgba(255,255,255,.5) 50%);
-    background-size: 66.67% 66.67%;
-  }
-  */
 }
 
-.swipemod-titlecontainer {
+.swipemod-showall {
   display: flex;
   justify-content: space-between;
+  padding: 20px 16px 12px;
+  color: $color-link-default;
+
+  &,
+  &:hover,
+  &:active,
+  &:focus {
+    border: 0; // overwrite of global a-styles
+  }
+
+  &:hover,
+  &:focus {
+    color: $color-link-hover;
+  }
+
+  &:active {
+    color: $color-link-active;
+  }
 }
-.swipemod-title {
-  flex: 0 1 auto;
+
+.swipemod-showall__title {
+  flex: 1 1 auto;
   margin: 0;
   font-family: $font-regular;
   font-size: 22px;
@@ -72,44 +76,40 @@ $item-max-width: 400px;
   letter-spacing: .2px;
   color: $color-text-accentuation;
 }
-.swipemod-showall {
+
+.swipemod-showall__title--extended {
+  @include smartphone {
+    display: none;
+  }
+}
+
+.swipemod-showall__title--collapsed {
+  @include tablet-up {
+    display: none;
+  }
+}
+
+.swipemod-showall__text {
   flex: 0 1 auto;
   font-size: 16px;
   font-family: $font-regular;
   line-height: 1;
   letter-spacing: .5px;
-  border-bottom: 0;
-  top: 2px;
-  padding: 0 20px 0 0;
-  position: relative;
+  align-self: center;
 
-  &:hover,
-  &:active,
-  &:focus {
-    border: 0; // overwrite of global a-styles :rolling-eyes:
+  @include smartphone {
+    display: none;
   }
+}
 
-  &::before {
-    content: '';
-    position: absolute;
-    top: 2px;
-    left: auto;
-    right: 6px;
-    height: 11px;
-    width: 11px;
-    border-bottom: 1px solid $color-link-default;
-    border-right: 1px solid $color-link-default;
-    transform: rotate(-45deg);
-  }
-  &:hover::before,
-  &:focus::before {
-    border-bottom-color: $color-link-hover;
-    border-right-color: $color-link-hover;
-  }
-  &:active::before {
-    border-bottom-color: $color-link-active;
-    border-right-color: $color-link-active;
-  }
+.swipemod-showall__icon {
+  height: 11px;
+  width: 11px;
+  border-bottom: 1px solid;
+  border-right: 1px solid;
+  transform: rotate(-45deg);
+  align-self: center;
+  margin: 0 2px; // due to the rotation the right corner is not aligned with the items
 }
 
 .swipemod-swipecontainer {
@@ -144,8 +144,7 @@ $item-max-width: 400px;
   }
 
   & > a { // overwrite global a-styles :-/
-    border: none;
-
+    &,
     &:hover,
     &:focus,
     &:active {
@@ -183,7 +182,7 @@ $item-max-width: 400px;
   flex: 1 0;
   display: flex;
   flex-direction: column;
-  margin: 8px $half-gutter-padding-small;
+  margin: 0 $half-gutter-padding-small 8px;
   padding-left: 0; // overwrite global li-styles :-/
   max-width: $item-max-width;
   background: $color-bg-card;
@@ -193,6 +192,8 @@ $item-max-width: 400px;
 
   scroll-snap-align: center;      // "new" spec
   scroll-snap-coordinate: 50% 0%; // "old" spec
+
+  min-width: $smartphone-size - 2 * $outer-padding-small - 2 * $inner-outer-padding; //272px = 320 - 2*8 - 2*16
 
   &::before {
     display: none; // overwrite global li-styles :-/
@@ -208,17 +209,15 @@ $item-max-width: 400px;
     scroll-snap-coordinate: 50% 0%, 100% 0%;
   }
 
-  min-width: $smartphone-size - 2 * $outer-padding-small - 2 * $inner-outer-padding; //272px = 320 - 2*8 - 2*16
-
   @include tablet {
-    margin: 8px $half-gutter-padding;
+    margin: 0 $half-gutter-padding 8px;
     max-width: calc((100% / #{$row-count-tablet}) - #{$gutter-padding});
 
     min-width: ($tablet-size - 2 * $outer-padding - 2 * $inner-outer-padding - $gutter-padding) / 2; //306px = (720 - 2*32 - 2*16 - 12) / 2
   }
 
   @include desktop-up {
-    margin: 8px $half-gutter-padding;
+    margin: 0 $half-gutter-padding 8px;
     max-width: calc((100% / #{$row-count-desktop}) - #{$gutter-padding});
 
     min-width: ($desktop-size - 2 * $outer-padding - 2 * $inner-outer-padding - 2 * $gutter-padding) / 3; //301.3px = (1024 - 2*32 - 2*16 - 2*12) / 3
@@ -316,7 +315,7 @@ $item-max-width: 400px;
 .swipemod-button {
   position: absolute;
   width: 100px;
-  top: 55px;
+  top: 0;
   bottom: 12px;
   display: none;
   border: 0;

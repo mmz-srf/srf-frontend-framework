@@ -10,7 +10,9 @@ $header-height-tablet-up: 56px;
 }
 
 .header--open {
-  background-color: rgba(0, 0, 0, 0.08);
+  @tablet-up {
+    background-color: rgba(0, 0, 0, 0.08);
+  }
   height: 100%;
 }
 
@@ -108,6 +110,12 @@ $header-height-tablet-up: 56px;
 
   .header--open & {
     color: #ffffff;
+  }
+}
+
+.menu-button__text {
+  @include smartphone {
+    display: none;
   }
 }
 
@@ -306,6 +314,10 @@ $header-height-tablet-up: 56px;
   }
 
   @include smartphone {
+    body {
+      background-color: #333333;
+    }
+
     body > * {
       display: none;
     }
