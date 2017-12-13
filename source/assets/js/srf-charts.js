@@ -10,7 +10,7 @@ export function init() {
             });
         } else {
             //this is messy, as AmCharts doesn't properly support async loading
-            let amChartLoadingInterval = window.setInterval(function(){
+            let amChartLoadingInterval = window.setInterval(function() {
                 if (AmCharts.isReady) {
                     window.clearInterval(amChartLoadingInterval);
                     if (!AmCharts.loadedAsyc) {
