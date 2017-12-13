@@ -3,21 +3,11 @@
   padding: 3px 6px;
   font-family: $font-system;
   font-size: 12px;
-  font-weight: normal;
+  font-weight: 500;
   line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #fff;
   background: rgba(0, 0, 0, 0.7);
-
-  @include tablet-up() {
-    padding: 4px 7px;
-    font-size: 16px;
-  }
-}
-
-.media-time-indicator--compact {
-  @include tablet-up() {
-    padding: 3px 6px;
-    font-size: 12px;
-  }
 }
