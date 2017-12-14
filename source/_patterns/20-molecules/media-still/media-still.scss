@@ -74,6 +74,15 @@
   }
 }
 
+.media-still--poll-submitted {
+  .image {
+    padding-bottom: 100%;
+  }
+
+  .media-still__indicator {
+    display: none;
+  }
+}
 
 // media-still--compact behaves like a media-still--video on desktop
 // but results in a square still without time indicator on mobile
