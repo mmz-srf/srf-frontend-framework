@@ -42,14 +42,6 @@
   }
 }
 
-.h-show-tablet-up {
-  display: none;
-
-  @include tablet-up {
-    display: inline-block;
-  }
-}
-
 .h-element--hide {
   display: none !important;
 }

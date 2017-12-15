@@ -21,6 +21,7 @@ export class SrfHeader {
 
         this.$menuButton = this.$element.find('.js-menu-button');
         this.menuIsOpen = false;
+        this.isInTransition = false;
 
         // A11Y
         this.$navigation = this.$element.find('.js-header-navigation');
@@ -47,7 +48,7 @@ export class SrfHeader {
         this.$menuButton.on('click', event => this.onMenuButtonClicked(event) );
         this.$menuButton.on('keydown', event => this.onMenuButtonKeyPressed(event));
 
-        $(document).on('click', event => this.onDocumentClicked(event) );
+        $(document).on('touchstart click', event => this.onDocumentClicked(event) );
 
         $(document).on('keydown.header', event => this.onKeyPressed(event));
 
@@ -63,8 +64,8 @@ export class SrfHeader {
      * @param e {jQuery.Event}
      */
     onDocumentClicked(e) {
-        if (!$.contains(this.$element[0], e.target)) {
-            this.closeIfOpen();
+        if (this.menuIsOpen && !$.contains(this.$element[0], e.target)) {
+            this.close();
         }
     }
 
@@ -77,8 +78,10 @@ export class SrfHeader {
     onMenuButtonClicked(e) {
         typeof e !== 'undefined' ? e.preventDefault() : null;
 
-        this.changeMenuState(!this.menuIsOpen);
-        return false;
+        if (!this.isInTransition) {
+            this.changeMenuState(!this.menuIsOpen);
+            return false;
+        }
     }
 
     /**
@@ -90,7 +93,7 @@ export class SrfHeader {
      * @return {boolean}
      */
     onMenuButtonKeyPressed(e) {
-        if (e.keyCode === KEYCODES.enter) {
+        if (e.keyCode === KEYCODES.enter && !this.isInTransition) {
             typeof e !== 'undefined' ? e.preventDefault() : null;
 
             this.changeMenuState(!this.menuIsOpen, true);
@@ -120,15 +123,25 @@ export class SrfHeader {
             this.$navigation.show();
 
             this.$element.addClass('header--open');
+
+            this.isInTransition = true;
+            this.$navigation.one('transitionend', () => {
+                $('html').toggleClass('menu--opened', this.menuIsOpen);
+                this.isInTransition = false;
+            });
         } else {
+            $('html').toggleClass('menu--opened', this.menuIsOpen);
+
+            window.scrollTo(0, 0);
+
             this.$element.removeClass('header--open');
 
+            this.isInTransition = true;
             this.$navigation.one('transitionend', () => {
                 this.$navigation.hide();
+                this.isInTransition = false;
             });
         }
-
-        $('html').toggleClass('menu--opened', this.menuIsOpen);
 
         this.setA11YProperties(this.menuIsOpen);
         this.menuToggleCallback(this.menuIsOpen);
