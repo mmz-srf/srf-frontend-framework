@@ -141,8 +141,12 @@
 
   .media-caption--video {
     padding: 8px 12px 12px;
-    height: 100%;
     justify-content: space-between;
+    width: 100%;
+  }
+
+  .medium__caption {
+    display: flex;
   }
 
   .media-caption--hover {
