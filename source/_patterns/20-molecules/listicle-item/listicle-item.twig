@@ -1,0 +1,38 @@
+<li class="listicle-item">
+    <h3 class="listicle-item__heading">1. {{ articleText.title }}</h3>
+    <div class="listicle-item__content">
+        {{ articleHeader.lead }}
+    </div>
+    <div class="listicle-item__media">
+        {% include 'molecules-image-figure' %}
+    </div>
+    <div class="listicle-item__content">
+        {{ articleText.text }}
+    </div>
+    <div class="listicle-item__link">
+        {% include 'atoms-block-link' with {'styleModifier': 'block-link--with-separator'} %}
+    </div>
+</li>
+<li class="listicle-item">
+    <h3 class="listicle-item__heading">2. {{ articleText.title }}</h3>
+    <div class="listicle-item__media">
+        {% include 'molecules-medium--vertical' %}
+    </div>
+    <div class="listicle-item__content">
+        {{ articleText.text }}
+    </div>
+    <div class="listicle-item__link">
+        {% include 'atoms-block-link' with {'styleModifier': 'block-link--external block-link--with-separator'} %}
+        {% include 'atoms-block-link' with {'styleModifier': 'block-link--pdf block-link--with-separator'} %}
+    </div>
+    {% include 'atoms-infoline' with {'styleModifier': 'infoline--nospacing', 'infolineSource': 'true', 'infolineElem': image.caption.source} %}
+</li>
+<li class="listicle-item">
+    <h3 class="listicle-item__heading">3. {{ articleText.title }}</h3>
+    <div class="listicle-item__media">
+        {% include 'molecules-medium' %}
+    </div>
+    <div class="listicle-item__content">
+        {{ articleText.text }}
+    </div>
+</li>
