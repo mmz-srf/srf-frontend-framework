@@ -5,8 +5,7 @@
   font-size: 12px;
   font-weight: 500;
   line-height: 1;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  @include font-smoothing;
   text-align: center;
   color: #fff;
   background: rgba(0, 0, 0, 0.7);
