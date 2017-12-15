@@ -79,13 +79,7 @@ $item-max-width: 400px;
 
 .swipemod-showall__title--extended {
   @include smartphone {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    margin: -1px;
-    padding: 0;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
+    @include offscreen-non-focusable;
   }
 }
 
