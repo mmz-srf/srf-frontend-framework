@@ -159,9 +159,9 @@ let chmapController = function() {
             if ($tooltip.find('p').length === 0) {
                 $tooltip.append('<img class="chmap-infowindow__img" alt=""/><p class="chmap-infowindow__text"></p>');
             }
-            $tooltip.find('img').attr('src', '').addClass('chmap-tooltip__img--hide');
+            $tooltip.find('img').attr('src', '').addClass('h-element--hide');
             if (canton.img !== '' && canton.img !== false) {
-                $tooltip.find('img').attr('src', canton.img).removeClass('chmap-tooltip__img--hide');
+                $tooltip.find('img').attr('src', canton.img).removeClass('h-element--hide');
             }
             let legend = '';
             if (canton.legend !== '') {
