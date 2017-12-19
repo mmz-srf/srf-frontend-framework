@@ -37,8 +37,7 @@
     // hamburger:
     background-position: -13px -14px;
     background-size: 42px;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    @include font-smoothing;
   }
 }
 
