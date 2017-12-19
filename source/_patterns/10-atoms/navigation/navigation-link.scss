@@ -33,11 +33,15 @@
 }
 
 .navigation-link__img {
-  flex: 0 0 0;
+  flex: 0 0 auto;
   align-self: center;
   height: 24px;
-  width: auto;
+  width: 24px;
   margin-right: 8px;
+}
+
+.navigation-link__img--wide {
+  width: 72px;
 }
 
 .navigation-link__text {

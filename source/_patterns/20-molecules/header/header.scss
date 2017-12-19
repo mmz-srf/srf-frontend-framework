@@ -10,7 +10,7 @@ $header-height-tablet-up: 56px;
 }
 
 .header--open {
-  @tablet-up {
+  @include tablet-up {
     background-color: rgba(0, 0, 0, 0.08);
   }
   height: 100%;

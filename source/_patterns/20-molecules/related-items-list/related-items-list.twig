@@ -1,0 +1,34 @@
+<div class="related-items-list">
+    <h2 class="related-items-list__heading">
+        {{ 'Sendungen zu diesem Artikel' }}
+    </h2>
+
+    <ul class="related-items-list__list">
+
+        <li class="related-items-list__item">
+            <div class="related-items-list__media-window">
+                {% include 'molecules-media-window' %}
+            </div>
+            <div class="related-items-list__content">
+                {% include 'molecules-medium--related-items' with { 'mediumType': 'video'} %}
+            </div>
+        </li>
+
+        <li class="related-items-list__item">
+            <div class="related-items-list__media-window">
+                {% include 'molecules-media-window' %}
+            </div>
+            <div class="related-items-list__content">
+                {% include 'molecules-medium--related-items' with { 'mediumType': 'video'} %}
+            </div>
+            {% include 'molecules-linkbox' with {'styleModifier': 'linkbox--related', 'title': 'Unterrichtsmaterialien'} %}
+        </li>
+
+        <li class="related-items-list__item">
+            <div class="related-items-list__content">
+                {% include 'molecules-medium--related-items' with { 'mediumType': 'audio'} %}
+            </div>
+        </li>
+
+    </ul>
+</div>
