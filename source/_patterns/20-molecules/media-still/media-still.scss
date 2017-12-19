@@ -3,12 +3,8 @@
 }
 
 .media-still__image {
-  transition: filter 200ms $easing-in-out-standard;
-  transform: translateZ(0); // avoids blurring/jumping during transition for safari
-  backface-visibility: hidden;
-
   &:hover {
-    filter: brightness(0.9); // does not work in IE, but we accept that
+    opacity: 0.9;
   }
 }
 
@@ -22,16 +18,9 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 20%;
+  width: 22.5%;
   max-width: 64px;
-  max-height: 64px;
-  min-width: 48px;
-  min-height: 48px;
-
-  @include smartphone {
-    min-width: 40px;
-    min-height: 40px;
-  }
+  min-width: 36px;
 }
 
 .media-still__indicator {
@@ -39,11 +28,6 @@
   bottom: 8px;
   right: 8px;
   line-height: 1;
-
-  @include tablet-up {
-    bottom: 16px;
-    right: 16px;
-  }
 }
 
 .media-still--video,
@@ -87,12 +71,6 @@
 // media-still--compact behaves like a media-still--video on desktop
 // but results in a square still without time indicator on mobile
 .media-still--compact {
-
-  .media-still__indicator {
-    bottom: 8px;
-    right: 8px;
-  }
-
   @include smartphone {
     position: relative;
 

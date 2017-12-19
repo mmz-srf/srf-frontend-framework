@@ -103,6 +103,11 @@
   }
 }
 
+@mixin font-smoothing {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 @mixin spinner($line-width: 1px, $dash-color: #e31f2b, $bg-color: #dadad2, $parent-color: #4e4d47) {
 
   position: relative;
@@ -167,4 +172,15 @@
 @keyframes rotateAnimation {
   0% {   transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
+}
+
+@mixin forceSquareAspectRatio()  {
+  &::before {
+    content: "";
+    width: 1px;
+    margin-left: -1px;
+    float: left;
+    height: 0;
+    padding-top: 100%;
+  }
 }

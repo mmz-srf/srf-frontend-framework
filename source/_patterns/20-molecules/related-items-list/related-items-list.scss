@@ -48,6 +48,8 @@
 }
 
 .related-items-list__media-window {
+  margin-left: -16px;
+
   @include smartphone {
     margin-left: -4px;
     padding-right: 16px;

@@ -15,7 +15,10 @@ function objectFitForIE() {
                 imageClasses = oldImg.className;
 
             oldImg.style.display = 'none';
-            fakeImg.style.backgroundSize = objectFitVal;
+
+            if (imageSource.indexOf('Placeholder-16to9.svg') < 0) {
+                fakeImg.style.backgroundSize = objectFitVal;
+            }
             fakeImg.style.backgroundImage = 'url(' + imageSource + ')';
             fakeImg.style.backgroundPosition = 'center center';
             fakeImg.style.backgroundRepeat = 'no-repeat';
