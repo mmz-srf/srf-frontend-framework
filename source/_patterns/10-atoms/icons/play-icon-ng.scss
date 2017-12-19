@@ -46,16 +46,7 @@ $color-play-icon-hover:  #e31f2b;
   }
 
   /* forcing 1:1 aspect ratio */
-  &::before {
-    content: "";
-    width: 1px;
-    margin-left: -1px;
-    float: left;
-    height: 0;
-    padding-top: 100%;
-  }
-
-
+  @include forceSquareAspectRatio;
 }
 
 .play-icon-ng--audio {
