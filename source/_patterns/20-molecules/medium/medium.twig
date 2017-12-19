@@ -5,11 +5,7 @@
             {% include 'molecules-media-still' with { 'styleModifier' : '' } %}
         </div>
         <div class="medium__caption">
-            {% if mediumType is 'audio' %}
-                {% include 'molecules-media-caption-audio' with { 'styleModifier' : '' } %}
-            {% elseif mediumType is 'video' %}
-                {% include 'molecules-media-caption-video' with { 'styleModifier' : '' } %}
-            {% endif %}
+            {% include 'molecules-media-caption-' ~ mediumType with { 'styleModifier' : '' } %}
         </div>
         <div class="medium__player-wrapper">
             {% include 'atoms-player-wrapper' %}

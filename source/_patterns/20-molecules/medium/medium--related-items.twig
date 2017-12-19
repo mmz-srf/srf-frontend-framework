@@ -5,11 +5,7 @@
             {% include 'molecules-media-still' with { 'mediumType': mediumType } %}
         </div>
         <div class="medium__caption">
-            {% if mediumType is 'audio' %}
-                {% include 'molecules-media-caption-audio' with { 'styleModifier' : 'media-caption--related-items', 'usePseudoLink': true } %}
-            {% elseif mediumType is 'video' %}
-                {% include 'molecules-media-caption-video' with { 'styleModifier' : 'media-caption--related-items', 'usePseudoLink': true } %}
-            {% endif %}
+            {% include 'molecules-media-caption-' ~ mediumType with { 'styleModifier' : 'media-caption--related-items', 'usePseudoLink': true } %}
         </div>
     </div>
 </a>
