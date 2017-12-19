@@ -24,7 +24,9 @@ $color-play-icon-hover:  #e31f2b;
   border: 0 solid rgba(0, 0, 0, 0);
   border-radius: 50%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.24), 0 0 8px 0 rgba(0, 0, 0, 0.12);
-  transform-origin: center;
+  transform: scale3d(1.00, 1.00, 1.00) rotate(0deg);
+  backface-visibility: hidden;
+  perspective: 1000px;
   transition: transform 200ms linear;
 
   &:hover {
@@ -38,7 +40,7 @@ $color-play-icon-hover:  #e31f2b;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.24), 0 0 8px 0 rgba(0, 0, 0, 0.12);
     /* the rotation was added to fix shaky zoom movements in firefox
        @see https://gielberkers.com/how-to-fix-shaking-css-transitions-in-firefox */
-    transform: scale(1.04) rotate(0.02deg);
+    transform: scale3d(1.04, 1.04, 1.00) rotate(0.02deg);
   }
 
   &:active {
