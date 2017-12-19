@@ -5,7 +5,11 @@
             {% include 'molecules-media-still--compact' with { 'styleModifier' : 'media-still--compact' } %}
         </div>
         <div class="medium__caption">
-            {% include 'molecules-media-caption-' ~ mediumType with { 'styleModifier' : 'media-caption--compact' } %}
+          {% if mediumType == 'audio' %}
+            {% include 'molecules-media-caption-audio' with { 'styleModifier' : 'media-caption--compact' } %}
+          {% elseif mediumType == 'video' %}
+            {% include 'molecules-media-caption-video' with { 'styleModifier' : 'media-caption--compact' } %}
+          {% endif %}
         </div>
     </div>
 </a>
