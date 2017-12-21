@@ -8,7 +8,7 @@
             {% if mediumType == 'audio' %}
                 {% include 'molecules-media-caption-audio' with { 'styleModifier' : 'media-caption--related-items', 'usePseudoLink': true } %}
             {% elseif mediumType == 'video' %}
-                {% include 'molecules-media-caption-video' with { 'styleModifier' : 'media-caption--related-items', 'usePseudoLink': true } %}
+                {% include 'molecules-media-caption-video' with { 'styleModifier' : 'media-caption--related-items media-caption--related-items--video', 'usePseudoLink': true } %}
             {% endif %}
         </div>
     </div>
