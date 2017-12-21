@@ -168,3 +168,14 @@
   0% {   transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
+
+@mixin offscreen-non-focusable {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
