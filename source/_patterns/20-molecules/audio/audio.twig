@@ -29,10 +29,6 @@
                     {% include 'atoms-play-icon' with {'media': 'audio'} %}
                 {% endblock %}
 
-                {% block loading_spinner %}
-                    {% include 'atoms-spinner-container' with { 'styleModifier' : 'spinner__circle--dash-white' } %}
-                {% endblock %}
-
             </div>
             {% block audio_caption %}
                 <figcaption class="media-caption media-caption--audio">

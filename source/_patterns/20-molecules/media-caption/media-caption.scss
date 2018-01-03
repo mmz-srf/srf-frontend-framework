@@ -1,10 +1,10 @@
 .media-caption {
   padding: 12px 16px;
-  background-color: $color-bg-caption;
   font: 16px/24px $font-light;
   color: $color-text-default;
   display: flex;
   flex-direction: column;
+  background-color: transparent;
 
   @include smartphone {
     padding: 12px 24px;
@@ -16,8 +16,7 @@
   background-color: $color-bg-box;
 }
 
-.media-caption--no-bg {
-  background-color: transparent;
+.media-caption--with-separator {
   border-bottom: 1px solid #cac8bf;
 }
 
@@ -64,37 +63,6 @@
   }
 }
 
-.media-caption--video-related-episodes {
-  display: block;
-  min-height: 112px;
-  padding: 12px;
-  background-color: transparent;
-
-  @include tablet-up {
-    padding: 16px;
-  }
-
-  .media-caption__title--video {
-    color: $color-text-default;
-    margin-bottom: 4px;
-  }
-
-  .media-caption__source--video {
-    text-transform: none;
-  }
-}
-
-.media-caption--audio {
-  margin: 12px 24px 12px 12px;
-  padding: 0;
-  background-color: transparent; // is defined by the audio component
-  flex: 1;
-
-  @include tablet-up {
-    margin: 16px;
-  }
-}
-
 .media-caption__title--audio {
   color: $color-text-default;
   margin-bottom: 4px;
@@ -105,13 +73,6 @@
 
   .media-caption__source-title {
     color: $color-text-accentuation;
-  }
-}
-
-// overwrite :(
-.audio-gallery {
-  .media-caption--audio {
-    height: auto;
   }
 }
 
@@ -156,5 +117,67 @@
     width: 33%;
     float: left;
     margin-right: 16px;
+  }
+}
+
+.media-caption--active {
+  .media-caption__title {
+    color: $color-bg-caption;
+  }
+
+  .media-caption__source,
+  .media-caption__source-title {
+    color: $color-border;
+  }
+
+  .media-caption__title,
+  .media-caption__source,
+  .media-caption__source-title {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  &.media-caption--hover {
+    transition: none;
+    background-color: transparent;
+  }
+}
+
+.media-caption--compact {
+  padding-top: 4px;
+  padding-bottom: 4px;
+
+  .media-caption__title {
+    display: none;
+  }
+
+  @include smartphone {
+    display: none;
+  }
+
+}
+
+.media-caption--related-items {
+  padding: 0 12px;
+  background-color: transparent;
+
+  @include tablet-up {
+    padding: 0 16px;
+  }
+
+  &.media-caption--hover,
+  &.media-caption--hover:active,
+  &.media-caption--hover:focus
+   {
+    background-color: transparent;
+  }
+
+  .media-caption__title--video {
+    color: $color-text-default;
+    margin-bottom: 4px;
+  }
+
+  .media-caption__source--video {
+    text-transform: none;
   }
 }

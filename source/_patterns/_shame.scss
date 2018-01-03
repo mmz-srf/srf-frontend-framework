@@ -1,0 +1,29 @@
+/*
+ * This file exists solely for nasty browser hacks, fallbacks and fixes.
+ *
+ * It is envisaged that we DELETE the code-snippets as soon as support for each targeted browser is deprecated.
+ * Therefore watch out for the «TARGETED BROWSER»-comments at the beginning of each function in this file.
+ */
+
+
+
+
+/*
+ * TARGETED BROWSER: IE 11 and Edge <= 15
+ *
+ * This styles are needed for image--media-still classes on which the object-fit-fallback of srf-shame.js is applied.
+ * Parents of elements with those classes usually restrict the aspect ratio of its box. Without the following rules
+ * the hight of the fallback-<div> would be 0.
+ *
+ */
+.image--media-still,
+.image--media-still-video {
+    & > div {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+}

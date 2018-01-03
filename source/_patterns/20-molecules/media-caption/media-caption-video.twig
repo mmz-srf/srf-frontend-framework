@@ -1,6 +1,12 @@
-<figcaption class="media-caption media-caption--video{{ styleModifier == 'RelatedEpisodes' ? '-related-episodes' : '' }}">
+<div class="media-caption media-caption--video {{ styleModifier }}">
     <span class="h-offscreen">Video «</span>
     <div class="media-caption__title media-caption__title--video">{{ video.title }}</div>
-    <div class="media-caption__source media-caption__source--video">Aus <strong class="media-caption__source-title">{{ video.show.title }}</strong> vom {{ video.show.date|date("d.m.Y") }}</div>
+    <div class="media-caption__source media-caption__source--video">Aus
+    {% if usePseudoLink is defined %}
+        {% include 'atoms-pseudo-link' with { 'linkText': video.show.title } %}
+    {% else %}
+        <strong class="media-caption__source-title">{{ video.show.title }}</strong>
+    {% endif %}
+    vom {{ video.show.date|date("d.m.Y") }}</div>
     <span class="h-offscreen">» abspielen, Video wird im Player abgespielt</span>
-</figcaption>
+</div>

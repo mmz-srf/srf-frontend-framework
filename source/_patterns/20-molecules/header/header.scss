@@ -10,7 +10,7 @@ $header-height-tablet-up: 56px;
 }
 
 .header--open {
-  @tablet-up {
+  @include tablet-up {
     background-color: rgba(0, 0, 0, 0.08);
   }
   height: 100%;
@@ -110,6 +110,12 @@ $header-height-tablet-up: 56px;
 
   .header--open & {
     color: #ffffff;
+  }
+}
+
+.menu-button__text {
+  @include smartphone {
+    display: none;
   }
 }
 
@@ -320,4 +326,13 @@ $header-height-tablet-up: 56px;
       display: block;
     }
   }
+
+  .search--overlay .header-navigation {
+    margin-top: $header-height;
+
+    @include tablet-up {
+      margin-top: $header-height-tablet-up;
+    }
+  }
 }
+
