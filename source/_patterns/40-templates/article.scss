@@ -6,7 +6,7 @@
     padding: 0 32px;
   }
 
-  @include desktop {
+  @include desktop-up {
     padding: 0 40px;
     max-width: 792px;
   }
