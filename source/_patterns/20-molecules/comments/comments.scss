@@ -400,20 +400,19 @@
   }
 }
 
+.comment__standalone-wrapper {
+  padding: 0 16px;
+  @include smartphone {
+    padding: 0;
+  }
+}
 /// replies (interactive commenting)
 .reply-container { // form
   background: transparent;
   margin-bottom: 36px;
   position: relative;
-
-  &.reply-container__anonymous {
-    padding: 0 16px;
-  }
   @include smartphone {
     margin: 0 0 36px 16px;
-    &.reply-container__anonymous {
-      padding: 0;
-    }
   }
 
   &::before {
