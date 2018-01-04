@@ -3,10 +3,10 @@
   background-color: $color-bg-box;
   overflow: hidden;
   font-size: 18px;
-
+  padding-top: 24px;
   @include smartphone {
     margin: 32px 8px;
-    padding: 0 8px;
+    padding: 16px 8px 0;
     font-size: 16px;
   }
 }
@@ -33,7 +33,7 @@
 
 .textbox__title {
   padding: 0 8px;
-  margin: 24px 0 12px;
+  margin: 0px 0 12px;
   font-family: $font-medium;
   font-size: 20px;
   line-height: 32px;
