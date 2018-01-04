@@ -10,7 +10,9 @@ $header-height-tablet-up: 56px;
 }
 
 .header--open {
-  background-color: rgba(0, 0, 0, 0.08);
+  @include tablet-up {
+    background-color: rgba(0, 0, 0, 0.08);
+  }
   height: 100%;
 }
 
@@ -108,6 +110,12 @@ $header-height-tablet-up: 56px;
 
   .header--open & {
     color: #ffffff;
+  }
+}
+
+.menu-button__text {
+  @include smartphone {
+    display: none;
   }
 }
 
@@ -250,31 +258,81 @@ $header-height-tablet-up: 56px;
   z-index: 100001;
   transform: translateY(-100%);
 
-  // Make header-content scrollable but prevent <-> scrollbars on IE etc.
-  overflow-y: auto;
-  overflow-x: hidden;
-
-  max-height: calc(100vh - #{$header-height});
-
-  @include tablet-up {
+  @include desktop-up {
     max-height: calc(100vh - #{$header-height-tablet-up});
+
+    // Make header-content scrollable but prevent <-> scrollbars on IE etc.
+    overflow-y: auto;
+    overflow-x: hidden;
   }
 }
 
-.header--open .header-navigation {
-  transform: translateY(0);
-}
-
 .header--open {
-  .menu-button__a11y-open  { display: none; }
-  .menu-button__a11y-close { display: block; }
+  .header-navigation {
+    transform: translateY(0);
+  }
+
+  .header-bar {
+    position: fixed;
+    width: 100%;
+    top: 0;
+  }
+
+  @include smartphone {
+    .header-navigation {
+      min-height: calc(100vh - #{$header-height});
+      margin-top: #{$header-height};
+    }
+  }
+
+  .menu-button__a11y-open {
+    display: none;
+  }
+
+  .menu-button__a11y-close {
+    display: block;
+  }
 }
 
-.menu-button__a11y-open  { display: block; }
-.menu-button__a11y-close { display: none; }
+.menu-button__a11y-open {
+  display: block;
+}
 
+.menu-button__a11y-close {
+  display: none;
+}
 
-// Prevent scrolling the page when the menu is opened
 .menu--opened {
-  overflow: hidden;
+  @include desktop-up {
+    overflow: hidden;
+  }
+
+  @include tablet-up {
+    body {
+      position: relative;
+    }
+  }
+
+  @include smartphone {
+    body {
+      background-color: #333333;
+    }
+
+    body > * {
+      display: none;
+    }
+
+    body > .header {
+      display: block;
+    }
+  }
+
+  .search--overlay .header-navigation {
+    margin-top: $header-height;
+
+    @include tablet-up {
+      margin-top: $header-height-tablet-up;
+    }
+  }
 }
+

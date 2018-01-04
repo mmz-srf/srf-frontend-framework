@@ -13,7 +13,7 @@ let commentController = function () {
 
     this.init = function () {
 
-        $('.comments-wrapper').on('keyup focus', '.reply__textarea', function (e) {
+        $('.js-article-comments').on('keyup focus', '.reply__textarea', function (e) {
             that.countChars($(this));
         }).on('focusin', '.reply__textarea', function () {
             $('.reply').addClass('reply--on-focus');
@@ -28,7 +28,7 @@ let commentController = function () {
 
     this.countChars = function ($textarea) {
         let len = $textarea.val().length
-            , $button = $('.comments-wrapper .button');
+            , $button = $('.js-article-comments .button');
 
         // count up available chars
         $('.js-comment-count-up').text(this.max_input - len);

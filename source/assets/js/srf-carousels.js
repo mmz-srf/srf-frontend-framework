@@ -2,8 +2,11 @@ let $carousels = [];
 let loadedCarousels = {};
 let slidesPerScreen = 1;
 let currentElement = null;
+let keycodes = {
+    enter: 13
+};
 let css = {
-    'containers': '.carousel__js',
+    'containers': '.js-carousel',
     'handles': '.carousel__link--next, .carousel__link--prev'
 };
 
@@ -19,16 +22,8 @@ export function init() {
     $.each($carousels, function (i, carousel) {
         let $carousel = $(carousel),
             id = $carousel.attr('id'),
-            textNextImage = $carousel.data('i18n-text-next-images'),
-            textPreviousImage = $carousel.data('i18n-text-next-images');
-
-        if (!textNextImage) {
-            textNextImage = 'Nächstes Bild';
-        }
-
-        if (!textPreviousImage) {
-            textPreviousImage = 'Vorhergehendes Bild';
-        }
+            textNextImage = $carousel.data('i18n-text-next-images') || 'Nächstes Bild',
+            textPreviousImage = $carousel.data('i18n-text-next-images') || 'Vorhergehendes Bild';
 
         loadedCarousels[id] = false;
 
@@ -38,41 +33,33 @@ export function init() {
             infinite: false,
             accessibility: false,
             focusOnChange: false,
-            appendArrows: '#' + id + ' .slick-list',
-            prevArrow: '<button class="carousel__link--prev"><span class="h-offscreen h-offscreen-focusable">' + textPreviousImage + '</span></button>',
-            nextArrow: '<button class="carousel__link--next carousel__link--waggle"><span class="h-offscreen h-offscreen-focusable"> + textNextImage + </span></button>',
-            slide: '.carousel__item'
+            appendArrows: `#${id} .slick-list`,
+            prevArrow: `<button class="carousel__link--prev"><span class="h-offscreen h-offscreen-focusable">${textPreviousImage}</span></button>`,
+            nextArrow: `<button class="carousel__link--next carousel__link--waggle"><span class="h-offscreen h-offscreen-focusable">${textNextImage}</span></button>`,
+            slide: '.js-carousel-item'
         });
         registerListener($carousel);
     });
 
     // video carousels
-    $('.video_carousel__js').on('init', function (slick) {
+    $('.js-video-gallery').on('init', function (slick) {
         $(this).css('visibility', 'visible');
         // triggering a "recalculation of dots" (via "setPosition" below)
         $(window).trigger('resize');
     });
 
     // video carousel:
-    $.each($('.video_carousel__js'), function (i, carousel) {
+    $.each($('.js-video-gallery'), function (i, carousel) {
         let $carousel = $(carousel),
             id = $carousel.attr('id'),
-            textNextSlide = $carousel.data('i18n-text-next-slide'),
-            textPreviousSlide = $carousel.data('i18n-text-next-slide');
-
-        if (!textNextSlide) {
-            textNextSlide = 'Nächster Slide';
-        }
-
-        if (!textPreviousSlide) {
-            textPreviousSlide = 'Vorhergehender Slide';
-        }
+            textNextSlide = $carousel.data('i18n-text-next-slide') || 'Nächster Slide',
+            textPreviousSlide = $carousel.data('i18n-text-next-slide') || 'Vorhergehender Slide';
 
         loadedCarousels[id] = false;
 
         $carousel.slick({
             infinite: false,
-            slide: '.carousel__item',
+            slide: '.js-carousel-item',
             slidesToShow: 1, // we need all dots - initially
             slidesToScroll: 1,
             accessibility: false,
@@ -81,15 +68,15 @@ export function init() {
             dots: true,
             centerPadding: 0,
             variableWidth: true,
-            prevArrow: '<button class="carousel__link--prev"><span class="h-offscreen h-offscreen-focusable">' + textPreviousSlide + '</span></button>',
-            nextArrow: '<button class="carousel__link--next"><span class="h-offscreen h-offscreen-focusable">' + textNextSlide + '</span></button>'
+            prevArrow: `<button class="carousel__link--prev"><span class="h-offscreen h-offscreen-focusable">${textPreviousSlide}</span></button>`,
+            nextArrow: `<button class="carousel__link--next"><span class="h-offscreen h-offscreen-focusable">${textNextSlide}</span></button>`
         });
     });
 
     // "position change" (resize page or "activate" slider in any way)
-    $('.video_carousel__js').on('setPosition', function (slick) {
-        slidesPerScreen = getNumberOfSlidesPerScreen(1);
-        let slidesToShow = slidesPerScreen, // mobile : 1
+    $('.js-video-gallery').on('setPosition', function (slick) {
+        slidesPerScreen = getNumberOfSlidesPerScreen();
+        let slidesToShow = slidesPerScreen,
             $carousel = $(this),
             currentSlide = $carousel.slick('slickCurrentSlide');
 
@@ -101,7 +88,7 @@ export function init() {
 
         // if previous num. of slides shown != the num. we'll see now (window resize)
         if ($carousel.slick('slickGetOption', 'slidesToShow') != slidesToShow) {
-            let screensToShow = Math.ceil($carousel.find('.carousel__item').length / slidesToShow);
+            let screensToShow = Math.ceil($carousel.find('.js-carousel-item').length / slidesToShow);
 
             // desktop / more than one slide / arrows displayed
             if (slidesToShow > 1) {
@@ -114,7 +101,7 @@ export function init() {
                 }
 
                 // disabling dots if arrows present (accessibility)
-                disableDots($carousel);
+                hideDotsFromScreenReader($carousel);
 
                 // no right arrow when at the rightmost position within the carousel
                 handleRightArrow($carousel, currentSlide, screensToShow);
@@ -128,48 +115,51 @@ export function init() {
             $carousel.slick('slickSetOption', 'slidesToScroll', slidesToShow, false);
         }
 
-        // unhide the following slidesToShow - 1 from screenreaders as well:
-        let currentPage = Math.floor(currentElement / slidesPerScreen) + 1;
-
         // remove not currently visible slides from tabindex
-        let to = (slidesPerScreen * currentPage) - 1; // zero indexed
-        let from = to - (slidesPerScreen - 1);
+        changeTabIndexIfNotVisible($carousel, slidesPerScreen, currentElement);
 
-        $carousel.find('.carousel__item').each(function (i) {
-            i >= from && i <= to
-                ? $(this).attr('aria-hidden', false).find('.article-video__link').attr('tabindex', 0)
-                : $(this).attr('aria-hidden', true).find('.article-video__link').attr('tabindex', -1);
-        });
-
-    }).on('afterChange', function (slick, currentSlide) { // instead of: ... .on('keyup', '.carousel__link--next', function (e) {
+    }).on('afterChange', function (slick, currentSlide) {
         // as soon as slick's ready, we put the focus on the current elm
         if (slidesPerScreen > 1) {
-            $(this).find('.slick-current .article-video__link').focus();
+            $(this).find('.slick-current > a').focus();
         }
-    }).on('click', '.article-video__link', function (e) {
+    }).on('click', 'a', function (e) {
         // unfortunately $carousel.slick('slickSetOption', 'focusOnSelect', ...); cannot be set 'on the fly' :/
 
         if (e.type == 'click' && slidesPerScreen === 1) {
             /// vo has a crazy problem: it fires click for the video left to the 'selected' one - from the 3rd on
             gotTo($(this)); // enable selecting 'barely visible next video'
         }
-    }).on('keyup', '.article-video__link', function (e) {
+    }).on('keyup', 'a', function (e) {
         // someone is tabbing => clicked <enter> (desktop)
-        if (e.keyCode === 13) {
+        if (e.keyCode === keycodes.enter) {
             $(this).trigger('click');
         }
     }).on('keyup', '.carousel__link--next', function (e) { // this is too late!
         // someone is tabbing => clicked <enter> on the arrow going to the next page
-        if (e.keyCode === 13) {
+        if (e.keyCode === keycodes.enter) {
             // we select the first video-link available on the page
-            $(this).closest('.video_carousel__js').find('.slick-current .article-video__link').focus();
+            $(this).closest('.js-video-gallery').find('.slick-current > a').focus();
         }
     });
 }
 
+function changeTabIndexIfNotVisible($carousel, slidesPerScreen, currentElement) {
+    // unhide the following slidesToShow - 1 from screenreaders as well:
+    let currentPage = Math.floor(currentElement / slidesPerScreen) + 1,
+        to = (slidesPerScreen * currentPage) - 1, // zero indexed
+        from = to - (slidesPerScreen - 1);
+
+    $carousel.find('.js-carousel-item').each((i, carouselItem) => {
+        let isVisible = i >= from && i <= to;
+
+        $(carouselItem).attr('aria-hidden', !isVisible).find('a').attr('tabindex', isVisible ? 0 : -1);
+    });
+}
+
 function gotTo($selectedLink) {
-    $selectedLink.closest('.video_carousel__js')
-        .slick('slickGoTo', $selectedLink.closest('.carousel__item').data('slick-index'));
+    $selectedLink.closest('.js-video-gallery')
+        .slick('slickGoTo', $selectedLink.closest('.js-carousel-item').data('slick-index'));
 }
 
 function registerListener($carousel) {
@@ -179,29 +169,29 @@ function registerListener($carousel) {
             loadedCarousels[$carousel.attr('id')] = true;
             loadLazyImages(slick.$slides.find('.image-figure__js'));
         }
-    });
-
-    $carousel.on('swipe', function (event, slick, direction) {
+    }).on('swipe', function (event, slick, direction) {
         // on 'interacting' with the carousel => no more animation
         $(this).find('.carousel__link--next').removeClass('carousel__link--waggle');
     });
 
     $carousel.find(css.handles).on('touchstart mousedown mouseenter', function () {
-        $(this).removeClass('untouched');
         // if the handles are clicked / touched: stop the animation
-        $(this).removeClass('carousel__link--waggle');
+        $(this).removeClass('untouched carousel__link--waggle');
     }).on('touchend touchcancel', function () {
         $(this).addClass('untouched');
     });
 }
 
-function loadLazyImages(images) {
-    images.each(function (i, image) {
+function loadLazyImages($images) {
+    $images.each((i, image) => {
         let $image = $(image);
+
         if ($image.data('src')) {
-            $image.attr('srcset', $image.data('srcset'));
-            $image.attr('sizes', $image.data('sizes'));
-            $image.attr('src', $image.data('src'));
+            $image.attr({
+                'srcset':  $image.data('srcset'),
+                'sizes': $image.data('sizes'),
+                'src': $image.data('src')
+            });
         }
     });
 }
@@ -220,42 +210,52 @@ function rePaintDots($carousel, screensToShow) {
 }
 
 function addTextToDots($carousel) {
-    // adding text to dots
     $carousel.find('.slick-dots li').each(function (i) {
-        let $elm = $(this);
-        // reenabling buttons (after slick) for mobile :/
-        $elm.find('button').text($elm.hasClass('slick-active') // and provide textual info
-            ? $carousel.data('dot-current')
-            : (i + 1) + '. ' + $carousel.data('dot-info')
-        ); // button (dot)
+        let $elm = $(this),
+            dotText = $elm.hasClass('slick-active') ? $carousel.data('dot-current') : `${i+1}. ${$carousel.data('dot-info')}`;
+
+        $elm.find('button').text(dotText);
 
         // reenabling dots for mobile
-        if (slidesPerScreen == 1) {
-            enableDots($elm);
+        if (slidesPerScreen === 1) {
+            showDotsToScreenReader($elm);
         }
-    }); // this is silly and not informative :/
+    });
 }
 
-function enableDots($list) {
-    $list.attr('aria-hidden', false).find('button')
-        .attr('tabindex', '0').attr('aria-hidden', false).attr('role', 'button'); // li
+function showDotsToScreenReader($list) {
+    $list.attr('aria-hidden', false).find('button').attr({
+        'tabindex': '0',
+        'aria-hidden': false,
+        'role': 'button'
+    });
 }
 
-function disableDots($carousel) {
-    $carousel.find('.slick-dots button').attr('tabindex', '-1')
-        .attr('aria-hidden', true).attr('role', 'presentation');
+function hideDotsFromScreenReader($carousel) {
+    $carousel.find('.slick-dots button').attr({
+        'tabindex': '-1',
+        'aria-hidden': true,
+        'role': 'presentation'
+    });
 }
 
+/**
+ * The right arrow (>) of the carousel should be hidden if the last "page" was reached.
+ *
+ * @param $carousel
+ * @param currentSlide
+ * @param screensToShow
+ */
 function handleRightArrow($carousel, currentSlide, screensToShow) {
-    if ((currentSlide + 1) == screensToShow) {
-        $carousel.find('.carousel__link--next').addClass('h-element--hide').attr('aria-disabled', true);
-    } else {
-        $carousel.find('.carousel__link--next').removeClass('h-element--hide').attr('aria-disabled', false);
-    }
+    let hideRightArrow = (currentSlide + 1) === screensToShow;
+
+    $carousel.find('.carousel__link--next')
+        .toggleClass('h-element--hide', hideRightArrow)
+        .attr('aria-disabled', hideRightArrow);
 }
 
-function getNumberOfSlidesPerScreen(slidesToShow = 1) {
-    // let slidesToShow = 1; // mobile
+function getNumberOfSlidesPerScreen() {
+    let slidesToShow = 1; // mobile
 
     if (matchMedia('screen and (min-width: 720px) and (max-width: 1023px)').matches) {
         slidesToShow = 2; // tablet

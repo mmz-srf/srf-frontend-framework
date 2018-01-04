@@ -1,15 +1,28 @@
 export function init() {
+    /**
+     * this is taken directly from Stackoverflow
+     * @see https://stackoverflow.com/questions/25012775/amcharts-ready-is-not-ready-when-loaded-asynchronously
+     */
     if (typeof AmCharts !== 'undefined') {
         if (AmCharts.isReady) {
             $('.chart').each(function () {
                 loadChart($(this));
             });
         } else {
-            AmCharts.ready(function () {
-                $('.chart').each(function () {
-                    loadChart($(this));
-                });
-            });
+            //this is messy, as AmCharts doesn't properly support async loading
+            let amChartLoadingInterval = window.setInterval(function() {
+                if (AmCharts.isReady) {
+                    window.clearInterval(amChartLoadingInterval);
+                    if (!AmCharts.loadedAsyc) {
+                        AmCharts.loadedAsyc = true;
+                        $('.chart').each(function () {
+                            loadChart($(this));
+                        });
+                    }
+                } else {
+                    AmCharts.handleLoad();
+                }
+            }, 500);
         }
     }
 }

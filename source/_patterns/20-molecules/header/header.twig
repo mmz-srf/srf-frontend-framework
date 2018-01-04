@@ -19,7 +19,7 @@
           <span></span>
           <span></span>
         </div>
-        <span class="menu-button__text h-show-tablet-up" aria-hidden="true" role="presentation">Menü</span>
+        <span class="menu-button__text" aria-hidden="true" role="presentation">Menü</span>
         <span class="menu-button__a11y-open h-offscreen">Menu öffnen</span>
         <span class="menu-button__a11y-close h-offscreen">Menu schliessen</span>
       </a>
@@ -29,7 +29,7 @@
   <div class="header-navigation js-header-navigation" aria-hidden="true" role="presentation">
     <div class="header-navigation-wrapper l-main-wrapper">
       {% block navigation %}
-        {% include 'molecules-navigation' with {'styleModifier': 'navigation--header'} %}
+        {% include 'molecules-navigation' with {'styleModifier': 'navigation--header', 'id': 'navigation--header'} %}
       {% endblock %}
     </div>
   </div>

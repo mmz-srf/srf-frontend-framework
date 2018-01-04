@@ -24,6 +24,52 @@
   }
 }
 
+.block-link--with-separator {
+  padding-right: 48px;
+  width: auto;
+  border-top: 1px solid $color-separator;
+  border-bottom: 1px solid $color-separator;
+
+  &:hover,
+  &:focus,
+  &:active {
+    width: auto;
+    border-top: 1px solid $color-separator;
+    border-bottom: 1px solid $color-separator;
+
+    padding-left: 24px;
+    margin-left: -24px;
+
+    background-color: $color-link-bg-hover;
+  }
+
+  @include tablet-up {
+    padding-left: 0;
+    padding-right: 42px;
+
+    &:hover,
+    &:focus,
+    &:active {
+      padding-left: 16px;
+      margin-left: -16px;
+    }
+  }
+
+  // handling lines between two or more adjacent block-links
+  & + & {
+    border-top: 1px solid transparent;
+
+    &:hover,
+    &:focus,
+    &:active {
+      margin-top: -1px;
+      padding-top: 13px;
+      border-top: 1px solid $color-separator;
+    }
+  }
+
+}
+
 .block-link--external {
   background-image: url('../img/linktypes/external.svg');
 }

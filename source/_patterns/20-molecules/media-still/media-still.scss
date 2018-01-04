@@ -3,12 +3,10 @@
 }
 
 .media-still__image {
-  transition: filter 200ms cubic-bezier(0.4, 0, 0.2, 1);
-  transform: translateZ(0); // avoids blurring/jumping during transition for safari
-  backface-visibility: hidden;
+  transition: opacity 200ms linear;
 
   &:hover {
-    filter: brightness(0.9); // does not work in IE, but we accept that
+    opacity: 0.9;
   }
 }
 
@@ -22,13 +20,9 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 48px;
-  height: 48px;
-
-  @include smartphone {
-    width: 40px;
-    height: 40px;
-  }
+  width: 22.5%;
+  max-width: 64px;
+  min-width: 36px;
 }
 
 .media-still__indicator {
@@ -36,16 +30,60 @@
   bottom: 8px;
   right: 8px;
   line-height: 1;
+}
 
-  @include tablet-up {
-    bottom: 16px;
-    right: 16px;
+.media-still--video,
+.media-still--compact {
+  position: relative;
+
+  /* forcing 16:9 aspect ratio of container */
+  &::before {
+    content: "";
+    width: 1px;
+    margin-left: -1px;
+    float: left;
+    height: 0;
+    padding-top: 56.25%;
+  }
+
+  //targeting the technical player's iframe
+  iframe {
+    position: absolute;
+    height: 100%;
+    top: 0;
+  }
+
+  &::after { /* to clear float */
+    content: "";
+    display: table;
+    clear: both;
   }
 }
 
-.media-still--video {
-  .media-still__icon {
-    width: 64px;
-    height: 64px;
+
+// media-still--compact behaves like a media-still--video on desktop
+// but results in a square still without time indicator on mobile
+.media-still--compact {
+  @include smartphone {
+    position: relative;
+
+    /* forcing 1:1 aspect ratio of container */
+    &::before {
+      padding-top: 100%;
+    }
+
+    .media-still__indicator {
+      display: none;
+    }
   }
 }
+
+.media-still--active {
+  .media-still__icon,
+  .media-still__indicator {
+    transition: opacity 375ms $easing-in-out-standard;
+    opacity: 0;
+  }
+}
+
+

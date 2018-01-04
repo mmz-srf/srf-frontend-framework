@@ -20,8 +20,18 @@
   stroke-miterlimit: 10;
   animation: spinner_dash 1.5s ease-in-out infinite;
 }
-.spinner__circle--dash-white {
-  stroke: #fff;
+
+.spinner--white-dash {
+  .spinner__circle--dash {
+    stroke: #fff;
+  }
+}
+
+.spinner--loading-medium {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 0;
 }
 
 @keyframes spinner_rotate {
