@@ -23,16 +23,12 @@
   display: inline-block;
 }
 
-.blockquote__text {
-  margin-left: -4px;
-}
-
 .blockquote__text::after {
   content: '\00a0»';
   color: $color-accentuation-red;
 }
 
-.blockquote__quote::before {
+.blockquote__text::before {
   content: '«\00a0';
   color: $color-accentuation-red;
 }

@@ -8,5 +8,5 @@
     <div class="chmap__menu-wrapper">
         {% include 'atoms-select-menu' with { 'styleModifier': 'js-chmap-menu' } %}
     </div>
-    <div id="infowindow-{{ chmap.id }}" class="chmap-infowindow"></div>
+    <div id="infowindow-{{ chmap.id }}" class="chmap-infowindow" aria-live="polite"></div>
 </div>
