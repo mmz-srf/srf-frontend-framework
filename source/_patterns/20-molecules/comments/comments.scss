@@ -145,10 +145,6 @@
   @include desktop-up {
     max-width: 712px;
   }
-
-  @include desktop-wide {
-    max-width: 790px;
-  }
 }
 
 .comments-header__border { // hack :(

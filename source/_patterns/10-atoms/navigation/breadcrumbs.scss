@@ -15,12 +15,8 @@
     padding: 0;
   }
 
-  @include desktop {
+  @include desktop-up {
     max-width: 680px;
-  }
-
-  @include desktop-wide {
-    max-width: 760px;
   }
 }
 
