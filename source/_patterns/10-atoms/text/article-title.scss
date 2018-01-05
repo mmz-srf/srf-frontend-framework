@@ -1,23 +1,13 @@
 .article-title {
-  margin: 12px 0 8px;
-  font-size: 32px;
-  line-height: 40px;
-  letter-spacing: .2px;
-
-  font-weight: 400;
-  font-family: $font-regular;
-  color: $color-text-default;
+  margin: 24px 0 0;
 
   @include tablet-up {
-    margin: 16px 0 12px;
-    font-size: 36px;
-    line-height: 43px;
-    letter-spacing: .2px;
+    margin: 30px 0 0;
   }
 }
 
 .article-title__overline {
-  margin: 24px 0 12px;
+  margin: 0;
   font-family: $font-regular;
   font-size: 16px;
   line-height: 24px;
@@ -26,6 +16,25 @@
   display: block;
 
   @include tablet-up {
-    margin: 32px 0 16px;
+    margin: 0 0 3px;
+  }
+}
+
+.article-title__text {
+  margin: 0 0 13px;
+  font-size: 32px;
+  line-height: 40px;
+  letter-spacing: .2px;
+
+  font-weight: 400;
+  font-family: $font-regular;
+  color: $color-text-default;
+  display: block;
+
+  @include tablet-up {
+    margin: 3px 0 18px;
+    font-size: 36px;
+    line-height: 43px;
+    letter-spacing: .2px;
   }
 }
