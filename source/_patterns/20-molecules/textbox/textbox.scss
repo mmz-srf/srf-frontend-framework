@@ -1,3 +1,5 @@
+@import "../../variables";
+
 .textbox {
   margin: 48px 0;
   background-color: $color-bg-box;
@@ -51,7 +53,7 @@
     padding: 0 8px;
 
     margin: 8px 0 16px;
-    line-height: 1.5;
+    line-height: $default-line-height-ratio;
 
     &:last-of-type {
       margin-bottom: 24px;
@@ -101,7 +103,7 @@
     padding: 0 8px;
     margin: 16px 0 8px;
     font-family: $font-medium;
-    line-height: 1.5;
+    line-height: $default-line-height-ratio;
     letter-spacing: 0.5px;
 
     @include tablet-up {
