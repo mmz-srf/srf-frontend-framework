@@ -1,15 +1,16 @@
 .article-lead {
-  margin: 16px 0 24px;
-  font-size: 24px;
-  line-height: 36px;
+  margin: 4px 0 20px;
+  font-size: 22px;
+  line-height: 32px;
   letter-spacing: .3px;
+
   color: $color-text-accentuation;
   font-family: $font-light;
 
-  @include smartphone {
-    margin: 4px 0 20px;
-    font-size: 22px;
-    line-height: 32px;
+  @include tablet-up {
+    margin: 16px 0 24px;
+    font-size: 24px;
+    line-height: 36px;
     letter-spacing: .3px;
   }
 }
