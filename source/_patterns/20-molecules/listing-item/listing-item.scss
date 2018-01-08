@@ -47,7 +47,10 @@
 }
 
 .listing-item__heading {
-  font: normal normal 18px/28px $font-regular;
+  font-family: $font-regular;
+  font-size: 18px;
+  font-weight: normal;
+  line-height: $default-line-height-ratio;
   letter-spacing: .5px;
   color: $color-text-default;
   margin: 12px 0 8px;
