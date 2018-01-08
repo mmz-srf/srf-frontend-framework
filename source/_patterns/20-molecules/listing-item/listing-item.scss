@@ -1,3 +1,5 @@
+@import "../../variables";
+
 .listing-item {
   margin: 0 -24px;
   padding: 0 24px;
@@ -57,7 +59,10 @@
 }
 
 .listing-item__content {
-  font: normal 300 18px/28px $font-light;
+  font-family: $font-light;
+  font-size: 18px;
+  font-weight: 300;
+  line-height: $default-line-height-ratio;
   letter-spacing: .5px;
   color: $color-text-default;
   margin: 8px 0;
