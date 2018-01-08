@@ -1,3 +1,5 @@
+@import "../../variables";
+
 .listicle-item {
   margin: 0 -24px 24px;
   padding: 0 24px;
@@ -17,16 +19,17 @@
 }
 
 .listicle-item__heading {
-  margin: 16px 0 12px;
   font-size: 18px;
-  line-height: 28px;
+  line-height: $default-line-height-ratio;
+  letter-spacing: .5px;
+  margin: 16px 0 12px;
+
   font-weight: 500;
   font-family: $font-medium;
-  letter-spacing: .5px;
   color: $color-text-default;
+
   @include tablet-up {
     font-size: 20px;
-    line-height: 32px;
     letter-spacing: .2px;
     margin: 24px 0 12px;
   }
@@ -47,14 +50,16 @@
 }
 
 .listicle-item__content {
-  font: normal 300 18px/28px $font-light;
+  font-weight: 300;
+  font-size: 18px;
+  font-family: $font-light;
   letter-spacing: .5px;
   color: $color-text-default;
   margin: 12px 0;
+  line-height: $default-line-height-ratio;
 
   @include tablet-up {
     font-size: 20px;
-    line-height:32px;
     letter-spacing: .3px;
     margin: 12px 0 24px;
   }
