@@ -144,11 +144,11 @@ $item-max-width: 400px;
   }
 
   & > a { // overwrite global a-styles :-/
-    &,
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.24), 0 0 2px 0 rgba(0, 0, 0, 0.12);
     &:hover,
     &:focus,
     &:active {
-      box-shadow: 0 4px 4px 0 rgba(0,0,0,0.24);
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.24), 0 0 8px 0 rgba(0, 0, 0, 0.12);
       border: none;
     }
 
@@ -188,8 +188,6 @@ $item-max-width: 400px;
   background: $color-bg-card;
   border-radius: 2px;
   border: 0;
-  box-shadow: $shadow-default;
-
   scroll-snap-align: center;      // "new" spec
   scroll-snap-coordinate: 50% 0%; // "old" spec
 
