@@ -78,7 +78,7 @@
 .table-block--legacy {
   tr[data-head="true"]:first-child td {
     font-size: 16px;
-    line-height: 24px;
+    line-height: $default-line-height-ratio;
     letter-spacing: .6px;
     font-family: $font-medium;
     text-align: left;
@@ -88,7 +88,6 @@
 
     @include smartphone {
       font-size: 14px;
-      line-height: 20px;
       letter-spacing: .5px;
     }
   }
