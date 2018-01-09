@@ -133,8 +133,7 @@
   .media-caption__title,
   .media-caption__source,
   .media-caption__source-title {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    @include font-smoothing;
   }
 
   &.media-caption--hover {
@@ -178,6 +177,7 @@
   }
 
   .media-caption__source--video {
+    color: $color-text-light;
     text-transform: none;
   }
 }

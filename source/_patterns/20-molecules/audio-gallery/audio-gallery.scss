@@ -14,10 +14,6 @@
     background-color: $color-bg-box;
   }
 
-  @include smartphone {
-    padding: 0 8px;
-  }
-
   &::before { // numbering
     content: counter(item) ".";
     counter-increment: item;

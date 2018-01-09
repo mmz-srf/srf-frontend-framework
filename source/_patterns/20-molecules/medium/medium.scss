@@ -33,9 +33,7 @@
 }
 
 .medium__caption {
-  flex-grow: 1;
-  flex-basis: 0%;
-  flex-shrink: 1;
+  flex: 1 1 0%;
 }
 
 .medium__player-wrapper {
@@ -96,6 +94,13 @@
       height: 92px;
     }
   }
+
+  .medium__player-wrapper {
+    @include tablet-up {
+      flex-basis: calc(100% + 16px);
+      margin: 16px 0 -16px -16px;
+    }
+  }
 }
 
 .medium--audio-gallery {
@@ -105,8 +110,8 @@
     padding: 16px 0 16px 60px;
   }
 
-  .medium__caption {
-    margin: 0 0 0 -12px;
+  .media-caption {
+    padding-left: 12px;
 
     @include tablet-up {
       margin: -12px 0;
@@ -119,6 +124,7 @@
 
     @include smartphone {
       width: 68px;
+      margin-left: 24px;
     }
   }
 
@@ -143,8 +149,12 @@
 
   .media-caption--video {
     padding: 8px 12px 12px;
-    height: 100%;
     justify-content: space-between;
+    width: 100%;
+  }
+
+  .medium__caption {
+    display: flex;
   }
 
   .media-caption--hover {
@@ -156,10 +166,18 @@
 .medium--active:hover {
   background-color: $color-media-playing;
 
-  &.medium--related-items,
-  &.medium--related-items:hover {
+  &.medium--related-items {
+    @include tablet-up {
+      margin-left: -16px;
+      padding-left: 16px;
+    }
+  }
+
+  &.medium--related-items--video,
+  &.medium--related-items--video:hover {
     background-color: $color-link-bg-hover;
   }
+
 }
 
 .medium--lastplayed,

@@ -86,8 +86,7 @@ $header-height-tablet-up: 56px;
   text-transform: uppercase;
   text-decoration: none;
   white-space: nowrap;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  @include font-smoothing;
 
   transition: color .2s ease-in-out;
 
