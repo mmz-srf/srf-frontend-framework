@@ -4,7 +4,7 @@
  */
 
 const HOOK_SELECTOR_CLASS = 'js-medium-hover',
-      HOOK_SELECTOR = '.' + HOOK_SELECTOR_CLASS;
+    HOOK_SELECTOR = '.' + HOOK_SELECTOR_CLASS;
 
 export function init() {
     // making sure that the binding only occurs once per molecule
@@ -16,13 +16,13 @@ export function init() {
     $(HOOK_SELECTOR + '.medium--no-hover').removeClass(HOOK_SELECTOR_CLASS);
 
     // hover for medium element
-    $(document).on("mouseenter", HOOK_SELECTOR, (event) => {
+    $(document).on('mouseenter', HOOK_SELECTOR, (event) => {
         let $element = $(event.target.closest(HOOK_SELECTOR));
         $element.find('.media-caption').addClass('media-caption--hover');
         $element.find('.play-icon-ng').addClass('play-icon-ng--hover');
         $element.find('.media-still__image').addClass('media-still__image--hover');
     });
-    $(document).on("mouseleave", HOOK_SELECTOR, (event) => {
+    $(document).on('mouseleave', HOOK_SELECTOR, (event) => {
         let $element = $(event.target.closest(HOOK_SELECTOR));
         $element.find('.media-caption').removeClass('media-caption--hover');
         $element.find('.play-icon-ng').removeClass('play-icon-ng--hover');
