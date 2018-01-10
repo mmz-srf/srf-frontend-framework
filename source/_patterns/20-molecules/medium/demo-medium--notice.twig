@@ -1,11 +1,13 @@
 {# START medium.twig #}
 
+<h2>medium.twig</h2>
+
 {% set mediumType = mediumType|default('audio') %}
 <a href="#LINK_TO_PLAYER">
     <div class="medium {{ styleModifier }} js-medium-hover">
         <div class="medium__object medium__object--notice">
             {% include 'molecules-media-still' with { 'styleModifier' : '' } %}
-            <span class="medium__notice">{{ mediumType == 'audio' ? 'Audio' : 'Video'}} nicht mehr verfügbar</span>
+            <span class="medium__notice">Audio nicht mehr verfügbar</span>
         </div>
         <div class="medium__caption">
             {% if mediumType == 'audio' %}
@@ -26,11 +28,13 @@
 
 {# START medium--audio-gallery.twig #}
 
+<h2>medium--audio-gallery.twig</h2>
+
 <a href="#LINK_TO_PLAYER">
     <div class="medium medium--audio-gallery js-medium-hover">
         <div class="medium__object medium__object--notice">
             {% include 'molecules-media-still' with { 'styleModifier' : '' } %}
-            <span class="medium__notice">{{ mediumType == 'audio' ? 'Audio' : 'Video'}} nicht mehr verfügbar</span>
+            <span class="medium__notice">Audio nicht mehr verfügbar</span>
         </div>
         <div class="medium__caption">
             {% include 'molecules-media-caption-audio' with { 'styleModifier' : 'media-caption--no-bg' } %}
@@ -47,12 +51,14 @@
 
 {# START medium--compact.twig #}
 
+<h2>medium--compact.twig</h2>
+
 {% set mediumType = mediumType|default('audio') %}
 <a href="#LINK_TO_PLAYER">
     <div class="medium medium--compact medium--vertical js-medium-hover">
         <div class="medium__object medium__object--notice">
             {% include 'molecules-media-still--compact' with { 'styleModifier' : 'media-still--compact' } %}
-            <span class="medium__notice">{{ mediumType == 'audio' ? 'Audio' : 'Video'}} nicht mehr verfügbar</span>
+            <span class="medium__notice">Video nicht mehr verfügbar</span>
         </div>
         <div class="medium__caption">
           {% if mediumType == 'audio' %}
@@ -70,12 +76,14 @@
 
 {# START medium--related-items.twig #}
 
+<h2>medium--related-items.twig</h2>
+
 {% set mediumType = mediumType|default('audio') %}
 <a href="#LINK_TO_PLAYER">
     <div class="medium medium--related-items {{ styleModifier }} js-medium-hover">
         <div class="medium__object medium__object--notice">
             {% include 'molecules-media-still' with { 'mediumType': mediumType } %}
-            <span class="medium__notice">{{ mediumType == 'audio' ? 'Audio' : 'Video'}} nicht mehr verfügbar</span>
+            <span class="medium__notice">Audio nicht mehr verfügbar</span>
         </div>
         <div class="medium__caption">
             {% if mediumType == 'audio' %}
@@ -93,11 +101,13 @@
 
 {# START medium--vertical.twig #}
 
+<h2>medium--vertical.twig</h2>
+
 <a href="#LINK_TO_PLAYER">
     <div class="medium medium--vertical js-medium-hover">
         <div class="medium__object medium__object--notice">
             {% include 'molecules-media-still--video' %}
-            <span class="medium__notice">{{ mediumType == 'audio' ? 'Audio' : 'Video'}} nicht mehr verfügbar</span>
+            <span class="medium__notice">Video nicht mehr verfügbar</span>
         </div>
         <div class="medium__caption">
             {% include 'molecules-media-caption-video' with { 'styleModifier' : 'media-caption--video' } %}
@@ -111,11 +121,13 @@
 
 {# START medium--video-gallery.twig #}
 
+<h2>medium--video-gallery.twig</h2>
+
 <a href="#LINK_TO_PLAYER">
     <div class="medium medium--vertical medium--video-gallery js-medium-hover">
         <div class="medium__object medium__object--notice">
             {% include 'molecules-media-still' with { 'styleModifier' : '', 'mediumType': 'video' } %}
-            <span class="medium__notice">{{ mediumType == 'audio' ? 'Audio' : 'Video'}} nicht mehr verfügbar</span>
+            <span class="medium__notice">Video nicht mehr verfügbar</span>
         </div>
         <div class="medium__caption">
             {% include 'molecules-media-caption-video' with { 'styleModifier' : 'media-caption--no-bg' } %}
