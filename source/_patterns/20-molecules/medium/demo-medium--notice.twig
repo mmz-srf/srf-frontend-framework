@@ -5,7 +5,7 @@
     <div class="medium {{ styleModifier }} js-medium-hover">
         <div class="medium__object medium__object--notice">
             {% include 'molecules-media-still' with { 'styleModifier' : '' } %}
-            <span class="medium__notice">{% if mediumType == 'audio' %}Audio{% elseif mediumType == 'video' %}Video{% endif %} nicht mehr verfügbar</span>
+            <span class="medium__notice">{{ mediumType == 'audio' ? 'Audio' : 'Video'}} nicht mehr verfügbar</span>
         </div>
         <div class="medium__caption">
             {% if mediumType == 'audio' %}
@@ -30,7 +30,7 @@
     <div class="medium medium--audio-gallery js-medium-hover">
         <div class="medium__object medium__object--notice">
             {% include 'molecules-media-still' with { 'styleModifier' : '' } %}
-            <span class="medium__notice">{% if mediumType == 'audio' %}Audio{% elseif mediumType == 'video' %}Video{% endif %} nicht mehr verfügbar</span>
+            <span class="medium__notice">{{ mediumType == 'audio' ? 'Audio' : 'Video'}} nicht mehr verfügbar</span>
         </div>
         <div class="medium__caption">
             {% include 'molecules-media-caption-audio' with { 'styleModifier' : 'media-caption--no-bg' } %}
@@ -52,7 +52,7 @@
     <div class="medium medium--compact medium--vertical js-medium-hover">
         <div class="medium__object medium__object--notice">
             {% include 'molecules-media-still--compact' with { 'styleModifier' : 'media-still--compact' } %}
-            <span class="medium__notice">{% if mediumType == 'audio' %}Audio{% elseif mediumType == 'video' %}Video{% endif %} nicht mehr verfügbar</span>
+            <span class="medium__notice">{{ mediumType == 'audio' ? 'Audio' : 'Video'}} nicht mehr verfügbar</span>
         </div>
         <div class="medium__caption">
           {% if mediumType == 'audio' %}
@@ -75,7 +75,7 @@
     <div class="medium medium--related-items {{ styleModifier }} js-medium-hover">
         <div class="medium__object medium__object--notice">
             {% include 'molecules-media-still' with { 'mediumType': mediumType } %}
-            <span class="medium__notice">{% if mediumType == 'audio' %}Audio{% elseif mediumType == 'video' %}Video{% endif %} nicht mehr verfügbar</span>
+            <span class="medium__notice">{{ mediumType == 'audio' ? 'Audio' : 'Video'}} nicht mehr verfügbar</span>
         </div>
         <div class="medium__caption">
             {% if mediumType == 'audio' %}
@@ -97,7 +97,7 @@
     <div class="medium medium--vertical js-medium-hover">
         <div class="medium__object medium__object--notice">
             {% include 'molecules-media-still--video' %}
-            <span class="medium__notice">{% if mediumType == 'audio' %}Audio{% elseif mediumType == 'video' %}Video{% endif %} nicht mehr verfügbar</span>
+            <span class="medium__notice">{{ mediumType == 'audio' ? 'Audio' : 'Video'}} nicht mehr verfügbar</span>
         </div>
         <div class="medium__caption">
             {% include 'molecules-media-caption-video' with { 'styleModifier' : 'media-caption--video' } %}
@@ -115,7 +115,7 @@
     <div class="medium medium--vertical medium--video-gallery js-medium-hover">
         <div class="medium__object medium__object--notice">
             {% include 'molecules-media-still' with { 'styleModifier' : '', 'mediumType': 'video' } %}
-            <span class="medium__notice">{% if mediumType == 'audio' %}Audio{% elseif mediumType == 'video' %}Video{% endif %} nicht mehr verfügbar</span>
+            <span class="medium__notice">{{ mediumType == 'audio' ? 'Audio' : 'Video'}} nicht mehr verfügbar</span>
         </div>
         <div class="medium__caption">
             {% include 'molecules-media-caption-video' with { 'styleModifier' : 'media-caption--no-bg' } %}
