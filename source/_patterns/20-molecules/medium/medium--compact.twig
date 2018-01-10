@@ -1,14 +1,22 @@
 {% set mediumType = mediumType|default('audio') %}
 <a href="#LINK_TO_PLAYER">
-    <div class="medium medium--compact medium--vertical js-medium-hover">
+    <div class="medium medium--compact medium--vertical {% if mediumType == 'image' %}medium--no-hover {% endif %}js-medium-hover">
         <div class="medium__object">
-            {% include 'molecules-media-still--compact' with { 'styleModifier' : 'media-still--compact' } %}
+            {% if mediumType == 'image' %}
+                {% include 'atoms-image' with { 'styleModifier' : 'image--media-still' } %}
+            {% elseif mediumType == 'audio' %}
+                {% include 'molecules-media-still--compact' %}
+            {% else %}
+                {% include 'molecules-media-still--compact' %}
+            {% endif %}
         </div>
         <div class="medium__caption">
           {% if mediumType == 'audio' %}
             {% include 'molecules-media-caption-audio' with { 'styleModifier' : 'media-caption--compact' } %}
           {% elseif mediumType == 'video' %}
             {% include 'molecules-media-caption-video' with { 'styleModifier' : 'media-caption--compact' } %}
+          {% elseif mediumType == 'image' %}
+            {% include 'molecules-media-caption' with { 'styleModifier' : 'media-caption--compact' } %}
           {% endif %}
         </div>
     </div>

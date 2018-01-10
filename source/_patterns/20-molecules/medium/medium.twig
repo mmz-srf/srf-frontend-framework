@@ -2,13 +2,19 @@
 <a href="#LINK_TO_PLAYER">
     <div class="medium {{ styleModifier }} js-medium-hover">
         <div class="medium__object">
-            {% include 'molecules-media-still' with { 'styleModifier' : '' } %}
+            {% if mediumType == 'image' %}
+                {% include 'atoms-image' with { 'styleModifier' : '' } %}
+            {% else %}
+                {% include 'molecules-media-still' with { 'styleModifier' : '' } %}
+            {% endif %}
         </div>
         <div class="medium__caption">
             {% if mediumType == 'audio' %}
                 {% include 'molecules-media-caption-audio' with { 'styleModifier' : '' } %}
             {% elseif mediumType == 'video' %}
                 {% include 'molecules-media-caption-video' with { 'styleModifier' : '' } %}
+            {% elseif mediumType == 'image' %}
+                {% include 'molecules-media-caption' with { 'styleModifier' : '' } %}
             {% endif %}
         </div>
         <div class="medium__player-wrapper">

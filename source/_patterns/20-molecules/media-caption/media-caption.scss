@@ -150,6 +150,10 @@
     display: none;
   }
 
+  .media-caption__description {
+    display: none;
+  }
+
   @include smartphone {
     display: none;
   }
