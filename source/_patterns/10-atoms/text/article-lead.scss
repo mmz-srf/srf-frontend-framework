@@ -6,7 +6,7 @@
 
   color: $color-text-accentuation;
   font-family: $font-light;
-  display: inline-block;
+  display: block;
 
   @include tablet-up {
     margin: 18px 0 22px;
