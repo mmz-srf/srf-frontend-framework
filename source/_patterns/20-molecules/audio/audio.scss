@@ -159,8 +159,7 @@
   .media-caption__title,
   .media-caption__source,
   .media-caption__source-title {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    @include font-smoothing;
   }
 }
 

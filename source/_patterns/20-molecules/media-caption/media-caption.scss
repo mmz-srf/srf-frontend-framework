@@ -11,6 +11,10 @@
   }
 }
 
+.media-caption--with-image {
+  flex-direction: row;
+}
+
 .media-caption--hover {
   transition: background 200ms $easing-in-out-standard;
   background-color: $color-bg-box;
@@ -89,12 +93,8 @@
 .media-caption__image {
   height: 30px;
   width: auto;
+  max-width: 100px;
   margin: 4px 12px 0 0;
-  position: absolute;
-
-  + .media-caption__content {
-    margin-left: 50px;
-  }
 }
 
 .media-caption--chmap {
@@ -133,8 +133,7 @@
   .media-caption__title,
   .media-caption__source,
   .media-caption__source-title {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    @include font-smoothing;
   }
 
   &.media-caption--hover {
@@ -178,6 +177,7 @@
   }
 
   .media-caption__source--video {
+    color: $color-text-light;
     text-transform: none;
   }
 }
