@@ -32,6 +32,31 @@
   }
 }
 
+.medium__object--notice {
+  height: auto;
+}
+
+.medium__notice {
+  display: block;
+  padding: 8px 12px;
+  background: #222;
+  color: #fafaf8;
+  font-family: $font-system;
+  font-size: 12px;
+  line-height: 1.33;
+  letter-spacing: normal;
+}
+
+.medium--audio-gallery {
+  .medium__notice {
+    font-size: 10px;
+    
+    @include tablet-up {
+      font-size: 12px;
+    }
+  }
+}
+
 .medium__caption {
   flex: 1 1 0%;
 }
