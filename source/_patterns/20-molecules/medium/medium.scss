@@ -44,7 +44,14 @@
   font-family: $font-system;
   font-size: 12px;
   line-height: 1.33;
-  letter-spacing: normal;
+}
+
+/* Beautify Font-Rendering on Non-Retina-Displays */
+@media screen and (-webkit-max-device-pixel-ratio: 1) {
+  .medium__notice {
+    font-weight: 500;
+    @include font-smoothing;
+  }
 }
 
 .medium--audio-gallery {
