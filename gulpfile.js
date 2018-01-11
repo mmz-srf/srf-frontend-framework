@@ -106,7 +106,7 @@ gulp.task('patternlab', function (cb) {
         console.log(stderr);
         cb(err);
     });
-})
+});
 
 gulp.task('watch', function(cb) {
     gulp.watch('source/_patterns/**/*.scss', ['styles'], reload);

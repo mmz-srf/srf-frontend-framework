@@ -56,6 +56,7 @@ function objectFitForIE() {
                 '.article-media--simple',
                 '.article-teaser__wrapper',
                 '.article-video__wrapper',
+                '.carousel__item',
                 '.media-still__image',
                 '.poll-media--image'
             ],

@@ -4,14 +4,7 @@
  * hides elements visually but not from screen readers
  */
 .h-offscreen {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  padding: 0;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  border: 0;
+  @include offscreen-non-focusable;
 }
 
 /*
@@ -21,16 +14,17 @@
 .h-offscreen-focusable {
   &:active,
   &:focus {
-    position: absolute;
+    position: relative;
     width: auto;
     height: auto;
     color: #fff;
     background: #1e8ce3;
     padding: 9px;
     z-index: 100001;
-    top: 2px;
+    top: 10px;
     left: 2px;
     clip: auto;
+    font-size: 16px;
   }
 }
 

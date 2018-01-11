@@ -9,9 +9,13 @@
     margin: 24px 0;
   }
 
-  &:hover {
+  &:hover:not(.medium--no-hover) {
     background-color: $color-bg-box;
   }
+}
+
+.medium--no-hover {
+  // this modifier is only used in the :not selector of .medium:hover - see above
 }
 
 .medium__wrapper {
@@ -94,6 +98,13 @@
       height: 92px;
     }
   }
+
+  .medium__player-wrapper {
+    @include tablet-up {
+      flex-basis: calc(100% + 16px);
+      margin: 16px 0 -16px -16px;
+    }
+  }
 }
 
 .medium--audio-gallery {
@@ -163,8 +174,15 @@
 .medium--active:hover {
   background-color: $color-media-playing;
 
-  &.medium--related-items,
-  &.medium--related-items:hover {
+  &.medium--related-items {
+    @include tablet-up {
+      margin-left: -16px;
+      padding-left: 16px;
+    }
+  }
+
+  &.medium--related-items--video,
+  &.medium--related-items--video:hover {
     background-color: $color-link-bg-hover;
   }
 }

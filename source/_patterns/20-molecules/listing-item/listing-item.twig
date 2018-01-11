@@ -1,6 +1,6 @@
 <li class="listing-item">
     <div class="listing-item__media">
-        {% include 'molecules-image-figure' with {'styleModifier': 'image-figure--simple'} %}
+        {% include 'molecules-medium--compact' with {'mediumType': 'image'} %}
     </div>
     <div class="listing-item__block">
         <h3 class="listing-item__heading">{{articleText.title}}</h3>
@@ -23,7 +23,7 @@
 </li>
 <li class="listing-item">
     <div class="listing-item__media">
-        {% include 'molecules-medium--compact' with {'mediumType': 'audio'} %}
+        {% include 'molecules-medium--compact' with { 'mediumType': 'audio'} %}
     </div>
     <div class="listing-item__block">
         <h3 class="listing-item__heading">{{articleText.title}}</h3>
