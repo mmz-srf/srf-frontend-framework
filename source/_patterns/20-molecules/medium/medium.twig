@@ -3,7 +3,7 @@
     <div class="medium {{ styleModifier }} js-medium-hover">
         <div class="medium__object">
             {% include 'molecules-media-still' with { 'styleModifier' : '' } %}
-            {% if showNotice == 'true' %}<span class="medium__notice">Audio nicht mehr verfügbar</span>{% endif %}
+            {% if showNotice == 'true' %}<span class="medium__notice">{{ 'Audio nicht mehr verfügbar'|trans }}</span>{% endif %}
         </div>
         <div class="medium__caption">
             {% if mediumType == 'audio' %}
