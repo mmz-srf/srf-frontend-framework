@@ -4,11 +4,6 @@
   white-space: nowrap;
   overflow-x: auto;
 
-  & + .article,
-  & + .l-main-wrapper { // from above come 8px hidden border - for extended touch area
-    margin-top: -8px;
-  }
-
   @include tablet-up {
     max-width: 624px;
     margin: 24px auto 32px;
