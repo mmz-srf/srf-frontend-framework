@@ -9,13 +9,13 @@
     margin: 24px 0;
   }
 
-  &:hover:not(.medium--no-hover) {
+  &:hover {
     background-color: $color-bg-box;
   }
 }
 
 .medium--no-hover {
-  // this modifier is only used in the :not selector of .medium:hover - see above
+  pointer-events: none;
 }
 
 .medium__wrapper {
