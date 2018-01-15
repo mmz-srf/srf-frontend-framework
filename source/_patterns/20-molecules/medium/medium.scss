@@ -37,12 +37,16 @@
 
 .medium__notice {
   display: block;
-  padding: 8px 12px;
+  padding: 8px 24px;
   background: #222;
   color: #fafaf8;
   font-family: $font-system;
   font-size: 12px;
   line-height: 1.33;
+  
+  @include tablet-up {
+    padding: 8px 12px;
+  }
 }
 
 /* Beautify Font-Rendering on Non-Retina-Displays */
@@ -158,9 +162,11 @@
   
   .medium__notice {
     font-size: 10px;
+    padding: 4px 6px;
     
     @include tablet-up {
       font-size: 12px;
+      padding: 8px 12px;
     }
   }
 
