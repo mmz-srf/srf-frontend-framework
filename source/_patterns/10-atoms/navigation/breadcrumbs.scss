@@ -1,12 +1,14 @@
+@import "../../variables";
+
 .breadcrumbs {
-  margin: 24px auto 20px;
+  margin: 16px auto 12px;
   padding: 0 24px;
   white-space: nowrap;
   overflow-x: auto;
 
   @include tablet-up {
     max-width: 624px;
-    margin: 32px auto 20px;
+    margin: 24px auto 12px;
     padding: 0;
   }
 
@@ -48,7 +50,7 @@
   vertical-align: middle;
   position: relative;
   border-radius: 2px;
-  margin: 8px;
+  margin: $breadcrumb-touch-area-expansion;
   background-clip: padding-box;
   border: 0;
 
