@@ -1,12 +1,12 @@
 .breadcrumbs {
-  margin: 12px auto 24px;
+  margin: 24px auto 20px;
   padding: 0 24px;
   white-space: nowrap;
   overflow-x: auto;
 
   @include tablet-up {
     max-width: 624px;
-    margin: 24px auto 32px;
+    margin: 32px auto 20px;
     padding: 0;
   }
 
