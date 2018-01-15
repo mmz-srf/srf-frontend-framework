@@ -87,12 +87,8 @@
     width: 270px;
   }
 
-  @include desktop {
+  @include desktop-up {
     width: 199px;
-  }
-
-  @include desktop-wide {
-    width: 224px;
   }
 }
 

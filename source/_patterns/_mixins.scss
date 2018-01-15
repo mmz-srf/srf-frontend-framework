@@ -63,10 +63,6 @@
     margin-right: auto;
     width: 516px;
   }
-
-  @include desktop-wide {
-    width: 584px;
-  }
 }
 
 @mixin link-text-inline {
