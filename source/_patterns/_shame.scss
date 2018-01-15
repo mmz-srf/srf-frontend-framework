@@ -27,3 +27,23 @@
     height: 100%;
   }
 }
+
+
+
+/*
+ * TARGETED BROWSERS: ALL :(
+ *
+ * For iOS mobile devices we did some funky stuff with the <html> and <body> element (namely position: relative;) on
+ * the body and position: fixed; on the menu on tablet-up. This results in wrong positioning of the Floating-Focus-Elem.
+ * After the Header has been properly fixed, this can be removed.
+ */
+.menu--opened #flying-focus {
+  margin-top: -56px;
+}
+
+@media (max-width: 719px) {
+  .menu--opened #flying-focus {
+    display: block;
+    margin-top: 0;
+  }
+}
