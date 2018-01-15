@@ -54,7 +54,9 @@ export class SrfSwiper {
     registerListeners() {
         this.$element.on('click', '.swipemod-button', event => this.onButtonClick(event) );
 
-        this.$element.on('click', '.swipemod-item', event => this.onItemClick(event) );
+        this.$element.on('click', '.swipemod-item', event => this.onItemInteraction(event) );
+
+        this.$element.on('focusin', '.swipemod-item', event => this.onItemInteraction(event) );
 
         this.$swipeContainer.on('scroll', debounce(() => this.afterUserScrolled(), DEBOUNCETIME) );
 
@@ -86,9 +88,11 @@ export class SrfSwiper {
     /**
      * If an item is completely visible, let the browser handle the link click.
      * Otherwise, prevent that and scroll the item into view.
+     * Can also be a focus (i.e. by tabbing through the site) - same here, if
+     * it's not in view, scroll to it.
      * @param event
      */
-    onItemClick(event) {
+    onItemInteraction(event) {
         let $itemElem = $(event.currentTarget);
 
         if ( !this.isItemCompletelyInView($itemElem) ) {
@@ -167,9 +171,6 @@ export class SrfSwiper {
                 let prevIndex = (this.$items.length - 1 - index) - nrOfElements;
                 let $elemToScrollTo = prevIndex < 0 ? this.$items.first() : $(this.$items.get(prevIndex));
                 this.scrollItemIntoView( $elemToScrollTo );
-                $elemToScrollTo.attr('tabindex', -1).on('blur focusout', function () {
-                    $(this).removeAttr('tabindex');
-                }).focus();
                 return false;
             }
         });
@@ -181,9 +182,6 @@ export class SrfSwiper {
                 let next = index + nrOfElements;
                 let $elemToScrollTo = next >= this.$items.length - 1 ? this.$items.last() : $(this.$items.get(next));
                 this.scrollItemIntoView( $elemToScrollTo );
-                $elemToScrollTo.attr('tabindex', -1).on('blur focusout', function () {
-                    $(this).removeAttr('tabindex');
-                }).focus();
                 return false;
             }
         });
