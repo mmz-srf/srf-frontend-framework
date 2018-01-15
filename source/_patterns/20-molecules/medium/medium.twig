@@ -7,7 +7,7 @@
             {% else %}
                 {% include 'molecules-media-still' with { 'styleModifier' : '' } %}
             {% endif %}
-            {% if showNotice == 'true' %}<span class="medium__notice">{{ 'Audio nicht mehr verfügbar'|trans }}</span>{% endif %}
+            {% if showNotice %}<span class="medium__notice">{{ 'Audio nicht mehr verfügbar'|trans }}</span>{% endif %}
         </div>
         <div class="medium__caption">
             {% if mediumType == 'audio' %}

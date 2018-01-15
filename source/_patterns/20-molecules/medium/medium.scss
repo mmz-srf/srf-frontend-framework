@@ -53,16 +53,6 @@
   }
 }
 
-.medium--audio-gallery {
-  .medium__notice {
-    font-size: 10px;
-    
-    @include tablet-up {
-      font-size: 12px;
-    }
-  }
-}
-
 .medium__caption {
   flex: 1 1 0%;
 }
@@ -165,6 +155,15 @@
       margin: 16px 0 -16px -60px;
     }
   }
+  
+  .medium__notice {
+    font-size: 10px;
+    
+    @include tablet-up {
+      font-size: 12px;
+    }
+  }
+
 }
 
 .medium--video-gallery {
