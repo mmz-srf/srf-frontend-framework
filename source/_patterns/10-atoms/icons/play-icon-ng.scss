@@ -15,6 +15,8 @@ $color-play-icon-hover:  #e31f2b;
   position: relative;
   height: 100%;
   width: 100%;
+  border: $play-button-border-size solid transparent;
+  border-radius: 50%;
   overflow: hidden;
 
   /* forcing 1:1 aspect ratio */
@@ -23,57 +25,42 @@ $color-play-icon-hover:  #e31f2b;
   &::after {
     content: "";
     position: absolute;
-    top: 2px;
-    left: 2px;
-    height: calc(100% - 4px);
-    width: calc(100% - 4px);
-    border: 2px solid #FFF;
+    width: 100%;
+    height: 100%;
+    border: $play-button-border-size solid #FFF;
     border-radius: 50%;
     background: url("../img/icon/play-video.svg"), $color-play-icon-normal;
     @include bg-settings;
   }
 
   &:hover {
+    height: 100%;
+    width: 100%;
+    border: $play-button-border-size solid $color-play-icon-hover;
+    border-radius: 50%;
+    background: url("../img/icon/play-video.svg"), $color-play-icon-hover;
+    @include bg-settings;
+
     &::after {
-      content: "";
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 100%;
-      border: 2px solid $color-play-icon-hover;
-      border-radius: 50%;
-      background: url("../img/icon/play-video.svg"), $color-play-icon-hover;
-      @include bg-settings;
-      background-size: 104% auto, 100% auto;
+      content: none;
     }
    }
 
   &:active {
+    border-color: $color-play-icon-active;
+    background-color: $color-play-icon-active;
+
     &::after {
-      border-color: $color-play-icon-active;
-      background-color: $color-play-icon-active;
+      content: none;
     }
   }
 }
 
 .play-icon-ng--audio {
+  &:hover,
+  &:active,
   &::after {
-    background: url("../img/icon/play-audio.svg"), $color-play-icon-normal;
-    @include bg-settings;
-  }
-
-  &:hover {
-    &::after {
-      background: url("../img/icon/play-audio.svg"), $color-play-icon-hover;
-      @include bg-settings;
-    }
-  }
-
-  &:active {
-    &::after {
-      border-color: $color-play-icon-active;
-      background-color: $color-play-icon-active;
-    }
+    background-image: url("../img/icon/play-audio.svg");
   }
 }
 
@@ -81,6 +68,9 @@ $color-play-icon-hover:  #e31f2b;
 @media screen and (-ms-high-contrast: active) {
   .play-icon-ng,
   .play-icon-ng--audio {
+    &,
+    &:hover,
+    &:active,
     &::after {
       background-image: url("../img/icon/play-generic-high-contrast.svg");
     }
