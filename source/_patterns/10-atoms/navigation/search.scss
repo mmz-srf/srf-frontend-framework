@@ -9,7 +9,11 @@
     position: absolute;
     text-decoration: none;
     border: 0px;
-    padding: 11px;
+    padding: 12px;
+    
+    @include tablet-up {
+      padding: 11px;
+    }
 
     img {
       position: relative;
