@@ -22,6 +22,11 @@ $color-play-icon-hover:  #e31f2b;
   /* forcing 1:1 aspect ratio */
   @include forceSquareAspectRatio;
 
+  /* fix for subpixel rounding issue in firefox */
+  &::before {
+    margin-bottom: -0.05px;
+  }
+
   &::after {
     content: "";
     position: absolute;
@@ -40,6 +45,7 @@ $color-play-icon-hover:  #e31f2b;
     border-radius: 50%;
     background: url("../img/icon/play-video.svg"), $color-play-icon-hover;
     @include bg-settings;
+    background-size: 104% auto;
 
     &::after {
       content: none;
