@@ -3,6 +3,7 @@
   background-size: 100% auto;
   background-position: center;
   background-repeat: no-repeat;
+  background-clip: content-box;
   box-sizing: border-box;
 }
 
@@ -15,17 +16,14 @@ $color-play-icon-hover:  #e31f2b;
   position: relative;
   height: 100%;
   width: 100%;
-  border: $play-button-border-size solid transparent;
+  outline: $play-button-border-size solid rgba(0,0,0,0);
+  border: 0;
   border-radius: 50%;
   overflow: hidden;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.24), 0 0 8px 0 rgba(0, 0, 0, 0.12);
 
   /* forcing 1:1 aspect ratio */
   @include forceSquareAspectRatio;
-
-  /* fix for subpixel rounding issue in firefox */
-  &::before {
-    margin-bottom: -0.05px;
-  }
 
   &::after {
     content: "";
@@ -41,11 +39,12 @@ $color-play-icon-hover:  #e31f2b;
   &:hover {
     height: 100%;
     width: 100%;
-    border: $play-button-border-size solid $color-play-icon-hover;
+    outline: none;
+    border: $play-button-border-size hidden $color-play-icon-hover;
     border-radius: 50%;
     background: url("../img/icon/play-video.svg"), $color-play-icon-hover;
     @include bg-settings;
-    background-size: 104% auto;
+    background-size: 102% auto;
 
     &::after {
       content: none;
@@ -78,6 +77,7 @@ $color-play-icon-hover:  #e31f2b;
     &:hover,
     &:active,
     &::after {
+      outline: none;
       background-image: url("../img/icon/play-generic-high-contrast.svg");
     }
   }

@@ -18,7 +18,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 22.45%; // 22.5% did cause subpixel rendering issues in some cases in ff and safari, but 22.45% works
+  width: 22.45%; // 22.5% did cause subpixel rendering issues in some cases in firefox, but 22.45% works
   max-width: calc(64px + #{$play-button-border-size * 2});
   min-width: calc(36px + #{$play-button-border-size * 2});
 
