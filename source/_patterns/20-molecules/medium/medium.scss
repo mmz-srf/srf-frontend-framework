@@ -30,7 +30,6 @@
 
   @include smartphone {
     margin: 16px 0 16px 16px;
-    height: 92px;
     width: 92px;
   }
 }
@@ -116,6 +115,14 @@
 
     @include tablet-up {
       width: 163px;
+    }
+  }
+
+  .medium__notice {
+    padding: 4px 8px;
+    
+    @include tablet-up {
+      padding: 8px 12px;
     }
   }
 
