@@ -1,10 +1,12 @@
+@import "../../variables";
+
 .textbox {
   margin: 32px 8px;
   background-color: $color-bg-box;
   overflow: hidden;
   font-size: 16px;
   padding: 16px 8px 0;
-  
+
   @include tablet-up {
     margin: 48px 0;
     padding: 24px 0 0 0;
@@ -53,10 +55,10 @@
     margin: 8px 0 16px;
     line-height: $default-line-height-ratio;
     &:last-of-type {
-      margin-bottom: 24px;
+        margin-bottom: 24px;
     }
     @include tablet-up {
-      padding: 0 24px;
+        padding: 0 24px;
     }
   }
 
@@ -93,6 +95,7 @@
       padding: 0 24px;
     }
   }
+
   & > h4 {
     padding: 0 8px;
     margin: 16px 0 8px;
@@ -104,6 +107,5 @@
     @include tablet-up {
       font-size: 18px;
     }
-
   }
 }

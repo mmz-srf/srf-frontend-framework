@@ -5,6 +5,10 @@
   border-bottom: 0;
   height: 100%;
   border-radius: 2px;
+  
+  @include tablet-up {
+    padding: 12px 14px;
+  }
 
   &:hover {
     background-color: #444;
@@ -22,6 +26,11 @@
 }
 
 .navigation-link--dark {
+  
+  @include tablet-up {
+    padding: 12px 16px;
+  }
+  
   &:hover {
     background-color: #333;
   }

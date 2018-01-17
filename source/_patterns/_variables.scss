@@ -41,6 +41,8 @@ $font-regular: 'SRG_SSR_Regular', sans-serif;
 $font-light: 'SRG_SSR_Light', sans-serif;
 $font-serif: 'SRG_SSR_Serif_Regular', serif;
 
+$default-line-height-ratio: 1.5 !default;
+
 /*** IMAGE SIZES ***/
 $image-size-preview: 92px !default;
 $image-size-preview-gallery: 68px !default;
@@ -64,3 +66,6 @@ $content-max-width: 1480px;
 
 /*** ANIMATIONS ***/
 $easing-in-out-standard: cubic-bezier(0.4, 0.0, 0.2, 1);
+
+/*** BREADCRUMB ***/
+$breadcrumb-touch-area-expansion: 8px !default;

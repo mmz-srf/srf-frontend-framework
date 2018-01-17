@@ -65,7 +65,7 @@
 .comments-infobox__text,
 .comments-header__info-text {
   font-size: 14px;
-  line-height: 20px;
+  line-height: $default-line-height-ratio;
   letter-spacing: .5px;
   color: $color-text-accentuation;
   padding: 0 16px;
@@ -73,7 +73,7 @@
 
 .comments-infobox__text {
   font-size: 16px;
-  line-height: 24px;
+  line-height: $default-line-height-ratio;
 }
 
 // login info
@@ -259,13 +259,15 @@
 }
 
 .comment__content {
-  font: 18px/28px $font-light;
+  font-family: $font-light;
+  font-size: 18px;
+  line-height: $default-line-height-ratio;
+
   letter-spacing: .5px;
   margin: 12px 0 16px;
 
   @include tablet-up {
     font-size: 20px;
-    line-height: 32px;
     letter-spacing: .3px;
   }
 }
