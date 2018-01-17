@@ -1,0 +1,23 @@
+==Release notes_SRG SSR Type Display==
+
+Compiler of release notes: Dalton Maag
+Designer: Dalton Maag
+Designer URL: daltonmaag.com
+
+Date of creation: 2017-12-04
+
+Changes since previous release:
+- Proportional figures set as default.
+
+Basic information
+1 Basic family name: SRG SSR Type Display
+2 TrueType Version record: 1.300
+3 Supported scripts: Latin
+4 Weights/Styles: Light, Regular, Italic, Medium, Bold, Bold Italic, Heavy
+5 Usage: Display
+
+Technology
+1 File formats: The files have been delivered in the TrueType-based OpenType format, for use in all major Operating Systems, and also as TTF for use in apps, and in web font format: EOT; WOFF; WOFF2.
+2 Embedding settings: Editing of the document if allowed.
+3 Hinting information: All glyphs are manually hinted for optimized rasterization in Microsoft ClearType or for other LCD devices.
+4 Default numerals: Proportional. Tabular figures accessible via OpenType features.

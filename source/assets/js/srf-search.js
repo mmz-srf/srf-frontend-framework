@@ -259,11 +259,7 @@ export class SrfSearch {
 
     showCloseIconIfNeeded(deferred) {
         if (!deferred) {
-            if (this.$inputField.val() === '') {
-                this.hideCloseIcon();
-            } else {
-                this.showCloseIcon();
-            }
+            this.showCloseIcon();
         } else {
             if (this.currTimeout) {
                 clearTimeout(this.currTimeout);

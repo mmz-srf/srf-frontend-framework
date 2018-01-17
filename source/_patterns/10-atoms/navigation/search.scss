@@ -9,8 +9,11 @@
     position: absolute;
     text-decoration: none;
     border: 0px;
-    padding-top: 10px;
-    padding-right: 10px;
+    padding: 12px;
+    
+    @include tablet-up {
+      padding: 11px;
+    }
 
     img {
       position: relative;
@@ -36,8 +39,7 @@
   border: 0;
   border-radius: 2px;
   box-sizing: border-box;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  @include font-smoothing;
 
   &:focus {
     color: $color-text-accentuation;

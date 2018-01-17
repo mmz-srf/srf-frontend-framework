@@ -101,10 +101,6 @@
   @include desktop-up {
     top: 267px;
   }
-  @include desktop-wide {
-    top: 296px;
-  }
-
   &:hover {
     background-color: rgba(0, 0, 0, .48);
   }

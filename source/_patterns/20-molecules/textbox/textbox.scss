@@ -1,15 +1,16 @@
 @import "../../variables";
 
 .textbox {
-  margin: 48px 0;
+  margin: 32px 8px;
   background-color: $color-bg-box;
   overflow: hidden;
-  font-size: 18px;
-  padding-top: 24px;
-  @include smartphone {
-    margin: 32px 8px;
-    padding: 16px 8px 0;
-    font-size: 16px;
+  font-size: 16px;
+  padding: 16px 8px 0;
+
+  @include tablet-up {
+    margin: 48px 0;
+    padding: 24px 0 0 0;
+    font-size: 18px;
   }
 }
 
@@ -17,17 +18,17 @@
   @include article-element-indentation;
 
   .textbox__title {
-    padding: 0 24px;
+    padding: 0 8px;
 
-    @include smartphone {
-      padding: 0 8px;
+    @include tablet-up {
+      padding: 0 24px;
     }
   }
   .textbox__content {
     & > h4 {
-      padding: 0 24px;
-      @include smartphone {
-        padding: 0 8px;
+      padding: 0 8px;
+      @include tablet-up {
+        padding: 0 24px;
       }
     }
   }
@@ -35,32 +36,30 @@
 
 .textbox__title {
   padding: 0 8px;
-  margin: 0px 0 12px;
+  margin: 0 0 8px;
   font-family: $font-medium;
-  font-size: 20px;
-  line-height: 32px;
-  letter-spacing: .3px;
+  font-size: 18px;
+  line-height: 1.56;
+  letter-spacing: .5px;
 
-  @include smartphone {
-    font-size: 18px;
-    line-height: 28px;
-    letter-spacing: .5px;
+  @include tablet-up {
+    margin: 0 0 12px;
+    font-size: 20px;
+    line-height: 1.4;
+    letter-spacing: .3px;
   }
 }
 
 .textbox__content {
   & > p {
     padding: 0 8px;
-
     margin: 8px 0 16px;
     line-height: $default-line-height-ratio;
-
     &:last-of-type {
-      margin-bottom: 24px;
+        margin-bottom: 24px;
     }
-
     @include tablet-up {
-      padding: 0 24px;
+        padding: 0 24px;
     }
   }
 
@@ -97,18 +96,17 @@
       padding: 0 24px;
     }
   }
-  & > h4 {
-    font-size: 16px;
 
+  & > h4 {
     padding: 0 8px;
     margin: 16px 0 8px;
     font-family: $font-medium;
-    line-height: $default-line-height-ratio;
-    letter-spacing: 0.5px;
+    font-size: 16px;
+    line-height: $default-line-height-ratio;;
+    letter-spacing: .5px;
 
     @include tablet-up {
       font-size: 18px;
     }
-
   }
 }

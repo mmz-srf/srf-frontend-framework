@@ -82,7 +82,6 @@
   clear: both;
 
   @include tablet-up {
-    margin-top: 24px;
-    margin-bottom: 24px;
+    margin: 24px -16px 24px 0;
   }
 }

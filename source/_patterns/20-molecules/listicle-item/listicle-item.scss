@@ -41,12 +41,6 @@
   @include tablet-up {
     margin: -8px -16px;
   }
-
-  // removes top/bottom margins of first child - i.e. an included video
-  & > *:first-child {
-    margin-top: 0;
-    margin-bottom: 0;
-  }
 }
 
 .listicle-item__content {
@@ -69,6 +63,6 @@
   margin: 12px -24px 16px 0;
 
   @include tablet-up {
-    margin: 24px -24px 24px 0;
+    margin: 24px -16px 24px 0;
   }
 }

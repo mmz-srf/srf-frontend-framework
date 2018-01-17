@@ -66,9 +66,10 @@ body.demo-pattern-page {
 
 
 .demo-documentation pre {
+  margin: 0;
   display: block;
-  padding: 0 16px;
-  overflow: scroll;
+  padding: 0 16px 16px;
+  overflow: auto;
 }
 
 .demo-documentation code {

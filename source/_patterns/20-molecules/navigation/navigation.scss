@@ -2,8 +2,7 @@
   width: 100%;
   margin: 0 auto;
   padding: 0;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  @include font-smoothing;
 
   display: flex;
   align-items: flex-start;
