@@ -1,17 +1,19 @@
 .article-author {
-  margin: 16px 0;
+  margin: 17px 0 26px;
 
-  @include smartphone {
-    margin: 8px 0;
+  display: block;
+
+  @include tablet-up {
+    margin: 22px 0 20px;
   }
 }
 
 .article-author--short {
-  margin-top: 36px;
+  margin-top: 30px;
   @include article-text-padding;
 
-  @include smartphone {
-    margin-top: 30px;
+  @include tablet-up {
+    margin-top: 36px;
   }
 }
 

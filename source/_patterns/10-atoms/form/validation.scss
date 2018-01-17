@@ -29,10 +29,6 @@
     max-width: 712px;
   }
 
-  @include desktop-wide {
-    max-width: 790px;
-  }
-
   @include smartphone {
     text-align: center;
     height: 204px;

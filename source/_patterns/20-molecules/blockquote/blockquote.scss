@@ -1,17 +1,19 @@
+@import "../../variables";
+
 .blockquote {
-  margin: 48px 0;
+  margin: 32px 0;
+  font-size: 22px;
+
   font-family: $font-serif;
-  font-size: 24px;
-  line-height: 36px;
+  line-height: $default-line-height-ratio;
   letter-spacing: .3px;
   color: $color-text-default;
 
   @include article-text-padding;
 
-  @include smartphone {
-    margin: 32px 0;
-    font-size: 22px;
-    line-height: 32px;
+  @include tablet-up {
+    margin: 48px 0;
+    font-size: 24px;
   }
 }
 
@@ -34,16 +36,17 @@
 }
 
 .blockquote__author {
+  margin-top: 12px;
+
   display: block;
-  margin-top: 8px;
   font-family: $font-regular;
   font-size: 14px;
-  line-height: 20px;
+  line-height: $default-line-height-ratio;
   letter-spacing: .5px;
   color: $color-text-default;
 
-  @include smartphone {
-    margin-top: 12px;
+  @include tablet-up {
+    margin-top: 8px;
   }
 }
 .blockquote__function {

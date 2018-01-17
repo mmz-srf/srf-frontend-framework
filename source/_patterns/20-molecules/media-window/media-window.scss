@@ -16,10 +16,6 @@
     padding: 0 58px 12px;
   }
 
-  @include desktop-wide {
-    padding: 0 60px 12px;
-  }
-
   &.media-window--playing {
     .media-window::after { // dreieckli
       border-bottom: solid 10px #f5f5f2;
