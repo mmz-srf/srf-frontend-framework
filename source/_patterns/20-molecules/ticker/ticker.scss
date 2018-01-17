@@ -1,3 +1,5 @@
+@import "../../variables";
+
 .ticker {
   margin: 30px 0 7px 7px;
   padding: 0;
@@ -187,24 +189,30 @@
 }
 
 .ticker-item__time {
-  font: 14px/20px $font-regular;
+  margin-bottom: 8px;
+
+  font-family: $font-medium;
+  line-height: $default-line-height-ratio;
+  font-size: 14px;
   letter-spacing: .5px;
   display: block;
-  margin-bottom: 12px;
 
-  @include smartphone {
-    margin-bottom: 8px;
+  @include tablet-up {
+    margin-bottom: 12px;
   }
 }
 
 .ticker-item__title {
-  font: 20px/30px $font-medium;
+  font-size: 20px;
   letter-spacing: .3px;
+
+  font-family: $font-medium;
+  line-height: $default-line-height-ratio;
   margin: 8px 0 0;
 
-  @include smartphone {
-    font-size: 18px;
-    letter-spacing: .5px;
+  @include tablet-up {
+    font-size: 20px;
+    letter-spacing: .3px;
   }
 }
 
