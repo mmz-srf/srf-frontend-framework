@@ -41,18 +41,12 @@
   color: #fafaf8;
   font-family: $font-system;
   font-size: 12px;
+  font-weight: 500;
+  @include font-smoothing;
   line-height: 1.33;
   
   @include tablet-up {
     padding: 8px 12px;
-  }
-}
-
-/* Beautify Font-Rendering on Non-Retina-Displays */
-@media screen and (-webkit-max-device-pixel-ratio: 1) {
-  .medium__notice {
-    font-weight: 500;
-    @include font-smoothing;
   }
 }
 
