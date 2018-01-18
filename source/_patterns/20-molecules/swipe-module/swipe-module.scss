@@ -226,6 +226,7 @@ $item-max-width: 400px;
 
   & > a { // overwrite global a-styles :-/
     border: none;
+    height: 100%;
 
     &:hover,
     &:active,

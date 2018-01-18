@@ -67,24 +67,3 @@ strong {
 th {
   font-weight: normal;
 }
-
-/*
-accessibility
-animated focus ring styles
-*/
-.focus-ring-overlay {
-  z-index: 100002;
-  background: rgba(145, 206, 255, 0.15) !important;
-}
-
-.focus-ring {
-  z-index: 100002;
-  outline: none !important;
-  box-shadow: 0 0 2px 1px rgba(66, 163, 241,1), 0 0 0 1px #42A3F1, inset 0 0 0 1px #91CEFF !important;
-  border-radius: 2px !important;
-  transition: ease-out 0.3s !important;
-}
-
-:focus:not(.focus-ring) {
-  outline: none !important;
-}
