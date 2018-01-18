@@ -26,13 +26,27 @@
 .medium__object {
   flex-shrink: 0;
   width: 196px;
-  height: 110px;
   background-color: #000;
 
   @include smartphone {
     margin: 16px 0 16px 16px;
-    height: 92px;
     width: 92px;
+  }
+}
+
+.medium__notice {
+  display: block;
+  padding: 4px 8px;
+  background: #222;
+  color: #fafaf8;
+  font-family: $font-system;
+  font-size: 12px;
+  font-weight: 500;
+  @include font-smoothing;
+  line-height: 1.33;
+  
+  @include tablet-up {
+    padding: 8px 12px;
   }
 }
 
@@ -54,6 +68,20 @@
 
     @include smartphone {
       margin: 0;
+    }
+  }
+
+  .medium__notice {
+    padding: 8px 24px;
+    
+    @include tablet-up {
+      padding: 8px 16px;
+    }
+  }
+
+  &.medium--video-gallery {
+    .medium__notice {
+      padding: 8px 12px;
     }
   }
 
@@ -95,7 +123,14 @@
 
     @include tablet-up {
       width: 163px;
-      height: 92px;
+    }
+  }
+
+  .medium__notice {
+    padding: 4px 8px;
+    
+    @include tablet-up {
+      padding: 8px 12px;
     }
   }
 
@@ -138,6 +173,17 @@
       margin: 16px 0 -16px -60px;
     }
   }
+  
+  .medium__notice {
+    font-size: 10px;
+    padding: 4px 6px;
+    
+    @include tablet-up {
+      font-size: 12px;
+      padding: 8px 12px;
+    }
+  }
+
 }
 
 .medium--video-gallery {
