@@ -67,3 +67,8 @@ strong {
 th {
   font-weight: normal;
 }
+
+// no outline needed because of flying focus
+:focus {
+  outline: none;
+}
