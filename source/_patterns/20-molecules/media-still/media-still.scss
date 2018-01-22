@@ -18,9 +18,12 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 22.5%;
-  max-width: 64px;
-  min-width: 36px;
+  width: 22.45%; // 22.5% did cause subpixel rendering issues in some cases in firefox, but 22.45% works
+  max-width: calc(64px + #{$play-button-border-size * 2});
+  min-width: calc(36px + #{$play-button-border-size * 2});
+
+  /* forcing 1:1 aspect ratio */
+  @include forceSquareAspectRatio;
 }
 
 .media-still__indicator {
@@ -58,6 +61,15 @@
   }
 }
 
+.media-still--poll-submitted {
+  .image {
+    padding-bottom: 100%;
+  }
+
+  .media-still__indicator {
+    display: none;
+  }
+}
 
 // media-still--compact behaves like a media-still--video on desktop
 // but results in a square still without time indicator on mobile

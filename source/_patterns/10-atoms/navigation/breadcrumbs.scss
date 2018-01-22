@@ -1,17 +1,14 @@
+@import "../../variables";
+
 .breadcrumbs {
   margin: 4px auto 16px 0;
   padding: 0 24px;
   white-space: nowrap;
   overflow-x: auto;
 
-  & + .article,
-  & + .l-main-wrapper { // from above come 8px hidden border - for extended touch area
-    margin-top: -8px;
-  }
-
   @include tablet-up {
     max-width: 624px;
-    margin: 16px auto 24px;
+    margin: 24px auto 12px;
     padding: 0;
   }
 
@@ -40,7 +37,7 @@
   vertical-align: middle;
   position: relative;
   border-radius: 2px;
-  margin: 8px;
+  margin: $breadcrumb-touch-area-expansion;
   background-clip: padding-box;
   border: 0;
 

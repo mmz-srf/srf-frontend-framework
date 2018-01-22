@@ -1,6 +1,10 @@
+@import "../../variables";
+
 .table-block {
   overflow-x: auto;
   margin: 16px 0 32px;
+  // enable inertia scrolling on ios devices
+  -webkit-overflow-scrolling: touch;
 
   @include smartphone {
     margin: 16px 0px 24px;
@@ -17,18 +21,19 @@
   }
 
   th {
-    font-size: 16px;
-    line-height: 24px;
-    letter-spacing: .6px;
+    font-size: 14px;
+    line-height: $default-line-height-ratio;
+    letter-spacing: .5px;
+
     font-family: $font-medium;
     text-align: left;
     text-transform: uppercase;
     color: $color-text-default;
     background: $color-bg-box;
-    @include smartphone {
-      font-size: 14px;
-      line-height: 20px;
-      letter-spacing: .5px;
+
+    @include tablet-up {
+      font-size: 16px;
+      letter-spacing: .6px;
     }
   }
 
@@ -49,25 +54,25 @@
   tbody tr:nth-child(odd) {background-color: $color-table-bg-zebra-dark}
 
   td {
-    font-size: 16px;
-    line-height: 24px;
+    font-size: 14px;
+    line-height: $default-line-height-ratio;
     letter-spacing: .5px;
-    @include smartphone {
-      font-size: 14px;
-      line-height: 20px;
-      letter-spacing: .5px;
+
+    @include tablet-up {
+      font-size: 16px;
     }
   }
 
   th, td {
-    padding: 11px 16px 13px;
+    padding: 13px 12px 15px;
+
     border-style: solid;
     border-color: #fff;
     border-width: 0 1px 2px 0;
     vertical-align: top;
 
-    @include smartphone {
-      padding: 13px 12px 15px;
+    @include tablet-up {
+      padding: 11px 16px 13px;
     }
   }
 }
@@ -75,7 +80,7 @@
 .table-block--legacy {
   tr[data-head="true"]:first-child td {
     font-size: 16px;
-    line-height: 24px;
+    line-height: $default-line-height-ratio;
     letter-spacing: .6px;
     font-family: $font-medium;
     text-align: left;
@@ -85,7 +90,6 @@
 
     @include smartphone {
       font-size: 14px;
-      line-height: 20px;
       letter-spacing: .5px;
     }
   }

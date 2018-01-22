@@ -9,6 +9,7 @@
             {% else %}
                 {% include 'molecules-media-still--compact' %}
             {% endif %}
+            {% if showNotice %}<span class="medium__notice">Video nicht mehr verfügbar</span>{% endif %}
         </div>
         <div class="medium__caption">
           {% if mediumType == 'audio' %}
