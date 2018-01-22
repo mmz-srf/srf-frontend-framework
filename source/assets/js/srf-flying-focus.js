@@ -1,5 +1,4 @@
 export function init() {
-    'use strict';
 
     let DURATION = 150;
 
