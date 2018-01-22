@@ -3,6 +3,8 @@
 .table-block {
   overflow-x: auto;
   margin: 16px 0 32px;
+  // enable inertia scrolling on ios devices
+  -webkit-overflow-scrolling: touch;
 
   @include smartphone {
     margin: 16px 0px 24px;
