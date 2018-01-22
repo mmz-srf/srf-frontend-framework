@@ -17,13 +17,13 @@ export function init() {
 
     // hover for medium element
     $(document).on('mouseenter', HOOK_SELECTOR, (event) => {
-        let $element = $(event.target.closest(HOOK_SELECTOR));
+        let $element = $(event.target).closest(HOOK_SELECTOR);
         $element.find('.media-caption').addClass('media-caption--hover');
         $element.find('.play-icon-ng').addClass('play-icon-ng--hover');
         $element.find('.media-still__image').addClass('media-still__image--hover');
     });
     $(document).on('mouseleave', HOOK_SELECTOR, (event) => {
-        let $element = $(event.target.closest(HOOK_SELECTOR));
+        let $element = $(event.target).closest(HOOK_SELECTOR);
         $element.find('.media-caption').removeClass('media-caption--hover');
         $element.find('.play-icon-ng').removeClass('play-icon-ng--hover');
         $element.find('.media-still__image').removeClass('media-still__image--hover');
