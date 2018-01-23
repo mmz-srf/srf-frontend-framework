@@ -9,6 +9,7 @@ import {init as FefSearchInit} from './srf-search';
 import {init as FefNavigationInit} from './srf-navigation';
 import {init as FefShameInit} from  './srf-shame';
 import {init as FefSwipeModuleInit} from './srf-swipe-module';
+import {init as FefFlyingFocusInit} from './srf-flying-focus';
 
 /** Self loading components, without init **/
 import {FefFormField} from './components/fef-form-field';
@@ -25,5 +26,6 @@ document.addEventListener('DOMContentLoaded', function(event) {
     FefSearchInit();
     FefNavigationInit();
     FefSwipeModuleInit();
+    FefFlyingFocusInit();
     FefShameInit(); // this should probably be last, because it may contain code that depends on the previous scripts
 });
