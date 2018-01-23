@@ -81,6 +81,16 @@
     display: block;
     z-index: 1;
 
+    // increasing the touch area of the button
+    &::before {
+      content: "";
+      position: absolute;
+      top: -5px;
+      left: -5px;
+      right: -5px;
+      bottom: -5px;
+    }
+
     @include tablet-up {
       top: 20px;
       right: calc(50% - 328px);
