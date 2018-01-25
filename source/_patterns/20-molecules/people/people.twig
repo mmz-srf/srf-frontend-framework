@@ -1,5 +1,5 @@
 <div class="people js-people">
-  <div class="people__header js-people-header">
+  <div class="people__header js-people-header" role="button" tabindex="0">
     <div class="people-icon">
       {% include 'atoms-image' with { 'styleModifier': 'image--circle' } %}
     </div>
@@ -9,9 +9,12 @@
       <p class="people-description__function">Executive Producer</p>
     </div>
 
-    <div class="people__expand-icon">
-      {% include 'atoms-expand-icon' with { 'styleModifier': 'expand-icon--red', 'textOpen': 'Personenbox auflkappen', 'textClose': 'Personenbox zuklappen' } %}
+    <div class="people__expand-icon" role="presentation" aria-hidden="true">
+      {% include 'atoms-expand-icon' with { 'styleModifier': 'expand-icon--red' } %}
     </div>
+
+    <div class="h-offscreen people__a11y-text--open">Personenbox aufklappen</div>
+    <div class="h-offscreen people__a11y-text--close">Personenbox zuklappen</div>
   </div>
 
   <div class="people__body js-people-body">

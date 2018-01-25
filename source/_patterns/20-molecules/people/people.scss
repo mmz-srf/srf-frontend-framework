@@ -66,6 +66,10 @@
   align-self: center;
 }
 
+.people__body {
+  display: none;
+}
+
 .people__content {
   padding: 0 16px 16px;
   margin: 0;
@@ -78,11 +82,11 @@
   color: #22211d;
 
   // prevent inner elements of creating a bigger gap between header and content
-  & > p:first-child {
+  > p:first-child {
     margin-top: 0;
   }
 
-  & > p:last-child {
+  > p:last-child {
     margin-bottom: 0;
   }
 }
@@ -103,4 +107,17 @@
       background-color: #cac8bf;
     }
   }
+}
+
+.people__a11y-text--close {
+  display: none;
+}
+
+.people--expanded .people__a11y-text--close {
+  display: block;
+}
+
+
+.people--expanded .people__a11y-text--open {
+  display: none;
 }
