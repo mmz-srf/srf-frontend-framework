@@ -1,8 +1,106 @@
 .people {
   border-radius: 2px;
   background-color: #ebebe5;
+  display: flex;
+  flex-direction: column;
+
+  max-width: 516px;
+  margin: 0 auto;
+  border-radius: 2px;
+}
+
+.people__header {
+  display: flex;
+  flex-direction: row;
+  padding: 16px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #dadad2;
+  }
+
+  &:focus,
+  &:active {
+    background-color: #cac8bf;
+  }
+}
+
+.people-description {
+  flex: 1 1 auto;
+  align-self: center;
+
+  display: flex;
+  flex-direction: column;
+
+  margin: 0 12px;
+}
+
+.people-description__name {
+  margin: 0;
+
+  font: 14px/1.43 $font-regular;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  letter-spacing: 0.5px;
+  color: #22211d;
+}
+
+.people-description__function {
+  margin: 0;
+
+  font: 12px/1.33 $font-regular;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  letter-spacing: normal;
+  color: #6b6960;
 }
 
 .people-icon {
-  width: 60px;
+  flex: 0 0 60px;
+}
+
+.people__expand-icon {
+  flex: 0 0 auto;
+  align-self: center;
+}
+
+.people__content {
+  padding: 0 16px 16px;
+  margin: 0;
+
+  font: 16px/1.5 $font-light;
+  font-weight: 300;
+  font-style: normal;
+  font-stretch: normal;
+  letter-spacing: 0.5px;
+  color: #22211d;
+
+  // prevent inner elements of creating a bigger gap between header and content
+  & > p:first-child {
+    margin-top: 0;
+  }
+
+  & > p:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.people__link {
+  border-top: 1px solid rgba(0,0,0,0.1);
+
+  a {
+    padding-left: 12px;
+    padding-right: 42px;
+    background-position-x: calc(100% - 11px);
+
+    &:hover {
+      background-color: #dadad2;
+    }
+
+    &:focus {
+      background-color: #cac8bf;
+    }
+  }
 }

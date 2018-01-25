@@ -14,6 +14,7 @@ import {init as FefFlyingFocusInit} from './srf-flying-focus';
 /** Self loading components, without init **/
 import {FefFormField} from './components/fef-form-field';
 import {FefTooltip} from './components/fef-tooltip';
+import {FefPeopleBox} from './components/fef-people-box';
 
 document.addEventListener('DOMContentLoaded', function(event) {
     FefCarouselsInit();

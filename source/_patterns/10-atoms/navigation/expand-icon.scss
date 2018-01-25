@@ -13,9 +13,21 @@
 }
 
 .expand-icon--open {
-  .expand-icon__a11y-open  { display: none; }
-  .expand-icon__a11y-close { display: block; }
+  .expand-icon__a11y-open {
+    display: none;
+  }
+
+  .expand-icon__a11y-close {
+    display: block;
+  }
 }
 
 .expand-icon__a11y-open  { display: block; }
 .expand-icon__a11y-close { display: none; }
+
+
+.expand-icon--red {
+  background: transparent url("../img/arrows/arrow_red_down.svg") no-repeat 0 0 / 17px;
+  height: 17px;
+  margin: 0;
+}
