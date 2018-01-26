@@ -1,12 +1,21 @@
+$people-max-width: 516px;
+$people-margin: 8px;
+
 .people {
   border-radius: 2px;
   background-color: #ebebe5;
   display: flex;
   flex-direction: column;
 
-  max-width: 516px;
-  margin: 0 auto;
+  max-width: $people-max-width;
+  margin: $people-margin;
   border-radius: 2px;
+}
+
+@media (min-width: #{$people-max-width + 2 * $people-margin}) {
+  .people {
+    margin: $people-margin auto;
+  }
 }
 
 .people__header {
