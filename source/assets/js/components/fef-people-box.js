@@ -1,10 +1,11 @@
 $(document).ready(() => {
-    $(".js-people").each((index, elem) => {
+    $('.js-people').each((index, elem) => {
         new FefPeopleBox($(elem));
     });
 });
 
 const ANIMATIONDURATION = 200;
+const ANIMATIONEASING = 'easeInOutCubic';
 const KEYCODES = {
     'enter': 13,
     'space': 32
@@ -17,9 +18,9 @@ export class FefPeopleBox {
      */
     constructor ($element) {
         this.$element = $element;
-        this.$arrow = $element.find(".expand-icon");
-        this.$body = $element.find(".js-people-body");
-        this.$header = $element.find(".js-people-header");
+        this.$arrow = $element.find('.expand-icon');
+        this.$body = $element.find('.js-people-body');
+        this.$header = $element.find('.js-people-header');
 
         this.bindEvents();
     }
@@ -29,7 +30,7 @@ export class FefPeopleBox {
      */
     bindEvents () {
         this.$header.on('click', (event) => {
-            this.toggleBox(event)
+            this.toggleBox(event);
             this.$header.blur();
         });
 
@@ -47,15 +48,15 @@ export class FefPeopleBox {
      * @param event
      */
     toggleBox(event) {
-        let willBeShown = !this.$element.hasClass("people--expanded");
+        let willBeShown = !this.$element.hasClass('people--expanded');
 
-        this.$element.toggleClass("people--expanded", willBeShown);
+        this.$element.toggleClass('people--expanded', willBeShown);
         this.$arrow.toggleClass('expand-icon--open', willBeShown);
 
         if (willBeShown) {
-            this.$body.slideDown(ANIMATIONDURATION);
+            this.$body.slideDown(ANIMATIONDURATION, ANIMATIONEASING);
         } else {
-            this.$body.slideUp(ANIMATIONDURATION);
+            this.$body.slideUp(ANIMATIONDURATION, ANIMATIONEASING);
         }
 
         event.preventDefault();

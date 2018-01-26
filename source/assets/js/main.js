@@ -16,6 +16,8 @@ import {FefFormField} from './components/fef-form-field';
 import {FefTooltip} from './components/fef-tooltip';
 import {FefPeopleBox} from './components/fef-people-box';
 
+import './fef-easings';
+
 document.addEventListener('DOMContentLoaded', function(event) {
     FefCarouselsInit();
     FefChartsInit();
