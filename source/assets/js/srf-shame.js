@@ -98,6 +98,6 @@ function objectFitForIE() {
  */
 function replaceSVGLogoForIE() {
     if (navigator.userAgent.indexOf('MSIE')!==-1 || navigator.appVersion.indexOf('Trident/') > 0) {
-        document.getElementsByClassName("header-startlink")[0].classList.add("header-startlink--fixed-for-ie");
+        document.getElementsByClassName('header-startlink')[0].classList.add('header-startlink--fixed-for-ie');
     }
 }
