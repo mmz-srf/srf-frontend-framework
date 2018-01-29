@@ -122,16 +122,16 @@ $people-margin-horizontal: 8px;
   }
 }
 
-.people__a11y-text--close {
+.expandable__a11y-text--close {
   display: none;
 }
 
-.people--expanded {
-  .people__a11y-text--close {
+.expandable--expanded {
+  .expandable__a11y-text--close {
     display: block;
   }
 
-  .people__a11y-text--open {
+  .expandable__a11y-text--open {
     display: none;
   }
 

@@ -1,6 +1,6 @@
 $(document).ready(() => {
-    $('.js-people').each((index, elem) => {
-        new FefPeopleBox($(elem));
+    $('.js-expandable').each((index, elem) => {
+        new FefExpandable($(elem));
     });
 });
 
@@ -11,7 +11,7 @@ const KEYCODES = {
     'space': 32
 };
 
-export class FefPeopleBox {
+export class FefExpandable {
 
     /**
      * @param $element jQuery.element
@@ -19,14 +19,14 @@ export class FefPeopleBox {
     constructor ($element) {
         this.$element = $element;
         this.$arrow = $element.find('.expand-icon');
-        this.$body = $element.find('.js-people-body');
-        this.$header = $element.find('.js-people-header');
+        this.$body = $element.find('.js-expandable--body');
+        this.$header = $element.find('.js-expandable--header');
 
         this.bindEvents();
     }
 
     /**
-     * Bind click and keydown event so that the people box can be opened/closed.
+     * Bind click and keydown event so that the box can be opened/closed.
      */
     bindEvents () {
         this.$header.on('click', (event) => {
@@ -48,10 +48,13 @@ export class FefPeopleBox {
      * @param event
      */
     toggleBox(event) {
-        let willBeShown = !this.$element.hasClass('people--expanded');
+        let willBeShown = !this.$element.hasClass('expandable--expanded');
 
-        this.$element.toggleClass('people--expanded', willBeShown);
-        this.$arrow.toggleClass('expand-icon--open', willBeShown);
+        this.$element.toggleClass('expandable--expanded', willBeShown);
+
+        if (this.$arrow) {
+            this.$arrow.toggleClass('expand-icon--open', willBeShown);
+        }
 
         if (willBeShown) {
             this.$body.slideDown(ANIMATIONDURATION, ANIMATIONEASING);

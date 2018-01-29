@@ -43,6 +43,7 @@
   letter-spacing: .5px;
 
   @include tablet-up {
+    padding: 0 24px;
     margin: 0 0 12px;
     font-size: 20px;
     letter-spacing: .3px;
