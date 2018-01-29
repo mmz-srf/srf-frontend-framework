@@ -7,6 +7,8 @@
 
 export function init() {
     objectFitForIE();
+
+    replaceSVGLogoForIE();
 }
 
 function objectFitForIE() {
@@ -83,7 +85,19 @@ function objectFitForIE() {
                 copyPropertiesFromOldImage(oldImg, fakeImg, objectFitVal);
 
             }
-        };
+        }
     }
+}
 
-};
+
+/*
+ * TARGETED BROWSER: IE 11
+ *
+ * IE11 _sometimes_ has problems with scaled images with svg sources. The usual remedies (viewbox, no widths, etc.)
+ * didn't help. This is the last resort - hiding the img and setting a background-image on the parent.
+ */
+function replaceSVGLogoForIE() {
+    if (navigator.userAgent.indexOf('MSIE')!==-1 || navigator.appVersion.indexOf('Trident/') > 0) {
+        document.getElementsByClassName("header-startlink")[0].classList.add("header-startlink--fixed-for-ie");
+    }
+}

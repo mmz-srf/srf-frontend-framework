@@ -16,7 +16,6 @@
  * the hight of the fallback-<div> would be 0.
  *
  */
-
 .image--media-still,
 .image--media-still-video {
   .js-fake-image-object-fit {
@@ -46,4 +45,22 @@
     display: block;
     margin-top: 0;
   }
+}
+
+
+/*
+ * TARGETED BROWSER: IE 11
+ *
+ * IE11 _sometimes_ has problems with scaled images with svg sources. The usual remedies (viewbox, no widths, etc.)
+ * didn't help. This is the last resort - hiding the img and setting a background-image on the parent.
+ */
+.header-startlink--fixed-for-ie {
+  width: 39px;
+  height: 26px;
+  background-image: url('../img/srf_logo_fallback.png');
+  margin: 15px 16px;
+}
+
+.header-startlink--fixed-for-ie .header-logo {
+  display: none;
 }
