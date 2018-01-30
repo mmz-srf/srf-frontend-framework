@@ -11,9 +11,12 @@ import {init as FefShameInit} from  './srf-shame';
 import {init as FefSwipeModuleInit} from './srf-swipe-module';
 import {init as FefFlyingFocusInit} from './srf-flying-focus';
 
-/** Self loading components, without init **/
+/* Self loading components, without init */
 import {FefFormField} from './components/fef-form-field';
 import {FefTooltip} from './components/fef-tooltip';
+import {FefExpandable} from './components/fef-expandable';
+
+import './fef-easings';
 
 document.addEventListener('DOMContentLoaded', function(event) {
     FefCarouselsInit();
