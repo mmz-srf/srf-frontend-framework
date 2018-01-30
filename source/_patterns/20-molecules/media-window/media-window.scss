@@ -24,11 +24,14 @@
 }
 
 .media-window { // fullwidth
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin-right: -24px;
+  margin-left: -24px;
   background-color: #22211d;
   outline: none;
-  position: relative;
-  margin-right: -20px;
-  margin-left: -20px;
 
   @include fullwidth-container;
 }
@@ -48,11 +51,6 @@
   position: relative;
 
   .media-window { // fullwidth
-    &::before {
-      content: "";
-      display: block;
-    }
-
     &::after { // dreieckli
       content: '';
       position: absolute;
@@ -104,15 +102,11 @@
   }
 
   .media-window__player { // player container
-    position: relative;
     height: 448px;
-    width: 100%;
-    top: 0;
 
-    // preventing break on breakpoint
     @include smartphone {
-      // there's no other option ...
       height: calc(56.25vw + 90px);
+      width: 100%;
     }
 
     @include desktop-wide {
@@ -121,8 +115,6 @@
   }
 
   iframe { // the player
-    position: absolute;
-
     @include smartphone {
       padding: 48px 0 42px;
     }
@@ -131,13 +123,12 @@
       top: 0;
       width: 656px;
       height: calc(100% - 80px);
-      margin: 56px 50% 24px;
-      transform: translate(-50%, 0);
+      margin: 56px auto 24px;
     }
     @include desktop-up {
       width: 712px;
       height: calc(100% - 48px);
-      margin: 24px 50%;
+      margin: 24px auto;
     }
     @include desktop-wide {
       width: 790px;
