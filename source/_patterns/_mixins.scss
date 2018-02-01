@@ -181,7 +181,7 @@
   border: 0;
 }
 
-@mixin forceSquareAspectRatio()  {
+@mixin forceSquareAspectRatio() {
   &::before {
     content: "";
     width: 1px;

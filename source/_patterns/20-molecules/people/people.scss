@@ -1,0 +1,141 @@
+@import "../../variables";
+
+$people-max-width: 516px;
+$people-margin-vertical-mobile: 32px;
+$people-margin-vertical-desktop: 48px;
+$people-margin-horizontal: 8px;
+
+.people {
+  background-color: $color-bg-box;
+  display: flex;
+  flex-direction: column;
+  border-radius: 2px;
+  max-width: $people-max-width;
+  margin: $people-margin-vertical-mobile $people-margin-horizontal;
+
+  @include tablet-up {
+    margin-top: $people-margin-vertical-desktop;
+    margin-bottom: $people-margin-vertical-desktop;
+  }
+}
+
+@media (min-width: #{$people-max-width + 2 * $people-margin-horizontal}) {
+  .people {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.people__header {
+  display: flex;
+  flex-direction: row;
+  padding: 16px;
+  cursor: pointer;
+
+  // prevent blue focus-flash on Android browsers
+  -webkit-tap-highlight-color: transparent;
+
+  &:hover {
+    background-color: $color-bg-box-hover;
+  }
+
+  &:focus,
+  &:active {
+    background-color: $color-bg-box-focus;
+  }
+}
+
+.people-description {
+  flex: 1 1 auto;
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  margin: 0 12px;
+}
+
+.people-description__name {
+  margin: 0;
+  font: 14px/1.43 $font-regular;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  letter-spacing: .5px;
+  color: $color-text-default;
+}
+
+.people-description__function {
+  margin: 0;
+  font-family: $font-system;
+  font-size: 12px;
+  line-height: 16px;
+  color: $color-text-light;
+}
+
+.people-icon {
+  flex: 0 0 60px;
+}
+
+.people__expand-icon {
+  flex: 0 0 auto;
+  align-self: center;
+}
+
+.people__body {
+  display: none;
+}
+
+.people__content {
+  padding: 0 16px 16px;
+  margin: 0;
+  font: 16px/1.5 $font-light;
+  font-weight: 300;
+  font-style: normal;
+  font-stretch: normal;
+  letter-spacing: 0.5px;
+  color: $color-text-default;
+
+  // prevent inner elements of creating a bigger gap between header and content
+  > p:first-child {
+    margin-top: 0;
+  }
+
+  > p:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.people__link {
+  border-top: 1px solid rgba(0,0,0,0.1);
+
+  a {
+    padding-left: 16px;
+    padding-right: 42px;
+    background-position-x: calc(100% - 11px);
+
+    &:hover {
+      background-color: $color-bg-box-hover;
+    }
+
+    &:focus {
+      background-color: $color-bg-box-focus;
+    }
+  }
+}
+
+.expandable__a11y-text--close {
+  display: none;
+}
+
+.expandable--expanded {
+  .expandable__a11y-text--close {
+    display: block;
+  }
+
+  .expandable__a11y-text--open {
+    display: none;
+  }
+
+  .people__header:hover {
+    background-color: transparent;
+  }
+}
