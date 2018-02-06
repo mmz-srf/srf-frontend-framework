@@ -98,6 +98,11 @@ function objectFitForIE() {
  */
 function replaceSVGLogoForIE() {
     if (navigator.userAgent.indexOf('MSIE')!==-1 || navigator.appVersion.indexOf('Trident/') > 0) {
+        let bu = document.body.getAttribute('data-bu');
         document.getElementsByClassName('header-startlink')[0].classList.add('header-startlink--fixed-for-ie');
+
+        if (bu === "rtr") {
+            document.getElementsByClassName('header-startlink')[0].classList.add('header-startlink--fixed-for-ie-rtr');
+        }
     }
 }
