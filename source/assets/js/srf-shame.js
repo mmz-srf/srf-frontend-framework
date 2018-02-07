@@ -101,7 +101,7 @@ function replaceSVGLogoForIE() {
         let bu = document.body.getAttribute('data-bu');
         document.getElementsByClassName('header-startlink')[0].classList.add('header-startlink--fixed-for-ie');
 
-        if (bu === "rtr") {
+        if (bu === 'rtr') {
             document.getElementsByClassName('header-startlink')[0].classList.add('header-startlink--fixed-for-ie-rtr');
         }
     }
