@@ -3,7 +3,7 @@
 .article-lead {
   margin: 13px 0 17px;
   font-size: 20px;
-  line-height: $default-line-height-ratio;
+  line-height: 1.45; // not default-line-height-ratio in this special case
   letter-spacing: .145px;
 
   color: $color-text-accentuation;
