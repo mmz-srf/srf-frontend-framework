@@ -50,6 +50,6 @@
 
 .l-card--with-fullwidth-elements {
   @include desktop {
-    overflow-y: hidden;
+    overflow-x: hidden;
   }
 }
