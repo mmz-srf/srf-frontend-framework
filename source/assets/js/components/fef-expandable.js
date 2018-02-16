@@ -61,8 +61,5 @@ export class FefExpandable {
         } else {
             this.$body.slideUp(ANIMATIONDURATION, ANIMATIONEASING);
         }
-
-        event.preventDefault();
-        event.stopPropagation();
     }
 }
