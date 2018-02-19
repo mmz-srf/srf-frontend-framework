@@ -101,12 +101,59 @@ $people-padding-desktop: 24px;
   color: $color-text-default;
 
   // prevent inner elements of creating a bigger gap between header and content
-  > p:first-child {
-    margin-top: 0;
+  // and prevent last element creating a larger bottom border
+  > p {
+    margin-bottom: 16px;
+    line-height: $default-line-height-ratio;
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
 
-  > p:last-child {
-    margin-bottom: 0;
+  > ul {
+    // @extend used here to apply the DRY principle while coping with ezxml's missing classes for html elements
+    // tip: always be careful with @extend
+    @extend .text-list;
+    @extend .text-list--unordered;
+
+    padding: 0;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+
+    li::before {
+      top: 9px;
+
+      @include tablet-up {
+        top: 11px; // font size is bigger
+      }
+    }
+  }
+
+  > ol {
+    // @extend used here to apply the DRY principle while coping with ezxml's missing classes for html elements
+    // tip: always be careful with @extend
+    @extend .text-list;
+    @extend .text-list--ordered;
+
+    padding: 0;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+
+  > h4 {
+    margin: 16px 0 8px;
+    font-family: $font-medium;
+    line-height: $default-line-height-ratio;
+    letter-spacing: .5px;
   }
 
   @include tablet-up {

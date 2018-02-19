@@ -1,10 +1,23 @@
-<div class="textbox {{ styleModifier }}">
-    <h2 class="textbox__title">Viele richtige Voraussagen</h2>
-    {% include 'molecules-image-figure' with { 'imageCaptionStyle': 'media-caption--no-bg media-caption--with-separator media-caption--in-box', 'styleModifier' : 'image-figure--in-box'} %}
-    <div class="textbox__content">
-        <p>Barlow rief zusammen mit einem Softwaremillionär die <a href="https://www.eff.org/de" target="_blank">«Electronic Frontier Foundation»</a> ins Leben, die noch heute für freie Netze und gegen Überwachung kämpft.</p>
-        {% include 'molecules-text-list--unordered' %}
-        <p>Barlow rief zusammen mit einem <strong>Softwaremillionär</strong> die «Electronic Frontier Foundation» ins Leben, die noch heute für freie Netze und gegen Überwachung kämpft.</p>
-        {% include 'molecules-text-list--ordered' %}
+<div class="people js-expandable {{ styleModifier }}"
+     data-event-source="Textbox (Viele richtige Voraussagen)">
+    <div class="people__header js-expandable--header" role="button" tabindex="0">
+        <h2 class="textbox__title">Viele richtige Voraussagen</h2>
+
+        <div class="people__expand-icon" role="presentation" aria-hidden="true">
+          {% include 'atoms-expand-icon' with { 'styleModifier': 'expand-icon--red' } %}
+        </div>
+
+        <div class="h-offscreen expandable__a11y-text--open">Textbox aufklappen</div>
+        <div class="h-offscreen expandable__a11y-text--close">Textbox zuklappen</div>
+    </div>
+
+    <div class="people__body js-expandable--body">
+      {% include 'molecules-image-figure' with { 'imageCaptionStyle': 'media-caption--no-bg media-caption--with-separator media-caption--in-box', 'styleModifier' : 'image-figure--in-box'} %}
+        <div class="people__content">
+            <p>Barlow rief zusammen mit einem Softwaremillionär die <a href="https://www.eff.org/de" target="_blank">«Electronic Frontier Foundation»</a> ins Leben, die noch heute für freie Netze und gegen Überwachung kämpft.</p>
+          {% include 'molecules-text-list--unordered' %}
+            <p>Barlow rief zusammen mit einem <strong>Softwaremillionär</strong> die «Electronic Frontier Foundation» ins Leben, die noch heute für freie Netze und gegen Überwachung kämpft.</p>
+          {% include 'molecules-text-list--ordered' %}
+        </div>
     </div>
 </div>
