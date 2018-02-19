@@ -1,37 +1,37 @@
 @import "../../variables";
 
-$people-max-width: 516px;
-$people-margin-vertical-mobile: 32px;
-$people-margin-vertical-desktop: 48px;
-$people-margin-horizontal: 8px;
-$people-padding-mobile: 16px;
-$people-padding-desktop: 24px;
+$expandable-max-width: 516px;
+$expandable-margin-vertical-mobile: 32px;
+$expandable-margin-vertical-desktop: 48px;
+$expandable-margin-horizontal: 8px;
+$expandable-padding-mobile: 16px;
+$expandable-padding-desktop: 24px;
 
-.people {
+.expandable {
   background-color: $color-bg-box;
   display: flex;
   flex-direction: column;
   border-radius: 2px;
-  max-width: $people-max-width;
-  margin: $people-margin-vertical-mobile $people-margin-horizontal;
+  max-width: $expandable-max-width;
+  margin: $expandable-margin-vertical-mobile $expandable-margin-horizontal;
 
   @include tablet-up {
-    margin-top: $people-margin-vertical-desktop;
-    margin-bottom: $people-margin-vertical-desktop;
+    margin-top: $expandable-margin-vertical-desktop;
+    margin-bottom: $expandable-margin-vertical-desktop;
   }
 }
 
-@media (min-width: #{$people-max-width + 2 * $people-margin-horizontal}) {
-  .people {
+@media (min-width: #{$expandable-max-width + 2 * $expandable-margin-horizontal}) {
+  .expandable {
     margin-left: auto;
     margin-right: auto;
   }
 }
 
-.people__header {
+.expandable__header {
   display: flex;
   flex-direction: row;
-  padding: $people-padding-mobile;
+  padding: $expandable-padding-mobile;
   cursor: pointer;
 
   // prevent blue focus-flash on Android browsers
@@ -47,11 +47,24 @@ $people-padding-desktop: 24px;
   }
 
   @include tablet-up {
-    padding: $people-padding-desktop;
+    padding: $expandable-padding-desktop;
   }
 }
 
-.people-description {
+.expandable__title {
+  flex: 1 1 auto;
+  margin: 0;
+  font-family: $font-medium;
+  font-size: 18px;
+  line-height: $default-line-height-ratio;
+  letter-spacing: .5px;
+
+  @include tablet-up {
+    font-size: 20px;
+  }
+}
+
+.expandable-description {
   flex: 1 1 auto;
   align-self: center;
   display: flex;
@@ -59,7 +72,7 @@ $people-padding-desktop: 24px;
   margin: 0 12px;
 }
 
-.people-description__name {
+.expandable-description__name {
   margin: 0;
   font: 14px/1.43 $font-regular;
   font-weight: normal;
@@ -69,7 +82,7 @@ $people-padding-desktop: 24px;
   color: $color-text-default;
 }
 
-.people-description__function {
+.expandable-description__function {
   margin: 0;
   font-family: $font-system;
   font-size: 12px;
@@ -77,21 +90,21 @@ $people-padding-desktop: 24px;
   color: $color-text-light;
 }
 
-.people-icon {
+.expandable-icon {
   flex: 0 0 60px;
 }
 
-.people__expand-icon {
+.expandable__expand-icon {
   flex: 0 0 auto;
   align-self: center;
 }
 
-.people__body {
+.expandable__body {
   display: none;
 }
 
-.people__content {
-  padding: 0 $people-padding-mobile $people-padding-mobile;
+.expandable__content {
+  padding: 0 $expandable-padding-mobile $expandable-padding-mobile;
   margin: 0;
   font: 16px/1.5 $font-light;
   font-weight: 300;
@@ -157,16 +170,16 @@ $people-padding-desktop: 24px;
   }
 
   @include tablet-up {
-    padding: 0 $people-padding-desktop $people-padding-desktop;
+    padding: 0 $expandable-padding-desktop $expandable-padding-desktop;
     font-size: 18px;
   }
 }
 
-.people__link {
+.expandable__link {
   border-top: 1px solid rgba(0,0,0,0.1);
 
   a {
-    padding-left: $people-padding-mobile;
+    padding-left: $expandable-padding-mobile;
     padding-right: 42px;
     background-position-x: calc(100% - 11px);
 
@@ -179,7 +192,7 @@ $people-padding-desktop: 24px;
     }
 
     @include tablet-up {
-      padding-left: $people-padding-desktop;
+      padding-left: $expandable-padding-desktop;
       padding-right: 50px;
       background-position-x: calc(100% - 19px);
     }
@@ -199,7 +212,7 @@ $people-padding-desktop: 24px;
     display: none;
   }
 
-  .people__header:hover {
+  .expandable__header:hover {
     background-color: transparent;
   }
 }
