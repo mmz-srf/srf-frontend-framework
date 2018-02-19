@@ -65,7 +65,7 @@ export class FefExpandable {
             this.$body.slideUp(ANIMATIONDURATION, ANIMATIONEASING);
         }
 
-        $(window).trigger('srf.track.interaction', {
+        $(window).trigger('fef.track.interaction', {
             event_type: options && options.keyPress ? 'keypress' : 'click',
             event_source: this.eventSource,
             event_name: willBeShown ? 'Open': 'Close'
