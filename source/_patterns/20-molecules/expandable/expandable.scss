@@ -216,3 +216,24 @@ $expandable-padding-desktop: 24px;
     background-color: transparent;
   }
 }
+
+// Expandable can also be not expandable.
+.expandable--static {
+  .expandable__body {
+    display: block;
+  }
+
+  .expandable__header {
+    cursor: default;
+
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: $color-bg-box;
+    }
+  }
+
+  .expandable__expand-icon {
+    display: none;
+  }
+}
