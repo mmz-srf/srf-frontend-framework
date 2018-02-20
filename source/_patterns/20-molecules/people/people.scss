@@ -4,6 +4,8 @@ $people-max-width: 516px;
 $people-margin-vertical-mobile: 32px;
 $people-margin-vertical-desktop: 48px;
 $people-margin-horizontal: 8px;
+$people-padding-mobile: 16px;
+$people-padding-desktop: 24px;
 
 .people {
   background-color: $color-bg-box;
@@ -29,7 +31,7 @@ $people-margin-horizontal: 8px;
 .people__header {
   display: flex;
   flex-direction: row;
-  padding: 16px;
+  padding: $people-padding-mobile;
   cursor: pointer;
 
   // prevent blue focus-flash on Android browsers
@@ -42,6 +44,10 @@ $people-margin-horizontal: 8px;
   &:focus,
   &:active {
     background-color: $color-bg-box-focus;
+  }
+
+  @include tablet-up {
+    padding: $people-padding-desktop;
   }
 }
 
@@ -85,7 +91,7 @@ $people-margin-horizontal: 8px;
 }
 
 .people__content {
-  padding: 0 16px 16px;
+  padding: 0 $people-padding-mobile $people-padding-mobile;
   margin: 0;
   font: 16px/1.5 $font-light;
   font-weight: 300;
@@ -102,13 +108,18 @@ $people-margin-horizontal: 8px;
   > p:last-child {
     margin-bottom: 0;
   }
+
+  @include tablet-up {
+    padding: 0 $people-padding-desktop $people-padding-desktop;
+    font-size: 18px;
+  }
 }
 
 .people__link {
   border-top: 1px solid rgba(0,0,0,0.1);
 
   a {
-    padding-left: 16px;
+    padding-left: $people-padding-mobile;
     padding-right: 42px;
     background-position-x: calc(100% - 11px);
 
@@ -118,6 +129,12 @@ $people-margin-horizontal: 8px;
 
     &:focus {
       background-color: $color-bg-box-focus;
+    }
+
+    @include tablet-up {
+      padding-left: $people-padding-desktop;
+      padding-right: 50px;
+      background-position-x: calc(100% - 19px);
     }
   }
 }
