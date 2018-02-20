@@ -23,6 +23,10 @@ export class FefExpandable {
         this.$header = $element.find('.js-expandable--header');
 
         this.eventSource = this.$element.data('event-source');
+        this.switchId = this.$element.data('expand-switch-id');
+        if (this.switchId) {
+            this.$switch = $(this.switchId);
+        }
 
         this.bindEvents();
     }
@@ -31,16 +35,26 @@ export class FefExpandable {
      * Bind click and keydown event so that the box can be opened/closed.
      */
     bindEvents () {
-        this.$header.on('click', (event) => {
+
+        let clickHandler = (event) => {
             this.toggleBox(event);
             this.$header.blur();
-        });
+        };
 
-        this.$header.on('keydown', (event) => {
+        let keyboardHandler = (event) => {
             if (event.keyCode === KEYCODES.enter || event.keyCode === KEYCODES.space) {
                 this.toggleBox(event, {keyPress: true});
             }
-        });
+        };
+
+        if (this.$switch) {
+            this.$switch.on('click', clickHandler);
+            this.$switch.on('keydown', keyboardHandler);
+        } else {
+            this.$header.on('click', clickHandler);
+            this.$header.on('keydown', keyboardHandler);
+        }
+
     }
 
     /**
