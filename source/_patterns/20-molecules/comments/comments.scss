@@ -19,6 +19,48 @@
   }
 }
 
+.comments-header__group {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    max-width: 712px;
+}
+
+.comments-header__group > * {
+    flex-grow: 0;
+}
+
+.comments-header__expand-switch {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.comments-header__expand-switch > .expand-text {
+    display: none;
+    color: $color-accentuation-red;
+
+    @include tablet-up {
+        display: inline-block;
+    }
+}
+
+.comments-header__expand-switch > .expand-icon {
+    height: 40px;
+    width: 44px;
+
+    background-position: 50% 50%;
+
+    @include tablet-up {
+        width: 26px;
+        background-position: 0% 50%;
+    }
+}
+
+.comments-header__group--push {
+    flex-grow: 1;
+}
+
 .comments-header {
   background-color: $color-link-bg-hover;
   position: relative;
