@@ -36,6 +36,18 @@
     cursor: pointer;
 }
 
+.expandable .expand-text--to-close {
+    display: none;
+}
+
+.expandable--expanded .expand-text--to-close {
+    display: block;
+}
+
+.expandable--expanded .expand-text--to-open {
+    display: none;
+}
+
 .comments-header__expand-switch > .expand-text {
     display: none;
     color: $color-accentuation-red;
@@ -44,6 +56,7 @@
         display: inline-block;
     }
 }
+
 
 .comments-header__expand-switch > .expand-icon {
     height: 40px;
