@@ -2,8 +2,8 @@
          data-i18n-text-clock="Uhr"
          data-i18n-text-today="Heute"
          data-i18n-text-yesterday="Gestern">
-    <div class="l-main-wrapper__space l-card" data-total-count="{{ comments.total_count }}" {% block data_attributes %}{% endblock %}>
-        <div class="comments-header">
+    <div class="l-main-wrapper__space l-card expandable--expanded" data-total-count="{{ comments.total_count }}" {% block data_attributes %}{% endblock %}>
+        <div class="comments-header--top">
             <div class="comments-header__group comments--shrink">
                 <h3 class="comments-header__title">
                     {% if comments.total_count > 0 %}{{ comments.total_count }} {% endif %}
@@ -18,12 +18,16 @@
 
                 <div class="comments-header__expand-switch">
                     <span class="expand-text expand-text--to-close">Ausblenden</span>
+                    <span class="expand-text expand-text--to-open">Einblenden</span>
                     <span class="expand-icon expand-icon--red expand-icon--open">
                       <span class="expand-icon__a11y-open h-offscreen">{{ textOpen|default("Navigation aufklappen") }}</span>
                       <span class="expand-icon__a11y-close h-offscreen">{{ textClose|default("Navigation zuklappen") }}</span>
                     </span>
                 </div>
             </div>
+        </div>
+
+        <div class="comments-header">
             <p class="comments-header__text comments--shrink {{ styleModifier }}">
                 {{ 'Sie sind angemeldet als' }}
                 <a href="" class="comments-header__logged-in-as">Who ? (whoareyou)</a> (<a href=""

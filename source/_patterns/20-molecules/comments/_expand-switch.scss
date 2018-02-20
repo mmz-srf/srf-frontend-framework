@@ -1,0 +1,48 @@
+@import "../../variables";
+
+.comments-header__expand-switch {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+    padding: 24px 0 20px 0;
+
+    @include tablet-up {
+        margin-right: -8px;
+    }
+}
+
+
+.expand-text--to-close {
+    display: none;
+}
+
+.expandable--expanded .expand-text--to-close {
+    display: inline-block !important;
+}
+
+.expandable--expanded .expand-text--to-open {
+    display: none;
+}
+
+
+.comments-header__expand-switch > .expand-icon {
+    height: 40px;
+    width: 44px;
+
+    background-position: 50% 50%;
+
+    @include tablet-up {
+        background-position: 50% 50%;
+    }
+}
+
+.comments-header__expand-switch > .expand-text {
+    color: $color-accentuation-red;
+    font: 16px $font-regular;
+    line-height: $default-line-height-ratio;
+
+    @include smartphone {
+        display: none !important;
+    }
+}

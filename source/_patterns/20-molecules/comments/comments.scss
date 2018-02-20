@@ -1,5 +1,8 @@
 @import "../../variables";
 
+@import "header-group";
+@import "expand-switch";
+
 @mixin reply_to_comments_area() {
   font: 16px/24px $font-light;
   letter-spacing: .5px;
@@ -17,61 +20,6 @@
     margin-top: 30px;
     display: none;
   }
-}
-
-.comments-header__group {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    max-width: 712px;
-}
-
-.comments-header__group > * {
-    flex-grow: 0;
-}
-
-.comments-header__expand-switch {
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-}
-
-.expandable .expand-text--to-close {
-    display: none;
-}
-
-.expandable--expanded .expand-text--to-close {
-    display: block;
-}
-
-.expandable--expanded .expand-text--to-open {
-    display: none;
-}
-
-.comments-header__expand-switch > .expand-text {
-    display: none;
-    color: $color-accentuation-red;
-
-    @include tablet-up {
-        display: inline-block;
-    }
-}
-
-
-.comments-header__expand-switch > .expand-icon {
-    height: 40px;
-    width: 44px;
-
-    background-position: 50% 50%;
-
-    @include tablet-up {
-        width: 26px;
-        background-position: 0% 50%;
-    }
-}
-
-.comments-header__group--push {
-    flex-grow: 1;
 }
 
 .comments-header {
@@ -100,6 +48,10 @@
       content: none;
     }
   }
+}
+
+.comments-header--top {
+    background-color: $color-link-bg-hover;
 }
 
 // Kommentare
