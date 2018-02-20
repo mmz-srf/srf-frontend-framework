@@ -22,6 +22,8 @@ export class FefExpandable {
         this.$body = $element.find('.js-expandable--body');
         this.$header = $element.find('.js-expandable--header');
 
+        this.eventSource = this.$element.data('event-source');
+
         this.bindEvents();
     }
 
@@ -36,7 +38,7 @@ export class FefExpandable {
 
         this.$header.on('keydown', (event) => {
             if (event.keyCode === KEYCODES.enter || event.keyCode === KEYCODES.space) {
-                this.toggleBox(event);
+                this.toggleBox(event, {keyPress: true});
             }
         });
     }
@@ -46,8 +48,9 @@ export class FefExpandable {
      * the height is dynamic.
      *
      * @param event
+     * @param options Option object for named parameters
      */
-    toggleBox(event) {
+    toggleBox(event, options) {
         let willBeShown = !this.$element.hasClass('expandable--expanded');
 
         this.$element.toggleClass('expandable--expanded', willBeShown);
@@ -62,7 +65,10 @@ export class FefExpandable {
             this.$body.slideUp(ANIMATIONDURATION, ANIMATIONEASING);
         }
 
-        event.preventDefault();
-        event.stopPropagation();
+        $(window).trigger('fef.track.interaction', {
+            event_type: options && options.keyPress ? 'keypress' : 'click',
+            event_source: this.eventSource,
+            event_name: willBeShown ? 'Open': 'Close'
+        });
     }
 }
