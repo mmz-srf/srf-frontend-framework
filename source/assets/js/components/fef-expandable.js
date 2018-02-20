@@ -22,7 +22,9 @@ export class FefExpandable {
         this.$body = $element.find('.js-expandable--body');
         this.$header = $element.find('.js-expandable--header');
 
+        // Values for tracking, read from the template
         this.eventSource = this.$element.data('event-source');
+        this.eventValue = this.$element.data('event-value');
 
         this.bindEvents();
     }
@@ -68,7 +70,8 @@ export class FefExpandable {
         $(window).trigger('fef.track.interaction', {
             event_type: options && options.keyPress ? 'keypress' : 'click',
             event_source: this.eventSource,
-            event_name: willBeShown ? 'Open': 'Close'
+            event_name: willBeShown ? 'Open': 'Close',
+            event_value: this.eventValue
         });
     }
 }

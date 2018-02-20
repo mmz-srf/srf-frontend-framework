@@ -1,7 +1,8 @@
 {% set canOpen = 'expandable--static' not in styleModifier %}
 
 <div class="expandable {{ canOpen ? 'js-expandable' }} {{ styleModifier }}"
-     data-event-source="Textbox (Viele richtige Voraussagen)">
+     data-event-source="Textbox"
+     data-event-value="Viele richtige Voraussagen">
 
     <div class="expandable__header js-expandable--header" {% if canOpen %}role="button" tabindex="0"{% endif %}>
         <h2 class="expandable__title">Viele richtige Voraussagen</h2>
