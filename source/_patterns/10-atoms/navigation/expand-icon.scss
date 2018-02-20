@@ -1,9 +1,8 @@
 .expand-icon {
   width: 17px;
   height: 9px;
-  display: inline-block;
-  vertical-align: baseline;
-  background: transparent url("../img/arrows/menu_arrow_white.svg") no-repeat 0 0 / 17px;
+  display: block;
+  background: transparent url('../img/arrows/menu_arrow_white.svg') no-repeat 0 0 / 17px;
   margin-left: 8px;
   transition: transform 0.4s ease;
 }
@@ -22,12 +21,16 @@
   }
 }
 
-.expand-icon__a11y-open  { display: block; }
-.expand-icon__a11y-close { display: none; }
+.expand-icon__a11y-open  {
+  display: block;
+}
 
+.expand-icon__a11y-close {
+  display: none;
+}
 
 .expand-icon--red {
-  background: transparent url("../img/arrows/arrow_red_down.svg") no-repeat 0 0 / 17px;
+  background: transparent url('../img/arrows/arrow_red_down.svg') no-repeat 0 0 / 17px;
   height: 17px;
   margin: 0;
 }
