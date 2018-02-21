@@ -23,7 +23,7 @@ export class FefExpandable {
         this.$header = $element.find('.js-expandable--header');
 
         this.$switchTrigger = $element.find('.js-expand-switch-trigger');
-        if (!this.$switchTrigger) {
+        if (!this.$switchTrigger.length) {
             this.$switchTrigger = this.$header;
         }
 
