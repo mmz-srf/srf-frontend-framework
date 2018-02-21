@@ -22,11 +22,12 @@ export class FefExpandable {
         this.$body = $element.find('.js-expandable--body');
         this.$header = $element.find('.js-expandable--header');
 
-        this.eventSource = this.$element.data('event-source');
-        this.switchId = this.$element.data('expand-switch-id');
-        if (this.switchId) {
-            this.$switch = $(this.switchId);
+        this.$switchTrigger = $element.find('.js-expand-switch-trigger');
+        if (!this.$switchTrigger) {
+            this.$switchTrigger = this.$header;
         }
+
+        this.eventSource = this.$element.data('event-source');
 
         this.bindEvents();
     }
@@ -47,14 +48,8 @@ export class FefExpandable {
             }
         };
 
-        if (this.$switch) {
-            this.$switch.on('click', clickHandler);
-            this.$switch.on('keydown', keyboardHandler);
-        } else {
-            this.$header.on('click', clickHandler);
-            this.$header.on('keydown', keyboardHandler);
-        }
-
+        this.$switchTrigger.on('click', clickHandler);
+        this.$switchTrigger.on('keydown', keyboardHandler);
     }
 
     /**
