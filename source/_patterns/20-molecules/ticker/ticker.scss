@@ -1,19 +1,34 @@
 @import "../../variables";
 
+$ticker-margin-top: 30px;
+$ticker-margin-right: 0;
+$ticker-margin-left: 7px;
+$ticker-margin-bottom: 7px;
+$ticker-margin-bottom-mobile: 20px;
+
+$ticker-wrapper-padding-mobile: 24px;
+$ticker-wrapper-padding-desktop: 16px;
+
+$ticker-item-padding-horizontal-mobile: 16px;
+$ticker-item-padding-horizontal-desktop: 32px;
+$ticker-item-padding-bottom-mobile: 30px;
+$ticker-item-padding-bottom-desktop: 30px;
+$ticker-item-border-width: 1px;
+
 .ticker {
-  margin: 30px 0 7px 7px;
+  margin: $ticker-margin-top $ticker-margin-right $ticker-margin-bottom $ticker-margin-left;
   padding: 0;
 
   @include smartphone {
-    margin-bottom: 20px;
+    margin-bottom: $ticker-margin-bottom-mobile;
   }
 }
 
 .ticker__wrapper {
-  padding: 0 24px;
+  padding: 0 $ticker-wrapper-padding-mobile;
 
   @include tablet-up {
-    padding: 0 16px;
+    padding: 0 $ticker-wrapper-padding-desktop;
   }
 
   ul {
@@ -29,7 +44,7 @@
 .ticker--live,
 .ticker--closed { // special borders
   .ticker-item:first-of-type::after {
-    content: "";
+    content: '';
     position: absolute;
     display: block;
     left: -1px;
@@ -64,11 +79,11 @@
 .ticker-item { // general
   position: relative;
   margin: -3px 0; // adjustment for last element (without border)
-  padding: 0 32px 30px;
-  border-left: 1px solid $color-border;
+  padding: 0 $ticker-item-padding-horizontal-mobile $ticker-item-padding-bottom-mobile;
+  border-left: $ticker-item-border-width solid $color-border;
 
-  @include smartphone {
-    padding: 0 16px 30px;
+  @include tablet-up {
+    padding: 0 $ticker-item-padding-horizontal-desktop $ticker-item-padding-bottom-desktop;
   }
 
   &::before { // grey circle
@@ -101,9 +116,15 @@
     margin-top: 24px;
 
     @include smartphone {
+      // fullwidth elements used to use 100vw which led to a bajillion problems due to scrollbars, especially on smaller
+      // screen widths. Now we use 100% on size 1 and have to manually subtract the margins/paddings of the parents from
+      // these nested elements. Fortunately there are not that many (see below, only 2/3 elements need to be considered)
+      // ~pchr 22.2.18
       @include fullwidth-element();
-      margin-left: calc(-50vw - 4px); // in the wild, 4 more pixels are necessary to be removed
 
+      width: auto;
+      margin-left: -#{$ticker-margin-left + $ticker-wrapper-padding-mobile + $ticker-item-border-width + $ticker-item-padding-horizontal-mobile};
+      margin-right: -#{$ticker-wrapper-padding-mobile + $ticker-item-padding-horizontal-mobile};
       margin-top: 10px;
       margin-bottom: 12px;
 
