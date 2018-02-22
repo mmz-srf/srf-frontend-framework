@@ -1,0 +1,29 @@
+{% set canOpen = 'expandable--static' not in styleModifier %}
+
+<div class="expandable {{ canOpen ? 'js-expandable' }} {{ styleModifier }}"
+     data-event-source="Textbox"
+     data-event-value="Viele richtige Voraussagen">
+
+    <div class="expandable__header js-expandable--header" {% if canOpen %}role="button" tabindex="0"{% endif %}>
+        <h2 class="expandable__title">Viele richtige Voraussagen</h2>
+
+        {% if canOpen %}
+            <div class="expandable__expand-icon" role="presentation" aria-hidden="true">
+              {% include 'atoms-expand-icon' with { 'styleModifier': 'expand-icon--accentuated' } %}
+            </div>
+
+            <div class="h-offscreen expandable__a11y-text--open">Textbox aufklappen</div>
+            <div class="h-offscreen expandable__a11y-text--close">Textbox zuklappen</div>
+        {% endif %}
+    </div>
+
+    <div class="expandable__body js-expandable--body">
+      {% include 'molecules-image-figure' with { 'imageCaptionStyle': 'media-caption--no-bg media-caption--with-separator media-caption--in-box', 'styleModifier' : 'image-figure--in-box'} %}
+        <div class="expandable__content">
+            <p>Barlow rief zusammen mit einem Softwaremillionär die <a href="https://www.eff.org/de" target="_blank">«Electronic Frontier Foundation»</a> ins Leben, die noch heute für freie Netze und gegen Überwachung kämpft.</p>
+          {% include 'molecules-text-list--unordered' %}
+            <p>Barlow rief zusammen mit einem <strong>Softwaremillionär</strong> die «Electronic Frontier Foundation» ins Leben, die noch heute für freie Netze und gegen Überwachung kämpft.</p>
+          {% include 'molecules-text-list--ordered' %}
+        </div>
+    </div>
+</div>
