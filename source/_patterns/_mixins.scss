@@ -1,11 +1,15 @@
 /* let's an element break out of its parent container and stretch to the full width */
 @mixin fullwidth-element {
-  width: 100vw;
+  width: 100%;
   position: relative;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
+
+  @include tablet-up {
+    width: 100vw;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+  }
 }
 
 /* padding for text elements in the article */
