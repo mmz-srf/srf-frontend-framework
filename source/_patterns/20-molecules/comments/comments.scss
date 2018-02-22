@@ -192,7 +192,8 @@
     content: none;
   }
 
-  .comment { // ul li li
+  .comment,
+  .comment__link--expand-replies { // ul li li
     margin-right: 0;
     overflow: visible;
 
@@ -208,6 +209,25 @@
       @include tablet-up {
         left: -30px;
         top: 27px;
+      }
+    }
+  }
+
+  .comment__link--expand-replies {
+    padding-left: 24px;
+
+    @include tablet-up {
+      padding-left: 0;
+    }
+
+    &::before {
+      transform: rotate(180deg);
+      background-image: url('../img/linktypes/reply.svg');
+      top: 0;
+      left: 0;
+
+      @include tablet-up {
+        left: -26px;
       }
     }
   }
