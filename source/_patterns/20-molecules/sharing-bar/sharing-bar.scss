@@ -16,7 +16,7 @@
 
 .sharing-bar__container {
   padding: 0 10px;
-  background-color: #fff;
+  background-color: $color-bg-card;
   margin: 0 auto;
   display: inline-block;
   position: relative;
@@ -51,6 +51,7 @@
   line-height: 1.2;
   text-align: center;
   color: #22211D;
+  border: none;
 
   // Make hover area circled so corners don't trigger mouseenter/hover
   border-radius: 50%;
@@ -66,6 +67,8 @@
 .sharing-bar__button:focus {
   opacity: .84;
   outline: none;
+  border: none;
+  color: #22211d;
 }
 
 .sharing-bar__button--facebook {
