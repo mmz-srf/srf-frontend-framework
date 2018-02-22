@@ -82,5 +82,12 @@ export class FefExpandable {
             event_name: willBeShown ? 'Open': 'Close',
             event_value: this.eventValue
         });
+
+        $(window).trigger('fef.expandable.interaction', {
+            event_type: options && options.keyPress ? 'keypress' : 'click',
+            event_source: this.eventSource,
+            event_name: willBeShown ? 'Open': 'Close',
+            event_value: this.eventValue
+        });
     }
 }
