@@ -224,9 +224,8 @@ $item-max-width: 400px;
     min-width: ($content-width - 2 * $inner-outer-padding - 2 * $gutter-padding) / 3; //381.3px = (1200 - 2*16 - 2*12) / 3
   }
 
-  & > a { // overwrite global a-styles :-/
+  > a { // overwrite global a-styles
     border: none;
-    height: 100%;
 
     &:hover,
     &:active,
@@ -279,6 +278,8 @@ $item-max-width: 400px;
   line-height: 1.5;
   letter-spacing: .2px;
   color: $color-text-default;
+
+  @include breakLongWords();
 }
 
 .swipemod-item__overline {
