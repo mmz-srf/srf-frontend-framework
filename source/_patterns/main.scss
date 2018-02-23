@@ -49,8 +49,6 @@
 @import '20-molecules/media-still/media-still';
 @import '20-molecules/table-block/table-block';
 @import '20-molecules/text-list/text-list';
-@import '20-molecules/audio-gallery/audio-gallery';
-@import '20-molecules/video-gallery/video-gallery';
 @import '20-molecules/embed/embed';
 @import '20-molecules/charts/charts';
 @import '20-molecules/related-items-list/related-items-list';
@@ -70,4 +68,6 @@
 @import '20-molecules/legend/legend';
 @import '20-molecules/media-window/media-window';
 @import '20-molecules/swipe-module/swipe-module';
+@import '30-organisms/audio-gallery/audio-gallery';
+@import '30-organisms/video-gallery/video-gallery';
 @import 'shame';
