@@ -1,25 +1,28 @@
-<div class="expandable js-expandable"
+<div class="expandable-box js-expandable-box {{ styleModifier|default('') }}"
      data-event-source="Expandable Box"
-     data-event-value="Title">
+     data-event-value="Title"
+     {{ 'expandable-box--initially-open' in styleModifier ? 'data-initially-open' }}>
 
-  <div class="expandable__header js-expandable--header" role="button" tabindex="0">
+  <div class="expandable-box__header js-expandable-box--header" role="button" tabindex="0">
     {# Title (e.g. atom-content-heading) or most other things go here! #}
+    {% include 'atoms-content-heading' with {'styleModifier': 'content-heading--box-title'} %}
 
-    <div class="expandable__expand-icon" role="presentation" aria-hidden="true">
-      {% include 'atoms-expand-icon' with { 'styleModifier': 'expand-icon--accentuated' } %}
+    <div class="expandable-box__expand-icon">
+      {% include 'atoms-expand-icon' with {
+        'styleModifier': 'expand-icon--accentuated',
+        'textOpen': 'Box aufklappen',
+        'textClose': 'Box zuklappen'
+      } %}
     </div>
-
-    <div class="h-offscreen expandable__a11y-text--open">Box aufklappen</div>
-    <div class="h-offscreen expandable__a11y-text--close">Box zuklappen</div>
   </div>
 
-  <div class="expandable__body js-expandable--body">
-    <div class="expandable__content">
-      {# Content goes here! #}
+  {# The whole body will be collapsed/expanded #}
+  <div class="expandable-box__body js-expandable-box--body">
+    <div class="expandable-box__content">
+      {# Content with padding goes here! #}
+      <p>{{ person.description }}</p>
     </div>
-
-    {# Add a link outside the content but inside the body for maximum effect #}
-    {% include 'atoms-block-link' with {'styleModifier': 'block-link--box'} %}
+    {# Content without padding goes here, e.g. a link  #}
   </div>
 
 </div>

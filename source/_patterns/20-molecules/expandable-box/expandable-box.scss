@@ -1,37 +1,37 @@
-@import "../../variables";
+@import '../../variables';
 
-$expandable-max-width: 516px;
-$expandable-margin-vertical-mobile: 32px;
-$expandable-margin-vertical-desktop: 48px;
-$expandable-margin-horizontal: 8px;
-$expandable-padding-mobile: 16px;
-$expandable-padding-desktop: 24px;
+$expandable-box-max-width: 516px;
+$expandable-box-margin-vertical-mobile: 32px;
+$expandable-box-margin-vertical-desktop: 48px;
+$expandable-box-margin-horizontal: 8px;
+$expandable-box-padding-mobile: 16px;
+$expandable-box-padding-desktop: 24px;
 
-.expandable {
+.expandable-box {
   background-color: $color-bg-box;
   display: flex;
   flex-direction: column;
   border-radius: 2px;
-  max-width: $expandable-max-width;
-  margin: $expandable-margin-vertical-mobile $expandable-margin-horizontal;
+  max-width: $expandable-box-max-width;
+  margin: $expandable-box-margin-vertical-mobile $expandable-box-margin-horizontal;
 
   @include tablet-up {
-    margin-top: $expandable-margin-vertical-desktop;
-    margin-bottom: $expandable-margin-vertical-desktop;
+    margin-top: $expandable-box-margin-vertical-desktop;
+    margin-bottom: $expandable-box-margin-vertical-desktop;
   }
 }
 
-@media (min-width: #{$expandable-max-width + 2 * $expandable-margin-horizontal}) {
-  .expandable {
+@media (min-width: #{$expandable-box-max-width + 2 * $expandable-box-margin-horizontal}) {
+  .expandable-box {
     margin-left: auto;
     margin-right: auto;
   }
 }
 
-.expandable__header {
+.expandable-box__header {
   display: flex;
   flex-direction: row;
-  padding: $expandable-padding-mobile;
+  padding: $expandable-box-padding-mobile;
   cursor: pointer;
 
   // prevent blue focus-flash on Android browsers
@@ -47,36 +47,24 @@ $expandable-padding-desktop: 24px;
   }
 
   @include tablet-up {
-    padding: $expandable-padding-desktop;
+    padding: $expandable-box-padding-desktop;
   }
 }
 
-.expandable__title {
-  flex: 1 1 auto;
-  margin: 0;
-  font-family: $font-medium;
-  font-size: 18px;
-  line-height: $default-line-height-ratio;
-  letter-spacing: .5px;
-
-  @include tablet-up {
-    font-size: 20px;
-  }
-}
-
-.expandable__expand-icon {
+.expandable-box__expand-icon {
   flex: 0 0 auto;
   align-self: center;
   height: 17px;
+  padding-left: 16px;
   margin-left: auto;  // if there's only an icon it'll position itself on the right side of the container with this trick
 }
 
-.expandable__body {
+.expandable-box__body {
   display: none;
 }
 
-.expandable__content {
-  padding: 0 $expandable-padding-mobile $expandable-padding-mobile;
+.expandable-box__content {
+  padding: 0 $expandable-box-padding-mobile $expandable-box-padding-mobile;
   margin: 0;
   font: 16px/1.5 $font-light;
   font-weight: 300;
@@ -142,36 +130,18 @@ $expandable-padding-desktop: 24px;
   }
 
   @include tablet-up {
-    padding: 0 $expandable-padding-desktop $expandable-padding-desktop;
+    padding: 0 $expandable-box-padding-desktop $expandable-box-padding-desktop;
     font-size: 18px;
   }
 }
 
-.expandable__a11y-text--close {
-  display: none;
-}
-
-.expandable--expanded {
-  .expandable__a11y-text--close {
+// Expandable can also be not expandable. Hides the expand icon if it's not already removed on render
+.expandable-box--static {
+  .expandable-box__body {
     display: block;
   }
 
-  .expandable__a11y-text--open {
-    display: none;
-  }
-
-  .expandable__header:hover {
-    background-color: transparent;
-  }
-}
-
-// Expandable can also be not expandable.
-.expandable--static {
-  .expandable__body {
-    display: block;
-  }
-
-  .expandable__header {
+  .expandable-box__header {
     cursor: default;
 
     &:hover,
@@ -181,11 +151,14 @@ $expandable-padding-desktop: 24px;
     }
   }
 
-  .expandable__expand-icon {
+  .expandable-box__expand-icon {
     display: none;
   }
 }
 
-.expandable--fullwidth {
+// Take up the whole width of the parent container
+.expandable-box--fullwidth {
   max-width: none;
+  margin-left: 0;
+  margin-right: 0;
 }
