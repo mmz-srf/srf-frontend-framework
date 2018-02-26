@@ -1,0 +1,25 @@
+.person-details {
+  flex: 1 1 auto;
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  margin: 0 12px;
+}
+
+.person-details__name {
+  margin: 0;
+  font: 14px/1.43 $font-regular;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  letter-spacing: .5px;
+  color: $color-text-default;
+}
+
+.person-details__function {
+  margin: 0;
+  font-family: $font-system;
+  font-size: 12px;
+  line-height: 16px;
+  color: $color-text-light;
+}

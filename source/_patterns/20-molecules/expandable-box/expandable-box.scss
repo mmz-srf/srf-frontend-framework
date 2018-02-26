@@ -64,40 +64,11 @@ $expandable-padding-desktop: 24px;
   }
 }
 
-.expandable-description {
-  flex: 1 1 auto;
-  align-self: center;
-  display: flex;
-  flex-direction: column;
-  margin: 0 12px;
-}
-
-.expandable-description__name {
-  margin: 0;
-  font: 14px/1.43 $font-regular;
-  font-weight: normal;
-  font-style: normal;
-  font-stretch: normal;
-  letter-spacing: .5px;
-  color: $color-text-default;
-}
-
-.expandable-description__function {
-  margin: 0;
-  font-family: $font-system;
-  font-size: 12px;
-  line-height: 16px;
-  color: $color-text-light;
-}
-
-.expandable-icon {
-  flex: 0 0 60px;
-}
-
 .expandable__expand-icon {
   flex: 0 0 auto;
   align-self: center;
   height: 17px;
+  margin-left: auto;  // if there's only an icon it'll position itself on the right side of the container with this trick
 }
 
 .expandable__body {
@@ -176,30 +147,6 @@ $expandable-padding-desktop: 24px;
   }
 }
 
-.expandable__link {
-  border-top: 1px solid rgba(0,0,0,0.1);
-
-  a {
-    padding-left: $expandable-padding-mobile;
-    padding-right: 42px;
-    background-position-x: calc(100% - 11px);
-
-    &:hover {
-      background-color: $color-bg-box-hover;
-    }
-
-    &:focus {
-      background-color: $color-bg-box-focus;
-    }
-
-    @include tablet-up {
-      padding-left: $expandable-padding-desktop;
-      padding-right: 50px;
-      background-position-x: calc(100% - 19px);
-    }
-  }
-}
-
 .expandable__a11y-text--close {
   display: none;
 }
@@ -237,4 +184,8 @@ $expandable-padding-desktop: 24px;
   .expandable__expand-icon {
     display: none;
   }
+}
+
+.expandable--fullwidth {
+  max-width: none;
 }

@@ -1,4 +1,4 @@
-.expand-icon {
+.expand-icon__icon {
   width: 17px;
   height: 9px;
   display: block;
@@ -8,29 +8,44 @@
 }
 
 .expand-icon--open {
-  transform: translateZ(0) rotate(180deg); // HACK: «translateZ(0)» is because of 1px-jumping-bug in Safari (rechstst)
-}
+  .expand-icon__icon {
+    transform: translateZ(0) rotate(180deg); // HACK: «translateZ(0)» is because of 1px-jumping-bug in Safari (rechstst)
+  }
 
-.expand-icon--open {
+  .expand-icon__text--to-open,
   .expand-icon__a11y-open {
     display: none;
   }
 
+  .expand-icon__text--to-close,
   .expand-icon__a11y-close {
     display: block;
   }
 }
 
+.expand-icon__text--to-open,
 .expand-icon__a11y-open  {
   display: block;
 }
 
+.expand-icon__text--to-close,
 .expand-icon__a11y-close {
   display: none;
 }
 
 .expand-icon--accentuated {
-  background: transparent url('../img/arrows/arrow_red_down.svg') no-repeat 0 0 / 17px;
-  height: 17px;
-  margin: 0;
+  .expand-icon__icon {
+    background: transparent url('../img/arrows/arrow_red_down.svg') no-repeat 0 0 / 17px;
+    height: 17px;
+    margin: 0;
+  }
+}
+
+.expand-icon--with-text {
+  display: flex;
+  align-items: center;
+
+  color: $color-accentuation-red;
+  font: 16px $font-regular;
+  line-height: $default-line-height-ratio;
 }

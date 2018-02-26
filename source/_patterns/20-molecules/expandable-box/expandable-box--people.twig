@@ -1,15 +1,12 @@
 <div class="expandable js-expandable"
      data-event-source="People Box"
      data-event-value="Tony Goodman">
-  <div class="expandable__header js-expandable--header" role="button" tabindex="0">
-    <div class="expandable-icon">
-      {% include 'atoms-image' with { 'styleModifier': 'image--circle' } %}
-    </div>
 
-    <div class="expandable-description">
-      <h3 class="expandable-description__name">Tony Goodman</h3>
-      <p class="expandable-description__function">Executive Producer</p>
-    </div>
+  <div class="expandable__header js-expandable--header" role="button" tabindex="0">
+
+    {% include 'atoms-image' with { 'styleModifier': 'image--circle image--profile-picture' } %}
+
+    {% include 'atoms-person-details' %}
 
     <div class="expandable__expand-icon" role="presentation" aria-hidden="true">
       {% include 'atoms-expand-icon' with { 'styleModifier': 'expand-icon--accentuated' } %}
@@ -24,8 +21,8 @@
       <p>Tony Goodman is an American video game executive and entrepreneur. He is the co-founder of Ensemble Studios and Robot Entertainment. The studios Goodman has founded have shipped more than 20 Million units.</p>
     </div>
 
-    <div class="expandable__link">
-      {% include 'atoms-block-link' with {'styleModifier': ''} %}
-    </div>
+    {# Add a link outside the content but inside the body for maximum effect #}
+    {% include 'atoms-block-link' with {'styleModifier': 'block-link--box'} %}
+
   </div>
 </div>
