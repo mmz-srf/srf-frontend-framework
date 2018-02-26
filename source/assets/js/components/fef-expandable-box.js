@@ -27,7 +27,7 @@ export class FefExpandableBox {
         this.eventValue = this.$element.data('event-value');
 
         // An expandable box can be opened immediately - this is indicated via the data-initially-open flag
-        if (this.$element.data("initially-open") !== undefined) {
+        if (this.$element.data('initially-open') !== undefined) {
             this.openBox(0);
         }
 
