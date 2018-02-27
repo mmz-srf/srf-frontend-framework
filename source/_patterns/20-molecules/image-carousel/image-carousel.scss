@@ -9,6 +9,21 @@
   }
 }
 
+.carousel-title {
+  font-family: $font-medium;
+  font-size: 18px;
+  letter-spacing: .5px;
+  margin: 24px 0 -16px; // carrousels already have a top-margin of 24px :/
+  padding: 0 24px;
+
+  @include tablet-up {
+    font-size: 20px;
+    letter-spacing: .3px;
+    margin: 32px 0 -20px; // carrousels already have a top-margin of 32px :/
+    padding: 0 16px;
+  }
+}
+
 .carousel {
   position: relative;
   width: 100%;

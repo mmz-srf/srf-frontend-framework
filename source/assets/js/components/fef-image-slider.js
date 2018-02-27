@@ -73,7 +73,7 @@ export class FefImageSlider {
             event.preventDefault();
             let newPosition = currentPosition < 100 ? currentPosition + 10 : currentPosition;
             currentPosition = newPosition;
-            moveSlider(event, '', $element, newPosition);
+            this.moveSlider(event, '', $element, newPosition);
         });
     }
 
