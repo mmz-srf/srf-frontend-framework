@@ -136,7 +136,7 @@ $expandable-box-padding-desktop: 24px;
 }
 
 // Expandable can also be not expandable. Hides the expand icon if it's not already removed on render
-.expandable-box--static {
+.expandable-box--always-open {
   .expandable-box__body {
     display: block;
   }
