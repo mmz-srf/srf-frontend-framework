@@ -120,9 +120,6 @@ $item-max-width: 400px;
   margin: 0 -#{$outer-padding-small + $inner-outer-padding + $half-gutter-padding-small};
   padding: 0 #{$outer-padding-small + $inner-outer-padding};
 
-  scroll-snap-type: mandatory;
-  scroll-snap-destination: 50% 0%;
-
   @include tablet {
     margin: 0 -#{$inner-outer-padding + $outer-padding};
     padding: 0 #{$inner-outer-padding - $half-gutter-padding + $outer-padding};
@@ -186,23 +183,11 @@ $item-max-width: 400px;
   background: $color-bg-card;
   border-radius: 2px;
   border: 0;
-  scroll-snap-align: center;      // "new" spec
-  scroll-snap-coordinate: 50% 0%; // "old" spec
 
   min-width: $smartphone-size - 2 * $outer-padding-small - 2 * $inner-outer-padding; //272px = 320 - 2*8 - 2*16
 
   &::before {
     display: none; // overwrite global li-styles :-/
-  }
-
-  &:first-child {
-    scroll-snap-align: start;
-    scroll-snap-coordinate: 0% 0%, 50% 0%;
-  }
-
-  &:last-child {
-    scroll-snap-align: end;
-    scroll-snap-coordinate: 50% 0%, 100% 0%;
   }
 
   @include tablet {
