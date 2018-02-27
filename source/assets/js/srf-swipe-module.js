@@ -141,7 +141,7 @@ export class SrfSwiper {
             .attr({'aria-hidden': !showLeft, 'role': showLeft ? '' : 'presentation'});
         this.$nextBtn
             .toggle( showRight )
-            .attr({'aria-hidden': !showRight, 'role': showRight ? '' : 'presentation'});;
+            .attr({'aria-hidden': !showRight, 'role': showRight ? '' : 'presentation'});
     }
 
     /**
