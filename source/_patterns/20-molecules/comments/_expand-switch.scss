@@ -31,10 +31,6 @@
     width: 44px;
 
     background-position: 50% 50%;
-
-    @include tablet-up {
-        background-position: 50% 50%;
-    }
 }
 
 .comments-header__expand-switch > .expand-text {
