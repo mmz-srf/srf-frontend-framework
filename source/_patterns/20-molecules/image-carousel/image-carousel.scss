@@ -5,7 +5,8 @@
   /* overwrite in component; components in loading state have a grey background */
   background-color: #dadad2;
   @include smartphone {
-    @include fullwidth-element;
+    width: 100%;
+    position: relative;
   }
 }
 

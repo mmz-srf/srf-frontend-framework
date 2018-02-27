@@ -120,8 +120,7 @@ $ticker-item-border-width: 1px;
       // screen widths. Now we use 100% on size 1 and have to manually subtract the margins/paddings of the parents from
       // these nested elements. Fortunately there are not that many (see below, only 2/3 elements need to be considered)
       // ~pchr 22.2.18
-      @include fullwidth-element();
-
+      position: relative;
       width: auto;
       margin-left: -#{$ticker-margin-left + $ticker-wrapper-padding-mobile + $ticker-item-border-width + $ticker-item-padding-horizontal-mobile};
       margin-right: -#{$ticker-wrapper-padding-mobile + $ticker-item-padding-horizontal-mobile};
