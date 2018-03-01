@@ -64,6 +64,10 @@
   }
 }
 
+.article-video__link--inactive {
+  cursor: default;
+}
+
 .article-video__wrapper {
   position: relative;
   float: left;
