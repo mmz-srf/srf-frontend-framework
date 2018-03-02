@@ -2,6 +2,8 @@ export function init() {
     new EmotionHack();
 }
 
+const THRESHOLD = 0.85;
+
 class EmotionHack {
     constructor() {
         this.enabled = true;
@@ -14,8 +16,15 @@ class EmotionHack {
             "surprised": [],
             "happy": []
         };
+        this.prevChunk = 0;
         this.$emojis = $("#emojis");
-
+        this.$outputs = {
+            "happy": $(".output--happy"),
+            "angry": $(".output--angry"),
+            "sad": $(".output--sad"),
+            "surprised": $(".output--surprised")
+        }
+        
         $(".js-start-video").on("click", () => {
             this.startBunnyVid();
         });
@@ -120,25 +129,17 @@ class EmotionHack {
             let cp = this.ctrack.getCurrentParameters();
             let er = this.ec.meanPredict(cp);
             if (er) {
-                let text = "";
-                er.forEach(obj => {
-                    text += `<p>${obj.emotion}: ${Number.parseFloat(obj.value).toFixed(3)}</p>`;
+                this.outputRawValues(er);
 
-                    if (this.bunnyvidIsPlaying) {
-                        if(obj.value > .85) {
-                            this.emotionData[obj.emotion].push(this.getCurTime());
-                        }
-                    }
-
-                });
-
-                this.$output.html(text);
+                if (this.bunnyvidIsPlaying) {
+                    this.addValuesToChunk(er, this.getCurrentSecond());
+                }
             }
         }
     }
 
-    getCurTime() { 
-        return this.bunnyvid.currentTime;
+    getCurrentSecond() { 
+        return parseInt(this.bunnyvid.currentTime, 10);
     }
 
     startBunnyVid() {
@@ -146,50 +147,59 @@ class EmotionHack {
         this.videoduration = this.bunnyvid.duration;
         this.bunnyvidIsPlaying = true;
 
+        this.chunks = [];
+        for(var i = 0; i < this.videoduration.toFixed(0); i++) {
+            this.chunks.push({s: i, "happy": 0, "sad": 0, "surprised": 0, "angry": 0});
+        }
+
         this.bunnyvid.onended = () => {
             this.bunnyvidIsPlaying = false;
-            this.crunchTheNumbers();
         };
     }
 
-    crunchTheNumbers() {
-        console.log(this.emotionData);
+    addValuesToChunk(objArray, second) {
+        let chunk = this.chunks[second];
 
+        objArray.forEach(obj => {
+            if (obj.value > THRESHOLD) {
+                chunk[obj.emotion]++;
+            }
+        });
 
-        let chunks = [];
-        for(var i = 0; i < this.videoduration.toFixed(0); i++) {
-            chunks.push({s: i, "happy": 0, "sad": 0, "surprised": 0, "angry": 0});
+        if (this.prevChunk !== second) {
+            this.displayFinishedChunk(this.prevChunk);
+            this.prevChunk = second;
+        }
+    }
+
+    outputRawValues(objArray) {
+        objArray.forEach(obj => {
+            this.$outputs[obj.emotion].text( Number.parseFloat(obj.value).toFixed(3) );
+        });
+    }
+
+    displayFinishedChunk(second) {
+        let chunk = this.chunks[second];
+
+        if (chunk.happy + chunk.angry + chunk.sad + chunk.surprised <= 4) {
+            // skip if very few emotions were shown
+            return;
         }
 
-        ["happy", "sad", "surprised", "angry"].forEach(emotion => {
-            this.emotionData[emotion].forEach(entry => {
-                chunks[entry.toFixed(0)][emotion]++
-            });
-        });
+        let maxEmotion = "";
+        if (chunk.happy >= chunk.angry && chunk.happy >= chunk.sad && chunk.happy >= chunk.surprised) {
+            maxEmotion = "happy";
+        } else if (chunk.sad >= chunk.angry && chunk.sad >= chunk.happy && chunk.sad >= chunk.surprised) {
+            maxEmotion = "sad";
+        } else if (chunk.angry >= chunk.happy && chunk.angry >= chunk.sad && chunk.angry >= chunk.surprised) {
+            maxEmotion = "angry";
+        } else if (chunk.surprised >= chunk.angry && chunk.surprised >= chunk.sad && chunk.surprised >= chunk.happy) {
+            maxEmotion = "surprised";
+        } else {
+            // idgaf
+            return;
+        }
 
-        chunks.forEach(chunk => {
-            if (chunk.happy + chunk.angry + chunk.sad + chunk.surprised <= 4) {
-                // skip if very few emotions were shown
-                return;
-            }
-
-            let maxEmotion = "";
-            if (chunk.happy >= chunk.angry && chunk.happy >= chunk.sad && chunk.happy >= chunk.surprised) {
-                maxEmotion = "happy";
-            } else if (chunk.sad >= chunk.angry && chunk.sad >= chunk.happy && chunk.sad >= chunk.surprised) {
-                maxEmotion = "sad";
-            } else if (chunk.angry >= chunk.happy && chunk.angry >= chunk.sad && chunk.angry >= chunk.surprised) {
-                maxEmotion = "angry";
-            } else if (chunk.surprised >= chunk.angry && chunk.surprised >= chunk.sad && chunk.surprised >= chunk.happy) {
-                maxEmotion = "surprised";
-            } else {
-                // idgaf
-                return;
-            }
-
-            this.$emojis.append(`<div class="emoji emoji--${maxEmotion}" style="left: ${chunk.s / this.videoduration * 100}%"></div>`);
-        });
-
-        
+        this.$emojis.append(`<div class="emoji emoji--${maxEmotion}" style="left: ${chunk.s / this.videoduration * 100}%"></div>`);
     }
 }
