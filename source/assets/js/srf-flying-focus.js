@@ -36,6 +36,14 @@ export function init() {
         onEnd();
     }, true);
 
+    /**
+     * In some cases it is needed to adjust the flying focus position,
+     * because the focused element moves (swimpe module / scrolling within div)
+     */
+    $(document).on('flyingfocus:move', function() {
+        placeFlyingFocus(doc.activeElement);
+    });
+
     function placeFlyingFocus(target) {
         if (target.id === 'flying-focus') {
             return;
