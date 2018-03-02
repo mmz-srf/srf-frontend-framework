@@ -8,7 +8,7 @@
 <div class="emotion-hack">
     <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/HECa3bAFAYk?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe> -->
 
-    <video id="bunnyvid" width="320" height="176" controls>
+    <video id="bunnyvid" controls>
         <source src="http://download.blender.org/peach/trailer/trailer_400p.ogg" type="video/ogg">
         Your browser does not support HTML5 video.
     </video>
@@ -19,6 +19,11 @@
         </video>
         <canvas id="overlay" width="400" height="300"></canvas>
     </div>
+
+    <div class="share-emotions">
+        
+    </div>
+
     <div id="controls">
         <div id="output">
             <div class="output--happy"></div>
@@ -27,9 +32,7 @@
             <div class="output--surprised"></div>
         </div>
 
-        <input class="btn js-start-video" type="button" value="Start Video"></input>
-
-        <input class="btn js-emotion-stop" type="button" value="Stop"></input>
+        <input class="btn btn--emotion-stop js-emotion-stop" type="button" value="Toggle Tracking"></input>
     </div>
 
 </div>

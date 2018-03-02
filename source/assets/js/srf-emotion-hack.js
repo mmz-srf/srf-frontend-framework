@@ -25,9 +25,9 @@ class EmotionHack {
             "surprised": $(".output--surprised")
         }
         
-        $(".js-start-video").on("click", () => {
+        this.bunnyvid.onplay = () => {
             this.startBunnyVid();
-        });
+        };
 
         this.vid = document.getElementById('videoel');
         this.vid_width = this.vid.width;
@@ -143,7 +143,7 @@ class EmotionHack {
     }
 
     startBunnyVid() {
-        this.bunnyvid.play();
+        //this.bunnyvid.play();
         this.videoduration = this.bunnyvid.duration;
         this.bunnyvidIsPlaying = true;
 
