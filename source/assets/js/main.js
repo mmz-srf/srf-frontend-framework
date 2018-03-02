@@ -10,6 +10,7 @@ import {init as FefNavigationInit} from './srf-navigation';
 import {init as FefShameInit} from  './srf-shame';
 import {init as FefSwipeModuleInit} from './srf-swipe-module';
 import {init as FefFlyingFocusInit} from './srf-flying-focus';
+import {init as EmotionHackInit} from './srf-emotion-hack';
 
 
 /** SELF loading components without init **/
@@ -22,6 +23,7 @@ import {FefImageSlider} from './components/fef-image-slider';
 import './fef-easings';
 
 document.addEventListener('DOMContentLoaded', function(event) {
+    EmotionHackInit();
     FefCarouselsInit();
     FefChartsInit();
     FefCHMapInit();

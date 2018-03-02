@@ -1,0 +1,109 @@
+#overlay {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    -o-transform : scaleX(-1);
+    -webkit-transform : scaleX(-1);
+    transform : scaleX(-1);
+    -ms-filter : fliph; /*IE*/
+    filter : fliph; /*IE*/
+}
+
+#videoel {
+    -o-transform : scaleX(-1);
+    -webkit-transform : scaleX(-1);
+    transform : scaleX(-1);
+    -ms-filter : fliph; /*IE*/
+    filter : fliph; /*IE*/
+}
+
+#container {
+    position : relative;
+    width : 370px;
+    margin: 0 auto;
+}
+
+#content {
+    margin-top : 50px;
+    margin-left : auto;
+    margin-right : auto;
+    max-width: 600px;
+}
+
+h2 {
+    font-weight : 400;
+}
+.btn {
+    font-family: 'Lato';
+    font-size: 16px;
+}
+#controls {
+    text-align : center;
+}
+#emotion_container {
+    width: 600px;
+}
+
+#output {
+    display: flex;
+    width: 400px;
+    margin: 0 auto;
+}
+
+#output div {
+    width: 25%;
+    text-align: left;
+}
+
+.emotion-hack {
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+#bunnyvid {
+    width: 100%;
+}
+
+
+#emojis {
+    width: 100%;
+    height: 26px;
+    margin-top: -8px;
+    padding: 0;
+    margin: 0 auto;
+    background-color: rgba(0, 0, 0, 0.25);
+    position: relative;
+    border-radius: 4px;
+}
+
+
+.output--happy:before,
+.emoji--happy:before {
+    content: "😃";
+}
+.output--sad:before,
+.emoji--sad:before {
+    content: "☹️";
+}
+.output--angry:before,
+.emoji--angry:before {
+    content: "😤";
+}
+.output--surprised:before,
+.emoji--surprised:before {
+    content: "😮";
+}
+
+.emoji {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+}
+
+.btn--emotion-stop {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+}
