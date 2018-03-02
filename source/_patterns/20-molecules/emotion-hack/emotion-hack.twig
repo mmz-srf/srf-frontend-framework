@@ -1,0 +1,30 @@
+<script src="../../assets/js/clmtrackr/utils.js"></script>
+<script src="../../assets/js/clmtrackr/clmtrackr.js"></script>
+<script src="../../assets/js/clmtrackr/model_pca_20_svm.js"></script>
+<script src="../../assets/js/clmtrackr/emotion_classifier.js"></script>
+<script src="../../assets/js/clmtrackr/emotionmodel.js"></script>
+
+
+<div class="emotion-hack">
+    <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/HECa3bAFAYk?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe> -->
+
+    <video id="bunnyvid" width="320" height="176" controls>
+        <source src="http://download.blender.org/peach/trailer/trailer_400p.ogg" type="video/ogg">
+        Your browser does not support HTML5 video.
+    </video>
+    <div id="emojis"></div>
+
+    <div id="container">
+        <video id="videoel" width="400" height="300" preload="auto" loop playsinline autoplay>
+        </video>
+        <canvas id="overlay" width="400" height="300"></canvas>
+    </div>
+    <div id="controls">
+        <div id="output"></div>
+
+        <input class="btn js-start-video" type="button" value="Start Video"></input>
+
+        <input class="btn js-emotion-stop" type="button" value="Stop"></input>
+    </div>
+
+</div>
