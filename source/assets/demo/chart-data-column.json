@@ -58,7 +58,6 @@
     "title": "Zeit",
     "titleBold": false,
     "gridColor": "#cac8bf",
-    "gridAlpha": 0,
     "axisColor": "transparent",
     "autoWrap": true,
     "autoGridCount": true,
