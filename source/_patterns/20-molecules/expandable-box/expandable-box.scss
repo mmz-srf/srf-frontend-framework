@@ -1,0 +1,164 @@
+@import '../../variables';
+
+$expandable-box-max-width: 516px;
+$expandable-box-margin-vertical-mobile: 32px;
+$expandable-box-margin-vertical-desktop: 48px;
+$expandable-box-margin-horizontal: 8px;
+$expandable-box-padding-mobile: 16px;
+$expandable-box-padding-desktop: 24px;
+
+.expandable-box {
+  background-color: $color-bg-box;
+  display: flex;
+  flex-direction: column;
+  border-radius: 2px;
+  max-width: $expandable-box-max-width;
+  margin: $expandable-box-margin-vertical-mobile $expandable-box-margin-horizontal;
+
+  @include tablet-up {
+    margin-top: $expandable-box-margin-vertical-desktop;
+    margin-bottom: $expandable-box-margin-vertical-desktop;
+  }
+}
+
+@media (min-width: #{$expandable-box-max-width + 2 * $expandable-box-margin-horizontal}) {
+  .expandable-box {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.expandable-box__header {
+  display: flex;
+  flex-direction: row;
+  padding: $expandable-box-padding-mobile;
+  cursor: pointer;
+
+  // prevent blue focus-flash on Android browsers
+  -webkit-tap-highlight-color: transparent;
+
+  &:hover {
+    background-color: $color-bg-box-hover;
+  }
+
+  &:focus,
+  &:active {
+    background-color: $color-bg-box-focus;
+  }
+
+  @include tablet-up {
+    padding: $expandable-box-padding-desktop;
+  }
+}
+
+.expandable-box__expand-icon {
+  flex: 0 0 auto;
+  align-self: center;
+  height: 17px;
+  padding-left: 16px;
+  margin-left: auto;  // if there's only an icon it'll position itself on the right side of the container with this trick
+}
+
+.expandable-box__body {
+  display: none;
+}
+
+.expandable-box__content {
+  padding: 0 $expandable-box-padding-mobile $expandable-box-padding-mobile;
+  margin: 0;
+  font: 16px/1.5 $font-light;
+  font-weight: 300;
+  font-style: normal;
+  font-stretch: normal;
+  letter-spacing: 0.5px;
+  color: $color-text-default;
+
+  // prevent inner elements of creating a bigger gap between header and content
+  // and prevent last element creating a larger bottom border
+  > p {
+    margin-bottom: 16px;
+    line-height: $default-line-height-ratio;
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  > ul {
+    // @extend used here to apply the DRY principle while coping with ezxml's missing classes for html elements
+    // tip: always be careful with @extend
+    @extend .text-list;
+    @extend .text-list--unordered;
+
+    padding: 0;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+
+    li::before {
+      top: 9px;
+
+      @include tablet-up {
+        top: 11px; // font size is bigger
+      }
+    }
+  }
+
+  > ol {
+    // @extend used here to apply the DRY principle while coping with ezxml's missing classes for html elements
+    // tip: always be careful with @extend
+    @extend .text-list;
+    @extend .text-list--ordered;
+
+    padding: 0;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+
+  > h4 {
+    margin: 16px 0 8px;
+    font-family: $font-medium;
+    line-height: $default-line-height-ratio;
+    letter-spacing: .5px;
+  }
+
+  @include tablet-up {
+    padding: 0 $expandable-box-padding-desktop $expandable-box-padding-desktop;
+    font-size: 18px;
+  }
+}
+
+// Expandable can also be not expandable. Hides the expand icon if it's not already removed on render
+.expandable-box--always-open {
+  .expandable-box__body {
+    display: block;
+  }
+
+  .expandable-box__header {
+    cursor: default;
+
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: $color-bg-box;
+    }
+  }
+
+  .expandable-box__expand-icon {
+    display: none;
+  }
+}
+
+// Take up the whole width of the parent container
+.expandable-box--fullwidth {
+  max-width: none;
+  margin-left: 0;
+  margin-right: 0;
+}
