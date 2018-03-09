@@ -57,7 +57,7 @@
   "categoryAxis": {
     "title": "Zeit",
     "titleBold": false,
-    "gridColor": "#FFFFFF",
+    "gridColor": "#cac8bf",
     "axisColor": "transparent",
     "autoWrap": true,
     "autoGridCount": true,
@@ -78,7 +78,7 @@
       "title": "Menge",
       "titleBold": false,
       "axisColor": "transparent",
-      "gridColor": "#FFFFFF",
+      "gridColor": "#cac8bf",
       "gridAlpha": 1,
       "autoGridCount": false,
       "gridCount": 5,

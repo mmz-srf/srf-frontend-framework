@@ -40,16 +40,16 @@
     "titleBold": false,
     "gridPosition": "start",
     "minHorizontalGap": 70,
-    "axisColor": "#FFF",
+    "axisColor": "#cac8bf",
     "gridAlpha": 0
   },
   "valueAxes": [
     {
       "title": "Anzahl",
       "titleBold": false,
-      "gridColor": "#FFF",
+      "gridColor": "#cac8bf",
       "gridAlpha": 1,
-      "axisColor": "#FFF",
+      "axisColor": "#cac8bf",
       "minimum": 0,
       "unit": "Äpfel",
       "unitPosition": "left"
