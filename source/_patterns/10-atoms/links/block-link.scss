@@ -87,3 +87,26 @@
   background-image: url('../img/linktypes/docx.svg');
   background-size: 26px 18px;
 }
+
+.block-link--box {
+  border-top: 1px solid rgba(0,0,0,0.1);
+
+  padding-left: 16px;
+  padding-right: 42px;
+  background-position-x: calc(100% - 11px);
+
+  &:hover {
+    background-color: $color-bg-box-hover;
+    border-top: 1px solid rgba(0,0,0,0.1);
+  }
+
+  &:focus {
+    background-color: $color-bg-box-focus;
+  }
+
+  @include tablet-up {
+    padding-left: 24px;
+    padding-right: 50px;
+    background-position-x: calc(100% - 19px);
+  }
+}

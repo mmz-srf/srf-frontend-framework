@@ -120,9 +120,6 @@ $item-max-width: 400px;
   margin: 0 -#{$outer-padding-small + $inner-outer-padding + $half-gutter-padding-small};
   padding: 0 #{$outer-padding-small + $inner-outer-padding};
 
-  scroll-snap-type: mandatory;
-  scroll-snap-destination: 50% 0%;
-
   @include tablet {
     margin: 0 -#{$inner-outer-padding + $outer-padding};
     padding: 0 #{$inner-outer-padding - $half-gutter-padding + $outer-padding};
@@ -180,30 +177,17 @@ $item-max-width: 400px;
 .swipemod-item {
   flex: 1 0;
   display: flex;
-  flex-direction: column;
   margin: 0 $half-gutter-padding-small 8px;
   padding-left: 0; // overwrite global li-styles :-/
   max-width: $item-max-width;
   background: $color-bg-card;
   border-radius: 2px;
   border: 0;
-  scroll-snap-align: center;      // "new" spec
-  scroll-snap-coordinate: 50% 0%; // "old" spec
 
   min-width: $smartphone-size - 2 * $outer-padding-small - 2 * $inner-outer-padding; //272px = 320 - 2*8 - 2*16
 
   &::before {
     display: none; // overwrite global li-styles :-/
-  }
-
-  &:first-child {
-    scroll-snap-align: start;
-    scroll-snap-coordinate: 0% 0%, 50% 0%;
-  }
-
-  &:last-child {
-    scroll-snap-align: end;
-    scroll-snap-coordinate: 50% 0%, 100% 0%;
   }
 
   @include tablet {
@@ -224,9 +208,9 @@ $item-max-width: 400px;
     min-width: ($content-width - 2 * $inner-outer-padding - 2 * $gutter-padding) / 3; //381.3px = (1200 - 2*16 - 2*12) / 3
   }
 
-  & > a { // overwrite global a-styles :-/
+  > a { // overwrite global a-styles
     border: none;
-    height: 100%;
+    width: 100%;
 
     &:hover,
     &:active,
@@ -279,6 +263,8 @@ $item-max-width: 400px;
   line-height: 1.5;
   letter-spacing: .2px;
   color: $color-text-default;
+
+  @include breakLongWords();
 }
 
 .swipemod-item__overline {

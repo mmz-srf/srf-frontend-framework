@@ -22,8 +22,6 @@
   "valueField": "value_0",
   "titleField": "category",
   "fontSize": 12,
-  "depth3D": 10,
-  "angle": 8,
   "startDuration": 0,
   "pullOutOnlyOne": true,
   "balloonText": "[[title]]: stk [[value]] ([[percents]]%)",

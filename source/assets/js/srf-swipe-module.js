@@ -141,7 +141,7 @@ export class SrfSwiper {
             .attr({'aria-hidden': !showLeft, 'role': showLeft ? '' : 'presentation'});
         this.$nextBtn
             .toggle( showRight )
-            .attr({'aria-hidden': !showRight, 'role': showRight ? '' : 'presentation'});;
+            .attr({'aria-hidden': !showRight, 'role': showRight ? '' : 'presentation'});
     }
 
     /**
@@ -281,10 +281,8 @@ export class SrfSwiper {
                 this.showHidePrevNextButtons();
             }
 
-            // move the flying focus to the new positioin after scrolling
-            if($('#flying-focus').hasClass('flying-focus_visible')) {
-                $('#flying-focus').css('left', Math.round(document.activeElement.getBoundingClientRect().left));
-            }
+            // move the flying focus to the new positioin after scrolling (important for swipe)
+            $('#flying-focus').css('left', Math.round(document.activeElement.getBoundingClientRect().left));
 
         });
     }

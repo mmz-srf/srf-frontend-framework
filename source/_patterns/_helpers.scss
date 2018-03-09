@@ -28,6 +28,13 @@
   }
 }
 
+.h-offscreen-focusable--top {
+  &:active,
+  &:focus {
+    position: absolute;
+  }
+}
+
 .h-show-mobile {
   display: inline-block;
 
