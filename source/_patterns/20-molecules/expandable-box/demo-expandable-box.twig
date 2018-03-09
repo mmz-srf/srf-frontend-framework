@@ -1,0 +1,180 @@
+<h2>Personen-Box</h2>
+
+<div class="expandable-box js-expandable-box"
+     data-event-source="People Box"
+     data-event-value="{{ person.name }}">
+
+  <div class="expandable-box__header js-expandable-box--header" role="button" tabindex="0">
+    {% include 'atoms-image' with { 'styleModifier': 'image--circle image--profile-picture' } %}
+
+    {% include 'atoms-person-details' %}
+
+    <div class="expandable-box__expand-icon">
+      {% include 'atoms-expand-icon' with {
+        'styleModifier': 'expand-icon--accentuated',
+        'textOpen': 'Personen-Box aufklappen',
+        'textClose': 'Personen-Box zuklappen'
+      } %}
+    </div>
+  </div>
+
+  <div class="expandable-box__body js-expandable-box--body">
+    <div class="expandable-box__content">
+      <p>{{ person.description }}</p>
+    </div>
+
+    {% include 'atoms-block-link' with {'styleModifier': 'block-link--box'} %}
+  </div>
+
+</div>
+
+
+
+<h2>Personen-Box, expanded, without link</h2>
+
+<div class="expandable-box js-expandable-box expandable-box--expanded"
+     data-event-source="People Box"
+     data-event-value="{{ person.name }}"
+     data-initially-open>
+
+  <div class="expandable-box__header js-expandable-box--header" role="button" tabindex="0">
+    {% include 'atoms-image' with { 'styleModifier': 'image--circle image--profile-picture' } %}
+
+    {% include 'atoms-person-details' %}
+
+    <div class="expandable-box__expand-icon">
+      {% include 'atoms-expand-icon' with {
+        'styleModifier': 'expand-icon--accentuated',
+        'textOpen': 'Personen-Box aufklappen',
+        'textClose': 'Personen-Box zuklappen'
+      } %}
+    </div>
+  </div>
+
+  <div class="expandable-box__body js-expandable-box--body">
+    <div class="expandable-box__content">
+      <p>{{ person.description }}</p>
+    </div>
+  </div>
+
+</div>
+
+
+
+<h2>Textbox, expandable</h2>
+
+<div class="expandable-box js-expandable-box"
+     data-event-source="Textbox"
+     data-event-value="Title">
+
+  <div class="expandable-box__header js-expandable-box--header" role="button" tabindex="0">
+    {% include 'atoms-content-heading' with {'styleModifier': 'content-heading--box-title'} %}
+
+    <div class="expandable-box__expand-icon">
+      {% include 'atoms-expand-icon' with {
+        'styleModifier': 'expand-icon--accentuated',
+        'textOpen': 'Textbox aufklappen',
+        'textClose': 'Textbox zuklappen'
+      } %}
+    </div>
+  </div>
+
+  <div class="expandable-box__body js-expandable-box--body">
+    <div class="expandable-box__content">
+      <p>Barlow rief zusammen mit einem Softwaremillionär die <a href="https://www.eff.org/de" target="_blank">«Electronic Frontier Foundation»</a> ins Leben, die noch heute für freie Netze und gegen Überwachung kämpft.</p>
+      {% include 'molecules-text-list--unordered' %}
+      <p>Barlow rief zusammen mit einem <strong>Softwaremillionär</strong> die «Electronic Frontier Foundation» ins Leben, die noch heute für freie Netze und gegen Überwachung kämpft.</p>
+      {% include 'molecules-text-list--ordered' %}
+    </div>
+  </div>
+
+</div>
+
+
+
+<h2>Textbox, expanded</h2>
+
+<div class="expandable-box js-expandable-box"
+     data-event-source="Textbox"
+     data-event-value="Title"
+     data-initially-open>
+
+  <div class="expandable-box__header js-expandable-box--header" role="button" tabindex="0">
+    {% include 'atoms-content-heading' with {'styleModifier': 'content-heading--box-title'} %}
+
+    <div class="expandable-box__expand-icon">
+      {% include 'atoms-expand-icon' with {
+      'styleModifier': 'expand-icon--accentuated',
+      'textOpen': 'Textbox aufklappen',
+      'textClose': 'Textbox zuklappen'
+      } %}
+    </div>
+  </div>
+
+  <div class="expandable-box__body js-expandable-box--body">
+    {% include 'molecules-image-figure' with { 'imageCaptionStyle': 'media-caption--no-bg media-caption--with-separator media-caption--in-box', 'styleModifier' : 'image-figure--in-box'} %}
+    <div class="expandable-box__content">
+      <p>Barlow rief zusammen mit einem Softwaremillionär die <a href="https://www.eff.org/de" target="_blank">«Electronic Frontier Foundation»</a> ins Leben, die noch heute für freie Netze und gegen Überwachung kämpft.</p>
+      {% include 'molecules-text-list--unordered' %}
+      <p>Barlow rief zusammen mit einem <strong>Softwaremillionär</strong> die «Electronic Frontier Foundation» ins Leben, die noch heute für freie Netze und gegen Überwachung kämpft.</p>
+      {% include 'molecules-text-list--ordered' %}
+    </div>
+  </div>
+
+</div>
+
+
+
+<h2>Textbox, not expandable</h2>
+
+<div class="expandable-box expandable-box--always-open"
+     data-event-source="Textbox"
+     data-event-value="Title">
+
+  <div class="expandable-box__header js-expandable-box--header" role="button" tabindex="0">
+    {% include 'atoms-content-heading' with {'styleModifier': 'content-heading--box-title'} %}
+  </div>
+
+  <div class="expandable-box__body js-expandable-box--body">
+    {% include 'molecules-image-figure' with { 'imageCaptionStyle': 'media-caption--no-bg media-caption--with-separator media-caption--in-box', 'styleModifier' : 'image-figure--in-box'} %}
+    <div class="expandable-box__content">
+      <p>Barlow rief zusammen mit einem Softwaremillionär die <a href="https://www.eff.org/de" target="_blank">«Electronic Frontier Foundation»</a> ins Leben, die noch heute für freie Netze und gegen Überwachung kämpft.</p>
+      {% include 'molecules-text-list--unordered' %}
+      <p>Barlow rief zusammen mit einem <strong>Softwaremillionär</strong> die «Electronic Frontier Foundation» ins Leben, die noch heute für freie Netze und gegen Überwachung kämpft.</p>
+      {% include 'molecules-text-list--ordered' %}
+    </div>
+  </div>
+
+</div>
+
+
+
+<h2>Textbox, full width</h2>
+
+<div class="expandable-box js-expandable-box expandable-box--fullwidth"
+     data-event-source="Textbox"
+     data-event-value="Title">
+
+  <div class="expandable-box__header js-expandable-box--header" role="button" tabindex="0">
+    {% include 'atoms-content-heading' with {'styleModifier': 'content-heading--box-title'} %}
+
+    <div class="expandable-box__expand-icon">
+      {% include 'atoms-expand-icon' with {
+        'styleModifier': 'expand-icon--accentuated',
+        'textOpen': 'Textbox aufklappen',
+        'textClose': 'Textbox zuklappen'
+      } %}
+    </div>
+  </div>
+
+  <div class="expandable-box__body js-expandable-box--body">
+    {% include 'molecules-image-figure' with { 'imageCaptionStyle': 'media-caption--no-bg media-caption--with-separator media-caption--in-box', 'styleModifier' : 'image-figure--in-box'} %}
+    <div class="expandable-box__content">
+      <p>Barlow rief zusammen mit einem Softwaremillionär die <a href="https://www.eff.org/de" target="_blank">«Electronic Frontier Foundation»</a> ins Leben, die noch heute für freie Netze und gegen Überwachung kämpft.</p>
+      {% include 'molecules-text-list--unordered' %}
+      <p>Barlow rief zusammen mit einem <strong>Softwaremillionär</strong> die «Electronic Frontier Foundation» ins Leben, die noch heute für freie Netze und gegen Überwachung kämpft.</p>
+      {% include 'molecules-text-list--ordered' %}
+    </div>
+  </div>
+
+</div>
