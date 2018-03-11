@@ -112,6 +112,29 @@ export function init() {
         let scrollTop = win.pageYOffset || docElem.scrollTop || body.scrollTop;
         let left = rect.left + scrollLeft - clientLeft;
         let top = rect.top + scrollTop - clientTop;
+
+        /*
+        * Special handing for scrollable janrain modal
+        * Flying focus is moved into janrain modal + top and left is calculated differently
+        */
+        if ( $('#janrainModal:visible').length > 0 ) {
+            if ($(window).width() >= 1024) {
+
+                // close button is in janrain modal, but not in the scrollable part
+                if($(elem).hasClass('janrain_modal_closebutton')) {
+                    $('#flying-focus').appendTo('body');
+                } else {
+                    $('#flying-focus').prependTo('.js-janrain-screen:visible');
+                }
+
+                // check if focus is in modal
+                if($(elem).parents('.js-janrain-screen').length > 0) {
+                    top  = rect.top - ($('#janrainModal').offset().top - scrollTop) + $(elem).closest('.js-janrain-screen').scrollTop();
+                    left = rect.left - $('#janrainModal').offset().left;
+                }
+            }
+        }
+
         return {
             top: top || 0,
             left: left || 0
