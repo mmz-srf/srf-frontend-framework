@@ -237,35 +237,3 @@ $button-animation-duration: .3s;
 .button--attention-hogger {
   animation: pulsatingAnimation 2s infinite;
 }
-
-$smallSize: .8;
-$bigSize: 1;
-$darkAttentionColor: #aa0000;
-$lightAttentionColor: #ff0000;
-
-@keyframes pulsatingAnimation {
-  0% {
-    transform: scale( $smallSize );
-    background-color: $darkAttentionColor;
-  }
-  20% {
-    transform: scale( $bigSize );
-    background-color: $lightAttentionColor;
-  }
-  40% {
-    transform: scale( $smallSize );
-    background-color: $darkAttentionColor;
-  }
-  60% {
-    transform: scale( $bigSize );
-    background-color: $lightAttentionColor;
-  }
-  80% {
-    transform: scale( $smallSize );
-    background-color: $darkAttentionColor;
-  }
-  100% {
-    transform: scale( $smallSize );
-    background-color: $darkAttentionColor;
-  }
-}
