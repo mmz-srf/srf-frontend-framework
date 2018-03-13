@@ -38,7 +38,7 @@ export function init() {
 
     /**
      * In some cases it is needed to adjust the flying focus position,
-     * because the focused element moves (swimpe module / scrolling within div)
+     * because the focused element moves (e.g. swimpe module)
      */
     $(document).on('flyingfocus:move', function() {
         placeFlyingFocus(doc.activeElement);
@@ -114,8 +114,9 @@ export function init() {
         let top = rect.top + scrollTop - clientTop;
 
         /*
-        * Special handing for scrollable janrain modal
-        * Flying focus is moved into janrain modal + top and left is calculated differently
+        * Special handing for scrollable janrain modal:
+        * On janrain modal open the flying focus element gets moved into the janrain modal
+        * Additionally the position (top, left) has to be calculated differently
         */
         if ( $('#janrainModal:visible').length > 0 ) {
             if ($(window).width() >= 1024) {
@@ -127,7 +128,6 @@ export function init() {
                     $('#flying-focus').prependTo('#janrainModal > section');
                 }
 
-                // check if focus is in modal
                 if($(elem).parents('#janrainModal > section').length > 0) {
                     top  = rect.top - ($('#janrainModal').offset().top - scrollTop) + $(elem).closest('#janrainModal > section').scrollTop();
                     left = rect.left - $('#janrainModal').offset().left;
