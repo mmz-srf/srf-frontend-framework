@@ -1,9 +1,3 @@
-$(document).ready(() => {
-    $('.js-expandable').each((index, elem) => {
-        new FefExpandable($(elem));
-    });
-});
-
 const ANIMATIONDURATION = 200;
 const ANIMATIONEASING = 'easeInOutCubic';
 const KEYCODES = {
@@ -11,7 +5,13 @@ const KEYCODES = {
     'space': 32
 };
 
-export class FefExpandable {
+export function init() {
+    $('.js-expandable-box').each((index, elem) => {
+        new FefExpandableBox($(elem));
+    });
+}
+
+export class FefExpandableBox {
 
     /**
      * @param $element jQuery.element
@@ -19,12 +19,17 @@ export class FefExpandable {
     constructor ($element) {
         this.$element = $element;
         this.$arrow = $element.find('.expand-icon');
-        this.$body = $element.find('.js-expandable--body');
-        this.$header = $element.find('.js-expandable--header');
+        this.$body = $element.find('.js-expandable-box--body');
+        this.$header = $element.find('.js-expandable-box--header');
 
         // Values for tracking, read from the template
         this.eventSource = this.$element.data('event-source');
         this.eventValue = this.$element.data('event-value');
+
+        // An expandable box can be opened immediately - this is indicated via the data-initially-open flag
+        if (this.$element.data('initially-open') !== undefined) {
+            this.openBox(0);
+        }
 
         this.bindEvents();
     }
@@ -53,18 +58,12 @@ export class FefExpandable {
      * @param options Option object for named parameters
      */
     toggleBox(event, options) {
-        let willBeShown = !this.$element.hasClass('expandable--expanded');
-
-        this.$element.toggleClass('expandable--expanded', willBeShown);
-
-        if (this.$arrow) {
-            this.$arrow.toggleClass('expand-icon--open', willBeShown);
-        }
+        let willBeShown = !this.$element.hasClass('expandable-box--expanded');
 
         if (willBeShown) {
-            this.$body.slideDown(ANIMATIONDURATION, ANIMATIONEASING);
+            this.openBox(ANIMATIONDURATION);
         } else {
-            this.$body.slideUp(ANIMATIONDURATION, ANIMATIONEASING);
+            this.closeBox(ANIMATIONDURATION);
         }
 
         $(window).trigger('fef.track.interaction', {
@@ -73,5 +72,17 @@ export class FefExpandable {
             event_name: willBeShown ? 'Open': 'Close',
             event_value: this.eventValue
         });
+    }
+
+    openBox(duration) {
+        this.$element.addClass('expandable-box--expanded');
+        this.$arrow.addClass('expand-icon--open');
+        this.$body.slideDown(duration, ANIMATIONEASING);
+    }
+
+    closeBox(duration) {
+        this.$element.removeClass('expandable-box--expanded');
+        this.$arrow.removeClass('expand-icon--open');
+        this.$body.slideUp(duration, ANIMATIONEASING);
     }
 }
