@@ -12,7 +12,7 @@ $color-play-icon-active: #f1434a;
 $color-play-icon-hover:  #e31f2b;
 
 
-.play-icon-ng {
+.play-icon {
   position: relative;
   height: 100%;
   width: 100%;
@@ -61,7 +61,7 @@ $color-play-icon-hover:  #e31f2b;
   }
 }
 
-.play-icon-ng--audio {
+.play-icon--audio {
   &:hover,
   &:active,
   &::after {
@@ -71,8 +71,8 @@ $color-play-icon-hover:  #e31f2b;
 
 /* alternative image for windows high contrast mode */
 @media screen and (-ms-high-contrast: active) {
-  .play-icon-ng,
-  .play-icon-ng--audio {
+  .play-icon,
+  .play-icon--audio {
     &,
     &:hover,
     &:active,
@@ -84,9 +84,9 @@ $color-play-icon-hover:  #e31f2b;
 }
 
 // use case: see srf-media-still.js
-.play-icon-ng--hover {
-  @extend .play-icon-ng:hover;
+.play-icon--hover {
+  @extend .play-icon:hover;
 }
-.play-icon-ng--audio.play-icon-ng--hover {
-  @extend .play-icon-ng--audio:hover;
+.play-icon--audio.play-icon--hover {
+  @extend .play-icon--audio:hover;
 }
