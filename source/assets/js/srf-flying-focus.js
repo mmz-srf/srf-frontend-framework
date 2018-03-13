@@ -124,12 +124,12 @@ export function init() {
                 if($(elem).hasClass('janrain_modal_closebutton')) {
                     $('#flying-focus').appendTo('body');
                 } else {
-                    $('#flying-focus').prependTo('.js-janrain-screen:visible');
+                    $('#flying-focus').prependTo('#janrainModal > section');
                 }
 
                 // check if focus is in modal
-                if($(elem).parents('.js-janrain-screen').length > 0) {
-                    top  = rect.top - ($('#janrainModal').offset().top - scrollTop) + $(elem).closest('.js-janrain-screen').scrollTop();
+                if($(elem).parents('#janrainModal > section').length > 0) {
+                    top  = rect.top - ($('#janrainModal').offset().top - scrollTop) + $(elem).closest('#janrainModal > section').scrollTop();
                     left = rect.left - $('#janrainModal').offset().left;
                 }
             }
