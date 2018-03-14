@@ -133,6 +133,8 @@ $expandable-box-padding-desktop: 24px;
     padding: 0 $expandable-box-padding-desktop $expandable-box-padding-desktop;
     font-size: 18px;
   }
+
+  @include breakLongWords();
 }
 
 // Expandable can also be not expandable. Hides the expand icon if it's not already removed on render
