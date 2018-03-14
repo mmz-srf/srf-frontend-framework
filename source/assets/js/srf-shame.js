@@ -53,11 +53,8 @@ function objectFitForIE() {
     if('objectFit' in document.documentElement.style === false) {
 
         const relevantClasses = [
-                '.article-audio__wrapper',
                 '.article-media--image',
-                '.article-media--simple',
                 '.article-teaser__wrapper',
-                '.article-video__wrapper',
                 '.carousel__item',
                 '.media-still__image',
                 '.poll-media--image'

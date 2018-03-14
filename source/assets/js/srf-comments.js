@@ -13,7 +13,7 @@ let commentController = function () {
 
     this.init = function () {
 
-        $('.js-article-comments').on('keyup focus', '.reply__textarea', function (e) {
+        $('.js-article-comments').on('keyup focus input', '.reply__textarea', function (e) {
             that.countChars($(this));
         }).on('focusin', '.reply__textarea', function () {
             $('.reply').addClass('reply--on-focus');
