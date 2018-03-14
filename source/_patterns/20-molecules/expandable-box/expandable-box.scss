@@ -137,6 +137,17 @@ $expandable-box-padding-desktop: 24px;
   @include breakLongWords();
 }
 
+// Prevent hover-state on the header when the box is expaned
+.expandable-box--expanded {
+  .expandable-box__header {
+    &:hover,
+    &:active,
+    &:focus {
+      background-color: transparent;
+    }
+  }
+}
+
 // Expandable can also be not expandable. Hides the expand icon if it's not already removed on render
 .expandable-box--always-open {
   .expandable-box__body {
