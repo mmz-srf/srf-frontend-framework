@@ -89,7 +89,6 @@ $expandable-box-padding-desktop: 24px;
   }
 
   > ul {
-    // mixins used here to apply the DRY principle while coping with ezxml's missing classes for html elements
     @include text-list-defaults;
     @include text-list-unordered-defaults;
 
@@ -109,7 +108,6 @@ $expandable-box-padding-desktop: 24px;
   }
 
   > ol {
-    // mixins used here to apply the DRY principle while coping with ezxml's missing classes for html elements
     @include text-list-defaults;
     @include text-list-ordered-defaults;
 
