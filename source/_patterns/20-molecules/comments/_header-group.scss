@@ -1,0 +1,16 @@
+@import "../../variables";
+
+.comments-header__group {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.comments-header__group > * {
+    flex-grow: 0;
+}
+
+// Push is placed between left aligned and right aligned items (will take all space when growing)
+.comments-header__group--push {
+    flex-grow: 1;
+}
