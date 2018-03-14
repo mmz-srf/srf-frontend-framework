@@ -44,16 +44,14 @@
 @include link-text-inline;
 
 ul {
-  // @extend used here to apply the DRY principle while coping with ezxml's missing classes for html elements
-  // tip: always be careful with @extend
-  @extend .text-list;
-  @extend .text-list--unordered;
+  // mixin used here to apply the DRY principle while coping with ezxml's missing classes for html elements
+  @include text-list-defaults;
+  @include text-list-unordered-defaults;
 
 }
 
 ol {
-  // @extend used here to apply the DRY principle while coping with ezxml's missing classes for html elements
-  // tip: always be careful with @extend
-  @extend .text-list;
-  @extend .text-list--ordered;
+  // mixin used here to apply the DRY principle while coping with ezxml's missing classes for html elements
+  @include text-list-defaults;
+  @include text-list-ordered-defaults;
 }

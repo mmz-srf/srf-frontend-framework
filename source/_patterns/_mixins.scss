@@ -22,6 +22,58 @@
 }
 
 
+/* reusable parts of text-lists */
+@mixin text-list-defaults {
+  margin: 12px 0 24px;
+  list-style-type: none;
+  counter-reset: item;
+
+  @include article-text-padding;
+  @include smartphone {
+    margin: 8px 0 20px;
+  }
+
+  li {
+    position: relative;
+    margin: 12px 0;
+    padding-left: 1.5em;
+
+    @include smartphone {
+      margin: 8px 0;
+    }
+  }
+}
+
+@mixin text-list-ordered-defaults {
+  & > li {
+    padding-left: 2em;
+
+    &::before {
+      position: absolute;
+      left: 0;
+      top: 0;
+      font-family: $font-medium;
+      content: counter(item) '.';
+      color: $color-list-bullet;
+      counter-increment: item;
+    }
+  }
+}
+
+@mixin text-list-unordered-defaults {
+  & > li::before {
+    position: absolute;
+    left: 2px;
+    top: 11px;
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: $color-list-bullet;
+    content: ' ';
+  }
+}
+
 /*
  *
  * @mixin fullwidth-container
