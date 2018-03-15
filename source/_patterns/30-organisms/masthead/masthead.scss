@@ -3,4 +3,9 @@
   font-size: 32px;
   line-height: 1.25;
   color: inherit;
+  
+  @include tablet-up {
+    font-size: 40px;
+    line-height: 1.2;
+  }
 }
