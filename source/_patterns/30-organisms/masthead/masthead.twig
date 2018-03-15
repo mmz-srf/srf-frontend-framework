@@ -1,11 +1,53 @@
 <header class="masthead">
-  <div class="masthead__global">
-    {% include 'molecules-globalnav' %}
-  </div>
-  <div class="masthead__scrollwrap">
-    <h1 class="masthead__title">News</h1>
-    <div class="masthead__nav">
-      {% include 'molecules-subnav' %}
+  <div class="masthead__wrapper">
+    <div class="masthead__universal">
+
+      <a href="/" class="masthead__logo" title="Startseite SRF">
+        <img src="{{ frameworkAssetPath }}/img/srf_logo.svg" alt="Zur Startseite von Schweizer Radio und Fernsehen" />
+      </a>
+
+      <ul class="masthead__portals">
+        <li class="masthead__portal-link">
+          <a href="/news">News</a>
+        </li>
+        <li class="masthead__portal-link">
+          <a href="/sport">Sport</a>
+        </li>
+        <li class="masthead__portal-link">
+          <a href="/meteo">Meteo</a>
+        </li>
+        <li class="masthead__portal-link">
+          <a href="/kultur">Kultur</a>
+        </li>
+        <li class="masthead__portal-link">
+          <a href="/dok">Dok</a>
+        </li>
+      </ul>
+
+      <div class="masthead__search">
+        {% block search %}
+          {% include 'atoms-search' with {'styleModifier': 'searchbox--header searchbox--expandable'} %}
+        {% endblock %}
+      </div>
+
+      <a href="#" class="menu-button js-menu-button" aria-haspopup role="combobox">
+        <div class="menu-button__icon">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <span class="menu-button__text" aria-hidden="true" role="presentation">Menü</span>
+        <span class="menu-button__a11y-open h-offscreen">Menu öffnen</span>
+        <span class="menu-button__a11y-close h-offscreen">Menu schliessen</span>
+      </a>
+    </div>
+
+    <div class="masthead__scrollwrap">
+      <h1 class="masthead__title">News</h1>
+      <div class="masthead__nav">
+        {% include 'molecules-subnav' %}
+      </div>
     </div>
   </div>
 </header>

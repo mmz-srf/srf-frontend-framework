@@ -1,3 +1,13 @@
+.masthead {
+  background-image: linear-gradient(134deg, #fefefd, #fafaf8);
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.24), 0 0 8px 0 rgba(0, 0, 0, 0.12);
+}
+
+.masthead__wrapper {
+  max-width: $content-width;
+  margin: 0 auto;
+}
+
 .masthead__title {
   font-family: $font-regular;
   font-size: 32px;
@@ -7,5 +17,32 @@
   @include tablet-up {
     font-size: 40px;
     line-height: 1.2;
+  }
+}
+
+.masthead__universal {
+  display: flex;
+  align-items: center;
+}
+
+.masthead__logo {
+  width: 39px;
+  height: 26px;
+}
+
+.masthead__portals {
+  display: flex;
+  padding: 0;
+  margin: 0;
+  flex: 1 1 auto;
+}
+
+.masthead__portal-link {
+  list-style-type: none;
+  padding: 8px 10px;
+  margin: 0;
+
+  &:before {
+    display: none;
   }
 }
