@@ -78,12 +78,12 @@
   }
 
   &:hover {
-    background-color: $color-bg-caption;
+    background-color: $color-nav-bg-hover;
   }
 
   &:active,
   &:focus {
-    background-color: $color-bg-box;
+    background-color: $color-nav-bg-active;
   }
 }
 
