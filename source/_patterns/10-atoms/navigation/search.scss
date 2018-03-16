@@ -213,3 +213,15 @@
     }
   }
 }
+
+.searchbox--transparent {
+  .searchbox__input {
+    background-color: transparent;
+    background-position: 6px -35px;
+    color: #6b6960;
+
+    &::-webkit-input-placeholder {
+      color: #6b6960;
+    }
+  }
+}
