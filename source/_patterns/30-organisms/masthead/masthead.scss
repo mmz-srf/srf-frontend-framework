@@ -2,8 +2,21 @@
 @import "../../breakpoints";
 
 .masthead {
+
+  /** custom property options for branding **/
+  //--theme-color-nav: $color-text-accentuation;
+  //--theme-color-bg-hover, $color-nav-bg-hover;
+  //--theme-color-bg-active, $color-nav-bg-active
+  //--theme-color-active, $color-accentuation-red;
+  //--theme-color-nav-active-border, #f1434a
+
   background-image: linear-gradient(134deg, #fefefd, #fafaf8);
   box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.24), 0 0 8px 0 rgba(0, 0, 0, 0.12);
+  padding: 0 32px;
+
+  @include smartphone {
+    padding: 0 24px;
+  }
 }
 
 .masthead__wrapper {

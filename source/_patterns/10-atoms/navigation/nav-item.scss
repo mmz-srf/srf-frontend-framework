@@ -1,0 +1,46 @@
+.nav-item {
+  display: inline-block;
+  padding: 16px 16px 14px;
+  border-bottom: 2px solid transparent;
+  font-size: 18px;
+  letter-spacing: 0.4px;
+
+  color: $color-text-accentuation;
+  @supports (--foo: bar) {
+    color: var(--theme-color-nav, $color-text-accentuation);
+  }
+
+  @include smartphone {
+    padding: 18px 12px 16px;
+    font-size: 16px;
+    letter-spacing: 0.2px;
+  }
+
+  &:hover {
+    border-bottom: 2px solid transparent;
+    background-color: $color-nav-bg-hover;
+    @supports (--foo: bar) {
+      background-color: var(--theme-color-bg-hover, $color-nav-bg-hover);
+    }
+  }
+
+  &:active {
+    border-bottom: 2px solid transparent;
+    background-color: $color-nav-bg-active;
+    @supports (--foo: bar) {
+      background-color: var(--theme-color-bg-active, $color-nav-bg-active);
+    }
+  }
+}
+
+.nav-item--active,
+.nav-item--active:hover,
+.nav-item--active:active {
+  background: none;
+  border-bottom-color: #f1434a;
+  color: $color-accentuation-red;
+  @supports (--foo: bar) {
+    border-bottom-color: var(--theme-color-nav-active-border, #f1434a);
+    color: var(--theme-color-active, $color-accentuation-red);
+  }
+}

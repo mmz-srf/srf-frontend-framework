@@ -1,5 +1,11 @@
-{#
-
-    NAVI-LINK   NAVI-LINK   NAVI-LINK   NAVI-LINK   NAVI-LINK   NAVI-LINK   NAVI-LINK
-
-#}
+<nav class="subnav">
+    <div class="subnav__wrapper">
+    {% for item in masthead.subnavi %}
+            {% include 'atoms-nav-item' with {
+                'styleModifier': "",
+                'content': item.name,
+                'url': item.url
+            } %}
+    {% endfor %}
+    </div>
+</nav>

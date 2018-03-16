@@ -719,6 +719,46 @@
         "name": "Dok",
         "url": "/dok"
       }
+    ],
+    "subnavi" : [
+      {
+        "name": "Übersicht",
+        "url": "#"
+      },{
+        "name": "Schweiz",
+        "url": "#"
+      },{
+        "name": "Regional",
+        "url": "#"
+      },{
+        "name": "International",
+        "url": "#"
+      },{
+        "name": "Wirtschaft",
+        "url": "#"
+      },{
+        "name": "Panorama",
+        "url": "#"
+      },{
+        "name": "Wissen",
+        "url": "#"
+      },{
+        "name": "Dampfeisenbahn-Fachinformationen",
+        "url": "#"
+      },{
+        "name": "Netzwelt",
+        "url": "#"
+      },{
+        "name": "Literatur",
+        "url": "#"
+      },{
+        "name": "Musik",
+        "url": "#"
+      },{
+        "name": "Mehr",
+        "url": "#"
+      }
     ]
+
   }
 }
