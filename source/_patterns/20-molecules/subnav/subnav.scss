@@ -1,12 +1,12 @@
 .subnav {
   margin: 0 -16px;
   width: 100%;
-  height: 56px;
+  height: 126px;
   display: block;
   overflow: hidden;
 
-
   @include smartphone {
+    height: 106px;
     margin: 0 -12px;
   }
 }
@@ -15,7 +15,13 @@
   // stretching wrapper height to move scrollbar out of visible area
   // assuming that no scrollbar is higher than 30px
   height: calc(100% + 30px);
+  padding-top: 70px;
+  box-sizing: content-box;
   overflow-y: hidden;
   overflow-x: scroll;
   white-space: nowrap;
+
+  @include smartphone {
+    padding-top: 50px;
+  }
 }
