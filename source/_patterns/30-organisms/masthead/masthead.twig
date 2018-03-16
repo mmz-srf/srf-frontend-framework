@@ -2,9 +2,7 @@
   <div class="masthead__wrapper">
     <div class="masthead__universal">
 
-      <a href="/" class="masthead__logo" title="Startseite SRF">
-        <img src="{{ frameworkAssetPath }}/img/srf_logo.svg" alt="Zur Startseite von Schweizer Radio und Fernsehen" />
-      </a>
+      {% include 'atoms-main-logo' %}
 
       <ul class="masthead__portals">
         <li class="masthead__portal-link">
@@ -25,9 +23,7 @@
       </ul>
 
       <div class="masthead__search">
-        {% block search %}
-          {% include 'atoms-search' with {'styleModifier': 'searchbox--header searchbox--expandable searchbox--transparent'} %}
-        {% endblock %}
+        {% include 'atoms-search' with {'styleModifier': 'searchbox--header searchbox--expandable searchbox--transparent'} %}
       </div>
 
       <a href="#" class="menu-button js-menu-button" aria-haspopup role="combobox">
