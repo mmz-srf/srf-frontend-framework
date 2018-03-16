@@ -2,7 +2,9 @@
   <div class="masthead__wrapper">
     <div class="masthead__universal">
 
-      {% include 'atoms-main-logo' %}
+      <div class="masthead__logo">
+        {% include 'atoms-main-logo' %}
+      </div>
 
       <ul class="masthead__portals">
         {% for portal in masthead.portals %}
