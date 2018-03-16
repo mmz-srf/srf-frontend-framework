@@ -1,3 +1,6 @@
+@import "../../variables";
+@import "../../breakpoints";
+
 .masthead {
   background-image: linear-gradient(134deg, #fefefd, #fafaf8);
   box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.24), 0 0 8px 0 rgba(0, 0, 0, 0.12);
@@ -26,8 +29,7 @@
 }
 
 .masthead__logo {
-  width: 39px;
-  height: 26px;
+  flex: 0 0 auto;
 }
 
 .masthead__portals {
@@ -77,14 +79,17 @@
   }
 }
 
+.masthead__search {
+  margin-right: 32px;
+  display: none;
+
+  @include desktop-up {
+    display: block;
+  }
+}
+
 .masthead__button {
+  background-color: transparent;
   color: inherit;
   border: none;
-
-  &:hover,
-  &:active,
-  &:focus {
-    color: inherit;
-    border: none;
-  }
 }

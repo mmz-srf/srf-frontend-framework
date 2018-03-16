@@ -1,3 +1,5 @@
+@import "../../breakpoints";
+
 .icon-button {
     display: flex;
     padding: 16px;
@@ -6,4 +8,17 @@
 
 .icon-button__text {
     margin-left: 8px;
+}
+
+// Text of the button is only visible on desktop+
+.icon-button--collapsing-text-tablet {
+    .icon-button__text {
+        display: none;
+    }
+    
+    @include desktop-up {
+        .icon-button__text {
+            display: block;
+        }
+    }
 }

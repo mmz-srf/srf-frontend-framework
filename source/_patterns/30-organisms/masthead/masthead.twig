@@ -2,7 +2,9 @@
   <div class="masthead__wrapper">
     <div class="masthead__universal">
 
-      {% include 'atoms-main-logo' %}
+      <div class="masthead__logo">
+        {% include 'atoms-main-logo' %}
+      </div>
 
       <ul class="masthead__portals">
         {% for portal in masthead.portals %}
@@ -13,16 +15,16 @@
       </ul>
 
       <div class="masthead__search">
-        {% include 'atoms-search' with {'styleModifier': 'searchbox--header searchbox--expandable searchbox--transparent'} %}
+        {% include 'atoms-search' with {'styleModifier': 'searchbox--expandable searchbox--transparent'} %}
       </div>
 
-      <a href="" class="masthead__button" aria-haspopup>
+      <button class="masthead__button">
         {% include 'atoms-icon-button' with {'imagePath': 'img/icon/tv-radio-icon.svg', 'buttonText': 'TV/Radio'} %}
-      </a>
+      </button>
 
-      <a href="" class="masthead__button" aria-haspopup>
-        {% include 'atoms-icon-button' with {'imagePath': 'img/icon/burger-icon-dark.svg', 'buttonText': 'Menu'} %}      
-      </a>
+      <button class="masthead__button">
+        {% include 'atoms-icon-button' with {'imagePath': 'img/icon/burger-icon-dark.svg', 'buttonText': 'Menu', 'styleModifier': 'icon-button--collapsing-text-tablet'} %}
+      </button>
 
     </div>
 
