@@ -85,4 +85,8 @@
   background-color: transparent;
   color: inherit;
   border: none;
+
+  &:hover {
+    color: $color-text-default;
+  }
 }

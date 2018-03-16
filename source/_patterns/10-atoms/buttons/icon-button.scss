@@ -4,6 +4,7 @@
   display: flex;
   padding: 16px;
   align-items: center;
+  cursor: pointer;
 }
 
 .icon-button__text {
@@ -12,13 +13,9 @@
 
 // Text of the button is only visible on desktop+
 .icon-button--collapsing-text-tablet {
-  .icon-button__text {
-    display: none;
-  }
-  
-  @include desktop-up {
+  @include desktop-down {
     .icon-button__text {
-      display: block;
+      display: none;
     }
   }
 }

@@ -16,6 +16,12 @@
   }
 }
 
+@mixin desktop-down {
+  @media (max-width: #{$desktop-size - 1px}) {
+    @content;
+  }
+}
+
 @mixin desktop {
   @media (min-width: $desktop-size) and (max-width: #{$desktop-wide-size - 1px}) {
     @content;
