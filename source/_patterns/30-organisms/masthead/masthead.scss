@@ -70,20 +70,18 @@
 }
 */
 .masthead__portals {
-  display: none;
   flex: 1 1 auto;
   
-  @include desktop-up {
-    display: block;
+  @include desktop-down {
+    display: none;
   }
 }
 
 .masthead__search {
   margin-right: 32px;
-  display: none;
 
-  @include desktop-up {
-    display: block;
+  @include desktop-down {
+    display: none;
   }
 }
 
