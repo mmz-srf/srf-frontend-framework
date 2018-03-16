@@ -1,14 +1,24 @@
+@import "../../variables";
 @import "../../breakpoints";
 
 .icon-button {
+  color: $color-text-accentuation;
   display: flex;
   padding: 16px;
   align-items: center;
   cursor: pointer;
+
+  &:hover {
+    color: $color-text-default;
+  }
 }
 
 .icon-button__text {
   margin-left: 8px;
+  font-family: $font-regular;
+  font-size: 14px;
+  line-height: 1.14;
+  letter-spacing: 0.4px;
 }
 
 // Text of the button is only visible on desktop+
