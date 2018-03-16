@@ -33,16 +33,58 @@
 .masthead__portals {
   display: flex;
   padding: 0;
-  margin: 0;
+  margin: 0 0 0 10px;
   flex: 1 1 auto;
+
+  li {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+
+    &:before {
+      display: none;
+    }
+  }
 }
 
 .masthead__portal-link {
-  list-style-type: none;
+  font-family: $font-bold;
+  font-size: 14px;
+  line-height: 1.14;
+  letter-spacing: 0.4px;
+  background-color: transparent;
+  transition: background-color 0.2s ease-in-out;
+  border-radius: 2px;
   padding: 8px 10px;
-  margin: 0;
+  display: inline-block;
+  color: $color-text-accentuation;
+  border-bottom: none;
 
-  &:before {
-    display: none;
+  &:hover,
+  &:active,
+  &:focus {
+    color: $color-text-accentuation;
+    border-bottom: none;
+  }
+
+  &:hover {
+    background-color: $color-bg-caption;
+  }
+
+  &:active,
+  &:focus {
+    background-color: $color-bg-box;
+  }
+}
+
+.masthead__button {
+  color: inherit;
+  border: none;
+
+  &:hover,
+  &:active,
+  &:focus {
+    color: inherit;
+    border: none;
   }
 }
