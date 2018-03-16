@@ -6,13 +6,9 @@
         {% include 'atoms-main-logo' %}
       </div>
 
-      <ul class="masthead__portals">
-        {% for portal in masthead.portals %}
-          <li>
-            <a class="masthead__portal-link" href="{{ portal.url }}">{{ portal.name }}</a>
-          </li>
-        {% endfor %}
-      </ul>
+      <div class="masthead__portals">
+        {% include 'molecules-portals' with {'styleModifier': ''} %}
+      </div>
 
       <div class="masthead__search">
         {% include 'atoms-search' with {'styleModifier': 'searchbox--expandable searchbox--transparent'} %}

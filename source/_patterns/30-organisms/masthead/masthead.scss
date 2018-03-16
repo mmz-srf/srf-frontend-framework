@@ -38,52 +38,10 @@
 
 .masthead__portals {
   display: none;
-  padding: 0;
-  margin: 0 0 0 10px;
   flex: 1 1 auto;
-
+  
   @include desktop-up {
-    display: flex;
-  }
-
-  li {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-
-    &:before {
-      display: none;
-    }
-  }
-}
-
-.masthead__portal-link {
-  font-family: $font-bold;
-  font-size: 14px;
-  line-height: 1.14;
-  letter-spacing: 0.4px;
-  background-color: transparent;
-  transition: background-color 0.2s ease-in-out;
-  border-radius: 2px;
-  padding: 12px 18px;
-  display: inline-block;
-  color: $color-text-accentuation;
-  border-bottom: none;
-
-  &:hover,
-  &:active,
-  &:focus {
-    color: $color-text-accentuation;
-    border-bottom: none;
-  }
-
-  &:hover {
-    background-color: $color-nav-bg-hover;
-  }
-
-  &:active,
-  &:focus {
-    background-color: $color-nav-bg-active;
+      display: block;
   }
 }
 
