@@ -27,8 +27,8 @@ let commentController = function () {
     };
 
     this.countChars = function ($textarea) {
-        let len = $textarea.val().length
-            , $button = $('.js-article-comments .button');
+        let len = $textarea.val().length,
+            $button = $('.js-article-comments .button');
 
         // count up available chars
         $('.js-comment-count-up').text(this.max_input - len);
