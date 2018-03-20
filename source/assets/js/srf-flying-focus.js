@@ -38,7 +38,7 @@ export function init() {
 
     /**
      * In some cases it is needed to adjust the flying focus position,
-     * because the focused element moves (e.g. swimpe module)
+     * because the focused element moves (e.g. swipe module, janrain modal)
      */
     $(document).on('flyingfocus:move', function() {
         placeFlyingFocus(doc.activeElement);
