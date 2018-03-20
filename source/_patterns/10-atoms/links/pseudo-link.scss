@@ -2,6 +2,7 @@
 .pseudo-link {
   position: relative;
   color: $color-link-default;
+  cursor: pointer;
   border-bottom: 1px solid $color-link-default;
 
   &:hover {
