@@ -47,3 +47,8 @@
   line-height: $default-line-height-ratio;
   margin-top: 24px;
 }
+
+.form-button__group {
+  display: flex;
+  justify-content: space-between;
+}
