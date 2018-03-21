@@ -4,6 +4,11 @@
   width: 100%;
   margin: 0;
   padding: 0;
+
+  @include tablet-up {
+    flex-direction: row;
+    padding: 0 12px;
+  }
 }
 
 .globalnav-group {
@@ -13,9 +18,16 @@
   &::before {
     display: none;
   }
-  
+
   &:not(:last-of-type) {
-    border-bottom: 1px solid rgba(0,0,0,.08);
+    @include smartphone {
+      border-bottom: 1px solid rgba(0,0,0,.08);
+    }
+  }
+
+  @include tablet-up {
+    flex: 1 0 0;
+    padding: 0 4px;
   }
 }
 
@@ -39,4 +51,8 @@
   padding: 8px 0;
   border-top: 1px solid rgba(0,0,0,.08);
   background-color: $color-bg-caption;
+
+  @include tablet-up {
+    display: none;
+  }
 }

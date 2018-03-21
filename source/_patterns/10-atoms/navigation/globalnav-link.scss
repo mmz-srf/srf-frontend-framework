@@ -14,6 +14,10 @@
     color: $color-text-default;
     background: rgba(185,183,172,.24);
   }
+
+  @include tablet-up {
+    margin: 0;
+  }
 }
 
 .globalnav-link--portal {
