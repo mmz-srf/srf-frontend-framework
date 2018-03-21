@@ -4,8 +4,6 @@
   display: inline-block;
 }
 
-// To whom it may concern (also please remove this comment):
-// this will be used for the main logo in the HOME-NAVIGATION!
 .main-logo--large {
   @include tablet-up {
     width: 48px;

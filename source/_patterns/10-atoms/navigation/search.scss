@@ -218,15 +218,21 @@
 
 .searchbox--transparent {
   .searchbox__input {
+    height: 48px;
+
     border-radius: 2px;
     background-color: rgba(255, 255, 255, 0.4);
     border: solid 1px rgba(0, 0, 0, 0.08);
 
-    background-position: 6px -35px;
+    background-position: 6px -33px;
     color: $color-text-light;
 
     &::-webkit-input-placeholder {
       color: $color-text-light;
     }
+  }
+
+  .close-search {
+    padding: 16px 12px;
   }
 }
