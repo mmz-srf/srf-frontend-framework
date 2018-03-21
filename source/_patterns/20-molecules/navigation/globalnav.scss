@@ -1,0 +1,42 @@
+.globalnav {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.globalnav-group {
+  margin: 0;
+  padding: 8px 0;
+
+  &::before {
+    display: none;
+  }
+  
+  &:not(:last-of-type) {
+    border-bottom: 1px solid rgba(0,0,0,.08);
+  }
+}
+
+.globalnav-group__list {
+  margin: 0;
+  padding: 0;
+}
+
+.globalnav-item {
+  margin: 0;
+  padding: 0;
+
+  &::before {
+    display: none;
+  }
+}
+
+
+.globalnav--sub-wrapper {
+  margin: 8px 0 -8px;
+  padding: 8px 0;
+  border-top: 1px solid rgba(0,0,0,.08);
+  background-color: $color-bg-caption;
+}

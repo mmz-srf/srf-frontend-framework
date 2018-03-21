@@ -1,0 +1,45 @@
+<ul class="globalnav" role="menu">
+  <li class="globalnav-group">
+    <ul class="globalnav-group__list" role="group">
+      <li class="globalnav-item">{% include 'atoms-globalnav-link' with {'text': 'Home',   'url': '/',       'styleModifier': 'globalnav-link--portal'} %}</li>
+      <li class="globalnav-item">{% include 'atoms-globalnav-link' with {'text': 'News',   'url': '/news',   'styleModifier': 'globalnav-link--portal'} %}</li>
+      <li class="globalnav-item">{% include 'atoms-globalnav-link' with {'text': 'Sport',  'url': '/sport',  'styleModifier': 'globalnav-link--portal'} %}</li>
+      <li class="globalnav-item">{% include 'atoms-globalnav-link' with {'text': 'Meteo',  'url': '/meteo',  'styleModifier': 'globalnav-link--portal'} %}</li>
+      <li class="globalnav-item">{% include 'atoms-globalnav-link' with {'text': 'Kultur', 'url': '/kultur', 'styleModifier': 'globalnav-link--portal'} %}</li>
+      <li class="globalnav-item">{% include 'atoms-globalnav-link' with {'text': 'DOK',    'url': '/dok',    'styleModifier': 'globalnav-link--portal'} %}</li>
+    </ul>
+  </li>
+  <li class="globalnav-group">
+    <ul class="globalnav-group__list" role="group">
+      <li class="globalnav-item">{% include 'atoms-globalnav-link' with {'text': 'Play SRF',       'url': '/play'} %}</li>
+      <li class="globalnav-item">{% include 'atoms-globalnav-link' with {'text': 'Sendungen A-Z',    'url': '/sendungen-a-z'} %}</li>
+      <li class="globalnav-item">{% include 'atoms-globalnav-link' with {'text': 'Podcasts',         'url': '/podcasts'} %}</li>
+      <li class="globalnav-item">{% include 'atoms-globalnav-link' with {'text': 'TV-Programm',      'url': '/programm/tv'} %}</li>
+      <li class="globalnav-item">{% include 'atoms-globalnav-link' with {'text': 'Radio-Programm',   'url': '/programm/radio'} %}</li>
+      <li class="globalnav-item">{% include 'atoms-globalnav-link' with {'text': 'Radiosender',      'url': '#',               'styleModifier': 'globalnav-link--expandable js-expand-icon'} %}
+        <div class="globalnav--sub-wrapper">
+            <ul class="globalnav globalnav--sub l-main-wrapper js-globalnav--sub-a11y"
+                aria-hidden="true"
+                role="presentation">
+                <li class="globalnav-item globalnav-item--sub">{% include 'atoms-globalnav-link' with {'text': 'Radio SRF 1',             'url': '/radio-srf-1',                       'img': '/img/radiologos/radio-srf-1.png',          'imgRetina': '/img/radiologos/radio-srf-1-hd.png',          'alt': '', 'styleModifier': 'globalnav-link--sub'} %}</li>
+                <li class="globalnav-item globalnav-item--sub">{% include 'atoms-globalnav-link' with {'text': 'Radio SRF 2 Kultur',      'url': '/radio-srf-2',                       'img': '/img/radiologos/radio-srf-2.png',          'imgRetina': '/img/radiologos/radio-srf-2-hd.png',          'alt': '', 'styleModifier': 'globalnav-link--sub'} %}</li>
+                <li class="globalnav-item globalnav-item--sub">{% include 'atoms-globalnav-link' with {'text': 'Radio SRF 3',             'url': '/radio-srf-3',                       'img': '/img/radiologos/radio-srf-3.png',          'imgRetina': '/img/radiologos/radio-srf-3-hd.png',          'alt': '', 'styleModifier': 'globalnav-link--sub'} %}</li>
+                <li class="globalnav-item globalnav-item--sub">{% include 'atoms-globalnav-link' with {'text': 'Radio SRF 4 News',        'url': '/radio-srf-4-news',                  'img': '/img/radiologos/radio-srf-4.png',          'imgRetina': '/img/radiologos/radio-srf-4-hd.png',          'alt': '', 'styleModifier': 'globalnav-link--sub'} %}</li>
+                <li class="globalnav-item globalnav-item--sub">{% include 'atoms-globalnav-link' with {'text': 'Radio SRF Musikwelle',    'url': '/radio-srf-musikwelle',              'img': '/img/radiologos/radio-srf-musikwelle.png', 'imgRetina': '/img/radiologos/radio-srf-musikwelle-hd.png', 'alt': '', 'styleModifier': 'globalnav-link--sub'} %}</li>
+                <li class="globalnav-item globalnav-item--sub">{% include 'atoms-globalnav-link' with {'text': 'Radio SRF Virus',         'url': '/radio-srf-virus',                   'img': '/img/radiologos/radio-srf-virus.png',      'imgRetina': '/img/radiologos/radio-srf-virus-hd.png',      'alt': '', 'styleModifier': 'globalnav-link--sub'} %}</li>
+                <li class="globalnav-item globalnav-item--sub">{% include 'atoms-globalnav-link' with {'text': 'Radio Swiss Classic',     'url': 'http://www.radioswissclassic.ch/de', 'img': '/img/radiologos/radio-swiss-classic.png',  'imgRetina': '/img/radiologos/radio-swiss-classic-hd.png',  'alt': '', 'styleModifier': 'globalnav-link--sub'} %}</li>
+                <li class="globalnav-item globalnav-item--sub">{% include 'atoms-globalnav-link' with {'text': 'Radio Swiss Jazz',        'url': 'http://www.radioswissjazz.ch/de',    'img': '/img/radiologos/radio-swiss-jazz.png',     'imgRetina': '/img/radiologos/radio-swiss-jazz-hd.png',     'alt': '', 'styleModifier': 'globalnav-link--sub'} %}</li>
+                <li class="globalnav-item globalnav-item--sub">{% include 'atoms-globalnav-link' with {'text': 'Radio Swiss Pop',         'url': 'http://www.radioswisspop.ch/de',     'img': '/img/radiologos/radio-swiss-pop.png',      'imgRetina': '/img/radiologos/radio-swiss-pop-hd.png',      'alt': '', 'styleModifier': 'globalnav-link--sub'} %}</li>
+            </ul>
+        </div>
+      </li>
+    </ul>
+  </li>
+  <li class="globalnav-group">
+    <ul class="globalnav-group__list" role="group">
+      <li class="globalnav-item">{% include 'atoms-globalnav-link' with {'text': 'Verkehr', 'url': '/verkehr'} %}</li>
+      <li class="globalnav-item">{% include 'atoms-globalnav-link' with {'text': 'Zambo', 'url': '/sendungen/zambo'} %}</li>
+      <li class="globalnav-item">{% include 'atoms-globalnav-link' with {'text': 'Über SRF', 'url': '/unternehmen'} %}</li>
+    </ul>
+  </li>
+</ul>
