@@ -1,0 +1,14 @@
+.search-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 16px;
+
+  @include tablet-up {
+    flex-direction: row;
+  }
+}
+
+.search-header__search {
+  margin: 0 -12px;
+}

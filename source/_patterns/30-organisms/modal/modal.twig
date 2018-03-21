@@ -1,12 +1,6 @@
 <div class="modal">
   <div class="modal__head">
-    <div class="modal__logo">
-      {% include 'atoms-main-logo' with {'styleModifier': 'main-logo--large'} %}
-    </div>
-    <div class="modal__title modal__title--search">
-      {% include 'atoms-search' with {'styleModifier': 'searchbox--transparent'} %}
-    </div>
-    <div class="modal__close">X</div>
+    {% include 'molecules-search-header' %}
   </div>
   <div class="modal__body l-main-wrapper">
     <ul class="globalnav" role="menu">

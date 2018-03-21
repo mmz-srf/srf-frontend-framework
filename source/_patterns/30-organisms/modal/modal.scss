@@ -3,32 +3,6 @@
   box-shadow: 0 2px 8px 0 rgba(0,0,0,.24), 0 0 8px 0 rgba(0,0,0,.12);
 }
 
-.modal__head {
-  display: flex;
-  flex-direction: column;
-  padding: 16px;
-
-  @include tablet-up {
-    flex-direction: row;
-  }
-}
-
-.modal__logo {
-  
-}
-
-.modal__title {
-  
-}
-
-.modal__title--search {
-  margin: 0 -12px;
-}
-
-.modal__close {
-  
-}
-
 .modal__body {
   
 }
