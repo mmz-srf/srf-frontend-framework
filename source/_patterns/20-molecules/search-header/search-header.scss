@@ -6,6 +6,11 @@
 
   @include tablet-up {
     flex-direction: row;
+    padding: 24px 32px;
+  }
+  
+  @include desktop-up {
+    padding: 24px 0;
   }
 }
 

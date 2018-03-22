@@ -67,7 +67,7 @@
 .globalnav-item--sub {
   @include tablet-up {
     flex: 1 0 calc(33.334% - 8px);
-    padding: 0 8px;
+    padding: 0 4px;
     
     &:nth-child(3n + 1) {
       order: 0
@@ -91,9 +91,11 @@
   background-color: $color-bg-caption;
 
   @include tablet-up {
+    margin-top: 0;
     margin-right: calc((100vw - 100%) / 2 * -1);
     margin-bottom: -32px;
     margin-left: calc((100vw - 100%) / 2 * -1);
+    padding: 0;
     position: relative;
   }
 }
