@@ -1,11 +1,24 @@
 <nav class="subnav">
-    <div class="subnav__wrapper">
-    {% for item in masthead.subnavi %}
-            {% include 'atoms-nav-item' with {
-                'styleModifier': "",
-                'content': item.name,
-                'url': item.url
-            } %}
-    {% endfor %}
+    <ul class="subnav__list">
+        {% for item in masthead.subnavi %}
+                <li class="subnav__list-item">
+                {% include 'atoms-nav-item' with {
+                    'styleModifier': "",
+                    'content': item.name,
+                    'url': item.url
+                } %}
+                </li>
+        {% endfor %}
+        <li class="subnav__list-item subnav__list-item--spacer" aria-hidden="true" role="presentation"></li>
+    </ul>
+    <div class="subnav__pager">
+        <a class="subnav__pager-icon">
+            <span class="svg-icon svg-icon--arrow-left"></span>
+        </a>
+    </div>
+    <div class="subnav__pager subnav__pager--end">
+        <a class="subnav__pager-icon subnav__pager-icon--right">
+            <span class="svg-icon svg-icon--arrow-right"></span>
+        </a>
     </div>
 </nav>

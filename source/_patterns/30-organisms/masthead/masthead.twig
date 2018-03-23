@@ -10,16 +10,12 @@
         {% include 'molecules-portals' with {'styleModifier': ''} %}
       </div>
 
-      <div class="masthead__search">
-        {% include 'atoms-search' with {'styleModifier': 'searchbox--expandable searchbox--transparent'} %}
-      </div>
-
       <button class="masthead__button">
-        {% include 'atoms-icon-button' with {'imagePath': 'img/icon/tv-radio-icon.svg', 'buttonText': 'TV/Radio'} %}
+        {% include 'atoms-icon-button' with {'iconStyleModifier': 'svg-icon--tv-radio', 'buttonText': 'TV/Radio'} %}
       </button>
 
       <button class="masthead__button">
-        {% include 'atoms-icon-button' with {'imagePath': 'img/icon/burger-icon-dark.svg', 'buttonText': 'Menu', 'styleModifier': 'icon-button--collapsing-text-tablet'} %}
+        {% include 'atoms-icon-button' with {'iconStyleModifier': 'svg-icon--burger-dark', 'buttonText': 'Menu', 'styleModifier': 'icon-button--collapsing-text-tablet'} %}
       </button>
 
     </div>

@@ -1,21 +1,23 @@
 .subnav {
-  margin: 0 -16px;
-  width: 100%;
-  height: 126px;
+  margin: 0 -36px;
+  width: calc(100% + 64px);
+  height: 125px;
   display: block;
   overflow: hidden;
 
   @include smartphone {
     height: 106px;
-    margin: 0 -12px;
+    width: calc(100% + 32px);
+    margin: 0 -16px;
   }
 }
 
-.subnav__wrapper {
-  // stretching wrapper height to move scrollbar out of visible area
+.subnav__list {
+  // stretching list height to move scrollbar out of visible area
   // assuming that no scrollbar is higher than 30px
   height: calc(100% + 30px);
   padding-top: 70px;
+  margin: 0;
   box-sizing: content-box;
   overflow-y: hidden;
   overflow-x: scroll;
@@ -24,4 +26,58 @@
   @include smartphone {
     padding-top: 50px;
   }
+}
+
+.subnav__list-item {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+
+  &::before {
+    content: none;
+  }
+}
+
+.subnav__pager {
+  position: absolute;
+  bottom: 0;
+  left: -36px;
+  width: 84px;
+  height: 56px;
+  background: linear-gradient(to right, rgba(254, 254, 253, 0.8), rgba(254, 254, 253, 0.8) 66%, rgba(255, 255, 255, 0));
+  @supports (--foo: bar) {
+    background: linear-gradient(to right, var(--theme-color-arrow-bg-start, rgba(254, 254, 253, 0.8)), var(--theme-color-arrow-bg-start, rgba(254, 254, 253, 0.8)) 66% , rgba(255, 255, 255, 0));
+  }
+}
+
+.subnav__pager--end {
+  left: auto;
+  right: -36px;
+  background: linear-gradient(to left, rgba(250, 250, 248, 0.8), rgba(250, 250, 248, 0.8) 66%, rgba(255, 255, 255, 0));
+  @supports (--foo: bar) {
+    background: linear-gradient(to left, var(--theme-color-arrow-bg-start, rgba(250, 250, 248, 0.8)), var(--theme-color-arrow-bg-start, rgba(250, 250, 248, 0.8)) 66% , rgba(255, 255, 255, 0));
+  }
+}
+
+.subnav__pager-icon {
+  display: block;
+  box-sizing: content-box;
+  padding: 16px;
+  width: 24px;
+  height: 24px;
+  border: none;
+
+  &:hover {
+    border: none;
+    background-color: $color-nav-bg-hover;
+  }
+
+  &:active {
+    border: none;
+    background-color: $color-nav-bg-active;
+  }
+}
+
+.subnav__pager-icon--right {
+  float: right;
 }
