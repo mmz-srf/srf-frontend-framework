@@ -46,7 +46,6 @@ export class FefExpandableBox {
 
         let clickHandler = (event) => {
             this.toggleBox(event);
-            this.$header.blur();
         };
 
         let keyboardHandler = (event) => {

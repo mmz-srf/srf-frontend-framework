@@ -27,4 +27,9 @@
     </fieldset>
     <p class="form__hint">{{ form.hint }}</p>
     {% include 'atoms-button' %}
+
+    <div class="form-button__group">
+        {% include 'atoms-button' %}
+        {% include 'atoms-button' with { 'styleModifier' : 'button--secondary', 'buttonText' : form.button.upload } %}
+    </div>
 </form>
