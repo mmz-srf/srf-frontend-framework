@@ -1,8 +1,48 @@
 .svg-icon {
+  display: inline-block;
   width: 24px;
   height: 24px;
+  background-size: contain;
+  background-position: center;
 }
 
-.svg-icon img circle {
-  fill: red;
+.svg-icon--arrow-down-tiny {
+  background-image: url(../img/arrows/caret_tiny.svg);
+  transform: rotate(90deg);
+}
+
+.svg-icon--arrow-down {
+  background-image: url(../img/arrows/caret.svg);
+  transform: rotate(90deg);
+}
+
+.svg-icon--arrow-right {
+  background-image: url(../img/arrows/caret.svg);
+  transform: rotate(-90deg);
+}
+
+.svg-icon--arrow-left {
+  background-image: url(../img/arrows/caret.svg);
+  transform: rotate(90deg);
+}
+
+.svg-icon--arrow-up {
+  background-image: url(../img/arrows/caret.svg);
+  transform: rotate(180deg);
+}
+
+.svg-icon--burger-dark {
+  background-image: url(../img/icon/burger-dark.svg);
+}
+
+.svg-icon--close-dark {
+  background-image: url(../img/icon/close-dark.svg);
+}
+
+.svg-icon--search-dark {
+  background-image: url(../img/icon/search-dark.svg);
+}
+
+.svg-icon--tv-radio {
+  background-image: url(../img/icon/tv-radio.svg);
 }
