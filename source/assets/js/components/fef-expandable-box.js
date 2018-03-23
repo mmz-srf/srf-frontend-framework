@@ -22,6 +22,11 @@ export class FefExpandableBox {
         this.$body = $element.find('.js-expandable-box--body');
         this.$header = $element.find('.js-expandable-box--header');
 
+        this.$switchTrigger = $element.find('.js-expand-switch-trigger');
+        if (!this.$switchTrigger.length) {
+            this.$switchTrigger = this.$header;
+        }
+
         // Values for tracking, read from the template
         this.eventSource = this.$element.data('event-source');
         this.eventValue = this.$element.data('event-value');
@@ -38,16 +43,19 @@ export class FefExpandableBox {
      * Bind click and keydown event so that the box can be opened/closed.
      */
     bindEvents () {
-        this.$header.on('click', (event) => {
-            this.toggleBox(event);
-            this.$header.blur();
-        });
 
-        this.$header.on('keydown', (event) => {
+        let clickHandler = (event) => {
+            this.toggleBox(event);
+        };
+
+        let keyboardHandler = (event) => {
             if (event.keyCode === KEYCODES.enter || event.keyCode === KEYCODES.space) {
                 this.toggleBox(event, {keyPress: true});
             }
-        });
+        };
+
+        this.$switchTrigger.on('click', clickHandler);
+        this.$switchTrigger.on('keydown', keyboardHandler);
     }
 
     /**
@@ -67,6 +75,13 @@ export class FefExpandableBox {
         }
 
         $(window).trigger('fef.track.interaction', {
+            event_type: options && options.keyPress ? 'keypress' : 'click',
+            event_source: this.eventSource,
+            event_name: willBeShown ? 'Open': 'Close',
+            event_value: this.eventValue
+        });
+
+        $(window).trigger('fef.expandable.interaction', {
             event_type: options && options.keyPress ? 'keypress' : 'click',
             event_source: this.eventSource,
             event_name: willBeShown ? 'Open': 'Close',

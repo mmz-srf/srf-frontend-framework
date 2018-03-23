@@ -216,3 +216,24 @@ $button-animation-duration: .3s;
     transition: none;
   }
 }
+
+.button--circle {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  padding: 0;
+
+  .button-wrapper {
+    white-space: normal;
+  }
+}
+
+.button--fixed-bottom-right {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+}
+
+.button--attention-hogger {
+  animation: pulsatingAnimation 2s infinite;
+}
