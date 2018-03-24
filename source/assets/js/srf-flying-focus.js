@@ -114,26 +114,18 @@ export function init() {
         let top = rect.top + scrollTop - clientTop;
 
         /*
-        * Special handing for scrollable janrain modal:
-        * On janrain modal open the flying focus element gets moved into the janrain modal
-        * Additionally the position (top, left) has to be calculated differently
+        * Makes Flying Focus working in scrollable divs (overflow-x = hidden)
         */
-        if ( $('#janrainModal:visible').length > 0 ) {
-            if ($(window).width() >= 1024) {
-
-                // close button is in janrain modal, but not in the scrollable part
-                if($(elem).hasClass('janrain_modal_closebutton')) {
-                    $('#flying-focus').appendTo('body');
-                } else {
-                    $('#flying-focus').prependTo('#janrainModal > section');
-                }
-
-                if($(elem).parents('#janrainModal > section').length > 0) {
-                    top  = rect.top - ($('#janrainModal').offset().top - scrollTop) + $(elem).closest('#janrainModal > section').scrollTop();
-                    left = rect.left - $('#janrainModal').offset().left;
-                }
+        $('#flying-focus').appendTo('body');
+        let height = $(elem).height();
+        $(elem).parents().each(function( ) {
+            if ($(this).height() < height && $(this).css('overflow-x') == 'hidden') {
+                $('#flying-focus').appendTo($(this));
+                top  = rect.top - ($(this).parent().offset().top - scrollTop) + $(this).scrollTop();
+                left = rect.left - $(this).parent().offset().left;
             }
-        }
+            height = $(this).height();
+        });
 
         return {
             top: top || 0,
