@@ -10,14 +10,17 @@
         {% include 'molecules-portals' with {'styleModifier': ''} %}
       </div>
 
-      <button class="masthead__button">
-        {% include 'atoms-icon-button' with {'iconStyleModifier': 'svg-icon--tv-radio', 'buttonText': 'TV/Radio'} %}
-      </button>
-
-      <button class="masthead__button">
-        {% include 'atoms-icon-button' with {'iconStyleModifier': 'svg-icon--burger-dark', 'buttonText': 'Menu', 'styleModifier': 'icon-button--collapsing-text-tablet'} %}
-      </button>
-
+      <div class="masthead__button-wrapper">
+        <button class="masthead__button">
+            {% include 'atoms-icon-button' with {'iconStyleModifier': 'svg-icon--search-dark', 'buttonText': 'Suche'} %}
+        </button>
+        <button class="masthead__button">
+          {% include 'atoms-icon-button' with {'iconStyleModifier': 'svg-icon--tv-radio', 'buttonText': 'TV/Radio'} %}
+        </button>
+        <button class="masthead__button">
+          {% include 'atoms-icon-button' with {'iconStyleModifier': 'svg-icon--burger-dark', 'buttonText': 'Menu', 'styleModifier': 'icon-button--collapsing-text-tablet'} %}
+        </button>
+      </div>
     </div>
 
     <div class="masthead__scrollwrap">

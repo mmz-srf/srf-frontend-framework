@@ -1,7 +1,7 @@
 .subnav {
   margin: 0 -36px;
   width: calc(100% + 64px);
-  height: 125px;
+  height: 127px;
   display: block;
   overflow: hidden;
 
@@ -16,7 +16,7 @@
   // stretching list height to move scrollbar out of visible area
   // assuming that no scrollbar is higher than 30px
   height: calc(100% + 30px);
-  padding-top: 70px;
+  padding-top: 72px;
   margin: 0;
   box-sizing: content-box;
   overflow-y: hidden;
