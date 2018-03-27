@@ -39,9 +39,13 @@
       margin: 12px 0 20px;
     }
   }
-}
 
-@include link-text-inline;
+  // only apply default text link styling to links without a class (i.e. body text from our CMS)
+  a:not([class]),
+  a[class=""] {
+    @include text-link-defaults;
+  }
+}
 
 ul {
   // @extend used here to apply the DRY principle while coping with ezxml's missing classes for html elements

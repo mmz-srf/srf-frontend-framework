@@ -69,21 +69,16 @@
   }
 }
 
-@mixin link-text-inline {
-  a {
-    color: $color-link-default;
+@mixin text-link-defaults {
     border-bottom: 1px solid $color-link-default;
 
     &:hover {
-      color: $color-link-hover;
       border-bottom: 1px solid $color-link-hover;
     }
 
     &:active {
-      color: $color-link-active;
       border-bottom: 1px solid $color-link-active;
     }
-  }
 }
 
 @mixin button-label {
