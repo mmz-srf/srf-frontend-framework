@@ -1,46 +1,46 @@
 /*** COLORS ***/
-$color-accentuation-red: #c91024;
-$color-bg-caption: #f5f5f2;
-$color-bg-box: #ebebe5;
-$color-bg-box-hover: #dadad2;
-$color-bg-box-focus: #cac8bf;
-$color-bg-card: #fefefd;
-$color-link-default: $color-accentuation-red;
-$color-link-hover: #8d0614;
-$color-link-active: #6a0b0c;
-$color-link-bg-hover: #fafaf8;
-$color-link-bg-active: $color-bg-caption;
-$color-list-bullet: $color-accentuation-red;
-$color-separator: $color-bg-box;
-$color-text-default: #22211d;
-$color-text-accentuation: #4e4d47;
-$color-text-light: #6b6960;
-$color-table-bg-zebra-light: $color-link-bg-hover;
-$color-table-bg-zebra-dark: $color-bg-caption;
-$color-table-bg-header: $color-bg-box;
-$color-border: #cac8bf;
-$color-border-medium: #D2D2D2;
-$color-tab-option-link: #6b6960;
-$color-button-default: #6b6960;
-$color-button-active: #888579;
-$color-button-active-secondary: $color-border;
-$color-button-success: #1a7ac5;
-$color-form-field: #b9b7ac;
-$color-form-field-hint: #6b6960;
-$color-bg-facebook: rgb(58,89,153);
-$color-bg-facebook-hover: rgb(78,105,162);
-$color-bg-facebook-active: rgb(105,128,176);
-$color-bg-twitter: rgb(86,173,239);
-$color-bg-twitter-hover: rgb(102,180,239);
-$color-bg-twitter-active: rgb(125,191,242);
-$color-media-playing: #383732;
+$color-accentuation-red: #c91024 !default;
+$color-bg-caption: #f5f5f2 !default;
+$color-bg-box: #ebebe5 !default;
+$color-bg-box-hover: #dadad2 !default;
+$color-bg-box-focus: #cac8bf !default;
+$color-bg-card: #fefefd !default;
+$color-link-default: $color-accentuation-red !default;
+$color-link-hover: #8d0614 !default;
+$color-link-active: #6a0b0c !default;
+$color-link-bg-hover: #fafaf8 !default;
+$color-link-bg-active: $color-bg-caption !default;
+$color-list-bullet: $color-accentuation-red !default;
+$color-separator: $color-bg-box !default;
+$color-text-default: #22211d !default;
+$color-text-accentuation: #4e4d47 !default;
+$color-text-light: #6b6960 !default;
+$color-table-bg-zebra-light: $color-link-bg-hover !default;
+$color-table-bg-zebra-dark: $color-bg-caption !default;
+$color-table-bg-header: $color-bg-box !default;
+$color-border: #cac8bf !default;
+$color-border-medium: #D2D2D2 !default;
+$color-tab-option-link: #6b6960 !default;
+$color-button-default: #6b6960 !default;
+$color-button-active: #888579 !default;
+$color-button-active-secondary: $color-border !default;
+$color-button-success: #1a7ac5 !default;
+$color-form-field: #b9b7ac !default;
+$color-form-field-hint: #6b6960 !default;
+$color-bg-facebook: rgb(58,89,153) !default;
+$color-bg-facebook-hover: rgb(78,105,162) !default;
+$color-bg-facebook-active: rgb(105,128,176) !default;
+$color-bg-twitter: rgb(86,173,239) !default;
+$color-bg-twitter-hover: rgb(102,180,239) !default;
+$color-bg-twitter-active: rgb(125,191,242) !default;
+$color-media-playing: #383732 !default;
 
 /*** FONTS ***/
-$font-bold: 'SRG_SSR_Bold', sans-serif;
-$font-medium: 'SRG_SSR_Medium', sans-serif;
-$font-regular: 'SRG_SSR_Regular', sans-serif;
-$font-light: 'SRG_SSR_Light', sans-serif;
-$font-serif: 'SRG_SSR_Serif_Regular', serif;
+$font-bold: 'SRG_SSR_Bold', sans-serif !default;
+$font-medium: 'SRG_SSR_Medium', sans-serif !default;
+$font-regular: 'SRG_SSR_Regular', sans-serif !default;
+$font-light: 'SRG_SSR_Light', sans-serif !default;
+$font-serif: 'SRG_SSR_Serif_Regular', serif !default;
 
 $default-line-height-ratio: 1.5 !default;
 
@@ -58,12 +58,12 @@ $shadow-default: 0 1px 2px 0 rgba(0, 0, 0, .24), 0 0 2px 0 rgba(0, 0, 0, .12);
 $shadow-hover:   0 4px 8px 0 rgba(0, 0, 0, .24), 0 0 8px 0 rgba(0, 0, 0, .12);
 
 /*** BREAKPOINT AND CONTENT related variables ***/
-$smartphone-size: 320px;
-$tablet-size: 720px;
-$desktop-size: 1024px;
-$desktop-wide-size: 1280px;
-$content-width: 1200px; // max-width ($widedesktopsize = 1280) - 2 * 40px (Outside Gutter)
-$content-max-width: 1480px;
+$smartphone-size: 320px !default;
+$tablet-size: 720px !default;
+$desktop-size: 1024px !default;
+$desktop-wide-size: 1280px !default;
+$content-width: 1200px !default; // max-width ($widedesktopsize = 1280) - 2 * 40px (Outside Gutter)
+$content-max-width: 1480px !default;
 
 /*** ANIMATIONS ***/
 $easing-in-out-standard: cubic-bezier(0.4, 0.0, 0.2, 1);
