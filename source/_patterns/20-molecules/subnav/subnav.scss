@@ -1,27 +1,29 @@
 .subnav {
-  margin: 0 -36px;
+  position: relative;
+  margin: 0 -32px;
   width: calc(100% + 64px);
-  height: 127px;
+  height: 55px;
   display: block;
   overflow: hidden;
 
   @include smartphone {
-    height: 106px;
     width: calc(100% + 32px);
     margin: 0 -16px;
   }
 }
 
 .subnav__list {
-  // stretching list height to move scrollbar out of visible area
-  // assuming that no scrollbar is higher than 30px
-  height: calc(100% + 30px);
-  padding-top: 72px;
+  height: 100%;
   margin: 0;
-  box-sizing: content-box;
+  padding: 0 19px;
   overflow-y: hidden;
   overflow-x: scroll;
+  font-size: 0; // remove the space between the inline-block child elements
   white-space: nowrap;
+  // stretching list height to move scrollbar out of visible area
+  // assuming that no scrollbar is higher than 30px
+  padding-bottom: 30px;
+  box-sizing: content-box;
 
   @include smartphone {
     padding-top: 50px;
@@ -39,45 +41,62 @@
 }
 
 .subnav__pager {
-  position: absolute;
-  bottom: 0;
-  left: -36px;
-  width: 84px;
-  height: 56px;
-  background: linear-gradient(to right, rgba(254, 254, 253, 0.8), rgba(254, 254, 253, 0.8) 66%, rgba(255, 255, 255, 0));
-  @supports (--foo: bar) {
-    background: linear-gradient(to right, var(--theme-color-arrow-bg-start, rgba(254, 254, 253, 0.8)), var(--theme-color-arrow-bg-start, rgba(254, 254, 253, 0.8)) 66% , rgba(255, 255, 255, 0));
+  display: none;
+
+  @include desktop-up {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 84px;
+    height: 56px;
+    background: linear-gradient(to right, rgba(254, 254, 253, 0.8), rgba(254, 254, 253, 0.8) 66%, rgba(255, 255, 255, 0));
+    @supports (--foo: bar) {
+      background: linear-gradient(to right, var(--theme-color-arrow-bg-start, rgba(254, 254, 253, 0.8)), var(--theme-color-arrow-bg-start, rgba(254, 254, 253, 0.8)) 66% , rgba(255, 255, 255, 0));
+    }
+  }
+}
+
+.subnav__pager--visible {
+  @include desktop-up {
+    display: block;
   }
 }
 
 .subnav__pager--end {
-  left: auto;
-  right: -36px;
-  background: linear-gradient(to left, rgba(250, 250, 248, 0.8), rgba(250, 250, 248, 0.8) 66%, rgba(255, 255, 255, 0));
-  @supports (--foo: bar) {
-    background: linear-gradient(to left, var(--theme-color-arrow-bg-start, rgba(250, 250, 248, 0.8)), var(--theme-color-arrow-bg-start, rgba(250, 250, 248, 0.8)) 66% , rgba(255, 255, 255, 0));
+  @include desktop-up {
+    left: auto;
+    right: 0;
+    background: linear-gradient(to left, rgba(250, 250, 248, 0.8), rgba(250, 250, 248, 0.8) 66%, rgba(255, 255, 255, 0));
+    @supports (--foo: bar) {
+      background: linear-gradient(to left, var(--theme-color-arrow-bg-start, rgba(250, 250, 248, 0.8)), var(--theme-color-arrow-bg-start, rgba(250, 250, 248, 0.8)) 66% , rgba(255, 255, 255, 0));
+    }
   }
 }
 
 .subnav__pager-icon {
-  display: block;
-  box-sizing: content-box;
-  padding: 16px;
-  width: 24px;
-  height: 24px;
-  border: none;
-
-  &:hover {
+  @include desktop-up {
+    display: block;
+    box-sizing: content-box;
+    padding: 16px;
+    width: 24px;
+    height: 24px;
     border: none;
-    background-color: $color-nav-bg-hover;
-  }
 
-  &:active {
-    border: none;
-    background-color: $color-nav-bg-active;
+    &:hover {
+      border: none;
+      background-color: $color-nav-bg-hover;
+    }
+
+    &:active {
+      border: none;
+      background-color: $color-nav-bg-active;
+    }
   }
 }
 
 .subnav__pager-icon--right {
-  float: right;
+  @include desktop-up {
+    float: right;
+  }
 }
