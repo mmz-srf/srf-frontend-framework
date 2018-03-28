@@ -1,21 +1,16 @@
 .subnav {
   position: relative;
-  margin: 0 -32px;
-  width: calc(100% + 64px);
+  margin: 0;
+  width: 100%;
   height: 56px;
   display: block;
   overflow: hidden;
-
-  @include smartphone {
-    width: calc(100% + 32px);
-    margin: 0 0 0 -32px;
-  }
 }
 
 .subnav__list {
   height: 100%;
   margin: 0;
-  padding: 0 19px;
+  padding: 0 16px;
   overflow-y: hidden;
   overflow-x: scroll;
   font-size: 0; // removes space between inline-block child elements

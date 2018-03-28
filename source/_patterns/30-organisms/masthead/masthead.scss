@@ -107,3 +107,13 @@
     display: none;
   }
 }
+
+.masthead__nav {
+  width: calc(100% + 64px);
+  margin: 0 -32px;
+
+  @include smartphone {
+    width: calc(100% + 48px);
+    margin: 0 0 0 -32px;
+  }
+}
