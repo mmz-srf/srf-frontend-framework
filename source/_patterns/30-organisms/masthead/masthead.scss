@@ -27,7 +27,7 @@
 }
 
 .masthead__title {
-  margin: 5px 0 4px;
+  margin: 6px 0 4px -2px;
   font-family: $font-bold;
   font-feature-settings: "salt";
   font-size: 32px;
@@ -35,8 +35,7 @@
   color: inherit;
 
   @include tablet-up {
-    left: -2px;
-    margin: 11px 0 13px;
+    margin: 11px 0 13px -2px;
     font-size: 40px;
     line-height: 1.2;
   }
@@ -49,10 +48,15 @@
 
 .masthead__logo {
   flex: 1 0 auto;
+  margin-top: 4px;
+
+
+  @include smartphone {
+    margin-top: 2px;
+  }
 
   @include desktop-up {
     flex-grow: 0;
-    margin-top: 4px;
   }
 }
 
@@ -88,6 +92,7 @@
 
 .masthead__button-wrapper {
   margin-right: -16px;
+  font-size: 0; // removes space between inline-block child elements
 }
 
 .masthead__button {
@@ -95,4 +100,10 @@
   color: inherit;
   border: none;
   padding: 0;
+}
+
+.masthead__button--search {
+  @include smartphone {
+    display: none;
+  }
 }

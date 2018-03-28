@@ -2,13 +2,13 @@
   position: relative;
   margin: 0 -32px;
   width: calc(100% + 64px);
-  height: 55px;
+  height: 56px;
   display: block;
   overflow: hidden;
 
   @include smartphone {
     width: calc(100% + 32px);
-    margin: 0 -16px;
+    margin: 0 0 0 -32px;
   }
 }
 
@@ -18,16 +18,31 @@
   padding: 0 19px;
   overflow-y: hidden;
   overflow-x: scroll;
-  font-size: 0; // remove the space between the inline-block child elements
+  font-size: 0; // removes space between inline-block child elements
   white-space: nowrap;
   // stretching list height to move scrollbar out of visible area
   // assuming that no scrollbar is higher than 30px
   padding-bottom: 30px;
   box-sizing: content-box;
 
-  @include smartphone {
-    padding-top: 50px;
+  // this pseudo element acts as a "fade-out" mask on smaller screens
+  &::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    height: 56px;
+    width: 28px;
+    pointer-events: none;
+    background: linear-gradient(to left, rgba(250, 250, 248, 0.8), rgba(255, 255, 255, 0));
+    @supports (--foo: bar) {
+      background: linear-gradient(to left, var(--theme-color-arrow-bg-start, rgba(250, 250, 248, 0.8)), rgba(255, 255, 255, 0));
+    }
+
+    @include desktop-up {
+      content: none;
+    }
   }
+
 }
 
 .subnav__list-item {
