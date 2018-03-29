@@ -21,8 +21,16 @@
 .search-header__search {
   margin: 18px -12px -16px;
 
+  @include tablet {
+    width: calc(50% - 24px);
+  }
+
   @include tablet-up {
     margin: -8px 0 0;
+  }
+
+  @include desktop-up {
+    width: calc(50% - 32px);
   }
 }
 
