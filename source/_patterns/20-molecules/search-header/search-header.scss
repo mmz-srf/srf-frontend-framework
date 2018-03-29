@@ -1,15 +1,11 @@
 .search-header {
   display: flex;
   flex-direction: column;
-  padding: 16px;
+  padding: 16px 0;
 
   @include tablet-up {
     flex-direction: row;
     justify-content: space-between;
-    padding: 24px 32px 16px;
-  }
-  
-  @include desktop-up {
     padding: 24px 0 16px;
   }
 }

@@ -1,34 +1,35 @@
 .globalnav {
   display: flex;
   flex-direction: column;
-  width: 100%;
-  margin-top: 0;
-  margin-bottom: 0;
+  margin: 0 -16px;
   padding: 0;
 
   @include tablet-up {
     flex-direction: row;
+    margin: 0 -32px;
     padding: 32px 12px;
   }
 
   @include desktop-up {
-    padding-right: 0px;
-    padding-left: 0px;
-    margin-left: -24px;
-    margin-right: -24px;
-    width: calc(100% + 2 * 24px);
+    padding: 32px 8px;
   }
 }
 
 .globalnav--sub {
+  margin: 0;
+
   @include tablet-up {
     flex-direction: row;
     flex-wrap: wrap;
   }
 
   @include desktop-up {
-    max-width: calc(1200px + (2 * 24px));
+    max-width: calc(1200px + 2 * 16px);
     margin: 0 auto;
+  }
+
+  @include tablet-up {
+    max-width: calc(1200px + 2 * 32px);
   }
 }
 
