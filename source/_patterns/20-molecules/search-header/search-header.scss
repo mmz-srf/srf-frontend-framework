@@ -15,7 +15,9 @@
 }
 
 .search-header__logo {
-  
+  @include tablet-up {
+    width: 20%;
+  }
 }
 
 .search-header__search {
@@ -37,6 +39,7 @@
 .search-header__close {
   display: flex;
   align-items: center;
+  justify-content: flex-end;
 
   @include smartphone {
     position: absolute;
@@ -44,6 +47,7 @@
   }
 
   @include tablet-up {
+    width: 20%;
     margin-top: -8px;
   }
 }
