@@ -9,7 +9,7 @@
     padding: 24px 0 16px;
   }
 }
-
+//TODO: 20% 50% 20% mechanism is 💩 - flex should handle this, BUT: search should be centered. - maybe wrap X in div and use same base/grow on logo and X-wrapper
 .search-header__logo {
   @include tablet-up {
     width: 20%;

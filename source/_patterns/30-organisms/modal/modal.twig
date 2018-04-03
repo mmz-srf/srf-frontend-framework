@@ -1,4 +1,6 @@
-<div class="modal">
+<div class="modal {{ styleModifier|default("") }} js-modal" data-id="{{ id|default("") }}">
+  <span class="h-offscreen js-focus-target">{{ title|default("Modal") }}</span>
+
   <div class="modal__head modal-wrapper">
     {% include 'molecules-search-header' %}
   </div>

@@ -12,12 +12,11 @@ import {init as FefSwipeModuleInit} from './srf-swipe-module';
 import {init as FefFlyingFocusInit} from './srf-flying-focus';
 import {init as FefExpandableBoxInit} from './components/fef-expandable-box';
 
-
 /** SELF loading components without init **/
-/* Self loading components, without init */
 import {FefFormField} from './components/fef-form-field';
 import {FefTooltip} from './components/fef-tooltip';
 import {FefImageSlider} from './components/fef-image-slider';
+import {FefModal} from './components/fef-modal';
 
 import './fef-easings';
 
