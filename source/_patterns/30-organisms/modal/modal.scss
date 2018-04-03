@@ -5,12 +5,12 @@
 }
 
 .modal-wrapper {
-  max-width: calc(1200px + 2 * 16px);
+  max-width: calc(#{$content-width} + 2 * 16px);
   margin: 0 auto;
   padding: 0 16px;
 
   @include tablet-up {
-    max-width: calc(1200px + 2 * 32px);
+    max-width: calc(#{$content-width} + 2 * 32px);
     padding: 0 32px;
   }
 }
