@@ -1,33 +1,50 @@
 export function init() {
-    let SrfStickyHeader = {};
-
-    $(document).ready(function () {
-        SrfStickyHeader.stickyHeader = new stickyHeader();
-        SrfStickyHeader.stickyHeader.init();
+    $('.js-masthead').each((i, elem) => {
+        new SrfStickyHeader(elem);
     });
 }
 
-let stickyHeader = function () {
-    let that = this;
+export class SrfStickyHeader {
 
-    this.init = function () {
-        $("[data-smart-affix]").affix({offset:{top: this.getCorrectOffset()}});
+    constructor(element, options) {
+        this.$masthead = $(element);
+        this.$mastheadNav = $('.masthead__nav');
+        this.affixMarginTop = this.$masthead.height() - this.$mastheadNav.height();
+        this.$affixPlacehoder = $('.affix-placeholder');
+        this.affixPlacehoderHeight = this.$masthead.height() + 30;
 
-        var lastScrollTop = 0;
-        $(window).scroll(function(event){
-            var st = $(this).scrollTop();
+        this.initializeAffix();
+        this.registerListeners();
+    }
 
-            if (st < lastScrollTop) {
-                $('.affix').css('margin-top', '0');
-            } else {
-                $('.affix').css('margin-top', '-120px');
+    registerListeners() {
+        let that = this;
+        let debounceTimer;
+        let lastScrollTop = 0;
+
+        $(window).scroll(function() {
+            if(debounceTimer) {
+                window.clearTimeout(debounceTimer);
             }
-            lastScrollTop = st;
+            debounceTimer = window.setTimeout(function() {
+                let st = $(this).scrollTop();
+                if (st < lastScrollTop) {
+                    $('.affix').css('margin-top', '0');
+                } else {
+                    $('.affix').css('margin-top', '-' + that.affixMarginTop + 'px');
+                }
+                lastScrollTop = st;
+            }, 10);
         });
-    };
+    }
 
-    this.getCorrectOffset = function () {
+    initializeAffix() {
+        $("[data-smart-affix]").affix({offset:{top: this.getCorrectOffset()}});
+        this.$affixPlacehoder.css('height', this.affixPlacehoderHeight + 'px');
+    }
+
+    getCorrectOffset() {
         return $("[data-smart-affix-placeholder]").offset().top + $(window).scrollTop();
-    };
+    }
 
-};
+}
