@@ -85,7 +85,7 @@ export class FefGlobalnav {
 
         this.$arrow.toggleClass('expand-icon--open', subMenuIsOpen);
         this.$subMenuButton.attr('aria-expanded', subMenuIsOpen);
-        this.$submenuWrapper.toggleClass('globalnav--subnav-wrapper--open', subMenuIsOpen);
+        this.$submenuWrapper.toggleClass('globalnav--sub-wrapper--open', subMenuIsOpen);
 
         this.$a11yElem.attr({
             'aria-hidden': !subMenuIsOpen,
