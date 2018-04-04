@@ -282,7 +282,7 @@ export class SrfSwiper {
             }
 
             // move the flying focus to the new positioin after scrolling (important for swipe)
-            $('#flying-focus').css('left', Math.round(document.activeElement.getBoundingClientRect().left));
+            $(document).trigger('flyingfocus:move');
 
         });
     }

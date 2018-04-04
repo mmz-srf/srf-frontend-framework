@@ -36,6 +36,14 @@ export function init() {
         onEnd();
     }, true);
 
+    /**
+     * In some cases it is needed to adjust the flying focus position,
+     * because the focused element moves (e.g. swipe module, janrain modal)
+     */
+    $(document).on('flyingfocus:move', function() {
+        placeFlyingFocus(doc.activeElement);
+    });
+
     function placeFlyingFocus(target) {
         if (target.id === 'flying-focus') {
             return;
@@ -104,6 +112,21 @@ export function init() {
         let scrollTop = win.pageYOffset || docElem.scrollTop || body.scrollTop;
         let left = rect.left + scrollLeft - clientLeft;
         let top = rect.top + scrollTop - clientTop;
+
+        /*
+        * Makes Flying Focus working in scrollable divs (overflow-x = hidden)
+        */
+        $('#flying-focus').appendTo('body');
+        let height = $(elem).height();
+        $(elem).parents().each(function( ) {
+            if ($(this).height() < height && $(this).css('overflow-x') == 'hidden') {
+                $('#flying-focus').appendTo($(this));
+                top  = rect.top - ($(this).parent().offset().top - scrollTop) + $(this).scrollTop();
+                left = rect.left - $(this).parent().offset().left;
+            }
+            height = $(this).height();
+        });
+
         return {
             top: top || 0,
             left: left || 0
