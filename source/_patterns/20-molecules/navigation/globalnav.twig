@@ -1,4 +1,4 @@
-<ul class="globalnav" role="menu">
+<ul class="globalnav js-globalnav {{ styleModifier|default("") }}" id="{{ id|default("") }}" role="menu">
   <li class="globalnav-group">
     <ul class="globalnav-group__list" role="group">
       <li class="globalnav-item">{% include 'atoms-globalnav-link' with {'text': 'Home',   'url': '/',       'styleModifier': 'globalnav-link--portal'} %}</li>

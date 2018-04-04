@@ -6,6 +6,8 @@ const KEYCODES = {
     'escape': 27
 };
 
+let existingModals = {};
+
 $(window).on(DOM_CHANGED_EVENT, (e) => {
     $('[data-modal-id]').each((index, element) => {
 
@@ -15,11 +17,11 @@ $(window).on(DOM_CHANGED_EVENT, (e) => {
             let $modalElement = $(`[data-id=${modalId}]`);
 
             // TODO: what if there are more than one modals with the same ID?
-            if ($modalElement.length > 0) {
-                new FefModal($modalElement, $caller);
+            if (existingModals[modalId]) {
+                existingModals[modalId].show();
+            } else if ($modalElement.length > 0) {
+                existingModals[modalId] = new FefModal($modalElement, $caller);
             }
-
-            //TODO: only intantiate FefModal once per modal. Destroy on close or check if already created on opening
         });
     });
 });
@@ -44,6 +46,9 @@ export class FefModal {
     }
 
     /**
+     * Binds the relevant events for this modal:
+     * - Click on a close-button
+     * - Pressing Escape
      */
     bindEvents() {
         this.$element.find('.js-close-modal').on('click', () => {

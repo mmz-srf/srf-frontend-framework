@@ -7,6 +7,7 @@ import {init as FefCommentsInit} from './srf-comments';
 import {init as FefHeaderInit} from './srf-header';
 import {init as FefSearchInit} from './srf-search';
 import {init as FefNavigationInit} from './srf-navigation';
+import {init as FefGlobalnavInit} from './fef-globalnav';
 import {init as FefShameInit} from  './srf-shame';
 import {init as FefSwipeModuleInit} from './srf-swipe-module';
 import {init as FefFlyingFocusInit} from './srf-flying-focus';
@@ -29,6 +30,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
     FefHeaderInit();
     FefSearchInit();
     FefNavigationInit();
+    FefGlobalnavInit();
     FefSwipeModuleInit();
     FefFlyingFocusInit();
     FefExpandableBoxInit();

@@ -2,9 +2,9 @@
   <span class="h-offscreen js-focus-target">{{ title|default("Modal") }}</span>
 
   <div class="modal__head modal-wrapper">
-    {% include 'molecules-search-header' %}
+    {% include 'molecules-search-header' with {'styleModifier': ''} %}
   </div>
   <div class="modal__body modal-wrapper">
-    {% include 'molecules-globalnav' %}
+    {% include 'molecules-globalnav' with {'styleModifier': ''} %}
   </div>
 </div>
