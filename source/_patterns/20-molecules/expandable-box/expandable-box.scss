@@ -89,10 +89,8 @@ $expandable-box-padding-desktop: 24px;
   }
 
   > ul {
-    // @extend used here to apply the DRY principle while coping with ezxml's missing classes for html elements
-    // tip: always be careful with @extend
-    @extend .text-list;
-    @extend .text-list--unordered;
+    @include text-list-defaults;
+    @include text-list-unordered-defaults;
 
     padding: 0;
 
@@ -110,10 +108,8 @@ $expandable-box-padding-desktop: 24px;
   }
 
   > ol {
-    // @extend used here to apply the DRY principle while coping with ezxml's missing classes for html elements
-    // tip: always be careful with @extend
-    @extend .text-list;
-    @extend .text-list--ordered;
+    @include text-list-defaults;
+    @include text-list-ordered-defaults;
 
     padding: 0;
 
