@@ -12,11 +12,13 @@ import {init as FefShameInit} from  './srf-shame';
 import {init as FefSwipeModuleInit} from './srf-swipe-module';
 import {init as FefFlyingFocusInit} from './srf-flying-focus';
 import {init as FefExpandableBoxInit} from './components/fef-expandable-box';
+import {init as FefStickyHeaderInit} from './srf-sticky-header';
 
 /** SELF loading components without init **/
 import {FefFormField} from './components/fef-form-field';
 import {FefTooltip} from './components/fef-tooltip';
 import {FefImageSlider} from './components/fef-image-slider';
+import {Affix} from './components/affix';
 import {FefModal} from './components/fef-modal';
 
 import './fef-easings';
@@ -34,5 +36,6 @@ document.addEventListener('DOMContentLoaded', function(event) {
     FefSwipeModuleInit();
     FefFlyingFocusInit();
     FefExpandableBoxInit();
+    FefStickyHeaderInit();
     FefShameInit(); // this should probably be last, because it may contain code that depends on the previous scripts
 });
