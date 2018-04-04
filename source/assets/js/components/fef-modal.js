@@ -47,11 +47,11 @@ export class FefModal {
 
     /**
      * Binds the relevant events for this modal:
-     * - Click on a close-button
+     * - Click on a close-button or the overlay
      * - Pressing Escape
      */
     bindEvents() {
-        this.$element.find('.js-close-modal').on('click', () => {
+        this.$element.find('.js-close-modal, .js-modal-overlay').on('click', () => {
             this.close();
         });
 

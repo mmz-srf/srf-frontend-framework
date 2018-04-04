@@ -1,8 +1,16 @@
 .modal {
   display: none;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.modal-main-wrapper {
   background-image: linear-gradient(135deg, #fefefd, #fafaf8);
   box-shadow: 0 2px 8px 0 rgba(0,0,0,.24),
               0 0 8px 0 rgba(0,0,0,.12);
+  position: fixed;
+  width: 100%;
 }
 
 .modal-wrapper {
@@ -16,6 +24,16 @@
   }
 }
 
+.modal__overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.12);
+}
+
+// mostly for demo purposes
 .modal--open {
   display: block;
 }
