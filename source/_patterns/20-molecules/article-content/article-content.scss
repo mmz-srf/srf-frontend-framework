@@ -39,6 +39,25 @@
       margin: 12px 0 20px;
     }
   }
+
+  // only apply default text link styling to links without a class (i.e. body text from our CMS)
+  a:not([class]),
+  a[class=""] {
+    @include text-link-defaults;
+  }
 }
 
-@include link-text-inline;
+ul {
+  // @extend used here to apply the DRY principle while coping with ezxml's missing classes for html elements
+  // tip: always be careful with @extend
+  @extend .text-list;
+  @extend .text-list--unordered;
+
+}
+
+ol {
+  // @extend used here to apply the DRY principle while coping with ezxml's missing classes for html elements
+  // tip: always be careful with @extend
+  @extend .text-list;
+  @extend .text-list--ordered;
+}

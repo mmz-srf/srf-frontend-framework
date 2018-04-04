@@ -40,6 +40,15 @@ h4 {
 
 a {
   text-decoration: none;
+  color: $color-link-default;
+
+  &:hover {
+    color: $color-link-hover;
+  }
+
+  &:active {
+    color: $color-link-active;
+  }
 
   &:hover,
   &:active,

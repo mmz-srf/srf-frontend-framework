@@ -86,6 +86,9 @@
 // login info
 .comments-header__text {
   margin: 0 0 24px;
+  a {
+    @include text-link-defaults;
+  }
 }
 
 // info: there are no comments yet ...
