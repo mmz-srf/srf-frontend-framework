@@ -48,11 +48,10 @@
   align-items: center;
   border: none;
   background-color: transparent;
-  padding: 16px 0 16px 16px;
   margin: -4px 0;
+  padding: 0;
 
   @include smartphone {
-    padding: 16px;
     margin: 0 -16px 0 0;
   }
 }

@@ -91,8 +91,12 @@
 }
 
 .masthead__button-wrapper {
-  margin-right: -16px;
   font-size: 0; // removes space between inline-block child elements
+  margin-right: -16px;
+
+  @include desktop-up {
+    margin-right: 0;
+  }
 }
 
 .masthead__button {

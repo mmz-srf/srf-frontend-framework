@@ -8,11 +8,12 @@
   border: none;
   border-radius: 2px;
   text-decoration: none;
+  transition: background-color .2s ease-in-out;
 
   &:hover {
     border: none;
     color: $color-text-default;
-    background: rgba(185,183,172,.24);
+    background-color: rgba(185,183,172,.24);
   }
 
   @include tablet-up {

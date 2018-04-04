@@ -21,9 +21,37 @@
   letter-spacing: 0.4px;
 }
 
+// prevent empty spaces to change the span's size
+.icon-button__icon {
+  font-size: 0;
+}
+
+// no padding on the right on deksop+
+.icon-button--spaceless-right-tablet {
+  @include desktop-up {
+    padding-right: 0;
+  }
+}
+
+// no padding on the right on tablet+
+.icon-button--spaceless-right-mobile {
+  @include tablet-up {
+    padding-right: 0;
+  }
+}
+
 // Text of the button is only visible on desktop+
 .icon-button--collapsing-text-tablet {
   @include desktop-down {
+    .icon-button__text {
+      display: none;
+    }
+  }
+}
+
+// Text of the button is only visible on tablet+
+.icon-button--collapsing-text-mobile {
+  @include smartphone {
     .icon-button__text {
       display: none;
     }
