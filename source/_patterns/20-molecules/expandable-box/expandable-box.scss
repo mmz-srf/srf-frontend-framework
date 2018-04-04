@@ -157,6 +157,12 @@ $expandable-box-padding-desktop: 24px;
   .expandable-box__header {
     cursor: default;
 
+    padding-bottom: 8px;
+
+    @include desktop-up {
+      padding-bottom: 12px;
+    }
+
     &:hover,
     &:focus,
     &:active {
