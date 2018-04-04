@@ -159,7 +159,7 @@ $expandable-box-padding-desktop: 24px;
 
     padding-bottom: 8px;
 
-    @include desktop {
+    @include desktop-up {
       padding-bottom: 12px;
     }
 
