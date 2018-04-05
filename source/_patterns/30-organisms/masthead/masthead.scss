@@ -48,12 +48,7 @@
 
 .masthead__logo {
   flex: 1 0 auto;
-  margin-top: 4px;
-
-
-  @include smartphone {
-    margin-top: 2px;
-  }
+  display: flex;
 
   @include desktop-up {
     flex-grow: 0;

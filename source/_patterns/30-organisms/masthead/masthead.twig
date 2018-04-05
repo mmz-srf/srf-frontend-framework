@@ -11,13 +11,13 @@
       </div>
 
       <div class="masthead__button-wrapper">
-        <button class="masthead__button masthead__button--search">
+        <button class="masthead__button masthead__button--search" data-modal-id="modal-search">
             {% include 'atoms-icon-button' with {'iconStyleModifier': 'svg-icon--search-dark', 'buttonText': 'Suche'} %}
         </button>
-        <button class="masthead__button">
+        <button class="masthead__button" data-modal-id="modal-flyout">
           {% include 'atoms-icon-button' with {'iconStyleModifier': 'svg-icon--tv-radio', 'buttonText': 'TV/Radio'} %}
         </button>
-        <button class="masthead__button">
+        <button class="masthead__button" data-modal-id="modal-menu">
           {% include 'atoms-icon-button' with {'iconStyleModifier': 'svg-icon--burger-dark', 'buttonText': 'Menu', 'styleModifier': 'icon-button--collapsing-text-tablet icon-button--spaceless-right-tablet'} %}
         </button>
       </div>
@@ -28,3 +28,8 @@
     </div>
   </div>
 </header>
+
+{% include 'organisms-modal' with {'id': 'modal-menu', 'styleModifier': '', 'title': 'Menu'} %}
+{# TODO: Flyout- and Search-Modal, e.g. via modifier or as their own organisms #}
+{% include 'organisms-modal' with {'id': 'modal-flyout', 'styleModifier': '', 'title': 'Radio-TV-Flyout'} %}
+{% include 'organisms-modal' with {'id': 'modal-search', 'styleModifier': '', 'title': 'Suche'} %}
