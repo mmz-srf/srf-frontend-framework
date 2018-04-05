@@ -34,34 +34,31 @@ export class SrfStickyHeader {
             debounceTimer = window.setTimeout(function() {
 
                 let scrollTop = $(this).scrollTop();
+                that.isAffixTop = !that.$stickyContainer.hasClass('affix');
 
-                if (that.$stickyContainer.hasClass('affix')) {
-                    that.isAffixTop = false;
-                    that.$stickyContainer.css('transition', 'margin-top 300ms linear');
-                } else {
-                    that.isAffixTop = true;
-                    that.$stickyContainer.css('margin-top', '');
-                    that.$stickyContainer.css('transition', 'none');
-                }
-
+                // scroll up > show full header
                 if (scrollTop <= lastScrollTop) {
-                    // scroll up
+
+                    that.$stickyContainer.css('margin-top', '0');
 
                     if (that.isAffixTop) {
-                        that.$stickyContainer.css('position', 'fixed');
+                        $('.affix').css('position', 'fixed');
                     }
 
-                    $('.affix').css('margin-top', '0');
+                // scroll down > show small header
                 } else {
-                    // scroll down
+
+                    $('.affix').css('margin-top', '-' + that.affixMarginTop + 'px');
 
                     if (that.isAffixTop) {
                         that.$stickyContainer.css('position', 'absolute');
+                        that.$stickyContainer.css('margin-top', '');
+                        that.$stickyContainer.css('transition', 'none');
                     } else {
                         that.$stickyContainer.css('position', 'fixed');
+                        that.$stickyContainer.css('transition', 'margin-top 300ms linear');
                     }
 
-                    $('.affix').css('margin-top', '-' + that.affixMarginTop + 'px');
                 }
                 lastScrollTop = scrollTop;
             }, 10);
