@@ -39,12 +39,12 @@ export class SrfStickyHeader {
     }
 
     initializeAffix() {
-        $("[data-smart-affix]").affix({offset:{top: this.getCorrectOffset()}});
+        $('[data-smart-affix]').affix({offset:{top: this.getCorrectOffset()}});
         this.$affixPlacehoder.css('height', this.affixPlacehoderHeight + 'px');
     }
 
     getCorrectOffset() {
-        return $("[data-smart-affix-placeholder]").offset().top + $(window).scrollTop();
+        return $('[data-smart-affix-placeholder]').offset().top + $(window).scrollTop();
     }
 
 }
