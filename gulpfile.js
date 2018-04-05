@@ -1,5 +1,6 @@
 'use strict';
 
+/* eslint-disable */
 var gulp = require('gulp'),
     gulpLoadPlugins = require('gulp-load-plugins'),
     del = require('del'),

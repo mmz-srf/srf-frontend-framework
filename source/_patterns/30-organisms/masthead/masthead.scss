@@ -48,12 +48,7 @@
 
 .masthead__logo {
   flex: 1 0 auto;
-  margin-top: 4px;
-
-
-  @include smartphone {
-    margin-top: 2px;
-  }
+  display: flex;
 
   @include desktop-up {
     flex-grow: 0;
@@ -91,8 +86,12 @@
 }
 
 .masthead__button-wrapper {
-  margin-right: -16px;
   font-size: 0; // removes space between inline-block child elements
+  margin-right: -16px;
+
+  @include desktop-up {
+    margin-right: 0;
+  }
 }
 
 .masthead__button {

@@ -14,13 +14,13 @@ export function init() {
 export class FefGlobalnav {
     constructor(element) {
         this.$element = $(element);
-        this.$submenuWrapper = this.$element.find('.globalnav--subnav-wrapper');
+        this.$submenuWrapper = this.$element.find('.globalnav--sub-wrapper');
         this.$subMenuButton = this.$element.find('.js-expand-icon');
         this.$arrow = this.$element.find('.expand-icon');
         this.id = this.$element.attr('id');
 
         this.isInTransition = false;
-        this.$a11yElem = this.$element.find('.js-globalnav-subnav-a11y');
+        this.$a11yElem = this.$element.find('.js-globalnav--sub-a11y');
 
         this.registerListeners();
 
@@ -85,7 +85,7 @@ export class FefGlobalnav {
 
         this.$arrow.toggleClass('expand-icon--open', subMenuIsOpen);
         this.$subMenuButton.attr('aria-expanded', subMenuIsOpen);
-        this.$submenuWrapper.toggleClass('globalnav--subnav-wrapper--open', subMenuIsOpen);
+        this.$submenuWrapper.toggleClass('globalnav--sub-wrapper--open', subMenuIsOpen);
 
         this.$a11yElem.attr({
             'aria-hidden': !subMenuIsOpen,

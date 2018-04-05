@@ -1,61 +1,68 @@
 .search-header {
   display: flex;
-  flex-direction: column;
-  padding: 16px 0;
+  align-items: center;
+  
+  @include smartphone {
+    flex-wrap: wrap;
+  }
 
   @include tablet-up {
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 24px 0 16px;
+    padding: 16px 0;
   }
 }
-//TODO: 20% 50% 20% mechanism is 💩 - flex should handle this, BUT: search should be centered. - maybe wrap X in div and use same base/grow on logo and X-wrapper
+
 .search-header__logo {
-  @include tablet-up {
-    width: 20%;
-  }
+  flex: 1 0 0px;
+  display: flex;
 }
 
 .search-header__search {
-  margin: 18px -12px -16px;
+  flex: 1 0 auto;
 
-  @include tablet {
-    width: calc(50% - 24px);
+  // stretch search-container to full width + enable flex-wrap on parent + change order so search is last --> search wraps to next line on mobile
+  @include smartphone {
+    order: 2;
+    flex-basis: 100%;
+    // search-molecule has 12px padding for some reason.
+    margin: 8px -12px 0;
   }
 
-  @include tablet-up {
-    margin: -8px 0 0;
+  @include tablet {
+    flex-grow: 0;
+    flex-basis: 341px;
   }
 
   @include desktop-up {
-    width: calc(50% - 32px);
+    flex-basis: 276px;
   }
+}
+
+.search-header__close-wrapper {
+  flex: 1 0 0px;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .search-header__close {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  border: none;
+  background-color: transparent;
+  margin: -4px 0;
+  padding: 0;
 
   @include smartphone {
-    position: absolute;
-    right: 16px;
-  }
-
-  @include tablet-up {
-    width: 20%;
-    margin-top: -8px;
+    margin: 0 -16px 0 0;
   }
 }
 
 .search-header__closeText {
-  display: none;
   margin-left: 8px;
   font: 14px/1.5 $font-regular;
   letter-spacing: 0.4px;
   color: #4e4d47;
 
-  @include tablet-up {
-    display: inline-block;
+  @include smartphone {
+    display: none;
   }
 }

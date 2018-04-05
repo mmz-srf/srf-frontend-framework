@@ -1,12 +1,17 @@
 <div class="search-header">
+
   <div class="search-header__logo">
     {% include 'atoms-main-logo' with {'styleModifier': 'main-logo--large'} %}
   </div>
+
   <div class="search-header__search">
     {% include 'atoms-search' with {'styleModifier': 'searchbox--transparent'} %}
   </div>
-  <button class="search-header__close js-close-modal">
-    {% include 'atoms-svg-icon' with {'styleModifier': 'svg-icon--close-dark'} %}
-    <span class="search-header__closeText">Schliessen</span>
-  </button>
+
+  <div class="search-header__close-wrapper">
+    <button class="search-header__close js-close-modal">
+      {% include 'atoms-icon-button' with {'iconStyleModifier': 'svg-icon--close-dark', 'buttonText': 'Schliessen', 'styleModifier': 'icon-button--collapsing-text-mobile icon-button--spaceless-right-mobile'} %}
+    </button>
+  </div>
+
 </div>
