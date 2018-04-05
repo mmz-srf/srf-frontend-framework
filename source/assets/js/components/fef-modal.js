@@ -1,5 +1,6 @@
 import {DOM_CHANGED_EVENT} from '../classes/fef-dom-observer';
 
+const ANIMATION_SPEED = 200;
 const KEYCODES = {
     'enter': 13,
     'tab': 9,
@@ -63,16 +64,21 @@ export class FefModal {
     }
 
     show() {
-        this.$element.show();
-        this.hackyFocus(this.$focusTarget);
+        this.$element.stop(true, true).fadeIn(ANIMATION_SPEED);
+        this.setFocus(this.$focusTarget);
     }
 
     close() {
-        this.$element.hide();
-        this.hackyFocus(this.$caller);
+        this.$element.stop(true, true).fadeOut(ANIMATION_SPEED);
+        this.setFocus(this.$caller);
     }
 
-    hackyFocus($element) {
+    /**
+     * Simply using .focus() doesn't suffice.
+     * 
+     * @param $element jQuery.Element
+     */
+    setFocus($element) {
         $element.attr('tabindex', -1).on('blur focusout', () => {
             $element.removeAttr('tabindex');
         }).focus();
