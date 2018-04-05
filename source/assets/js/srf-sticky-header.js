@@ -4,7 +4,20 @@ export function init() {
     });
 }
 
-export const MASTHEAD_PADDING_BOTTOM = 30;
+const MASTHEAD_PADDING_BOTTOM = 30;
+const DEBOUNCE_TIME_SCROLLING = 10;
+const DEBOUNCE_TIME_RESIZE = 100;
+
+const debounce = (fn, time) => {
+    let timeout;
+
+    return function() {
+        const functionCall = () => fn.apply(this, arguments);
+
+        clearTimeout(timeout);
+        timeout = setTimeout(functionCall, time);
+    };
+};
 
 export class SrfStickyHeader {
 
@@ -12,57 +25,62 @@ export class SrfStickyHeader {
         this.$masthead = $(element);
         this.$mastheadNav = $('.masthead__nav');
         this.$stickyContainer = this.$masthead.closest('.sticky-container');
-        this.affixMarginTop = this.$masthead.height() - this.$mastheadNav.height();
         this.$affixPlacehoder = $('.affix-placeholder');
+        this.affixMarginTop = this.$masthead.height() - this.$mastheadNav.height();
         this.affixPlacehoderHeight = this.$masthead.height() + MASTHEAD_PADDING_BOTTOM;
         this.isAffixTop = false;
+        this.lastScrollTop = 0;
 
         this.initializeAffix();
         this.registerListeners();
     }
 
     registerListeners() {
+        $(window).on('scroll', debounce(() => this.afterScrolling(), DEBOUNCE_TIME_SCROLLING) );
+        $(window).on('resize', debounce(() => this.afterResize(), DEBOUNCE_TIME_RESIZE) );
+    }
+
+    afterScrolling() {
         let that = this;
-        let debounceTimer;
-        let lastScrollTop = 0;
+        let scrollTop = $(window).scrollTop();
 
-        $(window).scroll(function() {
+        that.isAffixTop = !that.$stickyContainer.hasClass('affix');
 
-            if(debounceTimer) {
-                window.clearTimeout(debounceTimer);
+        // scroll up > show full header
+        if (scrollTop <= that.lastScrollTop) {
+
+            that.$stickyContainer.css('margin-top', '0');
+
+            if (that.isAffixTop) {
+                $('.affix').css('position', 'fixed');
             }
-            debounceTimer = window.setTimeout(function() {
 
-                let scrollTop = $(this).scrollTop();
-                that.isAffixTop = !that.$stickyContainer.hasClass('affix');
+            // scroll down > show small header
+        } else {
 
-                // scroll up > show full header
-                if (scrollTop <= lastScrollTop) {
+            $('.affix').css('margin-top', '-' + that.affixMarginTop + 'px');
 
-                    that.$stickyContainer.css('margin-top', '0');
+            if (that.isAffixTop) {
+                that.$stickyContainer.css('position', 'absolute');
+                that.$stickyContainer.css('margin-top', '');
+                that.$stickyContainer.css('transition', 'none');
+            } else {
+                that.$stickyContainer.css('position', 'fixed');
+                that.$stickyContainer.css('transition', 'margin-top 300ms linear');
+            }
 
-                    if (that.isAffixTop) {
-                        $('.affix').css('position', 'fixed');
-                    }
+        }
 
-                // scroll down > show small header
-                } else {
+        that.lastScrollTop = scrollTop;
+    }
 
-                    $('.affix').css('margin-top', '-' + that.affixMarginTop + 'px');
+    afterResize() {
+        let that = this;
+        this.affixMarginTop = this.$masthead.height() - this.$mastheadNav.height();
+        this.affixPlacehoderHeight = this.$masthead.height() + MASTHEAD_PADDING_BOTTOM;
+        this.initializeAffix();
 
-                    if (that.isAffixTop) {
-                        that.$stickyContainer.css('position', 'absolute');
-                        that.$stickyContainer.css('margin-top', '');
-                        that.$stickyContainer.css('transition', 'none');
-                    } else {
-                        that.$stickyContainer.css('position', 'fixed');
-                        that.$stickyContainer.css('transition', 'margin-top 300ms linear');
-                    }
-
-                }
-                lastScrollTop = scrollTop;
-            }, 10);
-        });
+        $(window).scrollTop($(window).scrollTop()+1);
     }
 
     initializeAffix() {
