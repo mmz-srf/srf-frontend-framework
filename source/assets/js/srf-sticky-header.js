@@ -1,3 +1,5 @@
+import {FefDebounceHelper} from './classes/fef-debounce-helper';
+
 export function init() {
     $('.js-masthead').each((i, elem) => {
         new SrfStickyHeader(elem);
@@ -7,17 +9,6 @@ export function init() {
 const MASTHEAD_PADDING_BOTTOM = 30;
 const DEBOUNCE_TIME_SCROLLING = 10;
 const DEBOUNCE_TIME_RESIZE = 100;
-
-const debounce = (fn, time) => {
-    let timeout;
-
-    return function() {
-        const functionCall = () => fn.apply(this, arguments);
-
-        clearTimeout(timeout);
-        timeout = setTimeout(functionCall, time);
-    };
-};
 
 export class SrfStickyHeader {
 
@@ -36,8 +27,8 @@ export class SrfStickyHeader {
     }
 
     registerListeners() {
-        $(window).on('scroll', debounce(() => this.afterScrolling(), DEBOUNCE_TIME_SCROLLING) );
-        $(window).on('resize', debounce(() => this.afterResize(), DEBOUNCE_TIME_RESIZE) );
+        $(window).on('scroll', FefDebounceHelper.debounce(() => this.afterScrolling(), DEBOUNCE_TIME_SCROLLING) );
+        $(window).on('resize', FefDebounceHelper.debounce(() => this.afterResize(), DEBOUNCE_TIME_RESIZE) );
     }
 
     afterScrolling() {
