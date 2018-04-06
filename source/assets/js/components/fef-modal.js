@@ -17,7 +17,6 @@ $(window).on(DOM_CHANGED_EVENT, (e) => {
             let modalId = $caller.attr('data-modal-id');
             let $modalElement = $(`[data-id=${modalId}]`);
 
-            // TODO: what if there are more than one modals with the same ID?
             if (existingModals[modalId]) {
                 existingModals[modalId].show();
             } else if ($modalElement.length > 0) {
@@ -40,6 +39,7 @@ export class FefModal {
         this.$element = $element;
         this.$caller = $caller;
         this.$focusTarget = this.$element.find('.js-focus-target');
+        this.animation = this.$element.attr('data-animation');
 
         this.bindEvents();
 
@@ -63,13 +63,34 @@ export class FefModal {
         });
     }
 
+    /**
+     * Show the modal, depending on the provided animation.
+     */
     show() {
-        this.$element.stop(true, true).fadeIn(ANIMATION_SPEED);
+        switch (this.animation) {
+            case 'fade-in-out':
+                this.$element.stop(true, true).fadeIn(ANIMATION_SPEED);
+                break;
+            default:
+                this.$element.show();
+                break;
+        }
+        
         this.setFocus(this.$focusTarget);
     }
 
+    /**
+     * Hide the modal, depending on the provided animation.
+     */
     close() {
-        this.$element.stop(true, true).fadeOut(ANIMATION_SPEED);
+        switch (this.animation) {
+            case 'fade-in-out':
+                this.$element.stop(true, true).fadeOut(ANIMATION_SPEED);
+                break;
+            default:
+                this.$element.hide();
+                break;
+        }
         this.setFocus(this.$caller);
     }
 
