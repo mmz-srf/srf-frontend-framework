@@ -111,7 +111,7 @@ gulp.task('patternlab', function (cb) {
 
 gulp.task('watch', function(cb) {
     gulp.watch('source/_patterns/**/*.scss', ['styles'], reload);
-    gulp.watch('source/assets/js/*.js', ['scripts'], reload);
+    gulp.watch('source/assets/js/**/*.js', ['scripts'], reload);
     gulp.watch('source/assets/!(img)/**/*', ['copy'], reload);
     gulp.watch('source/assets/img/**/*', ['images'], reload);
     exec('php core/console --watch --patternsonly', function (err, stdout, stderr) {
