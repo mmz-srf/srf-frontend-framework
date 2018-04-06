@@ -23,3 +23,8 @@
 {% include 'molecules-swipe-module' %}
 
 {% include 'molecules-footer' %}
+
+{% include 'organisms-modal' with {'id': 'modal-menu', 'styleModifier': '', 'title': 'Menu'} %}
+{# TODO: Flyout- and Search-Modal, e.g. via modifier or as their own organisms #}
+{% include 'organisms-modal' with {'id': 'modal-flyout', 'styleModifier': '', 'title': 'Radio-TV-Flyout'} %}
+{% include 'organisms-modal' with {'id': 'modal-search', 'styleModifier': '', 'title': 'Suche'} %}
