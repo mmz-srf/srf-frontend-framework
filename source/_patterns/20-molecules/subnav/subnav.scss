@@ -8,6 +8,7 @@
 }
 
 .subnav__list {
+  position: relative;
   height: 100%;
   margin: 0;
   padding: 0 16px;
@@ -23,7 +24,7 @@
   // this pseudo element acts as a "fade-out" mask on smaller screens
   &::after {
     content: '';
-    position: absolute;
+    position: fixed;
     right: 0;
     height: 56px;
     width: 28px;
@@ -55,6 +56,8 @@
 
   @include desktop-up {
     display: block;
+    visibility: hidden;
+    opacity: 0;
     position: absolute;
     bottom: 0;
     left: 0;
@@ -64,12 +67,14 @@
     @supports (--foo: bar) {
       background: linear-gradient(to right, var(--theme-color-arrow-bg-start, rgba(254, 254, 253, 0.8)), var(--theme-color-arrow-bg-start, rgba(254, 254, 253, 0.8)) 66% , rgba(255, 255, 255, 0));
     }
+    transition: opacity 200ms ease-in-out;
   }
 }
 
 .subnav__pager--visible {
   @include desktop-up {
-    display: block;
+    visibility: visible;
+    opacity: 1;
   }
 }
 
@@ -91,15 +96,12 @@
     padding: 16px;
     width: 24px;
     height: 24px;
-    border: none;
 
     &:hover {
-      border: none;
       background-color: $color-nav-bg-hover;
     }
 
     &:active {
-      border: none;
       background-color: $color-nav-bg-active;
     }
   }
