@@ -7,7 +7,7 @@ export class FefDebounceHelper {
      * @param {int} time -  Call rate limit in milliseconds
      * @returns {function}
      */
-    static debounce(fn, time) {
+    static debounce(fn, time = 100) {
         let timeout;
 
         return function() {

@@ -75,7 +75,7 @@ export class SrfStickyHeader {
     }
 
     initializeAffix() {
-        $("[data-smart-affix]").affix({offset:{top: this.affixMarginTop}});
+        $('[data-smart-affix]').affix({offset:{top: this.affixMarginTop}});
         this.$affixPlacehoder.css('height', this.affixPlacehoderHeight + 'px');
     }
 
