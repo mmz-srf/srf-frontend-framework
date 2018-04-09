@@ -1,8 +1,6 @@
 @import "../../variables";
 
 .searchbox {
-  padding: 0 12px;
-
   @include tablet-up {
     padding: 0;
   }

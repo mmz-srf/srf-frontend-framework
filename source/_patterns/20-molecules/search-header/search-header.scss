@@ -66,3 +66,15 @@
     display: none;
   }
 }
+
+// only show the search bar, but let the other elements take up their space
+.search-header--search-only {
+  .search-header__logo *,
+  .search-header__close-wrapper * {
+    display: none;
+  }
+
+  .search-header__search {
+    margin: 0;
+  }
+}
