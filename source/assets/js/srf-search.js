@@ -239,11 +239,7 @@ export class SrfSearch {
 
     showCloseIcon() {
         this.$closeIcon.removeClass('h-element--hide');
-        let y = this.$inputField.position().top;
-        let x = this.$inputField.position().left;
 
-        x = x + this.$inputField.outerWidth() - this.$closeIcon.outerWidth();
-        this.$closeIcon.css({'top': y, 'left': x});
         if ($(window).width() > 720) {
             this.$closeIcon.attr('tabindex', -1).attr('aria-hidden', true);
         }
