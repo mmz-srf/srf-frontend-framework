@@ -1,0 +1,12 @@
+{% embed "modal.twig" with {
+    'id': 'modal-search',
+    'animation': 'fade-in-out',
+    'styleModifier': '',
+    'title': 'Suche'
+} %}
+    {% block head %}
+        {% include 'molecules-search-header' with {'styleModifier': 'search-header--fixed-results'} %}
+    {% endblock %}
+
+    {% block body %}{% endblock %}
+{% endembed %}

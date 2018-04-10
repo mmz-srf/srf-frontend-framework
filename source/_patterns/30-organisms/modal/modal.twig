@@ -8,14 +8,16 @@
       <span class="h-offscreen js-focus-target">{{ title|default("Modal") }}</span>
 
       <div class="modal__head modal-wrapper">
-        {% include 'molecules-search-header' with {'styleModifier': 'search-header--fixed-results'} %}
+        {% block head %}
+          <h1>Your header could be here!</h1>
+        {% endblock %}
       </div>
 
-      {% if "modal--search" not in styleModifier %}
       <div class="modal__body modal-wrapper">
-        {% include 'molecules-globalnav' with {'styleModifier': '', 'id': 'globalnav--menu'} %}
+        {% block body %}
+          <p>and your content could be here!</p>
+        {% endblock %}
       </div>
-      {% endif %}
     </div>
   </div>
 </div>
