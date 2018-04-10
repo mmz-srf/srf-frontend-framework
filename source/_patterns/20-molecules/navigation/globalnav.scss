@@ -74,9 +74,11 @@
 }
 
 .globalnav-item--sub {
+  // sass-lint:disable indentation
   transition: margin .2s ease-in-out,
               opacity .2s ease-in-out,
               max-height .2s ease-in-out;
+  // sass-lint:enable indentation  
   max-height: 0;
   opacity: 0;
   margin-top: 0;
@@ -115,12 +117,13 @@
   padding: 8px 0;
   border-top: 1px solid rgba(0,0,0,.08);
   background-color: $color-bg-caption;
-
+  // sass-lint:disable indentation
   transition: margin-top .2s ease-in-out,
               margin-bottom .2s ease-in-out,
               padding-top .2s ease-in-out,
               padding-bottom .2s ease-in-out,
               border .2s ease-in-out;
+  // sass-lint:enable indentation
 
   @include tablet-up {
     margin-top: 32px;

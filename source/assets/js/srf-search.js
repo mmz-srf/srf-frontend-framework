@@ -1,4 +1,3 @@
-
 export function init() {
     $('.searchbox').each((i, elem) => {
         new SrfSearch(elem);
