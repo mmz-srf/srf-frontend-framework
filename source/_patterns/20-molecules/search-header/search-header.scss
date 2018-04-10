@@ -78,3 +78,10 @@
     margin: 0;
   }
 }
+
+// When the container has a fixed position, the results must be fixed too
+.search-header--fixed-results {
+  .searchbox__results {
+    position: fixed;
+  }
+}

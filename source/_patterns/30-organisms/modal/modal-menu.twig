@@ -1,0 +1,14 @@
+{% embed "modal.twig" with {
+    'id': 'modal-menu',
+    'animation': 'scale-from-origin',
+    'styleModifier': '',
+    'title': 'Menu'
+} %}
+    {% block head %}
+        {% include 'molecules-search-header' with {'styleModifier': 'search-header--fixed-results'} %}
+    {% endblock %}
+    
+    {% block body %}
+        {% include 'molecules-globalnav' with {'styleModifier': '', 'id': 'globalnav--menu'} %}
+    {% endblock %}
+{% endembed %}
