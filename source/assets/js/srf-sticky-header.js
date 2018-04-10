@@ -6,8 +6,8 @@ export function init() {
     });
 }
 
-const MASTHEAD_PADDING_BOTTOM = 30;
-const DEBOUNCE_TIME_SCROLLING = 10;
+const MASTHEAD_PADDING_BOTTOM = 24;
+const DEBOUNCE_TIME_SCROLLING = 20;
 const DEBOUNCE_TIME_RESIZE = 100;
 
 export class SrfStickyHeader {
@@ -39,6 +39,7 @@ export class SrfStickyHeader {
 
         // scroll up > show full header
         if (scrollTop <= that.lastScrollTop) {
+            console.log('scroll up');
 
             that.$stickyContainer.css('margin-top', '0');
 
@@ -46,20 +47,10 @@ export class SrfStickyHeader {
                 $('.affix').css('position', 'fixed');
             }
 
-            // scroll down > show small header
+        // scroll down > show small header
         } else {
-
+            console.log('scroll down');
             $('.affix').css('margin-top', '-' + that.affixMarginTop + 'px');
-
-            if (that.isAffixTop) {
-                that.$stickyContainer.css('position', 'absolute');
-                that.$stickyContainer.css('margin-top', '');
-                that.$stickyContainer.css('transition', 'none');
-            } else {
-                that.$stickyContainer.css('position', 'fixed');
-                that.$stickyContainer.css('transition', 'margin-top 300ms linear');
-            }
-
         }
 
         that.lastScrollTop = scrollTop;
