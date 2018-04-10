@@ -3,14 +3,16 @@
      data-animation="{{ animation|default("") }}">
   <div class="modal__overlay js-modal-overlay"></div>
 
-  <div class="modal-main-wrapper">
-    <span class="h-offscreen js-focus-target">{{ title|default("Modal") }}</span>
+  <div class="modal-main-wrapper js-modal-main-wrapper">
+    <div class="modal-main-content js-modal-main-content">
+      <span class="h-offscreen js-focus-target">{{ title|default("Modal") }}</span>
 
-    <div class="modal__head modal-wrapper">
-      {% include 'molecules-search-header' with {'styleModifier': ''} %}
-    </div>
-    <div class="modal__body modal-wrapper">
-      {% include 'molecules-globalnav' with {'styleModifier': '', 'id': 'globalnav--menu'} %}
+      <div class="modal__head modal-wrapper">
+        {% include 'molecules-search-header' with {'styleModifier': ''} %}
+      </div>
+      <div class="modal__body modal-wrapper">
+        {% include 'molecules-globalnav' with {'styleModifier': '', 'id': 'globalnav--menu'} %}
+      </div>
     </div>
   </div>
 </div>
