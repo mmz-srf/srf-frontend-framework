@@ -87,7 +87,9 @@
   }
 
   @include tablet-up {
-    flex: 1 0 calc(33.334% - 8px);
+    flex-grow: 1;
+    flex-shrink: 0;
+    flex-basis: calc(33.334% - 16px);
     padding: 0 4px;
     
     &:nth-child(3n + 1) {
