@@ -17,8 +17,8 @@ export class SrfStickyHeader {
         this.$mastheadNav = $('.masthead__nav');
         this.$stickyContainer = this.$masthead.closest('.sticky-container');
         this.$affixPlacehoder = $('.affix-placeholder');
-        this.affixMarginTop = this.$masthead.height() - this.$mastheadNav.height();
-        this.affixPlacehoderHeight = this.$masthead.height() + MASTHEAD_PADDING_BOTTOM;
+        this.affixMarginTop = this.$masthead.outerHeight() - this.$mastheadNav.outerHeight();
+        this.affixPlacehoderHeight = this.$masthead.outerHeight() + MASTHEAD_PADDING_BOTTOM;
         this.isAffixTop = false;
         this.lastScrollTop = 0;
 
@@ -67,8 +67,8 @@ export class SrfStickyHeader {
 
     afterResize() {
         let that = this;
-        this.affixMarginTop = this.$masthead.height() - this.$mastheadNav.height();
-        this.affixPlacehoderHeight = this.$masthead.height() + MASTHEAD_PADDING_BOTTOM;
+        this.affixMarginTop = this.$masthead.outerHeight() - this.$mastheadNav.outerHeight();
+        this.affixPlacehoderHeight = this.$masthead.outerHeight() + MASTHEAD_PADDING_BOTTOM;
         this.initializeAffix();
 
         $(window).scrollTop($(window).scrollTop()+1);
