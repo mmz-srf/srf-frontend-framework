@@ -129,10 +129,10 @@ export class FefModal {
         let box = this.$caller[0].getBoundingClientRect();
 
         this.$mainWrapper.css({
-            'left': box.x,
+            'left': box.left,
             'width': box.width,
             'max-height': box.height,
-            'top': box.y,
+            'top': box.top,
             'opacity': 0
         }).animate({
             'left': 0,
