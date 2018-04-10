@@ -87,7 +87,9 @@
   }
 
   @include tablet-up {
-    flex: 1 0 calc(33.334% - 8px);
+    flex-grow: 1;
+    flex-shrink: 0;
+    flex-basis: calc(33.334% - 16px);
     padding: 0 4px;
     
     &:nth-child(3n + 1) {
@@ -131,18 +133,12 @@
 }
 
 .globalnav--sub-wrapper--open {
-  border-top: 1px solid rgba(0, 0, 0, .2);
-  border-bottom: 1px solid rgba(0, 0, 0, .2);
+  border-top: 1px solid rgba(0, 0, 0, .08);
 
   @include smartphone {
     // hide the border of the parent element by subtracting 1 more pix.
     margin-bottom: -9px;
-
-    .globalnav--sub {
-      margin-top: 8px;
-      padding-top: 8px;
-      padding-bottom: 8px;
-    }
+    border-bottom: 1px solid rgba(0, 0, 0, .08);
   }
 
   .globalnav-item--sub {

@@ -39,6 +39,8 @@ export class FefModal {
         this.$element = $element;
         this.$caller = $caller;
         this.$focusTarget = this.$element.find('.js-focus-target');
+        this.$mainWrapper = this.$element.find('.js-modal-main-wrapper');
+        this.$mainContent = this.$element.find('.js-modal-main-content');
         this.animation = this.$element.attr('data-animation');
 
         this.bindEvents();
@@ -68,6 +70,8 @@ export class FefModal {
      */
     show() {
         switch (this.animation) {
+            case 'scale-from-origin':
+                this.scaleFromOrigin();
             case 'fade-in-out':
                 this.$element.stop(true, true).fadeIn(ANIMATION_SPEED);
                 break;
@@ -85,12 +89,16 @@ export class FefModal {
     close() {
         switch (this.animation) {
             case 'fade-in-out':
-                this.$element.stop(true, true).fadeOut(ANIMATION_SPEED);
+                this.$element.stop(true, true).fadeOut(ANIMATION_SPEED, () => {
+                    this.$element.removeClass('modal--scale-from-origin');
+                    this.$element.removeClass('modal--scale-from-origin--final');
+                });
                 break;
             default:
                 this.$element.hide();
                 break;
         }
+
         this.setFocus(this.$caller);
     }
 
@@ -103,5 +111,40 @@ export class FefModal {
         $element.attr('tabindex', -1).on('blur focusout', () => {
             $element.removeAttr('tabindex');
         }).focus();
+    }
+
+    /**
+     * Fancy menu opening animation:
+     * - fades the modal in
+     * - 'opens' it from the originating element
+     * - fades in the content (otherwise it'll be resized) 
+     * 
+     * For aesthetical reasons we have to animate to the previous height and not 100% max-height directly. 
+     */
+    scaleFromOrigin() {
+        this.$mainContent.css('opacity', 0);
+        this.$element.show();
+
+        let originalHeight = this.$mainWrapper.height();
+        let box = this.$caller[0].getBoundingClientRect();
+
+        this.$mainWrapper.css({
+            'left': box.left,
+            'width': box.width,
+            'max-height': box.height,
+            'top': box.top,
+            'opacity': 0
+        }).animate({
+            'left': 0,
+            'width': '100%',
+            'max-height': originalHeight,
+            'top': 0,
+            'opacity': 1
+        }, ANIMATION_SPEED, 'easeInOutSine', () => {
+            this.$mainWrapper.css('max-height', '100%');
+            this.$mainContent.animate({
+                'opacity': 1
+            }, ANIMATION_SPEED);
+        });
     }
 }

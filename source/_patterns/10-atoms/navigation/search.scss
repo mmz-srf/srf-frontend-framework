@@ -1,7 +1,7 @@
 @import "../../variables";
 
 .searchbox {
-  padding: 0 12px;
+  position: relative;
 
   @include tablet-up {
     padding: 0;
@@ -12,6 +12,8 @@
     text-decoration: none;
     border: 0px;
     padding: 12px;
+    right: 0;
+    top: 1px;
     
     @include tablet-up {
       padding: 11px;
