@@ -22,6 +22,7 @@ import {FefTooltip} from './components/fef-tooltip';
 import {FefImageSlider} from './components/fef-image-slider';
 import {Affix} from './components/affix';
 import {FefModal} from './components/fef-modal';
+import './components/fef-ripple';
 
 import './fef-easings';
 
