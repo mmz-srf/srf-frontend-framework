@@ -140,11 +140,11 @@ export class FefModal {
             'max-height': originalHeight,
             'top': 0,
             'opacity': 1
-        }, 2000, 'easeInOutSine', () => {
+        }, ANIMATION_SPEED, 'easeInOutSine', () => {
             this.$mainWrapper.css('max-height', '100%');
             this.$mainContent.animate({
                 'opacity': 1
-            }, 200);
+            }, ANIMATION_SPEED);
         });
     }
 }
