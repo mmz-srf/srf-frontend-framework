@@ -5,15 +5,19 @@
   color: $color-text-default;
   margin: 0 8px;
   padding: 18px 16px;
-  border: none;
   border-radius: 2px;
   text-decoration: none;
   transition: background-color .2s ease-in-out;
 
   &:hover {
-    border: none;
     color: $color-text-default;
-    background-color: rgba(185,183,172,.24);
+    background-color: $color-bg-button-hover;
+  }
+
+  &:focus,
+  &:active {
+    color: $color-text-default;
+    background-color: $color-bg-button-focus;
   }
 
   @include tablet-up {

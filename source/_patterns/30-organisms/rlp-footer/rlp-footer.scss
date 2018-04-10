@@ -10,7 +10,6 @@
 
 .rlp-footer-top {
   padding: 16px 16px 0;
-  border-bottom: 1px solid rgba(0,0,0,0.08);
 
   @include tablet-up {
       padding: 16px 32px 0;
@@ -69,11 +68,15 @@
   margin: 0 8px;
   transition: background-color 0.2s ease-in-out;
 
-  &:hover,
+  &:hover {
+    color: $color-button-default;
+    background-color: $color-bg-button-hover;
+  }
+
   &:focus,
   &:active {
     color: $color-button-default;
-    background-color: rgba(185, 183, 172, 0.24);;
+    background-color: $color-bg-button-focus;
   }
 
   @include tablet-up {
@@ -136,6 +139,7 @@
   margin: 0 8px 0 0;
   padding: 0;
   flex: 1 1 auto;
+  background-color: $color-bg-box;
 
   // override global <a> style
   &::before {
@@ -163,10 +167,14 @@
   background-color: $color-bg-box;
   transition: background-color 0.2s ease-in-out;
 
-  &:hover,
+  &:hover {
+    color: $color-text-light; //override global <a> style
+    background-color: $color-bg-button-hover;
+  }
+
   &:active,
   &:focus {
     color: $color-text-light; //override global <a> style
-    background-color: #deded8;
+    background-color: $color-bg-button-focus;
   }
 }

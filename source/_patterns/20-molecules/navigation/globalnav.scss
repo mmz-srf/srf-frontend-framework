@@ -131,12 +131,12 @@
 }
 
 .globalnav--sub-wrapper--open {
-  border-top: 1px solid rgba(0, 0, 0, .2);
-  border-bottom: 1px solid rgba(0, 0, 0, .2);
+  border-top: 1px solid rgba(0, 0, 0, .08);
 
   @include smartphone {
     // hide the border of the parent element by subtracting 1 more pix.
     margin-bottom: -9px;
+    border-bottom: 1px solid rgba(0, 0, 0, .08);
   }
 
   .globalnav-item--sub {
