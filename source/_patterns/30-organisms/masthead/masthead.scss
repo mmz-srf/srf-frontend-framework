@@ -1,23 +1,61 @@
 @import "../../variables";
 @import "../../breakpoints";
+@import "masthead-theme-settings";
 
 .masthead {
-  /** custom property options for branding **/
-  //--theme-color-nav: $color-text-accentuation;
-  //--theme-color-bg-hover: $color-nav-bg-hover;
-  //--theme-color-bg-active: $color-nav-bg-active
-  //--theme-color-active: $color-accentuation-red;
-  //--theme-color-nav-active-border: #f1434a
-  //--theme-color-arrow-bg-start: rgba(254, 254, 253, 0.8)
-  //--theme-color-arrow-bg-end: rgba(250, 250, 248, 0.8));
-
   position: relative;
-  background-image: linear-gradient(134deg, #fefefd, #fafaf8);
   box-shadow: $shadow-organisms;
   padding: 8px 32px 0;
 
+  /* fallback */
+  background: linear-gradient(
+    117deg,
+    $theme-default-color-1,
+    $theme-default-color-1 20%,
+    $theme-default-color-2 40%,
+    $theme-default-color-2
+  );
+
+
   @include smartphone {
     padding: 0 16px;
+
+    /* theme */
+    @supports (--foo: bar) {
+      background: linear-gradient(
+        117deg,
+        var(--theme-color-gradient-1),
+        var(--theme-color-gradient-1) 15%,
+        var(--theme-color-gradient-2) 50%,
+        var(--theme-color-gradient-2)
+      );
+    }
+  }
+
+  @include tablet {
+    /* theme */
+    @supports (--foo: bar) {
+      background: linear-gradient(
+        117deg,
+        var(--theme-color-gradient-1),
+        var(--theme-color-gradient-1) 10%,
+        var(--theme-color-gradient-2) 35%,
+        var(--theme-color-gradient-2)
+      );
+    }
+  }
+
+  @include desktop-up {
+    /* theme */
+    @supports (--foo: bar) {
+      background: linear-gradient(
+        117deg,
+        var(--theme-color-gradient-1),
+        var(--theme-color-gradient-1) 25%,
+        var(--theme-color-gradient-2) 45%,
+        var(--theme-color-gradient-2)
+      );
+    }
   }
 }
 
@@ -69,6 +107,7 @@
   }
 }
 */
+
 .masthead__portals {
   flex: 1 1 auto;
   
