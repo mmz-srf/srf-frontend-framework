@@ -8,7 +8,6 @@
   backface-visibility: hidden;
 
   &.affix {
-    position: fixed;
     top: 0;
     transition: margin-top 300ms linear;
 
