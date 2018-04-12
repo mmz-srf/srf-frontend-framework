@@ -45,7 +45,7 @@
     }
   }
 
-  @include desktop-up {
+  @include desktop {
     /* theme */
     @supports (--foo: bar) {
       background: linear-gradient(
@@ -53,6 +53,19 @@
         var(--theme-color-gradient-1),
         var(--theme-color-gradient-1) 25%,
         var(--theme-color-gradient-2) 45%,
+        var(--theme-color-gradient-2)
+      );
+    }
+  }
+
+  @include desktop-wide {
+    /* theme */
+    @supports (--foo: bar) {
+      background: linear-gradient(
+        117deg,
+        var(--theme-color-gradient-1),
+        var(--theme-color-gradient-1) 30%,
+        var(--theme-color-gradient-2) 50%,
         var(--theme-color-gradient-2)
       );
     }
