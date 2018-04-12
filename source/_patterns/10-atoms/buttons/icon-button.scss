@@ -2,14 +2,20 @@
 @import "../../breakpoints";
 
 .icon-button {
-  color: $color-text-accentuation;
   display: flex;
   padding: 16px;
   align-items: center;
   cursor: pointer;
-
+  /* fallback */
+  color: $color-text-accentuation;
+  opacity: 1;
+  /* theme */
+  color: var(--theme-color-nav, $color-text-accentuation);
+  opacity: var(--theme-item-opacity, 1);
   &:hover {
-    color: $color-text-default;
+    color: $color-text-default;  /* fallback */
+    color: var(--theme-color-nav-hover-text, $color-text-default);
+    opacity: 1;
   }
 }
 
@@ -24,6 +30,8 @@
 // prevent empty spaces to change the span's size
 .icon-button__icon {
   font-size: 0;
+  filter: none; /* fallback */
+  filter: var(--theme-icon-filter, none);
 }
 
 // no padding on the right on deksop+
