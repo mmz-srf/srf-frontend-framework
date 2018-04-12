@@ -7,8 +7,7 @@ export function init() {
 }
 
 const MASTHEAD_PADDING_BOTTOM = 24;
-const DEBOUNCE_TIME_SCROLLING = 10;
-const DEBOUNCE_TIME_RESIZE = 100;
+const DEBOUNCE_TIME = 10;
 
 export class SrfStickyHeader {
 
@@ -20,36 +19,56 @@ export class SrfStickyHeader {
         this.affixMarginTop = this.$masthead.outerHeight() - this.$mastheadNav.outerHeight();
         this.affixPlacehoderHeight = this.$masthead.outerHeight() + MASTHEAD_PADDING_BOTTOM;
         this.lastScrollTop = 0;
+        this.hasResized = false;
 
         this.initializeAffix();
         this.registerListeners();
     }
 
     registerListeners() {
-        $(window).on('scroll', FefDebounceHelper.debounce(() => this.afterScrolling(), DEBOUNCE_TIME_SCROLLING) );
-        $(window).on('resize', FefDebounceHelper.debounce(() => this.afterResize(), DEBOUNCE_TIME_RESIZE) );
+        $(window).on('scroll', FefDebounceHelper.debounce(() => this.afterScrolling(), DEBOUNCE_TIME) );
+        $(window).on('resize', FefDebounceHelper.debounce(() => this.afterResize(), DEBOUNCE_TIME) );
+    }
+
+    afterLoad() {
+        this.hasLoaded = true;
     }
 
     afterScrolling() {
         let scrollTop = $(window).scrollTop();
 
-        // scroll up > show full header
-        if (scrollTop <= this.lastScrollTop) {
-            this.$stickyContainer.css('margin-top', '0');
+        if (!this.hasResized && !this.hasLoaded) {
 
-        // scroll down > show small header
+            // scroll up > show full header
+            if (scrollTop <= this.lastScrollTop) {
+                this.$stickyContainer.css('margin-top', '0');
+                this.$stickyContainer.addClass('sticky-container--full');
+
+                // scroll down > show small header
+            } else {
+                $('.affix').css('margin-top', '-' + this.affixMarginTop + 'px');
+                this.$stickyContainer.removeClass('sticky-container--full');
+            }
+
+        }
+
+        this.hasResized = false;
+        this.lastScrollTop = scrollTop;
+
+    }
+
+    afterResize() {
+        this.hasResized = true;
+        this.affixMarginTop = this.$masthead.outerHeight() - this.$mastheadNav.outerHeight();
+        this.affixPlacehoderHeight = this.$masthead.outerHeight() + MASTHEAD_PADDING_BOTTOM;
+        this.initializeAffix();
+
+        if (this.$stickyContainer.hasClass('sticky-container--full')) {
+            $('.affix').css('margin-top', '0');
         } else {
             $('.affix').css('margin-top', '-' + this.affixMarginTop + 'px');
         }
 
-        this.lastScrollTop = scrollTop;
-    }
-
-    afterResize() {
-        this.affixMarginTop = this.$masthead.outerHeight() - this.$mastheadNav.outerHeight();
-        this.affixPlacehoderHeight = this.$masthead.outerHeight() + MASTHEAD_PADDING_BOTTOM;
-        this.initializeAffix();
-        this.afterScrolling;
     }
 
     initializeAffix() {
