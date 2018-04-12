@@ -7,8 +7,7 @@ export function init() {
 }
 
 const MASTHEAD_PADDING_BOTTOM = 24;
-const DEBOUNCE_TIME_SCROLLING = 10;
-const DEBOUNCE_TIME_RESIZE = 100;
+const DEBOUNCE_TIME = 30;
 
 export class SrfStickyHeader {
 
@@ -20,36 +19,58 @@ export class SrfStickyHeader {
         this.affixMarginTop = this.$masthead.outerHeight() - this.$mastheadNav.outerHeight();
         this.affixPlacehoderHeight = this.$masthead.outerHeight() + MASTHEAD_PADDING_BOTTOM;
         this.lastScrollTop = 0;
+        this.hasResized = false;
 
         this.initializeAffix();
         this.registerListeners();
     }
 
     registerListeners() {
-        $(window).on('scroll', FefDebounceHelper.debounce(() => this.afterScrolling(), DEBOUNCE_TIME_SCROLLING) );
-        $(window).on('resize', FefDebounceHelper.debounce(() => this.afterResize(), DEBOUNCE_TIME_RESIZE) );
+        $(window).on('scroll', FefDebounceHelper.debounce(() => this.afterScrolling(), DEBOUNCE_TIME) );
+        $(window).on('resize', FefDebounceHelper.debounce(() => this.afterResize(), DEBOUNCE_TIME) );
     }
 
     afterScrolling() {
         let scrollTop = $(window).scrollTop();
+        let that = this;
+        let scrollDifference = Math.abs(this.lastScrollTop - scrollTop);
 
-        // scroll up > show full header
-        if (scrollTop <= this.lastScrollTop) {
-            this.$stickyContainer.css('margin-top', '0');
+        if (!this.hasResized && scrollDifference > 5) {
 
-        // scroll down > show small header
+            console.log(scrollDifference);
+
+            // scroll up > show full header
+            if (scrollTop <= this.lastScrollTop) {
+                this.$stickyContainer.css('margin-top', '0');
+                this.$stickyContainer.addClass('sticky-container--full');
+                setTimeout(function(){ that.$masthead.addClass('masthead--theme-sport'); }, 300);
+
+                // scroll down > show small header
+            } else {
+                $('.affix').css('margin-top', '-' + this.affixMarginTop + 'px');
+                this.$stickyContainer.removeClass('sticky-container--full');
+                setTimeout(function(){ that.$masthead.removeClass('masthead--theme-sport'); }, 300);
+            }
+
+        }
+
+        this.hasResized = false;
+        this.lastScrollTop = scrollTop;
+
+    }
+
+    afterResize() {
+        this.hasResized = true;
+        this.affixMarginTop = this.$masthead.outerHeight() - this.$mastheadNav.outerHeight();
+        this.affixPlacehoderHeight = this.$masthead.outerHeight() + MASTHEAD_PADDING_BOTTOM;
+        this.initializeAffix();
+
+        if (this.$stickyContainer.hasClass('sticky-container--full')) {
+            $('.affix').css('margin-top', '0');
         } else {
             $('.affix').css('margin-top', '-' + this.affixMarginTop + 'px');
         }
 
-        this.lastScrollTop = scrollTop;
-    }
-
-    afterResize() {
-        this.affixMarginTop = this.$masthead.outerHeight() - this.$mastheadNav.outerHeight();
-        this.affixPlacehoderHeight = this.$masthead.outerHeight() + MASTHEAD_PADDING_BOTTOM;
-        this.initializeAffix();
-        this.afterScrolling;
     }
 
     initializeAffix() {
