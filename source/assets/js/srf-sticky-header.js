@@ -7,7 +7,7 @@ export function init() {
 }
 
 const MASTHEAD_PADDING_BOTTOM = 24;
-const DEBOUNCE_TIME = 10;
+const DEBOUNCE_TIME = 30;
 
 export class SrfStickyHeader {
 
@@ -30,24 +30,26 @@ export class SrfStickyHeader {
         $(window).on('resize', FefDebounceHelper.debounce(() => this.afterResize(), DEBOUNCE_TIME) );
     }
 
-    afterLoad() {
-        this.hasLoaded = true;
-    }
-
     afterScrolling() {
         let scrollTop = $(window).scrollTop();
+        let that = this;
+        let scrollDifference = Math.abs(this.lastScrollTop - scrollTop);
 
-        if (!this.hasResized && !this.hasLoaded) {
+        if (!this.hasResized && scrollDifference > 5) {
+
+            console.log(scrollDifference);
 
             // scroll up > show full header
             if (scrollTop <= this.lastScrollTop) {
                 this.$stickyContainer.css('margin-top', '0');
                 this.$stickyContainer.addClass('sticky-container--full');
+                setTimeout(function(){ that.$masthead.addClass('masthead--theme-sport'); }, 300);
 
                 // scroll down > show small header
             } else {
                 $('.affix').css('margin-top', '-' + this.affixMarginTop + 'px');
                 this.$stickyContainer.removeClass('sticky-container--full');
+                setTimeout(function(){ that.$masthead.removeClass('masthead--theme-sport'); }, 300);
             }
 
         }
