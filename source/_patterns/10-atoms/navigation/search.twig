@@ -1,24 +1,35 @@
 <form autocomplete="off"
-      class="searchbox {{ styleModifier|default("") }}"
+      class="search {{ styleModifier|default("") }} js-search"
+      data-typeahead-url="/assets/demo/typeahead_search.json"
+      data-referrer-track="srf_suchfeld=''"
       action="suche"
       role="search">
 
-    <label for="search-site" class="h-offscreen">Suchen</label>
-    <input class="searchbox__input"
-           name="q"
-           id="search-site"
-           data-typeahead-url="/assets/demo/typeahead_search.json"
-           data-referrer-track="srf_suchfeld=''"
-           type="text"
-           placeholder="Suche">
+    <div class="search-wrapper">
+        <div class="search__input--wrapper">
+            <div class="search__icon"></div>
 
-    <a href="#" class="close-search h-element--hide">
-        <img src="{{ frameworkAssetPath }}/img/close.svg" title="Suchfeld schliessen" width="10" height="10" alt="Suchfeld schliessen" />
-    </a>
+            <label class="search__label">
+                <span class="h-offscreen">Suchen</span>
+                <input class="search__input js-search-input"
+                    name="q"
+                    type="text"
+                    placeholder="Suche">
+            </label>
 
-    <button type="submit" class="h-offscreen" tabindex="-1" aria-hidden="true">Suchen</button>
-    <ul class="searchbox__results h-element--hide"
-        tabindex="-1"
-        aria-hidden="true">
-    </ul>
+            <a href="#" class="search__close js-search-close">
+                <img src="{{ frameworkAssetPath }}/img/close.svg" title="Suchfeld schliessen" width="10" height="10" alt="Suchfeld schliessen" />
+            </a>
+
+            <button type="submit"
+                    class="h-offscreen"
+                    tabindex="-1"
+                    aria-hidden="true">Suchen</button>
+        </div>
+
+        <ul class="search__results js-search-results"
+            aria-live="polite"
+            aria-relevant="additions">
+        </ul>
+    </div>
 </form>

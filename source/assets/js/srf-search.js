@@ -1,5 +1,5 @@
 export function init() {
-    $('.searchbox').each((i, elem) => {
+    $('.js-search').each((i, elem) => {
         new SrfSearch(elem);
     });
 }
@@ -9,28 +9,26 @@ const DEFAULT_MIN_SEARCH_LENGTH = 2;
 const KEYCODES = {
     'enter': 13,
     'tab': 9,
-    'escape': 27,
-    'down': 40,
-    'up': 38
+    'escape': 27
 };
+const ACTIVE_CLASS = 'search--active';
+const OUTSIDE_CLICK_LISTENER_NAME = 'click.search-destroyer';
 
 export class SrfSearch {
 
     constructor(element, options) {
 
         this.$element = $(element);
-        this.$inputField = this.$element.find('.searchbox__input');
-        this.$submitButton = this.$element.find('button');
-        this.$searchResults = this.$element.find('.searchbox__results');
-        this.$closeIcon = this.$element.find('.close-search');
+        this.$inputField = this.$element.find('.js-search-input');
+        this.$searchResults = this.$element.find('.js-search-results');
+        this.$closeIcon = this.$element.find('.js-search-close');
 
         this.options = $.extend({}, {
             maxSuggestionCount: DEFAULT_MAX_SUGGESTIONS,
             minSearchLength: DEFAULT_MIN_SEARCH_LENGTH
         }, options);
 
-        this.expandable = typeof this.options.expandable !== 'undefined' ? this.options.expandable : this.$element.hasClass('searchbox--expandable');
-        this.typeaheadUrl = this.$inputField.data('typeahead-url');
+        this.typeaheadUrl = this.$element.attr('data-typeahead-url');
         this.typeaheadData = null;
         this.suggestionUrl = '';
         this.currTimeout = null;
@@ -42,136 +40,115 @@ export class SrfSearch {
 
     registerListeners() {
         this.$inputField.on('focus', (e) => {
+            this.setSearchActive();
             this.initTypeahead();
-            this.disableArticle();
-            this.expandSearch();
+        }).on('keyup', (e) => {
+            this.onKeyUp(e);
+        }).on('keydown', (e) => {
+            this.onKeyDown(e);
+        }).on('click', (e) => {
+            e.stopPropagation();
         });
 
         this.$closeIcon.on('click', (e) => {
-            this.reset();
-        });
-
-        this.$inputField.on('keyup', (e) => {
-            this.onKeyUp(e);
-        });
-
-        this.$inputField.on('keydown', (e) => {
-            this.onKeyDown(e);
-        });
-
-
-        this.$inputField.on('blur', (e) => {
-            this.enableArticle(); // in case of a click always leave.
-
-            this.currTimeout = setTimeout(() => {
-                this.hideMenu();
-                this.unexpandSearch();
-            }, 150);
-        });
-
-        this.$inputField.on('click', (e) => {
-            e.stopPropagation();
-        });
-
-        this.$closeIcon.on('click', e => {
+            this.setSearchInactive();
+        }).on('keydown', (e) => {
+            this.onCloseIconKeyDown(e);
+        }).on('click', e => {
             e.preventDefault();
+            this.setSearchInactive();
         });
 
-        this.$searchResults.on('click', (e) => {
-            e.stopPropagation();
-            // do not prevent default to allow menu links be clicked.
-            if (this.currTimeout !== null) {
-                if (this.currTimeout) {
-                    clearTimeout(this.currTimeout);
-                }
-                this.currTimeout = setTimeout(() => {
-                    this.hideMenu();
-                }, 500); // defer menu hiding to allow some time to show active state before closing.
-            }
+        this.$searchResults.on('keydown', (e) => {
+            this.onResultsKeyDown(e);
         });
     }
 
     onKeyUp(e) {
         switch (e.keyCode) {
-            case KEYCODES.down:
-            case KEYCODES.up:
-                break;
             case KEYCODES.tab:
-                this.hideMenu();
                 break;
-            case KEYCODES.escape: // escape must leave the search and clear input
+            case KEYCODES.escape:
                 this.clearInput();
                 this.$inputField.blur();
+                this.setSearchInactive();
                 break;
             default:
-                this.lookup();
+                let query = this.$inputField.val().toString().toLowerCase();
+                this.lookup(query);
         }
     }
 
     onKeyDown(e) {
-        // if no suggestion is selected fall back to default browser behavior for form submission
-        if (e.keyCode === KEYCODES.enter) {
-            if (this.suggestionUrl !== '') {
-                e.stopPropagation();
-                e.preventDefault();
-                location.href = this.suggestionUrl;
-            } else {
-                this.$searchResults.hide(); // do not 'show' it on voiceOver
-                e.stopPropagation();
-                e.preventDefault();
-                this.$element.submit();
-            }
-        } else if (e.keyCode === KEYCODES.down || e.keyCode === KEYCODES.up) {
-            let direction = e.keyCode === KEYCODES.down? 'down' : 'up';
-            this.moveInMenu(direction);
+        if (e.keyCode === KEYCODES.tab && e.shiftKey) {
+            // Shift-Tabbing out of the search component
+            this.setSearchInactive();
         }
     }
 
-    hideMenu() {
-        this.$inputField.removeClass('search--has-results' );
-        this.$searchResults.addClass('h-element--hide');
+    onCloseIconKeyDown(e) {
+        switch (e.keyCode) {
+            case KEYCODES.escape:
+                this.setSearchInactive();
+                break;
+            case KEYCODES.tab:
+                if (this.$searchResults.children().length === 0) {
+                    this.setSearchInactive();
+                }
+                break;
+            default:
+                break;
+        }
+    }
+
+    onResultsKeyDown(e) {
+        switch (e.keyCode) {
+            case KEYCODES.escape:
+                this.setSearchInactive();
+                break;
+            case KEYCODES.tab:
+                // tabbing away from the last result
+                if ($(e.target).parents('li').is(':last-child') && !e.shiftKey) {
+                    this.setSearchInactive();
+                }
+                break;
+            default:
+                break;
+        }
+    }
+
+    setSearchActive() {
+        if (this.$element.hasClass(ACTIVE_CLASS)) {
+            return false;
+        }
+
+        this.$element.addClass(ACTIVE_CLASS);
+        // Listen to clicks outside of the element --> deactivates this search component
+        $(document).on(OUTSIDE_CLICK_LISTENER_NAME, (e) => {
+            // Disable this search if the click was not a descendant of any .js-search or if it's a descendant of a different search component.
+            if (!$(e.target).parents('.js-search').length && $(e.target).parents('.js-search') !== this.$element) {
+                this.setSearchInactive();
+            }
+        });
+    }
+
+    setSearchInactive() {
+        this.clearInput();
+        this.hideResults();
+        this.$element.removeClass(ACTIVE_CLASS);
+        $(document).off(OUTSIDE_CLICK_LISTENER_NAME);
+    }
+
+    hideResults() {
+        this.$searchResults.hide();
+        this.$searchResults.html('');
         this.suggestionUrl = '';
     }
 
     clearInput() {
         this.$inputField.val('');
-        this.$submitButton.attr('tabindex', -1).attr('aria-hidden', true);
-        this.hideCloseIcon();
+        this.$closeIcon.hide();
         this.suggestionUrl = '';
-    }
-
-    reset() {
-        this.clearInput();
-        this.hideMenu();
-        this.unexpandSearch();
-    }
-
-    moveInMenu(direction) {
-        if (direction === 'down') {
-            this.nextSuggestion();
-        } else if (direction === 'up') {
-            this.prevSuggestion();
-        }
-    }
-
-    prevSuggestion() {
-        let $active = this.$searchResults.find('.active').removeClass('active');
-        let $prev = $active.prev();
-        if ($prev.length === 0) {
-            $prev = this.$searchResults.find('li').last();
-        }
-        this.suggestionUrl = $prev.find('a').attr('href');
-        $prev.addClass('active');
-    }
-
-    nextSuggestion() {
-        let $active = this.$searchResults.find('.active').removeClass('active');
-        let $next = $active.next();
-        if ($next.length === 0) {
-            $next = $(this.$searchResults.find('li').first());
-        }
-        this.suggestionUrl = $next.find('a').attr('href');
-        $next.addClass('active');
     }
 
     initTypeahead() {
@@ -180,23 +157,18 @@ export class SrfSearch {
                 this.typeaheadData = data;
             });
         }
-        this.showCloseIconIfNeeded();
-        this.expandSearch();
-
+        this.$closeIcon.show();
     }
 
-    lookup() {
-        // adjust close icon state regardless of search results
-        this.showCloseIconIfNeeded();
+    lookup(query) {
         let results = [];
-        let query = this.$inputField.val().toString().toLowerCase();
 
         if (this.typeaheadData === null) {
             return true;
         }
 
-        if(query.length < this.options.minSearchLength) {
-            this.hideMenu();
+        if (query.length < this.options.minSearchLength) {
+            this.hideResults();
             return true;
         }
 
@@ -214,82 +186,45 @@ export class SrfSearch {
         if (results.length > 0) {
             results = results.slice(0, this.options.maxSuggestionCount);
             this.renderResults(results, query);
-            this.$inputField.addClass('search--has-results');
         } else {
-            this.hideMenu();
+            this.hideResults();
         }
     }
 
+    /**
+     * Renders the received search results into the results list.
+     * For the Screen-Reader's sake it'll be rendered twice, once with the found substring highlighted and once readable.
+     *
+     * @param {Object} results 
+     * @param {String} query 
+     */
     renderResults(results, query) {
         let html = '';
 
         results.forEach((result) => {
-            let name = this.highlightQuery(query, result.name);
-            html += `<li role="option" class="typeahead-suggestion" tabindex="-1" aria-hidden="true"><a href="${result.url}">${name}</a></li>`;
+            let highlightedResult = this.highlightQuery(query, result.name);
+            html += `
+                <li class="typeahead-suggestion">
+                    <a class="search-result__link" href="${result.url}">
+                        <span role="presentation" aria-hidden="true">${highlightedResult}</span>
+                        <span class="h-offscreen">${result.name}</span>
+                    </a>
+                </li>`;
         });
-        this.$searchResults.css('width', this.$inputField.outerWidth() + 'px');
-        this.$searchResults.html(html).removeClass('h-element--hide');
+
+        this.$searchResults.html(html).show();
     }
 
+    /**
+     * Replaces the query string in a search result with the same string in bold  e.g.
+     * "Tag" in "Tagesschau" after searching for "Tag"
+     *
+     * @param {String} query
+     * @param {String} name
+     * @returns {String}
+     */
     highlightQuery(query, name) {
         query = query.replace(/[\-\[\]{}()*+?.,\\\^$|#\s]/g, '\\$&');
         return name.replace(new RegExp('(' + query + ')', 'ig'), ($1, match) => `<strong>${match}</strong>`);
-    }
-
-    showCloseIcon() {
-        this.$closeIcon.removeClass('h-element--hide');
-
-        if ($(window).width() > 720) {
-            this.$closeIcon.attr('tabindex', -1).attr('aria-hidden', true);
-        }
-
-    }
-
-    hideCloseIcon() {
-        this.$closeIcon.addClass('h-element--hide');
-        if ($(window).width() > 720) {
-            this.$closeIcon.attr('tabindex', '').attr('aria-hidden', false);
-        }
-    }
-
-    showCloseIconIfNeeded(deferred) {
-        if (!deferred) {
-            this.showCloseIcon();
-        } else {
-            if (this.currTimeout) {
-                clearTimeout(this.currTimeout);
-            }
-            this.currTimeout = setTimeout(() => {this.showCloseIconIfNeeded();}, deferred);
-        }
-    }
-
-    expandSearch() {
-        if (!this.expandable) { return; }
-
-        this.$element.css('width', '100%');
-        this.hideCloseIcon();
-        this.showCloseIconIfNeeded(500); // currTimeout gets set here
-    }
-
-    unexpandSearch() {
-        if (!this.expandable) { return; }
-
-        this.$element.css('width', '');
-        this.hideCloseIcon();
-    }
-
-    disableArticle() {
-        if (!this.expandable) { return; }
-
-        if (!$('body').hasClass('body--fixed')) {
-            $('body').addClass('search--overlay');
-        }
-    }
-
-    enableArticle() {
-        if (!this.expandable) {
-            return;
-        }
-        $('body').removeClass('search--overlay');
     }
 }

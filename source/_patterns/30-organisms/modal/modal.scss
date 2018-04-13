@@ -44,3 +44,10 @@
 .modal--open {
   display: block;
 }
+
+// In certain cases the overflow has to be visible, e.g. when the search results can be taller than the modal wrapper
+.modal--allow-overflow {
+  .modal-main-wrapper {
+    overflow: visible;
+  }
+}

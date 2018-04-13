@@ -1,11 +1,11 @@
 {% embed "modal.twig" with {
     'id': 'modal-search',
     'animation': 'fade-in-out',
-    'styleModifier': '',
+    'styleModifier': 'modal--allow-overflow',
     'title': 'Suche'
 } %}
     {% block head %}
-        {% include 'molecules-search-header' with {'styleModifier': 'search-header--fixed-results'} %}
+        {% include 'molecules-search-header' with {'styleModifier': ''} %}
     {% endblock %}
 
     {% block body %}{% endblock %}
