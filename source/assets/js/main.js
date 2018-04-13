@@ -12,7 +12,7 @@ import {init as FefShameInit} from  './srf-shame';
 import {init as FefSwipeModuleInit} from './srf-swipe-module';
 import {init as FefFlyingFocusInit} from './srf-flying-focus';
 import {init as FefExpandableBoxInit} from './components/fef-expandable-box';
-import {init as FefStickyHeaderInit} from './srf-sticky-header';
+import {init as FefStickyHeaderInit} from './components/fef-sticky-header';
 import {init as FefScrollPagerInit} from './components/fef-scroll-pager';
 
 

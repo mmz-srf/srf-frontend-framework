@@ -1,15 +1,15 @@
-import {FefDebounceHelper} from './classes/fef-debounce-helper';
+import {FefDebounceHelper} from '../classes/fef-debounce-helper';
 
 export function init() {
     $('.js-masthead').each((i, elem) => {
-        new SrfStickyHeader(elem);
+        new FeFStickyHeader(elem);
     });
 }
 
 const MASTHEAD_PADDING_BOTTOM = 24;
 const DEBOUNCE_TIME = 30;
 
-export class SrfStickyHeader {
+export class FeFStickyHeader {
 
     constructor(element, options) {
         this.$masthead = $(element);
