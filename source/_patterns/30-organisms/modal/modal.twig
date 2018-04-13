@@ -5,19 +5,17 @@
 
   <div class="modal-main-wrapper js-modal-main-wrapper">
     <div class="modal-main-content js-modal-main-content">
-      <span class="h-offscreen js-focus-target">{{ title|default("Modal") }}</span>
+      {% block content %}
+        <span class="h-offscreen js-focus-target">Modal-Titel</span>
 
-      <div class="modal__head modal-wrapper">
-        {% block head %}
+        <div class="modal__head modal-wrapper">
           <h1>Your header could be here!</h1>
-        {% endblock %}
-      </div>
+        </div>
 
-      <div class="modal__body modal-wrapper">
-        {% block body %}
+        <div class="modal__body modal-wrapper">
           <p>and your content could be here!</p>
-        {% endblock %}
-      </div>
+        </div>
+      {% endblock %}
     </div>
   </div>
 </div>

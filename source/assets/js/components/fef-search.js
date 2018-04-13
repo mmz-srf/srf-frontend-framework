@@ -39,9 +39,14 @@ export class SrfSearch {
     }
 
     registerListeners() {
+        // e.g. in the search modal, the whole element will be focused -> set focus to inputfield
+        this.$element.on('focus', (e) => {
+            this.setSearchActive();
+            this.$inputField.focus();
+        });
+
         this.$inputField.on('focus', (e) => {
             this.setSearchActive();
-            this.initTypeahead();
         }).on('keyup', (e) => {
             this.onKeyUp(e);
         }).on('keydown', (e) => {
@@ -130,6 +135,14 @@ export class SrfSearch {
                 this.setSearchInactive();
             }
         });
+
+        if (this.typeaheadData === null) {
+            $.getJSON(this.typeaheadUrl, (data) => {
+                this.typeaheadData = data;
+            });
+        }
+
+        this.$closeIcon.show();
     }
 
     setSearchInactive() {
@@ -149,15 +162,6 @@ export class SrfSearch {
         this.$inputField.val('');
         this.$closeIcon.hide();
         this.suggestionUrl = '';
-    }
-
-    initTypeahead() {
-        if (this.typeaheadData === null) {
-            $.getJSON(this.typeaheadUrl, (data) => {
-                this.typeaheadData = data;
-            });
-        }
-        this.$closeIcon.show();
     }
 
     lookup(query) {

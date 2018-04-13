@@ -4,9 +4,11 @@
     'styleModifier': 'modal--allow-overflow',
     'title': 'Suche'
 } %}
-    {% block head %}
-        {% include 'molecules-search-header' with {'styleModifier': ''} %}
-    {% endblock %}
+    {% block content %}
+        <span class="h-offscreen">Suche</span>
 
-    {% block body %}{% endblock %}
+        <div class="modal__head modal-wrapper">
+            {% include 'molecules-search-header' with {'styleModifier': '', 'styleModifierSearch': 'js-focus-target'} %}
+        </div>
+    {% endblock %}
 {% endembed %}
