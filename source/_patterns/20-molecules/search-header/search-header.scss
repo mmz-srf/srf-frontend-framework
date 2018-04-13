@@ -17,14 +17,14 @@
 }
 
 .search-header__search {
+  z-index: 200; // needed for the search results to be in front of the navigation
   flex: 1 0 auto;
 
   // stretch search-container to full width + enable flex-wrap on parent + change order so search is last --> search wraps to next line on mobile
   @include smartphone {
     order: 2;
     flex-basis: 100%;
-    // search-molecule has 12px padding for some reason.
-    margin: 8px -12px 0;
+    margin: 8px 0;
   }
 
   @include tablet {
@@ -81,7 +81,7 @@
 
 // When the container has a fixed position, the results must be fixed too
 .search-header--fixed-results {
-  .searchbox__results {
+  .search__results {
     position: fixed;
   }
 }

@@ -1,12 +1,13 @@
 {% embed "modal.twig" with {
     'id': 'modal-flyout',
     'animation': 'fade-in-out',
-    'styleModifier': '',
-    'title': 'Radio-TV-Flyout'
+    'styleModifier': ''
 } %}
-    {% block head %}
-        <h1>Hier erscheint in Bälde das Radio-/TV-Flyout</h1>
-    {% endblock %}
+    {% block content %}
+        <span class="h-offscreen js-focus-target">Aktuelle Programme und Live-Streams</span>
 
-    {% block body %}{% endblock %}
+        <div class="modal__head modal-wrapper">
+            <h1>Hier erscheint in Bälde das Radio-/TV-Flyout</h1>
+        </div>
+    {% endblock %}
 {% endembed %}

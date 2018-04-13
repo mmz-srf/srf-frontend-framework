@@ -1,12 +1,14 @@
 {% embed "modal.twig" with {
     'id': 'modal-search',
     'animation': 'fade-in-out',
-    'styleModifier': '',
+    'styleModifier': 'modal--allow-overflow',
     'title': 'Suche'
 } %}
-    {% block head %}
-        {% include 'molecules-search-header' with {'styleModifier': 'search-header--fixed-results'} %}
-    {% endblock %}
+    {% block content %}
+        <span class="h-offscreen">Suche</span>
 
-    {% block body %}{% endblock %}
+        <div class="modal__head modal-wrapper">
+            {% include 'molecules-search-header' with {'styleModifier': '', 'styleModifierSearch': 'js-focus-target'} %}
+        </div>
+    {% endblock %}
 {% endembed %}

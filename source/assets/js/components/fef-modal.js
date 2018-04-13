@@ -80,7 +80,9 @@ export class FefModal {
                 break;
         }
         
-        this.setFocus(this.$focusTarget);
+        if (this.$focusTarget.length === 1) {
+            this.setFocus(this.$focusTarget);
+        }
     }
 
     /**
@@ -89,10 +91,7 @@ export class FefModal {
     close() {
         switch (this.animation) {
             case 'fade-in-out':
-                this.$element.stop(true, true).fadeOut(ANIMATION_SPEED, () => {
-                    this.$element.removeClass('modal--scale-from-origin');
-                    this.$element.removeClass('modal--scale-from-origin--final');
-                });
+                this.$element.stop(true, true).fadeOut(ANIMATION_SPEED);
                 break;
             default:
                 this.$element.hide();

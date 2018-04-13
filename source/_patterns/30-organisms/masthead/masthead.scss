@@ -154,7 +154,7 @@
 }
 
 .masthead__button--search {
-  @include smartphone {
+  @include desktop-down {
     display: none;
   }
 }
