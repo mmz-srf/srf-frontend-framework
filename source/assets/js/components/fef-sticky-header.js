@@ -43,13 +43,13 @@ export class FeFStickyHeader {
             if (scrollTop <= this.lastScrollTop) {
                 this.$stickyContainer.css('margin-top', '0');
                 this.$stickyContainer.addClass('sticky-container--full');
-                setTimeout(function(){ that.$masthead.addClass('masthead--theme-sport'); }, 300);
+                setTimeout(function(){ that.$masthead[0].className = that.$masthead[0].className.replace(/\-\-off\-theme\-/g, '--theme-'); }, 300);
 
                 // scroll down > show small header
             } else {
                 $('.affix').css('margin-top', '-' + this.affixMarginTop + 'px');
                 this.$stickyContainer.removeClass('sticky-container--full');
-                setTimeout(function(){ that.$masthead.removeClass('masthead--theme-sport'); }, 300);
+                setTimeout(function(){ that.$masthead[0].className = that.$masthead[0].className.replace(/\-\-theme\-/g, '--off-theme-'); }, 300);
             }
 
         }
