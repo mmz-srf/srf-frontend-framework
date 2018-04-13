@@ -2,6 +2,7 @@
 @import "../../breakpoints";
 @import "masthead-theme-settings";
 
+
 .masthead {
   position: relative;
   box-shadow: $shadow-organisms;
@@ -16,65 +17,93 @@
     $theme-default-color-2
   );
 
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+    opacity: 0;
+    transition: all 500ms ease-in-out;
 
-  @include smartphone {
-    padding: 0 16px;
+    /* fallback */
+    background: linear-gradient(
+      117deg,
+      $theme-default-color-1,
+      $theme-default-color-1 20%,
+      $theme-default-color-2 40%,
+      $theme-default-color-2
+    );
 
-    /* theme */
-    @supports (--foo: bar) {
-      background: linear-gradient(
-        117deg,
-        var(--theme-color-gradient-1),
-        var(--theme-color-gradient-1) 15%,
-        var(--theme-color-gradient-2) 50%,
-        var(--theme-color-gradient-2)
-      );
+    @include smartphone {
+      padding: 0 16px;
+
+      /* theme */
+      @supports (--foo: bar) {
+        background: linear-gradient(
+          117deg,
+          var(--theme-color-gradient-1),
+          var(--theme-color-gradient-1) 15%,
+          var(--theme-color-gradient-2) 50%,
+          var(--theme-color-gradient-2)
+        );
+      }
+    }
+
+    @include tablet {
+      /* theme */
+      @supports (--foo: bar) {
+        background: linear-gradient(
+          117deg,
+          var(--theme-color-gradient-1),
+          var(--theme-color-gradient-1) 10%,
+          var(--theme-color-gradient-2) 35%,
+          var(--theme-color-gradient-2)
+        );
+      }
+    }
+
+    @include desktop {
+      /* theme */
+      @supports (--foo: bar) {
+        background: linear-gradient(
+          117deg,
+          var(--theme-color-gradient-1),
+          var(--theme-color-gradient-1) 25%,
+          var(--theme-color-gradient-2) 45%,
+          var(--theme-color-gradient-2)
+        );
+      }
+    }
+
+    @include desktop-wide {
+      /* theme */
+      @supports (--foo: bar) {
+        background: linear-gradient(
+          117deg,
+          var(--theme-color-gradient-1),
+          var(--theme-color-gradient-1) 30%,
+          var(--theme-color-gradient-2) 50%,
+          var(--theme-color-gradient-2)
+        );
+      }
     }
   }
+}
 
-  @include tablet {
-    /* theme */
-    @supports (--foo: bar) {
-      background: linear-gradient(
-        117deg,
-        var(--theme-color-gradient-1),
-        var(--theme-color-gradient-1) 10%,
-        var(--theme-color-gradient-2) 35%,
-        var(--theme-color-gradient-2)
-      );
-    }
-  }
-
-  @include desktop {
-    /* theme */
-    @supports (--foo: bar) {
-      background: linear-gradient(
-        117deg,
-        var(--theme-color-gradient-1),
-        var(--theme-color-gradient-1) 25%,
-        var(--theme-color-gradient-2) 45%,
-        var(--theme-color-gradient-2)
-      );
-    }
-  }
-
-  @include desktop-wide {
-    /* theme */
-    @supports (--foo: bar) {
-      background: linear-gradient(
-        117deg,
-        var(--theme-color-gradient-1),
-        var(--theme-color-gradient-1) 30%,
-        var(--theme-color-gradient-2) 50%,
-        var(--theme-color-gradient-2)
-      );
-    }
+.masthead.masthead--in-transition {
+  &::before {
+    opacity: 0;
+    transition: opacity 200ms linear;
   }
 }
 
 .masthead__wrapper {
   max-width: $content-width;
   margin: 0 auto;
+  position: relative;
 }
 
 .masthead__title {
@@ -84,6 +113,7 @@
   font-size: 32px;
   line-height: 1.25;
   color: inherit;
+  color: var(--theme-color-nav, inherit);
 
   @include tablet-up {
     margin: 11px 0 13px -2px;

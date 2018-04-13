@@ -7,7 +7,7 @@ export function init() {
 }
 
 const MASTHEAD_PADDING_BOTTOM = 24;
-const DEBOUNCE_TIME = 30;
+const DEBOUNCE_TIME = 20;
 
 export class FeFStickyHeader {
 
@@ -36,22 +36,28 @@ export class FeFStickyHeader {
         let scrollDifference = Math.abs(this.lastScrollTop - scrollTop);
 
         if (!this.hasResized && scrollDifference > 5) {
-
-            console.log(scrollDifference);
-
             // scroll up > show full header
             if (scrollTop <= this.lastScrollTop) {
                 this.$stickyContainer.css('margin-top', '0');
                 this.$stickyContainer.addClass('sticky-container--full');
-                setTimeout(function(){ that.$masthead[0].className = that.$masthead[0].className.replace(/\-\-off\-theme\-/g, '--theme-'); }, 300);
+                this.$masthead[0].className = this.$masthead[0].className.replace(/\-\-off\-theme\-/g, '--theme-');
 
-                // scroll down > show small header
-            } else {
+            }
+            // scroll down > show small header
+            else {
                 $('.affix').css('margin-top', '-' + this.affixMarginTop + 'px');
                 this.$stickyContainer.removeClass('sticky-container--full');
-                setTimeout(function(){ that.$masthead[0].className = that.$masthead[0].className.replace(/\-\-theme\-/g, '--off-theme-'); }, 300);
+                if(scrollTop >= this.affixMarginTop) {
+                    this.$masthead.addClass('masthead--in-transition');
+                    setTimeout(
+                        function() {
+                            that.$masthead.removeClass('masthead--in-transition');
+                            that.$masthead[0].className = that.$masthead[0].className.replace(/\-\-theme\-/g, '--off-theme-');
+                        },
+                        225
+                    );
+                }
             }
-
         }
 
         this.hasResized = false;
