@@ -8,7 +8,6 @@
   backface-visibility: hidden;
 
   &.affix {
-    position: fixed;
     top: 0;
     transition: margin-top 300ms linear;
 
@@ -19,7 +18,6 @@
     @include smartphone {
       margin-top: -108px;
     }
-
   }
 }
 
@@ -28,6 +26,13 @@
 }
 
 .affix-placeholder {
-  height: 250px;  // default value - will be set dynamically in js
   top: 0;
+
+  @include tablet-up {
+    height: 216px;
+  }
+
+  @include smartphone {
+    height: 186px;
+  }
 }

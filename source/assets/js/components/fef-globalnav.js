@@ -1,4 +1,4 @@
-import {FefStorage} from './classes/fef-storage';
+import {FefStorage} from '../classes/fef-storage';
 
 const STORAGE_KEY = 'SRF.Navigations';
 const KEYCODES = {

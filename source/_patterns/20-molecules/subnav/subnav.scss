@@ -1,3 +1,6 @@
+@import "../../variables";
+@import "../../breakpoints";
+
 .subnav {
   position: relative;
   margin: 0;
@@ -8,7 +11,6 @@
 }
 
 .subnav__list {
-  position: relative;
   height: 100%;
   margin: 0;
   padding: 0 16px;
@@ -20,25 +22,6 @@
   // assuming that no scrollbar is higher than 30px
   padding-bottom: 30px;
   box-sizing: content-box;
-
-  // this pseudo element acts as a "fade-out" mask on smaller screens
-  &::after {
-    content: '';
-    position: fixed;
-    right: 0;
-    height: 56px;
-    width: 28px;
-    pointer-events: none;
-    background: linear-gradient(to left, rgba(250, 250, 248, 0.8), rgba(255, 255, 255, 0));
-    @supports (--foo: bar) {
-      background: linear-gradient(to left, var(--theme-color-arrow-bg-start, rgba(250, 250, 248, 0.8)), rgba(255, 255, 255, 0));
-    }
-
-    @include desktop-up {
-      content: none;
-    }
-  }
-
 }
 
 .subnav__list-item {
@@ -51,6 +34,60 @@
   }
 }
 
+.subnav__mask {
+  display: none;
+  position: absolute;
+  top: 0;
+  height: 56px;
+  width: 28px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.subnav__mask--visible {
+  display: block;
+
+  @include desktop-up {
+    display: none;
+  }
+}
+
+.subnav__mask--left {
+  left: 14px;
+  /* fallback */
+  background: linear-gradient(
+    to right,
+    rgba(254, 254, 253, 1),
+    rgba(254, 254, 253, 0)
+  );
+  /* theme */
+  background: linear-gradient(
+    to right,
+    var(--theme-color-pager-start, rgba(254, 254, 253, 1)),
+    var(--theme-color-pager-start-transparent, rgba(254, 254, 253, 0))
+  );
+
+  @include tablet {
+    left: 0;
+  }
+}
+
+.subnav__mask--right {
+  right: 0;
+  /* fallback */
+  background: linear-gradient(
+    to right,
+    rgba(250, 250, 248, 0),
+    rgba(250, 250, 248, 1)
+  );
+  /* theme */
+  background: linear-gradient(
+    to right,
+    var(--theme-color-pager-end-transparent, rgba(250, 250, 248, 0)),
+    var(--theme-color-pager-end, rgba(250, 250, 248, 1))
+  );
+}
+
 .subnav__pager {
   display: none;
 
@@ -61,12 +98,24 @@
     position: absolute;
     bottom: 0;
     left: 0;
+
     width: 84px;
     height: 56px;
-    background: linear-gradient(to right, rgba(254, 254, 253, 0.8), rgba(254, 254, 253, 0.8) 66%, rgba(255, 255, 255, 0));
-    @supports (--foo: bar) {
-      background: linear-gradient(to right, var(--theme-color-arrow-bg-start, rgba(254, 254, 253, 0.8)), var(--theme-color-arrow-bg-start, rgba(254, 254, 253, 0.8)) 66% , rgba(255, 255, 255, 0));
-    }
+    /* fallback */
+    background: linear-gradient(
+      to right,
+      rgba(254, 254, 253, 1),
+      rgba(254, 254, 253, 1) 33%,
+      rgba(255, 255, 255, 0)
+    );
+    /* theme */
+    background: linear-gradient(
+      to right,
+      var(--theme-color-pager-start, rgba(254, 254, 253, 1)),
+      var(--theme-color-pager-start-transparent, rgba(255, 255, 255, 0)) 66%,
+      var(--theme-color-pager-start-transparent, rgba(255, 255, 255, 0))
+    );
+
     transition: opacity 200ms ease-in-out;
   }
 }
@@ -82,10 +131,20 @@
   @include desktop-up {
     left: auto;
     right: 0;
-    background: linear-gradient(to left, rgba(250, 250, 248, 0.8), rgba(250, 250, 248, 0.8) 66%, rgba(255, 255, 255, 0));
-    @supports (--foo: bar) {
-      background: linear-gradient(to left, var(--theme-color-arrow-bg-start, rgba(250, 250, 248, 0.8)), var(--theme-color-arrow-bg-start, rgba(250, 250, 248, 0.8)) 66% , rgba(255, 255, 255, 0));
-    }
+    /* fallback */
+    background: linear-gradient(
+      to right,
+      rgba(250, 250, 248, 1),
+      rgba(250, 250, 248, 1) 66%,
+      rgba(255, 255, 255, 0)
+    );
+    /* theme */
+    background: linear-gradient(
+      to right,
+      var(--theme-color-pager-end-transparent, rgba(250, 250, 248, 1)),
+      var(--theme-color-pager-end-transparent, rgba(250, 250, 248, 1)) 33%,
+      var(--theme-color-pager-end,  rgba(255, 255, 255, 0))
+    );
   }
 }
 
@@ -96,6 +155,8 @@
     padding: 16px;
     width: 24px;
     height: 24px;
+    filter: none; /* fallback */
+    filter: var(--theme-icon-filter, none);
 
     &:hover {
       background-color: $color-nav-bg-hover;

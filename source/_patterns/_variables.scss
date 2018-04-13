@@ -39,6 +39,52 @@ $color-media-playing: #383732;
 $color-bg-button-hover: rgba(185, 183, 172, .12);
 $color-bg-button-focus: rgba(185, 183, 172, .24);
 
+/*** THEMING ***/
+$theme-default-color-1: #FEFEFD;
+$theme-default-color-2: #FAFAF8;
+$theme-default-color-bg-pager-start: rgba(254, 254, 253, 1);
+$theme-default-color-bg-pager-start-transparent: rgba(254, 254, 253, 0);
+$theme-default-color-bg-pager-end: rgba(250, 250, 248, 1);
+$theme-default-color-bg-pager-end-transparent: rgba(250, 250, 248, 0);
+
+$theme-sport-color-1: #F28B02;
+$theme-sport-color-2: #E31F2B;
+$theme-sport-color-bg-pager-start: rgba(242, 139, 2, 1);
+$theme-sport-color-bg-pager-start-transparent: rgba(242, 139, 2, 0);
+$theme-sport-color-bg-pager-end: rgba(227, 31, 43, 1);
+$theme-sport-color-bg-pager-end-transparent: rgba(227, 31, 43, 0);
+
+$theme-meteo-color-1: #1A7AC5;
+$theme-meteo-color-2: #0A385C;
+$theme-meteo-color-bg-pager-start: rgba(26, 122, 197, 0.8);
+$theme-meteo-color-bg-pager-start-transparent: rgba(26, 122, 197, 0);
+$theme-meteo-color-bg-pager-end: rgba(10, 56, 92, 0.8);
+$theme-meteo-color-bg-pager-end-transparent: rgba(10, 56, 92, 0);
+
+
+$theme-kultur-color-1: #BC399F;
+$theme-kultur-color-2: #792465;
+$theme-kultur-color-bg-pager-start: rgba(188, 57, 159, 0.8);
+$theme-kultur-color-bg-pager-start-transparent: rgba(188, 57, 159, 0);
+$theme-kultur-color-bg-pager-end: rgba(121, 36, 101, 0.8);
+$theme-kultur-color-bg-pager-end-transparent: rgba(121, 36, 101, 0);
+
+
+$theme-dok-color-1: #19A067;
+$theme-dok-color-2: #0E593A;
+$theme-dok-color-bg-pager-start: rgba(25, 160, 103, 0.8);
+$theme-dok-color-bg-pager-start-transparent: rgba(25, 160, 103, 0);
+$theme-dok-color-bg-pager-end: rgba(14, 89, 58, 0.8);
+$theme-dok-color-bg-pager-end-transparent: rgba(14, 89, 58, 0);
+
+
+$theme-tvradio-color-1: #22211D;
+$theme-tvradio-color-2: #111;
+$theme-tvradio-color-bg-pager-start: rgba(34, 33, 29, 0.8);
+$theme-tvradio-color-bg-pager-start-transparent: rgba(34, 33, 29, 0);
+$theme-tvradio-color-bg-pager-end: rgba(17, 17, 17, 0.8);
+$theme-tvradio-color-bg-pager-end-transparent: rgba(17, 17, 17, 0);
+
 /*** FONTS ***/
 $font-bold: 'SRG_SSR_Bold', sans-serif;
 $font-medium: 'SRG_SSR_Medium', sans-serif;

@@ -7,12 +7,12 @@ import {init as FefCommentsInit} from './srf-comments';
 import {init as FefHeaderInit} from './srf-header';
 import {init as FefSearchInit} from './srf-search';
 import {init as FefNavigationInit} from './srf-navigation';
-import {init as FefGlobalnavInit} from './fef-globalnav';
+import {init as FefGlobalnavInit} from './components/fef-globalnav';
 import {init as FefShameInit} from  './srf-shame';
 import {init as FefSwipeModuleInit} from './srf-swipe-module';
 import {init as FefFlyingFocusInit} from './srf-flying-focus';
 import {init as FefExpandableBoxInit} from './components/fef-expandable-box';
-import {init as FefStickyHeaderInit} from './srf-sticky-header';
+import {init as FefStickyHeaderInit} from './components/fef-sticky-header';
 import {init as FefScrollPagerInit} from './components/fef-scroll-pager';
 
 
@@ -24,7 +24,7 @@ import {Affix} from './components/affix';
 import {FefModal} from './components/fef-modal';
 import './components/fef-ripple';
 
-import './fef-easings';
+import './utils/fef-easings';
 
 document.addEventListener('DOMContentLoaded', function(event) {
     FefCarouselsInit();

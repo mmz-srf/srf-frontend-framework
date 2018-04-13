@@ -51,3 +51,33 @@
     @content;
   }
 }
+
+
+/**
+ * breakpoint-bridge for javascript
+ *
+ * this hidden pseudo-element's content can be read by
+ * javascript to determine which breakpoint is active.
+ */
+body:before {
+  content: 'smartphone';
+  display: none; /* Prevent from displaying. */
+}
+
+@include tablet {
+  body:before {
+    content: 'tablet';
+  }
+}
+
+@include desktop {
+  body:before {
+    content: 'desktop';
+  }
+}
+
+@include desktop-wide {
+  body:before {
+    content: 'desktop-wide';
+  }
+}
