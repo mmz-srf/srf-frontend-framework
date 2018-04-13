@@ -50,18 +50,19 @@ function objectFitForIE() {
     * where images after the 2nd are only loaded on interaction with the gallery), we do the same procedure again.
     */
 
-    if('objectFit' in document.documentElement.style === false) {
+    if ('objectFit' in document.documentElement.style === false) {
 
         const relevantClasses = [
                 '.article-media--image',
                 '.article-teaser__wrapper',
                 '.carousel__item',
                 '.media-still__image',
-                '.poll-media--image'
+                '.poll-media--image',
+                '.listing-item__media'
             ],
             containers = document.querySelectorAll( relevantClasses.join(', ') );
 
-        for(let i = 0; i < containers.length; i++) {
+        for (let i = 0; i < containers.length; i++) {
             let oldImg = containers[i].querySelector('img'),
                 objectFitVal = getObjectFitValue(oldImg);
 
