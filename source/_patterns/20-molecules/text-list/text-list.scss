@@ -1,47 +1,12 @@
 .text-list {
-  margin: 12px 0 24px;
-  list-style-type: none;
-  counter-reset: item;
-
-  @include article-text-padding;
-  @include smartphone {
-    margin: 8px 0 20px;
-  }
-
-  li {
-    position: relative;
-    margin: 12px 0;
-    padding-left: 1.5em;
-
-    @include smartphone {
-      margin: 8px 0;
-    }
-  }
+  @include text-list-defaults;
 }
 
-.text-list--unordered > li::before {
-  position: absolute;
-  left: 2px;
-  top: 11px;
-  display: inline-block;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background-color: $color-list-bullet;
-  content: ' ';
+.text-list--unordered {
+  @include text-list-unordered-defaults;
 }
 
-.text-list--ordered > li {
-  padding-left: 2em;
-
-  &::before {
-    position: absolute;
-    left: 0;
-    top: 0;
-    font-family: $font-medium;
-    content: counter(item) '.';
-    color: $color-list-bullet;
-    counter-increment: item;
-  }
+.text-list--ordered {
+  @include text-list-ordered-defaults;
 }
 
