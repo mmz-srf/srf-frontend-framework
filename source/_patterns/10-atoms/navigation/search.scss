@@ -101,6 +101,21 @@
   margin: 0;
   padding: 0;
 
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+
+  animation-name: fade-in-item;
+  animation-duration: 0.2s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+
+  @for $i from 1 through 7 {
+    &:nth-child(#{$i}) {
+      animation-delay: #{$i*0.05}s;
+    }
+  }
+
   &:before {
     display: none;
   }
@@ -137,22 +152,10 @@
       color: $color-text-default;
     }
   }
-}
 
-.typeahead-suggestion {
-  opacity: 0;
-  max-height: 0;
-  overflow: hidden;
-
-  animation-name: fade-in-item;
-  animation-duration: 0.2s;
-  animation-timing-function: ease-in-out;
-  animation-fill-mode: forwards;
-
-  @for $i from 1 through 7 {
-    &:nth-child(#{$i}) {
-      animation-delay: #{$i*0.05}s;
-    }
+  &.typeahead-suggestion--no-animation {
+    animation-duration: 0s;
+    animation-delay: 0s;
   }
 }
 

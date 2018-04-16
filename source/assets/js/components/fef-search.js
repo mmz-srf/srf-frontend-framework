@@ -1,3 +1,5 @@
+import {setFocus} from '../srf-flying-focus';
+
 export function init() {
     $('.js-search').each((i, elem) => {
         new SrfSearch(elem);
@@ -9,7 +11,9 @@ const DEFAULT_MIN_SEARCH_LENGTH = 2;
 const KEYCODES = {
     'enter': 13,
     'tab': 9,
-    'escape': 27
+    'escape': 27,
+    'up': 38,
+    'down': 40
 };
 const ACTIVE_CLASS = 'search--active';
 const OUTSIDE_CLICK_LISTENER_NAME = 'click.search-destroyer';
@@ -41,8 +45,9 @@ export class SrfSearch {
     registerListeners() {
         // e.g. in the search modal, the whole element will be focused -> set focus to inputfield
         this.$element.on('focus', (e) => {
-            this.setSearchActive();
-            this.$inputField.focus();
+            setTimeout(() => {
+                this.$inputField.focus();
+            }, 0);
         });
 
         this.$inputField.on('focus', (e) => {
@@ -85,9 +90,23 @@ export class SrfSearch {
     }
 
     onKeyDown(e) {
-        if (e.keyCode === KEYCODES.tab && e.shiftKey) {
-            // Shift-Tabbing out of the search component
-            this.setSearchInactive();
+        switch (e.keyCode) {
+            case KEYCODES.tab:
+                if (e.shiftKey) {
+                    // Shift-Tabbing out of the search component
+                    this.setSearchInactive();
+                }
+                break;
+            case KEYCODES.up:
+                this.moveUpInMenu();
+                e.preventDefault();
+                break;
+            case KEYCODES.down:
+                this.moveDownInMenu();
+                e.preventDefault();
+                break;
+            default:
+                break;
         }
     }
 
@@ -116,6 +135,14 @@ export class SrfSearch {
                 if ($(e.target).parents('li').is(':last-child') && !e.shiftKey) {
                     this.setSearchInactive();
                 }
+                break;
+            case KEYCODES.up:
+                this.moveUpInMenu();
+                e.preventDefault();
+                break;
+            case KEYCODES.down:
+                this.moveDownInMenu();
+                e.preventDefault();
                 break;
             default:
                 break;
@@ -152,9 +179,42 @@ export class SrfSearch {
         $(document).off(OUTSIDE_CLICK_LISTENER_NAME);
     }
 
+    moveUpInMenu() {
+        let $suggestions = this.$searchResults.find('.search-result__link'),
+            $currentlyFocused = $('.search-result__link:focus'),
+            currentIndex = $suggestions.index($currentlyFocused),
+            nextIndex = currentIndex - 1;
+
+        if ($suggestions.length === 0) {
+            return;
+        }
+
+        if (nextIndex < 0) {
+            nextIndex = $suggestions.length - 1;
+        }
+
+        setFocus($suggestions.eq(nextIndex));
+    }
+
+    moveDownInMenu() {
+        let $suggestions = this.$searchResults.find('.search-result__link'),
+            $currentlyFocused = $('.search-result__link:focus'),
+            currentIndex = $suggestions.index($currentlyFocused),
+            nextIndex = currentIndex + 1;
+
+        if ($suggestions.length === 0) {
+            return;
+        }
+
+        if (nextIndex >= $suggestions.length) {
+            nextIndex = 0;
+        }
+
+        setFocus($suggestions.eq(nextIndex));
+    }
+
     hideResults() {
-        this.$searchResults.hide();
-        this.$searchResults.html('');
+        this.$searchResults.hide().html('').removeClass('search__results--showed-results');
         this.suggestionUrl = '';
     }
 
@@ -198,6 +258,8 @@ export class SrfSearch {
     /**
      * Renders the received search results into the results list.
      * For the Screen-Reader's sake it'll be rendered twice, once with the found substring highlighted and once readable.
+     * 
+     * If we're replacing previously shown search results, make sure they're not animated anymore.
      *
      * @param {Object} results 
      * @param {String} query 
@@ -205,10 +267,12 @@ export class SrfSearch {
     renderResults(results, query) {
         let html = '';
 
+        let wasAlreadyShowingResults = this.$searchResults.children('li').length > 0;
+
         results.forEach((result) => {
             let highlightedResult = this.highlightQuery(query, result.name);
             html += `
-                <li class="typeahead-suggestion">
+                <li class="typeahead-suggestion ${wasAlreadyShowingResults ? 'typeahead-suggestion--no-animation' : ''}">
                     <a class="search-result__link" href="${result.url}">
                         <span role="presentation" aria-hidden="true">${highlightedResult}</span>
                         <span class="h-offscreen">${result.name}</span>
