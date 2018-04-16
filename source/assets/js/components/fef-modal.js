@@ -45,6 +45,10 @@ export class FefModal {
 
         this.bindEvents();
 
+        if (this.$element.hasClass('js-min-height-of-masthead')) {
+            this.$mainContent.css('min-height', $('.js-masthead').outerHeight());
+        }
+
         this.show();
     }
 
