@@ -48,7 +48,7 @@ export class SrfSearch {
             this.expandSearch();
         });
 
-        this.$closeIcon.on('click', (e) => {
+        this.$closeIcon.on('mousedown', (e) => {
             this.reset();
         });
 
