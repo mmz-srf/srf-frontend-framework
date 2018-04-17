@@ -137,7 +137,7 @@ export class SrfSearch {
     clearInput() {
         this.$inputField.val('');
         this.$submitButton.attr('tabindex', -1).attr('aria-hidden', true);
-        this.hideCloseIcon();
+        // this.hideCloseIcon();
         this.suggestionUrl = '';
     }
 
@@ -181,14 +181,14 @@ export class SrfSearch {
                 this.typeaheadData = data;
             });
         }
-        this.showCloseIconIfNeeded();
+        // this.showCloseIconIfNeeded();
         this.expandSearch();
 
     }
 
     lookup() {
         // adjust close icon state regardless of search results
-        this.showCloseIconIfNeeded();
+        // this.showCloseIconIfNeeded();
         let results = [];
         let query = this.$inputField.val().toString().toLowerCase();
 
@@ -238,20 +238,19 @@ export class SrfSearch {
     }
 
     showCloseIcon() {
-        this.$closeIcon.removeClass('h-element--hide');
-        let y = this.$inputField.position().top;
-        let x = this.$inputField.position().left;
+        // this.$closeIcon.removeClass('h-element--hide');
+        // let y = this.$inputField.position().top;
+        // let x = this.$inputField.position().left;
 
-        x = x + this.$inputField.outerWidth() - this.$closeIcon.outerWidth();
-        this.$closeIcon.css({'top': y, 'left': x});
+        // x = x + this.$inputField.outerWidth() - this.$closeIcon.outerWidth();
+        // this.$closeIcon.css({'top': y, 'left': x});
         if ($(window).width() > 720) {
             this.$closeIcon.attr('tabindex', -1).attr('aria-hidden', true);
         }
-
     }
 
     hideCloseIcon() {
-        this.$closeIcon.addClass('h-element--hide');
+        // this.$closeIcon.addClass('h-element--hide');
         if ($(window).width() > 720) {
             this.$closeIcon.attr('tabindex', '').attr('aria-hidden', false);
         }
@@ -272,15 +271,15 @@ export class SrfSearch {
         if (!this.expandable) { return; }
 
         this.$element.css('width', '100%');
-        this.hideCloseIcon();
-        this.showCloseIconIfNeeded(500); // currTimeout gets set here
+        // this.hideCloseIcon();
+        // this.showCloseIconIfNeeded(500); // currTimeout gets set here
     }
 
     unexpandSearch() {
         if (!this.expandable) { return; }
 
         this.$element.css('width', '');
-        this.hideCloseIcon();
+        // this.hideCloseIcon();
     }
 
     disableArticle() {
