@@ -40,23 +40,12 @@ export class FeFStickyHeader {
             if (scrollTop <= this.lastScrollTop) {
                 this.$stickyContainer.css('margin-top', '0');
                 this.$stickyContainer.addClass('sticky-container--full');
-                this.$masthead[0].className = this.$masthead[0].className.replace(/\-\-off\-theme\-/g, '--theme-');
 
             }
             // scroll down > show small header
             else {
                 $('.affix').css('margin-top', '-' + this.affixMarginTop + 'px');
                 this.$stickyContainer.removeClass('sticky-container--full');
-                if(scrollTop >= this.affixMarginTop) {
-                    this.$masthead.addClass('masthead--in-transition');
-                    setTimeout(
-                        function() {
-                            that.$masthead.removeClass('masthead--in-transition');
-                            that.$masthead[0].className = that.$masthead[0].className.replace(/\-\-theme\-/g, '--off-theme-');
-                        },
-                        225
-                    );
-                }
             }
         }
 
