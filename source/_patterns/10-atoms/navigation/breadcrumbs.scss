@@ -66,6 +66,15 @@
   }
 }
 
+.breadcrumbs__bottom {
+  .breadcrumbs {
+    margin: 0 auto 16px 0;
+    @include tablet-up {
+      margin: 0 12px 24px 16px;
+    }
+  }
+}
+
 .breadcrumb__link,
 .breadcrumb__link:hover,
 .breadcrumb__link:active,
