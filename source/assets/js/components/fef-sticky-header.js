@@ -40,7 +40,7 @@ export class FeFStickyHeader {
         console.log('scrolltop '+scrollTop);
         console.log('last scroll top '+this.lastScrollTop);
 
-        if (!this.hasResized && scrollDifference > 5) {
+        if (!this.hasResized && scrollDifference > 5 || scrollTop === 0 && this.lastScrollTop === 0) {
             // scroll up > show full header
             if (scrollTop <= this.lastScrollTop) {
                 this.$stickyContainer.css('margin-top', '0');
