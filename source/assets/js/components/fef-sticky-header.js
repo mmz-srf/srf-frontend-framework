@@ -35,7 +35,13 @@ export class FeFStickyHeader {
         let that = this;
         let scrollDifference = Math.abs(this.lastScrollTop - scrollTop);
 
-        if (!this.hasResized && scrollDifference > 5) {
+
+        /*
+         * Sticky Header must stay as it is after resizing
+         * Sticky Header may not change state after a minimal scrolling (5 pixel)
+         * Sticky Header may not change state if scrollTop has a negative value (safari)
+         */
+        if (!this.hasResized && scrollDifference > 5 || scrollTop < 0) {
             // scroll up > show full header
             if (scrollTop <= this.lastScrollTop) {
                 this.$stickyContainer.css('margin-top', '0');
