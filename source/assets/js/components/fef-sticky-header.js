@@ -14,13 +14,15 @@ export class FeFStickyHeader {
     constructor(element, options) {
         this.$masthead = $(element);
         this.$mastheadNav = $('.masthead__nav');
+        this.$subNavMask = this.$mastheadNav.find('.subnav__mask');
         this.$stickyContainer = this.$masthead.closest('.sticky-container');
         this.$affixPlacehoder = $('.affix-placeholder');
-        this.affixMarginTop = this.$masthead.outerHeight() - this.$mastheadNav.outerHeight();
+        this.affixMarginTop = this.$mastheadNav.outerHeight() !== undefined ? this.$masthead.outerHeight() - this.$mastheadNav.outerHeight() : this.$masthead.outerHeight();
         this.affixPlacehoderHeight = this.$masthead.outerHeight() + MASTHEAD_PADDING_BOTTOM;
         this.lastScrollTop = 0;
         this.hasResized = false;
         this.isFullHeaderAffixMode = this.$stickyContainer.attr('data-full-header-affix') !== undefined;
+        this.scrollDirection = '';
 
         this.initializeAffix();
         if (this.isFullHeaderAffixMode) {
@@ -38,6 +40,8 @@ export class FeFStickyHeader {
         let that = this;
         let scrollDifference = Math.abs(this.lastScrollTop - scrollTop);
 
+        console.log('afterScrolling');
+
 
         /*
          * Sticky Header must stay as it is after resizing
@@ -47,15 +51,34 @@ export class FeFStickyHeader {
         if (!this.hasResized && scrollDifference > 5 || scrollTop < 0) {
             // scroll up > show full header
             if (scrollTop <= this.lastScrollTop) {
+
+                console.log('scroll up');
+
                 this.$stickyContainer.css('margin-top', '0');
                 this.$stickyContainer.addClass('sticky-container--full');
                 this.$masthead[0].className = this.$masthead[0].className.replace(/\-\-off\-theme\-/g, '--theme-');
+
+                if(this.scrollDirection === 'down') {
+                   this.$subNavMask.hide();
+                   setTimeout(
+                       function() {
+                           that.$subNavMask.show();
+                       },
+                       300
+                   );
+                }
+
+                this.scrollDirection = 'up';
             }
             // scroll down > show small header
             else {
                 $('.affix').css('margin-top', '-' + this.affixMarginTop + 'px');
                 this.$stickyContainer.removeClass('sticky-container--full');
-                if(scrollTop >= this.affixMarginTop) {
+
+                if(scrollTop >= this.affixMarginTop && this.scrollDirection === 'up') {
+
+                    console.log('scroll down');
+
                     this.$masthead.addClass('masthead--in-transition');
                     setTimeout(
                         function() {
@@ -64,7 +87,17 @@ export class FeFStickyHeader {
                         },
                         225
                     );
+                    this.$subNavMask.hide();
+                    setTimeout(
+                        function() {
+                            that.$subNavMask.show();
+                        },
+                        300
+                    );
                 }
+
+                this.scrollDirection = 'down';
+
             }
         }
 
