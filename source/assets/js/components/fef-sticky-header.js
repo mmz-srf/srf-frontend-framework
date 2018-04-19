@@ -35,6 +35,11 @@ export class FeFStickyHeader {
         let that = this;
         let scrollDifference = Math.abs(this.lastScrollTop - scrollTop);
 
+
+        console.log(scrollDifference);
+        console.log('scrolltop '+scrollTop);
+        console.log('last scroll top '+this.lastScrollTop);
+
         if (!this.hasResized && scrollDifference > 5) {
             // scroll up > show full header
             if (scrollTop <= this.lastScrollTop) {
