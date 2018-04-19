@@ -1,4 +1,3 @@
 {
-  "themeStyleModifier": "masthead--home",
-  "displayCompact": true
+  "headerType": "home"
 }

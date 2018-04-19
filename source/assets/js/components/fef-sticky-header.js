@@ -20,9 +20,12 @@ export class FeFStickyHeader {
         this.affixPlacehoderHeight = this.$masthead.outerHeight() + MASTHEAD_PADDING_BOTTOM;
         this.lastScrollTop = 0;
         this.hasResized = false;
+        this.isFullHeaderAffixMode = this.$stickyContainer.attr('data-full-header-affix') !== undefined;
 
         this.initializeAffix();
-        this.registerListeners();
+        if (this.isFullHeaderAffixMode) {
+            this.registerListeners();
+        }
     }
 
     registerListeners() {

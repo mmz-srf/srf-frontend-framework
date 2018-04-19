@@ -29,8 +29,7 @@
 .masthead.masthead--theme-sport,
 .masthead.masthead--theme-meteo,
 .masthead.masthead--theme-kultur,
-.masthead.masthead--theme-dok,
-.masthead.masthead--theme-tvradio {
+.masthead.masthead--theme-dok {
   --theme-color-nav: #FFF;
   --theme-color-active: #FFF;
   --theme-color-nav-active-border: #FFF;
@@ -86,13 +85,4 @@
   --theme-color-pager-start-transparent: $theme-dok-color-bg-pager-start-transparent;
   --theme-color-pager-end: $theme-dok-color-bg-pager-end;
   --theme-color-pager-end-transparent: $theme-dok-color-bg-pager-end-transparent;
-}
-
-.masthead.masthead--theme-tvradio {
-  --theme-color-gradient-1: $theme-tvradio-color-1;
-  --theme-color-gradient-2: $theme-tvradio-color-2;
-  --theme-color-pager-start: $theme-tvradio-color-bg-pager-start;
-  --theme-color-pager-start-transparent: $theme-tvradio-color-bg-pager-start-transparent;
-  --theme-color-pager-end: $theme-tvradio-color-bg-pager-end;
-  --theme-color-pager-end-transparent: $theme-tvradio-color-bg-pager-end-transparent;
 }

@@ -1,20 +1,11 @@
-{% set isHome = themeStyleModifier == 'masthead--home' %}
 <header class="masthead js-masthead masthead--compact {{ themeStyleModifier }}">
     <div class="masthead__wrapper">
         <div class="masthead__universal">
             <div class="masthead__logo">
-                {% if isHome %}
-                    {% include 'atoms-main-logo' with {'styleModifier': 'main-logo--large'} %}
-                {% else %}
-                    {% include 'atoms-main-logo' %}
-                {% endif %}
+                {% include 'atoms-main-logo' %}
             </div>
             <div class="masthead__portals">
-                {% if isHome %}
-                    {% include 'molecules-portals' with {'styleModifier': 'portals--large'} %}
-                {% else %}
-                    {% include 'molecules-portals' %}
-                {% endif %}
+                {% include 'molecules-portals' %}
             </div>
             <div class="masthead__button-wrapper">
                 <button class="masthead__button masthead__button--search" data-modal-id="modal-search">
@@ -28,31 +19,5 @@
                 </button>
             </div>
         </div>
-        {% if isHome %}
-        <div class="masthead__nav">
-            {% include 'molecules-subnav' with {
-                "masthead": {
-                    "subnavi": [
-                        {
-                            "name": "News",
-                            "url": "/news",
-                        },{
-                            "name": "Sport",
-                            "url": "/sport"
-                        },{
-                            "name": "Meteo",
-                            "url": "/meteo"
-                        },{
-                            "name": "Kultur",
-                            "url": "/kultur"
-                        },{
-                            "name": "Dok",
-                            "url": "/dok"
-                        }
-                    ]
-                }
-            } %}
-        </div>
-        {% endif %}
     </div>
 </header>

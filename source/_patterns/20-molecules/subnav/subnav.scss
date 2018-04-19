@@ -28,6 +28,7 @@
   display: inline-block;
   padding: 0;
   margin: 0;
+  font-family: $font-regular;
 
   &::before {
     content: none;
@@ -171,5 +172,12 @@
 .subnav__pager-icon--right {
   @include desktop-up {
     float: right;
+  }
+}
+
+.subnav--portals {
+  .subnav__list-item {
+    font-family: $font-bold;
+    font-feature-settings: "salt";
   }
 }

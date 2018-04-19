@@ -1,4 +1,4 @@
-<nav class="subnav js-scroll-pager-container">
+<nav class="subnav js-scroll-pager-container {{ styleModifier }}">
     <ul class="subnav__list js-scroll-pager-content">
         {% for item in masthead.subnavi %}
                 {% set itemStyleModifier = (item.active) ? 'nav-item--active' : ''  %}
