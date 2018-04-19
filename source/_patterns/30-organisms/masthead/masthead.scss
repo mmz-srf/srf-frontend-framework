@@ -34,9 +34,9 @@
 
     /* fallback */
     background: linear-gradient(
-      117deg,
+      120deg,
       $theme-default-color-1,
-      $theme-default-color-1 20%,
+      $theme-default-color-1 15%,
       $theme-default-color-2 40%,
       $theme-default-color-2
     );
@@ -47,36 +47,23 @@
       /* theme */
       @supports (--foo: bar) {
         background: linear-gradient(
-          117deg,
+          120deg,
           var(--theme-color-gradient-1),
           var(--theme-color-gradient-1) 15%,
-          var(--theme-color-gradient-2) 50%,
+          var(--theme-color-gradient-2) 60%,
           var(--theme-color-gradient-2)
         );
       }
     }
 
-    @include tablet {
+    @include tablet-up {
       /* theme */
       @supports (--foo: bar) {
         background: linear-gradient(
-          117deg,
+          120deg,
           var(--theme-color-gradient-1),
           var(--theme-color-gradient-1) 10%,
-          var(--theme-color-gradient-2) 35%,
-          var(--theme-color-gradient-2)
-        );
-      }
-    }
-
-    @include desktop {
-      /* theme */
-      @supports (--foo: bar) {
-        background: linear-gradient(
-          117deg,
-          var(--theme-color-gradient-1),
-          var(--theme-color-gradient-1) 25%,
-          var(--theme-color-gradient-2) 45%,
+          var(--theme-color-gradient-2) 40%,
           var(--theme-color-gradient-2)
         );
       }
@@ -86,10 +73,10 @@
       /* theme */
       @supports (--foo: bar) {
         background: linear-gradient(
-          117deg,
+          120deg,
           var(--theme-color-gradient-1),
-          var(--theme-color-gradient-1) 30%,
-          var(--theme-color-gradient-2) 50%,
+          var(--theme-color-gradient-1) 20%,
+          var(--theme-color-gradient-2) 40%,
           var(--theme-color-gradient-2)
         );
       }
