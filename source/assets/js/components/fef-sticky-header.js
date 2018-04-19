@@ -40,9 +40,6 @@ export class FeFStickyHeader {
         let that = this;
         let scrollDifference = Math.abs(this.lastScrollTop - scrollTop);
 
-        console.log('afterScrolling');
-
-
         /*
          * Sticky Header must stay as it is after resizing
          * Sticky Header may not change state after a minimal scrolling (5 pixel)
@@ -52,13 +49,11 @@ export class FeFStickyHeader {
             // scroll up > show full header
             if (scrollTop <= this.lastScrollTop) {
 
-                console.log('scroll up');
-
                 this.$stickyContainer.css('margin-top', '0');
-                this.$stickyContainer.addClass('sticky-container--full');
+                this.$stickyContainer.addClass('js-sticky-container--full');
                 this.$masthead[0].className = this.$masthead[0].className.replace(/\-\-off\-theme\-/g, '--theme-');
 
-                if(this.scrollDirection === 'down') {
+                if(this.scrollDirection !== 'up') {
                    this.$subNavMask.hide();
                    setTimeout(
                        function() {
@@ -72,12 +67,11 @@ export class FeFStickyHeader {
             }
             // scroll down > show small header
             else {
+
                 $('.affix').css('margin-top', '-' + this.affixMarginTop + 'px');
-                this.$stickyContainer.removeClass('sticky-container--full');
+                this.$stickyContainer.removeClass('js-sticky-container--full');
 
-                if(scrollTop >= this.affixMarginTop && this.scrollDirection === 'up') {
-
-                    console.log('scroll down');
+                if(scrollTop >= this.affixMarginTop && this.scrollDirection !== 'down') {
 
                     this.$masthead.addClass('masthead--in-transition');
                     setTimeout(
@@ -94,10 +88,9 @@ export class FeFStickyHeader {
                         },
                         300
                     );
+
+                    this.scrollDirection = 'down';
                 }
-
-                this.scrollDirection = 'down';
-
             }
         }
 
@@ -112,7 +105,7 @@ export class FeFStickyHeader {
         this.affixPlacehoderHeight = this.$masthead.outerHeight() + MASTHEAD_PADDING_BOTTOM;
         this.initializeAffix();
 
-        if (this.$stickyContainer.hasClass('sticky-container--full')) {
+        if (this.$stickyContainer.hasClass('js-sticky-container--full')) {
             $('.affix').css('margin-top', '0');
         } else {
             $('.affix').css('margin-top', '-' + this.affixMarginTop + 'px');
