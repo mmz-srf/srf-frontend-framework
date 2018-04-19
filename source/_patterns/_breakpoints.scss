@@ -1,3 +1,5 @@
+@import "variables";
+
 @mixin smartphone {
   @media (max-width: #{$tablet-size - 1px}) {
     @content;
