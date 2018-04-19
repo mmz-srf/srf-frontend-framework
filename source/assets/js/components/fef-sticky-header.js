@@ -41,7 +41,6 @@ export class FeFStickyHeader {
                 this.$stickyContainer.css('margin-top', '0');
                 this.$stickyContainer.addClass('sticky-container--full');
                 this.$masthead[0].className = this.$masthead[0].className.replace(/\-\-off\-theme\-/g, '--theme-');
-
             }
             // scroll down > show small header
             else {

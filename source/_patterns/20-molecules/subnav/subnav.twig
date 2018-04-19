@@ -1,7 +1,7 @@
 <nav class="subnav js-scroll-pager-container">
     <ul class="subnav__list js-scroll-pager-content">
         {% for item in masthead.subnavi %}
-                {% set itemStyleModifier = (item.name == masthead.subnavi[0].name) ? 'nav-item--active' : ''  %}
+                {% set itemStyleModifier = (item.active) ? 'nav-item--active' : ''  %}
                 <li class="subnav__list-item">
                 {% include 'atoms-nav-item' with {
                     'styleModifier': itemStyleModifier,

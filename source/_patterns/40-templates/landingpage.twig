@@ -1,6 +1,11 @@
+{% set displayCompact = displayCompact|default(false) %}
 <div class="affix-placeholder" data-smart-affix-placeholder></div>
 <div class="sticky-container affix-top" data-smart-affix>
-    {% include 'organisms-masthead' with {'themeStyleModifier': themeStyleModifier} %}
+    {% if displayCompact %}
+        {% include 'organisms-masthead--compact' with {'themeStyleModifier': themeStyleModifier, 'displayCompact': true } %}
+    {% else %}
+        {% include 'organisms-masthead' with {'themeStyleModifier': themeStyleModifier} %}
+    {% endif %}
 </div>
 
 <div class="l-main-wrapper l-card l-card--with-fullwidth-elements">

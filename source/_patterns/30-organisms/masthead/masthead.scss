@@ -136,24 +136,10 @@
   }
 }
 
-// To whom it may concern - in the home-navigation the portals should move
-// down a row on mobile/tablet. You could use the following trick:
-/*
-@media (max-width: 767px) {
-  .masthead__universal {
-    flex-wrap: wrap;
-  }
-  .masthead__portals {
-    order: 2;
-    margin-left: 0;
-    flex-basis: 100%;
-  }
-}
-*/
-
 .masthead__portals {
   flex: 1 1 auto;
-  
+  margin-left: 10px;
+
   @include desktop-down {
     display: none;
   }
@@ -196,5 +182,39 @@
   @include smartphone {
     width: calc(100% + 48px);
     margin: 0 0 0 -32px;
+  }
+}
+
+
+.masthead--compact {
+  padding-top: 0;
+}
+
+.masthead--home {
+  @include smartphone {
+    .masthead__portals {
+      display: none;
+    }
+  }
+  @include tablet-up {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    .masthead__universal {
+
+    }
+
+    .masthead__logo {
+      flex-grow: 0;
+    }
+
+    .masthead__portals {
+      display: flex;
+      font-size: 18px;
+      margin-left: 12px;
+    }
+
+    .masthead__nav {
+      display: none;
+    }
   }
 }

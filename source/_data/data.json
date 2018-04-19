@@ -723,7 +723,8 @@
     "subnavi" : [
       {
         "name": "Übersicht",
-        "url": "#"
+        "url": "#",
+        "active": true
       },{
         "name": "Schweiz",
         "url": "#"
