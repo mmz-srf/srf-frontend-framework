@@ -184,17 +184,32 @@
   }
 }
 
-.search--navigation {
+// Transition period: use this modifier for an approximation of the old styling (RA/WV)
+.search--legacy-navigation {
   position: relative;
   width: 100%;
   top: auto;
   right: auto;
   max-width: 458px;
-  margin: auto;
+  margin: 0 auto 32px;
   padding: 0 12px;
+  height: 40px;
+
+  @include smartphone {
+    margin: 16px auto 8px;
+  }
 
   @include desktop-up {
-    max-width: 500px;
+    max-width: 458px;
+  }
+
+  .search__input {
+    padding: 12px 48px;
+    height: auto;
+  }
+
+  .search__close {
+      padding: 12px;
   }
 }
 
