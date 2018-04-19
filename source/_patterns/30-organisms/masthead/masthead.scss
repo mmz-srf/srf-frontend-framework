@@ -17,6 +17,10 @@
     $theme-default-color-2
   );
 
+  @include smartphone {
+    padding: 8px 16px 0;
+  }
+
   &::before {
     content: '';
     position: absolute;
