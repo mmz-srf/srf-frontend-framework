@@ -31,7 +31,7 @@ export class FeFStickyHeader {
     }
 
     afterScrolling() {
-        let scrollTop = $(window).scrollTop();
+        let scrollTop = $(window).scrollTop() >= 0 ? $(window).scrollTop() : 0;
         let that = this;
         let scrollDifference = Math.abs(this.lastScrollTop - scrollTop);
 
