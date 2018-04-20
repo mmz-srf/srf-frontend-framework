@@ -4,7 +4,7 @@
 
     <li class="navigation-item">
         {% block search %}
-            {% include 'atoms-search' with {'styleModifier': 'searchbox--navigation ' ~ ('navigation--header' in styleModifier ? 'searchbox--header-navigation' : '') } %}
+            {% include 'atoms-search' with {'styleModifier': 'search--legacy'} %}
         {% endblock %}
     </li>
 

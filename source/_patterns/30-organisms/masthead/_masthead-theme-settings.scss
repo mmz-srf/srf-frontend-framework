@@ -1,0 +1,98 @@
+
+/*
+ * MASTHEAD THEME SETTINGS
+ *
+ * Theme settings are defined here at the masthead level and not on the page level because the
+ * change of a value of a css custom property triggers a style recalculation for _all_ of its children
+ * @see https://twitter.com/jonikorpi/status/865283047368818688
+ */
+
+/* DEFAULTS */
+.masthead {
+  --theme-color-gradient-1: $theme-default-color-1;
+  --theme-color-gradient-2: $theme-default-color-2;
+  --theme-color-nav: $color-text-accentuation;
+  --theme-color-bg-hover: $color-nav-bg-hover;
+  --theme-color-bg-active: $color-nav-bg-active;
+  --theme-color-active: $color-accentuation-red;
+  --theme-color-nav-active-border: #f1434a;
+  --theme-color-nav-hover-text: $color-text-default;
+  --theme-color-pager-start: $theme-default-color-bg-pager-start;
+  --theme-color-pager-start-transparent: $theme-default-color-bg-pager-start-transparent;
+  --theme-color-pager-end: $theme-default-color-bg-pager-end;
+  --theme-color-pager-end-transparent: $theme-default-color-bg-pager-end-transparent;
+  --theme-icon-filter: none;
+  --theme-item-opacity: 1;
+}
+
+/* COMMON SETTINGS FOR ALL THEMES EXCEPT DEFAULT */
+.masthead.masthead--theme-sport,
+.masthead.masthead--theme-meteo,
+.masthead.masthead--theme-kultur,
+.masthead.masthead--theme-dok,
+.masthead.masthead--theme-tvradio {
+  --theme-color-nav: #FFF;
+  --theme-color-active: #FFF;
+  --theme-color-nav-active-border: #FFF;
+  --theme-color-nav-hover-text: #FFF;
+  --theme-icon-filter: invert(100%) contrast(600%);
+  --theme-item-opacity: 0.84;
+
+  &::before {
+    opacity: 1;
+    transition: opacity 200ms ease-in-out;
+  }
+
+  .masthead__title {
+    //only browsers that support css custom properties (and therefore themes) should add a text-shadow
+    @supports (--foo: bar) {
+      text-shadow: 0 0 8px rgba(0, 0, 0, 0.12);
+    }
+  }
+}
+
+/* THEME-SPECIFIC SETTINGS */
+.masthead.masthead--theme-sport {
+  --theme-color-gradient-1: $theme-sport-color-1;
+  --theme-color-gradient-2: $theme-sport-color-2;
+  --theme-color-pager-start: $theme-sport-color-bg-pager-start;
+  --theme-color-pager-start-transparent: $theme-sport-color-bg-pager-start-transparent;
+  --theme-color-pager-end: $theme-sport-color-bg-pager-end;
+  --theme-color-pager-end-transparent: $theme-sport-color-bg-pager-end-transparent;
+}
+
+.masthead.masthead--theme-meteo {
+  --theme-color-gradient-1: $theme-meteo-color-1;
+  --theme-color-gradient-2: $theme-meteo-color-2;
+  --theme-color-pager-start: $theme-meteo-color-bg-pager-start;
+  --theme-color-pager-start-transparent: $theme-meteo-color-bg-pager-start-transparent;
+  --theme-color-pager-end: $theme-meteo-color-bg-pager-end;
+  --theme-color-pager-end-transparent: $theme-meteo-color-bg-pager-end-transparent;
+}
+
+.masthead.masthead--theme-kultur {
+  --theme-color-gradient-1: $theme-kultur-color-1;
+  --theme-color-gradient-2: $theme-kultur-color-2;
+  --theme-color-pager-start: $theme-kultur-color-bg-pager-start;
+  --theme-color-pager-start-transparent: $theme-kultur-color-bg-pager-start-transparent;
+  --theme-color-pager-end: $theme-kultur-color-bg-pager-end;
+  --theme-color-pager-end-transparent: $theme-kultur-color-bg-pager-end-transparent;
+}
+
+.masthead.masthead--theme-dok {
+  --theme-color-gradient-1: $theme-dok-color-1;
+  --theme-color-gradient-2: $theme-dok-color-2;
+  --theme-color-pager-start: $theme-dok-color-bg-pager-start;
+  --theme-color-pager-start-transparent: $theme-dok-color-bg-pager-start-transparent;
+  --theme-color-pager-end: $theme-dok-color-bg-pager-end;
+  --theme-color-pager-end-transparent: $theme-dok-color-bg-pager-end-transparent;
+}
+
+.masthead.masthead--theme-tvradio {
+  --theme-color-gradient-1: $theme-tvradio-color-1;
+  --theme-color-gradient-2: $theme-tvradio-color-2;
+  --theme-color-pager-start: $theme-tvradio-color-bg-pager-start;
+  --theme-color-pager-start-transparent: $theme-tvradio-color-bg-pager-start-transparent;
+  --theme-color-pager-end: $theme-tvradio-color-bg-pager-end;
+  --theme-color-pager-end-transparent: $theme-tvradio-color-bg-pager-end-transparent;
+}

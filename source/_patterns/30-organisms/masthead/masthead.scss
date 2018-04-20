@@ -1,0 +1,200 @@
+@import "../../variables";
+@import "../../breakpoints";
+@import "masthead-theme-settings";
+
+
+.masthead {
+  position: relative;
+  box-shadow: $shadow-organisms;
+  padding: 8px 32px 0;
+
+  /* fallback */
+  background: linear-gradient(
+    117deg,
+    $theme-default-color-1,
+    $theme-default-color-1 20%,
+    $theme-default-color-2 40%,
+    $theme-default-color-2
+  );
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+    opacity: 0;
+    transition: all 500ms ease-in-out;
+
+    /* fallback */
+    background: linear-gradient(
+      117deg,
+      $theme-default-color-1,
+      $theme-default-color-1 20%,
+      $theme-default-color-2 40%,
+      $theme-default-color-2
+    );
+
+    @include smartphone {
+      padding: 0 16px;
+
+      /* theme */
+      @supports (--foo: bar) {
+        background: linear-gradient(
+          117deg,
+          var(--theme-color-gradient-1),
+          var(--theme-color-gradient-1) 15%,
+          var(--theme-color-gradient-2) 50%,
+          var(--theme-color-gradient-2)
+        );
+      }
+    }
+
+    @include tablet {
+      /* theme */
+      @supports (--foo: bar) {
+        background: linear-gradient(
+          117deg,
+          var(--theme-color-gradient-1),
+          var(--theme-color-gradient-1) 10%,
+          var(--theme-color-gradient-2) 35%,
+          var(--theme-color-gradient-2)
+        );
+      }
+    }
+
+    @include desktop {
+      /* theme */
+      @supports (--foo: bar) {
+        background: linear-gradient(
+          117deg,
+          var(--theme-color-gradient-1),
+          var(--theme-color-gradient-1) 25%,
+          var(--theme-color-gradient-2) 45%,
+          var(--theme-color-gradient-2)
+        );
+      }
+    }
+
+    @include desktop-wide {
+      /* theme */
+      @supports (--foo: bar) {
+        background: linear-gradient(
+          117deg,
+          var(--theme-color-gradient-1),
+          var(--theme-color-gradient-1) 30%,
+          var(--theme-color-gradient-2) 50%,
+          var(--theme-color-gradient-2)
+        );
+      }
+    }
+  }
+}
+
+.masthead.masthead--in-transition {
+  &::before {
+    opacity: 0;
+    transition: opacity 200ms linear;
+  }
+}
+
+.masthead__wrapper {
+  max-width: $content-width;
+  margin: 0 auto;
+  position: relative;
+}
+
+.masthead__title {
+  margin: 6px 0 4px -2px;
+  font-family: $font-bold;
+  font-feature-settings: "salt";
+  font-size: 32px;
+  line-height: 1.25;
+  color: inherit;
+  color: var(--theme-color-nav, inherit);
+
+  @include tablet-up {
+    margin: 11px 0 13px -2px;
+    font-size: 40px;
+    line-height: 1.2;
+  }
+}
+
+.masthead__universal {
+  display: flex;
+  align-items: center;
+}
+
+.masthead__logo {
+  flex: 1 0 auto;
+  display: flex;
+
+  @include desktop-up {
+    flex-grow: 0;
+  }
+}
+
+// To whom it may concern - in the home-navigation the portals should move
+// down a row on mobile/tablet. You could use the following trick:
+/*
+@media (max-width: 767px) {
+  .masthead__universal {
+    flex-wrap: wrap;
+  }
+  .masthead__portals {
+    order: 2;
+    margin-left: 0;
+    flex-basis: 100%;
+  }
+}
+*/
+
+.masthead__portals {
+  flex: 1 1 auto;
+  
+  @include desktop-down {
+    display: none;
+  }
+}
+
+.masthead__search {
+  margin-right: 32px;
+
+  @include desktop-down {
+    display: none;
+  }
+}
+
+.masthead__button-wrapper {
+  font-size: 0; // removes space between inline-block child elements
+  margin-right: -16px;
+
+  @include desktop-up {
+    margin-right: 0;
+  }
+}
+
+.masthead__button {
+  background-color: transparent;
+  color: inherit;
+  border: none;
+  padding: 0;
+}
+
+.masthead__button--search {
+  @include desktop-down {
+    display: none;
+  }
+}
+
+.masthead__nav {
+  width: calc(100% + 64px);
+  margin: 0 -32px;
+
+  @include smartphone {
+    width: calc(100% + 48px);
+    margin: 0 0 0 -32px;
+  }
+}

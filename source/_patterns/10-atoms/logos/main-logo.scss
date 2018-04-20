@@ -1,0 +1,12 @@
+.main-logo {
+  width: 36px;
+  height: 24px;
+  display: inline-block;
+}
+
+.main-logo--large {
+  @include tablet-up {
+    width: 48px;
+    height: 32px;
+  }
+}

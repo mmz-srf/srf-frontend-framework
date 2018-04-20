@@ -1,0 +1,29 @@
+<div class="affix-placeholder" data-smart-affix-placeholder></div>
+<div class="sticky-container affix-top" data-smart-affix>
+    {% include 'organisms-masthead' with {'themeStyleModifier': themeStyleModifier} %}
+</div>
+
+<div class="l-main-wrapper l-card l-card--with-fullwidth-elements">
+    <article class="article">
+
+        {% include 'atoms-breadcrumbs' %}
+        {% include 'molecules-article-header' %}
+        {% include 'molecules-sharing-bar' %}
+
+        <section class="article-content">
+            {% block article_content %}
+                [-- ARTICLE CONTENT --]
+            {% endblock %}
+        </section>
+
+    </article>
+</div>
+
+{% include 'molecules-comments' %}
+{% include 'molecules-swipe-module' %}
+
+{% include 'organisms-rlp-footer' %}
+
+{% include 'organisms-modal-menu' %}
+{% include 'organisms-modal-flyout' %}
+{% include 'organisms-modal-search' %}

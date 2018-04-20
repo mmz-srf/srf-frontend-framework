@@ -1,3 +1,5 @@
+import {FefDebounceHelper} from './classes/fef-debounce-helper';
+
 export function init() {
     $('.swipemod').each((index, elem) => {
         new SrfSwiper(elem);
@@ -16,16 +18,6 @@ const isSize2Plus    = () => { return window.innerWidth >= 768; };
 const isSize3Plus    = () => { return window.innerWidth >= 1024; };
 const isSize4        = () => { return window.innerWidth >= 1280; };
 const potentialSlots = () => { return isSize3Plus() ? 3 : isSize2() ? 2 : 1; };
-const debounce = (fn, time) => {
-    let timeout;
-
-    return function() {
-        const functionCall = () => fn.apply(this, arguments);
-
-        clearTimeout(timeout);
-        timeout = setTimeout(functionCall, time);
-    };
-};
 
 export class SrfSwiper {
 
@@ -58,9 +50,9 @@ export class SrfSwiper {
 
         this.$element.on('focusin', '.swipemod-item', event => this.onItemInteraction(event) );
 
-        this.$swipeContainer.on('scroll', debounce(() => this.afterUserScrolled(), DEBOUNCETIME) );
+        this.$swipeContainer.on('scroll', FefDebounceHelper.debounce(() => this.afterUserScrolled(), DEBOUNCETIME) );
 
-        $(window).on('resize', debounce(() => this.afterResize(), DEBOUNCETIME) );
+        $(window).on('resize', FefDebounceHelper.debounce(() => this.afterResize(), DEBOUNCETIME) );
     }
 
     afterUserScrolled() {

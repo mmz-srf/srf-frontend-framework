@@ -1,0 +1,30 @@
+<header class="masthead js-masthead {{ themeStyleModifier }}">
+  <div class="masthead__wrapper">
+    <div class="masthead__universal">
+
+      <div class="masthead__logo">
+        {% include 'atoms-main-logo' %}
+      </div>
+
+      <div class="masthead__portals">
+        {% include 'molecules-portals' with {'styleModifier': ''} %}
+      </div>
+
+      <div class="masthead__button-wrapper">
+        <button class="masthead__button masthead__button--search" data-modal-id="modal-search">
+            {% include 'atoms-icon-button' with {'iconStyleModifier': 'svg-icon--search-dark', 'buttonText': 'Suche'} %}
+        </button>
+        <button class="masthead__button" data-modal-id="modal-flyout">
+          {% include 'atoms-icon-button' with {'iconStyleModifier': 'svg-icon--tv-radio', 'buttonText': 'TV/Radio'} %}
+        </button>
+        <button class="masthead__button" data-modal-id="modal-menu">
+          {% include 'atoms-icon-button' with {'iconStyleModifier': 'svg-icon--burger-dark', 'buttonText': 'Menu', 'styleModifier': 'icon-button--collapsing-text-tablet icon-button--spaceless-right-tablet'} %}
+        </button>
+      </div>
+    </div>
+    <h1 class="masthead__title">News</h1>
+    <div class="masthead__nav">
+      {% include 'molecules-subnav' %}
+    </div>
+  </div>
+</header>

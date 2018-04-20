@@ -1,0 +1,35 @@
+<footer class="rlp-footer">
+    <div class="rlp-footer-top">
+        {% include 'molecules-search-header' with {'styleModifier': 'search-header--search-only'} %}
+        {% include 'molecules-globalnav' with {'styleModifier': '', 'id': 'globalnav--rlp-footer'} %}
+    </div>
+
+    {% include 'atoms-horizontal-separator' with {'styleModifier': 'horizontal-separator--no-margins'} %}
+
+    <div class="rlp-footer-bottom">
+        <ul class="rlp-footer-bottom__navigation">
+            <li class="rlp-footer-bottom__navigation-item"><a href="#" title="" class="rlp-footer-bottom__navigation-link">Über SRF</a></li>
+            <li class="rlp-footer-bottom__navigation-item"><a href="#" title="" class="rlp-footer-bottom__navigation-link">SRF Apps</a></li>
+            <li class="rlp-footer-bottom__navigation-item"><a href="#" title="" class="rlp-footer-bottom__navigation-link">Korrekturen</a></li>
+            <li class="rlp-footer-bottom__navigation-item"><a href="#" title="" class="rlp-footer-bottom__navigation-link">Rechtliches</a></li>
+            <li class="rlp-footer-bottom__navigation-item"><a href="#" title="" class="rlp-footer-bottom__navigation-link">Hilfe</a></li>
+            <li class="rlp-footer-bottom__navigation-item"><a href="#" title="" class="rlp-footer-bottom__navigation-link">Kundendienst</a></li>
+            <li class="rlp-footer-bottom__navigation-item"><a href="#" title="" class="rlp-footer-bottom__navigation-link">Impressum</a></li>
+        </ul>
+
+        <div class="rlp-footer-bottom__imprint">
+            <div class="rlp-footer-bottom__imprint-content">
+                <img class="rlp-footer-bottom__logo" src="{{ frameworkAssetPath }}/img/srgssr_logo.svg" alt="Logo of the Awesome Broadcasting Company" />
+                <p class="rlp-footer-bottom__description">SRF Schweizer Radio und Fernsehen,<br>Zweigniederlassung der Schweizerischen Radio- und Fernsehgesellschaft</p>
+            </div>
+
+            <ul class="rlp-footer-bottom__imprint-links">
+                <li class="rlp-footer-bottom__link-item"><a href="https://www.rts.ch/" title="" class="rlp-footer-bottom__link"><span>RTS</span></a></li>
+                <li class="rlp-footer-bottom__link-item"><a href="https://www.rsi.ch/" title="" class="rlp-footer-bottom__link"><span>RSI</span></a></li>
+                <li class="rlp-footer-bottom__link-item"><a href="https://www.rtr.ch" title="" class="rlp-footer-bottom__link"><span>RTR</span></a></li>
+                <li class="rlp-footer-bottom__link-item"><a href="https://www.swissinfo.ch/" title="" class="rlp-footer-bottom__link"><span>SWI</span></a></li>
+                <li class="rlp-footer-bottom__link-item"><a href="https://www.3sat.de" title="" class="rlp-footer-bottom__link"><span>3SAT</span></a></li>
+            </ul>
+        </div>
+    </div>
+</footer>

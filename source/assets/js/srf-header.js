@@ -189,7 +189,7 @@ export class SrfHeader {
         if ($(window).width() > 720) {
             this.$navigation.find('.navigation-link').first().focus();
         } else {
-            this.$navigation.find('.searchbox__input').first().focus();
+            this.$navigation.find('.search__input').first().focus();
         }
     }
 }

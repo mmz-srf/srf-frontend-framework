@@ -1,0 +1,56 @@
+@import "../../variables";
+@import "../../breakpoints";
+
+.portals {
+  padding: 0;
+  margin: 0 0 0 10px;
+  display: flex;
+
+  li {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+
+    &:before {
+      display: none;
+    }
+  }
+}
+
+.portals__link {
+  font-family: $font-bold;
+  font-size: 14px;
+  line-height: 1.14;
+  letter-spacing: 0.4px;
+  background-color: transparent;
+  transition: background-color 0.2s ease-in-out;
+  border-radius: 2px;
+  padding: 12px 10px;
+  display: inline-block;
+  border-bottom: none;
+  /* fallback */
+  color: $color-text-accentuation;
+  opacity: 1;
+  /* theme */
+  color: var(--theme-color-nav, $color-text-accentuation);
+  opacity: var(--theme-item-opacity, 1);
+
+
+  &:hover,
+  &:active,
+  &:focus {
+    border-bottom: none;
+    opacity: 1;
+    color: $color-text-accentuation;   /* fallback */
+    color: var(--theme-color-nav, $color-text-accentuation);
+  }
+
+  &:hover {
+    background-color: $color-nav-bg-hover;
+  }
+
+  &:active,
+  &:focus {
+    background-color: $color-nav-bg-active;
+  }
+}

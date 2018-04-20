@@ -41,6 +41,12 @@
   }
 }
 
+.expand-icon--dark {
+  .expand-icon__icon {
+    background-image: url('../img/arrows/menu_arrow.svg');
+  }
+}
+
 .expand-icon--with-text {
   display: flex;
   align-items: center;
