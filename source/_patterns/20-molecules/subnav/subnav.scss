@@ -11,6 +11,7 @@
 }
 
 .subnav__list {
+  position: relative; // fixes visible scrollbars in chrome android (and desktop, when scrollbars are generally visible)
   height: 100%;
   margin: 0;
   padding: 0 16px;
