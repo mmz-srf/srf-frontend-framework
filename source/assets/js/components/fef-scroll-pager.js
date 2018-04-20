@@ -9,10 +9,12 @@ const SCROLL_PAGER_CLASS = 'js-scroll-pager-container',
     MASK_LEFT_CLASS = 'js-subnav-mask-left',
     MASK_RIGHT_CLASS = 'js-subnav-mask-right',
     MASK_VISIBLE_CLASS = 'subnav__mask--visible',
+    ITEM_ACTIVE_CLASS = 'js-active-subnav-item',
     DEBOUNCETIME = 10,
     RIGHT_OFFSET = 24,
     BUTTON_BACK_THRESHOLD = 2,
-    INNER_CONTAINER_SCROLL_PADDING = 84;
+    INNER_CONTAINER_SCROLL_PADDING = 84,
+    DEFAULT_SCROLL_TIME = 200;
 
 export function init() {
     $('.'+SCROLL_PAGER_CLASS).each((index, element) => {
@@ -33,15 +35,19 @@ export class FefScrollPager {
         this.itemLeftPositions = new Array();
         this.itemRightPositions = new Array();
         this.$element = $element;
-        this.$innerContainer = $('.'+INNER_CONTAINER_CLASS, this.$element);
-        this.$buttonBack = $('.'+BUTTON_BACK_CLASS, this.$element);
-        this.$buttonForward = $('.'+BUTTON_FORWARD_CLASS, this.$element);
-        this.$maskLeft = $('.'+MASK_LEFT_CLASS, this.$element);
-        this.$maskRight = $('.'+MASK_RIGHT_CLASS, this.$element);
+        this.$innerContainer = $(`.${INNER_CONTAINER_CLASS}`, this.$element);
+        this.$buttonBack = $(`.${BUTTON_BACK_CLASS}`, this.$element);
+        this.$buttonForward = $(`.${BUTTON_FORWARD_CLASS}`, this.$element);
+        this.$maskLeft = $(`.${MASK_LEFT_CLASS}`, this.$element);
+        this.$maskRight = $(`.${MASK_RIGHT_CLASS}`, this.$element);
 
         this.init();
         this.initItemPositions();
         this.registerListeners();
+
+        setTimeout(() => {
+            this.centerActiveItem();
+        }, 0);
     }
 
     init() {
@@ -64,9 +70,9 @@ export class FefScrollPager {
     }
 
     updateButtonStatus() {
-        if(FefResponsiveHelper.isDesktop() || FefResponsiveHelper.isDesktopWide()) {
+        if (FefResponsiveHelper.isDesktop() || FefResponsiveHelper.isDesktopWide()) {
             // show forward button if needed
-            if(this.isAtScrollEnd()) {
+            if (this.isAtScrollEnd()) {
                 this.$buttonForward.removeClass(BUTTON_ACTIVE_CLASS);
             } else if (this.hasScrollableOverflow()) {
                 this.$buttonForward.addClass(BUTTON_ACTIVE_CLASS);
@@ -75,7 +81,7 @@ export class FefScrollPager {
             }
 
             // show back button if needed
-            if(this.hasScrollableOverflow() && this.$innerContainer.scrollLeft() > BUTTON_BACK_THRESHOLD) {
+            if (this.hasScrollableOverflow() && this.$innerContainer.scrollLeft() > BUTTON_BACK_THRESHOLD) {
                 this.$buttonBack.addClass(BUTTON_ACTIVE_CLASS);
             } else {
                 this.$buttonBack.removeClass(BUTTON_ACTIVE_CLASS);
@@ -84,9 +90,9 @@ export class FefScrollPager {
     }
 
     updateMaskStatus() {
-        if(FefResponsiveHelper.isSmartphone() || FefResponsiveHelper.isTablet()) {
+        if (FefResponsiveHelper.isSmartphone() || FefResponsiveHelper.isTablet()) {
             // show right mask if needed
-            if(this.isAtScrollEnd()) {
+            if (this.isAtScrollEnd()) {
                 this.$maskRight.removeClass(MASK_VISIBLE_CLASS);
             } else if (this.hasScrollableOverflow()) {
                 this.$maskRight.addClass(MASK_VISIBLE_CLASS);
@@ -95,7 +101,7 @@ export class FefScrollPager {
             }
 
             // show left mask if needed
-            if(this.hasScrollableOverflow() && this.$innerContainer.scrollLeft() > BUTTON_BACK_THRESHOLD) {
+            if (this.hasScrollableOverflow() && this.$innerContainer.scrollLeft() > BUTTON_BACK_THRESHOLD) {
                 this.$maskLeft.addClass(MASK_VISIBLE_CLASS);
             } else {
                 this.$maskLeft.removeClass(MASK_VISIBLE_CLASS);
@@ -107,7 +113,7 @@ export class FefScrollPager {
         let nextItem = 0;
 
         for (let i = 0; i < this.itemRightPositions.length; i++) {
-            if(this.itemRightPositions[i] > this.$innerContainer.scrollLeft() + this.$innerContainer.innerWidth()) {
+            if (this.itemRightPositions[i] > this.$innerContainer.scrollLeft() + this.$innerContainer.innerWidth()) {
                 nextItem = i;
                 break;
             }
@@ -121,7 +127,7 @@ export class FefScrollPager {
         let nextItem = 0;
 
         for (let i = 0; i < this.itemRightPositions.length; i++) {
-            if(this.itemRightPositions[i] > this.$innerContainer.scrollLeft() + INNER_CONTAINER_SCROLL_PADDING) {
+            if (this.itemRightPositions[i] > this.$innerContainer.scrollLeft() + INNER_CONTAINER_SCROLL_PADDING) {
                 nextItem = i;
                 break;
             }
@@ -131,10 +137,28 @@ export class FefScrollPager {
         this.scrollToPosition(newPosition);
     }
 
-    scrollToPosition(position) {
+    centerActiveItem() {
+        let $active = $(`.${ITEM_ACTIVE_CLASS}`, this.$element);
+
+        let lContainer = this.$innerContainer.offset().left;
+        let mContainer = lContainer + .5 * this.$innerContainer.outerWidth();
+        let lActive = $active.offset().left;
+        let mActive = lActive + .5 * $active.outerWidth();
+      
+        let diff = mActive - mContainer;
+        let currentScroll = this.$innerContainer.scrollLeft();
+
+        let newScrollPos = currentScroll + diff;
+
+        this.$innerContainer.scrollLeft(newScrollPos);
+    }
+
+    scrollToPosition(position, time) {
+        time = typeof time === 'undefined' ? DEFAULT_SCROLL_TIME : time;
+
         this.$innerContainer
             .stop(true, false)
-            .animate( { scrollLeft: position }, 500);
+            .animate( { scrollLeft: position }, time);
     }
 
     hasScrollableOverflow() {
