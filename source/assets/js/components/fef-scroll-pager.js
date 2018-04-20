@@ -138,8 +138,13 @@ export class FefScrollPager {
     }
 
     centerActiveItem() {
-        let $active = $(`.${ITEM_ACTIVE_CLASS}`, this.$element),
-            containerLeftEdge = this.$innerContainer.offset().left,
+        let $active = $(`.${ITEM_ACTIVE_CLASS}`, this.$element);
+
+        if ($active.length !== 1) {
+            return;
+        }
+
+        let containerLeftEdge = this.$innerContainer.offset().left,
             containerMiddle = containerLeftEdge + .5 * this.$innerContainer.outerWidth(),
             activeLeftEdge = $active.offset().left,
             activeMiddle = activeLeftEdge + .5 * $active.outerWidth(),
