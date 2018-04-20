@@ -1,17 +1,22 @@
 .searchbox {
   padding: 0 12px;
+  position: relative;
 
   @include tablet-up {
     padding: 0;
   }
 
   .close-search {
+    display: none;
     position: absolute;
+    right: 10px;
+    top: 0;
     text-decoration: none;
-    border: 0px;
+    border: 0;
     padding: 12px;
     
     @include tablet-up {
+      right: 0;
       padding: 11px;
     }
 
@@ -20,8 +25,9 @@
       margin-left: -10px;
       width: 15px;
       height: 15px;
+
       @include tablet-up {
-        margin-left: 0px;
+        margin-left: 0;
       }
     }
   }
@@ -46,8 +52,12 @@
     background-color: $color-bg-box;
     background-position: 6px -35px;
     outline: none;
-    -webkit-font-smoothing: auto;
+    -webkit-font-smoothing: unset;
     -moz-osx-font-smoothing: auto;
+
+    & ~ .close-search {
+      display: block;
+    }
   }
 
   &:focus::placeholder {
