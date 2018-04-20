@@ -53,14 +53,14 @@ export class FeFStickyHeader {
                 this.$stickyContainer.addClass('js-sticky-container--full');
                 this.$masthead[0].className = this.$masthead[0].className.replace(/\-\-off\-theme\-/g, '--theme-');
 
-                if(this.scrollDirection !== 'up') {
-                   this.$subNavMask.hide();
-                   setTimeout(
-                       function() {
-                           that.$subNavMask.show();
-                       },
-                       300
-                   );
+                if (this.scrollDirection !== 'up') {
+                    this.$subNavMask.hide();
+                    setTimeout(
+                        function () {
+                            that.$subNavMask.show();
+                        },
+                        300
+                    );
                 }
 
                 this.scrollDirection = 'up';

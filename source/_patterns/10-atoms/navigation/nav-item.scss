@@ -9,6 +9,8 @@
   font-size: 18px;
   letter-spacing: 0.4px;
   line-height: 1.25;
+  transition: background-color .2s ease-in-out;
+
   /* fallback */
   color: $color-text-accentuation;
   opacity: 1;
@@ -25,6 +27,7 @@
   &:hover {
     border-bottom: 2px solid transparent;
     opacity: 1;
+
     /* fallback */
     background-color: $color-nav-bg-hover;
     color: $color-text-accentuation;
@@ -36,6 +39,7 @@
   &:active {
     border-bottom: 2px solid transparent;
     opacity: 1;
+
     /* fallback */
     background-color: $color-nav-bg-active;
     color: $color-text-accentuation;
@@ -50,6 +54,7 @@
 .nav-item--active:active {
   background: none;
   opacity: 1;
+
   /* fallback */
   border-bottom-color: #f1434a;
   color: $color-accentuation-red;
