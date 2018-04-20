@@ -1,14 +1,16 @@
-{% set headerType = headerType|default("landingpage") %}
+{% set headerType = headerType|default("") %}
+
 <div class="affix-placeholder" data-smart-affix-placeholder></div>
-<div class="sticky-container affix-top" data-smart-affix {% if headerType == "landingpage" %}data-full-header-affix{% endif %}>
-    {% if headerType == "compact" %}
-        {% include 'organisms-masthead--compact' with {"themeStyleModifier": themeStyleModifier} %}
-    {% elseif headerType == "home" %}
-        {% include 'organisms-masthead--home' with {"themeStyleModifier": themeStyleModifier} %}
-    {% else %}
+
+{% if headerType == "compact" %}
+    {% include 'organisms-masthead--compact' with {"themeStyleModifier": themeStyleModifier} %}
+{% elseif headerType == "home" %}
+    {% include 'organisms-masthead--home' with {"themeStyleModifier": themeStyleModifier} %}
+{% else %}
+<div class="sticky-container affix-top" data-smart-affix>
         {% include 'organisms-masthead' with {"themeStyleModifier": themeStyleModifier} %}
-    {% endif %}
 </div>
+{% endif %}
 
 <div class="l-main-wrapper l-card l-card--with-fullwidth-elements">
     <article class="article">

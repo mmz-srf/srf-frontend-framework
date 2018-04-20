@@ -5,6 +5,7 @@
 
 .masthead {
   position: relative;
+  z-index: 100;
   box-shadow: $shadow-organisms;
   padding: 8px 32px 0;
 
@@ -176,12 +177,18 @@
   }
 }
 
-
 .masthead--compact {
+  position: fixed;
+  width: 100%;
+  top: 0;
   padding-top: 0;
 }
 
 .masthead--home {
+  position: fixed;
+  width: 100%;
+  top: 0;
+
   @include smartphone {
     .masthead__portals {
       display: none;
