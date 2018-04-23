@@ -45,6 +45,7 @@ export class FefScrollPager {
         this.initItemPositions();
         this.registerListeners();
 
+        // Immediately centering the nav bar doesn't work correctly - move to bottom of stack for correct results.
         setTimeout(() => {
             this.centerActiveItem();
         }, 0);
