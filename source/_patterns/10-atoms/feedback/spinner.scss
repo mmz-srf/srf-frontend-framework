@@ -27,11 +27,29 @@
   }
 }
 
-.spinner--loading-medium {
+@mixin spinner--loading() {
   display: none;
   position: absolute;
   left: 0;
   top: 0;
+}
+
+.spinner--loading-small {
+  width: 36px;
+  height: 36px;
+  @include spinner--loading();
+}
+
+.spinner--loading-medium {
+  width: 44px;
+  height: 44px;
+  @include spinner--loading();
+}
+
+.spinner--loading-large {
+  width: 64px;
+  height: 64px;
+  @include spinner--loading();
 }
 
 @keyframes spinner_rotate {
