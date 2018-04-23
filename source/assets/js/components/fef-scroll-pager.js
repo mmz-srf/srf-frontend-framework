@@ -153,7 +153,7 @@ export class FefScrollPager {
             currentScroll = this.$innerContainer.scrollLeft(),
             newScrollPos = currentScroll + diff;
 
-        this.$innerContainer.scrollLeft(newScrollPos);
+        this.scrollToPosition(newScrollPos);
     }
 
     scrollToPosition(position, time) {
