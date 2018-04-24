@@ -1,4 +1,6 @@
 import {FefDebounceHelper} from '../classes/fef-debounce-helper';
+import {FefResponsiveHelper} from '../classes/fef-responsive-helper';
+
 
 export function init() {
     $('.js-masthead').each((i, elem) => {
@@ -17,14 +19,17 @@ export class FeFStickyHeader {
         this.$subNavMask = this.$mastheadNav.find('.subnav__mask');
         this.$stickyContainer = this.$masthead.closest('.sticky-container');
         this.$affixPlacehoder = $('.affix-placeholder');
-        this.affixMarginTop = this.$mastheadNav.outerHeight() !== undefined ? this.$masthead.outerHeight() - this.$mastheadNav.outerHeight() : this.$masthead.outerHeight();
+        this.affixMarginTop = this.getAffixMarginTop();
         this.affixPlacehoderHeight = this.$masthead.outerHeight() + MASTHEAD_PADDING_BOTTOM;
         this.lastScrollTop = 0;
         this.hasResized = false;
         this.scrollDirection = '';
 
-        this.initializeAffix();
-        this.registerListeners();
+        // Do not initialize in case of home landingpage on a breakpoint larger then smartphone
+        if(!(!FefResponsiveHelper.isSmartphone() && this.$masthead.hasClass('masthead--home'))) {
+            this.initializeAffix();
+            this.registerListeners();
+        }
     }
 
     registerListeners() {
@@ -98,7 +103,7 @@ export class FeFStickyHeader {
 
     afterResize() {
         this.hasResized = true;
-        this.affixMarginTop = this.$masthead.outerHeight() - this.$mastheadNav.outerHeight();
+        this.affixMarginTop = this.getAffixMarginTop();
         this.affixPlacehoderHeight = this.$masthead.outerHeight() + MASTHEAD_PADDING_BOTTOM;
         this.initializeAffix();
 
@@ -113,6 +118,16 @@ export class FeFStickyHeader {
     initializeAffix() {
         $('[data-smart-affix]').affix({offset:{top: this.affixMarginTop}});
         this.$affixPlacehoder.css('height', this.affixPlacehoderHeight + 'px');
+    }
+
+    getAffixMarginTop() {
+        if (!FefResponsiveHelper.isSmartphone() && this.$masthead.hasClass('masthead--home')) {
+            return 0;
+        } else if (this.$mastheadNav.outerHeight() !== undefined) {
+            return this.$masthead.outerHeight() - this.$mastheadNav.outerHeight();
+        } else {
+            return this.$masthead.outerHeight();
+        }
     }
 
 }

@@ -21,6 +21,15 @@
   }
 }
 
+.sticky-container--home {
+  &.affix {
+    @include smartphone {
+      margin-top: -64px;
+    }
+  }
+}
+
+
 .affix-top {
   margin-top: 0;
 }
@@ -34,5 +43,15 @@
 
   @include smartphone {
     height: 186px;
+  }
+}
+
+.affix-placeholder--home {
+  @include tablet-up {
+    height: 100px;
+  }
+
+  @include smartphone {
+    height: 144px;
   }
 }
