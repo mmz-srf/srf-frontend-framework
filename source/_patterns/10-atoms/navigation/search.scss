@@ -27,6 +27,8 @@
 }
 
 .search--active {
+  z-index: 200;
+
   .search__input {
     color: $color-text-default;
   }

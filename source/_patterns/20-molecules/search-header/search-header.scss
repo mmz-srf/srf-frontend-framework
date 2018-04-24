@@ -17,7 +17,6 @@
 }
 
 .search-header__search {
-  z-index: 200; // needed for the search results to be in front of the navigation
   flex: 1 0 auto;
 
   // stretch search-container to full width + enable flex-wrap on parent + change order so search is last --> search wraps to next line on mobile
