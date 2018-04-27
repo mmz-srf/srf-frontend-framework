@@ -25,6 +25,8 @@ $color-button-default: #6b6960 !default;
 $color-button-active: #888579 !default;
 $color-button-active-secondary: $color-border !default;
 $color-button-success: #1a7ac5 !default;
+$color-bg-button-hover: rgba(185, 183, 172, .12) !default;
+$color-bg-button-focus: rgba(185, 183, 172, .24) !default;
 $color-form-field: #b9b7ac !default;
 $color-form-field-hint: #6b6960 !default;
 $color-bg-facebook: rgb(58,89,153) !default;
@@ -34,6 +36,44 @@ $color-bg-twitter: rgb(86,173,239) !default;
 $color-bg-twitter-hover: rgb(102,180,239) !default;
 $color-bg-twitter-active: rgb(125,191,242) !default;
 $color-media-playing: #383732 !default;
+$color-nav-bg-hover: rgba(0, 0, 0, 0.08) !default;
+$color-nav-bg-active: rgba(0, 0, 0, 0.16) !default;
+
+/*** THEMING ***/
+$theme-default-color-1: #FEFEFD;
+$theme-default-color-2: #FAFAF8;
+$theme-default-color-bg-pager-start: rgba(254, 254, 253, 1);
+$theme-default-color-bg-pager-start-transparent: rgba(254, 254, 253, 0);
+$theme-default-color-bg-pager-end: rgba(250, 250, 248, 1);
+$theme-default-color-bg-pager-end-transparent: rgba(250, 250, 248, 0);
+
+$theme-sport-color-1: #F28B02;
+$theme-sport-color-2: #E31F2B;
+$theme-sport-color-bg-pager-start: rgba(242, 139, 2, 1);
+$theme-sport-color-bg-pager-start-transparent: rgba(242, 139, 2, 0);
+$theme-sport-color-bg-pager-end: rgba(227, 31, 43, 1);
+$theme-sport-color-bg-pager-end-transparent: rgba(227, 31, 43, 0);
+
+$theme-meteo-color-1: #1A7AC5;
+$theme-meteo-color-2: #0A385C;
+$theme-meteo-color-bg-pager-start: rgba(26, 122, 197, 0.8);
+$theme-meteo-color-bg-pager-start-transparent: rgba(26, 122, 197, 0);
+$theme-meteo-color-bg-pager-end: rgba(10, 56, 92, 0.8);
+$theme-meteo-color-bg-pager-end-transparent: rgba(10, 56, 92, 0);
+
+$theme-kultur-color-1: #BC399F;
+$theme-kultur-color-2: #792465;
+$theme-kultur-color-bg-pager-start: rgba(188, 57, 159, 0.8);
+$theme-kultur-color-bg-pager-start-transparent: rgba(188, 57, 159, 0);
+$theme-kultur-color-bg-pager-end: rgba(121, 36, 101, 0.8);
+$theme-kultur-color-bg-pager-end-transparent: rgba(121, 36, 101, 0);
+
+$theme-dok-color-1: #19A067;
+$theme-dok-color-2: #0E593A;
+$theme-dok-color-bg-pager-start: rgba(25, 160, 103, 0.8);
+$theme-dok-color-bg-pager-start-transparent: rgba(25, 160, 103, 0);
+$theme-dok-color-bg-pager-end: rgba(14, 89, 58, 0.8);
+$theme-dok-color-bg-pager-end-transparent: rgba(14, 89, 58, 0);
 
 /*** FONTS ***/
 $font-bold: 'SRG_SSR_Bold', sans-serif !default;
@@ -54,8 +94,9 @@ $font-system: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
 // => for IE11 support: NEVER use font: size/line-height $font-system; (short form) but font-family: $font-system instead!
 
 /*** SHADOWS ***/
-$shadow-default: 0 1px 2px 0 rgba(0, 0, 0, .24), 0 0 2px 0 rgba(0, 0, 0, .12);
-$shadow-hover:   0 4px 8px 0 rgba(0, 0, 0, .24), 0 0 8px 0 rgba(0, 0, 0, .12);
+$shadow-default:   0 1px 2px 0 rgba(0, 0, 0, .24), 0 0 2px 0 rgba(0, 0, 0, .12);
+$shadow-hover:     0 4px 8px 0 rgba(0, 0, 0, .24), 0 0 8px 0 rgba(0, 0, 0, .12);
+$shadow-organisms: 0 2px 8px 0 rgba(0, 0, 0, 0.24), 0 0 8px 0 rgba(0, 0, 0, 0.12);
 
 /*** BREAKPOINT AND CONTENT related variables ***/
 $smartphone-size: 320px !default;

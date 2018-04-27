@@ -1,0 +1,57 @@
+.sticky-container {
+  position: fixed;
+  top: 0;
+  z-index: 100;
+  transform: translate3d(0,0,0); // this fixes the scroll lag for sticky headers in Safari on iOS
+  margin: 0 auto;
+  width: 100%;
+  backface-visibility: hidden;
+  transition: margin-top 300ms linear;
+
+  &.affix {
+    top: 0;
+
+    @include tablet-up {
+      margin-top: -138px;
+    }
+
+    @include smartphone {
+      margin-top: -108px;
+    }
+  }
+}
+
+.sticky-container--home {
+  &.affix {
+    @include smartphone {
+      margin-top: -64px;
+    }
+  }
+}
+
+
+.affix-top {
+  margin-top: 0;
+}
+
+.affix-placeholder {
+  top: 0;
+
+  @include tablet-up {
+    height: 216px;
+  }
+
+  @include smartphone {
+    height: 186px;
+  }
+}
+
+.affix-placeholder--home {
+  @include tablet-up {
+    height: 100px;
+  }
+
+  @include smartphone {
+    height: 144px;
+  }
+}

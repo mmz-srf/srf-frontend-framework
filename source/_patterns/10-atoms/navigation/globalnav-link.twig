@@ -1,0 +1,18 @@
+<a class="globalnav-link {% if "globalnav-link--expandable" in styleModifier %}js-expand-icon {% endif %}{{ styleModifier|default("") }}" href="{{ url|default("#") }}">
+  {% if img is defined %}
+    <img class="globalnav-link__img {{ styleModifierImg|default("") }}"
+         src="{{ frameworkAssetPath }}{{ img }}"
+         {% if imgRetina is defined %}srcset="{{ frameworkAssetPath }}{{ imgRetina }} 2x"{% endif %}
+         alt="{{ alt|default("") }}">
+  {% endif %}
+  
+  <span class="globalnav-link__text">
+    {{ text|default("") }}
+  </span>
+
+  {% if "globalnav-link--expandable" in styleModifier %}
+  <span class="globalnav-link__icon">
+    {% include 'atoms-expand-icon' with { 'styleModifier': 'expand-icon--dark' } %}
+  </span>
+  {% endif %}
+</a>

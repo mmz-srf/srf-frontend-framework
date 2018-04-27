@@ -1,0 +1,86 @@
+.search-header {
+  display: flex;
+  align-items: center;
+  
+  @include smartphone {
+    flex-wrap: wrap;
+  }
+
+  @include tablet-up {
+    padding: 16px 0;
+  }
+}
+
+.search-header__logo {
+  flex: 1 0 0px;
+  display: flex;
+}
+
+.search-header__search {
+  flex: 1 0 auto;
+
+  // stretch search-container to full width + enable flex-wrap on parent + change order so search is last --> search wraps to next line on mobile
+  @include smartphone {
+    order: 2;
+    flex-basis: 100%;
+    margin: 8px 0;
+  }
+
+  @include tablet {
+    flex-grow: 0;
+    flex-basis: 341px;
+  }
+
+  @include desktop-up {
+    flex-basis: 276px;
+  }
+}
+
+.search-header__close-wrapper {
+  flex: 1 0 0px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.search-header__close {
+  display: flex;
+  align-items: center;
+  border: none;
+  background-color: transparent;
+  margin: -4px 0;
+  padding: 0;
+
+  @include smartphone {
+    margin: 0 -16px 0 0;
+  }
+}
+
+.search-header__closeText {
+  margin-left: 8px;
+  font: 14px/1.5 $font-regular;
+  letter-spacing: 0.4px;
+  color: #4e4d47;
+
+  @include smartphone {
+    display: none;
+  }
+}
+
+// only show the search bar, but let the other elements take up their space
+.search-header--search-only {
+  .search-header__logo *,
+  .search-header__close-wrapper * {
+    display: none;
+  }
+
+  .search-header__search {
+    margin: 0;
+  }
+}
+
+// When the container has a fixed position, the results must be fixed too
+.search-header--fixed-results {
+  .search__results {
+    position: fixed;
+  }
+}

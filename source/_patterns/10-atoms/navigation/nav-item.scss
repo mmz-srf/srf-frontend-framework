@@ -1,0 +1,64 @@
+@import "../../variables";
+@import "../../breakpoints";
+
+.nav-item {
+  display: inline-block;
+  padding: 18px 16px 14px;
+  border-bottom: 2px solid transparent;
+  font-family: inherit;
+  font-size: 18px;
+  letter-spacing: 0.4px;
+  line-height: 1.25;
+  transition: background-color .2s ease-in-out;
+
+  /* fallback */
+  color: $color-text-accentuation;
+  opacity: 1;
+  /* theme */
+  color: var(--theme-color-nav, $color-text-accentuation);
+  opacity: var(--theme-item-opacity, 1);
+
+  @include smartphone {
+    padding: 18px 12px 16px;
+    font-size: 16px;
+    letter-spacing: 0.2px;
+  }
+
+  &:hover {
+    border-bottom: 2px solid transparent;
+    opacity: 1;
+
+    /* fallback */
+    background-color: $color-nav-bg-hover;
+    color: $color-text-accentuation;
+    /* theme*/
+    background-color: var(--theme-color-bg-hover, $color-nav-bg-hover);
+    color: var(--theme-color-nav, $color-text-accentuation);
+  }
+
+  &:active {
+    border-bottom: 2px solid transparent;
+    opacity: 1;
+
+    /* fallback */
+    background-color: $color-nav-bg-active;
+    color: $color-text-accentuation;
+    /* theme */
+    background-color: var(--theme-color-bg-active, $color-nav-bg-active);
+    color: var(--theme-color-nav, $color-text-accentuation);
+  }
+}
+
+.nav-item--active,
+.nav-item--active:hover,
+.nav-item--active:active {
+  background: none;
+  opacity: 1;
+
+  /* fallback */
+  border-bottom-color: #f1434a;
+  color: $color-accentuation-red;
+  /* theme */
+  border-bottom-color: var(--theme-color-nav-active-border, #f1434a);
+  color: var(--theme-color-active, $color-accentuation-red);
+}

@@ -700,5 +700,102 @@
     "name": "Dilma Rousseff",
     "function": "Präsidentin von Brasilien",
     "description": "Dilma Vana Rousseff [ˈdʒiwmɐ χuˈsɛf] (* 14. Dezember 1947 in Belo Horizonte) ist eine brasilianische Wirtschaftswissenschaftlerin und Politikerin. Sie gehört der gemäßigt linken Arbeiterpartei Partido dos Trabalhadores an. Vom 1. Januar 2011 bis zum 31. August 2016 war sie Präsidentin von Brasilien. Sie war die erste Frau in diesem Amt."
+  },
+  "masthead": {
+    "portals": [
+      {
+        "name": "News",
+        "url": "/news"
+      },{
+        "name": "Sport",
+        "url": "/sport"
+      },{
+        "name": "Meteo",
+        "url": "/meteo"
+      },{
+        "name": "Kultur",
+        "url": "/kultur"
+      },{
+        "name": "Dok",
+        "url": "/dok"
+      }
+    ],
+    "subnavi" : [
+      {
+        "name": "Übersicht",
+        "url": "#",
+        "active": true
+      },{
+        "name": "Schweiz",
+        "url": "#"
+      },{
+        "name": "Regional",
+        "url": "#"
+      },{
+        "name": "International",
+        "url": "#"
+      },{
+        "name": "Wirtschaft",
+        "url": "#"
+      },{
+        "name": "Panorama",
+        "url": "#"
+      },{
+        "name": "Wissen",
+        "url": "#"
+      },{
+        "name": "Dampfeisenbahn-Fachinformationen",
+        "url": "#"
+      },{
+        "name": "Netzwelt",
+        "url": "#"
+      },{
+        "name": "Literatur",
+        "url": "#"
+      },{
+        "name": "Musik",
+        "url": "#"
+      },{
+        "name": "Mehr",
+        "url": "#"
+      },{
+        "name": "2Panorama",
+        "url": "#"
+      },{
+        "name": "2Wissen",
+        "url": "#"
+      },{
+        "name": "2Dampfeisenbahn-Fachinformationen",
+        "url": "#"
+      },{
+        "name": "2Netzwelt",
+        "url": "#"
+      },{
+        "name": "2Literatur",
+        "url": "#"
+      },{
+        "name": "2Musik",
+        "url": "#"
+      },{
+        "name": "2Mehr",
+        "url": "#"
+      },{
+        "name": "3Dampfeisenbahn-Fachinformationen",
+        "url": "#"
+      },{
+        "name": "3Netzwelt",
+        "url": "#"
+      },{
+        "name": "3Literatur",
+        "url": "#"
+      },{
+        "name": "3Musik",
+        "url": "#"
+      },{
+        "name": "3Mehr",
+        "url": "#"
+      }
+    ]
+
   }
 }

@@ -1,0 +1,184 @@
+@import "../../variables";
+@import "../../breakpoints";
+
+.subnav {
+  position: relative;
+  margin: 0;
+  width: 100%;
+  height: 56px;
+  display: block;
+  overflow: hidden;
+}
+
+.subnav__list {
+  position: relative; // fixes visible scrollbars in chrome android (and desktop, when scrollbars are generally visible)
+  height: 100%;
+  margin: 0;
+  padding: 0 16px;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  font-size: 0; // removes space between inline-block child elements
+  white-space: nowrap;
+  // stretching list height to move scrollbar out of visible area
+  // assuming that no scrollbar is higher than 30px
+  padding-bottom: 30px;
+  box-sizing: content-box;
+}
+
+.subnav__list-item {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+  font-family: $font-regular;
+
+  &::before {
+    content: none;
+  }
+}
+
+.subnav__mask {
+  display: none;
+  position: absolute;
+  top: 0;
+  height: 56px;
+  width: 28px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.subnav__mask--visible {
+  display: block;
+
+  @include desktop-up {
+    display: none;
+  }
+}
+
+.subnav__mask--left {
+  left: 14px;
+  /* fallback */
+  background: linear-gradient(
+    to right,
+    rgba(254, 254, 253, 1),
+    rgba(254, 254, 253, 0)
+  );
+  /* theme */
+  background: linear-gradient(
+    to right,
+    var(--theme-color-pager-start, rgba(254, 254, 253, 1)),
+    var(--theme-color-pager-start-transparent, rgba(254, 254, 253, 0))
+  );
+
+  @include tablet {
+    left: 0;
+  }
+}
+
+.subnav__mask--right {
+  right: 0;
+  /* fallback */
+  background: linear-gradient(
+    to right,
+    rgba(250, 250, 248, 0),
+    rgba(250, 250, 248, 1)
+  );
+  /* theme */
+  background: linear-gradient(
+    to right,
+    var(--theme-color-pager-end-transparent, rgba(250, 250, 248, 0)),
+    var(--theme-color-pager-end, rgba(250, 250, 248, 1))
+  );
+}
+
+.subnav__pager {
+  display: none;
+
+  @include desktop-up {
+    display: block;
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    width: 84px;
+    height: 56px;
+    /* fallback */
+    background: linear-gradient(
+      to right,
+      rgba(254, 254, 253, 1),
+      rgba(255, 255, 255, 0) 66%,
+      rgba(255, 255, 255, 0)
+    );
+    /* theme */
+    background: linear-gradient(
+      to right,
+      var(--theme-color-pager-start, rgba(254, 254, 253, 1)),
+      var(--theme-color-pager-start-transparent, rgba(255, 255, 255, 0)) 66%,
+      var(--theme-color-pager-start-transparent, rgba(255, 255, 255, 0))
+    );
+
+    transition: opacity 200ms ease-in-out;
+  }
+}
+
+.subnav__pager--visible {
+  @include desktop-up {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+.subnav__pager--end {
+  @include desktop-up {
+    left: auto;
+    right: 0;
+    /* fallback */
+    background: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 0) 33%,
+      rgba(250, 250, 248, 1)
+    );
+    /* theme */
+    background: linear-gradient(
+      to right,
+      var(--theme-color-pager-end-transparent, rgba(255, 255, 255, 0)),
+      var(--theme-color-pager-end-transparent, rgba(255, 255, 255, 0)) 33%,
+      var(--theme-color-pager-end, rgba(250, 250, 248, 1))
+    );
+  }
+}
+
+.subnav__pager-icon {
+  @include desktop-up {
+    display: block;
+    box-sizing: content-box;
+    padding: 16px;
+    width: 24px;
+    height: 24px;
+    filter: none; /* fallback */
+    filter: var(--theme-icon-filter, none);
+
+    &:hover {
+      background-color: $color-nav-bg-hover;
+    }
+
+    &:active {
+      background-color: $color-nav-bg-active;
+    }
+  }
+}
+
+.subnav__pager-icon--right {
+  @include desktop-up {
+    float: right;
+  }
+}
+
+.subnav--portals {
+  .subnav__list-item {
+    font-family: $font-bold;
+    font-feature-settings: "salt";
+  }
+}

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs></defs>
+    <g id="Atoms/Icons/Burger_Icon_Dark" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linejoin="round">
+        <g id="Group" transform="translate(3.000000, 5.000000)" stroke="#4E4D47">
+            <path d="M18,1.5 L0,1.5" id="Stroke-1"></path>
+            <path d="M18,7.5 L0,7.5" id="Stroke-3"></path>
+            <path d="M18,13.5 L0,13.5" id="Stroke-5"></path>
+        </g>
+    </g>
+</svg>

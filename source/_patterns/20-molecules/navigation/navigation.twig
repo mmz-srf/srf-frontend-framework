@@ -3,9 +3,11 @@
     role="menu">
 
     <li class="navigation-item">
+        <div class="navigation-search__wrapper">
         {% block search %}
-            {% include 'atoms-search' with {'styleModifier': 'searchbox--navigation ' ~ ('navigation--header' in styleModifier ? 'searchbox--header-navigation' : '') } %}
+            {% include 'atoms-search' with {'styleModifier': 'search--legacy-navigation'} %}
         {% endblock %}
+        </div>
     </li>
 
     <li class="navigation-item navigation-item--column">

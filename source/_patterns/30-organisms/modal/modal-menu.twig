@@ -1,0 +1,17 @@
+{% embed "modal.twig" with {
+    'id': 'modal-menu',
+    'animation': 'scale-from-origin',
+    'styleModifier': ''
+} %}
+    {% block content %}
+        <span class="h-offscreen js-focus-target">Menu</span>
+
+        <div class="modal__head modal-wrapper">
+          {% include 'molecules-search-header' with {'styleModifier': ''} %}
+        </div>
+
+        <div class="modal__body modal-wrapper">
+          {% include 'molecules-globalnav' with {'styleModifier': '', 'id': 'globalnav--menu'} %}
+        </div>
+    {% endblock %}
+{% endembed %}

@@ -1,0 +1,40 @@
+{% set headerType = headerType|default("") %}
+
+<div class="affix-placeholder affix-placeholder--{{ headerType }}" data-smart-affix-placeholder></div>
+
+{% if headerType == "compact" %}
+    {% include 'organisms-masthead--compact' with {"themeStyleModifier": themeStyleModifier} %}
+{% elseif headerType == "home" %}
+<div class="sticky-container sticky-container--{{ headerType }} affix-top" data-smart-affix>
+    {% include 'organisms-masthead--home' with {"themeStyleModifier": themeStyleModifier} %}
+</div>
+{% else %}
+<div class="sticky-container affix-top" data-smart-affix>
+        {% include 'organisms-masthead' with {"themeStyleModifier": themeStyleModifier} %}
+</div>
+{% endif %}
+
+<div class="l-main-wrapper l-card l-card--with-fullwidth-elements">
+    <article class="article">
+
+        {% include 'atoms-breadcrumbs' %}
+        {% include 'molecules-article-header' %}
+        {% include 'molecules-sharing-bar' %}
+
+        <section class="article-content">
+            {% block article_content %}
+                [-- ARTICLE CONTENT --]
+            {% endblock %}
+        </section>
+
+    </article>
+</div>
+
+{% include 'molecules-comments' %}
+{% include 'molecules-swipe-module' %}
+
+{% include 'organisms-rlp-footer' %}
+
+{% include 'organisms-modal-menu' %}
+{% include 'organisms-modal-flyout' %}
+{% include 'organisms-modal-search' %}

@@ -1,0 +1,26 @@
+<nav class="subnav js-scroll-pager-container {{ styleModifier }}">
+    <ul class="subnav__list js-scroll-pager-content">
+        {% for item in masthead.subnavi %}
+                {% set itemStyleModifier = (item.active) ? 'nav-item--active js-active-subnav-item' : ''  %}
+                <li class="subnav__list-item">
+                {% include 'atoms-nav-item' with {
+                    'styleModifier': itemStyleModifier,
+                    'content': item.name,
+                    'url': item.url
+                } %}
+                </li>
+        {% endfor %}
+    </ul>
+    <div class="subnav__mask subnav__mask--left js-subnav-mask-left"></div>
+    <div class="subnav__mask subnav__mask--right js-subnav-mask-right"></div>
+    <div class="subnav__pager js-scroll-pager-button-back" aria-hidden="true" role="presentation">
+        <a class="subnav__pager-icon">
+            <span class="svg-icon svg-icon--arrow-left"></span>
+        </a>
+    </div>
+    <div class="subnav__pager subnav__pager--end js-scroll-pager-button-forward" aria-hidden="true" role="presentation">
+        <a class="subnav__pager-icon subnav__pager-icon--right">
+            <span class="svg-icon svg-icon--arrow-right"></span>
+        </a>
+    </div>
+</nav>

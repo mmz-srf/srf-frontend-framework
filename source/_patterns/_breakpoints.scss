@@ -18,6 +18,12 @@
   }
 }
 
+@mixin desktop-down {
+  @media (max-width: #{$desktop-size - 1px}) {
+    @content;
+  }
+}
+
 @mixin desktop {
   @media (min-width: $desktop-size) and (max-width: #{$desktop-wide-size - 1px}) {
     @content;
@@ -45,5 +51,35 @@
 @mixin desktop-widest-down {
   @media (max-width: #{$content-max-width - 1px}) {
     @content;
+  }
+}
+
+
+/**
+ * breakpoint-bridge for javascript
+ *
+ * this hidden pseudo-element's content can be read by
+ * javascript to determine which breakpoint is active.
+ */
+body:before {
+  content: 'smartphone';
+  display: none; /* Prevent from displaying. */
+}
+
+@include tablet {
+  body:before {
+    content: 'tablet';
+  }
+}
+
+@include desktop {
+  body:before {
+    content: 'desktop';
+  }
+}
+
+@include desktop-wide {
+  body:before {
+    content: 'desktop-wide';
   }
 }

@@ -1,54 +1,76 @@
-.searchbox {
-  padding: 0 12px;
+@import "../../variables";
 
-  @include tablet-up {
-    padding: 0;
-  }
+.search {
+  position: relative;
+  height: 48px;
+  overflow: visible;
+}
 
-  .close-search {
-    position: absolute;
-    text-decoration: none;
-    border: 0px;
-    padding: 12px;
-    
-    @include tablet-up {
-      padding: 11px;
-    }
+.search__close {
+  display: none;
+  text-decoration: none;
+  padding: 16px;
 
-    img {
-      position: relative;
-      margin-left: -10px;
-      width: 15px;
-      height: 15px;
-      @include tablet-up {
-        margin-left: 0px;
-      }
-    }
+  img {
+    position: relative;
+    width: 16px;
+    height: 16px;
   }
 }
 
-.searchbox__input {
+.search-wrapper {
+  background-color: #fefefd;
+  border-radius: 2px;
+  border: solid 1px rgba(0, 0, 0, 0.08);
+  border-bottom: 0;
+  transition: box-shadow .2s ease-in-out;
+}
+
+.search--active {
+  z-index: 200;
+
+  .search__input {
+    color: $color-text-default;
+  }
+
+  .search-wrapper {
+    // sass-lint:disable indentation
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .24),
+                0 0 4px 0 rgba(0, 0, 0, .12);
+    // sass-lint:enable indentation
+  }
+}
+
+.search__input--wrapper {
+  display: flex;
+  border-bottom: solid 1px rgba(0, 0, 0, 0.08);
+}
+
+.search__icon {
+  background-image: url(../img/search-sprite.svg);
+  background-position: 10px -32px;
+  background-size: 28px;
+  background-repeat: no-repeat;
+  width: 48px;
+  flex-shrink: 0;
+}
+
+.search__label {
+  flex: 1 0 auto;
+}
+
+.search__input {
   display: none; // visible on document.ready to prevent problems with events firing before document.ready
-  width: 100%;
-  height: 40px;
+  height: 100%;
+  width: calc(100% + 48px);
   font: 16px/1.1 $font-light; // line-height 1 cuts off "bottom parts of letters"
   letter-spacing: .6px;
-  color: $color-bg-box-hover;
-  background: #555 url("../img/search-sprite.svg") no-repeat scroll 6px 0 / 28px auto;
-  padding: 10px 4px 8px 40px; // adjusting from 11 4 9 40 to line-height above
+  color: $color-text-light;
+  background: transparent;
   border: 0;
-  border-radius: 2px;
-  box-sizing: border-box;
+  padding: 14px 48px;
+  margin: 0 -48px;
   @include font-smoothing;
-
-  &:focus {
-    color: $color-text-accentuation;
-    background-color: $color-bg-box;
-    background-position: 6px -35px;
-    outline: none;
-    -webkit-font-smoothing: auto;
-    -moz-osx-font-smoothing: auto;
-  }
 
   &:focus::placeholder {
     opacity: 0;
@@ -56,7 +78,7 @@
 
   // safari needs it's own line-height and opacity
   &::-webkit-input-placeholder {
-    color: $color-bg-box-hover;
+    color: $color-text-light;
     line-height: 21px;
     opacity: 1;
   }
@@ -65,57 +87,60 @@
   &::-ms-clear {
     display: none;
   }
-
-  &.search--has-results {
-    // when results are shown, bottom-radius must be reset
-    border-bottom-left-radius: 0px;
-    border-bottom-right-radius: 0px;
-  }
 }
 
-.searchbox__results {
-  position: absolute;
-  z-index: 100;
-  margin-top: 0px; // override border edges
-  padding-top: 1px;
-  padding-right: 0px;
-  padding-left: 0px;
-  background-color: #fafaf8;
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.36);
+.search__results {
+  display: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
 
-  li {
-    display: block;
-    background-image: none;
-    border-bottom: 0px;
-    margin: 0px;
-    padding: 0px;
+.typeahead-suggestion {
+  display: block;
+  background-image: none;
+  border-bottom: 0px;
+  margin: 0;
+  padding: 0;
 
-    &:before {
-      display: none;
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+
+  animation-name: fade-in-item;
+  animation-duration: 0.2s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+
+  @for $i from 1 through 7 {
+    &:nth-child(#{$i}) {
+      animation-delay: #{$i*0.05}s;
     }
+  }
 
-    &:last-child {
-      padding-bottom: 8px;
-    }
+  &:before {
+    display: none;
+  }
 
-    &:first-child {
-      padding-top: 8px;
-    }
+  &:last-child {
+    padding-bottom: 8px;
+  }
+
+  &:first-child {
+    padding-top: 8px;
   }
 
   a {
     display: block;
     width: 100%;
     font-size: 16px;
-    height: 48px;
     font-weight: 300;
     letter-spacing: 0.5px;
     text-align: left;
-    color: #22211d;
+    color: $color-text-default;
     text-decoration: none;
-    border: 0;
-    padding: 11px 16px 5px 13px;
-
+    padding: 12px 24px;
+    
     line-height: 1.5;
 
     @include tablet-up {
@@ -126,90 +151,141 @@
     &:hover,
     &:focus,
     &:active {
-      border: 0;
-      color: #22211d;
+      color: $color-text-default;
     }
   }
 
-  a:hover,
-  li.active a,
-  .typeahead-suggestion.active a {
-    background-color: #f5f5f2;
-  }
-
-  a:active {
-    background-color: #ebebe5;
+  &.typeahead-suggestion--no-animation {
+    animation-duration: 0s;
+    animation-delay: 0s;
   }
 }
 
-.search--overlay {
-  position: absolute;
-  overflow: hidden;
-  width: 100%;
-  height: 100%;
+@keyframes fade-in-item {
+  0% {
+    opacity: 0;
+    max-height: 0;
+  }
+  80% {
+    max-height: 48px;
+  }
+  100% {
+    opacity: 1;
+    max-height: none;
+  } 
+}
 
-  &::after {
-    background-color: #000;
-    height: 100%;
-    left: 0;
-    opacity: 0.2;
-    position: absolute;
-    top: 56px;
-    width: 100%;
-    z-index: 1;
+.search-result__link {
+  &:hover {
+    background-color: $color-bg-button-hover;
+  }
+
+  &:active,
+  &:focus {
+    background-color: $color-bg-button-focus;
   }
 }
 
-.searchbox--navigation {
+// Transition period: use this modifier for an approximation of the old styling (RA/WV)
+.search--legacy-navigation {
   position: relative;
   width: 100%;
   top: auto;
   right: auto;
   max-width: 458px;
-  margin: auto;
+  margin: 0 auto 32px;
   padding: 0 12px;
+  height: 40px;
+
+  @include smartphone {
+    margin: 16px auto 8px;
+  }
 
   @include desktop-up {
-    max-width: 500px;
+    max-width: 458px;
   }
 
-  @include tablet-up {
-    margin-bottom: 32px;
+  .search__input {
+    padding: 12px 48px;
+    height: auto;
   }
 
-  .searchbox__input {
-    height: 40px;
-    background-size: auto;
-  }
-}
-
-// Inside of the header navigation, the searchbox should only be visible on Size 1 (Mobile)
-.searchbox--header-navigation {
-  margin-top: 16px;
-
-  @include tablet-up {
-    display: none;
+  .search__close {
+      padding: 12px;
   }
 }
 
-// Expandable searchboxes have a fixed initial width and can, surprisingly, expand to 100%
-.searchbox--expandable {
-  float: right;
-  width: 180px;
-  transition: width .2s ease;
-}
+// Transition period: use this modifier for an approximation of the old styling (RA/WV)
+.search--legacy {
+  display: flex;
+  justify-content: flex-end;
+  height: 40px;
 
-.searchbox--header {
-  .searchbox__input {
-    @include tablet-up {
-      height: 36px; // safari has a problem with paddings
-      padding: 0 30px 0 36px; // adjusting from 6 6 6 36 to line-height above
-      background-size: 23px;
-      background-position: 6px 2px;
+  .search-wrapper {
+    // sass-lint:disable indentation
+    transition: width .2s ease-in-out,
+                box-shadow .2s ease-in-out;
+    // sass-lint:enable indentation
+    width: 180px;
+    background-color: #555555;
+  }
 
-      &:focus {
-        background-position: 6px -28px;
-      }
+  .search__label {
+    flex-shrink: 1;
+  }
+
+  .search__results {
+    background-color: #fafaf8;
+    margin-top: -1px;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.24), 0 0 4px 0 rgba(0,0,0,0.12);
+  }
+
+  .search__input--wrapper {
+    border-bottom: 0;
+  }
+
+  .search__input {
+    padding: 10px 48px;
+  }
+  
+  .search__icon {
+    background-position-y: 0px;
+    background-position-x: 8px;
+    width: 40px;
+  }
+
+  .search__close {
+    padding: 12px;
+  }
+
+  .search__input,
+  .search__input::-webkit-input-placeholder {
+    color: $color-bg-box-hover;
+  }
+
+  &.search--active {
+    .search__icon {
+      background-position-y: -36px;
+    }
+
+    .search-wrapper {
+      width: 100%;
+      background-color: $color-bg-caption;
+      border: 0;
+    }
+
+    .search__input,
+    .search__input::-webkit-input-placeholder {
+      color: $color-text-accentuation;
+    }
+  }
+
+  @include smartphone {
+    margin: 16px 12px 0;
+    z-index: 1;
+    
+    .search-wrapper {
+      width: 100%;
     }
   }
 }

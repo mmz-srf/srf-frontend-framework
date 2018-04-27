@@ -1,0 +1,17 @@
+<div class="search-header {{ styleModifier|default("") }}">
+
+  <div class="search-header__logo">
+    {% include 'atoms-main-logo' with {'styleModifier': 'main-logo--large'} %}
+  </div>
+
+  <div class="search-header__search">
+    {% include 'atoms-search' with {'styleModifier': styleModifierSearch|default('')} %}
+  </div>
+
+  <div class="search-header__close-wrapper">
+    <button class="search-header__close js-close-modal">
+      {% include 'atoms-icon-button' with {'iconStyleModifier': 'svg-icon--close-dark', 'buttonText': 'Schliessen', 'styleModifier': 'icon-button--collapsing-text-mobile icon-button--spaceless-right-mobile'} %}
+    </button>
+  </div>
+
+</div>

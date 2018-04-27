@@ -24,3 +24,7 @@
 .horizontal-separator--content-max-width {
   @include fullwidth-container;
 }
+
+.horizontal-separator--no-margins {
+  margin: 0;
+}

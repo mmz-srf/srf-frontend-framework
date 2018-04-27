@@ -1,0 +1,67 @@
+@import "../../variables";
+@import "../../breakpoints";
+
+.icon-button {
+  display: flex;
+  padding: 16px;
+  align-items: center;
+  cursor: pointer;
+  /* fallback */
+  color: $color-text-accentuation;
+  opacity: 1;
+  /* theme */
+  color: var(--theme-color-nav, $color-text-accentuation);
+  opacity: var(--theme-item-opacity, 1);
+  &:hover {
+    color: $color-text-default;  /* fallback */
+    color: var(--theme-color-nav-hover-text, $color-text-default);
+    opacity: 1;
+  }
+}
+
+.icon-button__text {
+  margin-left: 8px;
+  font-family: $font-regular;
+  font-size: 14px;
+  line-height: 1.14;
+  letter-spacing: 0.4px;
+}
+
+// prevent empty spaces to change the span's size
+.icon-button__icon {
+  font-size: 0;
+  filter: none; /* fallback */
+  filter: var(--theme-icon-filter, none);
+}
+
+// no padding on the right on deksop+
+.icon-button--spaceless-right-tablet {
+  @include desktop-up {
+    padding-right: 0;
+  }
+}
+
+// no padding on the right on tablet+
+.icon-button--spaceless-right-mobile {
+  @include tablet-up {
+    padding-right: 0;
+  }
+}
+
+// Text of the button is only visible on desktop+
+.icon-button--collapsing-text-tablet {
+  @include desktop-down {
+    .icon-button__text {
+      display: none;
+    }
+  }
+}
+
+// Text of the button is only visible on tablet+
+.icon-button--collapsing-text-mobile {
+  @include smartphone {
+    .icon-button__text {
+      display: none;
+    }
+  }
+}
