@@ -3,7 +3,7 @@
   "version": "0.2.0",
   "private": true,
   "engines": {
-    "node": ">=6.11.1"
+    "node": "^8.11.*"
   },
   "dependencies": {
     "babel-preset-env": "*",
