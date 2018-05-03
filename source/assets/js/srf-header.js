@@ -120,6 +120,7 @@ export class SrfHeader {
 
         // Show then animate via class OR animate via class then hide
         if (this.menuIsOpen) {
+            this.$menuButton.attr('aria-expanded', 'true').attr('aria-haspopup', 'true');
             this.$navigation.show();
 
             this.$element.addClass('header--open');
@@ -130,6 +131,7 @@ export class SrfHeader {
                 this.isInTransition = false;
             });
         } else {
+            this.$menuButton.attr('aria-expanded', 'false').attr('aria-haspopup', 'false');
             $('html').toggleClass('menu--opened', this.menuIsOpen);
 
             window.scrollTo(0, 0);
@@ -187,9 +189,13 @@ export class SrfHeader {
      */
     setInnerFocus() {
         if ($(window).width() > 720) {
-            this.$navigation.find('.navigation-link').first().focus();
+            this.$navigation.find('.navigation-link').first().attr('tabindex', -1).on('blur focusout', function () {
+                $(this).removeAttr('tabindex');
+            }).focus();
         } else {
-            this.$navigation.find('.search__input').first().focus();
+            this.$navigation.find('.js-search-input').first().attr('tabindex', -1).on('blur focusout', function () {
+                $(this).removeAttr('tabindex');
+            }).focus();
         }
     }
 }
