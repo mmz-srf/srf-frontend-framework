@@ -55,7 +55,7 @@
 }
 
 .subnav__mask--left {
-  left: 14px;
+  left: 0;
   /* fallback */
   background: linear-gradient(
     to right,
@@ -68,10 +68,6 @@
     var(--theme-color-pager-start, rgba(254, 254, 253, 1)),
     var(--theme-color-pager-start-transparent, rgba(254, 254, 253, 0))
   );
-
-  @include tablet {
-    left: 0;
-  }
 }
 
 .subnav__mask--right {
@@ -100,6 +96,7 @@
     position: absolute;
     bottom: 0;
     left: 0;
+    z-index: 2;
 
     width: 84px;
     height: 56px;
