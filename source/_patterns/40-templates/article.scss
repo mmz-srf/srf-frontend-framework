@@ -1,6 +1,7 @@
 .article {
   margin: 0 auto;
   min-height: 480px;
+
   @include tablet {
     max-width: 720px;
     padding: 0 32px;
