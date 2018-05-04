@@ -97,7 +97,6 @@
     bottom: 0;
     left: 0;
     z-index: 2;
-
     width: 84px;
     height: 56px;
     /* fallback */
@@ -177,5 +176,13 @@
   .subnav__list-item {
     font-family: $font-bold;
     font-feature-settings: "salt";
+  }
+}
+
+.subnav--in-transition {
+  .subnav__mask,
+  .subnav__pager {
+    transition: background 100ms linear;
+    background: rgba(255,255,255,0);
   }
 }
