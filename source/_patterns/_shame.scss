@@ -36,6 +36,7 @@
  * the body and position: fixed; on the menu on tablet-up. This results in wrong positioning of the Floating-Focus-Elem.
  * After the Header has been properly fixed, this can be removed.
  */
+// sass-lint:disable no-ids
 .menu--opened #flying-focus {
   margin-top: -56px;
 }
@@ -46,7 +47,7 @@
     margin-top: 0;
   }
 }
-
+// sass-lint:enable no-ids
 
 
 /*
