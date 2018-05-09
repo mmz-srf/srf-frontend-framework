@@ -140,7 +140,7 @@
     color: $color-text-default;
     text-decoration: none;
     padding: 12px 24px;
-    
+
     line-height: 1.5;
 
     @include tablet-up {
@@ -156,8 +156,10 @@
   }
 
   &.typeahead-suggestion--no-animation {
-    animation-duration: 0s;
+    animation-name: no-animation;
     animation-delay: 0s;
+    animation-duration: .1s;
+    animation-fill-mode: forwards;
   }
 }
 
@@ -172,7 +174,22 @@
   100% {
     opacity: 1;
     max-height: none;
-  } 
+  }
+}
+
+// Workaround for Safari's animation-bug.
+// Instead of animating in 0s which breaks the element, we animate in a
+// short amount of time from the fully open state to the fully open state,
+// effectively not animating anything. See SRFCMSAL-998
+@keyframes no-animation {
+  0% {
+    opacity: 1;
+    max-height: none;
+  }
+  100% {
+    opacity: 1;
+    max-height: none;
+  }
 }
 
 .search-result__link {
@@ -247,7 +264,7 @@
   .search__input {
     padding: 10px 48px;
   }
-  
+
   .search__icon {
     background-position-y: 0px;
     background-position-x: 8px;
@@ -283,7 +300,7 @@
   @include smartphone {
     margin: 16px 12px 0;
     z-index: 1;
-    
+
     .search-wrapper {
       width: 100%;
     }
