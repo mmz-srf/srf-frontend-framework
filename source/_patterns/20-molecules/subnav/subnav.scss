@@ -155,6 +155,7 @@
     height: 24px;
     filter: none; /* fallback */
     filter: var(--theme-icon-filter, none);
+    cursor: pointer;
 
     &:hover {
       background-color: $color-nav-bg-hover;
