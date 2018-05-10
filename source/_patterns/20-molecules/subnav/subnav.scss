@@ -17,6 +17,7 @@
   padding: 0 16px;
   overflow-y: hidden;
   overflow-x: scroll;
+  -webkit-overflow-scrolling: touch;
   font-size: 0; // removes space between inline-block child elements
   white-space: nowrap;
   // stretching list height to move scrollbar out of visible area
