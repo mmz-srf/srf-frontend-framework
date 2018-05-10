@@ -65,9 +65,22 @@ export class FefScrollPager {
 
     registerListeners() {
         $(window).on('resize', FefDebounceHelper.debounce(() => this.init(), DEBOUNCETIME));
-        this.$innerContainer.on('scroll', FefDebounceHelper.debounce(() => this.init(), DEBOUNCETIME));
+        //this.$innerContainer.on('scroll', FefDebounceHelper.debounce(() => this.init(), DEBOUNCETIME));
         this.$buttonBack.on('click', () => { this.pageBack(); });
         this.$buttonForward.on('click', () => { this.pageForward(); });
+
+        let timer = null;
+        this.$innerContainer.on('scroll', FefDebounceHelper.debounce(() => {
+            this.init();
+            this.$element.addClass('subnav--scrolling');
+
+            if(timer !== null) {
+                clearTimeout(timer);
+            }
+            timer = setTimeout(() => {
+                this.$element.removeClass('subnav--scrolling');
+            }, 150);
+        }, DEBOUNCETIME));
     }
 
     updateButtonStatus() {
