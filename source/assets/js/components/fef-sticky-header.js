@@ -41,13 +41,21 @@ export class FeFStickyHeader {
         let scrollTop = $(window).scrollTop();
         let that = this;
         let scrollDifference = Math.abs(this.lastScrollTop - scrollTop);
+        let scrollUp = scrollTop <= this.lastScrollTop;
+        let scrolledFarEnough = false;
+
+        if (scrollUp) {
+            scrolledFarEnough = scrollDifference > 30;
+        } else {
+            scrolledFarEnough = scrollDifference > 1;
+        }
 
         /*
          * Sticky Header must stay as it is after resizing
-         * Sticky Header may not change state after a minimal scrolling (5 pixel)
+         * Sticky Header may not change state after a minimal scrolling (depends on scroll direction)
          * Sticky Header may not change state if scrollTop has a negative value (safari)
          */
-        if (!this.hasResized && scrollDifference > 5 || scrollTop < 0) {
+        if (!this.hasResized && scrolledFarEnough || scrollTop < 0) {
             // scroll up > show full header
             if (scrollTop <= this.lastScrollTop) {
 
