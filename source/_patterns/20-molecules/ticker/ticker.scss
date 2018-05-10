@@ -16,11 +16,12 @@ $ticker-item-padding-bottom-desktop: 30px;
 $ticker-item-border-width: 1px;
 
 .ticker {
-  margin: $ticker-margin-top $ticker-margin-right $ticker-margin-bottom $ticker-margin-left;
+  margin: 11px $ticker-margin-right $ticker-margin-bottom-mobile $ticker-margin-left;
   padding: 0;
 
-  @include smartphone {
-    margin-bottom: $ticker-margin-bottom-mobile;
+  @include tablet-up {
+    margin-top: 19px;
+    margin-bottom: $ticker-margin-bottom;
   }
 }
 
@@ -256,8 +257,15 @@ $ticker-item-border-width: 1px;
   box-shadow: 0 5px 10px 8px #fff; // like gradient
   position: relative;
   z-index: 1;
+
+  margin: 32px 0 11px; // 11px = 16px - 5px border!
+
+  @include tablet-up {
+    margin: 40px 0 11px;
+  }
 }
 
 .ticker__info--live {
   color: $color-accentuation-red;
+  margin-bottom: 19px; // 19px = 24px - 5px border!
 }
