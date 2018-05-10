@@ -134,7 +134,7 @@ export class FefScrollPager {
             }
         }
 
-        let newPosition = this.itemRightPositions[nextItem] - this.$innerContainer.innerWidth() + INNER_CONTAINER_SCROLL_PADDING;
+        let newPosition = this.itemLeftPositions[nextItem] - this.$innerContainer.innerWidth() + INNER_CONTAINER_SCROLL_PADDING;
         this.scrollToPosition(newPosition);
     }
 
