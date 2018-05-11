@@ -4,8 +4,24 @@ const ANIMATION_SPEED = 200;
 const KEYCODES = {
     'enter': 13,
     'tab': 9,
-    'escape': 27
+    'escape': 27,
+    'up': 38,
+    'down': 40,
+    'space': 32,
+    'pageup': 33,
+    'pagedown': 34,
+    'end': 35,
+    'home': 36
 };
+const SCROLL_KEYCODES = [
+    KEYCODES.up,
+    KEYCODES.down,
+    KEYCODES.space,
+    KEYCODES.pageup,
+    KEYCODES.pagedown,
+    KEYCODES.end,
+    KEYCODES.home
+];
 
 let existingModals = {};
 
@@ -42,6 +58,7 @@ export class FefModal {
         this.$mainWrapper = this.$element.find('.js-modal-main-wrapper');
         this.$mainContent = this.$element.find('.js-modal-main-content');
         this.animation = this.$element.attr('data-animation');
+        this.windowScrollState;
 
         this.bindEvents();
 
@@ -83,7 +100,9 @@ export class FefModal {
                 this.$element.show();
                 break;
         }
-        
+
+        this.disableScroll();
+
         if (this.$focusTarget.length === 1) {
             this.setFocus(this.$focusTarget);
         }
@@ -102,12 +121,14 @@ export class FefModal {
                 break;
         }
 
+        this.enableScroll();
+
         this.setFocus(this.$caller);
     }
 
     /**
      * Simply using .focus() doesn't suffice.
-     * 
+     *
      * @param $element jQuery.Element
      */
     setFocus($element) {
@@ -120,9 +141,9 @@ export class FefModal {
      * Fancy menu opening animation:
      * - fades the modal in
      * - 'opens' it from the originating element
-     * - fades in the content (otherwise it'll be resized) 
-     * 
-     * For aesthetical reasons we have to animate to the previous height and not 100% max-height directly. 
+     * - fades in the content (otherwise it'll be resized)
+     *
+     * For aesthetical reasons we have to animate to the previous height and not 100% max-height directly.
      */
     scaleFromOrigin() {
         this.$mainContent.css('opacity', 0);
@@ -149,5 +170,57 @@ export class FefModal {
                 'opacity': 1
             }, ANIMATION_SPEED);
         });
+    }
+
+    preventDefault(e) {
+
+        if ($(e.target).parents('.js-modal').length > 0) {
+            return;
+        }
+
+        // Wheelevent
+        if (typeof e.deltaY !== 'undefined') {
+            if (e.deltaY < 0 && $('.js-modal-main-wrapper').scrollTop() > 0) {
+                return;
+            }
+            if (e.deltaY > 0 && $('.js-modal-main-content').outerHeight() - $('.js-modal-main-wrapper').scrollTop() !== $('.js-modal').outerHeight() ) {
+                return;
+            }
+        }
+
+        e = e || window.event;
+        if (e.preventDefault) {
+            e.preventDefault();
+        }
+        e.returnValue = false;
+
+
+        $(window).scrollTop(this.windowScrollState);
+    }
+
+    preventDefaultForScrollKeys(e) {
+        if (SCROLL_KEYCODES.indexOf[e.keyCode] >= 0) {
+            preventDefault(e);
+            return false;
+        }
+    }
+
+    disableScroll() {
+        window.onwheel = this.preventDefault;
+        window.onmousewheel = document.onmousewheel = this.preventDefault;
+        window.ontouchmove  = this.preventDefault;
+        document.onkeydown  = this.preventDefaultForScrollKeys;
+
+        this.windowScrollState = $(window).scrollTop();
+    }
+
+    enableScroll() {
+        window.onmousewheel = document.onmousewheel = null;
+        window.onwheel = null;
+        window.ontouchmove = null;
+        document.onkeydown = null;
+
+        $(window).scrollTop(this.windowScrollState);
+        this.windowScrollState = null;
     }
 }
