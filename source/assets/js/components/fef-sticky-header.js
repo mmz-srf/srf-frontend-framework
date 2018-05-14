@@ -50,6 +50,8 @@ export class FeFStickyHeader {
             scrolledFarEnough = scrollDifference > 1;
         }
 
+        console.log(`Afterscrolling: ${scrollUp ? 'up' : 'down'} `, scrollDifference);
+
         /*
          * Sticky Header must stay as it is after resizing
          * Sticky Header may not change state after a minimal scrolling (depends on scroll direction)
@@ -57,7 +59,7 @@ export class FeFStickyHeader {
          */
         if (!this.hasResized && scrolledFarEnough || scrollTop < 0) {
             // scroll up > show full header
-            if (scrollTop <= this.lastScrollTop) {
+            if (scrollUp) {
 
                 this.$stickyContainer.css('margin-top', '0');
                 this.$stickyContainer.addClass('js-sticky-container--full');
@@ -77,23 +79,23 @@ export class FeFStickyHeader {
             }
             // scroll down > show small header
             else {
-
+                console.log("showing small header");
                 $('.affix').css('margin-top', '-' + this.affixMarginTop + 'px');
                 this.$stickyContainer.removeClass('js-sticky-container--full');
 
-                if(scrollTop >= this.affixMarginTop && this.scrollDirection !== 'down') {
-                    this.$subnav.addClass('subnav--in-transition');
-                    this.$masthead.addClass('masthead--in-transition');
-                    setTimeout(
-                        function() {
-                            that.$subnav.removeClass('subnav--in-transition');
-                            that.$masthead.removeClass('masthead--in-transition');
-                            that.$masthead[0].className = that.$masthead[0].className.replace(/\-\-theme\-/g, '--off-theme-');
-                        },
-                        200
-                    );
-                    this.scrollDirection = 'down';
-                }
+                //if(scrollTop >= this.affixMarginTop && this.scrollDirection !== 'down') {
+                this.$subnav.addClass('subnav--in-transition');
+                this.$masthead.addClass('masthead--in-transition');
+                setTimeout(
+                    function() {
+                        that.$subnav.removeClass('subnav--in-transition');
+                        that.$masthead.removeClass('masthead--in-transition');
+                        that.$masthead[0].className = that.$masthead[0].className.replace(/\-\-theme\-/g, '--off-theme-');
+                    },
+                    200
+                );
+                this.scrollDirection = 'down';
+                //}
             }
         }
 
