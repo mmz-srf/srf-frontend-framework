@@ -1,6 +1,6 @@
 @import "../../variables";
 
-$ticker-margin-top: 30px;
+$ticker-margin-top: 16px;
 $ticker-margin-right: 0;
 $ticker-margin-left: 7px;
 $ticker-margin-bottom: 7px;
@@ -16,7 +16,7 @@ $ticker-item-padding-bottom-desktop: 30px;
 $ticker-item-border-width: 1px;
 
 .ticker {
-  margin: 16px $ticker-margin-right $ticker-margin-bottom-mobile $ticker-margin-left;
+  margin: $ticker-margin-top $ticker-margin-right $ticker-margin-bottom-mobile $ticker-margin-left;
   padding: 0;
 
   @include tablet-up {
@@ -253,13 +253,12 @@ $ticker-item-border-width: 1px;
   line-height: 16px;
   letter-spacing: .2px;
   color: $color-text-light;
-  // border-bottom: 5px solid #fff;
   background-color: #fff;
   box-shadow: 0 5px 10px 5px #fff; // like gradient
   position: relative;
   z-index: 1;
 
-  margin: 32px 0 16px; // 11px = 16px - 5px border!
+  margin: 32px 0 16px;
 
   @include tablet-up {
     margin: 40px 0 16px;
@@ -268,5 +267,5 @@ $ticker-item-border-width: 1px;
 
 .ticker__info--live {
   color: $color-accentuation-red;
-  margin-bottom: 24px; // 19px = 24px - 5px border!
+  margin-bottom: 24px;
 }
