@@ -1,4 +1,5 @@
 import {DOM_CHANGED_EVENT} from '../classes/fef-dom-observer';
+import {FefResponsiveHelper} from '../classes/fef-responsive-helper';
 
 const ANIMATION_SPEED = 200;
 const KEYCODES = {
@@ -42,6 +43,7 @@ export class FefModal {
         this.$mainWrapper = this.$element.find('.js-modal-main-wrapper');
         this.$mainContent = this.$element.find('.js-modal-main-content');
         this.animation = this.$element.attr('data-animation');
+        this.previousScrollPosition = null;
 
         this.bindEvents();
 
@@ -75,15 +77,16 @@ export class FefModal {
     show() {
         switch (this.animation) {
             case 'scale-from-origin':
-                this.scaleFromOrigin();
+                this.scaleFromOrigin(() => this.preventScrolling());
+                break;
             case 'fade-in-out':
-                this.$element.stop(true, true).fadeIn(ANIMATION_SPEED);
+                this.$element.stop(true, true).fadeIn(ANIMATION_SPEED, () => this.preventScrolling());
                 break;
             default:
-                this.$element.show();
+                this.$element.show(() => this.preventScrolling());
                 break;
         }
-        
+
         if (this.$focusTarget.length === 1) {
             this.setFocus(this.$focusTarget);
         }
@@ -93,6 +96,8 @@ export class FefModal {
      * Hide the modal, depending on the provided animation.
      */
     close() {
+        this.scrollToPreviousPosition();
+
         switch (this.animation) {
             case 'fade-in-out':
                 this.$element.stop(true, true).fadeOut(ANIMATION_SPEED);
@@ -107,7 +112,7 @@ export class FefModal {
 
     /**
      * Simply using .focus() doesn't suffice.
-     * 
+     *
      * @param $element jQuery.Element
      */
     setFocus($element) {
@@ -120,11 +125,12 @@ export class FefModal {
      * Fancy menu opening animation:
      * - fades the modal in
      * - 'opens' it from the originating element
-     * - fades in the content (otherwise it'll be resized) 
-     * 
-     * For aesthetical reasons we have to animate to the previous height and not 100% max-height directly. 
+     * - fades in the content (otherwise it'll be resized)
+     * - calls an optional callback
+     *
+     * For aesthetical reasons we have to animate to the previous height and not 100% max-height directly.
      */
-    scaleFromOrigin() {
+    scaleFromOrigin(callBack) {
         this.$mainContent.css('opacity', 0);
         this.$element.show();
 
@@ -147,7 +153,43 @@ export class FefModal {
             this.$mainWrapper.css('max-height', '100%');
             this.$mainContent.animate({
                 'opacity': 1
-            }, ANIMATION_SPEED);
+            }, ANIMATION_SPEED, callBack);
         });
+    }
+
+    /**
+     * Prevent scrollable page on mobile when the modal is open.
+     * We achieve this by setting the body to overflow: hidden and setting the height to 100%, thus
+     * effectively cutting the rest of the page off. This scrolls to the top of the page, so we
+     * also have to save the previous scroll state.
+     *
+     * We only do this on mobile and if the modal covers the whole page.
+     */
+    preventScrolling() {
+        if (FefResponsiveHelper.isSmartphone() && this.$mainContent.outerHeight() >= $(window).outerHeight()) {
+            this.previousScrollPosition = $(window).scrollTop();
+            $('html').addClass('prevent-scrolling');
+        }
+    }
+
+    /**
+     * If, upon opening the modal, the ability to scroll was removed, we give it back now. This means:
+     * - removing the class that prevents the scrolling
+     * - scrolling back to the previously saved scroll position
+     *
+     * This makes it appear as if we never even scrolled away.
+     *
+     * The scrolling is only done if we're on mobile, but the class is removed on all sizes.
+     */
+    scrollToPreviousPosition() {
+        if (this.previousScrollPosition !== null) {
+            $('html').removeClass('prevent-scrolling');
+
+            if (FefResponsiveHelper.isSmartphone()) {
+                $(window).scrollTop(this.previousScrollPosition);
+            }
+
+            this.previousScrollPosition = null;
+        }
     }
 }

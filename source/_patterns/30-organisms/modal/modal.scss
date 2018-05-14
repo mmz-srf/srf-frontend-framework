@@ -1,3 +1,14 @@
+html.prevent-scrolling {
+    @include smartphone {
+        height: 100%;
+
+        body {
+            height: 100%;
+            overflow: hidden;
+        }
+    }
+}
+
 .modal {
   display: none;
   position: fixed;
