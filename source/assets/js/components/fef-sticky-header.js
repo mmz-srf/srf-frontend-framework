@@ -17,8 +17,6 @@ export class FeFStickyHeader {
         this.$masthead = $(element);
         this.$mastheadNav = $('.masthead__nav');
 
-        console.log(FefResponsiveHelper.isSmartphone());
-
         // Do not initialize in case of home landingpage on a breakpoint larger then smartphone
         if(!(!FefResponsiveHelper.isSmartphone() && this.$masthead.hasClass('masthead--home'))) {
             console.log('init');
