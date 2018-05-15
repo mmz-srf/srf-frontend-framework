@@ -1,6 +1,6 @@
 @import "../../variables";
 
-$ticker-margin-top: 30px;
+$ticker-margin-top: 16px;
 $ticker-margin-right: 0;
 $ticker-margin-left: 7px;
 $ticker-margin-bottom: 7px;
@@ -16,11 +16,12 @@ $ticker-item-padding-bottom-desktop: 30px;
 $ticker-item-border-width: 1px;
 
 .ticker {
-  margin: $ticker-margin-top $ticker-margin-right $ticker-margin-bottom $ticker-margin-left;
+  margin: $ticker-margin-top $ticker-margin-right $ticker-margin-bottom-mobile $ticker-margin-left;
   padding: 0;
 
-  @include smartphone {
-    margin-bottom: $ticker-margin-bottom-mobile;
+  @include tablet-up {
+    margin-top: 24px;
+    margin-bottom: $ticker-margin-bottom;
   }
 }
 
@@ -31,7 +32,7 @@ $ticker-item-border-width: 1px;
     padding: 0 $ticker-wrapper-padding-desktop;
   }
 
-  ul {
+  ul, ol {
     padding: 0;
   }
 }
@@ -60,8 +61,8 @@ $ticker-item-border-width: 1px;
 .ticker--scheduled,
 .ticker--live { // elongated border
   .ticker-item:first-of-type::after {
-    top: -30px;
-    height: 33px;
+    top: -24px;
+    height: 27px;
     border-left: 1px solid $color-border;
   }
 }
@@ -252,12 +253,19 @@ $ticker-item-border-width: 1px;
   line-height: 16px;
   letter-spacing: .2px;
   color: $color-text-light;
-  border-bottom: 5px solid #fff;
-  box-shadow: 0 5px 10px 8px #fff; // like gradient
+  background-color: #fff;
+  box-shadow: 0 5px 10px 5px #fff; // like gradient
   position: relative;
   z-index: 1;
+
+  margin: 32px 0 16px;
+
+  @include tablet-up {
+    margin: 40px 0 16px;
+  }
 }
 
 .ticker__info--live {
   color: $color-accentuation-red;
+  margin-bottom: 24px;
 }

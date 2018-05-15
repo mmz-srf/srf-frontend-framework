@@ -149,7 +149,11 @@ export class FefModal {
             'top': 0,
             'opacity': 1
         }, ANIMATION_SPEED, 'easeInOutSine', () => {
-            this.$mainWrapper.css('max-height', '100%');
+            // unset width so that the CSS rules work again to hide the scrollbars (see .modal-main-wrapper styles)
+            this.$mainWrapper.css({
+                'max-height': '100%',
+                'width': ''
+            });
             this.$mainContent.animate({
                 'opacity': 1
             }, ANIMATION_SPEED, callBack);
