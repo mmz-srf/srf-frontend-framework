@@ -140,7 +140,7 @@
     color: $color-text-default;
     text-decoration: none;
     padding: 12px 24px;
-    
+
     line-height: 1.5;
 
     @include tablet-up {
@@ -172,7 +172,7 @@
   100% {
     opacity: 1;
     max-height: none;
-  } 
+  }
 }
 
 .search-result__link {
@@ -197,6 +197,15 @@
   padding: 0 12px;
   height: 40px;
 
+  .search-wrapper {
+    // sass-lint:disable indentation
+    transition: width .2s ease-in-out,
+                box-shadow .2s ease-in-out,
+                background-color .2s ease-in-out;
+    // sass-lint:enable indentation
+    background-color: #555555;
+  }
+
   @include smartphone {
     margin: 16px auto 8px;
   }
@@ -208,6 +217,34 @@
   .search__input {
     padding: 12px 48px;
     height: auto;
+  }
+
+  .search__icon {
+    background-position-y: 0px;
+    background-position-x: 8px;
+    width: 40px;
+  }
+
+  .search__input,
+  .search__input::-webkit-input-placeholder {
+    color: $color-bg-box-hover;
+  }
+
+  &.search--active {
+    .search__icon {
+      background-position-y: -36px;
+    }
+
+    .search-wrapper {
+      width: 100%;
+      background-color: $color-bg-caption;
+      border: 0;
+    }
+
+    .search__input,
+    .search__input::-webkit-input-placeholder {
+      color: $color-text-accentuation;
+    }
   }
 
   .search__close {
@@ -247,7 +284,7 @@
   .search__input {
     padding: 10px 48px;
   }
-  
+
   .search__icon {
     background-position-y: 0px;
     background-position-x: 8px;
@@ -283,7 +320,7 @@
   @include smartphone {
     margin: 16px 12px 0;
     z-index: 1;
-    
+
     .search-wrapper {
       width: 100%;
     }
