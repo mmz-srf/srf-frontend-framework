@@ -1,4 +1,3 @@
-
 /*
  * MASTHEAD THEME SETTINGS
  *
@@ -9,18 +8,18 @@
 
 /* DEFAULTS */
 .masthead {
-  --theme-color-gradient-1: $theme-default-color-1;
-  --theme-color-gradient-2: $theme-default-color-2;
-  --theme-color-nav: $color-text-accentuation;
-  --theme-color-bg-hover: $color-nav-bg-hover;
-  --theme-color-bg-active: $color-nav-bg-active;
-  --theme-color-active: $color-accentuation-red;
+  --theme-color-gradient-1: #{$theme-default-color-1};
+  --theme-color-gradient-2: #{$theme-default-color-2};
+  --theme-color-nav: #{$color-text-accentuation};
+  --theme-color-bg-hover: #{$color-nav-bg-hover};
+  --theme-color-bg-active: #{$color-nav-bg-active};
+  --theme-color-active: #{$color-accentuation-red};
   --theme-color-nav-active-border: #f1434a;
-  --theme-color-nav-hover-text: $color-text-default;
-  --theme-color-pager-start: $theme-default-color-bg-pager-start;
-  --theme-color-pager-start-transparent: $theme-default-color-bg-pager-start-transparent;
-  --theme-color-pager-end: $theme-default-color-bg-pager-end;
-  --theme-color-pager-end-transparent: $theme-default-color-bg-pager-end-transparent;
+  --theme-color-nav-hover-text: #{$color-text-default};
+  --theme-color-pager-start: #{$theme-default-color-bg-pager-start};
+  --theme-color-pager-start-transparent: #{$theme-default-color-bg-pager-start-transparent};
+  --theme-color-pager-end: #{$theme-default-color-bg-pager-end};
+  --theme-color-pager-end-transparent: #{$theme-default-color-bg-pager-end-transparent};
   --theme-icon-filter: none;
   --theme-item-opacity: 1;
 }
@@ -54,37 +53,37 @@
 
 /* THEME-SPECIFIC SETTINGS */
 .masthead.masthead--theme-sport {
-  --theme-color-gradient-1: $theme-sport-color-1;
-  --theme-color-gradient-2: $theme-sport-color-2;
-  --theme-color-pager-start: $theme-sport-color-bg-pager-start;
-  --theme-color-pager-start-transparent: $theme-sport-color-bg-pager-start-transparent;
-  --theme-color-pager-end: $theme-sport-color-bg-pager-end;
-  --theme-color-pager-end-transparent: $theme-sport-color-bg-pager-end-transparent;
+  --theme-color-gradient-1: #{$theme-sport-color-1};
+  --theme-color-gradient-2: #{$theme-sport-color-2};
+  --theme-color-pager-start: #{$theme-sport-color-bg-pager-start};
+  --theme-color-pager-start-transparent: #{$theme-sport-color-bg-pager-start-transparent};
+  --theme-color-pager-end: #{$theme-sport-color-bg-pager-end};
+  --theme-color-pager-end-transparent: #{$theme-sport-color-bg-pager-end-transparent};
 }
 
 .masthead.masthead--theme-meteo {
-  --theme-color-gradient-1: $theme-meteo-color-1;
-  --theme-color-gradient-2: $theme-meteo-color-2;
-  --theme-color-pager-start: $theme-meteo-color-bg-pager-start;
-  --theme-color-pager-start-transparent: $theme-meteo-color-bg-pager-start-transparent;
-  --theme-color-pager-end: $theme-meteo-color-bg-pager-end;
-  --theme-color-pager-end-transparent: $theme-meteo-color-bg-pager-end-transparent;
+  --theme-color-gradient-1: #{$theme-meteo-color-1};
+  --theme-color-gradient-2: #{$theme-meteo-color-2};
+  --theme-color-pager-start: #{$theme-meteo-color-bg-pager-start};
+  --theme-color-pager-start-transparent: #{$theme-meteo-color-bg-pager-start-transparent};
+  --theme-color-pager-end: #{$theme-meteo-color-bg-pager-end};
+  --theme-color-pager-end-transparent: #{$theme-meteo-color-bg-pager-end-transparent};
 }
 
 .masthead.masthead--theme-kultur {
-  --theme-color-gradient-1: $theme-kultur-color-1;
-  --theme-color-gradient-2: $theme-kultur-color-2;
-  --theme-color-pager-start: $theme-kultur-color-bg-pager-start;
-  --theme-color-pager-start-transparent: $theme-kultur-color-bg-pager-start-transparent;
-  --theme-color-pager-end: $theme-kultur-color-bg-pager-end;
-  --theme-color-pager-end-transparent: $theme-kultur-color-bg-pager-end-transparent;
+  --theme-color-gradient-1: #{$theme-kultur-color-1};
+  --theme-color-gradient-2: #{$theme-kultur-color-2};
+  --theme-color-pager-start: #{$theme-kultur-color-bg-pager-start};
+  --theme-color-pager-start-transparent: #{$theme-kultur-color-bg-pager-start-transparent};
+  --theme-color-pager-end: #{$theme-kultur-color-bg-pager-end};
+  --theme-color-pager-end-transparent: #{$theme-kultur-color-bg-pager-end-transparent};
 }
 
 .masthead.masthead--theme-dok {
-  --theme-color-gradient-1: $theme-dok-color-1;
-  --theme-color-gradient-2: $theme-dok-color-2;
-  --theme-color-pager-start: $theme-dok-color-bg-pager-start;
-  --theme-color-pager-start-transparent: $theme-dok-color-bg-pager-start-transparent;
-  --theme-color-pager-end: $theme-dok-color-bg-pager-end;
-  --theme-color-pager-end-transparent: $theme-dok-color-bg-pager-end-transparent;
+  --theme-color-gradient-1: #{$theme-dok-color-1};
+  --theme-color-gradient-2: #{$theme-dok-color-2};
+  --theme-color-pager-start: #{$theme-dok-color-bg-pager-start};
+  --theme-color-pager-start-transparent: #{$theme-dok-color-bg-pager-start-transparent};
+  --theme-color-pager-end: #{$theme-dok-color-bg-pager-end};
+  --theme-color-pager-end-transparent: #{$theme-dok-color-bg-pager-end-transparent};
 }
