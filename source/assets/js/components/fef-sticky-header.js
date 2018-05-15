@@ -19,7 +19,6 @@ export class FeFStickyHeader {
 
         // Do not initialize in case of home landingpage on a breakpoint larger then smartphone
         if(!(!FefResponsiveHelper.isSmartphone() && this.$masthead.hasClass('masthead--home'))) {
-            console.log('init');
             this.initializeAffix();
             this.registerListeners();
         }
