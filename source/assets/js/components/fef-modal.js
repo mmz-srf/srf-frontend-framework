@@ -1,5 +1,4 @@
 import {DOM_CHANGED_EVENT} from '../classes/fef-dom-observer';
-import {FefResponsiveHelper} from '../classes/fef-responsive-helper';
 
 const ANIMATION_SPEED = 200;
 const KEYCODES = {
@@ -158,17 +157,17 @@ export class FefModal {
     }
 
     /**
-     * Prevent scrollable page on mobile when the modal is open.
+     * Prevent scrollable page when the modal is open.
      * We achieve this by setting the body to overflow: hidden and setting the height to 100%, thus
      * effectively cutting the rest of the page off. This scrolls to the top of the page, so we
      * also have to save the previous scroll state.
      *
-     * We only do this on mobile and if the modal covers the whole page.
+     * We only do this if the modal covers the whole page.
      */
     preventScrolling() {
-        if (FefResponsiveHelper.isSmartphone() && this.$mainContent.outerHeight() >= $(window).outerHeight()) {
+        if (this.$mainContent.outerHeight() >= $(window).outerHeight()) {
             this.previousScrollPosition = $(window).scrollTop();
-            $('html').addClass('prevent-scrolling');
+            $('html').addClass('h-prevent-scrolling');
         }
     }
 
@@ -178,17 +177,11 @@ export class FefModal {
      * - scrolling back to the previously saved scroll position
      *
      * This makes it appear as if we never even scrolled away.
-     *
-     * The scrolling is only done if we're on mobile, but the class is removed on all sizes.
      */
     scrollToPreviousPosition() {
         if (this.previousScrollPosition !== null) {
-            $('html').removeClass('prevent-scrolling');
-
-            if (FefResponsiveHelper.isSmartphone()) {
-                $(window).scrollTop(this.previousScrollPosition);
-            }
-
+            $('html').removeClass('h-prevent-scrolling');
+            $(window).scrollTop(this.previousScrollPosition);
             this.previousScrollPosition = null;
         }
     }
