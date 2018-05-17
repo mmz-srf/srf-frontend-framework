@@ -21,6 +21,11 @@
   overflow-x: hidden;
 }
 
+.modal-main-wrapper--rtv {
+	background-image: linear-gradient(135deg, #22211d, #111111);
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.24), 0 0 8px 0 rgba(0, 0, 0, 0.12);
+}
+
 .modal-wrapper {
   max-width: calc(#{$content-width} + 2 * 16px);
   margin: 0 auto;

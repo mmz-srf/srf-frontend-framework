@@ -3,7 +3,7 @@
      data-animation="{{ animation|default("") }}">
   <div class="modal__overlay js-modal-overlay"></div>
 
-  <div class="modal-main-wrapper js-modal-main-wrapper">
+  <div class="modal-main-wrapper {{ styleModifierModalWrapper|default("") }} js-modal-main-wrapper">
     <div class="modal-main-content js-modal-main-content">
       {% block content %}
         <span class="h-offscreen js-focus-target">Modal-Titel</span>
