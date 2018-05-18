@@ -57,7 +57,7 @@
       }
     }
 
-    @include tablet-up {
+    @include tablet {
       /* theme */
       @supports (--foo: bar) {
         background: linear-gradient(
@@ -70,14 +70,14 @@
       }
     }
 
-    @include desktop-wide {
+    @include desktop-up {
       /* theme */
       @supports (--foo: bar) {
         background: linear-gradient(
           120deg,
           var(--theme-color-gradient-1),
-          var(--theme-color-gradient-1) 20%,
-          var(--theme-color-gradient-2) 40%,
+          var(--theme-color-gradient-1) calc(50% - 400px),
+          var(--theme-color-gradient-2) calc(50% - 100px),
           var(--theme-color-gradient-2)
         );
       }

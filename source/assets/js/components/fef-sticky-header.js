@@ -16,7 +16,7 @@ export class FeFStickyHeader {
     constructor(element, options) {
         this.$masthead = $(element);
         this.$mastheadNav = $('.masthead__nav');
-        this.$subNavMask = this.$mastheadNav.find('.subnav__mask');
+        this.$subnav = this.$mastheadNav.find('.subnav');
         this.$stickyContainer = this.$masthead.closest('.sticky-container');
         this.$affixPlacehoder = $('.affix-placeholder');
         this.affixMarginTop = this.getAffixMarginTop();
@@ -56,12 +56,12 @@ export class FeFStickyHeader {
                 this.$masthead[0].className = this.$masthead[0].className.replace(/\-\-off\-theme\-/g, '--theme-');
 
                 if (this.scrollDirection !== 'up') {
-                    this.$subNavMask.hide();
+                    this.$subnav.addClass('subnav--in-transition');
                     setTimeout(
                         function () {
-                            that.$subNavMask.show();
+                            that.$subnav.removeClass('subnav--in-transition');
                         },
-                        300
+                        200
                     );
                 }
 
@@ -74,23 +74,16 @@ export class FeFStickyHeader {
                 this.$stickyContainer.removeClass('js-sticky-container--full');
 
                 if(scrollTop >= this.affixMarginTop && this.scrollDirection !== 'down') {
-
+                    this.$subnav.addClass('subnav--in-transition');
                     this.$masthead.addClass('masthead--in-transition');
                     setTimeout(
                         function() {
+                            that.$subnav.removeClass('subnav--in-transition');
                             that.$masthead.removeClass('masthead--in-transition');
                             that.$masthead[0].className = that.$masthead[0].className.replace(/\-\-theme\-/g, '--off-theme-');
                         },
-                        225
+                        200
                     );
-                    this.$subNavMask.hide();
-                    setTimeout(
-                        function() {
-                            that.$subNavMask.show();
-                        },
-                        300
-                    );
-
                     this.scrollDirection = 'down';
                 }
             }

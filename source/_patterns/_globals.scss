@@ -84,6 +84,7 @@ th {
   font-weight: normal;
 }
 
+// sass-lint:disable no-ids
 #flying-focus::after {
   bottom: 0;
   left: 0;
@@ -94,6 +95,7 @@ th {
   box-shadow: 0 0 2px 1px rgba(66, 163, 241,1), 0 0 0 1px #42A3F1, inset 0 0 0 1px #91CEFF;
   border-radius: 2px;
 }
+// sass-lint:enable no-ids
 
 :focus {
   outline: none;

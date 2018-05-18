@@ -83,7 +83,7 @@ export class FefModal {
                 this.$element.show();
                 break;
         }
-        
+
         if (this.$focusTarget.length === 1) {
             this.setFocus(this.$focusTarget);
         }
@@ -107,7 +107,7 @@ export class FefModal {
 
     /**
      * Simply using .focus() doesn't suffice.
-     * 
+     *
      * @param $element jQuery.Element
      */
     setFocus($element) {
@@ -120,9 +120,9 @@ export class FefModal {
      * Fancy menu opening animation:
      * - fades the modal in
      * - 'opens' it from the originating element
-     * - fades in the content (otherwise it'll be resized) 
-     * 
-     * For aesthetical reasons we have to animate to the previous height and not 100% max-height directly. 
+     * - fades in the content (otherwise it'll be resized)
+     *
+     * For aesthetical reasons we have to animate to the previous height and not 100% max-height directly.
      */
     scaleFromOrigin() {
         this.$mainContent.css('opacity', 0);
@@ -144,7 +144,11 @@ export class FefModal {
             'top': 0,
             'opacity': 1
         }, ANIMATION_SPEED, 'easeInOutSine', () => {
-            this.$mainWrapper.css('max-height', '100%');
+            // unset width so that the CSS rules work again to hide the scrollbars (see .modal-main-wrapper styles)
+            this.$mainWrapper.css({
+                'max-height': '100%',
+                'width': ''
+            });
             this.$mainContent.animate({
                 'opacity': 1
             }, ANIMATION_SPEED);
