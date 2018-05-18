@@ -21,74 +21,65 @@
   @include smartphone {
     padding: 8px 16px 0;
   }
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 0;
-    opacity: 0;
-    transition: all 500ms ease-in-out;
-
-    /* fallback */
-    background: linear-gradient(
-      120deg,
-      $theme-default-color-1,
-      $theme-default-color-1 15%,
-      $theme-default-color-2 40%,
-      $theme-default-color-2
-    );
-
-    @include smartphone {
-      padding: 0 16px;
-
-      /* theme */
-      @supports (--foo: bar) {
-        background: linear-gradient(
-          120deg,
-          var(--theme-color-gradient-1),
-          var(--theme-color-gradient-1) 15%,
-          var(--theme-color-gradient-2) 60%,
-          var(--theme-color-gradient-2)
-        );
-      }
-    }
-
-    @include tablet {
-      /* theme */
-      @supports (--foo: bar) {
-        background: linear-gradient(
-          120deg,
-          var(--theme-color-gradient-1),
-          var(--theme-color-gradient-1) 10%,
-          var(--theme-color-gradient-2) 40%,
-          var(--theme-color-gradient-2)
-        );
-      }
-    }
-
-    @include desktop-up {
-      /* theme */
-      @supports (--foo: bar) {
-        background: linear-gradient(
-          120deg,
-          var(--theme-color-gradient-1),
-          var(--theme-color-gradient-1) calc(50% - 400px),
-          var(--theme-color-gradient-2) calc(50% - 100px),
-          var(--theme-color-gradient-2)
-        );
-      }
-    }
-  }
 }
 
-.masthead.masthead--in-transition {
-  &::before {
-    opacity: 0;
-    transition: opacity 200ms linear;
+.masthead__background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+  opacity: 1;
+
+  /* fallback */
+  background: linear-gradient(
+    120deg,
+    $theme-default-color-1,
+    $theme-default-color-1 15%,
+    $theme-default-color-2 40%,
+    $theme-default-color-2
+  );
+
+  @include smartphone {
+    padding: 0 16px;
+
+    /* theme */
+    @supports (--foo: bar) {
+      background: linear-gradient(
+        120deg,
+        var(--theme-color-gradient-1),
+        var(--theme-color-gradient-1) 15%,
+        var(--theme-color-gradient-2) 60%,
+        var(--theme-color-gradient-2)
+      );
+    }
+  }
+
+  @include tablet {
+    /* theme */
+    @supports (--foo: bar) {
+      background: linear-gradient(
+        120deg,
+        var(--theme-color-gradient-1),
+        var(--theme-color-gradient-1) 10%,
+        var(--theme-color-gradient-2) 40%,
+        var(--theme-color-gradient-2)
+      );
+    }
+  }
+
+  @include desktop-up {
+    /* theme */
+    @supports (--foo: bar) {
+      background: linear-gradient(
+        120deg,
+        var(--theme-color-gradient-1),
+        var(--theme-color-gradient-1) calc(50% - 400px),
+        var(--theme-color-gradient-2) calc(50% - 100px),
+        var(--theme-color-gradient-2)
+      );
+    }
   }
 }
 

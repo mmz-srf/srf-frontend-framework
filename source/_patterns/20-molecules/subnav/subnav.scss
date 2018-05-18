@@ -114,8 +114,6 @@
       var(--theme-color-pager-start, rgba(254, 254, 253, 1)) 58px,
       var(--theme-color-pager-start-transparent, rgba(255, 255, 255, 0))
     );
-
-    transition: opacity 200ms ease-in-out;
   }
 }
 
@@ -178,13 +176,5 @@
   .subnav__list-item {
     font-family: $font-bold;
     font-feature-settings: "salt";
-  }
-}
-
-.subnav--in-transition {
-  .subnav__mask,
-  .subnav__pager {
-    transition: background 100ms linear;
-    background: rgba(255,255,255,0);
   }
 }
