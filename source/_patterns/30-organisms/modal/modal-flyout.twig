@@ -1,18 +1,18 @@
 {% embed "modal.twig" with {
     'id': 'modal-flyout',
     'animation': 'scale-from-origin',
-    'styleModifier': '',
-    'styleModifierModalWrapper': 'modal-main-wrapper--rtv'
+    'styleModifier': 'modal--theme-dark',
+    'styleModifierModalWrapper': ''
 } %}
     {% block content %}
         <span class="h-offscreen js-focus-target">Aktuelle Programme und Live-Streams</span>
 
         <div class="modal__head modal-wrapper">
-          {% include 'molecules-search-header' with {'styleModifier': 'search-header--rtv'} %}
+        	{% include 'molecules-search-header' with {'styleModifier': '', 'styleModifierSearch': ''} %}
         </div>
 
         <div class="modal__body modal-wrapper">
-          {% include 'molecules-rtv' with {'styleModifier': ''} %}
+        	{% include 'molecules-rtv' with {'styleModifier': ''} %}
         </div>
     {% endblock %}
 {% endembed %}
