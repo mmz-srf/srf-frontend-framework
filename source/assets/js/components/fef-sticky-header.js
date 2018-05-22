@@ -7,38 +7,41 @@ export function init() {
     });
 }
 
-const DEBOUNCE_TIME = 20;
+const DEBOUNCE_TIME = 100;
+const AFFIX_SELECTOR = '.js-affix';
 
 export class FeFStickyHeader {
 
-    constructor(element, options) {
+    constructor(element) {
         this.$masthead = $(element);
         this.$mastheadWrapper = $('.masthead__wrapper', this.$masthead);
         this.$mastheadBackground = $('.masthead__background', this.$masthead);
         this.$mastheadNav = $('.masthead__nav', this.$masthead);
 
-        // Do not initialize in case of home landingpage on a breakpoint larger then smartphone
-        if(!(!FefResponsiveHelper.isSmartphone() && this.$masthead.hasClass('masthead--home'))) {
-            this.initializeAffix();
-            this.registerListeners();
-        }
+        this.initializeAffix();
+
+        $(window).on('resize.sticky-header', FefDebounceHelper.debounce(() => this.reInitializeAffix(), DEBOUNCE_TIME));
     }
 
     initializeAffix() {
-        $('[data-smart-affix]').affix({offset:{top: this.getAffixMarginTop()}});
-    }
+        // Do not initialize in case of home landingpage on a breakpoint larger then smartphone
+        if(!(!FefResponsiveHelper.isSmartphone() && this.$masthead.hasClass('masthead--home'))) {
+            $(AFFIX_SELECTOR).affix({offset:{top: this.getAffixMarginTop()}});
 
-    registerListeners() {
-        $(window).on('resize', FefDebounceHelper.debounce(() => this.afterResize(), DEBOUNCE_TIME));
-
-        // register branding transition animation only on branded headers
-        if(this.$masthead[0].className.includes('masthead--theme')) {
-            $(window).on('affix.bs.affix affix-top.bs.affix', () => this.doBrandingTransition());
+            // register branding transition animation only on branded headers
+            if(this.$masthead[0].className.includes('masthead--theme')) {
+                $(window).off('affix.bs.affix affix-top.bs.affix').on('affix.bs.affix affix-top.bs.affix', () => this.doBrandingTransition());
+            }
         }
     }
 
-    afterResize() {
-        $('[data-smart-affix]').attr('bs.affix').options.offset = this.getAffixMarginTop();
+    reInitializeAffix() {
+        // make sure that the affix is not registered twice
+        $(window).off('.affix');
+        $(AFFIX_SELECTOR).removeClass("affix affix-top").removeData("bs.affix");
+
+        // initialize the affix
+        this.initializeAffix();
     }
 
     getAffixMarginTop() {
@@ -51,7 +54,7 @@ export class FeFStickyHeader {
 
     doBrandingTransition() {
         this.$mastheadWrapper.animate ({ opacity: 0 }, 100);
-        this.$mastheadBackground.animate ({ opacity: 0 }, 100, () => {
+        this.$mastheadBackground.animate ({ opacity: 0 }, 150, () => {
             this.$masthead.toggleClass('masthead--overridden');
             this.$mastheadWrapper.animate ({ opacity: 1 }, 100);
             this.$mastheadBackground.animate ({ opacity: 1 }, 100);
