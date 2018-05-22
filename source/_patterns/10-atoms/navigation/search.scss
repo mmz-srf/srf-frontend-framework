@@ -6,6 +6,10 @@
   overflow: visible;
 }
 
+.search--active {
+  z-index: 200;
+}
+
 .search__close {
   display: none;
   text-decoration: none;
@@ -15,12 +19,6 @@
     position: relative;
     width: 16px;
     height: 16px;
-    
-    /* fallback */
-    filter: none;
-    
-    /* theme */
-    filter: var(--theme-icon-filter, none);
   }
 }
 
@@ -40,21 +38,15 @@
 }
 
 .search--active {
-  z-index: 200;
-
-  .search__input {
-    /* fallback */
-    color: $color-text-default;
-
-    /* theme */
-    color: var(--theme-color-text-search, $color-text-default);
-  }
-
   .search-wrapper {
     // sass-lint:disable indentation
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .24),
                 0 0 4px 0 rgba(0, 0, 0, .12);
     // sass-lint:enable indentation
+
+    background-color: #fefefd;
+    border: 1px solid rgba(0,0,0,.08);
+    border-bottom: 0;
   }
 }
 
@@ -76,6 +68,12 @@
 
   /* theme */
   filter: var(--theme-icon-filter, none);
+}
+
+.search--active {
+  .search__icon {
+    filter: none;
+  }
 }
 
 .search__label {
@@ -109,6 +107,12 @@
   // Remove IE closing x icon because (we do the same for all browsers)
   &::-ms-clear {
     display: none;
+  }
+}
+
+.search--active {
+  .search__input {
+    color: $color-text-default;
   }
 }
 
