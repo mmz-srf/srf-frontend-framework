@@ -30,7 +30,7 @@ export class FeFStickyHeader {
 
             // register branding transition animation only on branded headers
             if(this.$masthead[0].className.includes('masthead--theme')) {
-                $(window).off('affix.bs.affix affix-top.bs.affix').on('affix.bs.affix affix-top.bs.affix', () => this.doBrandingTransition());
+                //$(window).off('affix.bs.affix affix-top.bs.affix').on('affix.bs.affix affix-top.bs.affix', () => this.doBrandingTransition());
             }
         }
     }
