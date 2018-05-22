@@ -1,47 +1,55 @@
 .rtv {
-  padding-right: 8px;
-  padding-left: 8px;
-
-  @include tablet-up {
-    padding-right: 16px;
-    padding-left: 16px;
-  }
+  margin: 16px 8px;
 }
 
+/* Headings */
 .rtv-head {
   display: flex;
   justify-content: space-between;
-}
+  margin-top: 32px;
+  margin-bottom: 16px;
 
-.rtv-title {
+  @include tablet-up {
+    margin-top: 48px;
+    margin-bottom: 24px;
+  }
+
+  .rtv-title {
   font-family: $font-regular;
   font-size: 24px;
   font-weight: 500;
-  line-height: 1.17;
+  line-height: 1;
   color: #fff;
+  margin: 0;
+  align-self: baseline;
 
   @include tablet-up {
     font-size: 28px;
-    line-height: 1.29;
+    line-height: 1;
   }
 }
 
-.rtv-morelink {
-  font-family: $font-regular;
-  font-size: 16px;
-  font-weight: 300;
-  line-height: 1;
-  letter-spacing: .4px;
-  color: #fff;
-
-  .svg-icon {
-    margin-bottom: -3px;
-    width: 16px;
-    height: 16px;
-    filter: invert(100%) contrast(600%)
+  .rtv-morelink {
+    font-family: $font-regular;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1;
+    letter-spacing: .4px;
+    color: #fff;
+    align-self: baseline;
+    white-space: nowrap;
+  
+    .svg-icon {
+      margin-right: -5px;
+      margin-bottom: -3px;
+      width: 16px;
+      height: 16px;
+      filter: invert(100%) contrast(600%);
+    }
   }
 }
 
+/* Lists */
 .rtv-list {
   display: flex;
   flex-wrap: wrap;
@@ -57,17 +65,98 @@
       display: none;
     }
   }
+}
 
-  a {
-    display: block;
-    border-radius: 2px;
-    background-color: #22211d;
+/* Link-Elements */
+.rtv-link {
+  display: block;
+  border-radius: 2px;
+  background-color: #22211d;
+  color: #fff;
+  margin: 1px -16px;
+  padding: 18px 16px;
+
+  &:hover,
+  &:focus {
+    background-color: rgba(255,255,255,.08);
     color: #fff;
-    margin: 1px -16px;
-    padding: 20px 56px 20px 12px;
+  }
+
+  &:active {
+    background-color: rgba(255,255,255,.16);
+    color: #fff;
   }
 }
 
+.rtv-list--arrow {
+  .rtv-link {
+    padding: 18px 56px 18px 16px;
+
+    &:after {
+      content: '';
+      display: block;
+      position: absolute;
+      right: -8px;
+      top: 50%;
+      margin-top: -12px;
+      width: 24px;
+      height: 24px;
+      background: url(../img/arrows/caret.svg);
+      transform: rotate(-90deg);
+      filter: invert(100%) contrast(600%);
+    }
+  }
+}
+
+.rtv-list--program {
+  .rtv-link {
+    margin-bottom: 12px;
+  }
+}
+
+/* LIVE-Badges */
+.rtv-link__live {
+  display: inline-block;
+  margin-bottom: 12px;
+  padding: 2px 8px;
+  backdrop-filter: blur(2px);
+  background-image: linear-gradient(319deg, #e31f2b, #f28b02);
+  font-size: 16px;
+  line-height: 1;
+  font-weight: 500;
+  font-family: $font-regular;
+  color: #fff;
+}
+
+/* Link-Elements Title */
+.rtv-link__title {
+  display: block;
+}
+
+.rtv-list--program {
+  .rtv-link__title {
+    font-family: $font-medium;
+  }
+}
+
+
+
+
+
+
+
 .rtv-list--compact {
-  
+  flex-direction: row;
+
+  li {
+    flex: 0 1 33%;
+  }
+
+  a {
+    padding: 16px;
+  }
+}
+
+.rtv-radiologo {
+  width: 100%;
 }
