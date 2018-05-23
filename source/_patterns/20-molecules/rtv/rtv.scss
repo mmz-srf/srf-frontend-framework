@@ -179,6 +179,10 @@
 .rtv-list--compact {
   .rtv-link {
     padding-bottom: 8px;
+
+    @include tablet-up {
+      padding-bottom: 12px;
+    }
   }
 }
 
