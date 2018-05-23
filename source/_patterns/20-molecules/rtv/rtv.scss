@@ -215,10 +215,10 @@
 
 /* Progress-Bar */
 .rtv-link__progress {
-  appearance: none;
-  border: none;
+  appearance: none; /* Needed for WebKit/Blink */
+  border: none; /* Needed for Firefox */
   background-color: #383732;
-  color: #8d0614;
+  color: #8d0614; /* For IE10 */
   position: absolute;
   width: 100%;
   height: 2px;
@@ -226,11 +226,15 @@
   left: 0;
 }
 
-.rtv-link__progress[value]::-webkit-progress-bar {
+.rtv-link__progress[value]::-webkit-progress-bar { /* Needed for WebKit/Blink */
 	background-color: #383732;
 }
 
-.rtv-link__progress[value]::-webkit-progress-value {
+.rtv-link__progress[value]::-webkit-progress-value { /* Needed for WebKit/Blink */
+	position: relative;
+	background-color: #8d0614;  
+}
+.rtv-link__progress[value]::-moz-progress-bar { /* Needed for Firefox */
 	position: relative;
 	background-color: #8d0614;
 }
