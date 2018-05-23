@@ -19,19 +19,19 @@
   }
 
   .rtv-title {
-  font-family: $font-regular;
-  font-size: 24px;
-  font-weight: 500;
-  line-height: 1;
-  color: #fff;
-  margin: 0;
-  align-self: baseline;
-
-  @include tablet-up {
-    font-size: 28px;
+    font-family: $font-regular;
+    font-size: 24px;
+    font-weight: 500;
     line-height: 1;
+    color: #fff;
+    margin: 0;
+    align-self: baseline;
+
+    @include tablet-up {
+      font-size: 28px;
+      line-height: 1;
+    }
   }
-}
 
   .rtv-morelink {
     font-family: $font-regular;
@@ -90,6 +90,25 @@
 
     &:before {
       display: none;
+    }
+  }
+}
+
+.rtv-list--compact {
+  flex-direction: row;
+  margin-top: -1px;
+  margin-bottom: -1px;
+
+  li {
+    flex: 0 1 calc(33.3334% - 2 * 1px);
+    margin: 1px;
+
+    @include tablet {
+      flex: 0 1 calc(16.6667% - 2 * 1px);
+    }
+
+    @include desktop-up {
+      flex: 0 1 calc(11.1111% - 2 * 1px);
     }
   }
 }
@@ -185,28 +204,24 @@
   left: 0;
 }
 
-progress[value]::-webkit-progress-bar {
+.rtv-link__progress[value]::-webkit-progress-bar {
 	background-color: #383732;
 }
 
-progress[value]::-webkit-progress-value {
+.rtv-link__progress[value]::-webkit-progress-value {
 	position: relative;
 	background-color: #8d0614;
 }
 
-
-
-
-
-
-.rtv-list--compact {
-
-  li {
-  }
-
-  a {
-  }
+/* Radio-Stations */
+.rtv-radiologo {
+  margin-bottom: 12px;
 }
 
-.rtv-radiologo {
+.rtv-radiostation {
+  font-family: $font-regular;
+  font-size: 14px;
+  line-height: 1.15;
+  letter-spacing: 0.4px;
+  color: #fff;
 }
