@@ -99,6 +99,11 @@
   margin-top: -1px;
   margin-bottom: -1px;
 
+  @include tablet-up {
+    margin-right: 0;
+    margin-left: 0;
+  }
+
   li {
     flex: 0 1 calc(33.3334% - 2 * 1px);
     margin: 1px;
