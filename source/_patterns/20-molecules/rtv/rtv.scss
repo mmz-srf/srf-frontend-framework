@@ -190,6 +190,12 @@
   color: #fff;
 }
 
+.rtv-link__tvlogo {
+  margin-bottom: 12px;
+  max-height: 24px;
+  width: auto;
+}
+
 /* Link-Elements Title */
 .rtv-link__title {
   display: block;
@@ -224,11 +230,12 @@
 }
 
 /* Radio-Stations */
-.rtv-radiologo {
+.rtv-link__radiologo {
   margin-bottom: 12px;
+  max-width: 80px;
 }
 
-.rtv-radiostation {
+.rtv-link__radiostation {
   font-family: $font-regular;
   font-size: 14px;
   line-height: 1.15;
