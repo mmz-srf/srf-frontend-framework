@@ -176,6 +176,12 @@
   }
 }
 
+.rtv-list--compact {
+  .rtv-link {
+    padding-bottom: 8px;
+  }
+}
+
 /* LIVE-Badges */
 .rtv-link__live {
   display: inline-block;
