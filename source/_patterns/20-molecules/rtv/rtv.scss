@@ -18,7 +18,7 @@
     margin-bottom: 24px;
   }
 
-  .rtv-title {
+  .rtv-head__title {
     font-family: $font-regular;
     font-size: 24px;
     font-weight: 500;
@@ -33,7 +33,7 @@
     }
   }
 
-  .rtv-morelink {
+  .rtv-head__morelink {
     font-family: $font-regular;
     font-size: 16px;
     font-weight: 300;
@@ -73,7 +73,7 @@
     margin: 0 -16px;
   }
 
-  li {
+  .rtv-list__element {
     flex: 0 1 100%;
     margin: 0;
     padding: 0;
@@ -104,7 +104,7 @@
     margin-left: 0;
   }
 
-  li {
+  .rtv-list__element {
     flex-grow: 0;
     flex-shrink: 1;
     flex-basis: calc(33.3334% - 2 * 1px);
