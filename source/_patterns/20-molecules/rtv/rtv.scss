@@ -105,7 +105,9 @@
   }
 
   li {
-    flex: 0 1 calc(33.3334% - 2 * 1px);
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-basis: calc(33.3334% - 2 * 1px);
     margin: 1px;
     max-width: calc(33.3334% - 2 * 1px);
 
