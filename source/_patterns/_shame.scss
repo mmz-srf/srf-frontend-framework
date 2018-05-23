@@ -71,3 +71,17 @@
 .header-startlink--fixed-for-ie .header-logo {
   display: none;
 }
+
+
+
+/*
+ * TARGETED BROWSER: IE 11
+ *
+ * CSS Custom Properties double-fallbacks 'cause of IE 11 … why-oh-why do we still support Internet Explorer!?
+ * Tell me, tell me now! Your arguments better be damn good!
+ */
+_:-ms-fullscreen,
+:root .modal.modal--theme-dark .modal-main-wrapper {
+  background-image: linear-gradient(135deg, #22211d, #111111);
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,.24), 0 0 8px 0 rgba(0,0,0,.12);
+}
