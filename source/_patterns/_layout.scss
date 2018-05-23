@@ -53,3 +53,7 @@
     overflow-x: hidden;
   }
 }
+
+.l-card-column-default {
+  @include content-column-default;
+}
