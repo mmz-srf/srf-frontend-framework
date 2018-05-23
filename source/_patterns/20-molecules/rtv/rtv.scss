@@ -1,5 +1,9 @@
 .rtv {
   margin: 16px 8px;
+
+  @include tablet-up {
+    margin: 16px 0;
+  }
 }
 
 /* Headings */
@@ -54,12 +58,35 @@
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
-  margin: 0;
+  margin: 0 -16px;
   padding: 0;
 
+  @include tablet-up {
+    flex-direction: row;
+  }
+
+  @include tablet {
+    margin: 0 -12px;
+  }
+
+  @include desktop-up {
+    margin: 0 -16px;
+  }
+
   li {
+    flex: 0 1 100%;
     margin: 0;
     padding: 0;
+
+    @include tablet {
+      flex-basis: calc(33.3334% - 2 * 12px);
+      margin: 0 12px;
+    }
+
+    @include desktop-up {
+      flex-basis: calc(33.3334% - 2 * 16px);
+      margin: 0 16px;
+    }
 
     &:before {
       display: none;
@@ -70,11 +97,16 @@
 /* Link-Elements */
 .rtv-link {
   display: block;
+  height: 100%;
   border-radius: 2px;
   background-color: #22211d;
   color: #fff;
-  margin: 1px -16px;
+  margin: 1px 0;
   padding: 18px 16px;
+
+  @include tablet-up {
+    margin: 0;
+  }
 
   &:hover,
   &:focus {
@@ -96,7 +128,7 @@
       content: '';
       display: block;
       position: absolute;
-      right: -8px;
+      right: 8px;
       top: 50%;
       margin-top: -12px;
       width: 24px;
@@ -111,6 +143,7 @@
 .rtv-list--program {
   .rtv-link {
     margin-bottom: 12px;
+    position: relative;
   }
 }
 
@@ -139,6 +172,27 @@
   }
 }
 
+/* Progress-Bar */
+.rtv-link__progress {
+  appearance: none;
+  border: none;
+  background-color: #383732;
+  color: #8d0614;
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+}
+
+progress[value]::-webkit-progress-bar {
+	background-color: #383732;
+}
+
+progress[value]::-webkit-progress-value {
+	position: relative;
+	background-color: #8d0614;
+}
 
 
 
@@ -146,17 +200,13 @@
 
 
 .rtv-list--compact {
-  flex-direction: row;
 
   li {
-    flex: 0 1 33%;
   }
 
   a {
-    padding: 16px;
   }
 }
 
 .rtv-radiologo {
-  width: 100%;
 }
