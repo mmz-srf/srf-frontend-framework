@@ -34,6 +34,8 @@
 .masthead.masthead--theme-meteo,
 .masthead.masthead--theme-kultur,
 .masthead.masthead--theme-dok {
+  --theme-color-bg-hover: rgba(255, 255, 255, 0.12);
+  --theme-color-bg-active: rgba(255, 255, 255, 0.24);
   --theme-color-nav: #FFF;
   --theme-color-active: #FFF;
   --theme-color-nav-active-border: #FFF;

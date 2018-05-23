@@ -145,31 +145,40 @@
   }
 }
 
-.subnav__pager-icon {
+.subnav__pager-button {
   @include desktop-up {
     display: block;
     box-sizing: content-box;
     padding: 16px;
     width: 24px;
     height: 24px;
-    filter: none; /* fallback */
-    filter: var(--theme-icon-filter, none);
     cursor: pointer;
 
     &:hover {
+      /* fallback */
       background-color: $color-nav-bg-hover;
+      /* theme*/
+      background-color: var(--theme-color-bg-hover, $color-nav-bg-hover);
     }
 
     &:active {
+      /* fallback */
       background-color: $color-nav-bg-active;
+      /* theme */
+      background-color: var(--theme-color-bg-active, $color-nav-bg-active);
     }
   }
 }
 
-.subnav__pager-icon--right {
+.subnav__pager-button--right {
   @include desktop-up {
     float: right;
   }
+}
+
+.subnav__pager-icon {
+    filter: none; /* fallback */
+    filter: var(--theme-icon-filter, none);
 }
 
 .subnav--portals {
