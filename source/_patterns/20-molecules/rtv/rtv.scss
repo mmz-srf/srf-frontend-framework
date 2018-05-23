@@ -107,9 +107,14 @@
   li {
     flex: 0 1 calc(33.3334% - 2 * 1px);
     margin: 1px;
+    max-width: calc(33.3334% - 2 * 1px);
 
     @include tablet {
       flex: 0 1 calc(16.6667% - 2 * 1px);
+    }
+
+    @include tablet-up {
+      max-width: auto;
     }
 
     @include desktop-up {
