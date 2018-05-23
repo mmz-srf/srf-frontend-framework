@@ -110,7 +110,7 @@
     max-width: calc(33.3334% - 2 * 1px);
 
     @include tablet {
-      flex: 0 1 calc(16.6667% - 2 * 1px);
+      flex-basis: calc(16.6667% - 2 * 1px);
     }
 
     @include tablet-up {
@@ -118,7 +118,7 @@
     }
 
     @include desktop-up {
-      flex: 0 1 calc(11.1111% - 2 * 1px);
+      flex-basis: calc(11.1111% - 2 * 1px);
     }
   }
 }
