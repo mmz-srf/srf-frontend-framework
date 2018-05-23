@@ -53,11 +53,11 @@ export class FeFStickyHeader {
     }
 
     doBrandingTransition() {
-        this.$mastheadWrapper.animate ({ opacity: 0 }, 100);
-        this.$mastheadBackground.animate ({ opacity: 0 }, 150, () => {
-            this.$masthead.toggleClass('masthead--overridden');
-            this.$mastheadWrapper.animate ({ opacity: 1 }, 100);
-            this.$mastheadBackground.animate ({ opacity: 1 }, 100);
-        });
+        if (this.$masthead[0].className.includes('masthead--theme-off')) {
+            this.$masthead.removeClass('masthead--theme-off-sport').addClass('masthead--theme-sport');
+        }
+        else {
+            this.$masthead.removeClass('masthead--theme-sport').addClass('masthead--theme-off-sport');
+        }
     }
 }
