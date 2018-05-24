@@ -96,7 +96,7 @@ $font-system: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
 /*** SHADOWS ***/
 $shadow-default:   0 1px 2px 0 rgba(0, 0, 0, .24), 0 0 2px 0 rgba(0, 0, 0, .12);
 $shadow-hover:     0 4px 8px 0 rgba(0, 0, 0, .24), 0 0 8px 0 rgba(0, 0, 0, .12);
-$shadow-organisms: 0 2px 8px 0 rgba(0, 0, 0, 0.24), 0 0 8px 0 rgba(0, 0, 0, 0.12);
+$shadow-organisms: 0 0 8px 0 rgba(0, 0, 0, 0.24);
 
 /*** BREAKPOINT AND CONTENT related variables ***/
 $smartphone-size: 320px !default;

@@ -11,7 +11,8 @@
   opacity: 1;
   /* theme */
   color: var(--theme-color-nav, $color-text-accentuation);
-  opacity: var(--theme-item-opacity, 1);
+  opacity: var(--theme-buttons-opacity, 1);
+
   &:hover {
     color: $color-text-default;  /* fallback */
     color: var(--theme-color-nav-hover-text, $color-text-default);

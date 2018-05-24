@@ -31,16 +31,13 @@
   transition: background-color 0.2s ease-in-out;
   /* fallback */
   color: $color-text-accentuation;
-  opacity: 1;
   /* theme */
   color: var(--theme-color-nav, $color-text-accentuation);
-  opacity: var(--theme-item-opacity, 1);
 
   &:hover,
   &:active,
   &:focus {
     border-bottom: none;
-    opacity: 1;
     color: $color-text-accentuation;   /* fallback */
     color: var(--theme-color-nav, $color-text-accentuation);
   }

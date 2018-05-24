@@ -13,10 +13,8 @@
 
   /* fallback */
   color: $color-text-accentuation;
-  opacity: 1;
   /* theme */
   color: var(--theme-color-nav, $color-text-accentuation);
-  opacity: var(--theme-item-opacity, 1);
 
   @include smartphone {
     padding: 18px 12px 16px;
@@ -26,7 +24,6 @@
 
   &:hover {
     border-bottom: 2px solid transparent;
-    opacity: 1;
 
     /* fallback */
     background-color: $color-nav-bg-hover;
@@ -38,7 +35,6 @@
 
   &:active {
     border-bottom: 2px solid transparent;
-    opacity: 1;
 
     /* fallback */
     background-color: $color-nav-bg-active;
