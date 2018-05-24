@@ -8,11 +8,7 @@
 
 /* DEFAULTS */
 
-//.masthead.masthead.masthead--overridden: used to override the branding on 'affix' headers
-// increasing the specificity here by using the same class name multiple times in the selector is not
-// beautiful but avoids having to redefine exactly the same override properties at the end of the file
-.masthead,
-.masthead.masthead.masthead--overridden {
+.masthead {
   --theme-color-gradient-1: #{$theme-default-color-1};
   --theme-color-gradient-2: #{$theme-default-color-2};
   --theme-color-nav: #{$color-text-accentuation};

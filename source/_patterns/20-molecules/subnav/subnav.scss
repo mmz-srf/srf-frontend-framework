@@ -177,8 +177,8 @@
 }
 
 .subnav__pager-icon {
-    filter: none; /* fallback */
-    filter: var(--theme-icon-filter, none);
+  filter: none; /* fallback */
+  filter: var(--theme-icon-filter, none);
 }
 
 .subnav--portals {

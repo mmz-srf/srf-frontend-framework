@@ -16,7 +16,7 @@
     }
 
     @include smartphone {
-      margin-top: -114px;
+      margin-top: -106px;
     }
   }
 }
@@ -29,7 +29,7 @@
 
   &.affix {
     @include smartphone {
-      margin-top: -64px;
+      margin-top: -56px;
     }
   }
 }
@@ -46,7 +46,7 @@
   }
 
   @include smartphone {
-    height: 186px;
+    height: 178px;
   }
 }
 
@@ -56,10 +56,10 @@
   }
 
   @include smartphone {
-    height: 144px;
+    height: 136px;
   }
 }
 
 .affix-placeholder--compact {
-    height: 80px;
+  height: 80px;
 }
