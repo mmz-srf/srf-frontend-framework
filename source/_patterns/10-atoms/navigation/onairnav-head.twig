@@ -1,0 +1,6 @@
+<div class="onairnav-head">
+  <h3 class="onairnav-head__title">{{ title }}</h3>
+  {% if morelink is defined %}
+    <a class="onairnav-head__morelink" href="{{ url|default('#') }}">{{ morelink }} <span class="svg-icon svg-icon--arrow-right"></span></a>
+  {% endif %}
+</div>

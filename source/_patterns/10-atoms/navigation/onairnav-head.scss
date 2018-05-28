@@ -1,0 +1,51 @@
+.onairnav-head {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 32px;
+  margin-bottom: 16px;
+
+  @include tablet-up {
+    margin-top: 48px;
+    margin-bottom: 24px;
+  }
+}
+
+.onairnav-head__title {
+  font-family: $font-regular;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1;
+  color: #fff;
+  margin: 0;
+  align-self: baseline;
+
+  @include tablet-up {
+    font-size: 28px;
+    line-height: 1;
+  }
+}
+
+.onairnav-head__morelink {
+  font-family: $font-regular;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: .4px;
+  color: #fff;
+  align-self: baseline;
+  white-space: nowrap;
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: #fff;
+  }
+
+  .svg-icon {
+    margin-right: -5px;
+    margin-bottom: -3px;
+    width: 16px;
+    height: 16px;
+    filter: invert(100%) contrast(600%);
+  }
+}
