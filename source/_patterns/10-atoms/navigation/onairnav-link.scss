@@ -6,6 +6,7 @@
   color: #fff;
   margin: 1px 0;
   padding: 18px 16px;
+  transition: background .2s ease-in-out;
 
   @include tablet-up {
     margin: 0;
@@ -74,6 +75,7 @@
   font-family: $font-regular;
   color: #fff;
   max-height: auto;
+  @include font-smoothing;
 }
 
 .onairnav-link__media--radiologo {
@@ -86,6 +88,12 @@
 /* Link-Elements Title */
 .onairnav-link__title {
   display: block;
+  font-family: $font-regular;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.33;
+  letter-spacing: .4px;
+  @include font-smoothing;
 }
 
 .onairnav-link--program {

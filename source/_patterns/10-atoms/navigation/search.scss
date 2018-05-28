@@ -103,6 +103,10 @@
     line-height: 21px;
     opacity: 1;
   }
+  
+  &::placeholder {
+    color: var(--theme-color-text-search, $color-text-light);
+  }
 
   // Remove IE closing x icon because (we do the same for all browsers)
   &::-ms-clear {
