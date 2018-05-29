@@ -87,7 +87,15 @@
   [data-align="center"] {
     text-align: center;
   }
-
+  [data-bold="true"] {
+    font-weight: bold;
+  }
+  [data-underline="true"] {
+    text-decoration: underline;
+  }
+  [data-italic="true"] {
+    font-style: italic;
+  }
 }
 
 .table-block--legacy {
