@@ -281,13 +281,13 @@ $light-attention-color: #ff0000;
 }
 
 @keyframes pulsatingLive {
-  0% {
+  25% {
     background-color: #e31f2b;
   }
   50% {
     background-color: #ed7004;
   }
-  100% {
+  75% {
     background-color: #e31f2b;
   }
 }
