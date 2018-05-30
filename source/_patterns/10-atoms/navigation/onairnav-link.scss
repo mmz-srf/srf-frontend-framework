@@ -68,15 +68,20 @@
   display: inline-block;
   padding: 2px 8px;
   backdrop-filter: blur(2px);
-  background-image: linear-gradient(319deg, #e31f2b, #f28b02);
+  background-color: #e31f2b;
   font-size: 16px;
   line-height: 1;
   font-weight: 500;
   font-family: $font-regular;
   color: #fff;
   max-height: auto;
+  animation: pulsatingLive 1.5s infinite ease-in-out;
   @include font-smoothing;
 }
+
+
+
+
 
 .onairnav-link__media--radiologo {
   max-width: 80px;
