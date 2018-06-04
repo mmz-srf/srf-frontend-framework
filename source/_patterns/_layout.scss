@@ -56,4 +56,8 @@
 
 .l-card-column-default {
   @include content-column-default;
-}card-alternative-background
+}
+
+.l-card-alternative-background {
+    background-color: $color-bg-box;
+}
