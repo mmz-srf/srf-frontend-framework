@@ -33,7 +33,6 @@ export class FeFStickyHeader {
         $(window).off('.affix');
         $(AFFIX_SELECTOR).removeClass('affix affix-top').removeData('bs.affix');
 
-        // initialize the affix
         this.initializeAffix();
     }
 
