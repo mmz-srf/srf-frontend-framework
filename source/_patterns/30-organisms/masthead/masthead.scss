@@ -96,8 +96,8 @@
   font-feature-settings: "salt";
   font-size: 32px;
   line-height: 1.25;
-  color: inherit;
-  color: var(--theme-color-nav, inherit);
+  color: $color-text-default;
+  color: var(--theme-color-title, $color-text-default);
 
   @include tablet-up {
     margin: 11px 0 13px -2px;
@@ -166,7 +166,7 @@
 
   @include smartphone {
     width: calc(100% + 48px);
-    margin: 0 0 0 -32px;
+    margin: 0 0 0 -29px;
   }
 }
 

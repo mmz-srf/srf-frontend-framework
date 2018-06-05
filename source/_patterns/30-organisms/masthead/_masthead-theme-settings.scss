@@ -11,6 +11,7 @@
 .masthead {
   --theme-color-gradient-1: #{$theme-default-color-1};
   --theme-color-gradient-2: #{$theme-default-color-2};
+  --theme-color-title: #{$color-text-default};
   --theme-color-nav: #{$color-text-accentuation};
   --theme-color-bg-hover: #{$color-nav-bg-hover};
   --theme-color-bg-active: #{$color-nav-bg-active};
@@ -32,6 +33,7 @@
 .masthead.masthead--theme-dok {
   --theme-color-bg-hover: rgba(255, 255, 255, 0.12);
   --theme-color-bg-active: rgba(255, 255, 255, 0.24);
+  --theme-color-title: #FFF;
   --theme-color-nav: #FFF;
   --theme-color-active: #FFF;
   --theme-color-nav-active-border: #FFF;
