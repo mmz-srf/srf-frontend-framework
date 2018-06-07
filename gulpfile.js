@@ -40,7 +40,8 @@ gulp.task('clean', function () {
 
 gulp.task('styles', function () {
     return gulp.src([
-        'source/_patterns/main.scss'
+        'source/_patterns/main.scss',
+        'source/assets/critical/c_article.scss'
     ])
         .pipe($.sass.sync({
             outputStyle: 'compressed',    //use 'nested' for debugging
