@@ -1,6 +1,9 @@
 import {FefDebounceHelper} from '../classes/fef-debounce-helper';
 import {FefResponsiveHelper} from '../classes/fef-responsive-helper';
 
+const KEYCODES = {
+    'escape': 27
+};
 const SCROLL_PAGER_CLASS = 'js-scroll-pager-container',
     INNER_CONTAINER_CLASS = 'js-scroll-pager-content',
     BUTTON_BACK_CLASS = 'js-scroll-pager-button-back',
@@ -13,6 +16,8 @@ const SCROLL_PAGER_CLASS = 'js-scroll-pager-container',
     ITEM_GROUP_CLASS = 'js-nav-group',
     ITEM_OPEN_GROUP_CLASS = 'js-nav-group-open',
     ITEM_GROUP_WRAPPER_CLASS = 'js-nav-group-wrapper',
+    OUTSIDE_CLICK_LISTENER_NAME = 'click.nav-group',
+    OUTSIDE_KEYPRESS_LISTENER_NAME = 'keydown.nav-group',
     DEBOUNCETIME = 10,
     THROTTLETIME = 100,
     RIGHT_OFFSET = 24,
@@ -74,10 +79,15 @@ export class FefScrollPager {
         this.$buttonBack.on('click', () => { this.pageBack(); });
         this.$buttonForward.on('click', () => { this.pageForward(); });
 
-        this.$element.on('click', `.${ITEM_GROUP_CLASS}`, (e) => this.toggleSubNav($(e.currentTarget)));
+        this.$element.on('click', `.${ITEM_GROUP_CLASS}`, (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            this.toggleSubNav($(e.currentTarget));
+        });
     }
 
     closeAllSubNavs() {
+        $(document).off(`${OUTSIDE_CLICK_LISTENER_NAME} `);
         let openNavs = this.$element.find(`.${ITEM_OPEN_GROUP_CLASS}`);
 
         if (openNavs.length > 0) {
@@ -101,23 +111,35 @@ export class FefScrollPager {
     }
 
     toggleSubNav($navItem) {
-        let $list = $navItem.find('.nav-group__list'),
-            willBeOpen = !$navItem.hasClass(ITEM_OPEN_GROUP_CLASS),
-            $listWrapper = $navItem.find(`.${ITEM_GROUP_WRAPPER_CLASS}`);
+        let isClosing = $navItem.hasClass(ITEM_OPEN_GROUP_CLASS);
 
         this.closeAllSubNavs();
 
-        if (!willBeOpen) {
+        if (isClosing) {
             return;
         }
+
+        // Listen to clicks outside of the element and Escape keypress --> close element
+        $(document).on(OUTSIDE_CLICK_LISTENER_NAME, (e) => {
+            this.closeAllSubNavs();
+        }).on(OUTSIDE_KEYPRESS_LISTENER_NAME, (e) => {
+            if(e.keyCode === KEYCODES.escape) {
+                this.closeAllSubNavs();
+            }
+        });
 
         $navItem.addClass(`${ITEM_OPEN_GROUP_CLASS} nav-group--open`);
         $navItem.find('.expand-icon').addClass('expand-icon--open');
 
-        if (FefResponsiveHelper.isSmartphone()) {
-            return;
+        if (!FefResponsiveHelper.isSmartphone()) {
+            this.positionSubNavGroup($navItem);
         }
-        let navItemOffset = Math.max(16, $navItem.offset().left), // compensate for the 16px negative margin on the NavGroup
+    }
+
+    positionSubNavGroup($navItem) {
+        let $list = $navItem.find('.nav-group__list'),
+            $listWrapper = $navItem.find(`.${ITEM_GROUP_WRAPPER_CLASS}`),
+            navItemOffset = Math.max(16, $navItem.offset().left), // compensate for the 16px negative margin on the NavGroup
             listWidth = Math.max($navItem.outerWidth(), 200, $list.outerWidth());
 
         // if there's not enough space on the right side, align with the right side of the window
