@@ -1,0 +1,30 @@
+* {
+  box-sizing: border-box
+}
+html {
+  overflow-x: hidden
+}
+body {
+  font-family: "SRG_SSR_Light", sans-serif;
+  background-color: #ebebe5;
+  margin: 0;
+}
+
+.footer {
+  display: none;
+}
+
+.h-offscreen {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0
+}
+
+.h-element--hide {
+  display: none !important
+}
