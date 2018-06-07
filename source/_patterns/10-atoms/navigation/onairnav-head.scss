@@ -35,12 +35,22 @@
   color: #fff;
   align-self: baseline;
   white-space: nowrap;
+  transition: opacity .2s ease-in-out;
   @include font-smoothing;
 
   &:hover,
   &:focus,
   &:active {
     color: #fff;
+  }
+
+  &:hover,
+  &:focus {
+    opacity: .8;
+  }
+
+  &:active {
+    opacity: .6;
   }
 
   .svg-icon {
