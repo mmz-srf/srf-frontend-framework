@@ -16,7 +16,8 @@ const SCROLL_PAGER_CLASS = 'js-scroll-pager-container',
     RIGHT_OFFSET = 24,
     BUTTON_BACK_THRESHOLD = 2,
     INNER_CONTAINER_SCROLL_PADDING = 84,
-    DEFAULT_SCROLL_TIME = 200;
+    DEFAULT_SCROLL_TIME = 200,
+    NAV_GROUP_WINDOW_BORDER_SPACING = 2; // (have some distance to the window border because it looks pretty ✨)
 
 export function init() {
     $(`.${SCROLL_PAGER_CLASS}`).each((index, element) => {
@@ -97,14 +98,14 @@ export class FefScrollPager {
             $navItem.find('.expand-icon').addClass('expand-icon--open');
 
             if (!FefResponsiveHelper.isSmartphone()) {
-                let navItemOffset = $navItem.offset().left,
+                let navItemOffset = Math.max(NAV_GROUP_WINDOW_BORDER_SPACING + 8, $navItem.offset().left), // compensate for the 8px negative margin on the NavGroup
                     listWidth = Math.max($navItem.outerWidth(), 200, $list.outerWidth());
 
-                // if there's not enough space on the right side, align with the right side of the window (+2px because it looks pretty ✨)
+                // if there's not enough space on the right side, align with the right side of the window
                 if (navItemOffset + listWidth >= $(window).outerWidth()) {
-                    $list.css('right', 2);
+                    $list.css({'left': '', 'right': NAV_GROUP_WINDOW_BORDER_SPACING});
                 } else {
-                    $list.css('left', navItemOffset);
+                    $list.css({'left': navItemOffset, 'right': ''});
                 }
             }
         } else {
