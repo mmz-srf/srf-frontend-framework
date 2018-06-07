@@ -279,3 +279,12 @@ $light-attention-color: #ff0000;
     background-color: $dark-attention-color;
   }
 }
+
+@keyframes shimmeringAnimation {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(200%);
+  }
+}
