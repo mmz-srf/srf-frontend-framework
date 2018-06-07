@@ -7,13 +7,15 @@
         </span>
     </a>
 
-    <ul class="nav-group__list">
-        {% for item in items %}
-            {% include 'atoms-nav-item' with {
-                'styleModifier': "nav-item--third-level",
-                'content': item.name,
-                'url': item.url
-            } %}
-        {% endfor %}
-    </ul>
+    <div class="nav-group__wrapper js-nav-group-wrapper">
+        <ul class="nav-group__list">
+            {% for item in items %}
+                {% include 'atoms-nav-item' with {
+                    'styleModifier': "nav-item--third-level",
+                    'content': item.name,
+                    'url': item.url
+                } %}
+            {% endfor %}
+        </ul>
+    </div>
 </div>

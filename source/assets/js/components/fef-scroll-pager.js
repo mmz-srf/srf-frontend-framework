@@ -11,13 +11,13 @@ const SCROLL_PAGER_CLASS = 'js-scroll-pager-container',
     MASK_VISIBLE_CLASS = 'subnav__mask--visible',
     ITEM_ACTIVE_CLASS = 'js-active-subnav-item',
     ITEM_GROUP_CLASS = 'js-nav-group',
+    ITEM_GROUP_WRAPPER_CLASS = 'js-nav-group-wrapper',
     DEBOUNCETIME = 10,
     THROTTLETIME = 100,
     RIGHT_OFFSET = 24,
     BUTTON_BACK_THRESHOLD = 2,
     INNER_CONTAINER_SCROLL_PADDING = 84,
-    DEFAULT_SCROLL_TIME = 200,
-    NAV_GROUP_WINDOW_BORDER_SPACING = 2; // (have some distance to the window border because it looks pretty ✨)
+    DEFAULT_SCROLL_TIME = 200;
 
 export function init() {
     $(`.${SCROLL_PAGER_CLASS}`).each((index, element) => {
@@ -88,8 +88,9 @@ export class FefScrollPager {
     }
 
     toggleSubNav($navItem) {
-        let $list = $navItem.find('.nav-group__list');
-        let willBeOpen = !$navItem.hasClass('js-nav-group-open');
+        let $list = $navItem.find('.nav-group__list'),
+            willBeOpen = !$navItem.hasClass('js-nav-group-open'),
+            $listWrapper = $navItem.find(`.${ITEM_GROUP_WRAPPER_CLASS}`);
 
         this.closeAllSubNavs();
 
@@ -98,18 +99,18 @@ export class FefScrollPager {
             $navItem.find('.expand-icon').addClass('expand-icon--open');
 
             if (!FefResponsiveHelper.isSmartphone()) {
-                let navItemOffset = Math.max(NAV_GROUP_WINDOW_BORDER_SPACING + 8, $navItem.offset().left), // compensate for the 8px negative margin on the NavGroup
+                let navItemOffset = Math.max(16, $navItem.offset().left), // compensate for the 16px negative margin on the NavGroup
                     listWidth = Math.max($navItem.outerWidth(), 200, $list.outerWidth());
 
                 // if there's not enough space on the right side, align with the right side of the window
                 if (navItemOffset + listWidth >= $(window).outerWidth()) {
-                    $list.css({'left': '', 'right': NAV_GROUP_WINDOW_BORDER_SPACING});
+                    $listWrapper.css({'left': '', 'right': 0});
                 } else {
-                    $list.css({'left': navItemOffset, 'right': ''});
+                    $listWrapper.css({'left': navItemOffset, 'right': ''});
                 }
             }
         } else {
-            $list.css({'left': '', 'right': ''});
+            $listWrapper.css({'left': '', 'right': ''});
         }
         // TODO: mark sub-nav-item as active (CMS, when rendering)
     }
