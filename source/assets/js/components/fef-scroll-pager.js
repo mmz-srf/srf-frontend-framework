@@ -11,6 +11,7 @@ const SCROLL_PAGER_CLASS = 'js-scroll-pager-container',
     MASK_VISIBLE_CLASS = 'subnav__mask--visible',
     ITEM_ACTIVE_CLASS = 'js-active-subnav-item',
     ITEM_GROUP_CLASS = 'js-nav-group',
+    ITEM_OPEN_GROUP_CLASS = 'js-nav-group-open',
     ITEM_GROUP_WRAPPER_CLASS = 'js-nav-group-wrapper',
     DEBOUNCETIME = 10,
     THROTTLETIME = 100,
@@ -77,42 +78,54 @@ export class FefScrollPager {
     }
 
     closeAllSubNavs() {
-        let openNavs = this.$element.find('.js-nav-group-open');
+        let openNavs = this.$element.find(`.${ITEM_OPEN_GROUP_CLASS}`);
 
         if (openNavs.length > 0) {
-            openNavs.each((index, el) => {
-                $(el).removeClass('js-nav-group-open nav-group--open')
-                    .find('.expand-icon').removeClass('expand-icon--open');
-            });
+            openNavs.each((index, el) => this.closeSubNav($(el)));
         }
+    }
+
+    /**
+     * Close a subnav-group by fading it out and then setting the styles/classes etc.
+     */
+    closeSubNav($navItem) {
+        let $wrapper = $navItem.find(`.${ITEM_GROUP_WRAPPER_CLASS}`);
+        $navItem.find('.expand-icon').removeClass('expand-icon--open');
+
+        $wrapper.animate({'opacity': 0}, 200, 'easeInOutCubic', () => {
+            $navItem.removeClass(`${ITEM_OPEN_GROUP_CLASS} nav-group--open`);
+
+            // reset previously applied styles
+            $wrapper.css({'left': '', 'right': '', 'opacity': ''});
+        });
     }
 
     toggleSubNav($navItem) {
         let $list = $navItem.find('.nav-group__list'),
-            willBeOpen = !$navItem.hasClass('js-nav-group-open'),
+            willBeOpen = !$navItem.hasClass(ITEM_OPEN_GROUP_CLASS),
             $listWrapper = $navItem.find(`.${ITEM_GROUP_WRAPPER_CLASS}`);
 
         this.closeAllSubNavs();
 
-        if (willBeOpen) {
-            $navItem.addClass('js-nav-group-open nav-group--open');
-            $navItem.find('.expand-icon').addClass('expand-icon--open');
-
-            if (!FefResponsiveHelper.isSmartphone()) {
-                let navItemOffset = Math.max(16, $navItem.offset().left), // compensate for the 16px negative margin on the NavGroup
-                    listWidth = Math.max($navItem.outerWidth(), 200, $list.outerWidth());
-
-                // if there's not enough space on the right side, align with the right side of the window
-                if (navItemOffset + listWidth >= $(window).outerWidth()) {
-                    $listWrapper.css({'left': '', 'right': 0});
-                } else {
-                    $listWrapper.css({'left': navItemOffset, 'right': ''});
-                }
-            }
-        } else {
-            $listWrapper.css({'left': '', 'right': ''});
+        if (!willBeOpen) {
+            return;
         }
-        // TODO: mark sub-nav-item as active (CMS, when rendering)
+
+        $navItem.addClass(`${ITEM_OPEN_GROUP_CLASS} nav-group--open`);
+        $navItem.find('.expand-icon').addClass('expand-icon--open');
+
+        if (FefResponsiveHelper.isSmartphone()) {
+            return;
+        }
+        let navItemOffset = Math.max(16, $navItem.offset().left), // compensate for the 16px negative margin on the NavGroup
+            listWidth = Math.max($navItem.outerWidth(), 200, $list.outerWidth());
+
+        // if there's not enough space on the right side, align with the right side of the window
+        if (navItemOffset + listWidth >= $(window).outerWidth()) {
+            $listWrapper.css({'left': '', 'right': 0});
+        } else {
+            $listWrapper.css({'left': navItemOffset, 'right': ''});
+        }
     }
 
     updateButtonStatus() {
