@@ -1,7 +1,7 @@
 @import "../../variables";
 @import "../../breakpoints";
 
-.portals {
+.portalsnav {
   padding: 0;
   margin: 0;
   display: flex;
@@ -17,7 +17,7 @@
   }
 }
 
-.portals__link {
+.portalsnav__link {
   display: inline-block;
   padding: 12px 10px;
   border-bottom: none;
@@ -31,32 +31,31 @@
   transition: background-color 0.2s ease-in-out;
   /* fallback */
   color: $color-text-accentuation;
-  opacity: 1;
   /* theme */
   color: var(--theme-color-nav, $color-text-accentuation);
-  opacity: var(--theme-item-opacity, 1);
 
   &:hover,
   &:active,
   &:focus {
     border-bottom: none;
-    opacity: 1;
     color: $color-text-accentuation;   /* fallback */
     color: var(--theme-color-nav, $color-text-accentuation);
   }
 
   &:hover {
-    background-color: $color-nav-bg-hover;
+    background-color: $color-nav-bg-hover;   /* fallback */
+    background-color: var(--theme-color-bg-hover, $color-nav-bg-hover);
   }
 
   &:active,
   &:focus {
-    background-color: $color-nav-bg-active;
+    background-color: $color-nav-bg-active;   /* fallback */
+    background-color: var(--theme-color-bg-active, $color-nav-bg-active);
   }
 }
 
-.portals--large {
-  .portals__link {
+.portalsnav--large {
+  .portalsnav__link {
     padding: 16px 10px;
     font-size: 18px;
     line-height: 1.33;

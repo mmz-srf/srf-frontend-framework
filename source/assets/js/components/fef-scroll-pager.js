@@ -19,7 +19,7 @@ const SCROLL_PAGER_CLASS = 'js-scroll-pager-container',
     DEFAULT_SCROLL_TIME = 200;
 
 export function init() {
-    $('.'+SCROLL_PAGER_CLASS).each((index, element) => {
+    $(`.${SCROLL_PAGER_CLASS}`).each((index, element) => {
         new FefScrollPager($(element));
     });
 }
@@ -154,30 +154,18 @@ export class FefScrollPager {
     }
 
     pageForward() {
-        let nextItem = 0;
+        let visibleAreaRightEdge = this.$innerContainer.scrollLeft() + this.$innerContainer.innerWidth(),
+            nextItem = this.itemRightPositions.findIndex(rightEdge => rightEdge > visibleAreaRightEdge),
+            newPosition = this.itemLeftPositions[nextItem] - INNER_CONTAINER_SCROLL_PADDING;
 
-        for (let i = 0; i < this.itemRightPositions.length; i++) {
-            if (this.itemRightPositions[i] > this.$innerContainer.scrollLeft() + this.$innerContainer.innerWidth()) {
-                nextItem = i;
-                break;
-            }
-        }
-
-        let newPosition = this.itemLeftPositions[nextItem] - INNER_CONTAINER_SCROLL_PADDING;
         this.scrollToPosition(newPosition);
     }
 
     pageBack() {
-        let nextItem = 0;
+        let visibleAreaLeftEdge = this.$innerContainer.scrollLeft() + INNER_CONTAINER_SCROLL_PADDING,
+            nextItem = this.itemRightPositions.findIndex(rightEdge => rightEdge > visibleAreaLeftEdge),
+            newPosition = this.itemLeftPositions[nextItem] - this.$innerContainer.innerWidth() + INNER_CONTAINER_SCROLL_PADDING;
 
-        for (let i = 0; i < this.itemRightPositions.length; i++) {
-            if (this.itemRightPositions[i] > this.$innerContainer.scrollLeft() + INNER_CONTAINER_SCROLL_PADDING) {
-                nextItem = i;
-                break;
-            }
-        }
-
-        let newPosition = this.itemRightPositions[nextItem] - this.$innerContainer.innerWidth() + INNER_CONTAINER_SCROLL_PADDING;
         this.scrollToPosition(newPosition);
     }
 
