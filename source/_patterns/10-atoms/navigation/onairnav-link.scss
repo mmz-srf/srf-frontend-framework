@@ -75,7 +75,7 @@
   font-family: $font-regular;
   color: #fff;
   max-height: auto;
-  animation: pulsatingLive 3s infinite ease-in-out;
+  animation: pulsatingLiveAnimation 3s infinite ease-in-out;
   @include font-smoothing;
 }
 
