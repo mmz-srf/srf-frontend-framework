@@ -18,12 +18,6 @@
   }
 }
 
-.DEV--modal--dark .shimmer {
-  --theme-shimmer-bg: rgba(255,255,255,.12);
-  --theme-shimmer-bg-gradient: rgba(255,255,255,.24);
-}
-
-
 .shimmer {
   width: 100%;
   height: var(--theme-shimmer-height-text);
