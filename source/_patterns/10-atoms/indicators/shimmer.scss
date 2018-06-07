@@ -19,25 +19,25 @@
   position: absolute;
   left: 0;
   height: 100%;
-  animation: shimmeringAnimation 2.5s infinite linear;
+  animation: shimmeringAnimation 2.5s infinite ease-in-out;
   will-change: transform;
   display: block;
 }
 
 .shimmer:nth-of-type(2) .shimmer-elem {
-  animation-delay: .1s;
+  animation-delay: .05s;
 }
 
 .shimmer:nth-of-type(3) .shimmer-elem {
-  animation-delay: .2s;
+  animation-delay: .1s;
 }
 
 .shimmer:nth-of-type(4) .shimmer-elem {
-  animation-delay: .3s;
+  animation-delay: .15s;
 }
 
 .shimmer:nth-of-type(5) .shimmer-elem {
-  animation-delay: .4s;
+  animation-delay: .2s;
 }
 
 .shimmer--dark {
