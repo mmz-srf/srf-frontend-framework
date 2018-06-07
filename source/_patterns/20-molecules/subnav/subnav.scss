@@ -23,6 +23,7 @@
   // assuming that no scrollbar is higher than 30px
   padding-bottom: 30px;
   box-sizing: content-box;
+  display: flex;
 }
 
 .subnav__list-item {

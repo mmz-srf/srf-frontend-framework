@@ -62,3 +62,17 @@
   border-bottom-color: var(--theme-color-nav-active-border, #f1434a);
   color: var(--theme-color-active, $color-accentuation-red);
 }
+
+.nav-item--expandable {
+    display: inline-flex;
+    align-items: center;
+}
+
+.nav-item--third-level {
+    padding-left: 24px;
+    padding-right: 24px;
+
+    @include smartphone {
+        text-align: center;
+    }
+}

@@ -1,0 +1,45 @@
+.nav-group {
+    .nav-group__list {
+        display: none;
+        transform-origin: top;
+    }
+}
+
+.nav-group--open {
+    .nav-group__list {
+        position: fixed;
+        z-index: 100;
+        display: flex;
+        flex-direction: column;
+        background-color: #ffffff;
+        margin: 1px 0 0;
+        padding: 8px 0;
+        box-shadow: 0 2px 8px 0 rgba(0,0,0,.24), 0 0 8px 0 rgba(0,0,0,.12);
+        opacity: 0;
+
+        animation: fadeInNavGroup .2s forwards;
+
+        @include smartphone {
+            left: 0;
+            width: 100%;
+        }
+
+        @include tablet-up {
+            margin-left: -8px;
+            min-width: 200px;
+        }
+    }
+}
+
+@keyframes fadeInNavGroup {
+    0% {
+        transform: scaleY(0);
+    }
+    20% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+        transform: scaleY(1);
+    }
+}

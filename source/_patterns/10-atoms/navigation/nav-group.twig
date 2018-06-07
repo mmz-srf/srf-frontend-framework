@@ -1,0 +1,19 @@
+<div class="nav-group js-nav-group {{ styleModifier|default("") }}">
+    <a href="#" class="nav-item nav-item--expandable {{ styleModifier|default("") }}">
+        {{ content|default("Item") }}
+
+        <span class="nav-group__icon">
+            {% include 'atoms-expand-icon' with { 'styleModifier': 'expand-icon--dark' } %}
+        </span>
+    </a>
+
+    <ul class="nav-group__list">
+        {% for item in items %}
+            {% include 'atoms-nav-item' with {
+                'styleModifier': "nav-item--third-level",
+                'content': item.name,
+                'url': item.url
+            } %}
+        {% endfor %}
+    </ul>
+</div>

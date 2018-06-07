@@ -10,7 +10,9 @@ const SCROLL_PAGER_CLASS = 'js-scroll-pager-container',
     MASK_RIGHT_CLASS = 'js-subnav-mask-right',
     MASK_VISIBLE_CLASS = 'subnav__mask--visible',
     ITEM_ACTIVE_CLASS = 'js-active-subnav-item',
+    ITEM_GROUP_CLASS = 'js-nav-group',
     DEBOUNCETIME = 10,
+    THROTTLETIME = 100,
     RIGHT_OFFSET = 24,
     BUTTON_BACK_THRESHOLD = 2,
     INNER_CONTAINER_SCROLL_PADDING = 84,
@@ -66,8 +68,49 @@ export class FefScrollPager {
     registerListeners() {
         $(window).on('resize', FefDebounceHelper.debounce(() => this.init(), DEBOUNCETIME));
         this.$innerContainer.on('scroll', FefDebounceHelper.debounce(() => this.init(), DEBOUNCETIME));
+        this.$innerContainer.on('scroll', FefDebounceHelper.throttle(() => this.closeAllSubNavs(), THROTTLETIME));
         this.$buttonBack.on('click', () => { this.pageBack(); });
         this.$buttonForward.on('click', () => { this.pageForward(); });
+
+        this.$element.on('click', `.${ITEM_GROUP_CLASS}`, (e) => this.toggleSubNav($(e.currentTarget)));
+    }
+
+    closeAllSubNavs() {
+        let openNavs = this.$element.find('.js-nav-group-open');
+
+        if (openNavs.length > 0) {
+            openNavs.each((index, el) => {
+                $(el).removeClass('js-nav-group-open nav-group--open')
+                    .find('.expand-icon').removeClass('expand-icon--open');
+            });
+        }
+    }
+
+    toggleSubNav($navItem) {
+        let $list = $navItem.find('.nav-group__list');
+        let willBeOpen = !$navItem.hasClass('js-nav-group-open');
+
+        this.closeAllSubNavs();
+
+        if (willBeOpen) {
+            $navItem.addClass('js-nav-group-open nav-group--open');
+            $navItem.find('.expand-icon').addClass('expand-icon--open');
+
+            if (!FefResponsiveHelper.isSmartphone()) {
+                let navItemOffset = $navItem.offset().left,
+                    listWidth = Math.max($navItem.outerWidth(), 200, $list.outerWidth());
+
+                // if there's not enough space on the right side, align with the right side of the window (+2px because it looks pretty ✨)
+                if (navItemOffset + listWidth >= $(window).outerWidth()) {
+                    $list.css('right', 2);
+                } else {
+                    $list.css('left', navItemOffset);
+                }
+            }
+        } else {
+            $list.css({'left': '', 'right': ''});
+        }
+        // TODO: mark sub-nav-item as active (CMS, when rendering)
     }
 
     updateButtonStatus() {
