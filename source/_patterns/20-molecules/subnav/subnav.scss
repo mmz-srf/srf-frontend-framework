@@ -17,6 +17,7 @@
   padding: 0 16px;
   overflow-y: hidden;
   overflow-x: scroll;
+  -webkit-overflow-scrolling: touch;
   font-size: 0; // removes space between inline-block child elements
   white-space: nowrap;
   // stretching list height to move scrollbar out of visible area
@@ -103,14 +104,14 @@
     background: linear-gradient(
       to right,
       rgba(254, 254, 253, 1),
-      rgba(255, 255, 255, 0) 66%,
+      rgba(254, 254, 253, 1) 58px,
       rgba(255, 255, 255, 0)
     );
     /* theme */
     background: linear-gradient(
       to right,
       var(--theme-color-pager-start, rgba(254, 254, 253, 1)),
-      var(--theme-color-pager-start-transparent, rgba(255, 255, 255, 0)) 66%,
+      var(--theme-color-pager-start, rgba(254, 254, 253, 1)) 58px,
       var(--theme-color-pager-start-transparent, rgba(255, 255, 255, 0))
     );
 
@@ -133,14 +134,14 @@
     background: linear-gradient(
       to right,
       rgba(255, 255, 255, 0),
-      rgba(255, 255, 255, 0) 33%,
+      rgba(250, 250, 248, 1) 28px,
       rgba(250, 250, 248, 1)
     );
     /* theme */
     background: linear-gradient(
       to right,
       var(--theme-color-pager-end-transparent, rgba(255, 255, 255, 0)),
-      var(--theme-color-pager-end-transparent, rgba(255, 255, 255, 0)) 33%,
+      var(--theme-color-pager-end, rgba(250, 250, 248, 1)) 28px,
       var(--theme-color-pager-end, rgba(250, 250, 248, 1))
     );
   }
@@ -155,6 +156,7 @@
     height: 24px;
     filter: none; /* fallback */
     filter: var(--theme-icon-filter, none);
+    cursor: pointer;
 
     &:hover {
       background-color: $color-nav-bg-hover;
