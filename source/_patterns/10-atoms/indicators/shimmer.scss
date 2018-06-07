@@ -1,0 +1,81 @@
+.shimmer {
+  --theme-shimmer-bg: rgba(34,33,29,.12);
+  --theme-shimmer-bg-gradient: rgba(34,33,29,.24);
+  --theme-shimmer-bg-overline: rgba(201,16,36,.12);
+  --theme-shimmer-bg-overline-gradient: rgba(201,16,36,.24);
+  --theme-shimmer-height-title: 16px;
+  --theme-shimmer-height-overline: 11px;
+  --theme-shimmer-height-overline-large: 11px;
+  --theme-shimmer-height-text: 11px;
+  --theme-shimmer-height-text-large: 14px;
+
+  @include desktop-up {
+    --theme-shimmer-height-title: 19px;
+    --theme-shimmer-height-overline: 11px;
+    --theme-shimmer-height-overline-large: 13px;
+    --theme-shimmer-height-text: 14px;
+    --theme-shimmer-height-text-large: 16px;
+  }
+}
+
+.DEV--modal--dark .shimmer {
+  --theme-shimmer-bg: rgba(255,255,255,.12);
+  --theme-shimmer-bg-gradient: rgba(255,255,255,.24);
+}
+
+
+.shimmer {
+  width: 100%;
+  height: var(--theme-shimmer-height-text);
+  margin-bottom: var(--theme-shimmer-height-text);
+  background: var(--theme-shimmer-bg, rgba(34,33,29,.12));
+  position: relative;
+  overflow: hidden;
+  display: block;
+}
+
+.shimmer-elem {
+  background: linear-gradient(90deg,transparent,var(--theme-shimmer-bg-gradient) 50%,transparent);
+  width: 800px;
+  position: absolute;
+  left: 0;
+  height: 100%;
+  animation: shimmeringAnimation 2.5s infinite linear;
+  will-change: transform;
+  display: block;
+}
+
+.shimmer:nth-of-type(2) .shimmer-elem {
+  animation-delay: .1s;
+}
+
+.shimmer:nth-of-type(3) .shimmer-elem {
+  animation-delay: .2s;
+}
+
+.shimmer:nth-of-type(4) .shimmer-elem {
+  animation-delay: .3s;
+}
+
+.shimmer:nth-of-type(5) .shimmer-elem {
+  animation-delay: .4s;
+}
+
+.shimmer--short {
+  width: 66%;
+}
+
+.shimmer--title {
+  width: 66%;
+  height: var(--theme-shimmer-height-title);
+  margin-bottom: var(--theme-shimmer-height-title);
+}
+
+.shimmer--overline {
+  width: 33%;
+  background: var(--theme-shimmer-bg-overline);
+
+  .shimmer-elem {
+    background: linear-gradient(90deg,transparent,var(--theme-shimmer-bg-overline-gradient) 50%,transparent);
+  }
+}
