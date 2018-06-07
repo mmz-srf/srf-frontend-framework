@@ -1,35 +1,20 @@
 .shimmer {
-  --theme-shimmer-bg: rgba(34,33,29,.12);
-  --theme-shimmer-bg-gradient: rgba(34,33,29,.24);
-  --theme-shimmer-bg-overline: rgba(201,16,36,.12);
-  --theme-shimmer-bg-overline-gradient: rgba(201,16,36,.24);
-  --theme-shimmer-height-title: 16px;
-  --theme-shimmer-height-overline: 11px;
-  --theme-shimmer-height-overline-large: 11px;
-  --theme-shimmer-height-text: 11px;
-  --theme-shimmer-height-text-large: 14px;
-
-  @include desktop-up {
-    --theme-shimmer-height-title: 19px;
-    --theme-shimmer-height-overline: 11px;
-    --theme-shimmer-height-overline-large: 13px;
-    --theme-shimmer-height-text: 14px;
-    --theme-shimmer-height-text-large: 16px;
-  }
-}
-
-.shimmer {
   width: 100%;
-  height: var(--theme-shimmer-height-text);
-  margin-bottom: var(--theme-shimmer-height-text);
-  background: var(--theme-shimmer-bg, rgba(34,33,29,.12));
+  height: 11px;
+  margin-bottom: 11px;
+  background: rgba(34,33,29,.12);
   position: relative;
   overflow: hidden;
   display: block;
+
+  @include desktop-up {
+    height: 14px;
+    margin-bottom: 14px;
+  }
 }
 
 .shimmer-elem {
-  background: linear-gradient(90deg,transparent,var(--theme-shimmer-bg-gradient) 50%,transparent);
+  background: linear-gradient(90deg,transparent,rgba(34,33,29,.24) 50%,transparent);
   width: 800px;
   position: absolute;
   left: 0;
@@ -55,21 +40,39 @@
   animation-delay: .4s;
 }
 
+.shimmer--dark {
+  background: rgba(255,255,255,.12);
+
+  .shimmer-elem {
+    background: linear-gradient(90deg,transparent,rgba(255,255,255,.24) 50%,transparent);
+  }
+}
+
 .shimmer--short {
   width: 66%;
 }
 
 .shimmer--title {
   width: 66%;
-  height: var(--theme-shimmer-height-title);
-  margin-bottom: var(--theme-shimmer-height-title);
+  height: 16px;
+  margin-bottom: 16px;
+
+  @include desktop-up {
+    height: 19px;
+    margin-bottom: 19px;
+  }
 }
 
 .shimmer--overline {
   width: 33%;
-  background: var(--theme-shimmer-bg-overline);
+  height: 11px;
+  background: rgba(201,16,36,.12);
+
+  @include desktop-up {
+    height: 11px;
+  }
 
   .shimmer-elem {
-    background: linear-gradient(90deg,transparent,var(--theme-shimmer-bg-overline-gradient) 50%,transparent);
+    background: linear-gradient(90deg,transparent,rgba(201,16,36,.24) 50%,transparent);
   }
 }
