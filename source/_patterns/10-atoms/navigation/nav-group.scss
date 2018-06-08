@@ -1,8 +1,16 @@
-.nav-group {
-    .nav-group__list {
-        display: none;
-        transform-origin: top;
-    }
+.nav-group__list {
+    display: none;
+    transform-origin: top;
+    flex-direction: column;
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+    background-color: #fefefd;
+    margin: 1px 0 0;
+    padding: 8px 0;
+    box-shadow: 0 2px 8px 0 rgba(0,0,0,.24), 0 0 8px 0 rgba(0,0,0,.12);
+    min-width: 200px;
+    border-top: rgba(0, 0, 0, 0.08);
+    opacity: 0;
 }
 
 .nav-group__wrapper {
@@ -24,16 +32,6 @@
 .nav-group--open {
     .nav-group__list {
         display: flex;
-        flex-direction: column;
-        border-bottom-left-radius: 2px;
-        border-bottom-right-radius: 2px;
-        background-color: #fefefd;
-        margin: 1px 0 0;
-        padding: 8px 0;
-        box-shadow: 0 2px 8px 0 rgba(0,0,0,.24), 0 0 8px 0 rgba(0,0,0,.12);
-        min-width: 200px;
-        border-top: rgba(0, 0, 0, 0.08);
-        opacity: 0;
         animation: fadeInNavGroup .2s forwards;
     }
 }
