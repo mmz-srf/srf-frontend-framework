@@ -11,6 +11,11 @@
     min-width: 200px;
     border-top: rgba(0, 0, 0, 0.08);
     opacity: 0;
+    animation: fadeInNavGroup .2s forwards;
+
+    .nav-group--open & {
+        display: flex;
+    }
 }
 
 .nav-group__wrapper {
@@ -26,13 +31,6 @@
     @include tablet-up {
         margin-left: -16px;
         padding: 0px 8px 8px;
-    }
-}
-
-.nav-group--open {
-    .nav-group__list {
-        display: flex;
-        animation: fadeInNavGroup .2s forwards;
     }
 }
 
