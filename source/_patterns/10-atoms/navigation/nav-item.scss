@@ -60,38 +60,38 @@
 }
 
 .nav-item--expandable {
-    display: inline-flex;
-    align-items: center;
+  display: inline-flex;
+  align-items: center;
 
-    .nav-group__icon {
-        filter: none; /* fallback */
-        filter: var(--theme-icon-filter, none);
-        // prevents us from having to check click-events on the icon
-        pointer-events: none;
-    }
+  .nav-group__icon {
+    filter: none; /* fallback */
+    filter: var(--theme-icon-filter, none);
+    // prevents us from having to check click-events on the icon
+    pointer-events: none;
+  }
 }
 
 .nav-item--third-level {
-    padding-left: 24px;
-    padding-right: 24px;
+  padding-left: 24px;
+  padding-right: 24px;
 
-    @include smartphone {
-        text-align: center;
-    }
+  @include smartphone {
+    text-align: center;
+  }
 
-    // Override Theming for 3rd level Nav
-    &,
-    &:hover,
-    &:active,
-    &:focus {
-        color: $color-text-accentuation;
-    }
+  // Override Theming for 3rd level Nav
+  &,
+  &:hover,
+  &:active,
+  &:focus {
+    color: $color-text-accentuation;
+  }
 
-    &:hover {
-        background-color: $color-nav-bg-hover;
-    }
+  &:hover {
+    background-color: $color-nav-bg-hover;
+  }
 
-    &:active {
-        background-color: $color-nav-bg-active;
-    }
+  &:active {
+    background-color: $color-nav-bg-active;
+  }
 }
