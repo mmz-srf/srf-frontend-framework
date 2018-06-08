@@ -1,6 +1,18 @@
-<div class="nav-group js-nav-group {{ styleModifier|default("") }}">
+{% set hasActiveChild = false %}
+{% set itemTitle = content|default("") %}
+
+{# If any child of this subnav-group is active, set the parent as active and use the active child's title #}
+{% for child in items %}
+  {% if child.active %}
+    {% set hasActiveChild = true %}
+    {% set itemTitle = child.name %}
+    {% set styleModifier = styleModifier ~ 'nav-item--active js-active-subnav-item' %}
+  {% endif %}
+{% endfor %}
+
+<div class="nav-group js-nav-group">
     <a href="#" class="nav-item nav-item--expandable {{ styleModifier|default("") }}">
-        {{ content|default("Item") }}
+        {{ itemTitle }}
 
         <span class="nav-group__icon">
             {% include 'atoms-expand-icon' with { 'styleModifier': 'expand-icon--dark' } %}
