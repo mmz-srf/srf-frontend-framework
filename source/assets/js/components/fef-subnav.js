@@ -4,10 +4,10 @@ import {FefResponsiveHelper} from '../classes/fef-responsive-helper';
 const KEYCODES = {
     'escape': 27
 };
-const SCROLL_PAGER_CLASS = 'js-scroll-pager-container',
-    INNER_CONTAINER_CLASS = 'js-scroll-pager-content',
-    BUTTON_BACK_CLASS = 'js-scroll-pager-button-back',
-    BUTTON_FORWARD_CLASS = 'js-scroll-pager-button-forward',
+const SUBNAV_CLASS = 'js-subnav-container',
+    INNER_CONTAINER_CLASS = 'js-subnav-content',
+    BUTTON_BACK_CLASS = 'js-subnav-button-back',
+    BUTTON_FORWARD_CLASS = 'js-subnav-button-forward',
     BUTTON_ACTIVE_CLASS = 'subnav__pager--visible',
     MASK_LEFT_CLASS = 'js-subnav-mask-left',
     MASK_RIGHT_CLASS = 'js-subnav-mask-right',
@@ -26,16 +26,17 @@ const SCROLL_PAGER_CLASS = 'js-scroll-pager-container',
     DEFAULT_SCROLL_TIME = 200;
 
 export function init() {
-    $(`.${SCROLL_PAGER_CLASS}`).each((index, element) => {
-        new FefScrollPager($(element));
+    $(`.${SUBNAV_CLASS}`).each((index, element) => {
+        new FefSubnav($(element));
     });
 }
 
 /**
- * This component handles the paging buttons and paging functionality of a horizontally scrollable items list as well
- * as the masks for overflowing navigation items
+ * This component handles the behaviour of the subnav, such as paging buttons and paging
+ * functionality of a horizontally scrollable items list as well as the masks for
+ * overflowing navigation items and 3rd-level navigation.
  */
-export class FefScrollPager {
+export class FefSubnav {
 
     /**
      * @param $element jQuery element
