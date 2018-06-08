@@ -81,9 +81,11 @@ export class FefSubnav {
         this.$buttonForward.on('click', () => { this.pageForward(); });
 
         this.$element.on('click', `.${ITEM_GROUP_CLASS}`, (e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            this.toggleSubNav($(e.currentTarget));
+            if ($(e.target).parent().hasClass(ITEM_GROUP_CLASS)) {
+                e.preventDefault();
+                e.stopPropagation();
+                this.toggleSubNav($(e.currentTarget));
+            }
         });
     }
 
