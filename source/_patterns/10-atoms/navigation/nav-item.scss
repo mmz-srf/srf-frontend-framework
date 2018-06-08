@@ -71,4 +71,20 @@
     @include smartphone {
         text-align: center;
     }
+
+    // Override Theming for 3rd level Nav
+    &,
+    &:hover,
+    &:active,
+    &:focus {
+        color: $color-text-accentuation;
+    }
+
+    &:hover {
+        background-color: $color-nav-bg-hover;
+    }
+
+    &:active {
+        background-color: $color-nav-bg-active;
+    }
 }
