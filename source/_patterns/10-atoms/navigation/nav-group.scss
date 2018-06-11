@@ -22,6 +22,7 @@
   position: fixed;
   overflow: hidden;
   padding: 0 0 8px;
+  margin-top: -1px;
 
   @include smartphone {
     left: 0;
