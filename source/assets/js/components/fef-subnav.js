@@ -105,6 +105,8 @@ export class FefSubnav {
         let $wrapper = $navItem.find(`.${ITEM_GROUP_WRAPPER_CLASS}`);
         $navItem.find('.expand-icon').removeClass('expand-icon--open');
 
+        this.$element.removeClass('subnav--open-3rd-level');
+
         $wrapper.animate({'opacity': 0}, 200, 'easeInOutCubic', () => {
             $navItem.removeClass(`${ITEM_OPEN_GROUP_CLASS} nav-group--open`);
 
@@ -121,6 +123,8 @@ export class FefSubnav {
         if (isClosing) {
             return;
         }
+
+        this.$element.addClass('subnav--open-3rd-level');
 
         // Listen to clicks outside of the element and Escape keypress --> close element
         $(document).on(OUTSIDE_CLICK_LISTENER_NAME, (e) => {

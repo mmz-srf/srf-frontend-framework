@@ -71,3 +71,15 @@
 .header-startlink--fixed-for-ie .header-logo {
   display: none;
 }
+
+/*
+ * TARGETED BROWSER: Safari
+ *
+ * Safari has troubles combining overflow-y: hidden and it's own webkit-overflow-scrolling: touch.
+ * This makes the 3rd-level-Navigation points not show up.
+ */
+.subnav--open-3rd-level {
+    .subnav__list {
+      -webkit-overflow-scrolling: initial;
+    }
+  }
