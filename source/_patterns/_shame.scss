@@ -75,11 +75,11 @@
 /*
  * TARGETED BROWSER: Safari
  *
- * Safari has troubles combining overflow-y: hidden and its own webkit-overflow-scrolling: touch.
+ * Safari has troubles combining overflow-x: hidden and its own webkit-overflow-scrolling: touch.
  * This makes the 3rd-level-Navigation points not show up.
  */
 .subnav--open-3rd-level {
-  overflow: auto;
+  overflow-x: auto;
 
   .subnav__list {
     -webkit-overflow-scrolling: initial;
