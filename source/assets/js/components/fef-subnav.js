@@ -23,6 +23,7 @@ const SUBNAV_CLASS = 'js-subnav-container',
     RIGHT_OFFSET = 24,
     BUTTON_BACK_THRESHOLD = 2,
     INNER_CONTAINER_SCROLL_PADDING = 84,
+    ITEM_GROUP_MARGIN = 16,
     DEFAULT_SCROLL_TIME = 200;
 
 export function init() {
@@ -112,6 +113,7 @@ export class FefSubnav {
 
             // reset previously applied styles
             $wrapper.css({'left': '', 'right': '', 'opacity': ''});
+            $wrapper.find('.nav-group__list').width('');
         });
     }
 
@@ -139,15 +141,20 @@ export class FefSubnav {
         $navItem.find('.expand-icon').addClass('expand-icon--open');
 
         if (!FefResponsiveHelper.isSmartphone()) {
-            this.positionSubNavGroup($navItem);
+            this.positionAndStretchSubNavGroup($navItem);
         }
     }
 
-    positionSubNavGroup($navItem) {
-        let $list = $navItem.find('.nav-group__list'),
+    positionAndStretchSubNavGroup($navItem) {
+        const $list = $navItem.find('.nav-group__list'),
             $listWrapper = $navItem.find(`.${ITEM_GROUP_WRAPPER_CLASS}`),
-            navItemOffset = Math.max(16, $navItem.offset().left), // compensate for the 16px negative margin on the NavGroup
+            navItemOffset = Math.max(ITEM_GROUP_MARGIN, $navItem.offset().left), // compensate for the 16px negative margin on the NavGroup
             listWidth = Math.max($navItem.outerWidth(), 200, $list.outerWidth());
+
+        // If the parental nav item is wider than the list, make them the same size (compensate for margin)
+        if ($navItem.outerWidth() + ITEM_GROUP_MARGIN > $list.outerWidth()) {
+            $list.width($navItem.outerWidth() + ITEM_GROUP_MARGIN);
+        }
 
         // if there's not enough space on the right side, align with the right side of the window
         if (navItemOffset + listWidth >= $(window).outerWidth()) {
