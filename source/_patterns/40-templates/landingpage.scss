@@ -1,14 +1,5 @@
 .landingpage {
     margin: 0 auto;
     min-height: 480px;
-
-    @include tablet {
-        max-width: 720px;
-        padding: 0 32px;
-    }
-
-    @include desktop-up {
-        padding: 0 40px;
-        max-width: 792px;
-    }
+    max-width: 1280px;
 }

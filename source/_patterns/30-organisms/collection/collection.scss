@@ -26,10 +26,19 @@
     @include tablet-up {
         margin: 16px 32px 12px;
     }
+
+    @include desktop-up {
+        margin: 20px 32px 16px;
+        font-size: 28px;
+    }
+
+    @include desktop-wide {
+        margin: 20px 40px 16px;
+    }
 }
 
 .teaser-list {
-    margin: 0;
+    margin: 0 8px;
     padding: 0;
 
     display: flex;
@@ -37,12 +46,18 @@
 
     @include tablet-up {
         flex-direction: row;
+        flex-wrap: wrap;
+        margin: 0 32px;
+    }
+
+    @include desktop-wide {
+        margin: 0 40px;
     }
 }
 
 .teaser-list__item {
     padding: 0;
-    margin: 0 8px 8px;
+    margin: 0 0 8px;
 
     list-style-type: none;
     &::before {
@@ -50,8 +65,13 @@
     }
 
     @include tablet-up {
-        flex-grow: 1;
-        flex-shrink: 1;
-        flex-basis: 0px;
+        flex-grow: 0;
+        flex-shrink: 0;
+        flex-basis: calc((100% - 48px) / 3);
+        margin-right: 24px;
+
+        &:nth-child(3n) {
+            margin-right: 0;
+        }
     }
 }

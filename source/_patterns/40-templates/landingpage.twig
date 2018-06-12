@@ -14,13 +14,11 @@
 </div>
 {% endif %}
 
-<div class="l-main-wrapper">
-    <section class="landingpage">
-        {% block landingpage_content %}
-            [-- LANDINGPAGE CONTENT --]
-        {% endblock %}
-    </section>
-</div>
+<section class="landingpage">
+    {% block landingpage_content %}
+        [-- LANDINGPAGE CONTENT --]
+    {% endblock %}
+</section>
 
 {% include 'organisms-rlp-footer' %}
 
