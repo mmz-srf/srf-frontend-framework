@@ -4,7 +4,7 @@
             {% set itemStyleModifier = (item.active) ? 'nav-item--active js-active-subnav-item' : ''  %}
             {% if item.items|length > 0 %}
                 <li class="subnav__list-item subnav__list-item--expandable js-subnav-item--expandable">
-                    {% include 'atoms-nav-group' with {
+                    {% include 'molecules-nav-group' with {
                         'styleModifier': itemStyleModifier,
                         'content': item.name,
                         'items': item.items

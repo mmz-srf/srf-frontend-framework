@@ -63,7 +63,7 @@
   display: inline-flex;
   align-items: center;
 
-  .nav-group__icon {
+  .nav-item__icon {
     filter: none; /* fallback */
     filter: var(--theme-icon-filter, none);
     // prevents us from having to check click-events on the icon
