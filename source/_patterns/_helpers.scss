@@ -54,3 +54,13 @@
 .h-element--visible {
   visibility: visible;
 }
+
+.h-prevent-scrolling {
+  height: 100%;
+
+  body {
+    height: 100%;
+    position: relative; // Because Safari doesn't prevent scrollbars without this
+    overflow: hidden;
+  }
+}
