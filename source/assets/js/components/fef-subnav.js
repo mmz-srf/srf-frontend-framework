@@ -99,9 +99,7 @@ export class FefSubnav {
         $(document).off(`${OUTSIDE_CLICK_LISTENER_NAME} ${OUTSIDE_KEYPRESS_LISTENER_NAME}`);
         let openNavs = this.$element.find(`.${ITEM_OPEN_GROUP_CLASS}`);
 
-        if (openNavs.length > 0) {
-            openNavs.each((index, el) => this.closeSubNav($(el)));
-        }
+        openNavs.each((index, el) => this.closeSubNav($(el)));
     }
 
     /**
@@ -117,7 +115,7 @@ export class FefSubnav {
             $navItem.removeClass(`${ITEM_OPEN_GROUP_CLASS} nav-group--open`);
 
             // reset previously applied styles
-            $wrapper.css({'left': '', 'right': '', 'opacity': ''});
+            $wrapper.css({'left': '', 'right': '', 'opacity': '', 'max-height': ''});
             $wrapper.find('.nav-group__list').width('');
         });
     }
@@ -147,6 +145,9 @@ export class FefSubnav {
 
         if (!FefResponsiveHelper.isSmartphone()) {
             this.positionAndStretchSubNavGroup($navItem);
+        } else {
+            // Mobile: don't let the nav-group be taller than the space under the masthead. Make it scrollable and set a max-height to guarantee it.
+            $navItem.find(`.${ITEM_GROUP_WRAPPER_CLASS}`).css({'max-height': `calc(100vh - ${$('.js-affix').outerHeight(true)}px)`});
         }
     }
 
