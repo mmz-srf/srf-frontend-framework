@@ -1,0 +1,10 @@
+<div class="collection">
+    <h3>{{ collection.title|default("") }}</h3>
+    <ul class="teaser-list">
+        {% for teaser in collection.teasers %}
+            <li class="teaser-list__item {{ styleModifierItem }}">
+                {% include 'molecules-teaser' with {'teaser': teaser} %}
+            </li>
+        {% endfor %}
+    </ul>
+</div>

@@ -1,0 +1,8 @@
+<a href="{{ teaser.link|default("#") }}" class="teaser">
+    <img src="{{ teaser.image|default("") }}" alt="{{ teaser.title|default("") }}" class="teaser__image" />
+
+    <div class="teaser__content">
+        <h4 class="teaser__title">{{ teaser.title|default("") }}</h4>
+        <p class="teaser__lead">{{ teaser.lead|default("") }}</p>
+    </div>
+</a>
