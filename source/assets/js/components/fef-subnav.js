@@ -133,7 +133,9 @@ export class FefSubnav {
 
         // Listen to clicks outside of the element and Escape keypress --> close element
         $(document).on(OUTSIDE_CLICK_LISTENER_NAME, (e) => {
-            this.closeAllSubNavs();
+            if (!$(e.target).hasClass('nav-item')) {
+                this.closeAllSubNavs();
+            }
         }).on(OUTSIDE_KEYPRESS_LISTENER_NAME, (e) => {
             if(e.keyCode === KEYCODES.escape) {
                 this.closeAllSubNavs();
