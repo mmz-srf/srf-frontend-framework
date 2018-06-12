@@ -74,8 +74,13 @@ export class FefSubnav {
         });
     }
 
+    onResize() {
+        this.init();
+        this.closeAllSubNavs();
+    }
+
     registerListeners() {
-        $(window).on('resize', FefDebounceHelper.debounce(() => this.init(), DEBOUNCETIME));
+        $(window).on('resize', FefDebounceHelper.debounce(() => this.onResize(), DEBOUNCETIME));
         this.$innerContainer.on('scroll', FefDebounceHelper.debounce(() => this.init(), DEBOUNCETIME));
         this.$innerContainer.on('scroll', FefDebounceHelper.throttle(() => this.closeAllSubNavs(), THROTTLETIME));
         this.$buttonBack.on('click', () => { this.pageBack(); });
@@ -91,7 +96,7 @@ export class FefSubnav {
     }
 
     closeAllSubNavs() {
-        $(document).off(`${OUTSIDE_CLICK_LISTENER_NAME} `);
+        $(document).off(`${OUTSIDE_CLICK_LISTENER_NAME} ${OUTSIDE_KEYPRESS_LISTENER_NAME}`);
         let openNavs = this.$element.find(`.${ITEM_OPEN_GROUP_CLASS}`);
 
         if (openNavs.length > 0) {
