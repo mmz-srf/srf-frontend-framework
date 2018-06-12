@@ -5,6 +5,10 @@
 .teaser {
     background-color: #fefefd;
     box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.24), 0 0 1px 0 rgba(0, 0, 0, 0.12);
+    border-radius: 2px;
+    color: #22211d;
+    transition: background-color .2s ease-in-out, box-shadow .2s ease-in-out;
+    @include breakLongWords;
 
     display: flex;
     flex-direction: row-reverse;
@@ -13,7 +17,16 @@
         flex-direction: column;
     }
 
-    margin: 8px;
+    &:hover {
+        background-color: #fafaf8;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.24), 0 0 8px 0 rgba(0, 0, 0, 0.12);
+    }
+
+    &:focus,
+    &:active {
+        background-color: #f5f5f2;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.24), 0 0 8px 0 rgba(0, 0, 0, 0.12);
+    }
 }
 
 .teaser__image-wrapper {
@@ -21,5 +34,47 @@
     flex-shrink: 0;
     flex-basis: 80px;
 
+    margin: 16px 16px 16px 0;
+}
+
+.teaser__image {
+    object-fit: cover;
+    width: 80px;
+    height: 80px;
+}
+
+.teaser__content {
+    flex-basis: 0;
+    flex-grow: 1;
+    flex-shrink: 1;
+
     margin: 16px;
+}
+
+.teaser__kicker {
+    margin: 0 0 4px;
+    font-family: $font-regular;
+    font-size: 14px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.14;
+    letter-spacing: 0.4px;
+    color: #c91024;
+}
+
+.teaser__title {
+    margin: 0;
+    font-family: $font-regular;
+    font-size: 16px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.25;
+    letter-spacing: 0.4px;
+    color: #22211d;
+}
+
+.teaser__lead {
+    display: none;
 }

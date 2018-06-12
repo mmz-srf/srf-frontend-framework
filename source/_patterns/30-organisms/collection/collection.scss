@@ -6,9 +6,26 @@
     background-color: #f5f5f2;
     box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.24), 0 0 1px 0 rgba(0, 0, 0, 0.12);
     margin: 8px 8px 16px;
+    border-radius: 2px;
 
     display: flex;
     flex-direction: column;
+}
+
+.collection__title {
+    margin: 16px 24px 12px;
+    font-family: $font-medium;
+    font-size: 24px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.25;
+    letter-spacing: 0.2px;
+    color: #22211d;
+
+    @include tablet-up {
+        margin: 16px 32px 12px;
+    }
 }
 
 .teaser-list {
@@ -24,11 +41,17 @@
 }
 
 .teaser-list__item {
-    margin: 0;
     padding: 0;
+    margin: 0 8px 8px;
 
     list-style-type: none;
     &::before {
         display: none;
+    }
+
+    @include tablet-up {
+        flex-grow: 1;
+        flex-shrink: 1;
+        flex-basis: 0px;
     }
 }
