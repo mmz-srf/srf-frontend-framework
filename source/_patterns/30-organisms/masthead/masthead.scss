@@ -156,10 +156,18 @@
   &:hover,
   &:focus {
     opacity: .8;
+
+    .icon-button {
+      opacity: inherit;
+    }
   }
 
   &:active {
     opacity: .6;
+
+    .icon-button {
+      opacity: inherit;
+    }
   }
 }
 
