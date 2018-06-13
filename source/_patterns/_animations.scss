@@ -57,3 +57,21 @@ $light-attention-color: #ff0000;
     background-color: #e31f2b;
   }
 }
+
+
+
+/*
+ *
+ * Shimmer-Animation
+ * Used by shimmer.scss
+ *
+ */
+
+@keyframes shimmeringAnimation {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(200%);
+  }
+}

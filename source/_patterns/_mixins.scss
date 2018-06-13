@@ -247,12 +247,3 @@
   word-break: break-word;
   overflow-wrap: break-word;
 }
-
-@keyframes shimmeringAnimation {
-  0% {
-    transform: translateX(-100%);
-  }
-  100% {
-    transform: translateX(200%);
-  }
-}
