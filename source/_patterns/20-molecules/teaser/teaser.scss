@@ -20,6 +20,10 @@
         background-color: #f5f5f2;
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.24), 0 0 8px 0 rgba(0, 0, 0, 0.12);
     }
+
+    @include tablet-up {
+        height: 100%;   // stretch teaser to fill container
+    }
 }
 
 .teaser__main {
@@ -28,7 +32,6 @@
 
     @include tablet-up {
         flex-direction: column;
-        height: 100%;   // stretch teaser to fill container
     }
 }
 
