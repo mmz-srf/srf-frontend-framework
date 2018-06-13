@@ -5,21 +5,17 @@
   display: flex;
   padding: 16px;
   align-items: center;
-  transition: opacity .2s ease-in-out;
   /* fallback */
   color: $color-text-accentuation;
   opacity: 1;
   /* theme */
   color: var(--theme-color-nav, $color-text-accentuation);
-  opacity: var(--theme-item-opacity, 1);
-  &:hover,
-  &:focus {
+  opacity: var(--theme-buttons-opacity, 1);
+
+  &:hover {
     color: $color-text-default;  /* fallback */
     color: var(--theme-color-nav-hover-text, $color-text-default);
-    opacity: .8;
-  }
-  &:active {
-    opacity: .6;
+    opacity: 1;
   }
 }
 
