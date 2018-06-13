@@ -248,38 +248,6 @@
   overflow-wrap: break-word;
 }
 
-$small-size: .8;
-$big-size: 1;
-$dark-attention-color: #aa0000;
-$light-attention-color: #ff0000;
-
-@keyframes pulsatingAnimation {
-  0% {
-    transform: scale($small-size);
-    background-color: $dark-attention-color;
-  }
-  20% {
-    transform: scale($big-size);
-    background-color: $light-attention-color;
-  }
-  40% {
-    transform: scale($small-size);
-    background-color: $dark-attention-color;
-  }
-  60% {
-    transform: scale($big-size);
-    background-color: $light-attention-color;
-  }
-  80% {
-    transform: scale($small-size);
-    background-color: $dark-attention-color;
-  }
-  100% {
-    transform: scale($small-size);
-    background-color: $dark-attention-color;
-  }
-}
-
 @keyframes pulsatingLiveAnimation {
   25% {
     background-color: #e31f2b;
