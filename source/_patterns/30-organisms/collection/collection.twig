@@ -1,10 +1,48 @@
-<div class="collection">
-    <h3 class="collection__title">{{ collection.title|default("") }}</h3>
-    <ul class="teaser-list">
-        {% for teaser in collection.teasers %}
-            <li class="teaser-list__item {{ styleModifierItem }}">
-                {% include 'molecules-teaser' with {'teaser': teaser} %}
-            </li>
-        {% endfor %}
-    </ul>
-</div>
+{% if collection.type == 'standard' %}
+    <div class="collection">
+        <h3 class="collection__title">{{ collection.title|default("") }}</h3>
+        <ul class="teaser-list">
+            {% for teaser in collection.teasers %}
+                <li class="teaser-list__item {{ styleModifierItem }}">
+                    {% include 'molecules-teaser' with {'teaser': teaser} %}
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+{% elseif collection.type == 'swipeable' %}
+    <section class="swipemod l-main-wrapper">
+        <div class="l-main-wrapper__space l-card">
+            <a href="#" class="swipemod-showall">
+                <h3 class="swipemod-showall__title" aria-hidden="true" role="presentation">
+                    <span class="swipemod-showall__title--extended">Mehr aus {{ collection.title|default("") }}</span>
+                    <span class="swipemod-showall__title--collapsed">{{ collection.title|default("") }}</span>
+                </h3>
+                <div class="swipemod-showall__text">Alle anzeigen</div>
+                <div class="swipemod-showall__icon"></div>
+            </a>
+
+            <div class="swipemod-container swipemod-container--2ormore swipemod-container--3ormore swipemod-container--4ormore">
+                <ul class="swipemod-swipecontainer">
+                    {% for teaser in collection.teasers %}
+                        <li class="swipemod-item">
+                            <a href="{{ teaser.link|default("#") }}">
+                                <div class="swipemod-imagecontainer" aria-hidden="true" role="presentation">
+                                    <div class="swipemod-imagecontainer__inner">
+                                        <img src="{{ teaser.image|default("") }}" alt="{{ teaser.title|default("") }}" class="swipemod-image" />
+                                    </div>
+                                </div>
+                                <h3 class="swipemod-item__title">
+                                    <span class="swipemod-item__overline">{{ teaser.kicker|default("") }}</span>
+                                    <span class="h-offscreen" aria-hidden="true"> - </span>
+                                    {{ teaser.title|default("") }}
+                                </h3>
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+                <button class="swipemod-button swipemod-button__left" data-direction="left" tabindex="-1" aria-hidden="true" role="presentation"></button>
+                <button class="swipemod-button swipemod-button__right" data-direction="right" tabindex="-1" aria-hidden="true" role="presentation"></button>
+            </div>
+        </div>
+    </section>
+{% endif %}
