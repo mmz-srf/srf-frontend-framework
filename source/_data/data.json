@@ -804,6 +804,13 @@
       "type": "standard",
       "teasers": [
         {
+          "title": "Wissenschaftler sagen: Kühe geben Milch",
+          "kicker": "Milchsee",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet."
+        },
+        {
           "title": "Kühe geben Milch",
           "kicker": "Milchsee",
           "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
@@ -811,33 +818,68 @@
           "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet."
         },
         {
-          "title": "Globi schnabuliert Kokain",
-          "kicker": "Skandal",
+          "title": "Kühe geben Milch",
+          "kicker": "Milchsee",
           "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
           "link": "#",
-          "lead": "Der ehemalige Buch- und Kassettenstar wurde auf einer Autobahnraststätte beim Drogenkonsum erwischt."
+          "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet."
+        },
+        {
+          "title": "Kühe geben Milch",
+          "kicker": "Milchsee",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet."
+        },
+        {
+          "title": "Kühe geben Milch",
+          "kicker": "Milchsee",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet."
         }
       ]
     }, {
-        "title": "Quidditch",
-        "titleLink" : "https://www.swissquidditch.ch/",
-        "type": "standard",
-        "teasers": [
-          {
-            "title": "Ponika verhilft Neuseeland zum Sieg",
-            "kicker": "Ozeanien-Liga",
-            "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
-            "link": "#",
-            "lead": "Ngapo Ponika holt den Snitch in Minute 87, Neuseeland besiegt Wales 240 zu 180."
-          },
-          {
-            "title": "Heidelberg Harriers mit neuem Kapitän",
-            "kicker": "Transfer",
-            "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
-            "link": "#",
-            "lead": "Hermann Krabat wechselt von den Karasjok Kites und leitet neu das deutsche Nationalteam."
-          }
-        ]
-      }
+      "title": "Quidditch",
+      "titleLink" : "https://www.swissquidditch.ch/",
+      "type": "standard",
+      "teasers": [
+        {
+          "title": "Ponika verhilft Neuseeland zum Sieg",
+          "kicker": "Ozeanien-Liga",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "lead": "Ngapo Ponika holt den Snitch in Minute 87, Neuseeland besiegt Wales 240 zu 180."
+        },
+        {
+          "title": "Heidelberg Harriers mit neuem Kapitän",
+          "kicker": "Transfer",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "lead": "Hermann Krabat wechselt von den Karasjok Kites und leitet neu das deutsche Nationalteam."
+        },
+        {
+          "title": "Ponika verhilft Neuseeland zum Sieg",
+          "kicker": "Ozeanien-Liga",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "lead": "Ngapo Ponika holt den Snitch in Minute 87, Neuseeland besiegt Wales 240 zu 180."
+        },
+        {
+          "title": "Heidelberg Harriers mit neuem Kapitän",
+          "kicker": "Transfer",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "lead": "Hermann Krabat wechselt von den Karasjok Kites und leitet neu das deutsche Nationalteam."
+        },
+        {
+          "title": "Ponika verhilft Neuseeland zum Sieg",
+          "kicker": "Ozeanien-Liga",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "lead": "Ngapo Ponika holt den Snitch in Minute 87, Neuseeland besiegt Wales 240 zu 180."
+        }
+      ]
+    }
   ]
 }
