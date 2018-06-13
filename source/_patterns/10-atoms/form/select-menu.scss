@@ -38,6 +38,7 @@
   // hide default arrow
   -moz-appearance: none;
   -webkit-appearance: none;
+  appearance: none;
 
   &:-moz-focusring {
     color: transparent;
