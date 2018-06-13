@@ -160,7 +160,7 @@
   position: relative;
   height: 24px;
   width: 24px;
-  animation: rotateAnimation 2s linear infinite;
+  animation: rotate360Animation 2s linear infinite;
   border: $line-width $dash-color solid;
   border-radius: 50%;
 
@@ -171,7 +171,7 @@
     position: absolute;
     box-sizing: border-box;
 
-    animation: rotateAnimation 2s infinite ease;
+    animation: rotate360Animation 2s infinite ease;
 
     width: calc(50% + #{$line-width * 3});
     height: calc(100% + #{$line-width * 6});
@@ -214,11 +214,6 @@
       left: -#{$line-width};
     }
   }
-}
-
-@keyframes rotateAnimation {
-  0% {   transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
 }
 
 @mixin offscreen-non-focusable {

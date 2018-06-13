@@ -75,3 +75,18 @@ $light-attention-color: #ff0000;
     transform: translateX(200%);
   }
 }
+
+
+
+/*
+ *
+ * Rotates element all around
+ * Used by _mixins.scss
+ *
+ */
+
+@keyframes rotate360Animation {
+  0% {   transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
