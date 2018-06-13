@@ -1,3 +1,9 @@
 <a href="{{ url|default("#") }}" class="nav-item {{ styleModifier|default("") }}">
     {{ content|default("Item") }}
+
+    {% if 'nav-item--expandable' in styleModifier %}
+        <span class="nav-item__icon">
+            {% include 'atoms-expand-icon' with { 'styleModifier': 'expand-icon--dark' } %}
+        </span>
+    {% endif %}
 </a>
