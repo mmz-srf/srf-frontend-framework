@@ -9,8 +9,8 @@
     {{ text|default("") }}
   </span>
   {% if "navigation-link--expandable" in styleModifier %}
-  <span class="navigation-link__icon">
+  <div class="navigation-link__icon">
     {% include 'atoms-expand-icon' with { 'styleModifier': '' } %}
-  </span>
+  </div>
   {% endif %}
 </a>
