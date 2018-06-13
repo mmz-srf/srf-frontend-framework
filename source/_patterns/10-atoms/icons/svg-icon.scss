@@ -6,6 +6,11 @@
   background-position: center;
 }
 
+.svg-icon--small {
+  width: 16px;
+  height: 16px;
+}
+
 .svg-icon--arrow-down-tiny {
   background-image: url(../img/arrows/caret_tiny.svg);
   transform: rotate(90deg);
@@ -19,6 +24,12 @@
 .svg-icon--arrow-right {
   background-image: url(../img/arrows/caret.svg);
   transform: rotate(-90deg);
+}
+
+.svg-icon--arrow-right-dark {
+  background-image: url(../img/arrows/caret.svg);
+  transform: rotate(-90deg);
+  filter: invert(100%) contrast(600%);
 }
 
 .svg-icon--arrow-left {

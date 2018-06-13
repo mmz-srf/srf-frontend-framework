@@ -1,0 +1,142 @@
+.onairnav-link {
+  display: block;
+  height: 100%;
+  border-radius: 2px;
+  background-color: #22211d;
+  color: #fff;
+  margin: 1px 0;
+  padding: 18px 16px;
+  transition: background .2s ease-in-out;
+
+  @include tablet-up {
+    margin: 0;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: rgba(255,255,255,.08);
+    color: #fff;
+  }
+
+  &:active {
+    background-color: rgba(255,255,255,.12);
+    color: #fff;
+  }
+}
+
+.onairnav-link--arrow {
+  padding: 18px 56px 18px 16px;
+
+  &:after {
+    content: '';
+    display: block;
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    margin-top: -12px;
+    width: 24px;
+    height: 24px;
+    background: url(../img/arrows/caret.svg);
+    transform: rotate(-90deg);
+    filter: invert(100%) contrast(600%);
+  }
+}
+
+.onairnav-link--program {
+  margin-bottom: 12px;
+  position: relative;
+}
+
+.onairnav-link--compact {
+  padding-bottom: 8px;
+
+  @include tablet-up {
+    padding-bottom: 12px;
+  }
+}
+
+
+
+/* Logos and LIVE-Badge */
+.onairnav-link__media {
+  margin-bottom: 12px;
+  max-height: 24px;
+  width: auto;
+}
+
+.onairnav-link__media--live {
+  display: inline-block;
+  padding: 2px 8px;
+  backdrop-filter: blur(2px);
+  background-color: #e31f2b;
+  font-size: 16px;
+  line-height: 1;
+  font-weight: 500;
+  font-family: $font-regular;
+  text-transform: uppercase;
+  color: #fff;
+  max-height: auto;
+  animation: pulsatingLiveAnimation 3s infinite ease-in-out;
+  @include font-smoothing;
+}
+
+.onairnav-link__media--radiologo {
+  max-width: 80px;
+  max-height: none;
+}
+
+
+
+/* Link-Elements Title */
+.onairnav-link__title {
+  display: block;
+  font-family: $font-regular;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.33;
+  letter-spacing: .4px;
+  @include font-smoothing;
+}
+
+.onairnav-link--program {
+  .onairnav-link__title {
+    font-family: $font-medium;
+  }
+}
+
+.onairnav-link__title--radiostation {
+  font-family: $font-regular;
+  font-size: 14px;
+  line-height: 1.15;
+  letter-spacing: .4px;
+  color: #fff;
+}
+
+
+
+/* Progress-Bar */
+.onairnav-link__progress {
+  appearance: none; /* Needed for WebKit/Blink */
+  border: none; /* Needed for Firefox */
+  background-color: #383732;
+  color: #8d0614; /* For IE10 */
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+}
+
+.onairnav-link__progress[value]::-webkit-progress-bar { /* Needed for WebKit/Blink */
+	background-color: #383732;
+}
+
+.onairnav-link__progress[value]::-webkit-progress-value { /* Needed for WebKit/Blink */
+	position: relative;
+	background-color: #8d0614;  
+}
+
+.onairnav-link__progress[value]::-moz-progress-bar { /* Needed for Firefox */
+	position: relative;
+	background-color: #8d0614;
+}
