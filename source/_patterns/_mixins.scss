@@ -248,18 +248,6 @@
   overflow-wrap: break-word;
 }
 
-@keyframes pulsatingLiveAnimation {
-  25% {
-    background-color: #e31f2b;
-  }
-  50% {
-    background-color: #ed7004;
-  }
-  75% {
-    background-color: #e31f2b;
-  }
-}
-
 @keyframes shimmeringAnimation {
   0% {
     transform: translateX(-100%);

@@ -1,5 +1,6 @@
 /*
  *
+ * Attention-Hogger for Buttons
  * Used by button.scss
  *
  */
@@ -33,5 +34,26 @@ $light-attention-color: #ff0000;
   100% {
     transform: scale($small-size);
     background-color: $dark-attention-color;
+  }
+}
+
+
+
+/*
+ *
+ * Animated «LIVE»-Badge-Color in OnAir Navigation
+ * Used by onairnav-link.scss
+ *
+ */
+
+@keyframes pulsatingLiveAnimation {
+  25% {
+    background-color: #e31f2b;
+  }
+  50% {
+    background-color: #ed7004;
+  }
+  75% {
+    background-color: #e31f2b;
   }
 }
