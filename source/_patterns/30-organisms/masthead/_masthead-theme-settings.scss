@@ -23,7 +23,6 @@
   --theme-color-pager-end: #{$theme-default-color-bg-pager-end};
   --theme-color-pager-end-transparent: #{$theme-default-color-bg-pager-end-transparent};
   --theme-icon-filter: none;
-  --theme-buttons-opacity: 1;
 }
 
 /* COMMON SETTINGS FOR ALL THEMES EXCEPT DEFAULT */
@@ -40,7 +39,6 @@
   --theme-color-nav-hover-text: #FFF;
   --theme-icon-filter: invert(100%) contrast(600%);
   --theme-item-opacity: 1;
-  --theme-buttons-opacity: 0.84;
 
   @include font-smoothing;
 
