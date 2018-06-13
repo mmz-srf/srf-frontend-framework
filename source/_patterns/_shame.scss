@@ -85,3 +85,19 @@ _:-ms-fullscreen,
   background-image: linear-gradient(135deg, #22211d, #111111);
   box-shadow: 0 4px 8px 0 rgba(0,0,0,.24), 0 0 8px 0 rgba(0,0,0,.12);
 }
+
+
+
+/*
+ * TARGETED BROWSER: Safari
+ *
+ * Safari has troubles combining overflow-x: hidden and its own webkit-overflow-scrolling: touch.
+ * This makes the 3rd-level-Navigation points not show up.
+ */
+.subnav--open-3rd-level {
+  overflow-x: auto;
+
+  .subnav__list {
+    -webkit-overflow-scrolling: initial;
+  }
+}
