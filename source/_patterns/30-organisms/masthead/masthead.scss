@@ -152,23 +152,6 @@
   border: none;
   padding: 0;
   cursor: pointer; // firefox needs the cursor definition directly on a button element - it's not working when it's on a child
-
-  &:hover,
-  &:focus {
-    opacity: .8;
-
-    .icon-button {
-      opacity: inherit;
-    }
-  }
-
-  &:active {
-    opacity: .6;
-
-    .icon-button {
-      opacity: inherit;
-    }
-  }
 }
 
 .masthead__button--search {

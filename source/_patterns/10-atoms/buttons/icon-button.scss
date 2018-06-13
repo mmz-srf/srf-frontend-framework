@@ -11,8 +11,11 @@
   color: var(--theme-color-nav, $color-text-accentuation);
 
   &:hover {
-    color: $color-text-default;  /* fallback */
-    color: var(--theme-color-nav-hover-text, $color-text-default);
+    opacity: .8;
+  }
+
+  &:active {
+    opacity: .6;
   }
 }
 
