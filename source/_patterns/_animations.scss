@@ -90,3 +90,30 @@ $light-attention-color: #ff0000;
   100% { transform: rotate(360deg); }
 }
 
+
+
+/*
+ *
+ * Ripple-Effect
+ * Used by _ripple.scss
+ *
+ */
+
+@keyframes rippleShadowAnimation {
+  0% {
+    box-shadow: 0 0 0 rgba(0, 0, 0, .0);
+  }
+  20% {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, .3);
+  }
+  100% {
+    box-shadow: 0 0 0 rgba(0, 0, 0, .0);
+  }
+}
+
+@keyframes rippleAnimation {
+  to {
+    transform: scale(24);
+    opacity: 0;
+  }
+}

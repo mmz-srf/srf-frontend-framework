@@ -8,7 +8,7 @@
   transform: translateZ(0);
   border-radius: inherit;
   pointer-events: none;
-  animation: ripple-shadow .4s forwards;
+  animation: rippleShadowAnimation .4s forwards;
 }
 
 .rippleWave {
@@ -18,24 +18,5 @@
   transform: scale(.7);
   background: rgba(255, 255, 255, 1);
   opacity: .45;
-  animation: ripple 2s forwards;
-}
-
-@keyframes ripple-shadow {
-  0% {
-    box-shadow: 0 0 0 rgba(0, 0, 0, .0);
-  }
-  20% {
-    box-shadow: 0 4px 16px rgba(0, 0, 0, .3);
-  }
-  100% {
-    box-shadow: 0 0 0 rgba(0, 0, 0, .0);
-  }
-}
-
-@keyframes ripple {
-  to {
-    transform: scale(24);
-    opacity: 0;
-  }
+  animation: rippleAnimation 2s forwards;
 }
