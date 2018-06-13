@@ -53,12 +53,11 @@
   &:active {
     opacity: .6;
   }
+}
 
-  .svg-icon {
-    margin-right: -5px;
-    margin-bottom: -3px;
-    width: 16px;
-    height: 16px;
-    filter: invert(100%) contrast(600%);
-  }
+.onairnav-head__morelink-icon {
+  position: relative;
+  top: 3px;
+  right: -5px;
+  margin-left: -5px;
 }
