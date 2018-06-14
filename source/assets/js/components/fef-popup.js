@@ -1,8 +1,8 @@
 const DEFAULT_HEIGHT = 600,
-      DEFAULT_WIDTH= 944,
-      DEFAULT_MEDIA_QUERY = 'screen';
+    DEFAULT_WIDTH= 944,
+    DEFAULT_MEDIA_QUERY = 'screen';
 
-    export function init() {
+export function init() {
     $('.js-popup').each((index, elem) => {
         new FefPopup($(elem));
     });
@@ -15,9 +15,9 @@ export class FefPopup {
      */
     constructor ($element) {
         this.$element = $element;
-        this.target = this.$element.attr("href") || this.$element.data("target");
-        this.width = this.$element.data("popup-width") || DEFAULT_WIDTH;
-        this.height = this.$element.data("popup-height") || DEFAULT_HEIGHT;
+        this.target = this.$element.attr('href');
+        this.width = this.$element.data('popup-width') || DEFAULT_WIDTH;
+        this.height = this.$element.data('popup-height') || DEFAULT_HEIGHT;
         this.mediaQuery = this.$element.data('popup-media-query') || DEFAULT_MEDIA_QUERY;
         this.bindEvents();
 
@@ -45,7 +45,7 @@ export class FefPopup {
                 'menubar=1',
                 'resizable=1'
             ];
-            window.open(this.target, '_blank', parameters.join(","));
+            window.open(this.target, '_blank', parameters.join(','));
         }
     }
 }
