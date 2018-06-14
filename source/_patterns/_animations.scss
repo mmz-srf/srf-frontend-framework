@@ -142,3 +142,22 @@ $light-attention-color: #ff0000;
     background-position: 10%;
   }
 }
+
+
+
+/*
+ *
+ * Introduces the World to the dark background of a Modal-Overlay
+ * Used by modal.scss
+ *
+ */
+
+@keyframes modalOverlayAnimation {
+  0% {
+    background-color: rgba(0, 0, 0, 0);
+  }
+  100% {
+    background-color: rgba(0, 0, 0, .12);
+  }
+}
+
