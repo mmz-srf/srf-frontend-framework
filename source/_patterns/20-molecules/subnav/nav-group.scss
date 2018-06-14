@@ -11,7 +11,7 @@
   min-width: 200px;
   border-top: rgba(0, 0, 0, 0.08);
   opacity: 0;
-  animation: fadeInNavGroup .2s forwards;
+  animation: fadeAndScaleInAnimation .2s forwards;
 
   .nav-group--open & {
     display: flex;
@@ -33,18 +33,5 @@
   @include tablet-up {
     margin-left: -16px;
     padding: 0px 8px 8px;
-  }
-}
-
-@keyframes fadeInNavGroup {
-  0% {
-    transform: scaleY(0);
-  }
-  20% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-    transform: scaleY(1);
   }
 }
