@@ -187,7 +187,7 @@
   }
 
   &.typeahead-suggestion--no-animation {
-    animation-name: NOfadeInTypeaheadAnimation;
+    animation-name: nullAnimation;
     animation-delay: 0s;
     animation-duration: .1s;
     animation-fill-mode: forwards;

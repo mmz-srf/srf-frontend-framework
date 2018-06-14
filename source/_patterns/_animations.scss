@@ -147,12 +147,12 @@ $light-attention-color: #ff0000;
 
 /*
  *
- * Introduces the World to the dark background of a Modal-Overlay
+ * Introduces the World to the dark background of a Modal-Overlay … aaah, we fade to grey, fade to grey, devenir gris!
  * Used by modal.scss
  *
  */
 
-@keyframes modalOverlayAnimation {
+@keyframes fadeToGreyAnimation {
   0% {
     background-color: rgba(0, 0, 0, 0);
   }
@@ -210,7 +210,7 @@ $light-attention-color: #ff0000;
 // Instead of animating in 0s which breaks the element, we animate in a
 // short amount of time from the fully open state to the fully open state,
 // effectively not animating anything. See SRFCMSAL-998
-@keyframes NOfadeInTypeaheadAnimation {
+@keyframes nullAnimation {
   0% {
     opacity: 1;
     max-height: none;
