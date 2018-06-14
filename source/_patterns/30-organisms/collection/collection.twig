@@ -25,18 +25,7 @@
                 <ul class="swipemod-swipecontainer">
                     {% for teaser in collection.teasers %}
                         <li class="swipemod-item">
-                            <a href="{{ teaser.link|default("#") }}">
-                                <div class="swipemod-imagecontainer" aria-hidden="true" role="presentation">
-                                    <div class="swipemod-imagecontainer__inner">
-                                        <img src="{{ teaser.image|default("") }}" alt="{{ teaser.title|default("") }}" class="swipemod-image" />
-                                    </div>
-                                </div>
-                                <h3 class="swipemod-item__title">
-                                    <span class="swipemod-item__overline">{{ teaser.kicker|default("") }}</span>
-                                    <span class="h-offscreen" aria-hidden="true"> - </span>
-                                    {{ teaser.title|default("") }}
-                                </h3>
-                            </a>
+                            {% include 'molecules-teaser' with {'teaser': teaser} %}
                         </li>
                     {% endfor %}
                 </ul>

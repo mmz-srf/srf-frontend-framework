@@ -23,6 +23,7 @@
 
     @include tablet-up {
         height: 100%;   // stretch teaser to fill container
+        width: 100%;
     }
 }
 
