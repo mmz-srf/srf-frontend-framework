@@ -145,7 +145,7 @@
   border-width: 12px 0 12px 12px; // kompromiss :)
 
   &.carousel__link--waggle {
-    animation: waggle--right 1.6s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+    animation: waggleRightAnimation 1.6s cubic-bezier(0.445, 0.05, 0.55, 0.95);
     animation-iteration-count: infinite;
   }
 }
@@ -161,14 +161,5 @@
     font-size: 16px;
     line-height: 20px;
     font-weight: 500;
-  }
-}
-
-@keyframes waggle--right {
-  0%, 100% {
-    background-position: 10%;
-  }
-  50% {
-    background-position: 80%;
   }
 }

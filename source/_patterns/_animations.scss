@@ -86,8 +86,12 @@ $light-attention-color: #ff0000;
  */
 
 @keyframes rotate360Animation {
-  0% {   transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 
@@ -115,5 +119,26 @@ $light-attention-color: #ff0000;
   to {
     transform: scale(24);
     opacity: 0;
+  }
+}
+
+
+
+/*
+ *
+ * Waggles the Element to the right
+ * Used by image-carousel.scss
+ *
+ */
+
+@keyframes waggleRightAnimation {
+  0% {
+    background-position: 10%;
+  }
+  50% {
+    background-position: 80%;
+  }
+  100% {
+    background-position: 10%;
   }
 }
