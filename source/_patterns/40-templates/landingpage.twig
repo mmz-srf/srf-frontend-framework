@@ -1,15 +1,15 @@
 {% set headerType = headerType|default("") %}
 
-<div class="affix-placeholder affix-placeholder--{{ headerType }}" data-smart-affix-placeholder></div>
+<div class="affix-placeholder affix-placeholder--{{ headerType }}"></div>
 
 {% if headerType == "compact" %}
     {% include 'organisms-masthead--compact' with {"themeStyleModifier": themeStyleModifier} %}
 {% elseif headerType == "home" %}
-<div class="sticky-container sticky-container--{{ headerType }} affix-top" data-smart-affix>
+<div class="sticky-container sticky-container--{{ headerType }} affix-top js-affix">
     {% include 'organisms-masthead--home' with {"themeStyleModifier": themeStyleModifier} %}
 </div>
 {% else %}
-<div class="sticky-container affix-top" data-smart-affix>
+<div class="sticky-container affix-top js-affix">
         {% include 'organisms-masthead' with {"themeStyleModifier": themeStyleModifier} %}
 </div>
 {% endif %}
@@ -36,5 +36,5 @@
 {% include 'organisms-rlp-footer' %}
 
 {% include 'organisms-modal-menu' %}
-{% include 'organisms-modal-flyout' %}
+{% include 'organisms-modal-onairnav' %}
 {% include 'organisms-modal-search' %}

@@ -1,0 +1,25 @@
+{
+  "content": "Schweiz",
+  "items": [
+    {
+      "name": "St. Gallen",
+      "url": "#"
+    }, {
+      "name": "Züricher Dampfeisenbahn-Fachinformationen",
+      "url": "#"
+    }, {
+      "name": "Genf",
+      "url": "#"
+    }, {
+      "name": "Senf",
+      "url": "#"
+    }, {
+      "name": "Gams",
+      "url": "#"
+    }, {
+      "name": "Timbuktu",
+      "url": "#",
+      "active": true
+    }
+  ]
+}

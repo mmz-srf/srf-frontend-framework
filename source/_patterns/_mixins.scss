@@ -160,7 +160,7 @@
   position: relative;
   height: 24px;
   width: 24px;
-  animation: rotateAnimation 2s linear infinite;
+  animation: rotate360Animation 2s linear infinite;
   border: $line-width $dash-color solid;
   border-radius: 50%;
 
@@ -171,7 +171,7 @@
     position: absolute;
     box-sizing: border-box;
 
-    animation: rotateAnimation 2s infinite ease;
+    animation: rotate360Animation 2s infinite ease;
 
     width: calc(50% + #{$line-width * 3});
     height: calc(100% + #{$line-width * 6});
@@ -216,11 +216,6 @@
   }
 }
 
-@keyframes rotateAnimation {
-  0% {   transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
 @mixin offscreen-non-focusable {
   position: absolute;
   width: 1px;
@@ -246,45 +241,4 @@
 @mixin breakLongWords {
   word-break: break-word;
   overflow-wrap: break-word;
-}
-
-$small-size: .8;
-$big-size: 1;
-$dark-attention-color: #aa0000;
-$light-attention-color: #ff0000;
-
-@keyframes pulsatingAnimation {
-  0% {
-    transform: scale($small-size);
-    background-color: $dark-attention-color;
-  }
-  20% {
-    transform: scale($big-size);
-    background-color: $light-attention-color;
-  }
-  40% {
-    transform: scale($small-size);
-    background-color: $dark-attention-color;
-  }
-  60% {
-    transform: scale($big-size);
-    background-color: $light-attention-color;
-  }
-  80% {
-    transform: scale($small-size);
-    background-color: $dark-attention-color;
-  }
-  100% {
-    transform: scale($small-size);
-    background-color: $dark-attention-color;
-  }
-}
-
-@keyframes shimmeringAnimation {
-  0% {
-    transform: translateX(-100%);
-  }
-  100% {
-    transform: translateX(200%);
-  }
 }

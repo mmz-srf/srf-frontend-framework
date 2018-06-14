@@ -19,7 +19,7 @@
   );
 
   @include smartphone {
-    padding: 8px 16px 0;
+    padding: 0 16px;
   }
 
   &::before {
@@ -30,8 +30,7 @@
     right: 0;
     bottom: 0;
     z-index: 0;
-    opacity: 0;
-    transition: all 500ms ease-in-out;
+    opacity: 1;
 
     /* fallback */
     background: linear-gradient(
@@ -85,13 +84,6 @@
   }
 }
 
-.masthead.masthead--in-transition {
-  &::before {
-    opacity: 0;
-    transition: opacity 200ms linear;
-  }
-}
-
 .masthead__wrapper {
   max-width: $content-width;
   margin: 0 auto;
@@ -104,8 +96,8 @@
   font-feature-settings: "salt";
   font-size: 32px;
   line-height: 1.25;
-  color: inherit;
-  color: var(--theme-color-nav, inherit);
+  color: $color-text-default;
+  color: var(--theme-color-title, $color-text-default);
 
   @include tablet-up {
     margin: 11px 0 13px -2px;
@@ -159,6 +151,7 @@
   color: inherit;
   border: none;
   padding: 0;
+  cursor: pointer; // firefox needs the cursor definition directly on a button element - it's not working when it's on a child
 }
 
 .masthead__button--search {
@@ -173,7 +166,7 @@
 
   @include smartphone {
     width: calc(100% + 48px);
-    margin: 0 0 0 -32px;
+    margin: 0 0 0 -29px;
   }
 }
 

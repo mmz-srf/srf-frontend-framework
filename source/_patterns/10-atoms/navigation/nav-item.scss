@@ -13,10 +13,8 @@
 
   /* fallback */
   color: $color-text-accentuation;
-  opacity: 1;
   /* theme */
   color: var(--theme-color-nav, $color-text-accentuation);
-  opacity: var(--theme-item-opacity, 1);
 
   @include smartphone {
     padding: 18px 12px 16px;
@@ -26,7 +24,6 @@
 
   &:hover {
     border-bottom: 2px solid transparent;
-    opacity: 1;
 
     /* fallback */
     background-color: $color-nav-bg-hover;
@@ -38,7 +35,6 @@
 
   &:active {
     border-bottom: 2px solid transparent;
-    opacity: 1;
 
     /* fallback */
     background-color: $color-nav-bg-active;
@@ -61,4 +57,42 @@
   /* theme */
   border-bottom-color: var(--theme-color-nav-active-border, #f1434a);
   color: var(--theme-color-active, $color-accentuation-red);
+}
+
+.nav-item--expandable {
+  display: inline-flex;
+  align-items: center;
+
+  .nav-item__icon {
+    filter: none; /* fallback */
+    filter: var(--theme-icon-filter, none);
+    // prevents us from having to check click-events on the icon
+    pointer-events: none;
+  }
+}
+
+.nav-item--third-level {
+  padding-left: 24px;
+  padding-right: 24px;
+  font-size: 16px;
+
+  @include smartphone {
+    text-align: center;
+  }
+
+  // Override Theming for 3rd level Nav
+  &,
+  &:hover,
+  &:active,
+  &:focus {
+    color: $color-text-accentuation;
+  }
+
+  &:hover {
+    background-color: $color-nav-bg-hover;
+  }
+
+  &:active {
+    background-color: $color-nav-bg-active;
+  }
 }

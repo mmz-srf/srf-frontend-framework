@@ -1,0 +1,246 @@
+/*
+ *
+ * Attention-Hogger for Buttons
+ * Used by button.scss
+ *
+ */
+
+$small-size: .8;
+$big-size: 1;
+$dark-attention-color: #aa0000;
+$light-attention-color: #ff0000;
+
+@keyframes pulsatingAnimation {
+  0% {
+    transform: scale($small-size);
+    background-color: $dark-attention-color;
+  }
+  20% {
+    transform: scale($big-size);
+    background-color: $light-attention-color;
+  }
+  40% {
+    transform: scale($small-size);
+    background-color: $dark-attention-color;
+  }
+  60% {
+    transform: scale($big-size);
+    background-color: $light-attention-color;
+  }
+  80% {
+    transform: scale($small-size);
+    background-color: $dark-attention-color;
+  }
+  100% {
+    transform: scale($small-size);
+    background-color: $dark-attention-color;
+  }
+}
+
+
+
+/*
+ *
+ * Animated «LIVE»-Badge-Color in OnAir Navigation
+ * Used by onairnav-link.scss
+ *
+ */
+
+@keyframes pulsatingLiveAnimation {
+  25% {
+    background-color: #e31f2b;
+  }
+  50% {
+    background-color: #ed7004;
+  }
+  75% {
+    background-color: #e31f2b;
+  }
+}
+
+
+
+/*
+ *
+ * Shimmer-Animation
+ * Used by shimmer.scss
+ *
+ */
+
+@keyframes shimmeringAnimation {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(200%);
+  }
+}
+
+
+
+/*
+ *
+ * Rotates element all around
+ * Used by _mixins.scss, spinner.scss
+ *
+ */
+
+@keyframes rotate360Animation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
+
+/*
+ *
+ * Ripple-Effect
+ * Used by _ripple.scss
+ *
+ */
+
+@keyframes rippleShadowAnimation {
+  0% {
+    box-shadow: 0 0 0 rgba(0, 0, 0, .0);
+  }
+  20% {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, .3);
+  }
+  100% {
+    box-shadow: 0 0 0 rgba(0, 0, 0, .0);
+  }
+}
+
+@keyframes rippleAnimation {
+  to {
+    transform: scale(24);
+    opacity: 0;
+  }
+}
+
+
+
+/*
+ *
+ * Waggles the Element to the right
+ * Used by image-carousel.scss
+ *
+ */
+
+@keyframes waggleRightAnimation {
+  0% {
+    background-position: 10%;
+  }
+  50% {
+    background-position: 80%;
+  }
+  100% {
+    background-position: 10%;
+  }
+}
+
+
+
+/*
+ *
+ * Introduces the World to the dark background of a Modal-Overlay … aaah, we fade to grey, fade to grey, devenir gris!
+ * Used by modal.scss
+ *
+ */
+
+@keyframes fadeToGreyAnimation {
+  0% {
+    background-color: rgba(0, 0, 0, 0);
+  }
+  100% {
+    background-color: rgba(0, 0, 0, .12);
+  }
+}
+
+
+
+/*
+ *
+ * Fades and Scales in Element
+ * Used by nav-group.scss
+ *
+ */
+
+@keyframes fadeAndScaleInAnimation {
+  0% {
+    transform: scaleY(0);
+  }
+  20% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+}
+
+
+
+/*
+ *
+ * Fades in Typeahead-Items
+ * Used by search.scss
+ *
+ */
+
+@keyframes fadeInTypeaheadAnimation {
+  0% {
+    opacity: 0;
+    max-height: 0;
+  }
+  80% {
+    max-height: 48px;
+  }
+  100% {
+    opacity: 1;
+    max-height: none;
+  }
+}
+
+// Workaround for Safari's animation-bug.
+// Instead of animating in 0s which breaks the element, we animate in a
+// short amount of time from the fully open state to the fully open state,
+// effectively not animating anything. See SRFCMSAL-998
+@keyframes nullAnimation {
+  0% {
+    opacity: 1;
+    max-height: none;
+  }
+  100% {
+    opacity: 1;
+    max-height: none;
+  }
+}
+
+
+
+/*
+ *
+ * Animates the Dash of the Spinner
+ * Used by spinner.scss
+ *
+ */
+
+@keyframes spinnerDashAnimation {
+  0% {
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -35;
+  }
+  100% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -124;
+  }
+}

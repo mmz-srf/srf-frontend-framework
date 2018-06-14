@@ -1,26 +1,36 @@
-<nav class="subnav js-scroll-pager-container {{ styleModifier }}">
-    <ul class="subnav__list js-scroll-pager-content">
+<nav class="subnav js-subnav-container {{ styleModifier }}">
+    <ul class="subnav__list js-subnav-content">
         {% for item in masthead.subnavi %}
-                {% set itemStyleModifier = (item.active) ? 'nav-item--active js-active-subnav-item' : ''  %}
-                <li class="subnav__list-item">
-                {% include 'atoms-nav-item' with {
-                    'styleModifier': itemStyleModifier,
-                    'content': item.name,
-                    'url': item.url
-                } %}
+            {% set itemStyleModifier = (item.active) ? 'nav-item--active js-active-subnav-item' : ''  %}
+            {% if item.items|length > 0 %}
+                <li class="subnav__list-item subnav__list-item--expandable js-subnav-item--expandable">
+                    {% include 'molecules-nav-group' with {
+                        'styleModifier': itemStyleModifier,
+                        'content': item.name,
+                        'items': item.items
+                    } %}
                 </li>
+            {% else %}
+                <li class="subnav__list-item">
+                    {% include 'atoms-nav-item' with {
+                        'styleModifier': itemStyleModifier,
+                        'content': item.name,
+                        'url': item.url
+                    } %}
+                </li>
+            {% endif %}
         {% endfor %}
     </ul>
     <div class="subnav__mask subnav__mask--left js-subnav-mask-left"></div>
     <div class="subnav__mask subnav__mask--right js-subnav-mask-right"></div>
-    <div class="subnav__pager js-scroll-pager-button-back" aria-hidden="true" role="presentation">
-        <a class="subnav__pager-icon">
-            <span class="svg-icon svg-icon--arrow-left"></span>
+    <div class="subnav__pager js-subnav-button-back" aria-hidden="true" role="presentation">
+        <a class="subnav__pager-button">
+            <span class="subnav__pager-icon svg-icon svg-icon--arrow-left"></span>
         </a>
     </div>
-    <div class="subnav__pager subnav__pager--end js-scroll-pager-button-forward" aria-hidden="true" role="presentation">
-        <a class="subnav__pager-icon subnav__pager-icon--right">
-            <span class="svg-icon svg-icon--arrow-right"></span>
+    <div class="subnav__pager subnav__pager--end js-subnav-button-forward" aria-hidden="true" role="presentation">
+        <a class="subnav__pager-button subnav__pager-button--right">
+            <span class="subnav__pager-icon svg-icon svg-icon--arrow-right"></span>
         </a>
     </div>
 </nav>
