@@ -7,6 +7,7 @@
     box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.24), 0 0 1px 0 rgba(0, 0, 0, 0.12);
     border-radius: 2px;
     color: #22211d;
+    flex-grow: 1;
     transition: background-color .2s ease-in-out, box-shadow .2s ease-in-out;
     @include breakLongWords;
 
@@ -101,12 +102,8 @@
 // with the according tablet+ styles
 .teaser__wrapper--swipeable {
     .teaser {
-        width: 100%;
-        height: auto;
-
         .teaser__main {
             flex-direction: column;
-            height: 100%;
         }
 
         .teaser__image-wrapper {
