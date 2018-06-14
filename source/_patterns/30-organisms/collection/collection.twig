@@ -25,7 +25,7 @@
                 <ul class="swipemod-swipecontainer">
                     {% for teaser in collection.teasers %}
                         <li class="swipemod-item">
-                            {% include 'molecules-teaser' with {'teaser': teaser} %}
+                            {% include 'molecules-teaser' with {'teaser': teaser, 'styleModifier': 'teaser--swipeable'} %}
                         </li>
                     {% endfor %}
                 </ul>
