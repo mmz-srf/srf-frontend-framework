@@ -1,7 +1,7 @@
 .spinner {
   width: 100%;
   height: 100%;
-  animation: spinner_rotate 2s linear infinite;
+  animation: rotate360Animation 2s linear infinite;
 }
 
 .spinner__circle {
@@ -18,7 +18,7 @@
   stroke: #e31f2b;
   stroke-linecap: round;
   stroke-miterlimit: 10;
-  animation: spinner_dash 1.5s ease-in-out infinite;
+  animation: spinnerDashAnimation 1.5s ease-in-out infinite;
 }
 
 .spinner--white-dash {
@@ -32,25 +32,4 @@
   position: absolute;
   left: 0;
   top: 0;
-}
-
-@keyframes spinner_rotate {
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes spinner_dash {
-  0% {
-    stroke-dasharray: 1, 200;
-    stroke-dashoffset: 0;
-  }
-  50% {
-    stroke-dasharray: 89, 200;
-    stroke-dashoffset: -35;
-  }
-  100% {
-    stroke-dasharray: 89, 200;
-    stroke-dashoffset: -124;
-  }
 }

@@ -81,7 +81,7 @@ $light-attention-color: #ff0000;
 /*
  *
  * Rotates element all around
- * Used by _mixins.scss
+ * Used by _mixins.scss, spinner.scss
  *
  */
 
@@ -218,5 +218,29 @@ $light-attention-color: #ff0000;
   100% {
     opacity: 1;
     max-height: none;
+  }
+}
+
+
+
+/*
+ *
+ * Animates the Dash of the Spinner
+ * Used by spinner.scss
+ *
+ */
+
+@keyframes spinnerDashAnimation {
+  0% {
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -35;
+  }
+  100% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -124;
   }
 }
