@@ -13,7 +13,8 @@ import {init as FefSwipeModuleInit} from './srf-swipe-module';
 import {init as FefFlyingFocusInit} from './srf-flying-focus';
 import {init as FefExpandableBoxInit} from './components/fef-expandable-box';
 import {init as FefStickyHeaderInit} from './components/fef-sticky-header';
-import {init as FefScrollPagerInit} from './components/fef-scroll-pager';
+import {init as FefSubnavInit} from './components/fef-subnav';
+import {init as FefPopupInit} from './components/fef-popup';
 
 
 /** SELF loading components without init **/
@@ -40,6 +41,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
     FefFlyingFocusInit();
     FefExpandableBoxInit();
     FefStickyHeaderInit();
-    FefScrollPagerInit();
+    FefSubnavInit();
+    FefPopupInit();
     FefShameInit(); // this should probably be last, because it may contain code that depends on the previous scripts
 });

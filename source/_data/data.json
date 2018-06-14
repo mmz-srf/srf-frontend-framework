@@ -727,7 +727,28 @@
         "active": true
       },{
         "name": "Schweiz",
-        "url": "#"
+        "url": "#",
+        "items": [
+            {
+                "name": "St. Gallen",
+                "url": "#"
+            },{
+                "name": "Züricher Dampfeisenbahn-Fachinformationen",
+                "url": "#"
+            },{
+                "name": "Genf",
+                "url": "#"
+            },{
+                "name": "Senf",
+                "url": "#"
+            },{
+                "name": "Gams",
+                "url": "#"
+            },{
+                "name": "Timbuktu",
+                "url": "#"
+            }
+        ]
       },{
         "name": "Regional",
         "url": "#"
@@ -742,7 +763,28 @@
         "url": "#"
       },{
         "name": "Wissen",
-        "url": "#"
+        "url": "#",
+        "items": [
+            {
+                "name": "St. Gallen",
+                "url": "#"
+            },{
+                "name": "Züricher Dampfeisenbahn-Fachinformationen",
+                "url": "#"
+            },{
+                "name": "Genf",
+                "url": "#"
+            },{
+                "name": "Senf",
+                "url": "#"
+            },{
+                "name": "Gams",
+                "url": "#"
+            },{
+                "name": "Timbuktu",
+                "url": "#"
+            }
+        ]
       },{
         "name": "Dampfeisenbahn-Fachinformationen",
         "url": "#"
@@ -790,10 +832,52 @@
         "url": "#"
       },{
         "name": "3Musik",
-        "url": "#"
+        "url": "#",
+        "items": [
+            {
+                "name": "St. Gallen",
+                "url": "#"
+            },{
+                "name": "Züricher Dampfeisenbahn-Fachinformationen",
+                "url": "#"
+            },{
+                "name": "Genf",
+                "url": "#"
+            },{
+                "name": "Senf",
+                "url": "#"
+            },{
+                "name": "Gams",
+                "url": "#"
+            },{
+                "name": "Timbuktu",
+                "url": "#"
+            }
+        ]
       },{
         "name": "3Mehr",
-        "url": "#"
+        "url": "#",
+        "items": [
+            {
+                "name": "St. Gallen",
+                "url": "#"
+            },{
+                "name": "Züricher Dampfeisenbahn-Fachinformationen",
+                "url": "#"
+            },{
+                "name": "Genf",
+                "url": "#"
+            },{
+                "name": "Senf",
+                "url": "#"
+            },{
+                "name": "Gams",
+                "url": "#"
+            },{
+                "name": "Timbuktu",
+                "url": "#"
+            }
+        ]
       }
     ]
 

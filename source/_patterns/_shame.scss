@@ -71,3 +71,33 @@
 .header-startlink--fixed-for-ie .header-logo {
   display: none;
 }
+
+
+
+/*
+ * TARGETED BROWSER: IE 11
+ *
+ * CSS Custom Properties double-fallbacks 'cause of IE 11 … why-oh-why do we still support Internet Explorer!?
+ * Tell me, tell me now! Your arguments better be damn good!
+ */
+_:-ms-fullscreen,
+:root .modal.modal--theme-dark .modal-main-wrapper {
+  background-image: linear-gradient(135deg, #22211d, #111111);
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,.24), 0 0 8px 0 rgba(0,0,0,.12);
+}
+
+
+
+/*
+ * TARGETED BROWSER: Safari
+ *
+ * Safari has troubles combining overflow-x: hidden and its own webkit-overflow-scrolling: touch.
+ * This makes the 3rd-level-Navigation points not show up.
+ */
+.subnav--open-3rd-level {
+  overflow-x: auto;
+
+  .subnav__list {
+    -webkit-overflow-scrolling: initial;
+  }
+}

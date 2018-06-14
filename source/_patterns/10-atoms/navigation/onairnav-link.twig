@@ -1,0 +1,26 @@
+<a class="onairnav-link {{ styleModifier|default('') }}" href="{{ url|default('#') }}">
+  {% if media is defined %}
+    {% if 'onairnav-link__media--live' in styleModifierMedia %}
+      <span class="onairnav-link__media onairnav-link__media--live">{{ media }}</span>
+    {% else %}
+      <img class="onairnav-link__media {{ styleModifierMedia|default('') }}"
+           src="{{ frameworkAssetPath }}{{ media }}"
+           {% if media2x is defined %}srcset="{{ frameworkAssetPath }}{{ media2x }} 2x{% endif %}
+           {% if media3x is defined %}, {{ frameworkAssetPath }}{{ media3x }} 3x{% endif %}
+           {% if media2x is defined %}"{% endif %}
+           alt="{{ mediaAlt|default('') }}">
+    {% endif %}
+  {% endif %}
+
+  {% if ('onairnav-link__media--live' in styleModifierMedia) or (progress is defined) %}
+    {% if 'onairnav-link__media--live' in styleModifierMedia %}
+      {% include 'atoms-shimmer' with {'styleModifier': 'shimmer--dark'} %}
+    {% endif %}
+    {% include 'atoms-shimmer' with {'styleModifier': 'shimmer--dark shimmer--short'} %}
+  {% endif %}
+  <span class="onairnav-link__title {{ styleModifierTitle|default('') }}">{{ title|default('') }}</span>
+
+  {% if progress is defined %}
+    <progress class="onairnav-link__progress" value="{{ progress }}" max="100"></progress>
+  {% endif%}
+</a>
