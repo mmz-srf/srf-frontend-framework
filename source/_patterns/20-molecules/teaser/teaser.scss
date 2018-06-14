@@ -96,22 +96,24 @@
     display: none;
 }
 
-// Swipeable teasers basically don't have the mobile styles but override them
+// A Swipeable's teasers basically don't have the mobile styles but override them
 // with the according tablet+ styles
-.teaser--swipeable {
-    height: 100%;
-    width: 100%;
-
-    .teaser__main {
-        flex-direction: column;
-    }
-
-    .teaser__image-wrapper {
-        margin: 0;
-    }
-
-    .teaser__image {
-        height: auto;
+.teaser__wrapper--swipeable {
+    .teaser {
+        height: 100%;
         width: 100%;
+
+        .teaser__main {
+            flex-direction: column;
+        }
+
+        .teaser__image-wrapper {
+            margin: 0;
+        }
+
+        .teaser__image {
+            height: auto;
+            width: 100%;
+        }
     }
 }

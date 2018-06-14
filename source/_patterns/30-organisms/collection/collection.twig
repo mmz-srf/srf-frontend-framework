@@ -3,7 +3,7 @@
         <h3 class="collection__title">{{ collection.title|default("") }}</h3>
         <ul class="teaser-list">
             {% for teaser in collection.teasers %}
-                <li class="teaser-list__item {{ styleModifierItem }}">
+                <li class="teaser-list__item teaser__wrapper">
                     {% include 'molecules-teaser' with {'teaser': teaser} %}
                 </li>
             {% endfor %}
@@ -24,8 +24,8 @@
             <div class="swipemod-container swipemod-container--2ormore swipemod-container--3ormore swipemod-container--4ormore">
                 <ul class="swipemod-swipecontainer">
                     {% for teaser in collection.teasers %}
-                        <li class="swipemod-item">
-                            {% include 'molecules-teaser' with {'teaser': teaser, 'styleModifier': 'teaser--swipeable'} %}
+                        <li class="swipemod-item teaser__wrapper--swipeable">
+                            {% include 'molecules-teaser' with {'teaser': teaser} %}
                         </li>
                     {% endfor %}
                 </ul>
