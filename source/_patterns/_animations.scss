@@ -161,3 +161,24 @@ $light-attention-color: #ff0000;
   }
 }
 
+
+
+/*
+ *
+ * Fades and Scales in Element
+ * Used by nav-group.scss
+ *
+ */
+
+@keyframes fadeAndScaleInAnimation {
+  0% {
+    transform: scaleY(0);
+  }
+  20% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+}
