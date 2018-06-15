@@ -14,6 +14,9 @@
     float: none;
     margin: 20px 0;
     }
+    .scrollbar-hider__outer--subnav {
+        height: 56px;
+    }
 
     .scrollbar-hider__middle {
     position: absolute;
@@ -75,6 +78,16 @@
     <div class="scrollbar-hider__inner">
       <div class="scrollbar-hider__inner">
         <div class="both">Horizontal & Vertical</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="scrollbar-hider__outer scrollbar-hider__outer--responsive-horizontal scrollbar-hider__outer--subnav">
+  <div class="scrollbar-hider__middle">
+    <div class="scrollbar-hider__inner">
+      <div class="scrollbar-hider__inner">
+        {% include 'molecules-subnav' %}
       </div>
     </div>
   </div>
