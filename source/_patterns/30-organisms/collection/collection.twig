@@ -1,9 +1,9 @@
 {% if collection.type == 'standard' %}
     <div class="collection">
         <h3 class="collection__title">{{ collection.title|default("") }}</h3>
-        <ul class="teaser-list">
+        <ul class="collection__teaser-list">
             {% for teaser in collection.teasers %}
-                <li class="teaser-list__item teaser__wrapper">
+                <li class="collection__teaser-item teaser__wrapper">
                     {% include 'molecules-teaser' with {'teaser': teaser} %}
                 </li>
             {% endfor %}
