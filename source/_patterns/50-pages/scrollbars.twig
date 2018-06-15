@@ -1,0 +1,103 @@
+<style>
+    .scrollbar-hider__outer {
+    height: 400px;
+    width: 400px;
+    overflow: hidden;
+    position: relative;
+    background-color: #ddd;
+    float: left;
+    margin: 20px;
+    }
+
+    .scrollbar-hider__outer--responsive-horizontal {
+    width: 100%;
+    float: none;
+    margin: 20px 0;
+    }
+
+    .scrollbar-hider__middle {
+    position: absolute;
+    top: 0;
+    bottom: -17px;
+    left: 0;
+    right: -17px;
+    overflow: scroll;
+    }
+
+    .scrollbar-hider__inner {
+    display: table-cell;
+    }
+
+    .vertical {
+    height: 1000px;
+    background: linear-gradient(to bottom, orange , yellow, green, cyan, blue, violet);
+    }
+
+    .horizontal {
+    width: 1000px;
+    background: linear-gradient(to right, orange , yellow, green, cyan, blue, violet);
+    }
+
+    .both {
+    width: 2000px;
+    height: 2000px;
+    background: linear-gradient(135deg, orange , yellow, green, cyan, blue, violet);
+    }
+</style>
+
+<div class="scrollbar-hider__outer">
+  <div class="scrollbar-hider__middle">
+    <div class="scrollbar-hider__inner">
+      <div class="vertical">Vertical</div>
+    </div>
+  </div>
+</div>
+
+<div class="scrollbar-hider__outer">
+  <div class="scrollbar-hider__middle">
+    <div class="scrollbar-hider__inner">
+      <div class="horizontal">Horizontal</div>
+    </div>
+  </div>
+</div>
+
+<div class="scrollbar-hider__outer">
+  <div class="scrollbar-hider__middle">
+    <div class="scrollbar-hider__inner">
+      <div class="both">Horizontal & Vertical</div>
+    </div>
+  </div>
+</div>
+
+<div class="scrollbar-hider__outer scrollbar-hider__outer--responsive-horizontal">
+  <div class="scrollbar-hider__middle">
+    <div class="scrollbar-hider__inner">
+      <div class="scrollbar-hider__inner">
+        <div class="both">Horizontal & Vertical</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+    function scrollbarWidth() {
+        var div = $('<div style="width:50px;height:50px;overflow:hidden;position:absolute;top:-200px;left:-200px;"><div style="height:100px;"></div>');
+        // Append our div, do our calculation and then remove it
+        $('body').append(div);
+        var w1 = $('div', div).innerWidth();
+        div.css('overflow-y', 'scroll');
+        var w2 = $('div', div).innerWidth();
+        $(div).remove();
+        return (w1 - w2);
+    }
+
+    let scrollbarWidth = scrollbarWidth();
+
+    $('.scrollbar-hider__middle').each((index, elem) => {
+        //elem.style.bottom = -(elem.offsetHeight - elem.clientHeight) + "px";
+        //elem.style.right = -(elem.offsetWidth - elem.clientWidth) + "px";
+        elem.style.bottom = `-${scrollbarWidth}px`;
+        elem.style.right = `-${scrollbarWidth}px`;
+    });
+
+</script>
