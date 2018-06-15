@@ -3,101 +3,101 @@
 @import "../../breakpoints";
 
 .collection {
-    display: flex;
-    flex-direction: column;
-    margin: 8px 8px 16px;
-    border-radius: 2px;
-    background-color: #f5f5f2;
-    box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.24), 0 0 1px 0 rgba(0, 0, 0, 0.12);
+  display: flex;
+  flex-direction: column;
+  margin: 8px 8px 16px;
+  border-radius: 2px;
+  background-color: #f5f5f2;
+  box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.24), 0 0 1px 0 rgba(0, 0, 0, 0.12);
 }
 
 .collection__title {
-    margin: 16px 24px 12px;
-    font-family: $font-medium;
-    font-size: 24px;
-    font-weight: 500;
-    font-style: normal;
-    font-stretch: normal;
-    line-height: 1.25;
-    letter-spacing: 0.2px;
-    color: #22211d;
+  margin: 16px 24px 12px;
+  font-family: $font-medium;
+  font-size: 24px;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.25;
+  letter-spacing: 0.2px;
+  color: #22211d;
 
-    @include tablet-up {
-        margin: 16px 32px 12px;
-    }
+  @include tablet-up {
+    margin: 16px 32px 12px;
+  }
 
-    @include desktop-up {
-        margin: 20px 32px 16px;
-        font-size: 28px;
-    }
+  @include desktop-up {
+    margin: 20px 32px 16px;
+    font-size: 28px;
+  }
 
-    @include desktop-wide {
-        margin: 20px 40px 16px;
-    }
+  @include desktop-wide {
+    margin: 20px 40px 16px;
+  }
 }
 
 .teaser-list {
-    display: flex;
-    flex-direction: column;
-    margin: 0 8px 12px;
-    padding: 0;
+  display: flex;
+  flex-direction: column;
+  margin: 0 8px 12px;
+  padding: 0;
 
-    @include tablet-up {
-        flex-direction: row;
-        flex-wrap: wrap;
-        align-items: stretch;
-        margin: 0 32px 16px;
-    }
+  @include tablet-up {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: stretch;
+    margin: 0 32px 16px;
+  }
 
-    // Desktop wide: 40px left and right, 20px at the bottom
-    @include desktop-wide {
-        margin: 0 40px 20px;
-    }
+  // Desktop wide: 40px left and right, 20px at the bottom
+  @include desktop-wide {
+    margin: 0 40px 20px;
+  }
 }
 
 .teaser-list__item {
-    display: flex;
-    padding: 0;
-    margin: 0 0 8px;
-    list-style-type: none;
+  display: flex;
+  padding: 0;
+  margin: 0 0 8px;
+  list-style-type: none;
 
-    &::before {
-        display: none;
+  &::before {
+    display: none;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  @include tablet-up {
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: calc((100% - 48px) / 3);
+    margin: 32px 24px 0 0;
+
+    // No right-margin on every third item (margin-right = gap between teasers in a row)
+    &:nth-child(3n) {
+      margin-right: 0;
     }
 
-    &:last-child {
-        margin-bottom: 0;
+    // first three teasers should not have margin-top
+    &:nth-child(-n+3) {
+      margin-top: 0;
+    }
+  }
+
+  @include desktop-wide {
+    flex-basis: calc((100% - 64px) / 3);
+    margin: 40px 32px 0 0;
+
+    // No right-margin on every third item (margin-right = gap between teasers in a row)
+    &:nth-child(3n) {
+      margin-right: 0;
     }
 
-    @include tablet-up {
-        flex-grow: 0;
-        flex-shrink: 0;
-        flex-basis: calc((100% - 48px) / 3);
-        margin: 32px 24px 0 0;
-
-        // No right-margin on every third item (margin-right = gap between teasers in a row)
-        &:nth-child(3n) {
-            margin-right: 0;
-        }
-
-        // first three teasers should not have margin-top
-        &:nth-child(-n+3) {
-            margin-top: 0;
-        }
+    // first three teasers should not have margin-top
+    &:nth-child(-n+3) {
+      margin-top: 0;
     }
-
-    @include desktop-wide {
-        flex-basis: calc((100% - 64px) / 3);
-        margin: 40px 32px 0 0;
-
-        // No right-margin on every third item (margin-right = gap between teasers in a row)
-        &:nth-child(3n) {
-            margin-right: 0;
-        }
-
-        // first three teasers should not have margin-top
-        &:nth-child(-n+3) {
-            margin-top: 0;
-        }
-    }
+  }
 }
