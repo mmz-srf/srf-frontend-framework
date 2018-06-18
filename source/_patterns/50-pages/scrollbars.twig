@@ -1,55 +1,65 @@
 <style>
     .scrollbar-hider__outer {
-    height: 400px;
-    width: 400px;
-    overflow: hidden;
-    position: relative;
-    background-color: #ddd;
-    float: left;
-    margin: 20px;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .scrollbar-hider__outer--demo {
+        height: 400px;
+        width: 400px;
+        background-color: #ddd;
+        float: left;
+        margin: 20px;
     }
 
     .scrollbar-hider__outer--responsive-horizontal {
-    width: 100%;
-    float: none;
-    margin: 20px 0;
+        width: 100%;
+        float: none;
+        margin: 20px 0;
     }
+
+    .scrollbar-hider__outer--responsive-full {
+        width: 100%;
+        height: 100%;
+        float: none;
+    }
+
     .scrollbar-hider__outer--subnav {
         height: 56px;
     }
 
     .scrollbar-hider__middle {
-    position: absolute;
-    top: 0;
-    bottom: -17px;
-    left: 0;
-    right: -17px;
-    overflow: scroll;
-    -webkit-overflow-scrolling: touch;
+        position: absolute;
+        top: 0;
+        bottom: -17px;
+        left: 0;
+        right: -17px;
+        overflow: scroll;
+        -webkit-overflow-scrolling: touch;
     }
 
     .scrollbar-hider__inner {
-    display: table-cell;
+        display: table-cell;
     }
 
     .vertical {
-    height: 1000px;
-    background: linear-gradient(to bottom, orange , yellow, green, cyan, blue, violet);
+        height: 1000px;
+        background: linear-gradient(to bottom, orange , yellow, green, cyan, blue, violet);
     }
 
     .horizontal {
-    width: 1000px;
-    background: linear-gradient(to right, orange , yellow, green, cyan, blue, violet);
+        width: 1000px;
+        background: linear-gradient(to right, orange , yellow, green, cyan, blue, violet);
     }
 
     .both {
-    width: 2000px;
-    height: 2000px;
-    background: linear-gradient(135deg, orange , yellow, green, cyan, blue, violet);
+        width: 2000px;
+        height: 2000px;
+        background: linear-gradient(135deg, orange , yellow, green, cyan, blue, violet);
     }
 </style>
 
-<div class="scrollbar-hider__outer">
+<div class="scrollbar-hider__outer scrollbar-hider__outer--demo">
   <div class="scrollbar-hider__middle">
     <div class="scrollbar-hider__inner">
       <div class="vertical">Vertical</div>
@@ -57,7 +67,7 @@
   </div>
 </div>
 
-<div class="scrollbar-hider__outer">
+<div class="scrollbar-hider__outer scrollbar-hider__outer--demo">
   <div class="scrollbar-hider__middle">
     <div class="scrollbar-hider__inner">
       <div class="horizontal">Horizontal</div>
@@ -65,7 +75,7 @@
   </div>
 </div>
 
-<div class="scrollbar-hider__outer">
+<div class="scrollbar-hider__outer scrollbar-hider__outer--demo">
   <div class="scrollbar-hider__middle">
     <div class="scrollbar-hider__inner">
       <div class="both">Horizontal & Vertical</div>
@@ -73,25 +83,54 @@
   </div>
 </div>
 
-<div class="scrollbar-hider__outer scrollbar-hider__outer--responsive-horizontal">
+<div class="scrollbar-hider__outer scrollbar-hider__outer--demo scrollbar-hider__outer--responsive-horizontal">
   <div class="scrollbar-hider__middle">
     <div class="scrollbar-hider__inner">
-      <div class="scrollbar-hider__inner">
-        <div class="both">Horizontal & Vertical</div>
-      </div>
+      <div class="both">Horizontal & Vertical</div>
     </div>
   </div>
 </div>
 
-<div class="scrollbar-hider__outer scrollbar-hider__outer--responsive-horizontal scrollbar-hider__outer--subnav">
+<div class="scrollbar-hider__outer scrollbar-hider__outer--demo scrollbar-hider__outer--responsive-horizontal scrollbar-hider__outer--subnav">
   <div class="scrollbar-hider__middle">
     <div class="scrollbar-hider__inner">
-      <div class="scrollbar-hider__inner">
-        {% include 'molecules-subnav' %}
-      </div>
+     {% include 'molecules-subnav' %}
     </div>
   </div>
 </div>
+
+<div class="modal js-modal"
+     data-id="test-modal"
+     data-animation="">
+  <div class="modal__overlay js-modal-overlay"></div>
+
+    <div class="scrollbar-hider__outer scrollbar-hider__outer--responsive-full">
+        <div class="scrollbar-hider__middle">
+            <div class="scrollbar-hider__inner">
+                <div class="modal-main-wrapper js-modal-main-wrapper">
+                    <div class="modal-main-content js-modal-main-content">
+                    {% block content %}
+                         <span class="h-offscreen js-focus-target">Menu</span>
+
+                        <div class="modal__head modal-wrapper">
+                        {% include 'molecules-search-header' with {'styleModifier': ''} %}
+                        </div>
+
+                        <div class="modal__body modal-wrapper">
+                        {% include 'molecules-globalnav' with {'styleModifier': '', 'id': 'globalnav--menu'} %}
+                        </div>
+                    {% endblock %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<button data-modal-id="test-modal">Open Modal 2</button>
+
 
 <script>
     function scrollbarWidth() {
