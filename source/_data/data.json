@@ -720,6 +720,27 @@
         "url": "/dok"
       }
     ],
+    "portallongnames": [
+      {
+        "name": "Novitads",
+        "url": "/novitads"
+      },{
+        "name": "Cultura",
+        "url": "/cultura"
+      },{
+        "name": "Sport",
+        "url": "/sport"
+      },{
+        "name": "Uffants",
+        "url": "/uffants"
+      },{
+        "name": "Archivar",
+        "url": "/archivar"
+      },{
+        "name": "Aura",
+        "url": "/aura"
+      }
+    ],
     "subnavi" : [
       {
         "name": "Übersicht",

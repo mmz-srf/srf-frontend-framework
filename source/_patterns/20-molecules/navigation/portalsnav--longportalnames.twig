@@ -1,0 +1,7 @@
+<ul class="portalsnav {{ styleModifier }}">
+    {% for portallongnames in masthead.portallongnames %}
+        <li>
+            <a class="portalsnav__link" href="{{ portallongnames.url }}">{{ portallongnames.name }}</a>
+        </li>
+    {% endfor %}
+</ul>

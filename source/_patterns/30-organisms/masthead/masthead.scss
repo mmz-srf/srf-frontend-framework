@@ -206,3 +206,34 @@
     }
   }
 }
+
+/* This one allows for long portal names (like at RTR.ch). It extends the singleline-portal-navigation-design from smartphone-only to smartphone-and-tablet.  */
+.masthead--longportalnames {
+  @include desktop-down {
+    .masthead__portals {
+      display: none;
+    }
+  }
+  @include tablet-up {
+    .masthead__nav {
+      display: block;
+    }
+
+    .masthead__logo {
+      flex-grow: 1;
+    }
+  }
+  @include desktop-up {
+    .masthead__portals {
+      display: flex;
+    }
+
+    .masthead__logo {
+      flex-grow: 0;
+    }
+
+    .masthead__nav {
+      display: none;
+    }
+  }
+}
