@@ -1,5 +1,11 @@
-<link rel="stylesheet" href="../../assets/css/c_article.css?{{ cacheBuster }}" media="all" />
 {% embed 'templates-article-rlp-header-footer' %}
+
+    {% block article_shimmer %}
+        {% include 'atoms-shimmer' with {'styleModifier': 'shimmer--heading'} %}
+        {% include 'atoms-shimmer' with {'styleModifier': 'shimmer--heading'} %}
+        {% include 'atoms-shimmer' with {'styleModifier': 'shimmer--heading shimmer--short'} %}
+    {% endblock %}
+
     {% block article_content %}
         {% include 'atoms-content-heading' %}
         {% include 'atoms-article-text' %}
