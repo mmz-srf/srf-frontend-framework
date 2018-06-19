@@ -1,0 +1,37 @@
+{% if collection.type == 'standard' %}
+    <div class="collection">
+        <h3 class="collection__title">{{ collection.title|default("") }}</h3>
+        <ul class="collection__teaser-list">
+            {% for teaser in collection.teasers %}
+                <li class="collection__teaser-item teaser__wrapper">
+                    {% include 'molecules-teaser' with {'teaser': teaser} %}
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+{% elseif collection.type == 'swipeable' %}
+    <section class="swipemod l-main-wrapper">
+        <div class="l-main-wrapper__space l-card">
+            <a href="#" class="swipemod-showall">
+                <h3 class="swipemod-showall__title" aria-hidden="true" role="presentation">
+                    <span class="swipemod-showall__title--extended">Mehr aus {{ collection.title|default("") }}</span>
+                    <span class="swipemod-showall__title--collapsed">{{ collection.title|default("") }}</span>
+                </h3>
+                <div class="swipemod-showall__text">Alle anzeigen</div>
+                <div class="swipemod-showall__icon"></div>
+            </a>
+
+            <div class="swipemod-container swipemod-container--2ormore swipemod-container--3ormore swipemod-container--4ormore">
+                <ul class="swipemod-swipecontainer">
+                    {% for teaser in collection.teasers %}
+                        <li class="swipemod-item teaser__wrapper--swipeable">
+                            {% include 'molecules-teaser' with {'teaser': teaser} %}
+                        </li>
+                    {% endfor %}
+                </ul>
+                <button class="swipemod-button swipemod-button__left" data-direction="left" tabindex="-1" aria-hidden="true" role="presentation"></button>
+                <button class="swipemod-button swipemod-button__right" data-direction="right" tabindex="-1" aria-hidden="true" role="presentation"></button>
+            </div>
+        </div>
+    </section>
+{% endif %}

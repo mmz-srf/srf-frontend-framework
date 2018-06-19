@@ -14,24 +14,11 @@
 </div>
 {% endif %}
 
-<div class="l-main-wrapper l-card l-card--with-fullwidth-elements">
-    <article class="article">
-
-        {% include 'atoms-breadcrumbs' %}
-        {% include 'molecules-article-header' %}
-        {% include 'molecules-sharing-bar' %}
-
-        <section class="article-content">
-            {% block article_content %}
-                [-- ARTICLE CONTENT --]
-            {% endblock %}
-        </section>
-
-    </article>
-</div>
-
-{% include 'molecules-comments' %}
-{% include 'molecules-swipe-module' %}
+<section class="landingpage">
+    {% block landingpage_content %}
+        [-- LANDINGPAGE CONTENT --]
+    {% endblock %}
+</section>
 
 {% include 'organisms-rlp-footer' %}
 
