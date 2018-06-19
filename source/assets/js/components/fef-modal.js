@@ -38,7 +38,7 @@ export class FefModal {
     constructor($element, $caller) {
         this.$element = $element;
         this.$caller = $caller;
-        this.$focusTarget = this.$element.find('.js-focus-target');
+        this.$focusTarget = this.$element.find('.js-focus-target').first();
         this.$mainWrapper = this.$element.find('.js-modal-main-wrapper');
         this.$mainContent = this.$element.find('.js-modal-main-content');
         this.animation = this.$element.attr('data-animation');

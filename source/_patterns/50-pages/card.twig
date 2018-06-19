@@ -1,0 +1,9 @@
+{% embed 'templates-card' %}
+    {% block card_content %}
+        {% include 'atoms-content-heading' %}
+        {% include 'atoms-article-text' %}
+    {% endblock %}
+    {% block card_content_alternative %}
+        {% include 'molecules-expandable-box' with { 'styleModifier': 'expandable-box--fullwidth'} %}
+    {% endblock %}
+{% endembed %}

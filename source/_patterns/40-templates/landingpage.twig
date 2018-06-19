@@ -12,9 +12,11 @@
     </div>
 {% endif %}
 
-{% block landingpage_content %}
-    <div style="min-height: 80vh">[-- LANDINGPAGE CONTENT --]</div>
-{% endblock %}
+<section class="landingpage">
+    {% block landingpage_content %}
+        [-- LANDINGPAGE CONTENT --]
+    {% endblock %}
+</section>
 
 {% include 'organisms-rlp-footer' %}
 

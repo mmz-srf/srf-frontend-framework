@@ -1,0 +1,13 @@
+<div class="teaser {{ styleModifier|default("") }}">
+    <a class="teaser__main" href="{{ teaser.link|default("#") }}">
+        <div class="teaser__medium-wrapper">
+            <img class="teaser__medium" src="{{ teaser.image|default("") }}" alt="{{ teaser.title|default("") }}" />
+        </div>
+
+        <div class="teaser__content">
+            <h4 class="teaser__kicker">{{ teaser.kicker|default("") }}</h4>
+            <h3 class="teaser__title">{{ teaser.title|default("") }}</h3>
+            <p class="teaser__lead">{{ teaser.lead|default("") }}</p>
+        </div>
+    </a>
+</div>
