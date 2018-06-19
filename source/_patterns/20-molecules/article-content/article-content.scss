@@ -1,6 +1,10 @@
 @import "../../variables";
 
 .article-content {
+  /* OVERRIDE CRITICAL CSS */
+  min-height: 0;
+  opacity: 1;
+  /****/
   margin: 0 0 24px;
   font-family: $font-light;
   font-size: 20px;

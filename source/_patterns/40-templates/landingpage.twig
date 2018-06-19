@@ -2,36 +2,19 @@
 
 <div class="affix-placeholder affix-placeholder--{{ headerType }}"></div>
 
-{% if headerType == "compact" %}
-    {% include 'organisms-masthead--compact' with {"themeStyleModifier": themeStyleModifier} %}
-{% elseif headerType == "home" %}
-<div class="sticky-container sticky-container--{{ headerType }} affix-top js-affix">
-    {% include 'organisms-masthead--home' with {"themeStyleModifier": themeStyleModifier} %}
-</div>
+{% if headerType == "home" %}
+    <div class="sticky-container sticky-container--{{ headerType }} affix-top js-affix">
+        {% include 'organisms-masthead--home' with {"themeStyleModifier": themeStyleModifier} %}
+    </div>
 {% else %}
-<div class="sticky-container affix-top js-affix">
+    <div class="sticky-container affix-top js-affix">
         {% include 'organisms-masthead' with {"themeStyleModifier": themeStyleModifier} %}
-</div>
+    </div>
 {% endif %}
 
-<div class="l-main-wrapper l-card l-card--with-fullwidth-elements">
-    <article class="article">
-
-        {% include 'atoms-breadcrumbs' %}
-        {% include 'molecules-article-header' %}
-        {% include 'molecules-sharing-bar' %}
-
-        <section class="article-content">
-            {% block article_content %}
-                [-- ARTICLE CONTENT --]
-            {% endblock %}
-        </section>
-
-    </article>
-</div>
-
-{% include 'molecules-comments' %}
-{% include 'molecules-swipe-module' %}
+{% block landingpage_content %}
+    <div style="min-height: 80vh">[-- LANDINGPAGE CONTENT --]</div>
+{% endblock %}
 
 {% include 'organisms-rlp-footer' %}
 

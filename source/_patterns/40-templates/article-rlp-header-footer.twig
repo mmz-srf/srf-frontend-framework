@@ -1,1 +1,29 @@
-{% include "templates-landingpage" with { "headerType": "compact" } %}
+<div class="affix-placeholder affix-placeholder--compact"></div>
+
+{% include 'organisms-masthead--compact' with {"themeStyleModifier": themeStyleModifier} %}
+
+<div class="l-main-wrapper l-card l-card--with-fullwidth-elements">
+    <article class="article">
+        {% include 'atoms-breadcrumbs' %}
+        {% include 'molecules-article-header' %}
+        {% include 'molecules-sharing-bar' %}
+
+        {% block article_shimmer %}{% endblock %}
+
+        <section class="article-content">
+            {% block article_content %}
+                [-- ARTICLE CONTENT --]
+            {% endblock %}
+        </section>
+
+    </article>
+</div>
+
+{% include 'molecules-comments' %}
+{% include 'molecules-swipe-module' %}
+
+{% include 'organisms-rlp-footer' %}
+
+{% include 'organisms-modal-menu' %}
+{% include 'organisms-modal-onairnav' %}
+{% include 'organisms-modal-search' %}

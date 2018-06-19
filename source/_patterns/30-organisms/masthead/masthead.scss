@@ -138,6 +138,7 @@
 }
 
 .masthead__button-wrapper {
+  display: block;
   font-size: 0; // removes space between inline-block child elements
   margin-right: -16px;
 
