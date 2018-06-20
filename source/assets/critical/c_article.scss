@@ -1,5 +1,6 @@
-@import "global";
-@import "nav";
+@import 'global';
+@import 'header';
+@import 'footer';
 @import '../../_patterns/mixins';
 @import '../../_patterns/10-atoms/indicators/shimmer';
 
@@ -50,11 +51,10 @@
   background-color: #4ECE5B;
 }
 
-.shimmer {
+.article-column-wrapper {
   @include article-text-padding;
+  margin: 36px 0;
 }
-
-
 
 .carousel {
   max-width: 100%;
@@ -406,9 +406,7 @@ ul > li::before {
   }
 }
 
-
 .breadcrumbs {
-  margin: 16px auto 12px;
   padding: 0 24px;
   white-space: nowrap;
   overflow-x: auto;
@@ -562,4 +560,3 @@ body::after {
   height: 150px;
   background-color: #f5f5f2;
 }
-

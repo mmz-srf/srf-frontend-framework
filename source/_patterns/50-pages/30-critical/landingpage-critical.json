@@ -1,4 +1,5 @@
 {
     "bodyClass": "",
-    "criticalCssOnly": true
+    "criticalCssOnly": true,
+    "criticalCssFile": "c_landingpage.css"
 }

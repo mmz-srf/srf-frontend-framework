@@ -4,6 +4,7 @@
 
 
 .masthead {
+  height: auto; /* OVERRIDE CRITICAL CSS */
   position: relative;
   z-index: 100;
   box-shadow: $shadow-organisms;
@@ -85,6 +86,7 @@
 }
 
 .masthead__wrapper {
+  opacity: 1; /* OVERRIDE CRITICAL CSS */
   max-width: $content-width;
   margin: 0 auto;
   position: relative;

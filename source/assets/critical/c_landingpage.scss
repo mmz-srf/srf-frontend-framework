@@ -1,3 +1,7 @@
-@import "global";
-@import "nav";
-//custom styles
+@import 'global';
+@import 'header';
+@import 'footer';
+
+.landingpage {
+  min-height: 90vh;
+}

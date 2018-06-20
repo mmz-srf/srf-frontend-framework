@@ -1,0 +1,52 @@
+.masthead {
+  height: 192px;
+  margin-bottom: 24px;
+
+  position: relative;
+  z-index: 100;
+  box-shadow: $shadow-organisms;
+  padding: 8px 32px 0;
+
+  @include smartphone {
+    height: 164px;
+    margin-bottom: 16px;
+  }
+}
+
+.masthead--home {
+  height: 80px;
+
+  @include smartphone {
+    height: 112px;
+  }
+}
+
+.masthead--compact {
+  height: 56px;
+  margin-bottom: 0;
+}
+
+.masthead__wrapper {
+  opacity: 0;
+}
+
+.masthead {
+  position: relative;
+  z-index: 100;
+  box-shadow: $shadow-organisms;
+  padding: 8px 32px 0;
+  transition: opacity ease-out 1000ms;
+
+  /* fallback */
+  background: linear-gradient(
+                  117deg,
+                  $theme-default-color-1,
+                  $theme-default-color-1 20%,
+                  $theme-default-color-2 40%,
+                  $theme-default-color-2
+  );
+
+  @include smartphone {
+    padding: 0 16px;
+  }
+}

@@ -1,16 +1,21 @@
+@import '../../_patterns/breakpoints';
+
 * {
   box-sizing: border-box
 }
+
 html {
   overflow-x: hidden
 }
+
 body {
   font-family: "SRG_SSR_Light", sans-serif;
   background-color: #ebebe5;
   margin: 0;
 }
 
-.footer {
+.footer,
+.rlp-footer {
   display: none;
 }
 
