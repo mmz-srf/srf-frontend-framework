@@ -15,7 +15,7 @@
 }
 
 .spinner__circle--dash {
-  stroke: #e31f2b;
+  stroke: $color-srf-light;
   stroke-linecap: round;
   stroke-miterlimit: 10;
   animation: spinnerDashAnimation 1.5s ease-in-out infinite;

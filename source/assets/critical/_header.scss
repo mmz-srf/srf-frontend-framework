@@ -1,3 +1,6 @@
+@import '../../_patterns/variables';
+@import '../../_patterns/breakpoints';
+
 .masthead {
   height: 192px;
   margin-bottom: 24px;
@@ -7,10 +10,26 @@
   box-shadow: $shadow-organisms;
   padding: 8px 32px 0;
 
+  /* fallback */
+  background: linear-gradient(
+                  117deg,
+                  $theme-default-color-1,
+                  $theme-default-color-1 20%,
+                  $theme-default-color-2 40%,
+                  $theme-default-color-2
+  );
+
   @include smartphone {
     height: 164px;
     margin-bottom: 16px;
+    padding: 0 16px;
   }
+}
+
+.masthead__wrapper {
+  max-width: $content-width;
+  margin: 0 auto;
+  position: relative;
 }
 
 .masthead--home {
@@ -26,27 +45,75 @@
   margin-bottom: 0;
 }
 
-.masthead__wrapper {
-  opacity: 0;
-}
 
-.masthead {
-  position: relative;
-  z-index: 100;
-  box-shadow: $shadow-organisms;
-  padding: 8px 32px 0;
-  transition: opacity ease-out 1000ms;
-
-  /* fallback */
-  background: linear-gradient(
-                  117deg,
-                  $theme-default-color-1,
-                  $theme-default-color-1 20%,
-                  $theme-default-color-2 40%,
-                  $theme-default-color-2
-  );
+.masthead__universal {
+  display: flex;
+  align-items: center;
+  min-height: 40px;
 
   @include smartphone {
-    padding: 0 16px;
+    min-height: 56px;
   }
+}
+
+.masthead__logo {
+  display: flex;
+  flex: 0 0 auto;
+}
+
+.main-logo {
+  width: 36px;
+  height: 24px;
+  background-color: $color-srf;
+}
+
+.masthead__portals {
+  flex: 1 1 auto;
+  margin-left: 10px;
+  font-weight: bold;
+
+  @include desktop-down {
+    display: none;
+  }
+}
+
+.portalsnav {
+  padding: 0;
+  margin: 0;
+  display: flex;
+
+  li {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+
+    &:before {
+      display: none;
+    }
+  }
+}
+
+.portalsnav__link {
+  display: inline-block;
+  padding: 12px 10px;
+  border-bottom: none;
+  font-family: $font-bold;
+  font-size: 14px;
+  line-height: 1.14;
+  letter-spacing: 0.4px;
+  color: $color-text-accentuation;
+}
+
+
+.masthead__button-wrapper {
+  opacity: 0;
+  transition: opacity ease-out 1000ms;
+}
+
+.masthead__title {
+  font-weight: 900;
+}
+
+.masthead__nav {
+  display: none;
 }
