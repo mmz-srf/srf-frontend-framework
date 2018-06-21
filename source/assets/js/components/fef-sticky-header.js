@@ -22,10 +22,42 @@ export class FeFStickyHeader {
     }
 
     initializeAffix() {
+        let shouldInitialize = false;
+        
+        if(!this.$masthead.hasClass('masthead--home')) {
+          shouldInitialize = true;
+        }
+        
+        // rtr home - affix 
+        if(this.$masthead.hasClass('masthead--home') && this.$masthead.hasClass('masthead--longportalnames')) {
+          if(FefResponsiveHelper.isSmartphone() || FefResponsiveHelper.isTablet()) {
+            shouldInitialize = true;
+          }
+          else {
+            shouldInitialize = false;
+          }
+        }
+      
+        // srf home - affix 
+        if(this.$masthead.hasClass('masthead--home') && !this.$masthead.hasClass('masthead--longportalnames')) {
+          if(FefResponsiveHelper.isSmartphone()) {
+            shouldInitialize = true;
+          }
+          else {
+            shouldInitialize = false;
+          }
+        }
+        
+        if(shouldInitialize) {
+          $(AFFIX_SELECTOR).affix({offset:{top: this.getAffixMarginTop()}});
+        }
+      
+      
         // Do not initialize in case of home landingpage on a breakpoint larger then smartphone
-        if ( !(!FefResponsiveHelper.isSmartphone() && this.$masthead.hasClass('masthead--home')) || !(!FefResponsiveHelper.isSmartphone() && this.$masthead.hasClass('masthead--longportalnames')) || (!(!FefResponsiveHelper.isTablet() && this.$masthead.hasClass('masthead--longportalnames'))) ) {
+        /*if ( !(!FefResponsiveHelper.isSmartphone() && this.$masthead.hasClass('masthead--home')) ) {
             $(AFFIX_SELECTOR).affix({offset:{top: this.getAffixMarginTop()}});
         }
+        */
     }
 
     reInitializeAffix() {
