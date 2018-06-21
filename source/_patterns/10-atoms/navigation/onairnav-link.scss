@@ -44,7 +44,12 @@
 
 .onairnav-link--program {
   margin-bottom: 12px;
+  padding-bottom: 24px;
   position: relative;
+
+  @include tablet-up {
+    margin-bottom: 0;
+  }
 }
 
 .onairnav-link--compact {
@@ -66,13 +71,13 @@
 
 .onairnav-link__media--live {
   display: inline-block;
-  padding: 2px 8px;
+  padding: 4px 8px;
   backdrop-filter: blur(2px);
   background-color: #e31f2b;
   font-size: 16px;
   line-height: 1;
   font-weight: 500;
-  font-family: $font-regular;
+  font-family: $font-medium;
   text-transform: uppercase;
   color: #fff;
   max-height: auto;
