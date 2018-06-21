@@ -22,42 +22,40 @@ export class FeFStickyHeader {
     }
 
     initializeAffix() {
-        let shouldInitialize = false;
-        
-        if(!this.$masthead.hasClass('masthead--home')) {
-          shouldInitialize = true;
-        }
-        
-        // rtr home - affix 
-        if(this.$masthead.hasClass('masthead--home') && this.$masthead.hasClass('masthead--longportalnames')) {
+      let shouldInitializeAffix = false;
+
+      // not home
+      if(!this.$masthead.hasClass('masthead--home')) {
+
+        shouldInitializeAffix = true;
+
+      }
+      else {
+
+        // rtr home - affix on smartphone and tablet
+        if(this.$masthead.hasClass('masthead--longportalnames')) {
           if(FefResponsiveHelper.isSmartphone() || FefResponsiveHelper.isTablet()) {
-            shouldInitialize = true;
+            shouldInitializeAffix = true;
           }
           else {
-            shouldInitialize = false;
+            shouldInitializeAffix = false;
           }
         }
-      
-        // srf home - affix 
-        if(this.$masthead.hasClass('masthead--home') && !this.$masthead.hasClass('masthead--longportalnames')) {
+
+        // srf home - affix on smartphone only
+        else {
           if(FefResponsiveHelper.isSmartphone()) {
-            shouldInitialize = true;
+            shouldInitializeAffix = true;
           }
           else {
-            shouldInitialize = false;
+            shouldInitializeAffix = false;
           }
         }
-        
-        if(shouldInitialize) {
-          $(AFFIX_SELECTOR).affix({offset:{top: this.getAffixMarginTop()}});
-        }
-      
-      
-        // Do not initialize in case of home landingpage on a breakpoint larger then smartphone
-        /*if ( !(!FefResponsiveHelper.isSmartphone() && this.$masthead.hasClass('masthead--home')) ) {
-            $(AFFIX_SELECTOR).affix({offset:{top: this.getAffixMarginTop()}});
-        }
-        */
+      }
+
+      if(shouldInitializeAffix) {
+        $(AFFIX_SELECTOR).affix({offset:{top: this.getAffixMarginTop()}});
+      }
     }
 
     reInitializeAffix() {
