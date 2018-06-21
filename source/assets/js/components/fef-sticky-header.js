@@ -23,7 +23,7 @@ export class FeFStickyHeader {
 
     initializeAffix() {
         // Do not initialize in case of home landingpage on a breakpoint larger then smartphone
-        if(!(!FefResponsiveHelper.isSmartphone() && this.$masthead.hasClass('masthead--home'))) {
+        if ( !(!FefResponsiveHelper.isSmartphone() && this.$masthead.hasClass('masthead--home')) || !(!FefResponsiveHelper.isSmartphone() && this.$masthead.hasClass('masthead--longportalnames')) || (!(!FefResponsiveHelper.isTablet() && this.$masthead.hasClass('masthead--longportalnames'))) ) {
             $(AFFIX_SELECTOR).affix({offset:{top: this.getAffixMarginTop()}});
         }
     }
