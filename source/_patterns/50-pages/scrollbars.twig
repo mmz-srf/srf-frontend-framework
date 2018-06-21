@@ -57,6 +57,26 @@
         height: 2000px;
         background: linear-gradient(135deg, orange , yellow, green, cyan, blue, violet);
     }
+
+
+
+    .inner p {
+        padding: 300px 0;
+        background-color: pink;
+        margin: 10px;
+    }
+
+    .outer--js {
+        overflow: hidden;
+        margin: 10px 0;
+        height: 300px;
+        width: 100%;
+    }
+
+    .outer--js .middle {
+        overflow: scroll;
+        -webkit-overflow-scrolling: touch;
+    }
 </style>
 
 <div class="scrollbar-hider__outer scrollbar-hider__outer--demo">
@@ -131,6 +151,15 @@
 
 <button data-modal-id="test-modal">Open Modal 2</button>
 
+<div class="outer outer--js">
+    <div class="middle">
+        <div class="inner">
+            <p>Test</p>
+            <p>Test</p>
+        </div>
+    </div>
+</div>
+
 
 <script>
     function scrollbarWidth() {
@@ -144,13 +173,18 @@
         return (w1 - w2);
     }
 
-    let scrollbarWidth = scrollbarWidth();
+    let sbWidth = scrollbarWidth();
 
     $('.scrollbar-hider__middle').each((index, elem) => {
         //elem.style.bottom = -(elem.offsetHeight - elem.clientHeight) + "px";
         //elem.style.right = -(elem.offsetWidth - elem.clientWidth) + "px";
-        elem.style.bottom = `-${scrollbarWidth}px`;
-        elem.style.right = `-${scrollbarWidth}px`;
+        elem.style.bottom = `-${sbWidth}px`;
+        elem.style.right = `-${sbWidth}px`;
+    });
+
+    $(".outer--js .middle").css({
+        "height": `calc(100% + ${sbWidth}px)`,
+        "width" : `calc(100% + ${sbWidth}px)`
     });
 
 </script>
