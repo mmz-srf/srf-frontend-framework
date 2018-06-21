@@ -1,0 +1,10 @@
+.scrollbar-hider {
+    overflow: hidden;
+}
+
+.scrollbar-hider__wrapper {
+    height: calc(100% + 17px);
+    width: calc(100% + 17px);
+    overflow: scroll;
+    -webkit-overflow-scrolling: touch; // enable momentum scrolling on ios devices
+}
