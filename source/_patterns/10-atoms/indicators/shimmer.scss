@@ -1,6 +1,9 @@
 @import "../../variables";
-@import "../../animations";
 @import "../../breakpoints";
+
+/*
+ * This file is also included in the critical css - please try to keep it small
+ */
 
 .shimmer {
   width: 100%;
@@ -88,5 +91,15 @@
   @include desktop-up {
     height: 18px;
     margin-bottom: 10px;
+  }
+}
+
+/* shimmer animation was not transferred to animation.scss in order to keep the critical css small */
+@keyframes shimmeringAnimation {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(200%);
   }
 }

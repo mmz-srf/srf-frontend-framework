@@ -62,24 +62,6 @@ $light-attention-color: #ff0000;
 
 /*
  *
- * Shimmer-Animation
- * Used by shimmer.scss
- *
- */
-
-@keyframes shimmeringAnimation {
-  0% {
-    transform: translateX(-100%);
-  }
-  100% {
-    transform: translateX(200%);
-  }
-}
-
-
-
-/*
- *
  * Rotates element all around
  * Used by _mixins.scss, spinner.scss
  *
