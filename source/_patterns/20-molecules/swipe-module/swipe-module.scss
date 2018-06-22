@@ -18,6 +18,7 @@ $row-count-desktop: 3;
 $item-max-width: 400px;
 
 .swipemod {
+  opacity: 1; /* OVERRIDE CRITICAL CSS */
   background: $color-bg-box;
   overflow-x: hidden;
 

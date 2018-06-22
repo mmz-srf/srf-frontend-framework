@@ -13,6 +13,7 @@
 }
 
 .article-comments { // section
+  opacity: 1; /* OVERRIDE CRITICAL CSS */
   position: relative;
 
   .spinner-container {

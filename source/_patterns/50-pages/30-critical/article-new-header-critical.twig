@@ -9,6 +9,10 @@
     {% endblock %}
 
     {% block demo_content %}
+        <style>
+            /* for demo purposes: only show one author line (main use case) in order to match the author's shimmer */
+            .article-author__date-update { display: none !important; }
+        </style>
         {% include '_load-css-button.twig' %}
     {% endblock %}
 
