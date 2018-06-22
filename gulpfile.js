@@ -92,6 +92,14 @@ gulp.task('copy', function() {
      }).pipe(gulp.dest('public/assets'));
 });
 
+gulp.task('copy-critical-js', function() {
+    return  gulp.src([
+        'node_modules/fg-loadcss/dist/loadCSS.js' // loadCSS for fef "critical css" demo pages
+    ], {
+        dot: true
+    }).pipe(gulp.dest('public/assets/critical'));
+});
+
 gulp.task('serve', function() {
   browserSync({
     notify: false,
@@ -127,7 +135,7 @@ gulp.task('build', function(cb) {
     runSequence(
         ['clean'],
         ['patternlab'],
-        ['copy', 'images', 'styles', 'scripts', 'scripts-vendor'],
+        ['copy', 'copy-critical-js', 'images', 'styles', 'scripts', 'scripts-vendor'],
         cb
     );
 });

@@ -53,9 +53,9 @@
   background-color: #4ECE5B;
 }
 
-.article-column-wrapper {
-  @include article-text-padding;
+.shimmer-box {
   margin: 36px 0;
+  @include article-text-padding;
 }
 
 .carousel {

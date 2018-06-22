@@ -1,19 +1,15 @@
 {% embed 'templates-article' %}
 
-    {% block article_shimmer %}
-        <div class="article-column-wrapper">
-            {% include 'atoms-shimmer' with {'styleModifier': 'shimmer--heading'} %}
-            {% include 'atoms-shimmer' with {'styleModifier': 'shimmer--heading'} %}
-            {% include 'atoms-shimmer' with {'styleModifier': 'shimmer--heading shimmer--short'} %}
-        </div>
-    {% endblock %}
-
     {% block article_content %}
         {% include 'atoms-content-heading' %}
         {% include 'atoms-article-text' %}
         {% include 'molecules-medium--vertical' %}
         {% include 'atoms-article-text' %}
         {% include 'atoms-article-author--short' %}
+    {% endblock %}
+
+    {% block demo_content %}
+        {% include '_load-css-button.twig' %}
     {% endblock %}
 
 {% endembed %}

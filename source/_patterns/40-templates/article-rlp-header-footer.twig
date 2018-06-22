@@ -7,8 +7,7 @@
         {% include 'atoms-breadcrumbs' %}
         {% include 'molecules-article-header' %}
         {% include 'molecules-sharing-bar' %}
-
-        {% block article_shimmer %}{% endblock %}
+        {% include 'atoms-shimmer-box' %}
 
         <section class="article-content">
             {% block article_content %}
@@ -18,6 +17,8 @@
 
     </article>
 </div>
+
+{% block demo_content %}{% endblock %}
 
 {% include 'molecules-comments' %}
 {% include 'molecules-swipe-module' %}
