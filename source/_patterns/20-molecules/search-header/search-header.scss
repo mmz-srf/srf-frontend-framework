@@ -1,7 +1,7 @@
 .search-header {
   display: flex;
   align-items: center;
-  
+
   @include smartphone {
     flex-wrap: wrap;
   }
@@ -22,7 +22,7 @@
   // stretch search-container to full width + enable flex-wrap on parent + change order so search is last --> search wraps to next line on mobile
   @include smartphone {
     order: 2;
-    flex-basis: 100%;
+    flex-basis: 101%; // Mobile Safari doesn't wrap the search field if basis is 100%
     margin: 8px 0;
   }
 
