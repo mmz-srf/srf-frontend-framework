@@ -10,12 +10,19 @@ export function init() {
         return (w1 - w2);
     }
 
-    let sbWidth = scrollbarWidth();
+    const value = `calc(100% + ${scrollbarWidth()}px)`;
 
     $('.js-hide-scrollbars').each((i, elem) => {
-        $(elem).find('.js-scroll-container').css({
-            'height': `calc(100% + ${sbWidth}px)`,
-            'width' : `calc(100% + ${sbWidth}px)`
-        });
+        let direction = $(elem).data('direction'),
+            styles = {};
+
+        if (direction === 'both' || direction === 'vertical') {
+            styles.width = value;
+        }
+        if (direction === 'both' || direction === 'horizontal') {
+            styles.height = value;
+        }
+
+        $(elem).find('.js-scroll-container').css(styles);
     });
 }

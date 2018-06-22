@@ -1,5 +1,5 @@
 <style>
-    .lolol {
+    .example-dimensions {
         height: 400px;
         width: 100%;
     }
@@ -34,9 +34,9 @@
     }
 </style>
 
-{% embed 'atoms-scrollbar-hider' with {'styleModifier': 'lolol'} %}
+{% embed 'atoms-scrollbar-hider' with {'styleModifier': 'example-dimensions'} %}
 
-    {% block content %}
+    {% block scrollable_content %}
         <div class='long-p-is-long'>
             <div class='indicator indicator--top indicator--left'></div>
             <div class='indicator indicator--top indicator--right'></div>

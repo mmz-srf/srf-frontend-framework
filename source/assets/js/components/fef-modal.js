@@ -169,10 +169,10 @@ export class FefModal {
      * We only do this if the modal covers the whole page.
      */
     preventScrolling() {
-        if (this.$mainContent.outerHeight() >= $(window).outerHeight()) {
-            this.previousScrollPosition = $(window).scrollTop();
-            $('html').addClass('h-prevent-scrolling');
-        }
+        //if (this.$mainContent.outerHeight() >= $(window).outerHeight()) {
+        this.previousScrollPosition = $(window).scrollTop();
+        $('html').addClass('h-prevent-scrolling');
+        //}
     }
 
     /**
