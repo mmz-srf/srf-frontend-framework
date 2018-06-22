@@ -1,24 +1,24 @@
 {% embed "modal.twig" with {
-    'id': 'modal-menu',
-    'animation': 'scale-from-origin',
-    'styleModifier': ''
+  'id': 'modal-menu',
+  'animation': 'scale-from-origin',
+  'styleModifier': ''
 } %}
-    {% block content %}
+  {% block content %}
     {% embed 'atoms-scrollbar-hider' with {
-        'styleModifier': 'scrollbar-hider--vertical-only scrollbar-hider--fullheight',
-        'direction': 'vertical'
+      'styleModifier': 'scrollbar-hider--vertical-only scrollbar-hider--fullheight',
+      'direction': 'vertical'
     } %}
-        {% block scrollable_content %}
-          <span class="h-offscreen js-focus-target">Menu</span>
+      {% block scrollable_content %}
+        <span class="h-offscreen js-focus-target">Menu</span>
 
-            <div class="modal__head modal-wrapper">
-            {% include 'molecules-search-header' with {'styleModifier': ''} %}
-            </div>
+        <div class="modal__head modal-wrapper">
+          {% include 'molecules-search-header' with {'styleModifier': ''} %}
+        </div>
 
-            <div class="modal__body modal-wrapper">
-            {% include 'molecules-globalnav' with {'styleModifier': '', 'id': 'globalnav--menu'} %}
-            </div>
-        {% endblock %}
-      {% endembed %}
-    {% endblock %}
+        <div class="modal__body modal-wrapper">
+          {% include 'molecules-globalnav' with {'styleModifier': '', 'id': 'globalnav--menu'} %}
+        </div>
+      {% endblock %}
+    {% endembed %}
+  {% endblock %}
 {% endembed %}
