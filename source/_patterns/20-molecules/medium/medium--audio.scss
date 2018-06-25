@@ -16,7 +16,7 @@
   }
 }
 
-.medium--audio .medium--active  .medium__player-wrapper {
+.medium--audio .medium--active .medium__player-wrapper {
   width: 100%;
   opacity: 1;
   visibility: visible;
@@ -25,12 +25,6 @@
 .medium--audio .player-wrapper--audio {
   background-color: #383732;
   height: 448px;
-
-  iframe {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-  }
 }
 
 .medium--audio .medium__player-wrapper .player-wrapper--audio iframe {
@@ -40,12 +34,12 @@
 
   @include tablet-up {
     width: 656px;
-    height: calc(100% - 80px);
+    height: calc(100% - 79px);
   }
 
   @include desktop-up {
     width: 712px;
-    height: calc(100% - 48px);
+    height: calc(100% - 47px);
   }
 }
 
