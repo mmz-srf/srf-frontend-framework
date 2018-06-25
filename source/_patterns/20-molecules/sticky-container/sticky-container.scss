@@ -34,6 +34,25 @@
   }
 }
 
+.sticky-container--longportalnames {
+
+  @include tablet {
+    position: absolute;
+  }
+  
+  @include desktop-up {
+    position: fixed;
+  }
+
+  &.affix {
+
+    @include tablet {
+      margin-top: -56px;
+    }
+
+  }
+}
+
 .affix-top {
   margin-top: 0;
 }
