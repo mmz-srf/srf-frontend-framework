@@ -27,7 +27,7 @@ export class FeFStickyHeader {
       // not home
       if(!this.$masthead.hasClass('masthead--home')) {
 
-        shouldInitializeAffix = true;
+        shouldInitializeAffix = false;
 
       }
       else {
