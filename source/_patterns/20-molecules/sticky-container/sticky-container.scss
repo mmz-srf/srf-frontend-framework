@@ -47,7 +47,7 @@
   &.affix {
 
     @include tablet {
-      margin-top: -56px;
+      margin-top: -60px;
     }
 
   }
@@ -75,6 +75,13 @@
   }
 
   @include smartphone {
+    height: 136px;
+  }
+}
+
+.affix-placeholder--longportalnames {
+
+  @include tablet-up {
     height: 136px;
   }
 }

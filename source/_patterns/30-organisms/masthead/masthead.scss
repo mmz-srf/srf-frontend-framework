@@ -215,6 +215,9 @@
     }
   }
   @include tablet-up {
+    padding-top: 0;
+    padding-bottom: 0;
+
     .masthead__nav {
       display: block;
     }
@@ -224,6 +227,9 @@
     }
   }
   @include desktop-up {
+    padding-top: 12px;
+    padding-bottom: 12px;
+
     .masthead__portals {
       display: flex;
     }
