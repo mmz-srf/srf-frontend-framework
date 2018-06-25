@@ -254,6 +254,7 @@
   }
 
   .medium__player-wrapper {
+    transition: height 0.3s linear;
     position: absolute;
     align-self: stretch;
     display: block;
@@ -265,6 +266,10 @@
     @include smartphone {
       height: calc(56.25vw + 90px);
       width: 100%;
+    }
+
+    @include desktop-wide {
+      height: 492px;
     }
 
     iframe { // the player
@@ -280,6 +285,9 @@
       @include desktop-up {
         width: 712px;
         height: calc(100% - 48px);
+      }
+      @include desktop-wide {
+        width: 790px;
       }
     }
   }
