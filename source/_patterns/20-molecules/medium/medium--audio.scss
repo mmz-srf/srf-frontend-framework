@@ -38,12 +38,12 @@
   height: 100%;
   margin: 0;
 
-  @include tablet {
+  @include tablet-up {
     width: 656px;
     height: calc(100% - 80px);
   }
 
-  @include desktop {
+  @include desktop-up {
     width: 712px;
     height: calc(100% - 48px);
   }
