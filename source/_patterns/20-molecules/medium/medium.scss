@@ -62,11 +62,6 @@
 .medium--vertical {
   flex-direction: column;
 
-  .spinner-container {
-    height: 60px;
-    width: 60px;
-  }
-
   .medium__object {
     height: auto;
     width: 100%;
@@ -254,38 +249,44 @@
 
 .medium--audio {
 
+  .spinner-container {
+    width: 100%;
+  }
+
   .medium__player-wrapper {
-    position: relative;
+    position: absolute;
     align-self: stretch;
     display: block;
+  }
 
-    .player-wrapper--audio {
-      margin-top: 0;
-      height: 0;
-      transition: height 0.4s cubic-bezier(0.4, 0, 0.2, 1),
-      margin 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  .player-wrapper--audio {
+    height: 448px;
 
-      &.player-wrapper--open {
-        position: absolute;
-        width: 100%;
-        height: 25px !important;
-        margin-top: -25px;
+    @include smartphone {
+      height: calc(56.25vw + 90px);
+      width: 100%;
+    }
 
-        iframe {
-          margin: 0;
-          width: 100%;
-          height: 100%;
-        }
+    iframe { // the player
+      @include smartphone {
+        padding: 48px 0 42px;
+      }
+
+      @include tablet-up {
+        top: 0;
+        width: 656px;
+        height: calc(100% - 80px);
+      }
+      @include desktop-up {
+        width: 712px;
+        height: calc(100% - 48px);
       }
     }
   }
 
   .medium__caption {
     order: 2;
-  }
-
-  .image--media-still {
-    padding-bottom: 56.25% !important;
+    z-index: 1;
   }
 
   .medium--active .media-time-indicator {
