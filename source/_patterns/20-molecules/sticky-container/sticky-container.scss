@@ -43,14 +43,6 @@
   @include desktop-up {
     position: fixed;
   }
-
-  &.affix {
-
-    @include tablet {
-      margin-top: -60px;
-    }
-
-  }
 }
 
 .affix-top {
