@@ -1,4 +1,5 @@
 .medium {
+  position: relative;
   display: flex;
   align-items: flex-start;
   margin: 32px 0;
@@ -245,59 +246,4 @@
 
 .medium--poll {
   margin: 0;
-}
-
-.medium--audio {
-
-  .spinner-container {
-    width: 100%;
-  }
-
-  .medium__player-wrapper {
-    transition: height 0.3s linear;
-    position: absolute;
-    align-self: stretch;
-    display: block;
-  }
-
-  .player-wrapper--audio {
-    height: 448px;
-
-    @include smartphone {
-      height: calc(56.25vw + 90px);
-      width: 100%;
-    }
-
-    @include desktop-wide {
-      height: 492px;
-    }
-
-    iframe { // the player
-      @include smartphone {
-        padding: 48px 0 42px;
-      }
-
-      @include tablet-up {
-        top: 0;
-        width: 656px;
-        height: calc(100% - 80px);
-      }
-      @include desktop-up {
-        width: 712px;
-        height: calc(100% - 48px);
-      }
-      @include desktop-wide {
-        width: 790px;
-      }
-    }
-  }
-
-  .medium__caption {
-    order: 2;
-    z-index: 1;
-  }
-
-  .medium--active .media-time-indicator {
-    display: none;
-  }
 }
