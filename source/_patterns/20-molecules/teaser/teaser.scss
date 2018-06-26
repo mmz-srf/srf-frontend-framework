@@ -3,110 +3,185 @@
 @import "../../breakpoints";
 
 .teaser {
-  display: flex;
-  flex-grow: 1;
-  border-radius: 2px;
-  background-color: #fefefd;
-  box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.24), 0 0 1px 0 rgba(0, 0, 0, 0.12);
-  color: #22211d;
-  transition: background-color .2s ease-in-out, box-shadow .2s ease-in-out;
-  @include breakLongWords;
+    display: flex;
+    flex-grow: 1;
+    position: relative;
+    border-radius: 2px;
+    background-color: #fefefd;
+    box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.24), 0 0 1px 0 rgba(0, 0, 0, 0.12);
+    color: #22211d;
+    transition: background-color .2s ease-in-out,
+                box-shadow .2s ease-in-out,
+                margin .2s ease-in-out;
+    @include breakLongWords;
 
-  &:hover {
-    background-color: #fafaf8;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.24), 0 0 8px 0 rgba(0, 0, 0, 0.12);
-  }
+    &:hover,
+    &:focus,
+    &:active {
+        margin-bottom: 4px;
+        margin-top: -4px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.24), 0 0 8px 0 rgba(0, 0, 0, 0.12);
+    }
 
-  &:focus,
-  &:active {
-    background-color: #f5f5f2;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.24), 0 0 8px 0 rgba(0, 0, 0, 0.12);
-  }
+    &:hover {
+        background-color: #fafaf8;
+    }
+
+    /* Teasers have an invisible layer on top that gets sligthly opaque when active/focused */
+    &::after {
+        content: "";
+        height: 100%;
+        position: absolute;
+        width: 100%;
+        pointer-events: none;
+        background-color: transparent;
+        transition: background-color .2s ease-in-out;
+    }
+
+    &:focus,
+    &:active {
+        background-color: #fefefd; // Use same background-color as the normal state, because hover still applies
+
+        &::after {
+            background-color: rgba(185, 183, 172, 0.12);
+        }
+    }
 }
 
 // <-> on mobile, vertical on tablet+
 .teaser__main {
-  display: flex;
-  flex-direction: row-reverse;
-  flex-grow: 1;
+    display: flex;
+    flex-direction: row-reverse;
+    flex-grow: 1;
 
-  @include tablet-up {
-    flex-direction: column;
-  }
+    @include tablet-up {
+        flex-direction: column;
+    }
 }
 
 .teaser__medium-wrapper {
-  flex-grow: 0;
-  flex-shrink: 0;
-  flex-basis: 80px;
-  margin: 16px 16px 16px 0;
+    flex-grow: 0;
+    flex-shrink: 0;
+    margin: 16px 16px 16px 0;
 
-  @include tablet-up {
-    margin: 0;
-  }
+    @include tablet-up {
+        margin: 0;
+    }
 }
 
 .teaser__medium {
-  object-fit: cover;
-  width: 80px;
-  height: 80px;
+    object-fit: cover;
+    width: 80px;
+    height: 80px;
 
-  @include tablet-up {
-    height: auto;
-    width: 100%;
-  }
+    @include tablet-up {
+        height: auto;
+        width: 100%;
+    }
 }
 
 .teaser__content {
-  flex-basis: 0;
-  flex-grow: 1;
-  flex-shrink: 1;
-  margin: 16px;
+    flex-basis: 0;
+    flex-grow: 1;
+    flex-shrink: 1;
+    margin: 16px;
 }
 
 .teaser__kicker {
-  margin: 0 0 4px;
-  font-family: $font-regular;
-  font-size: 14px;
-  font-weight: normal;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: 1.14;
-  letter-spacing: 0.4px;
-  color: #c91024;
+    margin: 0 0 4px;
+    font-family: $font-regular;
+    font-size: 14px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.14;
+    letter-spacing: 0.4px;
+    color: #c91024;
 }
 
 .teaser__title {
-  margin: 0;
-  font-family: $font-regular;
-  font-size: 16px;
-  font-weight: 500;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: 1.25;
-  letter-spacing: 0.4px;
-  color: #22211d;
+    margin: 0;
+    font-family: $font-regular;
+    font-size: 16px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.25;
+    letter-spacing: 0.4px;
+    color: #22211d;
 }
 
 .teaser__lead {
-  display: none;
+    display: none;
 }
 
 // A Swipeable's teasers basically don't have the mobile styles but override them
 // with the according tablet+ styles
 .teaser__wrapper--swipeable {
-  .teaser {
+    .teaser {
+        .teaser__main {
+            flex-direction: column;
+        }
+
+        .teaser__medium-wrapper {
+            margin: 0;
+        }
+
+        .teaser__medium {
+            height: auto;
+            width: 100%;
+        }
+    }
+}
+
+.teaser--s {
     .teaser__main {
-      flex-direction: column;
+        display: flex;
+        flex-direction: row-reverse;
+        flex-grow: 1;
     }
 
     .teaser__medium-wrapper {
-      margin: 0;
+        flex-grow: 0;
+        flex-shrink: 0;
+        margin: 16px 16px 16px 0;
+
+        @include desktop-wide {
+            margin: 24px 24px 24px 0;
+        }
     }
 
     .teaser__medium {
-      height: auto;
-      width: 100%;
+        object-fit: cover;
+        width: 80px;
+        height: 80px;
+
+        @include desktop-up {
+            width: 94px;
+            height: 94px;
+        }
     }
-  }
+
+    .teaser__content {
+        flex-basis: 0;
+        flex-grow: 1;
+        flex-shrink: 1;
+        margin: 16px;
+
+        @include desktop-wide {
+            margin: 24px;
+        }
+    }
+
+    .teaser__kicker {
+        font-size: 14px;
+        line-height: 1.14;
+        letter-spacing: 0.4px;
+        color: #c91024;
+
+        @include desktop-up {
+            font-size: 16px;
+            line-height: 1.13;
+        }
+    }
 }
