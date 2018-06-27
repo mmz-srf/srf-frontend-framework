@@ -11,8 +11,7 @@
     box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.24),
                 0 0 1px 0 rgba(0, 0, 0, 0.12);
     color: $color-text-default;
-    transition: background-color .2s ease-in-out,
-                box-shadow .2s ease-in-out,
+    transition: box-shadow .2s ease-in-out,
                 transform .2s ease-in-out;
     @include breakLongWords;
 
@@ -22,10 +21,6 @@
     &:active {
         transform: translateY(-4px);
         box-shadow: $shadow-hover;
-    }
-
-    &:hover {
-        background-color: #fafaf8;
     }
 
     /* Teasers have an invisible layer on top that gets sligthly opaque when active/focused */
@@ -43,8 +38,6 @@
 
     &:focus,
     &:active {
-        background-color: $color-bg-card; // Use same background-color as the normal state, because hover still applies
-
         &::after {
             opacity: 1;
         }
