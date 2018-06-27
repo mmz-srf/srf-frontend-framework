@@ -210,7 +210,47 @@
     .teaser__medium-wrapper {
         margin: 0;
     }
+}
 
+/* XL-TEASER
+ * Looks like L-Teaser on Mobile
+ * With short lead
+ * Full-width on tablet+ with medium on the left
+ */
+.teaser--xl {
+
+    .teaser__main {
+        flex-direction: column;
+
+        @include tablet-up {
+            flex-direction: row;
+        }
+    }
+
+    .teaser__medium {
+        height: auto;
+        width: 100%;
+    }
+
+    .teaser__medium-wrapper {
+        margin: 0;
+
+        @include tablet-up {
+            flex-basis: 65.75%;
+        }
+    }
+
+    .teaser__medium {
+        @include tablet-up {
+            height: auto;
+            width: 100%;
+        }
+    }
+}
+
+// Short lead for both L and XL teaser
+.teaser--l,
+.teaser--xl {
     .teaser__lead {
         display: block;
 
@@ -237,37 +277,6 @@
 
         @include desktop-up {
             font-size: 24px;
-        }
-    }
-}
-
-/* XL-TEASER
- * Already vertical on mobile
- */
- .teaser--xl {
-
-}
-
-// TODO in the story about XL-Teasers:
-.teaser--xl {
-
-    .teaser__main {
-        // ↔️ on mobile, ↕️ on tablet+
-        @include tablet-up {
-            flex-direction: column;
-        }
-    }
-
-    .teaser__medium-wrapper {
-        @include tablet-up {
-            margin: 0;
-        }
-    }
-
-    .teaser__medium {
-        @include tablet-up {
-            height: auto;
-            width: 100%;
         }
     }
 }
