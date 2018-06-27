@@ -33,7 +33,6 @@
     }
   }
 }
-
 .sticky-container--longportalnames {
 
   @include tablet {
@@ -45,8 +44,8 @@
   }
 }
 
-.sticky-container--home.sticky-container--longportalnames {
-  @include tablet-up {
+.sticky-container--home.sticky-container--longportalnames.affix {
+  @include tablet {
     margin-top: -62px;
   }
 }
