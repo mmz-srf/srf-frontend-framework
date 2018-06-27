@@ -5,10 +5,11 @@
 .teaser {
     display: flex;
     flex-grow: 1;
-    position: relative;
+    position: relative; // to position the pseudo elements
     border-radius: 2px;
     background-color: #fefefd;
-    box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.24), 0 0 1px 0 rgba(0, 0, 0, 0.12);
+    box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.24),
+                0 0 1px 0 rgba(0, 0, 0, 0.12);
     color: #22211d;
     transition: background-color .2s ease-in-out,
                 box-shadow .2s ease-in-out,
@@ -28,9 +29,9 @@
 
     /* Teasers have an invisible layer on top that gets sligthly opaque when active/focused */
     &::after {
-        content: "";
-        height: 100%;
         position: absolute;
+        content: '';
+        height: 100%;
         width: 100%;
         pointer-events: none;
         // performance improvement: Don't animate the background-color, but the opacity
@@ -170,11 +171,6 @@
     }
 
     .teaser__kicker {
-        font-size: 14px;
-        line-height: 1.14;
-        letter-spacing: 0.4px;
-        color: #c91024;
-
         @include desktop-up {
             font-size: 16px;
             line-height: 1.13;
@@ -182,11 +178,6 @@
     }
 
     .teaser__title {
-        font-size: 16px;
-        line-height: 1.25;
-        letter-spacing: 0.4px;
-        color: #22211d;
-
         @include desktop-up {
             font-size: 18px;
             line-height: 1.33;
