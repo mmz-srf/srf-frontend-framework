@@ -12,14 +12,13 @@
     color: #22211d;
     transition: background-color .2s ease-in-out,
                 box-shadow .2s ease-in-out,
-                margin .2s ease-in-out;
+                transform .2s ease-in-out;
     @include breakLongWords;
 
     &:hover,
     &:focus,
     &:active {
-        margin-bottom: 4px;
-        margin-top: -4px;
+        transform: translateY(-4px);
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.24), 0 0 8px 0 rgba(0, 0, 0, 0.12);
     }
 
@@ -34,8 +33,10 @@
         position: absolute;
         width: 100%;
         pointer-events: none;
-        background-color: transparent;
-        transition: background-color .2s ease-in-out;
+        // performance improvement: Don't animate the background-color, but the opacity
+        background-color: rgba(185, 183, 172, 0.12);
+        opacity: 0;
+        transition: opacity .2s ease-in-out;
     }
 
     &:focus,
@@ -43,20 +44,15 @@
         background-color: #fefefd; // Use same background-color as the normal state, because hover still applies
 
         &::after {
-            background-color: rgba(185, 183, 172, 0.12);
+            opacity: 1;
         }
     }
 }
 
-// <-> on mobile, vertical on tablet+
 .teaser__main {
     display: flex;
     flex-direction: row-reverse;
     flex-grow: 1;
-
-    @include tablet-up {
-        flex-direction: column;
-    }
 }
 
 .teaser__medium-wrapper {
@@ -182,6 +178,29 @@
         @include desktop-up {
             font-size: 16px;
             line-height: 1.13;
+        }
+    }
+
+    .teaser__title {
+        font-size: 16px;
+        line-height: 1.25;
+        letter-spacing: 0.4px;
+        color: #22211d;
+
+        @include desktop-up {
+            font-size: 18px;
+            line-height: 1.33;
+        }
+    }
+}
+
+// ↔️ on mobile, ↕️ on tablet+
+.teaser--m,
+.teaser--l,
+.teaser--xl {
+    .teaser__main {
+        @include tablet-up {
+            flex-direction: column;
         }
     }
 }
