@@ -87,7 +87,7 @@
 
 .teaser__title {
     margin: 0;
-    font-family: $font-regular;
+    font-family: $font-medium;
     font-size: 16px;
     font-weight: 500;
     font-style: normal;
@@ -98,7 +98,16 @@
 }
 
 .teaser__lead {
+    margin: 12px 0 0;
     display: none;
+    font-family: $font-light;
+    font-size: 16px;
+    font-weight: 300;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.25;
+    letter-spacing: 0.4px;
+    color: $color-text-default;
 }
 
 // A Swipeable's teasers basically don't have the mobile styles but override them
@@ -176,10 +185,6 @@
     }
 
     .teaser__title {
-        @include tablet-up {
-            font-family: $font-medium;
-        }
-
         @include desktop-up {
             font-size: 20px;
             line-height: 1.25;
@@ -190,9 +195,50 @@
 
 /* L-TEASER
  * Already vertical on mobile
+ * With short lead
  */
 .teaser--l {
+    .teaser__main {
+        flex-direction: column;
+    }
 
+    .teaser__medium {
+        height: auto;
+        width: 100%;
+    }
+
+    .teaser__medium-wrapper {
+        margin: 0;
+    }
+
+    .teaser__lead {
+        display: block;
+
+        @include desktop-up {
+            font-size: 18px;
+            line-height: 1.33;
+            color: $color-media-playing;
+        }
+    }
+
+    .teaser__kicker {
+        font-size: 16px;
+        line-height: 1.13;
+
+        @include desktop-up {
+            font-size: 18px;
+            line-height: 1.11;
+        }
+    }
+
+    .teaser__title {
+        font-size: 20px;
+        letter-spacing: 0.2px;
+
+        @include desktop-up {
+            font-size: 24px;
+        }
+    }
 }
 
 /* XL-TEASER
@@ -202,8 +248,7 @@
 
 }
 
-// TODO in the stories about L-/XL-Teasers:
-.teaser--l,
+// TODO in the story about XL-Teasers:
 .teaser--xl {
 
     .teaser__main {
