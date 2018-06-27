@@ -45,6 +45,12 @@
   }
 }
 
+.sticky-container--home.sticky-container--longportalnames {
+  @include tablet-up {
+    margin-top: -62px;
+  }
+}
+
 .affix-top {
   margin-top: 0;
 }
@@ -75,12 +81,6 @@
 
   @include tablet-up {
     height: 160px;
-  }
-}
-
-.affix-placeholder--home.affix-placeholder--longportalnames {
-  @include tablet-up {
-    margin-top: -62px;
   }
 }
 
