@@ -1,6 +1,21 @@
+<style>
+    .togglable-wrapper {
+        max-width: 100%;
+        transition: max-width .2s ease-in-out;
+    }
+    .teaser-demo-wrapper {
+        max-width: 320px;
+    }
+    h2 {
+        margin: 20px;
+    }
+</style>
+
+{% include 'atoms-button' with {'buttonText' : 'Max-Width setzen', 'styleModifier': 'js-toggle-maxWidth'} %}
+
 <h2>S-Teaser</h2>
 
-<div class='teaser-demo-wrapper'>
+<div class='js-togglable-wrapper togglable-wrapper'>
     {% include 'molecules-teaser' with {
         "styleModifier": "teaser--s",
         "teaser": collections[0].teasers[0]
@@ -9,7 +24,7 @@
 
 <h2>M-Teaser</h2>
 
-<div class='teaser-demo-wrapper'>
+<div class='js-togglable-wrapper togglable-wrapper'>
     {% include 'molecules-teaser' with {
         "styleModifier": "teaser--m",
         "teaser": collections[0].teasers[0]
@@ -18,7 +33,7 @@
 
 <h2>L-Teaser</h2>
 
-<div class='teaser-demo-wrapper'>
+<div class='js-togglable-wrapper togglable-wrapper'>
     {% include 'molecules-teaser' with {
         "styleModifier": "teaser--l",
         "teaser": collections[0].teasers[0]
@@ -27,22 +42,74 @@
 
 <h2>XL-Teaser</h2>
 
-{% include 'molecules-teaser' with {
-    "styleModifier": "teaser--xl",
-    "teaser": collections[0].teasers[0]
-} %}
+<div class='js-togglable-wrapper togglable-wrapper'>
+    {% include 'molecules-teaser' with {
+        "styleModifier": "teaser--xl",
+        "teaser": collections[0].teasers[0]
+    } %}
+</div>
 
 <h2>Unmodified</h2>
 
-<div class='teaser-demo-wrapper'>
+<div class='js-togglable-wrapper togglable-wrapper'>
     {% include 'molecules-teaser' with {
         "styleModifier": "",
         "teaser": collections[0].teasers[0]
     } %}
 </div>
 
-<style>
-    .teaser-demo-wrapper {
-        max-width: 300px;
-    }
-</style>
+<h2>Collection examples, not yet functional or finished</h2>
+
+<div class="collection">
+    <h3 class="collection__title">S-Teasers</h3>
+    <ul class="collection__teaser-list">
+        {% for teaser in collections[0].teasers %}
+            <li class="collection__teaser-item teaser__wrapper">
+                {% include 'molecules-teaser' with {'teaser': teaser, 'styleModifier': 'teaser--s'} %}
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+
+<div class="collection">
+    <h3 class="collection__title">M-Teasers</h3>
+    <ul class="collection__teaser-list">
+        {% for teaser in collections[0].teasers %}
+            <li class="collection__teaser-item teaser__wrapper">
+                {% include 'molecules-teaser' with {'teaser': teaser, 'styleModifier': 'teaser--m'} %}
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+
+<div class="collection">
+    <h3 class="collection__title">L-Teasers</h3>
+    <ul class="collection__teaser-list">
+        {% for teaser in collections[0].teasers %}
+            <li class="collection__teaser-item teaser__wrapper">
+                {% include 'molecules-teaser' with {'teaser': teaser, 'styleModifier': 'teaser--l'} %}
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+
+<div class="collection">
+    <h3 class="collection__title">XL-Teasers</h3>
+    <ul class="collection__teaser-list">
+        {% for teaser in collections[0].teasers %}
+            <li class="collection__teaser-item teaser__wrapper">
+                {% include 'molecules-teaser' with {'teaser': teaser, 'styleModifier': 'teaser--xl'} %}
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+
+<script>
+    let $btn = $(".js-toggle-maxWidth"),
+        $togglableWrappers = $(".js-togglable-wrapper");
+
+
+    $btn.on("click", () => {
+        $togglableWrappers.toggleClass('teaser-demo-wrapper');
+    });
+</script>
