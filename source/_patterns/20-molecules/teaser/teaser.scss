@@ -228,7 +228,7 @@
     }
 
     .teaser__medium {
-        height: auto;
+        height: 100%;
         width: 100%;
     }
 
@@ -236,7 +236,7 @@
         margin: 0;
 
         @include tablet-up {
-            flex-basis: 65.75%;
+            width: 65.75%;
         }
     }
 
