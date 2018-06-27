@@ -78,6 +78,12 @@
   }
 }
 
+.affix-placeholder--home.affix-placeholder--longportalnames {
+  @include tablet-up {
+    margin-top: -62px;
+  }
+}
+
 .affix-placeholder--compact {
   height: 80px;
 }
