@@ -1,34 +1,50 @@
 <h2>S-Teaser</h2>
 
-{% include 'molecules-teaser' with {
-    "styleModifier": "teaser--s",
-    "teaser": collections[0].teasers[0]
-} %}
+<div class='teaser-demo-wrapper'>
+    {% include 'molecules-teaser' with {
+        "styleModifier": "teaser--s",
+        "teaser": collections[0].teasers[0]
+    } %}
+</div>
 
 <h2>M-Teaser</h2>
 
-{% include 'molecules-teaser' with {
-    "styleModifier": "teaser--m",
-    "teaser": collections[0].teasers[0]
-} %}
+<div class='teaser-demo-wrapper'>
+    {% include 'molecules-teaser' with {
+        "styleModifier": "teaser--m",
+        "teaser": collections[0].teasers[0]
+    } %}
+</div>
 
 <h2>L-Teaser</h2>
 
-{% include 'molecules-teaser' with {
-    "styleModifier": "teaser--l",
-    "teaser": collections[0].teasers[0]
-} %}
+<div class='teaser-demo-wrapper'>
+    {% include 'molecules-teaser' with {
+        "styleModifier": "teaser--l",
+        "teaser": collections[0].teasers[0]
+    } %}
+</div>
 
 <h2>XL-Teaser</h2>
 
-{% include 'molecules-teaser' with {
-    "styleModifier": "teaser--xl",
-    "teaser": collections[0].teasers[0]
-} %}
+<div class='teaser-demo-wrapper'>
+    {% include 'molecules-teaser' with {
+        "styleModifier": "teaser--xl",
+        "teaser": collections[0].teasers[0]
+    } %}
+</div>
 
 <h2>Unmodified</h2>
 
-{% include 'molecules-teaser' with {
-    "styleModifier": "",
-    "teaser": collections[0].teasers[0]
-} %}
+<div class='teaser-demo-wrapper'>
+    {% include 'molecules-teaser' with {
+        "styleModifier": "",
+        "teaser": collections[0].teasers[0]
+    } %}
+</div>
+
+<style>
+    .teaser-demo-wrapper {
+        max-width: 300px;
+    }
+</style>

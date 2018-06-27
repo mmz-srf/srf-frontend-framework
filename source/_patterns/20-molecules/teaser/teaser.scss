@@ -67,6 +67,10 @@
     flex-grow: 1;
     flex-shrink: 1;
     margin: 16px;
+
+    @include desktop-wide {
+        margin: 24px;
+    }
 }
 
 .teaser__kicker {
@@ -130,12 +134,6 @@
         }
     }
 
-    .teaser__content {
-        @include desktop-wide {
-            margin: 24px;
-        }
-    }
-
     .teaser__kicker {
         @include desktop-up {
             font-size: 16px;
@@ -151,8 +149,59 @@
     }
 }
 
-// TODO in the stories about M-/L-/XL-Teasers:
-.teaser--m,
+/* M-TEASER
+ * looks like S-Teaser on mobile
+ * on tablet+ the orientation changes to vertical
+ */
+.teaser--m {
+    .teaser__main {
+        // ↔️ on mobile, ↕️ on tablet+
+        @include tablet-up {
+            flex-direction: column;
+        }
+    }
+
+    .teaser__medium-wrapper {
+        @include tablet-up {
+            margin: 0;
+        }
+    }
+
+    .teaser__medium {
+        @include tablet-up {
+            height: auto;
+            width: 100%;
+        }
+    }
+
+    .teaser__title {
+        @include tablet-up {
+            font-family: $font-medium;
+        }
+
+        @include desktop-up {
+            font-size: 20px;
+            line-height: 1.25;
+            letter-spacing: 0.2px;
+        }
+    }
+}
+
+/* L-TEASER
+ * Already vertical on mobile
+ */
+.teaser--l {
+
+}
+
+/* XL-TEASER
+ * Already vertical on mobile
+ */
+ .teaser--xl {
+
+}
+
+// TODO in the stories about L-/XL-Teasers:
 .teaser--l,
 .teaser--xl {
 
