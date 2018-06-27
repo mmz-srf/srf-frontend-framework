@@ -127,6 +127,7 @@
         }
     }
 
+    // slightly bigger image on desktop
     .teaser__medium {
         @include desktop-up {
             width: 94px;
