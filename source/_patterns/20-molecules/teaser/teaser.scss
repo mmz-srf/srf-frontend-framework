@@ -7,20 +7,21 @@
     flex-grow: 1;
     position: relative; // to position the pseudo elements
     border-radius: 2px;
-    background-color: #fefefd;
+    background-color: $color-bg-card;
     box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.24),
                 0 0 1px 0 rgba(0, 0, 0, 0.12);
-    color: #22211d;
+    color: $color-text-default;
     transition: background-color .2s ease-in-out,
                 box-shadow .2s ease-in-out,
                 transform .2s ease-in-out;
     @include breakLongWords;
 
+    /* Card moves 4px up on interaction */
     &:hover,
     &:focus,
     &:active {
         transform: translateY(-4px);
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.24), 0 0 8px 0 rgba(0, 0, 0, 0.12);
+        box-shadow: $shadow-hover;
     }
 
     &:hover {
@@ -35,14 +36,14 @@
         width: 100%;
         pointer-events: none;
         // performance improvement: Don't animate the background-color, but the opacity
-        background-color: rgba(185, 183, 172, 0.12);
+        background-color: $color-bg-button-hover;
         opacity: 0;
         transition: opacity .2s ease-in-out;
     }
 
     &:focus,
     &:active {
-        background-color: #fefefd; // Use same background-color as the normal state, because hover still applies
+        background-color: $color-bg-card; // Use same background-color as the normal state, because hover still applies
 
         &::after {
             opacity: 1;
@@ -60,21 +61,12 @@
     flex-grow: 0;
     flex-shrink: 0;
     margin: 16px 16px 16px 0;
-
-    @include tablet-up {
-        margin: 0;
-    }
 }
 
 .teaser__medium {
     object-fit: cover;
     width: 80px;
     height: 80px;
-
-    @include tablet-up {
-        height: auto;
-        width: 100%;
-    }
 }
 
 .teaser__content {
@@ -93,7 +85,7 @@
     font-stretch: normal;
     line-height: 1.14;
     letter-spacing: 0.4px;
-    color: #c91024;
+    color: $color-accentuation-red;
 }
 
 .teaser__title {
@@ -105,7 +97,7 @@
     font-stretch: normal;
     line-height: 1.25;
     letter-spacing: 0.4px;
-    color: #22211d;
+    color: $color-text-default;
 }
 
 .teaser__lead {
@@ -132,27 +124,13 @@
 }
 
 .teaser--s {
-    .teaser__main {
-        display: flex;
-        flex-direction: row-reverse;
-        flex-grow: 1;
-    }
-
     .teaser__medium-wrapper {
-        flex-grow: 0;
-        flex-shrink: 0;
-        margin: 16px 16px 16px 0;
-
         @include desktop-wide {
             margin: 24px 24px 24px 0;
         }
     }
 
     .teaser__medium {
-        object-fit: cover;
-        width: 80px;
-        height: 80px;
-
         @include desktop-up {
             width: 94px;
             height: 94px;
@@ -160,11 +138,6 @@
     }
 
     .teaser__content {
-        flex-basis: 0;
-        flex-grow: 1;
-        flex-shrink: 1;
-        margin: 16px;
-
         @include desktop-wide {
             margin: 24px;
         }
@@ -185,13 +158,28 @@
     }
 }
 
-// ↔️ on mobile, ↕️ on tablet+
+// TODO in the stories about M-/L-/XL-Teasers:
 .teaser--m,
 .teaser--l,
 .teaser--xl {
+
     .teaser__main {
+        // ↔️ on mobile, ↕️ on tablet+
         @include tablet-up {
             flex-direction: column;
+        }
+    }
+
+    .teaser__medium-wrapper {
+        @include tablet-up {
+            margin: 0;
+        }
+    }
+
+    .teaser__medium {
+        @include tablet-up {
+            height: auto;
+            width: 100%;
         }
     }
 }
