@@ -240,10 +240,23 @@
         }
     }
 
-    .teaser__medium {
+    .teaser__content {
         @include tablet-up {
-            height: auto;
-            width: 100%;
+            margin: 24px 16px 24px 24px;
+        }
+
+        @include desktop {
+            margin: 24px;
+        }
+
+        @include desktop-wide {
+            margin: 32px 24px 32px 32px;
+        }
+    }
+
+    .teaser__title {
+        @include tablet {
+            letter-spacing: 0.4px;
         }
     }
 }
