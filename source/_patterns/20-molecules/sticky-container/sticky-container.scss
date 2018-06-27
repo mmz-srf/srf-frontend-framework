@@ -76,10 +76,10 @@
   }
 }
 
-.affix-placeholder--longportalnames {
+.affix-placeholder--home.affix-placeholder--longportalnames {
 
-  @include tablet-up {
-    height: 132px;
+  @include tablet {
+    height: 136px;
   }
 }
 
