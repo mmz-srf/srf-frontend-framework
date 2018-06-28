@@ -1,0 +1,61 @@
+<style>
+    .example-dimensions {
+        height: 400px;
+        width: 100%;
+    }
+    .long-p-is-long {
+        height: 2000px;
+        width: 2000px;
+        background: linear-gradient(135deg, orange , yellow, green, cyan, blue, violet);
+        position: relative;
+    }
+
+    .indicator {
+        position: absolute;
+        height: 100px;
+        width: 100px;
+    }
+
+    .indicator--top {
+        top: 0;
+        border-top: 10px solid black;
+    }
+    .indicator--left {
+        left: 0;
+        border-left: 10px solid black;
+    }
+    .indicator--bottom {
+        bottom: 0;
+        border-bottom: 10px solid black;
+    }
+    .indicator--right {
+        right: 0;
+        border-right: 10px solid black;
+    }
+</style>
+
+{% embed 'atoms-scrollbar-hider' with {'styleModifier': 'example-dimensions'} %}
+
+    {% block scrollable_content %}
+        <div class='long-p-is-long'>
+            <div class='indicator indicator--top indicator--left'></div>
+            <div class='indicator indicator--top indicator--right'></div>
+            <div class='indicator indicator--bottom indicator--left'></div>
+            <div class='indicator indicator--bottom indicator--right'></div>
+            <p>Hello!</p>
+            <p>Hello!</p>
+            <p>Hello!</p>
+            <p>Hello!</p>
+            <p>Hello!</p>
+            <p>Hello!</p>
+            <p>Hello!</p>
+            <p>Hello!</p>
+            <p>Hello!</p>
+            <p>Hello!</p>
+            <p>Hello!</p>
+            <p>Hello!</p>
+            <p>Hello!</p>
+        </div>
+    {% endblock %}
+
+{% endembed %}

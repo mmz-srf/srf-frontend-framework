@@ -165,28 +165,22 @@ export class FefModal {
      * We achieve this by setting the body to overflow: hidden and setting the height to 100%, thus
      * effectively cutting the rest of the page off. This scrolls to the top of the page, so we
      * also have to save the previous scroll state.
-     *
-     * We only do this if the modal covers the whole page.
      */
     preventScrolling() {
-        if (this.$mainContent.outerHeight() >= $(window).outerHeight()) {
-            this.previousScrollPosition = $(window).scrollTop();
-            $('html').addClass('h-prevent-scrolling');
-        }
+        this.previousScrollPosition = $(window).scrollTop();
+        $('html').addClass('h-prevent-scrolling');
     }
 
     /**
-     * If, upon opening the modal, the ability to scroll was removed, we give it back now. This means:
+     * Upon opening the modal the ability to scroll was removed. Now we give it back. This means:
      * - removing the class that prevents the scrolling
      * - scrolling back to the previously saved scroll position
      *
      * This makes it appear as if we never even scrolled away.
      */
     scrollToPreviousPosition() {
-        if (this.previousScrollPosition !== null) {
-            $('html').removeClass('h-prevent-scrolling');
-            $(window).scrollTop(this.previousScrollPosition);
-            this.previousScrollPosition = null;
-        }
+        $('html').removeClass('h-prevent-scrolling');
+        $(window).scrollTop(this.previousScrollPosition);
+        this.previousScrollPosition = null;
     }
 }

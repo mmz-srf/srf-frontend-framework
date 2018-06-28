@@ -15,6 +15,7 @@ import {init as FefExpandableBoxInit} from './components/fef-expandable-box';
 import {init as FefStickyHeaderInit} from './components/fef-sticky-header';
 import {init as FefSubnavInit} from './components/fef-subnav';
 import {init as FefPopupInit} from './components/fef-popup';
+import {init as FefScrollbarHiderInit} from './components/fef-scrollbar-hider';
 
 
 /** SELF loading components without init **/
@@ -28,6 +29,7 @@ import './components/fef-ripple';
 import './utils/fef-easings';
 
 document.addEventListener('DOMContentLoaded', function(event) {
+    FefScrollbarHiderInit();
     FefCarouselsInit();
     FefChartsInit();
     FefCHMapInit();

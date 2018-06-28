@@ -1,0 +1,8 @@
+<div class="scrollbar-hider js-hide-scrollbars {{ styleModifier|default("") }}"
+     data-direction="{{ direction|default("both") }}">
+    <div class="scrollbar-hider__wrapper js-scroll-container">
+        <div class="scrollbar-hider__content">
+            {% block scrollable_content %}{% endblock %}
+        </div>
+    </div>
+</div>

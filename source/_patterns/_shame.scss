@@ -101,3 +101,16 @@ _:-ms-fullscreen,
     -webkit-overflow-scrolling: initial;
   }
 }
+
+/*
+ * TARGETED BROWSER: Mobile Safari
+ *
+ * Safari prevents scrolling to the bottom of the modals for *SOME* reason.
+ */
+@media screen and (min-color-index:0) and(-webkit-min-device-pixel-ratio:0) {
+    @include smartphone {
+        .modal__body {
+            margin-bottom: 60px;
+        }
+    }
+}

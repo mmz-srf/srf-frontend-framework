@@ -1,0 +1,33 @@
+.scrollbar-hider {
+    overflow: hidden;
+}
+
+.scrollbar-hider__wrapper {
+    height: 100%;
+    width: 100%;
+    overflow: scroll;
+    -webkit-overflow-scrolling: touch; // enable momentum scrolling on ios devices
+}
+
+.scrollbar-hider--fullwidth {
+    width: 100vw;
+}
+
+/* Tricky business: Fill out the parent, but don't get higher than the viewport. Same for
+ * the wrapper so that it's still scrollable
+ */
+.scrollbar-hider--fullheight {
+    height: 100%;
+    max-height: 100vh;
+
+    .scrollbar-hider__wrapper {
+        max-height: 100vh;
+    }
+}
+
+.scrollbar-hider--vertical-only {
+    .scrollbar-hider__wrapper {
+        overflow-x: hidden;
+        overflow-y: scroll;
+    }
+}
