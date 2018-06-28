@@ -7,6 +7,7 @@
     flex-grow: 1;
     position: relative; // to position the pseudo elements
     border-radius: 2px;
+    overflow: hidden; // to cut off image with border radius
     background-color: $color-bg-card;
     box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.24),
                 0 0 1px 0 rgba(0, 0, 0, 0.12);
@@ -177,6 +178,7 @@
     .teaser__medium-wrapper {
         @include tablet-up {
             margin: 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.04);
         }
     }
 
@@ -217,6 +219,7 @@
 
     .teaser__medium-wrapper {
         margin: 0;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.04);
     }
 }
 
@@ -242,8 +245,11 @@
 
     .teaser__medium-wrapper {
         margin: 0;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.04);
 
         @include tablet-up {
+            border-bottom: none;
+            border-right: 1px solid rgba(0, 0, 0, 0.04);
             width: 65.75%;
         }
     }
