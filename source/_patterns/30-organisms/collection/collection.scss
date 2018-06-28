@@ -12,27 +12,32 @@
 }
 
 .collection__title {
-  margin: 16px 24px 12px;
+  margin-top: 16px;
+  margin-right: 24px;
+  margin-bottom: 12px;
+  margin-left: 24px;
   font-family: $font-medium;
   font-size: 24px;
   font-weight: 500;
   font-style: normal;
   font-stretch: normal;
   line-height: 1.25;
-  letter-spacing: 0.2px;
-  color: #22211d;
+  letter-spacing: .2px;
+  color: $color-text-default;
 
   @include tablet-up {
-    margin: 16px 32px 12px;
+    margin-right: 32px;
+    margin-left: 32px;
   }
 
   @include desktop-up {
-    margin: 20px 32px 16px;
+    margin-top: 20px;
     font-size: 28px;
   }
 
   @include desktop-wide {
-    margin: 20px 40px 16px;
+    margin-right: 40px;
+    margin-left: 40px;
   }
 }
 
