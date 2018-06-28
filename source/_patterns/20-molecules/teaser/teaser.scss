@@ -138,6 +138,9 @@
 
     // slightly bigger image on desktop
     .teaser__medium {
+        border-radius: 2px;
+        border: solid 1px rgba(0, 0, 0, 0.04);
+
         @include desktop-up {
             width: 94px;
             height: 94px;
@@ -178,6 +181,11 @@
     }
 
     .teaser__medium {
+        @include smartphone {
+            border-radius: 2px;
+            border: solid 1px rgba(0, 0, 0, 0.04);
+        }
+
         @include tablet-up {
             height: auto;
             width: 100%;
