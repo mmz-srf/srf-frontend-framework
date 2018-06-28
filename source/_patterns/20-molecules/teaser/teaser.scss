@@ -55,6 +55,19 @@
     flex-grow: 0;
     flex-shrink: 0;
     margin: 16px 16px 16px 0;
+    position: relative; // for positioning ::pseudo elements
+
+    &::before {
+        position: absolute;
+        pointer-events: none;
+        content: '';
+        width: 100%;
+        height: 100%;
+        background-color: transparent;
+        top: 0;
+        left: 0;
+        box-sizing: border-box;
+    }
 }
 
 .teaser__medium {
@@ -133,8 +146,12 @@
 .teaser--s {
     .teaser__medium-wrapper {
         border-radius: 2px;
-        border: solid 1px rgba(0, 0, 0, 0.04);
         overflow: hidden;
+
+        &::before {
+            border-radius: 2px;
+            border: solid 1px rgba(0, 0, 0, 0.04);
+        }
 
         @include desktop-wide {
             margin: 24px 24px 24px 0;
@@ -177,18 +194,26 @@
     }
 
     .teaser__medium-wrapper {
+        border-radius: 2px;
+        overflow: hidden;
+
+        @include smartphone {
+            &::before {
+                border-radius: 2px;
+                border: solid 1px rgba(0, 0, 0, 0.04);
+            }
+        }
+
         @include tablet-up {
             margin: 0;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+
+            &::before {
+                border-bottom: solid 1px rgba(0, 0, 0, 0.04);
+            }
         }
     }
 
     .teaser__medium {
-        @include smartphone {
-            border-radius: 2px;
-            border: solid 1px rgba(0, 0, 0, 0.04);
-        }
-
         @include tablet-up {
             height: auto;
             width: 100%;
@@ -227,7 +252,9 @@
 
     .teaser__medium-wrapper {
         margin: 0;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+        &::before {
+            border-bottom: solid 1px rgba(0, 0, 0, 0.04);
+        }
     }
 }
 
@@ -253,11 +280,17 @@
 
     .teaser__medium-wrapper {
         margin: 0;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+
+        @include smartphone {
+            &::before {
+                border-bottom: solid 1px rgba(0, 0, 0, 0.04);
+            }
+        }
 
         @include tablet-up {
-            border-bottom: none;
-            border-right: 1px solid rgba(0, 0, 0, 0.04);
+            &::before {
+                border-right: solid 1px rgba(0, 0, 0, 0.04);
+            }
             width: 65.75%;
         }
     }
