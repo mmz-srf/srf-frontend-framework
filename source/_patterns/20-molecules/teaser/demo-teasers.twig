@@ -40,6 +40,15 @@
     } %}
 </div>
 
+<h2>L-Teaser which looks like an S-Teaser on Mobile</h2>
+
+<div class='js-togglable-wrapper togglable-wrapper'>
+    {% include 'molecules-teaser' with {
+        "styleModifier": "teaser--l-but-s-on-mobile",
+        "teaser": collections[0].teasers[0]
+    } %}
+</div>
+
 <h2>XL-Teaser</h2>
 
 <div class='js-togglable-wrapper togglable-wrapper'>

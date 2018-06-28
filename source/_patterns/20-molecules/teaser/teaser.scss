@@ -349,3 +349,75 @@
         }
     }
 }
+
+/* L-TEASER WHICH LOOKS LIKE AN S TEASER ON MOBILE
+ * not (!!!!) vertical on mobile. Looks just like an L-teaser except on mobile. there it looks like an S teaser.
+ */
+ .teaser--l-but-s-on-mobile {
+    .teaser__main {
+        @include tablet-up {
+            flex-direction: column;
+        }
+    }
+
+    .teaser__medium {
+        @include tablet-up {
+            height: auto;
+            width: 100%;
+        }
+    }
+
+    .teaser__medium-wrapper {
+        @include smartphone {
+            border-radius: 2px;
+            overflow: hidden;
+
+            &::before {
+                border-radius: 2px;
+                border: solid 1px rgba(0, 0, 0, 0.04);
+            }
+        }
+
+        @include tablet-up {
+            margin: 0;
+            &::before {
+                border-bottom: solid 1px rgba(0, 0, 0, 0.04);
+            }
+        }
+    }
+
+    .teaser__lead {
+        @include tablet-up {
+            display: block;
+        }
+
+        @include desktop-up {
+            font-size: 18px;
+            line-height: 1.33;
+            color: $color-media-playing;
+        }
+    }
+
+    .teaser__kicker {
+        @include tablet-up {
+            font-size: 16px;
+            line-height: 1.13;
+        }
+
+        @include desktop-up {
+            font-size: 18px;
+            line-height: 1.11;
+        }
+    }
+
+    .teaser__title {
+        @include tablet-up {
+            font-size: 20px;
+            letter-spacing: 0.2px;
+        }
+
+        @include desktop-up {
+            font-size: 24px;
+        }
+    }
+}
