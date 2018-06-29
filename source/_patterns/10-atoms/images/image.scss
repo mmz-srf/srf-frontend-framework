@@ -22,7 +22,8 @@
   }
 }
 
-.image--media-still-video {
+.image--media-still-video,
+image--media-still-audio {
   width: 100%;
   padding-bottom: 56.25%; /* 16:9 */
   position: relative;
