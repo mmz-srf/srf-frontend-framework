@@ -1,6 +1,10 @@
-.footer,
+.footer {
+  opacity: 0;
+}
+
 .rlp-footer {
   opacity: 0;
+  pointer-events: none;
 }
 
 .modal {

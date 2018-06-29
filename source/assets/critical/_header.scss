@@ -43,6 +43,7 @@
 .masthead--compact {
   height: 56px;
   margin-bottom: 0;
+  padding-top: 0;
 }
 
 
@@ -104,16 +105,30 @@
   color: $color-text-accentuation;
 }
 
-
+.masthead__nav,
 .masthead__button-wrapper {
   opacity: 0;
   transition: opacity ease-out 1000ms;
 }
 
-.masthead__title {
-  font-weight: 900;
+.masthead__button-wrapper {
+  min-height: 56px;
 }
 
-.masthead__nav {
-  display: none;
+.masthead__title {
+  margin: 6px 0 4px -2px;
+  font-size: 32px;
+  line-height: 1.25;
+  font-weight: 900;
+
+  @include tablet-up {
+    margin: 11px 0 13px -2px;
+    font-size: 40px;
+    line-height: 1.2;
+  }
+}
+
+.subnav__list{
+  max-height: 56px;
+  overflow: hidden;
 }

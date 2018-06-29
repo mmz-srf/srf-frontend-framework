@@ -142,8 +142,10 @@
 }
 
 .masthead__button-wrapper {
-  opacity: 1; /* OVERRIDE CRITICAL CSS */
-
+  /* OVERRIDE CRITICAL CSS */
+  opacity: 1;
+  min-height: 0;
+  /***/
   display: block;
   font-size: 0; // removes space between inline-block child elements
   margin-right: -16px;
@@ -168,7 +170,7 @@
 }
 
 .masthead__nav {
-  display: block; /* OVERRIDE CRITICAL CSS */
+  opacity: 1; /* OVERRIDE CRITICAL CSS */
   width: calc(100% + 64px);
   margin: 0 -32px;
 
