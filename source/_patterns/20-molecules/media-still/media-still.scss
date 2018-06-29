@@ -34,6 +34,7 @@
 }
 
 .media-still--video,
+.media-still--audio,
 .media-still--compact {
   position: relative;
 
@@ -59,6 +60,10 @@
     display: table;
     clear: both;
   }
+}
+
+.media-still--audio .image {
+  padding-bottom: 56.25%; /* 16:9 */
 }
 
 .media-still--poll-submitted {
