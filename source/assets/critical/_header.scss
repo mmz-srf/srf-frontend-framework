@@ -33,10 +33,12 @@
 }
 
 .masthead--home {
-  height: 80px;
+  height: 112px;
 
-  @include smartphone {
-    height: 112px;
+  @include tablet-up {
+    height: 80px;
+    padding-top: 12px;
+    padding-bottom: 12px;
   }
 }
 
@@ -68,13 +70,35 @@
   background-color: $color-srf;
 }
 
+.main-logo--large {
+  @include tablet-up {
+    width: 48px;
+    height: 32px;
+  }
+}
+
 .masthead__portals {
   flex: 1 1 auto;
   margin-left: 10px;
-  font-weight: bold;
 
   @include desktop-down {
     display: none;
+  }
+
+  .masthead--home & {
+    @include tablet-up {
+      display: flex;
+    }
+  }
+}
+
+.masthead--home {
+  height: 112px;
+
+  @include tablet-up {
+    height: 80px;
+    padding-top: 12px;
+    padding-bottom: 12px;
   }
 }
 
@@ -91,6 +115,15 @@
     &:before {
       display: none;
     }
+  }
+}
+
+.portalsnav--large {
+  .portalsnav__link {
+    padding: 16px 10px;
+    font-size: 18px;
+    line-height: 1.33;
+    letter-spacing: 0.2px;
   }
 }
 
