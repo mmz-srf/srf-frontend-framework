@@ -9,22 +9,10 @@ const KEYCODES = {
 };
 
 let existingModals = {};
-/**
-* Get the scrollbarwidth by creating an element, measuring its innerWidth, setting the overflow to auto and
-* measuring it again. The difference must be the width of the scrollbar.
-*/
-const scrollbarWidth = (() => {
-    let div = $('<div style="width:50px;height:50px;overflow:hidden;position:absolute;top:-200px;left:-200px;"><div style="height:100px;"></div>');
-    $('body').append(div);
-    let w1 = $('div', div).innerWidth();
-    div.css('overflow-y', 'scroll');
-    let w2 = $('div', div).innerWidth();
-    $(div).remove();
-    let diff = w1 - w2;
-    return isNaN(diff) ? 0 : diff;
-})();
+let scrollbarWidth = 0;
 
 $(window).on(DOM_CHANGED_EVENT, (e) => {
+    scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
     $('[data-modal-id]').each((index, element) => {
 
         $(element).on('click', () => {
