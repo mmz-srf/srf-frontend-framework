@@ -14,6 +14,7 @@
     color: $color-text-default;
     transition: box-shadow .2s ease-in-out,
                 transform .2s ease-in-out;
+    transform: translateZ(0);
     @include breakLongWords;
 
     /* Card moves 4px up on interaction */
@@ -351,7 +352,7 @@
 }
 
 /* L-TEASER WHICH LOOKS LIKE AN S TEASER ON MOBILE
- * not (!!!!) vertical on mobile. Looks just like an L-teaser except on mobile. there it looks like an S teaser.
+ * not (!!!!!) vertical on mobile. Looks just like an L-teaser except on mobile. there it looks like an S teaser.
  */
  .teaser--l-but-s-on-mobile {
     .teaser__main {
