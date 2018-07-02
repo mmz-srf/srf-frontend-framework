@@ -12,8 +12,8 @@
     box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.24),
                 0 0 1px 0 rgba(0, 0, 0, 0.12);
     color: $color-text-default;
-    transition: box-shadow .2s ease-in-out,
-                transform .2s ease-in-out;
+    transition: box-shadow .1s ease-in-out,
+                transform .1s ease-in-out;
     transform: translateZ(0);
     @include breakLongWords;
 
@@ -35,7 +35,7 @@
         // performance improvement: Don't animate the background-color, but the opacity
         background-color: $color-bg-button-hover;
         opacity: 0;
-        transition: opacity .2s ease-in-out;
+        transition: opacity .1s ease-in-out;
     }
 
     &:focus,
