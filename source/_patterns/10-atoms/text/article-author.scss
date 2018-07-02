@@ -19,6 +19,7 @@
 
 .article-author__date {
   display: block; /* OVERRIDE CRITICAL CSS */
+  min-height: 16px;
   margin: 0;
   font-family: $font-system;
   font-size: 12px;
@@ -28,6 +29,7 @@
 
 .article-author__date-update {
   display: block;
+  min-height: 16px;
 }
 
 .article-author__shimmer {
