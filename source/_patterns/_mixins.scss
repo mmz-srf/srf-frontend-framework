@@ -256,3 +256,16 @@
   word-break: break-word;
   overflow-wrap: break-word;
 }
+
+
+@mixin momentumScrolling($vertical: true, $horizontal: false) {
+    @include desktop-down {
+        @if $vertical == true {
+            overflow-y: scroll;
+        }
+        @if $horizontal == true {
+            overflow-x: scroll;
+        }
+        -webkit-overflow-scrolling: touch;
+    }
+}
