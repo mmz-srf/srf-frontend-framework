@@ -12,7 +12,8 @@
 .article-main-media,
 .article-content,
 .article-comments,
-.swipemod {
+.swipemod,
+.related-items-list {
   opacity: 0;
   transition: opacity ease-out 1000ms, min-height ease-out 1000ms;
 }
