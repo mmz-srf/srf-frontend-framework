@@ -35,6 +35,7 @@
 .masthead.masthead--theme-rtr_sport,
 .masthead.masthead--theme-rtr_uffants,
 .masthead.masthead--theme-rtr_archiv,
+.masthead.masthead--theme-rtr_aura,
 .masthead.masthead--theme-rtr_interpresa {
   --theme-color-bg-hover: rgba(255, 255, 255, 0.12);
   --theme-color-bg-active: rgba(255, 255, 255, 0.24);
@@ -66,7 +67,8 @@
   --theme-color-pager-end-transparent: #{$theme-sport-color-bg-pager-end-transparent};
 }
 
-.masthead.masthead--theme-meteo {
+.masthead.masthead--theme-meteo,
+.masthead.masthead--theme-rtr_aura {
   --theme-color-gradient-1: #{$theme-meteo-color-1};
   --theme-color-gradient-2: #{$theme-meteo-color-2};
   --theme-color-pager-start: #{$theme-meteo-color-bg-pager-start};
