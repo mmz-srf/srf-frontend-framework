@@ -144,7 +144,7 @@
     }
 }
 
-.teaser--s {
+.teaser--size-s {
     .teaser__medium-wrapper {
         border-radius: 2px;
         overflow: hidden;
@@ -186,7 +186,7 @@
  * looks like S-Teaser on mobile
  * on tablet+ the orientation changes to vertical
  */
-.teaser--m {
+.teaser--size-m {
     .teaser__main {
         // ↔️ on mobile, ↕️ on tablet+
         @include tablet-up {
@@ -242,7 +242,7 @@
  * Already vertical on mobile
  * With short lead
  */
-.teaser--l {
+.teaser--size-l {
     .teaser__main {
         flex-direction: column;
     }
@@ -265,7 +265,7 @@
  * With short lead
  * Full-width on tablet+ with medium on the left
  */
-.teaser--xl {
+.teaser--size-xl {
 
     .teaser__main {
         flex-direction: column;
@@ -319,8 +319,8 @@
 }
 
 // Short lead for both L and XL teaser
-.teaser--l,
-.teaser--xl {
+.teaser--size-l,
+.teaser--size-xl {
     .teaser__lead {
         display: block;
 
@@ -354,7 +354,7 @@
 /* L-TEASER WHICH LOOKS LIKE AN S TEASER ON MOBILE
  * not (!!!!!) vertical on mobile. Looks just like an L-teaser except on mobile. there it looks like an S teaser.
  */
- .teaser--l-but-s-on-mobile {
+ .teaser--size-l-but-s-on-mobile {
     .teaser__main {
         @include tablet-up {
             flex-direction: column;

@@ -3,17 +3,17 @@
     <ul class="collection__teaser-list">
         {% for teaser in collection.teasers %}
 
-            {% set teaserFormat = 'teaser--m' %}
+            {% set teaserFormat = 'teaser--size-m' %}
 
             {% if 'collection--standard-hero' in styleModifier %}
                 {# HERO: 1 XL, all others M #}
-                {% set teaserFormat = loop.index == 1 ? 'teaser--xl' : teaserFormat %}
+                {% set teaserFormat = loop.index == 1 ? 'teaser--size-xl' : teaserFormat %}
             {% elseif 'collection--standard-duo' in styleModifier %}
                 {# DUO: 2 L (2nd L looks like S on mobile), all others M #}
-                {% set teaserFormat = loop.index == 1 ? 'teaser--l' : (loop.index == 2 ? 'teaser--l-but-s-on-mobile' : teaserFormat) %}
+                {% set teaserFormat = loop.index == 1 ? 'teaser--size-l' : (loop.index == 2 ? 'teaser--size-l-but-s-on-mobile' : teaserFormat) %}
             {% elseif 'collection--swipeable' in styleModifier %}
                 {# SWIPEABLE: all S #}
-                {% set teaserFormat = 'teaser--s' %}
+                {% set teaserFormat = 'teaser--size-s' %}
             {% endif %}
 
             <li class="collection__teaser-item teaser__wrapper">
