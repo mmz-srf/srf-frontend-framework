@@ -2,17 +2,19 @@
     <h3 class="collection__title">{{ collection.title|default("") }}</h3>
     <ul class="collection__teaser-list">
         {% for teaser in collection.teasers %}
+            {% set teaserFormat = '' %}
 
-            {% set teaserFormat = 'teaser--size-m' %}
-
-            {% if 'collection--standard-hero' in styleModifier %}
+            {% if 'collection--standard' in styleModifier %}
+                {# STANDARD: all M teasers #}
+                {% set teaserFormat = 'teaser--size-m' %}
+            {% elseif 'collection--hero' in styleModifier %}
                 {# HERO: 1 XL, all others M #}
-                {% set teaserFormat = loop.index == 1 ? 'teaser--size-xl' : teaserFormat %}
-            {% elseif 'collection--standard-duo' in styleModifier %}
+                {% set teaserFormat = loop.index == 1 ? 'teaser--size-xl' : 'teaser--size-m' %}
+            {% elseif 'collection--duo' in styleModifier %}
                 {# DUO: 2 L (2nd L looks like S on mobile), all others M #}
-                {% set teaserFormat = loop.index == 1 ? 'teaser--size-l' : (loop.index == 2 ? 'teaser--size-l-but-s-on-mobile' : teaserFormat) %}
-            {% elseif 'collection--swipeable' in styleModifier %}
-                {# SWIPEABLE: all S #}
+                {% set teaserFormat = loop.index == 1 ? 'teaser--size-l' : (loop.index == 2 ? 'teaser--size-l-but-s-on-mobile' : 'teaser--size-m') %}
+            {% elseif ('collection--swipeable' in styleModifier or 'collection--compact' in styleModifier or 'collection--compact-swipeable' in styleModifier) %}
+                {# SWIPEABLE, COMPACT, COMPACT SWIPEABLE: all S teasers #}
                 {% set teaserFormat = 'teaser--size-s' %}
             {% endif %}
 
