@@ -1,4 +1,8 @@
+<p>(Click on title to toggle blocks)</p>
+
+<div class="js-collection-wrapper">
 <h3>Hero, 1 Teaser</h3>
+<div class="js-collection-wrapper-content">
 {% include 'organisms-collection' with {
     'styleModifier': 'collection--standard-hero',
     'collection': {
@@ -15,8 +19,12 @@
         ]
     }
 } %}
+</div>
+</div>
 
+<div class="js-collection-wrapper">
 <h3>Hero, 3 Teasers</h3>
+<div class="js-collection-wrapper-content">
 {% include 'organisms-collection' with {
     'styleModifier': 'collection--standard-hero',
     'collection': {
@@ -45,8 +53,12 @@
         ]
     }
 } %}
+</div>
+</div>
 
+<div class="js-collection-wrapper">
 <h3>Hero, 5 Teasers</h3>
+<div class="js-collection-wrapper-content">
 {% include 'organisms-collection' with {
     'styleModifier': 'collection--standard-hero',
     'collection': {
@@ -87,8 +99,12 @@
         ]
     }
 } %}
+</div>
+</div>
 
+<div class="js-collection-wrapper">
 <h3>Duo, 1 Teaser</h3>
+<div class="js-collection-wrapper-content">
 {% include 'organisms-collection' with {
     'styleModifier': 'collection--standard-duo',
     'collection': {
@@ -105,8 +121,12 @@
         ]
     }
 } %}
+</div>
+</div>
 
+<div class="js-collection-wrapper">
 <h3>Duo, 3 Teasers</h3>
+<div class="js-collection-wrapper-content">
 {% include 'organisms-collection' with {
     'styleModifier': 'collection--standard-duo',
     'collection': {
@@ -135,8 +155,12 @@
         ]
     }
 } %}
+</div>
+</div>
 
+<div class="js-collection-wrapper">
 <h3>Duo, 5 Teasers</h3>
+<div class="js-collection-wrapper-content">
 {% include 'organisms-collection' with {
     'styleModifier': 'collection--standard-duo',
     'collection': {
@@ -177,8 +201,12 @@
         ]
     }
 } %}
+</div>
+</div>
 
+<div class="js-collection-wrapper">
 <h3>Default, 1 Teaser</h3>
+<div class="js-collection-wrapper-content">
 {% include 'organisms-collection' with {
     'styleModifier': 'collection--standard',
     'collection': {
@@ -195,8 +223,12 @@
         ]
     }
 } %}
+</div>
+</div>
 
+<div class="js-collection-wrapper">
 <h3>Default, 2 Teasers</h3>
+<div class="js-collection-wrapper-content">
 {% include 'organisms-collection' with {
     'styleModifier': 'collection--standard',
     'collection': {
@@ -219,8 +251,12 @@
         ]
     }
 } %}
+</div>
+</div>
 
+<div class="js-collection-wrapper">
 <h3>Default, 3 Teasers</h3>
+<div class="js-collection-wrapper-content">
 {% include 'organisms-collection' with {
     'styleModifier': 'collection--standard',
     'collection': {
@@ -249,8 +285,12 @@
         ]
     }
 } %}
+</div>
+</div>
 
+<div class="js-collection-wrapper">
 <h3>Default, 5 Teasers</h3>
+<div class="js-collection-wrapper-content">
 {% include 'organisms-collection' with {
     'styleModifier': 'collection--standard',
     'collection': {
@@ -291,8 +331,12 @@
         ]
     }
 } %}
+</div>
+</div>
 
+<div class="js-collection-wrapper">
 <h3>Swipeable, 5 Teasers</h3>
+<div class="js-collection-wrapper-content">
 {% include 'organisms-collection' with {
     'styleModifier': 'collection--swipeable',
     'collection': {
@@ -333,3 +377,12 @@
         ]
     }
 } %}
+</div>
+</div>
+
+<script>
+    $(".js-collection-wrapper h3").on("click", (e) => {
+        let $content = $(e.target).parent().find(".js-collection-wrapper-content");
+        $content.toggle();
+    });
+</script>

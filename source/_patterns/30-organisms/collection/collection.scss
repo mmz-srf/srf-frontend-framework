@@ -54,22 +54,21 @@
     margin: 0 40px 20px;
   }
 }
+
 /**
-* Hi and welcome to this explanation hour with your gracious host!
-* This time we'll look at how the teasers and collections work.
-* Teasers don't know anything about the containing collection. They are
-* controlled by a) the style modifier (like teaser--s, teaser--m, ...) and
-* b) the viewport width. That's it. A teaser in the "S" format behaves and
-* lookts the same, no matter which collection type it is in.
-*
-* The spacing between the teasers and how much space a teaser can take up
-* etc. is determined by the collection.
-*
-* For the spacing:
-* The idea is that a collection__teaser-item has some right- and top-margin.
-* The last item in a row has no right-margin.
-* The first row of items has no top-margin.
-*/
+ * Teasers don't know anything about the containing collection. They are
+ * controlled by a) the style modifier (like teaser--s, teaser--m, ...) and
+ * b) the viewport width. That's it. A teaser in the "S" format behaves and
+ * looks the same, no matter which collection type it is in.
+ *
+ * The spacing between the teasers and how much space a teaser can take up
+ * etc. is determined by the collection.
+ *
+ * For the spacing:
+ * The idea is that a collection__teaser-item has some right- and top-margin.
+ * The last item in a row has no right-margin.
+ * The first row of items has no top-margin.
+ */
 .collection__teaser-item {
   display: flex;
 
@@ -173,9 +172,14 @@
       flex-basis: calc((100% - 64px) / 3);
       margin: 40px 32px 0 0;
 
+      // Special for Duo: spacing between 1st and 2nd teaser is 40px on desktop wide
+      &:nth-child(1) {
+          margin-right: 40px;
+      }
+
       &:nth-child(1),
       &:nth-child(2) {
-        flex-basis: calc((100% - 32px) / 2);
+        flex-basis: calc((100% - 40px) / 2);
       }
     }
   }
