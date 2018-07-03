@@ -34,7 +34,7 @@
 .masthead.masthead--theme-rtr_cultura,
 .masthead.masthead--theme-rtr_sport,
 .masthead.masthead--theme-rtr_uffants,
-.masthead.masthead--theme-rtr_archivar,
+.masthead.masthead--theme-rtr_archiv,
 .masthead.masthead--theme-rtr_interpresa {
   --theme-color-bg-hover: rgba(255, 255, 255, 0.12);
   --theme-color-bg-active: rgba(255, 255, 255, 0.24);
@@ -130,7 +130,7 @@
   --theme-color-pager-end-transparent: #{$theme-rtr-uffants-color-bg-pager-end-transparent};
 }
 
-.masthead.masthead--theme-rtr_archivar {
+.masthead.masthead--theme-rtr_archiv {
   --theme-color-gradient-1: #{$theme-rtr-archivar-color-1};
   --theme-color-gradient-2: #{$theme-rtr-archivar-color-2};
   --theme-color-pager-start: #{$theme-rtr-archivar-color-bg-pager-start};
