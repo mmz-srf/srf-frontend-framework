@@ -61,7 +61,10 @@
   flex-basis: 0;
   flex-grow: 1;
   flex-shrink: 1;
-  margin: 16px;
+  margin-top: 16px;
+  margin-right: 12px;
+  margin-bottom: 16px;
+  margin-left: 16px;
 }
 
 .teaser__kicker {
@@ -78,7 +81,7 @@
 
 .teaser__title {
   margin: 0;
-  font-family: $font-regular;
+  font-family: $font-medium;
   font-size: 16px;
   font-weight: 500;
   font-style: normal;
