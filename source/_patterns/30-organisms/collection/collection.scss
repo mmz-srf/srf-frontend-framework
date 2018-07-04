@@ -8,7 +8,7 @@
   margin: 8px 8px 16px;
   border-radius: 2px;
   background-color: #f5f5f2;
-  box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.24), 0 0 1px 0 rgba(0, 0, 0, 0.12);
+  box-shadow: $shadow-elevation1;
 }
 
 .collection__title {
@@ -19,8 +19,8 @@
   font-style: normal;
   font-stretch: normal;
   line-height: 1.25;
-  letter-spacing: 0.2px;
-  color: #22211d;
+  letter-spacing: .2px;
+  color: $color-text-default;
 
   @include tablet-up {
     margin: 16px 32px 12px;
@@ -49,7 +49,6 @@
     margin: 0 32px 16px;
   }
 
-  // Desktop wide: 40px left and right, 20px at the bottom
   @include desktop-wide {
     margin: 0 40px 20px;
   }
@@ -72,7 +71,7 @@
   @include tablet-up {
     flex-grow: 0;
     flex-shrink: 0;
-    flex-basis: calc((100% - 48px) / 3);
+    flex-basis: calc((100% - (2 * 24px)) / 3);
     margin: 32px 24px 0 0;
 
     // No right-margin on every third item (margin-right = gap between teasers in a row)
@@ -87,7 +86,7 @@
   }
 
   @include desktop-wide {
-    flex-basis: calc((100% - 64px) / 3);
+    flex-basis: calc((100% - (2 * 32px)) / 3);
     margin: 40px 32px 0 0;
 
     // No right-margin on every third item (margin-right = gap between teasers in a row)
