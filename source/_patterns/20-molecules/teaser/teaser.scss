@@ -3,260 +3,260 @@
 @import "../../breakpoints";
 
 .teaser {
-    display: flex;
-    flex-grow: 1;
-    position: relative; // to position the pseudo elements
-    border-radius: 2px;
-    overflow: hidden; // to cut off image with border radius
-    background-color: $color-bg-card;
-    box-shadow: $shadow-elevation1;
-    color: $color-text-default;
-    transition: box-shadow .1s ease-in-out,
-                transform .1s ease-in-out;
-    transform: translateZ(0);
-    @include breakLongWords;
+  display: flex;
+  flex-grow: 1;
+  position: relative; // to position the pseudo elements
+  border-radius: 2px;
+  overflow: hidden; // to cut off image with border radius
+  background-color: $color-bg-card;
+  box-shadow: $shadow-elevation1;
+  color: $color-text-default;
+  transition: box-shadow .1s ease-in-out,
+              transform .1s ease-in-out;
+  transform: translateZ(0);
+  @include breakLongWords;
 
-    /* Card moves 4px up on interaction */
-    &:hover,
-    &:focus,
-    &:active {
-        transform: translateY(-4px);
-        box-shadow: $shadow-hover;
-    }
+  /* Card moves 4px up on interaction */
+  &:hover,
+  &:focus,
+  &:active {
+    transform: translateY(-4px);
+    box-shadow: $shadow-hover;
+  }
 
-    /* Teasers have an invisible layer on top that gets sligthly opaque when active/focused */
+  /* Teasers have an invisible layer on top that gets sligthly opaque when active/focused */
+  &::after {
+    position: absolute;
+    content: '';
+    height: 100%;
+    width: 100%;
+    pointer-events: none;
+    // performance improvement: Don't animate the background-color, but the opacity
+    background-color: $color-bg-button-hover;
+    opacity: 0;
+    transition: opacity .1s ease-in-out;
+  }
+
+  &:focus,
+  &:active {
     &::after {
-        position: absolute;
-        content: '';
-        height: 100%;
-        width: 100%;
-        pointer-events: none;
-        // performance improvement: Don't animate the background-color, but the opacity
-        background-color: $color-bg-button-hover;
-        opacity: 0;
-        transition: opacity .1s ease-in-out;
+      opacity: 1;
     }
-
-    &:focus,
-    &:active {
-        &::after {
-            opacity: 1;
-        }
-    }
+  }
 }
 
 .teaser__main {
-    display: flex;
-    flex-direction: row-reverse;
-    flex-grow: 1;
+  display: flex;
+  flex-direction: row-reverse;
+  flex-grow: 1;
 }
 
 .teaser__medium-wrapper {
-    flex-grow: 0;
-    flex-shrink: 0;
-    margin: 16px 16px 16px 0;
-    position: relative; // for positioning ::pseudo elements
+  flex-grow: 0;
+  flex-shrink: 0;
+  margin: 16px 16px 16px 0;
+  position: relative; // for positioning ::pseudo elements
 
-    &::before {
-        position: absolute;
-        pointer-events: none;
-        content: '';
-        width: 100%;
-        height: 100%;
-        background-color: transparent;
-        top: 0;
-        left: 0;
-        box-sizing: border-box;
-    }
+  &::before {
+    position: absolute;
+    pointer-events: none;
+    content: '';
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+  }
 }
 
 .teaser__medium {
-    object-fit: cover;
-    width: 80px;
-    height: 80px;
+  object-fit: cover;
+  width: 80px;
+  height: 80px;
 }
 
 .teaser__content {
-    flex-basis: 0;
-    flex-grow: 1;
-    flex-shrink: 1;
-    margin: 16px 12px 16px 16px;
+  flex-basis: 0;
+  flex-grow: 1;
+  flex-shrink: 1;
+  margin: 16px 12px 16px 16px;
 
-    @include desktop-wide {
-        margin: 24px;
-    }
+  @include desktop-wide {
+    margin: 24px;
+  }
 }
 
 .teaser__kicker {
-    margin: 0 0 4px;
-    font-family: $font-regular;
-    font-size: 14px;
-    font-weight: normal;
-    font-style: normal;
-    font-stretch: normal;
-    line-height: 1.14;
-    letter-spacing: 0.4px;
-    color: $color-accentuation-red;
+  margin: 0 0 4px;
+  font-family: $font-regular;
+  font-size: 14px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.14;
+  letter-spacing: 0.4px;
+  color: $color-accentuation-red;
 }
 
 .teaser__title {
-    margin: 0;
-    font-family: $font-medium;
-    font-size: 16px;
-    font-weight: 500;
-    font-style: normal;
-    font-stretch: normal;
-    line-height: 1.25;
-    letter-spacing: 0.4px;
-    color: $color-text-default;
+  margin: 0;
+  font-family: $font-medium;
+  font-size: 16px;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.25;
+  letter-spacing: 0.4px;
+  color: $color-text-default;
 }
 
 .teaser__lead {
-    margin: 12px 0 0;
-    display: none;
-    font-family: $font-light;
-    font-size: 16px;
-    font-weight: 300;
-    font-style: normal;
-    font-stretch: normal;
-    line-height: 1.25;
-    letter-spacing: 0.4px;
-    color: $color-text-default;
+  margin: 12px 0 0;
+  display: none;
+  font-family: $font-light;
+  font-size: 16px;
+  font-weight: 300;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.25;
+  letter-spacing: 0.4px;
+  color: $color-text-default;
 }
 
 // A Swipeable's teasers basically don't have the mobile styles but override them
 // with the according tablet+ styles
 .teaser__wrapper--swipeable {
-    .teaser {
-        .teaser__main {
-            flex-direction: column;
-        }
-
-        .teaser__medium-wrapper {
-            margin: 0;
-        }
-
-        .teaser__medium {
-            height: auto;
-            width: 100%;
-        }
+  .teaser {
+    .teaser__main {
+      flex-direction: column;
     }
+
+    .teaser__medium-wrapper {
+      margin: 0;
+    }
+
+    .teaser__medium {
+      height: auto;
+      width: 100%;
+    }
+  }
 }
 
-.teaser--s {
-    .teaser__medium-wrapper {
-        border-radius: 2px;
-        overflow: hidden;
+.teaser--size-s {
+  .teaser__medium-wrapper {
+    border-radius: 2px;
+    overflow: hidden;
 
-        &::before {
-            border-radius: 2px;
-            border: solid 1px rgba(0, 0, 0, 0.04);
-        }
-
-        @include desktop-wide {
-            margin: 24px 24px 24px 0;
-        }
+    &::before {
+      border-radius: 2px;
+      border: solid 1px rgba(0, 0, 0, 0.04);
     }
 
-    // slightly bigger image on desktop
-    .teaser__medium {
-        @include desktop-up {
-            width: 94px;
-            height: 94px;
-        }
+    @include desktop-wide {
+      margin: 24px 24px 24px 0;
     }
+  }
 
-    .teaser__kicker {
-        @include desktop-up {
-            font-size: 16px;
-            line-height: 1.13;
-        }
+  // slightly bigger image on desktop
+  .teaser__medium {
+    @include desktop-up {
+      width: 94px;
+      height: 94px;
     }
+  }
 
-    .teaser__title {
-        @include desktop-up {
-            font-size: 18px;
-            line-height: 1.33;
-        }
+  .teaser__kicker {
+    @include desktop-up {
+      font-size: 16px;
+      line-height: 1.13;
     }
+  }
+
+  .teaser__title {
+    @include desktop-up {
+      font-size: 18px;
+      line-height: 1.33;
+    }
+  }
 }
 
 /* M-TEASER
  * looks like S-Teaser on mobile
  * on tablet+ the orientation changes to vertical
  */
-.teaser--m {
-    .teaser__main {
-        // ↔️ on mobile, ↕️ on tablet+
-        @include tablet-up {
-            flex-direction: column;
-        }
+.teaser--size-m {
+  .teaser__main {
+    // ↔️ on mobile, ↕️ on tablet+
+    @include tablet-up {
+      flex-direction: column;
     }
+  }
 
-    .teaser__medium-wrapper {
+  .teaser__medium-wrapper {
+    border-radius: 2px;
+    overflow: hidden;
+
+    @include smartphone {
+      &::before {
         border-radius: 2px;
-        overflow: hidden;
-
-        @include smartphone {
-            &::before {
-                border-radius: 2px;
-                border: solid 1px rgba(0, 0, 0, 0.04);
-            }
-        }
-
-        @include tablet-up {
-            margin: 0;
-
-            &::before {
-                border-radius: 0;
-                border-bottom: solid 1px rgba(0, 0, 0, 0.04);
-            }
-        }
+        border: solid 1px rgba(0, 0, 0, 0.04);
+      }
     }
 
-    .teaser__medium {
-        @include tablet-up {
-            height: auto;
-            width: 100%;
-        }
-    }
+    @include tablet-up {
+      margin: 0;
 
-    .teaser__kicker {
-        @include desktop-up {
-            font-size: 16px;
-            line-height: 1.13;
-        }
+      &::before {
+        border-radius: 0;
+        border-bottom: solid 1px rgba(0, 0, 0, 0.04);
+      }
     }
+  }
 
-    .teaser__title {
-        @include desktop-up {
-            font-size: 20px;
-            line-height: 1.25;
-            letter-spacing: 0.2px;
-        }
+  .teaser__medium {
+    @include tablet-up {
+      height: auto;
+      width: 100%;
     }
+  }
+
+  .teaser__kicker {
+    @include desktop-up {
+      font-size: 16px;
+      line-height: 1.13;
+    }
+  }
+
+  .teaser__title {
+    @include desktop-up {
+      font-size: 20px;
+      line-height: 1.25;
+      letter-spacing: 0.2px;
+    }
+  }
 }
 
 /* L-TEASER
  * Already vertical on mobile
  * With short lead
  */
-.teaser--l {
-    .teaser__main {
-        flex-direction: column;
-    }
+.teaser--size-l {
+  .teaser__main {
+    flex-direction: column;
+  }
 
-    .teaser__medium {
-        height: auto;
-        width: 100%;
-    }
+  .teaser__medium {
+    height: auto;
+    width: 100%;
+  }
 
-    .teaser__medium-wrapper {
-        margin: 0;
-        &::before {
-            border-bottom: solid 1px rgba(0, 0, 0, 0.04);
-        }
+  .teaser__medium-wrapper {
+    margin: 0;
+    &::before {
+      border-bottom: solid 1px rgba(0, 0, 0, 0.04);
     }
+  }
 }
 
 /* XL-TEASER
@@ -264,160 +264,160 @@
  * With short lead
  * Full-width on tablet+ with medium on the left
  */
-.teaser--xl {
+.teaser--size-xl {
 
-    .teaser__main {
-        flex-direction: column;
+  .teaser__main {
+    flex-direction: column;
 
-        @include tablet-up {
-            flex-direction: row;
-        }
+    @include tablet-up {
+      flex-direction: row;
+    }
+  }
+
+  .teaser__medium {
+    height: 100%;
+    width: 100%;
+  }
+
+  .teaser__medium-wrapper {
+    margin: 0;
+
+    @include smartphone {
+      &::before {
+        border-bottom: solid 1px rgba(0, 0, 0, 0.04);
+      }
     }
 
-    .teaser__medium {
-        height: 100%;
-        width: 100%;
+    @include tablet-up {
+      &::before {
+        border-right: solid 1px rgba(0, 0, 0, 0.04);
+      }
+      width: 65.75%;
+    }
+  }
+
+  .teaser__content {
+    @include tablet-up {
+      margin: 24px 16px 24px 24px;
     }
 
-    .teaser__medium-wrapper {
-        margin: 0;
-
-        @include smartphone {
-            &::before {
-                border-bottom: solid 1px rgba(0, 0, 0, 0.04);
-            }
-        }
-
-        @include tablet-up {
-            &::before {
-                border-right: solid 1px rgba(0, 0, 0, 0.04);
-            }
-            width: 65.75%;
-        }
+    @include desktop {
+      margin: 24px;
     }
 
-    .teaser__content {
-        @include tablet-up {
-            margin: 24px 16px 24px 24px;
-        }
-
-        @include desktop {
-            margin: 24px;
-        }
-
-        @include desktop-wide {
-            margin: 32px 24px 32px 32px;
-        }
+    @include desktop-wide {
+      margin: 32px 24px 32px 32px;
     }
+  }
 
-    .teaser__title {
-        @include tablet {
-            letter-spacing: 0.4px;
-        }
+  .teaser__title {
+    @include tablet {
+      letter-spacing: 0.4px;
     }
+  }
 }
 
 // Short lead for both L and XL teaser
-.teaser--l,
-.teaser--xl {
-    .teaser__lead {
-        display: block;
+.teaser--size-l,
+.teaser--size-xl {
+  .teaser__lead {
+    display: block;
 
-        @include desktop-up {
-            font-size: 18px;
-            line-height: 1.33;
-            color: $color-media-playing;
-        }
+    @include desktop-up {
+      font-size: 18px;
+      line-height: 1.33;
+      color: $color-media-playing;
     }
+  }
 
-    .teaser__kicker {
-        font-size: 16px;
-        line-height: 1.13;
+  .teaser__kicker {
+    font-size: 16px;
+    line-height: 1.13;
 
-        @include desktop-up {
-            font-size: 18px;
-            line-height: 1.11;
-        }
+    @include desktop-up {
+      font-size: 18px;
+      line-height: 1.11;
     }
+  }
 
-    .teaser__title {
-        font-size: 20px;
-        letter-spacing: 0.2px;
+  .teaser__title {
+    font-size: 20px;
+    letter-spacing: 0.2px;
 
-        @include desktop-up {
-            font-size: 24px;
-        }
+    @include desktop-up {
+      font-size: 24px;
     }
+  }
 }
 
 /* L-TEASER WHICH LOOKS LIKE AN S TEASER ON MOBILE
  * not (!!!!!) vertical on mobile. Looks just like an L-teaser except on mobile. there it looks like an S teaser.
  */
- .teaser--l-but-s-on-mobile {
-    .teaser__main {
-        @include tablet-up {
-            flex-direction: column;
-        }
+.teaser--size-l-but-s-on-mobile {
+  .teaser__main {
+    @include tablet-up {
+      flex-direction: column;
+    }
+  }
+
+  .teaser__medium {
+    @include tablet-up {
+      height: auto;
+      width: 100%;
+    }
+  }
+
+  .teaser__medium-wrapper {
+    @include smartphone {
+      border-radius: 2px;
+      overflow: hidden;
+
+      &::before {
+        border-radius: 2px;
+        border: solid 1px rgba(0, 0, 0, 0.04);
+      }
     }
 
-    .teaser__medium {
-        @include tablet-up {
-            height: auto;
-            width: 100%;
-        }
+    @include tablet-up {
+      margin: 0;
+      &::before {
+        border-bottom: solid 1px rgba(0, 0, 0, 0.04);
+      }
+    }
+  }
+
+  .teaser__lead {
+    @include tablet-up {
+      display: block;
     }
 
-    .teaser__medium-wrapper {
-        @include smartphone {
-            border-radius: 2px;
-            overflow: hidden;
+    @include desktop-up {
+      font-size: 18px;
+      line-height: 1.33;
+      color: $color-media-playing;
+    }
+  }
 
-            &::before {
-                border-radius: 2px;
-                border: solid 1px rgba(0, 0, 0, 0.04);
-            }
-        }
-
-        @include tablet-up {
-            margin: 0;
-            &::before {
-                border-bottom: solid 1px rgba(0, 0, 0, 0.04);
-            }
-        }
+  .teaser__kicker {
+    @include tablet-up {
+      font-size: 16px;
+      line-height: 1.13;
     }
 
-    .teaser__lead {
-        @include tablet-up {
-            display: block;
-        }
+    @include desktop-up {
+      font-size: 18px;
+      line-height: 1.11;
+    }
+  }
 
-        @include desktop-up {
-            font-size: 18px;
-            line-height: 1.33;
-            color: $color-media-playing;
-        }
+  .teaser__title {
+    @include tablet-up {
+      font-size: 20px;
+      letter-spacing: 0.2px;
     }
 
-    .teaser__kicker {
-        @include tablet-up {
-            font-size: 16px;
-            line-height: 1.13;
-        }
-
-        @include desktop-up {
-            font-size: 18px;
-            line-height: 1.11;
-        }
+    @include desktop-up {
+      font-size: 24px;
     }
-
-    .teaser__title {
-        @include tablet-up {
-            font-size: 20px;
-            letter-spacing: 0.2px;
-        }
-
-        @include desktop-up {
-            font-size: 24px;
-        }
-    }
+  }
 }
