@@ -5,10 +5,7 @@
 .collection {
   display: flex;
   flex-direction: column;
-  margin-top: 8px;
-  margin-right: 8px;
-  margin-bottom: 16px;
-  margin-left: 8px;
+  margin: 8px 8px 16px;
   border-radius: 2px;
   background-color: #f5f5f2;
   box-shadow: $shadow-elevation1;
@@ -42,35 +39,25 @@
 .collection__teaser-list {
   display: flex;
   flex-direction: column;
-  margin-top: 0;
-  margin-right: 8px;
-  margin-bottom: 12px;
-  margin-left: 8px;
+  margin: 0 8px 12px;
   padding: 0;
 
   @include tablet-up {
     flex-direction: row;
     flex-wrap: wrap;
     align-items: stretch;
-    margin-right: 32px;
-    margin-bottom: 16px;
-    margin-left: 32px;
+    margin: 0 32px 16px;
   }
 
   @include desktop-wide {
-    margin-right: 40px;
-    margin-bottom: 20px;
-    margin-left: 40px;
+    margin: 0 40px 20px;
   }
 }
 
 .collection__teaser-item {
   display: flex;
   padding: 0;
-  margin-top: 0;
-  margin-right: 0;
-  margin-bottom: 8px;
-  margin-left: 0;
+  margin: 0 0 8px;
   list-style-type: none;
 
   &::before {
@@ -85,9 +72,7 @@
     flex-grow: 0;
     flex-shrink: 0;
     flex-basis: calc((100% - (2 * 24px)) / 3);
-    margin-top: 32px;
-    margin-right: 24px;
-    margin-bottom: 0;
+    margin: 32px 24px 0 0;
 
     // No right-margin on every third item (margin-right = gap between teasers in a row)
     &:nth-child(3n) {
@@ -102,8 +87,7 @@
 
   @include desktop-wide {
     flex-basis: calc((100% - (2 * 32px)) / 3);
-    margin-top: 40px;
-    margin-right: 32px;
+    margin: 40px 32px 0 0;
 
     // No right-margin on every third item (margin-right = gap between teasers in a row)
     &:nth-child(3n) {
