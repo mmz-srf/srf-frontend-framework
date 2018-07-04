@@ -1,4 +1,5 @@
 import {DOM_CHANGED_EVENT} from '../classes/fef-dom-observer';
+import {FefResponsiveHelper} from '../classes/fef-responsive-helper';
 
 const ANIMATION_SPEED = 200;
 const KEYCODES = {
@@ -8,8 +9,10 @@ const KEYCODES = {
 };
 
 let existingModals = {};
+let scrollbarWidth = 0;
 
 $(window).on(DOM_CHANGED_EVENT, (e) => {
+    scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
     $('[data-modal-id]').each((index, element) => {
 
         $(element).on('click', () => {
@@ -135,7 +138,6 @@ export class FefModal {
 
         let originalHeight = this.$mainWrapper.height();
         let box = this.$caller[0].getBoundingClientRect();
-
         this.$mainWrapper.css({
             'left': box.left,
             'width': box.width,
@@ -149,10 +151,11 @@ export class FefModal {
             'top': 0,
             'opacity': 1
         }, ANIMATION_SPEED, 'easeInOutSine', () => {
-            // unset width so that the CSS rules work again to hide the scrollbars (see .modal-main-wrapper styles)
+            // remove the scrollbars
             this.$mainWrapper.css({
                 'max-height': '100%',
-                'width': ''
+                'width': `calc(100% + ${scrollbarWidth}px)`,
+                'margin-right': scrollbarWidth
             });
             this.$mainContent.animate({
                 'opacity': 1
@@ -166,10 +169,10 @@ export class FefModal {
      * effectively cutting the rest of the page off. This scrolls to the top of the page, so we
      * also have to save the previous scroll state.
      *
-     * We only do this if the modal covers the whole page.
+     * We only do this if the modal covers the whole page and on mobile/tablet.
      */
     preventScrolling() {
-        if (this.$mainContent.outerHeight() >= $(window).outerHeight()) {
+        if (this.$mainContent.outerHeight() >= $(window).outerHeight() && (FefResponsiveHelper.isTablet() || FefResponsiveHelper.isSmartphone())) {
             this.previousScrollPosition = $(window).scrollTop();
             $('html').addClass('h-prevent-scrolling');
         }
