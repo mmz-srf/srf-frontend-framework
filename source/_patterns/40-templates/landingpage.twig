@@ -1,12 +1,12 @@
 {% set headerType = headerType|default("") %}
 
-<div class="affix-placeholder affix-placeholder--{{ headerType }}"></div>
+<div class="affix-placeholder affix-placeholder--{{ headerType }} affix-placeholder--{{ variantModifier }}"></div>
 
 {% if headerType == "compact" %}
     {% include 'organisms-masthead--compact' with {"themeStyleModifier": themeStyleModifier} %}
 {% elseif headerType == "home" %}
-<div class="sticky-container sticky-container--{{ headerType }} affix-top js-affix">
-    {% include 'organisms-masthead--home' with {"themeStyleModifier": themeStyleModifier} %}
+<div class="sticky-container sticky-container--{{ headerType }} sticky-container--{{ variantModifier }} affix-top js-affix">
+    {% include 'organisms-masthead--home' with {"variantModifier": variantModifier, "themeStyleModifier": themeStyleModifier} %}
 </div>
 {% else %}
 <div class="sticky-container affix-top js-affix">

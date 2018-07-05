@@ -56,24 +56,66 @@ $theme-sport-color-bg-pager-end-transparent: rgba(201, 16, 36, 0);
 
 $theme-meteo-color-1: #1667A7;
 $theme-meteo-color-2: #0A385C;
-$theme-meteo-color-bg-pager-start: rgba(22, 103, 197, 0.8);
+$theme-meteo-color-bg-pager-start: rgba(22, 103, 197, 1);
 $theme-meteo-color-bg-pager-start-transparent: rgba(22, 103, 197, 0);
-$theme-meteo-color-bg-pager-end: rgba(10, 56, 92, 0.8);
+$theme-meteo-color-bg-pager-end: rgba(10, 56, 92, 1);
 $theme-meteo-color-bg-pager-end-transparent: rgba(10, 56, 92, 0);
 
 $theme-kultur-color-1: #AD3492;
 $theme-kultur-color-2: #792465;
-$theme-kultur-color-bg-pager-start: rgba(173, 52, 146, 0.8);
+$theme-kultur-color-bg-pager-start: rgba(173, 52, 146, 1);
 $theme-kultur-color-bg-pager-start-transparent: rgba(173, 52, 146, 0);
-$theme-kultur-color-bg-pager-end: rgba(121, 36, 101, 0.8);
+$theme-kultur-color-bg-pager-end: rgba(121, 36, 101, 1);
 $theme-kultur-color-bg-pager-end-transparent: rgba(121, 36, 101, 0);
 
 $theme-dok-color-1: #168C5A;
 $theme-dok-color-2: #0E593A;
-$theme-dok-color-bg-pager-start: rgba(22, 140, 90, 0.8);
+$theme-dok-color-bg-pager-start: rgba(22, 140, 90, 1);
 $theme-dok-color-bg-pager-start-transparent: rgba(22, 140, 90, 0);
-$theme-dok-color-bg-pager-end: rgba(14, 89, 58, 0.8);
+$theme-dok-color-bg-pager-end: rgba(14, 89, 58, 1);
 $theme-dok-color-bg-pager-end-transparent: rgba(14, 89, 58, 0);
+
+$theme-rtr-novitads-color-1: #d92a5d;
+$theme-rtr-novitads-color-2: #b83151;
+$theme-rtr-novitads-color-bg-pager-start: rgba(217, 42, 93, 1);
+$theme-rtr-novitads-color-bg-pager-start-transparent: rgba(217, 42, 93, 0);
+$theme-rtr-novitads-color-bg-pager-end: rgba(184, 49, 81, 1);
+$theme-rtr-novitads-color-bg-pager-end-transparent: rgba(184, 49, 81, 0);
+
+$theme-rtr-cultura-color-1: #8f44c9;
+$theme-rtr-cultura-color-2: #5f1a7d;
+$theme-rtr-cultura-color-bg-pager-start: rgba(143, 68, 201, 1);
+$theme-rtr-cultura-color-bg-pager-start-transparent: rgba(143, 68, 201, 0);
+$theme-rtr-cultura-color-bg-pager-end: rgba(95, 26, 125, 1);
+$theme-rtr-cultura-color-bg-pager-end-transparent: rgba(95, 26, 125, 0);
+
+$theme-rtr-sport-color-1: #e2731f;
+$theme-rtr-sport-color-2: #c7411e;
+$theme-rtr-sport-color-bg-pager-start: rgba(226, 115, 31, 1);
+$theme-rtr-sport-color-bg-pager-start-transparent: rgba(226, 115, 31, 0);
+$theme-rtr-sport-color-bg-pager-end: rgba(199, 65, 30, 1);
+$theme-rtr-sport-color-bg-pager-end-transparent: rgba(199, 65, 30, 0);
+
+$theme-rtr-uffants-color-1: #3c997b;
+$theme-rtr-uffants-color-2: #458c5a;
+$theme-rtr-uffants-color-bg-pager-start: rgba(60, 153, 123, 1);
+$theme-rtr-uffants-color-bg-pager-start-transparent: rgba(60, 153, 123, 0);
+$theme-rtr-uffants-color-bg-pager-end: rgba(69, 140, 90, 1);
+$theme-rtr-uffants-color-bg-pager-end-transparent: rgba(69, 140, 90, 0);
+
+$theme-rtr-archivar-color-1: #47464b;
+$theme-rtr-archivar-color-2: #232326;
+$theme-rtr-archivar-color-bg-pager-start: rgba(71, 70, 75, 1);
+$theme-rtr-archivar-color-bg-pager-start-transparent: rgba(71, 70, 75, 0);
+$theme-rtr-archivar-color-bg-pager-end: rgba(35, 35, 38, 1);
+$theme-rtr-archivar-color-bg-pager-end-transparent: rgba(35, 35, 38, 0);
+
+$theme-rtr-interpresa-color-1: #c91024;
+$theme-rtr-interpresa-color-2: #af001d;
+$theme-rtr-interpresa-color-bg-pager-start: rgba(201, 16, 36, 1);
+$theme-rtr-interpresa-color-bg-pager-start-transparent: rgba(201, 16, 36, 0);
+$theme-rtr-interpresa-color-bg-pager-end: rgba(175, 0, 29, 1);
+$theme-rtr-interpresa-color-bg-pager-end-transparent: rgba(175, 0, 29, 0);
 
 /*** FONTS ***/
 $font-bold: 'SRG_SSR_Bold', sans-serif !default;
