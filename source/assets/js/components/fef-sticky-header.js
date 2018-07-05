@@ -21,42 +21,42 @@ export class FeFStickyHeader {
         $(window).on('resize.sticky-header', FefDebounceHelper.debounce(() => this.reInitializeAffix(), DEBOUNCE_TIME));
     }
 
+    /* eslint-disable no-lonely-if */
     initializeAffix() {
-      let shouldInitializeAffix = false;
+        let shouldInitializeAffix = false;
 
-      // not home
-      if(!this.$masthead.hasClass('masthead--home')) {
-
-        shouldInitializeAffix = true;
-
-      }
-      else {
-
-        // rtr home - affix on smartphone and tablet
-        if(this.$masthead.hasClass('masthead--longportalnames')) {
-          if(FefResponsiveHelper.isSmartphone() || FefResponsiveHelper.isTablet()) {
+        // not home
+        if (!this.$masthead.hasClass('masthead--home')) {
             shouldInitializeAffix = true;
-          }
-          else {
-            shouldInitializeAffix = false;
-          }
         }
-
-        // srf home - affix on smartphone only
         else {
-          if(FefResponsiveHelper.isSmartphone()) {
-            shouldInitializeAffix = true;
-          }
-          else {
-            shouldInitializeAffix = false;
-          }
-        }
-      }
 
-      if(shouldInitializeAffix) {
-        $(AFFIX_SELECTOR).affix({offset:{top: this.getAffixMarginTop()}});
-      }
+            // rtr home - affix on smartphone and tablet
+            if (this.$masthead.hasClass('masthead--longportalnames')) {
+                if (FefResponsiveHelper.isSmartphone() || FefResponsiveHelper.isTablet()) {
+                    shouldInitializeAffix = true;
+                }
+                else {
+                    shouldInitializeAffix = false;
+                }
+            }
+
+            // srf home - affix on smartphone only
+            else {
+                if (FefResponsiveHelper.isSmartphone()) {
+                    shouldInitializeAffix = true;
+                }
+                else {
+                    shouldInitializeAffix = false;
+                }
+            }
+        }
+
+        if(shouldInitializeAffix) {
+            $(AFFIX_SELECTOR).affix({offset:{top: this.getAffixMarginTop()}});
+        }
     }
+    /* eslint-disable */
 
     reInitializeAffix() {
         // make sure that the affix is not registered twice
