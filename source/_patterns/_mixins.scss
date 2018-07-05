@@ -107,17 +107,17 @@
 }
 
 @mixin content-column-default {
-    margin: 0 auto;
+  margin: 0 auto;
 
-    @include tablet {
-        max-width: 720px;
-        padding: 0 32px;
-    }
+  @include tablet {
+    max-width: 720px;
+    padding: 0 32px;
+  }
 
-    @include desktop-up {
-        padding: 0 40px;
-        max-width: 792px;
-    }
+  @include desktop-up {
+    padding: 0 40px;
+    max-width: 792px;
+  }
 }
 
 @mixin article-element-indentation {
@@ -259,13 +259,13 @@
 
 
 @mixin momentumScrolling($vertical: true, $horizontal: false) {
-    @include desktop-down {
-        @if $vertical == true {
-            overflow-y: scroll;
-        }
-        @if $horizontal == true {
-            overflow-x: scroll;
-        }
-        -webkit-overflow-scrolling: touch;
+  @include desktop-down {
+    @if $vertical == true {
+      overflow-y: scroll;
     }
+    @if $horizontal == true {
+      overflow-x: scroll;
+    }
+    -webkit-overflow-scrolling: touch;
+  }
 }
