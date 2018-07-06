@@ -36,6 +36,32 @@
   }
 }
 
+.collection__lead {
+  font-family: $font-light;
+  font-size: 20px;
+  font-weight: 300;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.25;
+  letter-spacing: .2px;
+  color: $color-text-accentuation;
+  margin: -4px 24px 24px;
+
+  @include tablet-up {
+    margin: -2px 32px 32px;
+  }
+
+  @include desktop-up {
+      font-size: 22px;
+      margin-top: -8px;
+  }
+
+  @include desktop-wide {
+    margin-left: 40px;
+    margin-right: 40px;
+  }
+}
+
 .collection__teaser-list {
   display: flex;
   flex-direction: column;
