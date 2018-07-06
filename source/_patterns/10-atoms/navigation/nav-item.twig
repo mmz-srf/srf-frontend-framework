@@ -2,8 +2,6 @@
     {{ content|default("Item") }}
 
     {% if 'nav-item--expandable' in styleModifier %}
-        <span class="nav-item__icon">
-            {% include 'atoms-expand-icon' with { 'styleModifier': 'expand-icon--dark' } %}
-        </span>
+        <span class="nav-item__icon"></span>
     {% endif %}
 </a>

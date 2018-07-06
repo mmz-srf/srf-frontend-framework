@@ -68,6 +68,7 @@
     filter: var(--theme-icon-filter, none);
     // prevents us from having to check click-events on the icon
     pointer-events: none;
+    @include caret('grey', 'down', 'tiny');
   }
 }
 
