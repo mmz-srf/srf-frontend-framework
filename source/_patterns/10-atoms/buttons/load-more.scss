@@ -34,7 +34,7 @@
   color: $color-accentuation-red;
   font: 16px/16px $font-regular;
 
-  @include tablet-up {
+  @include smartphone {
     display: none;
   }
 }
