@@ -258,8 +258,21 @@
 
 .collection--branded {
   .collection__title,
-  .collection__lead {
+  .collection__lead,
+  .collection__title-link {
     color: $color-text-branded;
+  }
+
+  // different mechanism when branded: whole link gets transparent
+  .collection__title-link {
+    &:hover {
+      opacity: 0.8;
+    }
+
+    &:active,
+    &:focus {
+      opacity: 0.6;
+    }
   }
 
   .collection__title-link-icon {
