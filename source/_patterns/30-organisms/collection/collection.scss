@@ -43,11 +43,22 @@
 
     &:hover {
         color: #f1434a;
+
+        // estimation of the above color
+        .collection__title-link-icon {
+            filter: brightness(1.3);
+        }
     }
 
     &:active,
     &:focus {
         color: #ff6669;
+
+        // estimation of the above color
+        .collection__title-link-icon {
+            filter: brightness(1.37);
+            opacity: 0.82;
+        }
     }
 }
 
