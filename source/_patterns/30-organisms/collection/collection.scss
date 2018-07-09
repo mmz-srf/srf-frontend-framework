@@ -62,6 +62,10 @@
     }
 }
 
+.collection__title-a11y-help {
+  @include offscreen-non-focusable;
+}
+
 .collection__title-link-icon {
     margin-left: 4px;
     @include caret('red', 'right', 'medium');

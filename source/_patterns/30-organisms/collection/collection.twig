@@ -8,6 +8,7 @@
         {{ collection.title|default("") }}
 
         {% if collection.titleLink is defined %}
+                <span class="collection__title-a11y-help">Landingpage öffnen</span>
                 <span class="collection__title-link-icon"></span>
             </a>
         {% endif %}
