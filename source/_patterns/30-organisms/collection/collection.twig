@@ -1,6 +1,6 @@
 <div class="collection {{ styleModifier|default("collection--standard") }}">
 
-    <h3 class="collection__title">
+    <h2 class="collection__title">
         {% if collection.titleLink is defined %}
             <a href="{{ collection.titleLink|default("#") }}" class="collection__title-link">
         {% endif %}
@@ -11,7 +11,7 @@
                 <span class="collection__title-link-icon"></span>
             </a>
         {% endif %}
-    </h3>
+    </h2>
 
     {% if collection.lead is defined %}
         <p class="collection__lead">{{collection.lead|default("")}}</p>
