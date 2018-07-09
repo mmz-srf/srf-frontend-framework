@@ -65,6 +65,7 @@
 .collection__title-link-icon {
     margin-left: 4px;
     @include caret('red', 'right', 'medium');
+    flex: 0 0 24px;
 }
 
 .collection__lead {
