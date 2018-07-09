@@ -13,6 +13,10 @@
         {% endif %}
     </h3>
 
+    {% if collection.lead is defined %}
+        <p class="collection__lead">{{collection.lead|default("")}}</p>
+    {% endif %}
+
     <ul class="collection__teaser-list">
         {% for teaser in collection.teasers %}
             {% set teaserFormat = '' %}
