@@ -36,6 +36,19 @@
   }
 }
 
+.collection__title-link {
+    color: $color-link-default;
+
+    &:hover {
+        color: #f1434a;
+    }
+
+    &:active,
+    &:focus {
+        color: #ff6669;
+    }
+}
+
 .collection__teaser-list {
   display: flex;
   flex-direction: column;

@@ -1,5 +1,18 @@
 <div class="collection {{ styleModifier|default("collection--standard") }}">
-    <h3 class="collection__title">{{ collection.title|default("") }}</h3>
+
+    <h3 class="collection__title">
+        {% if collection.titleLink is defined %}
+            <a href="{{ collection.titleLink|default("#") }}" class="collection__title-link">
+        {% endif %}
+
+        {{ collection.title|default("") }}
+
+        {% if collection.titleLink is defined %}
+            {# > icon goes here #}
+            </a>
+        {% endif %}
+    </h3>
+
     <ul class="collection__teaser-list">
         {% for teaser in collection.teasers %}
             {% set teaserFormat = '' %}
