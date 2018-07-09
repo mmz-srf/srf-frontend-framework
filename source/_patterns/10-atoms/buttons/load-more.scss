@@ -5,6 +5,9 @@
   border-width: 1px 0;
   cursor: pointer;
   width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   @include tablet-up {
     height: 56px;
@@ -20,17 +23,19 @@
 }
 
 .load-more__img {
-  width: 19px;
-  height: 10px;
-  display: inline;
-  margin: 0 6px 1px 0;
+  @include caret('red', 'down', 'medium');
+
+  @include tablet-up {
+      margin-right: 6px;
+  }
 }
 
 .load-more__info {
   color: $color-accentuation-red;
   font: 16px/16px $font-regular;
+  display: none;
 
-  @include smartphone {
-    display: none;
+  @include tablet-up {
+    display: block;
   }
 }
