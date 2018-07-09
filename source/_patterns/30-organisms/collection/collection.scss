@@ -37,6 +37,8 @@
 }
 
 .collection__title-link {
+    display: flex;
+    align-items: center;
     color: $color-link-default;
 
     &:hover {
@@ -47,6 +49,10 @@
     &:focus {
         color: #ff6669;
     }
+}
+
+.collection__title-link-icon {
+    @include caret('red', 'right', 'medium');
 }
 
 .collection__teaser-list {
