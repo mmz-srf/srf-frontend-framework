@@ -221,3 +221,12 @@
 .collection--compact-swipeable {
   // TODO
 }
+
+.collection--branded {
+  .collection__title,
+  .collection__lead {
+    color: $color-text-branded;
+  }
+
+  // TODO: background colors
+}

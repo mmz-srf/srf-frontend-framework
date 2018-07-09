@@ -1,4 +1,6 @@
 <p>(Click on title to toggle blocks)</p>
+<button class="button js-close-all">Close all</button>
+<button class="button js-open-all">Open all</button>
 
 <div class="js-collection-wrapper">
 <h3>Hero, 1 Teaser</h3>
@@ -403,9 +405,41 @@
 </div>
 </div>
 
+<div class="js-collection-wrapper">
+<h3>Standard + Lead, Branded</h3>
+<div class="js-collection-wrapper-content">
+{% include 'organisms-collection' with {
+    'styleModifier': 'collection--standard collection--branded',
+    'collection': {
+        "title": "News Schweiz",
+        "lead": "1996 schrieb John Perry Barlow die «Unabhängigkeitserklärung des Cyberspace». Darin kritisierte er Poeten.",
+        "type": "standard",
+        "teasers": [
+            {
+                "title": "Wissenschaftler sagen: Kühe geben Milch. Stadtbewohner erstaunt und entrüstet: 'Igitt!'",
+                "kicker": "Milchsee",
+                "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+                "link": "#",
+                "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet."
+            }
+        ]
+    }
+} %}
+</div>
+</div>
+
 <script>
     $(".js-collection-wrapper h3").on("click", (e) => {
         let $content = $(e.target).parent().find(".js-collection-wrapper-content");
         $content.toggle();
     });
+
+    $(".js-open-all").on("click", (e) => {
+        $(".js-collection-wrapper-content").show();
+    });
+
+    $(".js-close-all").on("click", (e) => {
+        $(".js-collection-wrapper-content").hide();
+    });
+
 </script>
