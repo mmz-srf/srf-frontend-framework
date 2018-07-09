@@ -46,6 +46,7 @@
   letter-spacing: .2px;
   color: $color-text-accentuation;
   margin: -4px 24px 24px;
+  max-width: 624px;
 
   @include tablet-up {
     margin: -2px 32px 32px;
@@ -54,6 +55,7 @@
   @include desktop-up {
       font-size: 22px;
       margin-top: -8px;
+      max-width: 680px;
   }
 
   @include desktop-wide {
