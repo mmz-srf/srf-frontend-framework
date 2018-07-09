@@ -37,7 +37,7 @@
 }
 
 .collection__title-link {
-    display: flex;
+    display: inline-flex;
     align-items: center;
     color: $color-link-default;
 
@@ -52,6 +52,7 @@
 }
 
 .collection__title-link-icon {
+    margin-left: 4px;
     @include caret('red', 'right', 'medium');
 }
 
