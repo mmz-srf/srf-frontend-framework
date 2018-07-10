@@ -133,15 +133,15 @@
 }
 
 .onairnav-link__progress[value]::-webkit-progress-bar { /* Needed for WebKit/Blink */
-	background-color: #383732;
+  background-color: #383732;
 }
 
 .onairnav-link__progress[value]::-webkit-progress-value { /* Needed for WebKit/Blink */
-	position: relative;
-	background-color: #8d0614;  
+  position: relative;
+  background-color: #8d0614;
 }
 
 .onairnav-link__progress[value]::-moz-progress-bar { /* Needed for Firefox */
-	position: relative;
-	background-color: #8d0614;
+  position: relative;
+  background-color: #8d0614;
 }

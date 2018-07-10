@@ -8,7 +8,7 @@
   margin: 8px 8px 16px;
   border-radius: 2px;
   background-color: #f5f5f2;
-  box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.24), 0 0 1px 0 rgba(0, 0, 0, 0.12);
+  box-shadow: $shadow-elevation1;
 }
 
 .collection__title {
@@ -19,8 +19,8 @@
   font-style: normal;
   font-stretch: normal;
   line-height: 1.25;
-  letter-spacing: 0.2px;
-  color: #22211d;
+  letter-spacing: .2px;
+  color: $color-text-default;
 
   @include tablet-up {
     margin: 16px 32px 12px;
@@ -49,55 +49,149 @@
     margin: 0 32px 16px;
   }
 
-  // Desktop wide: 40px left and right, 20px at the bottom
   @include desktop-wide {
     margin: 0 40px 20px;
   }
 }
 
+/**
+ * Teasers don't know anything about the containing collection. They are
+ * controlled by a) the style modifier (like teaser--s, teaser--m, ...) and
+ * b) the viewport width. That's it. A teaser in the "S" format behaves and
+ * looks the same, no matter which collection type it is in.
+ *
+ * The spacing between the teasers and how much space a teaser can take up
+ * etc. is determined by the collection.
+ *
+ * For the spacing:
+ * The idea is that a collection__teaser-item has some right- and top-margin.
+ * The last item in a row has no right-margin.
+ * The first row of items has no top-margin.
+ */
 .collection__teaser-item {
   display: flex;
-  padding: 0;
-  margin: 0 0 8px;
-  list-style-type: none;
 
+  // Override stupid global <li> style
+  padding: 0;
+  list-style-type: none;
   &::before {
     display: none;
   }
 
+  // mobile first: teaser items have 8px margin between them (after the item), except the last one, which has none.
+  margin: 0 0 8px;
   &:last-child {
     margin-bottom: 0;
   }
+}
 
-  @include tablet-up {
-    flex-grow: 0;
-    flex-shrink: 0;
-    flex-basis: calc((100% - 48px) / 3);
-    margin: 32px 24px 0 0;
+// Standard: all M teasers, 1 column on mobile, classic 3 columns on tablet+
+.collection--standard {
+  .collection__teaser-item {
+    @include tablet-up {
+      flex-grow: 0;
+      flex-shrink: 0;
+      flex-basis: calc((100% - (2 * 24px)) / 3);
+      margin: 32px 24px 0 0;
 
-    // No right-margin on every third item (margin-right = gap between teasers in a row)
-    &:nth-child(3n) {
-      margin-right: 0;
+      // No right-margin on every third item (margin-right = gap between teasers in a row)
+      &:nth-child(3n) {
+        margin-right: 0;
+      }
+
+      // first three teasers should not have margin-top
+      &:nth-child(-n+3) {
+        margin-top: 0;
+      }
     }
 
-    // first three teasers should not have margin-top
-    &:nth-child(-n+3) {
-      margin-top: 0;
-    }
-  }
-
-  @include desktop-wide {
-    flex-basis: calc((100% - 64px) / 3);
-    margin: 40px 32px 0 0;
-
-    // No right-margin on every third item (margin-right = gap between teasers in a row)
-    &:nth-child(3n) {
-      margin-right: 0;
-    }
-
-    // first three teasers should not have margin-top
-    &:nth-child(-n+3) {
-      margin-top: 0;
+    @include desktop-wide {
+      flex-basis: calc((100% - (2 * 32px)) / 3);
+      margin: 40px 32px 0 0;
     }
   }
+}
+
+.collection--swipeable {
+  // TODO
+}
+
+// Hero: 1st teaser XL + fills whole row, rest M which fills 1/3 of a row.
+.collection--hero {
+  .collection__teaser-item {
+    @include tablet-up {
+      flex-grow: 0;
+      flex-shrink: 0;
+      flex-basis: calc((100% - 48px) / 3);
+      margin: 32px 24px 0 0;
+
+      // First element: XL Teaser. No margins and full width
+      &:nth-child(1) {
+        margin: 0;
+        flex-basis: 100%;
+      }
+
+      // No right-margin on every third item, after the first (margin-right = gap between teasers in a row)
+      &:nth-child(3n + 1) {
+        margin-right: 0;
+      }
+    }
+
+    @include desktop-wide {
+      flex-basis: calc((100% - 64px) / 3);
+      margin: 40px 32px 0 0;
+    }
+  }
+}
+
+// Duo: 1st teaser always L, 2nd teaser L on Tablet+, otherwise M. 1st and 2nd teaser share the first row
+.collection--duo {
+  .collection__teaser-item {
+    @include tablet-up {
+      flex-grow: 0;
+      flex-shrink: 0;
+      flex-basis: calc((100% - 48px) / 3);
+      margin: 32px 24px 0 0;
+
+      // 1st/2nd element: L teasers, 50% width and no top-margin
+      &:nth-child(1),
+      &:nth-child(2) {
+        margin-top: 0;
+        flex-basis: calc((100% - 24px) / 2);
+      }
+
+      // no right-margin for 2nd L teaser
+      &:nth-child(2) {
+        margin: 0;
+      }
+
+      // No right-margin on every third item, after the first two (margin-right = gap between teasers in a row)
+      &:nth-child(3n + 2) {
+        margin-right: 0;
+      }
+    }
+
+    @include desktop-wide {
+      flex-basis: calc((100% - 64px) / 3);
+      margin: 40px 32px 0 0;
+
+      // Special for Duo: spacing between 1st and 2nd teaser is 40px on desktop wide
+      &:nth-child(1) {
+        margin-right: 40px;
+      }
+
+      &:nth-child(1),
+      &:nth-child(2) {
+        flex-basis: calc((100% - 40px) / 2);
+      }
+    }
+  }
+}
+
+.collection--compact {
+  // TODO
+}
+
+.collection--compact-swipeable {
+  // TODO
 }

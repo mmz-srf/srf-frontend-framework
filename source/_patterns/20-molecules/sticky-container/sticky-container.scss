@@ -33,6 +33,22 @@
     }
   }
 }
+.sticky-container--longportalnames {
+
+  @include tablet {
+    position: absolute;
+  }
+  
+  @include desktop-up {
+    position: fixed;
+  }
+}
+
+.sticky-container--home.sticky-container--longportalnames.affix {
+  @include tablet {
+    margin-top: -62px;
+  }
+}
 
 .affix-top {
   margin-top: 0;
@@ -56,6 +72,13 @@
   }
 
   @include smartphone {
+    height: 136px;
+  }
+}
+
+.affix-placeholder--home.affix-placeholder--longportalnames {
+
+  @include tablet {
     height: 136px;
   }
 }

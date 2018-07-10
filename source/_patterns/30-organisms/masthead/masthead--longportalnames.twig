@@ -1,18 +1,18 @@
-<header class="masthead js-masthead masthead--home {{ themeStyleModifier }} masthead--{{ variantModifier }}">
+<header class="masthead js-masthead masthead--home masthead--longportalnames">
     <div class="masthead__wrapper">
         <div class="masthead__universal">
             <div class="masthead__logo">
                 {% include 'atoms-main-logo' with {'styleModifier': 'main-logo--large'} %}
             </div>
             <div class="masthead__portals">
-                {% include 'molecules-portalsnav' with {'styleModifier': 'portalsnav--large'} %}
+                {% include 'molecules-portalsnav--portallongnames' with {'styleModifier': 'portalsnav--large'} %}
             </div>
             <div class="masthead__button-wrapper">
                 <button class="masthead__button masthead__button--search" data-modal-id="modal-search">
-                    {% include 'atoms-icon-button' with {'iconStyleModifier': 'svg-icon--search-dark', 'buttonText': 'Suche'} %}
+                    {% include 'atoms-icon-button' with {'iconStyleModifier': 'svg-icon--search-dark', 'buttonText': 'Tschertga'} %}
                 </button>
                 <button class="masthead__button" data-modal-id="modal-onairnav">
-                    {% include 'atoms-icon-button' with {'iconStyleModifier': 'svg-icon--tv-radio', 'buttonText': 'TV/Radio'} %}
+                    {% include 'atoms-icon-button' with {'iconStyleModifier': 'svg-icon--tv-radio', 'buttonText': 'Radio/TV'} %}
                 </button>
                 <button class="masthead__button" data-modal-id="modal-menu">
                     {% include 'atoms-icon-button' with {'iconStyleModifier': 'svg-icon--burger-dark', 'buttonText': 'Menu', 'styleModifier': 'icon-button--collapsing-text-tablet icon-button--spaceless-right-tablet'} %}
@@ -25,20 +25,23 @@
                 "masthead": {
                     "subnavi": [
                         {
-                            "name": "News",
-                            "url": "/news",
+                          "name": "Novitads",
+                          "url": "/novitads"
                         },{
-                            "name": "Sport",
-                            "url": "/sport"
+                          "name": "Cultura",
+                          "url": "/cultura"
                         },{
-                            "name": "Meteo",
-                            "url": "/meteo"
+                          "name": "Sport",
+                          "url": "/sport"
                         },{
-                            "name": "Kultur",
-                            "url": "/kultur"
+                          "name": "Uffants",
+                          "url": "/uffants"
                         },{
-                            "name": "Dok",
-                            "url": "/dok"
+                          "name": "Archivar",
+                          "url": "/archivar"
+                        },{
+                          "name": "Aura",
+                          "url": "/aura"
                         }
                     ]
                 }
