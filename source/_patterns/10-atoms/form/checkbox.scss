@@ -47,6 +47,42 @@
   }
 }
 
+.checkbox--no-bg {
+  &:checked,
+  &:focus:checked {
+    + .checkbox-label {
+      &::before {
+        top: -2px;
+        left: 4px;
+      }
+    }
+  }
+
+  &:focus,
+  &:active,
+  &:checked {
+    + .checkbox-label {
+      background-color: transparent;
+    }
+  }
+
+  & + .checkbox-label {
+    font-family: $font-light;
+    background-color: transparent;
+    transition: none;
+    padding: 0 0 0 32px;
+
+    &:hover, &:active, &:focus {
+      background-color: transparent;
+    }
+
+    &::after {
+      top: 2px;
+      left: 0;
+    }
+  }
+}
+
 .checkbox-label {
   @include button-label;
 
