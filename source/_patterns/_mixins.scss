@@ -280,7 +280,7 @@
 
   @if $color == 'red' {
     background-image: url(../img/icon/caret_red.svg);
-  } @else if $color == 'grey' or $color == 'gray' {
+  } @else if $color == 'grey' {
     background-image: url(../img/icon/caret_grey.svg);
   } @else {
     background-image: url(../img/icon/caret_white.svg);
