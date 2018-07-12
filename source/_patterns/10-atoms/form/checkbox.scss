@@ -47,42 +47,6 @@
   }
 }
 
-.checkbox--no-bg {
-  &:checked,
-  &:focus:checked {
-    + .checkbox-label {
-      &::before {
-        top: -2px;
-        left: 4px;
-      }
-    }
-  }
-
-  &:focus,
-  &:active,
-  &:checked {
-    + .checkbox-label {
-      background-color: transparent;
-    }
-  }
-
-  & + .checkbox-label {
-    font-family: $font-light;
-    background-color: transparent;
-    transition: none;
-    padding: 0 0 0 32px;
-
-    &:hover, &:active, &:focus {
-      background-color: transparent;
-    }
-
-    &::after {
-      top: 2px;
-      left: 0;
-    }
-  }
-}
-
 .checkbox-label {
   @include button-label;
 
@@ -114,5 +78,43 @@
 
   &::after {
     border-color: $color-accentuation-red;
+  }
+}
+
+// the "following" is about to move (e.g. become the standard)
+// and will be cleaned up!
+.checkbox--no-bg {
+  & + .checkbox-label {
+    font-family: $font-light;
+    background-color: transparent;
+    transition: none;
+    padding: 0 0 0 32px;
+
+    &:hover, &:active, &:focus {
+      background-color: transparent !important; // this will go
+    }
+
+    &::after {
+      top: 2px;
+      left: 0;
+    }
+  }
+
+  &:focus,
+  &:active,
+  &:checked {
+    + .checkbox-label {
+      background-color: transparent;
+    }
+  }
+
+  &:checked,
+  &:focus:checked {
+    + .checkbox-label {
+      &::before {
+        top: -2px;
+        left: 4px;
+      }
+    }
   }
 }
