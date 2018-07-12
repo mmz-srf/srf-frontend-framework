@@ -101,3 +101,20 @@ _:-ms-fullscreen,
     -webkit-overflow-scrolling: initial;
   }
 }
+
+
+/*
+ * TARGETED BROWSER: IE 11
+ *
+ * overriding the img { height: auto } in _globals.scss because "IE will auto-scale the image area to keep the width:height
+ * aspect ratio constant, but it won't scale the actual drawing to match the scale of the image dimensions.
+ * see: https://css-tricks.com/scale-svg/#article-header-id-2
+ */
+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .main-logo {
+    img {
+      height: 100%;
+    }
+  }
+}
