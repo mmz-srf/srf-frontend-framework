@@ -101,3 +101,18 @@ _:-ms-fullscreen,
     -webkit-overflow-scrolling: initial;
   }
 }
+
+
+/*
+ * TARGETED BROWSER: Safari 10.*
+ *
+ * Mobile Safari on iOS 10.* does not trigger clicks on the Media elements.
+ *
+ * http://www.shdon.com/blog/2013/06/07/why-your-click-events-don-t-work-on-mobile-safari
+ * > It does not generate click events for elements that do not have either or both of:
+ * > - A directly bound onclick handler.
+ * > - The cursor property set to pointer in CSS.
+ */
+.js-media {
+    cursor: pointer;
+}
