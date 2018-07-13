@@ -6,40 +6,24 @@
   background-position: center;
 }
 
-.svg-icon--small {
-  width: 16px;
-  height: 16px;
-}
-
 .svg-icon--arrow-down-tiny {
-  background-image: url(../img/arrows/caret_tiny.svg);
-  transform: rotate(90deg);
+  @include caret('grey', 'down', 'tiny');
 }
 
 .svg-icon--arrow-down {
-  background-image: url(../img/arrows/caret.svg);
-  transform: rotate(90deg);
+  @include caret('grey', 'down', 'medium');
 }
 
 .svg-icon--arrow-right {
-  background-image: url(../img/arrows/caret.svg);
-  transform: rotate(-90deg);
-}
-
-.svg-icon--arrow-right-dark {
-  background-image: url(../img/arrows/caret.svg);
-  transform: rotate(-90deg);
-  filter: invert(100%) contrast(600%);
+  @include caret('grey', 'right', 'medium');
 }
 
 .svg-icon--arrow-left {
-  background-image: url(../img/arrows/caret.svg);
-  transform: rotate(90deg);
+  @include caret('grey', 'left', 'medium');
 }
 
 .svg-icon--arrow-up {
-  background-image: url(../img/arrows/caret.svg);
-  transform: rotate(180deg);
+  @include caret('grey', 'up', 'medium');
 }
 
 .svg-icon--burger-dark {

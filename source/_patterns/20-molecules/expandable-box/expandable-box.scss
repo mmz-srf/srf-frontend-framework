@@ -54,9 +54,9 @@ $expandable-box-padding-desktop: 24px;
 .expandable-box__expand-icon {
   flex: 0 0 auto;
   align-self: center;
-  height: 17px;
   padding-left: 16px;
   margin-left: auto;  // if there's only an icon it'll position itself on the right side of the container with this trick
+  margin-right: -3px;
 }
 
 .expandable-box__body {

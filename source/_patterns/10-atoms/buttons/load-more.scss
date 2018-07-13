@@ -19,11 +19,20 @@
   }
 }
 
+// Safari can't handle flex on a button - put it in a span and it works. ~pchr, 12.7.2018
+.load-more__wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
 .load-more__img {
-  width: 19px;
-  height: 10px;
-  display: inline;
-  margin: 0 6px 1px 0;
+  @include caret('red', 'down', 'medium');
+
+  @include tablet-up {
+      margin-right: 6px;
+  }
 }
 
 .load-more__info {
