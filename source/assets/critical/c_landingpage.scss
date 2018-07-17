@@ -51,33 +51,6 @@
   }
 }
 
-// Standard: all M teasers, 1 column on mobile, classic 3 columns on tablet+
-.collection--standard,
-.collection--highlight {
-  .collection__teaser-item {
-    @include tablet-up {
-      flex-grow: 0;
-      flex-shrink: 0;
-      flex-basis: calc((100% - (2 * 24px)) / 3);
-      margin: 32px 24px 0 0;
-
-      // No right-margin on every third item (margin-right = gap between teasers in a row)
-      &:nth-child(3n) {
-        margin-right: 0;
-      }
-
-      // first three teasers should not have margin-top
-      &:nth-child(-n+3) {
-        margin-top: 0;
-      }
-    }
-
-    @include desktop-wide {
-      flex-basis: calc((100% - (2 * 32px)) / 3);
-      margin: 40px 32px 0 0;
-    }
-  }
-}
 
 .teaser {
   display: flex;
@@ -152,6 +125,49 @@
     display: flex;
     flex-direction: column;
     flex-grow: 1;
+  }
+  .collection__teaser-item {
+    @include tablet-up {
+      flex-grow: 0;
+      flex-shrink: 0;
+      flex-basis: calc((100% - 48px) / 3);
+      margin: 32px 24px 0 0;
+
+      // 1st/2nd element: L teasers, 50% width and no top-margin
+      &:nth-child(1),
+      &:nth-child(2) {
+        margin-top: 0;
+        flex-basis: calc((100% - 24px) / 2);
+        .teaser__medium-wrapper {
+          padding-bottom: 24%;
+        }
+      }
+
+      // no right-margin for 2nd L teaser
+      &:nth-child(2) {
+        margin: 0;
+      }
+
+      // No right-margin on every third item, after the first two (margin-right = gap between teasers in a row)
+      &:nth-child(3n + 2) {
+        margin-right: 0;
+      }
+    }
+
+    @include desktop-wide {
+      flex-basis: calc((100% - 64px) / 3);
+      margin: 40px 32px 0 0;
+
+      // Special for Duo: spacing between 1st and 2nd teaser is 40px on desktop wide
+      &:nth-child(1) {
+        margin-right: 40px;
+      }
+
+      &:nth-child(1),
+      &:nth-child(2) {
+        flex-basis: calc((100% - 40px) / 2);
+      }
+    }
   }
 
 
