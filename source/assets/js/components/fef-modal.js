@@ -77,21 +77,31 @@ export class FefModal {
      * Show the modal, depending on the provided animation.
      */
     show() {
+        let onShowFinished = () => {
+          
+          console.debug('hello from the other siddde');
+          this.preventScrolling();
+
+          if (this.$focusTarget.length === 1 && (FefResponsiveHelper.isDesktop() || FefResponsiveHelper.isDesktopWide()) ) {
+            this.setFocus(this.$focusTarget);
+          }
+        }
+
         switch (this.animation) {
             case 'scale-from-origin':
-                this.scaleFromOrigin(() => this.preventScrolling());
+                this.scaleFromOrigin(onShowFinished);
                 break;
             case 'fade-in-out':
-                this.$element.stop(true, true).fadeIn(ANIMATION_SPEED, () => this.preventScrolling());
+                this.$element.stop(true, true).fadeIn(ANIMATION_SPEED, onShowFinished);
                 break;
             default:
-                this.$element.show(() => this.preventScrolling());
+                this.$element.show(onShowFinished);
                 break;
         }
 
-        if (this.$focusTarget.length === 1 && (FefResponsiveHelper.isDesktop() || FefResponsiveHelper.isDesktopWide()) ) {
-            this.setFocus(this.$focusTarget);
-        }
+        
+        
+        
     }
 
     /**
