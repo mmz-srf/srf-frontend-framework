@@ -56,7 +56,8 @@
   margin: 16px 16px 16px 0;
   position: relative; // for positioning ::pseudo elements
 
-  &::before {
+  // border on top of the images
+  &::after {
     position: absolute;
     pointer-events: none;
     content: '';
@@ -73,6 +74,8 @@
   object-fit: cover;
   width: 80px;
   height: 80px;
+
+  @include forceSquareAspectRatio();
 }
 
 .teaser__content {
@@ -147,7 +150,7 @@
     border-radius: 2px;
     overflow: hidden;
 
-    &::before {
+    &::after {
       border-radius: 2px;
       border: solid 1px rgba(0, 0, 0, 0.04);
     }
@@ -197,7 +200,7 @@
     overflow: hidden;
 
     @include smartphone {
-      &::before {
+      &::after {
         border-radius: 2px;
         border: solid 1px rgba(0, 0, 0, 0.04);
       }
@@ -206,7 +209,7 @@
     @include tablet-up {
       margin: 0;
 
-      &::before {
+      &::after {
         border-radius: 0;
         border-bottom: solid 1px rgba(0, 0, 0, 0.04);
       }
@@ -217,6 +220,8 @@
     @include tablet-up {
       height: auto;
       width: 100%;
+
+      @include forceWidescreenAspectRatio();
     }
   }
 
@@ -248,11 +253,14 @@
   .teaser__medium {
     height: auto;
     width: 100%;
+
+    @include forceWidescreenAspectRatio();
   }
 
   .teaser__medium-wrapper {
     margin: 0;
-    &::before {
+
+    &::after {
       border-bottom: solid 1px rgba(0, 0, 0, 0.04);
     }
   }
@@ -276,19 +284,21 @@
   .teaser__medium {
     height: 100%;
     width: 100%;
+
+    @include forceWidescreenAspectRatio();
   }
 
   .teaser__medium-wrapper {
     margin: 0;
 
     @include smartphone {
-      &::before {
+      &::after {
         border-bottom: solid 1px rgba(0, 0, 0, 0.04);
       }
     }
 
     @include tablet-up {
-      &::before {
+      &::after {
         border-right: solid 1px rgba(0, 0, 0, 0.04);
       }
       width: 65.75%;
@@ -363,6 +373,8 @@
     @include tablet-up {
       height: auto;
       width: 100%;
+
+      @include forceWidescreenAspectRatio();
     }
   }
 
@@ -371,7 +383,7 @@
       border-radius: 2px;
       overflow: hidden;
 
-      &::before {
+      &::after {
         border-radius: 2px;
         border: solid 1px rgba(0, 0, 0, 0.04);
       }
@@ -379,7 +391,8 @@
 
     @include tablet-up {
       margin: 0;
-      &::before {
+
+      &::after {
         border-bottom: solid 1px rgba(0, 0, 0, 0.04);
       }
     }
