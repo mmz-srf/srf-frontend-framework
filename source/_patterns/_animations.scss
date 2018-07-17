@@ -48,31 +48,13 @@ $light-attention-color: #ff0000;
 
 @keyframes pulsatingLiveAnimation {
   25% {
-    background-color: #e31f2b;
+    background-color: $color-srf-light;
   }
   50% {
     background-color: #ed7004;
   }
   75% {
-    background-color: #e31f2b;
-  }
-}
-
-
-
-/*
- *
- * Shimmer-Animation
- * Used by shimmer.scss
- *
- */
-
-@keyframes shimmeringAnimation {
-  0% {
-    transform: translateX(-100%);
-  }
-  100% {
-    transform: translateX(200%);
+    background-color: $color-srf-light;
   }
 }
 

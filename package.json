@@ -11,6 +11,7 @@
     "browser-sync": "^2.24.4",
     "browserify": "^16.2.2",
     "del": "*",
+    "fg-loadcss": "^2.0.1",
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^5.0.0",
     "gulp-concat": "*",
