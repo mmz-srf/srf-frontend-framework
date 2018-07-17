@@ -1,5 +1,5 @@
 {
-    "bodyClass": "",
+    "bodyClass": "loading",
     "criticalCssOnly": true,
     "criticalCssFile": "c_landingpage.css"
 }

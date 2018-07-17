@@ -1,5 +1,22 @@
 <div class="collection {{ styleModifier|default("collection--standard") }}">
-    <h3 class="collection__title">{{ collection.title|default("") }}</h3>
+
+    <h2 class="collection__title">
+        <div class="collection__title-shimmer loading__only">
+            {% include 'atoms-shimmer' with {'styleModifier': 'shimmer--heading'} %}
+        </div>
+
+        {% if collection.titleLink is defined %}
+            <a href="{{ collection.titleLink|default("#") }}" class="collection__title-link">
+        {% endif %}
+        <span class="collection__title-text">
+            {{ collection.title|default("") }}
+        </span>
+        {% if collection.titleLink is defined %}
+                <span class="collection__title-a11y-help">Landingpage öffnen</span>
+                <span class="collection__title-link-icon"></span>
+            </a>
+        {% endif %}
+    </h2>
 
     {% if collection.lead is defined %}
         <p class="collection__lead">{{collection.lead|default("")}}</p>
