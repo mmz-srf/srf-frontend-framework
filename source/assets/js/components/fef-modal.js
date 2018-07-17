@@ -78,13 +78,11 @@ export class FefModal {
      */
     show() {
         let onShowFinished = () => {
-          
-          console.debug('hello from the other siddde');
-          this.preventScrolling();
+            this.preventScrolling();
 
-          if (this.$focusTarget.length === 1 && (FefResponsiveHelper.isDesktop() || FefResponsiveHelper.isDesktopWide()) ) {
-            this.setFocus(this.$focusTarget);
-          }
+            if (this.$focusTarget.length === 1 && (FefResponsiveHelper.isDesktop() || FefResponsiveHelper.isDesktopWide()) ) {
+                this.setFocus(this.$focusTarget);
+            }
         }
 
         switch (this.animation) {
