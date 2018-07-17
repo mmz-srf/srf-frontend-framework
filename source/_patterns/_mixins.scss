@@ -107,17 +107,17 @@
 }
 
 @mixin content-column-default {
-    margin: 0 auto;
+  margin: 0 auto;
 
-    @include tablet {
-        max-width: 720px;
-        padding: 0 32px;
-    }
+  @include tablet {
+    max-width: 720px;
+    padding: 0 32px;
+  }
 
-    @include desktop-up {
-        padding: 0 40px;
-        max-width: 792px;
-    }
+  @include desktop-up {
+    padding: 0 40px;
+    max-width: 792px;
+  }
 }
 
 @mixin article-element-indentation {
@@ -259,13 +259,50 @@
 
 
 @mixin momentumScrolling($vertical: true, $horizontal: false) {
-    @include desktop-down {
-        @if $vertical == true {
-            overflow-y: scroll;
-        }
-        @if $horizontal == true {
-            overflow-x: scroll;
-        }
-        -webkit-overflow-scrolling: touch;
+  @include desktop-down {
+    @if $vertical == true {
+      overflow-y: scroll;
     }
+    @if $horizontal == true {
+      overflow-x: scroll;
+    }
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+@mixin caret($color: 'white', $direction: 'down', $size: 'medium') {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: transform .2s ease-in-out;
+
+  @if $color == 'red' {
+    background-image: url(../img/icon/caret_red.svg);
+  } @else if $color == 'grey' {
+    background-image: url(../img/icon/caret_grey.svg);
+  } @else {
+    background-image: url(../img/icon/caret_white.svg);
+  }
+
+  @if $direction == 'up' {
+    transform: rotate(180deg);
+  } @else if $direction == 'left' {
+    transform: rotate(90deg);
+  } @else if $direction == 'right' {
+    transform: rotate(-90deg);
+  } @else {
+    transform: rotate(0deg);
+  }
+
+  @if $size == 'large' {
+    background-size: 100%
+  } @else if $size == 'small' {
+    background-size: 53%;
+  } @else if $size == 'tiny' {
+    background-size: 38%;
+  } @else {
+    background-size: 70%;
+  }
 }

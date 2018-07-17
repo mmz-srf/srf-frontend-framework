@@ -35,3 +35,9 @@
     padding: 0px 8px 8px;
   }
 }
+
+.nav-group--open {
+  .nav-item__icon {
+    transform: rotate(180deg);
+  }
+}
