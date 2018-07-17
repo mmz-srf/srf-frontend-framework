@@ -3,6 +3,10 @@
 @import "../../breakpoints";
 
 .rlp-footer {
+  /* OVERRIDE CRITICAL CSS */
+  opacity: 1;
+  pointer-events: auto;
+  /***/
   color: $color-text-default;
   background: linear-gradient(to bottom, #fefefd, #fafaf8);
   box-shadow: $shadow-organisms;

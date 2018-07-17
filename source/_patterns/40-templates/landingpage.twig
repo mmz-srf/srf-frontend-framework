@@ -2,16 +2,14 @@
 
 <div class="affix-placeholder affix-placeholder--{{ headerType }} affix-placeholder--{{ variantModifier }}"></div>
 
-{% if headerType == "compact" %}
-    {% include 'organisms-masthead--compact' with {"themeStyleModifier": themeStyleModifier} %}
-{% elseif headerType == "home" %}
-<div class="sticky-container sticky-container--{{ headerType }} sticky-container--{{ variantModifier }} affix-top js-affix">
-    {% include 'organisms-masthead--home' with {"variantModifier": variantModifier, "themeStyleModifier": themeStyleModifier} %}
-</div>
+{% if headerType == "home" %}
+    <div class="sticky-container sticky-container--{{ headerType }} sticky-container--{{ variantModifier }} affix-top js-affix">
+        {% include 'organisms-masthead--home' with {"variantModifier": variantModifier, "themeStyleModifier": themeStyleModifier} %}
+    </div>
 {% else %}
-<div class="sticky-container affix-top js-affix">
+    <div class="sticky-container affix-top js-affix">
         {% include 'organisms-masthead' with {"themeStyleModifier": themeStyleModifier} %}
-</div>
+    </div>
 {% endif %}
 
 <section class="landingpage">
@@ -19,6 +17,8 @@
         [-- LANDINGPAGE CONTENT --]
     {% endblock %}
 </section>
+
+{% block demo_content %}{% endblock %}
 
 {% include 'organisms-rlp-footer' %}
 

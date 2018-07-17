@@ -1,0 +1,20 @@
+{% embed 'templates-article-rlp-header-footer' %}
+
+    {% block article_content %}
+        {% include 'atoms-content-heading' %}
+        {% include 'atoms-article-text' %}
+        {% include 'molecules-medium--vertical' %}
+        {% include 'atoms-article-text' %}
+        {% include 'molecules-related-items-list' %}
+        {% include 'atoms-article-author--short' %}
+    {% endblock %}
+
+    {% block demo_content %}
+        <style>
+            /* for demo purposes: only show one author line (main use case) in order to match the author's shimmer */
+            .article-author__date-update { display: none !important; }
+        </style>
+        {% include '_load-css-button.twig' %}
+    {% endblock %}
+
+{% endembed %}
