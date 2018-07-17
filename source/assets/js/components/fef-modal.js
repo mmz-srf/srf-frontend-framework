@@ -89,7 +89,7 @@ export class FefModal {
                 break;
         }
 
-        if (this.$focusTarget.length === 1) {
+        if (this.$focusTarget.length === 1 && (FefResponsiveHelper.isDesktop() || FefResponsiveHelper.isDesktopWide()) ) {
             this.setFocus(this.$focusTarget);
         }
     }
