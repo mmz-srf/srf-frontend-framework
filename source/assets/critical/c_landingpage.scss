@@ -9,86 +9,6 @@
 @import '../../_patterns/10-atoms/indicators/shimmer';
 @import '../../_patterns/40-templates/landingpage';
 
-.collection {
-  display: flex;
-  flex-direction: column;
-  margin: 8px 8px 16px;
-  border-radius: 2px;
-  background-color: #f5f5f2;
-  box-shadow: $shadow-elevation1;
-}
-.collection__teaser-list {
-  display: flex;
-  flex-direction: column;
-  margin: 0 8px 12px;
-  padding: 0;
-
-  @include tablet-up {
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: stretch;
-    margin: 0 32px 16px;
-  }
-
-  @include desktop-wide {
-    margin: 0 40px 20px;
-  }
-}
-.collection__teaser-item {
-  display: flex;
-
-  // Override stupid global <li> style
-  padding: 0;
-  list-style-type: none;
-  &::before {
-    display: none;
-  }
-
-  // mobile first: teaser items have 8px margin between them (after the item), except the last one, which has none.
-  margin: 0 0 8px;
-  &:last-child {
-    margin-bottom: 0;
-  }
-}
-
-
-.teaser {
-  display: flex;
-  flex-grow: 1;
-  position: relative; // to position the pseudo elements
-  border-radius: 2px;
-  overflow: hidden; // to cut off image with border radius
-  background-color: $color-bg-card;
-  box-shadow: $shadow-elevation1;
-  color: $color-text-default;
-}
-
-
-.collection__title {
-  margin: 16px 24px 12px;
-  font-family: $font-medium;
-  font-size: 24px;
-  font-weight: 500;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: 1.25;
-  letter-spacing: .2px;
-  color: $color-text-default;
-
-  @include tablet-up {
-    margin: 16px 32px 12px;
-  }
-
-  @include desktop-up {
-    margin: 20px 32px 16px;
-    font-size: 28px;
-  }
-
-  @include desktop-wide {
-    margin: 20px 40px 16px;
-  }
-}
-
 
 
 //PASCALS STUFF
@@ -99,11 +19,91 @@
   .loading__only {
     display: block;
   }
+  .collection {
+    display: flex;
+    flex-direction: column;
+    margin: 8px 8px 16px;
+    border-radius: 2px;
+    background-color: #f5f5f2;
+    box-shadow: $shadow-elevation1;
+  }
+  .collection__teaser-list {
+    display: flex;
+    flex-direction: column;
+    margin: 0 8px 12px;
+    padding: 0;
+
+    @include tablet-up {
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: stretch;
+      margin: 0 32px 16px;
+    }
+
+    @include desktop-wide {
+      margin: 0 40px 20px;
+    }
+  }
+  .collection__teaser-item {
+    display: flex;
+
+    // Override stupid global <li> style
+    padding: 0;
+    list-style-type: none;
+    &::before {
+      display: none;
+    }
+
+    // mobile first: teaser items have 8px margin between them (after the item), except the last one, which has none.
+    margin: 0 0 8px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+
+  .teaser {
+    display: flex;
+    flex-grow: 1;
+    position: relative; // to position the pseudo elements
+    border-radius: 2px;
+    overflow: hidden; // to cut off image with border radius
+    background-color: $color-bg-card;
+    box-shadow: $shadow-elevation1;
+    color: $color-text-default;
+  }
+  .collection__title {
+    margin: 16px 24px 12px;
+    font-family: $font-medium;
+    font-size: 24px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.25;
+    letter-spacing: .2px;
+    color: $color-text-default;
+
+    @include tablet-up {
+      margin: 16px 32px 12px;
+    }
+
+    @include desktop-up {
+      margin: 20px 32px 16px;
+      font-size: 28px;
+    }
+
+    @include desktop-wide {
+      margin: 20px 40px 16px;
+    }
+  }
+
   .teaser__medium-wrapper {
     flex-grow: 0;
     flex-shrink: 0;
     margin: 0;
     position: relative; // for positioning ::pseudo elements
+    padding-bottom: 67%;
+
 
     &::after {
       position: absolute;
@@ -117,7 +117,7 @@
       box-sizing: border-box;
     }
     img {
-      visibility: hidden;
+      display: none;
     }
 
   }
@@ -138,9 +138,6 @@
       &:nth-child(2) {
         margin-top: 0;
         flex-basis: calc((100% - 24px) / 2);
-        .teaser__medium-wrapper {
-          padding-bottom: 24%;
-        }
       }
 
       // no right-margin for 2nd L teaser
@@ -166,6 +163,26 @@
       &:nth-child(1),
       &:nth-child(2) {
         flex-basis: calc((100% - 40px) / 2);
+      }
+    }
+    @include smartphone {
+      &:nth-child(n+2) {
+        .teaser__main {
+          flex-direction: row-reverse;
+        }
+        .teaser__medium-wrapper {
+          padding-bottom: 0;
+          width: 80px;
+          height: 80px;
+          margin: 16px 16px 16px 0;
+          border-radius: 2px;
+          overflow: hidden;
+        }
+        .teaser__medium {
+          object-fit: cover;
+        }
+
+
       }
     }
   }
