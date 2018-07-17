@@ -83,7 +83,7 @@ export class FefModal {
             if (this.$focusTarget.length === 1 && (FefResponsiveHelper.isDesktop() || FefResponsiveHelper.isDesktopWide()) ) {
                 this.setFocus(this.$focusTarget);
             }
-        }
+        };
 
         switch (this.animation) {
             case 'scale-from-origin':
