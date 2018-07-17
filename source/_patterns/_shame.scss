@@ -87,6 +87,22 @@ _:-ms-fullscreen,
 }
 
 
+/*
+ * TARGETED BROWSER: IE 11
+ *
+ * overriding the img { height: auto } in _globals.scss because "IE will auto-scale the image area to keep the width:height
+ * aspect ratio constant, but it won't scale the actual drawing to match the scale of the image dimensions.
+ * see: https://css-tricks.com/scale-svg/#article-header-id-2
+ */
+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .main-logo {
+    img {
+      height: 100%;
+    }
+  }
+}
+
 
 /*
  * TARGETED BROWSER: Safari
@@ -102,19 +118,16 @@ _:-ms-fullscreen,
   }
 }
 
-
 /*
- * TARGETED BROWSER: IE 11
+ * TARGETED BROWSER: Safari 10.*
  *
- * overriding the img { height: auto } in _globals.scss because "IE will auto-scale the image area to keep the width:height
- * aspect ratio constant, but it won't scale the actual drawing to match the scale of the image dimensions.
- * see: https://css-tricks.com/scale-svg/#article-header-id-2
+ * Mobile Safari on iOS 10.* does not trigger clicks on the Media elements.
+ *
+ * http://www.shdon.com/blog/2013/06/07/why-your-click-events-don-t-work-on-mobile-safari
+ * > It does not generate click events for elements that do not have either or both of:
+ * > - A directly bound onclick handler.
+ * > - The cursor property set to pointer in CSS.
  */
-
-@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
-  .main-logo {
-    img {
-      height: 100%;
-    }
-  }
+.js-media {
+    cursor: pointer;
 }
