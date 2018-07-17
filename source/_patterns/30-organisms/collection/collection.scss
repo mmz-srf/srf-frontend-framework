@@ -119,7 +119,7 @@
     @include tablet-up {
       flex-grow: 0;
       flex-shrink: 0;
-      flex-basis: calc((100% - (2 * 24px)) / 3);
+      @include teaserRow(3, 24px);
       margin: 32px 24px 0 0;
 
       // No right-margin on every third item (margin-right = gap between teasers in a row)
@@ -134,7 +134,7 @@
     }
 
     @include desktop-wide {
-      flex-basis: calc((100% - (2 * 32px)) / 3);
+      @include teaserRow(3, 32px);
       margin: 40px 32px 0 0;
     }
   }
@@ -150,7 +150,7 @@
     @include tablet-up {
       flex-grow: 0;
       flex-shrink: 0;
-      flex-basis: calc((100% - 48px) / 3);
+      @include teaserRow(3, 24px);
       margin: 32px 24px 0 0;
 
       // First element: XL Teaser. No margins and full width
@@ -166,7 +166,7 @@
     }
 
     @include desktop-wide {
-      flex-basis: calc((100% - 64px) / 3);
+      @include teaserRow(3, 32px);
       margin: 40px 32px 0 0;
     }
   }
@@ -178,14 +178,14 @@
     @include tablet-up {
       flex-grow: 0;
       flex-shrink: 0;
-      flex-basis: calc((100% - 48px) / 3);
+      @include teaserRow(3, 24px);
       margin: 32px 24px 0 0;
 
       // 1st/2nd element: L teasers, 50% width and no top-margin
       &:nth-child(1),
       &:nth-child(2) {
         margin-top: 0;
-        flex-basis: calc((100% - 24px) / 2);
+        @include teaserRow(2, 24px);
       }
 
       // no right-margin for 2nd L teaser
@@ -200,7 +200,7 @@
     }
 
     @include desktop-wide {
-      flex-basis: calc((100% - 64px) / 3);
+      @include teaserRow(3, 32px);
       margin: 40px 32px 0 0;
 
       // Special for Duo: spacing between 1st and 2nd teaser is 40px on desktop wide
@@ -210,7 +210,7 @@
 
       &:nth-child(1),
       &:nth-child(2) {
-        flex-basis: calc((100% - 40px) / 2);
+        @include teaserRow(2, 40px);
       }
     }
   }
