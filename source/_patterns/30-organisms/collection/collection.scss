@@ -269,6 +269,8 @@
 
   // different mechanism when branded: whole link gets transparent
   .collection__title-link {
+    transition: opacity .2s ease-in-out;
+
     &:hover {
       opacity: 0.8;
     }
@@ -282,6 +284,4 @@
   .collection__title-link-icon {
     @include caret('white', 'right', 'medium');
   }
-
-  // TODO: background colors
 }
