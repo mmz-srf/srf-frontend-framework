@@ -216,8 +216,55 @@
   }
 }
 
+// Compact: S teasers only. 2 columns on tablet. Desktop: 2 columns, except if 3 teasers --> then 3 columns
 .collection--compact {
-  // TODO
+  .collection__teaser-item {
+    // Tablet + Desktop: 16px row gap, 24px column gap
+    @include tablet-up {
+      flex-grow: 0;
+      flex-shrink: 0;
+      flex-basis: calc((100% - (1 * 24px)) / 2);
+      margin: 16px 24px 0 0;
+
+      // No right-margin on every second item (margin-right = gap between teasers in a row)
+      &:nth-child(2n) {
+        margin-right: 0;
+      }
+
+      // first two teasers should not have margin-top
+      &:nth-child(-n+2) {
+        margin-top: 0;
+      }
+    }
+
+    // Desktop-wide: 20px row gap, 32px column gap
+    @include desktop-wide {
+      flex-basis: calc((100% - (1 * 32px)) / 2);
+      margin: 20px 32px 0 0;
+    }
+  }
+
+  // Exception when it has 3 teasers: then it's aligned in 3 columns on desktop+
+  // Fancy CSS rules: style the first child that is also the 3rd last child
+  // and then also style all following siblings of the first child that is also the 3rd last child.
+  // --> apply styles to all children of a container that has exactly 3 children.
+  .collection__teaser-item:first-child:nth-last-child(3),
+  .collection__teaser-item:first-child:nth-last-child(3) ~ .collection__teaser-item {
+    @include desktop-up {
+      flex-basis: calc((100% - (2 * 24px)) / 3);
+      margin-top: 0;
+      margin-right: 24px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+
+    @include desktop-wide {
+      flex-basis: calc((100% - (2 * 32px)) / 3);
+      margin-right: 32px;
+    }
+  }
 }
 
 .collection--compact-swipeable {
