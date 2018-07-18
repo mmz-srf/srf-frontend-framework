@@ -4,7 +4,7 @@
             <img class="teaser__medium" src="{{ teaser.image|default("") }}" alt="{{ teaser.title|default("") }}" />
         </div>
 
-        <div class="teaser__content-shimmer loading__only">
+        <div class="teaser__content-shimmer h-loading-only">
             {% include 'atoms-shimmer' with {'styleModifier': 'shimmer--overline'} %}
             {% include 'atoms-shimmer' with {'styleModifier': ''} %}
             {% include 'atoms-shimmer' with {'styleModifier': ''} %}

@@ -12,11 +12,8 @@
 
 
 //PASCALS STUFF
-.loading__only {
-  display: none;
-}
-.loading {
-  .loading__only {
+.body--loading {
+  .h-loading-only {
     display: block;
   }
   .collection {
@@ -186,7 +183,6 @@
       }
     }
   }
-
 
   .collection__lead {
     display:none;

@@ -10,6 +10,6 @@
     $('.js-load-css').on('click', (e) => {
         loadCSS("../../assets/css/main.css?{{ cacheBuster }}");
         $(event.currentTarget).hide();
-        $('body').removeClass('loading');
+        $('body').removeClass('body--loading');
     });
 </script>
