@@ -318,6 +318,6 @@
   }
 }
 
-@mixin teaserRow($nrOfRows, $gutter) {
+@mixin calculateTeaserFlexBasis($nrOfRows, $gutter) {
     flex-basis: calc((100% - #{$nrOfRows - 1} * #{$gutter}) / #{$nrOfRows + 0.001});
 }
