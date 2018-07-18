@@ -1,11 +1,12 @@
 <div class="l-main-wrapper">
     <div class="l-main-wrapper__space l-card">
         <div class="l-card-column-default">
-            {% block card_content %}{% endblock %}
+            {% include 'atoms-content-heading' %}
+            {% include 'atoms-article-text' %}
         </div>
         <div class="l-card-alternative-background">
             <div class="l-card-column-default">
-                {% block card_content_alternative %}{% endblock %}
+                {% include 'molecules-expandable-box' with { 'styleModifier': 'expandable-box--fullwidth'} %}
             </div>
         </div>
     </div>

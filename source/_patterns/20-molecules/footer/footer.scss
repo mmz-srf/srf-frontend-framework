@@ -1,5 +1,9 @@
 .footer {
-  color: #ffffff;
+  /* OVERRIDE CRITICAL CSS */
+  display: inherit;
+  opacity: 1;
+  /***/
+  color: #fff;
 }
 
 .footer-top {
