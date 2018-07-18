@@ -103,13 +103,9 @@ $item-max-width: 400px;
 }
 
 .swipemod-showall__icon {
-  height: 11px;
-  width: 11px;
-  border-bottom: 1px solid;
-  border-right: 1px solid;
-  transform: rotate(-45deg);
-  align-self: center;
-  margin: 0 2px; // due to the rotation the right corner is not aligned with the items
+  @include caret('red', 'right', 'medium');
+  margin-right: -8px;
+  margin-top: 2px;
 }
 
 .swipemod-swipecontainer {

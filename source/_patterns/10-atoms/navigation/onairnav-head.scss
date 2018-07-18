@@ -56,8 +56,6 @@
 }
 
 .onairnav-head__morelink-icon {
-  position: relative;
-  top: 3px;
-  right: -5px;
-  margin-left: -5px;
+  @include caret('white', 'right', 'tiny');
+  margin-bottom: -8px;
 }
