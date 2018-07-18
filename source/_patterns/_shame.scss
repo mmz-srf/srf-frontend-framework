@@ -17,19 +17,14 @@
  *
  */
 .image--media-still,
-.image--media-still-video {
+.image--media-still-video,
+.teaser__medium-wrapper {
   .js-fake-image-object-fit {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-  }
-}
-.teaser__content {
-  .js-fake-image-object-fit {
-    height: 100%;
-    width: 100%;
   }
 }
 
