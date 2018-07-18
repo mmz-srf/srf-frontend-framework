@@ -252,6 +252,17 @@
   }
 }
 
+@mixin forceWidescreenAspectRatio() {
+  &::before {
+    content: "";
+    width: 1px;
+    margin-left: -1px;
+    float: left;
+    height: 0;
+    padding-top: 56.25%;
+  }
+}
+
 @mixin breakLongWords {
   word-break: break-word;
   overflow-wrap: break-word;
@@ -305,4 +316,8 @@
   } @else {
     background-size: 70%;
   }
+}
+
+@mixin calculateTeaserFlexBasis($nrOfRows, $gutter) {
+    flex-basis: calc((100% - #{$nrOfRows - 1} * #{$gutter}) / #{$nrOfRows + 0.001});
 }

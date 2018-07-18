@@ -39,14 +39,7 @@
   position: relative;
 
   /* forcing 16:9 aspect ratio of container */
-  &::before {
-    content: "";
-    width: 1px;
-    margin-left: -1px;
-    float: left;
-    height: 0;
-    padding-top: 56.25%;
-  }
+  @include forceWidescreenAspectRatio;
 
   //targeting the technical player's iframe
   iframe {
