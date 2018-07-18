@@ -17,8 +17,7 @@
  *
  */
 .image--media-still,
-.image--media-still-video,
-.teaser__medium-wrapper {
+.image--media-still-video {
   .js-fake-image-object-fit {
     position: absolute;
     top: 0;
@@ -27,7 +26,12 @@
     height: 100%;
   }
 }
-
+.teaser__medium-wrapper {
+  .js-fake-image-object-fit {
+    width: 100%;
+    height: 100%;
+  }
+}
 
 /*
  * TARGETED BROWSERS: ALL :(
