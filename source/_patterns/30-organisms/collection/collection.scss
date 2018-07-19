@@ -270,6 +270,8 @@
 
   // different mechanism when branded: whole link gets transparent
   .collection__title-link {
+    @include font-smoothing;
+
     &:hover {
       opacity: 0.8;
     }
