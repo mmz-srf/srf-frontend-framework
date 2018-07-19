@@ -131,6 +131,11 @@ body.body--loading.body--loading {
     flex-grow: 1;
   }
   .collection__teaser-item {
+    //only show the first 5 items
+    display: none;
+    &:nth-child(-n+5) {
+      display: block;
+    }
     @include tablet-up {
       flex-grow: 0;
       flex-shrink: 0;
