@@ -77,7 +77,7 @@ export class FefModal {
      * Show the modal, depending on the provided animation.
      */
     show() {
-        let onShowFinished = () => {
+        const onShowFinished = () => {
             this.preventScrolling();
 
             if (this.$focusTarget.length === 1 && (FefResponsiveHelper.isDesktop() || FefResponsiveHelper.isDesktopWide()) ) {
@@ -97,9 +97,6 @@ export class FefModal {
                 break;
         }
 
-        
-        
-        
     }
 
     /**
