@@ -110,6 +110,7 @@ export class FefSubnav {
         $navItem.find('.expand-icon').removeClass('expand-icon--open');
 
         this.$element.removeClass('subnav--open-3rd-level');
+        $('body').removeClass('l-dimmed-background');
 
         $wrapper.animate({'opacity': 0}, 200, 'easeInOutCubic', () => {
             $navItem.removeClass(`${ITEM_OPEN_GROUP_CLASS} nav-group--open`);
@@ -130,6 +131,10 @@ export class FefSubnav {
         }
 
         this.$element.addClass('subnav--open-3rd-level');
+
+        if(FefResponsiveHelper.isSmartphone()) {
+            $('body').addClass('l-dimmed-background');
+        }
 
         // Listen to clicks outside of the element and Escape keypress --> close element
         $(document).on(OUTSIDE_CLICK_LISTENER_NAME, (e) => {
