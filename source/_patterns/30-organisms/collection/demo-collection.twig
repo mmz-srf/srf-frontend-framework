@@ -2,6 +2,12 @@
 <button class="button js-close-all">Close all</button>
 <button class="button js-open-all">Open all</button>
 
+<style>
+    .collection--branded {
+        background-image: linear-gradient(120deg, #be7878, #121c33);
+    }
+</style>
+
 <div class="js-collection-wrapper">
 <h3>Hero, 1 Teaser</h3>
 <div class="js-collection-wrapper-content">
@@ -383,6 +389,54 @@
 </div>
 
 <div class="js-collection-wrapper">
+<h3>Standard, Title Link</h3>
+<div class="js-collection-wrapper-content">
+{% include 'organisms-collection' with {
+    'styleModifier': 'collection--standard',
+    'collection': {
+        "title": "News Schweiz",
+        "titleLink": "https://www-test.srf.ch/news/wirtschaft",
+        "lead": "1996 schrieb John Perry Barlow die «Unabhängigkeitserklärung des Cyberspace». Darin kritisierte er Poeten.",
+        "type": "standard",
+        "teasers": [
+            {
+                "title": "Wissenschaftler sagen: Kühe geben Milch. Stadtbewohner erstaunt und entrüstet: 'Igitt!'",
+                "kicker": "Milchsee",
+                "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+                "link": "#",
+                "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet."
+            }
+        ]
+    }
+} %}
+</div>
+</div>
+
+<div class="js-collection-wrapper">
+<h3>Standard, Title Link, Branded</h3>
+<div class="js-collection-wrapper-content">
+{% include 'organisms-collection' with {
+    'styleModifier': 'collection--standard collection--branded',
+    'collection': {
+        "title": "News Schweiz",
+        "titleLink": "https://www-test.srf.ch/news/wirtschaft",
+        "lead": "1996 schrieb John Perry Barlow die «Unabhängigkeitserklärung des Cyberspace». Darin kritisierte er Poeten.",
+        "type": "standard",
+        "teasers": [
+            {
+                "title": "Wissenschaftler sagen: Kühe geben Milch. Stadtbewohner erstaunt und entrüstet: 'Igitt!'",
+                "kicker": "Milchsee",
+                "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+                "link": "#",
+                "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet."
+            }
+        ]
+    }
+} %}
+</div>
+</div>
+
+<div class="js-collection-wrapper">
 <h3>Standard + Lead</h3>
 <div class="js-collection-wrapper-content">
 {% include 'organisms-collection' with {
@@ -416,6 +470,114 @@
         "type": "standard",
         "teasers": [
             {
+                "title": "Wissenschaftler sagen: Kühe geben Milch. Stadtbewohner erstaunt und entrüstet: 'Igitt!'",
+                "kicker": "Milchsee",
+                "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+                "link": "#",
+                "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet."
+            }
+        ]
+    }
+} %}
+</div>
+</div>
+
+<div class="js-collection-wrapper">
+<h3>Compact, 2 Teaser</h3>
+<div class="js-collection-wrapper-content">
+{% include 'organisms-collection' with {
+    'styleModifier': 'collection--compact',
+    'collection': {
+        "title": "News Schweiz",
+        "type": "standard",
+        "teasers": [
+            {
+                "title": "Wissenschaftler sagen: Kühe geben Milch. Stadtbewohner erstaunt und entrüstet: 'Igitt!'",
+                "kicker": "Milchsee",
+                "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+                "link": "#",
+                "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet."
+            }, {
+                "title": "Wissenschaftler sagen: Kühe geben Milch. Stadtbewohner erstaunt und entrüstet: 'Igitt!'",
+                "kicker": "Milchsee",
+                "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+                "link": "#",
+                "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet."
+            }
+        ]
+    }
+} %}
+</div>
+</div>
+
+<div class="js-collection-wrapper">
+<h3>Compact, 3 Teaser</h3>
+<div class="js-collection-wrapper-content">
+{% include 'organisms-collection' with {
+    'styleModifier': 'collection--compact',
+    'collection': {
+        "title": "News Schweiz",
+        "type": "standard",
+        "teasers": [
+            {
+                "title": "Wissenschaftler sagen: Kühe geben Milch. Stadtbewohner erstaunt und entrüstet: 'Igitt!'",
+                "kicker": "Milchsee",
+                "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+                "link": "#",
+                "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet."
+            }, {
+                "title": "Wissenschaftler sagen: Kühe geben Milch. Stadtbewohner erstaunt und entrüstet: 'Igitt!'",
+                "kicker": "Milchsee",
+                "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+                "link": "#",
+                "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet."
+            }, {
+                "title": "Wissenschaftler sagen: Kühe geben Milch. Stadtbewohner erstaunt und entrüstet: 'Igitt!'",
+                "kicker": "Milchsee",
+                "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+                "link": "#",
+                "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet."
+            }
+        ]
+    }
+} %}
+</div>
+</div>
+
+<div class="js-collection-wrapper">
+<h3>Compact, 5 Teaser</h3>
+<div class="js-collection-wrapper-content">
+{% include 'organisms-collection' with {
+    'styleModifier': 'collection--compact',
+    'collection': {
+        "title": "News Schweiz",
+        "type": "standard",
+        "teasers": [
+            {
+                "title": "Wissenschaftler sagen: Kühe geben Milch. Stadtbewohner erstaunt und entrüstet: 'Igitt!'",
+                "kicker": "Milchsee",
+                "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+                "link": "#",
+                "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet."
+            }, {
+                "title": "Wissenschaftler sagen: Kühe geben Milch. Stadtbewohner erstaunt und entrüstet: 'Igitt!'",
+                "kicker": "Milchsee",
+                "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+                "link": "#",
+                "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet."
+            }, {
+                "title": "Wissenschaftler sagen: Kühe geben Milch. Stadtbewohner erstaunt und entrüstet: 'Igitt!'",
+                "kicker": "Milchsee",
+                "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+                "link": "#",
+                "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet."
+            }, {
+                "title": "Wissenschaftler sagen: Kühe geben Milch. Stadtbewohner erstaunt und entrüstet: 'Igitt!'",
+                "kicker": "Milchsee",
+                "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+                "link": "#",
+                "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet."
+            }, {
                 "title": "Wissenschaftler sagen: Kühe geben Milch. Stadtbewohner erstaunt und entrüstet: 'Igitt!'",
                 "kicker": "Milchsee",
                 "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",

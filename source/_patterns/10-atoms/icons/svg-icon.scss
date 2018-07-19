@@ -26,6 +26,15 @@
   @include caret('grey', 'up', 'medium');
 }
 
+.svg-icon--searchmenu {
+  background-image: url(../img/icon/searchmenu.svg);
+  width: 26px;
+
+  &.svg-icon--small {
+    width: 17px;
+  }
+}
+
 .svg-icon--burger-dark {
   background-image: url(../img/icon/burger-dark.svg);
 }
