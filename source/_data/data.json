@@ -907,45 +907,107 @@
     {
       "title": "News Schweiz",
       "type": "standard",
-      "lead": "1996 schrieb John Perry Barlow die «Unabhängigkeitserklärung des Cyberspace». Darin kritisierte er Poeten.",
+      "lead": "Noch mehr Besucherzuwachs: Madame Tussauds freut sich über weiteres Umsatzplus.",
       "teasers": [
         {
-          "title": "Wissenschaftler sagen: Kühe geben Milch",
-          "kicker": "Milchsee",
+          "title": "Dschihadist portioniert Küchenfolie mit Schwert",
+          "kicker": "Alu abhackbar",
           "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
           "link": "#",
           "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet."
         },
         {
-          "title": "Kühe geben Milch",
-          "kicker": "Milchsee",
+          "title": "Anti-Merkel-Shirt vom Markt genommen",
+          "kicker": "Aufdruck der Kanzlerin",
           "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
           "link": "#",
           "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet."
         },
         {
-          "title": "Kühe geben Milch",
-          "kicker": "Milchsee",
+          "title": "Richtungsweisende Erfindung",
+          "kicker": "Kompass",
           "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
           "link": "#",
           "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet."
         },
         {
-          "title": "Kühe geben Milch",
-          "kicker": "Milchsee",
+          "title": "Betrunkener randalierte im Wald ",
+          "kicker": "Schlug Specht",
           "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
           "link": "#",
           "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet."
         },
         {
-          "title": "Kühe geben Milch",
-          "kicker": "Milchsee",
+          "title": "Meister Lampe nach Stadionbesuch angeschlagen",
+          "kicker": "Hasenreizung",
           "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
           "link": "#",
           "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet."
         }
       ]
-    }, {
+    },
+    {
+      "title": "Nur 3",
+      "type": "standard",
+      "teasers": [
+        {
+          "title": "Kleinkind weiß schon, wie die Geschichte weitergeht",
+          "kicker": "Vorgelesen",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet."
+        },
+        {
+          "title": "Stalker will Vorwürfe der Belästigung selbst überprüfen",
+          "kicker": "Geht dem nach",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet."
+        },
+        {
+          "title": "Im Zoo lebender Wassermarder hat durchschnittlichen Fischkonsum",
+          "kicker": "Otter Normalverbraucher",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet."
+        }
+      ]
+    },
+    {
+      "title": "Nur 4",
+      "type": "standard",
+      "teasers": [
+        {
+          "title": "Kneipengast scheint Alkoholiker zu sein",
+          "kicker": "Immer Klarer",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet."
+        },
+        {
+          "title": "Haremsdame verrät geheimen Zugang zum Palast",
+          "kicker": "Kennt alle Scheichwege",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet."
+        },
+        {
+          "title": "Fahrschule geschlossen",
+          "kicker": "Bot nur Crashkurse an",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet."
+        },
+        {
+          "title": "Gesuchter Bankräuber mit Hund auf dem Arm kaum zu erkennen",
+          "kicker": "Trägt jetzt einen Schnauzer",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet."
+        }
+      ]
+    },
+    {
       "title": "Quidditch",
       "titleLink" : "https://www.swissquidditch.ch/",
       "type": "standard",

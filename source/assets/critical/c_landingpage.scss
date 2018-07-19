@@ -130,6 +130,18 @@ body.body--loading.body--loading {
     flex-direction: column;
     flex-grow: 1;
   }
+
+  .collection__teaser-item:first-child:nth-last-child(3),
+  .collection__teaser-item:first-child:nth-last-child(3) ~ .collection__teaser-item,
+  .collection__teaser-item:first-child:nth-last-child(4),
+  .collection__teaser-item:first-child:nth-last-child(4) ~ .collection__teaser-item {
+    &:nth-child(3) {
+      display: none;
+    }
+    &:nth-child(4) {
+      display: none;
+    }
+  }
   .collection__teaser-item {
     //only show the first 5 items
     &:nth-child(5) ~ .collection__teaser-item {
