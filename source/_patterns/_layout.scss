@@ -62,7 +62,7 @@
   background-color: $color-bg-box;
 }
 
-/* Dimmes Background – e.g. on open modal, or on open 3rd-level navigation */
+/* Dims Background – e.g. on open modal, or on open 3rd-level navigation */
 .l-dimmed-background::after {
   content: '';
   display: block;
