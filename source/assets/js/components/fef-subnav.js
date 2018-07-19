@@ -133,7 +133,7 @@ export class FefSubnav {
         this.$element.addClass('subnav--open-3rd-level');
 
         if(FefResponsiveHelper.isSmartphone()) {
-          $('body').addClass('l-dimmed-background');
+            $('body').addClass('l-dimmed-background');
         }
 
         // Listen to clicks outside of the element and Escape keypress --> close element
