@@ -131,6 +131,8 @@ body.body--loading.body--loading {
     flex-grow: 1;
   }
 
+  //special handling for collections having 3 or 4 items
+  //these don't fit into the duo + 3 m-teaser scheme, so we simply hide teaser number 3 (and 4)
   .collection__teaser-item:first-child:nth-last-child(3),
   .collection__teaser-item:first-child:nth-last-child(3) ~ .collection__teaser-item,
   .collection__teaser-item:first-child:nth-last-child(4),
@@ -143,7 +145,7 @@ body.body--loading.body--loading {
     }
   }
   .collection__teaser-item {
-    //only show the first 5 items
+    //only show the first 5 items, hide the surplus
     &:nth-child(5) ~ .collection__teaser-item {
       display: none;
     }
