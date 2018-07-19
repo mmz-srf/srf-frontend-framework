@@ -79,12 +79,13 @@ gulp.task('images', function() {
             imagemin.gifsicle(),
             imagemin.optipng(),
             imagemin.svgo({plugins: [{
-              removeTitle: true,
-            },{
-              removeDesc: true,
-            },{
-              convertShapeToPath: false,
-            }]})
+                    removeTitle: true,
+                },{
+                    removeDesc: true,
+                },{
+                    convertShapeToPath: false,
+                }]
+            })
         ]))
         .pipe(gulp.dest('public/assets/img'))
 });
