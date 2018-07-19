@@ -78,7 +78,7 @@ gulp.task('images', function() {
         .pipe(imagemin([
             imagemin.gifsicle(),
             imagemin.optipng(),
-            imagemin.svgo({plugins: [{convertShapeToPath: false}]})
+            imagemin.svgo()
         ]))
         .pipe(gulp.dest('public/assets/img'))
 });
