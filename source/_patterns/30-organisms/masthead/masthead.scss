@@ -4,6 +4,7 @@
 
 
 .masthead {
+  height: auto; /* OVERRIDE CRITICAL CSS */
   position: relative;
   z-index: 100;
   box-shadow: $shadow-organisms;
@@ -96,6 +97,7 @@
   font-feature-settings: "salt";
   font-size: 32px;
   line-height: 1.25;
+  font-weight: normal; /* OVERRIDE CRITICAL CSS */
   color: $color-text-default;
   color: var(--theme-color-title, $color-text-default);
 
@@ -107,6 +109,7 @@
 }
 
 .masthead__universal {
+  min-height: 0; /* OVERRIDE CRITICAL CSS */
   display: flex;
   align-items: center;
 }
@@ -123,6 +126,7 @@
 .masthead__portals {
   flex: 1 1 auto;
   margin-left: 10px;
+  font-weight: normal; /* OVERRIDE CRITICAL CSS */
 
   @include desktop-down {
     display: none;
@@ -138,6 +142,11 @@
 }
 
 .masthead__button-wrapper {
+  /* OVERRIDE CRITICAL CSS */
+  opacity: 1;
+  min-height: 0;
+  /***/
+  display: block;
   font-size: 0; // removes space between inline-block child elements
   margin-right: -16px;
 
@@ -161,6 +170,7 @@
 }
 
 .masthead__nav {
+  opacity: 1; /* OVERRIDE CRITICAL CSS */
   width: calc(100% + 64px);
   margin: 0 -32px;
 

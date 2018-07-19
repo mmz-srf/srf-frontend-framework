@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width" />
     <link rel="stylesheet" href="../../assets/demo/css/pattern-scaffolding.css?{{ cacheBuster }}" media="all" />
-    {% if not noCss|default(false) %}
+    <link rel="stylesheet" href="../../assets/css/{{ criticalCssFile|default('c_article.css') }}?{{ cacheBuster }}" media="all" />
+    {% if not criticalCssOnly|default(false) %}
     <link rel="stylesheet" href="../../assets/css/main.css?{{ cacheBuster }}" media="all" />
     {% endif %}
 

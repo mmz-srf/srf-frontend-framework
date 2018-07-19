@@ -1,9 +1,21 @@
-@import "global";
-@import "nav";
+/*! autoprefixer: off */
 
-.article-main-media, .article-content {
+@import '../../_patterns/variables';
+@import '../../_patterns/breakpoints';
+@import '../../_patterns/mixins';
+@import '../../_patterns/10-atoms/indicators/shimmer';
+@import 'global';
+@import 'legacy_header';
+@import 'header';
+@import 'footer';
+
+.article-main-media,
+.article-content,
+.article-comments,
+.swipemod,
+.related-items-list {
   opacity: 0;
-  transition: opacity ease-out 1000ms;
+  transition: opacity ease-out 1000ms, min-height ease-out 1000ms;
 }
 
 .breadcrumb__link {
@@ -22,11 +34,60 @@
   letter-spacing: -0.3px;
 }
 
+.article-author__date {
+  display: none;
+}
+
+.article-author__shimmer {
+  display: block;
+  width: 120px;
+}
+
+
+.sharing-bar {
+  margin-top: 20px;
+  margin-bottom: 24px;
+  width: 100%;
+  background-color: transparent;
+  text-align: center;
+
+  @include smartphone {
+    margin-top: 28px;
+    margin-bottom: 24px
+  }
+}
+
+.sharing-bar__container {
+  padding: 0 12px;
+  background-color: #fff;
+  margin: 0 auto;
+  display: inline-block;
+  position: relative;
+
+  @include smartphone {
+    padding: 0 10px
+  }
+}
 
 .sharing-bar__button {
+  width: 40px;
+  height: 40px;
+  margin: 4px 6px;
+  float: left;
   border-radius: 50%;
   color: transparent;
+
+  @include smartphone {
+    margin: 4px
+  }
 }
+
+.sharing-bar__button,
+.sharing-bar__summary {
+  font-size: 12px;
+  line-height: 1.33;
+}
+
 .sharing-bar__button--facebook {
   background-color: #3464A5;
 }
@@ -37,105 +98,20 @@
   background-color: #4E4D47;
 }
 .sharing-bar__button--whatsapp {
+  display: none;
   background-color: #4ECE5B;
-}
 
-
-.shim {
-  transition: opacity ease-out 500ms;
-  display: block;
-}
-
-.shim__text {
-  height: 96px;
-  overflow: hidden;
-  margin-top: 32px;
-  padding: 0 24px;
-
-}
-@media (min-width: 720px) {
-  .shim__text {
-    padding: 0 16px
+  @include smartphone {
+    display: inline-block
   }
-}
-
-
-.shim__small {
-  display: flex;
-  flex-direction: column;
-}
-
-.shim__small .shimmer-box {
-  height: 12px;
-  margin-bottom: 4px;
-  width: 120px;
-  overflow: hidden;
-  margin-top: 0;
-}
-
-.shim__small .shimmer-box--short {
-  width: 88px;
 }
 
 .shimmer-box {
-  width: 100%;
-  height: 20px;
-  margin-bottom: 12px;
-  background: #eae9e5;
-  position: relative;
-  overflow: hidden;
-  display: block;
-}
-
-@media (max-width: 719px) {
-  .shim.shim__text {
-    margin-top: 24px;
-  }
-  .shimmer-box {
-    height: 18px;
-    margin-bottom: 10px;
-  }
-}
-
-.shimmer-box--short {
-  width: 75%;
-}
-
-.shimmer-box--shimmer {
-  background: linear-gradient(90deg, rgba(202, 200, 191, 0) 10%, rgba(202, 200, 191, 1) 50%, rgba(202, 200, 191, 0) 90%); /* w3c */
-  width: 800px;
-  position: absolute;
-  left: 0;
-  height: 100%;
-  animation-duration: 2.5s;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
-  animation-name: shimmering;
-  display: block;
-
-}
-.shim .shimmer-box:nth-child(2) .shimmer-box--shimmer{
-  animation-delay: 0.05s;
-
-}
-.shim .shimmer-box:nth-child(3) .shimmer-box--shimmer{
-  animation-delay: 0.1s;
-
-}
-
-@keyframes shimmering {
-  0% {
-    transform: translateX(-800px);
-  }
-  100% {
-    transform: translateX(2000px);
-  }
+  margin: 36px 0;
+  @include article-text-padding;
 }
 
 
-.carousel {
-  max-width: 100%;
-}
 
 ul {
   margin: 12px 0 24px;
@@ -146,11 +122,6 @@ ul {
 
 b, h1, h2, h3, h4, strong {
   font-weight: 400
-}
-
-a {
-  text-decoration: none;
-  color: #c91024;
 }
 
 img {
@@ -164,25 +135,23 @@ img {
   margin: 0 auto;
   max-width: 1200px;
   min-width: 320px;
+
+  @include desktop {
+      margin-left: 32px;
+      margin-right: 32px;
+    }
 }
-@media (min-width: 1024px) and (max-width: 1279px) {
-  .l-main-wrapper {
-    margin-left: 32px;
-    margin-right: 32px;
-  }
-}
+
 .l-main-wrapper__space {
   margin-left: 8px;
   margin-right: 8px;
-}
-@media (min-width: 720px) and (max-width: 1023px) {
-  .l-main-wrapper__space {
+
+  @include tablet {
     margin-left: 32px;
     margin-right: 32px;
   }
-}
-@media (min-width: 1024px) {
-  .l-main-wrapper__space {
+
+  @include desktop-up {
     margin-left: auto;
     margin-right: auto;
   }
@@ -195,26 +164,21 @@ img {
   margin-bottom: 20px;
   margin-top: -1px;
   padding-top: 1px;
-}
-@media (min-width: 720px) {
-  .l-card {
+
+  @include tablet-up {
     margin-bottom: 24px;
   }
 }
 
 .article {
-  margin: 0 auto
-}
+  margin: 0 auto;
 
-@media (min-width: 720px) and (max-width: 1023px) {
-  .article {
+  @include tablet {
     max-width: 720px;
     padding: 0 32px
   }
-}
 
-@media (min-width: 1024px) {
-  .article {
+  @include desktop-up {
     padding: 0 40px;
     max-width: 792px
   }
@@ -222,10 +186,8 @@ img {
 
 .article-title {
   margin: 22px 0 0;
-}
 
-@media (max-width: 719px) {
-  .article-title {
+  @include smartphone {
     margin: 16px 0 0;
   }
 }
@@ -236,11 +198,9 @@ img {
   font-weight: 400;
   font-size: 36px;
   line-height: 43px;
-  color: #22211d
-}
+  color: #22211d;
 
-@media (max-width: 719px) {
-  .article-title__text {
+  @include smartphone {
     margin: 0 0 13px;
     font-size: 32px;
     line-height: 40px;
@@ -254,10 +214,8 @@ img {
   line-height: 24px;
   color: #c91024;
   display: block;
-}
 
-@media (max-width: 719px) {
-  .article-title__overline {
+  @include smartphone {
     margin: 0;
     font-size: 16px;
   }
@@ -268,11 +226,9 @@ img {
   font-size: 22px;
   line-height: 32px;
   color: #4e4d47;
-  font-family: "SRG_SSR_Light", sans-serif
-}
+  font-family: "SRG_SSR_Light", sans-serif;
 
-@media (max-width: 719px) {
-  .article-lead {
+  @include smartphone {
     margin: 13px 0 17px;
     font-size: 20px;
     line-height: 30px;
@@ -282,10 +238,8 @@ img {
 
 .article-author {
   margin: 22px 0 20px;
-}
 
-@media (max-width: 719px) {
-  .article-author {
+  @include smartphone {
     margin: 17px 0 26px;
   }
 }
@@ -300,20 +254,15 @@ img {
 
 .article-author__date {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  font-family: $font-system;
   font-size: 12px;
   line-height: 16px;
   color: #6b6960
 }
 
-@media (min-width: 720px) {
-  ul {
-    padding: 0 16px
-  }
-}
-
-@media (max-width: 719px) {
-  ul {
+ul {
+  padding: 0 16px;
+  @include smartphone {
     margin: 8px 0 20px
   }
 }
@@ -321,11 +270,9 @@ img {
 ul li {
   position: relative;
   margin: 12px 0;
-  padding-left: 1.5em
-}
+  padding-left: 1.5em;
 
-@media (max-width: 719px) {
-  ul li {
+  @include smartphone {
     margin: 8px 0
   }
 }
@@ -379,11 +326,9 @@ ul > li::before {
   margin: 24px -24px 20px;
   height: 1px;
   border: 0;
-  background: #ebebe5 50% 0 no-repeat
-}
+  background: #ebebe5 50% 0 no-repeat;
 
-@media (max-width: 719px) {
-  .horizontal-separator {
+  @include smartphone {
     margin-top: 32px;
     margin-bottom: 24px
   }
@@ -392,25 +337,19 @@ ul > li::before {
 .horizontal-separator--withcontent {
   position: relative;
   top: 25px;
-  margin: 0
-}
+  margin: 0;
 
-@media (min-width: 720px) and (max-width: 1023px) {
-  .horizontal-separator--content-max-width {
-    margin-left: calc((100vw - 100%) / 2 * -1);
-    margin-right: calc((100vw - 100%) / 2 * -1);
+  @include tablet {
+      margin-left: calc((100vw - 100%) / 2 * -1);
+      margin-right: calc((100vw - 100%) / 2 * -1);
   }
-}
-@media (min-width: 1024px) and (max-width: 1279px) {
-  .horizontal-separator--content-max-width {
-    margin-left: calc(((100vw - 100%) / 2 - 32px) * -1);
-    margin-right: calc(((100vw - 100%) / 2 - 32px) * -1);
+  @include desktop {
+      margin-left: calc(((100vw - 100%) / 2 - 32px) * -1);
+      margin-right: calc(((100vw - 100%) / 2 - 32px) * -1);
   }
-}
-@media (min-width: 1280px) {
-  .horizontal-separator--content-max-width {
-    margin-left: calc((1200px - 100%) / 2 * -1);
-    margin-right: calc((1200px - 100%) / 2 * -1);
+  @include desktop-wide {
+      margin-left: calc((1200px - 100%) / 2 * -1);
+      margin-right: calc((1200px - 100%) / 2 * -1);
   }
 }
 
@@ -420,16 +359,15 @@ ul > li::before {
   font-size: 20px;
   line-height: 32px;
   letter-spacing: .3px;
-  color: #22211d
-}
+  color: #22211d;
 
-@media (max-width: 719px) {
-  .article-content {
+  @include smartphone {
     font-size: 18px;
     line-height: 28px;
     letter-spacing: .5px
   }
 }
+
 
 .article-content > h2 {
   padding: 0 24px;
@@ -437,70 +375,55 @@ ul > li::before {
   font-family: "SRG_SSR_Medium", sans-serif;
   font-size: 24px;
   line-height: 32px;
-  letter-spacing: .3px
-}
+  letter-spacing: .3px;
 
-@media (min-width: 720px) {
-  .article-content > h2 {
-    padding: 0 16px
-  }
-}
-
-@media (max-width: 719px) {
-  .article-content > h2 {
+  @include smartphone {
     margin: 24px 0 12px;
     font-size: 22px;
     line-height: 28px;
     letter-spacing: .3px
   }
-}
 
-.article-content > p {
-  padding: 0 24px;
-  margin: 12px 0 24px
-}
-
-@media (min-width: 720px) {
-  .article-content > p {
+  @include tablet-up {
     padding: 0 16px
   }
 }
 
-@media (max-width: 719px) {
-  .article-content > p {
+.article-content > p {
+  padding: 0 24px;
+  margin: 12px 0 24px;
+
+  @include smartphone {
     margin: 12px 0 20px
+  }
+
+  @include tablet-up {
+    padding: 0 16px
   }
 }
 
 .article-header {
   padding: 0 24px;
-}
 
-@media (min-width: 720px) {
-  .article-header {
+  @include tablet-up {
     padding: 0 16px;
   }
 }
 
 
 .breadcrumbs {
-  margin: 16px auto 12px;
   padding: 0 24px;
   white-space: nowrap;
   overflow-x: auto;
   max-width: 624px;
-}
 
-@media (min-width: 720px) {
-  .breadcrumbs {
+  @include tablet-up {
     max-width: 624px;
     margin: 24px auto 12px;
     padding: 0;
   }
-}
 
-@media (min-width: 1024px) {
-  .breadcrumbs {
+  @include desktop-up {
     max-width: 680px;
     margin: 24px auto 12px;
   }
@@ -514,38 +437,6 @@ ul > li::before {
 
 .breadcrumbs__item::before, .navigation-item::before, .navigation__group-item::before {
   content: none
-}
-
-.header {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .24);
-}
-
-.header-bar {
-  min-height: 50px;
-  background: linear-gradient(to bottom, #313131, #212121);
-}
-
-.header + .l-card {
-  margin-top: 50px;
-}
-
-.header-bar-wrapper,
-.header-navigation {
-  display: none;
-}
-
-@media (min-width: 720px) {
-  .header-bar {
-    min-height: 56px;
-  }
-
-  .header + .l-card {
-    margin-top: 56px;
-  }
 }
 
 body::after {
@@ -571,62 +462,8 @@ body::after {
   display: none;
 }
 
-.sharing-bar {
-  margin-top: 20px;
-  margin-bottom: 24px;
-  width: 100%;
-  background-color: transparent;
-  text-align: center
-}
-
-@media (max-width:719px) {
-  .sharing-bar {
-    margin-top: 28px;
-    margin-bottom: 24px
-  }
-}
-
-.sharing-bar__container {
-  padding: 0 12px;
-  background-color: #fff;
-  margin: 0 auto;
-  display: inline-block;
-  position: relative
-}
-
-@media (max-width:719px) {
-  .sharing-bar__container {
-    padding: 0 10px
-  }
-}
-
-.sharing-bar__button,.sharing-bar__summary {
-  font-size: 12px;
-  line-height: 1.33;
-}
-
-.sharing-bar__button {
-  width: 40px;
-  height: 40px;
-  margin: 4px 6px;
-  float: left;
-  border-radius: 50%
-}
-
-@media (max-width:719px) {
-  .sharing-bar__button {
-    margin: 4px
-  }
-}
-
-.sharing-bar__button--whatsapp {
-  display: none;
-}
-
-@media (max-width:719px) {
-  .sharing-bar__button--whatsapp {
-    display: inline-block
-  }
+.carousel {
+  max-width: 100%;
 }
 
 .media-preloading {
@@ -638,4 +475,3 @@ body::after {
   height: 150px;
   background-color: #f5f5f2;
 }
-

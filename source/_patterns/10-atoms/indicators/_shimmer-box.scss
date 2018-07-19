@@ -1,0 +1,9 @@
+.shimmer-box {
+  display: none; /* OVERRIDING CRITICAL CSS */
+  margin: 36px 0;
+  @include article-text-padding;
+}
+
+.shimmer-box--visible {
+  display: block;
+}

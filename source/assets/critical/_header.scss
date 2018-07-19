@@ -1,0 +1,167 @@
+@import '../../_patterns/variables';
+@import '../../_patterns/breakpoints';
+
+.masthead {
+  height: 192px;
+  margin-bottom: 24px;
+
+  position: relative;
+  z-index: 100;
+  box-shadow: $shadow-organisms;
+  padding: 8px 32px 0;
+
+  /* fallback */
+  background: linear-gradient(
+                  117deg,
+                  $theme-default-color-1,
+                  $theme-default-color-1 20%,
+                  $theme-default-color-2 40%,
+                  $theme-default-color-2
+  );
+
+  @include smartphone {
+    height: 164px;
+    margin-bottom: 16px;
+    padding: 0 16px;
+  }
+}
+
+.masthead__wrapper {
+  max-width: $content-width;
+  margin: 0 auto;
+  position: relative;
+}
+
+.masthead--home {
+  height: 112px;
+
+  @include tablet-up {
+    height: 80px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+}
+
+.masthead--compact {
+  height: 56px;
+  margin-bottom: 0;
+  padding-top: 0;
+}
+
+
+.masthead__universal {
+  display: flex;
+  align-items: center;
+  min-height: 40px;
+
+  @include smartphone {
+    min-height: 56px;
+  }
+}
+
+.masthead__logo {
+  display: flex;
+  flex: 0 0 auto;
+}
+
+.main-logo {
+  width: 36px;
+  height: 24px;
+  background-color: $color-srf;
+}
+
+.main-logo--large {
+  @include tablet-up {
+    width: 48px;
+    height: 32px;
+  }
+}
+
+.masthead__portals {
+  flex: 1 1 auto;
+  margin-left: 10px;
+
+  @include desktop-down {
+    display: none;
+  }
+
+  .masthead--home & {
+    @include tablet-up {
+      display: flex;
+    }
+  }
+}
+
+.masthead--home {
+  height: 112px;
+
+  @include tablet-up {
+    height: 80px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+}
+
+.portalsnav {
+  padding: 0;
+  margin: 0;
+  display: flex;
+
+  li {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+
+    &:before {
+      display: none;
+    }
+  }
+}
+
+.portalsnav--large {
+  .portalsnav__link {
+    padding: 16px 10px;
+    font-size: 18px;
+    line-height: 1.33;
+    letter-spacing: 0.2px;
+  }
+}
+
+.portalsnav__link {
+  display: inline-block;
+  padding: 12px 10px;
+  border-bottom: none;
+  font-family: $font-bold;
+  font-size: 14px;
+  line-height: 1.14;
+  letter-spacing: 0.4px;
+  color: $color-text-accentuation;
+}
+
+.masthead__nav,
+.masthead__button-wrapper {
+  opacity: 0;
+  transition: opacity ease-out 1000ms;
+}
+
+.masthead__button-wrapper {
+  min-height: 56px;
+}
+
+.masthead__title {
+  margin: 6px 0 4px -2px;
+  font-size: 32px;
+  line-height: 1.25;
+  font-weight: 900;
+
+  @include tablet-up {
+    margin: 11px 0 13px -2px;
+    font-size: 40px;
+    line-height: 1.2;
+  }
+}
+
+.subnav__list{
+  max-height: 56px;
+  overflow: hidden;
+}

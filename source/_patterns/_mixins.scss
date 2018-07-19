@@ -169,7 +169,7 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-@mixin spinner($line-width: 1px, $dash-color: #e31f2b, $bg-color: #dadad2, $parent-color: #4e4d47) {
+@mixin spinner($line-width: 1px, $dash-color: $color-srf-light, $bg-color: #dadad2, $parent-color: #4e4d47) {
 
   position: relative;
   height: 24px;
@@ -252,6 +252,17 @@
   }
 }
 
+@mixin forceWidescreenAspectRatio() {
+  &::before {
+    content: "";
+    width: 1px;
+    margin-left: -1px;
+    float: left;
+    height: 0;
+    padding-top: 56.25%;
+  }
+}
+
 @mixin breakLongWords {
   word-break: break-word;
   overflow-wrap: break-word;
@@ -305,4 +316,8 @@
   } @else {
     background-size: 70%;
   }
+}
+
+@mixin calculateTeaserFlexBasis($nrOfRows, $gutter) {
+    flex-basis: calc((100% - #{$nrOfRows - 1} * #{$gutter}) / #{$nrOfRows + 0.001});
 }

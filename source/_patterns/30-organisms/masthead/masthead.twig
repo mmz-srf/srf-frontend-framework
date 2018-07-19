@@ -9,14 +9,11 @@
         {% include 'molecules-portalsnav' with {'styleModifier': ''} %}
       </div>
       <div class="masthead__button-wrapper">
-        <button class="masthead__button masthead__button--search" data-modal-id="modal-search">
-            {% include 'atoms-icon-button' with {'iconStyleModifier': 'svg-icon--search-dark', 'buttonText': 'Suche'} %}
-        </button>
         <button class="masthead__button" data-modal-id="modal-onairnav">
           {% include 'atoms-icon-button' with {'iconStyleModifier': 'svg-icon--tv-radio', 'buttonText': 'TV/Radio'} %}
         </button>
         <button class="masthead__button" data-modal-id="modal-menu">
-          {% include 'atoms-icon-button' with {'iconStyleModifier': 'svg-icon--burger-dark', 'buttonText': 'Menu', 'styleModifier': 'icon-button--collapsing-text-tablet icon-button--spaceless-right-tablet'} %}
+          {% include 'atoms-icon-button' with {'iconStyleModifier': 'svg-icon--searchmenu', 'buttonText': 'Menü', 'styleModifier': 'icon-button--collapsing-text-tablet icon-button--spaceless-right-tablet'} %}
         </button>
       </div>
     </div>

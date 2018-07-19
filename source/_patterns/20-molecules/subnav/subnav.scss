@@ -11,8 +11,11 @@
 }
 
 .subnav__list {
+  display: flex;
   position: relative; // fixes visible scrollbars in chrome android (and desktop, when scrollbars are generally visible)
+  box-sizing: content-box;
   height: 100%;
+  max-height: none; /* OVERRIDE CRITICAL CSS */
   margin: 0;
   padding: 0 16px;
   overflow-y: hidden;
@@ -23,8 +26,6 @@
   // stretching list height to move scrollbar out of visible area
   // assuming that no scrollbar is higher than 30px
   padding-bottom: 30px;
-  box-sizing: content-box;
-  display: flex;
 }
 
 .subnav__list-item {
