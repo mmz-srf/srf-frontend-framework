@@ -132,9 +132,8 @@ body.body--loading.body--loading {
   }
   .collection__teaser-item {
     //only show the first 5 items
-    display: none;
-    &:nth-child(-n+5) {
-      display: block;
+    &:nth-child(5) ~ .collection__teaser-item {
+      display: none;
     }
     @include tablet-up {
       flex-grow: 0;
