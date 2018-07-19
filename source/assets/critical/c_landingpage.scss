@@ -8,17 +8,6 @@
 @import '../../_patterns/10-atoms/indicators/shimmer';
 @import '../../_patterns/40-templates/landingpage';
 
-.l-main-wrapper {
-  max-width: $content-width;
-  min-width: $smartphone-size;
-  margin: 0 auto;
-
-  @include desktop {
-    margin-right: 32px;
-    margin-left: 32px;
-  }
-}
-
 //PASCALS STUFF
 body.body--loading.body--loading {
   .h-loading-only {
