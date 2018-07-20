@@ -24,13 +24,13 @@
 
             {% if 'collection--standard' in styleModifier %}
                 {# STANDARD: all M teasers #}
-                {% set teaserFormat = 'teaser--size-m' %}
+                {% set teaserFormat = 'teaser--size-m teaser--size-s-on-mobile' %}
             {% elseif 'collection--hero' in styleModifier %}
                 {# HERO: 1 XL, all others M #}
-                {% set teaserFormat = loop.index == 1 ? 'teaser--size-xl' : 'teaser--size-m' %}
+                {% set teaserFormat = loop.index == 1 ? 'teaser--size-xl' : 'teaser--size-m teaser--size-s-on-mobile' %}
             {% elseif 'collection--duo' in styleModifier %}
                 {# DUO: 2 L (2nd L looks like S on mobile), all others M #}
-                {% set teaserFormat = loop.index == 1 ? 'teaser--size-l' : (loop.index == 2 ? 'teaser--size-l-but-s-on-mobile' : 'teaser--size-m') %}
+                {% set teaserFormat = loop.index == 1 ? 'teaser--size-l' : (loop.index == 2 ? 'teaser--size-l teaser--size-s-on-mobile' : 'teaser--size-m teaser--size-s-on-mobile') %}
             {% elseif ('collection--swipeable' in styleModifier or 'collection--compact' in styleModifier or 'collection--compact-swipeable' in styleModifier) %}
                 {# SWIPEABLE, COMPACT, COMPACT SWIPEABLE: all S teasers #}
                 {% set teaserFormat = 'teaser--size-s' %}
