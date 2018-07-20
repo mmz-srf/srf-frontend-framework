@@ -17,7 +17,7 @@
 
 <div class='js-togglable-wrapper togglable-wrapper'>
     {% include 'molecules-teaser' with {
-        "styleModifier": "teaser--s",
+        "styleModifier": "teaser--size-s",
         "teaser": collections[0].teasers[0]
     } %}
 </div>
@@ -26,7 +26,7 @@
 
 <div class='js-togglable-wrapper togglable-wrapper'>
     {% include 'molecules-teaser' with {
-        "styleModifier": "teaser--m",
+        "styleModifier": "teaser--size-m",
         "teaser": collections[0].teasers[0]
     } %}
 </div>
@@ -35,7 +35,7 @@
 
 <div class='js-togglable-wrapper togglable-wrapper'>
     {% include 'molecules-teaser' with {
-        "styleModifier": "teaser--l",
+        "styleModifier": "teaser--size-l",
         "teaser": collections[0].teasers[0]
     } %}
 </div>
@@ -44,7 +44,7 @@
 
 <div class='js-togglable-wrapper togglable-wrapper'>
     {% include 'molecules-teaser' with {
-        "styleModifier": "teaser--l-but-s-on-mobile",
+        "styleModifier": "teaser--size-l-but-s-on-mobile",
         "teaser": collections[0].teasers[0]
     } %}
 </div>
@@ -53,7 +53,7 @@
 
 <div class='js-togglable-wrapper togglable-wrapper'>
     {% include 'molecules-teaser' with {
-        "styleModifier": "teaser--xl",
+        "styleModifier": "teaser--size-xl",
         "teaser": collections[0].teasers[0]
     } %}
 </div>
@@ -65,52 +65,6 @@
         "styleModifier": "",
         "teaser": collections[0].teasers[0]
     } %}
-</div>
-
-<h2>Collection examples, not yet functional or finished</h2>
-
-<div class="collection">
-    <h3 class="collection__title">S-Teasers</h3>
-    <ul class="collection__teaser-list">
-        {% for teaser in collections[0].teasers %}
-            <li class="collection__teaser-item teaser__wrapper">
-                {% include 'molecules-teaser' with {'teaser': teaser, 'styleModifier': 'teaser--s'} %}
-            </li>
-        {% endfor %}
-    </ul>
-</div>
-
-<div class="collection">
-    <h3 class="collection__title">M-Teasers</h3>
-    <ul class="collection__teaser-list">
-        {% for teaser in collections[0].teasers %}
-            <li class="collection__teaser-item teaser__wrapper">
-                {% include 'molecules-teaser' with {'teaser': teaser, 'styleModifier': 'teaser--m'} %}
-            </li>
-        {% endfor %}
-    </ul>
-</div>
-
-<div class="collection">
-    <h3 class="collection__title">L-Teasers</h3>
-    <ul class="collection__teaser-list">
-        {% for teaser in collections[0].teasers %}
-            <li class="collection__teaser-item teaser__wrapper">
-                {% include 'molecules-teaser' with {'teaser': teaser, 'styleModifier': 'teaser--l'} %}
-            </li>
-        {% endfor %}
-    </ul>
-</div>
-
-<div class="collection">
-    <h3 class="collection__title">XL-Teasers</h3>
-    <ul class="collection__teaser-list">
-        {% for teaser in collections[0].teasers %}
-            <li class="collection__teaser-item teaser__wrapper">
-                {% include 'molecules-teaser' with {'teaser': teaser, 'styleModifier': 'teaser--xl'} %}
-            </li>
-        {% endfor %}
-    </ul>
 </div>
 
 <script>

@@ -120,7 +120,7 @@
 
 /**
  * Teasers don't know anything about the containing collection. They are
- * controlled by a) the style modifier (like teaser--s, teaser--m, ...) and
+ * controlled by a) the style modifier (like teaser--size-s, teaser--size-m, ...) and
  * b) the viewport width. That's it. A teaser in the "S" format behaves and
  * looks the same, no matter which collection type it is in.
  *
