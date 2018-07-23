@@ -38,6 +38,8 @@
   }
 
   .onairnav-list__element {
+    display: flex;
+    flex-direction: column;
     flex: 0 1 100%;
     margin: 0;
     padding: 0;
@@ -56,6 +58,10 @@
       display: none;
     }
   }
+}
+
+.onairnav-link {
+  flex-grow: 1;
 }
 
 .onairnav-list--compact {
