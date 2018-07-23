@@ -41,6 +41,10 @@
   margin-top: 2px;
 }
 
+.form-fieldset__hint--on-error {
+  color: $color-accentuation-red;
+}
+
 .form__hint {
   font-family: $font-light;
   font-size: 14px;

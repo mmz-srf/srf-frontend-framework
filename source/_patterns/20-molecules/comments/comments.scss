@@ -536,6 +536,11 @@
   margin-top: 4px;
 }
 
+.reply__help--error-only {
+  display: none;
+  color: #c91024;
+}
+
 .reply__form-row {
   margin-bottom: 20px;
 }
@@ -544,8 +549,17 @@
   .reply__label {
     color: #c91024;
   }
+
   .reply__textfield {
     border-color: #c91024;
+  }
+
+  .reply__help--error-only {
+    display: block;
+  }
+
+  .checkbox-label::after {
+    border: 1px solid #c91024;
   }
 }
 .reply__textfield {
