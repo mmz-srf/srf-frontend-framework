@@ -5,10 +5,11 @@
   opacity: 0;
 
   // custom boxes (decorating the label)
+
   &:focus,
   &:active,
   &:checked {
-    + .checkbox-label {
+    + .checkbox--with-bg:not(.checkbox--inactive) {
       background-color: $color-bg-box-hover;
     }
   }
@@ -16,7 +17,7 @@
   &:checked {
     &:focus,
     &:hover {
-      + .checkbox-label {
+      + .checkbox--with-bg:not(.checkbox--inactive) {
         background-color: #cac8bf;
       }
     }
@@ -24,18 +25,47 @@
 
   &:checked,
   &:focus:checked {
-    + .checkbox-label {
+    /* + .checkbox-label:not(.checkbox--inactive) {
       &::after {
         border-color: $color-accentuation-red;
       }
 
       &::before {
         content: url('../img/red_tick.svg');
+        top: -2px;
+        left: 4px;
+      }
+    }
+
+    + .checkbox--with-bg:not(.checkbox--inactive) {
+      &::before {
         top: 13px;
         left: 20px;
       }
+    } */
+
+    + :not(.checkbox--inactive) {
+      &.checkbox-label {
+        &::after {
+          border-color: $color-accentuation-red;
+        }
+
+        &::before {
+          content: url('../img/red_tick.svg');
+          top: -2px;
+          left: 4px;
+        }
+      }
+
+      &.checkbox--with-bg {
+        &::before {
+          top: 13px;
+          left: 20px;
+        }
+      }
     }
-    + .checkbox--inactive {
+
+    /* + .checkbox--inactive {
       &::after {
         border-color: $color-text-light;
       }
@@ -43,12 +73,19 @@
       &::before {
         color: $color-text-light;
       }
-    }
+    } */
   }
 }
 
 .checkbox-label {
-  @include button-label;
+  position: relative;
+  display: block;
+  font: 16px/24px $font-light;
+  letter-spacing: .5px;
+  color: $color-text-default;
+  margin: 0 0 2px;
+  cursor: pointer;
+  padding: 0 0 0 32px;
 
   &::before,
   &::after {
@@ -57,20 +94,28 @@
   }
 
   &::after {
-    top: 17px;
-    left: 16px;
+    top: 2px;
+    left: 0;
     width: 16px;
     height: 16px;
     border: solid 1px $color-text-light;
   }
+}
 
-  &.checkbox--inactive:hover {
-    background-color: $color-bg-box;
+.checkbox--with-bg {
+  @include button-label;
+
+  &::after {
+    top: 17px;
+    left: 16px;
   }
+
+  // &.checkbox--inactive:hover { background-color: $color-bg-box; }
 }
 
 .checkbox--inactive {
   opacity: .48;
+  cursor: default;
 }
 
 .checkbox--on-error {
@@ -83,7 +128,7 @@
 
 // the "following" is about to move (e.g. become the standard)
 // and will be cleaned up!
-.checkbox--no-bg {
+/* .checkbox--no-bg {
   & + .checkbox-label {
     font-family: $font-light;
     background-color: transparent;
@@ -119,4 +164,4 @@
       }
     }
   }
-}
+} */
