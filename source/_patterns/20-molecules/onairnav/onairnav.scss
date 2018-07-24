@@ -38,8 +38,6 @@
   }
 
   .onairnav-list__element {
-    display: flex;
-    flex-direction: column;
     flex: 0 1 100%;
     margin: 0;
     padding: 0;
@@ -47,6 +45,11 @@
     @include tablet {
       flex-basis: calc(33.3334% - 2 * 12px);
       margin: 0 12px;
+    }
+
+    @include tablet-up {
+      display: flex;
+      flex-direction: column;
     }
 
     @include desktop-up {
@@ -61,7 +64,9 @@
 }
 
 .onairnav-link {
-  flex-grow: 1;
+  @include tablet-up {
+    flex-grow: 1;
+  }
 }
 
 .onairnav-list--compact {
