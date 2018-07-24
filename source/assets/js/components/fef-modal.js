@@ -47,6 +47,9 @@ export class FefModal {
         this.animation = this.$element.attr('data-animation');
         this.previousScrollPosition = null;
 
+        this.endOfModalClass = ".js-end-of-modal";
+        $element.append('<a class="js-end-of-modal h-offscreen" href="#"></a>');
+
         this.bindEvents();
 
         if (this.$element.hasClass('js-min-height-of-masthead')) {
@@ -71,6 +74,13 @@ export class FefModal {
                 this.close();
             }
         });
+
+        // A11Y Helper: when tabbing out of the modal --> on focus, close modal, set focus to the caller
+        $(this.endOfModalClass).on('focus', () => {
+            this.close();
+            $(this.endOfModalClass).remove();
+        });
+
     }
 
     /**
@@ -99,6 +109,8 @@ export class FefModal {
                 this.$element.show(onShowFinished);
                 break;
         }
+
+
 
     }
 
