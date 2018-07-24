@@ -81,10 +81,10 @@
   display: block;
   font: 16px/24px $font-light;
   letter-spacing: .5px;
-  color: $color-text-default;
+  color: $color-media-playing;
   margin: 0 0 2px;
-  cursor: pointer;
   padding: 0 0 0 32px;
+  cursor: pointer;
 
   &::before,
   &::after {
@@ -97,7 +97,7 @@
     left: 0;
     width: 16px;
     height: 16px;
-    border: solid 1px $color-button-active; // $color-text-light;
+    border: solid 1px $color-button-active;
   }
 }
 
