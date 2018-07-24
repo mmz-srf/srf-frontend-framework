@@ -85,6 +85,9 @@ export class FefModal {
             }
         };
 
+        this.$caller.attr('aria-expanded', true);
+        this.$caller.attr('aria-haspopup', true);
+
         switch (this.animation) {
             case 'scale-from-origin':
                 this.scaleFromOrigin(onShowFinished);
@@ -104,6 +107,9 @@ export class FefModal {
      */
     close() {
         this.scrollToPreviousPosition();
+
+        this.$caller.attr('aria-expanded', false);
+        this.$caller.attr('aria-haspopup', false);
 
         switch (this.animation) {
             case 'fade-in-out':
