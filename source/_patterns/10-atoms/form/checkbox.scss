@@ -5,7 +5,6 @@
   opacity: 0;
 
   // custom boxes (decorating the label)
-
   &:focus,
   &:active,
   &:checked {
@@ -98,7 +97,7 @@
     left: 0;
     width: 16px;
     height: 16px;
-    border: solid 1px $color-text-light;
+    border: solid 1px $color-button-active; // $color-text-light;
   }
 }
 
