@@ -14,10 +14,10 @@
   {% include 'atoms-onairnav-head' with { 'title': 'Livestreams' } %}
   <ul class="onairnav-list">
     <li class="onairnav-list__element">
-      {% include 'atoms-onairnav-link' with { 'styleModifier': 'onairnav-link--program', 'styleModifierMedia': 'onairnav-link__media--live', 'media': 'Live', 'title': 'Debatte über die Selbstbestimmungs-Initiative im Ständerat' } %}
+      {% include 'molecules-teaser--live' with { 'styleModifier': 'teaser--size-m teaser--no-translate teaser--theme-dark', 'teaser': collections[0].teasers[0] } %}
     </li>
     <li class="onairnav-list__element">
-      {% include 'atoms-onairnav-link' with { 'styleModifier': 'onairnav-link--program', 'styleModifierMedia': 'onairnav-link__media--live', 'media': 'Live', 'title': 'Eishockey: Playoff-Viertelfinal, Fribourg - Lugano' } %}
+      {% include 'molecules-teaser--live' with { 'styleModifier': 'teaser--size-m', 'teaser': collections[0].teasers[0] } %}
     </li>
   </ul>
 
