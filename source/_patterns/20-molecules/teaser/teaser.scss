@@ -134,6 +134,9 @@
 }
 
 .teaser__live {
+  display: inline-block;
+  margin: 0 8px 2px 0;
+  padding: 1px 6px;
   background-color: $color-srf-light;
   font-family: $font-medium;
   font-size: 12px;
@@ -144,8 +147,27 @@
   letter-spacing: normal;
   color: white;
   text-transform: uppercase;
-  margin: 0 8px 4px 0;
-  padding: 1px 6px;
+
+  @include tablet-up {
+    position: absolute;
+    top: 16px;
+  }
+
+  @include desktop-up {
+    font-size: 16px;
+  }
+
+  @include desktop-wide {
+    top: 24px;
+  }
+
+  .svg-icon {
+    margin: 2px 4px -2px 0;
+
+    @include desktop-up {
+      margin: 3px 6px -3px 0;
+    }
+  }
 }
 
 // A Swipeable's teasers basically don't have the mobile styles but override them
