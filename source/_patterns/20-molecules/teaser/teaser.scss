@@ -12,7 +12,9 @@
   background-color: var(--teaser-color-background, $color-bg-card);
   box-shadow: $shadow-elevation1;
   color: var(--teaser-color-text, $color-text-default);
-  transition: box-shadow .1s ease-in-out, transform .1s ease-in-out;
+  transition: box-shadow .1s ease-in-out,
+              transform .1s ease-in-out,
+              background .2s ease-in-out;
   transform: translateZ(0);
   @include breakLongWords;
 
@@ -22,6 +24,11 @@
   &:active {
     transform: translateY(-4px);
     box-shadow: $shadow-hover;
+    background-color: var(--teaser-color-background-hover, inherit);
+  }
+
+  &:active {
+    background-color: var(--teaser-color-background-active, inherit);
   }
 
   &.teaser--no-translate {

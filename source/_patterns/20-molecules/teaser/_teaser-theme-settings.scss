@@ -9,6 +9,8 @@
 /* DEFAULTS */
 .teaser {
   --teaser-color-background: $color-bg-card;
+  --teaser-color-background-hover: $color-bg-card;
+  --teaser-color-background-active: $color-bg-card;
   --teaser-color-text: $color-text-default;
   --teaser-color-accentuation: $color-accentuation-red;
 }
@@ -16,6 +18,8 @@
 /* COMMON SETTINGS FOR ALL THEMES EXCEPT DEFAULT */
 .teaser.teaser--theme-dark {
   --teaser-color-background: #22211d;
+  --teaser-color-background-hover: rgba(255,255,255,.08);
+  --teaser-color-background-active: rgba(255,255,255,.12);
   --teaser-color-text: white;
   --teaser-color-accentuation: #dadad2;
 }
