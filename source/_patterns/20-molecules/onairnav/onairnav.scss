@@ -58,6 +58,14 @@
   }
 }
 
+.onairnav-list--teaser {
+  .onairnav-list__element {
+    @include smartphone {
+      margin-bottom: 8px;
+    }
+  }
+}
+
 .onairnav-list--compact {
   flex-direction: row;
   margin-top: -1px;

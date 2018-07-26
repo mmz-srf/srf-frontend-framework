@@ -12,7 +12,7 @@
   </ul>
 
   {% include 'atoms-onairnav-head' with { 'title': 'Livestreams' } %}
-  <ul class="onairnav-list">
+  <ul class="onairnav-list onairnav-list--teaser">
     <li class="onairnav-list__element">
       {% include 'molecules-teaser--live' with { 'styleModifier': 'teaser--size-m teaser--no-translate teaser--theme-dark', 'teaser': collections[0].teasers[0] } %}
     </li>
