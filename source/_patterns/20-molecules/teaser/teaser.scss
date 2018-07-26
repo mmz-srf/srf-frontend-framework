@@ -147,6 +147,8 @@
   letter-spacing: normal;
   color: white;
   text-transform: uppercase;
+  animation: pulsatingLiveAnimation 3s infinite ease-in-out;
+  @include font-smoothing;
 
   @include tablet-up {
     position: absolute;
