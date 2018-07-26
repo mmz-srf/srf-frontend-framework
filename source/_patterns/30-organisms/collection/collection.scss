@@ -150,7 +150,8 @@
 }
 
 // Standard: all M teasers, 1 column on mobile, classic 3 columns on tablet+
-.collection--standard {
+.collection--standard,
+.collection--highlight {
   .collection__teaser-item {
     @include tablet-up {
       flex-grow: 0;
@@ -177,7 +178,7 @@
 }
 
 .collection--swipeable {
-  // TODO
+  // TODO in SRFCMSAL-1133
 }
 
 // Hero: 1st teaser XL + fills whole row, rest M which fills 1/3 of a row.
@@ -304,10 +305,12 @@
 }
 
 .collection--compact-swipeable {
-  // TODO
+  // TODO in SRFCMSAL-1135
 }
 
 .collection--branded {
+  background-size: cover;
+
   .collection__title,
   .collection__lead,
   .collection__title-link {
@@ -316,6 +319,7 @@
 
   // different mechanism when branded: whole link gets transparent
   .collection__title-link {
+    @include font-smoothing;
     transition: opacity .2s ease-in-out;
 
     &:hover {
