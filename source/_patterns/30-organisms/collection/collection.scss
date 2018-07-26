@@ -72,6 +72,56 @@
     flex: 0 0 24px;
 }
 
+.collection__background-image {
+    height: 375px;
+    width: 100%;
+    margin-bottom: -40px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+
+    @include tablet {
+        height: 384px;
+    }
+
+    @include desktop {
+        height: 341px;
+    }
+
+    @include desktop-wide {
+        height: 427px;
+        margin-bottom: -50px;
+    }
+
+    .collection__lead {
+        color: $color-text-branded;
+        margin-top: 0;
+        margin-bottom: 24px;
+
+        @include desktop-wide {
+            margin-bottom: 32px;
+        }
+    }
+}
+
+.collection__background-image-dimmer {
+    position: absolute;
+    background-color: $color-collection-dim;
+    bottom: 0;
+    width: 100%;
+    height: auto;
+    padding-bottom: 40px;
+
+    &::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        background-image: linear-gradient(to bottom, $color-collection-dim-fade, $color-collection-dim);
+        height: 80px;
+        bottom: 100%;
+    }
+}
+
 .collection__lead {
   font-family: $font-light;
   font-size: 20px;
@@ -312,7 +362,6 @@
   background-size: cover;
 
   .collection__title,
-  .collection__lead,
   .collection__title-link {
     color: $color-text-branded;
   }
