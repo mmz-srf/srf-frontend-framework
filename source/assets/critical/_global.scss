@@ -33,3 +33,14 @@ a {
 .h-element--hide {
   display: none !important
 }
+
+.l-main-wrapper {
+  margin: 0 auto;
+  max-width: 1200px;
+  min-width: 320px;
+
+  @include desktop {
+    margin-left: 32px;
+    margin-right: 32px;
+  }
+}
