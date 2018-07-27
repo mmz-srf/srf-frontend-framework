@@ -1,0 +1,33 @@
+<div class="collection {{ styleModifier|default("collection--standard") }}">
+
+    <h2 class="collection__title">
+        {% if collection.titleLink is defined %}
+        <a href="{{ collection.titleLink|default("#") }}" class="collection__title-link">
+            {% endif %}
+
+            {{ collection.title|default("") }}
+
+            {% if collection.titleLink is defined %}
+            <span class="collection__title-a11y-help">Landingpage öffnen</span>
+            <span class="collection__title-link-icon"></span>
+        </a>
+        {% endif %}
+    </h2>
+
+    {% if collection.lead is defined %}
+        <p class="collection__lead">{{collection.lead|default("")}}</p>
+    {% endif %}
+
+    <div class="swipeable-area js-swipeable-area">
+        <div class="swipeable-area__wrapper js-swipeable-area-wrapper">
+            <ul class="collection__teaser-list">
+                {% for teaser in collection.teasers %}
+                    {% set teaserFormat = 'teaser--size-m' %}
+                    <li class="collection__teaser-item teaser__wrapper js-swipeable-area-item">
+                        {% include 'molecules-teaser' with {'teaser': teaser, styleModifier: teaserFormat} %}
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
