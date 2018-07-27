@@ -46,13 +46,10 @@ export class FefSwipeableArea {
         }
     }
 
-    // the size of the outer container must be set in order to hide the scrollbar
-    // of the wrapper. this method determines the highest child and uses its
-    // height as the container's height.
+    // the size of the outer container must be explicitly set in order to hide the scrollbar
+    // of the wrapper.
     initContainerHeight() {
-        let itemHeights = this.$items.map( (i, item) => $(item).outerHeight(true) ).get();
-        let maxHeight = Math.max.apply(null, itemHeights);
-        this.$element.css('height', maxHeight);
+        this.$element.css('height', this.$innerContainer.outerHeight() - 30);
     }
 
     initItemPositions() {
@@ -64,6 +61,7 @@ export class FefSwipeableArea {
 
     registerListeners() {
         $(window).on('resize', FefDebounceHelper.debounce(() => this.init(), DEBOUNCETIME));
+        $(window).on('load', () => this.initContainerHeight());
     };
 
     addButtons() {
