@@ -202,6 +202,15 @@
 
     &:last-child {
       margin-bottom: 8px;
+
+      &::after {
+        @include tablet-up {
+          content: '';
+          display: block;
+          width: 40px;
+          margin-right: -36px;
+        }
+      }
     }
   }
 }
