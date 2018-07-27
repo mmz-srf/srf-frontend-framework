@@ -8,11 +8,11 @@
   align-items: center;
   justify-content: center;
   position: absolute;
-  top: 0;
+  top: 8px;
   left: 0;
   z-index: 20;
   width: 56px;
-  height: calc(100% - 8px);
+  height: calc(100% - 28px);
   background: rgba(255, 255, 255, 0.6);
 
   &:hover {
@@ -46,8 +46,4 @@
   box-sizing: content-box;
   padding-top: 8px; // some child elements move up on hover (i.e. teasers) and need space for that
   padding-bottom: 30px; // stretching scrollbars out of visible area (assuming that no scrollbar is higher than 30px)
-
-  &::-webkit-scrollbar {
-    display: none; // in other browsers, the scrollbars are hidden by the container
-  }
 }

@@ -49,7 +49,7 @@ export class FefSwipeableArea {
     // the size of the outer container must be explicitly set in order to hide the scrollbar
     // of the wrapper.
     initContainerHeight() {
-        this.$element.css('height', this.$innerContainer.outerHeight() - 30);
+        this.$element.css('height', this.$innerContainer.outerHeight() - 32);
     }
 
     initItemPositions() {
