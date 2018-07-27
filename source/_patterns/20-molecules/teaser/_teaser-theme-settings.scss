@@ -8,11 +8,11 @@
 
 /* DEFAULTS */
 .teaser {
-  --teaser-color-background: $color-bg-card;
-  --teaser-color-background-hover: $color-bg-card;
-  --teaser-color-background-active: $color-bg-card;
-  --teaser-color-text: $color-text-default;
-  --teaser-color-accentuation: $color-accentuation-red;
+  --teaser-color-background: #{$color-bg-card};
+  --teaser-color-background-hover: #{$color-bg-card};
+  --teaser-color-background-active: #{$color-bg-card};
+  --teaser-color-text: #{$color-text-default};
+  --teaser-color-accentuation: #{$color-accentuation-red};
 }
 
 /* COMMON SETTINGS FOR ALL THEMES EXCEPT DEFAULT */
