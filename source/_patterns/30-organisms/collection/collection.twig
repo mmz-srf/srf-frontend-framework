@@ -22,6 +22,12 @@
         <p class="collection__lead">{{collection.lead|default("")}}</p>
     {% endif %}
 
+    {# SWIPEABLE AREA WRAPPER #}
+    {% if ('collection--swipeable' in styleModifier) %}
+        <div class="collection__swipeable-area swipeable-area js-swipeable-area">
+            <div class="swipeable-area__wrapper js-swipeable-area-wrapper">
+    {% endif %}
+
     <ul class="collection__teaser-list">
         {% for teaser in collection.teasers %}
             {% set teaserFormat = '' %}
@@ -43,9 +49,13 @@
                 {% set teaserFormat = 'teaser--size-s' %}
             {% endif %}
 
-            <li class="collection__teaser-item teaser__wrapper{% if ('collection--swipeable' in styleModifier) %} js-swipable-area{% endif %}">
+            <li class="collection__teaser-item teaser__wrapper{% if ('collection--swipeable' in styleModifier) %} js-swipeable-area-item{% endif %}">
                 {% include 'molecules-teaser' with {'teaser': teaser, styleModifier: teaserFormat} %}
             </li>
         {% endfor %}
     </ul>
+
+    {# SWIPEABLE AREA WRAPPER END TAGS #}
+    {% if ('collection--swipeable' in styleModifier) %}</div></div>{% endif %}
+
 </div>

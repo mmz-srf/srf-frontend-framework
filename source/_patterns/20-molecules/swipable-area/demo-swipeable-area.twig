@@ -18,7 +18,7 @@
         <p class="collection__lead">{{collection.lead|default("")}}</p>
     {% endif %}
 
-    <div class="swipeable-area js-swipeable-area">
+    <div class="collection__swipeable-area swipeable-area js-swipeable-area">
         <div class="swipeable-area__wrapper js-swipeable-area-wrapper">
             <ul class="collection__teaser-list">
                 {% for teaser in collection.teasers %}

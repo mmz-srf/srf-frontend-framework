@@ -181,8 +181,7 @@
   .collection__teaser-list {
     flex-wrap: nowrap;
     flex-direction: row;
-    margin-left: 0;
-    margin-right: 0;
+    margin: -8px 0 0;
   }
 
   .collection__teaser-item {
@@ -205,6 +204,10 @@
       margin-bottom: 8px;
     }
   }
+}
+
+.collection__swipeable-area {
+  margin-bottom: 8px;
 }
 
 // Hero: 1st teaser XL + fills whole row, rest M which fills 1/3 of a row.

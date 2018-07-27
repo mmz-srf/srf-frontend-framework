@@ -50,8 +50,8 @@ export class FefSwipeableArea {
     // of the wrapper. this method determines the highest child and uses its
     // height as the container's height.
     initContainerHeight() {
-        let itemHeights = this.$items.map( (i, item) => $(item).height() ).get();
-        let maxHeight = Math.max.apply(null, itemHeights) + 8;
+        let itemHeights = this.$items.map( (i, item) => $(item).outerHeight(true) ).get();
+        let maxHeight = Math.max.apply(null, itemHeights);
         this.$element.css('height', maxHeight);
     }
 
