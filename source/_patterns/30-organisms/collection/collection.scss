@@ -187,7 +187,7 @@
 
   .collection__teaser-item {
     padding-right: 8px;
-    min-width: calc(33% - 14px);
+    min-width: calc(33% - (56px / 3) - 8px); // 56px is the visible part of the first 'overflowed' item
 
     @include smartphone {
       min-width: calc(100% - 40px);

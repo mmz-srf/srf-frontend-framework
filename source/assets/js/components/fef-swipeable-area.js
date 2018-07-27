@@ -69,8 +69,8 @@ export class FefSwipeableArea {
     addButtons() {
         if (this.$buttonBack === null) {
             //adding the buttons only once
-            this.$buttonBack = $(`<div class='${BACK_BUTTON_CLASS}'></div>`);
-            this.$buttonForward = $(`<div class='${FORWARD_BUTTON_CLASS}'></div>`);
+            this.$buttonBack = $(`<div class='${BACK_BUTTON_CLASS}'><span></span></div>`);
+            this.$buttonForward = $(`<div class='${FORWARD_BUTTON_CLASS}'><span></span></div>`);
             this.$element.append(this.$buttonBack, this.$buttonForward);
 
             // register listeners for buttons

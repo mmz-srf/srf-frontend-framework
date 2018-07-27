@@ -5,23 +5,37 @@
 
 .swipeable-area__button {
   display: none;
+  align-items: center;
+  justify-content: center;
   position: absolute;
   top: 0;
   left: 0;
   z-index: 20;
   width: 56px;
   height: calc(100% - 8px);
-  background: url(../img/icon/caret_grey.svg) no-repeat center center, rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.6);
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.8);
+  }
+
+  span {
+    @include caret('grey', 'left', 'large');
+  }
 }
 
 .swipeable-area__button--forward {
   left: auto;
   right: 0;
+
+  span {
+    @include caret('grey', 'right', 'large');
+  }
 }
 
 .swipeable-area__button--active {
   @include desktop-up {
-    display: block;
+    display: flex;
   }
 }
 
