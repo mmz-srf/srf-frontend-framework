@@ -149,6 +149,82 @@
   }
 }
 
+.collection__links {
+  margin: 0 8px 12px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+
+  @include tablet-up {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+
+.collection__link-item {
+  margin: 0;
+  padding: 0;
+
+  &::before {
+    content: none;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    background-color: rgba(0, 0, 0, .08);
+    width: calc(100% - 8px);
+    height: 1px;
+    bottom: 0;
+    right: -8px;
+    transition: background-color .2s ease-in-out;
+  }
+
+  &:last-child,
+  &:hover,
+  &:focus,
+  &:active {
+    &::after {
+      background-color: rgba(0, 0, 0, 0);
+    }
+  }
+}
+
+.collection__link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  font-family: $font-medium;
+  font-size: 16px;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.5;
+  letter-spacing: .4px;
+  color: $color-text-default;
+  border-radius: 2px;
+  background-color: rgba(185, 183, 172, 0);
+  transition: background-color .2s ease-in-out;
+
+  &:hover {
+    color: $color-text-default;
+    background-color: rgba(185, 183, 172, 0.12);
+  }
+
+  &:active,
+  &:focus {
+    color: $color-text-default;
+    background-color: rgba(185, 183, 172, 0.24);
+  }
+
+}
+
+.collection__link-icon {
+  flex-shrink: 0;
+  @include caret('grey', 'right', 'medium');
+}
+
 // Standard: all M teasers, 1 column on mobile, classic 3 columns on tablet+
 .collection--standard,
 .collection--highlight {
@@ -313,7 +389,8 @@
 
   .collection__title,
   .collection__lead,
-  .collection__title-link {
+  .collection__title-link,
+  .collection__link {
     color: $color-text-branded;
   }
 
@@ -332,7 +409,23 @@
     }
   }
 
-  .collection__title-link-icon {
+  .collection__title-link-icon,
+  .collection__link-icon {
     @include caret('white', 'right', 'medium');
+  }
+
+  .collection__link-item {
+    &::after {
+      background-color: rgba(255, 255, 255, .12);
+    }
+
+    &:last-child,
+    &:hover,
+    &:focus,
+    &:active {
+      &::after {
+        background-color: rgba(255, 255, 255, 0);
+      }
+    }
   }
 }

@@ -45,4 +45,17 @@
             </li>
         {% endfor %}
     </ul>
+
+    {% if collection.links is defined and collection.links|length > 0 %}
+        <ul class="collection__links">
+            {% for link in collection.links %}
+                <li class="collection__link-item">
+                    <a class="collection__link" href="{{ link.link }}">
+                        <span class="collection__link-text">{{ link.title }}</span>
+                        <span class="collection__link-icon"></span>
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
 </div>
