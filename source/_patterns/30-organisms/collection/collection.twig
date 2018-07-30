@@ -21,7 +21,11 @@
     {% if collection.image is defined %}
         <div class="collection__background-image"
              style="background-image: url({{collection.image}});">
-            <div class="collection__background-image-dimmer">
+
+            {# Dimmer is only needed if lead is there #}
+            {% if collection.lead is defined %}
+                <div class="collection__background-image-dimmer">
+            {% endif %}
     {% endif %}
 
     {% if collection.lead is defined %}
@@ -29,7 +33,9 @@
     {% endif %}
 
     {% if collection.image is defined %}
-            </div>
+            {% if collection.lead is defined %}
+                </div>
+            {% endif %}
         </div>
     {% endif %}
 
