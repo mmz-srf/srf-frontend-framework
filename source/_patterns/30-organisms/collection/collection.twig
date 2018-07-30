@@ -23,7 +23,7 @@
     {% endif %}
 
     {# SWIPEABLE AREA WRAPPER #}
-    {% if ('collection--swipeable' in styleModifier) %}
+    {% if ('collection--swipeable' in styleModifier and collection.teasers|length > 3) %}
         <div class="collection__swipeable-area swipeable-area js-swipeable-area">
             <div class="swipeable-area__wrapper js-swipeable-area-wrapper">
     {% endif %}
@@ -56,7 +56,7 @@
     </ul>
 
     {# SWIPEABLE AREA WRAPPER END TAGS #}
-    {% if ('collection--swipeable' in styleModifier) %}
+    {% if ('collection--swipeable' in styleModifier and collection.teasers|length > 3) %}
             </div>
         </div>
     {% endif %}
