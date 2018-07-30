@@ -161,6 +161,10 @@
   }
 }
 
+// DOM:
+// <li class="collection__link-item">
+//   <a class="collection__link"></a>
+// </li>
 .collection__link-item {
   margin: 0;
   padding: 0;
@@ -169,26 +173,18 @@
     content: none;
   }
 
-  @include smartphone {
-    &::after {
-      content: "";
-      position: absolute;
-      background-color: rgba(0, 0, 0, .08);
-      width: calc(100% - 8px);
-      height: 1px;
-      bottom: 0;
-      right: -8px;
-      transition: background-color .2s ease-in-out;
-    }
+  // normally the fake border would be applied to the link-item. But
+  // to apply styling when navigation by keyboard, style must be applied
+  // to link itself because active state is on <a> only.
+  &:first-child .collection__link::before {
+    opacity: 0;
+  }
 
-    &:last-child,
-    &:hover,
-    &:focus,
-    &:active {
-      &::after {
-        background-color: rgba(0, 0, 0, 0);
-      }
-    }
+  // Can't go from hover on link to parent to next sibling to child.
+  // Workaround: hover on parent --> hide border on next sibling's child.
+  // Doesn't work when using keyboard navigation but otherwise good enough.
+  &:hover + & .collection__link::before {
+    opacity: 0;
   }
 }
 
@@ -220,6 +216,28 @@
     background-color: $color-bg-button-focus;
   }
 
+  // On mobile, show a fake border between the links
+  @include smartphone {
+    &::before {
+      content: "";
+      position: absolute;
+      background-color: rgba(0, 0, 0, .08);
+      width: calc(100% - 8px);
+      height: 1px;
+      top: 0;
+      right: -8px;
+      opacity: 1;
+      transition: opacity .2s ease-in-out;
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+      &::before {
+        opacity: 0;
+      }
+    }
+  }
 }
 
 .collection__link-text {
@@ -424,16 +442,9 @@
 
   @include smartphone {
     .collection__link-item {
-      &::after {
-        background-color: rgba(255, 255, 255, .12);
-      }
-
-      &:last-child,
-      &:hover,
-      &:focus,
-      &:active {
-        &::after {
-          background-color: rgba(255, 255, 255, 0);
+      .collection__link {
+        &::before {
+          background-color: rgba(255, 255, 255, .12);
         }
       }
     }
