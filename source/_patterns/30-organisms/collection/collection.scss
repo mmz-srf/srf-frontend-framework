@@ -159,6 +159,14 @@
     flex-direction: row;
     flex-wrap: wrap;
   }
+
+  @include tablet-up {
+    margin: 0 32px 16px;
+  }
+
+  @include desktop-wide {
+    margin: 0 40px 20px;
+  }
 }
 
 // DOM:
@@ -241,9 +249,11 @@
 }
 
 .collection__link-text {
-    @include tablet-up {
-        margin-right: 4px;
-    }
+  @include breakLongWords;
+
+  @include tablet-up {
+    margin-right: 4px;
+  }
 }
 
 .collection__link-icon {
@@ -418,6 +428,8 @@
   .collection__title-link,
   .collection__link {
     color: $color-text-branded;
+
+    @include font-smoothing;
   }
 
   // different mechanism when branded: whole link gets transparent
