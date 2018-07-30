@@ -2,6 +2,9 @@
 @import "../../mixins";
 @import "../../breakpoints";
 
+$color-collection-dim: rgba(0, 0, 0, .6) !default;
+$color-collection-dim-fade: rgba(0, 0, 0, 0) !default;
+
 .collection {
   display: flex;
   flex-direction: column;
