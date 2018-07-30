@@ -40,29 +40,29 @@ $color-collection-dim-fade: rgba(0, 0, 0, 0) !default;
 }
 
 .collection__title-link {
-    display: inline-flex;
-    align-items: center;
-    color: $color-link-default;
+  display: inline-flex;
+  align-items: center;
+  color: $color-link-default;
 
-    &:hover {
-        color: #f1434a;
+  &:hover {
+    color: #f1434a;
 
-        // estimation of the above color
-        .collection__title-link-icon {
-            filter: brightness(1.3);
-        }
+    // estimation of the above color
+    .collection__title-link-icon {
+      filter: brightness(1.3);
     }
+  }
 
-    &:active,
-    &:focus {
-        color: #ff6669;
+  &:active,
+  &:focus {
+    color: #ff6669;
 
-        // estimation of the above color
-        .collection__title-link-icon {
-            filter: brightness(1.37);
-            opacity: 0.82;
-        }
+    // estimation of the above color
+    .collection__title-link-icon {
+      filter: brightness(1.37);
+      opacity: 0.82;
     }
+  }
 }
 
 .collection__title-a11y-help {
@@ -76,53 +76,68 @@ $color-collection-dim-fade: rgba(0, 0, 0, 0) !default;
 }
 
 .collection__background-image {
-    height: 375px;
+  height: 375px;
+  width: 100%;
+  margin-bottom: -40px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
     width: 100%;
-    margin-bottom: -40px;
-    background-size: cover;
-    background-position: center;
-    position: relative;
+    height: calc(100% - 2px);
+    left: 0;
+    border-top: 1px solid rgba(0, 0, 0, .08);
+    border-bottom: 1px solid rgba(0, 0, 0, .08);
+  }
 
-    @include tablet {
-        height: 384px;
-    }
+  @include tablet {
+    height: 384px;
+  }
 
-    @include desktop {
-        height: 341px;
-    }
+  @include desktop {
+    height: 341px;
+  }
+
+  @include desktop-wide {
+    height: 427px;
+    margin-bottom: -50px;
+  }
+
+  .collection__lead {
+    color: $color-text-branded;
+    margin-top: 0;
+    margin-bottom: 24px;
 
     @include desktop-wide {
-        height: 427px;
-        margin-bottom: -50px;
+      margin-bottom: 32px;
     }
-
-    .collection__lead {
-        color: $color-text-branded;
-        margin-top: 0;
-        margin-bottom: 24px;
-
-        @include desktop-wide {
-            margin-bottom: 32px;
-        }
-    }
+  }
 }
 
 .collection__background-image-dimmer {
-    position: absolute;
-    background-color: $color-collection-dim;
-    bottom: 0;
-    width: 100%;
-    height: auto;
-    padding-bottom: 40px;
+  position: absolute;
+  background-color: $color-collection-dim;
+  bottom: 0;
+  width: 100%;
+  height: auto;
+  padding-bottom: 40px;
 
-    &::before {
-        content: "";
-        position: absolute;
-        width: 100%;
-        background-image: linear-gradient(to bottom, $color-collection-dim-fade, $color-collection-dim);
-        height: 80px;
-        bottom: 100%;
-    }
+  &::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    background-image: linear-gradient(to bottom, $color-collection-dim-fade, $color-collection-dim);
+    height: 80px;
+    bottom: 100%;
+  }
+
+  @include desktop-wide {
+    padding-bottom: 50px;
+  }
 }
 
 .collection__lead {
@@ -368,11 +383,12 @@ $color-collection-dim-fade: rgba(0, 0, 0, 0) !default;
   .collection__lead,
   .collection__title-link {
     color: $color-text-branded;
+
+    @include font-smoothing;
   }
 
   // different mechanism when branded: whole link gets transparent
   .collection__title-link {
-    @include font-smoothing;
     transition: opacity .2s ease-in-out;
 
     &:hover {
