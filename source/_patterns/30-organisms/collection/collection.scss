@@ -246,6 +246,10 @@
       }
     }
   }
+
+  @include desktop-up {
+    font-size: 18px;
+  }
 }
 
 .collection__link-text {
