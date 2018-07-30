@@ -7,7 +7,7 @@
   flex-direction: column;
   margin: 8px 8px 16px;
   border-radius: 2px;
-  background-color: #f5f5f2;
+  background-color: $color-bg-caption;
   box-shadow: $shadow-elevation1;
 }
 
@@ -206,18 +206,18 @@
   letter-spacing: .4px;
   color: $color-text-default;
   border-radius: 2px;
-  background-color: rgba(185, 183, 172, 0);
+  background-color: $color-bg-button-transparent;
   transition: background-color .2s ease-in-out;
 
   &:hover {
     color: $color-text-default;
-    background-color: rgba(185, 183, 172, 0.12);
+    background-color: $color-bg-button-hover;
   }
 
   &:active,
   &:focus {
     color: $color-text-default;
-    background-color: rgba(185, 183, 172, 0.24);
+    background-color: $color-bg-button-focus;
   }
 
 }
