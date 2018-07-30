@@ -19,7 +19,7 @@
     </h2>
 
     {% if collection.image is defined %}
-        <div class="collection__background-image {{ if collection.lead is defined ? "collection__background-image--with-lead" }}"
+        <div class="collection__background-image {{ collection.lead is defined ? "collection__background-image--with-lead" }}"
              style="background-image: url({{collection.image}});">
 
             <div class="collection__background-image-dimmer">

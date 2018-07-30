@@ -78,12 +78,13 @@ $background-overlap-wide: 50px;
 }
 
 .collection__background-image {
-  height: 375px;
   width: 100%;
   margin-bottom: -$background-overlap;
   background-size: cover;
   background-position: center;
   position: relative;
+
+  @include forceAspectRatio("16:9");
 
   // Fake image border on top of image
   &::after {
@@ -97,16 +98,11 @@ $background-overlap-wide: 50px;
     border-bottom: 1px solid rgba(0, 0, 0, .08);
   }
 
-  @include tablet {
-    height: 384px;
-  }
-
-  @include desktop {
-    height: 341px;
+  @include tablet-up {
+    @include forceAspectRatio("3:1");
   }
 
   @include desktop-wide {
-    height: 427px;
     margin-bottom: -$background-overlap-wide;
   }
 
@@ -122,12 +118,23 @@ $background-overlap-wide: 50px;
 }
 
 .collection__background-image--with-lead {
+  @include forceAspectRatio("1:1");
+
+  @include tablet {
+    @include forceAspectRatio("2:1");
+  }
+
+  @include desktop-up {
+    @include forceAspectRatio("3:1");
+  }
+
   .collection__background-image-dimmer {
-    display: none;
+    display: block;
   }
 }
 
 .collection__background-image-dimmer {
+  display: none;
   position: absolute;
   background-color: $color-collection-dim;
   bottom: 0;
@@ -166,9 +173,9 @@ $background-overlap-wide: 50px;
   }
 
   @include desktop-up {
-      font-size: 22px;
-      margin-top: -8px;
-      max-width: 680px;
+    font-size: 22px;
+    margin-top: -8px;
+    max-width: 680px;
   }
 
   @include desktop-wide {
