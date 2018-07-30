@@ -4,6 +4,8 @@
 
 $color-collection-dim: rgba(0, 0, 0, .6) !default;
 $color-collection-dim-fade: rgba(0, 0, 0, 0) !default;
+$background-overlap: 40px;
+$background-overlap-wide: 50px;
 
 .collection {
   display: flex;
@@ -78,11 +80,12 @@ $color-collection-dim-fade: rgba(0, 0, 0, 0) !default;
 .collection__background-image {
   height: 375px;
   width: 100%;
-  margin-bottom: -40px;
+  margin-bottom: -$background-overlap;
   background-size: cover;
   background-position: center;
   position: relative;
 
+  // Fake image border on top of image
   &::after {
     content: "";
     position: absolute;
@@ -104,7 +107,7 @@ $color-collection-dim-fade: rgba(0, 0, 0, 0) !default;
 
   @include desktop-wide {
     height: 427px;
-    margin-bottom: -50px;
+    margin-bottom: -$background-overlap-wide;
   }
 
   .collection__lead {
@@ -118,13 +121,19 @@ $color-collection-dim-fade: rgba(0, 0, 0, 0) !default;
   }
 }
 
+.collection__background-image--with-lead {
+  .collection__background-image-dimmer {
+    display: none;
+  }
+}
+
 .collection__background-image-dimmer {
   position: absolute;
   background-color: $color-collection-dim;
   bottom: 0;
   width: 100%;
   height: auto;
-  padding-bottom: 40px;
+  padding-bottom: $background-overlap;
 
   &::before {
     content: "";
@@ -136,7 +145,7 @@ $color-collection-dim-fade: rgba(0, 0, 0, 0) !default;
   }
 
   @include desktop-wide {
-    padding-bottom: 50px;
+    padding-bottom: $background-overlap-wide;
   }
 }
 
