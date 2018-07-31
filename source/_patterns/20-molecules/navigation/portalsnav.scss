@@ -19,7 +19,7 @@
 
 .portalsnav__link {
   display: inline-block;
-  padding: 12px 10px;
+  padding: 12px 12px;
   border-bottom: none;
   border-radius: 2px;
   font-family: $font-bold;
@@ -30,9 +30,9 @@
   background-color: transparent;
   transition: background-color 0.2s ease-in-out;
   /* fallback */
-  color: $color-text-accentuation;
+  color: $color-text-default;
   /* theme */
-  color: var(--theme-color-nav, $color-text-accentuation);
+  color: var(--theme-color-nav, $color-text-default);
 
   &:hover,
   &:active,
