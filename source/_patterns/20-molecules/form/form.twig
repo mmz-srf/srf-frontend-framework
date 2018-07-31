@@ -4,8 +4,8 @@
     <fieldset class="form-fieldset">
         <legend class="form-fieldset__legend">{{ form.legend }}</legend>
         {% set hintFieldID = 'checkbox-fieldset-ID' %}
-        {% include 'atoms-checkbox' with { 'fieldID': 'checkbox-ID1', 'required': true, 'hintFieldlID': hintFieldID } %}
-        {% include 'atoms-checkbox' with { 'fieldID': 'checkbox-ID2', 'required': false, 'hintFieldlID': hintFieldID } %}
+        {% include 'atoms-checkbox' with { 'fieldID': 'checkbox-ID1', 'required': true, 'hintFieldlID': hintFieldID, 'styleModifier': 'checkbox--with-bg' } %}
+        {% include 'atoms-checkbox' with { 'fieldID': 'checkbox-ID2', 'required': false, 'hintFieldlID': hintFieldID, 'styleModifier': 'checkbox--with-bg'} %}
         <span class="form-fieldset__hint {{ styleModifier }}"
               id="{{ hintFieldID }}-hint">{{ hintText|default("Hint") }}</span>
     </fieldset>
