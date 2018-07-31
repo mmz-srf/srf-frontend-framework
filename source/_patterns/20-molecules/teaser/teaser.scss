@@ -491,3 +491,10 @@
     }
   }
 }
+
+.teaser--theme-dark {
+  .teaser__kicker,
+  .teaser__title {
+    @include font-smoothing;
+  }
+}
