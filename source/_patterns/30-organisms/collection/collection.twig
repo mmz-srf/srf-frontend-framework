@@ -1,3 +1,5 @@
+{% set swipeable = 'collection--swipeable' in styleModifier and collection.teasers|length > 3 %}
+
 <div class="collection {{ styleModifier|default("collection--standard") }}">
 
     <h2 class="collection__title">
@@ -23,8 +25,10 @@
     {% endif %}
 
     {# SWIPEABLE AREA WRAPPER #}
-    {% if ('collection--swipeable' in styleModifier and collection.teasers|length > 3) %}
-        <div class="collection__swipeable-area swipeable-area swipeable-area--collection js-swipeable-area">
+    {% if swipeable %}
+        <div class="collection__swipeable-area swipeable-area swipeable-area--collection js-swipeable-area"
+             data-swipeable-hinting="20"
+             data-mark-hidden-items="swipeable-area-item--hidden">
             <div class="swipeable-area__wrapper js-swipeable-area-wrapper">
     {% endif %}
 
@@ -49,14 +53,14 @@
                 {% set teaserFormat = 'teaser--size-s' %}
             {% endif %}
 
-            <li class="collection__teaser-item teaser__wrapper{% if ('collection--swipeable' in styleModifier) %} js-swipeable-area-item{% endif %}">
+            <li class="collection__teaser-item teaser__wrapper {{ swipeable ? "js-swipeable-area-item"}}">
                 {% include 'molecules-teaser' with {'teaser': teaser, styleModifier: teaserFormat} %}
             </li>
         {% endfor %}
     </ul>
 
     {# SWIPEABLE AREA WRAPPER END TAGS #}
-    {% if ('collection--swipeable' in styleModifier and collection.teasers|length > 3) %}
+    {% if swipeable %}
             </div>
         </div>
     {% endif %}

@@ -39,6 +39,7 @@ export class FefSwipeableArea {
 
     init() {
         this.initContainerHeight();
+        this.initItemCheck();
         if (FefResponsiveHelper.isDesktop() || FefResponsiveHelper.isDesktopWide()) {
             this.addButtons();
             this.updateButtonStatus();
@@ -50,6 +51,15 @@ export class FefSwipeableArea {
     // of the wrapper.
     initContainerHeight() {
         this.$element.css('height', this.$innerContainer.outerHeight() - 32);
+    }
+
+    initItemCheck() {
+        const markVisibleClass = this.$element.data('mark-visible-items');
+        const markHiddenClass = this.$element.data('mark-hidden-items');
+
+        if (markVisibleClass || markHiddenClass) {
+            this.$innerContainer.on('scroll', FefDebounceHelper.debounce(() => this.markItems(markVisibleClass, markHiddenClass), DEBOUNCETIME));
+        }
     }
 
     initItemPositions() {
@@ -75,6 +85,15 @@ export class FefSwipeableArea {
             this.$innerContainer.on('scroll', FefDebounceHelper.debounce(() => this.updateButtonStatus(), DEBOUNCETIME));
             this.$buttonBack.on('click', () => { this.pageBack(); });
             this.$buttonForward.on('click', () => { this.pageForward(); });
+
+            // hinting = showing a little bit of the remaining elements on hovering over the buttons.
+            // Can be supplied in pixels via data-attribute, e.g. data-swipeable-hinting="20"
+            const hintAmount = parseInt(this.$element.data('swipeable-hinting'));
+
+            if (hintAmount > 0) {
+                this.$buttonBack.hover(this.hintOn(this.$buttonBack, hintAmount), this.hintOff(this.$buttonBack));
+                this.$buttonForward.hover(this.hintOn(this.$buttonForward, -hintAmount), this.hintOff(this.$buttonForward));
+            }
         }
     }
 
@@ -110,6 +129,7 @@ export class FefSwipeableArea {
         let visibleAreaRightEdge = this.$innerContainer.scrollLeft() + this.$innerContainer.innerWidth(),
             nextItem = this.itemRightPositions.findIndex(rightEdge => rightEdge > visibleAreaRightEdge),
             newPosition = this.itemLeftPositions[nextItem] - INNER_CONTAINER_SCROLL_PADDING;
+
         this.scrollToPosition(newPosition);
     }
 
@@ -127,5 +147,71 @@ export class FefSwipeableArea {
         this.$innerContainer
             .stop(true, false)
             .animate( { scrollLeft: position }, time);
+    }
+
+    /**
+     * When hovering over a button (forward or backward), the container content
+     * will be "hinted at", i.e. moved into view a bit more. How much is defined by
+     * the user via data attribute and provided here. At the same time, the button
+     * is made wider and given some padding as to not move the caret (< or >).
+     *
+     * The amount can be positive or negative. To always increase the width, we take
+     * the absolute of the provided amount.
+     * To not have to differentiate between forward and backward button, we set both
+     * left and right padding. One of them is negative and thus not valid and will
+     * not be applied without any check from our side. Very smart. The best.
+     *
+     * @param {JQuery.element} $button Which button is being hovered over
+     * @param {Number} amount Amount of pixels to "hint"
+     * @returns {Function}
+     */
+    hintOn($button, amount) {
+        return () => {
+            this.$innerContainer.children().first().css('transform', `translateX(${amount}px)`);
+            $button.css({
+                'width': $button.width() + Math.abs(amount),
+                'padding-left': -amount,
+                'padding-right': amount
+            });
+        };
+    }
+
+    hintOff ($button) {
+        return () => {
+            this.$innerContainer.children().first().css('transform', 'translateX(0)');
+            $button.css({
+                'width': '',
+                'padding': ''
+            });
+        };
+    }
+
+    markItems(markVisibleClass, markHiddenClass) {
+        this.$items.each( (_, element) => {
+            const isInView = this.isItemCompletelyInView($(element));
+
+            if (markVisibleClass) {
+                $(element).toggleClass(markVisibleClass, isInView);
+            }
+
+            if (markHiddenClass) {
+                $(element).toggleClass(markHiddenClass, !isInView);
+            }
+        });
+    }
+
+    isItemCompletelyInView($itemElem) {
+        return !this.isOutOfBoundsLeft($itemElem) && !this.isOutOfBoundsRight($itemElem);
+    }
+
+    isOutOfBoundsLeft($itemElem) {
+        return $itemElem.offset().left < this.$innerContainer.offset().left;
+    }
+
+    isOutOfBoundsRight($itemElem) {
+        let rightEdgeItem = $itemElem.offset().left + $itemElem.outerWidth(),
+            rightEdgeContainer = this.$innerContainer.offset().left + this.$innerContainer.outerWidth();
+
+        return rightEdgeItem > rightEdgeContainer;
     }
 }
