@@ -73,7 +73,7 @@
     &:focus,
     &:active {
       transform: none;
-      box-shadow: none;
+      box-shadow: $shadow-elevation1;
     }
 
     &::after {
