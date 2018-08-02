@@ -5,6 +5,7 @@
             {% if item.items|length > 0 %}
                 <li class="subnav__list-item subnav__list-item--expandable js-subnav-item--expandable">
                     {% include 'molecules-nav-group' with {
+                        'headerType': headerType,
                         'styleModifier': itemStyleModifier,
                         'content': item.name,
                         'items': item.items
@@ -13,6 +14,7 @@
             {% else %}
                 <li class="subnav__list-item">
                     {% include 'atoms-nav-item' with {
+                        'headerType': headerType,
                         'styleModifier': itemStyleModifier,
                         'content': item.name,
                         'url': item.url
