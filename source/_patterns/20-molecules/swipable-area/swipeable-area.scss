@@ -75,6 +75,10 @@
       transform: none;
       box-shadow: none;
     }
+
+    &::after {
+      opacity: 0;
+    }
   }
 
   .swipeable-area__button {
