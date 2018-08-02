@@ -79,6 +79,15 @@ export class FefSwipeableArea {
             //adding the buttons only once
             this.$buttonBack = $(`<div class='${BACK_BUTTON_CLASS}'><span></span></div>`);
             this.$buttonForward = $(`<div class='${FORWARD_BUTTON_CLASS}'><span></span></div>`);
+
+            // Apply tracking parameters if provided
+            if (this.$element.data('tracking-forward')) {
+                this.$buttonForward.data('event-track', this.$element.data('tracking-forward'));
+            }
+            if (this.$element.data('tracking-back')) {
+                this.$buttonBack.data('event-track', this.$element.data('tracking-back'));
+            }
+
             this.$element.append(this.$buttonBack, this.$buttonForward);
 
             // register listeners for buttons
