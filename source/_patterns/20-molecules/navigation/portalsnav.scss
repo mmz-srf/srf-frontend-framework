@@ -56,9 +56,10 @@
 
 .portalsnav--large {
   .portalsnav__link {
-    padding: 16px 10px;
+    padding: 16px 12px;
     font-size: 18px;
     line-height: 1.33;
     letter-spacing: 0.2px;
+    color: $color-text-default;
   }
 }
