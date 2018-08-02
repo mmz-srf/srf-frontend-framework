@@ -31,7 +31,7 @@
   @include caret('red', 'down', 'medium');
 
   @include tablet-up {
-      margin-right: 6px;
+    margin-right: 6px;
   }
 }
 

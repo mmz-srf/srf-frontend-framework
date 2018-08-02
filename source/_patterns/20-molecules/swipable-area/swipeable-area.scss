@@ -17,11 +17,13 @@
   cursor: pointer;
   pointer-events: none;
   background-color: rgba(255, 255, 255, .6);
+  // sass-lint:disable indentation
   transition: background-color .2s ease-in-out,
               width .2s ease-in-out,
               padding-left .2s ease-in-out,
               padding-right .2s ease-in-out,
               opacity .2s ease-in-out;
+  // sass-lint:enable indentation
 
   &:hover {
     background-color: rgba(255, 255, 255, .8);
