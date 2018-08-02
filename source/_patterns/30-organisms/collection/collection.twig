@@ -1,4 +1,4 @@
-{% set swipeable = 'collection--swipeable' in styleModifier and collection.teasers|length > 3 %}
+{% set swipeable = ('collection--swipeable' in styleModifier or 'collection--compact-swipeable' in styleModifier) and collection.teasers|length > 3 %}
 
 <div class="collection {{ styleModifier|default("collection--standard") }}">
 
@@ -34,10 +34,10 @@
 
     <ul class="collection__teaser-list">
         {% for teaser in collection.teasers %}
-            {% set teaserFormat = '' %}
+            {% set teaserFormat = 'teaser--size-m teaser--size-s-on-mobile' %}
 
             {% if 'collection--standard' in styleModifier %}
-                {# STANDARD: all M teasers #}
+                {# STANDARD: all M teasers (S on mobile) #}
                 {% set teaserFormat = 'teaser--size-m teaser--size-s-on-mobile' %}
             {% elseif 'collection--hero' in styleModifier %}
                 {# HERO: 1 XL, all others M #}
