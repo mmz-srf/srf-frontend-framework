@@ -57,6 +57,7 @@
   overflow-y: hidden;
   width: 100%;
   box-sizing: content-box;
+  -webkit-overflow-scrolling: touch; // enable momentum scrolling on ios
   padding-top: 8px; // some child elements move up on hover (i.e. teasers) and need space for that
   padding-bottom: 30px; // stretching scrollbars out of visible area (assuming that no scrollbar is higher than 30px)
 
