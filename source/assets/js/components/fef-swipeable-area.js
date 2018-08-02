@@ -150,8 +150,17 @@ export class FefSwipeableArea {
         this.scrollToPosition(newPosition);
     }
 
+    /**
+     * Scrolls to a specified position in a specified (or default) time.
+     * Also resets the hinting, if applicable by removing the translation.
+     *
+     * @param {Number} position Where to scroll to
+     * @param {Number} [time] How long it should take, optional
+     */
     scrollToPosition(position, time) {
         time = typeof time === 'undefined' ? DEFAULT_SCROLL_TIME : time;
+
+        this.$innerContainer.children().first().css('transform', 'translateX(0)');
 
         this.$innerContainer
             .stop(true, false)
@@ -176,7 +185,9 @@ export class FefSwipeableArea {
      */
     hintOn($button, amount) {
         return () => {
-            this.$innerContainer.children().first().css('transform', `translateX(${amount}px)`);
+            this.$innerContainer.children().first().css({
+                'transform': `translateX(${amount}px)`
+            });
             $button.css({
                 'width': $button.width() + Math.abs(amount),
                 'padding-left': -amount,
@@ -187,7 +198,9 @@ export class FefSwipeableArea {
 
     hintOff ($button) {
         return () => {
-            this.$innerContainer.children().first().css('transform', 'translateX(0)');
+            this.$innerContainer.children().first().css({
+                'transform': 'translateX(0)'
+            });
             $button.css({
                 'width': '',
                 'padding': ''
