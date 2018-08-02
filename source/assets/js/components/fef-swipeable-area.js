@@ -82,10 +82,10 @@ export class FefSwipeableArea {
 
             // Apply tracking parameters if provided
             if (this.$element.data('tracking-forward')) {
-                this.$buttonForward.data('event-track', this.$element.data('tracking-forward'));
+                this.$buttonForward.attr('data-event-track', this.$element.data('tracking-forward'));
             }
             if (this.$element.data('tracking-back')) {
-                this.$buttonBack.data('event-track', this.$element.data('tracking-back'));
+                this.$buttonBack.attr('data-event-track', this.$element.data('tracking-back'));
             }
 
             this.$element.append(this.$buttonBack, this.$buttonForward);
