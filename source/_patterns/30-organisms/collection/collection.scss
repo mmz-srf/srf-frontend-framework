@@ -193,6 +193,14 @@
       min-width: calc(100% - 40px);
     }
 
+    @include tablet-up {
+        padding-right: 12px;
+    }
+
+    @include desktop-wide {
+        padding-right: 16px;
+    }
+
     &:first-child {
       margin-left: 36px;
 
