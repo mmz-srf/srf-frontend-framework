@@ -10,7 +10,7 @@ const HOOK_CLASS = 'js-swipeable-area',
     BUTTON_BACK_THRESHOLD = 2,
     RIGHT_OFFSET = 24,
     INNER_CONTAINER_SCROLL_PADDING = 50,
-    DEFAULT_SCROLL_TIME = 200,
+    DEFAULT_SCROLL_TIME = 400,
     DEBOUNCETIME = 10;
 
 export function init() {
@@ -164,7 +164,7 @@ export class FefSwipeableArea {
 
         this.$innerContainer
             .stop(true, false)
-            .animate( { scrollLeft: position }, time);
+            .animate( { scrollLeft: position }, time, 'easeInOutSine');
     }
 
     /**
