@@ -24,7 +24,8 @@
 
 .collection__title {
   margin: 16px 24px 12px;
-  font-family: $font-medium-display;
+  font-family: $font-medium;
+  font-feature-settings: "salt";
   font-size: 24px;
   font-weight: 500;
   font-style: normal;
