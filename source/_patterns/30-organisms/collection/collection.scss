@@ -236,14 +236,14 @@
 
 .collection__swipeable-area {
   margin-top: -8px;
-  margin-bottom: -8px;
+  margin-bottom: 0;
 
   @include tablet-up {
-    margin-bottom: -4px;
+    margin-bottom: 4px;
   }
 
   @include desktop-wide {
-    margin-bottom: 0px;
+    margin-bottom: 8px;
   }
 }
 

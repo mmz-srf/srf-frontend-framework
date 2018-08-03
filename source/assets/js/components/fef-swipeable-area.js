@@ -48,9 +48,15 @@ export class FefSwipeableArea {
     }
 
     // the size of the outer container must be explicitly set in order to hide the scrollbar
-    // of the wrapper.
+    // of the wrapper. To get the correct height, we set overflow to hidden to remove any
+    // potential scrollbars, then get the height and set it to the element before re-
+    // enabling the scrollbars on the inner wrapper. This also enables us to use the
+    // same mechanism on mobiles (i.e. iOS) where there's no scrollbars.
     initContainerHeight() {
-        this.$element.css('height', this.$innerContainer.outerHeight() - 32);
+        this.$innerContainer.css('overflow', 'hidden');
+        let height = this.$innerContainer.outerHeight();
+        this.$element.css('height', height);
+        this.$innerContainer.css('overflow', '');
     }
 
     initItemCheck() {
