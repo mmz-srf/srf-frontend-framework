@@ -3,7 +3,7 @@
 @import "../../breakpoints";
 
 .teaser-status {
-  display: flex;
+  display: none;
   flex-direction: column;
   flex-grow: 1;
   justify-content: flex-end;
@@ -28,6 +28,14 @@
 .teaser-status__content {
   display: flex;
   align-items: center;
+}
+
+// only show teaser status when a modifier is set
+.teaser-status--new,
+.teaser-status--new-and-updated,
+.teaser-status--visited,
+.teaser-status--visited-and-updated {
+  display: flex;
 }
 
 .teaser-status--new {
