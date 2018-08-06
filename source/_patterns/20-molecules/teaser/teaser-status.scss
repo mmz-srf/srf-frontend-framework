@@ -1,0 +1,48 @@
+@import "../../variables";
+@import "../../mixins";
+@import "../../breakpoints";
+
+.teaser-status {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: flex-end;
+  width: 100%;
+  padding: 0;
+  font-family: $font-regular;
+  font-size: 12px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.17;
+  letter-spacing: 0.4px;
+  color: $color-text-default;
+  @include breakLongWords;
+  margin: 8px 0 0;
+
+  @include tablet-up {
+    margin-top: 12px;
+  }
+}
+
+// TODO: logos
+.teaser-status--new {
+  color: $color-srf-light;
+}
+
+.teaser-status--updated {
+  color: $color-text-light;
+}
+
+.teaser-status--visited {
+  color: $color-button-success;
+}
+
+// larger teaser sizes (L/XL) have larger gaps between previous content and teaser status
+.teaser-status--size-large {
+  margin: 16px 0 0;
+
+  @include tablet-up {
+    margin-top: 20px;
+  }
+}

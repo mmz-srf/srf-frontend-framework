@@ -15,6 +15,16 @@
             <h4 class="teaser__kicker">{{ teaser.kicker|default("") }}</h4>
             <h3 class="teaser__title">{{ teaser.title|default("") }}</h3>
             <p class="teaser__lead">{{ teaser.lead|default("") }}</p>
+
+            {% set styleModifierStatus = styleModifierStatus|default("") %}
+            {% if 'teaser--size-l' in styleModifier or 'teaser--size-xl' in styleModifier %}
+                {% set styleModifierStatus = styleModifierStatus ~ " teaser-status--size-large" %}
+            {% endif %}
+
+            {% include 'molecules-teaser-status' with {
+                'styleModifier': styleModifierStatus,
+                'text': status|default("")
+            } %}
         </div>
     </a>
 
