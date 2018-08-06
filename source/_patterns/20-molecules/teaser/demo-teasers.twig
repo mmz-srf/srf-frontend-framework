@@ -69,39 +69,47 @@
 
 <h2>Status</h2>
 
-<div class='js-togglable-wrapper togglable-wrapper'>
-    {% include 'molecules-teaser' with {
-        "styleModifier": "teaser--size-s",
-        "teaser": collections[0].teasers[0],
-        "status": "Gesehen",
-        "styleModifierStatus": "teaser-status--visited"
-    } %}
-</div>
+<h3>New</h3>
 
 <div class='js-togglable-wrapper togglable-wrapper'>
     {% include 'molecules-teaser' with {
-        "styleModifier": "teaser--size-m",
+        "styleModifier": "teaser--size-s",
         "teaser": collections[0].teasers[0],
         "status": "Vor 5 Minuten",
         "styleModifierStatus": "teaser-status--new"
     } %}
 </div>
 
+<h3>New and updated</h3>
+
+<div class='js-togglable-wrapper togglable-wrapper'>
+    {% include 'molecules-teaser' with {
+        "styleModifier": "teaser--size-m",
+        "teaser": collections[0].teasers[0],
+        "status": "Vor 5 Minuten",
+        "styleModifierStatus": "teaser-status--new-and-updated"
+    } %}
+</div>
+
+<h3>Visited</h3>
+
 <div class='js-togglable-wrapper togglable-wrapper'>
     {% include 'molecules-teaser' with {
         "styleModifier": "teaser--size-l",
         "teaser": collections[0].teasers[0],
-        "status": "Vor 5 Minuten",
-        "styleModifierStatus": "teaser-status--updated"
+        "status": "Gesehen",
+        "styleModifierStatus": "teaser-status--visited"
     } %}
 </div>
+
+<h3>Visited with updates</h3>
 
 <div class='js-togglable-wrapper togglable-wrapper'>
     {% include 'molecules-teaser' with {
         "styleModifier": "teaser--size-xl",
         "teaser": collections[0].teasers[0],
-        "status": "Gesehen",
-        "styleModifierStatus": "teaser-status--visited"
+        "status": "Vor 5 Minuten",
+        "styleModifierStatus": "teaser-status--visited-and-updated"
     } %}
 </div>
 
