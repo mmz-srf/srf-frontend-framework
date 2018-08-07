@@ -5,9 +5,6 @@
     {% else %}
       <img class="onairnav-link__media {{ styleModifierMedia|default('') }}"
            src="{{ frameworkAssetPath }}{{ media }}"
-           {% if media2x is defined %}srcset="{{ frameworkAssetPath }}{{ media2x }} 2x{% endif %}
-           {% if media3x is defined %}, {{ frameworkAssetPath }}{{ media3x }} 3x{% endif %}
-           {% if media2x is defined %}"{% endif %}
            alt="{{ mediaAlt|default('') }}">
     {% endif %}
   {% endif %}
