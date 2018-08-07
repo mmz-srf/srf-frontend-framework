@@ -49,7 +49,7 @@ $button-animation-duration: .3s;
   &:active {
     cursor: pointer;
     outline: none;
-    box-shadow: $shadow-hover;
+    box-shadow: $shadow-elevation8;
   }
 
   &:hover,

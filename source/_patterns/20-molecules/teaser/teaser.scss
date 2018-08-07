@@ -20,7 +20,7 @@
   &:focus,
   &:active {
     transform: translateY(-4px);
-    box-shadow: $shadow-hover;
+    box-shadow: $shadow-elevation8;
   }
 
   /* Teasers have an invisible layer on top that gets sligthly opaque when active/focused */
