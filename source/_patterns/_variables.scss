@@ -140,10 +140,16 @@ $font-system: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
 // => for IE11 support: NEVER use font: size/line-height $font-system; (short form) but font-family: $font-system instead!
 
 /*** SHADOWS ***/
-$shadow-elevation1: 0 0 1px 0 rgba(0, 0, 0, .24), 0 0 1px 0 rgba(0, 0, 0, .12);
-$shadow-default:    0 1px 2px 0 rgba(0, 0, 0, .24), 0 0 2px 0 rgba(0, 0, 0, .12);
-$shadow-hover:      0 4px 8px 0 rgba(0, 0, 0, .24), 0 0 8px 0 rgba(0, 0, 0, .12);
-$shadow-organisms:  0 0 8px 0 rgba(0, 0, 0, .24);
+$shadow-elevation1:  0 0px  1px 0 rgba(0,0,0,.24), 0 0  1px 0 rgba(0,0,0,.12);
+$shadow-elevation2:  0 1px  2px 0 rgba(0,0,0,.24), 0 0  2px 0 rgba(0,0,0,.12);
+$shadow-elevation4:  0 2px  4px 0 rgba(0,0,0,.24), 0 0  4px 0 rgba(0,0,0,.12);
+$shadow-elevation6:  0 3px  6px 0 rgba(0,0,0,.24), 0 0  6px 0 rgba(0,0,0,.12);
+$shadow-elevation8:  0 4px  8px 0 rgba(0,0,0,.24), 0 0  8px 0 rgba(0,0,0,.12);
+$shadow-elevation12: 0 6px 12px 0 rgba(0,0,0,.24), 0 0 12px 0 rgba(0,0,0,.12);
+
+$shadow-default:     0 1px 2px 0 rgba(0, 0, 0, .24), 0 0 2px 0 rgba(0, 0, 0, .12);
+$shadow-hover:       0 4px 8px 0 rgba(0, 0, 0, .24), 0 0 8px 0 rgba(0, 0, 0, .12);
+$shadow-organisms:   0 0 8px 0 rgba(0, 0, 0, .24);
 
 /*** BREAKPOINT AND CONTENT related variables ***/
 $smartphone-size: 320px !default;
