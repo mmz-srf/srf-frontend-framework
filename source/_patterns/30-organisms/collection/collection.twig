@@ -18,8 +18,20 @@
         {% endif %}
     </h2>
 
+    {% if collection.image is defined %}
+        <div class="collection__background-image {{ collection.lead is defined ? "collection__background-image--with-lead" }}"
+             style="background-image: url({{collection.image}});">
+
+            <div class="collection__background-image-dimmer">
+    {% endif %}
+
     {% if collection.lead is defined %}
         <p class="collection__lead">{{collection.lead|default("")}}</p>
+    {% endif %}
+
+    {% if collection.image is defined %}
+            </div>
+        </div>
     {% endif %}
 
     <ul class="collection__teaser-list">
@@ -38,6 +50,8 @@
             {% elseif ('collection--swipeable' in styleModifier or 'collection--compact' in styleModifier or 'collection--compact-swipeable' in styleModifier) %}
                 {# SWIPEABLE, COMPACT, COMPACT SWIPEABLE: all S teasers #}
                 {% set teaserFormat = 'teaser--size-s' %}
+            {% else %}
+                {% set teaserFormat = 'teaser--size-m' %}
             {% endif %}
 
             <li class="collection__teaser-item teaser__wrapper">
