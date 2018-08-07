@@ -140,6 +140,7 @@ $font-system: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
 // => for IE11 support: NEVER use font: size/line-height $font-system; (short form) but font-family: $font-system instead!
 
 /*** SHADOWS ***/
+// References: https://app.zeplin.io/project/5850263ad407f4ca12956e5d/screen/5880e352ba72814f33f7cc9b
 $shadow-elevation1:  0 0px  1px 0 rgba(0,0,0,.24), 0 0  1px 0 rgba(0,0,0,.12);
 $shadow-elevation2:  0 1px  2px 0 rgba(0,0,0,.24), 0 0  2px 0 rgba(0,0,0,.12);
 $shadow-elevation4:  0 2px  4px 0 rgba(0,0,0,.24), 0 0  4px 0 rgba(0,0,0,.12);
