@@ -64,12 +64,12 @@
   align-items: center;
   padding-top: 16px;
   padding-right: 4px;
-  padding-bottom: 18px;
+  padding-bottom: 14px;
 
   @include tablet-up {
     padding-top: 17px;
     padding-right: 8px;
-    padding-bottom: 17px;
+    padding-bottom: 13px;
   }
 
   .nav-item__icon {
