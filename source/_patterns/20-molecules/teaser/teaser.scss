@@ -76,7 +76,7 @@
   width: 80px;
   height: 80px;
 
-  @include forceSquareAspectRatio();
+  @include forceAspectRatio("1:1");
 }
 
 .teaser__content {
@@ -194,7 +194,7 @@
     height: auto;
     width: 100%;
 
-    @include forceWidescreenAspectRatio();
+    @include forceAspectRatio("16:9");
   }
 
   .teaser__kicker {
@@ -226,7 +226,7 @@
     height: auto;
     width: 100%;
 
-    @include forceWidescreenAspectRatio();
+    @include forceAspectRatio("16:9");
   }
 
   .teaser__medium-wrapper {
@@ -257,7 +257,7 @@
     height: 100%;
     width: 100%;
 
-    @include forceWidescreenAspectRatio();
+    @include forceAspectRatio("16:9");
   }
 
   .teaser__medium-wrapper {
@@ -376,7 +376,7 @@
       width: 80px;
       height: 80px;
 
-      @include forceSquareAspectRatio();
+      @include forceAspectRatio("1:1");
     }
   }
 }
