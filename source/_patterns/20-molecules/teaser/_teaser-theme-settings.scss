@@ -1,0 +1,25 @@
+/*
+ * TEASER THEME SETTINGS
+ *
+ * Theme settings are defined here at the modal level and not on the page level because the
+ * change of a value of a css custom property triggers a style recalculation for _all_ of its children
+ * @see https://twitter.com/jonikorpi/status/865283047368818688
+ */
+
+/* DEFAULTS */
+.teaser {
+    --teaser-color-background: #{$color-bg-card};
+    --teaser-color-background-hover: #{$color-bg-card};
+    --teaser-color-background-active: #{$color-bg-card};
+    --teaser-color-text: #{$color-text-default};
+    --teaser-color-accentuation: #{$color-accentuation-red};
+  }
+
+  /* COMMON SETTINGS FOR ALL THEMES EXCEPT DEFAULT */
+  .teaser.teaser--theme-dark {
+    --teaser-color-background: #22211d;
+    --teaser-color-background-hover: rgba(255,255,255,.08);
+    --teaser-color-background-active: rgba(255,255,255,.12);
+    --teaser-color-text: white;
+    --teaser-color-accentuation: #dadad2;
+  }
