@@ -28,8 +28,8 @@ export class FefSwipeableArea {
         this.$element = $element;
         this.$innerContainer = $(`.${INNER_CONTAINER_CLASS}`, this.$element);
         this.$items = $(`.${ITEM_CLASS}`, this.$innerContainer);
-        this.itemLeftPositions = new Array();
-        this.itemRightPositions = new Array();
+        this.itemLeftPositions = [];
+        this.itemRightPositions = [];
         this.$buttonBack = null;
         this.$buttonForward = null;
 
