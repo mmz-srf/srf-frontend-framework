@@ -23,7 +23,7 @@ $color-play-icon-hover:  $color-srf-light;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.24), 0 0 8px 0 rgba(0, 0, 0, 0.12);
 
   /* forcing 1:1 aspect ratio */
-  @include forceSquareAspectRatio;
+  @include forceAspectRatio("1:1");
 
   &::after {
     content: "";
