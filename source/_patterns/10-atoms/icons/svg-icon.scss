@@ -16,6 +16,16 @@
   height: 12px;
 }
 
+.svg-icon--tiny-but-small-on-desktop-up {
+  width: 12px;
+  height: 12px;
+
+  @include desktop-up {
+    width: 16px; 
+    height: 16px;
+  }
+}
+
 .svg-icon--arrow-down-tiny {
   @include caret('grey', 'down', 'tiny');
 }
@@ -73,13 +83,9 @@
 
 .svg-icon--play-video-circle-tiny-to-small {
   background-image: url(../img/icon/play-video-circle-tiny.svg);
-  width: 12px; 
-  height: 12px;
 
   @include desktop-up {
     background-image: url(../img/icon/play-video-circle-small.svg);
-    width: 16px; 
-    height: 16px;
   }
 }
 
@@ -95,12 +101,8 @@
 
 .svg-icon--play-video-circle-white-tiny-to-small {
   background-image: url(../img/icon/play-video-circle-white-tiny.svg);
-  width: 12px; 
-  height: 12px;
 
   @include desktop-up {
     background-image: url(../img/icon/play-video-circle-white-small.svg);
-    width: 16px; 
-    height: 16px;
   }
 }
