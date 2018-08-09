@@ -2,18 +2,35 @@
 @import "../../mixins";
 @import "../../breakpoints";
 
+$color-collection-dim: rgba(0, 0, 0, .6) !default;
+$color-collection-dim-fade: rgba(0, 0, 0, 0) !default;
+$background-overlap: 40px;
+$background-overlap-wide: 50px;
+
 .collection {
   display: flex;
   flex-direction: column;
-  margin: 8px 8px 16px;
+  margin: 8px 0 16px;
+  max-width: $desktop-wide-size;
   border-radius: 2px;
-  background-color: #f5f5f2;
+  background-color: $color-bg-caption;
   box-shadow: $shadow-elevation1;
+
+  @include tablet-up {
+    margin-bottom: 32px;
+  }
+
+  @include desktop-wide {
+    margin-bottom: 40px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 .collection__title {
   margin: 16px 24px 12px;
   font-family: $font-medium;
+  font-feature-settings: "salt";
   font-size: 24px;
   font-weight: 500;
   font-style: normal;
@@ -37,29 +54,29 @@
 }
 
 .collection__title-link {
-    display: inline-flex;
-    align-items: center;
-    color: $color-link-default;
+  display: inline-flex;
+  align-items: center;
+  color: $color-link-default;
 
-    &:hover {
-        color: #f1434a;
+  &:hover {
+    color: #f1434a;
 
-        // estimation of the above color
-        .collection__title-link-icon {
-            filter: brightness(1.3);
-        }
+    // estimation of the above color
+    .collection__title-link-icon {
+      filter: brightness(1.3);
     }
+  }
 
-    &:active,
-    &:focus {
-        color: #ff6669;
+  &:active,
+  &:focus {
+    color: #ff6669;
 
-        // estimation of the above color
-        .collection__title-link-icon {
-            filter: brightness(1.37);
-            opacity: 0.82;
-        }
+    // estimation of the above color
+    .collection__title-link-icon {
+      filter: brightness(1.37);
+      opacity: 0.82;
     }
+  }
 }
 
 .collection__title-a11y-help {
@@ -70,6 +87,85 @@
     margin-left: 4px;
     @include caret('red', 'right', 'medium');
     flex: 0 0 24px;
+}
+
+.collection__background-image {
+  width: 100%;
+  margin-bottom: -$background-overlap;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+
+  @include forceAspectRatio("16:9");
+
+  // Fake image border on top of image
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: calc(100% - 2px);
+    left: 0;
+    border-top: 1px solid rgba(0, 0, 0, .08);
+    border-bottom: 1px solid rgba(0, 0, 0, .08);
+  }
+
+  @include tablet-up {
+    @include forceAspectRatio("3:1");
+  }
+
+  @include desktop-wide {
+    margin-bottom: -$background-overlap-wide;
+  }
+
+  .collection__lead {
+    color: $color-text-branded;
+    margin-top: 0;
+    margin-bottom: 24px;
+
+    @include desktop-wide {
+      margin-bottom: 32px;
+    }
+  }
+}
+
+.collection__background-image--with-lead {
+  @include forceAspectRatio("1:1");
+
+  @include tablet {
+    @include forceAspectRatio("2:1");
+  }
+
+  @include desktop-up {
+    @include forceAspectRatio("3:1");
+  }
+
+  .collection__background-image-dimmer {
+    display: block;
+  }
+}
+
+.collection__background-image-dimmer {
+  display: none;
+  position: absolute;
+  background-color: $color-collection-dim;
+  bottom: 0;
+  width: 100%;
+  height: auto;
+  padding-bottom: $background-overlap;
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    background-image: linear-gradient(to bottom, $color-collection-dim-fade, $color-collection-dim);
+    height: 80px;
+    bottom: 100%;
+  }
+
+  @include desktop-wide {
+    padding-bottom: $background-overlap-wide;
+  }
 }
 
 .collection__lead {
@@ -89,9 +185,9 @@
   }
 
   @include desktop-up {
-      font-size: 22px;
-      margin-top: -8px;
-      max-width: 680px;
+    font-size: 22px;
+    margin-top: -8px;
+    max-width: 680px;
   }
 
   @include desktop-wide {
@@ -147,6 +243,122 @@
   &:last-child {
     margin-bottom: 0;
   }
+}
+
+.collection__links {
+  margin: 0 8px 12px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+
+  @include tablet-up {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  @include tablet-up {
+    margin: 0 32px 16px;
+  }
+
+  @include desktop-wide {
+    margin: 0 40px 20px;
+  }
+}
+
+// DOM:
+// <li class="collection__link-item">
+//   <a class="collection__link"></a>
+// </li>
+.collection__link-item {
+  margin: 0;
+  padding: 0;
+
+  &::before {
+    content: none;
+  }
+
+  // normally the fake border would be applied to the link-item. But
+  // to apply styling when navigation by keyboard, style must be applied
+  // to link itself because active state is on <a> only.
+  &:first-child .collection__link::before {
+    opacity: 0;
+  }
+
+  // Can't go from hover on link to parent to next sibling to child.
+  // Workaround: hover on parent --> hide border on next sibling's child.
+  // Doesn't work when using keyboard navigation but otherwise good enough.
+  &:hover + & .collection__link::before {
+    opacity: 0;
+  }
+}
+
+.collection__link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  font-family: $font-medium;
+  font-size: 16px;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.5;
+  letter-spacing: .4px;
+  color: $color-text-default;
+  border-radius: 2px;
+  background-color: $color-bg-button-transparent;
+  transition: background-color .2s ease-in-out;
+
+  &:hover {
+    color: $color-text-default;
+    background-color: $color-bg-button-hover;
+  }
+
+  &:active,
+  &:focus {
+    color: $color-text-default;
+    background-color: $color-bg-button-focus;
+  }
+
+  // On mobile, show a fake border between the links
+  @include smartphone {
+    &::before {
+      content: "";
+      position: absolute;
+      background-color: rgba(0, 0, 0, .08);
+      width: calc(100% - 8px);
+      height: 1px;
+      top: 0;
+      right: -8px;
+      opacity: 1;
+      transition: opacity .2s ease-in-out;
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+      &::before {
+        opacity: 0;
+      }
+    }
+  }
+
+  @include desktop-up {
+    font-size: 18px;
+  }
+}
+
+.collection__link-text {
+  @include breakLongWords;
+
+  @include tablet-up {
+    margin-right: 4px;
+  }
+}
+
+.collection__link-icon {
+  flex-shrink: 0;
+  @include caret('grey', 'right', 'medium');
 }
 
 // Standard: all M teasers, 1 column on mobile, classic 3 columns on tablet+
@@ -313,13 +525,15 @@
 
   .collection__title,
   .collection__lead,
-  .collection__title-link {
+  .collection__title-link,
+  .collection__link {
     color: $color-text-branded;
+
+    @include font-smoothing;
   }
 
   // different mechanism when branded: whole link gets transparent
   .collection__title-link {
-    @include font-smoothing;
     transition: opacity .2s ease-in-out;
 
     &:hover {
@@ -332,7 +546,18 @@
     }
   }
 
-  .collection__title-link-icon {
+  .collection__title-link-icon,
+  .collection__link-icon {
     @include caret('white', 'right', 'medium');
+  }
+
+  @include smartphone {
+    .collection__link-item {
+      .collection__link {
+        &::before {
+          background-color: rgba(255, 255, 255, .12);
+        }
+      }
+    }
   }
 }
