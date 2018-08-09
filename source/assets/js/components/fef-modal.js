@@ -90,7 +90,7 @@ export class FefModal {
         const onShowFinished = () => {
             this.preventScrolling();
 
-            if (this.$focusTarget.length === 1 && (FefResponsiveHelper.isDesktop() || FefResponsiveHelper.isDesktopWide()) ) {
+            if (this.$focusTarget.length === 1) {
                 this.setFocus(this.$focusTarget);
             }
         };
