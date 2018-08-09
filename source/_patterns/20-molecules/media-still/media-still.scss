@@ -23,7 +23,7 @@
   min-width: calc(36px + #{$play-button-border-size * 2});
 
   /* forcing 1:1 aspect ratio */
-  @include forceSquareAspectRatio;
+  @include forceAspectRatio("1:1");
 }
 
 .media-still__indicator {
@@ -39,7 +39,7 @@
   position: relative;
 
   /* forcing 16:9 aspect ratio of container */
-  @include forceWidescreenAspectRatio;
+  @include forceAspectRatio("16:9");
 
   //targeting the technical player's iframe
   iframe {

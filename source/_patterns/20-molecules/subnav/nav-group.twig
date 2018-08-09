@@ -9,6 +9,7 @@
         <ul class="nav-group__list">
             {% for item in items %}
                 {% include 'atoms-nav-item' with {
+                    'headerType': headerType,
                     'styleModifier': "nav-item--third-level",
                     'content': item.name,
                     'url': item.url

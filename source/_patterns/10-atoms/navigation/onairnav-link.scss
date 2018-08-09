@@ -10,6 +10,7 @@
 
   @include tablet-up {
     margin: 0;
+    flex-grow: 1;
   }
 
   &:hover,
@@ -86,8 +87,9 @@
 }
 
 .onairnav-link__media--radiologo {
-  max-width: 80px;
-  max-height: none;
+  width: 80px;
+  height: 80px;
+  max-height: 80px;
 }
 
 

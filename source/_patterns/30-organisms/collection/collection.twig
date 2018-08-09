@@ -1,12 +1,16 @@
 <div class="collection {{ styleModifier|default("collection--standard") }}">
 
     <h2 class="collection__title">
+        <div class="collection__title-shimmer h-loading-only">
+            {% include 'atoms-shimmer' with {'styleModifier': 'shimmer--heading'} %}
+        </div>
+
         {% if collection.titleLink is defined %}
             <a href="{{ collection.titleLink|default("#") }}" class="collection__title-link">
         {% endif %}
-
-        {{ collection.title|default("") }}
-
+        <span class="collection__title-text">
+            {{ collection.title|default("") }}
+        </span>
         {% if collection.titleLink is defined %}
                 <span class="collection__title-a11y-help">Landingpage öffnen</span>
                 <span class="collection__title-link-icon"></span>
@@ -14,8 +18,20 @@
         {% endif %}
     </h2>
 
+    {% if collection.image is defined %}
+        <div class="collection__background-image {{ collection.lead is defined ? "collection__background-image--with-lead" }}"
+             style="background-image: url({{collection.image}});">
+
+            <div class="collection__background-image-dimmer">
+    {% endif %}
+
     {% if collection.lead is defined %}
         <p class="collection__lead">{{collection.lead|default("")}}</p>
+    {% endif %}
+
+    {% if collection.image is defined %}
+            </div>
+        </div>
     {% endif %}
 
     <ul class="collection__teaser-list">
@@ -34,6 +50,8 @@
             {% elseif ('collection--swipeable' in styleModifier or 'collection--compact' in styleModifier or 'collection--compact-swipeable' in styleModifier) %}
                 {# SWIPEABLE, COMPACT, COMPACT SWIPEABLE: all S teasers #}
                 {% set teaserFormat = 'teaser--size-s' %}
+            {% else %}
+                {% set teaserFormat = 'teaser--size-m' %}
             {% endif %}
 
             <li class="collection__teaser-item teaser__wrapper">
@@ -41,4 +59,17 @@
             </li>
         {% endfor %}
     </ul>
+
+    {% if collection.links is defined and collection.links|length > 0 %}
+        <ul class="collection__links">
+            {% for link in collection.links %}
+                <li class="collection__link-item">
+                    <a class="collection__link" href="{{ link.link }}">
+                        <span class="collection__link-text">{{ link.title }}</span>
+                        <span class="collection__link-icon"></span>
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
 </div>

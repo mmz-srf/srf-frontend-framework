@@ -47,6 +47,11 @@
       margin: 0 12px;
     }
 
+    @include tablet-up {
+      display: flex;
+      flex-direction: column;
+    }
+
     @include desktop-up {
       flex-basis: calc(33.3334% - 2 * 16px);
       margin: 0 16px;
@@ -77,6 +82,8 @@
   }
 
   .onairnav-list__element {
+    display: flex;
+    flex-direction: column;
     flex-grow: 0;
     flex-shrink: 1;
     flex-basis: calc(33.3334% - 2 * 1px);
@@ -94,5 +101,9 @@
     @include desktop-up {
       flex-basis: calc(11.1111% - 2 * 1px);
     }
+  }
+
+  .onairnav-link {
+    flex-grow: 1;
   }
 }
