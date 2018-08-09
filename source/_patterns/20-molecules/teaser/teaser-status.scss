@@ -1,6 +1,6 @@
-@import "../../variables";
-@import "../../mixins";
-@import "../../breakpoints";
+@import '../../variables';
+@import '../../mixins';
+@import '../../breakpoints';
 
 .teaser-status {
   display: none;
@@ -46,13 +46,14 @@
 .teaser-status--visited,
 .teaser-status--visited-and-updated {
   .teaser-status__content:before {
-    content: "";
+    content: '';
     margin-right: 4px;
     background-position: center;
     background-repeat: no-repeat;
     background-size: 100%;
     height: 12px;
     width: 12px;
+    animation: rotateSparselyAnimation 10s 5s infinite;
   }
 }
 
@@ -61,8 +62,6 @@
 
   .teaser-status__content:before {
     background-image: url(../img/retry_red.svg);
-    animation: rotateSparsely 10s infinite;
-    animation-delay: 5s;
   }
 }
 
@@ -71,6 +70,7 @@
 
   .teaser-status__content:before {
     background-image: url(../img/blue_tick.svg);
+    animation: none;
   }
 }
 
@@ -79,8 +79,6 @@
 
   .teaser-status__content:before {
     background-image: url(../img/retry_grey.svg);
-    animation: rotateSparsely 10s infinite;
-    animation-delay: 5s;
   }
 }
 
