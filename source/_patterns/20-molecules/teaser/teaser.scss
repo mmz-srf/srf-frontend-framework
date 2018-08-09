@@ -1,6 +1,7 @@
 @import "../../variables";
 @import "../../mixins";
 @import "../../breakpoints";
+@import "teaser-theme-settings";
 
 .teaser {
   display: flex;
@@ -8,11 +9,21 @@
   position: relative; // to position the pseudo elements
   border-radius: 2px;
   overflow: hidden; // to cut off image with border radius
-  background-color: $color-bg-card;
-  box-shadow: $shadow-elevation1;
   color: $color-text-default;
-  transition: box-shadow .1s ease-in-out, transform .1s ease-in-out;
+  background-color: $color-bg-card;
+
+  @supports (--foo: bar) {
+    color: var(--teaser-color-text, $color-text-default);
+    background-color: var(--teaser-color-background, $color-bg-card);
+  }
+
+  box-shadow: $shadow-elevation1;
+  // sass-lint:disable indentation
+  transition: box-shadow .1s ease-in-out,
+              transform .1s ease-in-out;
+  // sass-lint:enable indentation
   transform: translateZ(0);
+
   @include breakLongWords;
 
   /* Card moves 4px up on interaction */
@@ -21,6 +32,11 @@
   &:active {
     transform: translateY(-4px);
     box-shadow: $shadow-elevation8;
+  }
+
+  &.teaser--no-translate {
+    transform: none;
+    box-shadow: none;
   }
 
   /* Teasers have an invisible layer on top that gets sligthly opaque when active/focused */
@@ -32,6 +48,11 @@
     pointer-events: none;
     // performance improvement: Don't animate the background-color, but the opacity
     background-color: $color-bg-button-hover;
+
+    @supports (--foo: bar) {
+      background-color: var(--teaser-color-overlay, $color-bg-button-hover);
+    }
+
     opacity: 0;
     transition: opacity .1s ease-in-out;
   }
@@ -76,7 +97,7 @@
   width: 80px;
   height: 80px;
 
-  @include forceAspectRatio("1:1");
+  @include forceAspectRatio('1:1');
 }
 
 .teaser__content {
@@ -100,6 +121,10 @@
   line-height: 1.14;
   letter-spacing: 0.4px;
   color: $color-accentuation-red;
+
+  @supports (--foo: bar) {
+    color: var(--teaser-color-accentuation, $color-accentuation-red);
+  }
 }
 
 .teaser__title {
@@ -112,6 +137,10 @@
   line-height: 1.25;
   letter-spacing: 0.4px;
   color: $color-text-default;
+
+  @supports (--foo: bar) {
+    color: var(--teaser-color-text, $color-text-default);
+  }
 }
 
 .teaser__lead {
@@ -125,6 +154,49 @@
   line-height: 1.25;
   letter-spacing: 0.4px;
   color: $color-text-default;
+
+  @supports (--foo: bar) {
+    color: var(--teaser-color-text, $color-text-default);
+  }
+}
+
+.teaser__live {
+  display: inline-block;
+  margin: 0 8px 2px 0;
+  padding: 1px 6px;
+  background-color: $color-srf-light;
+  font-family: $font-medium;
+  font-size: 12px;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.33;
+  letter-spacing: normal;
+  color: white;
+  text-transform: uppercase;
+  animation: pulsatingLiveAnimation 3s infinite ease-in-out;
+  @include font-smoothing;
+
+  @include tablet-up {
+    position: absolute;
+    top: 16px;
+  }
+
+  @include desktop-up {
+    font-size: 16px;
+  }
+
+  @include desktop-wide {
+    top: 24px;
+  }
+
+  .svg-icon {
+    margin: 2px 4px -2px 0;
+
+    @include desktop-up {
+      margin: 3px 6px -3px 0;
+    }
+  }
 }
 
 // A Swipeable's teasers basically don't have the mobile styles but override them
@@ -227,7 +299,7 @@
       height: auto;
       width: 100%;
 
-      @include forceAspectRatio("16:9");
+      @include forceAspectRatio('16:9');
     }
   }
 
@@ -260,7 +332,7 @@
     height: auto;
     width: 100%;
 
-    @include forceAspectRatio("16:9");
+    @include forceAspectRatio('16:9');
   }
 
   .teaser__medium-wrapper {
@@ -291,7 +363,7 @@
     height: 100%;
     width: 100%;
 
-    @include forceAspectRatio("16:9");
+    @include forceAspectRatio('16:9');
   }
 
   .teaser__medium-wrapper {
@@ -380,7 +452,7 @@
       height: auto;
       width: 100%;
 
-      @include forceAspectRatio("16:9");
+      @include forceAspectRatio('16:9');
     }
   }
 
@@ -437,5 +509,12 @@
     @include desktop-up {
       font-size: 24px;
     }
+  }
+}
+
+.teaser--theme-dark {
+  .teaser__kicker,
+  .teaser__title {
+    @include font-smoothing;
   }
 }
