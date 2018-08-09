@@ -58,7 +58,7 @@
   letter-spacing: .3px;
   padding: 4px 12px;
   background-color: $color-link-bg-hover;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .24), 0 0 8px 0 rgba(0, 0, 0, .12);
+  box-shadow: $shadow-elevation8;
   border-radius: 2px;
   white-space: nowrap;
 

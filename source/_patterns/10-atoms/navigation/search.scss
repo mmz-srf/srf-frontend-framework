@@ -39,11 +39,7 @@
 
 .search--active {
   .search-wrapper {
-    // sass-lint:disable indentation
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .24),
-                0 0 4px 0 rgba(0, 0, 0, .12);
-    // sass-lint:enable indentation
-
+    box-shadow: $shadow-elevation4;
     background-color: #fefefd;
     border: 1px solid rgba(0,0,0,.08);
     border-bottom: 0;
@@ -294,7 +290,7 @@
   .search__results {
     background-color: #fafaf8;
     margin-top: -1px;
-    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.24), 0 0 4px 0 rgba(0,0,0,0.12);
+    box-shadow: $shadow-elevation4;
   }
 
   .search__input--wrapper {
