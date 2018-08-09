@@ -60,10 +60,9 @@
   color: $color-srf-light;
 
   .teaser-status__content:before {
-    background-image: url(../img/retry.svg);
+    background-image: url(../img/retry_red.svg);
     animation: rotateSparsely 10s infinite;
     animation-delay: 5s;
-    filter: invert(82%) sepia(82%) saturate(5188%) hue-rotate(349deg) brightness(93%) contrast(91%); // approximate above color
   }
 }
 
@@ -79,10 +78,9 @@
   color: $color-text-light;
 
   .teaser-status__content:before {
-    background-image: url(../img/retry.svg);
+    background-image: url(../img/retry_grey.svg);
     animation: rotateSparsely 10s infinite;
     animation-delay: 5s;
-    filter: invert(56%) sepia(2%) saturate(1414%) hue-rotate(12deg) brightness(91%) contrast(90%); // approximate above color
   }
 }
 

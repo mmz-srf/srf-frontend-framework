@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="14px" height="14px" viewBox="0 0 14 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+        <g transform="translate(1.000000, 2.000000)" stroke="#6B6960">
+            <polyline points="0.25 3.67865 1.6435 5.75415 3.246 3.83565"></polyline>
+            <polyline points="11.5366 6.82955 10.1436 4.75405 8.5406 6.67255"></polyline>
+            <path d="M10.125,4.7729 C10.542,6.9769 8.9885,9.1369 6.8705,9.6369 C5.3935,9.9864 3.9125,9.5174 2.9055,8.5249" id="Stroke-5"></path>
+            <path d="M1.64595,5.74165 C0.98945,3.30015 2.63095,0.90465 4.91495,0.36515 C6.49295,-0.00835 8.07345,0.55115 9.07695,1.68565" id="Stroke-7"></path>
+        </g>
+    </g>
+</svg>
