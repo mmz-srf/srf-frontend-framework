@@ -1,0 +1,94 @@
+.swipeable-area {
+  position: relative;
+  overflow: hidden;
+}
+
+.swipeable-area__button {
+  display: none;
+  opacity: 0;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 20;
+  width: 56px;
+  height: 100%;
+  cursor: pointer;
+  pointer-events: none;
+  background-color: rgba(255, 255, 255, .6);
+  // sass-lint:disable indentation
+  transition: background-color .2s ease-in-out,
+              width .2s ease-in-out,
+              padding-left .2s ease-in-out,
+              padding-right .2s ease-in-out,
+              opacity .2s ease-in-out;
+  // sass-lint:enable indentation
+
+  &:hover {
+    background-color: rgba(255, 255, 255, .8);
+  }
+
+  span {
+    @include caret('grey', 'left', 'large');
+  }
+
+  @include desktop-up {
+    display: flex;
+  }
+}
+
+.swipeable-area__button--forward {
+  left: auto;
+  right: 0;
+
+  span {
+    @include caret('grey', 'right', 'large');
+  }
+}
+
+.swipeable-area__button--active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.swipeable-area__wrapper {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  width: 100%;
+  box-sizing: content-box;
+  -webkit-overflow-scrolling: touch; // enable momentum scrolling on ios
+
+  // Direct child (usually an <ul>) can be animated by the hinting mechanism (See fef-swipeable-area.js:hintOn/hintOff)
+  > * {
+    transition: transform .2s ease-in-out;
+  }
+}
+
+.swipeable-area--collection {
+  .swipeable-area-item--hidden .teaser {
+    &:hover,
+    &:focus,
+    &:active {
+      transform: none;
+      box-shadow: $shadow-elevation1;
+    }
+
+    &::after {
+      opacity: 0;
+    }
+  }
+
+  .swipeable-area__button {
+    top: 0;
+    background-color: rgba(245, 245, 242, .6);
+
+    &:hover {
+      background-color: rgba(245, 245, 242, .4);
+    }
+  }
+
+  .swipeable-area__wrapper {
+    padding-top: 8px; // teasers move up on hover and need space for that
+  }
+}

@@ -31,6 +31,15 @@
     } %}
 </div>
 
+<h2>M-Teaser which looks like an S-Teaser on Mobile</h2>
+
+<div class='js-togglable-wrapper togglable-wrapper'>
+    {% include 'molecules-teaser' with {
+        "styleModifier": "teaser--size-m teaser--size-s-on-mobile",
+        "teaser": collections[0].teasers[0]
+    } %}
+</div>
+
 <h2>L-Teaser</h2>
 
 <div class='js-togglable-wrapper togglable-wrapper'>
@@ -44,7 +53,7 @@
 
 <div class='js-togglable-wrapper togglable-wrapper'>
     {% include 'molecules-teaser' with {
-        "styleModifier": "teaser--size-l-but-s-on-mobile",
+        "styleModifier": "teaser--size-l teaser--size-s-on-mobile",
         "teaser": collections[0].teasers[0]
     } %}
 </div>
