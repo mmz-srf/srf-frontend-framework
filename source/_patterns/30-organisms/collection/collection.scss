@@ -10,15 +10,27 @@ $background-overlap-wide: 50px;
 .collection {
   display: flex;
   flex-direction: column;
-  margin: 8px 8px 16px;
+  margin: 8px 0 16px;
+  max-width: $desktop-wide-size;
   border-radius: 2px;
   background-color: $color-bg-caption;
   box-shadow: $shadow-elevation1;
+
+  @include tablet-up {
+    margin-bottom: 32px;
+  }
+
+  @include desktop-wide {
+    margin-bottom: 40px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 .collection__title {
   margin: 16px 24px 12px;
   font-family: $font-medium;
+  font-feature-settings: "salt";
   font-size: 24px;
   font-weight: 500;
   font-style: normal;
