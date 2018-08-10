@@ -309,7 +309,7 @@
   }
 
   @if $size == 'large' {
-    background-size: 100%
+    background-size: 100%;
   } @else if $size == 'small' {
     background-size: 53%;
   } @else if $size == 'tiny' {
@@ -319,6 +319,6 @@
   }
 }
 
-@mixin calculateTeaserFlexBasis($nrOfRows, $gutter) {
-    flex-basis: calc((100% - #{$nrOfRows - 1} * #{$gutter}) / #{$nrOfRows + 0.001});
+@mixin calculateTeaserFlexBasis($nr-of-rows, $gutter) {
+  flex-basis: calc((100% - #{$nr-of-rows - 1} * #{$gutter}) / #{$nr-of-rows + 0.001});
 }

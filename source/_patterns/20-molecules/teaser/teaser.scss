@@ -201,25 +201,6 @@
   }
 }
 
-// A Swipeable's teasers basically don't have the mobile styles but override them
-// with the according tablet+ styles
-.teaser__wrapper--swipeable {
-  .teaser {
-    .teaser__main {
-      flex-direction: column;
-    }
-
-    .teaser__medium-wrapper {
-      margin: 0;
-    }
-
-    .teaser__medium {
-      height: auto;
-      width: 100%;
-    }
-  }
-}
-
 .teaser--size-s {
   .teaser__medium-wrapper {
     border-radius: 2px;
@@ -269,40 +250,25 @@
  */
 .teaser--size-m {
   .teaser__main {
-    // ↔️ on mobile, ↕️ on tablet+
-    @include tablet-up {
-      flex-direction: column;
-    }
+    flex-direction: column;
   }
 
   .teaser__medium-wrapper {
+    margin: 0;
     border-radius: 2px;
     overflow: hidden;
 
-    @include smartphone {
-      &::after {
-        border-radius: 2px;
-        border: solid 1px rgba(0, 0, 0, 0.04);
-      }
-    }
-
-    @include tablet-up {
-      margin: 0;
-
-      &::after {
-        border-radius: 0;
-        border-bottom: solid 1px rgba(0, 0, 0, 0.04);
-      }
+    &::after {
+      border-radius: 0;
+      border-bottom: solid 1px rgba(0, 0, 0, 0.04);
     }
   }
 
   .teaser__medium {
-    @include tablet-up {
-      height: auto;
-      width: 100%;
+    height: auto;
+    width: 100%;
 
-      @include forceAspectRatio('16:9');
-    }
+    @include forceAspectRatio('16:9');
   }
 
   .teaser__kicker {
@@ -439,77 +405,52 @@
   }
 }
 
-/* L-TEASER WHICH LOOKS LIKE AN S TEASER ON MOBILE
- * not (!!!!!) vertical on mobile. Looks just like an L-teaser except on mobile. there it looks like an S teaser.
+/* S-ON-MOBILE
+ * override style to display a teaser as S-teaser on mobile
+ * to be used together with a teaser--size-[m|l] class
+ *
+ * ↔️ on mobile
  */
-.teaser--size-l-but-s-on-mobile {
-  .teaser__main {
-    @include tablet-up {
-      flex-direction: column;
+.teaser--size-s-on-mobile {
+  @include smartphone {
+    flex-direction: row;
+
+    .teaser__main {
+      flex-direction: row-reverse;
     }
-  }
 
-  .teaser__medium {
-    @include tablet-up {
-      height: auto;
-      width: 100%;
-
-      @include forceAspectRatio('16:9');
+    .teaser__kicker {
+      font-size: 14px;
+      line-height: 1.14;
     }
-  }
 
-  .teaser__medium-wrapper {
-    @include smartphone {
+    .teaser__title {
+      font-size: 16px;
+      line-height: 1.25;
+    }
+
+    .teaser__lead {
+      display: none;
+    }
+
+    .teaser__medium-wrapper {
+      margin: 16px 16px 16px 0;
       border-radius: 2px;
       overflow: hidden;
 
       &::after {
         border-radius: 2px;
         border: solid 1px rgba(0, 0, 0, 0.04);
+        height: 80px;
       }
     }
 
-    @include tablet-up {
-      margin: 0;
+    .teaser__medium {
+      object-fit: cover;
+      width: 80px;
+      height: 80px;
 
-      &::after {
-        border-bottom: solid 1px rgba(0, 0, 0, 0.04);
-      }
-    }
-  }
-
-  .teaser__lead {
-    @include tablet-up {
-      display: block;
-    }
-
-    @include desktop-up {
-      font-size: 18px;
-      line-height: 1.33;
-      color: $color-media-playing;
-    }
-  }
-
-  .teaser__kicker {
-    @include tablet-up {
-      font-size: 16px;
-      line-height: 1.13;
-    }
-
-    @include desktop-up {
-      font-size: 18px;
-      line-height: 1.11;
-    }
-  }
-
-  .teaser__title {
-    @include tablet-up {
-      font-size: 20px;
-      letter-spacing: 0.2px;
-    }
-
-    @include desktop-up {
-      font-size: 24px;
+      @include forceAspectRatio("1:1");
     }
   }
 }
