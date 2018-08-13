@@ -1,3 +1,5 @@
+{% set swipeable = ('collection--swipeable' in styleModifier or 'collection--compact-swipeable' in styleModifier) and collection.teasers|length > 3 %}
+
 <div class="collection {{ styleModifier|default("collection--standard") }}">
 
     <h2 class="collection__title">
@@ -18,31 +20,75 @@
         {% endif %}
     </h2>
 
+    {% if collection.image is defined %}
+        <div class="collection__background-image {{ collection.lead is defined ? "collection__background-image--with-lead" }}"
+             style="background-image: url({{collection.image}});">
+
+            <div class="collection__background-image-dimmer">
+    {% endif %}
+
     {% if collection.lead is defined %}
         <p class="collection__lead">{{collection.lead|default("")}}</p>
     {% endif %}
 
+    {% if collection.image is defined %}
+            </div>
+        </div>
+    {% endif %}
+
+    {# SWIPEABLE AREA WRAPPER #}
+    {% if swipeable %}
+        <div class="collection__swipeable-area swipeable-area swipeable-area--collection js-swipeable-area"
+             data-swipeable-hinting="20"
+             data-mark-hidden-items="swipeable-area-item--hidden">
+            <div class="swipeable-area__wrapper js-swipeable-area-wrapper">
+    {% endif %}
+
     <ul class="collection__teaser-list">
         {% for teaser in collection.teasers %}
-            {% set teaserFormat = '' %}
+            {% set teaserFormat = 'teaser--size-m teaser--size-s-on-mobile' %}
 
             {% if 'collection--standard' in styleModifier %}
-                {# STANDARD: all M teasers #}
-                {% set teaserFormat = 'teaser--size-m' %}
+                {# STANDARD: all M teasers (S on mobile) #}
+                {% set teaserFormat = 'teaser--size-m teaser--size-s-on-mobile' %}
             {% elseif 'collection--hero' in styleModifier %}
                 {# HERO: 1 XL, all others M #}
-                {% set teaserFormat = loop.index == 1 ? 'teaser--size-xl' : 'teaser--size-m' %}
+                {% set teaserFormat = loop.index == 1 ? 'teaser--size-xl' : 'teaser--size-m teaser--size-s-on-mobile' %}
             {% elseif 'collection--duo' in styleModifier %}
                 {# DUO: 2 L (2nd L looks like S on mobile), all others M #}
-                {% set teaserFormat = loop.index == 1 ? 'teaser--size-l' : (loop.index == 2 ? 'teaser--size-l-but-s-on-mobile' : 'teaser--size-m') %}
-            {% elseif ('collection--swipeable' in styleModifier or 'collection--compact' in styleModifier or 'collection--compact-swipeable' in styleModifier) %}
+                {% set teaserFormat = loop.index == 1 ? 'teaser--size-l' : (loop.index == 2 ? 'teaser--size-l teaser--size-s-on-mobile' : 'teaser--size-m teaser--size-s-on-mobile') %}
+            {% elseif ('collection--swipeable' in styleModifier) %}
+                {# SWIPEABLE: all M teasers #}
+                {% set teaserFormat = 'teaser--size-m' %}
+            {% elseif ('collection--compact' in styleModifier or 'collection--compact-swipeable' in styleModifier) %}
                 {# SWIPEABLE, COMPACT, COMPACT SWIPEABLE: all S teasers #}
                 {% set teaserFormat = 'teaser--size-s' %}
+            {% else %}
+                {% set teaserFormat = 'teaser--size-m' %}
             {% endif %}
 
-            <li class="collection__teaser-item teaser__wrapper">
+            <li class="collection__teaser-item teaser__wrapper {{ swipeable ? "js-swipeable-area-item"}}">
                 {% include 'molecules-teaser' with {'teaser': teaser, styleModifier: teaserFormat} %}
             </li>
         {% endfor %}
     </ul>
+
+    {# SWIPEABLE AREA WRAPPER END TAGS #}
+    {% if swipeable %}
+            </div>
+        </div>
+    {% endif %}
+
+    {% if collection.links is defined and collection.links|length > 0 %}
+        <ul class="collection__links">
+            {% for link in collection.links %}
+                <li class="collection__link-item">
+                    <a class="collection__link" href="{{ link.link }}">
+                        <span class="collection__link-text">{{ link.title }}</span>
+                        <span class="collection__link-icon"></span>
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
 </div>

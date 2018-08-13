@@ -241,25 +241,26 @@
   border: 0;
 }
 
-@mixin forceSquareAspectRatio() {
-  &::before {
-    content: "";
-    width: 1px;
-    margin-left: -1px;
-    float: left;
-    height: 0;
-    padding-top: 100%;
-  }
-}
+@mixin forceAspectRatio($ratio) {
+  $padding: 100%;
 
-@mixin forceWidescreenAspectRatio() {
+  @if $ratio == '1:1' or $ratio == 'square' {
+    $padding: 100%;
+  } @else if $ratio == '16:9' or $ratio == 'widescreen' {
+    $padding: 56.25%;
+  } @else if $ratio == '2:1' {
+    $padding: 50%;
+  } @else if $ratio == '3:1' {
+    $padding: 33.33%;
+  }
+
   &::before {
     content: "";
     width: 1px;
     margin-left: -1px;
     float: left;
     height: 0;
-    padding-top: 56.25%;
+    padding-top: $padding;
   }
 }
 
@@ -308,7 +309,7 @@
   }
 
   @if $size == 'large' {
-    background-size: 100%
+    background-size: 100%;
   } @else if $size == 'small' {
     background-size: 53%;
   } @else if $size == 'tiny' {
@@ -318,6 +319,6 @@
   }
 }
 
-@mixin calculateTeaserFlexBasis($nrOfRows, $gutter) {
-    flex-basis: calc((100% - #{$nrOfRows - 1} * #{$gutter}) / #{$nrOfRows + 0.001});
+@mixin calculateTeaserFlexBasis($nr-of-rows, $gutter) {
+  flex-basis: calc((100% - #{$nr-of-rows - 1} * #{$gutter}) / #{$nr-of-rows + 0.001});
 }

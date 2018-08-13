@@ -7,7 +7,7 @@
   max-width: 64px;
   min-width: 36px;
 
-  @include forceSquareAspectRatio;
+  @include forceAspectRatio("1:1");
 }
 
 .spinner-container--bottom {
