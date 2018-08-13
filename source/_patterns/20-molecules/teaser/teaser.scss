@@ -101,6 +101,8 @@
 }
 
 .teaser__content {
+  display: flex;
+  flex-direction: column;
   flex-basis: auto;
   flex-grow: 1;
   flex-shrink: 1;

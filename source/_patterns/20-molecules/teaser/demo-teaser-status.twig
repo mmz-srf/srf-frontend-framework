@@ -1,0 +1,27 @@
+<h3>New, not updates, not visited</h3>
+
+{% include 'molecules-teaser-status' with {
+    "styleModifier": "teaser-status--new",
+    "text": "Vor 5 Minuten"
+} %}
+
+<h3>Visited with updates</h3>
+
+{% include 'molecules-teaser-status' with {
+    "styleModifier": "teaser-status--visited-and-updated",
+    "text": "Aktualisiert"
+} %}
+
+<h3>New and with updates, not visited</h3>
+
+{% include 'molecules-teaser-status' with {
+    "styleModifier": "teaser-status--new-and-updated",
+    "text": "Vor 5 Minuten"
+} %}
+
+<h3>Visited, no updates</h3>
+
+{% include 'molecules-teaser-status' with {
+    "styleModifier": "teaser-status--visited",
+    "text": "Gesehen"
+} %}
