@@ -107,16 +107,6 @@
     } %}
 </div>
 
-<h3>New and updated</h3>
-
-<div class="js-togglable-wrapper togglable-wrapper">
-    {% include 'molecules-teaser' with {
-        'styleModifier': 'teaser--size-m',
-        'teaser': collections[0].teasers[0],
-        'status': 'Vor 5 Minuten',
-        'styleModifierStatus': 'teaser-status--new-and-updated'
-    } %}
-</div>
 
 <h3>Visited</h3>
 
@@ -126,6 +116,17 @@
         'teaser': collections[0].teasers[0],
         'status': 'Gesehen',
         'styleModifierStatus': 'teaser-status--visited'
+    } %}
+</div>
+
+<h3>Visited with updates in the last 2 hours</h3>
+
+<div class="js-togglable-wrapper togglable-wrapper">
+    {% include 'molecules-teaser' with {
+        'styleModifier': 'teaser--size-m',
+        'teaser': collections[0].teasers[0],
+        'status': 'Vor 5 Minuten',
+        'styleModifierStatus': 'teaser-status--visited-and-recently-updated'
     } %}
 </div>
 

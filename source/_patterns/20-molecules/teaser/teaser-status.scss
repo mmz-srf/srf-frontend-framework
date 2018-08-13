@@ -32,7 +32,7 @@
 
 // only show teaser status when a modifier is set
 .teaser-status--new,
-.teaser-status--new-and-updated,
+.teaser-status--visited-and-recently-updated,
 .teaser-status--visited,
 .teaser-status--visited-and-updated {
   display: flex;
@@ -42,7 +42,7 @@
   color: $color-srf-light;
 }
 
-.teaser-status--new-and-updated,
+.teaser-status--visited-and-recently-updated,
 .teaser-status--visited,
 .teaser-status--visited-and-updated {
   .teaser-status__content:before {
@@ -57,7 +57,7 @@
   }
 }
 
-.teaser-status--new-and-updated {
+.teaser-status--visited-and-recently-updated {
   color: $color-srf-light;
 
   .teaser-status__content:before {
