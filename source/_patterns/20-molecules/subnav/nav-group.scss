@@ -5,11 +5,11 @@
   border-bottom-left-radius: 2px;
   border-bottom-right-radius: 2px;
   background-color: #fefefd;
-  margin: 1px 0 0;
+  margin: 0;
   padding: 8px 0;
   box-shadow: $shadow-elevation8;
   min-width: 200px;
-  border-top: rgba(0, 0, 0, 0.08);
+  border-top: 1px inset rgba(0,0,0,.08);
   opacity: 0;
   animation: fadeAndScaleInAnimation .2s forwards;
 

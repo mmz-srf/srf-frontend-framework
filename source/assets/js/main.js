@@ -9,6 +9,7 @@ import {init as FefSearchInit} from './components/fef-search';
 import {init as FefNavigationInit} from './srf-navigation';
 import {init as FefGlobalnavInit} from './components/fef-globalnav';
 import {init as FefShameInit} from  './srf-shame';
+import {init as FefSwipeableAreaInit} from './components/fef-swipeable-area';
 import {init as FefSwipeModuleInit} from './srf-swipe-module';
 import {init as FefFlyingFocusInit} from './srf-flying-focus';
 import {init as FefExpandableBoxInit} from './components/fef-expandable-box';
@@ -37,6 +38,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
     FefSearchInit();
     FefNavigationInit();
     FefGlobalnavInit();
+    FefSwipeableAreaInit();
     FefSwipeModuleInit();
     FefFlyingFocusInit();
     FefExpandableBoxInit();
