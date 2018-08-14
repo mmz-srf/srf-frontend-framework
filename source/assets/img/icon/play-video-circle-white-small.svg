@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51 (57462) - http://www.bohemiancoding.com/sketch -->
+    <title>Atoms/Icons/Video_Icon_White_Small</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Atoms/Icons/Video_Icon_White_Small" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Video_Icon_Small">
+            <circle id="Oval-1" stroke="#FFFFFF" cx="8" cy="8" r="7.5"></circle>
+            <path d="M6.479458,11.927953 C6.21540867,12.0882869 6,11.9718339 6,11.6697311 L6.00115811,4.33037809 C6.00173717,4.02771276 6.21714584,3.91182231 6.48119517,4.07215618 L12.4686297,7.70976591 C12.732679,7.87009978 12.732679,8.13225971 12.4686297,8.29259358 L6.479458,11.927953 Z" id="Fill-1" fill="#FFFFFF"></path>
+        </g>
+    </g>
+</svg>

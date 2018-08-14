@@ -63,9 +63,11 @@
   }
 }
 
-.onairnav-link {
-  @include tablet-up {
-    flex-grow: 1;
+.onairnav-list--teaser {
+  .onairnav-list__element {
+    @include smartphone {
+      margin-bottom: 8px;
+    }
   }
 }
 

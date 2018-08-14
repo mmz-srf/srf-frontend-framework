@@ -62,13 +62,32 @@
 .nav-item--expandable {
   display: inline-flex;
   align-items: center;
+  padding-top: 16px;
+  padding-right: 4px;
+  padding-bottom: 14px;
+
+  @include tablet-up {
+    padding-top: 17px;
+    padding-right: 8px;
+    padding-bottom: 13px;
+  }
 
   .nav-item__icon {
     filter: none; /* fallback */
     filter: var(--theme-icon-filter, none);
+    margin-top: -1px;
+    margin-bottom: 1px;
     // prevents us from having to check click-events on the icon
     pointer-events: none;
     @include caret('grey', 'down', 'tiny');
+    // sass-lint:disable indentation
+    transition: transform .2s ease-in-out,
+                margin .2s ease-in-out;
+    // sass-lint:enable indentation
+
+    &.expand-icon--open {
+      margin: 0;
+    }
   }
 }
 

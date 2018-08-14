@@ -4,6 +4,27 @@
   height: 24px;
   background-size: contain;
   background-position: center;
+  background-repeat: no-repeat;
+}
+
+.svg-icon--small {
+  width: 16px;
+  height: 16px;
+}
+
+.svg-icon--tiny {
+  width: 12px;
+  height: 12px;
+}
+
+.svg-icon--tiny-but-small-on-desktop-up {
+  width: 12px;
+  height: 12px;
+
+  @include desktop-up {
+    width: 16px;
+    height: 16px;
+  }
 }
 
 .svg-icon--arrow-down-tiny {
@@ -49,4 +70,40 @@
 
 .svg-icon--tv-radio {
   background-image: url(../img/icon/tv-radio.svg);
+}
+
+.svg-icon--play-video-circle {
+  &.svg-icon--small {
+    background-image: url(../img/icon/play-video-circle-small.svg);
+  }
+
+  &.svg-icon--tiny {
+    background-image: url(../img/icon/play-video-circle-tiny.svg);
+  }
+}
+
+.svg-icon--play-video-circle-tiny-to-small {
+  background-image: url(../img/icon/play-video-circle-tiny.svg);
+
+  @include desktop-up {
+    background-image: url(../img/icon/play-video-circle-small.svg);
+  }
+}
+
+.svg-icon--play-video-circle-white {
+  &.svg-icon--small {
+    background-image: url(../img/icon/play-video-circle-white-small.svg);
+  }
+
+  &.svg-icon--tiny {
+    background-image: url(../img/icon/play-video-circle-white-tiny.svg);
+  }
+}
+
+.svg-icon--play-video-circle-white-tiny-to-small {
+  background-image: url(../img/icon/play-video-circle-white-tiny.svg);
+
+  @include desktop-up {
+    background-image: url(../img/icon/play-video-circle-white-small.svg);
+  }
 }

@@ -38,7 +38,7 @@
   @include tablet {
     position: absolute;
   }
-  
+
   @include desktop-up {
     position: fixed;
   }
@@ -56,30 +56,24 @@
 
 .affix-placeholder {
   top: 0;
+  height: 170px;
 
   @include tablet-up {
-    height: 216px;
-  }
-
-  @include smartphone {
-    height: 178px;
+    height: 224px;
   }
 }
 
 .affix-placeholder--home {
-  @include tablet-up {
-    height: 100px;
-  }
+  height: 120px;
 
-  @include smartphone {
-    height: 136px;
+  @include tablet-up {
+    height: 112px;
   }
 }
 
 .affix-placeholder--home.affix-placeholder--longportalnames {
-
   @include tablet {
-    height: 136px;
+    height: 128px;
   }
 }
 
