@@ -51,8 +51,8 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: 100%;
-    height: 12px;
-    width: 12px;
+    height: 14px;
+    width: 14px;
     animation: rotateSparselyAnimation 10s 5s infinite;
   }
 }
@@ -69,7 +69,7 @@
   color: $color-button-success;
 
   .teaser-status__content:before {
-    background-image: url(../img/blue_tick.svg);
+    background-image: url(../img/seen_blue.svg);
     animation: none;
   }
 }
