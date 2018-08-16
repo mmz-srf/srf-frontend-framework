@@ -8,13 +8,10 @@
                 {% include 'molecules-portalsnav--portallongnames' with {'styleModifier': 'portalsnav--large'} %}
             </div>
             <div class="masthead__button-wrapper">
-                <button class="masthead__button masthead__button--search" data-modal-id="modal-search">
-                    {% include 'atoms-icon-button' with {'iconStyleModifier': 'svg-icon--search-dark', 'buttonText': 'Tschertga'} %}
-                </button>
-                <button class="masthead__button" data-modal-id="modal-onairnav">
+                <button class="masthead__button" data-modal-id="modal-onairnav" aria-haspopup="false" aria-expanded="false">
                     {% include 'atoms-icon-button' with {'iconStyleModifier': 'svg-icon--tv-radio', 'buttonText': 'Radio/TV'} %}
                 </button>
-                <button class="masthead__button" data-modal-id="modal-menu">
+                <button class="masthead__button" data-modal-id="modal-menu" aria-haspopup="false" aria-expanded="false">
                     {% include 'atoms-icon-button' with {'iconStyleModifier': 'svg-icon--burger-dark', 'buttonText': 'Menu', 'styleModifier': 'icon-button--collapsing-text-tablet icon-button--spaceless-right-tablet'} %}
                 </button>
             </div>

@@ -1,8 +1,7 @@
 <ul class="globalnav js-globalnav {{ styleModifier|default("") }}"
-    id="{{ id|default("") }}"
-    role="menu">
+    id="{{ id|default("") }}">
   <li class="globalnav-group">
-    <ul class="globalnav-group__list" role="group">
+    <ul class="globalnav-group__list">
       <li class="globalnav-item">{% include 'atoms-globalnav-link' with {'text': 'Home',   'url': '/',       'styleModifier': 'globalnav-link--portal'} %}</li>
       <li class="globalnav-item">{% include 'atoms-globalnav-link' with {'text': 'News',   'url': '/news',   'styleModifier': 'globalnav-link--portal'} %}</li>
       <li class="globalnav-item">{% include 'atoms-globalnav-link' with {'text': 'Sport',  'url': '/sport',  'styleModifier': 'globalnav-link--portal'} %}</li>
@@ -12,7 +11,7 @@
     </ul>
   </li>
   <li class="globalnav-group">
-    <ul class="globalnav-group__list" role="group">
+    <ul class="globalnav-group__list">
       <li class="globalnav-item">{% include 'atoms-globalnav-link' with {'text': 'Play SRF',       'url': '/play'} %}</li>
       <li class="globalnav-item">{% include 'atoms-globalnav-link' with {'text': 'Sendungen A-Z',    'url': '/sendungen-a-z'} %}</li>
       <li class="globalnav-item">{% include 'atoms-globalnav-link' with {'text': 'Podcasts',         'url': '/podcasts'} %}</li>
@@ -36,7 +35,7 @@
     </ul>
   </li>
   <li class="globalnav-group">
-    <ul class="globalnav-group__list" role="group">
+    <ul class="globalnav-group__list">
       <li class="globalnav-item">{% include 'atoms-globalnav-link' with {'text': 'Verkehr', 'url': '/verkehr'} %}</li>
       <li class="globalnav-item">{% include 'atoms-globalnav-link' with {'text': 'Zambo', 'url': '/sendungen/zambo'} %}</li>
       <li class="globalnav-item">{% include 'atoms-globalnav-link' with {'text': 'Hallo SRF', 'url': '/hallosrf'} %}</li>

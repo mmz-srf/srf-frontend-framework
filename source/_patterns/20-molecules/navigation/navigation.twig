@@ -1,6 +1,5 @@
 <ul class="navigation js-navigation {{ styleModifier }}"
-    id="{{ id|default("") }}"
-    role="menu">
+    id="{{ id|default("") }}">
 
     <li class="navigation-item">
         <div class="navigation-search__wrapper">
@@ -11,7 +10,7 @@
     </li>
 
     <li class="navigation-item navigation-item--column">
-        <ul class="navigation__group" role="group">
+        <ul class="navigation__group">
             <li class="navigation__group-item">{% include 'atoms-navigation-link' with {'text': 'Home', 'url': '/'} %}</li>
             <li class="navigation__group-item">{% include 'atoms-navigation-link' with {'text': 'News', 'url': '/news'} %}</li>
             <li class="navigation__group-item">{% include 'atoms-navigation-link' with {'text': 'Sport', 'url': '/sport'} %}</li>
@@ -21,7 +20,7 @@
         </ul>
     </li>
     <li class="navigation-item navigation-item--column">
-        <ul class="navigation__group" role="group">
+        <ul class="navigation__group">
             <li class="navigation__group-item">{% include 'atoms-navigation-link' with {'text': 'Startseite',       'url': '/play', 'img': '/img/play_srf_logo.svg', 'styleModifierImg': 'navigation-link__img--wide'} %}</li>
             <li class="navigation__group-item">{% include 'atoms-navigation-link' with {'text': 'Sendungen A-Z',    'url': '/sendungen-a-z'} %}</li>
             <li class="navigation__group-item">{% include 'atoms-navigation-link' with {'text': 'Podcasts',         'url': '/podcasts'} %}</li>
@@ -47,7 +46,7 @@
         </ul>
     </li>
     <li class="navigation-item navigation-item--column">
-        <ul class="navigation__group" role="group">
+        <ul class="navigation__group">
             <li class="navigation__group-item">{% include 'atoms-navigation-link' with {'text': 'Verkehr', 'url': '/verkehr'} %}</li>
             <li class="navigation__group-item">{% include 'atoms-navigation-link' with {'text': 'Zambo', 'url': '/sendungen/zambo'} %}</li>
             <li class="navigation__group-item">{% include 'atoms-navigation-link' with {'text': 'Über SRF', 'url': '/unternehmen'} %}</li>

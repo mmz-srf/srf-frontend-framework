@@ -5,7 +5,8 @@
     {% else %}
       <img class="onairnav-link__media {{ styleModifierMedia|default('') }}"
            src="{{ frameworkAssetPath }}{{ media }}"
-           alt="{{ mediaAlt|default('') }}">
+           alt="{{ mediaAlt|default('') }}"
+           aria-hidden="true" role="presentation">
     {% endif %}
   {% endif %}
 
@@ -18,6 +19,7 @@
   <span class="onairnav-link__title {{ styleModifierTitle|default('') }}">{{ title|default('') }}</span>
 
   {% if progress is defined %}
-    <progress class="onairnav-link__progress" value="{{ progress }}" max="100"></progress>
+    <progress class="onairnav-link__progress" value="{{ progress }}" max="100" aria-hidden="true" role="presentation"></progress>
+    <span class="h-offscreen">{{ progress }}% der Sendung wurde bereits gezeigt.</span>
   {% endif%}
 </a>
