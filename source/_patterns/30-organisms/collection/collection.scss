@@ -406,11 +406,11 @@ $background-overlap-wide: 50px;
     }
 
     @include tablet-up {
-        padding-right: 12px;
+      padding-right: 12px;
     }
 
     @include desktop-wide {
-        padding-right: 16px;
+      padding-right: 16px;
     }
 
     &:first-child {
