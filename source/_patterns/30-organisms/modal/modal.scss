@@ -13,11 +13,9 @@
 .modal-main-wrapper {
   /* fallback */
   background-image: linear-gradient(135deg, #fefefd, #fafaf8);
-  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, .24), 0 0 8px 0 rgba(0, 0, 0, .12);
 
   /* theme */
   background-image: var(--theme-color-background, linear-gradient(135deg, #fefefd, #fafaf8));
-  box-shadow: var(--theme-box-shadow, 0 2px 8px 0 rgba(0, 0, 0, .24), 0 0 8px 0 rgba(0, 0, 0, .12));
 
   position: fixed;
   top: 0;
@@ -26,6 +24,7 @@
   max-height: 100%;
   overflow-y: scroll;
   overflow-x: hidden;
+  box-shadow: $shadow-elevation8;
 
   @include momentumScrolling;
 }

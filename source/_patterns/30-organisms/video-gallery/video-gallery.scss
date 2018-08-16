@@ -96,13 +96,13 @@
   margin: 0 4px;
   border-radius: 2px;
   overflow: hidden; // so the rounded corners are "visible"
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .24);
+  box-shadow: $shadow-elevation2;
   transition: box-shadow .2s ease-in-out;
   height: 100%;
 
   &:hover,
   &:active {
-    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, .24);
+    box-shadow: $shadow-elevation4;
   }
 
   @media all and (-ms-high-contrast: none) {

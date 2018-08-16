@@ -7,8 +7,7 @@
   background-color: #fefefd;
   margin: 0;
   padding: 8px 0;
-  box-shadow: 0 2px 8px 0 rgba(0,0,0,.24),
-              0 0 8px 0 rgba(0,0,0,.12);
+  box-shadow: $shadow-elevation8;
   min-width: 200px;
   border-top: 1px inset rgba(0,0,0,.08);
   opacity: 0;

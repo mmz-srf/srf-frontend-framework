@@ -11,7 +11,7 @@
   border: 0;
   border-radius: 2px;
   background: #ebebe5 url('../img/arrows/menu_arrow.svg') no-repeat right 16px center;
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .24), 0 0 2px 0 rgba(0, 0, 0, .12);
+  box-shadow: $shadow-elevation2;
   transition: background-color .2s ease-in-out, box-shadow .2s ease-in-out;
 
   @include tablet-up {
@@ -32,7 +32,7 @@
 
   &:hover,
   &:active {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .24), 0 0 8px 0 rgba(0, 0, 0, .12);
+    box-shadow: $shadow-elevation8;
   }
 
   // hide default arrow
@@ -81,7 +81,7 @@ _:-ms-lang(x),
   &:hover,
   &:active {
     background-color: #ebebe5;
-    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .24), 0 0 2px 0 rgba(0, 0, 0, .12);
+    box-shadow: $shadow-elevation2;
     cursor: default;
   }
 }
