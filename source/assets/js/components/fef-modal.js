@@ -7,6 +7,7 @@ const KEYCODES = {
     'tab': 9,
     'escape': 27
 };
+const END_OF_MODAL = '.js-end-of-modal';
 
 let existingModals = {};
 let scrollbarWidth = 0;
@@ -47,7 +48,6 @@ export class FefModal {
         this.animation = this.$element.attr('data-animation');
         this.previousScrollPosition = null;
 
-        this.endOfModalClass = ".js-end-of-modal";
         $element.append('<a class="js-end-of-modal h-offscreen" href="#"></a>');
 
         this.bindEvents();
@@ -76,9 +76,9 @@ export class FefModal {
         });
 
         // A11Y Helper: when tabbing out of the modal --> on focus, close modal, set focus to the caller
-        $(this.endOfModalClass).on('focus', () => {
+        $(END_OF_MODAL).on('focus', () => {
             this.close();
-            $(this.endOfModalClass).remove();
+            $(END_OF_MODAL).remove();
         });
 
     }
@@ -95,8 +95,7 @@ export class FefModal {
             }
         };
 
-        this.$caller.attr('aria-expanded', true);
-        this.$caller.attr('aria-haspopup', true);
+        this.$caller.attr({'aria-expanded': true, 'aria-haspopup': true});
 
         switch (this.animation) {
             case 'scale-from-origin':
@@ -120,8 +119,7 @@ export class FefModal {
     close() {
         this.scrollToPreviousPosition();
 
-        this.$caller.attr('aria-expanded', false);
-        this.$caller.attr('aria-haspopup', false);
+        this.$caller.attr({'aria-expanded': false, 'aria-haspopup': false});
 
         switch (this.animation) {
             case 'fade-in-out':
