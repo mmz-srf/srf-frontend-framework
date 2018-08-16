@@ -52,7 +52,7 @@
 
   /* theme */
   @supports (--foo: bar) {
-    color: var(--teaser-color-status-new, $color-srf-light)
+    color: var(--teaser-color-status-new, $color-srf-light);
   }
 }
 
@@ -86,7 +86,7 @@
 
     /* theme */
     @supports (--foo: bar) {
-      background-image: var(--teaser-status-image-new-and-updated, url(../img/retry_white.svg))
+      background-image: var(--teaser-status-image-new-and-updated, url(../img/retry_red.svg));
     }
   }
 }
@@ -106,7 +106,7 @@
 
     /* theme */
     @supports (--foo: bar) {
-      background-image: var(--teaser-status-image-visited, url(../img/small_tick-white.svg))
+      background-image: var(--teaser-status-image-visited, url(../img/small_tick-blue.svg));
     }
 
     animation: none;
@@ -128,7 +128,7 @@
 
     /* theme */
     @supports (--foo: bar) {
-      background-image: var(--teaser-status-image-visited-and-updated, url(../img/retry_grey.svg))
+      background-image: var(--teaser-status-image-visited-and-updated, url(../img/retry_grey.svg));
     }
   }
 }
