@@ -214,6 +214,7 @@ export class SrfSearch {
     }
 
     hideResults() {
+        this.$inputField.attr('aria-expanded', false);
         this.$searchResults.hide().html('').removeClass('search__results--showed-results');
         this.suggestionUrl = '';
     }
@@ -280,6 +281,7 @@ export class SrfSearch {
                 </li>`;
         });
 
+        this.$inputField.attr('aria-expanded', true);
         this.$searchResults.html(html).show();
     }
 
