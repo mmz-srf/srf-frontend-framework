@@ -24,13 +24,13 @@
 /* COMMON SETTINGS FOR ALL THEMES EXCEPT DEFAULT */
 .teaser.teaser--theme-dark {
   --teaser-color-background: #22211d;
-  --teaser-color-text: white;
-  --teaser-color-title: white;
+  --teaser-color-text: #ffffff;
+  --teaser-color-title: #ffffff;
   --teaser-color-accentuation: #dadad2;
   --teaser-color-overlay: rgba(255, 255, 255, .08);
-  --teaser-color-status-new: white;
-  --teaser-color-status-visited: white;
-  --teaser-color-status-updated: white;
+  --teaser-color-status-new: #ffffff;
+  --teaser-color-status-visited: #ffffff;
+  --teaser-color-status-updated: #ffffff;
   --teaser-status-image-new-and-updated: url(/assets/img/retry_white.svg);
   --teaser-status-image-visited: url(/assets/img/small_tick-white.svg);
   --teaser-status-image-visited-and-updated: url(/assets/img/retry_white.svg);
@@ -38,13 +38,13 @@
 
 .teaser.teaser--theme-breaking {
   --teaser-color-background: #c91024;
-  --teaser-color-text: white;
-  --teaser-color-title: white;
-  --teaser-color-accentuation: white;
+  --teaser-color-text: #ffffff;
+  --teaser-color-title: #ffffff;
+  --teaser-color-accentuation: #ffffff;
   --teaser-color-overlay: rgba(255, 255, 255, .08);
-  --teaser-color-status-new: white;
-  --teaser-color-status-visited: white;
-  --teaser-color-status-updated: white;
+  --teaser-color-status-new: #ffffff;
+  --teaser-color-status-visited: #ffffff;
+  --teaser-color-status-updated: #ffffff;
   --teaser-status-image-new-and-updated: url(/assets/img/retry_white.svg);
   --teaser-status-image-visited: url(/assets/img/small_tick-white.svg);
   --teaser-status-image-visited-and-updated: url(/assets/img/retry_white.svg);
