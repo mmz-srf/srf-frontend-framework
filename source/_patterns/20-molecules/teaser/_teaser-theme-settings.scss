@@ -10,14 +10,42 @@
 .teaser {
   --teaser-color-background: #{$color-bg-card};
   --teaser-color-text: #{$color-text-default};
+  --teaser-color-title: #383732;
   --teaser-color-accentuation: #{$color-accentuation-red};
   --teaser-color-overlay: #{$color-bg-button-hover};
+  --teaser-color-status-new: #{$color-srf-light};
+  --teaser-color-status-visited: #{$color-button-success};
+  --teaser-color-status-updated: #{$color-text-light};
+  --teaser-status-image-new-and-updated: url(../img/retry_red.svg);
+  --teaser-status-image-visited: url(../img/small_tick-blue.svg);
+  --teaser-status-image-visited-and-updated: url(../img/retry_grey.svg);
 }
 
 /* COMMON SETTINGS FOR ALL THEMES EXCEPT DEFAULT */
 .teaser.teaser--theme-dark {
   --teaser-color-background: #22211d;
   --teaser-color-text: white;
+  --teaser-color-title: white;
   --teaser-color-accentuation: #dadad2;
   --teaser-color-overlay: rgba(255, 255, 255, .08);
+  --teaser-color-status-new: white;
+  --teaser-color-status-visited: white;
+  --teaser-color-status-updated: white;
+  --teaser-status-image-new-and-updated: url(../img/retry_white.svg);
+  --teaser-status-image-visited: url(../img/small_tick-white.svg);
+  --teaser-status-image-visited-and-updated: url(../img/retry_white.svg);
+}
+
+.teaser.teaser--theme-breaking {
+  --teaser-color-background: #c91024;
+  --teaser-color-text: white;
+  --teaser-color-title: white;
+  --teaser-color-accentuation: white;
+  --teaser-color-overlay: rgba(255, 255, 255, .08);
+  --teaser-color-status-new: white;
+  --teaser-color-status-visited: white;
+  --teaser-color-status-updated: white;
+  --teaser-status-image-new-and-updated: url(../img/retry_white.svg);
+  --teaser-status-image-visited: url(../img/small_tick-white.svg);
+  --teaser-status-image-visited-and-updated: url(../img/retry_white.svg);
 }

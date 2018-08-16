@@ -10,8 +10,11 @@
   border-radius: 2px;
   overflow: hidden; // to cut off image with border radius
   color: $color-text-default;
+
+  /* fallback */
   background-color: $color-bg-card;
 
+  /* theme */
   @supports (--foo: bar) {
     color: var(--teaser-color-text, $color-text-default);
     background-color: var(--teaser-color-background, $color-bg-card);
@@ -46,9 +49,13 @@
     height: 100%;
     width: 100%;
     pointer-events: none;
+    
     // performance improvement: Don't animate the background-color, but the opacity
+    
+    /* fallback */
     background-color: $color-bg-button-hover;
 
+    /* theme */
     @supports (--foo: bar) {
       background-color: var(--teaser-color-overlay, $color-bg-button-hover);
     }
@@ -123,8 +130,11 @@
   font-stretch: normal;
   line-height: 1.14;
   letter-spacing: 0.4px;
+
+  /* fallback */
   color: $color-accentuation-red;
 
+  /* theme */
   @supports (--foo: bar) {
     color: var(--teaser-color-accentuation, $color-accentuation-red);
   }
@@ -139,10 +149,13 @@
   font-stretch: normal;
   line-height: 1.25;
   letter-spacing: 0.4px;
+
+  /* fallback */
   color: $color-text-default;
 
+  /* theme */
   @supports (--foo: bar) {
-    color: var(--teaser-color-text, $color-text-default);
+    color: var(--teaser-color-title, $color-text-default);
   }
 }
 
@@ -156,8 +169,11 @@
   font-stretch: normal;
   line-height: 1.25;
   letter-spacing: 0.4px;
+
+  /* fallback */
   color: $color-text-default;
 
+  /* theme */
   @supports (--foo: bar) {
     color: var(--teaser-color-text, $color-text-default);
   }
@@ -382,7 +398,14 @@
     @include desktop-up {
       font-size: 18px;
       line-height: 1.33;
-      color: $color-media-playing;
+
+      /* fallback */
+      color: #383732;
+
+      /* theme */
+      @supports (--foo: bar) {
+        color: var(--teaser-color-text, #383732);
+      }
     }
   }
 

@@ -17,7 +17,7 @@
 
 <div class="js-togglable-wrapper togglable-wrapper">
     {% include 'molecules-teaser' with {
-        'styleModifier': 'teaser--size-s',
+        'styleModifier': 'teaser--size-s teaser--theme-breaking',
         'teaser': collections[0].teasers[0]
     } %}
 </div>
@@ -26,7 +26,7 @@
 
 <div class="js-togglable-wrapper togglable-wrapper">
     {% include 'molecules-teaser' with {
-        'styleModifier': 'teaser--size-m',
+        'styleModifier': 'teaser--size-m teaser--theme-breaking',
         'teaser': collections[0].teasers[0]
     } %}
 </div>
@@ -35,7 +35,7 @@
 
 <div class='js-togglable-wrapper togglable-wrapper'>
     {% include 'molecules-teaser' with {
-        "styleModifier": "teaser--size-m teaser--size-s-on-mobile",
+        "styleModifier": "teaser--size-m teaser--size-s-on-mobile teaser--theme-breaking",
         "teaser": collections[0].teasers[0]
     } %}
 </div>
@@ -44,7 +44,7 @@
 
 <div class="js-togglable-wrapper togglable-wrapper">
     {% include 'molecules-teaser' with {
-        'styleModifier': 'teaser--size-l',
+        'styleModifier': 'teaser--size-l teaser--theme-breaking',
         'teaser': collections[0].teasers[0]
     } %}
 </div>
@@ -53,7 +53,7 @@
 
 <div class="js-togglable-wrapper togglable-wrapper">
     {% include 'molecules-teaser' with {
-        "styleModifier": "teaser--size-l teaser--size-s-on-mobile",
+        "styleModifier": "teaser--size-l teaser--size-s-on-mobile teaser--theme-breaking",
         "teaser": collections[0].teasers[0]
     } %}
 </div>
@@ -62,7 +62,7 @@
 
 <div class="js-togglable-wrapper togglable-wrapper">
     {% include 'molecules-teaser' with {
-        'styleModifier': 'teaser--size-xl',
+        'styleModifier': 'teaser--size-xl teaser--theme-breaking',
         'teaser': collections[0].teasers[0]
     } %}
 </div>
@@ -71,7 +71,16 @@
 
 <div class='js-togglable-wrapper togglable-wrapper'>
     {% include 'molecules-teaser' with {
-        "styleModifier": "teaser--no-translate",
+        "styleModifier": "teaser--no-translate teaser--theme-breaking",
+        "teaser": collections[0].teasers[0]
+    } %}
+</div>
+
+<h2>Theme Breaking</h2>
+
+<div class='js-togglable-wrapper togglable-wrapper'>
+    {% include 'molecules-teaser' with {
+        "styleModifier": "teaser--theme-breaking",
         "teaser": collections[0].teasers[0]
     } %}
 </div>
@@ -100,7 +109,7 @@
 
 <div class="js-togglable-wrapper togglable-wrapper">
     {% include 'molecules-teaser' with {
-        'styleModifier': 'teaser--size-s',
+        'styleModifier': 'teaser--size-s teaser--theme-breaking',
         'teaser': collections[0].teasers[0],
         'status': 'Vor 5 Minuten',
         'styleModifierStatus': 'teaser-status--new'
@@ -111,7 +120,7 @@
 
 <div class="js-togglable-wrapper togglable-wrapper">
     {% include 'molecules-teaser' with {
-        'styleModifier': 'teaser--size-m',
+        'styleModifier': 'teaser--size-m teaser--theme-breaking',
         'teaser': collections[0].teasers[0],
         'status': 'Vor 5 Minuten',
         'styleModifierStatus': 'teaser-status--new-and-updated'
@@ -122,7 +131,7 @@
 
 <div class="js-togglable-wrapper togglable-wrapper">
     {% include 'molecules-teaser' with {
-        'styleModifier': 'teaser--size-l',
+        'styleModifier': 'teaser--size-l teaser--theme-breaking',
         'teaser': collections[0].teasers[0],
         'status': 'Gesehen',
         'styleModifierStatus': 'teaser-status--visited'
@@ -133,7 +142,7 @@
 
 <div class="js-togglable-wrapper togglable-wrapper">
     {% include 'molecules-teaser' with {
-        'styleModifier': 'teaser--size-xl',
+        'styleModifier': 'teaser--size-xl teaser--theme-breaking',
         'teaser': collections[0].teasers[0],
         'status': 'Vor 5 Minuten',
         'styleModifierStatus': 'teaser-status--visited-and-updated'

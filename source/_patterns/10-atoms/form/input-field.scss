@@ -44,7 +44,7 @@ $default-input-background: #fff;
   }
 
   &.input-field--success {
-    background: $default-input-background url('../img/blue_tick.svg') no-repeat right 16px center;
+    background: $default-input-background url('../img/small_tick-blue.svg') no-repeat right 16px center;
 
     &:focus {
       background: $default-input-background none;
