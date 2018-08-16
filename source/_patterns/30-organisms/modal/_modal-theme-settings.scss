@@ -13,7 +13,7 @@
   --theme-icon-filter: none;
 
   --theme-color-bg-search: #fefefd;
-  --theme-color-text-search: $color-text-light;
+  --theme-color-text-search: #{$color-text-light};
   --theme-search-border: 1px solid rgba(0,0,0,.08);
   --theme-search-border-bottom: 0;
 }

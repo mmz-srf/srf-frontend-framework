@@ -31,7 +31,7 @@
   /* theme */
   @supports (--foo: bar) {
     background-color: var(--theme-color-bg-search, #fefefd);
-    border: var(--theme-search-border, 1px solid rgba(255, 255, 255, 0.12));
+    border: var(--theme-search-border, 1px solid rgba(0,0,0,.08));
     border-bottom: var(--theme-search-border-bottom, 0);
   }
   
