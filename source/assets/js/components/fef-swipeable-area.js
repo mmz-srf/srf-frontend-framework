@@ -11,7 +11,9 @@ const HOOK_CLASS = 'js-swipeable-area',
     RIGHT_OFFSET = 24,
     INNER_CONTAINER_SCROLL_PADDING = 50,
     DEFAULT_SCROLL_TIME = 400,
-    DEBOUNCETIME = 10;
+    DEBOUNCETIME = 50,
+    MIN_BUTTON_WIDTH = 40,
+    MAX_BUTTON_WIDTH = 70;
 
 export function init() {
     $(`.${HOOK_CLASS}`).each((index, element) => {
@@ -28,8 +30,7 @@ export class FefSwipeableArea {
         this.$element = $element;
         this.$innerContainer = $(`.${INNER_CONTAINER_CLASS}`, this.$element);
         this.$items = $(`.${ITEM_CLASS}`, this.$innerContainer);
-        this.itemLeftPositions = [];
-        this.itemRightPositions = [];
+        this.itemPositions = [];
         this.$buttonBack = null;
         this.$buttonForward = null;
 
@@ -40,9 +41,10 @@ export class FefSwipeableArea {
     init() {
         this.initContainerHeight();
         this.initItemCheck();
-        if (FefResponsiveHelper.isDesktop() || FefResponsiveHelper.isDesktopWide()) {
+        if (this.isInWideBreakpoints()) {
             this.addButtons();
             this.updateButtonStatus();
+            this.setButtonWidths();
             this.initItemPositions();
         }
     }
@@ -69,9 +71,17 @@ export class FefSwipeableArea {
     }
 
     initItemPositions() {
+        this.itemPositions = [];
+
         this.$items.each( (index, element) => {
-            this.itemLeftPositions.push($(element).position().left);
-            this.itemRightPositions.push($(element).position().left + $(element).innerWidth());
+            const left = $(element).position().left;
+            const width = $(element).innerWidth();
+
+            this.itemPositions.push({
+                left: left,
+                center: left + (width / 2),
+                right: left + width
+            });
         });
     }
 
@@ -81,8 +91,8 @@ export class FefSwipeableArea {
     };
 
     addButtons() {
+        // making sure to add the buttons only once
         if (this.$buttonBack === null) {
-            //adding the buttons only once
             this.$buttonBack = $(`<div class='${BACK_BUTTON_CLASS}'><span></span></div>`);
             this.$buttonForward = $(`<div class='${FORWARD_BUTTON_CLASS}'><span></span></div>`);
 
@@ -106,29 +116,29 @@ export class FefSwipeableArea {
             const hintAmount = parseInt(this.$element.data('swipeable-hinting'));
 
             if (hintAmount > 0) {
-                this.$buttonBack.hover(this.hintOn(this.$buttonBack, hintAmount), this.hintOff(this.$buttonBack));
-                this.$buttonForward.hover(this.hintOn(this.$buttonForward, -hintAmount), this.hintOff(this.$buttonForward));
+                this.$buttonBack.hover(
+                    this.hintOn(this.$buttonBack, hintAmount),
+                    this.hintOff(this.$buttonBack)
+                );
+                this.$buttonForward.hover(
+                    this.hintOn(this.$buttonForward, -hintAmount),
+                    this.hintOff(this.$buttonForward)
+                );
             }
         }
     }
 
+    /**
+     * Shows/hides the buttons via class if needed.
+     * - Buttons only appear on Breakpoints Desktop and Desktop Wide
+     * - If scrolled to the very end, don't show the forward button
+     * - If scrolled to the very beginning, don't show the back button
+     */
     updateButtonStatus() {
-        if (FefResponsiveHelper.isDesktop() || FefResponsiveHelper.isDesktopWide()) {
-            // show forward button if needed
-            if (this.isAtScrollEnd()) {
-                this.$buttonForward.removeClass(BUTTON_ACTIVE_CLASS);
-            } else if (this.hasScrollableOverflow()) {
-                this.$buttonForward.addClass(BUTTON_ACTIVE_CLASS);
-            } else {
-                this.$buttonForward.removeClass(BUTTON_ACTIVE_CLASS);
-            }
-
-            // show back button if needed
-            if (this.hasScrollableOverflow() && this.$innerContainer.scrollLeft() > BUTTON_BACK_THRESHOLD) {
-                this.$buttonBack.addClass(BUTTON_ACTIVE_CLASS);
-            } else {
-                this.$buttonBack.removeClass(BUTTON_ACTIVE_CLASS);
-            }
+        // show forward/back buttons if needed
+        if (this.hasScrollableOverflow() && this.isInWideBreakpoints()) {
+            this.$buttonForward.toggleClass(BUTTON_ACTIVE_CLASS, !this.isAtScrollEnd());
+            this.$buttonBack.toggleClass(BUTTON_ACTIVE_CLASS, !this.isAtScrollBeginning());
         }
     }
 
@@ -140,25 +150,49 @@ export class FefSwipeableArea {
         return this.$innerContainer.scrollLeft() + this.$innerContainer.innerWidth() >= this.$innerContainer[0].scrollWidth;
     }
 
+    isAtScrollBeginning() {
+        return this.$innerContainer.scrollLeft() <= BUTTON_BACK_THRESHOLD;
+    }
+
+    /**
+     * Paging forward (-->):
+     * Get the right-most item that's partially out of view (i.e. its right edge
+     * is over the visible area's right edge).
+     * Then get the one after that and try to center it. If there's no next one
+     * we just take the last (the right-most) and use this.
+     */
     pageForward() {
         let visibleAreaRightEdge = this.$innerContainer.scrollLeft() + this.$innerContainer.innerWidth(),
-            nextItem = this.itemRightPositions.findIndex(rightEdge => rightEdge > visibleAreaRightEdge),
-            newPosition = this.itemLeftPositions[nextItem] - INNER_CONTAINER_SCROLL_PADDING;
+            nextItemIndex = this.itemPositions.findIndex(pos => pos.right > visibleAreaRightEdge);
+
+        nextItemIndex = Math.min(nextItemIndex + 1, this.itemPositions.length - 1);
+
+        let newPosition = this.itemPositions[nextItemIndex].center - (this.$innerContainer.innerWidth() / 2);
 
         this.scrollToPosition(newPosition);
     }
 
+    /**
+     * Paging back (<--):
+     * Get the left-most item that's partially out of view (i.e. its right edge
+     * is over the visible area's left edge).
+     * Then get the one before that and try to center it. If there's no previous one
+     * we just take the first (the left-most) and use this.
+     */
     pageBack() {
-        let visibleAreaLeftEdge = this.$innerContainer.scrollLeft() + INNER_CONTAINER_SCROLL_PADDING,
-            nextItem = this.itemRightPositions.findIndex(rightEdge => rightEdge > visibleAreaLeftEdge),
-            newPosition = this.itemLeftPositions[nextItem] - this.$innerContainer.innerWidth() + INNER_CONTAINER_SCROLL_PADDING;
+        let visibleAreaLeftEdge = this.$innerContainer.scrollLeft(),
+            nextItemIndex = this.itemPositions.findIndex(pos => pos.right > visibleAreaLeftEdge);
+
+        nextItemIndex = Math.max(nextItemIndex - 1, 0);
+
+        let newPosition = this.itemPositions[nextItemIndex].center - (this.$innerContainer.innerWidth() / 2);
 
         this.scrollToPosition(newPosition);
     }
 
     /**
      * Scrolls to a specified position in a specified (or default) time.
-     * Also resets the hinting, if applicable by removing the translation.
+     * Also resets the hinting, if applicable, by removing the translation.
      *
      * @param {Number} position Where to scroll to
      * @param {Number} [time] How long it should take, optional
@@ -166,11 +200,65 @@ export class FefSwipeableArea {
     scrollToPosition(position, time) {
         time = typeof time === 'undefined' ? DEFAULT_SCROLL_TIME : time;
 
-        this.$innerContainer.children().first().css('transform', 'translateX(0)');
+        this.checkFuturePosition(position);
 
         this.$innerContainer
             .stop(true, false)
-            .animate( { scrollLeft: position }, time, 'easeInOutSine');
+            .animate( { scrollLeft: position }, time, 'easeInOutSine', () => {
+                if (this.isInWideBreakpoints()) {
+                    this.setButtonWidths();
+                }
+            });
+    }
+
+    checkFuturePosition(position) {
+        // If the scroll position *will* be so that it's not possible to
+        // scroll to one direction anymore, remove the hinting. We could
+        // do this in the callback of animate, but if it happens
+        // when starting the animation, it's less janky.
+        if (this.isInWideBreakpoints()) {
+            let willBeOutOfBoundsOnAnySide = false;
+
+            if (position <= 0) {
+                willBeOutOfBoundsOnAnySide = true;
+                this.$buttonBack.removeClass(BUTTON_ACTIVE_CLASS);
+            }
+
+            if (position + this.$innerContainer.innerWidth() >= this.$innerContainer[0].scrollWidth) {
+                willBeOutOfBoundsOnAnySide = true;
+                this.$buttonForward.removeClass(BUTTON_ACTIVE_CLASS);
+            }
+
+            if (willBeOutOfBoundsOnAnySide) {
+                this.applyHint(0);
+            }
+        }
+    }
+
+    setButtonWidths() {
+        let visibleAreaRightEdge = this.$innerContainer.scrollLeft() + this.$innerContainer.innerWidth(),
+            nextItemPos = this.itemPositions.find(pos => pos.right > visibleAreaRightEdge);
+
+        if (nextItemPos) {
+            this.setButtonWidth(this.$buttonForward, visibleAreaRightEdge - nextItemPos.left);
+        }
+
+        let visibleAreaLeftEdge = this.$innerContainer.scrollLeft(),
+            prevItemPos = this.itemPositions.find(pos => pos.right > visibleAreaLeftEdge);
+
+        if (prevItemPos) {
+            this.setButtonWidth(this.$buttonBack, prevItemPos.right - visibleAreaLeftEdge);
+        }
+    }
+
+    /**
+     * Sets the width of a button after clamping the desired width.
+     *
+     * @param {JQuery.element} $button Button to set width of
+     * @param {Number} width Desired width
+     */
+    setButtonWidth($button, width) {
+        $button.width(Math.min(Math.max(Math.floor(width + 1), MIN_BUTTON_WIDTH), MAX_BUTTON_WIDTH));
     }
 
     /**
@@ -191,10 +279,9 @@ export class FefSwipeableArea {
      */
     hintOn($button, amount) {
         return () => {
-            this.$innerContainer.children().first().css({
-                'transform': `translateX(${amount}px)`
-            });
-            $button.css({
+            this.applyHint(amount);
+            // save the previous width because it could have been changed
+            $button.data('prev-width', $button.width()).css({
                 'width': $button.width() + Math.abs(amount),
                 'padding-left': -amount,
                 'padding-right': amount
@@ -204,11 +291,10 @@ export class FefSwipeableArea {
 
     hintOff ($button) {
         return () => {
-            this.$innerContainer.children().first().css({
-                'transform': 'translateX(0)'
-            });
+            this.applyHint(0);
+            // restore the previously saved original width
             $button.css({
-                'width': '',
+                'width': $button.data('prev-width'),
                 'padding': ''
             });
         };
@@ -241,5 +327,13 @@ export class FefSwipeableArea {
             rightEdgeContainer = this.$innerContainer.offset().left + this.$innerContainer.outerWidth();
 
         return rightEdgeItem > rightEdgeContainer;
+    }
+
+    isInWideBreakpoints() {
+        return FefResponsiveHelper.isDesktop() || FefResponsiveHelper.isDesktopWide();
+    }
+
+    applyHint(pixels) {
+        this.$innerContainer.children().first().css('transform', `translateX(${pixels}px)`);
     }
 }
