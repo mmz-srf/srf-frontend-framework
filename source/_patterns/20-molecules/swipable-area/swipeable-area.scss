@@ -20,8 +20,6 @@
   // sass-lint:disable indentation
   transition: background-color .2s ease-in-out,
               width .2s ease-in-out,
-              padding-left .2s ease-in-out,
-              padding-right .2s ease-in-out,
               opacity .2s ease-in-out;
   // sass-lint:enable indentation
 
@@ -37,6 +35,34 @@
 
   @include desktop-up {
     display: flex;
+  }
+}
+
+.swipeable-area__button--hintable {
+  &::before {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 20px;
+    background-color: rgba(245,245,242,0.8);
+    // sass-lint:disable indentation
+    transition: max-width .2s ease-in-out,
+                background-color .2s ease-in-out;
+    // sass-lint:enable indentation
+    max-width: 0;
+  }
+
+  &.swipeable-area__button--back::before {
+    left: 100%;
+  }
+
+  &.swipeable-area__button--forward::before {
+    right: 100%;
+  }
+
+  &:hover::before {
+    background-color: rgba(245,245,242,0.6);
+    max-width: 100%;
   }
 }
 

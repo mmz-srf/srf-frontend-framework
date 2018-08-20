@@ -4,16 +4,17 @@ import {FefResponsiveHelper} from '../classes/fef-responsive-helper';
 const HOOK_CLASS = 'js-swipeable-area',
     INNER_CONTAINER_CLASS = 'js-swipeable-area-wrapper',
     ITEM_CLASS = 'js-swipeable-area-item',
-    BACK_BUTTON_CLASS = 'swipeable-area__button',
+    BACK_BUTTON_CLASS = 'swipeable-area__button swipeable-area__button--back',
     FORWARD_BUTTON_CLASS = 'swipeable-area__button swipeable-area__button--forward',
     BUTTON_ACTIVE_CLASS = 'swipeable-area__button--active',
+    BUTTON_HINTABLE_CLASS = 'swipeable-area__button--hintable',
     BUTTON_BACK_THRESHOLD = 2,
     RIGHT_OFFSET = 24,
-    INNER_CONTAINER_SCROLL_PADDING = 50,
     DEFAULT_SCROLL_TIME = 400,
     DEBOUNCETIME = 50,
     MIN_BUTTON_WIDTH = 40,
-    MAX_BUTTON_WIDTH = 70;
+    MAX_BUTTON_WIDTH = 90,
+    HINT_AMOUNT = 20;
 
 export function init() {
     $(`.${HOOK_CLASS}`).each((index, element) => {
@@ -75,7 +76,8 @@ export class FefSwipeableArea {
 
         this.$items.each( (index, element) => {
             const left = $(element).position().left;
-            const width = $(element).innerWidth();
+            // take width of first child because element itself may have margin/padding which should not be counted
+            const width = $(element).children().first().innerWidth();
 
             this.itemPositions.push({
                 left: left,
@@ -111,20 +113,31 @@ export class FefSwipeableArea {
             this.$buttonBack.on('click', () => { this.pageBack(); });
             this.$buttonForward.on('click', () => { this.pageForward(); });
 
-            // hinting = showing a little bit of the remaining elements on hovering over the buttons.
-            // Can be supplied in pixels via data-attribute, e.g. data-swipeable-hinting="20"
-            const hintAmount = parseInt(this.$element.data('swipeable-hinting'));
+            this.setupHinting();
+        }
+    }
 
-            if (hintAmount > 0) {
-                this.$buttonBack.hover(
-                    this.hintOn(this.$buttonBack, hintAmount),
-                    this.hintOff(this.$buttonBack)
+    /**
+     * When hovering over a button (forward or backward), the container content
+     * will be "hinted at", i.e. moved into view a bit more.
+     */
+    setupHinting() {
+        // hinting = showing a little bit of the remaining elements on hovering over the buttons.
+        const useHinting = !!this.$element.data('swipeable-hinting');
+
+        if (useHinting) {
+            this.$buttonBack
+                .addClass(BUTTON_HINTABLE_CLASS)
+                .hover(
+                    () => this.applyHint(HINT_AMOUNT),
+                    () => this.applyHint(0)
                 );
-                this.$buttonForward.hover(
-                    this.hintOn(this.$buttonForward, -hintAmount),
-                    this.hintOff(this.$buttonForward)
+            this.$buttonForward
+                .addClass(BUTTON_HINTABLE_CLASS)
+                .hover(
+                    () => this.applyHint(-HINT_AMOUNT),
+                    () => this.applyHint(0)
                 );
-            }
         }
     }
 
@@ -240,14 +253,16 @@ export class FefSwipeableArea {
             nextItemPos = this.itemPositions.find(pos => pos.right > visibleAreaRightEdge);
 
         if (nextItemPos) {
-            this.setButtonWidth(this.$buttonForward, visibleAreaRightEdge - nextItemPos.left);
+            // add 2 pixels for rounding errors and to hide the shadow of the elements
+            this.setButtonWidth(this.$buttonForward, visibleAreaRightEdge - nextItemPos.left + 2);
         }
 
         let visibleAreaLeftEdge = this.$innerContainer.scrollLeft(),
             prevItemPos = this.itemPositions.find(pos => pos.right > visibleAreaLeftEdge);
 
         if (prevItemPos) {
-            this.setButtonWidth(this.$buttonBack, prevItemPos.right - visibleAreaLeftEdge);
+            // add 2 pixels for rounding errors and to hide the shadow of the elements
+            this.setButtonWidth(this.$buttonBack, prevItemPos.right - visibleAreaLeftEdge + 2);
         }
     }
 
@@ -258,46 +273,7 @@ export class FefSwipeableArea {
      * @param {Number} width Desired width
      */
     setButtonWidth($button, width) {
-        $button.width(Math.min(Math.max(Math.floor(width + 1), MIN_BUTTON_WIDTH), MAX_BUTTON_WIDTH));
-    }
-
-    /**
-     * When hovering over a button (forward or backward), the container content
-     * will be "hinted at", i.e. moved into view a bit more. How much is defined by
-     * the user via data attribute and provided here. At the same time, the button
-     * is made wider and given some padding as to not move the caret (< or >).
-     *
-     * The amount can be positive or negative. To always increase the width, we take
-     * the absolute of the provided amount.
-     * To not have to differentiate between forward and backward button, we set both
-     * left and right padding. One of them is negative and thus not valid and will
-     * not be applied without any check from our side. Very smart. The best.
-     *
-     * @param {JQuery.element} $button Which button is being hovered over
-     * @param {Number} amount Amount of pixels to "hint"
-     * @returns {Function}
-     */
-    hintOn($button, amount) {
-        return () => {
-            this.applyHint(amount);
-            // save the previous width because it could have been changed
-            $button.data('prev-width', $button.width()).css({
-                'width': $button.width() + Math.abs(amount),
-                'padding-left': -amount,
-                'padding-right': amount
-            });
-        };
-    }
-
-    hintOff ($button) {
-        return () => {
-            this.applyHint(0);
-            // restore the previously saved original width
-            $button.css({
-                'width': $button.data('prev-width'),
-                'padding': ''
-            });
-        };
+        $button.width(Math.min(Math.max(Math.floor(width), MIN_BUTTON_WIDTH), MAX_BUTTON_WIDTH));
     }
 
     markItems(markVisibleClass, markHiddenClass) {
