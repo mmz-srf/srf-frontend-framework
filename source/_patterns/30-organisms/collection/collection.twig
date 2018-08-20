@@ -2,6 +2,11 @@
 
 <div class="collection {{ styleModifier|default("collection--standard") }}">
 
+    {# CONTENT WRAPPER TAGS #}
+    {% if 'collection--unboxed' in styleModifier %}
+        <div class="collection__content-wrapper">
+    {% endif %}
+
     <h2 class="collection__title">
         <div class="collection__title-shimmer h-loading-only">
             {% include 'atoms-shimmer' with {'styleModifier': 'shimmer--heading'} %}
@@ -90,5 +95,10 @@
                 </li>
             {% endfor %}
         </ul>
+    {% endif %}
+
+    {# CONTENT WRAPPER END TAGS #}
+    {% if 'collection--unboxed' in styleModifier %}
+        </div>
     {% endif %}
 </div>
