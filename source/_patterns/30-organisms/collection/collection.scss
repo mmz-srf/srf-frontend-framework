@@ -311,13 +311,13 @@ $background-overlap-wide: 50px;
 
   &:hover {
     color: $color-text-default;
-    background-color: $color-bg-button-hover;
+    background-color: rgba(255, 255, 255, .12);
   }
 
   &:active,
   &:focus {
     color: $color-text-default;
-    background-color: $color-bg-button-focus;
+    background-color: rgba(255, 255, 255, .24);
   }
 
   // On mobile, show a fake border between the links
