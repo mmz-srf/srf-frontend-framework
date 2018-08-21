@@ -1,3 +1,4 @@
 {
-  "styleModifier": "teaser--theme-dark"
+  "styleModifier": "teaser--theme-breaking",
+  "preKicker": "Breaking"
 }
