@@ -85,9 +85,19 @@
     background-image: url(../img/retry_red.svg);
 
     /* theme */
-    @supports (--foo: bar) {
-      background-image: var(--teaser-status-image-new-and-updated, url(../img/retry_red.svg));
-    }
+    /* NOTE1: Themes should be decalred via custom properties, but this does not work here (propably 'cause of gulp or something) therefore these assets are declared just below these lines */
+  }
+}
+
+/* theme (see NOTE1) */
+.teaser--theme-dark .teaser-status--new-and-updated {
+  .teaser-status__content:before {
+    background-image: url(../img/retry_white.svg);
+  }
+}
+.teaser--theme-breaking .teaser-status--new-and-updated {
+  .teaser-status__content:before {
+    background-image: url(../img/retry_white.svg);
   }
 }
 
@@ -101,17 +111,29 @@
   }
 
   .teaser-status__content:before {
+    animation: none;
+
     /* fallback */
     background-image: url(../img/small_tick-blue.svg);
 
     /* theme */
-    @supports (--foo: bar) {
-      background-image: var(--teaser-status-image-visited, url(../img/small_tick-blue.svg));
-    }
-
-    animation: none;
+    /* NOTE2: Themes should be decalred via custom properties, but this does not work here (propably 'cause of gulp or something) therefore these assets are declared just below these lines */
   }
 }
+
+/* theme (see NOTE2) */
+.teaser--theme-dark .teaser-status--visited {
+  .teaser-status__content:before {
+    background-image: url(../img/small_tick-white.svg);
+  }
+}
+.teaser--theme-breaking .teaser-status--visited {
+  .teaser-status__content:before {
+    background-image: url(../img/small_tick-white.svg);
+  }
+}
+
+
 
 .teaser-status--visited-and-updated {
   /* fallback */
@@ -127,9 +149,19 @@
     background-image: url(../img/retry_grey.svg);
 
     /* theme */
-    @supports (--foo: bar) {
-      background-image: var(--teaser-status-image-visited-and-updated, url(../img/retry_grey.svg));
-    }
+    /* NOTE2: Themes should be decalred via custom properties, but this does not work here (propably 'cause of gulp or something) therefore these assets are declared just below these lines */
+  }
+}
+
+/* theme (see NOTE2) */
+.teaser--theme-dark .teaser-status--visited-and-updated {
+  .teaser-status__content:before {
+    background-image: url(../img/retry_white.svg);
+  }
+}
+.teaser--theme-breaking .teaser-status--visited-and-updated {
+  .teaser-status__content:before {
+    background-image: url(../img/retry_white.svg);
   }
 }
 

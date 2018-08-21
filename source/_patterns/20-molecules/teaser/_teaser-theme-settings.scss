@@ -16,9 +16,7 @@
   --teaser-color-status-new: #{$color-srf-light};
   --teaser-color-status-visited: #{$color-button-success};
   --teaser-color-status-updated: #{$color-text-light};
-  --teaser-status-image-new-and-updated: url(/assets/img/retry_red.svg);
-  --teaser-status-image-visited: url(/assets/img/small_tick-blue.svg);
-  --teaser-status-image-visited-and-updated: url(/assets/img/retry_grey.svg);
+  /* NOTE: There are some assets too, but those can't be linked with custom properties here (propably 'cause of gulp or something) and are therefore declared directly in the scss with the corresponding classes -> see teaser-status.scss */
 }
 
 /* COMMON SETTINGS FOR ALL THEMES EXCEPT DEFAULT */
@@ -31,9 +29,7 @@
   --teaser-color-status-new: #ffffff;
   --teaser-color-status-visited: #ffffff;
   --teaser-color-status-updated: #ffffff;
-  --teaser-status-image-new-and-updated: url(/assets/img/retry_white.svg);
-  --teaser-status-image-visited: url(/assets/img/small_tick-white.svg);
-  --teaser-status-image-visited-and-updated: url(/assets/img/retry_white.svg);
+  /* NOTE: There are some assets too, but those can't be linked with custom properties here (propably 'cause of gulp or something) and are therefore declared directly in the scss with the corresponding classes -> see teaser-status.scss */
 }
 
 .teaser.teaser--theme-breaking {
@@ -45,7 +41,5 @@
   --teaser-color-status-new: #ffffff;
   --teaser-color-status-visited: #ffffff;
   --teaser-color-status-updated: #ffffff;
-  --teaser-status-image-new-and-updated: url(/assets/img/retry_white.svg);
-  --teaser-status-image-visited: url(/assets/img/small_tick-white.svg);
-  --teaser-status-image-visited-and-updated: url(/assets/img/retry_white.svg);
+  /* NOTE: There are some assets too, but those can't be linked with custom properties here (propably 'cause of gulp or something) and are therefore declared directly in the scss with the corresponding classes -> see teaser-status.scss */
 }
