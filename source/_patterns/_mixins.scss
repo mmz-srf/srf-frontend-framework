@@ -326,11 +326,9 @@
 
 /* example: @include themeWithFallback(color, $color-text-light, --teaser-color-status-updated); */
 @mixin themeWithFallback($prop, $fallback-value, $customprop) {
-  /* fallback */
-  $prop: #{$fallback-value};
+  #{$prop}: #{$fallback-value};
 
-  /* theme */
   @supports (--srf: cool) {
-    $prop: var(#{$customprop}, #{$fallback-value});
+    #{$prop}: var(#{$customprop}, #{$fallback-value});
   }  
 }
