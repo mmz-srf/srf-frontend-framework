@@ -1,6 +1,7 @@
 @import "../../variables";
 @import "../../mixins";
 @import "../../breakpoints";
+@import "collection-branding-settings";
 
 $color-collection-dim: rgba(0, 0, 0, .6) !default;
 $color-collection-dim-fade: rgba(0, 0, 0, 0) !default;
@@ -311,13 +312,21 @@ $background-overlap-wide: 50px;
 
   &:hover {
     color: $color-text-default;
-    background-color: rgba(255, 255, 255, .12);
+
+    background-color: $color-bg-button-hover;
+    @supports (--foo: bar) {
+      background-color: var(--collection-color-button-hover, $color-bg-button-hover);
+    }
   }
 
   &:active,
   &:focus {
     color: $color-text-default;
-    background-color: rgba(255, 255, 255, .24);
+
+    background-color: $color-bg-button-focus;
+    @supports (--foo: bar) {
+      background-color: var(--collection-color-button-focus, $color-bg-button-focus);
+    }
   }
 
   // On mobile, show a fake border between the links
