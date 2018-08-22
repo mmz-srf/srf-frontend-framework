@@ -324,8 +324,8 @@
   flex-basis: calc((100% - #{$nr-of-rows - 1} * #{$gutter}) / #{$nr-of-rows + 0.001});
 }
 
-/* example: @include themeWithFallback(color, $color-text-light, --teaser-color-status-updated); */
-@mixin themeWithFallback($prop, $fallback-value, $customprop) {
+/* example: @include customPropWithFallback('color', $color-text-light, '--teaser-color-status-updated'); */
+@mixin customPropWithFallback($prop, $fallback-value, $customprop) {
   #{$prop}: #{$fallback-value};
 
   @supports (--srf: cool) {
