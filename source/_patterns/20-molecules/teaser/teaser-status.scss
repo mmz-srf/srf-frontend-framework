@@ -17,13 +17,7 @@
   line-height: 1.17;
   letter-spacing: 0.4px;
 
-  /* fallback */
-  color: $color-text-default;
-
-  /* theme */
-  @supports (--foo: bar) {
-    color: var(--teaser-color-text, $color-text-default);
-  }
+  @include themeWithFallback(color, $color-text-default, --teaser-color-text);
   
   @include breakLongWords;
   margin: 8px 0 0;
@@ -40,23 +34,17 @@
 
 // only show teaser status when a modifier is set
 .teaser-status--new,
-.teaser-status--new-and-updated,
+.teaser-status--visited-and-recently-updated,
 .teaser-status--visited,
 .teaser-status--visited-and-updated {
   display: flex;
 }
 
 .teaser-status--new {
-  /* fallback */
-  color: $color-srf-light;
-
-  /* theme */
-  @supports (--foo: bar) {
-    color: var(--teaser-color-status-new, $color-srf-light);
-  }
+  @include themeWithFallback(color, $color-srf-light, --teaser-color-status-new);
 }
 
-.teaser-status--new-and-updated,
+.teaser-status--visited-and-recently-updated,
 .teaser-status--visited,
 .teaser-status--visited-and-updated {
   .teaser-status__content:before {
@@ -65,20 +53,14 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: 100%;
-    height: 12px;
-    width: 12px;
+    height: 14px;
+    width: 14px;
     animation: rotateSparselyAnimation 10s 5s infinite;
   }
 }
 
 .teaser-status--new-and-updated {
-  /* fallback */
-  color: $color-srf-light;
-
-  /* theme */
-  @supports (--foo: bar) {
-    color: var(--teaser-color-status-new, $color-srf-light)
-  }
+  @include themeWithFallback(color, $color-srf-light, --teaser-color-status-new);
 
   .teaser-status__content:before {
     /* fallback */
@@ -102,13 +84,7 @@
 }
 
 .teaser-status--visited {
-  /* fallback */
-  color: $color-button-success;
-
-  /* theme */
-  @supports (--foo: bar) {
-    color: var(--teaser-color-status-visited, $color-button-success)
-  }
+  @include themeWithFallback(color, $color-button-success, --teaser-color-status-visited);
 
   .teaser-status__content:before {
     animation: none;
@@ -136,13 +112,9 @@
 
 
 .teaser-status--visited-and-updated {
-  /* fallback */
-  color: $color-text-light;
+  me: you;
 
-  /* theme */
-  @supports (--foo: bar) {
-    color: var(--teaser-color-status-updated, $color-text-light)
-  }
+  @include themeWithFallback(color, $color-text-light, '--teaser-color-status-updated');
 
   .teaser-status__content:before {
     /* fallback */

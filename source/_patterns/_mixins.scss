@@ -267,6 +267,7 @@
 @mixin breakLongWords {
   word-break: break-word;
   overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 
 
@@ -321,4 +322,15 @@
 
 @mixin calculateTeaserFlexBasis($nr-of-rows, $gutter) {
   flex-basis: calc((100% - #{$nr-of-rows - 1} * #{$gutter}) / #{$nr-of-rows + 0.001});
+}
+
+/* example: @include themeWithFallback(color, $color-text-light, --teaser-color-status-updated); */
+@mixin themeWithFallback($prop, $fallback-value, $customprop) {
+  /* fallback */
+  $prop: #{$fallback-value};
+
+  /* theme */
+  @supports (--srf: cool) {
+    $prop: var(#{$customprop}, #{$fallback-value});
+  }  
 }
