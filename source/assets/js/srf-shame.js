@@ -64,8 +64,14 @@ function objectFitForIE() {
             containers = document.querySelectorAll( relevantClasses.join(', ') );
 
         for (let i = 0; i < containers.length; i++) {
-            let oldImg = containers[i].querySelector('img'),
-                objectFitVal = getObjectFitValue(oldImg);
+            let oldImg = containers[i].querySelector('img');
+
+            // only do something if there's an image.
+            if (!oldImg) {
+                return;
+            }
+
+            let objectFitVal = getObjectFitValue(oldImg);
 
             if (objectFitVal === 'contain' || objectFitVal === 'cover') {
 
