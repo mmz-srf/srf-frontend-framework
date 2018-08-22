@@ -29,7 +29,7 @@ function objectFitForIE() {
         getObjectFitValue = elem => {
             let objectFitVal = 'contain';
 
-            if (  elem.currentStyle ) {
+            if ( elem.currentStyle ) {
                 objectFitVal = elem.currentStyle.getAttribute('object-fit');
             }
 
