@@ -374,7 +374,7 @@
       line-height: 1.33;
 
       /* theme */
-      @include customPropWithFallback('color', #383732, '--teaser-color-text');
+      @include customPropWithFallback('color', '#383732', '--teaser-color-text');
     }
   }
 
