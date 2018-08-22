@@ -140,10 +140,17 @@ $font-system: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
 // => for IE11 support: NEVER use font: size/line-height $font-system; (short form) but font-family: $font-system instead!
 
 /*** SHADOWS ***/
-$shadow-elevation1: 0 0 1px 0 rgba(0, 0, 0, .24), 0 0 1px 0 rgba(0, 0, 0, .12);
-$shadow-default:    0 1px 2px 0 rgba(0, 0, 0, .24), 0 0 2px 0 rgba(0, 0, 0, .12);
-$shadow-hover:      0 4px 8px 0 rgba(0, 0, 0, .24), 0 0 8px 0 rgba(0, 0, 0, .12);
-$shadow-organisms:  0 0 8px 0 rgba(0, 0, 0, .24);
+// References: https://app.zeplin.io/project/5850263ad407f4ca12956e5d/screen/5880e352ba72814f33f7cc9b
+// => Bug in Safari/WebKit for elevation1. Design: «mir würded vorerscht mitem bug läbe» (2018-08)
+// => DEMO -> https://codepen.io/albuvee/full/qyJKMe/
+// => BUG -> https://bugs.webkit.org/show_bug.cgi?id=188446
+$shadow-elevation1:  0 0px  1px 0 rgba(0,0,0,.16), 0 0  1px 0 rgba(0,0,0,.08);
+$shadow-elevation2:  0 1px  2px 0 rgba(0,0,0,.16), 0 0  2px 0 rgba(0,0,0,.08);
+$shadow-elevation4:  0 2px  4px 0 rgba(0,0,0,.16), 0 0  4px 0 rgba(0,0,0,.08);
+$shadow-elevation6:  0 3px  6px 0 rgba(0,0,0,.16), 0 0  6px 0 rgba(0,0,0,.08);
+$shadow-elevation8:  0 4px  8px 0 rgba(0,0,0,.16), 0 0  8px 0 rgba(0,0,0,.08);
+$shadow-elevation12: 0 6px 12px 0 rgba(0,0,0,.16), 0 0 12px 0 rgba(0,0,0,.08);
+$shadow-elevation16: 0 8px 16px 0 rgba(0,0,0,.16), 0 0 16px 0 rgba(0,0,0,.08);
 
 /*** BREAKPOINT AND CONTENT related variables ***/
 $smartphone-size: 320px !default;

@@ -31,7 +31,7 @@
   &:focus,
   &:active {
     transform: translateY(-4px);
-    box-shadow: $shadow-hover;
+    box-shadow: $shadow-elevation8;
   }
 
   &.teaser--no-translate {

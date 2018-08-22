@@ -10,11 +10,10 @@
 /* DEFAULTS */
 .modal {
   --theme-color-background: linear-gradient(135deg, #fefefd, #fafaf8);
-  --theme-box-shadow: 0 2px 8px 0 rgba(0,0,0,.24), 0 0 8px 0 rgba(0,0,0,.12);
   --theme-icon-filter: none;
 
   --theme-color-bg-search: #fefefd;
-  --theme-color-text-search: $color-text-light;
+  --theme-color-text-search: #{$color-text-light};
   --theme-search-border: 1px solid rgba(0,0,0,.08);
   --theme-search-border-bottom: 0;
 }
@@ -22,7 +21,6 @@
 /* COMMON SETTINGS FOR ALL THEMES EXCEPT DEFAULT */
 .modal.modal--theme-dark {
   --theme-color-background: linear-gradient(135deg, #22211d, #111111);
-  --theme-box-shadow: 0 4px 8px 0 rgba(0,0,0,.24), 0 0 8px 0 rgba(0,0,0,.12);
   --theme-icon-filter: invert(100%) contrast(600%);
 
   --theme-color-nav: #fff;
