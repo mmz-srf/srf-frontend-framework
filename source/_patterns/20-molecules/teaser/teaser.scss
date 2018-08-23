@@ -20,7 +20,7 @@
   box-shadow: $shadow-elevation1;
   // sass-lint:disable indentation
   transition: box-shadow .2s ease-in-out,
-              transform .2s ease-in-out;
+  transform .2s ease-in-out;
   // sass-lint:enable indentation
   transform: translateZ(0);
 
@@ -166,8 +166,6 @@
 .teaser__live {
   display: inline-block;
   margin: 0 8px 2px 0;
-  padding: 1px 6px;
-  background-color: $color-srf-light;
   font-family: $font-medium;
   font-size: 12px;
   font-weight: 500;
@@ -175,18 +173,44 @@
   font-stretch: normal;
   line-height: 1.33;
   letter-spacing: normal;
-  color: white;
   text-transform: uppercase;
-  animation: pulsatingLiveAnimation 3s infinite ease-in-out;
-  @include font-smoothing;
+  &.teaser__live--pre {
+    display: none;
+    .teaser__live__box {
+      background-color: rgba(255, 255, 255, 0.8);
+      color: #4e4d47;
+      margin-right: -2px;
+      padding: 1px 6px;
+      backdrop-filter: blur(2px);
+    }
+  }
+  &.teaser__live--live {
+    background-color: $color-srf-light;
+    color: #ffffff;
+    animation: pulsatingLiveAnimation 3s infinite ease-in-out;
+    @include font-smoothing;
+    padding: 1px 6px;
+  }
 
   @include tablet-up {
+    &.teaser__live--pre {
+      display: inline-block;
+    }
     position: absolute;
     top: 16px;
   }
 
   @include desktop-up {
     font-size: 16px;
+    &.teaser__live--pre {
+      .teaser__live__box {
+        padding: 2px 8px;
+      }
+    }
+    &.teaser__live--live {
+      padding: 2px 8px;
+
+    }
   }
 
   @include desktop-wide {
@@ -200,6 +224,7 @@
       margin: 3px 6px -3px 0;
     }
   }
+
 }
 
 .teaser--size-s {
@@ -244,6 +269,9 @@
     }
   }
   .teaser__live {
+    &.teaser__live--pre {
+      display: none;
+    }
     margin: 0 4px 0 0;
     padding: 0 6px;
     @include tablet-up {
@@ -393,7 +421,6 @@
     @include tablet-up {
       left: 16px;
     }
-
 
     @include desktop-wide {
       left: 24px;
