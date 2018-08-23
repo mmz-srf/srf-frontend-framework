@@ -29,28 +29,48 @@
   letter-spacing: 0.4px;
   background-color: transparent;
   transition: background-color 0.2s ease-in-out;
+
   /* fallback */
   color: $color-text-accentuation;
+
   /* theme */
-  color: var(--theme-color-nav, $color-text-accentuation);
+  @supports (--foo: bar) {
+    color: var(--theme-color-nav, $color-text-accentuation);
+  }
 
   &:hover,
   &:active,
   &:focus {
     border-bottom: none;
-    color: $color-text-accentuation;   /* fallback */
-    color: var(--theme-color-nav, $color-text-accentuation);
+
+    /* fallback */
+    color: $color-text-accentuation;
+
+    /* theme */
+    @supports (--foo: bar) {
+      color: var(--theme-color-nav, $color-text-accentuation);
+    }
   }
 
   &:hover {
-    background-color: $color-nav-bg-hover;   /* fallback */
-    background-color: var(--theme-color-bg-hover, $color-nav-bg-hover);
+    /* fallback */
+    background-color: $color-nav-bg-hover;
+
+    /* theme */
+    @supports (--foo: bar) {
+      background-color: var(--theme-color-bg-hover, $color-nav-bg-hover);
+    }
   }
 
   &:active,
   &:focus {
-    background-color: $color-nav-bg-active;   /* fallback */
-    background-color: var(--theme-color-bg-active, $color-nav-bg-active);
+    /* fallback */
+    background-color: $color-nav-bg-active;
+
+    /* theme */
+    @supports (--foo: bar) {
+      background-color: var(--theme-color-bg-active, $color-nav-bg-active);
+    }
   }
 }
 

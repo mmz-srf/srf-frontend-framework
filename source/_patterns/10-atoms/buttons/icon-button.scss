@@ -6,10 +6,14 @@
   padding: 16px;
   align-items: center;
   transition: opacity .2s ease-in-out;
+
   /* fallback */
   color: $color-text-accentuation;
+
   /* theme */
-  color: var(--theme-color-nav, $color-text-accentuation);
+  @supports (--foo: bar) {
+    color: var(--theme-color-nav, $color-text-accentuation);
+  }
 
   &:hover {
     opacity: .8;
@@ -31,8 +35,14 @@
 // prevent empty spaces to change the span's size
 .icon-button__icon {
   font-size: 0;
-  filter: none; /* fallback */
-  filter: var(--theme-icon-filter, none);
+
+  /* fallback */
+  filter: none;
+
+  /* theme */
+  @supports (--foo: bar) {
+    filter: var(--theme-icon-filter, none);
+  }
 }
 
 // no padding on the right on deksop+

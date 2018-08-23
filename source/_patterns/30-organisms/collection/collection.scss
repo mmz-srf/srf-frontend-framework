@@ -22,8 +22,8 @@ $background-overlap-wide: 50px;
 
   @include desktop-wide {
     margin-bottom: 40px;
-    margin-left: auto;
-    margin-right: auto;
+    margin-left: -40px;
+    margin-right: -40px;
   }
 }
 
@@ -349,6 +349,7 @@ $background-overlap-wide: 50px;
 }
 
 .collection__link-text {
+  width: 100%; // necessary for IE11
   @include breakLongWords;
 
   @include tablet-up {
@@ -436,6 +437,19 @@ $background-overlap-wide: 50px;
   }
 }
 
+.collection__swipeable-area {
+    margin-top: -8px;
+    margin-bottom: 2;
+
+    @include tablet-up {
+      margin-bottom: 6px;
+    }
+
+    @include desktop-wide {
+      margin-bottom: 10px;
+    }
+  }
+
 // Compact Swipeable has (next to only having S teasers on all BPs) one difference to the
 // Standard Swipeable collection: On Tablet, only 2 teasers are visible instead of 3.
 .collection--compact-swipeable {
@@ -444,18 +458,11 @@ $background-overlap-wide: 50px;
       min-width: calc(50% - (56px / 3) - 12px);
     }
   }
-}
 
-.collection__swipeable-area {
-  margin-top: -8px;
-  margin-bottom: 0;
-
-  @include tablet-up {
-    margin-bottom: 4px;
-  }
-
-  @include desktop-wide {
-    margin-bottom: 8px;
+  .collection__swipeable-area {
+    @include tablet-up {
+      margin-bottom: 2px;
+    }
   }
 }
 

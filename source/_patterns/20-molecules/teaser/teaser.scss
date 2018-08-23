@@ -107,10 +107,13 @@
   flex-grow: 1;
   flex-shrink: 1;
   margin: 16px 12px 16px 16px;
-  width: 100%; // otherwise IE doesn't break lines
+  // IE needs some convincin': set width to 100% but stop when reaching the margins
+  width: 100%;
+  max-width: calc(100% - 28px);
 
   @include desktop-wide {
     margin: 24px;
+    max-width: calc(100% - 48px);
   }
 }
 
@@ -124,6 +127,7 @@
   line-height: 1.14;
   letter-spacing: 0.4px;
   color: $color-accentuation-red;
+  word-wrap: break-word; // Enforce breaking words for IE11
 
   @supports (--foo: bar) {
     color: var(--teaser-color-accentuation, $color-accentuation-red);
@@ -140,6 +144,7 @@
   line-height: 1.25;
   letter-spacing: 0.4px;
   color: $color-text-default;
+  word-wrap: break-word; // Enforce breaking words for IE11
 
   @supports (--foo: bar) {
     color: var(--teaser-color-text, $color-text-default);
@@ -206,6 +211,12 @@
   .teaser__medium-wrapper {
     border-radius: 2px;
     overflow: hidden;
+
+    // IE11 can't handle the :after trick to span open the medium wrapper
+    height: 80px;
+    @include desktop-up {
+      height: 94px;
+    }
 
     &::after {
       border-radius: 2px;
@@ -438,6 +449,7 @@
       margin: 16px 16px 16px 0;
       border-radius: 2px;
       overflow: hidden;
+      height: 80px;
 
       &::after {
         border-radius: 2px;
