@@ -15,7 +15,7 @@
             {% if preKicker %}<span class="h-offscreen">{{ preKicker }}</span>{% endif %}
 
             <h4 class="teaser__kicker">
-                {% if styleModifierLive|default(false) == 'teaser-status-live--live' %}<span class="teaser__live">{% if live_type == 'Livestream' %}{% include 'atoms-svg-icon' with {'styleModifier': 'svg-icon--tiny svg-icon--play-video-circle-white-tiny-to-small'} %}Live{% else %}Liveticker{% endif %}</span>{% endif %}
+                {% if styleModifierLive|default(false) == 'teaser-status-live--live' %}<span class="teaser__live">{% if live_type == 'Livestream' %}{% include 'atoms-svg-icon' with {'styleModifier': 'svg-icon--tiny-but-small-on-desktop-up svg-icon--play-video-circle-white-tiny-to-small'} %}Live{% else %}Liveticker{% endif %}</span>{% endif %}
                 <span class="teaser__kicker-text">{{ teaser.kicker|default('') }}</span>
             </h4>
             <h3 class="teaser__title">{{ teaser.title|default('') }}</h3>

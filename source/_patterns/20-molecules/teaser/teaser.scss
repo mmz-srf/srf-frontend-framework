@@ -389,6 +389,17 @@
       letter-spacing: 0.4px;
     }
   }
+  .teaser__live {
+    @include tablet-up {
+      left: 16px;
+    }
+
+
+    @include desktop-wide {
+      left: 24px;
+    }
+
+  }
 }
 
 // Short lead for both L and XL teaser
