@@ -462,3 +462,19 @@
     @include font-smoothing;
   }
 }
+
+.teaser--static {
+  display: block;
+  border-radius: 0;
+  border: none;
+  background-color: transparent;
+  /* Card moves 4px up on interaction */
+  &:hover,
+  &:focus,
+  &:active {
+    transform: none;
+    box-shadow: none;
+  }
+
+}
+

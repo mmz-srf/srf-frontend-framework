@@ -140,6 +140,16 @@
     } %}
 </div>
 
+<h3>Static teaser (for unboxed collection layout)</h3>
+
+
+<div class="js-togglable-wrapper togglable-wrapper">
+    {% include 'molecules-teaser' with {
+    'styleModifier': 'teaser--size-xl teaser--static',
+    'teaser': collections[0].teasers[0],
+    } %}
+</div>
+
 <script>
     let $btn = $('.js-toggle-maxWidth'),
         $togglableWrappers = $('.js-togglable-wrapper');
