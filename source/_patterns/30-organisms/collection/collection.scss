@@ -40,6 +40,10 @@ $background-overlap-wide: 50px;
   letter-spacing: .2px;
   color: $color-text-default;
 
+  @supports (--foo: bar) {
+    color: var(--collection-color-text, $color-text-default);
+  }
+
   @include tablet-up {
     margin: 16px 32px 12px;
   }
@@ -58,6 +62,10 @@ $background-overlap-wide: 50px;
   display: inline-flex;
   align-items: center;
   color: $color-link-default;
+
+  @supports (--foo: bar) {
+    color: var(--collection-color-text, $color-link-default);
+  }
 
   &:hover {
     color: #f1434a;
@@ -310,11 +318,16 @@ $background-overlap-wide: 50px;
   background-color: $color-bg-button-transparent;
   transition: background-color .2s ease-in-out;
 
+  @supports (--foo: bar) {
+    color: var(--collection-color-text, $color-text-default);
+  }
+
   &:hover {
     color: $color-text-default;
-
     background-color: $color-bg-button-hover;
+
     @supports (--foo: bar) {
+      color: var(--collection-color-text, $color-text-default);
       background-color: var(--collection-color-button-hover, $color-bg-button-hover);
     }
   }
@@ -341,6 +354,11 @@ $background-overlap-wide: 50px;
       right: -8px;
       opacity: 1;
       transition: opacity .2s ease-in-out;
+
+      @supports (--foo: bar) {
+        background-color: var(--collection-color-link-before, rgba(0, 0, 0, .08));
+      }
+
     }
 
     &:hover,
@@ -598,8 +616,6 @@ $background-overlap-wide: 50px;
   .collection__lead,
   .collection__title-link,
   .collection__link {
-    color: $color-text-branded;
-
     @include font-smoothing;
   }
 
@@ -620,15 +636,5 @@ $background-overlap-wide: 50px;
   .collection__title-link-icon,
   .collection__link-icon {
     @include caret('white', 'right', 'medium');
-  }
-
-  @include smartphone {
-    .collection__link-item {
-      .collection__link {
-        &::before {
-          background-color: rgba(255, 255, 255, .12);
-        }
-      }
-    }
   }
 }
