@@ -243,6 +243,24 @@
       line-height: 1.33;
     }
   }
+  .teaser__live {
+    margin: 0 4px 0 0;
+    padding: 0 6px;
+    @include tablet-up {
+      position: static;
+      top: 0;
+    }
+    @include desktop-up {
+      font-size: 12px;
+      line-height: 18px;
+    }
+    .svg-icon {
+      margin: 2px 4px -2px 0;
+
+    }
+
+  }
+
 }
 
 /* M-TEASER

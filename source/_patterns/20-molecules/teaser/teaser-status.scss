@@ -34,10 +34,12 @@
 .teaser-status--new,
 .teaser-status--new-and-updated,
 .teaser-status--visited,
-.teaser-status--visited-and-updated {
+.teaser-status--visited-and-updated,
+.teaser-status-live--pre,
+.teaser-status-live--live {
   display: flex;
 }
-
+.teaser-status-live--live,
 .teaser-status--new {
   color: $color-srf-light;
 }
