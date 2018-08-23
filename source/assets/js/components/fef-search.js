@@ -177,6 +177,7 @@ export class SrfSearch {
         this.hideResults();
         this.$element.removeClass(ACTIVE_CLASS);
         $(document).off(OUTSIDE_CLICK_LISTENER_NAME);
+        this.$element.find('.search-result__alert').empty();
     }
 
     moveUpInMenu() {
@@ -267,6 +268,7 @@ export class SrfSearch {
      */
     renderResults(results, query) {
         let html = '';
+        let i = 0;
 
         let wasAlreadyShowingResults = this.$searchResults.children('li').length > 0;
 
@@ -280,9 +282,21 @@ export class SrfSearch {
                     </a>
                 </li>`;
         });
+        i = results.length;
+
+        this.$searchResults.html(html).show();
+
+        let $result_alert = $('.search-result__alert');
+
+        if ($result_alert.length === 0) {
+            html = `<span class="h-offscreen search-result__alert" role="alert" tabindex="-1">${i + 1} ${this.$inputField.data('result-alert-text')} <span>${query}</span></span>`;
+            this.$searchResults.before(html);
+        } else {
+            html = `${i + 1} ${this.$inputField.data('result-alert-text')} <span>${query}</span>`;
+            $result_alert.html(html);
+        }
 
         this.$inputField.attr('aria-expanded', true);
-        this.$searchResults.html(html).show();
     }
 
     /**
