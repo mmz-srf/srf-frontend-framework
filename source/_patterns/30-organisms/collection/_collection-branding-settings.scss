@@ -1,0 +1,14 @@
+/*
+ * COLLECTION BRANDING SETTINGS
+ *
+ * Collection branding settings are defined here at the modal level and not on the page level because the
+ * change of a value of a css custom property triggers a style recalculation for _all_ of its children
+ * @see https://twitter.com/jonikorpi/status/865283047368818688
+ */
+
+.collection.collection--branded {
+  --collection-color-button-hover: rgba(255, 255, 255, .12);
+  --collection-color-button-focus: rgba(255, 255, 255, .24);
+  --collection-color-text: rgba(255, 255, 255, 1);
+  --collection-color-link-before: rgba(255, 255, 255, .12);
+}
