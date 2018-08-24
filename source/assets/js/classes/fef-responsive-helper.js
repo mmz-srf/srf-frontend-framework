@@ -28,6 +28,15 @@ export class FefResponsiveHelper {
     }
 
     /**
+     * Returns true if current breakpoint is 'desktop' or 'desktop-wide'
+     *
+     * @returns {boolean}
+     */
+    static isDesktopUp() {
+        return this.getBreakpoint() === 'desktop' || this.getBreakpoint() === 'desktop-wide';;
+    }
+
+    /**
      * Returns true if current breakpoint is 'desktop-wide'
      *
      * @returns {boolean}

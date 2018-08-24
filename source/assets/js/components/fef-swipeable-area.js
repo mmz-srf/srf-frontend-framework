@@ -42,7 +42,7 @@ export class FefSwipeableArea {
     init() {
         this.initContainerHeight();
         this.initItemCheck();
-        if (this.isInWideBreakpoints()) {
+        if (FefResponsiveHelper.isDesktopUp()) {
             this.addButtons();
             this.updateButtonStatus();
             this.setButtonWidths();
@@ -149,7 +149,7 @@ export class FefSwipeableArea {
      */
     updateButtonStatus() {
         // show forward/back buttons if needed
-        if (this.hasScrollableOverflow() && this.isInWideBreakpoints()) {
+        if (this.hasScrollableOverflow() && FefResponsiveHelper.isDesktopUp) {
             this.$buttonForward.toggleClass(BUTTON_ACTIVE_CLASS, !this.isAtScrollEnd());
             this.$buttonBack.toggleClass(BUTTON_ACTIVE_CLASS, !this.isAtScrollBeginning());
         }
@@ -218,7 +218,7 @@ export class FefSwipeableArea {
         this.$innerContainer
             .stop(true, false)
             .animate( { scrollLeft: position }, time, 'easeInOutSine', () => {
-                if (this.isInWideBreakpoints()) {
+                if (FefResponsiveHelper.isDesktopUp) {
                     this.setButtonWidths();
                 }
             });
@@ -229,7 +229,7 @@ export class FefSwipeableArea {
         // scroll to one direction anymore, remove the hinting. We could
         // do this in the callback of animate, but if it happens
         // when starting the animation, it's less janky.
-        if (this.isInWideBreakpoints()) {
+        if (FefResponsiveHelper.isDesktopUp) {
             let willBeOutOfBoundsOnAnySide = false;
 
             if (position <= 0) {
@@ -253,27 +253,26 @@ export class FefSwipeableArea {
             nextItemPos = this.itemPositions.find(pos => pos.right > visibleAreaRightEdge);
 
         if (nextItemPos) {
-            // add 2 pixels for rounding errors and to hide the shadow of the elements
-            this.setButtonWidth(this.$buttonForward, visibleAreaRightEdge - nextItemPos.left + 2);
+            this.setButtonWidth(this.$buttonForward, visibleAreaRightEdge - nextItemPos.left);
         }
 
         let visibleAreaLeftEdge = this.$innerContainer.scrollLeft(),
             prevItemPos = this.itemPositions.find(pos => pos.right > visibleAreaLeftEdge);
 
         if (prevItemPos) {
-            // add 2 pixels for rounding errors and to hide the shadow of the elements
-            this.setButtonWidth(this.$buttonBack, prevItemPos.right - visibleAreaLeftEdge + 2);
+            this.setButtonWidth(this.$buttonBack, prevItemPos.right - visibleAreaLeftEdge);
         }
     }
 
     /**
      * Sets the width of a button after clamping the desired width.
+     * Add 2 pixels for rounding errors and to hide elements' shadows.
      *
      * @param {JQuery.element} $button Button to set width of
      * @param {Number} width Desired width
      */
     setButtonWidth($button, width) {
-        $button.width(Math.min(Math.max(Math.floor(width), MIN_BUTTON_WIDTH), MAX_BUTTON_WIDTH));
+        $button.width(Math.min(Math.max(Math.floor(width + 2), MIN_BUTTON_WIDTH), MAX_BUTTON_WIDTH));
     }
 
     markItems(markVisibleClass, markHiddenClass) {
@@ -303,10 +302,6 @@ export class FefSwipeableArea {
             rightEdgeContainer = this.$innerContainer.offset().left + this.$innerContainer.outerWidth();
 
         return rightEdgeItem > rightEdgeContainer;
-    }
-
-    isInWideBreakpoints() {
-        return FefResponsiveHelper.isDesktop() || FefResponsiveHelper.isDesktopWide();
     }
 
     applyHint(pixels) {

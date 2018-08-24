@@ -439,7 +439,7 @@ $background-overlap-wide: 50px;
 
 .collection__swipeable-area {
     margin-top: -8px;
-    margin-bottom: 2;
+    margin-bottom: 2px;
 
     @include tablet-up {
       margin-bottom: 6px;
