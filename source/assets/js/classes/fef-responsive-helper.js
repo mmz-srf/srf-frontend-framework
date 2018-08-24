@@ -33,7 +33,7 @@ export class FefResponsiveHelper {
      * @returns {boolean}
      */
     static isDesktopUp() {
-        return this.getBreakpoint() === 'desktop' || this.getBreakpoint() === 'desktop-wide';;
+        return this.getBreakpoint() === 'desktop' || this.getBreakpoint() === 'desktop-wide';
     }
 
     /**
