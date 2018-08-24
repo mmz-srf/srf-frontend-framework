@@ -149,7 +149,7 @@ export class FefSwipeableArea {
      */
     updateButtonStatus() {
         // show forward/back buttons if needed
-        if (this.hasScrollableOverflow() && FefResponsiveHelper.isDesktopUp) {
+        if (this.hasScrollableOverflow() && FefResponsiveHelper.isDesktopUp()) {
             this.$buttonForward.toggleClass(BUTTON_ACTIVE_CLASS, !this.isAtScrollEnd());
             this.$buttonBack.toggleClass(BUTTON_ACTIVE_CLASS, !this.isAtScrollBeginning());
         }
@@ -218,7 +218,7 @@ export class FefSwipeableArea {
         this.$innerContainer
             .stop(true, false)
             .animate( { scrollLeft: position }, time, 'easeInOutSine', () => {
-                if (FefResponsiveHelper.isDesktopUp) {
+                if (FefResponsiveHelper.isDesktopUp()) {
                     this.setButtonWidths();
                 }
             });
@@ -229,7 +229,7 @@ export class FefSwipeableArea {
         // scroll to one direction anymore, remove the hinting. We could
         // do this in the callback of animate, but if it happens
         // when starting the animation, it's less janky.
-        if (FefResponsiveHelper.isDesktopUp) {
+        if (FefResponsiveHelper.isDesktopUp()) {
             let willBeOutOfBoundsOnAnySide = false;
 
             if (position <= 0) {
