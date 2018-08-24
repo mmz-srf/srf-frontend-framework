@@ -462,3 +462,8 @@
     @include font-smoothing;
   }
 }
+
+.teaser--static {
+  width: 100%;
+  overflow: hidden;
+}
