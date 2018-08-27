@@ -17,13 +17,13 @@
             <h4 class="teaser__kicker">
                 {% if styleModifierLive|default(false) == 'teaser-status-live--live' %}
                     <span class="teaser__live teaser__live--live">
-                        <span class="teaser__live__box">{% if live_type == 'Livestream' %}{% include 'atoms-svg-icon' with {'styleModifier': 'svg-icon--tiny-but-small-on-desktop-up svg-icon--play-video-circle-white-tiny-to-small'} %}Live{% else %}Liveticker{% endif %}</span>
+                        <span class="teaser__live__box">{% if live_type == 'Livestream' %}{% include 'atoms-svg-icon' with {'styleModifier': 'svg-icon--play-video-circle-white-tiny-to-small'} %}Live{% else %}Liveticker{% endif %}</span>
                         <span class="teaser__live__box teaser__live__box--time">13:37</span>
                     </span>
                 {% endif %}
                 {% if styleModifierLive|default(false) == 'teaser-status-live--pre' %}
                     <span class="teaser__live teaser__live--pre">
-                        <span class="teaser__live__box">{% if live_type == 'Livestream' %}{% include 'atoms-svg-icon' with {'styleModifier': 'svg-icon--tiny-but-small-on-desktop-up svg-icon--play-video-circle-tiny-to-small'} %}Live{% else %}Liveticker{% endif %}</span>
+                        <span class="teaser__live__box">{% if live_type == 'Livestream' %}{% include 'atoms-svg-icon' with {'styleModifier': 'svg-icon--play-video-circle-tiny-to-small'} %}Live{% else %}Liveticker{% endif %}</span>
                         <span class="teaser__live__box teaser__live__box--time">13:37</span>
                     </span>
                 {% endif %}
