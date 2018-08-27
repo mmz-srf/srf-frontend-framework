@@ -289,10 +289,10 @@ export class SrfSearch {
         let $result_alert = $('.search-result__alert');
 
         if ($result_alert.length === 0) {
-            html = `<span class="h-offscreen search-result__alert" role="alert" tabindex="-1">${i + 1} ${this.$inputField.data('result-alert-text')} <span>${query}</span></span>`;
+            html = `<span class="h-offscreen search-result__alert" role="alert" tabindex="-1">${i} ${this.$inputField.data('result-alert-text')} <span>${query}</span></span>`;
             this.$searchResults.before(html);
         } else {
-            html = `${i + 1} ${this.$inputField.data('result-alert-text')} <span>${query}</span>`;
+            html = `${i} ${this.$inputField.data('result-alert-text')} <span>${query}</span>`;
             $result_alert.html(html);
         }
 
