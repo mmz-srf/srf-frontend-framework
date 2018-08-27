@@ -218,6 +218,7 @@ export class SrfSearch {
         this.$inputField.attr('aria-expanded', false);
         this.$searchResults.hide().html('').removeClass('search__results--showed-results');
         this.suggestionUrl = '';
+        this.$element.find('.search-result__alert').empty();
     }
 
     clearInput() {
@@ -286,14 +287,14 @@ export class SrfSearch {
 
         this.$searchResults.html(html).show();
 
+        // additional screenreader info (same behavior like meteo search field)
         let $result_alert = $('.search-result__alert');
+        let result_html = `${i} ${this.$inputField.data('result-alert-text')} <span>${query}</span>`;
 
         if ($result_alert.length === 0) {
-            html = `<span class="h-offscreen search-result__alert" role="alert" tabindex="-1">${i} ${this.$inputField.data('result-alert-text')} <span>${query}</span></span>`;
-            this.$searchResults.before(html);
+            this.$searchResults.before('<span class="h-offscreen search-result__alert" role="alert">' + result_html + '</span>');
         } else {
-            html = `${i} ${this.$inputField.data('result-alert-text')} <span>${query}</span>`;
-            $result_alert.html(html);
+            $result_alert.html(result_html);
         }
 
         this.$inputField.attr('aria-expanded', true);
