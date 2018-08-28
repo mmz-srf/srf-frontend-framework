@@ -174,12 +174,12 @@
   line-height: 1.33;
   letter-spacing: normal;
   text-transform: uppercase;
-  .teaser__live__box {
+  .teaser__live-box {
     display: inline-block;
   }
   &.teaser__live--pre {
     display: none;
-    .teaser__live__box {
+    .teaser__live-box {
       background-color: rgba(255, 255, 255, 0.8);
       color: #4e4d47;
       margin-right: -2px;
@@ -193,8 +193,8 @@
     animation: pulsatingLiveAnimation 3s infinite ease-in-out;
     @include font-smoothing;
     padding: 1px 6px;
-    .teaser__live__box {
-      &.teaser__live__box--time {
+    .teaser__live-box {
+      &.teaser__live-box--time {
         display: none;
       }
     }
@@ -211,7 +211,7 @@
   @include desktop-up {
     font-size: 16px;
     &.teaser__live--pre {
-      .teaser__live__box {
+      .teaser__live-box {
         padding: 2px 8px;
       }
     }
