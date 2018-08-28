@@ -269,9 +269,7 @@ export class SrfSearch {
      */
     renderResults(results, query) {
         let html = '';
-        let i = 0;
-
-        let wasAlreadyShowingResults = this.$searchResults.children('li').length > 0;
+        const wasAlreadyShowingResults = this.$searchResults.children('li').length > 0;
 
         results.forEach((result) => {
             let highlightedResult = this.highlightQuery(query, result.name);
@@ -283,16 +281,15 @@ export class SrfSearch {
                     </a>
                 </li>`;
         });
-        i = results.length;
 
         this.$searchResults.html(html).show();
 
         // additional screenreader info (same behavior like meteo search field)
         let $result_alert = $('.search-result__alert');
-        let result_html = `${i} ${this.$inputField.data('result-alert-text')} <span>${query}</span>`;
+        let result_html = `${results.length} ${this.$inputField.data('result-alert-text')} <span>${query}</span>`;
 
         if ($result_alert.length === 0) {
-            this.$searchResults.before('<span class="h-offscreen search-result__alert" role="alert">' + result_html + '</span>');
+            this.$searchResults.before(`<span class="h-offscreen search-result__alert" role="alert">${result_html}</span>`);
         } else {
             $result_alert.html(result_html);
         }
