@@ -442,7 +442,7 @@ $background-overlap-wide: 50px;
 
 .collection__swipeable-area {
     margin-top: -8px;
-    margin-bottom: 2;
+    margin-bottom: 2px;
 
     @include tablet-up {
       margin-bottom: 6px;
@@ -606,6 +606,17 @@ $background-overlap-wide: 50px;
     color: $color-text-branded;
 
     @include font-smoothing;
+  }
+
+  .collection__link {
+    &:hover {
+      background-color: rgba(255, 255, 255, .12);
+    }
+
+    &:active,
+    &:focus {
+      background-color: rgba(255, 255, 255, .24);
+    }
   }
 
   // different mechanism when branded: whole link gets transparent
