@@ -8,10 +8,14 @@ $background-overlap: 40px;
 $background-overlap-wide: 50px;
 
 .collection {
+  margin: 0 auto;
+  max-width: $desktop-wide-size;
+}
+
+.collection__content-wrapper {
   display: flex;
   flex-direction: column;
   margin: 8px 0 16px;
-  max-width: $desktop-wide-size;
   border-radius: 2px;
   background-color: $color-bg-caption;
   box-shadow: $shadow-elevation1;
@@ -22,8 +26,7 @@ $background-overlap-wide: 50px;
 
   @include desktop-wide {
     margin-bottom: 40px;
-    margin-left: -40px;
-    margin-right: -40px;
+
   }
 }
 
@@ -592,6 +595,10 @@ $background-overlap-wide: 50px;
 .collection--branded {
   background-size: cover;
 
+  .collection__content-wrapper {
+    background-color: transparent;
+  }
+
   .collection__title,
   .collection__lead,
   .collection__title-link,
@@ -638,9 +645,19 @@ $background-overlap-wide: 50px;
   margin-right: 0;
   max-width: 100%;
 
+  &.collection--branded .collection__content-wrapper {
+    padding-top: 8px;
+
+    @include tablet-up {
+      padding-top: 24px;
+    }
+  }
+
   .collection__content-wrapper {
     max-width: $desktop-wide-size;
     margin: 16px auto 0 auto;
+    background-color: transparent;
+    box-shadow: none;
 
     @include tablet-up {
         margin-top: 20px;
