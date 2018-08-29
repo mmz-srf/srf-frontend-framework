@@ -656,14 +656,6 @@ $background-overlap-wide: 50px;
   margin-right: 0;
   max-width: 100%;
 
-  &.collection--branded .collection__content-wrapper {
-    padding-top: 8px;
-
-    @include tablet-up {
-      padding-top: 24px;
-    }
-  }
-
   .collection__content-wrapper {
     max-width: $desktop-wide-size;
     margin: 16px auto 0 auto;
@@ -677,5 +669,28 @@ $background-overlap-wide: 50px;
 
   .collection__title {
     display: none;
+  }
+}
+
+// Unboxed and Branded: Collection reaches the browser edge left/right but keeps the content in the
+// normal column width. Theme backgrounds reach the browser edge. No space between too unboxed and branded collections.
+.collection--unboxed.collection--branded {
+  .collection__content-wrapper {
+    padding-top: 12px;
+
+    @include tablet-up {
+      padding-top: 16px;
+    }
+
+    @include desktop-wide {
+      padding-top: 20px;
+    }
+  }
+
+  // no space between two branded unboxed collections
+  & + .collection--unboxed.collection--branded {
+    .collection__content-wrapper {
+      margin-top: 0;
+    }
   }
 }
