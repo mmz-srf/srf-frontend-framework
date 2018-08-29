@@ -7,27 +7,35 @@ $color-collection-dim-fade: rgba(0, 0, 0, 0) !default;
 $background-overlap: 40px;
 $background-overlap-wide: 50px;
 
+$collection-gap: 16px;
+$collection-gap-tablet-up: 32px;
+$collection-gap-desktop-wide: 40px;
+
+
 .collection {
-  margin: 0 auto;
+  margin: 0 0 $collection-gap;
+
+  @include tablet-up {
+    margin-bottom: $collection-gap-tablet-up;
+  }
+
+  @include desktop-wide {
+    margin-bottom: $collection-gap-desktop-wide;
+  }
+}
+
+.collection__branding-wrapper {
   max-width: $desktop-wide-size;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .collection__content-wrapper {
   display: flex;
   flex-direction: column;
-  margin: 8px 0 16px;
   border-radius: 2px;
   background-color: $color-bg-caption;
   box-shadow: $shadow-elevation1;
-
-  @include tablet-up {
-    margin-bottom: 32px;
-  }
-
-  @include desktop-wide {
-    margin-bottom: 40px;
-
-  }
 }
 
 .collection__title {
@@ -652,13 +660,11 @@ $background-overlap-wide: 50px;
 // Unboxed: Collection reaches the browser edge left/right but keeps the content in the
 // normal column width. Also doesn't show the title.
 .collection--unboxed {
-  margin-left: 0;
-  margin-right: 0;
   max-width: 100%;
 
   .collection__content-wrapper {
     max-width: $desktop-wide-size;
-    margin: 16px auto 0 auto;
+    margin: 0 auto;
     background-color: transparent;
     box-shadow: none;
 
@@ -675,6 +681,13 @@ $background-overlap-wide: 50px;
 // Unboxed and Branded: Collection reaches the browser edge left/right but keeps the content in the
 // normal column width. Theme backgrounds reach the browser edge. No space between too unboxed and branded collections.
 .collection--unboxed.collection--branded {
+
+  .collection__branding-wrapper {
+    max-width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
   .collection__content-wrapper {
     padding-top: 12px;
 
@@ -689,8 +702,14 @@ $background-overlap-wide: 50px;
 
   // no space between two branded unboxed collections
   & + .collection--unboxed.collection--branded {
-    .collection__content-wrapper {
-      margin-top: 0;
+    margin-top: -#{$collection-gap};
+
+    @include tablet-up {
+      margin-top: -#{$collection-gap-tablet-up};
+    }
+
+    @include desktop-wide {
+      margin-top: -#{$collection-gap-desktop-wide};
     }
   }
 }
