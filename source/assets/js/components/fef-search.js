@@ -177,6 +177,7 @@ export class SrfSearch {
         this.hideResults();
         this.$element.removeClass(ACTIVE_CLASS);
         $(document).off(OUTSIDE_CLICK_LISTENER_NAME);
+        this.$element.find('.search-result__alert').empty();
     }
 
     moveUpInMenu() {
@@ -214,8 +215,10 @@ export class SrfSearch {
     }
 
     hideResults() {
+        this.$inputField.attr('aria-expanded', false);
         this.$searchResults.hide().html('').removeClass('search__results--showed-results');
         this.suggestionUrl = '';
+        this.$element.find('.search-result__alert').empty();
     }
 
     clearInput() {
@@ -266,8 +269,7 @@ export class SrfSearch {
      */
     renderResults(results, query) {
         let html = '';
-
-        let wasAlreadyShowingResults = this.$searchResults.children('li').length > 0;
+        const wasAlreadyShowingResults = this.$searchResults.children('li').length > 0;
 
         results.forEach((result) => {
             let highlightedResult = this.highlightQuery(query, result.name);
@@ -281,6 +283,18 @@ export class SrfSearch {
         });
 
         this.$searchResults.html(html).show();
+
+        // additional screenreader info (same behavior like meteo search field)
+        let $result_alert = $('.search-result__alert');
+        let result_html = `${results.length} ${this.$inputField.data('result-alert-text')} <span>${query}</span>`;
+
+        if ($result_alert.length === 0) {
+            this.$searchResults.before(`<span class="h-offscreen search-result__alert" role="alert">${result_html}</span>`);
+        } else {
+            $result_alert.html(result_html);
+        }
+
+        this.$inputField.attr('aria-expanded', true);
     }
 
     /**
