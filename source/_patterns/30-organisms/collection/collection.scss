@@ -418,11 +418,11 @@ $collection-gap-desktop-wide: 40px;
     }
 
     @include tablet-up {
-        padding-right: 12px;
+      padding-right: 12px;
     }
 
     @include desktop-wide {
-        padding-right: 16px;
+      padding-right: 16px;
     }
 
     &:first-child {
@@ -449,17 +449,17 @@ $collection-gap-desktop-wide: 40px;
 }
 
 .collection__swipeable-area {
-    margin-top: -8px;
-    margin-bottom: 2px;
+  margin-top: -8px;
+  margin-bottom: 2px;
 
-    @include tablet-up {
-      margin-bottom: 6px;
-    }
-
-    @include desktop-wide {
-      margin-bottom: 10px;
-    }
+  @include tablet-up {
+    margin-bottom: 6px;
   }
+
+  @include desktop-wide {
+    margin-bottom: 10px;
+  }
+}
 
 // Compact Swipeable has (next to only having S teasers on all BPs) one difference to the
 // Standard Swipeable collection: On Tablet, only 2 teasers are visible instead of 3.
@@ -669,7 +669,7 @@ $collection-gap-desktop-wide: 40px;
     box-shadow: none;
 
     @include tablet-up {
-        margin-top: 20px;
+      margin-top: 20px;
     }
   }
 
@@ -679,7 +679,7 @@ $collection-gap-desktop-wide: 40px;
 }
 
 // Unboxed and Branded: Collection reaches the browser edge left/right but keeps the content in the
-// normal column width. Theme backgrounds reach the browser edge. No space between too unboxed and branded collections.
+// normal column width. Theme backgrounds reach the browser edge. No space between two unboxed and branded collections.
 .collection--unboxed.collection--branded {
 
   .collection__branding-wrapper {
