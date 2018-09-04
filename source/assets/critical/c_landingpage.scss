@@ -13,8 +13,11 @@ body.body--loading.body--loading {
   .h-loading-only {
     display: block;
   }
-
   .collection {
+    margin: 0 auto;
+    max-width: $desktop-wide-size;
+  }
+  .collection__content-wrapper {
     display: flex;
     flex-direction: column;
     margin: 8px 8px 16px;
