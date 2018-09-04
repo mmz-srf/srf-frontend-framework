@@ -94,7 +94,7 @@ function objectFitForIE() {
 /*
  * TARGETED BROWSER: IE 11
  *
- * This one adds the value of a data-attribute named "ie-fix" to the class-list of this element – if the user agend is IE11.
+ * This one adds the value of a data-attribute named "ie-fix" to the class-list of this element – if the user agent is IE11.
  */
 
 function addFixedforIEClass() {
