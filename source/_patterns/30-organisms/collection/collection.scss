@@ -712,4 +712,13 @@ $collection-gap-desktop-wide: 40px;
       margin-top: -#{$collection-gap-desktop-wide};
     }
   }
+
+  // no space between header and an unboxed branded collection at first position
+  &:first-child {
+    margin-top: -8px;
+
+    @include tablet-up {
+      margin-top: -52px;
+    }
+  }
 }
