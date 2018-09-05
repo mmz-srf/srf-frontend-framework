@@ -64,10 +64,9 @@ _:-ms-lang(x),
   padding-left: 8px;
 }
 
-_:-ms-lang(x),
 .select-menu:focus::-ms-value {
   color: $color-text-accentuation;
-  background-color: #cac8bf !important;
+  background-color: #cac8bf;
 }
 
 .select-menu-label {
