@@ -62,8 +62,12 @@ select::-ms-expand {
 _:-ms-lang(x),
 .select-menu {
   padding-left: 8px;
-}
 
+  &:focus::-ms-value {
+    color: $color-text-accentuation;
+    background-color: #cac8bf;
+  }
+}
 
 .select-menu-label {
   position: relative;
