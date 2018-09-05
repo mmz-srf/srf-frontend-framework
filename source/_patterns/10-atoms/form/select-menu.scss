@@ -67,7 +67,7 @@ _:-ms-lang(x),
 _:-ms-lang(x),
 .select-menu:focus::-ms-value {
   color: $color-text-accentuation;
-  background-color: #cac8bf;
+  background-color: #cac8bf !important;
 }
 
 .select-menu-label {
