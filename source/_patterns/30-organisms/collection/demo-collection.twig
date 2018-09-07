@@ -2,18 +2,12 @@
 <button class="button js-close-all">Close all</button>
 <button class="button js-open-all">Open all</button>
 
-<style>
-    .collection--branded .collection__branding-wrapper {
-        background-image: linear-gradient(120deg, #be7878, #121c33);
-    }
-</style>
-
 <div class="js-collection-wrapper">
 <h3>Hero, 1 Teaser</h3>
 <div class="js-collection-wrapper-content">
 {% include 'organisms-collection' with {
-    'styleModifier': 'collection--hero',
     'collection': {
+        'styleModifier': 'collection--hero',
         "title": "News Schweiz",
         "type": "standard",
         "teasers": collections[0].teasers[0:1]
@@ -26,8 +20,8 @@
 <h3>Hero, 3 Teasers</h3>
 <div class="js-collection-wrapper-content">
 {% include 'organisms-collection' with {
-    'styleModifier': 'collection--hero',
     'collection': {
+        'styleModifier': 'collection--hero',
         "title": "News Schweiz",
         "type": "standard",
         "teasers": collections[0].teasers[0:3]
@@ -40,8 +34,8 @@
 <h3>Hero, 5 Teasers</h3>
 <div class="js-collection-wrapper-content">
 {% include 'organisms-collection' with {
-    'styleModifier': 'collection--hero',
     'collection': {
+        'styleModifier': 'collection--hero',
         "title": "News Schweiz",
         "type": "standard",
         "teasers": collections[0].teasers[0:5]
@@ -54,8 +48,8 @@
 <h3>Duo, 1 Teaser</h3>
 <div class="js-collection-wrapper-content">
 {% include 'organisms-collection' with {
-    'styleModifier': 'collection--duo',
     'collection': {
+        'styleModifier': 'collection--duo',
         "title": "News Schweiz",
         "type": "standard",
         "teasers": collections[0].teasers[0:1]
@@ -68,8 +62,8 @@
 <h3>Duo, 3 Teasers</h3>
 <div class="js-collection-wrapper-content">
 {% include 'organisms-collection' with {
-    'styleModifier': 'collection--duo',
     'collection': {
+        'styleModifier': 'collection--duo',
         "title": "News Schweiz",
         "type": "standard",
         "teasers": collections[0].teasers[0:3]
@@ -82,8 +76,8 @@
 <h3>Duo, 5 Teasers</h3>
 <div class="js-collection-wrapper-content">
 {% include 'organisms-collection' with {
-    'styleModifier': 'collection--duo',
     'collection': {
+        'styleModifier': 'collection--duo',
         "title": "News Schweiz",
         "type": "standard",
         "teasers": collections[0].teasers[0:5]
@@ -96,8 +90,8 @@
 <h3>Standard, 1 Teaser</h3>
 <div class="js-collection-wrapper-content">
 {% include 'organisms-collection' with {
-    'styleModifier': 'collection--standard',
     'collection': {
+        'styleModifier': 'collection--standard',
         "title": "News Schweiz",
         "type": "standard",
         "teasers": collections[0].teasers[0:1]
@@ -110,8 +104,8 @@
 <h3>Standard, 2 Teasers</h3>
 <div class="js-collection-wrapper-content">
 {% include 'organisms-collection' with {
-    'styleModifier': 'collection--standard',
     'collection': {
+        'styleModifier': 'collection--standard',
         "title": "News Schweiz",
         "type": "standard",
         "teasers": collections[0].teasers[0:2]
@@ -124,8 +118,8 @@
 <h3>Standard, 3 Teasers</h3>
 <div class="js-collection-wrapper-content">
 {% include 'organisms-collection' with {
-    'styleModifier': 'collection--standard',
     'collection': {
+        'styleModifier': 'collection--standard',
         "title": "News Schweiz",
         "type": "standard",
         "teasers": collections[0].teasers[0:3]
@@ -138,8 +132,8 @@
 <h3>Standard, 5 Teasers</h3>
 <div class="js-collection-wrapper-content">
 {% include 'organisms-collection' with {
-    'styleModifier': 'collection--standard',
     'collection': {
+        'styleModifier': 'collection--standard',
         "title": "News Schweiz",
         "type": "standard",
         "teasers": collections[0].teasers[0:5]
@@ -152,8 +146,8 @@
 <h3>Swipeable, 5 Teasers</h3>
 <div class="js-collection-wrapper-content">
 {% include 'organisms-collection' with {
-    'styleModifier': 'collection--swipeable',
     'collection': {
+        'styleModifier': 'collection--swipeable',
         "title": "News Schweiz",
         "titleLink": "https://www-test.srf.ch/news/wirtschaft",
         "lead": "1996 schrieb John Perry Barlow die «Unabhängigkeitserklärung des Cyberspace». Darin kritisierte er Poeten.",
@@ -168,8 +162,8 @@
 <h3>Swipeable, 2 Teasers (= not actually swipeable, but standard</h3>
 <div class="js-collection-wrapper-content">
 {% include 'organisms-collection' with {
-    'styleModifier': 'collection--standard',
     'collection': {
+        'styleModifier': 'collection--standard',
         "title": "News Schweiz",
         "type": "swipeable",
         "teasers": collections[0].teasers[0:2]
@@ -196,8 +190,8 @@
 <h3>Compact Swipeable, 2 Teasers (= not actually swipeable, but standard</h3>
 <div class="js-collection-wrapper-content">
 {% include 'organisms-collection' with {
-    'styleModifier': 'collection--compact',
     'collection': {
+        'styleModifier': 'collection--compact',
         "title": "News Schweiz",
         "type": "compact-swipeable",
         "teasers": collections[0].teasers[0:2]
@@ -210,8 +204,8 @@
 <h3>Standard, Title Link</h3>
 <div class="js-collection-wrapper-content">
 {% include 'organisms-collection' with {
-    'styleModifier': 'collection--standard',
     'collection': {
+        'styleModifier': 'collection--standard',
         "title": "News Schweiz",
         "titleLink": "https://www-test.srf.ch/news/wirtschaft",
         "lead": "1996 schrieb John Perry Barlow die «Unabhängigkeitserklärung des Cyberspace». Darin kritisierte er Poeten.",
@@ -226,8 +220,8 @@
 <h3>Standard, Title Link, Branded</h3>
 <div class="js-collection-wrapper-content">
 {% include 'organisms-collection' with {
-    'styleModifier': 'collection--standard collection--branded',
     'collection': {
+        'styleModifier': 'collection--standard collection--branded',
         "title": "News Schweiz",
         "titleLink": "https://www-test.srf.ch/news/wirtschaft",
         "lead": "1996 schrieb John Perry Barlow die «Unabhängigkeitserklärung des Cyberspace». Darin kritisierte er Poeten.",
@@ -242,8 +236,8 @@
 <h3>Standard + Lead</h3>
 <div class="js-collection-wrapper-content">
 {% include 'organisms-collection' with {
-    'styleModifier': 'collection--standard',
     'collection': {
+        'styleModifier': 'collection--standard',
         "title": "News Schweiz",
         "lead": "1996 schrieb John Perry Barlow die «Unabhängigkeitserklärung des Cyberspace». Darin kritisierte er Poeten.",
         "type": "standard",
@@ -257,8 +251,8 @@
 <h3>Standard + Lead, Branded</h3>
 <div class="js-collection-wrapper-content">
 {% include 'organisms-collection' with {
-    'styleModifier': 'collection--standard collection--branded',
     'collection': {
+        'styleModifier': 'collection--standard collection--branded',
         "title": "News Schweiz",
         "lead": "1996 schrieb John Perry Barlow die «Unabhängigkeitserklärung des Cyberspace». Darin kritisierte er Poeten.",
         "type": "standard",
@@ -272,8 +266,8 @@
 <h3>Compact, 2 Teaser</h3>
 <div class="js-collection-wrapper-content">
 {% include 'organisms-collection' with {
-    'styleModifier': 'collection--compact',
     'collection': {
+        'styleModifier': 'collection--compact',
         "title": "News Schweiz",
         "type": "standard",
         "teasers": collections[0].teasers[0:2]
@@ -286,8 +280,8 @@
 <h3>Compact, 3 Teaser</h3>
 <div class="js-collection-wrapper-content">
 {% include 'organisms-collection' with {
-    'styleModifier': 'collection--compact',
     'collection': {
+        'styleModifier': 'collection--compact',
         "title": "News Schweiz",
         "type": "standard",
         "teasers": collections[0].teasers[0:3]
@@ -300,8 +294,8 @@
 <h3>Compact, 5 Teaser</h3>
 <div class="js-collection-wrapper-content">
 {% include 'organisms-collection' with {
-    'styleModifier': 'collection--compact',
     'collection': {
+        'styleModifier': 'collection--compact',
         "title": "News Schweiz",
         "type": "standard",
         "teasers": collections[0].teasers[0:5]
@@ -314,8 +308,8 @@
 <h3>Highlight + Background-Image, 3 Teaser</h3>
 <div class="js-collection-wrapper-content">
 {% include 'organisms-collection' with {
-    'styleModifier': 'collection--highlight',
     'collection': {
+        'styleModifier': 'collection--highlight',
         "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
         "lead": "1996 schrieb John Perry Barlow die «Unabhängigkeitserklärung des Cyberspace». Darin kritisierte er Poeten.",
         "title": "News Schweiz",
@@ -350,8 +344,8 @@
 <h3>Highlight + Background-Image, 1 Teaser, no lead</h3>
 <div class="js-collection-wrapper-content">
 {% include 'organisms-collection' with {
-    'styleModifier': 'collection--highlight',
     'collection': {
+        'styleModifier': 'collection--highlight',
         "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
         "title": "News Schweiz",
         "type": "standard",
@@ -373,8 +367,8 @@
 <h3>Standard with Links, 3 Teaser</h3>
 <div class="js-collection-wrapper-content">
 {% include 'organisms-collection' with {
-    'styleModifier': 'collection--standard',
     'collection': {
+        'styleModifier': 'collection--standard',
         "title": "News Schweiz",
         "type": "standard",
         "links": [
@@ -419,8 +413,8 @@
 <h3>Standard with Links, 3 Teaser, branded</h3>
 <div class="js-collection-wrapper-content">
 {% include 'organisms-collection' with {
-    'styleModifier': 'collection--standard collection--branded',
     'collection': {
+        'styleModifier': 'collection--standard collection--branded',
         "title": "News Schweiz",
         "type": "standard",
         "links": [
@@ -465,8 +459,8 @@
 <h3>Unboxed Standard with Links, 3 Teaser, branded</h3>
 <div class="js-collection-wrapper-content">
 {% include 'organisms-collection' with {
-    'styleModifier': 'collection--standard collection--unboxed collection--branded',
     'collection': {
+        'styleModifier': 'collection--standard collection--unboxed collection--branded',
         "title": "News Schweiz",
         "type": "standard",
         "links": [
@@ -511,8 +505,8 @@
     <h3>Two consecutive unboxed Standard, 3 Teaser, branded</h3>
     <div class="js-collection-wrapper-content">
         {% include 'organisms-collection' with {
-            'styleModifier': 'collection--standard collection--unboxed collection--branded',
             'collection': {
+                'styleModifier': 'collection--standard collection--unboxed collection--branded',
                 "title": "News Schweiz",
                 "type": "standard",
                 "teasers": [
@@ -539,8 +533,8 @@
             }
         } %}
         {% include 'organisms-collection' with {
-            'styleModifier': 'collection--standard collection--unboxed collection--branded',
             'collection': {
+                'styleModifier': 'collection--standard collection--unboxed collection--branded',
                 "title": "News Schweiz",
                 "type": "standard",
                 "links": [
@@ -585,8 +579,8 @@
     <h3>One unboxed Standard, 3 Teaser, branded; One Standard, 2 Teaser</h3>
     <div class="js-collection-wrapper-content">
         {% include 'organisms-collection' with {
-            'styleModifier': 'collection--standard collection--unboxed collection--branded',
             'collection': {
+                'styleModifier': 'collection--standard collection--unboxed collection--branded',
                 "title": "News Schweiz",
                 "type": "standard",
                 "teasers": [
@@ -613,8 +607,8 @@
             }
         } %}
         {% include 'organisms-collection' with {
-            'styleModifier': 'collection--standard',
             'collection': {
+                'styleModifier': 'collection--standard',
                 "title": "News Schweiz",
                 "type": "standard",
                 "teasers": collections[0].teasers[0:3]

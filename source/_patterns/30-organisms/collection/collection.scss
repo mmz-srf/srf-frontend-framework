@@ -7,11 +7,6 @@ $color-collection-dim-fade: rgba(0, 0, 0, 0) !default;
 $background-overlap: 40px;
 $background-overlap-wide: 50px;
 
-$collection-gap: 16px;
-$collection-gap-tablet-up: 32px;
-$collection-gap-desktop-wide: 40px;
-
-
 .collection {
   margin: 0 0 $collection-gap;
 
@@ -673,7 +668,8 @@ $collection-gap-desktop-wide: 40px;
     }
   }
 
-  .collection__title {
+  .collection__title,
+  .collection__lead {
     display: none;
   }
 }

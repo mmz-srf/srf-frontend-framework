@@ -1,8 +1,5 @@
 {
-  "styleModifier": "collection--compact-swipeable",
   "collection": {
-    "title": "News Schweiz",
-    "type": "swipeable",
     "teasers": [
       {
         "title": "Wissenschaftler sagen: Kühe geben Milch. Stadtbewohner erstaunt und entrüstet: 'Igitt!'",
