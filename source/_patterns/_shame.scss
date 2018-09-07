@@ -134,3 +134,17 @@ _:-ms-fullscreen,
 .js-media {
   cursor: pointer;
 }
+
+
+/*
+ * TARGETED BROWSER: IE 11
+ *
+ * bottom and right borders of collections (which are created by box-shadows) are not rendered
+ * properly in many cases. increasing the shadow blur solves it.
+ */
+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .collection__content-wrapper {
+    box-shadow: 0 0 2px 0 rgba(0,0,0,0.16), 0 0 2px 0 rgba(0,0,0,0.08);
+  }
+}
