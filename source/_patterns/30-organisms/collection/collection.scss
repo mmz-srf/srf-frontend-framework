@@ -716,5 +716,13 @@ $background-overlap-wide: 50px;
     @include tablet-up {
       margin-top: -52px;
     }
+
+    .collection__branding-wrapper {
+      padding-top: #{$collection-gap - 8};
+
+      @include tablet-up {
+        padding-top: #{$collection-gap-tablet-up - 8};
+      }
+    }
   }
 }
