@@ -2,7 +2,7 @@
 <h3 class="h-offscreen">{{ 'Bildergalerie' }}</h3>
 <span class="h-offscreen">{{ 'Bildergalerie enthält' }} {{ images|length }} {{ 'Bilder' }}</span>
 <div class="carousel-container">
-    <div class="carousel js-carousel" id="{{ image_carousel.ID }}">
+    <div class="carousel {{ styleModifier|default("") }} js-carousel" id="{{ image_carousel.ID }}">
         {% for image in images %}
             <div class="carousel__item js-carousel-item">
                 {% include 'molecules-image-figure' with {
@@ -14,4 +14,10 @@
             </div>
         {% endfor %}
     </div>
+
+    {% if 'image-carousel--fancy' in styleModifier|default('') %}
+        <div class="image-carousel__expand">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFUSURBVGhD7ZoxTgMxEEX3aqHIDWi4Aopyn4gDcAYoUqRNxV1oIf8XI60s22N7ZwJy5kmvIFqP59EQkSxBEHTzDq8DvsFeeCY3S5M7qnzB3wEvsBeeyc3S5I4qEQJ7+bOQD/hccAd74ZncLMq7cjvQzSE/8Ai94R28K7cD3RxCvWO0CDoUcobpYK+YXAR/5g7r14ZCXmDpAsuY2h3cYf36cAjxjNFmm4YQj5iWmeYhxDKmdZZLCLGI6ZnhFkJKixygBp9pjSBDISf4ufIJlkhjvuEeavAZPivnahGEO6x34o7mSExrhCAxWsRdeYU9EQLP8GwQBEEQTMEUfxD/7VuUad40TvM2viWkFFH7rab0zHAJsYgQWmeZh1hGCC0zTUM8IgRttlmIZ4RQu8MkZJp/maZ6RQi5mNTNId4RghazOWSaD3pqxmeIAz5WyDRfGAiCQFiWGws3jdcU4OmeAAAAAElFTkSuQmCC">
+        </div>
+    {% endif %}
 </div>
