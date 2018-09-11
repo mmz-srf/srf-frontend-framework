@@ -1,0 +1,23 @@
+.scrollable-img {
+  overflow-x: auto;
+  max-width: 100%;
+
+  img {
+    width: auto;
+    height: auto;
+    max-height: 80vh;
+  }
+}
+
+.scrollable-img--small-parts {
+  white-space: nowrap;
+
+  img {
+    display: inline-block;
+
+    @include tablet-up {
+      max-width: 100%;
+      display: block;
+    }
+  }
+}
