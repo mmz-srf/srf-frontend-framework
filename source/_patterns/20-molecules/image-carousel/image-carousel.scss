@@ -2,6 +2,7 @@
 
 /* smaller devices treat embed components like full-width containers */
 .carousel-container {
+  position: relative;
   /* overwrite in component; components in loading state have a grey background */
   background-color: #dadad2;
   @include smartphone {
@@ -163,4 +164,45 @@
     line-height: 20px;
     font-weight: 500;
   }
+}
+
+
+.image-carousel--fancy {
+  .carousel-counter,
+  .media-caption {
+    display: none;
+  }
+
+  .image-figure__image {
+    object-fit: cover;
+  }
+
+  .slick-dots {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+
+    button::before {
+      color: #fff;
+      opacity: 1;
+    }
+  }
+
+  @include smartphone {
+    button {
+      display: none !important; // lol
+    }
+  }
+}
+
+.image-carousel__expand {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 28px;
+  height: 28px;
+  filter: invert(10);
+  background-color: white;
+  border-radius: 2px;
+  padding: 2px;
 }

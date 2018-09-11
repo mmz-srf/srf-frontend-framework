@@ -36,7 +36,9 @@ export function init() {
             appendArrows: `#${id} .slick-list`,
             prevArrow: `<button class="carousel__link--prev"><span class="h-offscreen h-offscreen-focusable">${textPreviousImage}</span></button>`,
             nextArrow: `<button class="carousel__link--next carousel__link--waggle"><span class="h-offscreen h-offscreen-focusable">${textNextImage}</span></button>`,
-            slide: '.js-carousel-item'
+            slide: '.js-carousel-item',
+            dots: $carousel.hasClass('image-carousel--fancy'),
+            adaptiveHeight: $carousel.hasClass('image-carousel--fancy')
         });
         registerListener($carousel);
     });
