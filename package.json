@@ -6,6 +6,7 @@
     "node": "^8.11.*"
   },
   "dependencies": {
+    "@frontify/frontify-api": "^0.3.1",
     "babel-preset-env": "^1.7.0",
     "babelify": "^7.3.0",
     "browser-sync": "^2.24.4",
@@ -17,8 +18,10 @@
     "gulp-concat": "*",
     "gulp-eslint": "^4.0.2",
     "gulp-gh-pages": "*",
+    "gulp-if": "^2.0.2",
     "gulp-imagemin": "^4.1.0",
     "gulp-load-plugins": "*",
+    "gulp-replace": "^1.0.0",
     "gulp-sass": "^4.0.1",
     "gulp-sass-lint": "*",
     "gulp-size": "^3.0.0",
@@ -26,6 +29,7 @@
     "gulp-vulcanize": "^7.0.0",
     "jquery": "^3.3.1",
     "merge-stream": "*",
+    "minimist": "^1.2.0",
     "run-sequence": "^2.2.1",
     "slick-carousel": "*",
     "vinyl-buffer": "^1.0.1",
