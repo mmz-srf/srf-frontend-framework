@@ -109,8 +109,8 @@ function addFixedforIEClass() {
         let elementsToFix = document.querySelectorAll('['+dataAttr+']');
 
         for(let i = 0; i < elementsToFix.length; ++i) {
-          let ieFixClassName = elementsToFix[i].getAttribute(dataAttr);
-          elementsToFix[i].classList.add(ieFixClassName);
+            let ieFixClassName = elementsToFix[i].getAttribute(dataAttr);
+            elementsToFix[i].classList.add(ieFixClassName);
         }
     }
 }
