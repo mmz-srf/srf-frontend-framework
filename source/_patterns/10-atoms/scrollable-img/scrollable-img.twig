@@ -1,8 +1,14 @@
 <p>Die vier Jungen sollen mit Hilfe von Spezialtauchern die Tham-Luang-Höhle verlassen haben, teilte ein Vertreter des thailändischen Verteidigungsministeriums mit. Wie die thailändische Zeitung «Bangkok Post» berichtete, wurden die geretteten Jungen per Ambulanz und Helikopter sofort ins nächstgelegene Spital gebracht.</p>
 
-<div class="scrollable-img">
+{% if old|default(false) %}
+<div class="scrollable-img scrollable-img--base">
+    <img src="../../assets/img/cave_boys_vertical.png" />
+</div>
+{% else %}
+<div class="scrollable-img js-scrollable-img">
     <img src="../../assets/img/cave_boys.png" />
 </div>
+{% endif %}
 
 <p>Zuvor hatte der Katastrophenschutz von sechs geretteten Jungen gesprochen, diese Zahl bestätigten die Behörden aber nicht.</p>
 

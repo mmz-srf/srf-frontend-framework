@@ -1,6 +1,22 @@
 .scrollable-img {
+  position: relative;
   overflow-x: auto;
   max-width: 100%;
+
+  &:after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 50px;
+    width: 42px;
+    background: linear-gradient(to left, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+  }
+
+  &.scrollable-img--scrolled:after {
+    content: none;
+  }
 
   img {
     width: auto;
@@ -9,15 +25,15 @@
   }
 }
 
-.scrollable-img--small-parts {
-  white-space: nowrap;
+.scrollable-img--base {
+    width: 100%;
 
-  img {
-    display: inline-block;
-
-    @include tablet-up {
-      max-width: 100%;
-      display: block;
+    img {
+        width: 100%;
+        max-height: none;
     }
-  }
+
+    &:after {
+      content: none;
+    }
 }
