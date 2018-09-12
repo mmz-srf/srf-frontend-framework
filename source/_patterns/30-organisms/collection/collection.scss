@@ -7,24 +7,35 @@ $color-collection-dim-fade: rgba(0, 0, 0, 0) !default;
 $background-overlap: 40px;
 $background-overlap-wide: 50px;
 
+$collection-gap: 16px;
+$collection-gap-tablet-up: 32px;
+$collection-gap-desktop-wide: 40px;
+
+
 .collection {
-  display: flex;
-  flex-direction: column;
-  margin: 8px 0 16px;
-  max-width: $desktop-wide-size;
-  border-radius: 2px;
-  background-color: $color-bg-caption;
-  box-shadow: $shadow-elevation1;
+  margin: 0 0 $collection-gap;
 
   @include tablet-up {
-    margin-bottom: 32px;
+    margin-bottom: $collection-gap-tablet-up;
   }
 
   @include desktop-wide {
-    margin-bottom: 40px;
-    margin-left: auto;
-    margin-right: auto;
+    margin-bottom: $collection-gap-desktop-wide;
   }
+}
+
+.collection__branding-wrapper {
+  max-width: $desktop-wide-size;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.collection__content-wrapper {
+  display: flex;
+  flex-direction: column;
+  border-radius: 2px;
+  background-color: $color-bg-caption;
+  box-shadow: $shadow-elevation1;
 }
 
 .collection__title {
@@ -349,6 +360,7 @@ $background-overlap-wide: 50px;
 }
 
 .collection__link-text {
+  width: 100%; // necessary for IE11
   @include breakLongWords;
 
   @include tablet-up {
@@ -436,6 +448,19 @@ $background-overlap-wide: 50px;
   }
 }
 
+.collection__swipeable-area {
+  margin-top: -8px;
+  margin-bottom: 2px;
+
+  @include tablet-up {
+    margin-bottom: 6px;
+  }
+
+  @include desktop-wide {
+    margin-bottom: 10px;
+  }
+}
+
 // Compact Swipeable has (next to only having S teasers on all BPs) one difference to the
 // Standard Swipeable collection: On Tablet, only 2 teasers are visible instead of 3.
 .collection--compact-swipeable {
@@ -444,18 +469,11 @@ $background-overlap-wide: 50px;
       min-width: calc(50% - (56px / 3) - 12px);
     }
   }
-}
 
-.collection__swipeable-area {
-  margin-top: -8px;
-  margin-bottom: 0;
-
-  @include tablet-up {
-    margin-bottom: 4px;
-  }
-
-  @include desktop-wide {
-    margin-bottom: 8px;
+  .collection__swipeable-area {
+    @include tablet-up {
+      margin-bottom: 2px;
+    }
   }
 }
 
@@ -585,6 +603,10 @@ $background-overlap-wide: 50px;
 .collection--branded {
   background-size: cover;
 
+  .collection__content-wrapper {
+    background-color: transparent;
+  }
+
   .collection__title,
   .collection__lead,
   .collection__title-link,
@@ -592,6 +614,17 @@ $background-overlap-wide: 50px;
     color: $color-text-branded;
 
     @include font-smoothing;
+  }
+
+  .collection__link {
+    &:hover {
+      background-color: rgba(255, 255, 255, .12);
+    }
+
+    &:active,
+    &:focus {
+      background-color: rgba(255, 255, 255, .24);
+    }
   }
 
   // different mechanism when branded: whole link gets transparent
@@ -620,6 +653,72 @@ $background-overlap-wide: 50px;
           background-color: rgba(255, 255, 255, .12);
         }
       }
+    }
+  }
+}
+
+// Unboxed: Collection reaches the browser edge left/right but keeps the content in the
+// normal column width. Also doesn't show the title.
+.collection--unboxed {
+  max-width: 100%;
+
+  .collection__content-wrapper {
+    max-width: $desktop-wide-size;
+    margin: 0 auto;
+    background-color: transparent;
+    box-shadow: none;
+
+    @include tablet-up {
+      margin-top: 20px;
+    }
+  }
+
+  .collection__title {
+    display: none;
+  }
+}
+
+// Unboxed and Branded: Collection reaches the browser edge left/right but keeps the content in the
+// normal column width. Theme backgrounds reach the browser edge. No space between two unboxed and branded collections.
+.collection--unboxed.collection--branded {
+
+  .collection__branding-wrapper {
+    max-width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .collection__content-wrapper {
+    padding-top: 12px;
+
+    @include tablet-up {
+      padding-top: 16px;
+    }
+
+    @include desktop-wide {
+      padding-top: 20px;
+    }
+  }
+
+  // no space between two branded unboxed collections
+  & + .collection--unboxed.collection--branded {
+    margin-top: -#{$collection-gap};
+
+    @include tablet-up {
+      margin-top: -#{$collection-gap-tablet-up};
+    }
+
+    @include desktop-wide {
+      margin-top: -#{$collection-gap-desktop-wide};
+    }
+  }
+
+  // no space between header and an unboxed branded collection at first position
+  &:first-child {
+    margin-top: -8px;
+
+    @include tablet-up {
+      margin-top: -52px;
     }
   }
 }

@@ -135,7 +135,6 @@ _:-ms-fullscreen,
   cursor: pointer;
 }
 
-
 /*
  * TARGETED BROWSER: IE 11
  *
@@ -195,4 +194,14 @@ _:-ms-fullscreen,
     }
 
     // removed .svg-icon {…}
+}
+
+/*
+ * TARGETED BROWSER: IE 11
+ *
+ * removing blue bar on ie11's selected option within select menu (polis/chmap)
+ */
+.select-menu:focus::-ms-value {
+  color: $color-text-accentuation;
+  background-color: #cac8bf;
 }

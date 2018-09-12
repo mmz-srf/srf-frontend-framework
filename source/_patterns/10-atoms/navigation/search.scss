@@ -29,9 +29,11 @@
   border-bottom: 0;
   
   /* theme */
-  background-color: var(--theme-color-bg-search, #fefefd);
-  border: var(--theme-search-border, 1px solid rgba(255, 255, 255, 0.12));
-  border-bottom: var(--theme-search-border-bottom, 0);
+  @supports (--foo: bar) {
+    background-color: var(--theme-color-bg-search, #fefefd);
+    border: var(--theme-search-border, 1px solid rgba(0,0,0,.08));
+    border-bottom: var(--theme-search-border-bottom, 0);
+  }
   
   border-radius: 2px;
   transition: box-shadow .2s ease-in-out;
@@ -63,7 +65,9 @@
   filter: none;
 
   /* theme */
-  filter: var(--theme-icon-filter, none);
+  @supports (--foo: bar) {
+    filter: var(--theme-icon-filter, none);
+  }
 }
 
 .search--active {
@@ -101,7 +105,9 @@
   }
   
   &::placeholder {
-    color: var(--theme-color-text-search, $color-text-light);
+    @supports (--foo: bar) {
+      color: var(--theme-color-text-search, $color-text-light);
+    }
   }
 
   // Remove IE closing x icon because (we do the same for all browsers)
