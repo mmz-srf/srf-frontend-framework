@@ -149,7 +149,7 @@ _:-ms-fullscreen,
  */
  
 .teaser__prekicker--fixed-for-ie {
-  // first: Overwrite the "offscreen-non-focusable" mixin
+  // 1st: Overwrite the "offscreen-non-focusable" mixin
   position: static;
   width: auto; // pretty cool but not IE: WebKit does have a -webkit-fit-content value for width, which would fix the full-width-problem
   height: auto;
@@ -159,35 +159,38 @@ _:-ms-fullscreen,
   clip: auto;
   border: 0;
 
-  // then: Style to the max! (its pretty much a carbon copy of .teaser__live from teaser.scss)
-  display: inline-block !important;
-  margin: 0 8px 2px 0;
-  padding: 1px 6px;
-  background-color: $color-srf-light;
-  font-family: $font-medium;
-  font-size: 12px;
-  font-weight: 500;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: 1.33;
-  letter-spacing: normal;
-  color: #ffffff;
-  text-transform: uppercase;
-  // removed animation
-  @include font-smoothing;
+  strong {
+    // 2nd: Style to the max! (its pretty much a carbon copy of .teaser__live from teaser.scss)
+    display: inline-block !important;
+    margin: 0 8px 8px 0;
+    padding: 1px 6px;
+    background-color: $color-srf-light;
+    font-family: $font-medium;
+    font-size: 12px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.33;
+    letter-spacing: normal;
+    color: #ffffff;
+    text-transform: uppercase;
+    // removed animation
+    @include font-smoothing;
 
-  @include tablet-up {
-    position: absolute;
-    top: 16px;
+    @include tablet-up {
+      position: absolute;
+      top: 16px;
+    }
+
+    @include desktop-up {
+      font-size: 16px;
+    }
+
+    @include desktop-wide {
+      top: 24px;
+    }
+
+    // removed .svg-icon {…}
+
   }
-
-  @include desktop-up {
-    font-size: 16px;
-  }
-
-  @include desktop-wide {
-    top: 24px;
-  }
-
-  // removed .svg-icon {…}
 }
