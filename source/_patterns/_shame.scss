@@ -161,7 +161,7 @@ _:-ms-fullscreen,
 
   strong {
     // 2nd: Style to the max! (its pretty much a carbon copy of .teaser__live from teaser.scss)
-    display: inline-block !important;
+    display: inline-block;
     margin: 0 8px 8px 0;
     padding: 1px 6px;
     background-color: $color-srf-light;
@@ -176,7 +176,11 @@ _:-ms-fullscreen,
     text-transform: uppercase;
     // removed animation
     @include font-smoothing;
+  }
+}
 
+.teaser--size-m .teaser__prekicker--fixed-for-ie strong,
+.teaser--size-l .teaser__prekicker--fixed-for-ie strong {
     @include tablet-up {
       position: absolute;
       top: 16px;
@@ -191,6 +195,4 @@ _:-ms-fullscreen,
     }
 
     // removed .svg-icon {…}
-
-  }
 }
