@@ -1,0 +1,8 @@
+{% embed 'templates-article' %}
+
+    {% block article_content %}
+        {% include 'atoms-scrollable-img' with { 'small-parts': false} %}
+        {% include 'atoms-article-author--short' %}
+    {% endblock %}
+
+{% endembed %}
