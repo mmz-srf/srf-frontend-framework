@@ -1,6 +1,9 @@
 @import '../../_patterns/variables';
 @import '../../_patterns/breakpoints';
 
+/* sticky container */
+@import '../../_patterns/20-molecules/sticky-container/sticky-container';
+
 .masthead {
   height: 192px;
   margin-bottom: 24px;
@@ -161,7 +164,7 @@
   }
 }
 
-.subnav__list{
+.subnav__list {
   max-height: 56px;
   overflow: hidden;
 }
