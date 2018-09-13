@@ -168,3 +168,9 @@ $breadcrumb-touch-area-expansion: 8px !default;
 
 /*** ICONS ***/
 $play-button-border-size: 2px;
+
+/*** COLLECTIONS ***/
+// defined here and not in collection.scss because they are also used in the critical css
+$collection-gap: 16px;
+$collection-gap-tablet-up: 32px;
+$collection-gap-desktop-wide: 40px;
