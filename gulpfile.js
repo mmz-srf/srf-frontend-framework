@@ -36,6 +36,9 @@ var AUTOPREFIXER_BROWSERS = [
     'bb >= 10'
 ];
 
+const FRONTIFY_PROJECT_ID = '28',
+      FRONTIFY_BASE_URL = 'https://srf.frontify.com';
+
 var knownOptions = {
     string: 'token',
     default: { env: '' }
@@ -203,8 +206,8 @@ gulp.task('frontify-pattern-sync', function () {
     frontifyApi.syncPatterns(
         {
             access_token: accessToken,
-            project: '28',
-            baseUrl: 'https://srf.frontify.com',
+            project: FRONTIFY_PROJECT_ID,
+            baseUrl: FRONTIFY_BASE_URL,
             cwd: 'export/patterns'
         },
         [
@@ -224,8 +227,8 @@ gulp.task('frontify-asset-sync', function() {
     frontifyApi.syncAssets(
         {
             access_token: accessToken,
-            project: '28',
-            baseUrl: 'https://srf.frontify.com',
+            project: FRONTIFY_PROJECT_ID,
+            baseUrl: FRONTIFY_BASE_URL,
             cwd: ''
         },
         [
