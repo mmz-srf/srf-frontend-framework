@@ -1,8 +1,7 @@
 {
-  "styleModifier": "collection--swipeable",
   "collection": {
+    "styleModifier": "collection--swipeable",
     "title": "News Schweiz",
-    "type": "swipeable",
     "teasers": [
       {
         "title": "1. Ponika verhilft Neuseeland zum Sieg",
