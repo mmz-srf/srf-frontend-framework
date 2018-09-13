@@ -144,3 +144,17 @@ _:-ms-fullscreen,
   color: $color-text-accentuation;
   background-color: #cac8bf;
 }
+
+/*
+ * TARGETED BROWSER: IE 11
+ *
+ * bottom and right borders (which are created by box-shadows) of collections and teasers are not rendered
+ * properly in many cases. increasing the shadow blur solves it.
+ */
+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .teaser,
+  .collection__content-wrapper {
+    box-shadow: 0 0 2px 0 rgba(0,0,0,0.16), 0 0 2px 0 rgba(0,0,0,0.08);
+  }
+}
