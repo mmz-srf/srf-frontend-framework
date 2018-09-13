@@ -16,7 +16,8 @@ var gulp = require('gulp'),
     sassLint = require('gulp-sass-lint'),
     frontifyApi = require('@frontify/frontify-api'),
     minimist = require('minimist'),
-    replace = require('gulp-replace')
+    replace = require('gulp-replace'),
+    concat = require('gulp-concat')
 ;
 
 var $ = gulpLoadPlugins();
@@ -235,6 +236,12 @@ gulp.task('frontify-asset-sync', function() {
     });
 });
 
+gulp.task('frontify-bundle-script', function () {
+    return gulp.src(['public/assets/js/vendor.js', 'public/assets/js/bundle.js'])
+        .pipe(concat('frontify-bundle.js'))
+        .pipe(gulp.dest('public/assets/frontify'));
+});
+
 gulp.task('frontify-export-rewrite-paths', function () {
     return gulp.src(['export/**/*.html'])
         .pipe(replace('../../assets/', '/public/assets/'))
@@ -246,7 +253,7 @@ gulp.task('frontify', function() {
     runSequence(
         ['build'],
         ['patternlab-export'],
-        ['frontify-export-rewrite-paths'],
+        ['frontify-export-rewrite-paths', 'frontify-bundle-script'],
         ['frontify-pattern-sync'],
         ['frontify-asset-sync']
     );

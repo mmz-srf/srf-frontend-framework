@@ -15,7 +15,7 @@
     "fg-loadcss": "^2.0.1",
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^5.0.0",
-    "gulp-concat": "*",
+    "gulp-concat": "^2.6.1",
     "gulp-eslint": "^4.0.2",
     "gulp-gh-pages": "*",
     "gulp-if": "^2.0.2",
