@@ -1,0 +1,51 @@
+.scrollable-img {
+  position: relative;
+  overflow-x: scroll;
+  -webkit-overflow-scrolling: touch;
+
+  max-width: 100%;
+
+  &:before {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 42px;
+    background: linear-gradient(to left, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    @include caret('grey', 'right', 'large');
+    height: 100%;
+    width: 42px;
+  }
+
+  &.scrollable-img--scrolled:before,
+  &.scrollable-img--scrolled:after, {
+    content: none;
+  }
+
+  img {
+    width: auto;
+    height: auto;
+    max-height: 80vh;
+  }
+}
+
+.scrollable-img--base {
+    width: 100%;
+
+    img {
+        width: 100%;
+        max-height: none;
+    }
+
+    &:after {
+      content: none;
+    }
+}
