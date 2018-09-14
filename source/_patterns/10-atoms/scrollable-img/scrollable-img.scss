@@ -1,20 +1,32 @@
 .scrollable-img {
   position: relative;
-  overflow-x: auto;
+  overflow-x: scroll;
+  -webkit-overflow-scrolling: touch;
+
   max-width: 100%;
+
+  &:before {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 42px;
+    background: linear-gradient(to left, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+  }
 
   &:after {
     content: '';
     position: absolute;
     right: 0;
     top: 0;
+    @include caret('grey', 'right', 'large');
     height: 100%;
-    width: 50px;
     width: 42px;
-    background: linear-gradient(to left, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
   }
 
-  &.scrollable-img--scrolled:after {
+  &.scrollable-img--scrolled:before,
+  &.scrollable-img--scrolled:after, {
     content: none;
   }
 
