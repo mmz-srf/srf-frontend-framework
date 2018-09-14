@@ -91,3 +91,15 @@
 }
 
 
+.media-still--dynamic {
+  position: relative;
+}
+
+
+.media-still--force-square {
+  position: relative;
+  /* forcing 1:1 aspect ratio of container */
+  &::before {
+    padding-top: 100%;
+  }
+}

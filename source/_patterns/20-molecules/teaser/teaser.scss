@@ -151,7 +151,8 @@
   }
 }
 
-.teaser__lead {
+.teaser__lead,
+.teaser__media-caption-source {
   margin: 12px 0 0;
   display: none;
   font-family: $font-light;
@@ -166,6 +167,11 @@
   @supports (--foo: bar) {
     color: var(--teaser-color-text, $color-text-default);
   }
+}
+
+.teaser__media-caption-source {
+  font-size: 12px;
+  line-height: 1.2;
 }
 
 .teaser__live {
@@ -478,4 +484,17 @@
 .teaser--static {
   width: 100%;
   overflow: hidden;
+}
+
+.teaser--with-medium {
+  .teaser__lead.teaser__lead {
+    display: none;
+  }
+
+  .teaser__media-caption-source {
+    display: flex;
+    flex-grow: 1;
+    align-items: flex-end;
+  }
+
 }
