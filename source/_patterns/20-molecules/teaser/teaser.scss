@@ -346,13 +346,49 @@
   }
 }
 
+// Shared styles for both L and XL teaser
+.teaser--size-l,
+.teaser--size-xl {
+  .teaser__medium-wrapper {
+    flex-basis: auto;
+  }
+
+  .teaser__lead {
+    display: block;
+
+    @include desktop-up {
+      font-size: 18px;
+      line-height: 1.33;
+      color: $color-media-playing;
+    }
+  }
+
+  .teaser__kicker {
+    font-size: 16px;
+    line-height: 1.13;
+
+    @include desktop-up {
+      font-size: 18px;
+      line-height: 1.11;
+    }
+  }
+
+  .teaser__title {
+    font-size: 20px;
+    letter-spacing: 0.2px;
+
+    @include desktop-up {
+      font-size: 24px;
+    }
+  }
+}
+
 /* XL-TEASER
  * Looks like L-Teaser on Mobile
  * With short lead
  * Full-width on tablet+ with medium on the left
  */
-.teaser--size-xl {
-
+ .teaser--size-xl {
   .teaser__main {
     flex-direction: column;
     flex-wrap: nowrap;
@@ -415,42 +451,6 @@
 
     @include tablet-up {
       flex-basis: 100%;
-    }
-  }
-}
-
-// Shared styles for both L and XL teaser
-.teaser--size-l,
-.teaser--size-xl {
-  .teaser__medium-wrapper {
-    flex-basis: auto;
-  }
-  .teaser__lead {
-    display: block;
-
-    @include desktop-up {
-      font-size: 18px;
-      line-height: 1.33;
-      color: $color-media-playing;
-    }
-  }
-
-  .teaser__kicker {
-    font-size: 16px;
-    line-height: 1.13;
-
-    @include desktop-up {
-      font-size: 18px;
-      line-height: 1.11;
-    }
-  }
-
-  .teaser__title {
-    font-size: 20px;
-    letter-spacing: 0.2px;
-
-    @include desktop-up {
-      font-size: 24px;
     }
   }
 }
