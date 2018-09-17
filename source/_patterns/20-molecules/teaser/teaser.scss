@@ -70,11 +70,11 @@
   flex-direction: row-reverse;
   flex-grow: 1;
   width: 100%;
+  flex-wrap: wrap;
 }
 
 .teaser__medium-wrapper {
-  flex-grow: 0;
-  flex-shrink: 0;
+  flex: 0 0 80px;
   margin: 16px 16px 16px 0;
   position: relative; // for positioning ::pseudo elements
 
@@ -103,13 +103,11 @@
 .teaser__content {
   display: flex;
   flex-direction: column;
-  flex-basis: auto;
-  flex-grow: 1;
-  flex-shrink: 1;
+  flex: 1 1 0px;
   margin: 16px 12px 16px 16px;
   // IE needs some convincin': set width to 100% but stop when reaching the margins
-  width: 100%;
-  max-width: calc(100% - 28px);
+  // width: 100%;
+  // max-width: calc(100% - 28px);
 
   @include desktop-wide {
     margin: 24px;
@@ -207,6 +205,14 @@
   }
 }
 
+.teaser__opinion {
+  flex: 0 0 100%;
+  display: flex;
+  flex-direction: row;
+  background-color: $color-bg-caption;
+  padding: 8px 16px;
+}
+
 .teaser--size-s {
   .teaser__medium-wrapper {
     border-radius: 2px;
@@ -263,12 +269,14 @@
 .teaser--size-m {
   .teaser__main {
     flex-direction: column;
+    flex-wrap: nowrap;
   }
 
   .teaser__medium-wrapper {
     margin: 0;
     border-radius: 2px;
     overflow: hidden;
+    flex-basis: auto;
 
     &::after {
       border-radius: 0;
@@ -281,6 +289,11 @@
     width: 100%;
 
     @include forceAspectRatio('16:9');
+  }
+
+  .teaser__content,
+  .teaser__opinion {
+    flex: 0 0 auto;
   }
 
   .teaser__kicker {
@@ -306,6 +319,7 @@
 .teaser--size-l {
   .teaser__main {
     flex-direction: column;
+    flex-wrap: nowrap;
   }
 
   .teaser__medium {
@@ -313,6 +327,11 @@
     width: 100%;
 
     @include forceAspectRatio('16:9');
+  }
+
+  .teaser__content,
+  .teaser__opinion {
+    flex: 0 0 auto;
   }
 
   .teaser__medium-wrapper {
@@ -333,9 +352,11 @@
 
   .teaser__main {
     flex-direction: column;
+    flex-wrap: nowrap;
 
     @include tablet-up {
       flex-direction: row;
+      flex-wrap: wrap;
     }
   }
 
@@ -359,12 +380,15 @@
       &::after {
         border-right: solid 1px rgba(0, 0, 0, 0.04);
       }
-      width: 65.75%;
+      flex: 0 0 65.75%;
     }
   }
 
   .teaser__content {
+    flex: 0 0 auto;
+
     @include tablet-up {
+      flex: 1 0 0px;
       margin: 24px 16px 24px 24px;
     }
 
@@ -380,6 +404,14 @@
   .teaser__title {
     @include tablet {
       letter-spacing: 0.4px;
+    }
+  }
+
+  .teaser__opinion {
+    flex: 0 0 auto;
+
+    @include tablet-up {
+      flex-basis: 100%;
     }
   }
 }
@@ -429,6 +461,11 @@
 
     .teaser__main {
       flex-direction: row-reverse;
+      flex-wrap: wrap;
+    }
+
+    .teaser__content {
+      flex: 1 1 0px;
     }
 
     .teaser__kicker {
@@ -464,6 +501,10 @@
       height: 80px;
 
       @include forceAspectRatio("1:1");
+    }
+
+    .teaser__opinion {
+      flex: 0 0 100%;
     }
   }
 }
