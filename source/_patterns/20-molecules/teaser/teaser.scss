@@ -211,6 +211,9 @@
   flex-direction: row;
   background-color: $color-bg-caption;
   padding: 8px 16px;
+
+  // IE11 extra sausage
+  max-width: 100%;
 }
 
 .teaser--size-s {
@@ -320,6 +323,10 @@
   .teaser__main {
     flex-direction: column;
     flex-wrap: nowrap;
+  }
+
+  .teaser__medium-wrapper {
+    flex-basis: auto;
   }
 
   .teaser__medium {
