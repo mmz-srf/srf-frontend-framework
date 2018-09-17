@@ -453,6 +453,20 @@
       flex-basis: 100%;
     }
   }
+
+  @supports (display: grid) {
+    @include tablet-up {
+      .teaser__main {
+        display: grid;
+        grid-template-columns: 65.75% auto;
+        grid-template-rows: 1fr max-content;
+      }
+
+      .teaser__medium-wrapper {
+        grid-row: span 2;
+      }
+    }
+  }
 }
 
 /* S-ON-MOBILE
