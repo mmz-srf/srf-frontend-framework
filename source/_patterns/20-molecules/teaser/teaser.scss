@@ -214,6 +214,10 @@
 
   // IE11 extra sausage
   max-width: 100%;
+
+  @include desktop-wide {
+    padding: 8px 24px;
+  }
 }
 
 .teaser--size-s {
@@ -464,6 +468,16 @@
 
       .teaser__medium-wrapper {
         grid-row: span 2;
+      }
+
+      .teaser__opinion {
+        padding-left: 24px;
+      }
+    }
+
+    @include desktop-wide {
+      .teaser__opinion {
+        padding-left: 32px;
       }
     }
   }
