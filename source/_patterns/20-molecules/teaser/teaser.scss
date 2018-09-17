@@ -325,10 +325,6 @@
     flex-wrap: nowrap;
   }
 
-  .teaser__medium-wrapper {
-    flex-basis: auto;
-  }
-
   .teaser__medium {
     height: auto;
     width: 100%;
@@ -423,9 +419,12 @@
   }
 }
 
-// Short lead for both L and XL teaser
+// Shared styles for both L and XL teaser
 .teaser--size-l,
 .teaser--size-xl {
+  .teaser__medium-wrapper {
+    flex-basis: auto;
+  }
   .teaser__lead {
     display: block;
 
