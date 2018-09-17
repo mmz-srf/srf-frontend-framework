@@ -910,6 +910,11 @@
       "teasers": [
         {
           "title": "Dschihadist portioniert Küchenfolie mit Schwert",
+          "opinion": {
+            "image": "../../assets/demo/img/bild0/bild_s8.jpg",
+            "name": "Franz Beckenbauer",
+            "function": "Fussballer"
+          },
           "kicker": "Alu abhackbar",
           "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
           "link": "#",
