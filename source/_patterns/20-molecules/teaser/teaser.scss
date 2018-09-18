@@ -218,7 +218,7 @@
     overflow: hidden;
 
     @include desktop-up {
-      width: 94px;
+      flex-basis: 94px;
       padding-bottom: 94px;
     }
 
