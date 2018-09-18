@@ -1,0 +1,73 @@
+.demo-teaser__label-wrapper {
+  background: linear-gradient(
+    120deg,
+    $theme-kultur-color-1,
+    $theme-kultur-color-1 15%,
+    $theme-kultur-color-2 60%,
+    $theme-kultur-color-2
+  );
+  padding: 1rem 0 4rem 1rem;
+  min-width: 20rem;
+  max-width: 40rem;
+}
+
+.teaser__label {
+  display: flex;
+  font-family: $font-medium;
+  font-size: 12px;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.33;
+  letter-spacing: normal;
+}
+
+.teaser__label--live {
+  .teaser__label-box {
+    background-color: $color-srf-light;
+    color: #ffffff;
+    animation: pulsatingLiveAnimation 3s infinite ease-in-out;
+  }
+}
+
+.teaser__label--pre {
+  .teaser__label-box {
+    background-color: rgba(255,255,255,.8);
+    color: #4e4d47;
+    backdrop-filter: blur(2px);
+  }
+}
+
+.teaser__label-box {
+  flex: 0 0 auto;
+  justify-content: flex-start;
+
+  display: flex;
+  margin-right: 1px;
+  padding: 2px 6px 1px;
+
+  .svg-icon {
+    margin: 1px 4px 0 0;
+  }
+
+  .svg-icon,
+  .teaser__label-type {
+    flex: 0 1 auto;
+  }
+}
+
+.teaser__label-box--type {
+  text-transform: uppercase;
+}
+
+.teaser__label-type {
+  
+}
+
+/*.svg-icon {
+  margin: 2px 4px -2px 0;
+
+  @include desktop-up {
+    margin: 3px 6px -3px 0;
+  }
+}*/
