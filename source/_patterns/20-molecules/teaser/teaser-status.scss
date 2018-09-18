@@ -116,8 +116,6 @@
 
 
 .teaser-status--visited-and-updated {
-  me: you;
-
   /* theme */
   @include customPropWithFallback('color', $color-text-light, '--teaser-color-status-updated');
 
