@@ -3,5 +3,5 @@ body {
 }
 
 #ffy-markup {
-  margin: 8px;
+  /* content of the frontify iframe (i.e. default margin) could be styled here */
 }
