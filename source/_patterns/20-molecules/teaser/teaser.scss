@@ -105,12 +105,10 @@
   flex-direction: column;
   flex: 1 1 0px;
   margin: 16px 12px 16px 16px;
-  // IE needs some convincin': set width to 100% but stop when reaching the margins
-  // width: 100%;
-  // max-width: calc(100% - 28px);
 
   @include desktop-wide {
     margin: 24px;
+    // IE needs some convincing
     max-width: calc(100% - 48px);
   }
 }
