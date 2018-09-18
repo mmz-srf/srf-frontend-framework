@@ -105,7 +105,7 @@ function objectFitForIE() {
             containers = document.querySelectorAll( relevantClasses.join(', ') );
 
         for (let i = 0; i < containers.length; i++) {
-            polyfillObjectFit(containers[i].querySelector('img'))
+            polyfillObjectFit(containers[i].querySelector('img'));
         }
     }
 }
