@@ -11,8 +11,8 @@
   overflow: hidden; // to cut off image with border radius
 
   /* theme */
-  @include customPropWithFallback('color', $color-text-default, '--teaser-color-text');
-  @include customPropWithFallback('background-color', $color-bg-card, '--teaser-color-background');
+  @include customPropWithFallback('color', '--teaser-color-text', $color-text-default);
+  @include customPropWithFallback('background-color', '--teaser-color-background', $color-bg-card);
 
   box-shadow: $shadow-elevation1;
   // sass-lint:disable indentation
@@ -47,7 +47,7 @@
     // performance improvement: Don't animate the background-color, but the opacity
 
     /* theme */
-    @include customPropWithFallback('background-color', $color-bg-button-hover, '--teaser-color-overlay');
+    @include customPropWithFallback('background-color', '--teaser-color-overlay', $color-bg-button-hover);
 
     opacity: 0;
     transition: opacity .2s ease-in-out;
@@ -126,7 +126,7 @@
   word-wrap: break-word; // Enforce breaking words for IE11
 
   /* theme */
-  @include customPropWithFallback('color', $color-accentuation-red, '--teaser-color-accentuation');
+  @include customPropWithFallback('color', '--teaser-color-accentuation', $color-accentuation-red);
 }
 
 .teaser__title {
@@ -142,7 +142,7 @@
   word-wrap: break-word; // Enforce breaking words for IE11
 
   /* theme */
-  @include customPropWithFallback('color', $color-text-default, '--teaser-color-title');
+  @include customPropWithFallback('color', '--teaser-color-title', $color-text-default);
 }
 
 .teaser__lead {
@@ -157,7 +157,7 @@
   letter-spacing: 0.4px;
 
   /* theme */
-  @include customPropWithFallback('color', $color-text-default, '--teaser-color-text');
+  @include customPropWithFallback('color', '--teaser-color-text', '#383732');
 }
 
 .teaser__live {
@@ -385,9 +385,6 @@
     @include desktop-up {
       font-size: 18px;
       line-height: 1.33;
-
-      /* theme */
-      @include customPropWithFallback('color', '#383732', '--teaser-color-text');
     }
   }
 

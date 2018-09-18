@@ -18,7 +18,7 @@
   letter-spacing: 0.4px;
 
   /* theme */
-  @include customPropWithFallback('color', $color-text-default, '--teaser-color-text');
+  @include customPropWithFallback('color', '--teaser-color-text', $color-text-default);
   
   @include breakLongWords;
   margin: 8px 0 0;
@@ -43,7 +43,7 @@
 
 .teaser-status--new {
   /* theme */
-  @include customPropWithFallback(color, $color-srf-light, --teaser-color-status-new);
+  @include customPropWithFallback('color', '--teaser-color-status-new', $color-srf-light);
 }
 
 .teaser-status--visited-and-recently-updated,
@@ -63,7 +63,7 @@
 
 .teaser-status--new-and-updated {
   /* theme */
-  @include customPropWithFallback('color', $color-srf-light, '--teaser-color-status-new');
+  @include customPropWithFallback('color', '--teaser-color-status-new', $color-srf-light);
 
   .teaser-status__content:before {
     /* fallback */
@@ -88,7 +88,7 @@
 
 .teaser-status--visited {
   /* theme */
-  @include customPropWithFallback('color', $color-button-success, '--teaser-color-status-visited');
+  @include customPropWithFallback('color', '--teaser-color-status-visited', $color-button-success);
 
   .teaser-status__content:before {
     animation: none;
@@ -117,7 +117,7 @@
 
 .teaser-status--visited-and-updated {
   /* theme */
-  @include customPropWithFallback('color', $color-text-light, '--teaser-color-status-updated');
+  @include customPropWithFallback('color', '--teaser-color-status-updated', $color-text-light);
 
   .teaser-status__content:before {
     /* fallback */
