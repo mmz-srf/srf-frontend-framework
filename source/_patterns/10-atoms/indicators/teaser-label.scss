@@ -1,16 +1,3 @@
-.demo-teaser__label-wrapper {
-  background: linear-gradient(
-    120deg,
-    $theme-kultur-color-1,
-    $theme-kultur-color-1 15%,
-    $theme-kultur-color-2 60%,
-    $theme-kultur-color-2
-  );
-  padding: 1rem 0 4rem 1rem;
-  min-width: 20rem;
-  max-width: 40rem;
-}
-
 .teaser__label {
   display: flex;
   font-family: $font-medium;
@@ -26,6 +13,7 @@
   .teaser__label-box {
     background-color: $color-srf-light;
     color: #ffffff;
+    @include font-smoothing;
     animation: pulsatingLiveAnimation 3s infinite ease-in-out;
   }
 }
@@ -60,14 +48,29 @@
   text-transform: uppercase;
 }
 
-.teaser__label-type {
-  
+/* Teaser Size M */
+.teaser--size-m {
+  .teaser__label {
+    @include desktop-up {
+      font-size: 16px;
+    }
+  }
+
+  .svg-icon {
+    @include desktop-up {
+      margin: 2px 4px 0 0;
+    }
+  }
 }
 
-/*.svg-icon {
-  margin: 2px 4px -2px 0;
-
-  @include desktop-up {
-    margin: 3px 6px -3px 0;
+/* Teaser Size L and XL */
+.teaser--size-l,
+.teaser--size-xl {
+  .teaser__label {
+    font-size: 16px;
   }
-}*/
+
+  .svg-icon {
+    margin: 2px 4px 0 0;
+  }
+}
