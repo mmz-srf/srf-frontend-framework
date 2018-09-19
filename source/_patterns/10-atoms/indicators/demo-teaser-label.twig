@@ -1,27 +1,55 @@
-<div style="background: linear-gradient(120deg,#AD3492,#AD3492 15%,#792465 60%,#792465);padding:1rem 0 4rem 1rem;max-width:64rem">
+<div style="background:linear-gradient(120deg,rgb(42,42,42),rgb(42,42,42) 15%,rgb(24,24,24) 60%,rgb(24,24,24));padding:1rem 0 4rem 1rem;max-width:64rem">
 
-  <h1>S-Teaser</h1>
+  <h1 style="color:white">S-Teaser</h1>
   <div class="demo-teaser__label-wrapper---s-teaser teaser--size-s">
-    {% include 'atoms-teaser-label' with {'styleModifierType': 'live', 'styleModifierSize': 's'} %}
-    {% include 'atoms-teaser-label' with {'styleModifierType': 'pre', 'styleModifierSize': 's'} %}
+    {% include 'atoms-teaser-label' with {'labelWording': 'Live',       'styleModifierType': 'teaser__label--live',     'styleModifierSize': 'teaser--size-s'} %}
+    {% include 'atoms-teaser-label' with {'labelWording': 'Live',       'styleModifierType': 'teaser__label--pre',      'styleModifierSize': 'teaser--size-s'} %}
+    {% include 'atoms-teaser-label' with {'labelWording': 'Live',       'styleModifierType': 'teaser__label--live',     'styleModifierSize': 'teaser--size-s',  'labelTime': '13:37'} %}
+    {% include 'atoms-teaser-label' with {'labelWording': 'Live',       'styleModifierType': 'teaser__label--pre',      'styleModifierSize': 'teaser--size-s',  'labelTime': '13:37'} %}
+    {% include 'atoms-teaser-label' with {'labelWording': 'Liveticker', 'styleModifierType': 'teaser__label--live',     'styleModifierSize': 'teaser--size-s'} %}
+    {% include 'atoms-teaser-label' with {'labelWording': 'Liveticker', 'styleModifierType': 'teaser__label--pre',      'styleModifierSize': 'teaser--size-s'} %}
+    {% include 'atoms-teaser-label' with {'labelWording': 'Liveticker', 'styleModifierType': 'teaser__label--live',     'styleModifierSize': 'teaser--size-s',  'labelTime': '13:37'} %}
+    {% include 'atoms-teaser-label' with {'labelWording': 'Liveticker', 'styleModifierType': 'teaser__label--pre',      'styleModifierSize': 'teaser--size-s',  'labelTime': '13:37'} %}
+    {% include 'atoms-teaser-label' with {'labelWording': 'Breaking',   'styleModifierType': 'teaser__label--breaking', 'styleModifierSize': 'teaser--size-s'} %}
   </div>
 
-  <h1>M-Teaser</h1>
+  <h1 style="color:white">M-Teaser</h1>
   <div class="demo-teaser__label-wrapper---m-teaser teaser--size-m">
-    {% include 'atoms-teaser-label' with {'styleModifierType': 'live', 'styleModifierSize': 'm'} %}
-    {% include 'atoms-teaser-label' with {'styleModifierType': 'pre', 'styleModifierSize': 'm'} %}
+    {% include 'atoms-teaser-label' with {'labelWording': 'Live',       'styleModifierType': 'teaser__label--live',     'styleModifierSize': 'teaser--size-m'} %}
+    {% include 'atoms-teaser-label' with {'labelWording': 'Live',       'styleModifierType': 'teaser__label--pre',      'styleModifierSize': 'teaser--size-m'} %}
+    {% include 'atoms-teaser-label' with {'labelWording': 'Live',       'styleModifierType': 'teaser__label--live',     'styleModifierSize': 'teaser--size-m',  'labelTime': '13:37'} %}
+    {% include 'atoms-teaser-label' with {'labelWording': 'Live',       'styleModifierType': 'teaser__label--pre',      'styleModifierSize': 'teaser--size-m',  'labelTime': '13:37'} %}
+    {% include 'atoms-teaser-label' with {'labelWording': 'Liveticker', 'styleModifierType': 'teaser__label--live',     'styleModifierSize': 'teaser--size-m'} %}
+    {% include 'atoms-teaser-label' with {'labelWording': 'Liveticker', 'styleModifierType': 'teaser__label--pre',      'styleModifierSize': 'teaser--size-m'} %}
+    {% include 'atoms-teaser-label' with {'labelWording': 'Liveticker', 'styleModifierType': 'teaser__label--live',     'styleModifierSize': 'teaser--size-m',  'labelTime': '13:37'} %}
+    {% include 'atoms-teaser-label' with {'labelWording': 'Liveticker', 'styleModifierType': 'teaser__label--pre',      'styleModifierSize': 'teaser--size-m',  'labelTime': '13:37'} %}
+    {% include 'atoms-teaser-label' with {'labelWording': 'Breaking',   'styleModifierType': 'teaser__label--breaking', 'styleModifierSize': 'teaser--size-m'} %}
   </div>
 
-  <h1>L-Teaser</h1>
+  <h1 style="color:white">L-Teaser</h1>
   <div class="demo-teaser__label-wrapper---l-teaser teaser--size-l">
-    {% include 'atoms-teaser-label' with {'styleModifierType': 'live', 'styleModifierSize': 'l'} %}
-    {% include 'atoms-teaser-label' with {'styleModifierType': 'pre', 'styleModifierSize': 'l'} %}
+    {% include 'atoms-teaser-label' with {'labelWording': 'Live',       'styleModifierType': 'teaser__label--live',     'styleModifierSize': 'teaser--size-l'} %}
+    {% include 'atoms-teaser-label' with {'labelWording': 'Live',       'styleModifierType': 'teaser__label--pre',      'styleModifierSize': 'teaser--size-l'} %}
+    {% include 'atoms-teaser-label' with {'labelWording': 'Live',       'styleModifierType': 'teaser__label--live',     'styleModifierSize': 'teaser--size-l',  'labelTime': '13:37'} %}
+    {% include 'atoms-teaser-label' with {'labelWording': 'Live',       'styleModifierType': 'teaser__label--pre',      'styleModifierSize': 'teaser--size-l',  'labelTime': '13:37'} %}
+    {% include 'atoms-teaser-label' with {'labelWording': 'Liveticker', 'styleModifierType': 'teaser__label--live',     'styleModifierSize': 'teaser--size-l'} %}
+    {% include 'atoms-teaser-label' with {'labelWording': 'Liveticker', 'styleModifierType': 'teaser__label--pre',      'styleModifierSize': 'teaser--size-l'} %}
+    {% include 'atoms-teaser-label' with {'labelWording': 'Liveticker', 'styleModifierType': 'teaser__label--live',     'styleModifierSize': 'teaser--size-l',  'labelTime': '13:37'} %}
+    {% include 'atoms-teaser-label' with {'labelWording': 'Liveticker', 'styleModifierType': 'teaser__label--pre',      'styleModifierSize': 'teaser--size-l',  'labelTime': '13:37'} %}
+    {% include 'atoms-teaser-label' with {'labelWording': 'Breaking',   'styleModifierType': 'teaser__label--breaking', 'styleModifierSize': 'teaser--size-l'} %}
   </div>
 
-  <h1>XL-Teaser</h1>
+  <h1 style="color:white">XL-Teaser</h1>
   <div class="demo-teaser__label-wrapper---xl-teaser teaser--size-xl">
-    {% include 'atoms-teaser-label' with {'styleModifierType': 'live', 'styleModifierSize': 'xl'} %}
-    {% include 'atoms-teaser-label' with {'styleModifierType': 'pre', 'styleModifierSize': 'xl'} %}
+    {% include 'atoms-teaser-label' with {'labelWording': 'Live',       'styleModifierType': 'teaser__label--live',     'styleModifierSize': 'teaser--size-xl'} %}
+    {% include 'atoms-teaser-label' with {'labelWording': 'Live',       'styleModifierType': 'teaser__label--pre',      'styleModifierSize': 'teaser--size-xl'} %}
+    {% include 'atoms-teaser-label' with {'labelWording': 'Live',       'styleModifierType': 'teaser__label--live',     'styleModifierSize': 'teaser--size-xl', 'labelTime': '13:37'} %}
+    {% include 'atoms-teaser-label' with {'labelWording': 'Live',       'styleModifierType': 'teaser__label--pre',      'styleModifierSize': 'teaser--size-xl', 'labelTime': '13:37'} %}
+    {% include 'atoms-teaser-label' with {'labelWording': 'Liveticker', 'styleModifierType': 'teaser__label--live',     'styleModifierSize': 'teaser--size-xl'} %}
+    {% include 'atoms-teaser-label' with {'labelWording': 'Liveticker', 'styleModifierType': 'teaser__label--pre',      'styleModifierSize': 'teaser--size-xl'} %}
+    {% include 'atoms-teaser-label' with {'labelWording': 'Liveticker', 'styleModifierType': 'teaser__label--live',     'styleModifierSize': 'teaser--size-xl', 'labelTime': '13:37'} %}
+    {% include 'atoms-teaser-label' with {'labelWording': 'Liveticker', 'styleModifierType': 'teaser__label--pre',      'styleModifierSize': 'teaser--size-xl', 'labelTime': '13:37'} %}
+    {% include 'atoms-teaser-label' with {'labelWording': 'Breaking',   'styleModifierType': 'teaser__label--breaking', 'styleModifierSize': 'teaser--size-xl'} %}
   </div>
 
 </div>

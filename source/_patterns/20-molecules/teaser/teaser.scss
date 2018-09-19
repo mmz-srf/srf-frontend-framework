@@ -115,6 +115,9 @@
 }
 
 .teaser__kicker {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
   margin: 0 0 4px;
   font-family: $font-regular;
   font-size: 14px;
@@ -128,6 +131,17 @@
   @supports (--foo: bar) {
     color: var(--teaser-color-accentuation, $color-accentuation-red);
   }
+
+  > * {
+    flex: 0 1 auto;
+    margin-right: 8px;
+  }
+}
+
+/* lift kicker-text up 1px if there is a label … */
+.teaser__label ~ .teaser__kicker-text {
+  position: relative;
+  top: -1px;
 }
 
 .teaser__title {

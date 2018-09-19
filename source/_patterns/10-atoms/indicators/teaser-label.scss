@@ -9,11 +9,16 @@
   letter-spacing: normal;
 }
 
+.teaser__label--breaking,
 .teaser__label--live {
   .teaser__label-box {
     background-color: $color-srf-light;
     color: #ffffff;
     @include font-smoothing;
+  }
+}
+.teaser__label--live {
+  .teaser__label-box {
     animation: pulsatingLiveAnimation 3s infinite ease-in-out;
   }
 }
@@ -72,5 +77,43 @@
 
   .svg-icon {
     margin: 2px 4px 0 0;
+  }
+}
+
+/* Positioning */
+.teaser.teaser--size-m,
+.teaser.teaser--size-l,
+.teaser.teaser--size-xl {
+  .teaser__label {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+  }
+}
+
+.teaser.teaser--size-m {
+  .teaser__label {
+    @include desktop-wide {
+      top: 24px;
+      left: 24px;
+    }
+  }
+}
+
+.teaser.teaser--size-l {
+  .teaser__label {
+    @include desktop-up {
+      top: 24px;
+      left: 24px;
+    }
+  }
+}
+
+.teaser.teaser--size-xl {
+  .teaser__label {
+    @include tablet-up {
+      top: 24px;
+      left: 24px;
+    }
   }
 }
