@@ -18,16 +18,7 @@
       {% endif %}
     {% endif %}
 
-    {% if styleModifierSize|default(false) == 'l' %}
-      {% if styleModifierType|default(false) == 'live' %}
-        {% include 'atoms-svg-icon' with {'styleModifier': 'svg-icon--small svg-icon--play-video-circle-white'} %}
-      {% endif %}
-      {% if styleModifierType|default(false) == 'pre' %}
-        {% include 'atoms-svg-icon' with {'styleModifier': 'svg-icon--small svg-icon--play-video-circle'} %}
-      {% endif %}
-    {% endif %}
-
-    {% if styleModifierSize|default(false) == 'l' %}
+    {% if (styleModifierSize|default(false) == 'l' or styleModifierSize|default(false) == 'xl') %}
       {% if styleModifierType|default(false) == 'live' %}
         {% include 'atoms-svg-icon' with {'styleModifier': 'svg-icon--small svg-icon--play-video-circle-white'} %}
       {% endif %}

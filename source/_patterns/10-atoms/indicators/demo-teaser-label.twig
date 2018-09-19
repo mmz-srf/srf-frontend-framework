@@ -2,77 +2,26 @@
 
   <h1>S-Teaser</h1>
   <div class="demo-teaser__label-wrapper---s-teaser teaser--size-s">
-    <span class="teaser__label teaser__label--live">
-      <span class="teaser__label-box teaser__label-box--type">
-        {% include 'atoms-svg-icon' with {'styleModifier': 'svg-icon--tiny svg-icon--play-video-circle-white'} %}
-        <span class="teaser__label-type">Live</span>
-      </span>
-      <span class="teaser__label-box teaser__label-box--time">13:37</span>
-    </span>
-
-    <span class="teaser__label teaser__label--pre">
-      <span class="teaser__label-box teaser__label-box--type">
-        <span class="teaser__label-type">Livestream</span>
-      </span>
-      <span class="teaser__label-box teaser__label-box--time">13:37</span>
-    </span>
+    {% include 'atoms-teaser-label' with {'styleModifierType': 'live', 'styleModifierSize': 's'} %}
+    {% include 'atoms-teaser-label' with {'styleModifierType': 'pre', 'styleModifierSize': 's'} %}
   </div>
 
   <h1>M-Teaser</h1>
   <div class="demo-teaser__label-wrapper---m-teaser teaser--size-m">
-    <span class="teaser__label teaser__label--live">
-      <span class="teaser__label-box teaser__label-box--type">
-        {% include 'atoms-svg-icon' with {'styleModifier': 'svg-icon--tiny-but-small-on-desktop-up svg-icon--play-video-circle-white-tiny-to-small'} %}
-        <span class="teaser__label-type">Live</span>
-      </span>
-      <span class="teaser__label-box teaser__label-box--time">13:37</span>
-    </span>
-
-    <span class="teaser__label teaser__label--pre">
-      <span class="teaser__label-box teaser__label-box--type">
-        {% include 'atoms-svg-icon' with {'styleModifier': 'svg-icon--tiny-but-small-on-desktop-up svg-icon--play-video-circle-tiny-to-small'} %}
-        <span class="teaser__label-type">Livestream</span>
-      </span>
-      <span class="teaser__label-box teaser__label-box--time">13:37</span>
-    </span>
+    {% include 'atoms-teaser-label' with {'styleModifierType': 'live', 'styleModifierSize': 'm'} %}
+    {% include 'atoms-teaser-label' with {'styleModifierType': 'pre', 'styleModifierSize': 'm'} %}
   </div>
 
   <h1>L-Teaser</h1>
   <div class="demo-teaser__label-wrapper---l-teaser teaser--size-l">
-    <span class="teaser__label teaser__label--live">
-      <span class="teaser__label-box teaser__label-box--type">
-        {% include 'atoms-svg-icon' with {'styleModifier': 'svg-icon--small svg-icon--play-video-circle-white'} %}
-        <span class="teaser__label-type">Live</span>
-      </span>
-      <span class="teaser__label-box teaser__label-box--time">13:37</span>
-    </span>
-
-    <span class="teaser__label teaser__label--pre">
-      <span class="teaser__label-box teaser__label-box--type">
-        {% include 'atoms-svg-icon' with {'styleModifier': 'svg-icon--small svg-icon--play-video-circle'} %}
-        <span class="teaser__label-type">Livestream</span>
-      </span>
-      <span class="teaser__label-box teaser__label-box--time">13:37</span>
-    </span>
+    {% include 'atoms-teaser-label' with {'styleModifierType': 'live', 'styleModifierSize': 'l'} %}
+    {% include 'atoms-teaser-label' with {'styleModifierType': 'pre', 'styleModifierSize': 'l'} %}
   </div>
 
   <h1>XL-Teaser</h1>
   <div class="demo-teaser__label-wrapper---xl-teaser teaser--size-xl">
-    <span class="teaser__label teaser__label--live">
-      <span class="teaser__label-box teaser__label-box--type">
-        {% include 'atoms-svg-icon' with {'styleModifier': 'svg-icon--small svg-icon--play-video-circle-white'} %}
-        <span class="teaser__label-type">Live</span>
-      </span>
-      <span class="teaser__label-box teaser__label-box--time">13:37</span>
-    </span>
-
-    <span class="teaser__label teaser__label--pre">
-      <span class="teaser__label-box teaser__label-box--type">
-        {% include 'atoms-svg-icon' with {'styleModifier': 'svg-icon--small svg-icon--play-video-circle'} %}
-        <span class="teaser__label-type">Livestream</span>
-      </span>
-      <span class="teaser__label-box teaser__label-box--time">13:37</span>
-    </span>
+    {% include 'atoms-teaser-label' with {'styleModifierType': 'live', 'styleModifierSize': 'xl'} %}
+    {% include 'atoms-teaser-label' with {'styleModifierType': 'pre', 'styleModifierSize': 'xl'} %}
   </div>
 
 </div>
