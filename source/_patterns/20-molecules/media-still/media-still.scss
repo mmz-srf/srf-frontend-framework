@@ -3,6 +3,8 @@
 }
 
 .media-still__image {
+  height: 100%;
+
   &:hover {
     opacity: 0.9;
   }
@@ -92,14 +94,6 @@
 
 
 .media-still--dynamic {
-  position: relative;
-}
-
-
-.media-still--force-square {
-  position: relative;
-  /* forcing 1:1 aspect ratio of container */
-  &::before {
-    padding-top: 100%;
-  }
+  position: absolute;
+  height: 100%;
 }

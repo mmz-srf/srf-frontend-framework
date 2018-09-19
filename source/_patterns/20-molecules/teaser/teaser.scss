@@ -491,6 +491,10 @@
     display: none;
   }
 
+  .teaser__medium {
+    object-fit: none;
+  }
+
   .teaser__media-caption-source {
     display: flex;
     flex-grow: 1;
