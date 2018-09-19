@@ -177,79 +177,6 @@
   }
 }
 
-.teaser__live {
-  display: inline-block;
-  margin: 0 8px 2px 0;
-  font-family: $font-medium;
-  font-size: 12px;
-  font-weight: 500;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: 1.33;
-  letter-spacing: normal;
-  text-transform: uppercase;
-  .teaser__live-box {
-    display: inline-block;
-  }
-  &.teaser__live--pre {
-    display: none;
-    .teaser__live-box {
-      background-color: rgba(255, 255, 255, 0.8);
-      color: #4e4d47;
-      margin-right: -2px;
-      padding: 1px 6px;
-      backdrop-filter: blur(2px);
-    }
-  }
-  &.teaser__live--live {
-    background-color: $color-srf-light;
-    color: #ffffff;
-    animation: pulsatingLiveAnimation 3s infinite ease-in-out;
-    @include font-smoothing;
-    padding: 1px 6px;
-    .teaser__live-box {
-      &.teaser__live-box--time {
-        display: none;
-      }
-    }
-  }
-
-  @include tablet-up {
-    &.teaser__live--pre {
-      display: inline-block;
-    }
-    position: absolute;
-    top: 16px;
-  }
-
-  @include desktop-up {
-    font-size: 16px;
-    &.teaser__live--pre {
-      .teaser__live-box {
-        padding: 2px 8px;
-      }
-    }
-    &.teaser__live--live {
-      padding: 2px 8px;
-
-    }
-  }
-
-  @include desktop-wide {
-    top: 24px;
-  }
-
-  .svg-icon {
-    margin: 2px 4px -2px 0;
-    width: 16px;
-    height: 16px;
-    @include desktop-up {
-      margin: 2px 6px -4px 0;
-    }
-  }
-
-}
-
 .teaser--size-s {
   .teaser__medium-wrapper {
     border-radius: 2px;
@@ -290,28 +217,6 @@
       font-size: 18px;
       line-height: 1.33;
     }
-  }
-  .teaser__live {
-    &.teaser__live--pre {
-      display: none;
-    }
-    margin: 0 4px 0 0;
-    padding: 0 6px;
-    @include tablet-up {
-      position: static;
-      top: 0;
-    }
-    @include desktop-up {
-      font-size: 12px;
-      line-height: 18px;
-    }
-    .svg-icon {
-      margin: 2px 4px -2px 0;
-      width: 12px;
-      height: 12px;
-
-    }
-
   }
 
 }
@@ -442,16 +347,7 @@
       letter-spacing: 0.4px;
     }
   }
-  .teaser__live {
-    @include tablet-up {
-      left: 16px;
-    }
 
-    @include desktop-wide {
-      left: 24px;
-    }
-
-  }
 }
 
 // Short lead for both L and XL teaser
