@@ -1,5 +1,4 @@
 {% set mediumType = mediumType|default('video') %}
-{% set indicatorStyleModifier = indicatorStyleModifier|default('') %}
 <div class="media-still media-still--dynamic {{ styleModifier }} js-medium-hover">
     <div class="media-still__image">
         {% include 'atoms-image' with { 'styleModifier' : 'image--media-still-dynamic' } %}
@@ -8,6 +7,6 @@
         {% include 'atoms-play-icon' with { 'styleModifier' : 'play-icon--' ~ mediumType } %}
     </div>
     <div class="media-still__indicator">
-        {% include 'atoms-media-time-indicator' with { 'styleModifier' : indicatorStyleModifier } %}
+        {% include 'atoms-media-time-indicator' %}
     </div>
 </div>

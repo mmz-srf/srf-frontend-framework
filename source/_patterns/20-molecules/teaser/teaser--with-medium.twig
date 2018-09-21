@@ -1,17 +1,9 @@
 {% set mediumType = mediumType|default(random(['audio', 'video'])) %}
-{% set indicatorStyleModifier = indicatorStyleModifier|default('media-time-indicator--dynamic') %}
 <div class="teaser teaser--with-medium {{ styleModifier|default('teaser--size-m teaser--size-s-on-mobile') }}">
     <a class="teaser__main" href="{{ teaser.link|default('#') }}">
         <div class="teaser__medium-wrapper">
             <div class="teaser__medium">
-                {% if 'teaser--size-xl' in styleModifier %}
-                    {% set indicatorStyleModifier = 'media-time-indicator--dynamic' %}
-                {% endif %}
-                {% include 'molecules-media-still--dynamic' with {
-                    'styleModifier': '',
-                    'mediumType': mediumType,
-                    'indicatorStyleModifier': indicatorStyleModifier
-                } %}
+                {% include 'molecules-media-still--dynamic' with { 'styleModifier': '', 'mediumType': mediumType } %}
             </div>
         </div>
 
