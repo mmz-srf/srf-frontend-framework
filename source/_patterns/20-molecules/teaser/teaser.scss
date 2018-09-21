@@ -151,7 +151,8 @@
   }
 }
 
-.teaser__lead {
+.teaser__lead,
+.teaser__media-caption-source {
   margin: 12px 0 0;
   display: none;
   font-family: $font-light;
@@ -166,6 +167,11 @@
   @supports (--foo: bar) {
     color: var(--teaser-color-text, $color-text-default);
   }
+}
+
+.teaser__media-caption-source {
+  font-size: 12px;
+  line-height: 1.2;
 }
 
 .teaser__live {
@@ -478,4 +484,54 @@
 .teaser--static {
   width: 100%;
   overflow: hidden;
+}
+
+.teaser--with-medium {
+  .teaser__lead.teaser__lead {
+    display: none;
+  }
+
+  .teaser__medium {
+    object-fit: none;
+  }
+
+  .teaser__media-caption-source {
+    display: flex;
+    flex-grow: 1;
+    align-items: flex-end;
+  }
+
+
+  /* overriding position/size of media still time indicators */
+  &.teaser--size-s {
+    --media-time-indicator-display: none;
+  }
+
+  &.teaser--size-s-on-mobile {
+    @include smartphone {
+      --media-time-indicator-display: none;
+    }
+  }
+
+  &.teaser--size-l {
+    @include desktop-up {
+      --media-time-indicator-font-size: 16px;
+    }
+  }
+
+  &.teaser--size-xl {
+    @include tablet-up {
+      --media-time-indicator-bottom: 20px;
+      --media-time-indicator-right: 20px;
+    }
+
+    @include desktop-up {
+      --media-time-indicator-font-size: 16px;
+    }
+
+    @include desktop-wide {
+      --media-time-indicator-bottom: 26px;
+      --media-time-indicator-right: 26px;
+    }
+  }
 }

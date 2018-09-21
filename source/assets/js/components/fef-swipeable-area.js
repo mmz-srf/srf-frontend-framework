@@ -249,18 +249,19 @@ export class FefSwipeableArea {
     }
 
     setButtonWidths() {
+        // using findIndex() instead of find() here, because we have a polyfill for findIndex() in shame.js
         let visibleAreaRightEdge = this.$innerContainer.scrollLeft() + this.$innerContainer.innerWidth(),
-            nextItemPos = this.itemPositions.find(pos => pos.right > visibleAreaRightEdge);
+            nextItemPos = this.itemPositions.findIndex(pos => pos.right > visibleAreaRightEdge);
 
-        if (nextItemPos) {
-            this.setButtonWidth(this.$buttonForward, visibleAreaRightEdge - nextItemPos.left);
+        if (nextItemPos > -1) {
+            this.setButtonWidth(this.$buttonForward, visibleAreaRightEdge - this.itemPositions[nextItemPos].left);
         }
 
         let visibleAreaLeftEdge = this.$innerContainer.scrollLeft(),
-            prevItemPos = this.itemPositions.find(pos => pos.right > visibleAreaLeftEdge);
+            prevItemPos = this.itemPositions.findIndex(pos => pos.right > visibleAreaLeftEdge);
 
-        if (prevItemPos) {
-            this.setButtonWidth(this.$buttonBack, prevItemPos.right - visibleAreaLeftEdge);
+        if (prevItemPos > -1) {
+            this.setButtonWidth(this.$buttonBack, this.itemPositions[prevItemPos].right - visibleAreaLeftEdge);
         }
     }
 

@@ -1,7 +1,7 @@
 {% set mediumType = mediumType|default('video') %}
-<div class="media-still media-still--video {{ styleModifier }} js-medium-hover">
+<div class="media-still media-still--dynamic {{ styleModifier }} js-medium-hover">
     <div class="media-still__image">
-        {% include 'atoms-image' with { 'styleModifier' : 'image--media-still-video' } %}
+        {% include 'atoms-image' with { 'styleModifier' : 'image--media-still-dynamic' } %}
     </div>
     <div class="media-still__icon">
         {% include 'atoms-play-icon' with { 'styleModifier' : 'play-icon--' ~ mediumType } %}

@@ -158,3 +158,21 @@ _:-ms-fullscreen,
     box-shadow: 0 0 2px 0 rgba(0,0,0,0.16), 0 0 2px 0 rgba(0,0,0,0.08);
   }
 }
+
+/*
+ * TARGETED BROWSER: IE 11
+ *
+ * IE11 does not know css custom properties - here are some fallback overrides
+ */
+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .teaser--with-medium.teaser--size-s {
+     display: none;
+  }
+  .teaser--with-medium.teaser--size-s-on-mobile {
+    @include smartphone {
+      display: none;
+    }
+  }
+}
+
