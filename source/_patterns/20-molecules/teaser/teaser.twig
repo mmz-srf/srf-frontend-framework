@@ -1,10 +1,14 @@
 <div class="teaser {{ styleModifier|default('teaser--size-m teaser--size-s-on-mobile') }}">
     <a class="teaser__main" href="{{ teaser.link|default('#') }}">
-        <div class="teaser__medium-outer-wrapper">
-            <div class="teaser__medium-wrapper">
+
+        {% embed "ratio.twig" with {
+            'class': 'teaser__medium-wrapper',
+            'ratio': '16:9'
+        } %}
+            {% block content %}
                 <img class="teaser__medium" src="{{ teaser.image|default('') }}" alt="{{ teaser.title|default('') }}" />
-            </div>
-        </div>
+            {% endblock %}
+        {% endembed %}
 
         <div class="teaser__content-shimmer h-loading-only">
             {% include 'atoms-shimmer' with {'styleModifier': 'shimmer--overline'} %}

@@ -1,0 +1,90 @@
+{% embed 'templates-article-plain' %}
+
+    {% block article_header %}
+        <h1 class="article-title">
+            <span class="article-title__overline">Demopage</span>
+            <span class="article-title__text article-title__font-stylistic">Ratios</span>
+        </h1>
+        {% include 'atoms-horizontal-separator' with {'styleModifier': 'horizontal-separator--content-max-width'} %}
+    {% endblock %}
+
+    {% block article_content %}
+
+    <style>
+        .demo-ratio--flex {
+            display: flex;
+            flex-direction: row;
+            margin: 0;
+            padding: 0;
+        }
+
+        .demo-ratio--flex-wrap {
+            flex-wrap: wrap;
+        }
+
+        .demo-ratio--flex-item {
+            flex: 1 1 auto;
+            margin: 0;
+            padding: 0;
+        }
+
+        .demo-ratio--flex-item:before {
+            content: none;
+        }
+    </style>
+
+    <div class="demo-ratios">
+
+        <ul class="demo-ratio--flex">
+            <li class="demo-ratio--flex-item">
+                {% embed "ratio.twig" with {
+                    'class': 'my-class-if-needed',
+                    'ratio': '16:9'
+                } %}
+                    {% block content %}
+                        {% include 'molecules-media-still--dynamic' with { 'styleModifier': '', 'mediumType': 'audio' } %}
+                    {% endblock %}
+                {% endembed %}
+            </li>
+
+            <li class="demo-ratio--flex-item">
+                {% embed "ratio.twig" with {
+                    'class': 'my-class-if-needed',
+                    'ratio': '16:9'
+                } %}
+                    {% block content %}
+                        {% include 'molecules-media-still--dynamic' with { 'styleModifier': '', 'mediumType': 'video' } %}
+                    {% endblock %}
+                {% endembed %}
+            </li>
+        </ul>
+
+        <ul class="demo-ratio--flex demo-ratio--flex-wrap">
+            <li class="demo-ratio--flex-item">
+                {% embed "ratio.twig" with {
+                    'class': 'my-class-if-needed',
+                    'ratio': '16:9'
+                } %}
+                    {% block content %}
+                        {% include 'molecules-media-still--dynamic' with { 'styleModifier': '', 'mediumType': 'audio' } %}
+                    {% endblock %}
+                {% endembed %}
+            </li>
+
+            <li class="demo-ratio--flex-item">
+                {% embed "ratio.twig" with {
+                    'class': 'my-class-if-needed',
+                    'ratio': '16:9'
+                } %}
+                    {% block content %}
+                        {% include 'molecules-media-still--dynamic' with { 'styleModifier': '', 'mediumType': 'video' } %}
+                    {% endblock %}
+                {% endembed %}
+            </li>
+        </ul>
+
+    </div>
+
+    {% endblock %}
+
+{% endembed %}
