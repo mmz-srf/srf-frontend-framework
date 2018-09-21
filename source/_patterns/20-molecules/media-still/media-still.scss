@@ -30,9 +30,20 @@
 
 .media-still__indicator {
   position: absolute;
+  /* fallback */
+  display: block;
   bottom: 8px;
   right: 8px;
+  /* theme */
+  @supports (--foo: bar) {
+    display: var(--media-time-indicator-display, block);
+    bottom: var(--media-time-indicator-bottom, 8px);
+    right: var(--media-time-indicator-right, 8px);
+  }
   line-height: 1;
+
+
+
 }
 
 .media-still--video,
@@ -96,4 +107,5 @@
 .media-still--dynamic {
   position: absolute;
   height: 100%;
+  width: 100%;
 }

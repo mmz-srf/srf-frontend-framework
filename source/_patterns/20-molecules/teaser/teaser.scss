@@ -501,4 +501,37 @@
     align-items: flex-end;
   }
 
+
+  /* overriding position/size of media still time indicators */
+  &.teaser--size-s {
+    --media-time-indicator-display: none;
+  }
+
+  &.teaser--size-s-on-mobile {
+    @include smartphone {
+      --media-time-indicator-display: none;
+    }
+  }
+
+  &.teaser--size-l {
+    @include desktop-up {
+      --media-time-indicator-font-size: 16px;
+    }
+  }
+
+  &.teaser--size-xl {
+    @include tablet-up {
+      --media-time-indicator-bottom: 20px;
+      --media-time-indicator-right: 20px;
+    }
+
+    @include desktop-up {
+      --media-time-indicator-font-size: 16px;
+    }
+
+    @include desktop-wide {
+      --media-time-indicator-bottom: 26px;
+      --media-time-indicator-right: 26px;
+    }
+  }
 }
