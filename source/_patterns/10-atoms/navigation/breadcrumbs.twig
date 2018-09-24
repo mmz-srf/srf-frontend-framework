@@ -1,7 +1,10 @@
-<ol class="breadcrumbs {{ styleModifier|default("") }}">
+<ol class="breadcrumbs {{ styleModifier|default("") }}" aria-label="Breadcrumb">
     {% for crumb in breadcrumbs %}
     <li class="breadcrumbs__item">
         <a class="breadcrumb__link" href="{{ crumb.url|default("#") }}"><span>{{ crumb.name|default("click me!") }}</span></a>
     </li>
     {% endfor %}
+    <li class="breadcrumbs__item h-offscreen">
+        <span class="h-offscreen h-offscreen-focusable" aria-current="page">Aktueller Artikel</span>
+    </li>
 </ol>
