@@ -76,6 +76,8 @@
   flex-grow: 0;
   flex-shrink: 0;
   margin: 16px 16px 16px 0;
+  background-color: #dadad2;
+  color: transparent; // hide alt-text in case image is broken
   position: relative; // for positioning ::pseudo elements
   width: 80px;
 
@@ -96,10 +98,6 @@
   object-fit: cover;
   width: 80px;
   height: 80px;
-  position: absolute;
-  z-index: 1;
-
-  @include forceAspectRatio('1:1');
 }
 
 .teaser__content {
@@ -288,8 +286,6 @@
   .teaser__medium {
     height: auto;
     width: 100%;
-
-    @include forceAspectRatio('16:9');
   }
 
   .teaser__kicker {
@@ -320,8 +316,6 @@
   .teaser__medium {
     height: auto;
     width: 100%;
-
-    @include forceAspectRatio('16:9');
   }
 
   .teaser__medium-wrapper {
@@ -352,8 +346,7 @@
   .teaser__medium {
     height: 100%;
     width: 100%;
-
-    @include forceAspectRatio('16:9');
+    position: absolute;
   }
 
   .teaser__medium-wrapper {
@@ -474,8 +467,6 @@
       object-fit: cover;
       width: 80px;
       height: 80px;
-
-      @include forceAspectRatio("1:1");
     }
   }
 }
