@@ -123,8 +123,10 @@
 .teaser.teaser--size-l.teaser--size-s-on-mobile,
 .teaser.teaser--size-xl.teaser--size-s-on-mobile {
   .teaser__label {
-    position: static;
-    top: auto;
-    left: auto;
+    @include smartphone {
+      position: static;
+      top: auto;
+      left: auto;
+    }
   }
 }
