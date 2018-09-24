@@ -14,7 +14,7 @@ Usage:
     'class': 'my-class-if-needed',
     'ratio': '16:9'
 } %}
-    {% block content %}
+    {% block ratio_content %}
         {# content goes here. Will be rendered in a box that always has 16:9 ratio. #}
     {% endblock %}
 {% endembed %}

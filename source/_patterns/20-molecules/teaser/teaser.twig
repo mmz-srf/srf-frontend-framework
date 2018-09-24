@@ -5,7 +5,7 @@
             'class': 'teaser__medium-wrapper',
             'ratio': '16:9'
         } %}
-            {% block content %}
+            {% block ratio_content %}
                 <img class="teaser__medium" src="{{ teaser.image|default('') }}" alt="{{ teaser.title|default('') }}" />
             {% endblock %}
         {% endembed %}

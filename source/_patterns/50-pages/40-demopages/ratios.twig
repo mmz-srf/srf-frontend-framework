@@ -59,7 +59,7 @@
         <ul class="demo-ratio--flex">
             <li class="demo-ratio--flex-item">
                 {% embed "ratio.twig" with { 'ratio': '16:9' } %}
-                    {% block content %}
+                    {% block ratio_content %}
                         {% include 'molecules-media-still--dynamic' with { 'styleModifier': '', 'mediumType': 'audio' } %}
                     {% endblock %}
                 {% endembed %}
@@ -67,7 +67,7 @@
 
             <li class="demo-ratio--flex-item">
                 {% embed "ratio.twig" with { 'ratio': '16:9' } %}
-                    {% block content %}
+                    {% block ratio_content %}
                         {% include 'molecules-media-still--dynamic' with { 'styleModifier': '', 'mediumType': 'video' } %}
                     {% endblock %}
                 {% endembed %}
@@ -77,7 +77,7 @@
         <ul class="demo-ratio--flex demo-ratio--flex-wrap">
             <li class="demo-ratio--flex-item">
                 {% embed "ratio.twig" with { 'ratio': '16:9' } %}
-                    {% block content %}
+                    {% block ratio_content %}
                         {% include 'molecules-media-still--dynamic' with { 'styleModifier': '', 'mediumType': 'audio' } %}
                     {% endblock %}
                 {% endembed %}
@@ -85,7 +85,7 @@
 
             <li class="demo-ratio--flex-item">
                 {% embed "ratio.twig" with { 'ratio': '16:9' } %}
-                    {% block content %}
+                    {% block ratio_content %}
                         {% include 'molecules-media-still--dynamic' with { 'styleModifier': '', 'mediumType': 'video' } %}
                     {% endblock %}
                 {% endembed %}
@@ -96,7 +96,7 @@
             'class': 'dynamic-ratio-demo',
             'ratio': '1:1'
         } %}
-            {% block content %}
+            {% block ratio_content %}
                 <img class="js-ratio-demo-img" src="https://via.placeholder.com/500" />
             {% endblock %}
         {% endembed %}
