@@ -13,7 +13,7 @@
  *
  * This styles are needed for image--media-still classes on which the object-fit-fallback of srf-shame.js is applied.
  * Parents of elements with those classes usually restrict the aspect ratio of its box. Without the following rules
- * the hight of the fallback-<div> would be 0.
+ * the height of the fallback-<div> would be 0.
  *
  */
 .image--media-still,
@@ -29,6 +29,7 @@
 .teaser__medium-wrapper {
   .js-fake-image-object-fit {
     height: 100%;
+    position: absolute;
   }
 }
 
