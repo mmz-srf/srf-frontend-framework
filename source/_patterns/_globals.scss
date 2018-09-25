@@ -100,3 +100,7 @@ th {
 :focus {
   outline: none;
 }
+
+img:not([src]) {
+  visibility: hidden;
+}

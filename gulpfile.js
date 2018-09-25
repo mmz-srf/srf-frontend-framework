@@ -13,11 +13,15 @@ var gulp = require('gulp'),
     buffer = require('vinyl-buffer'),
     exec = require('child_process').exec,
     eslint = require('gulp-eslint'),
-    sassLint = require('gulp-sass-lint');
+    sassLint = require('gulp-sass-lint'),
+    frontifyApi = require('@frontify/frontify-api'),
+    minimist = require('minimist'),
+    replace = require('gulp-replace'),
+    concat = require('gulp-concat')
+;
 
 var $ = gulpLoadPlugins();
 var reload = browserSync.reload;
-
 
 var DEST = 'public';
 var AUTOPREFIXER_BROWSERS = [
@@ -32,9 +36,20 @@ var AUTOPREFIXER_BROWSERS = [
     'bb >= 10'
 ];
 
+const FRONTIFY_PROJECT_ID = '28',
+      FRONTIFY_BASE_URL = 'https://srf.frontify.com';
+
+var knownOptions = {
+    string: 'token',
+    default: { env: '' }
+};
+
+var options = minimist(process.argv.slice(2), knownOptions);
+
 gulp.task('clean', function () {
     return del([
-        'public/assets'
+        'public/assets',
+        'export'
     ]);
 });
 
@@ -119,6 +134,15 @@ gulp.task('patternlab', function (cb) {
     });
 });
 
+
+gulp.task('patternlab-export', function (cb) {
+    exec('php core/console --export --clean', function (err, stdout, stderr) {
+        console.log(stdout);
+        console.log(stderr);
+        cb(err);
+    });
+});
+
 gulp.task('watch', function(cb) {
     gulp.watch('source/_patterns/**/*.scss', ['styles'], reload);
     gulp.watch('source/assets/js/**/*.js', ['scripts'], reload);
@@ -175,6 +199,68 @@ gulp.task('sass-lint', function () {
         .pipe(sassLint.failOnError())
 });
 
+
+// sync patterns in the stream
+gulp.task('frontify-pattern-sync', function () {
+    var accessToken = options.token;
+    frontifyApi.syncPatterns(
+        {
+            access_token: accessToken,
+            project: FRONTIFY_PROJECT_ID,
+            baseUrl: FRONTIFY_BASE_URL,
+            cwd: 'export/patterns'
+        },
+        [
+            '10-atoms*/*.html',
+            '20-molecules*/*.html',
+            '30-organisms*/*.html',
+            '50-pages*/*.html',
+            '!50-pages-30-critical*/*'
+        ]
+    ).catch(function(err) {
+        console.error(err);
+    });
+});
+
+gulp.task('frontify-asset-sync', function() {
+    var accessToken = options.token;
+    frontifyApi.syncAssets(
+        {
+            access_token: accessToken,
+            project: FRONTIFY_PROJECT_ID,
+            baseUrl: FRONTIFY_BASE_URL,
+            cwd: ''
+        },
+        [
+            'public/assets/**/*.*'
+        ]
+    ).catch(function(err) {
+        console.error(err);
+    });
+});
+
+gulp.task('frontify-bundle-script', function () {
+    return gulp.src(['public/assets/js/vendor.js', 'public/assets/js/bundle.js'])
+        .pipe(concat('frontify-bundle.js'))
+        .pipe(gulp.dest('public/assets/frontify'));
+});
+
+gulp.task('frontify-export-rewrite-paths', function () {
+    return gulp.src(['export/**/*.html'])
+        .pipe(replace('../../assets/', '/public/assets/'))
+        .pipe(replace('src="/assets/', 'src="/public/assets/'))
+        .pipe(gulp.dest('export'));
+});
+
+gulp.task('frontify', function() {
+    runSequence(
+        ['build'],
+        ['patternlab-export'],
+        ['frontify-export-rewrite-paths', 'frontify-bundle-script'],
+        ['frontify-pattern-sync'],
+        ['frontify-asset-sync']
+    );
+});
 
 gulp.task('deploy', function() {
     runSequence(
