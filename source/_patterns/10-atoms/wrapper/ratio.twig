@@ -1,0 +1,17 @@
+{% set ratio = ratio|default('16:9') %}
+
+{% if ratio == '16:9' %}
+    {% set ratioClass = 'ratio--16-9' %}
+{% elseif ratio == '1:1' %}
+    {% set ratioClass = 'ratio--1-1' %}
+{% elseif ratio == '4:3' %}
+    {% set ratioClass = 'ratio--4-3' %}
+{% elseif ratio == '3:1' %}
+    {% set ratioClass = 'ratio--3-1' %}
+{% endif %}
+
+<div class="ratio-wrapper {{ class|default('') }}">
+    <div class="ratio {{ ratioClass|default('') }}">
+        {% block ratio_content %}{% endblock %}
+    </div>
+</div>

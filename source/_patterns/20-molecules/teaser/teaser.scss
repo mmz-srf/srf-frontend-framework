@@ -76,10 +76,10 @@
   flex-grow: 0;
   flex-shrink: 0;
   margin: 16px 16px 16px 0;
+  color: transparent; // hide alt-text in case image is broken
   position: relative; // for positioning ::pseudo elements
-  width: 80px;
-  height: 0;
-  padding-bottom: 80px;
+  background-color: #dadad2;
+  align-self: start;
 
   // border on top of the images
   &::after {
@@ -88,7 +88,6 @@
     content: '';
     width: 100%;
     height: 100%;
-    background-color: #dadad2;
     top: 0;
     left: 0;
     box-sizing: border-box;
@@ -99,10 +98,6 @@
   object-fit: cover;
   width: 80px;
   height: 80px;
-  position: absolute;
-  z-index: 1;
-
-  @include forceAspectRatio('1:1');
 }
 
 .teaser__content {
@@ -156,7 +151,8 @@
   }
 }
 
-.teaser__lead {
+.teaser__lead,
+.teaser__media-caption-source {
   margin: 12px 0 0;
   display: none;
   font-family: $font-light;
@@ -171,6 +167,11 @@
   @supports (--foo: bar) {
     color: var(--teaser-color-text, $color-text-default);
   }
+}
+
+.teaser__media-caption-source {
+  font-size: 12px;
+  line-height: 1.2;
 }
 
 .teaser__live {
@@ -216,10 +217,12 @@
   .teaser__medium-wrapper {
     border-radius: 2px;
     overflow: hidden;
+    flex-basis: 80px;
+    height: 80px;
 
     @include desktop-up {
       flex-basis: 94px;
-      padding-bottom: 94px;
+      height: 94px;
     }
 
     &::after {
@@ -273,7 +276,6 @@
     margin: 0;
     border-radius: 2px;
     overflow: hidden;
-    padding-bottom: 56.25%; //16:9 ratio
     width: 100%;
 
     &::after {
@@ -285,8 +287,6 @@
   .teaser__medium {
     height: auto;
     width: 100%;
-
-    @include forceAspectRatio('16:9');
   }
 
   .teaser__kicker {
@@ -317,13 +317,10 @@
   .teaser__medium {
     height: auto;
     width: 100%;
-
-    @include forceAspectRatio('16:9');
   }
 
   .teaser__medium-wrapper {
     margin: 0;
-    padding-bottom: 56.25%; //16:9 ratio
     width: 100%;
 
     &::after {
@@ -350,16 +347,13 @@
   .teaser__medium {
     height: 100%;
     width: 100%;
-
-    @include forceAspectRatio('16:9');
+    position: absolute;
   }
 
   .teaser__medium-wrapper {
     margin: 0;
-    padding-bottom: 37%; //16:9 ratio out of 65.75% percent image / text ratio
 
     @include smartphone {
-      padding-bottom: 56.25%; //16:9 ratio
       width: 100%;
       &::after {
         border-bottom: solid 1px rgba(0, 0, 0, 0.04);
@@ -460,8 +454,9 @@
       margin: 16px 16px 16px 0;
       border-radius: 2px;
       overflow: hidden;
-      width: 80px;
-      padding-bottom: 80px;
+      flex-basis: 80px;
+      height: 80px;
+
       &::after {
         border-radius: 2px;
         border: solid 1px rgba(0, 0, 0, 0.04);
@@ -473,8 +468,6 @@
       object-fit: cover;
       width: 80px;
       height: 80px;
-
-      @include forceAspectRatio("1:1");
     }
   }
 }
@@ -489,4 +482,54 @@
 .teaser--static {
   width: 100%;
   overflow: hidden;
+}
+
+.teaser--with-medium {
+  .teaser__lead.teaser__lead {
+    display: none;
+  }
+
+  .teaser__medium {
+    object-fit: none;
+  }
+
+  .teaser__media-caption-source {
+    display: flex;
+    flex-grow: 1;
+    align-items: flex-end;
+  }
+
+
+  /* overriding position/size of media still time indicators */
+  &.teaser--size-s {
+    --media-time-indicator-display: none;
+  }
+
+  &.teaser--size-s-on-mobile {
+    @include smartphone {
+      --media-time-indicator-display: none;
+    }
+  }
+
+  &.teaser--size-l {
+    @include desktop-up {
+      --media-time-indicator-font-size: 16px;
+    }
+  }
+
+  &.teaser--size-xl {
+    @include tablet-up {
+      --media-time-indicator-bottom: 20px;
+      --media-time-indicator-right: 20px;
+    }
+
+    @include desktop-up {
+      --media-time-indicator-font-size: 16px;
+    }
+
+    @include desktop-wide {
+      --media-time-indicator-bottom: 26px;
+      --media-time-indicator-right: 26px;
+    }
+  }
 }

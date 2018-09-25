@@ -13,7 +13,7 @@
  *
  * This styles are needed for image--media-still classes on which the object-fit-fallback of srf-shame.js is applied.
  * Parents of elements with those classes usually restrict the aspect ratio of its box. Without the following rules
- * the hight of the fallback-<div> would be 0.
+ * the height of the fallback-<div> would be 0.
  *
  */
 .image--media-still,
@@ -29,6 +29,12 @@
 .teaser__medium-wrapper {
   .js-fake-image-object-fit {
     height: 100%;
+    position: absolute;
+  }
+}
+.image--media-still-dynamic {
+  .js-fake-image-object-fit {
+    position: relative;
   }
 }
 
@@ -158,3 +164,21 @@ _:-ms-fullscreen,
     box-shadow: 0 0 2px 0 rgba(0,0,0,0.16), 0 0 2px 0 rgba(0,0,0,0.08);
   }
 }
+
+/*
+ * TARGETED BROWSER: IE 11
+ *
+ * IE11 does not know css custom properties - here are some fallback overrides
+ */
+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .teaser--with-medium.teaser--size-s {
+     display: none;
+  }
+  .teaser--with-medium.teaser--size-s-on-mobile {
+    @include smartphone {
+      display: none;
+    }
+  }
+}
+
