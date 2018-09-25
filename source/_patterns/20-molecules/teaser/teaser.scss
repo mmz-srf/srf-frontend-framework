@@ -76,10 +76,8 @@
   flex-grow: 0;
   flex-shrink: 0;
   margin: 16px 16px 16px 0;
-  background-color: #dadad2;
   color: transparent; // hide alt-text in case image is broken
   position: relative; // for positioning ::pseudo elements
-  width: 80px;
 
   // border on top of the images
   &::after {
@@ -98,6 +96,7 @@
   object-fit: cover;
   width: 80px;
   height: 80px;
+  background-color: #dadad2;
 }
 
 .teaser__content {
