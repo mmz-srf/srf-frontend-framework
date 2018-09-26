@@ -42,6 +42,14 @@
                 'text': status|default('')
             } %}
         </div>
+
+
+        {% if teaser.opinion is defined %}
+        <div class="teaser__opinion">
+            {% include 'atoms-image' with { 'styleModifier': 'image--circle image--profile-picture-small' } %}
+            {% include 'atoms-person-details' %}
+        </div>
+        {% endif %}
     </a>
 
     {# space for teaser-links #}

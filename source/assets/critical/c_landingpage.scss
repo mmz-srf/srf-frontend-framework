@@ -8,20 +8,37 @@
 @import '../../_patterns/10-atoms/indicators/shimmer';
 @import '../../_patterns/40-templates/landingpage';
 
-//PASCALS STUFF
 body.body--loading.body--loading {
   .h-loading-only {
     display: block;
   }
 
   .collection {
+    margin: 0 0 $collection-gap;
+
+    @include tablet-up {
+      margin-bottom: $collection-gap-tablet-up;
+    }
+
+    @include desktop-wide {
+      margin-bottom: $collection-gap-desktop-wide;
+    }
+  }
+
+  .collection__branding-wrapper {
+    max-width: $desktop-wide-size;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .collection__content-wrapper {
     display: flex;
     flex-direction: column;
-    margin: 8px 8px 16px;
     border-radius: 2px;
-    background-color: #f5f5f2;
+    background-color: $color-bg-caption;
     box-shadow: $shadow-elevation1;
   }
+
   .collection__teaser-list {
     display: flex;
     flex-direction: column;
@@ -56,16 +73,6 @@ body.body--loading.body--loading {
     }
   }
 
-  .teaser {
-    display: flex;
-    flex-grow: 1;
-    position: relative; // to position the pseudo elements
-    border-radius: 2px;
-    overflow: hidden; // to cut off image with border radius
-    background-color: $color-bg-card;
-    box-shadow: $shadow-elevation1;
-    color: $color-text-default;
-  }
   .collection__title {
     margin: 16px 24px 12px;
     font-family: $font-medium;
@@ -89,35 +96,6 @@ body.body--loading.body--loading {
     @include desktop-wide {
       margin: 20px 40px 16px;
     }
-  }
-
-  .teaser__medium-wrapper {
-    flex-grow: 0;
-    flex-shrink: 0;
-    margin: 0;
-    position: relative; // for positioning ::pseudo elements
-    padding-bottom: 56.25%; //16:9 ratio
-
-    &::after {
-      position: absolute;
-      pointer-events: none;
-      content: '';
-      width: 100%;
-      height: 100%;
-      background-color: #dadad2;
-      top: 0;
-      left: 0;
-      box-sizing: border-box;
-    }
-    img {
-      display: none;
-    }
-
-  }
-  .teaser__main {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
   }
 
   //special handling for collections having 3 or 4 items
@@ -211,6 +189,156 @@ body.body--loading.body--loading {
   .collection__title-shimmer {
     width: 200px;
   }
+
+  .collection--hero {
+    .collection__teaser-item {
+      @include tablet-up {
+        // large teaser if there's only one
+        &:first-child:last-child {
+          flex-basis: 100%;
+        }
+      }
+    }
+
+   .teaser--size-xl {
+      .teaser__main {
+        @include tablet-up {
+          flex-direction: row;
+        }
+      }
+
+      .teaser__medium-wrapper {
+        margin: 0;
+
+        @include tablet-up {
+          &::after {
+            border-right: solid 1px rgba(0, 0, 0, 0.04);
+          }
+          width: 65.75%;
+        }
+      }
+    }
+  }
+
+  .collection--branded {
+    background-size: cover;
+
+    .collection__content-wrapper {
+      background-color: transparent;
+    }
+  }
+
+  .collection--unboxed {
+    max-width: 100%;
+
+    .collection__content-wrapper {
+      max-width: $desktop-wide-size;
+      margin: 0 auto;
+      background-color: transparent;
+      box-shadow: none;
+
+      @include tablet-up {
+        margin-top: 20px;
+      }
+    }
+
+    .collection__title,
+    .collection__lead {
+      display: none;
+    }
+  }
+
+  .collection--unboxed.collection--branded {
+    .collection__branding-wrapper {
+      max-width: 100%;
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    .collection__content-wrapper {
+      padding-top: 12px;
+
+      @include tablet-up {
+        padding-top: 16px;
+      }
+
+      @include desktop-wide {
+        padding-top: 20px;
+      }
+    }
+
+    // no space between two branded unboxed collections
+    & + .collection--unboxed.collection--branded {
+      margin-top: -#{$collection-gap};
+
+      @include tablet-up {
+        margin-top: -#{$collection-gap-tablet-up};
+      }
+
+      @include desktop-wide {
+        margin-top: -#{$collection-gap-desktop-wide};
+      }
+    }
+
+    // no space between header and an unboxed branded collection at first position
+    &:first-child {
+      margin-top: -8px;
+
+      @include tablet-up {
+        margin-top: -52px;
+      }
+
+      .collection__branding-wrapper {
+        padding-top: #{$collection-gap - 8};
+
+        @include tablet-up {
+          padding-top: #{$collection-gap-tablet-up - 8};
+        }
+      }
+    }
+  }
+
+  .teaser {
+    display: flex;
+    flex-grow: 1;
+    position: relative; // to position the pseudo elements
+    border-radius: 2px;
+    overflow: hidden; // to cut off image with border radius
+    background-color: $color-bg-card;
+    box-shadow: $shadow-elevation1;
+    color: $color-text-default;
+  }
+
+  .teaser__medium-wrapper {
+    flex-grow: 0;
+    flex-shrink: 0;
+    margin: 0;
+    position: relative; // for positioning ::pseudo elements
+    padding-bottom: 56.25%; //16:9 ratio
+
+    &::after {
+      position: absolute;
+      pointer-events: none;
+      content: '';
+      width: 100%;
+      height: 100%;
+      background-color: #dadad2;
+      top: 0;
+      left: 0;
+      box-sizing: border-box;
+    }
+    img {
+      display: none;
+    }
+
+  }
+
+  .teaser__main {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
   .teaser__content {
     display: none;
   }

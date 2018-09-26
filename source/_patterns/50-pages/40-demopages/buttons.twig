@@ -30,47 +30,50 @@
 {% endembed %}
 
 <script>
-    let $btn = $(".js-toggle-container .button");
-    let state = 0;
-    let states = ["",       "button--pending", "button--success", "button--pending", "button--on-error", "button--retry"];
-    let texts =  ["Senden", "",                "Gesendet",        "",                "Fehlgeschlagen",   "Senden?"      ];
+    //-- temporary fix:  in frontify, jquery is loaded later than the vendor.js
+    window.addEventListener('DOMContentLoaded', function() {
+        let $btn = $(".js-toggle-container .button");
+        let state = 0;
+        let states = ["",       "button--pending", "button--success", "button--pending", "button--on-error", "button--retry"];
+        let texts =  ["Senden", "",                "Gesendet",        "",                "Fehlgeschlagen",   "Senden?"      ];
 
-    jQuery.fn.animateAuto = function(className, text, speed, callback){
-        let elem, width;
-        return this.each(function(i, el){
-            el = jQuery(el);
-            elem = el.clone().css({"width": "auto"}).appendTo("body");
-            elem.attr("class", className )
-                .find(".button-text").text( text );
-            width = elem.css("width");
-            elem.remove();
+        jQuery.fn.animateAuto = function(className, text, speed, callback){
+            let elem, width;
+            return this.each(function(i, el){
+                el = jQuery(el);
+                elem = el.clone().css({"width": "auto"}).appendTo("body");
+                elem.attr("class", className )
+                    .find(".button-text").text( text );
+                width = elem.css("width");
+                elem.remove();
 
-            el.animate({"width": width}, speed, callback);
-        });
-    };
-
-    $(".js-toggle-classes").on("click", function() {
-        state = (++state) % states.length;
-
-        // Special case for pending: No text, and don't resize!
-        if (states[state] === "button--pending") {
-            let currentWidth = $btn.css("width");
-            $btn.css("width", currentWidth);
-            $btn.attr("class", "button " + states[state])
-                .find(".button-text").text("");
-            return;
-        }
-
-        if ($(window).width() > 720) {
-            $btn.stop().animateAuto("button " + states[state], texts[state], 200, function () {
-                $btn.attr("class", "button " + states[state])
-                    .find(".button-text").text(texts[state]);
+                el.animate({"width": width}, speed, callback);
             });
-        } else {
-            $btn.css("width", "100%")
-                .attr("class", "button " + states[state])
-                .find(".button-text").text(texts[state]);
-        }
+        };
 
+        $(".js-toggle-classes").on("click", function() {
+            state = (++state) % states.length;
+
+            // Special case for pending: No text, and don't resize!
+            if (states[state] === "button--pending") {
+                let currentWidth = $btn.css("width");
+                $btn.css("width", currentWidth);
+                $btn.attr("class", "button " + states[state])
+                    .find(".button-text").text("");
+                return;
+            }
+
+            if ($(window).width() > 720) {
+                $btn.stop().animateAuto("button " + states[state], texts[state], 200, function () {
+                    $btn.attr("class", "button " + states[state])
+                        .find(".button-text").text(texts[state]);
+                });
+            } else {
+                $btn.css("width", "100%")
+                    .attr("class", "button " + states[state])
+                    .find(".button-text").text(texts[state]);
+            }
+
+        });
     });
 </script>
