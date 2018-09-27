@@ -173,20 +173,17 @@ _:-ms-fullscreen,
     letter-spacing: normal;
     color: #ffffff;
     text-transform: uppercase;
-    // removed animation
     @include font-smoothing;
   }
 }
 
-.teaser--size-m .teaser__prekicker--fixed-for-ie,
-.teaser--size-l .teaser__prekicker--fixed-for-ie,
-.teaser--size-xl .teaser__prekicker--fixed-for-ie {
-  strong {
+.teaser--size-m,
+.teaser--size-l,
+.teaser--size-xl {
+  .teaser__prekicker--fixed-for-ie strong {
     @include tablet-up {
       font-size: 16px;
     }
-
-    // removed .svg-icon {…}
   }
 }
 
