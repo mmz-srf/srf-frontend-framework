@@ -138,6 +138,58 @@ _:-ms-fullscreen,
 /*
  * TARGETED BROWSER: IE 11
  *
+ * IE11 does not support css custom properties.
+ * Thats ok.
+ * There are fallbacks in place.
+ * And IE sucks anyway.
+ * And IE users do not have to have the shiny modern web we all know and love.
+ * But sometimes we need to have an extended fallback solution. Like, if you really have to see a theme (color or labeling/tagging) somehow in IE11.
+ * THIS is for one of those times.
+ */
+ 
+.teaser__prekicker--fixed-for-ie {
+  // 1st: Overwrite the "offscreen-non-focusable" mixin
+  position: static;
+  width: auto; // pretty cool but not IE: WebKit does have a -webkit-fit-content value for width, which would fix the full-width-problem
+  height: auto;
+  margin: 0;
+  padding: 0;
+  overflow: visible;
+  clip: auto;
+  border: 0;
+
+  strong {
+    // 2nd: Style to the max! (its pretty much a carbon copy of .teaser__live from teaser.scss)
+    display: inline-block;
+    margin: 0 8px 8px 0;
+    padding: 2px 6px 0;
+    background-color: $color-srf-light;
+    font-family: $font-medium;
+    font-size: 12px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.33;
+    letter-spacing: normal;
+    color: #ffffff;
+    text-transform: uppercase;
+    @include font-smoothing;
+  }
+}
+
+.teaser--size-m,
+.teaser--size-l,
+.teaser--size-xl {
+  .teaser__prekicker--fixed-for-ie strong {
+    @include tablet-up {
+      font-size: 16px;
+    }
+  }
+}
+
+/*
+ * TARGETED BROWSER: IE 11
+ *
  * removing blue bar on ie11's selected option within select menu (polis/chmap)
  */
 .select-menu:focus::-ms-value {
