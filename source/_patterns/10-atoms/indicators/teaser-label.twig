@@ -1,3 +1,6 @@
+{% set styleModifierSize = styleModifierSize|default('teaser--size-s') %}
+{% set styleModifierType = styleModifierType|default('teaser__label--live') %}
+
 <span class="teaser__label {{ styleModifierType|default('teaser__label--live') }}">
   <span class="teaser__label-box teaser__label-box--type">
 
@@ -6,18 +9,15 @@
     {% if labelWording|default('Live') == 'Live' %}
 
 
-      {% if styleModifierSize|default('teaser--size-s') == 'teaser--size-s' %}
+      {% if styleModifierSize == 'teaser--size-s' %}
 
-        {% if styleModifierType|default('teaser__label--live') == 'teaser__label--live' %}
+        {% if styleModifierType == 'teaser__label--live' %}
           {% include 'atoms-svg-icon' with {'styleModifier': 'svg-icon--tiny svg-icon--play-video-circle-white'} %}
         {% else %}
           {% include 'atoms-svg-icon' with {'styleModifier': 'svg-icon--tiny svg-icon--play-video-circle'} %}
         {% endif %}
 
-      {% endif %}
-
-
-      {% if styleModifierSize == 'teaser--size-m' %}
+      {% elseif styleModifierSize == 'teaser--size-m' %}
 
         {% if styleModifierType == 'teaser__label--live' %}
           {% include 'atoms-svg-icon' with {'styleModifier': 'svg-icon--tiny-but-small-on-desktop-up svg-icon--play-video-circle-white-tiny-to-small'} %}
@@ -25,10 +25,7 @@
           {% include 'atoms-svg-icon' with {'styleModifier': 'svg-icon--tiny-but-small-on-desktop-up svg-icon--play-video-circle-tiny-to-small'} %}
         {% endif %}
 
-      {% endif %}
-
-
-      {% if (styleModifierSize == 'teaser--size-l' or styleModifierSize == 'teaser--size-xl') %}
+      {% elseif (styleModifierSize == 'teaser--size-l' or styleModifierSize == 'teaser--size-xl') %}
 
         {% if styleModifierType == 'teaser__label--live' %}
           {% include 'atoms-svg-icon' with {'styleModifier': 'svg-icon--small svg-icon--play-video-circle-white'} %}

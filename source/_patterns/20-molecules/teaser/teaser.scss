@@ -20,7 +20,7 @@
   box-shadow: $shadow-elevation1;
   // sass-lint:disable indentation
   transition: box-shadow .2s ease-in-out,
-  transform .2s ease-in-out;
+              transform .2s ease-in-out;
   // sass-lint:enable indentation
   transform: translateZ(0);
 
