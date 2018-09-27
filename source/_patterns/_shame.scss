@@ -158,3 +158,13 @@ _:-ms-fullscreen,
     box-shadow: 0 0 2px 0 rgba(0,0,0,0.16), 0 0 2px 0 rgba(0,0,0,0.08);
   }
 }
+
+/*
+ * TARGETED BROWSER: Chrome and Firefox on macOS
+ *
+ * Changes subpixel anti-aliasing to normal antialiasing (font-smoothing) to themed modal Close-Button-Text
+ * Safari already does this by default -> and on macOS Mojave subpixel anti-asliasing has been removed from the system entirely -> TODO: Let us remove font-smoothing globally when time comes.
+ */
+.modal.modal--theme-dark .icon-button {
+  @include font-smoothing;
+}
