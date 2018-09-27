@@ -167,7 +167,7 @@ _:-ms-fullscreen,
 
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
   .teaser--with-medium.teaser--size-s {
-     display: none;
+    display: none;
   }
   .teaser--with-medium.teaser--size-s-on-mobile {
     @include smartphone {

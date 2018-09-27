@@ -157,12 +157,12 @@
 }
 
 .teaser__lead,
-.teaser__media-caption-source {
+.teaser__media-caption {
   margin: 12px 0 0;
   display: none;
   font-family: $font-light;
   font-size: 16px;
-  font-weight: 300;
+  font-weight: normal;
   font-style: normal;
   font-stretch: normal;
   line-height: 1.25;
@@ -174,9 +174,22 @@
   }
 }
 
-.teaser__media-caption-source {
+.teaser__media-caption {
   font-size: 12px;
   line-height: 1.2;
+  color: $color-text-light;
+}
+
+.teaser__media-duration {
+  display: none;
+}
+
+.teaser__media-duration,
+.teaser__media-source {
+  strong {
+    font-family: $font-medium;
+    color: $color-text-default;
+  }
 }
 
 .teaser__live {
@@ -191,7 +204,7 @@
   font-stretch: normal;
   line-height: 1.33;
   letter-spacing: normal;
-  color: white;
+  color: #fff;
   text-transform: uppercase;
   animation: pulsatingLiveAnimation 3s infinite ease-in-out;
   @include font-smoothing;
@@ -263,6 +276,10 @@
       font-size: 18px;
       line-height: 1.33;
     }
+  }
+
+  .teaser__media-duration {
+    display: inline;
   }
 }
 
@@ -482,6 +499,10 @@
 
       @include forceAspectRatio("1:1");
     }
+
+    .teaser__media-duration {
+      display: inline;
+    }
   }
 }
 
@@ -506,12 +527,11 @@
     object-fit: none;
   }
 
-  .teaser__media-caption-source {
+  .teaser__media-caption {
     display: flex;
     flex-grow: 1;
     align-items: flex-end;
   }
-
 
   /* overriding position/size of media still time indicators */
   &.teaser--size-s {
