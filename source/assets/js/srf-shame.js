@@ -133,25 +133,6 @@ function addFixedforIEClass() {
 /*
  * TARGETED BROWSER: IE 11
  *
- * This one adds the value of a data-attribute named "ie-fix" to the class-list of this element – if the user agent is IE11.
- */
-
-function addFixedforIEClass() {
-    if (navigator.userAgent.indexOf('MSIE')!==-1 || navigator.appVersion.indexOf('Trident/') > 0) {
-        const dataAttr = 'data-iefix';
-        let elementsToFix = document.querySelectorAll('['+dataAttr+']');
-
-        for(let i = 0; i < elementsToFix.length; ++i) {
-            let ieFixClassName = elementsToFix[i].getAttribute(dataAttr);
-            elementsToFix[i].classList.add(ieFixClassName);
-        }
-    }
-}
-
-
-/*
- * TARGETED BROWSER: IE 11
- *
  * IE11 _sometimes_ has problems with scaled images with svg sources. The usual remedies (viewbox, no widths, etc.)
  * didn't help. This is the last resort - hiding the img and setting a background-image on the parent.
  */
