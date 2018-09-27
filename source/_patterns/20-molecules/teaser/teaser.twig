@@ -6,7 +6,11 @@
             'ratio': '16:9'
         } %}
             {% block ratio_content %}
-                <img class="teaser__medium" src="{{ teaser.image|default('') }}" alt="{{ teaser.title|default('') }}" />
+                <div class="teaser__medium">
+                    <div class="image image--media-still-dynamic">
+                        <img src="{{ teaser.image|default('') }}" alt="{{ teaser.title|default('') }}" />
+                    </div>
+                </div>
             {% endblock %}
         {% endembed %}
 

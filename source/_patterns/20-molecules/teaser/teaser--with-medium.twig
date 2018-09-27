@@ -7,7 +7,9 @@
             'ratio': '16:9'
         } %}
             {% block ratio_content %}
-                {% include 'molecules-media-still--dynamic' with { 'styleModifier': '', 'mediumType': mediumType } %}
+                <div class="teaser__medium">
+                    {% include 'molecules-media-still--dynamic' with { 'styleModifier': '', 'mediumType': mediumType } %}
+                </div>
             {% endblock %}
         {% endembed %}
 
