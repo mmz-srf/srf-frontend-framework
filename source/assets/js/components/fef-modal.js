@@ -49,6 +49,7 @@ export class FefModal {
         this.previousScrollPosition = null;
 
         $element.append('<a class="js-end-of-modal h-offscreen" href="#"></a>');
+        this.$mainWrapper.append('<a class="js-close-modal h-offscreen h-offscreen-focusable h-offscreen-focusable--top" href="#">Schliessen</a>');
 
         this.bindEvents();
 
@@ -78,7 +79,6 @@ export class FefModal {
         // A11Y Helper: when tabbing out of the modal --> on focus, close modal, set focus to the caller
         $(END_OF_MODAL).on('focus', () => {
             this.close();
-            $(END_OF_MODAL).remove();
         });
 
     }

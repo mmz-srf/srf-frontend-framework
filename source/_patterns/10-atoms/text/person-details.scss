@@ -6,20 +6,24 @@
   margin: 0 12px;
 }
 
-.person-details__name {
+.person-details__name,
+.person-details__function {
   margin: 0;
-  font: 14px/1.43 $font-regular;
+  line-height: 1.25;
+  letter-spacing: .4px;
+}
+
+.person-details__name {
+  font-family: $font-regular;
+  font-size: 14px;
   font-weight: normal;
   font-style: normal;
   font-stretch: normal;
-  letter-spacing: .5px;
   color: $color-text-default;
 }
 
 .person-details__function {
-  margin: 0;
   font-family: $font-system;
   font-size: 12px;
-  line-height: 16px;
   color: $color-text-light;
 }
