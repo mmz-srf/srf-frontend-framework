@@ -459,13 +459,13 @@
   .teaser__opinion {
     flex: 0 0 auto;
 
+    @include tablet-up {
+      flex-basis: 100%;
+    }
+
     @include desktop-up {
       font-size: 18px;
       line-height: 1.33;
-    }
-
-    @include tablet-up {
-      flex-basis: 100%;
     }
   }
 
