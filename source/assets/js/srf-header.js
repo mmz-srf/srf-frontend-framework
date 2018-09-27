@@ -98,9 +98,6 @@ export class SrfHeader {
 
             this.changeMenuState(!this.menuIsOpen, true);
 
-            if( this.menuIsOpen) {
-                this.setInnerFocus();
-            }
             return false;
         }
     }
@@ -128,6 +125,7 @@ export class SrfHeader {
             this.isInTransition = true;
             this.$navigation.one('transitionend', () => {
                 $('html').toggleClass('menu--opened', this.menuIsOpen);
+                this.setInnerFocus();
                 this.isInTransition = false;
             });
         } else {

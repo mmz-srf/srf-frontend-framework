@@ -10,14 +10,41 @@
 .teaser {
   --teaser-color-background: #{$color-bg-card};
   --teaser-color-text: #{$color-text-default};
+  --teaser-color-title: #383732;
   --teaser-color-accentuation: #{$color-accentuation-red};
   --teaser-color-overlay: #{$color-bg-button-hover};
+  --teaser-color-status-new: #{$color-srf-light};
+  --teaser-color-status-visited: #{$color-button-success};
+  --teaser-color-status-updated: #{$color-text-light};
+  /* NOTE: There are some assets too, but those can't be linked with custom properties here (propably 'cause of gulp or something) and are therefore declared directly in the scss with the corresponding classes -> see teaser-status.scss */
 }
 
 /* COMMON SETTINGS FOR ALL THEMES EXCEPT DEFAULT */
 .teaser.teaser--theme-dark {
   --teaser-color-background: #22211d;
   --teaser-color-text: #FFF;
+  --teaser-color-text: #ffffff;
+  --teaser-color-title: #ffffff;
   --teaser-color-accentuation: #dadad2;
-  --teaser-color-overlay: rgba(255, 255, 255, .08);
+  --teaser-color-overlay: rgba(255, 255, 255, .12);
+  --teaser-color-status-new: #ffffff;
+  --teaser-color-status-visited: #ffffff;
+  --teaser-color-status-updated: #ffffff;
+  /* NOTE: There are some assets too, but those can't be linked with custom properties here (propably 'cause of gulp or something) and are therefore declared directly in the scss with the corresponding classes -> see teaser-status.scss */
+
+  @include font-smoothing;
+}
+
+.teaser.teaser--theme-breaking {
+  --teaser-color-background: #c91024;
+  --teaser-color-text: #ffffff;
+  --teaser-color-title: #ffffff;
+  --teaser-color-accentuation: #ffffff;
+  --teaser-color-overlay: rgba(255, 255, 255, .12);
+  --teaser-color-status-new: #ffffff;
+  --teaser-color-status-visited: #ffffff;
+  --teaser-color-status-updated: #ffffff;
+  /* NOTE: There are some assets too, but those can't be linked with custom properties here (propably 'cause of gulp or something) and are therefore declared directly in the scss with the corresponding classes -> see teaser-status.scss */
+
+  @include font-smoothing;
 }

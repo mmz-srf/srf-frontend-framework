@@ -9,13 +9,10 @@
   position: relative; // to position the pseudo elements
   border-radius: 2px;
   overflow: hidden; // to cut off image with border radius
-  color: $color-text-default;
-  background-color: $color-bg-card;
 
-  @supports (--foo: bar) {
-    color: var(--teaser-color-text, $color-text-default);
-    background-color: var(--teaser-color-background, $color-bg-card);
-  }
+  /* theme */
+  @include customPropWithFallback('color', '--teaser-color-text', $color-text-default);
+  @include customPropWithFallback('background-color', '--teaser-color-background', $color-bg-card);
 
   box-shadow: $shadow-elevation1;
   // sass-lint:disable indentation
@@ -46,12 +43,11 @@
     height: 100%;
     width: 100%;
     pointer-events: none;
-    // performance improvement: Don't animate the background-color, but the opacity
-    background-color: $color-bg-button-hover;
 
-    @supports (--foo: bar) {
-      background-color: var(--teaser-color-overlay, $color-bg-button-hover);
-    }
+    // performance improvement: Don't animate the background-color, but the opacity
+
+    /* theme */
+    @include customPropWithFallback('background-color', '--teaser-color-overlay', $color-bg-button-hover);
 
     opacity: 0;
     transition: opacity .2s ease-in-out;
@@ -70,11 +66,11 @@
   flex-direction: row-reverse;
   flex-grow: 1;
   width: 100%;
+  flex-wrap: wrap;
 }
 
 .teaser__medium-wrapper {
-  flex-grow: 0;
-  flex-shrink: 0;
+  flex: 0 0 80px;
   margin: 16px 16px 16px 0;
   position: relative; // for positioning ::pseudo elements
   width: 80px;
@@ -108,16 +104,12 @@
 .teaser__content {
   display: flex;
   flex-direction: column;
-  flex-basis: auto;
-  flex-grow: 1;
-  flex-shrink: 1;
+  flex: 1 1 0px;
   margin: 16px 12px 16px 16px;
-  // IE needs some convincin': set width to 100% but stop when reaching the margins
-  width: 100%;
-  max-width: calc(100% - 28px);
 
   @include desktop-wide {
     margin: 24px;
+    // IE needs some convincing
     max-width: calc(100% - 48px);
   }
 }
@@ -134,9 +126,8 @@
   color: $color-accentuation-red;
   word-wrap: break-word; // Enforce breaking words for IE11
 
-  @supports (--foo: bar) {
-    color: var(--teaser-color-accentuation, $color-accentuation-red);
-  }
+  /* theme */
+  @include customPropWithFallback('color', '--teaser-color-accentuation', $color-accentuation-red);
 }
 
 .teaser__title {
@@ -151,9 +142,8 @@
   color: $color-text-default;
   word-wrap: break-word; // Enforce breaking words for IE11
 
-  @supports (--foo: bar) {
-    color: var(--teaser-color-text, $color-text-default);
-  }
+  /* theme */
+  @include customPropWithFallback('color', '--teaser-color-title', $color-text-default);
 }
 
 .teaser__lead,
@@ -167,11 +157,9 @@
   font-stretch: normal;
   line-height: 1.25;
   letter-spacing: 0.4px;
-  color: $color-text-default;
 
-  @supports (--foo: bar) {
-    color: var(--teaser-color-text, $color-text-default);
-  }
+  /* theme */
+  @include customPropWithFallback('color', '--teaser-color-text', '#383732');
 }
 
 .teaser__media-caption {
@@ -228,6 +216,21 @@
     @include desktop-up {
       margin: 3px 6px -3px 0;
     }
+  }
+}
+
+.teaser__opinion {
+  flex: 0 0 100%;
+  display: flex;
+  flex-direction: row;
+  background-color: $color-bg-caption;
+  padding: 8px 16px;
+
+  // IE11 extra sausage
+  max-width: 100%;
+
+  @include desktop-wide {
+    padding: 8px 24px;
   }
 }
 
@@ -290,6 +293,7 @@
 .teaser--size-m {
   .teaser__main {
     flex-direction: column;
+    flex-wrap: nowrap;
   }
 
   .teaser__medium-wrapper {
@@ -310,6 +314,14 @@
     width: 100%;
 
     @include forceAspectRatio('16:9');
+  }
+
+  .teaser__content {
+    flex: 1 0 auto;
+  }
+
+  .teaser__opinion {
+    flex: 0 0 auto;
   }
 
   .teaser__kicker {
@@ -335,6 +347,7 @@
 .teaser--size-l {
   .teaser__main {
     flex-direction: column;
+    flex-wrap: nowrap;
   }
 
   .teaser__medium {
@@ -342,6 +355,14 @@
     width: 100%;
 
     @include forceAspectRatio('16:9');
+  }
+
+  .teaser__content {
+    flex: 1 0 auto;
+  }
+
+  .teaser__opinion {
+    flex: 0 0 auto;
   }
 
   .teaser__medium-wrapper {
@@ -355,72 +376,13 @@
   }
 }
 
-/* XL-TEASER
- * Looks like L-Teaser on Mobile
- * With short lead
- * Full-width on tablet+ with medium on the left
- */
-.teaser--size-xl {
-
-  .teaser__main {
-    flex-direction: column;
-
-    @include tablet-up {
-      flex-direction: row;
-    }
-  }
-
-  .teaser__medium {
-    height: 100%;
-    width: 100%;
-
-    @include forceAspectRatio('16:9');
-  }
-
-  .teaser__medium-wrapper {
-    margin: 0;
-    padding-bottom: 37%; //16:9 ratio out of 65.75% percent image / text ratio
-
-    @include smartphone {
-      padding-bottom: 56.25%; //16:9 ratio
-      width: 100%;
-      &::after {
-        border-bottom: solid 1px rgba(0, 0, 0, 0.04);
-      }
-    }
-
-    @include tablet-up {
-      &::after {
-        border-right: solid 1px rgba(0, 0, 0, 0.04);
-      }
-      width: 65.75%;
-    }
-  }
-
-  .teaser__content {
-    @include tablet-up {
-      margin: 24px 16px 24px 24px;
-    }
-
-    @include desktop {
-      margin: 24px;
-    }
-
-    @include desktop-wide {
-      margin: 32px 24px 32px 32px;
-    }
-  }
-
-  .teaser__title {
-    @include tablet {
-      letter-spacing: 0.4px;
-    }
-  }
-}
-
-// Short lead for both L and XL teaser
+// Shared styles for both L and XL teaser
 .teaser--size-l,
 .teaser--size-xl {
+  .teaser__medium-wrapper {
+    flex-basis: auto;
+  }
+
   .teaser__lead {
     display: block;
 
@@ -451,6 +413,110 @@
   }
 }
 
+/* XL-TEASER
+ * Looks like L-Teaser on Mobile
+ * With short lead
+ * Full-width on tablet+ with medium on the left
+ */
+ .teaser--size-xl {
+  .teaser__main {
+    flex-direction: column;
+    flex-wrap: nowrap;
+
+    @include tablet-up {
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+  }
+
+  .teaser__medium {
+    height: 100%;
+    width: 100%;
+
+    @include forceAspectRatio('16:9');
+  }
+
+  .teaser__medium-wrapper {
+    margin: 0;
+    padding-bottom: 37%; //16:9 ratio out of 65.75% percent image / text ratio
+
+    @include smartphone {
+      padding-bottom: 56.25%; //16:9 ratio
+      width: 100%;
+      &::after {
+        border-bottom: solid 1px rgba(0, 0, 0, 0.04);
+      }
+    }
+
+    @include tablet-up {
+      &::after {
+        border-right: solid 1px rgba(0, 0, 0, 0.04);
+      }
+      flex: 0 0 65.75%;
+    }
+  }
+
+  .teaser__content {
+    flex: 1 0 auto;
+
+    @include tablet-up {
+      flex: 1 0 0px;
+      margin: 24px 16px 24px 24px;
+    }
+
+    @include desktop {
+      margin: 24px;
+    }
+
+    @include desktop-wide {
+      margin: 32px 24px 32px 32px;
+    }
+  }
+
+  .teaser__title {
+    @include tablet {
+      letter-spacing: 0.4px;
+    }
+  }
+
+  .teaser__opinion {
+    flex: 0 0 auto;
+
+    @include tablet-up {
+      flex-basis: 100%;
+    }
+
+    @include desktop-up {
+      font-size: 18px;
+      line-height: 1.33;
+    }
+  }
+
+  @supports (display: grid) {
+    @include tablet-up {
+      .teaser__main {
+        display: grid;
+        grid-template-columns: 65.75% auto;
+        grid-template-rows: 1fr max-content;
+      }
+
+      .teaser__medium-wrapper {
+        grid-row: span 2;
+      }
+
+      .teaser__opinion {
+        padding-left: 24px;
+      }
+    }
+
+    @include desktop-wide {
+      .teaser__opinion {
+        padding-left: 32px;
+      }
+    }
+  }
+}
+
 /* S-ON-MOBILE
  * override style to display a teaser as S-teaser on mobile
  * to be used together with a teaser--size-[m|l] class
@@ -463,6 +529,11 @@
 
     .teaser__main {
       flex-direction: row-reverse;
+      flex-wrap: wrap;
+    }
+
+    .teaser__content {
+      flex: 1 1 0px;
     }
 
     .teaser__kicker {
@@ -502,6 +573,10 @@
 
     .teaser__media-duration {
       display: inline;
+    }
+
+    .teaser__opinion {
+      flex: 0 0 100%;
     }
   }
 }
