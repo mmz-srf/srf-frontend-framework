@@ -237,3 +237,9 @@ $button-animation-duration: .3s;
 .button--attention-hogger {
   animation: pulsatingAnimation 2s infinite;
 }
+
+.button--allow-line-breaks {
+  .button-wrapper {
+    white-space: normal;
+  }
+}

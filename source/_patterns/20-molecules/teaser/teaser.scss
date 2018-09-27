@@ -72,10 +72,10 @@
 .teaser__medium-wrapper {
   flex: 0 0 80px;
   margin: 16px 16px 16px 0;
+  color: transparent; // hide alt-text in case image is broken
   position: relative; // for positioning ::pseudo elements
-  width: 80px;
-  height: 0;
-  padding-bottom: 80px;
+  background-color: #dadad2;
+  align-self: start;
 
   // border on top of the images
   &::after {
@@ -84,7 +84,6 @@
     content: '';
     width: 100%;
     height: 100%;
-    background-color: #dadad2;
     top: 0;
     left: 0;
     box-sizing: border-box;
@@ -95,10 +94,6 @@
   object-fit: cover;
   width: 80px;
   height: 80px;
-  position: absolute;
-  z-index: 1;
-
-  @include forceAspectRatio('1:1');
 }
 
 .teaser__content {
@@ -238,10 +233,12 @@
   .teaser__medium-wrapper {
     border-radius: 2px;
     overflow: hidden;
+    flex-basis: 80px;
+    height: 80px;
 
     @include desktop-up {
       flex-basis: 94px;
-      padding-bottom: 94px;
+      height: 94px;
     }
 
     &::after {
@@ -300,7 +297,6 @@
     margin: 0;
     border-radius: 2px;
     overflow: hidden;
-    padding-bottom: 56.25%; //16:9 ratio
     width: 100%;
 
     &::after {
@@ -312,8 +308,6 @@
   .teaser__medium {
     height: auto;
     width: 100%;
-
-    @include forceAspectRatio('16:9');
   }
 
   .teaser__content {
@@ -353,8 +347,6 @@
   .teaser__medium {
     height: auto;
     width: 100%;
-
-    @include forceAspectRatio('16:9');
   }
 
   .teaser__content {
@@ -367,7 +359,6 @@
 
   .teaser__medium-wrapper {
     margin: 0;
-    padding-bottom: 56.25%; //16:9 ratio
     width: 100%;
 
     &::after {
@@ -432,16 +423,13 @@
   .teaser__medium {
     height: 100%;
     width: 100%;
-
-    @include forceAspectRatio('16:9');
+    position: absolute;
   }
 
   .teaser__medium-wrapper {
     margin: 0;
-    padding-bottom: 37%; //16:9 ratio out of 65.75% percent image / text ratio
 
     @include smartphone {
-      padding-bottom: 56.25%; //16:9 ratio
       width: 100%;
       &::after {
         border-bottom: solid 1px rgba(0, 0, 0, 0.04);
@@ -554,8 +542,9 @@
       margin: 16px 16px 16px 0;
       border-radius: 2px;
       overflow: hidden;
-      width: 80px;
-      padding-bottom: 80px;
+      flex-basis: 80px;
+      height: 80px;
+
       &::after {
         border-radius: 2px;
         border: solid 1px rgba(0, 0, 0, 0.04);
@@ -567,8 +556,6 @@
       object-fit: cover;
       width: 80px;
       height: 80px;
-
-      @include forceAspectRatio("1:1");
     }
 
     .teaser__media-duration {

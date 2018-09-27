@@ -1,0 +1,161 @@
+{% embed 'templates-article-plain' %}
+
+    {% block article_header %}
+        <h1 class="article-title">
+            <span class="article-title__overline">Demopage</span>
+            <span class="article-title__text article-title__font-stylistic">Ratios</span>
+        </h1>
+        {% include 'atoms-horizontal-separator' with {'styleModifier': 'horizontal-separator--content-max-width'} %}
+    {% endblock %}
+
+    {% block article_content %}
+
+    <style>
+        .demo-ratio--flex {
+            display: flex;
+            flex-direction: row;
+            margin: 8px 0;
+            padding: 0;
+        }
+
+        .demo-ratio--flex-item {
+            flex: 1 1 auto;
+            margin: 0;
+            padding: 0;
+        }
+
+        .demo-ratio--flex-item:before {
+            content: none;
+        }
+
+        .demo-ratio--flex-wrap {
+            flex-wrap: wrap;
+        }
+
+        .demo-ratio--flex-wrap .demo-ratio--flex-item {
+            flex-basis: 100%;
+        }
+
+        .dynamic-ratio-demo {
+            border: 4px dashed grey;
+        }
+
+        .demo-ratio-inline-container {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 8px;
+        }
+
+        .demo-ratio-inline-container p,
+        .demo-ratio-inline-container button {
+            margin: 0 4px;
+            flex: 0 1 50%;
+        }
+
+    </style>
+
+    <div class="demo-ratios">
+
+        <ul class="demo-ratio--flex">
+            <li class="demo-ratio--flex-item">
+                {% embed "ratio.twig" with { 'ratio': '16:9' } %}
+                    {% block ratio_content %}
+                        {% include 'molecules-media-still--dynamic' with { 'styleModifier': '', 'mediumType': 'audio' } %}
+                    {% endblock %}
+                {% endembed %}
+            </li>
+
+            <li class="demo-ratio--flex-item">
+                {% embed "ratio.twig" with { 'ratio': '16:9' } %}
+                    {% block ratio_content %}
+                        {% include 'molecules-media-still--dynamic' with { 'styleModifier': '', 'mediumType': 'video' } %}
+                    {% endblock %}
+                {% endembed %}
+            </li>
+        </ul>
+
+        <ul class="demo-ratio--flex demo-ratio--flex-wrap">
+            <li class="demo-ratio--flex-item">
+                {% embed "ratio.twig" with { 'ratio': '16:9' } %}
+                    {% block ratio_content %}
+                        {% include 'molecules-media-still--dynamic' with { 'styleModifier': '', 'mediumType': 'audio' } %}
+                    {% endblock %}
+                {% endembed %}
+            </li>
+
+            <li class="demo-ratio--flex-item">
+                {% embed "ratio.twig" with { 'ratio': '16:9' } %}
+                    {% block ratio_content %}
+                        {% include 'molecules-media-still--dynamic' with { 'styleModifier': '', 'mediumType': 'video' } %}
+                    {% endblock %}
+                {% endembed %}
+            </li>
+        </ul>
+
+        {% embed "ratio.twig" with {
+            'class': 'dynamic-ratio-demo',
+            'ratio': '1:1'
+        } %}
+            {% block ratio_content %}
+                <img class="js-ratio-demo-img" src="https://via.placeholder.com/500" />
+            {% endblock %}
+        {% endembed %}
+
+        <div class="demo-ratio-inline-container">
+            <p>Image Ratio: <span class="js-display-image-ratio">1:1</span></p>
+            <p>Container Ratio: <span class="js-display-wrapper-ratio">1:1</span></p>
+        </div>
+
+        <div class="demo-ratio-inline-container">
+            {% include 'atoms-button' with {'buttonText' : 'Switch image ratio', 'styleModifier': 'js-toggle-image-ratio button--allow-line-breaks'} %}
+            {% include 'atoms-button' with {'buttonText' : 'Switch container ratio', 'styleModifier': 'js-toggle-wrapper-ratio button--allow-line-breaks'} %}
+        </div>
+
+    </div>
+
+    <script>
+        var ratios = [
+                {
+                    display: '1:1',
+                    className: 'ratio ratio--1-1',
+                    url: 'https://via.placeholder.com/500x500'
+                }, {
+                    display: '3:1',
+                    className: 'ratio ratio--3-1',
+                    url: 'https://via.placeholder.com/600x200'
+                }, {
+                    display: '4:3',
+                    className: 'ratio ratio--4-3',
+                    url: 'https://via.placeholder.com/400x300'
+                }, {
+                    display: '16:9',
+                    className: 'ratio ratio--16-9',
+                    url: 'https://via.placeholder.com/800x450'
+                }
+            ],
+            displayRatioIndex = 0,
+            wrapperRatioIndex = 0,
+            $demoRatio = $('.dynamic-ratio-demo');
+
+        $('.js-toggle-image-ratio').on('click', function() {
+            displayRatioIndex = ++displayRatioIndex % ratios.length;
+            var nextRatio = ratios[displayRatioIndex];
+
+            $('.js-ratio-demo-img').attr('src', nextRatio.url);
+            $('.js-display-image-ratio').text(nextRatio.display);
+        });
+
+        $('.js-toggle-wrapper-ratio').on('click', function() {
+            wrapperRatioIndex = ++wrapperRatioIndex % ratios.length;
+            var nextRatio = ratios[wrapperRatioIndex];
+
+            $('.dynamic-ratio-demo .ratio').removeClass().addClass(nextRatio.className);
+            $('.js-display-wrapper-ratio').text(nextRatio.display);
+        });
+
+
+    </script>
+
+    {% endblock %}
+
+{% endembed %}
