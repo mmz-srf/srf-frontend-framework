@@ -63,6 +63,7 @@ $background-overlap-wide: 50px;
   display: inline-flex;
   align-items: center;
   color: $color-link-default;
+  transition: color .2s ease-in-out;
 
   &:hover {
     color: #f1434a;
