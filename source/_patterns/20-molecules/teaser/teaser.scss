@@ -43,7 +43,7 @@
     height: 100%;
     width: 100%;
     pointer-events: none;
-    
+
     // performance improvement: Don't animate the background-color, but the opacity
 
     /* theme */
@@ -564,4 +564,8 @@
 .teaser--static {
   width: 100%;
   overflow: hidden;
+}
+
+.teaser--longform {
+  background-color: black;
 }
