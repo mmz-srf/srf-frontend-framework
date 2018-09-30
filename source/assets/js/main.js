@@ -16,6 +16,7 @@ import {init as FefExpandableBoxInit} from './components/fef-expandable-box';
 import {init as FefStickyHeaderInit} from './components/fef-sticky-header';
 import {init as FefSubnavInit} from './components/fef-subnav';
 import {init as FefPopupInit} from './components/fef-popup';
+import {init as FefSkiplinks} from './srf-skiplinks';
 
 
 /** SELF loading components without init **/
@@ -45,5 +46,6 @@ document.addEventListener('DOMContentLoaded', function(event) {
     FefStickyHeaderInit();
     FefSubnavInit();
     FefPopupInit();
+    FefSkiplinks();
     FefShameInit(); // this should probably be last, because it may contain code that depends on the previous scripts
 });
