@@ -8,7 +8,8 @@
 @import 'layout';
 @import 'ripple';
 @import '01-global/05-fonts';
-@import '01-global/20-helpers';
+@import '01-global/20-helpers/fullwidth';
+@import '01-global/20-helpers/skiplinks';
 @import '40-templates/article';
 @import '40-templates/landingpage';
 @import '10-atoms/text/article-title';
