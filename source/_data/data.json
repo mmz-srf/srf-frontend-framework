@@ -906,11 +906,15 @@
   "collections": [
     {
       "title": "News Schweiz",
-      "type": "standard",
       "lead": "Noch mehr Besucherzuwachs: Madame Tussauds freut sich über weiteres Umsatzplus.",
       "teasers": [
         {
           "title": "Dschihadist portioniert Küchenfolie mit Schwert",
+          "opinion": {
+            "image": "../../assets/demo/img/bild0/bild_s8.jpg",
+            "name": "Franz Beckenbauer",
+            "function": "Fussballer"
+          },
           "kicker": "Alu abhackbar",
           "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
           "link": "#",
@@ -948,7 +952,6 @@
     },
     {
       "title": "Nur 3",
-      "type": "standard",
       "teasers": [
         {
           "title": "Kleinkind weiß schon, wie die Geschichte weitergeht",
@@ -975,7 +978,6 @@
     },
     {
       "title": "Nur 4",
-      "type": "standard",
       "teasers": [
         {
           "title": "Kneipengast scheint Alkoholiker zu sein",
@@ -1010,7 +1012,6 @@
     {
       "title": "Quidditch",
       "titleLink" : "https://www.swissquidditch.ch/",
-      "type": "standard",
       "teasers": [
         {
           "title": "Ponika verhilft Neuseeland zum Sieg",
@@ -1071,7 +1072,6 @@
       ]
     }, {
       "title": "News Schweiz",
-      "type": "swipeable",
       "teasers": [
         {
           "title": "Wissenschaftler sagen: Kühe geben Milch",

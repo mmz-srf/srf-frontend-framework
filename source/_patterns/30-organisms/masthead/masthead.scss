@@ -7,7 +7,7 @@
   height: auto; /* OVERRIDE CRITICAL CSS */
   position: relative;
   z-index: 100;
-  box-shadow: $shadow-organisms;
+  box-shadow: $shadow-elevation8;
   padding: 8px 32px 0;
 
   /* fallback */
@@ -99,7 +99,10 @@
   line-height: 1.25;
   font-weight: normal; /* OVERRIDE CRITICAL CSS */
   color: $color-text-default;
-  color: var(--theme-color-title, $color-text-default);
+
+  @supports (--foo: bar) {
+    color: var(--theme-color-title, $color-text-default);
+  }
 
   @include tablet-up {
     margin: 11px 0 13px -2px;

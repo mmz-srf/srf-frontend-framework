@@ -1,4 +1,5 @@
-<a href="{{ url|default("#") }}" class="nav-item {{ styleModifier|default("") }} {% if headerType == "home" %}nav-item--home{% endif %}">
+<a href="{{ url|default("#") }}" class="nav-item {{ styleModifier|default("") }} {% if headerType == "home" %}nav-item--home{% endif %}"
+        {% if 'nav-item--expandable' in styleModifier %} aria-haspopup="false" aria-expanded="false"{% endif %}>
     {{ content|default("Item") }}
 
     {% if 'nav-item--expandable' in styleModifier %}

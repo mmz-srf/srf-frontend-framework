@@ -12,6 +12,7 @@
         </div>
 
         <div class="teaser__content">
+            {% if preKicker %}<span class="h-offscreen" data-iefix="teaser__prekicker--fixed-for-ie"><strong>{{ preKicker }}</strong></span>{% endif %}
             <h4 class="teaser__kicker">{{ teaser.kicker|default('') }}</h4>
             <h3 class="teaser__title">{{ teaser.title|default('') }}</h3>
             <p class="teaser__lead">{{ teaser.lead|default('') }}</p>
@@ -26,6 +27,14 @@
                 'text': status|default('')
             } %}
         </div>
+
+
+        {% if teaser.opinion is defined %}
+        <div class="teaser__opinion">
+            {% include 'atoms-image' with { 'styleModifier': 'image--circle image--profile-picture-small' } %}
+            {% include 'atoms-person-details' %}
+        </div>
+        {% endif %}
     </a>
 
     {# space for teaser-links #}

@@ -9,33 +9,74 @@ export function init() {
     objectFitForIE();
 
     replaceSVGLogoForIE();
+
+    addFixedforIEClass();
 }
 
+function copyPropertiesFromOldImage(oldImg, fakeImg, objectFitVal) {
+    let imageSource = oldImg.src,
+        imageClasses = oldImg.className;
+
+    oldImg.style.display = 'none';
+
+    if (imageSource.indexOf('Placeholder-16to9.svg') < 0) {
+        fakeImg.style.backgroundSize = objectFitVal;
+    }
+    fakeImg.style.backgroundImage = 'url(' + imageSource + ')';
+    fakeImg.style.backgroundPosition = 'center center';
+    fakeImg.style.backgroundRepeat = 'no-repeat';
+    fakeImg.className = imageClasses + ' js-fake-image-object-fit';
+
+}
+function getObjectFitValue(elem) {
+    let objectFitVal = 'contain';
+
+    if (  elem.currentStyle ) {
+        objectFitVal = elem.currentStyle.getAttribute('object-fit');
+    }
+
+    return objectFitVal;
+
+}
+
+export function polyfillObjectFit(element) {
+
+    //only do something if there is no objectFit
+    if ('objectFit' in document.documentElement.style ) {
+        return;
+    }
+
+    // only do something if there's an image.
+    if (!element) {
+        return;
+    }
+    //only do something if the image has a src
+    if (!element.getAttribute('src')) {
+        return;
+    }
+
+    let objectFitVal = getObjectFitValue(element);
+
+    if (objectFitVal === 'contain' || objectFitVal === 'cover') {
+
+        let fakeImg = document.createElement('div');
+
+        element.parentNode.insertBefore(fakeImg, element.parentNode.childNodes[0]);
+
+        element.addEventListener('load', event => {
+            let oldImg = event.currentTarget,
+                fakeImg = oldImg.parentElement.getElementsByClassName('js-fake-image-object-fit')[0],
+                objectFitVal = getObjectFitValue(oldImg);
+
+            copyPropertiesFromOldImage(oldImg, fakeImg, objectFitVal);
+        });
+
+        copyPropertiesFromOldImage(element, fakeImg, objectFitVal);
+
+    }
+
+}
 function objectFitForIE() {
-    let copyPropertiesFromOldImage = (oldImg, fakeImg, objectFitVal) => {
-            let imageSource = oldImg.src,
-                imageClasses = oldImg.className;
-
-            oldImg.style.display = 'none';
-
-            if (imageSource.indexOf('Placeholder-16to9.svg') < 0) {
-                fakeImg.style.backgroundSize = objectFitVal;
-            }
-            fakeImg.style.backgroundImage = 'url(' + imageSource + ')';
-            fakeImg.style.backgroundPosition = 'center center';
-            fakeImg.style.backgroundRepeat = 'no-repeat';
-            fakeImg.className = imageClasses + ' js-fake-image-object-fit';
-        },
-        getObjectFitValue = elem => {
-            let objectFitVal = 'contain';
-
-            if ( elem.currentStyle ) {
-                objectFitVal = elem.currentStyle.getAttribute('object-fit');
-            }
-
-            return objectFitVal;
-        };
-
 
     /*
     * TARGETED BROWSER: IE 11 and Edge <= 15
@@ -64,26 +105,26 @@ function objectFitForIE() {
             containers = document.querySelectorAll( relevantClasses.join(', ') );
 
         for (let i = 0; i < containers.length; i++) {
-            let oldImg = containers[i].querySelector('img'),
-                objectFitVal = getObjectFitValue(oldImg);
+            polyfillObjectFit(containers[i].querySelector('img'));
+        }
+    }
+}
 
-            if (objectFitVal === 'contain' || objectFitVal === 'cover') {
 
-                let fakeImg = document.createElement('div');
+/*
+ * TARGETED BROWSER: IE 11
+ *
+ * This one adds the value of a data-attribute named "ie-fix" to the class-list of this element – if the user agent is IE11.
+ */
 
-                oldImg.parentNode.insertBefore(fakeImg, oldImg.parentNode.childNodes[0]);
+function addFixedforIEClass() {
+    if (navigator.userAgent.indexOf('MSIE')!==-1 || navigator.appVersion.indexOf('Trident/') > 0) {
+        const dataAttr = 'data-iefix';
+        let elementsToFix = document.querySelectorAll('['+dataAttr+']');
 
-                oldImg.addEventListener('load', event => {
-                    let oldImg = event.currentTarget,
-                        fakeImg = oldImg.parentElement.getElementsByClassName('js-fake-image-object-fit')[0],
-                        objectFitVal = getObjectFitValue(oldImg);
-
-                    copyPropertiesFromOldImage(oldImg, fakeImg, objectFitVal);
-                });
-
-                copyPropertiesFromOldImage(oldImg, fakeImg, objectFitVal);
-
-            }
+        for(let i = 0; i < elementsToFix.length; ++i) {
+            let ieFixClassName = elementsToFix[i].getAttribute(dataAttr);
+            elementsToFix[i].classList.add(ieFixClassName);
         }
     }
 }

@@ -76,6 +76,16 @@
     } %}
 </div>
 
+<h2>Theme Breaking</h2>
+
+<div class='js-togglable-wrapper togglable-wrapper'>
+    {% include 'molecules-teaser' with {
+        "styleModifier": "teaser--theme-breaking",
+        "preKicker": "Breaking",
+        "teaser": collections[0].teasers[0]
+    } %}
+</div>
+
 <h2>Theme Dark</h2>
 
 <div class='js-togglable-wrapper togglable-wrapper'>
@@ -107,6 +117,54 @@
     } %}
 </div>
 
+<div class="js-togglable-wrapper togglable-wrapper">
+    {% include 'molecules-teaser' with {
+        'styleModifier': 'teaser--size-s teaser--theme-dark',
+        'teaser': collections[0].teasers[0],
+        'status': 'Vor 5 Minuten',
+        'styleModifierStatus': 'teaser-status--new'
+    } %}
+</div>
+
+<div class="js-togglable-wrapper togglable-wrapper">
+    {% include 'molecules-teaser' with {
+        'styleModifier': 'teaser--size-s teaser--theme-breaking',
+        'preKicker': 'Breaking',
+        'teaser': collections[0].teasers[0],
+        'status': 'Vor 5 Minuten',
+        'styleModifierStatus': 'teaser-status--new'
+    } %}
+</div>
+
+<h3>New and updated</h3>
+
+<div class="js-togglable-wrapper togglable-wrapper">
+    {% include 'molecules-teaser' with {
+        'styleModifier': 'teaser--size-m',
+        'teaser': collections[0].teasers[0],
+        'status': 'Vor 5 Minuten',
+        'styleModifierStatus': 'teaser-status--new-and-updated'
+    } %}
+</div>
+
+<div class="js-togglable-wrapper togglable-wrapper">
+    {% include 'molecules-teaser' with {
+        'styleModifier': 'teaser--size-m teaser--theme-dark',
+        'teaser': collections[0].teasers[0],
+        'status': 'Vor 5 Minuten',
+        'styleModifierStatus': 'teaser-status--new-and-updated'
+    } %}
+</div>
+
+<div class="js-togglable-wrapper togglable-wrapper">
+    {% include 'molecules-teaser' with {
+        'styleModifier': 'teaser--size-m teaser--theme-breaking',
+        'preKicker': 'Breaking',
+        'teaser': collections[0].teasers[0],
+        'status': 'Vor 5 Minuten',
+        'styleModifierStatus': 'teaser-status--new-and-updated'
+    } %}
+</div>
 
 <h3>Visited</h3>
 
@@ -130,11 +188,60 @@
     } %}
 </div>
 
+<div class="js-togglable-wrapper togglable-wrapper">
+    {% include 'molecules-teaser' with {
+        'styleModifier': 'teaser--size-l teaser--theme-dark',
+        'teaser': collections[0].teasers[0],
+        'status': 'Gesehen',
+        'styleModifierStatus': 'teaser-status--visited'
+    } %}
+</div>
+
+<div class="js-togglable-wrapper togglable-wrapper">
+    {% include 'molecules-teaser' with {
+        'styleModifier': 'teaser--size-l teaser--theme-breaking',
+        'preKicker': 'Breaking',
+        'teaser': collections[0].teasers[0],
+        'status': 'Gesehen',
+        'styleModifierStatus': 'teaser-status--visited'
+    } %}
+</div>
+
 <h3>Visited with updates</h3>
 
 <div class="js-togglable-wrapper togglable-wrapper">
     {% include 'molecules-teaser' with {
         'styleModifier': 'teaser--size-xl',
+        'teaser': collections[0].teasers[0],
+        'status': 'Vor 5 Minuten',
+        'styleModifierStatus': 'teaser-status--visited-and-updated'
+    } %}
+</div>
+
+<div class="js-togglable-wrapper togglable-wrapper">
+    {% include 'molecules-teaser' with {
+        'styleModifier': 'teaser--size-xl teaser--theme-dark',
+        'teaser': collections[0].teasers[0],
+        'status': 'Vor 5 Minuten',
+        'styleModifierStatus': 'teaser-status--visited-and-updated'
+    } %}
+</div>
+
+<div class="js-togglable-wrapper togglable-wrapper">
+    {% include 'molecules-teaser' with {
+        'styleModifier': 'teaser--size-xl teaser--theme-breaking',
+        'preKicker': 'Breaking',
+        'teaser': collections[0].teasers[0],
+        'status': 'Vor 5 Minuten',
+        'styleModifierStatus': 'teaser-status--visited-and-updated'
+    } %}
+</div>
+
+<h3>With opinion</h3>
+
+<div class="js-togglable-wrapper togglable-wrapper">
+    {% include 'molecules-teaser' with {
+        'styleModifier': 'teaser--size-m',
         'teaser': collections[0].teasers[0],
         'status': 'Vor 5 Minuten',
         'styleModifierStatus': 'teaser-status--visited-and-updated'
