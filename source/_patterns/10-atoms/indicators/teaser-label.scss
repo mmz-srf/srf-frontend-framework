@@ -21,6 +21,9 @@
   .teaser__label-box {
     animation: pulsatingLiveAnimation 3s infinite ease-in-out;
   }
+  .teaser__label-box--time {
+    display: none;
+  }
 }
 
 .teaser__label--pre {
@@ -51,6 +54,14 @@
 
 .teaser__label-box--type {
   text-transform: uppercase;
+}
+
+/* Teaser Size S */
+
+.teaser--size-s {
+  .teaser__label--pre {
+    display: none;
+  }
 }
 
 /* Teaser Size M */
