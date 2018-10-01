@@ -323,3 +323,12 @@
 @mixin calculateTeaserFlexBasis($nr-of-rows, $gutter) {
   flex-basis: calc((100% - #{$nr-of-rows - 1} * #{$gutter}) / #{$nr-of-rows + 0.001});
 }
+
+/* example: @include customPropWithFallback('color', '--teaser-color-status-updated', $color-text-light); */
+@mixin customPropWithFallback($prop, $customprop, $fallback-value) {
+  #{$prop}: #{$fallback-value};
+
+  @supports (--srf: cool) {
+    #{$prop}: var(#{$customprop}, #{$fallback-value});
+  }  
+}

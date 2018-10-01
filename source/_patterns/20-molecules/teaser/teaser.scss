@@ -9,13 +9,10 @@
   position: relative; // to position the pseudo elements
   border-radius: 2px;
   overflow: hidden; // to cut off image with border radius
-  color: $color-text-default;
-  background-color: $color-bg-card;
 
-  @supports (--foo: bar) {
-    color: var(--teaser-color-text, $color-text-default);
-    background-color: var(--teaser-color-background, $color-bg-card);
-  }
+  /* theme */
+  @include customPropWithFallback('color', '--teaser-color-text', $color-text-default);
+  @include customPropWithFallback('background-color', '--teaser-color-background', $color-bg-card);
 
   box-shadow: $shadow-elevation1;
   // sass-lint:disable indentation
@@ -46,12 +43,11 @@
     height: 100%;
     width: 100%;
     pointer-events: none;
-    // performance improvement: Don't animate the background-color, but the opacity
-    background-color: $color-bg-button-hover;
 
-    @supports (--foo: bar) {
-      background-color: var(--teaser-color-overlay, $color-bg-button-hover);
-    }
+    // performance improvement: Don't animate the background-color, but the opacity
+
+    /* theme */
+    @include customPropWithFallback('background-color', '--teaser-color-overlay', $color-bg-button-hover);
 
     opacity: 0;
     transition: opacity .2s ease-in-out;
@@ -133,14 +129,13 @@
   color: $color-accentuation-red;
   word-wrap: break-word; // Enforce breaking words for IE11
 
-  @supports (--foo: bar) {
-    color: var(--teaser-color-accentuation, $color-accentuation-red);
-  }
-
+  /* theme */
+  @include customPropWithFallback('color', '--teaser-color-accentuation', $color-accentuation-red);
   > * {
     flex: 0 1 auto;
     margin-right: 8px;
   }
+
 }
 
 /* lift kicker-text up 1px if there is a label … */
@@ -161,9 +156,8 @@
   color: $color-text-default;
   word-wrap: break-word; // Enforce breaking words for IE11
 
-  @supports (--foo: bar) {
-    color: var(--teaser-color-text, $color-text-default);
-  }
+  /* theme */
+  @include customPropWithFallback('color', '--teaser-color-title', $color-text-default);
 }
 
 .teaser__lead {
@@ -176,10 +170,47 @@
   font-stretch: normal;
   line-height: 1.25;
   letter-spacing: 0.4px;
-  color: $color-text-default;
 
-  @supports (--foo: bar) {
-    color: var(--teaser-color-text, $color-text-default);
+  /* theme */
+  @include customPropWithFallback('color', '--teaser-color-text', '#383732');
+}
+
+.teaser__live {
+  display: inline-block;
+  margin: 0 8px 2px 0;
+  padding: 1px 6px;
+  background-color: $color-srf-light;
+  font-family: $font-medium;
+  font-size: 12px;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.33;
+  letter-spacing: normal;
+  color: #ffffff;
+  text-transform: uppercase;
+  animation: pulsatingLiveAnimation 3s infinite ease-in-out;
+  @include font-smoothing;
+
+  @include tablet-up {
+    position: absolute;
+    top: 16px;
+  }
+
+  @include desktop-up {
+    font-size: 16px;
+  }
+
+  @include desktop-wide {
+    top: 24px;
+  }
+
+  .svg-icon {
+    margin: 2px 4px -2px 0;
+
+    @include desktop-up {
+      margin: 3px 6px -3px 0;
+    }
   }
 }
 
@@ -445,6 +476,11 @@
 
     @include tablet-up {
       flex-basis: 100%;
+    }
+
+    @include desktop-up {
+      font-size: 18px;
+      line-height: 1.33;
     }
   }
 
