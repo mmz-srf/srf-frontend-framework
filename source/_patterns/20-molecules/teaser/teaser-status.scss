@@ -91,6 +91,7 @@
   @include customPropWithFallback('color', '--teaser-color-status-visited', $color-button-success);
 
   .teaser-status__content:before {
+    background-image: url(../img/seen_blue.svg);
     animation: none;
 
     /* fallback */
