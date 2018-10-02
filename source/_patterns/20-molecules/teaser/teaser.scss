@@ -383,7 +383,7 @@
       line-height: 1.33;
 
       /* theme */
-      @include customPropWithFallback('color', '--teaser-color-text', '$color-media-playing');
+      @include customPropWithFallback('color', '--teaser-color-text', $color-media-playing);
     }
   }
 
