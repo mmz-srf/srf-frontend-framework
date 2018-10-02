@@ -37,10 +37,12 @@
 .teaser-status--new,
 .teaser-status--visited-and-recently-updated,
 .teaser-status--visited,
-.teaser-status--visited-and-updated {
+.teaser-status--visited-and-updated,
+.teaser-status-live--pre,
+.teaser-status-live--live {
   display: flex;
 }
-
+.teaser-status-live--live,
 .teaser-status--new {
   /* theme */
   @include customPropWithFallback('color', '--teaser-color-status-new', $color-srf-light);
