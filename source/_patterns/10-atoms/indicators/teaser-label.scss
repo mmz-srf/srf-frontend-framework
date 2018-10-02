@@ -1,0 +1,143 @@
+.teaser__label {
+  display: flex;
+  font-family: $font-medium;
+  font-size: 12px;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.33;
+  letter-spacing: normal;
+}
+
+.teaser__label--breaking,
+.teaser__label--live {
+  .teaser__label-box {
+    background-color: $color-srf-light;
+    color: #ffffff;
+    @include font-smoothing;
+  }
+}
+.teaser__label--live {
+  .teaser__label-box {
+    animation: pulsatingLiveAnimation 3s infinite ease-in-out;
+  }
+  .teaser__label-box--time {
+    display: none;
+  }
+}
+
+.teaser__label--pre {
+  .teaser__label-box {
+    background-color: rgba(255,255,255,.8);
+    color: #4e4d47;
+    backdrop-filter: blur(2px);
+  }
+}
+
+.teaser__label-box {
+  flex: 0 0 auto;
+  justify-content: flex-start;
+
+  display: flex;
+  margin-right: 1px;
+  padding: 2px 6px 1px;
+
+  .svg-icon {
+    margin: 1px 4px 0 0;
+  }
+
+  .svg-icon,
+  .teaser__label-type {
+    flex: 0 1 auto;
+  }
+}
+
+.teaser__label-box--type {
+  text-transform: uppercase;
+}
+
+/* Teaser Size S */
+
+.teaser--size-s {
+  .teaser__label--pre {
+    display: none;
+  }
+}
+
+/* Teaser Size M */
+.teaser--size-m {
+  .teaser__label {
+    @include desktop-up {
+      font-size: 16px;
+    }
+  }
+
+  .svg-icon {
+    @include desktop-up {
+      margin: 2px 4px 0 0;
+    }
+  }
+}
+
+/* Teaser Size L and XL */
+.teaser--size-l,
+.teaser--size-xl {
+  .teaser__label {
+    font-size: 16px;
+  }
+
+  .svg-icon {
+    margin: 2px 4px 0 0;
+  }
+}
+
+/* Positioning */
+.teaser.teaser--size-m,
+.teaser.teaser--size-l,
+.teaser.teaser--size-xl {
+  .teaser__label {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+  }
+}
+
+.teaser.teaser--size-m {
+  .teaser__label {
+    @include desktop-wide {
+      top: 24px;
+      left: 24px;
+    }
+  }
+}
+
+.teaser.teaser--size-l {
+  .teaser__label {
+    @include desktop-up {
+      top: 24px;
+      left: 24px;
+    }
+  }
+}
+
+.teaser.teaser--size-xl {
+  .teaser__label {
+    @include tablet-up {
+      top: 24px;
+      left: 24px;
+    }
+  }
+}
+
+/* Reset if teaser-size is an «S» on mobile */
+.teaser.teaser--size-m.teaser--size-s-on-mobile,
+.teaser.teaser--size-l.teaser--size-s-on-mobile,
+.teaser.teaser--size-xl.teaser--size-s-on-mobile {
+  .teaser__label {
+    @include smartphone {
+      position: static;
+      top: auto;
+      left: auto;
+    }
+  }
+}
