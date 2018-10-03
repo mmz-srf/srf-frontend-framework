@@ -72,10 +72,10 @@
 .teaser__medium-wrapper {
   flex: 0 0 80px;
   margin: 16px 16px 16px 0;
+  color: transparent; // hide alt-text in case image is broken
   position: relative; // for positioning ::pseudo elements
-  width: 80px;
-  height: 0;
-  padding-bottom: 80px;
+  background-color: #dadad2;
+  align-self: start;
 
   // border on top of the images
   &::after {
@@ -84,7 +84,6 @@
     content: '';
     width: 100%;
     height: 100%;
-    background-color: #dadad2;
     top: 0;
     left: 0;
     box-sizing: border-box;
@@ -92,13 +91,8 @@
 }
 
 .teaser__medium {
-  object-fit: cover;
   width: 80px;
   height: 80px;
-  position: absolute;
-  z-index: 1;
-
-  @include forceAspectRatio('1:1');
 }
 
 .teaser__content {
@@ -115,6 +109,9 @@
 }
 
 .teaser__kicker {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
   margin: 0 0 4px;
   font-family: $font-regular;
   font-size: 14px;
@@ -128,6 +125,17 @@
 
   /* theme */
   @include customPropWithFallback('color', '--teaser-color-accentuation', $color-accentuation-red);
+  > * {
+    flex: 0 1 auto;
+    margin-right: 8px;
+  }
+
+}
+
+/* lift kicker-text up 1px if there is a label … */
+.teaser__label ~ .teaser__kicker-text {
+  position: relative;
+  top: -1px;
 }
 
 .teaser__title {
@@ -146,12 +154,13 @@
   @include customPropWithFallback('color', '--teaser-color-title', $color-text-default);
 }
 
-.teaser__lead {
+.teaser__lead,
+.teaser__media-caption {
   margin: 12px 0 0;
   display: none;
   font-family: $font-light;
   font-size: 16px;
-  font-weight: 300;
+  font-weight: normal;
   font-style: normal;
   font-stretch: normal;
   line-height: 1.25;
@@ -159,6 +168,24 @@
 
   /* theme */
   @include customPropWithFallback('color', '--teaser-color-text', '#383732');
+}
+
+.teaser__media-caption {
+  font-size: 12px;
+  line-height: 1.2;
+  color: $color-text-light;
+}
+
+.teaser__media-duration {
+  display: none;
+}
+
+.teaser__media-duration,
+.teaser__media-source {
+  strong {
+    font-family: $font-medium;
+    color: $color-text-default;
+  }
 }
 
 .teaser__live {
@@ -173,7 +200,7 @@
   font-stretch: normal;
   line-height: 1.33;
   letter-spacing: normal;
-  color: #ffffff;
+  color: #fff;
   text-transform: uppercase;
   animation: pulsatingLiveAnimation 3s infinite ease-in-out;
   @include font-smoothing;
@@ -219,10 +246,12 @@
   .teaser__medium-wrapper {
     border-radius: 2px;
     overflow: hidden;
+    flex-basis: 80px;
+    height: 80px;
 
     @include desktop-up {
       flex-basis: 94px;
-      padding-bottom: 94px;
+      height: 94px;
     }
 
     &::after {
@@ -261,6 +290,10 @@
       line-height: 1.33;
     }
   }
+
+  .teaser__media-duration {
+    display: inline;
+  }
 }
 
 /* M-TEASER
@@ -277,8 +310,8 @@
     margin: 0;
     border-radius: 2px;
     overflow: hidden;
-    padding-bottom: 56.25%; //16:9 ratio
     width: 100%;
+    flex-basis: auto;
 
     &::after {
       border-radius: 0;
@@ -287,10 +320,8 @@
   }
 
   .teaser__medium {
-    height: auto;
     width: 100%;
-
-    @include forceAspectRatio('16:9');
+    height: auto;
   }
 
   .teaser__content {
@@ -330,8 +361,6 @@
   .teaser__medium {
     height: auto;
     width: 100%;
-
-    @include forceAspectRatio('16:9');
   }
 
   .teaser__content {
@@ -344,7 +373,6 @@
 
   .teaser__medium-wrapper {
     margin: 0;
-    padding-bottom: 56.25%; //16:9 ratio
     width: 100%;
 
     &::after {
@@ -366,7 +394,9 @@
     @include desktop-up {
       font-size: 18px;
       line-height: 1.33;
-      color: $color-media-playing;
+
+      /* theme */
+      @include customPropWithFallback('color', '--teaser-color-text', $color-media-playing);
     }
   }
 
@@ -409,16 +439,14 @@
   .teaser__medium {
     height: 100%;
     width: 100%;
-
-    @include forceAspectRatio('16:9');
+    position: absolute;
   }
 
   .teaser__medium-wrapper {
     margin: 0;
-    padding-bottom: 37%; //16:9 ratio out of 65.75% percent image / text ratio
 
     @include smartphone {
-      padding-bottom: 56.25%; //16:9 ratio
+      height: auto;
       width: 100%;
       &::after {
         border-bottom: solid 1px rgba(0, 0, 0, 0.04);
@@ -426,6 +454,8 @@
     }
 
     @include tablet-up {
+      height: 100%;
+
       &::after {
         border-right: solid 1px rgba(0, 0, 0, 0.04);
       }
@@ -527,12 +557,17 @@
       display: none;
     }
 
+    .teaser__medium {
+      height: 80px;
+    }
+
     .teaser__medium-wrapper {
       margin: 16px 16px 16px 0;
       border-radius: 2px;
       overflow: hidden;
-      width: 80px;
-      padding-bottom: 80px;
+      flex-basis: 80px;
+      height: 80px;
+
       &::after {
         border-radius: 2px;
         border: solid 1px rgba(0, 0, 0, 0.04);
@@ -540,12 +575,8 @@
       }
     }
 
-    .teaser__medium {
-      object-fit: cover;
-      width: 80px;
-      height: 80px;
-
-      @include forceAspectRatio("1:1");
+    .teaser__media-duration {
+      display: inline;
     }
 
     .teaser__opinion {
@@ -564,6 +595,51 @@
 .teaser--static {
   width: 100%;
   overflow: hidden;
+}
+
+.teaser--with-medium {
+  .teaser__lead.teaser__lead {
+    display: none;
+  }
+
+  .teaser__media-caption {
+    display: flex;
+    flex-grow: 1;
+    align-items: flex-end;
+  }
+
+  /* overriding position/size of media still time indicators */
+  &.teaser--size-s {
+    --media-time-indicator-display: none;
+  }
+
+  &.teaser--size-s-on-mobile {
+    @include smartphone {
+      --media-time-indicator-display: none;
+    }
+  }
+
+  &.teaser--size-l {
+    @include desktop-up {
+      --media-time-indicator-font-size: 16px;
+    }
+  }
+
+  &.teaser--size-xl {
+    @include tablet-up {
+      --media-time-indicator-bottom: 20px;
+      --media-time-indicator-right: 20px;
+    }
+
+    @include desktop-up {
+      --media-time-indicator-font-size: 16px;
+    }
+
+    @include desktop-wide {
+      --media-time-indicator-bottom: 26px;
+      --media-time-indicator-right: 26px;
+    }
+  }
 }
 
 .teaser--longform {

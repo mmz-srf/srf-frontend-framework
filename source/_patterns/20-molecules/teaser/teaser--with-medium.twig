@@ -1,0 +1,34 @@
+{% set mediumType = mediumType|default(random(['audio', 'video'])) %}
+<div class="teaser teaser--with-medium js-medium-hover {{ styleModifier|default('teaser--size-m teaser--size-s-on-mobile') }}">
+    <a class="teaser__main" href="{{ teaser.link|default('#') }}">
+
+        {% embed "ratio.twig" with {
+            'class': 'teaser__medium-wrapper',
+            'ratio': '16:9'
+        } %}
+            {% block ratio_content %}
+                <div class="teaser__medium">
+                    {% include 'molecules-media-still--dynamic' with { 'styleModifier': '', 'mediumType': mediumType } %}
+                </div>
+            {% endblock %}
+        {% endembed %}
+
+        <div class="teaser__content-shimmer h-loading-only">
+            {% include 'atoms-shimmer' with {'styleModifier': 'shimmer--overline'} %}
+            {% include 'atoms-shimmer' with {'styleModifier': ''} %}
+            {% include 'atoms-shimmer' with {'styleModifier': ''} %}
+            {% include 'atoms-shimmer' with {'styleModifier': 'shimmer--short'} %}
+        </div>
+
+        <div class="teaser__content">
+            <h4 class="teaser__kicker">{{ teaser.kicker|default('') }}</h4>
+            <h3 class="teaser__title">{{ teaser.title|default('') }}</h3>
+            <p class="teaser__media-caption">
+                <span class="teaser__media-caption-content">
+                    <span class="teaser__media-duration"><strong>01:23</strong> min,</span>
+                    <span class="teaser__media-source"><strong>100 Sekunden Wissen</strong> vom 8.2.2018</span>
+                </span>
+            </p>
+        </div>
+    </a>
+</div>

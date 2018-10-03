@@ -13,6 +13,19 @@
 
 {% include 'atoms-button' with {'buttonText' : 'Max-Width setzen', 'styleModifier': 'js-toggle-maxWidth'} %}
 
+
+<div class="js-togglable-wrapper togglable-wrapper">
+    {% include 'molecules-teaser' with {
+        'styleModifier': 'teaser--size-m',
+        'teaser': collections[0].teasers[0],
+        'status': 'Vor 5 Minuten',
+        'live_type': 'Livestream',
+        'live_time': 'um 13:37',
+        'styleModifierLive': 'teaser-status-live--pre'
+    } %}
+</div>
+
+
 <h2>S-Teaser</h2>
 
 <div class="js-togglable-wrapper togglable-wrapper">
@@ -71,7 +84,7 @@
 
 <div class='js-togglable-wrapper togglable-wrapper'>
     {% include 'molecules-teaser' with {
-        "styleModifier": "teaser--no-translate",
+        "styleModifier": "teaser--size-s teaser--no-translate",
         "teaser": collections[0].teasers[0]
     } %}
 </div>
@@ -90,7 +103,7 @@
 
 <div class='js-togglable-wrapper togglable-wrapper'>
     {% include 'molecules-teaser' with {
-        "styleModifier": "teaser--theme-dark",
+        "styleModifier": "teaser--size-s teaser--theme-dark",
         "teaser": collections[0].teasers[0]
     } %}
 </div>
@@ -103,6 +116,85 @@
         'teaser': collections[0].teasers[0]
     } %}
 </div>
+
+
+<h2>Liveness</h2>
+
+<h3>Prelive Stream</h3>
+
+<div class="js-togglable-wrapper togglable-wrapper">
+    {% include 'molecules-teaser' with {
+        'styleModifier': 'teaser--size-s',
+        'teaser': collections[0].teasers[0],
+        'status': 'Vor 5 Minuten',
+        'live_type': 'Livestream',
+        'live_time': 'um 13:37',
+        'styleModifierLive': 'teaser-status-live--pre'
+    } %}
+</div>
+
+<h3>Prelive Ticker</h3>
+
+<div class="js-togglable-wrapper togglable-wrapper">
+    {% include 'molecules-teaser' with {
+        'styleModifier': 'teaser--size-s',
+        'teaser': collections[0].teasers[0],
+        'status': 'Vor 5 Minuten',
+        'live_type': 'Liveticker',
+        'live_time': 'um 13:37',
+        'styleModifierLive': 'teaser-status-live--pre'
+    } %}
+</div>
+
+<h3>Live Stream</h3>
+
+<div class="js-togglable-wrapper togglable-wrapper">
+    {% include 'molecules-teaser' with {
+        'styleModifier': 'teaser--size-s',
+        'teaser': collections[0].teasers[0],
+        'status': 'Vor 5 Minuten',
+        'live_type': 'Livestream',
+        'live_time': 'seit 2 Stunden',
+        'styleModifierLive': 'teaser-status-live--live'
+    } %}
+</div>
+
+<h3>Live Ticker</h3>
+
+<div class="js-togglable-wrapper togglable-wrapper">
+    {% include 'molecules-teaser' with {
+        'styleModifier': 'teaser--size-s',
+        'teaser': collections[0].teasers[0],
+        'status': 'Vor 5 Minuten',
+        'live_type': 'Liveticker',
+        'live_time': 'seit 2 Stunden',
+        'styleModifierLive': 'teaser-status-live--live'
+    } %}
+</div>
+
+<div class="js-togglable-wrapper togglable-wrapper">
+    {% include 'molecules-teaser' with {
+        'styleModifier': 'teaser--size-m',
+        'teaser': collections[0].teasers[0],
+        'status': 'Vor 5 Minuten',
+        'live_type': 'Liveticker',
+        'live_time': 'seit 2 Stunden',
+        'styleModifierLive': 'teaser-status-live--live'
+    } %}
+</div>
+
+<div class="js-togglable-wrapper togglable-wrapper">
+    {% include 'molecules-teaser' with {
+        'styleModifier': 'teaser--size-xl',
+        'teaser': collections[0].teasers[0],
+        'status': 'Vor 5 Minuten',
+        'live_type': 'Livestream',
+        'live_time': 'seit 18 Minuten',
+        'styleModifierLive': 'teaser-status-live--live'
+    } %}
+</div>
+
+
 
 <h2>Status</h2>
 
@@ -174,6 +266,17 @@
         'teaser': collections[0].teasers[0],
         'status': 'Gesehen',
         'styleModifierStatus': 'teaser-status--visited'
+    } %}
+</div>
+
+<h3>Visited with updates in the last 2 hours</h3>
+
+<div class="js-togglable-wrapper togglable-wrapper">
+    {% include 'molecules-teaser' with {
+        'styleModifier': 'teaser--size-m',
+        'teaser': collections[0].teasers[0],
+        'status': 'Vor 5 Minuten',
+        'styleModifierStatus': 'teaser-status--visited-and-recently-updated'
     } %}
 </div>
 

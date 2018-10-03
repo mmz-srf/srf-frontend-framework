@@ -97,10 +97,10 @@ function objectFitForIE() {
                 '.article-media--image',
                 '.article-teaser__wrapper',
                 '.carousel__item',
-                '.media-still__image',
                 '.poll-media--image',
                 '.listing-item__media',
-                '.teaser__medium-wrapper'
+                '.media-still__image',
+                '.teaser:not(.teaser--with-medium) .teaser__medium-wrapper' // teaser--with-medium do also contain a media-still__image!
             ],
             containers = document.querySelectorAll( relevantClasses.join(', ') );
 
