@@ -22,6 +22,7 @@
 /* COMMON SETTINGS FOR ALL THEMES EXCEPT DEFAULT */
 .teaser.teaser--theme-dark {
   --teaser-color-background: #22211d;
+  --teaser-color-text: #FFF;
   --teaser-color-text: #ffffff;
   --teaser-color-title: #ffffff;
   --teaser-color-accentuation: #dadad2;
@@ -44,6 +45,6 @@
   --teaser-color-status-visited: #ffffff;
   --teaser-color-status-updated: #ffffff;
   /* NOTE: There are some assets too, but those can't be linked with custom properties here (propably 'cause of gulp or something) and are therefore declared directly in the scss with the corresponding classes -> see teaser-status.scss */
-  
+
   @include font-smoothing;
 }
