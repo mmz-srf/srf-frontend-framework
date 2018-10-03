@@ -1,4 +1,4 @@
-import {setFocus} from '../srf-flying-focus';
+import {setFocus} from '../components/fef-flying-focus';
 
 export function init() {
     $('.js-search').each((i, elem) => {
