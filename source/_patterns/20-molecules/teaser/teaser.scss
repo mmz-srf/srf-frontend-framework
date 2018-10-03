@@ -6,7 +6,7 @@
 .teaser {
   display: flex;
   flex-grow: 1;
-  position: relative; // to position the pseudo elements
+  flex-direction: column;
   border-radius: 2px;
   overflow: hidden; // to cut off image with border radius
 
@@ -36,6 +36,16 @@
     box-shadow: none;
   }
 
+}
+
+.teaser__main {
+  display: flex;
+  flex-direction: row-reverse;
+  flex-grow: 1;
+  width: 100%;
+  flex-wrap: wrap;
+  position: relative; // to position the pseudo elements
+
   /* Teasers have an invisible layer on top that gets sligthly opaque when active/focused */
   &::after {
     position: absolute;
@@ -59,14 +69,6 @@
       opacity: 1;
     }
   }
-}
-
-.teaser__main {
-  display: flex;
-  flex-direction: row-reverse;
-  flex-grow: 1;
-  width: 100%;
-  flex-wrap: wrap;
 }
 
 .teaser__medium-wrapper {
@@ -212,6 +214,10 @@
       margin: 3px 6px -3px 0;
     }
   }
+}
+
+.teaser__links {
+  margin: 0 -8px 0 16px;
 }
 
 .teaser__opinion {

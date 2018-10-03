@@ -44,13 +44,26 @@
         </div>
 
 
-        {% if teaser.opinion is defined %}
+        {% if teaser.opinionXXXX is defined %}
         <div class="teaser__opinion">
             {% include 'atoms-image' with { 'styleModifier': 'image--circle image--profile-picture-small' } %}
             {% include 'atoms-person-details' %}
         </div>
         {% endif %}
+
     </a>
 
-    {# space for teaser-links #}
+    <div class="teaser__links">
+        {% include 'atoms-block-link' with { 'styleModifier': 'block-link--teaser-link' } %}
+        {% include 'atoms-block-link' with { 'styleModifier': 'block-link--teaser-link' } %}
+        {% include 'atoms-block-link' with { 'styleModifier': 'block-link--teaser-link' } %}
+        {% include 'atoms-block-link' with { 'styleModifier': 'block-link--teaser-link' } %}
+        {% include 'atoms-block-link' with { 'styleModifier': 'block-link--teaser-link block-link--audio' } %}
+        {% include 'atoms-block-link' with { 'styleModifier': 'block-link--teaser-link block-link--audio' } %}
+        {% include 'atoms-block-link' with { 'styleModifier': 'block-link--teaser-link block-link--audio' } %}
+        {% include 'atoms-block-link' with { 'styleModifier': 'block-link--teaser-link block-link--video' } %}
+        {% include 'atoms-block-link' with { 'styleModifier': 'block-link--teaser-link block-link--video' } %}
+        {% include 'atoms-block-link' with { 'styleModifier': 'block-link--teaser-link block-link--video' } %}
+    </div>
+
 </div>
