@@ -89,6 +89,8 @@
 }
 
 .svg-icon--play-video-circle-white {
+  background-image: url(../img/icon/play-video-circle-white.svg);
+
   &.svg-icon--small {
     background-image: url(../img/icon/play-video-circle-white-small.svg);
   }
@@ -104,4 +106,12 @@
   @include desktop-up {
     background-image: url(../img/icon/play-video-circle-white-small.svg);
   }
+}
+
+.svg-icon--play-audio-circle {
+  background-image: url(../img/icon/play-audio-circle.svg);
+}
+
+.svg-icon--play-audio-circle-white {
+  background-image: url(../img/icon/play-audio-circle-white.svg);
 }
