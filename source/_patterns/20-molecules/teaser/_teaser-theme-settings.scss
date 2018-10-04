@@ -16,6 +16,9 @@
   --teaser-color-status-new: #{$color-srf-light};
   --teaser-color-status-visited: #{$color-button-success};
   --teaser-color-status-updated: #{$color-text-light};
+  --teaser-border-color-link: rgba(0,0,0,.08);
+  --teaser-background-link-hover: rgb(246,246,243);
+  --teaser-background-link-active: rgb(237,237,234);
   /* NOTE: There are some assets too, but those can't be linked with custom properties here (propably 'cause of gulp or something) and are therefore declared directly in the scss with the corresponding classes -> see teaser-status.scss */
 }
 
@@ -29,6 +32,9 @@
   --teaser-color-status-new: #ffffff;
   --teaser-color-status-visited: #ffffff;
   --teaser-color-status-updated: #ffffff;
+  --teaser-border-color-link: rgba(255,255,255,.08);
+  --teaser-background-link-hover: rgba(255,255,255,.08);
+  --teaser-background-link-active: rgba(255,255,255,.24);
   /* NOTE: There are some assets too, but those can't be linked with custom properties here (propably 'cause of gulp or something) and are therefore declared directly in the scss with the corresponding classes -> see teaser-status.scss */
 
   @include font-smoothing;
@@ -43,6 +49,9 @@
   --teaser-color-status-new: #ffffff;
   --teaser-color-status-visited: #ffffff;
   --teaser-color-status-updated: #ffffff;
+  --teaser-border-color-link: rgba(255,255,255,.08);
+  --teaser-background-link-hover: rgba(255,255,255,.08);
+  --teaser-background-link-active: rgba(255,255,255,.24);
   /* NOTE: There are some assets too, but those can't be linked with custom properties here (propably 'cause of gulp or something) and are therefore declared directly in the scss with the corresponding classes -> see teaser-status.scss */
   
   @include font-smoothing;

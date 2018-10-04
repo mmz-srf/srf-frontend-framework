@@ -219,7 +219,7 @@
 .teaser__links {
   margin: 0 -8px 0 16px;
 
-  @include desktop-up {
+  @include desktop-wide {
     margin: 0 -8px 0 24px;
   }
 }
@@ -586,6 +586,10 @@
   .teaser__kicker,
   .teaser__title {
     @include font-smoothing;
+  }
+
+  .block-link--teaser-link.block-link--internal::after {
+    background-image: url('../img/icon/caret_white.svg');
   }
 
   .block-link--teaser-link.block-link--video::after {

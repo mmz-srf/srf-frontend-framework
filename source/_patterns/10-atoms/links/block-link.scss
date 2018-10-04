@@ -18,6 +18,7 @@
   }
 
   &:hover,
+  &:focus,
   &:active {
     border: none;
     color: $color-link-default;
@@ -132,12 +133,16 @@
   line-height: 1.14;
   letter-spacing: .4px;
   width: auto;
-  border-top: 1px solid rgb(234,234,233); // = rgba(0,0,0,.08) on white
-  border-bottom: 1px solid rgb(234,234,233); // = rgba(0,0,0,.08) on white
   position: relative; // to position the pseudo elements
   background-image: none;
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
 
   /* theme */
+  @include customPropWithFallback('border-top-color', '--teaser-border-color-link', 'rgba(0,0,0,.08)'); // rgb(234,234,233); // = rgba(0,0,0,.08) on white
+  @include customPropWithFallback('border-bottom-color', '--teaser-border-color-link', 'rgba(0,0,0,.08)'); // rgb(234,234,233); // = rgba(0,0,0,.08) on white
   @include customPropWithFallback('color', '--teaser-color-text', $color-text-default);
   @include customPropWithFallback('background-color', '--teaser-color-background', $color-bg-card);
 
@@ -153,16 +158,17 @@
     margin-right: 0;
   }
 
-  &:hover {
+  &:hover,
+  &:focus {
     /* theme */
     @include customPropWithFallback('color', '--teaser-color-text', $color-text-default);
-    @include customPropWithFallback('background-color', 'rgb(246,246,243)', 'rgb(246,246,243)');
+    @include customPropWithFallback('background-color', '--teaser-background-link-hover', 'rgb(246,246,243)');
   }
 
   &:active {
     /* theme */
     @include customPropWithFallback('color', '--teaser-color-text', $color-text-default);
-    @include customPropWithFallback('background-color', 'rgb(237,237,234)', 'rgb(237,237,234)');
+    @include customPropWithFallback('background-color', '--teaser-background-link-active', 'rgb(237,237,234)');
   }
 
   // handling lines between two or more adjacent block-links
@@ -188,7 +194,7 @@
     top: 50%;
     margin-top: calc(24px / 2 * -1);
     background-size: 24px 24px;
-    background-image: url('../img/arrows/caret.svg');
+    background-image: url('../img/icon/caret_grey.svg');
 
     @include desktop-up {
       right: 32px;
@@ -197,6 +203,15 @@
 
   &.block-link--internal::after {
     transform: rotate(-90deg);
+    width: 18px;
+    height: 18px;
+    right: 26px;
+    margin-top: calc(18px / 2 * -1);
+    background-size: 18px 18px;
+
+    @include desktop-up {
+      right: 34px;
+    }
   }
 
   &.block-link--video::after {
