@@ -218,6 +218,10 @@
 
 .teaser__links {
   margin: 0 -8px 0 16px;
+
+  @include desktop-up {
+    margin: 0 -8px 0 24px;
+  }
 }
 
 .teaser__opinion {
@@ -577,10 +581,19 @@
   }
 }
 
-.teaser--theme-dark {
+.teaser.teaser--theme-dark,
+.teaser.teaser--theme-breaking {
   .teaser__kicker,
   .teaser__title {
     @include font-smoothing;
+  }
+
+  .block-link--teaser-link.block-link--video::after {
+    background-image: url('../img/icon/play-video-circle-white.svg');
+  }
+
+  .block-link--teaser-link.block-link--audio::after {
+    background-image: url('../img/icon/play-audio-circle-white.svg');
   }
 }
 

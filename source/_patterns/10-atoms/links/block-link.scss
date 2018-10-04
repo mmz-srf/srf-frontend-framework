@@ -70,61 +70,6 @@
 
 }
 
-.block-link--teaser-link {
-  font-family: $font-medium;
-  font-size: 14px;
-  font-weight: 500;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: 1.14;
-  letter-spacing: .4px;
-  padding-right: 48px;
-  width: auto;
-  border-top: 1px solid rgb(234,234,233); // = rgba(0,0,0,.08) on white
-  border-bottom: 1px solid rgb(234,234,233); // = rgba(0,0,0,.08) on white
-
-  /* theme */
-  @include customPropWithFallback('color', '--teaser-color-text', $color-text-default);
-  @include customPropWithFallback('background-color', '--teaser-color-background', $color-bg-card);
-
-  &:hover,
-  &:focus,
-  &:active {
-    width: auto;
-    border-top: 1px solid transparent;
-    border-bottom: 1px solid transparent;
-
-    margin-left: -16px;
-    padding-left: 16px;
-    margin-right: 0;
-  }
-
-  &:hover {
-    /* theme */
-    @include customPropWithFallback('color', '--teaser-color-text', $color-text-default);
-    @include customPropWithFallback('background-color', 'rgb(246,246,243)', 'rgb(246,246,243)');
-  }
-
-  &:active {
-    /* theme */
-    @include customPropWithFallback('color', '--teaser-color-text', $color-text-default);
-    @include customPropWithFallback('background-color', 'rgb(237,237,234)', 'rgb(237,237,234)');
-  }
-
-  // handling lines between two or more adjacent block-links
-  & + & {
-    border-top-color: transparent;
-
-    &:hover,
-    &:focus,
-    &:active {
-      margin-top: -1px;
-      padding-top: 13px;
-      border-top: 1px solid transparent;
-    }
-  }
-}
-
 .block-link--internal-black {
   background-image: url('../img/linktypes/internal.svg');
 }
@@ -140,6 +85,14 @@
 .block-link--pdf {
   background-image: url('../img/linktypes/pdf.svg');
   background-size: 19px 18px;
+}
+
+.block-link--video {
+  background-image: url('../img/icon/play-video-circle.svg');
+}
+
+.block-link--audio {
+  background-image: url('../img/icon/play-audio-circle.svg');
 }
 
 .block-link--docx {
@@ -167,5 +120,90 @@
     padding-left: 24px;
     padding-right: 50px;
     background-position-x: calc(100% - 19px);
+  }
+}
+
+.block-link--teaser-link {
+  font-family: $font-medium;
+  font-size: 14px;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.14;
+  letter-spacing: .4px;
+  width: auto;
+  border-top: 1px solid rgb(234,234,233); // = rgba(0,0,0,.08) on white
+  border-bottom: 1px solid rgb(234,234,233); // = rgba(0,0,0,.08) on white
+  position: relative; // to position the pseudo elements
+  background-image: none;
+
+  /* theme */
+  @include customPropWithFallback('color', '--teaser-color-text', $color-text-default);
+  @include customPropWithFallback('background-color', '--teaser-color-background', $color-bg-card);
+
+  &:hover,
+  &:focus,
+  &:active {
+    width: auto;
+    border-top: 1px solid transparent;
+    border-bottom: 1px solid transparent;
+
+    margin-left: -24px;
+    padding-left: 24px;
+    margin-right: 0;
+  }
+
+  &:hover {
+    /* theme */
+    @include customPropWithFallback('color', '--teaser-color-text', $color-text-default);
+    @include customPropWithFallback('background-color', 'rgb(246,246,243)', 'rgb(246,246,243)');
+  }
+
+  &:active {
+    /* theme */
+    @include customPropWithFallback('color', '--teaser-color-text', $color-text-default);
+    @include customPropWithFallback('background-color', 'rgb(237,237,234)', 'rgb(237,237,234)');
+  }
+
+  // handling lines between two or more adjacent block-links
+  & + & {
+    border-top-color: transparent;
+
+    &:hover,
+    &:focus,
+    &:active {
+      margin-top: -1px;
+      padding-top: 13px;
+      border-top: 1px solid transparent;
+    }
+  }
+
+  &::after {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    right: 24px;
+    top: 50%;
+    margin-top: calc(24px / 2 * -1);
+    background-size: 24px 24px;
+    background-image: url('../img/arrows/caret.svg');
+
+    @include desktop-up {
+      right: 32px;
+    }
+  }
+
+  &.block-link--internal::after {
+    transform: rotate(-90deg);
+  }
+
+  &.block-link--video::after {
+    background-image: url('../img/icon/play-video-circle.svg');
+  }
+
+  &.block-link--audio::after {
+    background-image: url('../img/icon/play-audio-circle.svg');
   }
 }
