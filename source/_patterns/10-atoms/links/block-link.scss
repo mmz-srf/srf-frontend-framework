@@ -137,12 +137,10 @@
   background-image: none;
   border-top-width: 1px;
   border-top-style: solid;
-  border-bottom-width: 1px;
-  border-bottom-style: solid;
+  transition: background-color .2s ease-in-out, border-color .2s ease-in-out;
 
   /* theme */
   @include customPropWithFallback('border-top-color', '--teaser-border-color-link', 'rgba(0,0,0,.08)'); // rgb(234,234,233); // = rgba(0,0,0,.08) on white
-  @include customPropWithFallback('border-bottom-color', '--teaser-border-color-link', 'rgba(0,0,0,.08)'); // rgb(234,234,233); // = rgba(0,0,0,.08) on white
   @include customPropWithFallback('color', '--teaser-color-text', $color-text-default);
   @include customPropWithFallback('background-color', '--teaser-color-background', $color-bg-card);
 
@@ -151,7 +149,6 @@
   &:active {
     width: auto;
     border-top: 1px solid transparent;
-    border-bottom: 1px solid transparent;
 
     margin-left: -24px;
     padding-left: 24px;
@@ -172,16 +169,12 @@
   }
 
   // handling lines between two or more adjacent block-links
-  & + & {
-    border-top-color: transparent;
-
-    &:hover,
-    &:focus,
-    &:active {
+  &:hover + &,
+  &:focus + &,
+  &:active + & {
       margin-top: -1px;
       padding-top: 13px;
-      border-top: 1px solid transparent;
-    }
+      border-top-color: transparent;
   }
 
   &::after {
