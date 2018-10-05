@@ -1,0 +1,92 @@
+<h2>S-Teaser</h2>
+
+<p>Does not exist</p>
+
+<h2>M-Teaser</h2>
+
+{% include 'molecules-teaser--longform' with {
+    'styleModifier': 'teaser--size-m',
+    'teaser': collections[0].teasers[0]
+} %}
+
+<h2>M-Teaser which looks like an S-Teaser on Mobile</h2>
+
+{% include 'molecules-teaser--longform' with {
+    "styleModifier": "teaser--size-m teaser--size-s-on-mobile",
+    "teaser": collections[0].teasers[0]
+} %}
+
+<h2>L-Teaser</h2>
+
+{% include 'molecules-teaser--longform' with {
+    'styleModifier': 'teaser--size-l',
+    'teaser': collections[0].teasers[0]
+} %}
+
+<h2>L-Teaser which looks like an S-Teaser on Mobile</h2>
+
+{% include 'molecules-teaser--longform' with {
+    "styleModifier": "teaser--size-l teaser--size-s-on-mobile",
+    "teaser": collections[0].teasers[0]
+} %}
+
+<h2>XL-Teaser</h2>
+
+{% include 'molecules-teaser--longform' with {
+    'styleModifier': 'teaser--size-xl',
+    'teaser': collections[0].teasers[0]
+} %}
+
+<h2>No Translate</h2>
+
+{% include 'molecules-teaser--longform' with {
+    "styleModifier": "teaser--size-s teaser--no-translate",
+    "teaser": collections[0].teasers[0]
+} %}
+
+<h2>Status</h2>
+
+<h3>New</h3>
+
+{% include 'molecules-teaser--longform' with {
+    'styleModifier': 'teaser--size-s',
+    'teaser': collections[0].teasers[0],
+    'status': 'Vor 5 Minuten',
+    'styleModifierStatus': 'teaser-status--new'
+} %}
+
+<h3>New and updated</h3>
+
+{% include 'molecules-teaser--longform' with {
+    'styleModifier': 'teaser--size-m',
+    'teaser': collections[0].teasers[0],
+    'status': 'Vor 5 Minuten',
+    'styleModifierStatus': 'teaser-status--new-and-updated'
+} %}
+
+<h3>Visited</h3>
+
+{% include 'molecules-teaser--longform' with {
+    'styleModifier': 'teaser--size-l',
+    'teaser': collections[0].teasers[0],
+    'status': 'Gesehen',
+    'styleModifierStatus': 'teaser-status--visited'
+} %}
+
+<h3>Visited with updates in the last 2 hours</h3>
+
+{% include 'molecules-teaser--longform' with {
+    'styleModifier': 'teaser--size-m',
+    'teaser': collections[0].teasers[0],
+    'status': 'Vor 5 Minuten',
+    'styleModifierStatus': 'teaser-status--visited-and-recently-updated'
+} %}
+
+<h3>Visited with updates</h3>
+
+{% include 'molecules-teaser--longform' with {
+    'styleModifier': 'teaser--size-xl',
+    'teaser': collections[0].teasers[0],
+    'status': 'Vor 5 Minuten',
+    'styleModifierStatus': 'teaser-status--visited-and-updated'
+} %}
