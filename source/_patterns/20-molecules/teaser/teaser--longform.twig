@@ -1,4 +1,10 @@
-<div class="teaser teaser--theme-dark teaser--longform {{ styleModifier|default("") }}">
+{% set styleModifier = styleModifier|default("teaser--size-m")  %}
+
+{% if 'teaser--size-s' in styleModifier %}
+    {% set styleModifier = 'teaser--size-m' %}
+{% endif %}
+
+<div class="teaser teaser--theme-dark teaser--longform {{ styleModifier }}">
 
     <div class="teaser__medium">
         <div class="image image--media-still-dynamic">
