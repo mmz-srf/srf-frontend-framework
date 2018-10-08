@@ -65,6 +65,9 @@
                         {% elseif ('collection--compact' in collection.styleModifier or 'collection--compact-swipeable' in collection.styleModifier) %}
                             {# SWIPEABLE, COMPACT, COMPACT SWIPEABLE: all S teasers #}
                             {% set teaserFormat = 'teaser--size-s' %}
+                        {% elseif 'collection--borderless' in collection.styleModifier %}
+                            {# BORDERLESS: all M teasers with no translation #}
+                            {% set teaserFormat = 'teaser--size-m teaser--no-translate' %}
                         {% else %}
                             {% set teaserFormat = 'teaser--size-m' %}
                         {% endif %}
