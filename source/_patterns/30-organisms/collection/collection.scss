@@ -753,5 +753,12 @@ $background-overlap-wide: 50px;
     border-radius: 0;
     background-color: transparent;
     box-shadow: none;
+    margin-top: 0;
+    padding: 0;
+  }
+
+  // Override unboxed styling
+  &.collection--branded .collection__content-wrapper {
+    padding-top: 0;
   }
 }
