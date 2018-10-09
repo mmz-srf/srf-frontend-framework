@@ -26,7 +26,7 @@ export class FefTouchDetection {
      */
     static getTouchCount(event) {
         const originalEvent = event.originalEvent ? event.originalEvent : event;
-        return isTouchEvent(originalEvent) ? originalEvent.touches.length : 0;
+        return FefTouchDetection.isTouchEvent(originalEvent) ? originalEvent.touches.length : 0;
     }
 
 }
