@@ -594,6 +594,12 @@
 
 .teaser--static {
   width: 100%;
+
+  ul > li {
+    &::before {
+      content: none;
+    }
+  }
 }
 
 .teaser--with-medium {
