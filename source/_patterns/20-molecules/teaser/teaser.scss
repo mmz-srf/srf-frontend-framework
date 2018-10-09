@@ -531,6 +531,10 @@
   @include smartphone {
     flex-direction: row;
 
+    &.teaser--with-links {
+      flex-direction: column;
+    }
+
     .teaser__main {
       flex-direction: row-reverse;
       flex-wrap: wrap;
