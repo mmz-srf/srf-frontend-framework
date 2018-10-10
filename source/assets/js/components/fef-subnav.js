@@ -127,11 +127,11 @@ export class FefSubnav {
         this.closeAllSubNavs();
 
         if (isClosing) {
-            $navItem.attr({'aria-expanded': false, 'aria-haspopup': false});
+            $navItem.children('a').attr({'aria-expanded': false, 'aria-haspopup': false});
             return;
         }
 
-        $navItem.attr({'aria-expanded': true, 'aria-haspopup': true});
+        $navItem.children('a').attr({'aria-expanded': true, 'aria-haspopup': true});
 
         this.$element.addClass('subnav--open-3rd-level');
 
