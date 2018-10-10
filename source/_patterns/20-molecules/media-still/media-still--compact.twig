@@ -1,5 +1,5 @@
 {% set mediumType = mediumType|default('video') %}
-<div class="media-still media-still--compact js-medium-hover">
+<div class="media-still media-still--compact {{ styleModifier }} js-medium-hover">
     <div class="media-still__image">
         {% include 'atoms-image' with { 'styleModifier' : 'image--media-still' } %}
     </div>

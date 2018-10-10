@@ -63,6 +63,7 @@ $background-overlap-wide: 50px;
   display: inline-flex;
   align-items: center;
   color: $color-link-default;
+  transition: color .2s ease-in-out;
 
   &:hover {
     color: #f1434a;
@@ -724,5 +725,40 @@ $background-overlap-wide: 50px;
         padding-top: #{$collection-gap-tablet-up - 8};
       }
     }
+  }
+}
+
+// Borderless:
+// No title, lead, links, etc.
+// No padding and only one teaser per row on all sizes
+// No border or shadow
+.collection--borderless {
+  .collection__title,
+  .collection__lead,
+  .collection__links {
+    display: none;
+  }
+
+  .collection__teaser-list {
+    margin: 0;
+    flex-direction: column;
+    flex-wrap: nowrap;
+  }
+
+  .collection__teaser-item {
+    margin: 0;
+  }
+
+  .collection__content-wrapper {
+    border-radius: 0;
+    background-color: transparent;
+    box-shadow: none;
+    margin-top: 0;
+    padding: 0;
+  }
+
+  // Override unboxed styling
+  &.collection--branded .collection__content-wrapper {
+    padding-top: 0;
   }
 }

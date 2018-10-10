@@ -1,0 +1,29 @@
+.ratio::before {
+  content: "";
+  width: 1px;
+  margin-left: -1px;
+  float: left;
+  height: 0;
+}
+
+.ratio::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.ratio--16-9::before {
+  padding-top: 56.25%;
+}
+
+.ratio--4-3::before {
+  padding-top: 75%;
+}
+
+.ratio--3-1::before {
+  padding-top: 33.33%;
+}
+
+.ratio--1-1::before {
+  padding-top: 100%;
+}

@@ -65,12 +65,15 @@
                         {% elseif ('collection--compact' in collection.styleModifier or 'collection--compact-swipeable' in collection.styleModifier) %}
                             {# SWIPEABLE, COMPACT, COMPACT SWIPEABLE: all S teasers #}
                             {% set teaserFormat = 'teaser--size-s' %}
+                        {% elseif 'collection--borderless' in collection.styleModifier %}
+                            {# BORDERLESS: all M teasers with no translation #}
+                            {% set teaserFormat = 'teaser--size-m teaser--no-translate' %}
                         {% else %}
                             {% set teaserFormat = 'teaser--size-m' %}
                         {% endif %}
 
                         <li class="collection__teaser-item teaser__wrapper {{ swipeable ? "js-swipeable-area-item"}}">
-                            {% include 'molecules-teaser' with {'teaser': teaser, "styleModifier": teaserFormat} %}
+                            {% include random(['molecules-teaser', 'molecules-teaser--with-medium']) with {'teaser': teaser, "styleModifier": teaserFormat} %}
                         </li>
                     {% endif %}
                 {% endfor %}
