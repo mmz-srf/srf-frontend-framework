@@ -435,7 +435,9 @@
  * With short lead
  * Full-width on tablet+ with medium on the left
  */
- .teaser--size-xl {
+.teaser--size-xl {
+  flex-direction: row;
+
   .teaser__main {
     flex-direction: column;
     flex-wrap: nowrap;
