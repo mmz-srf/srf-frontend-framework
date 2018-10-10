@@ -3,13 +3,16 @@
 
 .media-time-indicator {
   display: inline-block;
-  padding: 0.25em 0.5em; // using em here to adjust paddings in relation to the dynamic font size
+  padding: 0.25em 0.4375em; // using em here to adjust paddings in relation to the dynamic font size
   @include customPropWithFallback('font-size', '--media-time-indicator-font-size', 12px);
-  font-family: $font-system;
-  font-weight: 500;
+  font-family: $font-medium;
+  font-weight: normal;
   line-height: 1;
+  letter-spacing: 0;
   @include font-smoothing;
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
   text-align: center;
   color: #fff;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.8);
 }
