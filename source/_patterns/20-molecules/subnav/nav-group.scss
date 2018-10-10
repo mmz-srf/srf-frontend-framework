@@ -46,6 +46,18 @@
 }
 
 .nav-group--open {
+  > .nav-item {
+    /* fallback */
+    background-color: $color-nav-bg-active;
+    color: $color-text-accentuation;
+    
+    /* theme */
+    @supports (--foo: bar) {
+      background-color: var(--theme-color-bg-active, $color-nav-bg-active);
+      color: var(--theme-color-nav, $color-text-accentuation);
+    }
+  }
+
   .nav-item__icon {
     transform: rotate(180deg);
   }
