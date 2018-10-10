@@ -37,6 +37,11 @@ ishMinimum: '240'
 ishMaximum: '2600'
 ishControlsHide:
     - hay
+ishViewportRange:
+    s: [240, 719]
+    m: [720, 1023]
+    l: [1024, 1279]
+
 styleguideKit: pattern-lab/styleguidekit-twig-default
 styleguideKitPath: vendor/pattern-lab/styleguidekit-twig-default
 plugins:

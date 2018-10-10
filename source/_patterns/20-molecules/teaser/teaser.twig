@@ -23,13 +23,28 @@
 
         <div class="teaser__content">
             {% if preKicker %}<span class="h-offscreen" data-iefix="teaser__prekicker--fixed-for-ie"><strong>{{ preKicker }}</strong></span>{% endif %}
-            <h4 class="teaser__kicker">{{ teaser.kicker|default('') }}</h4>
+
+            <h4 class="teaser__kicker">
+                {% if labelWording %}
+                    {% include 'atoms-teaser-label' with {'labelWording': labelWording, 'labelTime': labelTime, 'styleModifierType': styleModifierType, 'styleModifierSize': styleModifier} %}
+                {% endif %}
+
+                <span class="teaser__kicker-text">{{ teaser.kicker|default('') }}</span>
+            </h4>
             <h3 class="teaser__title">{{ teaser.title|default('') }}</h3>
             <p class="teaser__lead">{{ teaser.lead|default('') }}</p>
 
             {% set styleModifierStatus = styleModifierStatus|default('') %}
             {% if 'teaser--size-l' in styleModifier or 'teaser--size-xl' in styleModifier %}
                 {% set styleModifierStatus = styleModifierStatus ~ ' teaser-status--size-large' %}
+            {% endif %}
+
+            {% if styleModifierType|default('false') %}
+            {% include 'molecules-teaser-status-live' with {
+                'styleModifier': styleModifierLive,
+                'type': live_type|default(''),
+                'time': live_time|default('')
+            } %}
             {% endif %}
 
             {% include 'molecules-teaser-status' with {

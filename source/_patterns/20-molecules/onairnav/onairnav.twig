@@ -11,7 +11,7 @@
     </li>
   </ul>
 
-  {% include 'atoms-onairnav-head' with { 'title': 'Livestreams' } %}
+  {% include 'atoms-onairnav-head' with { 'title': 'Livestreams schauen' } %}
   <ul class="onairnav-list onairnav-list--teaser">
     <li class="onairnav-list__element">
       {% include 'molecules-teaser--live' with { 'styleModifier': 'teaser--size-m teaser--size-s-on-mobile teaser--no-translate teaser--theme-dark', 'teaser': collections[0].teasers[0] } %}
@@ -21,7 +21,7 @@
     </li>
   </ul>
 
-  {% include 'atoms-onairnav-head' with { 'title': 'Jetzt im TV', 'url': '#', 'morelink': 'TV-Programm' } %}
+  {% include 'atoms-onairnav-head' with { 'title': 'TV schauen', 'url': '#', 'morelink': 'TV-Programm' } %}
   <ul class="onairnav-list">
     <li class="onairnav-list__element">
       {% include 'atoms-onairnav-link' with { 'styleModifier': 'onairnav-link--program', 'media': '/img/stationlogos/tv-srf-1.svg', 'title': 'Kreuzfahrt ins Glück: Hochzeitreise nach Bermuda', 'progress': '58' } %}
@@ -34,7 +34,7 @@
     </li>
   </ul>
 
-  {% include 'atoms-onairnav-head' with { 'title': 'Jetzt im Radio', 'url': '#', 'morelink': 'Radio-Programm' } %}
+  {% include 'atoms-onairnav-head' with { 'title': 'Radio hören', 'url': '#', 'morelink': 'Radio-Programm' } %}
   <ul class="onairnav-list onairnav-list--compact">
     <li class="onairnav-list__element">
       {% include 'atoms-onairnav-link' with { 'styleModifier': 'onairnav-link--compact', 'url': '/radio-srf-1', 'styleModifierMedia': 'onairnav-link__media--radiologo', 'media': '/img/stationlogos/radio-srf-1-square.svg','title': 'Radio SRF 1', 'styleModifierTitle': 'onairnav-link__title--radiostation' } %}

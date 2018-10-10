@@ -6,7 +6,7 @@ export class FefTouchDetection {
      * @returns {boolean}
      */
     static isTouchSupported() {
-        return ('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch;
+        return ('ontouchstart' in window) || typeof window.DocumentTouch !== 'undefined' && document instanceof DocumentTouch;
     }
 
 }
