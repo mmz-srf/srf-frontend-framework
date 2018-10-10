@@ -9,6 +9,7 @@
   font-size: 18px;
   letter-spacing: 0.4px;
   line-height: 1.25;
+  border-radius: 2px;
   transition: background-color .2s ease-in-out;
 
   /* fallback */
@@ -59,6 +60,7 @@
 .nav-item--active:active {
   background: none;
   opacity: 1;
+  border-radius: 0; // if this one would not be overwritten, little red pixels will be displayed on the top corners (like ears)
 
   /* fallback */
   border-bottom-color: #f1434a;
