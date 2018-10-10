@@ -446,6 +446,31 @@
       flex-direction: row;
       flex-wrap: wrap;
     }
+
+    &:active ~ .teaser__links .block-link--teaser-link:first-of-type {
+      border-top-color: white;
+    }
+  }
+
+  .teaser__links {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    background: white;
+    padding: 0 0 0 24px;
+    width: calc(34.25% + 8px);
+  }
+
+  .block-link--teaser-link {
+    // handling lines between two or more adjacent block-links
+    &:hover + &,
+    &:focus + & {
+      @include customPropWithFallback('border-top-color', '--teaser-background-link-hover', 'rgb(246,246,243)');
+    }
+
+    &:active + & {
+      @include customPropWithFallback('border-top-color', '--teaser-background-link-active', 'rgb(237,237,234)');
+    }
   }
 
   .teaser__medium {
