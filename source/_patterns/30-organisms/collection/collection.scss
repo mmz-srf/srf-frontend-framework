@@ -239,6 +239,7 @@ $teaser-col-gap-desktop-wide: 32px;
  */
 .collection__teaser-item {
   display: flex;
+  z-index: 2;
 
   // Override stupid global <li> style
   padding: 0;
@@ -478,10 +479,10 @@ $teaser-col-gap-desktop-wide: 32px;
       flex-basis: calc(100% / 3);
       padding: 0 $teaser-col-gap-tablet-up 32px 0;
 
-      // First element: XL Teaser. Full width
-      &:nth-child(1) {
+      &:first-child {
         flex-basis: 100%;
       }
+
     }
 
     @include desktop-wide {
@@ -711,7 +712,7 @@ $teaser-col-gap-desktop-wide: 32px;
   }
 
   .collection__teaser-item {
-    margin: 0;
+    padding: 0;
   }
 
   .collection__content-wrapper {

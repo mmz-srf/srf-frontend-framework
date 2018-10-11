@@ -150,3 +150,26 @@
   visibility: visible;
   opacity: 1; // safari doesn't get visibility !!
 }
+
+.media-window--collection {
+  display: flex;
+  flex-basis: calc(100% + 2 * 32px);
+  margin: 0 -32px;
+  padding: 0;
+  z-index: 1;
+
+  @include desktop-wide {
+    flex-basis: calc(100% + 2 * 40px);
+    margin: 0 -40px;
+  }
+
+
+  &::before {
+    content: none;
+  }
+
+  &.media-window--playing {
+    margin-bottom: -64px;
+  }
+
+}
