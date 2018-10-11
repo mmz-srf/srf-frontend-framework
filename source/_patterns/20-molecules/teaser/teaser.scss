@@ -594,6 +594,22 @@ $xl-teaser-ratio: 65.75%;
   }
 }
 
+/* Normally, teasers don't change on hover (except translation) - with teaser--hoverable the :after-overlay is shown partially */
+.teaser--hoverable {
+  &:hover {
+    &::after {
+      opacity: 0.6;
+    }
+  }
+
+  &:focus,
+  &:active {
+    &::after {
+      opacity: 1;
+    }
+  }
+}
+
 .teaser--static {
   width: 100%;
 }
