@@ -339,7 +339,12 @@ body.body--loading.body--loading {
     flex-grow: 1;
   }
 
-  .teaser__content {
+  .teaser--longform {
+    align-items: flex-end;
+  }
+
+  .teaser__content,
+  .teaser__main-outer-wrapper {
     display: none;
   }
 
