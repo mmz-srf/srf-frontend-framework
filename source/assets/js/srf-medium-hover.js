@@ -20,7 +20,16 @@ export function init() {
         let $element = $(event.target).closest(HOOK_SELECTOR);
         $element.find('.media-caption').addClass('media-caption--hover');
         $element.find('.play-icon').addClass('play-icon--hover');
-        $element.find('.media-still__image').addClass('media-still__image--hover');
+
+        // option to disable the hover state of the media still
+        let disableStillHover = $element.data('disable-still-hover') || false;
+
+        if(disableStillHover) {
+            $element.find('.media-still__image').addClass('media-still__image--no-hover');
+        }
+        else {
+            $element.find('.media-still__image').addClass('media-still__image--hover');
+        }
     });
     $(document).on('mouseleave', HOOK_SELECTOR, (event) => {
         let $element = $(event.target).closest(HOOK_SELECTOR);
