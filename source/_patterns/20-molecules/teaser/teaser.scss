@@ -745,21 +745,13 @@ $xl-teaser-ratio: 65.75%;
   z-index: 1;
   height: 100%;
 
-  // For IE11
-  display: -ms-grid;
-  -ms-grid-columns: 100%;
   grid-template-columns: 100%;
-  -ms-grid-rows: 100%;
   grid-template-rows: 100%;
 
   > * {
-    -ms-grid-row: 1;
-        grid-row-start: 1;
-    -ms-grid-column: 1;
-        grid-column-start: 1;
-    -ms-grid-row-span: 1;
+    grid-row-start: 1;
+    grid-column-start: 1;
     grid-row-end: 2;
-    -ms-grid-column-span: 1;
     grid-column-end: 2;
   }
 }
