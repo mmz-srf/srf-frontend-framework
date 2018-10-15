@@ -25,3 +25,20 @@
     height: 42px;
   }
 }
+
+/*
+ * TARGETED BROWSER: IE 11
+ *
+ * teaser images have a default ratio with a height spanned by padding
+ * this propagates the height down to the object-fit polyfill
+ */
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .ratio-wrapper {
+    .ratio.ratio--16-9 {
+      height: 100%;
+      .teaser__medium {
+        height: 100%;
+      }
+    }
+  }
+}
