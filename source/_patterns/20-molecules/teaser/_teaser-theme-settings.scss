@@ -19,6 +19,7 @@
   --teaser-border-color-link: rgba(0,0,0,.08);
   --teaser-background-link-hover: rgb(246,246,243);
   --teaser-background-link-active: rgb(237,237,234);
+  --teaser-fake-shadow-gradient: linear-gradient(rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%);
   /* NOTE: There are some assets too, but those can't be linked with custom properties here (propably 'cause of gulp or something) and are therefore declared directly in the scss with the corresponding classes -> see teaser-status.scss */
 }
 
@@ -36,6 +37,7 @@
   --teaser-border-color-link: rgba(255,255,255,.08);
   --teaser-background-link-hover: rgba(255,255,255,.08);
   --teaser-background-link-active: rgba(255,255,255,.24);
+  --teaser-fake-shadow-gradient: linear-gradient(rgba(34,33,29,0) 0%,rgba(34,33,29,1) 100%);
   /* NOTE: There are some assets too, but those can't be linked with custom properties here (propably 'cause of gulp or something) and are therefore declared directly in the scss with the corresponding classes -> see teaser-status.scss */
 
   @include font-smoothing;
@@ -53,6 +55,7 @@
   --teaser-border-color-link: rgba(255,255,255,.08);
   --teaser-background-link-hover: rgba(255,255,255,.08);
   --teaser-background-link-active: rgba(255,255,255,.24);
+  --teaser-fake-shadow-gradient: linear-gradient(rgba(201,16,36,0) 0%,rgba(201,16,36,1) 100%);
   /* NOTE: There are some assets too, but those can't be linked with custom properties here (propably 'cause of gulp or something) and are therefore declared directly in the scss with the corresponding classes -> see teaser-status.scss */
 
   @include font-smoothing;
