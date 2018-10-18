@@ -654,6 +654,12 @@
     @include font-smoothing;
   }
 
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: rgba(255,255,255,.08);
+  }
+
   .block-link--teaser-link.block-link--internal::after {
     background-image: url('../img/icon/caret_white.svg');
   }
@@ -693,9 +699,21 @@
     }
   }
 
+  &.teaser--size-m {
+    @include desktop-wide {
+      --media-time-indicator-bottom: 12px;
+      --media-time-indicator-right: 12px;
+    }
+  }
+
   &.teaser--size-l {
     @include desktop-up {
       --media-time-indicator-font-size: 16px;
+    }
+
+    @include desktop-wide {
+      --media-time-indicator-bottom: 12px;
+      --media-time-indicator-right: 12px;
     }
   }
 
@@ -703,9 +721,6 @@
     @include tablet-up {
       --media-time-indicator-bottom: 20px;
       --media-time-indicator-right: 20px;
-    }
-
-    @include desktop-up {
       --media-time-indicator-font-size: 16px;
     }
 
