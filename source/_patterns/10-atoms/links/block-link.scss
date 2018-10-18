@@ -175,7 +175,6 @@
   &:active + & {
     margin-top: -1px;
     padding-top: 13px;
-    /* border-top-color: transparent; */
     @include customPropWithFallback('border-top-color', '--teaser-background-link-hover', 'rgb(246,246,243)');
   }
 

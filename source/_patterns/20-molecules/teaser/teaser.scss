@@ -70,7 +70,7 @@
     }
   }
 
-  // if any Teaser(size) is beeing clicked … do the following with it's siblings and children
+  // if any Teaser(size) is being clicked … do the following with it's siblings and children
   &:active ~ .teaser__links {
     .block-link--teaser-link:first-of-type {
       border-top-color: transparent;
@@ -456,7 +456,7 @@
       flex-wrap: wrap;
     }
 
-    // if XL-Teaser is beeing clicked … do the following with it's siblings and children
+    // if XL-Teaser is being clicked … do the following with it's siblings and children
     &:active ~ .teaser__links {
       @include tablet {
         &::before {
