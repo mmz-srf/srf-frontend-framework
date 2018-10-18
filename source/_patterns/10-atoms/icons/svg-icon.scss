@@ -68,11 +68,9 @@
   background-image: url(../img/icon/search-dark.svg);
 }
 
-.svg-icon--tv-radio {
-  background-image: url(../img/icon/tv-radio.svg);
-}
-
 .svg-icon--play-video-circle {
+  background-image: url(../img/icon/play-video-circle.svg);
+
   &.svg-icon--small {
     background-image: url(../img/icon/play-video-circle-small.svg);
   }
@@ -91,6 +89,8 @@
 }
 
 .svg-icon--play-video-circle-white {
+  background-image: url(../img/icon/play-video-circle-white.svg);
+
   &.svg-icon--small {
     background-image: url(../img/icon/play-video-circle-white-small.svg);
   }
@@ -106,4 +106,12 @@
   @include desktop-up {
     background-image: url(../img/icon/play-video-circle-white-small.svg);
   }
+}
+
+.svg-icon--play-audio-circle {
+  background-image: url(../img/icon/play-audio-circle.svg);
+}
+
+.svg-icon--play-audio-circle-white {
+  background-image: url(../img/icon/play-audio-circle-white.svg);
 }
