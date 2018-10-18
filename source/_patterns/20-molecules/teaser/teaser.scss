@@ -494,18 +494,6 @@
     }
   }
 
-  .block-link--teaser-link {
-    // handling lines between two or more adjacent block-links
-    &:hover + &,
-    &:focus + & {
-      @include customPropWithFallback('border-top-color', '--teaser-background-link-hover', 'rgb(246,246,243)');
-    }
-
-    &:active + & {
-      @include customPropWithFallback('border-top-color', '--teaser-background-link-active', 'rgb(237,237,234)');
-    }
-  }
-
   .teaser__medium {
     height: 100%;
     width: 100%;
