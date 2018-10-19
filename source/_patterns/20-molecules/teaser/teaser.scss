@@ -754,6 +754,11 @@ $xl-teaser-ratio: 65.75%;
     height: 100%;
   }
 
+  // Longform teasers have the dark theme (see _teaser-theme-settings.scss) but the kicker is white.
+  .teaser__kicker {
+    color: #ffffff;
+  }
+
   .teaser__lead {
     display: block;
   }
