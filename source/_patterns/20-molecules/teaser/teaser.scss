@@ -5,6 +5,7 @@
 
 $xl-teaser-ratio: 65.75%;
 
+/* autoprefixer grid: on */
 .teaser {
   display: flex;
   flex-grow: 1;
@@ -762,3 +763,4 @@ $xl-teaser-ratio: 65.75%;
   flex-direction: column;
   justify-content: flex-end;
 }
+/* autoprefixer grid: off */
