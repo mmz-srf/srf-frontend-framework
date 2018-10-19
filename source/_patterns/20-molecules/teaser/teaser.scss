@@ -802,7 +802,8 @@ $xl-teaser-ratio: 65.75%;
     }
 
     .teaser__content {
-      max-width: calc(100% - #{$xl-teaser-ratio});
+      width: calc(100% - #{$xl-teaser-ratio});
+      padding: 32px 24px 32px 32px;
 
       &::before {
         background-image: linear-gradient(to right, rgba(0,0,0,0), rgba(0,0,0,0.6));
