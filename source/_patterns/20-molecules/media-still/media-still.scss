@@ -15,6 +15,13 @@
   @extend .media-still__image:hover;
 }
 
+// use case: see srf-media-still.js
+.media-still__image--no-hover {
+  &:hover {
+    opacity: 1;
+  }
+}
+
 .media-still__icon {
   position: absolute;
   top: 50%;

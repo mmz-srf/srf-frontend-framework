@@ -9,7 +9,7 @@ $xl-teaser-ratio: 65.75%;
 .teaser {
   display: flex;
   flex-grow: 1;
-  position: relative; // to position the pseudo elements
+  flex-direction: column;
   border-radius: 2px;
   overflow: hidden; // to cut off image with border radius
 
@@ -39,6 +39,16 @@ $xl-teaser-ratio: 65.75%;
     box-shadow: none;
   }
 
+}
+
+.teaser__main {
+  display: flex;
+  flex-direction: row-reverse;
+  flex-grow: 1;
+  width: 100%;
+  flex-wrap: wrap;
+  position: relative; // to position the pseudo elements
+
   /* Teasers have an invisible layer on top that gets sligthly opaque when active/focused */
   &::after {
     position: absolute;
@@ -62,14 +72,13 @@ $xl-teaser-ratio: 65.75%;
       opacity: 1;
     }
   }
-}
 
-.teaser__main {
-  display: flex;
-  flex-direction: row-reverse;
-  flex-grow: 1;
-  width: 100%;
-  flex-wrap: wrap;
+  // if any Teaser(size) is being clicked … do the following with its siblings and children
+  &:active ~ .teaser__links {
+    .block-link--teaser-link:first-of-type {
+      border-top-color: transparent;
+    }
+  }
 }
 
 .teaser__medium-wrapper {
@@ -227,6 +236,14 @@ $xl-teaser-ratio: 65.75%;
     @include desktop-up {
       margin: 3px 6px -3px 0;
     }
+  }
+}
+
+.teaser__links {
+  margin: 0 -8px 0 16px;
+
+  @include desktop-wide {
+    margin: 0 -8px 0 24px;
   }
 }
 
@@ -428,7 +445,11 @@ $xl-teaser-ratio: 65.75%;
  * With short lead
  * Full-width on tablet+ with medium on the left
  */
- .teaser--size-xl {
+.teaser--size-xl {
+  @include tablet-up {
+    flex-direction: row;
+  }
+
   .teaser__main {
     flex-direction: column;
     flex-wrap: nowrap;
@@ -436,6 +457,43 @@ $xl-teaser-ratio: 65.75%;
     @include tablet-up {
       flex-direction: row;
       flex-wrap: wrap;
+    }
+
+    // if XL-Teaser is being clicked … do the following with its siblings and children
+    &:active ~ .teaser__links {
+      @include tablet {
+        &::before {
+          display: none;
+        }
+      }
+
+      .block-link--teaser-link:first-of-type {
+        border-top-color: transparent;
+      }
+    }
+  }
+
+  .teaser__links {
+    @include tablet {
+      &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: -1rem;
+        right: 0;
+        left: 0;
+        @include customPropWithFallback('background', '--teaser-fake-shadow-gradient', 'linear-gradient(rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%)');
+        height: 1rem;
+      }
+    }
+
+    @include tablet-up {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      @include customPropWithFallback('background-color', '--teaser-color-background', $color-bg-card);
+      padding: 0 0 0 24px;
+      width: calc(34.25% + 8px);
     }
   }
 
@@ -537,6 +595,10 @@ $xl-teaser-ratio: 65.75%;
   @include smartphone {
     flex-direction: row;
 
+    &.teaser--with-links {
+      flex-direction: column;
+    }
+
     .teaser__main {
       flex-direction: row-reverse;
       flex-wrap: wrap;
@@ -588,7 +650,8 @@ $xl-teaser-ratio: 65.75%;
   }
 }
 
-.teaser--theme-dark {
+.teaser.teaser--theme-dark,
+.teaser.teaser--theme-breaking {
   .teaser__kicker,
   .teaser__title {
     @include font-smoothing;
@@ -608,6 +671,18 @@ $xl-teaser-ratio: 65.75%;
     &::after {
       opacity: 1;
     }
+  }
+
+  .block-link--teaser-link.block-link--internal::after {
+    background-image: url('../img/icon/caret_white.svg');
+  }
+
+  .block-link--teaser-link.block-link--video::after {
+    background-image: url('../img/icon/play-video-circle-white.svg');
+  }
+
+  .block-link--teaser-link.block-link--audio::after {
+    background-image: url('../img/icon/play-audio-circle-white.svg');
   }
 }
 
@@ -637,9 +712,21 @@ $xl-teaser-ratio: 65.75%;
     }
   }
 
+  &.teaser--size-m {
+    @include desktop-wide {
+      --media-time-indicator-bottom: 12px;
+      --media-time-indicator-right: 12px;
+    }
+  }
+
   &.teaser--size-l {
     @include desktop-up {
       --media-time-indicator-font-size: 16px;
+    }
+
+    @include desktop-wide {
+      --media-time-indicator-bottom: 12px;
+      --media-time-indicator-right: 12px;
     }
   }
 
@@ -647,9 +734,6 @@ $xl-teaser-ratio: 65.75%;
     @include tablet-up {
       --media-time-indicator-bottom: 20px;
       --media-time-indicator-right: 20px;
-    }
-
-    @include desktop-up {
       --media-time-indicator-font-size: 16px;
     }
 

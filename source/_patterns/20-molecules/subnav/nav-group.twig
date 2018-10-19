@@ -8,12 +8,14 @@
     <div class="nav-group__wrapper js-nav-group-wrapper">
         <ul class="nav-group__list">
             {% for item in items %}
-                {% include 'atoms-nav-item' with {
-                    'headerType': headerType,
-                    'styleModifier': "nav-item--third-level",
-                    'content': item.name,
-                    'url': item.url
-                } %}
+                <li class="nav-group__item">
+                    {% include 'atoms-nav-item' with {
+                        'headerType': headerType,
+                        'styleModifier': "nav-item--third-level",
+                        'content': item.name,
+                        'url': item.url
+                    } %}
+                </li>
             {% endfor %}
         </ul>
     </div>
