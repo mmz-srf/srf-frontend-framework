@@ -6,6 +6,7 @@
 @import '../../_patterns/breakpoints';
 @import '../../_patterns/mixins';
 @import '../../_patterns/10-atoms/indicators/shimmer';
+@import '../../_patterns/10-atoms/wrapper/ratio';
 @import '../../_patterns/40-templates/landingpage';
 
 body.body--loading.body--loading {
@@ -314,7 +315,6 @@ body.body--loading.body--loading {
     flex-shrink: 0;
     margin: 0;
     position: relative; // for positioning ::pseudo elements
-    padding-bottom: 56.25%; //16:9 ratio
 
     &::after {
       position: absolute;
@@ -339,7 +339,12 @@ body.body--loading.body--loading {
     flex-grow: 1;
   }
 
-  .teaser__content {
+  .teaser--longform {
+    align-items: flex-end;
+  }
+
+  .teaser__content,
+  .teaser__main-outer-wrapper {
     display: none;
   }
 

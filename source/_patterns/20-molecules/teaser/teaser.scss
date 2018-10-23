@@ -3,6 +3,9 @@
 @import "../../breakpoints";
 @import "teaser-theme-settings";
 
+$xl-teaser-ratio: 65.75%;
+
+/* autoprefixer grid: on */
 .teaser {
   display: flex;
   flex-grow: 1;
@@ -54,11 +57,11 @@
     width: 100%;
     pointer-events: none;
 
-    // performance improvement: Don't animate the background-color, but the opacity
 
     /* theme */
     @include customPropWithFallback('background-color', '--teaser-color-overlay', $color-bg-button-hover);
 
+    // performance improvement: Don't animate the background-color, but the opacity
     opacity: 0;
     transition: opacity .2s ease-in-out;
   }
@@ -517,7 +520,7 @@
       &::after {
         border-right: solid 1px rgba(0, 0, 0, 0.04);
       }
-      flex: 0 0 65.75%;
+      flex: 0 0 $xl-teaser-ratio;
     }
   }
 
@@ -561,7 +564,7 @@
     @include tablet-up {
       .teaser__main {
         display: grid;
-        grid-template-columns: 65.75% auto;
+        grid-template-columns: $xl-teaser-ratio auto;
         grid-template-rows: 1fr max-content;
       }
 
@@ -653,11 +656,21 @@
   .teaser__title {
     @include font-smoothing;
   }
+}
 
-  &:hover,
+/* Normally, teasers don't change on hover (except translation) - with teaser--hoverable the :after-overlay is shown partially */
+.teaser--hoverable {
+  &:hover {
+    &::after {
+      opacity: 0.6;
+    }
+  }
+
   &:focus,
   &:active {
-    background-color: rgba(255,255,255,.08);
+    &::after {
+      opacity: 1;
+    }
   }
 
   .block-link--teaser-link.block-link--internal::after {
@@ -730,3 +743,114 @@
     }
   }
 }
+
+.teaser--longform {
+  height: 100%;
+
+  .teaser__medium {
+    position: absolute;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  // Longform teasers have the dark theme (see _teaser-theme-settings.scss) but the kicker is white.
+  .teaser__kicker {
+    color: #ffffff;
+  }
+
+  .teaser__lead {
+    display: block;
+  }
+
+  .teaser__main {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+  }
+
+  .teaser__content {
+    flex-grow: 0;
+    flex-basis: auto;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 16px 12px 16px 16px;
+    margin: 0;
+    position: relative;
+    max-width: 100%;
+
+    &::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        bottom: 100%;
+        left: 0;
+        height: 80px;
+        background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6));
+    }
+  }
+}
+
+// Longform Teaser in XL format has some special properties:
+.teaser--longform.teaser--size-xl {
+  .svg-ratio-enforcer--xl-teaser {
+    display: none;
+  }
+
+  @include tablet-up {
+    .teaser__main {
+      flex-direction: row;
+      align-content: stretch;
+      height: 100%;
+      width: 100%;
+      justify-items: flex-end;
+      display: flex;
+    }
+
+    .teaser__content {
+      width: calc(100% - #{$xl-teaser-ratio});
+      padding: 32px 24px 32px 32px;
+
+      &::before {
+        background-image: linear-gradient(to right, rgba(0,0,0,0), rgba(0,0,0,0.6));
+        width: 80px;
+        height: 100%;
+        top: 0;
+        left: -80px;
+      }
+    }
+
+    .svg-ratio-enforcer {
+      display: none;
+    }
+
+    .svg-ratio-enforcer--xl-teaser {
+      display: block;
+    }
+  }
+}
+
+.teaser__main-outer-wrapper {
+  width: 100%;
+  display: grid;
+  position: relative;
+  z-index: 1;
+  height: 100%;
+
+  grid-template-columns: 100%;
+  grid-template-rows: 100%;
+
+  > * {
+    grid-row-start: 1;
+    grid-column-start: 1;
+    grid-row-end: 2;
+    grid-column-end: 2;
+  }
+}
+
+.teaser__main-inner-wrapper {
+  display: flex;
+  align-items: stretch;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+/* autoprefixer grid: off */

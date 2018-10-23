@@ -108,6 +108,24 @@
     } %}
 </div>
 
+<h2>Normal Teaser with Hover</h2>
+
+<div class='js-togglable-wrapper togglable-wrapper'>
+    {% include 'molecules-teaser' with {
+        "styleModifier": "teaser--size-s teaser--hoverable",
+        "teaser": collections[0].teasers[0]
+    } %}
+</div>
+
+<h2>Theme Dark with Hover</h2>
+
+<div class='js-togglable-wrapper togglable-wrapper'>
+    {% include 'molecules-teaser' with {
+        "styleModifier": "teaser--size-s teaser--theme-dark teaser--hoverable",
+        "teaser": collections[0].teasers[0]
+    } %}
+</div>
+
 <h2>Unmodified</h2>
 
 <div class="js-togglable-wrapper togglable-wrapper">
