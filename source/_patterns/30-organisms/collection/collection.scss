@@ -712,10 +712,14 @@ $background-overlap-wide: 50px;
 
   // no space between header and an unboxed branded collection at first position
   &:first-child {
-    margin-top: -8px;
+    margin-top: -16px;
 
     @include tablet-up {
-      margin-top: -52px;
+      margin-top: -60px;
+    }
+
+    @include desktop-wide {
+      margin-top: -64px;
     }
 
     .collection__branding-wrapper {
