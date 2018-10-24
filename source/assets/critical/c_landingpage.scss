@@ -99,24 +99,12 @@ body.body--loading.body--loading {
     }
   }
 
-  //special handling for collections having 3 or 4 items
-  //these don't fit into the duo + 3 m-teaser scheme, so we simply hide teaser number 3 (and 4)
-  .collection__teaser-item:first-child:nth-last-child(3),
-  .collection__teaser-item:first-child:nth-last-child(3) ~ .collection__teaser-item,
-  .collection__teaser-item:first-child:nth-last-child(4),
-  .collection__teaser-item:first-child:nth-last-child(4) ~ .collection__teaser-item {
-    &:nth-child(3) {
-      display: none;
-    }
-    &:nth-child(4) {
-      display: none;
-    }
-  }
   .collection__teaser-item {
     //only show the first 5 items, hide the surplus
     &:nth-child(5) ~ .collection__teaser-item {
       display: none;
     }
+
     @include tablet-up {
       flex-grow: 0;
       flex-shrink: 0;
@@ -177,7 +165,7 @@ body.body--loading.body--loading {
   }
 
   .collection__lead {
-    display: none;
+    visibility: hidden;
   }
   .collection__title-text {
     display: none;
@@ -344,7 +332,7 @@ body.body--loading.body--loading {
   }
 
   .teaser--longform {
-    align-items: flex-end;
+    display: none;
   }
 
   .teaser__content,
@@ -361,5 +349,28 @@ body.body--loading.body--loading {
     @include desktop-wide {
       margin: 24px;
     }
+  }
+
+  .teaser__opinion,
+  .teaser__links {
+    display: none;
+  }
+
+  .ratio::before {
+    content: "";
+    width: 1px;
+    margin-left: -1px;
+    float: left;
+    height: 0;
+  }
+
+  .ratio::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  .ratio--16-9::before {
+    padding-top: 56.25%;
   }
 }
