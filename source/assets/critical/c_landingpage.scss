@@ -50,13 +50,14 @@ body.body--loading.body--loading {
       flex-direction: row;
       flex-wrap: wrap;
       align-items: stretch;
-      margin: 0 32px 16px;
+      margin: 0 calc(32px - #{$teaser-col-gap-tablet-up}) -16px 32px;
     }
 
     @include desktop-wide {
-      margin: 0 40px 20px;
+      margin: 0 calc(40px - #{$teaser-col-gap-desktop-wide}) -20px 40px;
     }
   }
+
   .collection__teaser-item {
     display: flex;
 
@@ -67,10 +68,40 @@ body.body--loading.body--loading {
       display: none;
     }
 
-    // mobile first: teaser items have 8px margin between them (after the item), except the last one, which has none.
-    margin: 0 0 8px;
-    &:last-child {
-      margin-bottom: 0;
+    @include smartphone {
+      margin: 0 0 8px;
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      &:nth-child(n+2) {
+        .teaser__main {
+          flex-direction: row-reverse;
+        }
+        .teaser__medium-wrapper {
+          padding-bottom: 0;
+          width: 80px;
+          height: 80px;
+          margin: 16px 16px 16px 0;
+          border-radius: 2px;
+          overflow: hidden;
+        }
+        .teaser__medium {
+          object-fit: cover;
+        }
+      }
+    }
+
+    @include tablet-up {
+      flex-grow: 0;
+      flex-shrink: 0;
+      flex-basis: calc(100% / 3);
+      margin: 0;
+      padding: 0 $teaser-col-gap-tablet-up 32px 0;
+    }
+
+    @include desktop-wide {
+      padding: 0 $teaser-col-gap-desktop-wide 40px 0;
     }
   }
 
@@ -99,73 +130,8 @@ body.body--loading.body--loading {
     }
   }
 
-  .collection__teaser-item {
-    //only show the first 5 items, hide the surplus
-    &:nth-child(5) ~ .collection__teaser-item {
-      display: none;
-    }
-
-    @include tablet-up {
-      flex-grow: 0;
-      flex-shrink: 0;
-      flex-basis: calc((100% - 48px) / 3);
-      margin: 32px 24px 0 0;
-
-      // 1st/2nd element: L teasers, 50% width and no top-margin
-      &:nth-child(1),
-      &:nth-child(2) {
-        margin-top: 0;
-        flex-basis: calc((100% - 24px) / 2);
-      }
-
-      // no right-margin for 2nd L teaser
-      &:nth-child(2) {
-        margin: 0;
-      }
-
-      // No right-margin on every third item, after the first two (margin-right = gap between teasers in a row)
-      &:nth-child(3n + 2) {
-        margin-right: 0;
-      }
-    }
-
-    @include desktop-wide {
-      flex-basis: calc((100% - 64px) / 3);
-      margin: 40px 32px 0 0;
-
-      // Special for Duo: spacing between 1st and 2nd teaser is 40px on desktop wide
-      &:nth-child(1) {
-        margin-right: 40px;
-      }
-
-      &:nth-child(1),
-      &:nth-child(2) {
-        flex-basis: calc((100% - 40px) / 2);
-      }
-    }
-    @include smartphone {
-      &:nth-child(n+2) {
-        .teaser__main {
-          flex-direction: row-reverse;
-        }
-        .teaser__medium-wrapper {
-          padding-bottom: 0;
-          width: 80px;
-          height: 80px;
-          margin: 16px 16px 16px 0;
-          border-radius: 2px;
-          overflow: hidden;
-        }
-        .teaser__medium {
-          object-fit: cover;
-        }
-
-      }
-    }
-  }
-
   .collection__lead {
-    visibility: hidden;
+    display: none;
   }
   .collection__title-text {
     display: none;
@@ -175,15 +141,11 @@ body.body--loading.body--loading {
     display: none;
   }
 
-  .collection__title-shimmer {
-    width: 200px;
-  }
-
   .collection--hero {
     .collection__teaser-item {
       @include tablet-up {
-        // large teaser if there's only one
-        &:first-child:last-child {
+        // First element: XL Teaser. Full width
+        &:nth-child(1) {
           flex-basis: 100%;
         }
       }
@@ -205,6 +167,26 @@ body.body--loading.body--loading {
           }
           width: 65.75%;
         }
+      }
+    }
+  }
+
+  .collection--duo {
+    .collection__teaser-item {
+      @include tablet-up {
+        flex-grow: 0;
+        flex-shrink: 0;
+        flex-basis: calc(100% / 3);
+        padding: 0 $teaser-col-gap-tablet-up 32px 0;
+
+        &:nth-child(1),
+        &:nth-child(2) {
+          flex-basis: 50%;
+        }
+      }
+
+      @include desktop-wide {
+        padding: 0 $teaser-col-gap-desktop-wide 40px 0;
       }
     }
   }
