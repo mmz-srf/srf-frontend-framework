@@ -6,6 +6,8 @@ $color-collection-dim: rgba(0, 0, 0, .6) !default;
 $color-collection-dim-fade: rgba(0, 0, 0, 0) !default;
 $background-overlap: 40px;
 $background-overlap-wide: 50px;
+$teaser-col-gap-tablet-up: 24px;
+$teaser-col-gap-desktop-wide: 32px;
 
 .collection {
   margin: 0 0 $collection-gap;
@@ -213,11 +215,11 @@ $background-overlap-wide: 50px;
     flex-direction: row;
     flex-wrap: wrap;
     align-items: stretch;
-    margin: 0 32px 16px;
+    margin: 0 calc(32px - #{$teaser-col-gap-tablet-up}) -16px 32px;
   }
 
   @include desktop-wide {
-    margin: 0 40px 20px;
+    margin: 0 calc(40px - #{$teaser-col-gap-desktop-wide}) -20px 40px;
   }
 }
 
@@ -231,9 +233,8 @@ $background-overlap-wide: 50px;
  * etc. is determined by the collection.
  *
  * For the spacing:
- * The idea is that a collection__teaser-item has some right- and top-margin.
- * The last item in a row has no right-margin.
- * The first row of items has no top-margin.
+ * collection__teaser-items only have right and bottom padding
+ * collection__teaser-lists compensate the superfluous right/bottom space by reducing the right/bottom margins
  */
 .collection__teaser-item {
   display: flex;
@@ -249,6 +250,10 @@ $background-overlap-wide: 50px;
   margin: 0 0 8px;
   &:last-child {
     margin-bottom: 0;
+  }
+
+  @include tablet-up {
+    margin: 0;
   }
 }
 
@@ -376,23 +381,12 @@ $background-overlap-wide: 50px;
     @include tablet-up {
       flex-grow: 0;
       flex-shrink: 0;
-      @include calculateTeaserFlexBasis(3, 24px);
-      margin: 32px 24px 0 0;
-
-      // No right-margin on every third item (margin-right = gap between teasers in a row)
-      &:nth-child(3n) {
-        margin-right: 0;
-      }
-
-      // first three teasers should not have margin-top
-      &:nth-child(-n+3) {
-        margin-top: 0;
-      }
+      flex-basis: calc(100% / 3);
+      padding: 0 $teaser-col-gap-tablet-up 32px 0;
     }
 
     @include desktop-wide {
-      @include calculateTeaserFlexBasis(3, 32px);
-      margin: 40px 32px 0 0;
+      padding: 0 $teaser-col-gap-desktop-wide 40px 0;
     }
   }
 }
@@ -407,13 +401,14 @@ $background-overlap-wide: 50px;
 
   .collection__teaser-item {
     padding-right: 8px;
-    min-width: calc(33.333333334% - (56px / 3) - 12px); // 56px is the visible part of the first 'overflowed' item
+    min-width: calc(33.333333334% - (56px / 3)); // 56px is the visible part of the first 'overflowed' item
 
     @include smartphone {
       min-width: calc(100% - 40px);
     }
 
     @include tablet-up {
+      padding-bottom: 8px;
       padding-right: 12px;
     }
 
@@ -422,15 +417,15 @@ $background-overlap-wide: 50px;
     }
 
     &:first-child {
-      margin-left: 36px;
+      padding-left: 40px;
 
       @include smartphone {
-        margin-left: 8px;
+        padding-left: 8px;
       }
     }
 
     &:last-child {
-      margin-bottom: 8px;
+      padding-bottom: 8px;
 
       &::after {
         @include tablet-up {
@@ -479,24 +474,17 @@ $background-overlap-wide: 50px;
     @include tablet-up {
       flex-grow: 0;
       flex-shrink: 0;
-      @include calculateTeaserFlexBasis(3, 24px);
-      margin: 32px 24px 0 0;
+      flex-basis: calc(100% / 3);
+      padding: 0 $teaser-col-gap-tablet-up 32px 0;
 
-      // First element: XL Teaser. No margins and full width
+      // First element: XL Teaser. Full width
       &:nth-child(1) {
-        margin: 0;
         flex-basis: 100%;
-      }
-
-      // No right-margin on every third item, after the first (margin-right = gap between teasers in a row)
-      &:nth-child(3n + 1) {
-        margin-right: 0;
       }
     }
 
     @include desktop-wide {
-      @include calculateTeaserFlexBasis(3, 32px);
-      margin: 40px 32px 0 0;
+      padding: 0 $teaser-col-gap-desktop-wide 40px 0;
     }
   }
 }
@@ -507,39 +495,26 @@ $background-overlap-wide: 50px;
     @include tablet-up {
       flex-grow: 0;
       flex-shrink: 0;
-      @include calculateTeaserFlexBasis(3, 24px);
-      margin: 32px 24px 0 0;
+      flex-basis: calc(100% / 3);
+      padding: 0 $teaser-col-gap-tablet-up 32px 0;
 
-      // 1st/2nd element: L teasers, 50% width and no top-margin
+      // 1st/2nd element: L teasers, 50% width
       &:nth-child(1),
       &:nth-child(2) {
-        margin-top: 0;
-        @include calculateTeaserFlexBasis(2, 24px);
-      }
-
-      // no right-margin for 2nd L teaser
-      &:nth-child(2) {
-        margin: 0;
-      }
-
-      // No right-margin on every third item, after the first two (margin-right = gap between teasers in a row)
-      &:nth-child(3n + 2) {
-        margin-right: 0;
+        flex-basis: 50%;
       }
     }
 
     @include desktop-wide {
-      @include calculateTeaserFlexBasis(3, 32px);
-      margin: 40px 32px 0 0;
+      padding: 0 $teaser-col-gap-desktop-wide 40px 0;
 
       // Special for Duo: spacing between 1st and 2nd teaser is 40px on desktop wide
       &:nth-child(1) {
-        margin-right: 40px;
+        flex-basis: calc(50% + 4px);
+        padding-right: 40px;
       }
-
-      &:nth-child(1),
       &:nth-child(2) {
-        @include calculateTeaserFlexBasis(2, 40px);
+        flex-basis: calc(50% - 4px);
       }
     }
   }
@@ -547,29 +522,22 @@ $background-overlap-wide: 50px;
 
 // Compact: S teasers only. 2 columns on tablet. Desktop: 2 columns, except if 3 teasers --> then 3 columns
 .collection--compact {
+  .collection__teaser-list {
+    margin-bottom: 0;
+  }
+
   .collection__teaser-item {
     // Tablet + Desktop: 16px row gap, 24px column gap
     @include tablet-up {
       flex-grow: 0;
       flex-shrink: 0;
-      flex-basis: calc((100% - (1 * 24px)) / 2);
-      margin: 16px 24px 0 0;
-
-      // No right-margin on every second item (margin-right = gap between teasers in a row)
-      &:nth-child(2n) {
-        margin-right: 0;
-      }
-
-      // first two teasers should not have margin-top
-      &:nth-child(-n+2) {
-        margin-top: 0;
-      }
+      flex-basis: 50%;
+      padding: 0 $teaser-col-gap-tablet-up 16px 0;
     }
 
     // Desktop-wide: 20px row gap, 32px column gap
     @include desktop-wide {
-      flex-basis: calc((100% - (1 * 32px)) / 2);
-      margin: 20px 32px 0 0;
+      padding: 0 $teaser-col-gap-desktop-wide 20px 0;
     }
   }
 
@@ -580,18 +548,12 @@ $background-overlap-wide: 50px;
   .collection__teaser-item:first-child:nth-last-child(3),
   .collection__teaser-item:first-child:nth-last-child(3) ~ .collection__teaser-item {
     @include desktop-up {
-      flex-basis: calc((100% - (2 * 24px)) / 3);
-      margin-top: 0;
-      margin-right: 24px;
-
-      &:last-child {
-        margin-right: 0;
-      }
+      flex-basis: calc((100% / 3);
+      padding-right: $teaser-col-gap-tablet-up;
     }
 
     @include desktop-wide {
-      flex-basis: calc((100% - (2 * 32px)) / 3);
-      margin-right: 32px;
+      padding-right: $teaser-col-gap-desktop-wide;
     }
   }
 }
@@ -751,6 +713,7 @@ $background-overlap-wide: 50px;
 
   .collection__teaser-item {
     margin: 0;
+    padding: 0;
   }
 
   .collection__content-wrapper {
