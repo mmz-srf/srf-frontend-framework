@@ -76,7 +76,7 @@
                             {% set teaserFormat = 'teaser--size-m' %}
                         {% endif %}
 
-                        <li class="collection__teaser-item teaser__wrapper {{ swipeable ? "js-swipeable-area-item"}}">
+                        <li class="collection__teaser-item {{ swipeable ? "js-swipeable-area-item"}}">
                             {% if 'teaser--longform' in teaser.styleModifier|default("") %}
                                 {% include 'molecules-teaser--longform' with {'teaser': teaser, "styleModifier": teaserFormat} %}
                             {% else %}
