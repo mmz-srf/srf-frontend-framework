@@ -6,7 +6,7 @@
 
 <div class="teaser teaser--theme-dark teaser--longform {{ styleModifier }}">
 
-    <div class="teaser__medium">
+    <div class="teaser__longform-medium">
         <div class="image image--media-still-dynamic">
             <img src="{{ teaser.image|default('') }}" alt="{{ teaser.title|default('') }}" />
         </div>
@@ -27,7 +27,6 @@
         {% endif %}
         <div class="teaser__main-inner-wrapper">
             <a class="teaser__main" href="{{ teaser.link|default('#') }}">
-
                 <div class="teaser__content">
                     {% if preKicker %}<span class="h-offscreen" data-iefix="teaser__prekicker--fixed-for-ie"><strong>{{ preKicker }}</strong></span>{% endif %}
 

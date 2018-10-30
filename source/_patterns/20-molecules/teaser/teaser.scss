@@ -38,7 +38,6 @@ $xl-teaser-ratio: 65.75%;
     transform: none;
     box-shadow: none;
   }
-
 }
 
 .teaser__main {
@@ -86,7 +85,7 @@ $xl-teaser-ratio: 65.75%;
   margin: 16px 16px 16px 0;
   color: transparent; // hide alt-text in case image is broken
   position: relative; // for positioning ::pseudo elements
-  background-color: #dadad2;
+  background-color: $color-image-dummy;
   align-self: start;
 
   // border on top of the images
@@ -747,7 +746,7 @@ $xl-teaser-ratio: 65.75%;
 .teaser--longform {
   height: 100%;
 
-  .teaser__medium {
+  .teaser__longform-medium {
     position: absolute;
     z-index: 0;
     width: 100%;
