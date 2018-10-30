@@ -336,11 +336,23 @@ body.body--loading.body--loading {
     padding-top: 56.25%;
   }
 
+  .teaser--size-xl {
+    @include tablet-up {
+      .teaser__main {
+        flex-direction: row;
+      }
+      .teaser__medium-wrapper {
+        flex-basis: $teaser-xl-medium-ratio;
+      }
+    }
+  }
+
   .teaser--longform {
     flex-direction: column;
   }
 
   .teaser__longform-medium {
+    position: relative;
     background-color: $color-image-dummy;
 
     & > .image {
@@ -354,7 +366,7 @@ body.body--loading.body--loading {
       flex-direction: row;
 
       .teaser__longform-medium {
-          flex-basis: 65.75%;
+          flex-basis: $teaser-xl-medium-ratio;
       }
     }
   }

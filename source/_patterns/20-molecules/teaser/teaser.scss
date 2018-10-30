@@ -3,8 +3,6 @@
 @import "../../breakpoints";
 @import "teaser-theme-settings";
 
-$xl-teaser-ratio: 65.75%;
-
 /* autoprefixer grid: on */
 .teaser {
   display: flex;
@@ -519,7 +517,7 @@ $xl-teaser-ratio: 65.75%;
       &::after {
         border-right: solid 1px rgba(0, 0, 0, 0.04);
       }
-      flex: 0 0 $xl-teaser-ratio;
+      flex: 0 0 $teaser-xl-medium-ratio;
     }
   }
 
@@ -563,7 +561,7 @@ $xl-teaser-ratio: 65.75%;
     @include tablet-up {
       .teaser__main {
         display: grid;
-        grid-template-columns: $xl-teaser-ratio auto;
+        grid-template-columns: $teaser-xl-medium-ratio auto;
         grid-template-rows: 1fr max-content;
       }
 
@@ -806,7 +804,7 @@ $xl-teaser-ratio: 65.75%;
     }
 
     .teaser__content {
-      width: calc(100% - #{$xl-teaser-ratio});
+      width: calc(100% - #{$teaser-xl-medium-ratio});
       padding: 32px 24px 32px 32px;
 
       &::before {
