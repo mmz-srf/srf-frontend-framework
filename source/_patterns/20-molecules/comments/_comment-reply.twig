@@ -5,9 +5,6 @@
         <div class="reply__highlights"></div>
         <textarea class="reply__textarea{# reply--mini #}" name="reply" cols="70" rows="7"></textarea>
         <p class="reply-info">
-            <span class="reply-info__initial">{{ 'Bitte beachten Sie unsere' }}</span>
-            <a class="reply-info__netiquette"
-               href="//srf.ch/netiquette">{{ 'Netiquette' }}</a>
             <span class="reply-info__count">
                 <span class="h-offscreen">{{ 'verfügbar sind noch' }}</span>
                 <span class="js-comment-count-up">500</span>&nbsp;{{ 'Zeichen' }}
@@ -16,5 +13,12 @@
         <input type="hidden" name="reply_to" class="js-comment_reply_to" value="0">{# replytocomment #}
         <input type="hidden" name="user_token" class="js-comment_user_token" value="0">{# replytocomment #}
     </fieldset>
+
+    <span class="comments-header__text comments-header__text--reply">
+        Mit dem Absenden dieses Kommentars stimme ich der
+        <a href="//srf.ch/netiquette">Netiquette</a>
+        von srf.ch.zu
+    </span>
+
     {% include 'atoms-button' with { 'styleModifier' : 'button--inactive', 'buttonText' : 'Kommentieren' } %}
 </form>

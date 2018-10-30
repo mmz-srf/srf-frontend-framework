@@ -36,10 +36,13 @@
 
             {# show the button to comment #}
             {% if allowsComments %}
-                <a class="comments-header__button comments--shrink" href="#" role="link">
-                    {{ 'Teilen Sie Ihre Meinung ...' }}
-                    <span class="h-offscreen">{{ 'anwählen um einen Kommentar zu schreiben' }}</span>
-                </a>
+                <div class="comments-header__button-wrapper comments--shrink">
+                    <a class="comments-header__button comments--shrink" href="#" role="link">
+                        {{ 'Teilen Sie Ihre Meinung ...' }}
+                        <span class="h-offscreen">{{ 'anwählen um einen Kommentar zu schreiben' }}</span>
+                    </a>
+                </div>
+
                 <span class="comments-header__placeholder"></span>
 
                 {% block comment_reply %}
