@@ -257,28 +257,6 @@ ul {
   }
 }
 
-ul li {
-  position: relative;
-  margin: 12px 0;
-  padding-left: 1.5em;
-
-  @include smartphone {
-    margin: 8px 0
-  }
-}
-
-ul > li::before {
-  position: absolute;
-  left: 2px;
-  top: 11px;
-  display: inline-block;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background-color: #c91024;
-  content: ' '
-}
-
 .breadcrumb__link {
   font: 14px/1.14 "SRG_SSR_Regular", sans-serif;
   letter-spacing: .2px;

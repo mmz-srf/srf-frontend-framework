@@ -44,24 +44,22 @@
     }
   }
 
-  // only apply default text link styling to links without a class (i.e. body text from our CMS)
+  // only apply default styling to links and lists without a class (i.e. body text from our CMS)
   a:not([class]),
   a[class=""] {
     @include text-link-defaults;
   }
+
+  ul:not([class]),
+  ul[class=""] {
+    @include text-list-defaults;
+    @include text-list-unordered-defaults;
+  }
+
+  ol:not([class]),
+  ol[class=""] {
+    @include text-list-defaults;
+    @include text-list-ordered-defaults;
+  }
 }
 
-ul {
-  // @extend used here to apply the DRY principle while coping with ezxml's missing classes for html elements
-  // tip: always be careful with @extend
-  @extend .text-list;
-  @extend .text-list--unordered;
-
-}
-
-ol {
-  // @extend used here to apply the DRY principle while coping with ezxml's missing classes for html elements
-  // tip: always be careful with @extend
-  @extend .text-list;
-  @extend .text-list--ordered;
-}
