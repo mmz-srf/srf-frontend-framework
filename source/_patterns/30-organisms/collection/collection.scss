@@ -546,7 +546,7 @@ $background-overlap-wide: 50px;
   .collection__teaser-item:first-child:nth-last-child(3),
   .collection__teaser-item:first-child:nth-last-child(3) ~ .collection__teaser-item {
     @include desktop-up {
-      flex-basis: calc((100% / 3);
+      flex-basis: calc(100% / 3);
       padding-right: $teaser-col-gap-tablet-up;
     }
 
