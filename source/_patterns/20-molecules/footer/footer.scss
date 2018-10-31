@@ -69,9 +69,6 @@
     display: inline-block;
   }
 
-  &::before {
-    display: none;
-  }
 }
 
 .footer-bottom__navigation-link {
@@ -87,10 +84,6 @@
 
   @include tablet-up {
     margin-right: 8px;
-  }
-
-  &::before {
-    display: none;
   }
 
   &:hover {
@@ -151,11 +144,6 @@
   margin: 0;
   padding: 0;
   display: flex;
-
-  // override global <a> style
-  &::before {
-    display: none;
-  }
 
   // border on the right side has to be ::after because element is taller than the "border" --> can't be a border
   &::after {

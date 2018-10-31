@@ -60,13 +60,6 @@ body.body--loading.body--loading {
   .collection__teaser-item {
     display: flex;
 
-    // Override stupid global <li> style
-    padding: 0;
-    list-style-type: none;
-    &::before {
-      display: none;
-    }
-
     // mobile first: teaser items have 8px margin between them (after the item), except the last one, which has none.
     margin: 0 0 8px;
     &:last-child {

@@ -54,10 +54,6 @@
   @include tablet-up {
     display: inline-block;
   }
-
-  &::before {
-    display: none;
-  }
 }
 
 .rlp-footer-bottom__navigation-link {
@@ -144,11 +140,6 @@
   padding: 0;
   flex: 1 1 auto;
   background-color: $color-bg-box;
-
-  // override global <a> style
-  &::before {
-    display: none;
-  }
 
   &:last-of-type {
     margin-right: 0;

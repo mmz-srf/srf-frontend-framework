@@ -4,10 +4,6 @@
   margin: 0 -24px 24px;
   padding: 0 24px;
 
-  &:before {
-    display: none;
-  }
-
   @include tablet-up {
     margin: 0 -16px 32px;
     padding: 0 16px;

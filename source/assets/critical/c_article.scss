@@ -403,10 +403,6 @@ ul {
   padding: 0;
 }
 
-.breadcrumbs__item::before, .navigation-item::before, .navigation__group-item::before {
-  content: none
-}
-
 body::after {
   content: "";
   opacity: 0;

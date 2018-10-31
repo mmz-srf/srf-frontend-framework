@@ -18,16 +18,6 @@
   }
 }
 
-// Override stupid global <li> style
-.nav-group__item {
-  margin: 0;
-  padding: 0;
-
-  &::before {
-    display: none;
-  }
-}
-
 .nav-group__wrapper {
   position: fixed;
   overflow: hidden;

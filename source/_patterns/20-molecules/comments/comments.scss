@@ -192,10 +192,6 @@
     padding: 0 16px;
   }
 
-  &::before { // overwrite
-    content: none;
-  }
-
   .comment,
   .comment__link--expand-replies { // ul li li
     margin-right: 0;
@@ -385,10 +381,6 @@
 
   @include tablet-up {
     width: auto;
-  }
-
-  &::before { // overwrite
-    content: none;
   }
 }
 
