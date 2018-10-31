@@ -63,7 +63,10 @@ gulp.task('styles', function () {
             outputStyle: 'compressed',    //use 'nested' for debugging
             precision: 10
         }).on('error', $.sass.logError))
-        .pipe($.autoprefixer({browsers: AUTOPREFIXER_BROWSERS}))
+        .pipe($.autoprefixer({
+            browsers: AUTOPREFIXER_BROWSERS,
+            grid: true
+        }))
         .pipe(gulp.dest('public/assets/css'))
         .pipe($.size({
             title: 'css'

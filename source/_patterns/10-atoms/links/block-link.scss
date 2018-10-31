@@ -138,7 +138,6 @@
   background-image: none;
   border-top-width: 1px;
   border-top-style: solid;
-  transition: background-color .2s ease-in-out, border-color .2s ease-in-out;
 
   /* theme */
   @include customPropWithFallback('border-top-color', '--teaser-border-color-link', 'rgba(0,0,0,.08)'); // rgb(234,234,233); // = rgba(0,0,0,.08) on white

@@ -60,18 +60,26 @@
 
 .affix-placeholder {
   top: 0;
-  height: 170px;
+  height: 178px;
 
   @include tablet-up {
     height: 224px;
   }
+
+  @include desktop-wide {
+    height: 232px;
+  }
 }
 
 .affix-placeholder--home {
-  height: 120px;
+  height: 128px;
 
   @include tablet-up {
     height: 112px;
+  }
+
+  @include desktop-wide {
+    height: 120px;
   }
 }
 

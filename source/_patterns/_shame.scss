@@ -34,6 +34,7 @@
 }
 .image--media-still-dynamic {
   .js-fake-image-object-fit {
+    height: 100%;
     position: relative;
   }
 }
@@ -232,6 +233,31 @@ _:-ms-fullscreen,
       display: none;
     }
   }
+
+  .teaser--theme-dark {
+    color: #ffffff;
+    background-color: #22211d;
+
+    &:after {
+      background-color: rgba(255, 255, 255, .12);
+    }
+
+    .teaser__kicker {
+      color: #dadad2;
+    }
+
+    .teaser__title,
+    .teaser__lead,
+    .teaser__media-caption,
+    .teaser-status,
+    .teaser-status-live--live,
+    .teaser-status--new,
+    .teaser-status--visited-and-recently-updated,
+    .teaser-status--visited,
+    .teaser-status--visited-and-updated {
+      color: #ffffff;
+    }
+  }
 }
 
 /*
@@ -242,4 +268,56 @@ _:-ms-fullscreen,
  */
 .modal.modal--theme-dark .icon-button {
   @include font-smoothing;
+}
+
+/*
+ * TARGETED BROWSER: Firefox 52 - 60, IE11
+ * Older browsers have troubles with the only working method we found for spanning
+ * open the longform teasers. To prevent ugly hacks, we give them a min-height.
+ */
+.teaser--longform {
+  &.teaser--size-m {
+    @include smartphone {
+      min-height: 289px;
+    }
+    @include tablet {
+      min-height: 263px;
+    }
+    @include desktop {
+      min-height: 299px;
+    }
+    @include desktop-wide {
+      min-height: 374px;
+    }
+  }
+
+  &.teaser--size-l {
+    @include smartphone {
+      min-height: 289px;
+    }
+    @include tablet {
+      min-height: 308px;
+    }
+    @include desktop {
+      min-height: 460px;
+    }
+    @include desktop-wide {
+      min-height: 572px;
+    }
+  }
+
+  &.teaser--size-xl {
+    @include smartphone {
+      min-height: 289px;
+    }
+    @include tablet {
+      min-height: 237px;
+    }
+    @include desktop {
+      min-height: 350px;
+    }
+    @include desktop-wide {
+      min-height: 440px;
+    }
+  }
 }
