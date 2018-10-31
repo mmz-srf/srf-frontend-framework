@@ -26,6 +26,9 @@
 
 .embed-inline__content > * {
   margin: 0 auto;
+  margin-right: auto !important;
+  margin-left: auto !important;
+  // these two !important are needed, because Instagram and others do set a own margin-right/left-value of 0 or n on its generated elements -> therefore the emebed is not visually centered, as is be specified by our UI/design
 }
 
 body[data-representation=web] {
