@@ -1,5 +1,5 @@
 <p class="teaser-status js-teaser-status {{ styleModifier|default('') }}">
     <span class="teaser-status__content">
-        <span class="h-offscreen">{{ a11yText|default('') }}</span>{{ text|default('') }}
+        {% if a11yText %}<span class="h-offscreen">{{ a11yText|default('') }}</span>{% endif %}{{ text|default('') }}
     </span>
 </p>
