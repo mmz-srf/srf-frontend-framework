@@ -328,3 +328,19 @@
     #{$prop}: var(#{$customprop}, #{$fallback-value});
   }  
 }
+
+/*
+ * TARGETED BROWSER: IE 11
+ *
+ * this mixin addresses the flexbug #7 issue: flex-basis doesn't account for box-sizing: border-box in IE11
+ * workaround: instead of setting an explicit flex-basis value, use auto, and then set an explicit width or height.
+ *
+ * normally this mixin would go into _shame.scss but since it's also used in the critical css, it's placed here
+ *
+ * @see Flexbug #7 (https://github.com/philipwalton/flexbugs#flexbug-7)
+ */
+
+@mixin IESafeFlexBasis($width: 100%) {
+  flex-basis: auto;
+  width: $width;
+}

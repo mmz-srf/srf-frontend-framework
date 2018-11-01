@@ -95,7 +95,7 @@ body.body--loading.body--loading {
     @include tablet-up {
       flex-grow: 0;
       flex-shrink: 0;
-      flex-basis: calc(100% / 3);
+      @include IESafeFlexBasis(33.3333334%);
       margin: 0;
       padding: 0 $teaser-col-gap-tablet-up 32px 0;
     }
@@ -157,7 +157,7 @@ body.body--loading.body--loading {
       @include tablet-up {
         flex-grow: 0;
         flex-shrink: 0;
-        flex-basis: calc(100% / 3);
+        @include IESafeFlexBasis(33.3333334%);
         padding: 0 $teaser-col-gap-tablet-up 32px 0;
 
         &:nth-child(1),
