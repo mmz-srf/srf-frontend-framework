@@ -33,6 +33,8 @@
   align-items: center;
 }
 
+
+
 // only show teaser status when a modifier is set
 .teaser-status--new,
 .teaser-status--visited-and-recently-updated,
@@ -40,6 +42,7 @@
 .teaser-status--visited-and-updated,
 .teaser-status--mediaicon-video,
 .teaser-status--mediaicon-audio,
+.teaser-status--mediaicon-image-gallery,
 .teaser-status-live--pre,
 .teaser-status-live--live {
   display: flex;
@@ -55,7 +58,8 @@
 .teaser-status--visited,
 .teaser-status--visited-and-updated,
 .teaser-status--mediaicon-video,
-.teaser-status--mediaicon-audio {
+.teaser-status--mediaicon-audio,
+.teaser-status--mediaicon-image-gallery {
   .teaser-status__content::before {
     content: '';
     margin-right: 4px;
@@ -67,6 +71,16 @@
     animation: rotateSparselyAnimation 10s 5s infinite;
   }
 }
+
+.teaser-status--visited-and-updated,
+.teaser-status--mediaicon-video,
+.teaser-status--mediaicon-audio,
+.teaser-status--mediaicon-image-gallery {
+    /* theme */
+    @include customPropWithFallback('color', '--teaser-color-status-updated', $color-text-light);
+}
+
+
 
 .teaser-status--visited-and-recently-updated {
   /* theme */
@@ -92,6 +106,8 @@
     background-image: url(../img/retry_white.svg);
   }
 }
+
+
 
 .teaser-status--visited {
   /* theme */
@@ -121,12 +137,7 @@
   }
 }
 
-.teaser-status--visited-and-updated,
-.teaser-status--mediaicon-video,
-.teaser-status--mediaicon-audio {
-    /* theme */
-    @include customPropWithFallback('color', '--teaser-color-status-updated', $color-text-light);
-}
+
 
 .teaser-status--visited-and-updated {
   .teaser-status__content:before {
@@ -150,6 +161,8 @@
   }
 }
 
+
+
 .teaser-status--mediaicon-video {
   .teaser-status__content:before {
     background-image: url(../img/icon/play-video-circle-grey-tiny.svg);
@@ -172,6 +185,8 @@
   }
 }
 
+
+
 .teaser-status--mediaicon-audio {
   .teaser-status__content:before {
     background-image: url(../img/icon/play-audio-grey-tiny.svg);
@@ -193,6 +208,31 @@
     background-image: url(../img/icon/play-audio-white-tiny.svg);
   }
 }
+
+
+
+.teaser-status--mediaicon-image-gallery {
+  .teaser-status__content:before {
+    background-image: url(../img/icon/image-gallery-grey-tiny.svg);
+    animation: none;
+
+    /* theme */
+    /* NOTE2: Themes should be declared via custom properties, but this does not work here (propably 'cause of gulp or something) therefore these assets are declared just below these lines */
+  }
+}
+
+/* theme (see NOTE2) */
+.teaser--theme-dark .teaser-status--mediaicon-image-gallery {
+  .teaser-status__content:before {
+    background-image: url(../img/icon/image-gallery-white-tiny.svg);
+  }
+}
+.teaser--theme-breaking .teaser-status--mediaicon-image-gallery {
+  .teaser-status__content:before {
+    background-image: url(../img/icon/image-gallery-white-tiny.svg);
+  }
+}
+
 
 
 // larger teaser sizes (L/XL) have larger gaps between previous content and teaser status
