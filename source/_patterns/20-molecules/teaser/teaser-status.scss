@@ -38,6 +38,7 @@
 .teaser-status--visited-and-recently-updated,
 .teaser-status--visited,
 .teaser-status--visited-and-updated,
+.teaser-status--mediaicon-video,
 .teaser-status-live--pre,
 .teaser-status-live--live {
   display: flex;
@@ -51,8 +52,9 @@
 
 .teaser-status--visited-and-recently-updated,
 .teaser-status--visited,
-.teaser-status--visited-and-updated {
-  .teaser-status__content:before {
+.teaser-status--visited-and-updated,
+.teaser-status--mediaicon-video {
+  .teaser-status__content::before {
     content: '';
     margin-right: 4px;
     background-position: center;
@@ -117,12 +119,13 @@
   }
 }
 
-
+.teaser-status--visited-and-updated,
+.teaser-status--mediaicon-video {
+    /* theme */
+    @include customPropWithFallback('color', '--teaser-color-status-updated', $color-text-light);
+}
 
 .teaser-status--visited-and-updated {
-  /* theme */
-  @include customPropWithFallback('color', '--teaser-color-status-updated', $color-text-light);
-
   .teaser-status__content:before {
     /* fallback */
     background-image: url(../img/retry_grey.svg);
@@ -143,6 +146,29 @@
     background-image: url(../img/retry_white.svg);
   }
 }
+
+.teaser-status--mediaicon-video {
+  .teaser-status__content:before {
+    background-image: url(../img/icon/play-video-circle-grey-tiny.svg);
+    animation: none;
+
+    /* theme */
+    /* NOTE2: Themes should be declared via custom properties, but this does not work here (propably 'cause of gulp or something) therefore these assets are declared just below these lines */
+  }
+}
+
+/* theme (see NOTE2) */
+.teaser--theme-dark .teaser-status--mediaicon-video {
+  .teaser-status__content:before {
+    background-image: url(../img/icon/play-video-circle-white-tiny.svg);
+  }
+}
+.teaser--theme-breaking .teaser-status--mediaicon-video {
+  .teaser-status__content:before {
+    background-image: url(../img/icon/play-video-circle-white-tiny.svg);
+  }
+}
+
 
 // larger teaser sizes (L/XL) have larger gaps between previous content and teaser status
 .teaser-status--size-large {
