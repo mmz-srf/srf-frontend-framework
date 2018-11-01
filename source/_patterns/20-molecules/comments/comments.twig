@@ -43,7 +43,7 @@
                     </a>
                 </div>
 
-                <span class="comments-header__placeholder"></span>
+                <div class="comments-header__placeholder"></div>
 
                 {% block comment_reply %}
                     {% include '_comment-reply.twig' with { 'comments' : { 'replies' : comments.replies }, 'isMovable' : false } %}

@@ -28,10 +28,7 @@
   position: relative;
 
   .form__validation--success p {
-    margin: 12px 0 0;
-    @include tablet {
-      margin: 0;
-    }
+    margin: 0;
   }
 
   .comments-header__button {
@@ -166,6 +163,10 @@
   @include desktop-up {
     max-width: 712px;
   }
+}
+
+.comments-header__placeholder .form__validation--success {
+  padding: 0 16px 30px 16px;
 }
 
 .comments-header__border { // hack :(
@@ -471,6 +472,10 @@
 
   .button { // /: (submit buttons probably shouldn't have "defined" margins...)
     margin-top: 12px;
+
+    @include tablet {
+      margin-left: 16px;
+    }
   }
 }
 
