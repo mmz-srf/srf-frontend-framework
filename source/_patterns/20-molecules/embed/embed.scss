@@ -2,7 +2,8 @@
   position: relative;
   margin: 32px 0;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 
   @include smartphone {
     margin: 24px 0;
@@ -15,6 +16,7 @@
   font-family: $font-medium;
   margin-bottom: 12px;
   padding: 0 16px;
+  align-self: flex-start;
 
   @include smartphone {
     font-size: 18px;
