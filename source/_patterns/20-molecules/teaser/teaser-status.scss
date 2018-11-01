@@ -39,6 +39,7 @@
 .teaser-status--visited,
 .teaser-status--visited-and-updated,
 .teaser-status--mediaicon-video,
+.teaser-status--mediaicon-audio,
 .teaser-status-live--pre,
 .teaser-status-live--live {
   display: flex;
@@ -53,7 +54,8 @@
 .teaser-status--visited-and-recently-updated,
 .teaser-status--visited,
 .teaser-status--visited-and-updated,
-.teaser-status--mediaicon-video {
+.teaser-status--mediaicon-video,
+.teaser-status--mediaicon-audio {
   .teaser-status__content::before {
     content: '';
     margin-right: 4px;
@@ -120,7 +122,8 @@
 }
 
 .teaser-status--visited-and-updated,
-.teaser-status--mediaicon-video {
+.teaser-status--mediaicon-video,
+.teaser-status--mediaicon-audio {
     /* theme */
     @include customPropWithFallback('color', '--teaser-color-status-updated', $color-text-light);
 }
@@ -166,6 +169,28 @@
 .teaser--theme-breaking .teaser-status--mediaicon-video {
   .teaser-status__content:before {
     background-image: url(../img/icon/play-video-circle-white-tiny.svg);
+  }
+}
+
+.teaser-status--mediaicon-audio {
+  .teaser-status__content:before {
+    background-image: url(../img/icon/play-audio-grey-tiny.svg);
+    animation: none;
+
+    /* theme */
+    /* NOTE2: Themes should be declared via custom properties, but this does not work here (propably 'cause of gulp or something) therefore these assets are declared just below these lines */
+  }
+}
+
+/* theme (see NOTE2) */
+.teaser--theme-dark .teaser-status--mediaicon-audio {
+  .teaser-status__content:before {
+    background-image: url(../img/icon/play-audio-white-tiny.svg);
+  }
+}
+.teaser--theme-breaking .teaser-status--mediaicon-audio {
+  .teaser-status__content:before {
+    background-image: url(../img/icon/play-audio-white-tiny.svg);
   }
 }
 
