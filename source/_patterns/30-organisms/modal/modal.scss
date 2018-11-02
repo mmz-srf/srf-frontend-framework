@@ -62,3 +62,9 @@
     overflow: visible;
   }
 }
+
+.modal--no-overlay {
+  .modal__overlay {
+    display: none;
+  }
+}

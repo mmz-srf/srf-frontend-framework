@@ -1,0 +1,48 @@
+.modal-player__container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  padding: 0;
+  justify-content: space-between;
+
+  @include smartphone {
+    flex-wrap: wrap;
+  }
+}
+
+.modal-player__media {
+  position: relative;
+  flex: 1 1 calc(100% - 400px);
+
+  @include smartphone {
+    flex: 0 0 100%;
+    order: 2;
+  }
+}
+
+.modal-player__share,
+.modal-player__close {
+  flex: 1 1 0px;
+
+  @include smartphone {
+    flex: 0 0 auto;
+    order: 1;
+  }
+
+  button {
+    border: none;
+    background: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+  }
+}
+
+.modal-player__loading {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}

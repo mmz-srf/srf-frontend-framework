@@ -1,0 +1,42 @@
+{% embed "modal.twig" with {
+    'id': 'modal-player',
+    'animation': 'scale-from-origin',
+    'styleModifier': 'modal--theme-dark modal--allow-overflow modal--no-overlay'
+} %}
+    {% block content %}
+        <div class="modal-wrapper modal-player__container">
+            <div class="modal-player__share">
+                <button>
+                    {% include 'atoms-icon-button' with {
+                        'iconStyleModifier': 'svg-icon--close-dark',
+                        'buttonText': 'Video teilen',
+                        'styleModifier': 'icon-button--spaceless-right-mobile'
+                    } %}
+                </button>
+            </div>
+
+            <div class="modal-player__media">
+                {% embed "ratio.twig" with {
+                    'class': 'js-modal-player-element',
+                    'ratio': '16:9'
+                } %}
+                    {% block ratio_content %}
+                        <div class="modal-player__loading js-modal-player-loading">
+                            {% include 'atoms-spinner' with { 'styleModifier' : 'spinner--white-dash spinner--size-medium' } %}
+                        </div>
+                    {% endblock %}
+                {% endembed %}
+            </div>
+
+            <div class="modal-player__close">
+                <button class="js-close-modal">
+                    {% include 'atoms-icon-button' with {
+                        'iconStyleModifier': 'svg-icon--close-dark',
+                        'buttonText': 'Schliessen',
+                        'styleModifier': 'icon-button--collapsing-text-mobile icon-button--spaceless-right-mobile'
+                    } %}
+                </button>
+            </div>
+        </div>
+    {% endblock %}
+{% endembed %}
