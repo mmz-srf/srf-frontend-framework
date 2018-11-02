@@ -64,6 +64,8 @@
 }
 
 .modal--no-overlay {
+  height: auto;
+
   .modal__overlay {
     display: none;
   }

@@ -80,7 +80,6 @@ export class FefModal {
         $(END_OF_MODAL).on('focus', () => {
             this.close();
         });
-
     }
 
     /**
@@ -108,9 +107,6 @@ export class FefModal {
                 this.$element.show(onShowFinished);
                 break;
         }
-
-
-
     }
 
     /**
