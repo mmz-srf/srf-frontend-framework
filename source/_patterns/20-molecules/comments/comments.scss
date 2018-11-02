@@ -166,7 +166,7 @@
 }
 
 .comments-header__placeholder .form__validation--success {
-  padding: 0 16px 30px 16px;
+  margin: 0 16px 30px 16px;
 }
 
 .comments-header__border { // hack :(
@@ -473,7 +473,7 @@
   .button { // /: (submit buttons probably shouldn't have "defined" margins...)
     margin-top: 12px;
 
-    @include tablet {
+    @include tablet-up {
       margin-left: 16px;
     }
   }
