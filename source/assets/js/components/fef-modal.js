@@ -57,6 +57,10 @@ export class FefModal {
             this.$mainContent.css('min-height', $('.js-masthead').outerHeight());
         }
 
+        this.postInit();
+    }
+
+    postInit() {
         this.show();
     }
 
@@ -86,26 +90,28 @@ export class FefModal {
      * Show the modal, depending on the provided animation.
      */
     show() {
-        const onShowFinished = () => {
-            this.preventScrolling();
-
-            if (this.$focusTarget.length === 1) {
-                this.setFocus(this.$focusTarget);
-            }
-        };
+        const showCallback = () => this.onShowFinished();
 
         this.$caller.attr({'aria-expanded': true, 'aria-haspopup': true});
 
         switch (this.animation) {
             case 'scale-from-origin':
-                this.scaleFromOrigin(onShowFinished);
+                this.scaleFromOrigin(showCallback);
                 break;
             case 'fade-in-out':
-                this.$element.stop(true, true).fadeIn(ANIMATION_SPEED, onShowFinished);
+                this.$element.stop(true, true).fadeIn(ANIMATION_SPEED, showCallback);
                 break;
             default:
-                this.$element.show(onShowFinished);
+                this.$element.show(showCallback);
                 break;
+        }
+    }
+
+    onShowFinished() {
+        this.preventScrolling();
+
+        if (this.$focusTarget.length === 1) {
+            this.setFocus(this.$focusTarget);
         }
     }
 
