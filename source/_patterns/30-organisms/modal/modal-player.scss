@@ -8,6 +8,10 @@
   @include smartphone {
     flex-wrap: wrap;
   }
+
+  @include tablet-up {
+    max-height: 60vh;
+  }
 }
 
 .modal-player__media {
