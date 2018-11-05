@@ -193,10 +193,6 @@
     border-top-width: 1px;
     border-top-style: solid;
     @include customPropWithFallback('border-top-color', '--teaser-background-link-hover', 'rgb(246,246,243)');
-
-    &::after {
-      margin-top: calc((24px / 2 * -1) - 1px);
-    }
   }
 
   &:active + & {
