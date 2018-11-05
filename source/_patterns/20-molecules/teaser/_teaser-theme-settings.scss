@@ -13,9 +13,9 @@
   --teaser-color-title: #383732;
   --teaser-color-accentuation: #{$color-accentuation-red};
   --teaser-color-overlay: #{$color-bg-button-hover};
-  --teaser-color-status-new: #{$color-srf-light};
-  --teaser-color-status-visited: #{$color-button-success};
-  --teaser-color-status-updated: #{$color-text-light};
+  --teaser-color-info-new: #{$color-srf-light};
+  --teaser-color-info-visited: #{$color-button-success};
+  --teaser-color-info-updated: #{$color-text-light};
   --teaser-border-color-link: rgba(0,0,0,.08);
   --teaser-background-link-hover: rgb(246,246,243);
   --teaser-background-link-active: rgb(237,237,234);
@@ -30,9 +30,9 @@
   --teaser-color-title: #ffffff;
   --teaser-color-accentuation: #dadad2;
   --teaser-color-overlay: rgba(255, 255, 255, .12);
-  --teaser-color-status-new: #ffffff;
-  --teaser-color-status-visited: #ffffff;
-  --teaser-color-status-updated: #ffffff;
+  --teaser-color-info-new: #ffffff;
+  --teaser-color-info-visited: #ffffff;
+  --teaser-color-info-updated: #ffffff;
   --teaser-border-color-link: rgba(255,255,255,.08);
   --teaser-background-link-hover: rgba(255,255,255,.08);
   --teaser-background-link-active: rgba(255,255,255,.24);
@@ -48,9 +48,9 @@
   --teaser-color-title: #ffffff;
   --teaser-color-accentuation: #ffffff;
   --teaser-color-overlay: rgba(255, 255, 255, .12);
-  --teaser-color-status-new: #ffffff;
-  --teaser-color-status-visited: #ffffff;
-  --teaser-color-status-updated: #ffffff;
+  --teaser-color-info-new: #ffffff;
+  --teaser-color-info-visited: #ffffff;
+  --teaser-color-info-updated: #ffffff;
   --teaser-border-color-link: rgba(255,255,255,.08);
   --teaser-background-link-hover: rgba(255,255,255,.08);
   --teaser-background-link-active: rgba(255,255,255,.24);

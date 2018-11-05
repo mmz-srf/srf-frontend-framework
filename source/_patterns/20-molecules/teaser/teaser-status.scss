@@ -51,7 +51,7 @@
 .teaser-status-live--live,
 .teaser-status--new {
   /* theme */
-  @include customPropWithFallback('color', '--teaser-color-status-new', $color-srf-light);
+  @include customPropWithFallback('color', '--teaser-color-info-new', $color-srf-light);
 }
 
 .teaser-status--visited-and-recently-updated,
@@ -77,14 +77,14 @@
 .teaser-status--mediaicon-audio,
 .teaser-status--mediaicon-image-gallery {
     /* theme */
-    @include customPropWithFallback('color', '--teaser-color-status-updated', $color-text-light);
+    @include customPropWithFallback('color', '--teaser-color-info-updated', $color-text-light);
 }
 
 
 
 .teaser-status--visited-and-recently-updated {
   /* theme */
-  @include customPropWithFallback('color', '--teaser-color-status-new', $color-srf-light);
+  @include customPropWithFallback('color', '--teaser-color-info-new', $color-srf-light);
 
   .teaser-status__content:before {
     /* fallback */
@@ -109,7 +109,7 @@
 
 .teaser-status--visited {
   /* theme */
-  @include customPropWithFallback('color', '--teaser-color-status-visited', $color-button-success);
+  @include customPropWithFallback('color', '--teaser-color-info-visited', $color-button-success);
 
   .teaser-status__content:before {
     background-image: url(../img/seen_blue.svg);

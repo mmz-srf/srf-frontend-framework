@@ -1,0 +1,51 @@
+<h3>New, not updates, not visited</h3>
+
+{% include 'atoms-teaser-info' with {
+    "styleModifier": "teaser-info--new",
+    "text": "Vor 5 Minuten"
+} %}
+
+<h3>Visited with recent updates</h3>
+
+{% include 'atoms-teaser-info' with {
+    "styleModifier": "teaser-info--visited-and-recently-updated",
+    "text": "Vor 1 Stunde"
+} %}
+
+<h3>Visited with updates</h3>
+
+{% include 'atoms-teaser-info' with {
+    "styleModifier": "teaser-info--visited-and-updated",
+    "text": "Aktualisiert"
+} %}
+
+<h3>Visited, no updates</h3>
+
+{% include 'atoms-teaser-info' with {
+    "styleModifier": "teaser-info--visited",
+    "text": "Gesehen"
+} %}
+
+<h3>Video</h3>
+
+{% include 'atoms-teaser-info' with {
+    "styleModifier": "teaser-info--mediaicon-video",
+    "a11yText": "Mit ",
+    "text": "Video"
+} %}
+
+<h3>Audio</h3>
+
+{% include 'atoms-teaser-info' with {
+    "styleModifier": "teaser-info--mediaicon-audio",
+    "a11yText": "Mit ",
+    "text": "Audio"
+} %}
+
+<h3>Image-Gallery</h3>
+
+{% include 'atoms-teaser-info' with {
+    "styleModifier": "teaser-info--mediaicon-image-gallery",
+    "a11yText": "Mit ",
+    "text": "Bildergalerie"
+} %}

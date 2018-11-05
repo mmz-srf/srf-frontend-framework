@@ -1,0 +1,176 @@
+@import '../../variables';
+@import '../../mixins';
+@import '../../breakpoints';
+
+.teaser-info-wrapper {
+  display: flex;
+  margin: 8px 0 0;
+  padding: 0;
+
+  @include tablet-up {
+    margin-top: 12px;
+  }
+}
+
+.teaser-info {
+  display: flex;
+  align-items: center;
+  font-family: $font-regular;
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: .4px;
+  @include breakLongWords;
+
+  /* theme */
+  @include customPropWithFallback('color', '--teaser-color-text', $color-text-default);
+  
+  &::before {
+    content: '';
+    margin-right: 4px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    height: 14px;
+    width: 14px;
+  }
+}
+
+
+
+.teaser-info-live--live,
+.teaser-info--new {
+  /* theme */
+  @include customPropWithFallback('color', '--teaser-color-info-new', $color-srf-light);
+}
+
+.teaser-info--visited-and-updated,
+.teaser-info--mediaicon-video,
+.teaser-info--mediaicon-audio,
+.teaser-info--mediaicon-image-gallery {
+    /* theme */
+    @include customPropWithFallback('color', '--teaser-color-info-updated', $color-text-light);
+}
+
+
+
+.teaser-info--new {
+  &::before {
+    display: none;
+  }
+}
+
+
+/* Theme note: Themes should be declared via custom properties, but this does not work here (propably 'cause of gulp or something) therefore these assets are declared just below these lines */
+
+.teaser-info--visited {
+  /* theme */
+  @include customPropWithFallback('color', '--teaser-color-info-visited', $color-button-success);
+
+  &::before {
+    background-image: url(../img/seen_blue.svg); 
+  }
+}
+
+/* theme (see theme note) */
+.teaser--theme-dark,
+.teaser--theme-breaking {
+  .teaser-info--visited::before {
+    background-image: url(../img/small_tick-white.svg);
+  }
+}
+
+
+
+.teaser-info--visited-and-recently-updated {
+  /* theme */
+  @include customPropWithFallback('color', '--teaser-color-info-new', $color-srf-light);
+
+  &::before {
+    background-image: url(../img/retry_red.svg);
+    animation: rotateSparselyAnimation 10s 5s infinite;
+  }
+}
+
+/* theme (see theme note) */
+.teaser--theme-dark,
+.teaser--theme-breaking {
+  .teaser-info--visited-and-recently-updated::before {
+    background-image: url(../img/retry_white.svg);
+  }
+}
+
+
+
+.teaser-info--visited-and-updated {
+  &::before {
+    background-image: url(../img/retry_grey.svg);
+    animation: rotateSparselyAnimation 10s 5s infinite;
+  }
+}
+
+/* theme (see theme note) */
+.teaser--theme-dark,
+.teaser--theme-breaking {
+  .teaser-info--visited-and-updated::before {
+    background-image: url(../img/retry_white.svg);
+  }
+}
+
+
+
+.teaser-info--mediaicon-video {
+  &::before {
+    background-image: url(../img/icon/play-video-circle-grey-tiny.svg);
+  }
+}
+
+/* theme (see theme note) */
+.teaser--theme-dark,
+.teaser--theme-breaking {
+  .teaser-info--mediaicon-video::before {
+    background-image: url(../img/icon/play-video-circle-white-tiny.svg);
+  }
+}
+
+
+
+.teaser-info--mediaicon-audio {
+  &::before {
+    background-image: url(../img/icon/play-audio-grey-tiny.svg);
+  }
+}
+
+/* theme (see theme note) */
+.teaser--theme-dark,
+.teaser--theme-breaking {
+  .teaser-info--mediaicon-audio::before {
+    background-image: url(../img/icon/play-audio-white-tiny.svg);
+  }
+}
+
+
+
+.teaser-info--mediaicon-image-gallery {
+  &::before {
+    background-image: url(../img/icon/image-gallery-grey-tiny.svg);
+  }
+}
+
+/* theme (see theme note) */
+.teaser--theme-dark,
+.teaser--theme-breaking {
+  .teaser-info--mediaicon-image-gallery::before {
+    background-image: url(../img/icon/image-gallery-white-tiny.svg);
+  }
+}
+
+
+
+// larger teaser sizes (L/XL) have larger gaps between previous content and teaser status
+.teaser-info--size-large { //todo
+  margin: 16px 0 0;
+
+  @include tablet-up {
+    margin-top: 20px;
+  }
+}
