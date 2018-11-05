@@ -176,6 +176,7 @@
   &:active + & {
     margin-top: -1px;
     padding-top: 13px;
+    min-height: 49px;
     border-top-width: 1px;
     border-top-style: solid;
     @include customPropWithFallback('border-top-color', '--teaser-background-link-hover', 'rgb(246,246,243)');
