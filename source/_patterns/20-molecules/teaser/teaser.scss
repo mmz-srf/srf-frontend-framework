@@ -185,7 +185,6 @@ $xl-teaser-ratio: 65.75%;
 .teaser__media-caption {
   font-size: 12px;
   line-height: 1.2;
-  color: $color-text-light;
 }
 
 .teaser__media-duration {
@@ -196,7 +195,8 @@ $xl-teaser-ratio: 65.75%;
 .teaser__media-source {
   strong {
     font-family: $font-medium;
-    color: $color-text-default;
+    /* theme */
+    @include customPropWithFallback('color', '--teaser-color-text', $color-text-default);
   }
 }
 
