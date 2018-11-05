@@ -151,8 +151,7 @@
   &:focus,
   &:active {
     width: auto;
-    border-top-color: transparent;
-
+    border-top: 1px solid transparent;
     margin-left: -24px;
     padding-left: 24px;
     margin-right: 0;
@@ -177,6 +176,8 @@
   &:active + & {
     margin-top: -1px;
     padding-top: 13px;
+    border-top-width: 1px;
+    border-top-style: solid;
     @include customPropWithFallback('border-top-color', '--teaser-background-link-hover', 'rgb(246,246,243)');
   }
 
