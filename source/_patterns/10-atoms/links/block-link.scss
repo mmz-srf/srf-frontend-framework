@@ -147,6 +147,19 @@
   @include customPropWithFallback('color', '--teaser-color-text', $color-text-default);
   @include customPropWithFallback('background-color', '--teaser-color-background', $color-bg-card);
 
+  &::after {
+    content: '';
+    position: absolute;
+    right: 24px;
+    top: 50%;
+    margin-top: calc(24px / 2 * -1);
+    @include caret('grey', '', 'large');
+
+    @include desktop-up {
+      right: 32px;
+    }
+  }
+
   &:hover,
   &:focus,
   &:active {
@@ -184,19 +197,6 @@
 
   &:active + & {
     @include customPropWithFallback('border-top-color', '--teaser-background-link-active', 'rgb(237,237,234)');
-  }
-
-  &::after {
-    content: '';
-    position: absolute;
-    right: 24px;
-    top: 50%;
-    margin-top: calc(24px / 2 * -1);
-    @include caret('grey', '', 'large');
-
-    @include desktop-up {
-      right: 32px;
-    }
   }
 
   &.block-link--internal::after {
