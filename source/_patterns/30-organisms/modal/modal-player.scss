@@ -22,6 +22,10 @@
     flex: 0 0 100%;
     order: 2;
   }
+
+  @include tablet-up {
+    margin: 16px 0;
+  }
 }
 
 .modal-player__share,
