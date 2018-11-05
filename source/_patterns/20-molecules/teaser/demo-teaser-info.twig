@@ -1,51 +1,110 @@
 <h3>New, not updates, not visited</h3>
 
-{% include 'atoms-teaser-info' with {
-    "styleModifier": "teaser-info--new",
-    "text": "Vor 5 Minuten"
-} %}
+<div class="teaser-info-wrapper">
+
+  {% include 'atoms-teaser-info' with {
+      "styleModifier": "teaser-info--new",
+      "text": "Vor 5 Minuten"
+  } %}
+
+</div>
+
+
 
 <h3>Visited with recent updates</h3>
 
-{% include 'atoms-teaser-info' with {
-    "styleModifier": "teaser-info--visited-and-recently-updated",
-    "text": "Vor 1 Stunde"
-} %}
+<div class="teaser-info-wrapper">
+
+  {% include 'atoms-teaser-info' with {
+      "styleModifier": "teaser-info--visited-and-recently-updated",
+      "text": "Vor 1 Stunde"
+  } %}
+
+</div>
+
+
 
 <h3>Visited with updates</h3>
 
-{% include 'atoms-teaser-info' with {
-    "styleModifier": "teaser-info--visited-and-updated",
-    "text": "Aktualisiert"
-} %}
+<div class="teaser-info-wrapper">
+
+  {% include 'atoms-teaser-info' with {
+      "styleModifier": "teaser-info--visited-and-updated",
+      "text": "Aktualisiert"
+  } %}
+
+</div>
+
+
 
 <h3>Visited, no updates</h3>
 
-{% include 'atoms-teaser-info' with {
-    "styleModifier": "teaser-info--visited",
-    "text": "Gesehen"
-} %}
+<div class="teaser-info-wrapper">
+
+  {% include 'atoms-teaser-info' with {
+      "styleModifier": "teaser-info--visited",
+      "text": "Gesehen"
+  } %}
+
+</div>
+
+
 
 <h3>Video</h3>
 
-{% include 'atoms-teaser-info' with {
-    "styleModifier": "teaser-info--mediaicon-video",
-    "a11yText": "Mit ",
-    "text": "Video"
-} %}
+<div class="teaser-info-wrapper">
+
+  {% include 'atoms-teaser-info' with {
+      "styleModifier": "teaser-info--mediaicon-video",
+      "a11yText": "Mit ",
+      "text": "Video"
+  } %}
+  
+</div>
+
+
 
 <h3>Audio</h3>
 
-{% include 'atoms-teaser-info' with {
-    "styleModifier": "teaser-info--mediaicon-audio",
-    "a11yText": "Mit ",
-    "text": "Audio"
-} %}
+<div class="teaser-info-wrapper">
+
+  {% include 'atoms-teaser-info' with {
+      "styleModifier": "teaser-info--mediaicon-audio",
+      "a11yText": "Mit ",
+      "text": "Audio"
+  } %}
+  
+</div>
+
+
 
 <h3>Image-Gallery</h3>
 
-{% include 'atoms-teaser-info' with {
-    "styleModifier": "teaser-info--mediaicon-image-gallery",
-    "a11yText": "Mit ",
-    "text": "Bildergalerie"
-} %}
+<div class="teaser-info-wrapper">
+
+  {% include 'atoms-teaser-info' with {
+      "styleModifier": "teaser-info--mediaicon-image-gallery",
+      "a11yText": "Mit ",
+      "text": "Bildergalerie"
+  } %}
+  
+</div>
+
+
+
+<h3>Multiple info-elements</h3>
+
+<div class="teaser-info-wrapper">
+
+  {% include 'atoms-teaser-info' with {
+      "styleModifier": "teaser-info--visited",
+      "text": "Gesehen"
+  } %}
+
+  {% include 'atoms-teaser-info' with {
+      "styleModifier": "teaser-info--mediaicon-video",
+      "a11yText": "Mit ",
+      "text": "Video"
+  } %}
+  
+</div>

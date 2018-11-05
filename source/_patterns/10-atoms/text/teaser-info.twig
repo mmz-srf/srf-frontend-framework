@@ -1,7 +1,3 @@
-<div class="teaser-info-wrapper">
-
-  <span class="teaser-info {{ styleModifier|default('') }}">
-    {% if a11yText %}<span class="h-offscreen">{{ a11yText|default('') }}</span>{% endif %}{{ text|default('') }}
-  </span>
-
-</div>
+<span class="teaser-info {{ styleModifier|default('') }}">
+  {% if a11yText %}<span class="h-offscreen">{{ a11yText|default('') }}</span>{% endif %}{{ text|default('') }}
+</span>
