@@ -46,11 +46,21 @@
   }
 }
 
-.modal-player__loading {
+.modal-player__loading,
+.modal-player__video {
   position: absolute;
   display: flex;
   align-items: center;
   justify-content: center;
   height: 100%;
   width: 100%;
+}
+
+.modal-player__video {
+    opacity: 0;
+    transition: opacity .3s linear;
+}
+
+.modal-player__video--playing {
+    opacity: 1;
 }
