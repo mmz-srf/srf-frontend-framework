@@ -857,3 +857,10 @@ $xl-teaser-ratio: 65.75%;
   justify-content: flex-end;
 }
 /* autoprefixer grid: off */
+
+// Hide media icon when video is playing
+.teaser--video-playing {
+  .media-still__icon {
+    display: none;
+  }
+}
