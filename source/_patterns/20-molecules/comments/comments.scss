@@ -8,8 +8,8 @@
   letter-spacing: .5px;
   white-space: pre-wrap;
   word-wrap: break-word;
-  margin: 12px 16px;
-  height: 100px;
+  margin: 12px 16px 0 16px;
+  height: 108px;
 }
 
 .article-comments { // section
@@ -28,10 +28,7 @@
   position: relative;
 
   .form__validation--success p {
-    margin: 12px 0 0;
-    @include tablet {
-      margin: 0;
-    }
+    margin: 0;
   }
 
   .comments-header__button {
@@ -72,11 +69,12 @@
 // deactivation info
 .comments-infobox__text,
 .comments-header__info-text {
-  font-size: 14px;
+  font-size: 16px;
   line-height: $default-line-height-ratio;
   letter-spacing: .5px;
   color: $color-text-accentuation;
   padding: 0 16px;
+  display: block;
 }
 
 .comments-infobox__text {
@@ -86,9 +84,15 @@
 
 // login info
 .comments-header__text {
-  margin: 0 0 24px;
+  margin: 0 0 20px;
   a {
     @include text-link-defaults;
+  }
+}
+
+.comments-header__text--reply {
+  @include smartphone {
+    padding: 0;
   }
 }
 
@@ -121,12 +125,15 @@
   padding-bottom: 24px;
 }
 
+.comments-header__button-wrapper {
+  padding: 0 16px;
+}
+
 .comments-header__button {
   font: 16px/24px $font-light;
   letter-spacing: .5px;
   color: $color-text-light;
   padding: 12px;
-  margin: 0 16px 20px;
   border: 1px solid $color-form-field;
   border-radius: 2px;
   background: #fff;
@@ -156,6 +163,10 @@
   @include desktop-up {
     max-width: 712px;
   }
+}
+
+.comments-header__placeholder .form__validation--success {
+  margin: 0 16px 30px 16px;
 }
 
 .comments-header__border { // hack :(
@@ -456,7 +467,7 @@
     margin-top: 12px;
 
     @include tablet-up {
-      margin-top: 16px;
+      margin-left: 16px;
     }
   }
 }
@@ -480,7 +491,11 @@
   padding: 0;
   background-color: #fff;
   position: relative;
-  margin: 4px 0 0;
+  margin: 4px 0 16px 0;
+
+  @include tablet-up {
+    margin: 4px 16px 16px 16px;
+  }
 }
 
 .reply--on-focus {
@@ -575,18 +590,11 @@
   color: $color-text-light;
   margin: 0 16px 10px;
   padding-top: 10px;
-  border: 1px solid #ebebe5;
-  border-width: 1px 0 0;
-
-  @include smartphone {
-    .reply-info__initial {
-      display: none;
-    }
-  }
 }
 
 .reply-info__netiquette { // link
   font-size: 14px;
+  height: 30px;
 }
 
 .reply-info__count {
