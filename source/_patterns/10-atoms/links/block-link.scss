@@ -130,14 +130,17 @@
   font-weight: 500;
   font-style: normal;
   font-stretch: normal;
-  line-height: 1.14;
+  line-height: 1.1429;
   letter-spacing: .4px;
   width: auto;
+  min-height: 48px;
   position: relative; // to position the pseudo elements
   padding-right: 60px;
   background-image: none;
   border-top-width: 1px;
   border-top-style: solid;
+  display: flex;
+  align-items: center;
 
   /* theme */
   @include customPropWithFallback('border-top-color', '--teaser-border-color-link', 'rgba(0,0,0,.08)'); // rgb(234,234,233); // = rgba(0,0,0,.08) on white
@@ -149,7 +152,6 @@
   &:active {
     width: auto;
     border-top: 1px solid transparent;
-
     margin-left: -24px;
     padding-left: 24px;
     margin-right: 0;
@@ -174,6 +176,9 @@
   &:active + & {
     margin-top: -1px;
     padding-top: 13px;
+    min-height: 49px;
+    border-top-width: 1px;
+    border-top-style: solid;
     @include customPropWithFallback('border-top-color', '--teaser-background-link-hover', 'rgb(246,246,243)');
   }
 
