@@ -40,6 +40,11 @@
     max-width: calc(#{$content-width} + 2 * 32px);
     padding: 0 32px;
   }
+
+  @include desktop-up {
+    max-width: calc(#{$content-width} + 2 * 40px);
+    padding: 0 40px;
+  }
 }
 
 .modal__overlay {
@@ -49,10 +54,6 @@
   right: 0;
   bottom: 0;
   animation: fadeToGreyAnimation .2s ease-in-out forwards;
-}
-
-.modal-main-content {
-  width: 100vw;
 }
 
 // mostly for demo purposes
