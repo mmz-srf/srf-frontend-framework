@@ -51,6 +51,10 @@
   animation: fadeToGreyAnimation .2s ease-in-out forwards;
 }
 
+.modal-main-content {
+  width: 100vw;
+}
+
 // mostly for demo purposes
 .modal--open {
   display: block;
