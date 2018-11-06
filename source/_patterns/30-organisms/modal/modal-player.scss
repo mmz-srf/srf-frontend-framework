@@ -7,8 +7,6 @@
 
   @include desktop-up {
     flex-wrap: nowrap;
-    // max height of the modal so it doesn't cover the whole screen
-    max-height: 60vh;
   }
 }
 
@@ -19,9 +17,14 @@
 
   @include desktop-up {
     // Close enough - for the real layout we'd need grid *laughs in IE*
-    flex: 1 1 calc(100% - 400px);
+    flex-basis: calc(100% - 400px);
+    flex-grow: 1;
+    flex-shrink: 1;
     order: initial;
     margin: 16px 0;
+
+    // max height of the modal so it doesn't cover the whole screen
+    max-height: 60vh;
   }
 }
 
