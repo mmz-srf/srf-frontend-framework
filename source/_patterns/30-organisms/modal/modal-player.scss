@@ -1,40 +1,38 @@
 .modal-player__container {
   display: flex;
   flex-direction: row;
-  flex-wrap: nowrap;
   padding: 0;
   justify-content: space-between;
+  flex-wrap: wrap;
 
-  @include smartphone {
-    flex-wrap: wrap;
-  }
-
-  @include tablet-up {
+  @include desktop-up {
+    flex-wrap: nowrap;
+    // max height of the modal so it doesn't cover the whole screen
     max-height: 60vh;
   }
 }
 
 .modal-player__media {
   position: relative;
-  flex: 1 1 calc(100% - 400px);
+  flex: 0 0 100%;
+  order: 2;
 
-  @include smartphone {
-    flex: 0 0 100%;
-    order: 2;
-  }
-
-  @include tablet-up {
+  @include desktop-up {
+    // Close enough - for the real layout we'd need grid *laughs in IE*
+    flex: 1 1 calc(100% - 400px);
+    order: initial;
     margin: 16px 0;
   }
 }
 
 .modal-player__share,
 .modal-player__close {
-  flex: 1 1 0px;
-
-  @include smartphone {
     flex: 0 0 auto;
     order: 1;
+
+  @include desktop-up {
+    flex: 1 1 0px;
+    order: initial;
   }
 
   button {
