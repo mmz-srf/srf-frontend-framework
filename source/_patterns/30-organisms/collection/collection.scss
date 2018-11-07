@@ -237,13 +237,7 @@ $background-overlap-wide: 50px;
  */
 .collection__teaser-item {
   display: flex;
-
-  // Override stupid global <li> style
   padding: 0;
-  list-style-type: none;
-  &::before {
-    display: none;
-  }
 
   // mobile first: teaser items have 8px margin between them (after the item), except the last one, which has none.
   margin: 0 0 8px;
@@ -279,10 +273,6 @@ $background-overlap-wide: 50px;
 .collection__link-item {
   margin: 0;
   padding: 0;
-
-  &::before {
-    content: none;
-  }
 
   // normally the fake border would be applied to the link-item. But
   // to apply styling when navigation by keyboard, style must be applied

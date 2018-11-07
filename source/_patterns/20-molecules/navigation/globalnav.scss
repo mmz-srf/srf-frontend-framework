@@ -37,10 +37,6 @@
   margin: 0;
   padding: 8px 0;
 
-  &::before {
-    display: none;
-  }
-
   &:not(:last-of-type) {
     @include smartphone {
       border-bottom: 1px solid rgba(0,0,0,.08);
@@ -67,10 +63,6 @@
 .globalnav-item {
   margin: 0;
   padding: 0;
-
-  &::before {
-    display: none;
-  }
 }
 
 .globalnav-item--sub {

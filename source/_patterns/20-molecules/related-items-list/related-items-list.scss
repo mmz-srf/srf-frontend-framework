@@ -26,6 +26,11 @@
 
 .related-items-list__list {
   padding: 0;
+  margin: 12px 0 24px;
+
+  @include smartphone {
+    margin: 8px 0 20px;
+  }
 }
 
 .related-items-list__item {
@@ -37,10 +42,6 @@
     padding-right: 0px;
     padding-left: 0px;
     margin-left: 24px;
-  }
-
-  &::before {
-    display: none;
   }
 
   &:last-child {

@@ -12,3 +12,11 @@
   margin: 0 0 16px;
   @include article-text-padding;
 }
+
+.listmodule__list {
+  padding: 0 24px;
+
+  @include tablet-up {
+    padding: 0 16px;
+  }
+}

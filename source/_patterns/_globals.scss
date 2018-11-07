@@ -18,17 +18,11 @@ body {
   background-color: $color-bg-box;
 }
 
-ul {
+ul, ol {
+  counter-reset: item;
   list-style-type: none;
   margin: 0;
   padding: 0;
-  @include text-list-defaults;
-  @include text-list-unordered-defaults;
-}
-
-ol {
-  @include text-list-defaults;
-  @include text-list-ordered-defaults;
 }
 
 h1,

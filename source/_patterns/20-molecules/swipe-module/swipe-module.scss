@@ -183,10 +183,6 @@ $item-max-width: 400px;
 
   min-width: $smartphone-size - 2 * $outer-padding-small - 2 * $inner-outer-padding; //272px = 320 - 2*8 - 2*16
 
-  &::before {
-    display: none; // overwrite global li-styles :-/
-  }
-
   @include tablet {
     margin: 0 $half-gutter-padding 8px;
     max-width: calc((100% / #{$row-count-tablet}) - #{$gutter-padding});

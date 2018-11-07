@@ -32,7 +32,10 @@ $ticker-item-border-width: 1px;
     padding: 0 $ticker-wrapper-padding-desktop;
   }
 
-  ul, ol {
+  ol,
+  ul,
+  ul:not([class]),
+  ul[class=""] {
     padding: 0;
   }
 }

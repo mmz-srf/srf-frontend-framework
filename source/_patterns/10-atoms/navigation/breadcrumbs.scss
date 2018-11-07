@@ -22,10 +22,6 @@
   // reacting to "rounded corners"
   margin: 0 -3px 0 -8px;
   padding: 0;
-
-  &::before {
-    content: none;
-  }
 }
 
 .breadcrumb__link {
