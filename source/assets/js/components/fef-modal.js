@@ -90,19 +90,17 @@ export class FefModal {
      * Show the modal, depending on the provided animation.
      */
     show() {
-        const showCallback = () => this.onShowFinished();
-
         this.$caller.attr({'aria-expanded': true, 'aria-haspopup': true});
 
         switch (this.animation) {
             case 'scale-from-origin':
-                this.scaleFromOrigin(showCallback);
+                this.scaleFromOrigin(this.onShowFinished);
                 break;
             case 'fade-in-out':
-                this.$element.stop(true, true).fadeIn(ANIMATION_SPEED, showCallback);
+                this.$element.stop(true, true).fadeIn(ANIMATION_SPEED, this.onShowFinished);
                 break;
             default:
-                this.$element.show(showCallback);
+                this.$element.show(this.onShowFinished);
                 break;
         }
     }
