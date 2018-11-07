@@ -197,14 +197,11 @@
   border-top: 1px solid $color-separator;
   padding: 0;
   margin: 0 16px;
+  position: relative;
 
   @include tablet-up {
     margin: 0;
     padding: 0 16px;
-  }
-
-  &::before { // overwrite
-    content: none;
   }
 
   .comment,
@@ -396,10 +393,6 @@
 
   @include tablet-up {
     width: auto;
-  }
-
-  &::before { // overwrite
-    content: none;
   }
 }
 
@@ -597,10 +590,6 @@
   color: $color-text-light;
   margin: 0 16px 10px;
   padding-top: 10px;
-}
-
-.reply-info__netiquette { // link
-  font-size: 14px;
   height: 30px;
 }
 

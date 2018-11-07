@@ -257,28 +257,6 @@ ul {
   }
 }
 
-ul li {
-  position: relative;
-  margin: 12px 0;
-  padding-left: 1.5em;
-
-  @include smartphone {
-    margin: 8px 0
-  }
-}
-
-ul > li::before {
-  position: absolute;
-  left: 2px;
-  top: 11px;
-  display: inline-block;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background-color: #c91024;
-  content: ' '
-}
-
 .breadcrumb__link {
   font: 14px/1.14 "SRG_SSR_Regular", sans-serif;
   letter-spacing: .2px;
@@ -423,10 +401,6 @@ ul > li::before {
   display: inline;
   margin: 0 -3px 0 -8px;
   padding: 0;
-}
-
-.breadcrumbs__item::before, .navigation-item::before, .navigation__group-item::before {
-  content: none
 }
 
 body::after {
