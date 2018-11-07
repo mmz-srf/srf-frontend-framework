@@ -12,7 +12,7 @@ const HOOK_CLASS = 'js-swipeable-area',
     RIGHT_OFFSET = 24,
     DEFAULT_SCROLL_TIME = 400,
     DEBOUNCETIME = 50,
-    MIN_BUTTON_WIDTH = 40,
+    MIN_BUTTON_WIDTH = 56,
     MAX_BUTTON_WIDTH = 90,
     HINT_AMOUNT = 20;
 

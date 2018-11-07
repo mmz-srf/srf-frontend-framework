@@ -3,8 +3,6 @@
 @import "../../breakpoints";
 @import "teaser-theme-settings";
 
-$xl-teaser-ratio: 65.75%;
-
 /* autoprefixer grid: on */
 .teaser {
   display: flex;
@@ -38,7 +36,6 @@ $xl-teaser-ratio: 65.75%;
     transform: none;
     box-shadow: none;
   }
-
 }
 
 .teaser__main {
@@ -86,7 +83,7 @@ $xl-teaser-ratio: 65.75%;
   margin: 16px 16px 16px 0;
   color: transparent; // hide alt-text in case image is broken
   position: relative; // for positioning ::pseudo elements
-  background-color: #dadad2;
+  background-color: $color-image-dummy;
   align-self: start;
 
   // border on top of the images
@@ -523,7 +520,7 @@ $xl-teaser-ratio: 65.75%;
       &::after {
         border-right: solid 1px rgba(0, 0, 0, 0.04);
       }
-      flex: 0 0 $xl-teaser-ratio;
+      flex: 0 0 $teaser-xl-medium-ratio;
     }
   }
 
@@ -567,7 +564,7 @@ $xl-teaser-ratio: 65.75%;
     @include tablet-up {
       .teaser__main {
         display: grid;
-        grid-template-columns: $xl-teaser-ratio auto;
+        grid-template-columns: $teaser-xl-medium-ratio auto;
         grid-template-rows: 1fr max-content;
       }
 
@@ -750,7 +747,7 @@ $xl-teaser-ratio: 65.75%;
 .teaser--longform {
   height: 100%;
 
-  .teaser__medium {
+  .teaser__longform-medium {
     position: absolute;
     z-index: 0;
     width: 100%;
@@ -782,13 +779,13 @@ $xl-teaser-ratio: 65.75%;
     max-width: 100%;
 
     &::before {
-        content: "";
-        position: absolute;
-        width: 100%;
-        bottom: 100%;
-        left: 0;
-        height: 80px;
-        background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6));
+      content: "";
+      position: absolute;
+      width: 100%;
+      bottom: 100%;
+      left: 0;
+      height: 80px;
+      background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6));
     }
   }
 }
@@ -810,7 +807,7 @@ $xl-teaser-ratio: 65.75%;
     }
 
     .teaser__content {
-      width: calc(100% - #{$xl-teaser-ratio});
+      width: calc(100% - #{$teaser-xl-medium-ratio});
       padding: 32px 24px 32px 32px;
 
       &::before {

@@ -42,6 +42,7 @@ $color-nav-bg-hover: rgba(185, 183, 172, 0.12) !default;
 $color-nav-bg-active: rgba(185, 183, 172, 0.24) !default;
 $color-srf: #AF001E;
 $color-srf-light: #E31F2B;
+$color-image-dummy: #dadad2 !default;
 
 /*** THEMING ***/
 $theme-default-color-1: #FEFEFD;
@@ -174,3 +175,6 @@ $play-button-border-size: 2px;
 $collection-gap: 16px;
 $collection-gap-tablet-up: 32px;
 $collection-gap-desktop-wide: 40px;
+$teaser-col-gap-tablet-up: 24px;
+$teaser-col-gap-desktop-wide: 32px;
+$teaser-xl-medium-ratio: 65.75%;

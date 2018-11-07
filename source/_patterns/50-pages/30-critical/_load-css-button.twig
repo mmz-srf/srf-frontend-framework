@@ -1,3 +1,4 @@
+<script src="../../assets/critical/onloadCSS.js"></script>
 <script src="../../assets/critical/loadCSS.js"></script>
 
 <a href="#"
@@ -8,8 +9,10 @@
 
 <script>
     $('.js-load-css').on('click', (e) => {
-        loadCSS("../../assets/css/main.css?{{ cacheBuster }}");
+        var finalStyles = loadCSS("../../assets/css/main.css?{{ cacheBuster }}");
+        onloadCSS( finalStyles, function() {
+            window.setTimeout( function() { $('body').removeClass('body--loading'); } , 50);
+        });
         $(event.currentTarget).hide();
-        $('body').removeClass('body--loading');
     });
 </script>
