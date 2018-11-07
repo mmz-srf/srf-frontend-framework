@@ -46,7 +46,7 @@ export class FefPopup {
                 'menubar=1',
                 'resizable=1'
             ];
-            if(this.triggerEvent) {
+            if (this.triggerEvent) {
                 $(window).trigger(this.triggerEvent);
             }
             window.open(this.target, '_blank', parameters.join(','));
