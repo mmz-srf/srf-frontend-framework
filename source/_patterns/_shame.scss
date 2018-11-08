@@ -248,13 +248,16 @@ _:-ms-fullscreen,
 
     .teaser__title,
     .teaser__lead,
-    .teaser__media-caption,
-    .teaser-status,
+    .teaser-info,
     .teaser-status-live--live,
-    .teaser-status--new,
-    .teaser-status--visited-and-recently-updated,
-    .teaser-status--visited,
-    .teaser-status--visited-and-updated {
+    .teaser-info--new,
+    .teaser-info--visited-and-recently-updated,
+    .teaser-info--visited,
+    .teaser-info--visited-and-updated,
+    .teaser-info--mediaicon-video,
+    .teaser-info--mediaicon-audio,
+    .teaser-info--mediaicon-image-gallery,
+    .teaser-info--media-caption {
       color: #ffffff;
     }
   }
