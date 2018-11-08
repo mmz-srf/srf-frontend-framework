@@ -1,3 +1,5 @@
+<h2>Status</h2>
+
 <h3>New, not updates, not visited</h3>
 
 <div class="teaser-info-wrapper">
@@ -53,6 +55,9 @@
 </div>
 
 
+<hr />
+
+<h2>Media icons</h2>
 
 <h3>Video</h3>
 
@@ -96,30 +101,46 @@
 
 
 
-<h3>Multiple info-elements</h3>
+<hr />
 
-<div class="teaser-info-wrapper">
+<h2>Media caption</h2>
 
-  {% include 'atoms-teaser-info' with {
-      'type': 'state',
-      'styleModifier': 'teaser-info--visited teaser-info--with-icon',
-      'text': 'Gesehen'
-  } %}
+<div class="teaser teaser--with-medium teaser--size-s">
+  <div class="teaser-info-wrapper">
 
-  {% include 'atoms-teaser-info' with {
-      'type': 'media-icon',
-      'styleModifier': 'teaser-info--mediaicon-video teaser-info--with-icon',
-      'text': 'Video'
-  } %}
-  
+    {% include 'atoms-teaser-info' with {
+        'type': 'media-caption',
+        'styleModifier': 'teaser-info--media-caption',
+        'mediaDuration': '3.20',
+        'mediaSource': '100 Sekunden Wissen',
+        'mediaDate': '8.12.2018',
+    } %}
+
+  </div>
 </div>
 
 
 
-<h3>Media caption</h3>
+<hr />
+
+<h2>Examples</h2>
+
+<h3>Multiple info-elements</h3>
 
 <div class="teaser teaser--with-medium teaser--size-s">
   <div class="teaser-info-wrapper">
+
+    {% include 'atoms-teaser-info' with {
+        'type': 'state',
+        'styleModifier': 'teaser-info--visited teaser-info--with-icon',
+        'text': 'Gesehen'
+    } %}
+
+    {% include 'atoms-teaser-info' with {
+        'type': 'media-icon',
+        'styleModifier': 'teaser-info--mediaicon-video teaser-info--with-icon',
+        'text': 'Video'
+    } %}
 
     {% include 'atoms-teaser-info' with {
         'type': 'media-caption',
