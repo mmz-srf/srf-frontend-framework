@@ -43,7 +43,6 @@
 
 
 .teaser-info--media-caption {
-  margin: 12px 0 0;
   display: none;
   font-family: $font-light;
   
@@ -53,22 +52,22 @@
 
 .teaser--with-medium {
   .teaser-info--media-caption {
-    display: flex;
-    flex-grow: 1;
-    align-items: flex-end;
+    display: inline-block;
   }
-}
-
-.teaser-info__media-duration {
-  display: none;
 }
 
 .teaser-info__media-duration,
 .teaser-info__media-source {
   strong {
     font-family: $font-medium;
-    color: $color-text-default;
+
+    /* theme */
+    @include customPropWithFallback('color', '--teaser-color-text', $color-text-default);
   }
+}
+
+.teaser-info__media-duration {
+  display: none;
 }
 
 .teaser--size-s {

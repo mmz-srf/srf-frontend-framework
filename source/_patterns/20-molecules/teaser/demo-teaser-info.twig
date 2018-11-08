@@ -118,13 +118,16 @@
 
 <h3>Media caption</h3>
 
-<div class="teaser-info-wrapper">
+<div class="teaser teaser--with-medium teaser--size-s">
+  <div class="teaser-info-wrapper">
 
-  {% include 'atoms-teaser-info' with {
-      'type': 'media-caption',
-      'mediaDuration': '3.20',
-      'mediaSource': '100 Sekunden Wissen',
-      'mediaDate': '8.12.2018',
-  } %}
-  
+    {% include 'atoms-teaser-info' with {
+        'type': 'media-caption',
+        'styleModifier': 'teaser-info--media-caption',
+        'mediaDuration': '3.20',
+        'mediaSource': '100 Sekunden Wissen',
+        'mediaDate': '8.12.2018',
+    } %}
+
+  </div>
 </div>
