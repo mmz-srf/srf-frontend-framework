@@ -405,10 +405,14 @@ $background-overlap-wide: 50px;
     }
 
     &:first-child {
-      padding-left: 40px;
+      margin-left: 8px;
 
-      @include smartphone {
-        padding-left: 8px;
+      @include tablet-up {
+        margin-left: 32px;
+      }
+
+      @include desktop-wide {
+        margin-left: 40px;
       }
     }
 
