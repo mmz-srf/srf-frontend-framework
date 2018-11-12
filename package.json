@@ -10,7 +10,7 @@
     "babel-preset-env": "^1.7.0",
     "babelify": "^7.3.0",
     "browser-sync": "^2.26.3",
-    "browserify": "^16.2.2",
+    "browserify": "^16.2.3",
     "del": "*",
     "fg-loadcss": "^2.0.1",
     "gulp": "^3.9.0",
