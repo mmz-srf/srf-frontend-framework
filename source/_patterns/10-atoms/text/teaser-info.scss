@@ -40,7 +40,7 @@
 .teaser-info--media-caption,
 .teaser-info--live-pre {
   font-family: $font-regular;
-  
+
   /* theme */
   @include customPropWithFallback('color', '--teaser-color-light', $color-text-light);
 }
@@ -110,7 +110,7 @@
   @include customPropWithFallback('color', '--teaser-color-info-visited', $color-button-success);
 
   &::before {
-    background-image: url(../img/seen_blue.svg); 
+    background-image: url(../img/seen_blue.svg);
   }
 }
 
@@ -210,7 +210,7 @@
 
 
 // larger teaser sizes (L/XL) have larger gaps between previous content and teaser status
-.teaser-info--size-large { //todo
+.teaser-info--size-large {
   margin: 16px 0 0;
 
   @include tablet-up {
