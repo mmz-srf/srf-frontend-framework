@@ -37,12 +37,16 @@
 
 
 
-.teaser-info--media-caption {
-  display: none;
-  font-family: $font-light;
+.teaser-info--media-caption,
+.teaser-info--live-pre {
+  font-family: $font-regular;
   
   /* theme */
   @include customPropWithFallback('color', '--teaser-color-light', $color-text-light);
+}
+
+.teaser-info--media-caption {
+  display: none;
 }
 
 .teaser--with-medium {
