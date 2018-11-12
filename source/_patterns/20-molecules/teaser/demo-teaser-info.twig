@@ -113,9 +113,47 @@
         'styleModifier': 'teaser-info--media-caption',
         'mediaDuration': '3.20',
         'mediaSource': '100 Sekunden Wissen',
-        'mediaDate': '8.12.2018',
+        'mediaTime': 'vom 8.12.2018',
     } %}
 
+  </div>
+</div>
+
+
+
+<hr />
+
+<h2>Live</h2>
+
+<h3>Pre-live</h3>
+
+<div class="teaser teaser--with-medium teaser--size-s">
+  <div class="teaser-info-wrapper">
+  
+  {% include 'atoms-teaser-info' with {
+      'type': 'live',
+      'styleModifier': 'teaser-info--live-pre',
+      'mediaSource': 'Livestream',
+      'mediaTime': 'um 20:15',
+  } %}
+  
+  </div>
+</div>
+
+
+
+<h3>Live</h3>
+
+<div class="teaser teaser--with-medium teaser--size-s">
+  <div class="teaser-info-wrapper">
+  
+  {% include 'atoms-teaser-info' with {
+      'type': 'live',
+      'styleModifier': 'teaser-info--live-live',
+      'mediaSource': 'Livestream',
+      'mediaTime': 'seit 2 Stunden',
+  } %}
+  
   </div>
 </div>
 
@@ -147,7 +185,7 @@
         'styleModifier': 'teaser-info--media-caption',
         'mediaDuration': '3.20',
         'mediaSource': '100 Sekunden Wissen',
-        'mediaDate': '8.12.2018',
+        'mediaTime': '8.12.2018',
     } %}
 
   </div>

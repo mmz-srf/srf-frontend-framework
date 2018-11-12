@@ -37,11 +37,6 @@
 
 
 
-
-
-
-
-
 .teaser-info--media-caption {
   display: none;
   font-family: $font-light;
@@ -56,8 +51,8 @@
   }
 }
 
-.teaser-info__media-duration,
-.teaser-info__media-source {
+.teaser-info__duration,
+.teaser-info__source {
   strong {
     font-family: $font-medium;
 
@@ -66,19 +61,19 @@
   }
 }
 
-.teaser-info__media-duration {
+.teaser-info__duration {
   display: none;
 }
 
 .teaser--size-s {
-  .teaser-info__media-duration {
+  .teaser-info__duration {
     display: inline;
   }
 }
 
 .teaser--size-s-on-mobile {
   @include smartphone {
-    .teaser-info__media-duration {
+    .teaser-info__duration {
       display: inline;
     }
   }
@@ -86,13 +81,10 @@
 
 
 
-
-
-
-
-
-.teaser-info-live--live,
-.teaser-info--new {
+.teaser-info--live-live,
+.teaser-info--live-live strong,
+.teaser-info--new,
+.teaser-info--new strong {
   /* theme */
   @include customPropWithFallback('color', '--teaser-color-info-new', $color-srf-light);
 }
