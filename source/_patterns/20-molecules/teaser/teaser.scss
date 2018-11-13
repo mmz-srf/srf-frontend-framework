@@ -16,24 +16,17 @@
   @include customPropWithFallback('background-color', '--teaser-color-background', $color-bg-card);
 
   box-shadow: $shadow-elevation1;
-  // sass-lint:disable indentation
-  transition: box-shadow .2s ease-in-out,
-              transform .2s ease-in-out;
-  // sass-lint:enable indentation
-  transform: translateZ(0);
+  transition: box-shadow .2s ease-in-out;
 
   @include breakLongWords;
 
-  /* Card moves 4px up on interaction */
   &:hover,
   &:focus,
   &:active {
-    transform: translateY(-4px);
     box-shadow: $shadow-elevation8;
   }
 
   &.teaser--no-translate {
-    transform: none;
     box-shadow: none;
   }
 }
