@@ -55,6 +55,13 @@
       text-shadow: 0 0 8px rgba(0, 0, 0, 0.12);
     }
   }
+
+  .masthead__title__link {
+    //only browsers that support css custom properties (and therefore themes) should add a text-shadow
+    @supports (--foo: bar) {
+      text-shadow: 0 0 8px rgba(0, 0, 0, 0.12);
+    }
+  }
 }
 
 /* THEME-SPECIFIC SETTINGS */

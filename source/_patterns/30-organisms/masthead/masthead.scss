@@ -111,6 +111,14 @@
   }
 }
 
+.masthead__title__link,
+.masthead__title__link:hover,
+.masthead__title__link:active,
+.masthead__title__link:visited {
+    text-decoration: none;
+    color: $color-text-default;
+}
+
 .masthead__universal {
   min-height: 0; /* OVERRIDE CRITICAL CSS */
   display: flex;
