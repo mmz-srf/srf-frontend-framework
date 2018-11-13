@@ -746,6 +746,7 @@
 
 .teaser--longform {
   height: 100%;
+  position: relative; // necessary to position medium (see 2 lines below)
 
   .teaser__longform-medium {
     position: absolute;
