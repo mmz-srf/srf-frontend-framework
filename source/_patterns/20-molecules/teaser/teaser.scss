@@ -20,10 +20,12 @@
 
   @include breakLongWords;
 
-  &:hover,
-  &:focus,
-  &:active {
-    box-shadow: $shadow-elevation8;
+  @include desktop-up {
+    &:hover,
+    &:focus,
+    &:active {
+      box-shadow: $shadow-elevation16;
+    }
   }
 
   &.teaser--no-translate {
