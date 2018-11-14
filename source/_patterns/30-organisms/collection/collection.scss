@@ -729,4 +729,14 @@ $background-overlap-wide: 50px;
     flex-direction: row;
     justify-content: space-between;
   }
+
+  .selectable-button {
+    display: flex;
+    align-items: center;
+    border: none;
+    background-color: transparent;
+    margin: -4px 0;
+    padding: 0;
+    cursor: pointer;
+  }
 }

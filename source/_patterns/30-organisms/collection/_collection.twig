@@ -27,8 +27,8 @@
                 {% endif %}
 
                 {% if selectable %}
-                    <button class="search-header__close js-close-modal">
-                        {% include 'atoms-icon-button' with {'iconStyleModifier': 'svg-icon--close-dark', 'buttonText': collection.selectableText|default('Region wählen'), 'styleModifier': 'icon-button--collapsing-text-mobile'} %}
+                    <button class="selectable-button">
+                        {% include 'atoms-icon-button' with {'iconStyleModifier': 'svg-icon--more', 'buttonText': collection.selectableText|default('Region wählen'), 'styleModifier': 'icon-button--collapsing-text-mobile icon-button--spaceless-right-mobile'} %}
                     </button>
                 {% endif %}
             </h2>
