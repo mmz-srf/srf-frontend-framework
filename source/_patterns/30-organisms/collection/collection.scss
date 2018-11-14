@@ -728,6 +728,7 @@ $background-overlap-wide: 50px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: start; // don't center button, always keep in top right corner
   }
 
   .selectable-button {
@@ -735,8 +736,13 @@ $background-overlap-wide: 50px;
     align-items: center;
     border: none;
     background-color: transparent;
-    margin: -4px 0;
+    margin: -2px 0;
     padding: 0;
     cursor: pointer;
+
+    // Parent element ends earlier/lower than needed -> negative margin on mobile
+    @include smartphone {
+      margin: -13px -16px -13px 0;
+    }
   }
 }
