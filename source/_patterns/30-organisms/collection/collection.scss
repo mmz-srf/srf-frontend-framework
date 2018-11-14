@@ -721,3 +721,12 @@ $background-overlap-wide: 50px;
     padding-top: 0;
   }
 }
+
+// Has an additional button on the top right that leads to a selection screen to change between groups of teasers
+.collection--selectable {
+  .collection__title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
