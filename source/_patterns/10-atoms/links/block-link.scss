@@ -135,7 +135,6 @@
   width: auto;
   min-height: 48px;
   position: relative; // to position the pseudo elements
-  padding-right: 60px;
   background-image: none;
   border-top-width: 1px;
   border-top-style: solid;
@@ -152,9 +151,14 @@
   &:active {
     width: auto;
     border-top: 1px solid transparent;
-    margin-left: -24px;
-    padding-left: 24px;
+    margin-left: -16px;
+    padding-left: 16px;
     margin-right: 0;
+
+    @include desktop-up {
+      margin-left: -24px;
+      padding-left: 24px;
+    }
   }
 
   &:hover,
@@ -172,13 +176,7 @@
 
   // handling lines between two or more adjacent block-links
   &:hover + &,
-  &:focus + &,
-  &:active + & {
-    margin-top: -1px;
-    padding-top: 13px;
-    min-height: 49px;
-    border-top-width: 1px;
-    border-top-style: solid;
+  &:focus + & {
     @include customPropWithFallback('border-top-color', '--teaser-background-link-hover', 'rgb(246,246,243)');
   }
 
@@ -189,13 +187,13 @@
   &::after {
     content: '';
     position: absolute;
-    right: 24px;
+    right: 18px;
     top: 50%;
     margin-top: calc(24px / 2 * -1);
     @include caret('grey', '', 'large');
 
     @include desktop-up {
-      right: 32px;
+      right: 24px;
     }
   }
 
@@ -203,12 +201,12 @@
     transform: rotate(-90deg);
     width: 18px;
     height: 18px;
-    right: 26px;
+    right: 20px;
     margin-top: calc(18px / 2 * -1);
     background-size: 18px 18px;
 
     @include desktop-up {
-      right: 34px;
+      right: 26px;
     }
   }
 
