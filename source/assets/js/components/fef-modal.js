@@ -94,13 +94,13 @@ export class FefModal {
 
         switch (this.animation) {
             case 'scale-from-origin':
-                this.scaleFromOrigin(this.onShowFinished);
+                this.scaleFromOrigin(() => this.onShowFinished());
                 break;
             case 'fade-in-out':
-                this.$element.stop(true, true).fadeIn(ANIMATION_SPEED, this.onShowFinished);
+                this.$element.stop(true, true).fadeIn(ANIMATION_SPEED, () => this.onShowFinished());
                 break;
             default:
-                this.$element.show(this.onShowFinished);
+                this.$element.show(() => this.onShowFinished());
                 break;
         }
     }
@@ -108,7 +108,7 @@ export class FefModal {
     onShowFinished() {
         this.preventScrolling();
 
-        if (this.$focusTarget.length === 1) {
+        if (this.$focusTarget && this.$focusTarget.length === 1) {
             this.setFocus(this.$focusTarget);
         }
     }
