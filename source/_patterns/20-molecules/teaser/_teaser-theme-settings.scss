@@ -10,6 +10,7 @@
 .teaser {
   --teaser-color-background: #{$color-bg-card};
   --teaser-color-text: #{$color-text-default};
+  --teaser-color-text-emphasis: #{$color-text-default};
   --teaser-color-title: #383732;
   --teaser-color-accentuation: #{$color-accentuation-red};
   --teaser-color-overlay: #{$color-bg-button-hover};
@@ -27,6 +28,7 @@
 .teaser.teaser--theme-dark {
   --teaser-color-background: #22211d;
   --teaser-color-text: #ffffff;
+  --teaser-color-text-emphasis: #dadad2;
   --teaser-color-title: #ffffff;
   --teaser-color-accentuation: #dadad2;
   --teaser-color-overlay: rgba(255, 255, 255, .12);
@@ -45,6 +47,7 @@
 .teaser.teaser--theme-breaking {
   --teaser-color-background: #c91024;
   --teaser-color-text: #ffffff;
+  --teaser-color-text-emphasis: #ffffff;
   --teaser-color-title: #ffffff;
   --teaser-color-accentuation: #ffffff;
   --teaser-color-overlay: rgba(255, 255, 255, .12);

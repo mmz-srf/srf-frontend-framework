@@ -182,7 +182,6 @@
 .teaser__media-caption {
   font-size: 12px;
   line-height: 1.2;
-  color: $color-text-light;
 }
 
 .teaser__media-duration {
@@ -193,7 +192,8 @@
 .teaser__media-source {
   strong {
     font-family: $font-medium;
-    color: $color-text-default;
+    /* theme */
+    @include customPropWithFallback('color', '--teaser-color-text', $color-text-default);
   }
 }
 
@@ -855,3 +855,10 @@
   justify-content: flex-end;
 }
 /* autoprefixer grid: off */
+
+// Hide media icon when video is playing
+.teaser--video-playing {
+  .media-still__icon {
+    display: none;
+  }
+}
