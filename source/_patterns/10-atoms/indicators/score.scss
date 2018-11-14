@@ -1,0 +1,25 @@
+@import "../../variables";
+
+.score {
+  position: relative;
+  padding: 4px 7px 4px 8px;
+  font-family: $font-bold;
+  font-size: 14px;
+  line-height: 1;
+  white-space: nowrap;
+  color: $color-text-default;
+}
+
+.score--winner {
+  color: $color-text-accentuation;
+}
+
+.score--live {
+  color: #FFF;
+}
+
+.score__supplement {
+  position: absolute;
+  top: 2px;
+  font-size: 10px;
+}

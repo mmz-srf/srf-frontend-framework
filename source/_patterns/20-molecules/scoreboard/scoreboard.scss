@@ -1,0 +1,41 @@
+.scoreboard {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: $font-medium;
+  font-size: 14px;
+  letter-spacing: 0.4px;
+  background-color: $color-bg-caption;
+  text-align: left;
+}
+
+.scoreboard__legend-col {
+  text-align: left;
+  width: 100%;
+}
+
+.scoreboard__score-col {
+  text-align: right;
+  border-top: 4px solid $color-score-default;
+  border-bottom: 4px solid $color-score-default;
+  background-color: $color-score-default;
+}
+
+.scoreboard__score-col--live {
+  background-color: $color-score-live;
+  border-top: 4px solid $color-score-live;
+  border-bottom: 4px solid $color-score-live;
+}
+
+.scoreboard__player {
+  padding: 2px 0 2px 16px
+}
+
+.scoreboard__emblem {
+  display: inline-block;
+  padding: 0 6px;
+
+  img {
+    width: 16px;
+    height: auto;
+  }
+}

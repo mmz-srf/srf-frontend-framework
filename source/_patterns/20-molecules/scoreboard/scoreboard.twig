@@ -1,0 +1,45 @@
+<table class="scoreboard">
+    <caption class="h-offscreen">Spielstand</caption>
+    <colgroup>
+        <col class="scoreboard__legend-col">
+        <col class="scoreboard__score-col">
+        <col class="scoreboard__score-col">
+        <col class="scoreboard__score-col scoreboard__score-col--live">
+    </colgroup>
+    <thead>
+        <tr>
+            <th scope="col" class="scoreboard-header">
+                <span class="h-offscreen">Spieler/in</span>
+            </th>
+            <th scope="col" class="scoreboard-header">
+                <span class="h-offscreen">1. Satz</span>
+            </th>
+            <th scope="col" class="scoreboard-header">
+                <span class="h-offscreen">2. Satz</span>
+            </th>
+            <th scope="col" class="scoreboard-header">
+                <span class="h-offscreen">3. Satz</span>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <th scope="row" class="scoreboard__player scoreboard__player--winner">
+            <span class="scoreboard__emblem"><img width="16" alt="SRB" title="SRB" src="https://cdn-csd.swisstxt.ch/images/geo/country/flag/small/SRB.png"></span>
+            Novak Djokovic
+        </th>
+        <td>{% include 'atoms-score' with { "styleModifier": "" } %}</td>
+        <td>{% include 'atoms-score--with-supplement' with { "styleModifier": "score--winner" } %}</td>
+        <td>{% include 'atoms-score' with { "styleModifier": "score--live" } %}</td>
+    </tr>
+    <tr>
+        <th scope="row" class="scoreboard__player">
+            <span class="scoreboard__emblem"><img width="16" alt="LAT" title="LAT" src="https://cdn-csd.swisstxt.ch/images/geo/country/flag/small/LAT.png"></span>
+            Ernests Gulbis
+        </th>
+        <td>{% include 'atoms-score' with { "styleModifier": "score--winner" } %}</td>
+        <td>{% include 'atoms-score--with-supplement' with { "styleModifier": "score--winner" } %}</td>
+        <td>{% include 'atoms-score' with { "styleModifier": "score--live" } %}</td>
+    </tr>
+    </tbody>
+</table>

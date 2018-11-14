@@ -1,0 +1,202 @@
+<h2>Tennis</h2>
+<table class="scoreboard">
+    <caption class="h-offscreen">Spielstand</caption>
+    <colgroup>
+        <col class="scoreboard__legend-col">
+        <col class="scoreboard__score-col">
+        <col class="scoreboard__score-col">
+        <col class="scoreboard__score-col scoreboard__score-col--live">
+    </colgroup>
+    <thead>
+        <tr>
+            <th scope="col" class="scoreboard-header">
+                <span class="h-offscreen">Spieler/in</span>
+            </th>
+            <th scope="col" class="scoreboard-header">
+                <span class="h-offscreen">1. Satz</span>
+            </th>
+            <th scope="col" class="scoreboard-header">
+                <span class="h-offscreen">2. Satz</span>
+            </th>
+            <th scope="col" class="scoreboard-header">
+                <span class="h-offscreen">3. Satz</span>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <th scope="row" class="scoreboard__player scoreboard__player--winner">
+            <span class="scoreboard__emblem"><img width="16" alt="SRB" title="SRB" src="https://cdn-csd.swisstxt.ch/images/geo/country/flag/small/SRB.png"></span>
+            Novak Djokovic
+        </th>
+        <td>{% include 'atoms-score' with { "styleModifier": "" } %}</td>
+        <td>{% include 'atoms-score--with-supplement' with { "styleModifier": "score--winner" } %}</td>
+        <td>{% include 'atoms-score' with { "styleModifier": "score--live" } %}</td>
+    </tr>
+    <tr>
+        <th scope="row" class="scoreboard__player">
+            <span class="scoreboard__emblem"><img width="16" alt="LAT" title="LAT" src="https://cdn-csd.swisstxt.ch/images/geo/country/flag/small/LAT.png"></span>
+            Ernests Gulbis
+        </th>
+        <td>{% include 'atoms-score' with { "styleModifier": "score--winner" } %}</td>
+        <td>{% include 'atoms-score--with-supplement' with { "styleModifier": "score--winner" } %}</td>
+        <td>{% include 'atoms-score' with { "styleModifier": "score--live" } %}</td>
+    </tr>
+    </tbody>
+</table>
+
+<br><br>
+
+<h2>Ski alpin</h2>
+
+
+<table class="scoreboard">
+    <caption class="h-offscreen">Führende Rennfahrer</caption>
+    <colgroup>
+        <col class="scoreboard__legend-col">
+        <col class="scoreboard__score-col scoreboard__score-col--live">
+    </colgroup>
+    <thead>
+    <tr>
+        <th scope="col" class="scoreboard-header">
+            <span class="h-offscreen">Rennfahrer</span>
+        </th>
+        <th scope="col" class="scoreboard-header">
+            <span class="h-offscreen">Zeitmessung</span>
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <th scope="row" class="scoreboard__player scoreboard__player--winner">
+            1. <span class="scoreboard__emblem"><img width="16" alt="SRB" title="SRB" src="https://cdn-csd.swisstxt.ch/images/geo/country/flag/small/SRB.png"></span>
+            Lara Gut
+        </th>
+        <td>{% include 'atoms-score' with { "styleModifier": "score--live", "scoreValue": "2:23.02" } %}</td>
+    </tr>
+    <tr>
+        <th scope="row" class="scoreboard__player">
+            2. <span class="scoreboard__emblem"><img width="16" alt="LAT" title="LAT" src="https://cdn-csd.swisstxt.ch/images/geo/country/flag/small/LAT.png"></span>
+            Mikaela Shiffrin
+        </th>
+        <td>{% include 'atoms-score' with { "styleModifier": "score--live", "scoreValue": "+ 1.44" } %}</td>
+    </tr>
+    </tbody>
+</table>
+
+<br><br>
+
+<h2>Formel 1</h2>
+
+<table class="scoreboard">
+    <caption class="h-offscreen">Führende Rennfahrer</caption>
+    <colgroup>
+        <col class="scoreboard__legend-col">
+        <col class="scoreboard__score-col scoreboard__score-col--live">
+    </colgroup>
+    <thead>
+    <tr>
+        <th scope="col" class="scoreboard-header">
+            <span class="h-offscreen">Rennfahrer</span>
+        </th>
+        <th scope="col" class="scoreboard-header">
+            <span class="h-offscreen">Zeitmessung</span>
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <th scope="row" class="scoreboard__player scoreboard__player--winner">
+            1. <span class="scoreboard__emblem"><img width="16" alt="SRB" title="SRB" src="https://cdn-csd.swisstxt.ch/images/geo/country/flag/small/SRB.png"></span>
+            Lewis Hamilton
+        </th>
+        <td>{% include 'atoms-score' with { "styleModifier": "score--live", "scoreValue": "Runde 1" } %}</td>
+    </tr>
+    <tr>
+        <th scope="row" class="scoreboard__player">
+            2. <span class="scoreboard__emblem"><img width="16" alt="LAT" title="LAT" src="https://cdn-csd.swisstxt.ch/images/geo/country/flag/small/LAT.png"></span>
+            Max Verstappen
+        </th>
+        <td>{% include 'atoms-score' with { "styleModifier": "score--live", "scoreValue": "+ 07.090" } %}</td>
+    </tr>
+    <tr>
+        <th scope="row" class="scoreboard__player">
+            3. <span class="scoreboard__emblem"><img width="16" alt="LAT" title="LAT" src="https://cdn-csd.swisstxt.ch/images/geo/country/flag/small/LAT.png"></span>
+            Kimi Räikkönen
+        </th>
+        <td>{% include 'atoms-score' with { "styleModifier": "score--live", "scoreValue": "+ 25.888" } %}</td>
+    </tr>
+    </tbody>
+</table>
+
+<h2>Fussball</h2>
+
+<table class="scoreboard">
+    <caption class="h-offscreen">Spielstand</caption>
+    <colgroup>
+        <col class="scoreboard__legend-col">
+        <col class="scoreboard__score-col scoreboard__score-col--live">
+    </colgroup>
+    <thead>
+    <tr>
+        <th scope="col" class="scoreboard-header">
+            <span class="h-offscreen">Mannschaft</span>
+        </th>
+        <th scope="col" class="scoreboard-header">
+            <span class="h-offscreen">Resultat</span>
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <th scope="row" class="scoreboard__player scoreboard__player--winner">
+            <span class="scoreboard__emblem"><img width="16" alt="SRB" title="SRB" src="https://cdn-csd.swisstxt.ch/images/geo/country/flag/small/SRB.png"></span>
+            Zürich
+        </th>
+        <td>{% include 'atoms-score' with { "styleModifier": "score--live", "scoreValue": "2" } %}</td>
+    </tr>
+    <tr>
+        <th scope="row" class="scoreboard__player">
+            <span class="scoreboard__emblem"><img width="16" alt="LAT" title="LAT" src="https://cdn-csd.swisstxt.ch/images/geo/country/flag/small/LAT.png"></span>
+            Winterthur
+        </th>
+        <td>{% include 'atoms-score' with { "styleModifier": "score--live", "scoreValue": "2" } %}</td>
+    </tr>
+    </tbody>
+</table>
+
+<h2>Eishockey</h2>
+
+<table class="scoreboard">
+    <caption class="h-offscreen">Spielstand</caption>
+    <colgroup>
+        <col class="scoreboard__legend-col">
+        <col class="scoreboard__score-col scoreboard__score-col--live">
+    </colgroup>
+    <thead>
+    <tr>
+        <th scope="col" class="scoreboard-header">
+            <span class="h-offscreen">Mannschaft</span>
+        </th>
+        <th scope="col" class="scoreboard-header">
+            <span class="h-offscreen">Resultat</span>
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <th scope="row" class="scoreboard__player scoreboard__player--winner">
+            <span class="scoreboard__emblem"><img width="16" alt="SRB" title="SRB" src="https://cdn-csd.swisstxt.ch/images/geo/country/flag/small/SRB.png"></span>
+            ZSC Lions
+        </th>
+        <td>{% include 'atoms-score' with { "styleModifier": "score--live", "scoreValue": "1" } %}</td>
+    </tr>
+    <tr>
+        <th scope="row" class="scoreboard__player">
+            <span class="scoreboard__emblem"><img width="16" alt="LAT" title="LAT" src="https://cdn-csd.swisstxt.ch/images/geo/country/flag/small/LAT.png"></span>
+            Lugano
+        </th>
+        <td>{% include 'atoms-score' with { "styleModifier": "score--live", "scoreValue": "1" } %}</td>
+    </tr>
+    </tbody>
+</table>
