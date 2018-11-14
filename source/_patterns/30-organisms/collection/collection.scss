@@ -724,6 +724,8 @@ $background-overlap-wide: 50px;
 
 // Has an additional button on the top right that leads to a selection screen to change between groups of teasers
 .collection--selectable {
+  --theme-color-nav: #{$color-text-accentuation};
+
   .collection__title {
     display: flex;
     flex-direction: row;
@@ -740,9 +742,22 @@ $background-overlap-wide: 50px;
     padding: 0;
     cursor: pointer;
 
+    font-family: $font-regular;
+    font-size: 14px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.43;
+    letter-spacing: 0.4px;
+
     // Parent element ends earlier/lower than needed -> negative margin on mobile
     @include smartphone {
       margin: -13px -16px -13px 0;
     }
+  }
+
+  &.collection--branded {
+    --theme-color-nav: #fff;
+    --theme-icon-filter: brightness(1000%);
   }
 }
