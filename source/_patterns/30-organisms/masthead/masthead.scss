@@ -116,7 +116,10 @@
 .masthead__title-link:active,
 .masthead__title-link:visited {
     text-decoration: none;
-    color: $color-text-default;
+
+    @supports (--foo: bar) {
+        color: var(--theme-color-title, $color-text-default);
+    }
 }
 
 .masthead__universal {
