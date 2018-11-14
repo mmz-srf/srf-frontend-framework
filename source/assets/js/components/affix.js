@@ -28,6 +28,8 @@
         this.checkPosition();
     };
 
+    Affix.VERSION  = '∞.0.1';
+
     Affix.RESET    = 'affix affix-top affix-bottom';
 
     Affix.DEFAULTS = {
