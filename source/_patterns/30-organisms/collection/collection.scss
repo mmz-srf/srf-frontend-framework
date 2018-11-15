@@ -32,7 +32,7 @@ $background-overlap-wide: 50px;
   }
 }
 
-.collection.collection--branded {
+.collection--branded {
 
   .collection__branding-wrapper {
     max-width: 100%;
@@ -53,7 +53,7 @@ $background-overlap-wide: 50px;
   }
 
   // no space between two branded collections
-  & + .collection.collection--branded {
+  & + .collection--branded {
     margin-top: -#{$collection-gap};
 
     @include tablet-up {

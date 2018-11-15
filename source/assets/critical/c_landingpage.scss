@@ -39,7 +39,7 @@ body.body--loading.body--loading {
     }
   }
 
-  .collection.collection--branded {
+  .collection--branded {
     .collection__branding-wrapper {
       max-width: 100%;
       margin-left: 0;
@@ -59,7 +59,7 @@ body.body--loading.body--loading {
     }
 
     // no space between two branded collections
-    & + .collection.collection--branded {
+    & + .collection--branded {
       margin-top: -#{$collection-gap};
 
       @include tablet-up {
@@ -102,9 +102,6 @@ body.body--loading.body--loading {
   .collection__content-wrapper {
     display: flex;
     flex-direction: column;
-    //border-radius: 2px;
-    //background-color: $color-bg-caption;
-    //box-shadow: $shadow-elevation1;
   }
 
   .collection__teaser-list {
