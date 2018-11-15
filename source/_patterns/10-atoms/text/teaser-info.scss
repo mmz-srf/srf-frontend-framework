@@ -5,6 +5,7 @@
 .teaser-info-wrapper {
   display: flex;
   flex-grow: 1;
+  align-items: flex-end;
   margin: 8px 0 0;
   padding: 0;
 
@@ -14,8 +15,6 @@
 }
 
 .teaser-info {
-  display: flex;
-  align-items: flex-end;
   font-family: $font-regular;
   font-size: 12px;
   line-height: 1.17;
@@ -26,14 +25,21 @@
   @include customPropWithFallback('color', '--teaser-color-text', $color-text-default);
 }
 
-.teaser-info--with-icon::before {
-  content: '';
-  margin-right: 4px;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 100%;
-  height: 14px;
-  width: 14px;
+.teaser-info--with-icon {
+  position: relative;
+  padding-left: 18px;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    margin-right: 4px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    height: 14px;
+    width: 14px;
+  }
 }
 
 
