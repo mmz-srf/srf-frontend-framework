@@ -126,6 +126,7 @@ body.body--loading.body--loading {
   .collection__lead {
     display: none;
   }
+
   .collection__title-text {
     display: none;
   }
@@ -244,6 +245,12 @@ body.body--loading.body--loading {
           padding-top: #{$collection-gap-tablet-up - 8};
         }
       }
+    }
+  }
+
+  .collection--selectable {
+    .collection__teaser-list {
+      display: none;
     }
   }
 

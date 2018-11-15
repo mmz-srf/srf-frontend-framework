@@ -27,7 +27,7 @@
                 {% endif %}
 
                 {% if selectable %}
-                    <button class="selectable-button">
+                    <button class="selectable-button js-selectable-button">
                         {% include 'atoms-icon-button' with {'iconStyleModifier': 'svg-icon--more', 'buttonText': collection.selectableText|default('Region wählen'), 'styleModifier': 'icon-button--collapsing-text-mobile icon-button--spaceless-right-mobile'} %}
                     </button>
                 {% endif %}
@@ -84,7 +84,7 @@
                             {% set teaserFormat = 'teaser--size-m' %}
                         {% endif %}
 
-                        <li class="collection__teaser-item {{ swipeable ? "js-swipeable-area-item"}}">
+                        <li class="collection__teaser-item {{ swipeable ? "js-swipeable-area-item" }}">
                             {% if 'teaser--longform' in teaser.styleModifier|default("") %}
                                 {% include 'molecules-teaser--longform' with {'teaser': teaser, "styleModifier": teaserFormat} %}
                             {% else %}

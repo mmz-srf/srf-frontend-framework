@@ -760,4 +760,8 @@ $background-overlap-wide: 50px;
     --theme-color-nav: #fff;
     --theme-icon-filter: brightness(1000%);
   }
+
+  .collection__teaser-list {
+    display: none;
+  }
 }
