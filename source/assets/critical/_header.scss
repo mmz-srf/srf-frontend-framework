@@ -158,6 +158,14 @@
   }
 }
 
+.masthead__title-link,
+.masthead__title-link:hover,
+.masthead__title-link:active,
+.masthead__title-link:visited {
+    text-decoration: none;
+    color: $color-text-default;
+}
+
 .subnav__list {
   max-height: 56px;
   overflow: hidden;
