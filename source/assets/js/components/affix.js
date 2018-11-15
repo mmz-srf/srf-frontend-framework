@@ -28,7 +28,7 @@
         this.checkPosition();
     };
 
-    Affix.VERSION  = '3.3.7';
+    Affix.VERSION  = '∞.0.1';
 
     Affix.RESET    = 'affix affix-top affix-bottom';
 

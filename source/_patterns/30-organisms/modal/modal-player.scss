@@ -1,0 +1,67 @@
+.modal-player__container {
+  display: flex;
+  flex-direction: row;
+  padding: 0;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  @include desktop-up {
+    flex-wrap: nowrap;
+  }
+}
+
+.modal-player__media {
+  position: relative;
+  flex: 0 0 100%;
+  order: 2;
+
+  @include desktop-up {
+    // Close enough - for the real layout we'd need grid *laughs in IE*
+    flex-basis: calc(100% - 400px);
+    flex-grow: 1;
+    flex-shrink: 1;
+    order: initial;
+    margin: 16px 0;
+
+    // max height of the modal so it doesn't cover the whole screen
+    max-height: 60vh;
+  }
+}
+
+.modal-player__share,
+.modal-player__close {
+    flex: 0 0 auto;
+    order: 1;
+
+  @include desktop-up {
+    flex: 1 1 0px;
+    order: initial;
+  }
+
+  button {
+    border: none;
+    background: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+  }
+}
+
+.modal-player__loading,
+.modal-player__video {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+
+.modal-player__video {
+    opacity: 0;
+    transition: opacity .3s linear;
+}
+
+.modal-player__video--playing {
+    opacity: 1;
+}
