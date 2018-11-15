@@ -27,7 +27,6 @@
   display: block;
   font-family: $font-regular;
   font-size: 16px;
-  line-height: $default-line-height-ratio;
   letter-spacing: 0.5px;
   color: $color-text-accentuation;
   padding: 20px 0 4px; // margin: 20px 0 4px;
@@ -36,7 +35,6 @@
 .form-fieldset__hint {
   font-family: $font-light;
   font-size: 16px;
-  line-height: $default-line-height-ratio;
   color: $color-form-field-hint;
   margin-top: 2px;
 }
@@ -44,7 +42,6 @@
 .form__hint {
   font-family: $font-light;
   font-size: 14px;
-  line-height: $default-line-height-ratio;
   margin-top: 24px;
 }
 

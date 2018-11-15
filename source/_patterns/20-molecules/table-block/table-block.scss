@@ -22,7 +22,6 @@
 
   th {
     font-size: 14px;
-    line-height: $default-line-height-ratio;
     letter-spacing: .5px;
 
     font-family: $font-medium;
@@ -55,7 +54,6 @@
 
   td {
     font-size: 14px;
-    line-height: $default-line-height-ratio;
     letter-spacing: .5px;
 
     @include tablet-up {
@@ -101,7 +99,6 @@
 .table-block--legacy {
   tr[data-head="true"]:first-child td {
     font-size: 16px;
-    line-height: $default-line-height-ratio;
     letter-spacing: .6px;
     font-family: $font-medium;
     text-align: left;

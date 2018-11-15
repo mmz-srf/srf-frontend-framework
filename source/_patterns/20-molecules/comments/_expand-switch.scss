@@ -29,7 +29,6 @@
 .comments-header__expand-switch > .expand-icon__text {
   color: $color-accentuation-red;
   font: 16px $font-regular;
-  line-height: $default-line-height-ratio;
 
   @include smartphone {
     display: none;

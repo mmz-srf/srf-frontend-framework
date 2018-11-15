@@ -216,7 +216,6 @@ $ticker-item-border-width: 1px;
   margin-bottom: 8px;
 
   font-family: $font-medium;
-  line-height: $default-line-height-ratio;
   font-size: 14px;
   letter-spacing: .5px;
   display: block;
@@ -231,7 +230,6 @@ $ticker-item-border-width: 1px;
   letter-spacing: .3px;
 
   font-family: $font-medium;
-  line-height: $default-line-height-ratio;
   margin: 8px 0 0;
 
   @include tablet-up {

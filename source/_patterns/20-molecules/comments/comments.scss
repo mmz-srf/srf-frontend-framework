@@ -70,7 +70,6 @@
 .comments-infobox__text,
 .comments-header__info-text {
   font-size: 16px;
-  line-height: $default-line-height-ratio;
   letter-spacing: .5px;
   color: $color-text-accentuation;
   padding: 0 16px;
@@ -79,7 +78,6 @@
 
 .comments-infobox__text {
   font-size: 16px;
-  line-height: $default-line-height-ratio;
 }
 
 // login info
@@ -300,7 +298,6 @@
 .comment__content {
   font-family: $font-light;
   font-size: 18px;
-  line-height: $default-line-height-ratio;
 
   letter-spacing: .5px;
   margin: 12px 0 16px;

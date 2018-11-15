@@ -16,7 +16,6 @@
 
 .listicle-item__heading {
   font-size: 18px;
-  line-height: $default-line-height-ratio;
   letter-spacing: .5px;
   margin: 16px 0 12px;
 
@@ -46,7 +45,6 @@
   letter-spacing: .5px;
   color: $color-text-default;
   margin: 12px 0;
-  line-height: $default-line-height-ratio;
 
   @include tablet-up {
     font-size: 20px;
