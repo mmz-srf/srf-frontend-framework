@@ -41,7 +41,7 @@ $background-overlap-wide: 50px;
   font-weight: 500;
   font-style: normal;
   font-stretch: normal;
-  line-height: 1.25;
+  line-height: $emphasize-line-height-ratio;
   letter-spacing: .2px;
   color: $color-text-default;
 
@@ -181,7 +181,7 @@ $background-overlap-wide: 50px;
   font-weight: 300;
   font-style: normal;
   font-stretch: normal;
-  line-height: 1.25;
+  line-height: $emphasize-line-height-ratio;
   letter-spacing: .2px;
   color: $color-text-accentuation;
   margin: -4px 24px 24px;

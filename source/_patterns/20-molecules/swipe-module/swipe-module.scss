@@ -75,7 +75,7 @@ $item-max-width: 400px;
   margin: 0;
   font-family: $font-regular;
   font-size: 22px;
-  line-height: 1.27;
+  line-height: $emphasize-line-height-ratio;
   letter-spacing: .2px;
   color: $color-text-accentuation;
 }

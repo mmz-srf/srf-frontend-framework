@@ -29,7 +29,7 @@
 .sharing-bar__summary {
   font-size: 12px;
   font-family: $font-system;
-  line-height: 1.35;
+  line-height: $secondary-line-height-ratio;
   text-align: center;
   color: $color-text-light;
 
@@ -48,7 +48,7 @@
   font-size: 10px;
   font-weight: bold;
   font-family: $font-system;
-  line-height: 1.2;
+  line-height: $emphasize-line-height-ratio;
   text-align: center;
   color: #22211D;
   border: none;

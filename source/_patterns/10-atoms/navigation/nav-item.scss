@@ -8,7 +8,7 @@
   font-family: inherit;
   font-size: 18px;
   letter-spacing: 0.4px;
-  line-height: 1.25;
+  line-height: $emphasize-line-height-ratio;
   border-radius: 2px;
   transition: background-color .2s ease-in-out;
 

@@ -1,3 +1,5 @@
+@import "../../variables";
+
 .person-details {
   flex: 1 1 auto;
   align-self: center;
@@ -9,7 +11,7 @@
 .person-details__name,
 .person-details__function {
   margin: 0;
-  line-height: 1.25;
+  line-height: $emphasize-line-height-ratio;
   letter-spacing: .4px;
 }
 
