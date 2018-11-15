@@ -1,0 +1,37 @@
+<div class="teaser {{ styleModifier|default('teaser--size-m teaser--size-s-on-mobile') }}">
+    <a class="teaser__main" href="{{ teaser.link|default('#') }}">
+
+        {% embed "ratio.twig" with {
+            'class': 'teaser__medium-wrapper',
+            'ratio': '16:9'
+        } %}
+            {% block ratio_content %}
+                <div class="teaser__medium">
+                    <div class="image image--media-still-dynamic">
+                        <img src="{{ teaser.image|default('') }}" alt="{{ teaser.title|default('') }}" />
+                    </div>
+                </div>
+            {% endblock %}
+        {% endembed %}
+
+        <div class="teaser__content">
+            <h4 class="teaser__kicker">
+                <span class="teaser__kicker-text">{{ teaser.kicker|default('') }}</span>
+            </h4>
+            <h3 class="teaser__title">{{ teaser.title|default('') }}</h3>
+            <p class="teaser__lead">{{ teaser.lead|default('') }}</p>
+
+            {% include 'molecules-teaser-status' with {
+                'styleModifier': styleModifierStatus,
+                'text': status|default('')
+            } %}
+
+        </div>
+
+        {% include 'molecules-scoreboard' with {
+            'styleModifier': styleModifierStatus,
+            'text': status|default('')
+        } %}
+
+    </a>
+</div>
