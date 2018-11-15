@@ -2,12 +2,14 @@
 
 .score {
   position: relative;
-  padding: 4px 7px 4px 8px;
+  padding: 1px 7px 1px 6px;
   font-family: $font-bold;
+  @include font-smoothing;
   font-size: 14px;
   line-height: 1;
   white-space: nowrap;
   color: $color-text-default;
+  text-align: right;
 }
 
 .score--winner {

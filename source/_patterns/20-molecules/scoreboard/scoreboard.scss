@@ -1,3 +1,6 @@
+
+$scoreboard-col-padding-height: 8px;
+
 .scoreboard {
   width: 100%;
   border-collapse: collapse;
@@ -15,22 +18,23 @@
 
 .scoreboard__score-col {
   text-align: right;
-  border-top: 4px solid $color-score-default;
-  border-bottom: 4px solid $color-score-default;
+  border-top: $scoreboard-col-padding-height solid $color-score-default;
+  border-bottom: $scoreboard-col-padding-height solid $color-score-default;
   background-color: $color-score-default;
 }
 
 .scoreboard__score-col--live {
+  border-top: $scoreboard-col-padding-height solid $color-score-live;
+  border-bottom: $scoreboard-col-padding-height solid $color-score-live;
   background-color: $color-score-live;
-  border-top: 4px solid $color-score-live;
-  border-bottom: 4px solid $color-score-live;
 }
 
 .scoreboard__competitor {
-  padding: 2px 0 2px 16px;
+  padding: 1px 0 1px 16px;
   overflow: hidden;
   position: relative;
   max-width: 20px;
+  text-align: left;
 }
 
 .scoreboard__competitor-mask {
@@ -46,12 +50,16 @@
   white-space: nowrap;
 }
 
+.scoreboard__rank {
+  padding: 0 6px 0 0;
+}
+
 .scoreboard__emblem {
   display: inline-block;
-  padding: 0 6px;
+  padding: 0 6px 0 0;
 
   img {
-    width: 16px;
+    width: 15px;
     height: auto;
   }
 }
