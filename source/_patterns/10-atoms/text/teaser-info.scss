@@ -15,6 +15,8 @@
 }
 
 .teaser-info {
+  position: relative;
+  margin-right: 18px;
   font-family: $font-regular;
   font-size: 12px;
   line-height: 1.17;
@@ -23,11 +25,29 @@
 
   /* theme */
   @include customPropWithFallback('color', '--teaser-color-text', $color-text-default);
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: calc(50% - 1px);
+    width: 2px;
+    height: 2px;
+    margin: 0 8px;
+    border-radius: 100%;
+    background-color: #b9b7ac;
+  }
+
+  &:last-child {
+    margin-right: 0;
+
+    &::after {
+      display: none;
+    }
+  }
 }
 
 .teaser-info--with-icon {
-  position: relative;
-  padding-left: 18px;
+  padding-left: 20px;
 
   &::before {
     content: '';
