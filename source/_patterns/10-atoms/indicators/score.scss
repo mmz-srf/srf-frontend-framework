@@ -8,12 +8,12 @@
   font-size: 14px;
   line-height: 1;
   white-space: nowrap;
-  color: $color-text-default;
+  color: $color-text-accentuation;
   text-align: right;
 }
 
 .score--winner {
-  color: $color-text-accentuation;
+  color: $color-text-default;
 }
 
 .score--live {

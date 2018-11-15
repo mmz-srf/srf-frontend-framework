@@ -12,29 +12,36 @@ $scoreboard-col-padding-height: 8px;
 }
 
 .scoreboard__legend-col {
-  text-align: left;
   width: 100%;
+  // border ensures dimensions when no scoreboard is present
+  border-top: $scoreboard-col-padding-height solid transparent;
+  border-bottom: $scoreboard-col-padding-height solid transparent;
 }
 
 .scoreboard__score-col {
   text-align: right;
-  border-top: $scoreboard-col-padding-height solid $color-score-default;
-  border-bottom: $scoreboard-col-padding-height solid $color-score-default;
-  background-color: $color-score-default;
+  border-top: $scoreboard-col-padding-height solid $color-bg-score-default;
+  border-bottom: $scoreboard-col-padding-height solid $color-bg-score-default;
+  background-color: $color-bg-score-default;
 }
 
 .scoreboard__score-col--live {
-  border-top: $scoreboard-col-padding-height solid $color-score-live;
-  border-bottom: $scoreboard-col-padding-height solid $color-score-live;
-  background-color: $color-score-live;
+  border-top: $scoreboard-col-padding-height solid $color-bg-score-live;
+  border-bottom: $scoreboard-col-padding-height solid $color-bg-score-live;
+  background-color: $color-bg-score-live;
 }
 
-.scoreboard__competitor {
+.scoreboard__competitors {
   padding: 1px 0 1px 16px;
   overflow: hidden;
   position: relative;
   max-width: 20px;
+  color: $color-text-accentuation;
   text-align: left;
+}
+
+.scoreboard__competitors--winner {
+  color: $color-text-default;
 }
 
 .scoreboard__competitor-mask {
@@ -45,21 +52,29 @@ $scoreboard-col-padding-height: 8px;
   background: linear-gradient(to right, rgba(245,245,242,0), rgba(245,245,242,1));
 }
 
-.scoreboard__competitor-name {
-  display: block;
+.scoreboard__competitor-wrapper {
+  display: flex;
+  align-items: center;
   white-space: nowrap;
 }
 
 .scoreboard__rank {
-  padding: 0 6px 0 0;
+  width: 20px;
+  flex-grow: 0;
 }
 
 .scoreboard__emblem {
-  display: inline-block;
-  padding: 0 6px 0 0;
+  width: 15px;
+  margin-right: 6px;
+  padding-bottom: 1px;
+  vertical-align: baseline;
 
   img {
     width: 15px;
     height: auto;
   }
+}
+
+.scoreboard__name {
+  flex-grow: 1;
 }
