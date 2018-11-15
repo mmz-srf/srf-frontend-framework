@@ -26,6 +26,12 @@
 
             <div class="teaser-info-wrapper">
               {% include 'atoms-teaser-info' with {
+                  'type': 'state',
+                  'styleModifier': 'teaser-info--visited teaser-info--with-icon',
+                  'text': 'Gesehen'
+              } %}
+
+              {% include 'atoms-teaser-info' with {
                   'type': 'media-caption',
                   'styleModifier': 'teaser-info--media-caption',
                   'mediaDuration': '3.20',
