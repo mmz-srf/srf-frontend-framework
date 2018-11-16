@@ -2,13 +2,16 @@
 
 .score {
   position: relative;
-  padding: 1px 7px 1px 6px;
+  display: block;
+  height: 100%;
+  padding: 4px 7px 4px 6px;
   font-family: $font-bold;
   @include font-smoothing;
   font-size: 14px;
   line-height: 1;
   white-space: nowrap;
   color: $color-text-accentuation;
+  background-color: $color-bg-score-default;
   text-align: right;
 }
 
@@ -17,6 +20,7 @@
 }
 
 .score--live {
+  background-color: $color-bg-score-live;
   color: #FFF;
 }
 

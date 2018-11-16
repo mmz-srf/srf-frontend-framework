@@ -9,29 +9,29 @@ $scoreboard-col-padding-height: 8px;
   letter-spacing: 0.4px;
   background-color: $color-bg-caption;
   text-align: left;
-}
+  border-spacing: 0;
 
-.scoreboard__legend-col {
-  width: 100%;
-  // border ensures dimensions when no scoreboard is present
-  border-top: $scoreboard-col-padding-height solid transparent;
-  border-bottom: $scoreboard-col-padding-height solid transparent;
-}
+  td {
+    padding: 0;
+    // we're setting the most used background color here
+    // in order to avoid using many classes on td's
+    background-color: $color-bg-score-default;
+  }
 
-.scoreboard__score-col {
-  text-align: right;
-  border-top: $scoreboard-col-padding-height solid $color-bg-score-default;
-  border-bottom: $scoreboard-col-padding-height solid $color-bg-score-default;
-  background-color: $color-bg-score-default;
-}
+  /* there needs to be some more space before the first and after the last row. */
+  tbody tr:first-child {
+    height: 28px;
+    vertical-align: bottom;
+  }
 
-.scoreboard__score-col--live {
-  border-top: $scoreboard-col-padding-height solid $color-bg-score-live;
-  border-bottom: $scoreboard-col-padding-height solid $color-bg-score-live;
-  background-color: $color-bg-score-live;
+  tbody tr:last-child {
+    height: 28px;
+    vertical-align: top;
+  }
 }
 
 .scoreboard__competitors {
+  width: 100%;
   padding: 1px 0 1px 16px;
   overflow: hidden;
   position: relative;
@@ -48,7 +48,7 @@ $scoreboard-col-padding-height: 8px;
   position: absolute;
   right: 0;
   width: 50px;
-  height: 100%;
+  height: 50px; // IE needs an absolute height
   background: linear-gradient(to right, rgba(245,245,242,0), rgba(245,245,242,1));
 }
 
@@ -68,6 +68,8 @@ $scoreboard-col-padding-height: 8px;
   margin-right: 6px;
   padding-bottom: 1px;
   vertical-align: baseline;
+  flex-grow: 0;
+  flex-shrink: 0;
 
   img {
     width: 15px;
@@ -77,4 +79,8 @@ $scoreboard-col-padding-height: 8px;
 
 .scoreboard__name {
   flex-grow: 1;
+}
+
+.scoreboard__score-live.scoreboard__score-live {
+  background-color: $color-bg-score-live;
 }
