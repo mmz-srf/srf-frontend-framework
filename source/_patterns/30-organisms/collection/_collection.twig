@@ -14,8 +14,8 @@
                     {% endif %}
                 </span>
 
-                {% if collection.titleLink is defined %}
-                    <a href="{{ collection.titleLink|default("#") }}" class="collection__title-link">
+                {% if collection.titleLink is defined or selectable %}
+                    <a href="{{ collection.titleLink|default("#") }}" class="collection__title-link {{ selectable ? 'collection__title-link--plaintext' }}">
                 {% endif %}
                 <span class="collection__title-text">
                     {{ collection.title|default("") }}
@@ -46,6 +46,16 @@
 
             {% if collection.image is defined %}
                     </div>
+                </div>
+            {% endif %}
+
+            {% if selectable %}
+                <div class="collection__selectable-empty-area js-selectable-empty-state">
+                    {% for group in collection.selectableGroups %}
+                        <button class="selectable__button js-source-button">
+                            {{ group }}
+                        </button>
+                    {% endfor %}
                 </div>
             {% endif %}
 
