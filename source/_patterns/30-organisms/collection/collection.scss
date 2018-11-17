@@ -381,6 +381,21 @@ $background-overlap-wide: 50px;
   @include caret('grey', 'right', 'medium');
 }
 
+.collection__overlay {
+  position: absolute;
+  height: 0;
+  width: 0;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  background-color: $color-bg-caption;
+}
+
+.collection__overlay--covering {
+  height: 100%;
+  width: 100%;
+}
+
 // Standard: all M teasers, 1 column on mobile, classic 3 columns on tablet+
 .collection--standard,
 .collection--highlight {
