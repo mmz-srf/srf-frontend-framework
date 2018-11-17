@@ -758,7 +758,13 @@ $background-overlap-wide: 50px;
 
 // Has an additional button on the top right that leads to a selection screen to change between groups of teasers
 .collection--selectable {
+  overflow: hidden;
   --theme-color-nav: #{$color-text-accentuation};
+
+  .collection__content-wrapper {
+    // to position the overlay
+    position: relative;
+  }
 
   .collection__title {
     display: flex;
