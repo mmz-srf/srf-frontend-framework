@@ -13,8 +13,7 @@
 }
 
 .embed-inline__title {
-  font-size: 20px;
-  letter-spacing: .3px;
+  @include fontSize(20);
   font-family: $font-medium;
   margin-bottom: 12px;
   padding: 0 16px;

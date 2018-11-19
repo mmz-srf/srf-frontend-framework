@@ -24,8 +24,7 @@
   color: $color-text-default;
 
   @include tablet-up {
-    font-size: 20px;
-    letter-spacing: .2px;
+    @include fontSize(20);
     margin: 24px 0 12px;
   }
 }
@@ -46,8 +45,7 @@
   margin: 12px 0;
 
   @include tablet-up {
-    font-size: 20px;
-    letter-spacing: .3px;
+    @include fontSize(20);
     margin: 12px 0 24px;
   }
 }

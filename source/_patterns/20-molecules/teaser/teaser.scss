@@ -355,9 +355,8 @@
 
   .teaser__title {
     @include desktop-up {
-      font-size: 20px;
+      @include fontSize(20);
       line-height: $emphasize-line-height-ratio;
-      letter-spacing: 0.2px;
     }
   }
 }
@@ -427,11 +426,10 @@
   }
 
   .teaser__title {
-    font-size: 20px;
-    letter-spacing: 0.2px;
+    @include fontSize(20);
 
     @include desktop-up {
-      font-size: 24px;
+      @include fontSize(24);
     }
   }
 }

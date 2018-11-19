@@ -177,12 +177,11 @@ $background-overlap-wide: 50px;
 
 .collection__lead {
   font-family: $font-light;
-  font-size: 20px;
+  @include fontSize(20);
   font-weight: 300;
   font-style: normal;
   font-stretch: normal;
   line-height: $emphasize-line-height-ratio;
-  letter-spacing: .2px;
   color: $color-text-accentuation;
   margin: -4px 24px 24px;
   max-width: 624px;
@@ -192,7 +191,7 @@ $background-overlap-wide: 50px;
   }
 
   @include desktop-up {
-    font-size: 22px;
+    @include fontSize(22);
     margin-top: -8px;
     max-width: 680px;
   }

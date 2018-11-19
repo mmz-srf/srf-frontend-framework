@@ -12,9 +12,7 @@
 .linkbox__title {
   margin: 0 0 16px;
   font-family: $font-medium;
-  font-size: 20px;
-  line-height: 28px;
-  letter-spacing: .3px;
+  @include fontSize(20);
 
   @include article-text-padding;
 

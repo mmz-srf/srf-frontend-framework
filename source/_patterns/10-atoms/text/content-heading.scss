@@ -34,6 +34,6 @@
   @include fontSize(18);
 
   @include tablet-up {
-    font-size: 20px;
+    @include fontSize(20);
   }
 }

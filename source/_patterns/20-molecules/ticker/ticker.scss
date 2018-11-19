@@ -226,21 +226,16 @@ $ticker-item-border-width: 1px;
 }
 
 .ticker-item__title {
-  font-size: 20px;
-  letter-spacing: .3px;
+  @include fontSize(20);
 
   font-family: $font-medium;
   margin: 8px 0 0;
-
-  @include tablet-up {
-    font-size: 20px;
-    letter-spacing: .3px;
-  }
 }
 
 .ticker__title {
-  font: 22px/28px $font-medium;
-  letter-spacing: .3px;
+  @include fontSize(22);
+  font-family: $font-medium;
+  line-height: $emphasize-line-height-ratio;
   margin: 32px 0 12px;
 
   @include smartphone {
@@ -250,9 +245,8 @@ $ticker-item-border-width: 1px;
 
 .ticker__info {
   font-family: $font-system;
-  font-size: 12px;
-  line-height: 16px;
-  letter-spacing: .2px;
+  @include fontSize(12);
+  line-height: $emphasize-line-height-ratio;
   color: $color-text-light;
   background-color: #fff;
   box-shadow: 0 5px 10px 5px #fff; // like gradient

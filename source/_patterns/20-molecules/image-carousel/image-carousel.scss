@@ -18,8 +18,7 @@
   padding: 0 24px;
 
   @include tablet-up {
-    font-size: 20px;
-    letter-spacing: .3px;
+    @include fontSize(20);
     margin: 32px 0 -20px; // carrousels already have a top-margin of 32px :/
     padding: 0 16px;
   }
