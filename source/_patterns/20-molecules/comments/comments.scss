@@ -1,11 +1,12 @@
 @import "../../variables";
+@import "../../mixins";
 
 @import "header-group";
 @import "expand-switch";
 
-@mixin reply_to_comments_area() {
-  font: 16px/24px $font-light;
-  letter-spacing: .5px;
+@mixin replyToCommentsArea() {
+  font-family: $font-light;
+  @include fontSize(16);
   white-space: pre-wrap;
   word-wrap: break-word;
   margin: 12px 16px 0 16px;
@@ -69,15 +70,14 @@
 // deactivation info
 .comments-infobox__text,
 .comments-header__info-text {
-  font-size: 16px;
-  letter-spacing: .5px;
+  @include fontSize(16);
   color: $color-text-accentuation;
   padding: 0 16px;
   display: block;
 }
 
 .comments-infobox__text {
-  font-size: 16px;
+  @include fontSize(16);
 }
 
 // login info
@@ -103,8 +103,8 @@
 
 .comments-infobox__title,
 .comments-header__info-title {
-  font: 14px/20px $font-regular;
-  letter-spacing: 0.5px;
+  font-family: $font-regular;
+  @include fontSize(14);
   color: #22211d;
   padding: 0 16px;
   margin: -4px 0 4px;
@@ -128,8 +128,8 @@
 }
 
 .comments-header__button {
-  font: 16px/24px $font-light;
-  letter-spacing: .5px;
+  font-family: $font-light;
+  @include fontSize(16);
   color: $color-text-light;
   padding: 12px;
   border: 1px solid $color-form-field;
@@ -269,8 +269,8 @@
 }
 
 .comment__user {
-  font: 14px/20px $font-regular;
-  letter-spacing: .5px;
+  font-family: $font-regular;
+  @include fontSize(16);
   margin: 20px 0 2px;
   display: block;
 
@@ -289,22 +289,19 @@
 
 .comment__time {
   font-family: $font-system;
-  font-size: 12px;
-  line-height: 16px;
+  @include fontSize(12);
+  line-height: 1.25;
   color: $color-text-light;
   display: block;
 }
 
 .comment__content {
   font-family: $font-light;
-  font-size: 18px;
-
-  letter-spacing: .5px;
+  @include fontSize(18);
   margin: 12px 0 16px;
 
   @include tablet-up {
-    font-size: 20px;
-    letter-spacing: .3px;
+    @include fontSize(20);
   }
 }
 
@@ -315,8 +312,9 @@
   padding: 8px 0;
   margin-right: 0;
   margin-bottom: 24px;
-  font: 14px/16px $font-light;
-  letter-spacing: .2px;
+  @include fontSize(14);
+  line-height: 1.25;
+  font-family: $font-light;
 
   @include smartphone {
     font: 16px/20px $font-light;
@@ -325,8 +323,9 @@
 
   @include tablet-up {
     margin-bottom: 24px;
-    font: 16px/24px $font-light;
-    letter-spacing: .5px;
+    font-family: $font-light;
+    @include fontSize(16);
+    line-height: $default-line-height-ratio;
   }
 
   &:hover {
@@ -511,7 +510,7 @@
   resize: none; // :/
   box-shadow: none;
 
-  @include reply_to_comments_area();
+  @include replyToCommentsArea();
 
   &:focus {
     outline: none;
@@ -610,7 +609,7 @@
   overflow: hidden;
   z-index: 0;
 
-  @include reply_to_comments_area();
+  @include replyToCommentsArea();
 }
 
 // pink background

@@ -1,4 +1,5 @@
 @import "../../variables";
+@import "../../mixins";
 
 .article-title {
   margin: (24px - $breadcrumb-touch-area-expansion) 0 0;
@@ -18,15 +19,14 @@
 
   @include tablet-up {
     margin: 0 0 3px;
-    font-size: 16px;
+    @include fontSize(16);
   }
 }
 
 .article-title__text {
   margin: 1px 0 13px;
-  font-size: 32px;
+  @include fontSize(32);
   line-height: 40px;
-  letter-spacing: .2px;
 
   font-weight: 400;
   font-family: $font-regular;
@@ -36,8 +36,7 @@
 
   @include tablet-up {
     margin: 3px 0 18px;
-    font-size: 36px;
+    @include fontSize(36);
     line-height: 43px;
-    letter-spacing: .2px;
   }
 }

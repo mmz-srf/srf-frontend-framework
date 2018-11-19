@@ -162,9 +162,8 @@
   a {
     display: block;
     width: 100%;
-    font-size: 16px;
+    @include fontSize(16);
     font-weight: 300;
-    letter-spacing: 0.5px;
     text-align: left;
     color: $color-text-default;
     text-decoration: none;

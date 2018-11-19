@@ -150,12 +150,11 @@
 .teaser__title {
   margin: 0;
   font-family: $font-medium;
-  font-size: 16px;
+  @include fontSize(16);
   font-weight: 500;
   font-style: normal;
   font-stretch: normal;
   line-height: $emphasize-line-height-ratio;
-  letter-spacing: 0.4px;
   color: $color-text-default;
   word-wrap: break-word; // Enforce breaking words for IE11
 
@@ -168,12 +167,11 @@
   margin: 12px 0 0;
   display: none;
   font-family: $font-light;
-  font-size: 16px;
+  @include fontSize(16);
   font-weight: normal;
   font-style: normal;
   font-stretch: normal;
   line-height: $emphasize-line-height-ratio;
-  letter-spacing: 0.4px;
 
   /* theme */
   @include customPropWithFallback('color', '--teaser-color-text', '#383732');
@@ -220,7 +218,7 @@
   }
 
   @include desktop-up {
-    font-size: 16px;
+    @include fontSize(16);
   }
 
   @include desktop-wide {
@@ -296,7 +294,7 @@
 
   .teaser__kicker {
     @include desktop-up {
-      font-size: 16px;
+      @include fontSize(16);
       line-height: 1.13;
     }
   }
@@ -351,7 +349,7 @@
 
   .teaser__kicker {
     @include desktop-up {
-      font-size: 16px;
+      @include fontSize(16);
       line-height: 1.13;
     }
   }
@@ -420,7 +418,7 @@
   }
 
   .teaser__kicker {
-    font-size: 16px;
+    @include fontSize(16);
     line-height: 1.13;
 
     @include desktop-up {
@@ -614,7 +612,7 @@
     }
 
     .teaser__title {
-      font-size: 16px;
+      @include fontSize(16);
       line-height: $emphasize-line-height-ratio;
     }
 

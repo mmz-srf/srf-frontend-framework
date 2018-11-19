@@ -1,13 +1,13 @@
 @import "../../variables";
 @import "../../breakpoints";
+@import "../../mixins";
 
 .nav-item {
   display: inline-block;
   padding: 18px 16px 14px;
   border-bottom: 2px solid transparent;
   font-family: inherit;
-  font-size: 18px;
-  letter-spacing: 0.4px;
+  @include fontSize(18);
   line-height: $emphasize-line-height-ratio;
   border-radius: 2px;
   transition: background-color .2s ease-in-out;
@@ -22,8 +22,7 @@
 
   @include smartphone {
     padding: 18px 12px 16px;
-    font-size: 16px;
-    letter-spacing: 0.2px;
+    @include fontSize(16);
   }
 
   &:hover {
@@ -111,7 +110,7 @@
   margin-left: 8px;
   padding-left: 16px;
   padding-right: 16px;
-  font-size: 16px;
+  @include fontSize(16);
   border-radius: 2px;
 
   @include smartphone {

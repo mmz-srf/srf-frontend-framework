@@ -344,3 +344,15 @@
   flex-basis: auto;
   width: $width;
 }
+
+@mixin fontSize($font-size) {
+  font-size: $font-size + "px";
+
+  @if ($font-size > 24) {
+    letter-spacing: normal;
+  } @else if($font-size >= 20 and $font-size <= 24) {
+    letter-spacing: 0.2px;
+  } @else if($font-size >= 12 and $font-size < 20) {
+    letter-spacing: 0.4px;
+  }
+}

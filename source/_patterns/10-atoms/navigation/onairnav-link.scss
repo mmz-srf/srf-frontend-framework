@@ -1,3 +1,5 @@
+@import "../../mixins";
+
 .onairnav-link {
   display: block;
   height: 100%;
@@ -75,7 +77,7 @@
   padding: 4px 8px;
   backdrop-filter: blur(2px);
   background-color: $color-srf-light;
-  font-size: 16px;
+  @include fontSize(16);
   line-height: 1;
   font-weight: 500;
   font-family: $font-medium;

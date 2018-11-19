@@ -1,4 +1,5 @@
 @import "../../variables";
+@import "../../mixins";
 
 .form {
   background-color: $color-bg-caption;
@@ -26,22 +27,21 @@
   position: relative;
   display: block;
   font-family: $font-regular;
-  font-size: 16px;
-  letter-spacing: 0.5px;
+  @include fontSize(16);
   color: $color-text-accentuation;
   padding: 20px 0 4px; // margin: 20px 0 4px;
 }
 
 .form-fieldset__hint {
   font-family: $font-light;
-  font-size: 16px;
+  @include fontSize(16);
   color: $color-form-field-hint;
   margin-top: 2px;
 }
 
 .form__hint {
   font-family: $font-light;
-  font-size: 14px;
+  @include fontSize(14);
   margin-top: 24px;
 }
 
