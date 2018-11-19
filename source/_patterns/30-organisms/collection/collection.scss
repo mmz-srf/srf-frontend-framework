@@ -781,7 +781,8 @@ $background-overlap-wide: 50px;
     --theme-icon-filter: brightness(1000%);
   }
 
-  .collection__teaser-list {
+  .collection__teaser-list,
+  .collection__selectable-empty-area {
     display: none;
   }
 }
