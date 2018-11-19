@@ -1,5 +1,6 @@
 @import '../../_patterns/variables';
 @import '../../_patterns/breakpoints';
+@import '../../_patterns/mixins';
 
 /* sticky container */
 @import '../../_patterns/20-molecules/sticky-container/sticky-container';
@@ -119,9 +120,8 @@
 .portalsnav--large {
   .portalsnav__link {
     padding: 16px 10px;
-    font-size: 18px;
-    line-height: 1.33;
-    letter-spacing: 0.2px;
+    @include fontSize(18);
+    line-height: $secondary-line-height-ratio;
   }
 }
 
@@ -130,9 +130,8 @@
   padding: 12px 10px;
   border-bottom: none;
   font-family: $font-bold;
-  font-size: 14px;
+  @include fontSize(14);
   line-height: 1.14;
-  letter-spacing: 0.4px;
   color: $color-text-accentuation;
 }
 

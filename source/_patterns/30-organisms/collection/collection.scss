@@ -37,12 +37,11 @@ $background-overlap-wide: 50px;
   margin: 16px 24px 12px;
   font-family: $font-medium;
   font-feature-settings: "salt";
-  font-size: 24px;
+  @include fontSize(24);
   font-weight: 500;
   font-style: normal;
   font-stretch: normal;
   line-height: $emphasize-line-height-ratio;
-  letter-spacing: .2px;
   color: $color-text-default;
 
   @include tablet-up {
@@ -51,7 +50,7 @@ $background-overlap-wide: 50px;
 
   @include desktop-up {
     margin: 20px 32px 16px;
-    font-size: 28px;
+    @include fontSize(28);
   }
 
   @include desktop-wide {

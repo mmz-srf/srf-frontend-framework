@@ -3,17 +3,16 @@
 
 .blockquote {
   margin: 32px 0;
-  font-size: 22px;
+  @include fontSize(22);
 
   font-family: $font-serif;
-  letter-spacing: .3px;
   color: $color-text-default;
 
   @include article-text-padding;
 
   @include tablet-up {
     margin: 48px 0;
-    font-size: 24px;
+    @include fontSize(24);
   }
 }
 

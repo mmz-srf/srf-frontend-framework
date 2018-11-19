@@ -1,12 +1,13 @@
 @import "../../variables";
+@import "../../mixins";
 
 $default-input-background: #fff;
 
 .input-field {
   position: relative;
   display: block;
-  font: 16px/24px $font-regular;
-  letter-spacing: .5px;
+  font-family: $font-regular;
+  @include fontSize(16);
   color: $color-text-accentuation;
   margin-top: 20px;
 }
@@ -31,7 +32,7 @@ $default-input-background: #fff;
   }
 
   &[type=password] {
-    font-size: 30px;
+    @include fontSize(30);
     padding: 9px 44px 9px 16px;
   }
 

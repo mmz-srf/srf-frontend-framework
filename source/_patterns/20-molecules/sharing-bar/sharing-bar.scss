@@ -1,5 +1,6 @@
 @import "../../variables";
 @import "../../breakpoints";
+@import "../../mixins";
 
 .sharing-bar {
   margin-top: 28px;
@@ -27,7 +28,7 @@
 }
 
 .sharing-bar__summary {
-  font-size: 12px;
+  @include fontSize(12);
   font-family: $font-system;
   line-height: $secondary-line-height-ratio;
   text-align: center;
@@ -45,7 +46,7 @@
   height: 40px;
   margin: 4px 6px;
   float: left;
-  font-size: 10px;
+  @include fontSize(10);
   font-weight: bold;
   font-family: $font-system;
   line-height: $emphasize-line-height-ratio;

@@ -96,7 +96,7 @@
   margin: 6px 0 4px -2px;
   font-family: $font-bold;
   font-feature-settings: "salt";
-  font-size: 32px;
+  @include fontSize(32);
   line-height: $emphasize-line-height-ratio;
   font-weight: normal; /* OVERRIDE CRITICAL CSS */
   @include customPropWithFallback('color', '--theme-color-title', $color-text-default);

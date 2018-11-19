@@ -1,4 +1,5 @@
 @import "../../variables";
+@import "../../mixins";
 
 .video-gallery {
   overflow: visible;
@@ -147,7 +148,7 @@
     &::before {
       content: '•';
       font-family: $font-system;
-      font-size: 28px;
+      @include fontSize(28);
       line-height: 10px;
       color: #000;
       opacity: .2;
