@@ -249,8 +249,14 @@ body.body--loading.body--loading {
   }
 
   .collection--selectable {
-    .collection__teaser-list {
+    .selectable-button,
+    .collection__selectable-empty-area,
+    .collection__teaser-item {
       display: none;
+    }
+
+    .collection__teaser-item:nth-child(-n+3) {
+        display: block;
     }
   }
 

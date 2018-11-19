@@ -4,6 +4,14 @@
       "title": "Bern Freiburg Wallis",
       "titleLink": "https://hurrdurr.com",
       "lead": "Hier könnte Ihre Werbung stehen!",
+      "selectableGroups": [
+        "Zürich",
+        "Basel",
+        "Bern",
+        "Liechtenstein",
+        "St.Gallen",
+        "Wallis"
+      ],
       "selectableText": "Region wählen",
       "teasers": [
         {
