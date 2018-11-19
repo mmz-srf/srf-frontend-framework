@@ -865,11 +865,11 @@ $background-overlap-wide: 50px;
 
   @include tablet-up {
     margin-right: 24px;
-    flex: 1 1 calc(33% - 24px);
+    flex: 0 1 calc(100% / 3 - 24px);
   }
 
   @include desktop-up {
     margin-right: 32px;
-    flex-basis: calc(33% - 32px);
+    flex-basis: calc(100% / 3 - 32px);
   }
 }
