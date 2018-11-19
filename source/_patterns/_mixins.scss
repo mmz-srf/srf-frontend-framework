@@ -346,7 +346,7 @@
 }
 
 @mixin fontSize($font-size) {
-  font-size: $font-size + "px";
+  font-size: $font-size + 0px;
 
   @if ($font-size > 24) {
     letter-spacing: normal;
