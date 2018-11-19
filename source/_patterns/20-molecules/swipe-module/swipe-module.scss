@@ -1,4 +1,5 @@
 @import "../../variables";
+@import "../../mixins";
 
 /*** LAYOUT ***/
 $outer-padding-small: 8px;
@@ -74,9 +75,8 @@ $item-max-width: 400px;
   flex: 1 1 auto;
   margin: 0;
   font-family: $font-regular;
-  font-size: 22px;
+  @include fontSize(22);
   line-height: $emphasize-line-height-ratio;
-  letter-spacing: .2px;
   color: $color-text-accentuation;
 }
 
@@ -94,10 +94,9 @@ $item-max-width: 400px;
 
 .swipemod-showall__text {
   flex: 0 1 auto;
-  font-size: 16px;
+  @include fontSize(16);
   font-family: $font-regular;
   line-height: 1;
-  letter-spacing: .5px;
   align-self: center;
 
   @include smartphone {
@@ -254,8 +253,7 @@ $item-max-width: 400px;
   margin: 0;
   padding: 16px;
   font-family: $font-regular;
-  font-size: 16px;
-  letter-spacing: .2px;
+  @include fontSize(16);
   color: $color-text-default;
 
   @include breakLongWords();
@@ -264,9 +262,8 @@ $item-max-width: 400px;
 .swipemod-item__overline {
   margin: 0 0 4px 0;
   font-family: $font-regular;
-  font-size: 14px;
+  @include fontSize(14);
   line-height: 1.14;
-  letter-spacing: .2px;
   color: $color-accentuation-red;
   display: block;
 }

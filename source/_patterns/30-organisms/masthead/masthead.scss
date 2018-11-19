@@ -216,7 +216,7 @@
 
     .masthead__portals {
       display: flex;
-      font-size: 18px;
+      @include fontSize(18);
       margin-left: 12px;
     }
 

@@ -1,4 +1,5 @@
 @import "../../variables";
+@import "../../mixins";
 
 .blockquote {
   margin: 32px 0;
@@ -39,8 +40,7 @@
 
   display: block;
   font-family: $font-regular;
-  font-size: 14px;
-  letter-spacing: .5px;
+  @include fontSize(14);
   color: $color-text-default;
 
   @include tablet-up {

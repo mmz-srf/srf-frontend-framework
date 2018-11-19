@@ -1,4 +1,5 @@
 @import '../../variables';
+@import '../../mixins';
 
 $expandable-box-max-width: 516px;
 $expandable-box-margin-vertical-mobile: 32px;
@@ -125,7 +126,7 @@ $expandable-box-padding-desktop: 24px;
 
   @include tablet-up {
     padding: 0 $expandable-box-padding-desktop $expandable-box-padding-desktop;
-    font-size: 18px;
+    @include fontSize(18);
   }
 
   @include breakLongWords();

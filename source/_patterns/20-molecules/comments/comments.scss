@@ -395,7 +395,9 @@
 .tab-option__link {
   height: 40px;
   width: 100%;
-  font: 16px/16px $font-regular;
+  @include fontSize(16);
+  line-height: 1;
+  font-family: $font-regular;
   color: $color-tab-option-link;
   border-bottom: 1px solid $color-separator;
   padding: 12px 16px 0;
@@ -405,7 +407,7 @@
   @include smartphone {
     text-align: center;
     padding: 12px 24px 0;
-    font-size: 14px;
+    @include fontSize(14);
   }
 
   &:hover {
@@ -581,8 +583,7 @@
 }
 
 .reply-info {
-  font-size: 14px;
-  letter-spacing: .2px;
+  @include fontSize(14);
   color: $color-text-light;
   margin: 0 16px 10px;
   padding-top: 10px;
@@ -590,8 +591,7 @@
 }
 
 .reply-info__count {
-  font-size: 14px;
-  letter-spacing: .2px;
+  @include fontSize(14);
   color: $color-text-light;
   float: right;
   position: absolute;

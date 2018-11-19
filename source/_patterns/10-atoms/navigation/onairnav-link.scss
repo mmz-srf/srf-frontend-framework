@@ -1,3 +1,4 @@
+@import "../../variables";
 @import "../../mixins";
 
 .onairnav-link {
@@ -100,10 +101,9 @@
 .onairnav-link__title {
   display: block;
   font-family: $font-regular;
-  font-size: 18px;
   font-weight: 500;
-  line-height: 1.33;
-  letter-spacing: .4px;
+  line-height: $secondary-line-height-ratio;
+  @include fontSize(18);
   @include font-smoothing;
 }
 
@@ -115,7 +115,7 @@
 
 .onairnav-link__title--radiostation {
   font-family: $font-regular;
-  font-size: 14px;
+  @include fontSize(14);
   line-height: 1.15;
   letter-spacing: .4px;
   color: #fff;

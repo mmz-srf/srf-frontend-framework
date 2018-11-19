@@ -1,3 +1,6 @@
+@import "../../variables";
+@import "../../mixins";
+
 .embed-inline {
   position: relative;
   margin: 32px 0;
@@ -17,8 +20,7 @@
   padding: 0 16px;
 
   @include smartphone {
-    font-size: 18px;
-    letter-spacing: .5px;
+    @include fontSize(18);
     margin-bottom: 8px;
     padding: 0 24px;
   }

@@ -1,4 +1,5 @@
 @import "../../variables";
+@import "../../mixins";
 
 .listicle-item {
   margin: 0 -24px 24px;
@@ -15,8 +16,7 @@
 }
 
 .listicle-item__heading {
-  font-size: 18px;
-  letter-spacing: .5px;
+  @include fontSize(18);
   margin: 16px 0 12px;
 
   font-weight: 500;
@@ -40,9 +40,8 @@
 
 .listicle-item__content {
   font-weight: 300;
-  font-size: 18px;
+  @include fontSize(18);
   font-family: $font-light;
-  letter-spacing: .5px;
   color: $color-text-default;
   margin: 12px 0;
 

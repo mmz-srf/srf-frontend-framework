@@ -1,3 +1,6 @@
+@import "../../variables";
+@import "../../mixins";
+
 .chmap {
   margin: 0 auto;
   display: block;
@@ -91,8 +94,7 @@
 }
 
 .chmap-infowindow__text {
-  font-size: 14px;
-  line-height: 20px;
+  @include fontSize(14);
   color: #4e4d47;
   margin: 0;
 }

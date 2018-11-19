@@ -298,11 +298,10 @@ $background-overlap-wide: 50px;
   align-items: center;
   padding: 16px;
   font-family: $font-medium;
-  font-size: 16px;
+  @include fontSize(16);
   font-weight: 500;
   font-style: normal;
   font-stretch: normal;
-  letter-spacing: .4px;
   color: $color-text-default;
   border-radius: 2px;
   background-color: $color-bg-button-transparent;
@@ -343,7 +342,7 @@ $background-overlap-wide: 50px;
   }
 
   @include desktop-up {
-    font-size: 18px;
+    @include fontSize(18);
   }
 }
 
