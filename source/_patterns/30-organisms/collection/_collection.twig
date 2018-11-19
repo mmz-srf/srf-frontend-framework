@@ -1,7 +1,6 @@
 {% set swipeable = ('collection--swipeable' in collection.styleModifier or 'collection--compact-swipeable' in collection.styleModifier) and collection.teasers|length > 3 %}
 {% set branded = 'collection--branded' in collection.styleModifier %}
 {% set selectable = 'collection--selectable' in collection.styleModifier %}
-{% set needsOverlay = selectable %}
 
 <div class="collection {{ collection.styleModifier|default("collection--standard") }}">
     <div class="collection__branding-wrapper"{% if branded %} style="background-image: linear-gradient(120deg, #135c94, #ADD8E6);"{% endif %} >
@@ -123,10 +122,6 @@
                         </li>
                     {% endfor %}
                 </ul>
-            {% endif %}
-
-            {% if needsOverlay %}
-                <div class="collection__overlay js-collection-overlay"></div>
             {% endif %}
         </div>
     </div>
