@@ -422,6 +422,7 @@
 
   .teaser__title {
     @include fontSize(20);
+    line-height: $emphasize-line-height-ratio;
 
     @include desktop-up {
       @include fontSize(24);

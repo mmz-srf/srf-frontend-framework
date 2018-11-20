@@ -253,8 +253,9 @@ ul {
 }
 
 .breadcrumb__link {
-  font: 14px/1.14 "SRG_SSR_Regular", sans-serif;
-  letter-spacing: .2px;
+  @include fontSize(14);
+  line-height: 1.14;
+  font-family: $font-regular;
   background-color: #ebebe5;
   padding: 7px 23px 7px 12px;
   display: inline-block;

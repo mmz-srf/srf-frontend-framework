@@ -1,3 +1,5 @@
+@import "variables";
+
 /* let's an element break out of its parent container and stretch to the full width */
 @mixin fullwidth-element {
   width: 100%;
@@ -150,8 +152,8 @@
 @mixin button-label {
   position: relative;
   display: block;
-  font: 16px/24px $font-regular;
-  letter-spacing: .5px;
+  @include fontSize(16);
+  font-family: $font-regular;
   color: $color-text-default;
   background-color: $color-bg-box;
   margin: 0 0 2px;
@@ -350,9 +352,9 @@
 
   @if ($font-size > 24) {
     letter-spacing: normal;
-  } @else if($font-size >= 20 and $font-size <= 24) {
+  } @else if($font-size >= 20) {
     letter-spacing: 0.2px;
-  } @else if($font-size >= 12 and $font-size < 20) {
+  } @else if($font-size >= 12) {
     letter-spacing: 0.4px;
   }
 }

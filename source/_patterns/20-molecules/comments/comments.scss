@@ -55,8 +55,9 @@
 
 // Kommentare
 .comments-header__title {
-  font: 22px/28px $font-medium;
-  letter-spacing: .3px;
+  @include fontSize(22);
+  line-height: $emphasize-line-height-ratio;
+  font-family: $font-medium;
   margin: 0;
   padding: 16px 16px 20px;
 
@@ -290,7 +291,7 @@
 .comment__time {
   font-family: $font-system;
   @include fontSize(12);
-  line-height: 1.25;
+  line-height: $emphasize-line-height-ratio;
   color: $color-text-light;
   display: block;
 }
@@ -313,12 +314,11 @@
   margin-right: 0;
   margin-bottom: 24px;
   @include fontSize(14);
-  line-height: 1.25;
+  line-height: $emphasize-line-height-ratio;
   font-family: $font-light;
 
   @include smartphone {
-    font: 16px/20px $font-light;
-    letter-spacing: 0;
+    @include fontSize(16);
   }
 
   @include tablet-up {
@@ -525,8 +525,8 @@
 
 .reply__label, reply__help {
   display: block;
-  font: 16px/24px "SRG_SSR_Regular", sans-serif;
-  letter-spacing: .5px;
+  @include fontSize(16);
+  font-family: $font-regular;
   color: #4e4d47;
   margin: 0;
   padding: 0;
@@ -570,8 +570,8 @@
 }
 .reply__textfield {
   width: 100%;
-  font: 16px/24px "SRG_SSR_Light", sans-serif;
-  letter-spacing: .5px;
+  @include fontSize(16);
+  font-family: $font-light;
   color: #383732;
   background-color: #fff;
   padding: 12px 44px 12px 16px;

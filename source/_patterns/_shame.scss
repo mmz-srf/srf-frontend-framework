@@ -177,11 +177,11 @@ _:-ms-fullscreen,
     font-weight: 500;
     font-style: normal;
     font-stretch: normal;
-    line-height: 1.33;
     color: #ffffff;
     text-transform: uppercase;
     @include font-smoothing;
     @include fontSize(12);
+    line-height: $secondary-line-height-ratio;
   }
 }
 

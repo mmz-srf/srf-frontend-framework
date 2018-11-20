@@ -13,6 +13,7 @@
   margin: 0 0 16px;
   font-family: $font-medium;
   @include fontSize(20);
+  line-height: $emphasize-line-height-ratio;
 
   @include article-text-padding;
 

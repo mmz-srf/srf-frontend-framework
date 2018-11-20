@@ -8,8 +8,9 @@
 }
 
 .form__label {
-  font: 22px/28px $font-medium;
-  letter-spacing: .3px;
+  @include fontSize(22);
+  line-height: $emphasize-line-height-ratio;
+  font-family: $font-medium;
   color: $color-text-default;
 }
 

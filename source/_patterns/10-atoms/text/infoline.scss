@@ -1,5 +1,10 @@
+@import "../../variables";
+@import "../../mixins";
+
 .infoline {
-  font: normal normal 12px/16px $font-system;
+  @include fontSize(12);
+  font-family: $font-system;
+  line-height: $emphasize-line-height-ratio;
   color: $color-text-light;
   margin: 8px 0;
   padding: 0;

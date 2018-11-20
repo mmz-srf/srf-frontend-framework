@@ -1,3 +1,6 @@
+@import "../../variables";
+@import "../../mixins";
+
 .footer {
   /* OVERRIDE CRITICAL CSS */
   display: inherit;
@@ -72,8 +75,9 @@
 }
 
 .footer-bottom__navigation-link {
-  font: 14px/1.14 $font-regular;
-  letter-spacing: .5px;
+  font-family: $font-regular;
+  line-height: 1.14;
+  @include fontSize(14);
   color: #dadad2;
   display: block;
   border-bottom: 0;
@@ -179,8 +183,9 @@
 .footer-bottom__link {
   display: inline-block;
   padding: 12px 0 13px;
-  font: 14px/1.14 $font-regular;
-  letter-spacing: .5px;
+  @include fontSize(14);
+  font-family: $font-regular;
+  line-height: 1.14;
   text-align: center;
   color: $color-bg-box-hover;
   border-bottom: 0;

@@ -67,11 +67,11 @@ $expandable-box-padding-desktop: 24px;
 .expandable-box__content {
   padding: 0 $expandable-box-padding-mobile $expandable-box-padding-mobile;
   margin: 0;
-  font: 16px/1.5 $font-light;
+  @include fontSize(16);
+  font-family: $font-light;
   font-weight: 300;
   font-style: normal;
   font-stretch: normal;
-  letter-spacing: 0.5px;
   color: $color-text-default;
 
   // prevent inner elements of creating a bigger gap between header and content

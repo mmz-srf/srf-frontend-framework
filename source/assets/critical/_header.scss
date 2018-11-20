@@ -146,14 +146,13 @@
 
 .masthead__title {
   margin: 6px 0 4px -2px;
-  font-size: 32px;
-  line-height: 1.25;
+  @include fontSize(32);
+  line-height: $emphasize-line-height-ratio;
   font-weight: 900;
 
   @include tablet-up {
     margin: 11px 0 13px -2px;
-    font-size: 40px;
-    line-height: 1.2;
+    @include fontSize(40);
   }
 }
 

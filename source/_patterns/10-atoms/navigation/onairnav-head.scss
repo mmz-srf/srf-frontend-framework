@@ -26,7 +26,6 @@
 
   @include tablet-up {
     @include fontSize(28);
-    line-height: 1;
   }
 }
 

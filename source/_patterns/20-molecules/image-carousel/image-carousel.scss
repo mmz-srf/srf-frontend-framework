@@ -159,7 +159,7 @@
   @include tablet-up {
     margin-top: -40px;
     @include fontSize(16);
-    line-height: 1.25;
+    line-height: $emphasize-line-height-ratio;
     font-weight: 500;
   }
 }
