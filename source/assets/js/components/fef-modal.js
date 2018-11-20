@@ -57,6 +57,10 @@ export class FefModal {
             this.$mainContent.css('min-height', $('.js-masthead').outerHeight());
         }
 
+        this.postInit();
+    }
+
+    postInit() {
         this.show();
     }
 
@@ -80,37 +84,33 @@ export class FefModal {
         $(END_OF_MODAL).on('focus', () => {
             this.close();
         });
-
     }
 
     /**
      * Show the modal, depending on the provided animation.
      */
     show() {
-        const onShowFinished = () => {
-            this.preventScrolling();
-
-            if (this.$focusTarget.length === 1) {
-                this.setFocus(this.$focusTarget);
-            }
-        };
-
         this.$caller.attr({'aria-expanded': true, 'aria-haspopup': true});
 
         switch (this.animation) {
             case 'scale-from-origin':
-                this.scaleFromOrigin(onShowFinished);
+                this.scaleFromOrigin(() => this.onShowFinished());
                 break;
             case 'fade-in-out':
-                this.$element.stop(true, true).fadeIn(ANIMATION_SPEED, onShowFinished);
+                this.$element.stop(true, true).fadeIn(ANIMATION_SPEED, () => this.onShowFinished());
                 break;
             default:
-                this.$element.show(onShowFinished);
+                this.$element.show(() => this.onShowFinished());
                 break;
         }
+    }
 
+    onShowFinished() {
+        this.preventScrolling();
 
-
+        if (this.$focusTarget && this.$focusTarget.length === 1) {
+            this.setFocus(this.$focusTarget);
+        }
     }
 
     /**
@@ -176,7 +176,8 @@ export class FefModal {
             this.$mainWrapper.css({
                 'max-height': '100%',
                 'width': `calc(100% + ${scrollbarWidth}px)`,
-                'margin-right': scrollbarWidth
+                'margin-right': scrollbarWidth,
+                'padding-right': scrollbarWidth
             });
             this.$mainContent.animate({
                 'opacity': 1

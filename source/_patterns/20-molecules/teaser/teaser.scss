@@ -16,24 +16,19 @@
   @include customPropWithFallback('background-color', '--teaser-color-background', $color-bg-card);
 
   box-shadow: $shadow-elevation1;
-  // sass-lint:disable indentation
-  transition: box-shadow .2s ease-in-out,
-              transform .2s ease-in-out;
-  // sass-lint:enable indentation
-  transform: translateZ(0);
+  transition: box-shadow .2s ease-in-out;
 
   @include breakLongWords;
 
-  /* Card moves 4px up on interaction */
-  &:hover,
-  &:focus,
-  &:active {
-    transform: translateY(-4px);
-    box-shadow: $shadow-elevation8;
+  @include desktop-up {
+    &:hover,
+    &:focus,
+    &:active {
+      box-shadow: $shadow-elevation16;
+    }
   }
 
   &.teaser--no-translate {
-    transform: none;
     box-shadow: none;
   }
 }
@@ -182,7 +177,6 @@
 .teaser__media-caption {
   font-size: 12px;
   line-height: 1.2;
-  color: $color-text-light;
 }
 
 .teaser__media-duration {
@@ -193,7 +187,8 @@
 .teaser__media-source {
   strong {
     font-family: $font-medium;
-    color: $color-text-default;
+    /* theme */
+    @include customPropWithFallback('color', '--teaser-color-text', $color-text-default);
   }
 }
 
@@ -691,10 +686,6 @@
 }
 
 .teaser--with-medium {
-  .teaser__lead.teaser__lead {
-    display: none;
-  }
-
   .teaser__media-caption {
     display: flex;
     flex-grow: 1;
@@ -746,6 +737,7 @@
 
 .teaser--longform {
   height: 100%;
+  position: relative; // necessary to position medium (see 2 lines below)
 
   .teaser__longform-medium {
     position: absolute;
@@ -854,3 +846,10 @@
   justify-content: flex-end;
 }
 /* autoprefixer grid: off */
+
+// Hide media icon when video is playing
+.teaser--video-playing {
+  .media-still__icon {
+    display: none;
+  }
+}
