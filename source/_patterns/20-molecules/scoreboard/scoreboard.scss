@@ -16,8 +16,11 @@ $scoreboard-col-padding-height: 8px;
     // we're setting the most used background color here
     // in order to avoid using many classes on td's
     background-color: $color-bg-score-default;
-  }
 
+    &:nth-child(1n+3) {
+      border-left: 1px solid #fff;
+    }
+  }
   /* there needs to be some more space before the first and after the last row. */
   tbody tr:first-child {
     height: 28px;
