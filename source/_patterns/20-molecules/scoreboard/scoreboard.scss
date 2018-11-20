@@ -38,6 +38,10 @@ $scoreboard-col-padding-height: 8px;
   max-width: 20px;
   color: $color-text-accentuation;
   text-align: left;
+
+  @include desktop-wide {
+    padding-left: 24px;
+  }
 }
 
 .scoreboard__competitors--winner {

@@ -115,7 +115,7 @@
 .teaser__kicker {
   display: flex;
   flex-wrap: wrap;
-  align-items: baseline;
+  align-items: flex-end;
   margin: 0 0 4px;
   font-family: $font-regular;
   font-size: 14px;
@@ -239,15 +239,19 @@
   }
 }
 
+.teaser__scoreboard,
 .teaser__opinion {
   flex: 0 0 100%;
   display: flex;
   flex-direction: row;
   background-color: $color-bg-caption;
-  padding: 8px 16px;
 
   // IE11 extra sausage
   max-width: 100%;
+}
+
+.teaser__opinion {
+  padding: 8px 16px;
 
   @include desktop-wide {
     padding: 8px 24px;
@@ -340,7 +344,8 @@
     flex: 1 0 auto;
   }
 
-  .teaser__opinion {
+  .teaser__opinion,
+  .teaser__scoreboard {
     flex: 0 0 auto;
   }
 
@@ -379,7 +384,8 @@
     flex: 1 0 auto;
   }
 
-  .teaser__opinion {
+  .teaser__opinion,
+  .teaser__scoreboard {
     flex: 0 0 auto;
   }
 
@@ -542,7 +548,8 @@
     }
   }
 
-  .teaser__opinion {
+  .teaser__opinion,
+  .teaser__scoreboard {
     flex: 0 0 auto;
 
     @include tablet-up {
@@ -567,12 +574,20 @@
         grid-row: span 2;
       }
 
+      .teaser__scoreboard {
+        padding-left: 8px;
+      }
+
       .teaser__opinion {
         padding-left: 24px;
       }
     }
 
     @include desktop-wide {
+      .teaser__scoreboard {
+        padding-left: 8px;
+      }
+
       .teaser__opinion {
         padding-left: 32px;
       }
@@ -639,7 +654,8 @@
       display: inline;
     }
 
-    .teaser__opinion {
+    .teaser__opinion,
+    .teaser__scoreboard {
       flex: 0 0 100%;
     }
   }

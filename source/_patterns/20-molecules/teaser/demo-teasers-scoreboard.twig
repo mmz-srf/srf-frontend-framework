@@ -1,0 +1,63 @@
+<style>
+    .togglable-wrapper {
+        max-width: 100%;
+        transition: max-width .2s ease-in-out;
+    }
+    .teaser-demo-wrapper {
+        max-width: 320px;
+    }
+    h2 {
+        margin: 20px;
+    }
+</style>
+
+{% include 'atoms-button' with {'buttonText' : 'Max-Width setzen', 'styleModifier': 'js-toggle-maxWidth'} %}
+
+
+<h1>S-Teaser</h1>
+<h2>Pre-Live</h2>
+
+<div class="js-togglable-wrapper togglable-wrapper">
+    {% include 'molecules-teaser--scoreboard' with {
+        'styleModifier': 'teaser--size-s'
+    } %}
+</div>
+
+<h2>Live</h2>
+<div class="js-togglable-wrapper togglable-wrapper">
+    {% include 'molecules-teaser--scoreboard' with {
+        'styleModifier': 'teaser--size-s'
+    } %}
+</div>
+
+<h1>M-Teaser live</h1>
+<div class="js-togglable-wrapper togglable-wrapper">
+    {% include 'molecules-teaser--scoreboard' with {
+        'styleModifier': 'teaser--size-m'
+    } %}
+</div>
+
+<h1>L-Teaser Live</h1>
+<div class="js-togglable-wrapper togglable-wrapper">
+    {% include 'molecules-teaser--scoreboard' with {
+        'styleModifier': 'teaser--size-l'
+    } %}
+</div>
+
+<h1>XL-Teaser Live</h1>
+<div class="js-togglable-wrapper togglable-wrapper">
+    {% include 'molecules-teaser--scoreboard' with {
+        'styleModifier': 'teaser--size-xl'
+    } %}
+</div>
+<br><br>
+
+<script>
+    let $btn = $('.js-toggle-maxWidth'),
+        $togglableWrappers = $('.js-togglable-wrapper');
+
+
+    $btn.on('click', () => {
+        $togglableWrappers.toggleClass('teaser-demo-wrapper');
+    });
+</script>
