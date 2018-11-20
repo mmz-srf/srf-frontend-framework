@@ -845,11 +845,12 @@ $background-overlap-wide: 50px;
 
   @include tablet-up {
     margin-right: 24px;
-    flex: 0 1 calc(100% / 3 - 24px);
+    flex-grow: 0;
+    @include IESafeFlexBasis(calc(33.3333334% - 24px));
   }
 
   @include desktop-up {
     margin-right: 32px;
-    flex-basis: calc(100% / 3 - 32px);
+    @include IESafeFlexBasis(calc(33.3333334% - 32px));
   }
 }
