@@ -807,7 +807,7 @@ $background-overlap-wide: 50px;
   position: relative;
   border-radius: 2px;
   background-color: #ebebe5;
-  flex: 1 1 100%;
+  flex: 0 0 auto;
   font-family: $font-regular;
   font-size: 18px;
   font-weight: normal;
@@ -846,6 +846,7 @@ $background-overlap-wide: 50px;
   @include tablet-up {
     margin-right: 24px;
     flex-grow: 0;
+    flex-shrink: 1;
     @include IESafeFlexBasis(calc(33.3333334% - 24px));
   }
 
