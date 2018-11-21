@@ -1,3 +1,6 @@
+@import "../../variables";
+@import "../../mixins";
+
 .chmap {
   margin: 0 auto;
   display: block;
@@ -54,8 +57,8 @@
 .chmap-tooltip {
   position: absolute;
   color: $color-text-default;
-  font: 18px/28px $font-medium;
-  letter-spacing: .3px;
+  @include fontSize(18);
+  font-family: $font-medium;
   padding: 4px 12px;
   background-color: $color-link-bg-hover;
   box-shadow: $shadow-elevation8;
@@ -91,8 +94,7 @@
 }
 
 .chmap-infowindow__text {
-  font-size: 14px;
-  line-height: 20px;
+  @include fontSize(14);
   color: #4e4d47;
   margin: 0;
 }

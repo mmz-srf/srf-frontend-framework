@@ -57,8 +57,9 @@
 }
 
 .rlp-footer-bottom__navigation-link {
-  font: 14px/1.14 $font-regular;
-  letter-spacing: .5px;
+  @include fontSize(14);
+  line-height: 1.14;
+  font-family: $font-regular;
   color: $color-button-default;
   display: block;
   border-radius: 2px;
@@ -153,8 +154,9 @@
 .rlp-footer-bottom__link {
   display: inline-block;
   padding: 8px 12px;
-  font: 14px/1.14 $font-regular;
-  letter-spacing: .5px;
+  @include fontSize(14);
+  font-family: $font-regular;
+  line-height: 1.14;
   text-align: center;
   color: $color-text-light;
   width: 100%;

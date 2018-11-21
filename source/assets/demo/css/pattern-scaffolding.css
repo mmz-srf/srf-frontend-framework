@@ -74,9 +74,9 @@ body.demo-pattern-page {
 
 .demo-documentation code {
   padding: 2px 4px;
-  font-size: 16px;
+  @include fontSize(16);
   font-family: monospace;
-  line-height: 16px;
+  line-height: 1;
   background-color: #ebebe5;
 }
 
@@ -90,7 +90,7 @@ body.demo-pattern-page {
 
 .demo-documentation__content-subtitle--small {
   font-family: "SRG_SSR_Regular", sans-serif;
-  font-size: 20px;
+  @include fontSize(20);
 }
 
 

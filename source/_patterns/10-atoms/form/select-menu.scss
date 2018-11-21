@@ -1,11 +1,13 @@
 @import "../../variables";
+@import "../../mixins";
 
 .select-menu {
   // height: 48px;
   width: 100%;
   color: $color-text-accentuation;
-  font: 16px/24px $font-regular;
-  letter-spacing: 1px;
+  @include fontSize(16);
+  font-family: $font-regular;
+  letter-spacing: 0.8px; // Interactive, overriding default values
   text-indent: 16px;
   padding: 12px 0;
   border: 0;
@@ -67,8 +69,8 @@ _:-ms-lang(x),
 .select-menu-label {
   position: relative;
   display: block;
-  font: 16px/24px $font-regular;
-  letter-spacing: .5px;
+  @include fontSize(16);
+  font-family: $font-regular;
   color: $color-text-accentuation;
   margin: 20px 0 4px;
 }

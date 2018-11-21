@@ -1,3 +1,6 @@
+@import "../../variables";
+@import "../../mixins";
+
 $header-height: 50px;
 $header-height-tablet-up: 56px;
 
@@ -80,8 +83,9 @@ $header-height-tablet-up: 56px;
   flex: 0 1 auto;
   padding: 16px 16px 15px;
 
-  font: 14px/1.14 "SRG_SSR_Regular", sans-serif;
-  letter-spacing: .5px;
+  @include fontSize(14);
+  line-height: 1.14;
+  font-family: $font-regular;
   color: #dadad2;
   text-transform: uppercase;
   text-decoration: none;

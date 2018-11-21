@@ -1,8 +1,10 @@
+@import "../../variables";
+@import "../../mixins";
+
 .media-caption {
   padding: 12px 16px;
   font-family: $font-light;
-  font-size: 16px;
-  line-height: $default-line-height-ratio;
+  @include fontSize(16);
   color: $color-text-default;
   display: flex;
   flex-direction: column;

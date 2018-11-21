@@ -1,3 +1,5 @@
+@import "../../mixins";
+
 .teaser__label {
   display: flex;
   font-family: $font-medium;
@@ -68,7 +70,7 @@
 .teaser--size-m {
   .teaser__label {
     @include desktop-up {
-      font-size: 16px;
+      @include fontSize(16);
     }
   }
 
@@ -83,7 +85,7 @@
 .teaser--size-l,
 .teaser--size-xl {
   .teaser__label {
-    font-size: 16px;
+    @include fontSize(16);
   }
 
   .svg-icon {
