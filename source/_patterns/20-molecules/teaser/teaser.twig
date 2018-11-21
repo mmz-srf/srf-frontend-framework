@@ -42,12 +42,12 @@
                 {% set styleModifierStatus = styleModifierStatus ~ ' teaser-status--size-large' %}
             {% endif %}
 
-            {% if styleModifierType|default('false') %}
-            {% include 'molecules-teaser-status-live' with {
-                'styleModifier': styleModifierLive,
-                'type': live_type|default(''),
-                'time': live_time|default('')
-            } %}
+            {% if styleModifierType|default(false) %}
+                {% include 'molecules-teaser-status-live' with {
+                    'styleModifier': styleModifierLive,
+                    'type': live_type|default(''),
+                    'time': live_time|default('')
+                } %}
             {% endif %}
 
             {% include 'molecules-teaser-status' with {
