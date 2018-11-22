@@ -32,6 +32,9 @@
 <div class="js-togglable-wrapper togglable-wrapper">
     {% include 'molecules-teaser' with {
         'styleModifier': 'teaser--size-s',
+        'infoType': 'state',
+        'infoText': 'Vor 5 Minuten',
+        'infoStyleModifier': 'teaser-info--visited-and-updated teaser-info--with-icon',
         'teaser': collections[0].teasers[0]
     } %}
 </div>

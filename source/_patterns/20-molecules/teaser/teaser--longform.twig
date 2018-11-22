@@ -47,14 +47,16 @@
                     {% endif %}
 
                     <div class="teaser-info-wrapper">
-                      {% include 'atoms-teaser-info' with {
-                          'type': infoType,
-                          'styleModifier': infoStyleModifier,
-                          'text': infoText|default(''),
-                          'mediaDuration': infoMediaDuration,
-                          'mediaSource': infoMediaSource,
-                          'mediaTime': infoMediaTime
-                      } %}
+                      <div class="teaser-info-innerwrapper">
+                        {% include 'atoms-teaser-info' with {
+                            'type': infoType,
+                            'styleModifier': infoStyleModifier,
+                            'text': infoText|default(''),
+                            'mediaDuration': infoMediaDuration,
+                            'mediaSource': infoMediaSource,
+                            'mediaTime': infoMediaTime
+                        } %}
+                      </div>
                     </div>
                 </div>
             </a>

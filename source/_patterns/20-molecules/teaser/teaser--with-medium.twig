@@ -25,19 +25,21 @@
             <h3 class="teaser__title">{{ teaser.title|default('') }}</h3>
 
             <div class="teaser-info-wrapper">
-              {% include 'atoms-teaser-info' with {
-                  'type': 'state',
-                  'styleModifier': 'teaser-info--visited teaser-info--with-icon',
-                  'text': 'Gesehen'
-              } %}
+              <div class="teaser-info-innerwrapper">
+                {% include 'atoms-teaser-info' with {
+                    'type': 'state',
+                    'styleModifier': 'teaser-info--visited teaser-info--with-icon',
+                    'text': 'Gesehen'
+                } %}
 
-              {% include 'atoms-teaser-info' with {
-                  'type': 'media-caption',
-                  'styleModifier': 'teaser-info--media-caption',
-                  'mediaDuration': '3.20',
-                  'mediaSource': '100 Sekunden Wissen',
-                  'mediaTime': 'vom 8.12.2018',
-              } %}
+                {% include 'atoms-teaser-info' with {
+                    'type': 'media-caption',
+                    'styleModifier': 'teaser-info--media-caption',
+                    'mediaDuration': '3.20',
+                    'mediaSource': '100 Sekunden Wissen',
+                    'mediaTime': 'vom 8.12.2018',
+                } %}
+              </div>
             </div>
 
         </div>

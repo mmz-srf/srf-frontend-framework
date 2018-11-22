@@ -3,13 +3,15 @@
 <h3>New, not updates, not visited</h3>
 
 <div class="teaser-info-wrapper">
+  <div class="teaser-info-innerwrapper">
 
-  {% include 'atoms-teaser-info' with {
-      'type': 'state',
-      'styleModifier': 'teaser-info--new',
-      'text': 'Vor 5 Minuten'
-  } %}
+    {% include 'atoms-teaser-info' with {
+        'type': 'state',
+        'styleModifier': 'teaser-info--new',
+        'text': 'Vor 5 Minuten'
+    } %}
 
+  </div>
 </div>
 
 
@@ -17,13 +19,15 @@
 <h3>Visited with recent updates</h3>
 
 <div class="teaser-info-wrapper">
+  <div class="teaser-info-innerwrapper">
 
-  {% include 'atoms-teaser-info' with {
-      'type': 'state',
-      'styleModifier': 'teaser-info--visited-and-recently-updated teaser-info--with-icon',
-      'text': 'Vor 1 Stunde'
-  } %}
+    {% include 'atoms-teaser-info' with {
+        'type': 'state',
+        'styleModifier': 'teaser-info--visited-and-recently-updated teaser-info--with-icon',
+        'text': 'Vor 1 Stunde'
+    } %}
 
+  </div>
 </div>
 
 
@@ -31,13 +35,15 @@
 <h3>Visited with updates</h3>
 
 <div class="teaser-info-wrapper">
+  <div class="teaser-info-innerwrapper">
 
-  {% include 'atoms-teaser-info' with {
-      'type': 'state',
-      'styleModifier': 'teaser-info--visited-and-updated teaser-info--with-icon',
-      'text': 'Aktualisiert'
-  } %}
+    {% include 'atoms-teaser-info' with {
+        'type': 'state',
+        'styleModifier': 'teaser-info--visited-and-updated teaser-info--with-icon',
+        'text': 'Aktualisiert'
+    } %}
 
+  </div>
 </div>
 
 
@@ -45,13 +51,15 @@
 <h3>Visited, no updates</h3>
 
 <div class="teaser-info-wrapper">
+  <div class="teaser-info-innerwrapper">
 
-  {% include 'atoms-teaser-info' with {
-      'type': 'state',
-      'styleModifier': 'teaser-info--visited teaser-info--with-icon',
-      'text': 'Gesehen'
-  } %}
+    {% include 'atoms-teaser-info' with {
+        'type': 'state',
+        'styleModifier': 'teaser-info--visited teaser-info--with-icon',
+        'text': 'Gesehen'
+    } %}
 
+  </div>
 </div>
 
 
@@ -62,13 +70,15 @@
 <h3>Video</h3>
 
 <div class="teaser-info-wrapper">
+  <div class="teaser-info-innerwrapper">
 
-  {% include 'atoms-teaser-info' with {
-      'type': 'media-icon',
-      'styleModifier': 'teaser-info--mediaicon-video teaser-info--with-icon',
-      'text': 'Video'
-  } %}
+    {% include 'atoms-teaser-info' with {
+        'type': 'media-icon',
+        'styleModifier': 'teaser-info--mediaicon-video teaser-info--with-icon',
+        'text': 'Video'
+    } %}
 
+  </div>
 </div>
 
 
@@ -76,13 +86,15 @@
 <h3>Audio</h3>
 
 <div class="teaser-info-wrapper">
+  <div class="teaser-info-innerwrapper">
 
-  {% include 'atoms-teaser-info' with {
-      'type': 'media-icon',
-      'styleModifier': 'teaser-info--mediaicon-audio teaser-info--with-icon',
-      'text': 'Audio'
-  } %}
+    {% include 'atoms-teaser-info' with {
+        'type': 'media-icon',
+        'styleModifier': 'teaser-info--mediaicon-audio teaser-info--with-icon',
+        'text': 'Audio'
+    } %}
 
+  </div>
 </div>
 
 
@@ -90,13 +102,15 @@
 <h3>Image-Gallery</h3>
 
 <div class="teaser-info-wrapper">
+  <div class="teaser-info-innerwrapper">
 
-  {% include 'atoms-teaser-info' with {
-      'type': 'media-icon',
-      'styleModifier': 'teaser-info--mediaicon-image teaser-info--with-icon',
-      'text': 'Bildergalerie'
-  } %}
+    {% include 'atoms-teaser-info' with {
+        'type': 'media-icon',
+        'styleModifier': 'teaser-info--mediaicon-image teaser-info--with-icon',
+        'text': 'Bildergalerie'
+    } %}
 
+  </div>
 </div>
 
 
@@ -104,18 +118,20 @@
 <hr />
 
 <h2>Media caption</h2>
+<div class="teaser-info-innerwrapper">
 
 <div class="teaser teaser--with-medium teaser--size-s">
   <div class="teaser-info-wrapper">
 
-    {% include 'atoms-teaser-info' with {
-        'type': 'media-caption',
-        'styleModifier': 'teaser-info--media-caption',
-        'mediaDuration': '3.20',
-        'mediaSource': '100 Sekunden Wissen',
-        'mediaTime': 'vom 8.12.2018',
-    } %}
+      {% include 'atoms-teaser-info' with {
+          'type': 'media-caption',
+          'styleModifier': 'teaser-info--media-caption',
+          'mediaDuration': '3.20',
+          'mediaSource': '100 Sekunden Wissen',
+          'mediaTime': 'vom 8.12.2018',
+      } %}
 
+    </div>
   </div>
 </div>
 
@@ -129,14 +145,16 @@
 
 <div class="teaser teaser--with-medium teaser--size-s">
   <div class="teaser-info-wrapper">
+    <div class="teaser-info-innerwrapper">
 
-  {% include 'atoms-teaser-info' with {
-      'type': 'live',
-      'styleModifier': 'teaser-info--live-pre',
-      'mediaSource': 'Livestream',
-      'mediaTime': 'um 20:15',
-  } %}
+    {% include 'atoms-teaser-info' with {
+        'type': 'live',
+        'styleModifier': 'teaser-info--live-pre',
+        'mediaSource': 'Livestream',
+        'mediaTime': 'um 20:15',
+    } %}
 
+    </div>
   </div>
 </div>
 
@@ -146,14 +164,16 @@
 
 <div class="teaser teaser--with-medium teaser--size-s">
   <div class="teaser-info-wrapper">
+    <div class="teaser-info-innerwrapper">
 
-  {% include 'atoms-teaser-info' with {
-      'type': 'live',
-      'styleModifier': 'teaser-info--live-live',
-      'mediaSource': 'Livestream',
-      'mediaTime': 'seit 2 Stunden',
-  } %}
+    {% include 'atoms-teaser-info' with {
+        'type': 'live',
+        'styleModifier': 'teaser-info--live-live',
+        'mediaSource': 'Livestream',
+        'mediaTime': 'seit 2 Stunden',
+    } %}
 
+    </div>
   </div>
 </div>
 
@@ -167,26 +187,28 @@
 
 <div class="teaser teaser--with-medium teaser--size-s">
   <div class="teaser-info-wrapper">
+    <div class="teaser-info-innerwrapper">
 
-    {% include 'atoms-teaser-info' with {
-        'type': 'state',
-        'styleModifier': 'teaser-info--visited teaser-info--with-icon',
-        'text': 'Gesehen'
-    } %}
+      {% include 'atoms-teaser-info' with {
+          'type': 'state',
+          'styleModifier': 'teaser-info--visited teaser-info--with-icon',
+          'text': 'Gesehen'
+      } %}
 
-    {% include 'atoms-teaser-info' with {
-        'type': 'media-icon',
-        'styleModifier': 'teaser-info--mediaicon-video teaser-info--with-icon',
-        'text': 'Video'
-    } %}
+      {% include 'atoms-teaser-info' with {
+          'type': 'media-icon',
+          'styleModifier': 'teaser-info--mediaicon-video teaser-info--with-icon',
+          'text': 'Video'
+      } %}
 
-    {% include 'atoms-teaser-info' with {
-        'type': 'media-caption',
-        'styleModifier': 'teaser-info--media-caption',
-        'mediaDuration': '3.20',
-        'mediaSource': '100 Sekunden Wissen',
-        'mediaTime': 'vom 8.12.2018',
-    } %}
+      {% include 'atoms-teaser-info' with {
+          'type': 'media-caption',
+          'styleModifier': 'teaser-info--media-caption',
+          'mediaDuration': '3.20',
+          'mediaSource': '100 Sekunden Wissen',
+          'mediaTime': 'vom 8.12.2018',
+      } %}
 
+    </div>
   </div>
 </div>
