@@ -1,31 +1,42 @@
 @import "../../variables";
 
 .score {
-  position: relative;
-  display: block;
-  height: 100%;
-  padding: 4px 7px 4px 6px;
+  display: flex;
+  height: 20px;
+  align-items: center;
   font-family: $font-bold;
   @include font-smoothing;
   font-size: 14px;
-  line-height: 1;
+  line-height: 14px;
   white-space: nowrap;
-  color: $color-text-accentuation;
+  color: $color-text-default;
   background-color: $color-bg-score-default;
   text-align: right;
 }
 
+.score__value {
+  position: relative;
+  padding: 0 7px 0 8px;
+  opacity: 0.64;
+}
+
 .score--winner {
-  color: $color-text-default;
+  .score__value {
+    opacity: 1;
+  }
 }
 
 .score--live {
   background-color: $color-bg-score-live;
   color: #FFF;
+
+  .score__value {
+    opacity: 1;
+  }
 }
 
 .score__supplement {
   position: absolute;
-  top: -1px;
+  top: -4px;
   font-size: 10px;
 }

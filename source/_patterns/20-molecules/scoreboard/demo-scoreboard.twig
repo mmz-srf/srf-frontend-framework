@@ -180,7 +180,7 @@
                     <th scope="row" class="scoreboard__competitors">
                         <span class="scoreboard__competitor-mask"></span>
                         <span class="scoreboard__competitor-wrapper">
-                            <span class="scoreboard__rank">2.</span>
+                            <span class="scoreboard__rank">3.</span>
                             <span class="scoreboard__emblem"><img alt="ITA" title="ITA"
                                                                   src="../../assets/demo/img/emblems/ITA.png"></span>
                             <span class="scoreboard__name">Marta Bassino</span>
@@ -230,7 +230,7 @@
                     <th scope="row" class="scoreboard__competitors">
                         <span class="scoreboard__competitor-mask"></span>
                         <span class="scoreboard__competitor-wrapper">
-                            <span class="scoreboard__rank">2.</span>
+                            <span class="scoreboard__rank">3.</span>
                             <span class="scoreboard__emblem"><img alt="ITA" title="ITA"
                                                                   src="../../assets/demo/img/emblems/ITA.png"></span>
                             <span class="scoreboard__name">Marta Bassino</span>
@@ -398,14 +398,14 @@
             </thead>
             <tbody>
                 <tr>
-                    <th scope="row" class="scoreboard__competitors">
+                    <th scope="row" class="scoreboard__competitors scoreboard__competitors--winner">
                         <span class="scoreboard__competitor-mask"></span>
                         <span class="scoreboard__competitor-wrapper">
                             <span class="scoreboard__emblem"><img alt="" src="../../assets/demo/img/emblems/5477_real.png"></span>
                             <span class="scoreboard__name">Real Madrid</span>
                         </span>
                     </th>
-                    <td>{% include 'atoms-score' with { "styleModifier": "score--winner", "scoreValue": "2" } %}</td>
+                    <td>{% include 'atoms-score' with { "styleModifier": "score--winner", "scoreValue": "3" } %}</td>
                 </tr>
                 <tr>
                     <th scope="row" class="scoreboard__competitors">
@@ -481,10 +481,10 @@
                             <span class="scoreboard__name">ZSC Lions</span>
                         </span>
                     </th>
-                    <td>{% include 'atoms-score' with { "styleModifier": "score--winner", "scoreValue": "1" } %}</td>
+                    <td>{% include 'atoms-score' with { "scoreValue": "1" } %}</td>
                 </tr>
                 <tr>
-                    <th scope="row" class="scoreboard__competitors">
+                    <th scope="row" class="scoreboard__competitors scoreboard__competitors--winner">
                         <span class="scoreboard__competitor-mask"></span>
                         <span class="scoreboard__competitor-wrapper">
                             <span class="scoreboard__emblem"><img alt="Lugano" title="Lugano"
@@ -492,7 +492,7 @@
                             <span class="scoreboard__name">Lugano</span>
                         </span>
                     </th>
-                    <td>{% include 'atoms-score' with { "scoreValue": "1" } %}</td>
+                    <td>{% include 'atoms-score' with { "styleModifier": "score--winner", "scoreValue": "2" } %}</td>
                 </tr>
             </tbody>
         </table>
