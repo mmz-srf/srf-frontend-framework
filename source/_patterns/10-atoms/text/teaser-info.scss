@@ -34,9 +34,9 @@
     content: '';
     position: absolute;
     top: calc(50% - 1px);
+    right: -11px;
     width: 2px;
     height: 2px;
-    margin: 0 8px;
     border-radius: 100%;
     background-color: #b9b7ac;
   }
@@ -52,6 +52,7 @@
 
 .teaser-info--with-icon {
   padding-left: 20px;
+  display: inline-flex;
 
   &::before {
     content: '';
