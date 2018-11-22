@@ -109,7 +109,7 @@
 .teaser-info--visited-and-updated,
 .teaser-info--mediaicon-video,
 .teaser-info--mediaicon-audio,
-.teaser-info--mediaicon-image-gallery {
+.teaser-info--mediaicon-image {
     /* theme */
     @include customPropWithFallback('color', '--teaser-color-info-updated', $color-text-light);
 }
@@ -206,7 +206,7 @@
 
 
 
-.teaser-info--mediaicon-image-gallery {
+.teaser-info--mediaicon-image {
   &::before {
     background-image: url(../img/icon/image-gallery-grey-tiny.svg);
   }
@@ -215,7 +215,7 @@
 /* theme (see theme note) */
 .teaser--theme-dark,
 .teaser--theme-breaking {
-  .teaser-info--mediaicon-image-gallery::before {
+  .teaser-info--mediaicon-image::before {
     background-image: url(../img/icon/image-gallery-white-tiny.svg);
   }
 }
