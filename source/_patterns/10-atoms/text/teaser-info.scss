@@ -73,7 +73,7 @@
   font-family: $font-regular;
 
   /* theme */
-  @include customPropWithFallback('color', '--teaser-color-light', $color-text-light);
+  @include customPropWithFallback('color', '--teaser-color-text-emphasis', $color-text-light);
 }
 
 .teaser-info__duration,
