@@ -1,3 +1,6 @@
+@import "../../variables";
+@import "../../mixins";
+
 .listmodule {
   margin: 24px 0;
   @include tablet-up {
@@ -6,8 +9,10 @@
 }
 
 .listmodule__title {
-  font: normal 500 22px/28px $font-medium;
-  letter-spacing: .2px;
+  font-weight: 500;
+  @include fontSize(22);
+  font-family: $font-medium;
+  line-height: $emphasize-line-height-ratio;
   color: $color-text-default;
   margin: 0 0 16px;
   @include article-text-padding;

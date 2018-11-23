@@ -1,3 +1,6 @@
+@import "../../variables";
+@import "../../mixins";
+
 .medium {
   display: flex;
   align-items: flex-start;
@@ -175,11 +178,11 @@
   }
   
   .medium__notice {
-    font-size: 10px;
+    @include fontSize(10);
     padding: 4px 6px;
     
     @include tablet-up {
-      font-size: 12px;
+      @include fontSize(12);
       padding: 8px 12px;
     }
   }

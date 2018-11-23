@@ -1,3 +1,6 @@
+@import "../../variables";
+@import "../../mixins";
+
 .article-author {
   margin: 17px 0 26px;
 
@@ -11,9 +14,7 @@
 .article-author__name {
   margin: 0;
   font-family: $font-regular;
-  font-size: 14px;
-  line-height: 20px;
-  letter-spacing: .5px;
+  @include fontSize(14);
   color: $color-text-default;
 }
 

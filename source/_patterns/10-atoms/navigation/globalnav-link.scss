@@ -1,7 +1,10 @@
+@import "../../variables";
+@import "../../mixins";
+
 .globalnav-link {
   display: flex;
-  font: 16px/1.25 $font-regular;
-  letter-spacing: .4px;
+  @include fontSize(16);
+  font-family: $font-regular;
   color: $color-text-default;
   margin: 0 8px;
   padding: 18px 16px;

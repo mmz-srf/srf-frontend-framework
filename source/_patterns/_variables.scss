@@ -133,6 +133,12 @@ $font-serif: 'SRG_SSR_Serif_Regular', serif !default;
 
 $default-line-height-ratio: 1.5 !default;
 
+// i.e. Short lead, description
+$secondary-line-height-ratio: 1.35 !default;
+
+// i.e. Headings, Teaser
+$emphasize-line-height-ratio: 1.25 !default;
+
 /*** IMAGE SIZES ***/
 $image-size-preview: 92px !default;
 $image-size-preview-gallery: 68px !default;
