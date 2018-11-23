@@ -112,7 +112,8 @@ gulp.task('copy', function() {
 
 gulp.task('copy-critical-js', function() {
     return  gulp.src([
-        'node_modules/fg-loadcss/dist/loadCSS.js' // loadCSS for fef "critical css" demo pages
+        'node_modules/fg-loadcss/dist/loadCSS.js',   // loadCSS for fef "critical css" demo pages
+        'node_modules/fg-loadcss/dist/onloadCSS.js'  // onloadCSS for fef "critical css" demo pages
     ], {
         dot: true
     }).pipe(gulp.dest('public/assets/critical'));

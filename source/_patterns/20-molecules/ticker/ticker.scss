@@ -1,4 +1,5 @@
 @import "../../variables";
+@import "../../mixins";
 
 $ticker-margin-top: 16px;
 $ticker-margin-right: 0;
@@ -32,7 +33,10 @@ $ticker-item-border-width: 1px;
     padding: 0 $ticker-wrapper-padding-desktop;
   }
 
-  ul, ol {
+  ol,
+  ul,
+  ul:not([class]),
+  ul[class=""] {
     padding: 0;
   }
 }
@@ -213,9 +217,7 @@ $ticker-item-border-width: 1px;
   margin-bottom: 8px;
 
   font-family: $font-medium;
-  line-height: $default-line-height-ratio;
-  font-size: 14px;
-  letter-spacing: .5px;
+  @include fontSize(14);
   display: block;
 
   @include tablet-up {
@@ -224,22 +226,16 @@ $ticker-item-border-width: 1px;
 }
 
 .ticker-item__title {
-  font-size: 20px;
-  letter-spacing: .3px;
+  @include fontSize(20);
 
   font-family: $font-medium;
-  line-height: $default-line-height-ratio;
   margin: 8px 0 0;
-
-  @include tablet-up {
-    font-size: 20px;
-    letter-spacing: .3px;
-  }
 }
 
 .ticker__title {
-  font: 22px/28px $font-medium;
-  letter-spacing: .3px;
+  @include fontSize(22);
+  font-family: $font-medium;
+  line-height: $emphasize-line-height-ratio;
   margin: 32px 0 12px;
 
   @include smartphone {
@@ -249,9 +245,8 @@ $ticker-item-border-width: 1px;
 
 .ticker__info {
   font-family: $font-system;
-  font-size: 12px;
-  line-height: 16px;
-  letter-spacing: .2px;
+  @include fontSize(12);
+  line-height: $emphasize-line-height-ratio;
   color: $color-text-light;
   background-color: #fff;
   box-shadow: 0 5px 10px 5px #fff; // like gradient

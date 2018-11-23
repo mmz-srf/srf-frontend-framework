@@ -1,4 +1,5 @@
 @import "../../variables";
+@import "../../mixins";
 
 .article-content {
   /* OVERRIDE CRITICAL CSS */
@@ -7,14 +8,11 @@
   /****/
   margin: 0 0 24px;
   font-family: $font-light;
-  font-size: 20px;
-  line-height: $default-line-height-ratio;
-  letter-spacing: .3px;
+  @include fontSize(20);
   color: $color-text-default;
 
   @include smartphone {
-    font-size: 18px;
-    letter-spacing: .5px;
+    @include fontSize(18);
   }
 
   /* h1: usually not possible to create in article text but tiny mce knows no better :) */
@@ -23,15 +21,13 @@
     @include article-text-padding;
     margin: 32px 0 12px;
     font-family: $font-medium;
-    font-size: 24px;
-    line-height: 32px;
-    letter-spacing: .3px;
+    @include fontSize(24);
+    line-height: $secondary-line-height-ratio;
 
     @include smartphone {
       margin: 24px 0 12px;
-      font-size: 22px;
+      @include fontSize(22);
       line-height: 28px;
-      letter-spacing: .3px;
     }
   }
 
@@ -44,24 +40,22 @@
     }
   }
 
-  // only apply default text link styling to links without a class (i.e. body text from our CMS)
+  // only apply default styling to links and lists without a class (i.e. body text from our CMS)
   a:not([class]),
   a[class=""] {
     @include text-link-defaults;
   }
+
+  ul:not([class]),
+  ul[class=""] {
+    @include text-list-defaults;
+    @include text-list-unordered-defaults;
+  }
+
+  ol:not([class]),
+  ol[class=""] {
+    @include text-list-defaults;
+    @include text-list-ordered-defaults;
+  }
 }
 
-ul {
-  // @extend used here to apply the DRY principle while coping with ezxml's missing classes for html elements
-  // tip: always be careful with @extend
-  @extend .text-list;
-  @extend .text-list--unordered;
-
-}
-
-ol {
-  // @extend used here to apply the DRY principle while coping with ezxml's missing classes for html elements
-  // tip: always be careful with @extend
-  @extend .text-list;
-  @extend .text-list--ordered;
-}

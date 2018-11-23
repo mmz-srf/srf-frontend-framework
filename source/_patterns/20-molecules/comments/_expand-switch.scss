@@ -1,4 +1,5 @@
 @import "../../variables";
+@import "../../mixins";
 
 .comments-header__expand-switch {
   display: flex;
@@ -28,8 +29,8 @@
 
 .comments-header__expand-switch > .expand-icon__text {
   color: $color-accentuation-red;
-  font: 16px $font-regular;
-  line-height: $default-line-height-ratio;
+  font-family: $font-regular;
+  @include fontSize(16);
 
   @include smartphone {
     display: none;

@@ -1,3 +1,6 @@
+@import "../../variables";
+@import "../../mixins";
+
 .embed-inline {
   position: relative;
   margin: 32px 0;
@@ -10,15 +13,13 @@
 }
 
 .embed-inline__title {
-  font-size: 20px;
-  letter-spacing: .3px;
+  @include fontSize(20);
   font-family: $font-medium;
   margin-bottom: 12px;
   padding: 0 16px;
 
   @include smartphone {
-    font-size: 18px;
-    letter-spacing: .5px;
+    @include fontSize(18);
     margin-bottom: 8px;
     padding: 0 24px;
   }

@@ -1,4 +1,5 @@
 @import 'fonts';
+@import 'fonts-definition';
 @import 'variables';
 @import 'breakpoints';
 @import 'mixins';
@@ -98,6 +99,7 @@
 @import '30-organisms/collection/collection';
 @import '30-organisms/masthead/masthead';
 @import '30-organisms/modal/modal';
+@import '30-organisms/modal/modal-player';
 @import '30-organisms/video-gallery/video-gallery';
 @import '30-organisms/rlp-footer/rlp-footer';
 @import 'shame';

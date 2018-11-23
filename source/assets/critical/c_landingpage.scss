@@ -50,112 +50,23 @@ body.body--loading.body--loading {
       flex-direction: row;
       flex-wrap: wrap;
       align-items: stretch;
-      margin: 0 32px 16px;
+      margin: 0 calc(32px - #{$teaser-col-gap-tablet-up}) -16px 32px;
     }
 
     @include desktop-wide {
-      margin: 0 40px 20px;
+      margin: 0 calc(40px - #{$teaser-col-gap-desktop-wide}) -20px 40px;
     }
   }
+
   .collection__teaser-item {
     display: flex;
 
-    // Override stupid global <li> style
-    padding: 0;
-    list-style-type: none;
-    &::before {
-      display: none;
-    }
-
-    // mobile first: teaser items have 8px margin between them (after the item), except the last one, which has none.
-    margin: 0 0 8px;
-    &:last-child {
-      margin-bottom: 0;
-    }
-  }
-
-  .collection__title {
-    margin: 16px 24px 12px;
-    font-family: $font-medium;
-    font-size: 24px;
-    font-weight: 500;
-    font-style: normal;
-    font-stretch: normal;
-    line-height: 1.25;
-    letter-spacing: .2px;
-    color: $color-text-default;
-
-    @include tablet-up {
-      margin: 16px 32px 12px;
-    }
-
-    @include desktop-up {
-      margin: 20px 32px 16px;
-      font-size: 28px;
-    }
-
-    @include desktop-wide {
-      margin: 20px 40px 16px;
-    }
-  }
-
-  //special handling for collections having 3 or 4 items
-  //these don't fit into the duo + 3 m-teaser scheme, so we simply hide teaser number 3 (and 4)
-  .collection__teaser-item:first-child:nth-last-child(3),
-  .collection__teaser-item:first-child:nth-last-child(3) ~ .collection__teaser-item,
-  .collection__teaser-item:first-child:nth-last-child(4),
-  .collection__teaser-item:first-child:nth-last-child(4) ~ .collection__teaser-item {
-    &:nth-child(3) {
-      display: none;
-    }
-    &:nth-child(4) {
-      display: none;
-    }
-  }
-  .collection__teaser-item {
-    //only show the first 5 items, hide the surplus
-    &:nth-child(5) ~ .collection__teaser-item {
-      display: none;
-    }
-    @include tablet-up {
-      flex-grow: 0;
-      flex-shrink: 0;
-      flex-basis: calc((100% - 48px) / 3);
-      margin: 32px 24px 0 0;
-
-      // 1st/2nd element: L teasers, 50% width and no top-margin
-      &:nth-child(1),
-      &:nth-child(2) {
-        margin-top: 0;
-        flex-basis: calc((100% - 24px) / 2);
-      }
-
-      // no right-margin for 2nd L teaser
-      &:nth-child(2) {
-        margin: 0;
-      }
-
-      // No right-margin on every third item, after the first two (margin-right = gap between teasers in a row)
-      &:nth-child(3n + 2) {
-        margin-right: 0;
-      }
-    }
-
-    @include desktop-wide {
-      flex-basis: calc((100% - 64px) / 3);
-      margin: 40px 32px 0 0;
-
-      // Special for Duo: spacing between 1st and 2nd teaser is 40px on desktop wide
-      &:nth-child(1) {
-        margin-right: 40px;
-      }
-
-      &:nth-child(1),
-      &:nth-child(2) {
-        flex-basis: calc((100% - 40px) / 2);
-      }
-    }
     @include smartphone {
+      margin: 0 0 8px;
+      &:last-child {
+        margin-bottom: 0;
+      }
+
       &:nth-child(n+2) {
         .teaser__main {
           flex-direction: row-reverse;
@@ -171,8 +82,43 @@ body.body--loading.body--loading {
         .teaser__medium {
           object-fit: cover;
         }
-
       }
+    }
+
+    @include tablet-up {
+      flex-grow: 0;
+      flex-shrink: 0;
+      @include IESafeFlexBasis(33.3333334%);
+      margin: 0;
+      padding: 0 $teaser-col-gap-tablet-up 32px 0;
+    }
+
+    @include desktop-wide {
+      padding: 0 $teaser-col-gap-desktop-wide 40px 0;
+    }
+  }
+
+  .collection__title {
+    margin: 16px 24px 12px;
+    font-family: $font-medium;
+    @include fontSize(24);
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: $emphasize-line-height-ratio;
+    color: $color-text-default;
+
+    @include tablet-up {
+      margin: 16px 32px 12px;
+    }
+
+    @include desktop-up {
+      margin: 20px 32px 16px;
+      @include fontSize(28);
+    }
+
+    @include desktop-wide {
+      margin: 20px 40px 16px;
     }
   }
 
@@ -187,36 +133,33 @@ body.body--loading.body--loading {
     display: none;
   }
 
-  .collection__title-shimmer {
-    width: 200px;
-  }
-
   .collection--hero {
     .collection__teaser-item {
       @include tablet-up {
-        // large teaser if there's only one
-        &:first-child:last-child {
+        // First element: XL Teaser. Full width
+        &:nth-child(1) {
           flex-basis: 100%;
         }
       }
     }
+  }
 
-   .teaser--size-xl {
-      .teaser__main {
-        @include tablet-up {
-          flex-direction: row;
+  .collection--duo {
+    .collection__teaser-item {
+      @include tablet-up {
+        flex-grow: 0;
+        flex-shrink: 0;
+        @include IESafeFlexBasis(33.3333334%);
+        padding: 0 $teaser-col-gap-tablet-up 32px 0;
+
+        &:nth-child(1),
+        &:nth-child(2) {
+          flex-basis: 50%;
         }
       }
 
-      .teaser__medium-wrapper {
-        margin: 0;
-
-        @include tablet-up {
-          &::after {
-            border-right: solid 1px rgba(0, 0, 0, 0.04);
-          }
-          width: 65.75%;
-        }
+      @include desktop-wide {
+        padding: 0 $teaser-col-gap-desktop-wide 40px 0;
       }
     }
   }
@@ -343,12 +286,11 @@ body.body--loading.body--loading {
     flex-grow: 1;
   }
 
-  .teaser--longform {
-    align-items: flex-end;
+  .teaser__main-outer-wrapper {
+    display: none;
   }
 
-  .teaser__content,
-  .teaser__main-outer-wrapper {
+  .teaser__content {
     display: none;
   }
 
@@ -360,6 +302,64 @@ body.body--loading.body--loading {
 
     @include desktop-wide {
       margin: 24px;
+    }
+  }
+
+  .teaser__opinion,
+  .teaser__links {
+    display: none;
+  }
+
+  .ratio::before {
+    content: "";
+    width: 1px;
+    margin-left: -1px;
+    float: left;
+    height: 0;
+  }
+
+  .ratio::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  .ratio--16-9::before {
+    padding-top: 56.25%;
+  }
+
+  .teaser--size-xl {
+    @include tablet-up {
+      .teaser__main {
+        flex-direction: row;
+      }
+      .teaser__medium-wrapper {
+        flex-basis: $teaser-xl-medium-ratio;
+      }
+    }
+  }
+
+  .teaser--longform {
+    flex-direction: column;
+  }
+
+  .teaser__longform-medium {
+    position: relative;
+    background-color: $color-image-dummy;
+
+    & > .image {
+      visibility: hidden;
+      @include forceAspectRatio("16:9");
+    }
+  }
+
+  .teaser--longform.teaser--size-xl {
+    @include tablet-up {
+      flex-direction: row;
+
+      .teaser__longform-medium {
+          flex-basis: $teaser-xl-medium-ratio;
+      }
     }
   }
 }

@@ -1,3 +1,6 @@
+@import "../../variables";
+@import "../../mixins";
+
 .footer {
   /* OVERRIDE CRITICAL CSS */
   display: inherit;
@@ -69,14 +72,12 @@
     display: inline-block;
   }
 
-  &::before {
-    display: none;
-  }
 }
 
 .footer-bottom__navigation-link {
-  font: 14px/1.14 $font-regular;
-  letter-spacing: .5px;
+  font-family: $font-regular;
+  line-height: 1.14;
+  @include fontSize(14);
   color: #dadad2;
   display: block;
   border-bottom: 0;
@@ -87,10 +88,6 @@
 
   @include tablet-up {
     margin-right: 8px;
-  }
-
-  &::before {
-    display: none;
   }
 
   &:hover {
@@ -152,11 +149,6 @@
   padding: 0;
   display: flex;
 
-  // override global <a> style
-  &::before {
-    display: none;
-  }
-
   // border on the right side has to be ::after because element is taller than the "border" --> can't be a border
   &::after {
     content: '';
@@ -191,8 +183,9 @@
 .footer-bottom__link {
   display: inline-block;
   padding: 12px 0 13px;
-  font: 14px/1.14 $font-regular;
-  letter-spacing: .5px;
+  @include fontSize(14);
+  font-family: $font-regular;
+  line-height: 1.14;
   text-align: center;
   color: $color-bg-box-hover;
   border-bottom: 0;

@@ -1,3 +1,6 @@
+@import "../../variables";
+@import "../../mixins";
+
 .load-more {
   height: 40px;
   background-color: $color-link-bg-hover;
@@ -37,7 +40,9 @@
 
 .load-more__info {
   color: $color-accentuation-red;
-  font: 16px/16px $font-regular;
+  @include fontSize(16);
+  line-height: 1;
+  font-family: $font-regular;
 
   @include smartphone {
     display: none;

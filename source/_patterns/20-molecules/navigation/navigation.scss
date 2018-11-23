@@ -22,15 +22,6 @@
   padding: 0;
 }
 
-// Override li's :before pseudo element
-.navigation__group-item,
-.navigation-item,
-.navigation--subnav-item {
-  &::before {
-    content: none;
-  }
-}
-
 .navigation-item {
   width: 100%;
 }

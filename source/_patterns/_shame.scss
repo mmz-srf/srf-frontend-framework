@@ -1,3 +1,5 @@
+@import "mixins";
+
 /*
  * This file exists solely for nasty browser hacks, fallbacks and fixes.
  *
@@ -172,15 +174,14 @@ _:-ms-fullscreen,
     padding: 2px 6px 0;
     background-color: $color-srf-light;
     font-family: $font-medium;
-    font-size: 12px;
     font-weight: 500;
     font-style: normal;
     font-stretch: normal;
-    line-height: 1.33;
-    letter-spacing: normal;
     color: #ffffff;
     text-transform: uppercase;
     @include font-smoothing;
+    @include fontSize(12);
+    line-height: $secondary-line-height-ratio;
   }
 }
 
@@ -189,7 +190,7 @@ _:-ms-fullscreen,
 .teaser--size-xl {
   .teaser__prekicker--fixed-for-ie strong {
     @include tablet-up {
-      font-size: 16px;
+      @include fontSize(16);
     }
   }
 }
@@ -226,11 +227,16 @@ _:-ms-fullscreen,
 
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
   .teaser--with-medium.teaser--size-s {
-    display: none;
-  }
-  .teaser--with-medium.teaser--size-s-on-mobile {
-    @include smartphone {
+    .media-still__indicator {
       display: none;
+    }
+  }
+
+  .teaser--with-medium.teaser--size-s-on-mobile {
+    .media-still__indicator {
+      @include smartphone {
+        display: none;
+      }
     }
   }
 

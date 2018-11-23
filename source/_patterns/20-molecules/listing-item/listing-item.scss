@@ -1,11 +1,9 @@
 @import "../../variables";
+@import "../../mixins";
 
 .listing-item {
   margin: 0 -24px;
   padding: 0 24px;
-  &:before {
-    display: none;
-  }
 
   border-top: 1px solid rgb(236,236,230);
 
@@ -44,31 +42,25 @@
 
 .listing-item__heading {
   font-family: $font-regular;
-  font-size: 18px;
+  @include fontSize(18);
   font-weight: normal;
-  line-height: $default-line-height-ratio;
-  letter-spacing: .5px;
   color: $color-text-default;
   margin: 12px 0 8px;
   @include tablet-up {
-    font-size: 20px;
-    letter-spacing: .6px;
+    @include fontSize(20);
     margin: 19px 0 12px; // 19 instead of 16px 'cause of rendering of custom-font visually needs additional vertical space on top
   }
 }
 
 .listing-item__content {
   font-family: $font-light;
-  font-size: 18px;
+  @include fontSize(18);
   font-weight: 300;
-  line-height: $default-line-height-ratio;
-  letter-spacing: .5px;
   color: $color-text-default;
   margin: 8px 0;
 
   @include tablet-up {
-    font-size: 20px;
-    letter-spacing: .6px;
+    @include fontSize(20);
     margin: 12px 0 24px;
   }
 }

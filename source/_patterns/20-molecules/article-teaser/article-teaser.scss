@@ -1,5 +1,6 @@
 @import "../../variables";
 @import "../../breakpoints";
+@import "../../mixins";
 
 .article-teaser {
   display: block;
@@ -51,8 +52,7 @@
   padding-bottom: 4px;
 
   @include tablet-up {
-    font-size: 14px;
-    letter-spacing: .5px;
+    @include fontSize(14);
     line-height: 1.14;
   }
 }
@@ -60,15 +60,12 @@
 .article-teaser__title {
   color: #1a1916;
   font-family: $font-regular;
-  font-size: 16px;
-  letter-spacing: .2px;
-  line-height: $default-line-height-ratio;
+  @include fontSize(16);
   margin: 0;
   padding-bottom: 6px;
 
   @include tablet-up {
-    font-size: 18px;
-    letter-spacing: .5px;
+    @include fontSize(18);
     margin: 0;
     padding-bottom: 8px;
   }

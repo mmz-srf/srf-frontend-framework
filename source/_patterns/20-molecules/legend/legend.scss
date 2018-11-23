@@ -26,10 +26,6 @@
   -webkit-column-break-inside: avoid;
   -webkit-margin-after: 0;
   -webkit-padding-after: 8px;
-
-  &::before {
-    content: none;
-  }
 }
 
 .legend__colorbox {

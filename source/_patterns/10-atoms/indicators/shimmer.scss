@@ -20,7 +20,8 @@
   }
 }
 
-.shimmer-elem {
+.shimmer::before {
+  content: "";
   background: linear-gradient(90deg,transparent,rgba(34,33,29,.24) 50%,transparent);
   width: 800px;
   position: absolute;
@@ -31,32 +32,36 @@
   display: block;
 }
 
-.shimmer:nth-of-type(2) .shimmer-elem {
+.shimmer:nth-of-type(2)::before {
   animation-delay: .05s;
 }
 
-.shimmer:nth-of-type(3) .shimmer-elem {
+.shimmer:nth-of-type(3)::before {
   animation-delay: .1s;
 }
 
-.shimmer:nth-of-type(4) .shimmer-elem {
+.shimmer:nth-of-type(4)::before {
   animation-delay: .15s;
 }
 
-.shimmer:nth-of-type(5) .shimmer-elem {
+.shimmer:nth-of-type(5)::before {
   animation-delay: .2s;
 }
 
 .shimmer--dark {
   background: rgba(255,255,255,.12);
 
-  .shimmer-elem {
+  &::before {
     background: linear-gradient(90deg,transparent,rgba(255,255,255,.24) 50%,transparent);
   }
 }
 
 .shimmer--short {
   width: 66%;
+}
+
+.shimmer--shorter {
+  width: 33%;
 }
 
 .shimmer--title {
@@ -79,18 +84,18 @@
     height: 11px;
   }
 
-  .shimmer-elem {
+  &::before {
     background: linear-gradient(90deg,transparent,rgba(201,16,36,.24) 50%,transparent);
   }
 }
 
 .shimmer--heading {
-  height: 20px;
+  height: 16px;
   margin-bottom: 12px;
 
   @include desktop-up {
-    height: 18px;
-    margin-bottom: 10px;
+    height: 19px;
+    margin: 12px 0;
   }
 }
 
