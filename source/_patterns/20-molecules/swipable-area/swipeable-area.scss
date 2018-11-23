@@ -16,16 +16,6 @@
   height: 100%;
   cursor: pointer;
   pointer-events: none;
-  background-color: rgba(255, 255, 255, .8);
-  // sass-lint:disable indentation
-  transition: background-color .2s ease-in-out,
-              width .2s ease-in-out,
-              opacity .2s ease-in-out;
-  // sass-lint:enable indentation
-
-  &:hover {
-    background-color: rgba(255, 255, 255, .6);
-  }
 
   span {
     margin-left: 16px;
@@ -45,11 +35,6 @@
     height: 100%;
     top: 0;
     width: 20px;
-    background-color: rgba(245,245,242,0.8);
-    // sass-lint:disable indentation
-    transition: max-width .2s ease-in-out,
-                background-color .2s ease-in-out;
-    // sass-lint:enable indentation
     max-width: 0;
   }
 
@@ -62,7 +47,6 @@
   }
 
   &:hover::before {
-    background-color: rgba(245,245,242,0.6);
     max-width: 100%;
   }
 }
@@ -98,29 +82,28 @@
 }
 
 .swipeable-area--collection {
-  .swipeable-area-item--hidden .teaser {
-    &:hover,
-    &:focus,
-    &:active {
-      transform: none;
-      box-shadow: $shadow-elevation1;
-    }
+  .collection__teaser-item {
+    transition: 0.2s opacity ease-in-out;
+    opacity: 1;
 
-    &::after {
-      opacity: 0;
+    &.swipeable-area-item--hidden {
+      opacity: 0.4;
+      transition: 0.2s opacity ease-in-out;
+
+      &:hover,
+      &:focus,
+      &:active {
+        opacity: 0.8;
+      }
+
+      &::after {
+        opacity: 0;
+      }
     }
   }
+
 
   .swipeable-area__button {
     top: 0;
-    background-color: rgba(245, 245, 242, .8);
-
-    &:hover {
-      background-color: rgba(245, 245, 242, .6);
-    }
-  }
-
-  .swipeable-area__wrapper {
-    padding-top: 8px; // teasers move up on hover and need space for that
   }
 }
