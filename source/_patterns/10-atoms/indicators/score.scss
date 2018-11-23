@@ -3,6 +3,7 @@
 .score {
   display: flex;
   height: 20px;
+  justify-content: flex-end;
   align-items: center;
   font-family: $font-bold;
   @include font-smoothing;
@@ -11,7 +12,6 @@
   white-space: nowrap;
   color: $color-text-default;
   background-color: $color-bg-score-default;
-  text-align: right;
 }
 
 .score__value {
