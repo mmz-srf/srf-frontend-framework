@@ -18,9 +18,8 @@
   position: relative;
   margin-right: 18px;
   font-family: $font-regular;
-  font-size: 12px;
+  @include fontSize(12);
   line-height: 1.17;
-  letter-spacing: .4px;
   @include breakLongWords;
 
   /* theme */

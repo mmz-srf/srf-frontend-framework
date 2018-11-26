@@ -1,8 +1,13 @@
 <span class="teaser-info {{ styleModifier|default('') }}">
-{% if type == 'state' or type == 'media-icon' %}{% if type == 'media-icon' %}<span class="h-offscreen">Mit </span>{% endif %}{{ text|default('') }}{% elseif type == 'media-caption' or type == 'live' %}
+  {% if type == 'state' or type == 'media-icon' %}
+    {% if type == 'media-icon' %}
+      <span class="h-offscreen">Mit </span>
+    {% endif %}
+    {{ text|default('') }}
+  {% elseif type == 'media-caption' or type == 'live' %}
     {% if type == 'media-caption' %}
       <span class="teaser-info__duration"><strong>{{ mediaDuration|default('') }}</strong> min, </span>
     {% endif %}
     <span class="teaser-info__source"><strong>{{ mediaSource|default('') }}</strong> {{ mediaTime|default('') }}</span>
-{% endif %}
+  {% endif %}
 </span>
