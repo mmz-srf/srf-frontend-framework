@@ -272,6 +272,7 @@ $background-overlap-wide: 50px;
   flex-direction: column;
   margin: 0 8px 12px;
   padding: 0;
+  position: relative;
 
   @include tablet-up {
     flex-direction: row;
