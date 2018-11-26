@@ -40,6 +40,11 @@
     max-width: calc(#{$content-width} + 2 * 32px);
     padding: 0 32px;
   }
+
+  @include desktop-up {
+    max-width: calc(#{$content-width} + 2 * 40px);
+    padding: 0 40px;
+  }
 }
 
 .modal__overlay {
@@ -60,5 +65,13 @@
 .modal--allow-overflow {
   .modal-main-wrapper {
     overflow: visible;
+  }
+}
+
+.modal--no-overlay {
+  height: auto;
+
+  .modal__overlay {
+    display: none;
   }
 }

@@ -165,12 +165,11 @@ body.body--loading.body--loading {
   .collection__title {
     margin: 16px 24px 12px;
     font-family: $font-medium;
-    font-size: 24px;
+    @include fontSize(24);
     font-weight: 500;
     font-style: normal;
     font-stretch: normal;
-    line-height: 1.25;
-    letter-spacing: .2px;
+    line-height: $emphasize-line-height-ratio;
     color: $color-text-default;
 
     @include tablet-up {
@@ -179,7 +178,7 @@ body.body--loading.body--loading {
 
     @include desktop-up {
       margin: 20px 32px 16px;
-      font-size: 28px;
+      @include fontSize(28);
     }
 
     @include desktop-wide {

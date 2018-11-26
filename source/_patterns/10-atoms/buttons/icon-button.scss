@@ -1,5 +1,6 @@
 @import "../../variables";
 @import "../../breakpoints";
+@import "../../mixins";
 
 .icon-button {
   display: flex;
@@ -27,9 +28,8 @@
 .icon-button__text {
   margin-left: 8px;
   font-family: $font-regular;
-  font-size: 14px;
+  @include fontSize(14);
   line-height: 1.14;
-  letter-spacing: 0.4px;
 }
 
 // prevent empty spaces to change the span's size

@@ -16,24 +16,19 @@
   @include customPropWithFallback('background-color', '--teaser-color-background', $color-bg-card);
 
   box-shadow: $shadow-elevation1;
-  // sass-lint:disable indentation
-  transition: box-shadow .2s ease-in-out,
-              transform .2s ease-in-out;
-  // sass-lint:enable indentation
-  transform: translateZ(0);
+  transition: box-shadow .2s ease-in-out;
 
   @include breakLongWords;
 
-  /* Card moves 4px up on interaction */
-  &:hover,
-  &:focus,
-  &:active {
-    transform: translateY(-4px);
-    box-shadow: $shadow-elevation8;
+  @include desktop-up {
+    &:hover,
+    &:focus,
+    &:active {
+      box-shadow: $shadow-elevation16;
+    }
   }
 
   &.teaser--no-translate {
-    transform: none;
     box-shadow: none;
   }
 }
@@ -123,12 +118,11 @@
   align-items: baseline;
   margin: 0 0 4px;
   font-family: $font-regular;
-  font-size: 14px;
+  @include fontSize(14);
   font-weight: normal;
   font-style: normal;
   font-stretch: normal;
   line-height: 1.14;
-  letter-spacing: 0.4px;
   color: $color-accentuation-red;
   word-wrap: break-word; // Enforce breaking words for IE11
 
@@ -150,12 +144,11 @@
 .teaser__title {
   margin: 0;
   font-family: $font-medium;
-  font-size: 16px;
+  @include fontSize(16);
   font-weight: 500;
   font-style: normal;
   font-stretch: normal;
-  line-height: 1.25;
-  letter-spacing: 0.4px;
+  line-height: $emphasize-line-height-ratio;
   color: $color-text-default;
   word-wrap: break-word; // Enforce breaking words for IE11
 
@@ -168,12 +161,11 @@
   margin: 12px 0 0;
   display: none;
   font-family: $font-light;
-  font-size: 16px;
+  @include fontSize(16);
   font-weight: normal;
   font-style: normal;
   font-stretch: normal;
-  line-height: 1.25;
-  letter-spacing: 0.4px;
+  line-height: $emphasize-line-height-ratio;
 
   /* theme */
   @include customPropWithFallback('color', '--teaser-color-text', '#383732');
@@ -181,8 +173,7 @@
 
 .teaser__media-caption {
   font-size: 12px;
-  line-height: 1.2;
-  color: $color-text-light;
+  line-height: $emphasize-line-height-ratio;
 }
 
 .teaser__media-duration {
@@ -193,7 +184,8 @@
 .teaser__media-source {
   strong {
     font-family: $font-medium;
-    color: $color-text-default;
+    /* theme */
+    @include customPropWithFallback('color', '--teaser-color-text', $color-text-default);
   }
 }
 
@@ -220,7 +212,7 @@
   }
 
   @include desktop-up {
-    font-size: 16px;
+    @include fontSize(16);
   }
 
   @include desktop-wide {
@@ -296,15 +288,15 @@
 
   .teaser__kicker {
     @include desktop-up {
-      font-size: 16px;
+      @include fontSize(16);
       line-height: 1.13;
     }
   }
 
   .teaser__title {
     @include desktop-up {
-      font-size: 18px;
-      line-height: 1.33;
+      @include fontSize(18);
+      line-height: $secondary-line-height-ratio;
     }
   }
 
@@ -351,16 +343,15 @@
 
   .teaser__kicker {
     @include desktop-up {
-      font-size: 16px;
+      @include fontSize(16);
       line-height: 1.13;
     }
   }
 
   .teaser__title {
     @include desktop-up {
-      font-size: 20px;
-      line-height: 1.25;
-      letter-spacing: 0.2px;
+      @include fontSize(20);
+      line-height: $emphasize-line-height-ratio;
     }
   }
 }
@@ -411,8 +402,8 @@
     display: block;
 
     @include desktop-up {
-      font-size: 18px;
-      line-height: 1.33;
+      @include fontSize(18);
+      line-height: $secondary-line-height-ratio;
 
       /* theme */
       @include customPropWithFallback('color', '--teaser-color-text', $color-media-playing);
@@ -420,21 +411,21 @@
   }
 
   .teaser__kicker {
-    font-size: 16px;
+    @include fontSize(16);
     line-height: 1.13;
 
     @include desktop-up {
-      font-size: 18px;
+      @include fontSize(18);
       line-height: 1.11;
     }
   }
 
   .teaser__title {
-    font-size: 20px;
-    letter-spacing: 0.2px;
+    @include fontSize(20);
+    line-height: $emphasize-line-height-ratio;
 
     @include desktop-up {
-      font-size: 24px;
+      @include fontSize(24);
     }
   }
 }
@@ -555,8 +546,8 @@
     }
 
     @include desktop-up {
-      font-size: 18px;
-      line-height: 1.33;
+      @include fontSize(18);
+      line-height: $secondary-line-height-ratio;
     }
   }
 
@@ -609,13 +600,13 @@
     }
 
     .teaser__kicker {
-      font-size: 14px;
+      @include fontSize(14);
       line-height: 1.14;
     }
 
     .teaser__title {
-      font-size: 16px;
-      line-height: 1.25;
+      @include fontSize(16);
+      line-height: $emphasize-line-height-ratio;
     }
 
     .teaser__lead {
@@ -691,10 +682,6 @@
 }
 
 .teaser--with-medium {
-  .teaser__lead.teaser__lead {
-    display: none;
-  }
-
   .teaser__media-caption {
     display: flex;
     flex-grow: 1;
@@ -855,3 +842,10 @@
   justify-content: flex-end;
 }
 /* autoprefixer grid: off */
+
+// Hide media icon when video is playing
+.teaser--video-playing {
+  .media-still__icon {
+    display: none;
+  }
+}

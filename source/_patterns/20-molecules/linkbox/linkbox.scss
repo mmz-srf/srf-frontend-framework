@@ -1,3 +1,6 @@
+@import "../../variables";
+@import "../../mixins";
+
 .linkbox {
   margin: 40px 0 24px;
 
@@ -9,15 +12,13 @@
 .linkbox__title {
   margin: 0 0 16px;
   font-family: $font-medium;
-  font-size: 20px;
-  line-height: 28px;
-  letter-spacing: .3px;
+  @include fontSize(20);
+  line-height: $emphasize-line-height-ratio;
 
   @include article-text-padding;
 
   @include smartphone {
-    font-size: 18px;
-    letter-spacing: .5px;
+    @include fontSize(18);
   }
 }
 
@@ -83,7 +84,7 @@
   }
 
   .linkbox__title {
-    font-size: 14px;
+    @include fontSize(14);
     margin: 0 0 8px 0;
     padding: 0 0 0 8px;
     color: $color-text-light;

@@ -11,8 +11,9 @@ $button-animation-duration: .3s;
   min-height: $button-height;
   padding: 13px 40px;
   text-transform: uppercase;
-  font: 16px/20px $font-regular;
-  letter-spacing: 1px;
+  @include fontSize(16);
+  font-family: $font-regular;
+  letter-spacing: 0.8px; // Interactive overriding default values
   color: #fff;
   @include font-smoothing;
   border: 0;
