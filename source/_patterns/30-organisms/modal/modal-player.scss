@@ -16,15 +16,11 @@
   order: 2;
 
   @include desktop-up {
-    // Close enough - for the real layout we'd need grid *laughs in IE*
-    flex-basis: calc(100% - 400px);
-    flex-grow: 1;
+    // Close enough - for the real layout we'd need grid *cries in IE*
+    flex-basis: col(8, 24px);
     flex-shrink: 1;
     order: initial;
     margin: 16px 0;
-
-    // max height of the modal so it doesn't cover the whole screen
-    max-height: 60vh;
   }
 }
 
@@ -45,6 +41,13 @@
     margin: 0;
     cursor: pointer;
   }
+}
+
+// Align close button on top right
+.modal-player__close {
+  display: flex;
+  justify-content: flex-end;
+  align-items: self-start;
 }
 
 .modal-player__loading,

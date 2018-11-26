@@ -1,4 +1,5 @@
-@import "variables";
+@import 'variables';
+@import 'breakpoints';
 
 /* let's an element break out of its parent container and stretch to the full width */
 @mixin fullwidth-element {
@@ -328,7 +329,7 @@
 
   @supports (--srf: cool) {
     #{$prop}: var(#{$customprop}, #{$fallback-value});
-  }  
+  }
 }
 
 /*
@@ -356,5 +357,42 @@
     letter-spacing: 0.2px;
   } @else if($font-size >= 12) {
     letter-spacing: 0.4px;
+  }
+}
+
+/**
+ * Usage:
+ *    @include columnCalculator(max-width, 4);
+ *
+ * results in
+ *    @include smartphone {
+ *      max-width: calc(4 * ((100% - 11 * 8px) / 12) + 3 * 8px);
+ *    }
+ * (and the other breakpoints as well)
+ *
+ */
+@mixin columnCalculator($property, $nrOfColumns, $withGutter: false) {
+  @include smartphone {
+    #{property}: col($nrOfColumns, 8px, $withGutter);
+  }
+
+  @include tablet {
+    #{property}: col($nrOfColumns, 24px, $withGutter);
+  }
+
+  @include desktop {
+    #{property}: col($nrOfColumns, 24px, $withGutter);
+  }
+
+  @include desktop-widest {
+    #{property}: col($nrOfColumns, 32px, $withGutter);
+  }
+}
+
+@function col($nrOfColumns, $gutterSize, $withGutter: false) {
+  @if ($withGutter) {
+    @return calc(#{$nrOfColumns} * ((100% - 11 * #{$gutterSize}) / 12) + #{$nrOfColumns + 1} * #{$gutterSize});
+  } @else {
+    @return calc(#{$nrOfColumns} * ((100% - 11 * #{$gutterSize}) / 12) + #{$nrOfColumns - 1} * #{$gutterSize});
   }
 }

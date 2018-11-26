@@ -176,8 +176,7 @@ export class FefModal {
             this.$mainWrapper.css({
                 'max-height': '100%',
                 'width': `calc(100% + ${scrollbarWidth}px)`,
-                'margin-right': scrollbarWidth,
-                'padding-right': scrollbarWidth
+                'margin-right': scrollbarWidth
             });
             this.$mainContent.animate({
                 'opacity': 1
