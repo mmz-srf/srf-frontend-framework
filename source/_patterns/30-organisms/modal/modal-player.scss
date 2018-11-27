@@ -26,8 +26,8 @@
 
 .modal-player__share,
 .modal-player__close {
-    flex: 0 0 auto;
-    order: 1;
+  flex: 0 0 auto;
+  order: 1;
 
   @include desktop-up {
     flex: 1 1 0px;
@@ -61,10 +61,10 @@
 }
 
 .modal-player__video {
-    opacity: 0;
-    transition: opacity .3s linear;
+  opacity: 0;
+  transition: opacity .3s linear;
 }
 
 .modal-player__video--playing {
-    opacity: 1;
+  opacity: 1;
 }
