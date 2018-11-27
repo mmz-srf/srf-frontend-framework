@@ -61,18 +61,20 @@
     transition: 0.2s opacity ease-in-out;
     opacity: 1;
 
-    &.swipeable-area-item--hidden {
-      opacity: 0.4;
-      transition: 0.2s opacity ease-in-out;
+    @include desktop-up {
+      &.swipeable-area-item--hidden {
+        opacity: 0.4;
+        transition: 0.2s opacity ease-in-out;
 
-      &:hover,
-      &:focus,
-      &:active {
-        opacity: 0.8;
-      }
+        &:hover,
+        &:focus,
+        &:active {
+          opacity: 0.8;
+        }
 
-      &::after {
-        opacity: 0;
+        &::after {
+          opacity: 0;
+        }
       }
     }
   }
