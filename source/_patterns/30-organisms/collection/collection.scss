@@ -168,6 +168,10 @@ $background-overlap-wide: 50px;
   background-position: center;
   position: relative;
 
+  @include desktop-wide {
+    border-radius: 3px;
+  }
+
   @include forceAspectRatio("16:9");
 
   // Fake image border on top of image
