@@ -11,8 +11,6 @@ const HOOK_CLASS = 'js-swipeable-area',
     RIGHT_OFFSET = 24,
     DEFAULT_SCROLL_TIME = 400,
     DEBOUNCETIME = 50,
-    MIN_BUTTON_WIDTH = 56,
-    MAX_BUTTON_WIDTH = 90,
     HINT_AMOUNT = 20;
 
 export function init() {
@@ -147,7 +145,7 @@ export class FefSwipeableArea {
     onTeaserHover(event) {
         let $item = $(event.currentTarget);
 
-        if (!$item.hasClass(this.hiddenClass)) {
+        if (!$item.hasClass(this.hiddenClass) || !FefResponsiveHelper.isDesktopUp()) {
             return;
         }
 
@@ -157,6 +155,9 @@ export class FefSwipeableArea {
 
     /**
      * Clicking an item can trigger pagination if it's partially visible.
+     * Instead of handing down the analytics methods or module to call upon
+     * pagination, we trigger a click on the buttons which have the correct
+     * data attribute already.
      *
      * @param {jQuery.event} event
      */
@@ -169,8 +170,14 @@ export class FefSwipeableArea {
 
         if (this.isOutOfBoundsLeft($item)) {
             this.pageBack();
+            if (this.$buttonBack) {
+                this.$buttonBack.trigger('click');
+            }
         } else {
             this.pageForward();
+            if (this.$buttonForward) {
+                this.$buttonForward.trigger('click');
+            }
         }
 
         // Don't go to the link of the teaser
