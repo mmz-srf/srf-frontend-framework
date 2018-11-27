@@ -23,12 +23,25 @@
         <div class="teaser__content">
             <h4 class="teaser__kicker">{{ teaser.kicker|default('') }}</h4>
             <h3 class="teaser__title">{{ teaser.title|default('') }}</h3>
-            <p class="teaser__media-caption">
-                <span class="teaser__media-caption-content">
-                    <span class="teaser__media-duration"><strong>01:23</strong> min,</span>
-                    <span class="teaser__media-source"><strong>100 Sekunden Wissen</strong> vom 8.2.2018</span>
-                </span>
-            </p>
+
+            <div class="teaser-info-wrapper">
+              <div class="teaser-info-innerwrapper">
+                {% include 'atoms-teaser-info' with {
+                    'type': 'state',
+                    'styleModifier': 'teaser-info--visited teaser-info--with-icon',
+                    'text': 'Gesehen'
+                } %}
+
+                {% include 'atoms-teaser-info' with {
+                    'type': 'media-caption',
+                    'styleModifier': 'teaser-info--media-caption',
+                    'mediaDuration': '3.20',
+                    'mediaSource': '100 Sekunden Wissen',
+                    'mediaTime': 'vom 8.12.2018',
+                } %}
+              </div>
+            </div>
+
         </div>
     </a>
 </div>

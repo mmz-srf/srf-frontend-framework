@@ -156,8 +156,7 @@
   @include customPropWithFallback('color', '--teaser-color-title', $color-text-default);
 }
 
-.teaser__lead,
-.teaser__media-caption {
+.teaser__lead {
   margin: 12px 0 0;
   display: none;
   font-family: $font-light;
@@ -169,24 +168,6 @@
 
   /* theme */
   @include customPropWithFallback('color', '--teaser-color-text', '#383732');
-}
-
-.teaser__media-caption {
-  font-size: 12px;
-  line-height: $emphasize-line-height-ratio;
-}
-
-.teaser__media-duration {
-  display: none;
-}
-
-.teaser__media-duration,
-.teaser__media-source {
-  strong {
-    font-family: $font-medium;
-    /* theme */
-    @include customPropWithFallback('color', '--teaser-color-text', $color-text-default);
-  }
 }
 
 .teaser__live {
@@ -698,10 +679,8 @@
 }
 
 .teaser--with-medium {
-  .teaser__media-caption {
-    display: flex;
-    flex-grow: 1;
-    align-items: flex-end;
+  .teaser__lead.teaser__lead {
+    display: none;
   }
 
   /* overriding position/size of media still time indicators */

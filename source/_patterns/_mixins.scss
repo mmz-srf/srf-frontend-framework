@@ -322,13 +322,13 @@
   }
 }
 
-/* example: @include customPropWithFallback('color', '--teaser-color-status-updated', $color-text-light); */
+/* example: @include customPropWithFallback('color', '--teaser-color-info-updated', $color-text-light); */
 @mixin customPropWithFallback($prop, $customprop, $fallback-value) {
   #{$prop}: #{$fallback-value};
 
   @supports (--srf: cool) {
     #{$prop}: var(#{$customprop}, #{$fallback-value});
-  }  
+  }
 }
 
 /*
