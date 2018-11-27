@@ -40,23 +40,23 @@
                     <h3 class="teaser__title">{{ teaser.title|default('') }}</h3>
                     <p class="teaser__lead">{{ teaser.lead|default('') }}</p>
 
-                    {% set styleModifierStatus = styleModifierStatus|default('') %}
+                    {% set infoStyleModifier = infoStyleModifier|default('') %}
                     {% if 'teaser--size-l' in styleModifier or 'teaser--size-xl' in styleModifier %}
-                        {% set styleModifierStatus = styleModifierStatus ~ ' teaser-status--size-large' %}
+                        {% set infoStyleModifier = infoStyleModifier ~ ' teaser-info--size-large' %}
                     {% endif %}
 
-                    {% if styleModifierType|default('false') %}
-                    {% include 'molecules-teaser-status-live' with {
-                        'styleModifier': styleModifierLive,
-                        'type': live_type|default(''),
-                        'time': live_time|default('')
-                    } %}
-                    {% endif %}
-
-                    {% include 'molecules-teaser-status' with {
-                        'styleModifier': styleModifierStatus,
-                        'text': status|default('')
-                    } %}
+                    <div class="teaser-info-wrapper">
+                      <div class="teaser-info-innerwrapper">
+                        {% include 'atoms-teaser-info' with {
+                            'type': infoType,
+                            'styleModifier': infoStyleModifier,
+                            'text': infoText|default(''),
+                            'mediaDuration': infoMediaDuration,
+                            'mediaSource': infoMediaSource,
+                            'mediaTime': infoMediaTime
+                        } %}
+                      </div>
+                    </div>
                 </div>
             </a>
 

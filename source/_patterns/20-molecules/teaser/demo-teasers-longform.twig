@@ -51,17 +51,9 @@
 {% include 'molecules-teaser--longform' with {
     'styleModifier': 'teaser--size-s',
     'teaser': collections[0].teasers[0],
-    'status': 'Vor 5 Minuten',
-    'styleModifierStatus': 'teaser-status--new'
-} %}
-
-<h3>New and updated</h3>
-
-{% include 'molecules-teaser--longform' with {
-    'styleModifier': 'teaser--size-m',
-    'teaser': collections[0].teasers[0],
-    'status': 'Vor 5 Minuten',
-    'styleModifierStatus': 'teaser-status--new-and-updated'
+    'infoType': 'state',
+    'infoText': 'Vor 5 Minuten',
+    'infoStyleModifier': 'teaser-info--new'
 } %}
 
 <h3>Visited</h3>
@@ -69,8 +61,9 @@
 {% include 'molecules-teaser--longform' with {
     'styleModifier': 'teaser--size-l',
     'teaser': collections[0].teasers[0],
-    'status': 'Gesehen',
-    'styleModifierStatus': 'teaser-status--visited'
+    'infoType': 'state',
+    'infoText': 'Gesehen',
+    'infoStyleModifier': 'teaser-info--visited teaser-info--with-icon'
 } %}
 
 <h3>Visited with updates in the last 2 hours</h3>
@@ -78,8 +71,9 @@
 {% include 'molecules-teaser--longform' with {
     'styleModifier': 'teaser--size-m',
     'teaser': collections[0].teasers[0],
-    'status': 'Vor 5 Minuten',
-    'styleModifierStatus': 'teaser-status--visited-and-recently-updated'
+    'infoType': 'state',
+    'infoText': 'Vor 5 Minuten',
+    'infoStyleModifier': 'teaser-info--visited-and-recently-updated teaser-info--with-icon'
 } %}
 
 <h3>Visited with updates</h3>
@@ -87,6 +81,7 @@
 {% include 'molecules-teaser--longform' with {
     'styleModifier': 'teaser--size-xl',
     'teaser': collections[0].teasers[0],
-    'status': 'Vor 5 Minuten',
-    'styleModifierStatus': 'teaser-status--visited-and-updated'
+    'infoType': 'state',
+    'infoText': 'Aktualisiert',
+    'infoStyleModifier': 'teaser-info--visited-and-updated teaser-info--with-icon'
 } %}
