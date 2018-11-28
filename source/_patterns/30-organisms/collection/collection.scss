@@ -732,6 +732,8 @@ $background-overlap-wide: 50px;
 .collection--selectable {
   overflow: hidden;
   --theme-color-nav: #{$color-text-accentuation};
+  --theme-selection-button-color: $color-text-default;
+  --theme-selection-button-bg: #ebebe5;
 
   .collection__title {
     display: flex;
@@ -764,8 +766,10 @@ $background-overlap-wide: 50px;
   }
 
   &.collection--branded {
-    --theme-color-nav: #fff;
+    --theme-color-nav: #ffffff;
     --theme-icon-filter: brightness(1000%);
+    --theme-selection-button-color: #ffffff;
+    --theme-selection-button-bg: rgba(255, 255, 255, 0.08);
   }
 
   .collection__selectable-empty-area {
@@ -793,7 +797,6 @@ $background-overlap-wide: 50px;
 .selectable__button {
   position: relative;
   border-radius: 2px;
-  background-color: #ebebe5;
   flex: 0 0 auto;
   font-family: $font-regular;
   font-size: 18px;
@@ -802,12 +805,13 @@ $background-overlap-wide: 50px;
   font-stretch: normal;
   line-height: 1.33;
   letter-spacing: 0.4px;
-  color: $color-text-default;
   padding: 16px;
   margin: 0 0 2px;
   border: none;
   cursor: pointer;
   text-align: left;
+  @include customPropWithFallback('color', '--theme-selection-button-color', $color-text-default);
+  @include customPropWithFallback('background-color', '--theme-selection-button-bg', #ebebe5);
 
   &::after {
     position: absolute;
