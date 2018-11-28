@@ -1,3 +1,5 @@
+const DEFAULT_LIST_LIMIT = 100;
+
 export class FefStorage {
 
     /**
@@ -150,7 +152,7 @@ export class FefStorage {
         return entry ? entry.value : optionalDefaultValue;
     }
 
-    static saveToList(storageKey, key, value) {
+    static saveToList(storageKey, key, value, limit = DEFAULT_LIST_LIMIT) {
         if (!FefStorage.isLocalStorageAvailable()) {
             return;
         }
@@ -163,9 +165,9 @@ export class FefStorage {
             date: new Date()
         });
 
-        if (list.length > 100) {
+        if (list.length > limit) {
             list = list.sort((a, b) => a.date <= b.date);
-            list = list.slice(0, 99);
+            list = list.slice(0, limit - 1);
         }
 
         return FefStorage.setItemJsonStringified(storageKey, list);
