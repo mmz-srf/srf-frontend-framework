@@ -1,3 +1,6 @@
+@import "../../variables";
+@import "../../mixins";
+
 .navigation-link {
   display: flex;
   padding: 12px;
@@ -56,7 +59,9 @@
 .navigation-link__text {
   flex: 1 0 0%;
   align-self: center;
-  font: 16px/1 $font-regular;
+  @include fontSize(16);
+  font-family: $font-regular;
+  line-height: 1;
   text-decoration: none;
   color: #fff;
   margin: 4px 0;

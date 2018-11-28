@@ -1,3 +1,5 @@
+@import "variables";
+
 /* let's an element break out of its parent container and stretch to the full width */
 @mixin fullwidth-element {
   width: 100%;
@@ -150,8 +152,8 @@
 @mixin button-label {
   position: relative;
   display: block;
-  font: 16px/24px $font-regular;
-  letter-spacing: .5px;
+  @include fontSize(16);
+  font-family: $font-regular;
   color: $color-text-default;
   background-color: $color-bg-box;
   margin: 0 0 2px;
@@ -320,13 +322,13 @@
   }
 }
 
-/* example: @include customPropWithFallback('color', '--teaser-color-status-updated', $color-text-light); */
+/* example: @include customPropWithFallback('color', '--teaser-color-info-updated', $color-text-light); */
 @mixin customPropWithFallback($prop, $customprop, $fallback-value) {
   #{$prop}: #{$fallback-value};
 
   @supports (--srf: cool) {
     #{$prop}: var(#{$customprop}, #{$fallback-value});
-  }  
+  }
 }
 
 /*
@@ -343,4 +345,16 @@
 @mixin IESafeFlexBasis($width: 100%) {
   flex-basis: auto;
   width: $width;
+}
+
+@mixin fontSize($font-size) {
+  font-size: $font-size + 0px;
+
+  @if ($font-size > 24) {
+    letter-spacing: normal;
+  } @else if($font-size >= 20) {
+    letter-spacing: 0.2px;
+  } @else if($font-size >= 12) {
+    letter-spacing: 0.4px;
+  }
 }

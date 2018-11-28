@@ -1,3 +1,4 @@
+@import "../../mixins";
 
 .related-items-list {
   opacity: 1; /* OVERRIDE CRITICAL CSS */
@@ -13,9 +14,8 @@
   margin: 10px 25px;
   padding: 0;
   font-family: $font-regular;
-  font-size: 14px;
+  @include fontSize(14);
   line-height: 1.41;
-  letter-spacing: .5px;
   color: $color-text-light;
   text-transform: uppercase;
 

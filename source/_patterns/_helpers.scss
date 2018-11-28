@@ -1,3 +1,4 @@
+@import "mixins";
 
 /*
  * offscreen helper for accessibility
@@ -24,7 +25,7 @@
     top: 10px;
     left: 2px;
     clip: auto;
-    font-size: 16px;
+    @include fontSize(16);
   }
 }
 

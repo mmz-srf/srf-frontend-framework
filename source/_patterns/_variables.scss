@@ -1,7 +1,7 @@
 /*** COLORS ***/
 $color-accentuation-red: #c91024 !default;
 $color-bg-caption: #f5f5f2 !default;
-$color-bg-box: #ebebe5 !default;
+$color-bg-box: #f5f5f2 !default;
 $color-bg-box-hover: #dadad2 !default;
 $color-bg-box-focus: #cac8bf !default;
 $color-bg-card: #fefefd !default;
@@ -130,6 +130,12 @@ $font-light: 'SRG_SSR_Light', sans-serif !default;
 $font-serif: 'SRG_SSR_Serif_Regular', serif !default;
 
 $default-line-height-ratio: 1.5 !default;
+
+// i.e. Short lead, description
+$secondary-line-height-ratio: 1.35 !default;
+
+// i.e. Headings, Teaser
+$emphasize-line-height-ratio: 1.25 !default;
 
 /*** IMAGE SIZES ***/
 $image-size-preview: 92px !default;

@@ -24,6 +24,73 @@ body.body--loading.body--loading {
     @include desktop-wide {
       margin-bottom: $collection-gap-desktop-wide;
     }
+
+    max-width: 100%;
+
+    .collection__content-wrapper {
+      max-width: $desktop-wide-size;
+      margin: 0 auto;
+      background-color: transparent;
+      box-shadow: none;
+
+      @include tablet-up {
+      margin-top: 20px;
+      }
+    }
+  }
+
+  .collection--branded {
+    .collection__branding-wrapper {
+      max-width: 100%;
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    .collection__content-wrapper {
+      padding-top: 12px;
+
+      @include tablet-up {
+        padding-top: 16px;
+      }
+
+      @include desktop-wide {
+        padding-top: 20px;
+      }
+    }
+
+    // no space between two branded collections
+    & + .collection--branded {
+      margin-top: -#{$collection-gap};
+
+      @include tablet-up {
+        margin-top: -#{$collection-gap-tablet-up};
+      }
+
+      @include desktop-wide {
+        margin-top: -#{$collection-gap-desktop-wide};
+      }
+    }
+
+    // no space between header and an branded collection at first position
+    &:first-child {
+      margin-top: -16px;
+
+      @include tablet-up {
+        margin-top: -60px;
+      }
+
+      @include desktop-wide {
+        margin-top: -64px;
+      }
+
+      .collection__branding-wrapper {
+        padding-top: #{$collection-gap - 8};
+
+        @include tablet-up {
+          padding-top: #{$collection-gap-tablet-up - 8};
+        }
+      }
+    }
   }
 
   .collection__branding-wrapper {
@@ -35,9 +102,6 @@ body.body--loading.body--loading {
   .collection__content-wrapper {
     display: flex;
     flex-direction: column;
-    border-radius: 2px;
-    background-color: $color-bg-caption;
-    box-shadow: $shadow-elevation1;
   }
 
   .collection__teaser-list {
@@ -102,12 +166,11 @@ body.body--loading.body--loading {
     display: block;
     margin: 16px 24px 12px;
     font-family: $font-medium;
-    font-size: 24px;
+    @include fontSize(24);
     font-weight: 500;
     font-style: normal;
     font-stretch: normal;
-    line-height: 1.25;
-    letter-spacing: .2px;
+    line-height: $emphasize-line-height-ratio;
     color: $color-text-default;
 
     @include tablet-up {
@@ -116,7 +179,7 @@ body.body--loading.body--loading {
 
     @include desktop-up {
       margin: 20px 32px 16px;
-      font-size: 28px;
+      @include fontSize(28);
     }
 
     @include desktop-wide {
@@ -172,92 +235,6 @@ body.body--loading.body--loading {
 
     .collection__content-wrapper {
       background-color: transparent;
-    }
-  }
-
-  .collection--unboxed {
-    max-width: 100%;
-
-    .collection__content-wrapper {
-      max-width: $desktop-wide-size;
-      margin: 0 auto;
-      background-color: transparent;
-      box-shadow: none;
-
-      @include tablet-up {
-        margin-top: 20px;
-      }
-    }
-
-    .collection__title,
-    .collection__lead {
-      display: none;
-    }
-  }
-
-  .collection--unboxed.collection--branded {
-    .collection__branding-wrapper {
-      max-width: 100%;
-      margin-left: 0;
-      margin-right: 0;
-    }
-
-    .collection__content-wrapper {
-      padding-top: 12px;
-
-      @include tablet-up {
-        padding-top: 16px;
-      }
-
-      @include desktop-wide {
-        padding-top: 20px;
-      }
-    }
-
-    // no space between two branded unboxed collections
-    & + .collection--unboxed.collection--branded {
-      margin-top: -#{$collection-gap};
-
-      @include tablet-up {
-        margin-top: -#{$collection-gap-tablet-up};
-      }
-
-      @include desktop-wide {
-        margin-top: -#{$collection-gap-desktop-wide};
-      }
-    }
-
-    // no space between header and an unboxed branded collection at first position
-    &:first-child {
-      margin-top: -16px;
-
-      @include tablet-up {
-        margin-top: -60px;
-      }
-
-      @include desktop-wide {
-        margin-top: -64px;
-      }
-
-      .collection__branding-wrapper {
-        padding-top: #{$collection-gap - 8};
-
-        @include tablet-up {
-          padding-top: #{$collection-gap-tablet-up - 8};
-        }
-      }
-    }
-  }
-
-  .collection--selectable {
-    .selectable-button,
-    .collection__selectable-empty-area,
-    .collection__teaser-item {
-      display: none;
-    }
-
-    .collection__teaser-item:nth-child(-n+3) {
-      display: block;
     }
   }
 

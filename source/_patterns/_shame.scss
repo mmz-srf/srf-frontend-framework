@@ -1,3 +1,5 @@
+@import "mixins";
+
 /*
  * This file exists solely for nasty browser hacks, fallbacks and fixes.
  *
@@ -172,15 +174,14 @@ _:-ms-fullscreen,
     padding: 2px 6px 0;
     background-color: $color-srf-light;
     font-family: $font-medium;
-    font-size: 12px;
     font-weight: 500;
     font-style: normal;
     font-stretch: normal;
-    line-height: 1.33;
-    letter-spacing: normal;
     color: #ffffff;
     text-transform: uppercase;
     @include font-smoothing;
+    @include fontSize(12);
+    line-height: $secondary-line-height-ratio;
   }
 }
 
@@ -189,7 +190,7 @@ _:-ms-fullscreen,
 .teaser--size-xl {
   .teaser__prekicker--fixed-for-ie strong {
     @include tablet-up {
-      font-size: 16px;
+      @include fontSize(16);
     }
   }
 }
@@ -253,13 +254,17 @@ _:-ms-fullscreen,
 
     .teaser__title,
     .teaser__lead,
-    .teaser__media-caption,
-    .teaser-status,
-    .teaser-status-live--live,
-    .teaser-status--new,
-    .teaser-status--visited-and-recently-updated,
-    .teaser-status--visited,
-    .teaser-status--visited-and-updated {
+    .teaser-info,
+    .teaser-info--live-pre,
+    .teaser-info--live-live,
+    .teaser-info--new,
+    .teaser-info--visited-and-recently-updated,
+    .teaser-info--visited,
+    .teaser-info--visited-and-updated,
+    .teaser-info--mediaicon-video,
+    .teaser-info--mediaicon-audio,
+    .teaser-info--mediaicon-image,
+    .teaser-info--media-caption {
       color: #ffffff;
     }
   }

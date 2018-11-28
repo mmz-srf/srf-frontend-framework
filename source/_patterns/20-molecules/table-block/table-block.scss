@@ -1,4 +1,5 @@
 @import "../../variables";
+@import "../../mixins";
 
 .table-block {
   overflow-x: auto;
@@ -21,9 +22,7 @@
   }
 
   th {
-    font-size: 14px;
-    line-height: $default-line-height-ratio;
-    letter-spacing: .5px;
+    @include fontSize(14);
 
     font-family: $font-medium;
     text-align: left;
@@ -32,8 +31,7 @@
     background: $color-bg-box;
 
     @include tablet-up {
-      font-size: 16px;
-      letter-spacing: .6px;
+      @include fontSize(16);
     }
   }
 
@@ -54,12 +52,10 @@
   tbody tr:nth-child(odd) {background-color: $color-table-bg-zebra-dark}
 
   td {
-    font-size: 14px;
-    line-height: $default-line-height-ratio;
-    letter-spacing: .5px;
+    @include fontSize(14);
 
     @include tablet-up {
-      font-size: 16px;
+      @include fontSize(16);
     }
   }
 
@@ -100,9 +96,7 @@
 
 .table-block--legacy {
   tr[data-head="true"]:first-child td {
-    font-size: 16px;
-    line-height: $default-line-height-ratio;
-    letter-spacing: .6px;
+    @include fontSize(16);
     font-family: $font-medium;
     text-align: left;
     text-transform: uppercase;
@@ -110,8 +104,7 @@
     background: $color-bg-box;
 
     @include smartphone {
-      font-size: 14px;
-      letter-spacing: .5px;
+      @include fontSize(14);
     }
   }
 }

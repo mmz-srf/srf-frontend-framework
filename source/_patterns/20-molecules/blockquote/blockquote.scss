@@ -1,19 +1,18 @@
 @import "../../variables";
+@import "../../mixins";
 
 .blockquote {
   margin: 32px 0;
-  font-size: 22px;
+  @include fontSize(22);
 
   font-family: $font-serif;
-  line-height: $default-line-height-ratio;
-  letter-spacing: .3px;
   color: $color-text-default;
 
   @include article-text-padding;
 
   @include tablet-up {
     margin: 48px 0;
-    font-size: 24px;
+    @include fontSize(24);
   }
 }
 
@@ -40,9 +39,7 @@
 
   display: block;
   font-family: $font-regular;
-  font-size: 14px;
-  line-height: $default-line-height-ratio;
-  letter-spacing: .5px;
+  @include fontSize(14);
   color: $color-text-default;
 
   @include tablet-up {
