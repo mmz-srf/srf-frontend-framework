@@ -832,7 +832,6 @@ $background-overlap-wide: 50px;
 
   @include tablet-up {
     margin-right: 24px;
-    flex-grow: 0;
     flex-shrink: 1;
     @include IESafeFlexBasis(calc(33.3333334% - 24px));
   }
