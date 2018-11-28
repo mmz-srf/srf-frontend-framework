@@ -26,17 +26,18 @@ export class FefStorage {
      * Returns (safely) a JS object
      *
      * @param key
+     * @param optionalDefaultValue
      * @returns {*}
      */
-    static getItemJsonParsed(key) {
+    static getItemJsonParsed(key, optionalDefaultValue = {}) {
         if (!this.hasItem(key)) {
-            return {};
+            return optionalDefaultValue;
         }
 
         try {
-            return JSON.parse(this.getItem(key, '{}'));
+            return JSON.parse(this.getItem(key, JSON.stringify(optionalDefaultValue)));
         } catch (e) {
-            return {};
+            return optionalDefaultValue;
         }
     }
 
@@ -45,9 +46,10 @@ export class FefStorage {
      *
      * @param key
      * @param item
+     * @returns {boolean}
      */
     static setItemJsonStringified(key, item) {
-        this.setItem(key, JSON.stringify(item));
+        return this.setItem(key, JSON.stringify(item));
     }
 
     /**
@@ -112,5 +114,60 @@ export class FefStorage {
         } catch(e) {
             return false;
         }
+    }
+
+    /**
+     * A list, in this context, is an array in an object with multiple key/value pairs and dates, e.g.:
+     *   [
+     *     {
+     *       key: "srf:urn:collection:1",
+     *       value: "srf:urn:landingpage:1000",
+     *       date: "2018-11-23T11:42:00.000Z"
+     *     }, {
+     *       key: "srf:urn:collection:2",
+     *       value: "srf:urn:landingpage:1001",
+     *       date: "2018-11-23T11:45:00.000Z"
+     *     },
+     *     ...
+     *   ]
+     * This is used for components like selectable collections to keep a list of
+     * which "region" was selected in which collection.
+     * To prevent huge localstorage entries, a limit is set and older entries are removed.
+     *
+     * @param {string} storageKey Key for the localstorage entry
+     * @param {string} key Key to get the value from the list
+     * @param {any} optionalDefaultValue Default value to return if the entry doesn't exist (default: false)
+     * @return {boolean|any} defaultValue if not exists (in localstorage or in list), value otherwise
+     */
+    static getFromList(storageKey, key, optionalDefaultValue = false) {
+        if (!FefStorage.isLocalStorageAvailable() || !FefStorage.getItem(storageKey, false)) {
+            return optionalDefaultValue;
+        }
+
+        let list = FefStorage.getItemJsonParsed(storageKey, []);
+        let entry = list.find(item => item.key === key);
+
+        return entry ? entry.value : optionalDefaultValue;
+    }
+
+    static saveToList(storageKey, key, value) {
+        if (!FefStorage.isLocalStorageAvailable()) {
+            return;
+        }
+
+        let list = FefStorage.getItemJsonParsed(storageKey, []);
+        list = list.filter(item => item.key === key);
+        list.push({
+            key: key,
+            value: value,
+            date: new Date()
+        });
+
+        if (list.length > 100) {
+            list = list.sort((a, b) => a.date <= b.date);
+            list = list.slice(0, 99);
+        }
+
+        return FefStorage.setItemJsonStringified(storageKey, list);
     }
 }
