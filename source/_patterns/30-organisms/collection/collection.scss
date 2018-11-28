@@ -768,8 +768,25 @@ $background-overlap-wide: 50px;
   &.collection--branded {
     --theme-color-nav: #ffffff;
     --theme-icon-filter: brightness(1000%);
-    --theme-selection-button-color: #ffffff;
-    --theme-selection-button-bg: rgba(255, 255, 255, 0.08);
+
+    .selectable__button {
+      color: #ffffff;
+      background-color: rgba(255, 255, 255, .08);
+      transition: background-color .2s ease-in-out;
+
+      &:hover {
+        background-color: rgba(255, 255, 255, .12);
+      }
+
+      &:focus,
+      &:active {
+        background-color: rgba(255, 255, 255, .24);
+      }
+
+      &::after {
+        display: none;
+      }
+    }
   }
 
   .collection__selectable-empty-area {
@@ -810,8 +827,8 @@ $background-overlap-wide: 50px;
   border: none;
   cursor: pointer;
   text-align: left;
-  @include customPropWithFallback('color', '--theme-selection-button-color', $color-text-default);
-  @include customPropWithFallback('background-color', '--theme-selection-button-bg', #ebebe5);
+  color: $color-text-default;
+  background-color: #ebebe5;
 
   &::after {
     position: absolute;
