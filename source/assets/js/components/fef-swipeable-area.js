@@ -42,12 +42,13 @@ export class FefSwipeableArea {
 
     initOnce() {
         this.initItemCheck();
-        this.markItems(markVisibleClass, markHiddenClass);
         this.registerListeners();
     }
 
     init() {
         this.initContainerHeight();
+        this.markItems();
+
         if (FefResponsiveHelper.isDesktopUp()) {
             this.addButtons();
             this.updateButtonStatus();
