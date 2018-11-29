@@ -5,6 +5,10 @@
 /* sticky container */
 @import '../../_patterns/20-molecules/sticky-container/sticky-container';
 
+.affix-placeholder--compact {
+  height: 0;
+}
+
 .masthead {
   height: 192px;
 
