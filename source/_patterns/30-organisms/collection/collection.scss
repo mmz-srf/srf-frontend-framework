@@ -9,6 +9,7 @@ $background-overlap-wide: 50px;
 
 .collection {
   margin: 0 0 $collection-gap;
+  max-width: 100%;
 
   @include tablet-up {
     margin-bottom: $collection-gap-tablet-up;
@@ -16,6 +17,73 @@ $background-overlap-wide: 50px;
 
   @include desktop-wide {
     margin-bottom: $collection-gap-desktop-wide;
+  }
+
+
+  .collection__content-wrapper {
+    max-width: $desktop-wide-size;
+    margin: 0 auto;
+    background-color: transparent;
+    box-shadow: none;
+
+    @include tablet-up {
+      margin-top: 20px;
+    }
+  }
+}
+
+.collection--branded {
+
+  .collection__branding-wrapper {
+    max-width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .collection__content-wrapper {
+    padding-top: 12px;
+
+    @include tablet-up {
+      padding-top: 16px;
+    }
+
+    @include desktop-wide {
+      padding-top: 20px;
+    }
+  }
+
+  // no space between two branded collections
+  & + .collection--branded {
+    margin-top: -#{$collection-gap};
+
+    @include tablet-up {
+      margin-top: -#{$collection-gap-tablet-up};
+    }
+
+    @include desktop-wide {
+      margin-top: -#{$collection-gap-desktop-wide};
+    }
+  }
+
+  // no space between header and an branded collection at first position
+  &:first-child {
+    margin-top: -16px;
+
+    @include tablet-up {
+      margin-top: -60px;
+    }
+
+    @include desktop-wide {
+      margin-top: -64px;
+    }
+
+    .collection__branding-wrapper {
+      padding-top: #{$collection-gap - 8};
+
+      @include tablet-up {
+        padding-top: #{$collection-gap-tablet-up - 8};
+      }
+    }
   }
 }
 
@@ -29,8 +97,6 @@ $background-overlap-wide: 50px;
   display: flex;
   flex-direction: column;
   border-radius: 2px;
-  background-color: $color-bg-caption;
-  box-shadow: $shadow-elevation1;
 }
 
 .collection__title {
@@ -101,6 +167,10 @@ $background-overlap-wide: 50px;
   background-size: cover;
   background-position: center;
   position: relative;
+
+  @include desktop-wide {
+    border-radius: 3px;
+  }
 
   @include forceAspectRatio("16:9");
 
@@ -206,6 +276,7 @@ $background-overlap-wide: 50px;
   flex-direction: column;
   margin: 0 8px 12px;
   padding: 0;
+  position: relative;
 
   @include tablet-up {
     flex-direction: row;
@@ -385,19 +456,20 @@ $background-overlap-wide: 50px;
 
   .collection__teaser-item {
     padding-right: 8px;
-    min-width: calc(33.333333334% - (56px / 3)); // 56px is the visible part of the first 'overflowed' item
+    min-width: calc(100% - 40px);
+    padding-bottom: 12px;
 
-    @include smartphone {
-      min-width: calc(100% - 40px);
-    }
 
     @include tablet-up {
-      padding-bottom: 8px;
+      min-width: calc((100% - 32px - 44px) / 3.00001 ); // 32px: left gap between Collection and Teaser; 44px: visible part of the first 'overflowed' item
+      padding-bottom: 16px;
       padding-right: 12px;
     }
 
     @include desktop-wide {
+      min-width: calc((100% - 40px - 56px) / 3.00001 );
       padding-right: 16px;
+      padding-bottom: 20px;
     }
 
     &:first-child {
@@ -412,16 +484,12 @@ $background-overlap-wide: 50px;
       }
     }
 
-    &:last-child {
-      padding-bottom: 8px;
-
-      &::after {
-        @include tablet-up {
-          content: '';
-          display: block;
-          width: 40px;
-          margin-right: -36px;
-        }
+    &:last-child::after {
+      @include tablet-up {
+        content: '';
+        display: block;
+        width: 40px;
+        margin-right: -36px;
       }
     }
   }
@@ -603,85 +671,6 @@ $background-overlap-wide: 50px;
   }
 }
 
-// Unboxed: Collection reaches the browser edge left/right but keeps the content in the
-// normal column width. Also doesn't show the title.
-.collection--unboxed {
-  max-width: 100%;
-
-  .collection__content-wrapper {
-    max-width: $desktop-wide-size;
-    margin: 0 auto;
-    background-color: transparent;
-    box-shadow: none;
-
-    @include tablet-up {
-      margin-top: 20px;
-    }
-  }
-
-  .collection__title,
-  .collection__lead {
-    display: none;
-  }
-}
-
-// Unboxed and Branded: Collection reaches the browser edge left/right but keeps the content in the
-// normal column width. Theme backgrounds reach the browser edge. No space between two unboxed and branded collections.
-.collection--unboxed.collection--branded {
-
-  .collection__branding-wrapper {
-    max-width: 100%;
-    margin-left: 0;
-    margin-right: 0;
-  }
-
-  .collection__content-wrapper {
-    padding-top: 12px;
-
-    @include tablet-up {
-      padding-top: 16px;
-    }
-
-    @include desktop-wide {
-      padding-top: 20px;
-    }
-  }
-
-  // no space between two branded unboxed collections
-  & + .collection--unboxed.collection--branded {
-    margin-top: -#{$collection-gap};
-
-    @include tablet-up {
-      margin-top: -#{$collection-gap-tablet-up};
-    }
-
-    @include desktop-wide {
-      margin-top: -#{$collection-gap-desktop-wide};
-    }
-  }
-
-  // no space between header and an unboxed branded collection at first position
-  &:first-child {
-    margin-top: -16px;
-
-    @include tablet-up {
-      margin-top: -60px;
-    }
-
-    @include desktop-wide {
-      margin-top: -64px;
-    }
-
-    .collection__branding-wrapper {
-      padding-top: #{$collection-gap - 8};
-
-      @include tablet-up {
-        padding-top: #{$collection-gap-tablet-up - 8};
-      }
-    }
-  }
-}
-
 // Borderless:
 // No title, lead, links, etc.
 // No padding and only one teaser per row on all sizes
@@ -712,7 +701,6 @@ $background-overlap-wide: 50px;
     padding: 0;
   }
 
-  // Override unboxed styling
   &.collection--branded .collection__content-wrapper {
     padding-top: 0;
   }

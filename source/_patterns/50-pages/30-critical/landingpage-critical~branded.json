@@ -5,7 +5,7 @@
     "themeStyleModifier": "masthead--theme-meteo",
     "collections": [
         {
-            "styleModifier": "collection--hero collection--branded collection--unboxed",
+            "styleModifier": "collection--hero collection--branded",
             "teasers": [
                 {},
                 null,
