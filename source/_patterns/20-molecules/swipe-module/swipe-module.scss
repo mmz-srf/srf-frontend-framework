@@ -375,3 +375,8 @@ $item-max-width: 400px;
   }
 }
 
+.swipeable-area-item--partially-visible {
+  > * {
+    pointer-events: none;
+  }
+}

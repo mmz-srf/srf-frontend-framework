@@ -4,6 +4,7 @@ import {FefResponsiveHelper} from '../classes/fef-responsive-helper';
 const HOOK_CLASS = 'js-swipeable-area',
     INNER_CONTAINER_CLASS = 'js-swipeable-area-wrapper',
     ITEM_CLASS = 'js-swipeable-area-item',
+    PARTIALLY_VISIBLE_ITEM_CLASS = 'swipeable-area-item--partially-visible',
     BACK_BUTTON_CLASS = 'swipeable-area__button swipeable-area__button--back',
     FORWARD_BUTTON_CLASS = 'swipeable-area__button swipeable-area__button--forward',
     BUTTON_ACTIVE_CLASS = 'swipeable-area__button--active',
@@ -35,13 +36,18 @@ export class FefSwipeableArea {
         this.visibleClass = null;
         this.hiddenClass = null;
 
+        this.initOnce();
         this.init();
+    }
+
+    initOnce() {
+        this.initItemCheck();
+        this.markItems(markVisibleClass, markHiddenClass);
         this.registerListeners();
     }
 
     init() {
         this.initContainerHeight();
-        this.initItemCheck();
         if (FefResponsiveHelper.isDesktopUp()) {
             this.addButtons();
             this.updateButtonStatus();
@@ -65,13 +71,8 @@ export class FefSwipeableArea {
         const markVisibleClass = this.$element.data('mark-visible-items');
         const markHiddenClass = this.$element.data('mark-hidden-items');
 
-        if (markVisibleClass || markHiddenClass) {
-            this.visibleClass = markVisibleClass;
-            this.hiddenClass = markHiddenClass;
-            this.$innerContainer.on('scroll', FefDebounceHelper.debounce(() => this.markItems(markVisibleClass, markHiddenClass), DEBOUNCETIME));
-            // Mark items initially
-            this.markItems(markVisibleClass, markHiddenClass);
-        }
+        this.visibleClass = markVisibleClass;
+        this.hiddenClass = [PARTIALLY_VISIBLE_ITEM_CLASS, markHiddenClass].join(' ');
     }
 
     initItemPositions() {
@@ -96,6 +97,7 @@ export class FefSwipeableArea {
 
         this.setupHinting();
         this.$items.on('click', (event) => this.onTeaserClick(event));
+        this.$innerContainer.on('scroll', FefDebounceHelper.debounce(() => this.markItems(), DEBOUNCETIME));
     };
 
     addButtons() {
@@ -294,16 +296,16 @@ export class FefSwipeableArea {
         }
     }
 
-    markItems(markVisibleClass, markHiddenClass) {
+    markItems() {
         this.$items.each( (_, element) => {
             const isInView = this.isItemCompletelyInView($(element));
 
-            if (markVisibleClass) {
-                $(element).toggleClass(markVisibleClass, isInView);
+            if (this.visibleClass) {
+                $(element).toggleClass(this.visibleClass, isInView);
             }
 
-            if (markHiddenClass) {
-                $(element).toggleClass(markHiddenClass, !isInView);
+            if (this.hiddenClass) {
+                $(element).toggleClass(this.hiddenClass, !isInView);
             }
         });
     }
