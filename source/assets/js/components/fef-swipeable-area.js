@@ -168,6 +168,11 @@ export class FefSwipeableArea {
             return;
         }
 
+        // remove focus from the element that was just clicked if it was a mouse click (= coordinates are 0/0)
+        if (event.screenX !== 0 && event.screenY !== 0) {
+            $(':focus').blur();
+        }
+
         if (this.isOutOfBoundsLeft($item)) {
             this.pageBack();
             if (this.$buttonBack) {
