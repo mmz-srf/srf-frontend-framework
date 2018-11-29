@@ -1,0 +1,42 @@
+@import "../../variables";
+
+.score {
+  display: flex;
+  height: 20px;
+  justify-content: flex-end;
+  align-items: center;
+  font-family: $font-bold;
+  @include font-smoothing;
+  font-size: 14px;
+  line-height: 14px;
+  white-space: nowrap;
+  color: $color-text-default;
+  background-color: $color-bg-score-default;
+}
+
+.score__value {
+  position: relative;
+  padding: 0 7px 0 8px;
+  opacity: 0.64;
+}
+
+.score--winner {
+  .score__value {
+    opacity: 1;
+  }
+}
+
+.score--live {
+  background-color: $color-bg-score-live;
+  color: #FFF;
+
+  .score__value {
+    opacity: 1;
+  }
+}
+
+.score__supplement {
+  position: absolute;
+  top: -4px;
+  font-size: 10px;
+}

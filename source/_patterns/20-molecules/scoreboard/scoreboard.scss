@@ -1,0 +1,97 @@
+
+$scoreboard-col-padding-height: 8px;
+
+.scoreboard {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: $font-medium;
+  font-size: 14px;
+  letter-spacing: 0.4px;
+  background-color: $color-bg-teaser-supplement;
+  text-align: left;
+  border-spacing: 0;
+
+  td {
+    padding: 0;
+    // we're setting the most used background color here
+    // in order to avoid using many classes on td's
+    background-color: $color-bg-score-default;
+
+    &:nth-child(1n+3) {
+      border-left: 1px solid #fff;
+    }
+  }
+  /* there needs to be some more space before the first and after the last row. */
+  tbody tr:first-child {
+    height: 28px;
+    vertical-align: bottom;
+  }
+
+  tbody tr:last-child {
+    height: 28px;
+    vertical-align: top;
+  }
+}
+
+.scoreboard__competitors {
+  width: 100%;
+  height: 20px;
+  padding: 0 0 0 16px;
+  overflow: hidden;
+  position: relative;
+  max-width: 20px;
+  color: $color-text-accentuation;
+  text-align: left;
+
+  @include desktop-wide {
+    padding-left: 24px;
+  }
+}
+
+.scoreboard__competitors--winner {
+  color: $color-text-default;
+}
+
+.scoreboard__competitor-mask {
+  position: absolute;
+  right: 0;
+  width: 50px;
+  height: 50px; // IE needs an absolute height
+  background: linear-gradient(to right, rgba(250,250,248,0), rgba(250,250,248,1));
+}
+
+.scoreboard__competitor-wrapper {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  height: 20px;
+}
+
+.scoreboard__rank {
+  width: 20px;
+  flex-grow: 0;
+  line-height: 14px;
+}
+
+.scoreboard__emblem {
+  width: 15px;
+  margin-right: 6px;
+  padding-bottom: 1px;
+  vertical-align: baseline;
+  flex-grow: 0;
+  flex-shrink: 0;
+
+  img {
+    width: 15px;
+    height: auto;
+  }
+}
+
+.scoreboard__name {
+  flex-grow: 1;
+  line-height: 14px;
+}
+
+.scoreboard__score-live.scoreboard__score-live {
+  background-color: $color-bg-score-live;
+}
