@@ -374,9 +374,3 @@ $item-max-width: 400px;
     background-image: url('../img/carousel/next.svg');
   }
 }
-
-.swipeable-area-item--partially-visible {
-  > * {
-    pointer-events: none;
-  }
-}
