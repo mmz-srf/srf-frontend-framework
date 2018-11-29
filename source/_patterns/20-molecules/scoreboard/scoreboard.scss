@@ -36,7 +36,7 @@ $scoreboard-col-padding-height: 8px;
 .scoreboard__competitors {
   width: 100%;
   height: 20px;
-  padding-left: 16px;
+  padding: 0 0 0 16px;
   overflow: hidden;
   position: relative;
   max-width: 20px;
@@ -64,11 +64,13 @@ $scoreboard-col-padding-height: 8px;
   display: flex;
   align-items: center;
   white-space: nowrap;
+  height: 20px;
 }
 
 .scoreboard__rank {
   width: 20px;
   flex-grow: 0;
+  line-height: 14px;
 }
 
 .scoreboard__emblem {
@@ -87,6 +89,7 @@ $scoreboard-col-padding-height: 8px;
 
 .scoreboard__name {
   flex-grow: 1;
+  line-height: 14px;
 }
 
 .scoreboard__score-live.scoreboard__score-live {
