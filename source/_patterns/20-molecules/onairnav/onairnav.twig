@@ -14,10 +14,20 @@
   {% include 'atoms-onairnav-head' with { 'title': 'Livestreams schauen' } %}
   <ul class="onairnav-list onairnav-list--teaser">
     <li class="onairnav-list__element">
-      {% include 'molecules-teaser--live' with { 'styleModifier': 'teaser--size-m teaser--size-s-on-mobile teaser--no-translate teaser--theme-dark teaser--hoverable', 'teaser': collections[0].teasers[0] } %}
+      {% include 'molecules-teaser' with {
+          'styleModifier': 'teaser--size-m teaser--size-s-on-mobile teaser--no-translate teaser--theme-dark teaser--hoverable',
+          'teaser': collections[0].teasers[1],
+          'styleModifierLive': 'teaser-status-live--live',
+          'labelWording': 'Live'
+      } %}
     </li>
     <li class="onairnav-list__element">
-        {% include 'molecules-teaser--live' with { 'styleModifier': 'teaser--size-m teaser--size-s-on-mobile teaser--no-translate teaser--theme-dark', 'teaser': collections[0].teasers[0] } %}
+      {% include 'molecules-teaser' with {
+          'styleModifier': 'teaser--size-m teaser--size-s-on-mobile teaser--no-translate teaser--theme-dark teaser--hoverable',
+          'teaser': collections[0].teasers[1],
+          'styleModifierLive': 'teaser-status-live--live',
+          'labelWording': 'Live'
+      } %}
     </li>
   </ul>
 

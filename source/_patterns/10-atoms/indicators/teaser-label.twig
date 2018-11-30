@@ -8,8 +8,15 @@
 
     {% if labelWording|default('Live') == 'Live' %}
 
+      {% if 'teaser--size-s-on-mobile' in styleModifierSize %}
 
-      {% if styleModifierSize == 'teaser--size-s' %}
+          {% if styleModifierType == 'teaser__label--live' %}
+              {% include 'atoms-svg-icon' with {'styleModifier': 'svg-icon--tiny-but-small-on-desktop-up svg-icon--play-video-circle-white-tiny-to-small'} %}
+          {% else %}
+              {% include 'atoms-svg-icon' with {'styleModifier': 'svg-icon--tiny-but-small-on-desktop-up svg-icon--play-video-circle-tiny-to-small'} %}
+          {% endif %}
+
+      {% elseif 'teaser--size-s' in styleModifierSize %}
 
         {% if styleModifierType == 'teaser__label--live' %}
           {% include 'atoms-svg-icon' with {'styleModifier': 'svg-icon--tiny svg-icon--play-video-circle-white'} %}
@@ -17,7 +24,7 @@
           {% include 'atoms-svg-icon' with {'styleModifier': 'svg-icon--tiny svg-icon--play-video-circle'} %}
         {% endif %}
 
-      {% elseif styleModifierSize == 'teaser--size-m' %}
+      {% elseif 'teaser--size-m' in styleModifierSize %}
 
         {% if styleModifierType == 'teaser__label--live' %}
           {% include 'atoms-svg-icon' with {'styleModifier': 'svg-icon--tiny-but-small-on-desktop-up svg-icon--play-video-circle-white-tiny-to-small'} %}
@@ -25,7 +32,7 @@
           {% include 'atoms-svg-icon' with {'styleModifier': 'svg-icon--tiny-but-small-on-desktop-up svg-icon--play-video-circle-tiny-to-small'} %}
         {% endif %}
 
-      {% elseif (styleModifierSize == 'teaser--size-l' or styleModifierSize == 'teaser--size-xl') %}
+      {% elseif ('teaser--size-l' in styleModifierSize or 'teaser--size-xl' in styleModifierSize) %}
 
         {% if styleModifierType == 'teaser__label--live' %}
           {% include 'atoms-svg-icon' with {'styleModifier': 'svg-icon--small svg-icon--play-video-circle-white'} %}
