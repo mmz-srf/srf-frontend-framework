@@ -3,10 +3,6 @@
 @import "../../breakpoints";
 @import "teaser-theme-settings";
 
-// Duplicated here since we need to define an icon override here
-$color-play-icon-normal: rgba(0, 0, 0, 0.32);
-$color-play-icon-hover:  $color-srf-light;
-
 /* autoprefixer grid: on */
 .teaser {
   display: flex;

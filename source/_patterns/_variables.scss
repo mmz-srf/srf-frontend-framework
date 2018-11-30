@@ -184,3 +184,10 @@ $collection-gap-desktop-wide: 40px;
 $teaser-col-gap-tablet-up: 24px;
 $teaser-col-gap-desktop-wide: 32px;
 $teaser-xl-medium-ratio: 65.75%;
+
+
+/*** ICONS ***/
+// defined here because it's needed in two different places
+$color-play-icon-normal: rgba(0, 0, 0, .32);
+$color-play-icon-active: #f1434a;
+$color-play-icon-hover:  $color-srf-light;
