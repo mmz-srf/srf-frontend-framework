@@ -373,18 +373,18 @@ $background-overlap-wide: 50px;
   font-stretch: normal;
   color: $color-text-default;
   border-radius: 2px;
-  background-color: $color-bg-button-transparent;
+  background-color: $color-link-bg-unboxed;
   transition: background-color .2s ease-in-out;
 
   &:hover {
     color: $color-text-default;
-    background-color: $color-bg-button-hover;
+    background-color: $color-link-bg-unboxed-hover;
   }
 
   &:active,
   &:focus {
     color: $color-text-default;
-    background-color: $color-bg-button-focus;
+    background-color: $color-link-bg-unboxed-active;
   }
 
   // On mobile, show a fake border between the links
@@ -631,6 +631,8 @@ $background-overlap-wide: 50px;
   }
 
   .collection__link {
+      background-color: rgba(255, 255, 255, .08);
+
     &:hover {
       background-color: rgba(255, 255, 255, .12);
     }
