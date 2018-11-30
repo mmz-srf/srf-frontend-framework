@@ -329,7 +329,7 @@ $background-overlap-wide: 50px;
     flex-wrap: wrap;
   }
 
-  @include tablet-up {
+  @include tablet {
     margin: 8px 32px 16px;
   }
 
@@ -350,11 +350,11 @@ $background-overlap-wide: 50px;
   margin: 0 0 2px 0;
   padding: 0;
 
-  @include tablet-up {
+  @include tablet {
     margin: 0 12px 0 0;
   }
 
-  @include desktop {
+  @include desktop-up {
     margin: 0 16px 0 0;
   }
 
