@@ -830,11 +830,11 @@ $color-play-icon-hover:  $color-srf-light;
 .teaser--video-playing {
   .play-icon {
     &::after {
-      background: url("../img/icon/stop-video.svg"), $color-play-icon-normal;
+      background-image: url("../img/icon/stop-video.svg");
     }
 
     &:hover {
-      background: url("../img/icon/stop-video.svg"), $color-play-icon-hover;
+      background-image: url("../img/icon/stop-video.svg");
     }
   }
 }
