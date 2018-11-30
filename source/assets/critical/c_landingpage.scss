@@ -238,6 +238,13 @@ body.body--loading.body--loading {
     }
   }
 
+  .collection--selectable {
+    .collection__selectable-empty-area,
+    .selectable-button {
+      display: none;
+    }
+  }
+
   .teaser {
     display: flex;
     flex-grow: 1;
