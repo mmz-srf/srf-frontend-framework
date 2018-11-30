@@ -60,7 +60,7 @@ export class FefSwipeableArea {
         let height = this.$innerContainer.outerHeight();
 
         if (height > MINIMUM_HEIGHT) {
-            this.$element.css('height', height);
+            this.$element.css('height', Math.floor(height));
         }
         this.$innerContainer.css('overflow', '');
     }
