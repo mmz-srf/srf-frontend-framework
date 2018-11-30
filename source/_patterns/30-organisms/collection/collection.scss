@@ -347,7 +347,7 @@ $background-overlap-wide: 50px;
 //   <a class="collection__link"></a>
 // </li>
 .collection__link-item {
-  margin: 0;
+  margin: 0 0 2px 0;
   padding: 0;
 
   @include tablet-up {
