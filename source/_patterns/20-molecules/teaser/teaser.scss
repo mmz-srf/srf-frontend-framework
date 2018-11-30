@@ -3,6 +3,10 @@
 @import "../../breakpoints";
 @import "teaser-theme-settings";
 
+// Duplicated here since we need to define an icon override here
+$color-play-icon-normal: rgba(0, 0, 0, 0.32);
+$color-play-icon-hover:  $color-srf-light;
+
 /* autoprefixer grid: on */
 .teaser {
   display: flex;
@@ -822,9 +826,15 @@
 }
 /* autoprefixer grid: off */
 
-// Hide media icon when video is playing
+// Change icon when video is playing
 .teaser--video-playing {
-  .media-still__icon {
-    display: none;
+  .play-icon {
+    &::after {
+      background: url("../img/icon/stop-video.svg"), $color-play-icon-normal;
+    }
+
+    &:hover {
+      background: url("../img/icon/stop-video.svg"), $color-play-icon-hover;
+    }
   }
 }
