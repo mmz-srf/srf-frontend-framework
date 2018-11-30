@@ -399,29 +399,6 @@ $background-overlap-wide: 50px;
     background-color: $color-link-bg-unboxed-active;
   }
 
-  // On mobile, show a fake border between the links
-  @include smartphone {
-    &::before {
-      content: "";
-      position: absolute;
-      background-color: rgba(0, 0, 0, .08);
-      width: calc(100% - 8px);
-      height: 1px;
-      top: 0;
-      right: -8px;
-      opacity: 1;
-      transition: opacity .2s ease-in-out;
-    }
-
-    &:hover,
-    &:focus,
-    &:active {
-      &::before {
-        opacity: 0;
-      }
-    }
-  }
-
   @include desktop-up {
     @include fontSize(18);
   }
