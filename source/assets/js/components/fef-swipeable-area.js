@@ -4,7 +4,7 @@ import {FefResponsiveHelper} from '../classes/fef-responsive-helper';
 const HOOK_CLASS = 'js-swipeable-area',
     INNER_CONTAINER_CLASS = 'js-swipeable-area-wrapper',
     ITEM_CLASS = 'js-swipeable-area-item',
-    PARTIALLY_VISIBLE_ITEM_CLASS = 'swipeable-area-item--partially-visible',
+    DEFAULT_PARTIALLY_VISIBLE_ITEM_CLASS = 'swipeable-area__item--hidden',
     BACK_BUTTON_CLASS = 'swipeable-area__button swipeable-area__button--back',
     FORWARD_BUTTON_CLASS = 'swipeable-area__button swipeable-area__button--forward',
     BUTTON_ACTIVE_CLASS = 'swipeable-area__button--active',
@@ -72,8 +72,8 @@ export class FefSwipeableArea {
         const markVisibleClass = this.$element.data('mark-visible-items');
         const markHiddenClass = this.$element.data('mark-hidden-items');
 
-        this.visibleClass = markVisibleClass;
-        this.hiddenClass = [PARTIALLY_VISIBLE_ITEM_CLASS, markHiddenClass].join(' ');
+        this.visibleClass = markVisibleClass ? markVisibleClass : '';
+        this.hiddenClass = markHiddenClass ? markHiddenClass : DEFAULT_PARTIALLY_VISIBLE_ITEM_CLASS;
     }
 
     initItemPositions() {
@@ -98,7 +98,7 @@ export class FefSwipeableArea {
 
         this.setupHinting();
         this.$items.on('click', (event) => this.onTeaserClick(event));
-        this.$innerContainer.on('scroll', FefDebounceHelper.debounce(() => this.markItems(), DEBOUNCETIME));
+        this.$innerContainer.on('scroll', FefDebounceHelper.throttle(() => this.markItems(), DEBOUNCETIME));
     };
 
     addButtons() {
@@ -299,15 +299,12 @@ export class FefSwipeableArea {
 
     markItems() {
         this.$items.each( (_, element) => {
-            const isInView = this.isItemCompletelyInView($(element));
+            let $element = $(element),
+                isInView = this.isItemCompletelyInView($element);
 
-            if (this.visibleClass) {
-                $(element).toggleClass(this.visibleClass, isInView);
-            }
-
-            if (this.hiddenClass) {
-                $(element).toggleClass(this.hiddenClass, !isInView);
-            }
+            $element
+                .toggleClass(this.visibleClass, isInView)
+                .toggleClass(this.hiddenClass, !isInView);
         });
     }
 
