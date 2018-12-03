@@ -838,9 +838,15 @@
 }
 /* autoprefixer grid: off */
 
-// Hide media icon when video is playing
+// Change icon when video is playing
 .teaser--video-playing {
-  .media-still__icon {
-    display: none;
+  .play-icon {
+    &::after {
+      background-image: url("../img/icon/stop-video.svg");
+    }
+
+    &:hover {
+      background-image: url("../img/icon/stop-video.svg");
+    }
   }
 }

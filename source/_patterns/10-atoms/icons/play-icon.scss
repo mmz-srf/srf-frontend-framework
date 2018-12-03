@@ -1,3 +1,4 @@
+@import "../../variables";
 
 @mixin bg-settings {
   background-size: 100% auto;
@@ -6,11 +7,6 @@
   background-clip: content-box;
   box-sizing: border-box;
 }
-
-$color-play-icon-normal: rgba(0, 0, 0, 0.32);
-$color-play-icon-active: #f1434a;
-$color-play-icon-hover:  $color-srf-light;
-
 
 .play-icon {
   position: relative;
