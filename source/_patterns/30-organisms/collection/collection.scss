@@ -767,6 +767,7 @@ $background-overlap-wide: 50px;
     --theme-icon-filter: brightness(1000%);
 
     .selectable__button {
+      @include font-smoothing;
       color: #ffffff;
       background-color: rgba(255, 255, 255, .08);
       transition: background-color .2s ease-in-out;
