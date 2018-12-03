@@ -458,6 +458,7 @@ $background-overlap-wide: 50px;
     padding-right: 8px;
     min-width: calc(100% - 40px);
     padding-bottom: 12px;
+    margin: 0;
 
 
     @include tablet-up {
@@ -492,19 +493,6 @@ $background-overlap-wide: 50px;
         margin-right: -36px;
       }
     }
-  }
-}
-
-.collection__swipeable-area {
-  margin-top: -8px;
-  margin-bottom: 2px;
-
-  @include tablet-up {
-    margin-bottom: 6px;
-  }
-
-  @include desktop-wide {
-    margin-bottom: 10px;
   }
 }
 
