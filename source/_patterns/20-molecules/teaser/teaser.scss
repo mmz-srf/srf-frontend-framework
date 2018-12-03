@@ -506,10 +506,12 @@
     display: flex;
     flex-direction: column;
     width: 100%;
+    grid-row: span 2;
 
     .teaser__medium-wrapper {
       width: 100%;
       overflow: visible;
+      min-height: 100%;
     }
   }
 
