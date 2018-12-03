@@ -358,6 +358,10 @@ $background-overlap-wide: 50px;
     margin: 0 16px 0 0;
   }
 
+  &:last-child {
+    margin: 0;
+  }
+
   // normally the fake border would be applied to the link-item. But
   // to apply styling when navigation by keyboard, style must be applied
   // to link itself because active state is on <a> only.
