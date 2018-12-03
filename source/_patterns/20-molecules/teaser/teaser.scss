@@ -502,6 +502,17 @@
     }
   }
 
+  .teaser__medium-outer-wrapper-xl-only {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    .teaser__medium-wrapper {
+      width: 100%;
+      overflow: visible;
+    }
+  }
+
   .teaser__content {
     flex: 1 0 auto;
 
