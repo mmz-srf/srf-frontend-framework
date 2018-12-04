@@ -40,6 +40,14 @@
     position: relative;
   }
 }
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .teaser__medium-wrapper-xl-only {
+    flex: 0 0 65.75%;
+    .teaser__medium-wrapper {
+      flex-basis: auto;
+    }
+  }
+}
 
 /*
  * TARGETED BROWSERS: ALL :(
