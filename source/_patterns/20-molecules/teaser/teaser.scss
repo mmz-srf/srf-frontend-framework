@@ -502,6 +502,19 @@
     }
   }
 
+  .teaser__medium-outer-wrapper-xl-only {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    grid-row: span 2;
+
+    .teaser__medium-wrapper {
+      width: 100%;
+      overflow: visible;
+      min-height: 100%;
+    }
+  }
+
   .teaser__content {
     flex: 1 0 auto;
 
@@ -838,9 +851,15 @@
 }
 /* autoprefixer grid: off */
 
-// Hide media icon when video is playing
+// Change icon when video is playing
 .teaser--video-playing {
-  .media-still__icon {
-    display: none;
+  .play-icon {
+    &::after {
+      background-image: url("../img/icon/stop-video.svg");
+    }
+
+    &:hover {
+      background-image: url("../img/icon/stop-video.svg");
+    }
   }
 }

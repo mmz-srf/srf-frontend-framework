@@ -56,30 +56,30 @@
   }
 }
 
-.swipeable-area--collection {
-  .collection__teaser-item {
-    transition: 0.2s opacity ease-in-out;
-    opacity: 1;
+.swipeable-area__item {
+  opacity: 1;
+  transition: 0.2s opacity ease-in-out;
+}
 
-    @include desktop-up {
-      &.swipeable-area-item--hidden {
-        opacity: 0.4;
-        transition: 0.2s opacity ease-in-out;
+// (at least) partially hidden item:
+// Tablet+: Make the direct child(ren) not clickable (prevents click event handler interference, e.g. video), but show cursor as pointer
+// Desktop+: Items are slightly transparent and get slightly less transparent on hover
+.swipeable-area__item--hidden {
+  @include tablet-up {
+    cursor: pointer;
 
-        &:hover,
-        &:focus,
-        &:active {
-          opacity: 0.8;
-        }
-
-        &::after {
-          opacity: 0;
-        }
-      }
+    > * {
+      pointer-events: none;
     }
   }
 
-  .swipeable-area__button {
-    top: 0;
+  @include desktop-up {
+    opacity: 0.4;
+
+    &:hover,
+    &:focus,
+    &:active {
+      opacity: 0.6;
+    }
   }
 }

@@ -46,6 +46,9 @@ $color-image-dummy: #dadad2 !default;
 $color-bg-teaser-supplement: #fafaf8 !default;
 $color-bg-score-default: #f7a600 !default;
 $color-bg-score-live: $color-srf-light !default;
+$color-link-bg-unboxed: $color-bg-teaser-supplement;
+$color-link-bg-unboxed-hover: #fefefc !default;
+$color-link-bg-unboxed-active: #ffffff !default;
 
 /*** THEMING ***/
 $theme-default-color-1: #FEFEFD;
@@ -187,3 +190,10 @@ $collection-gap-desktop-wide: 40px;
 $teaser-col-gap-tablet-up: 24px;
 $teaser-col-gap-desktop-wide: 32px;
 $teaser-xl-medium-ratio: 65.75%;
+
+
+/*** ICONS ***/
+// defined here because it's needed in two different places
+$color-play-icon-normal: rgba(0, 0, 0, .32);
+$color-play-icon-active: #f1434a;
+$color-play-icon-hover:  $color-srf-light;
