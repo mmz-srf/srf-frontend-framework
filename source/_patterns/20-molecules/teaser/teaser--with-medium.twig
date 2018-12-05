@@ -1,5 +1,5 @@
 {% set mediumType = mediumType|default(random(['audio', 'video'])) %}
-<div class="teaser teaser--with-medium js-medium-hover {{ styleModifier|default('teaser--size-m teaser--size-s-on-mobile') }}" data-disable-still-hover="true">
+<div class="teaser js-teaser teaser--with-medium js-medium-hover {{ styleModifier|default('teaser--size-m teaser--size-s-on-mobile') }}" data-disable-still-hover="true">
     <a class="teaser__main" href="{{ teaser.link|default('#') }}">
 
         {% if 'teaser--size-xl' in styleModifier %}

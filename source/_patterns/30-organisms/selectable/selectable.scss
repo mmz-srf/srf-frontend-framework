@@ -1,0 +1,116 @@
+@import "../../variables";
+@import "../../mixins";
+@import "../../breakpoints";
+
+.selectable {
+  margin: 0 0 $collection-gap;
+  max-width: 100%;
+
+  @include tablet-up {
+    margin-bottom: $collection-gap-tablet-up;
+  }
+
+  @include desktop-wide {
+    margin-bottom: $collection-gap-desktop-wide;
+  }
+}
+
+.selectable__branding-wrapper {
+  max-width: $desktop-wide-size;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.selectable__button-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin: 0 8px 10px;
+  padding: 0;
+
+  @include tablet-up {
+    margin: 0 calc(32px - #{$teaser-col-gap-tablet-up}) 14px 32px;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  @include desktop-wide {
+    margin: 0 calc(40px - #{$teaser-col-gap-desktop-wide}) 20px 40px;
+  }
+}
+
+.selectable__button {
+  position: relative;
+  border-radius: 2px;
+  flex: 0 0 auto;
+  font-family: $font-regular;
+  font-size: 18px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.33;
+  letter-spacing: 0.4px;
+  padding: 16px;
+  margin: 0 0 2px;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  color: $color-text-default;
+  background-color: #ebebe5;
+
+  &::after {
+    position: absolute;
+    content: "";
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    pointer-events: none;
+    background-color: transparent;
+    transition: background-color .2s ease-in-out;
+  }
+
+  &:hover::after {
+    background-color: $color-nav-bg-hover;
+  }
+
+  &:focus::after,
+  &:active::after {
+    background-color: $color-nav-bg-active;
+  }
+
+  @include tablet-up {
+    margin-right: 24px;
+    flex-shrink: 1;
+    @include IESafeFlexBasis(calc(33.3333334% - 24px));
+  }
+
+  @include desktop-up {
+    margin-right: 32px;
+    @include IESafeFlexBasis(calc(33.3333334% - 32px));
+  }
+}
+
+.selectable--branded {
+  --theme-color-nav: #ffffff;
+  --theme-icon-filter: brightness(1000%);
+
+  .selectable__button {
+    @include font-smoothing;
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, .08);
+    transition: background-color .2s ease-in-out;
+
+    &:hover {
+      background-color: rgba(255, 255, 255, .12);
+    }
+
+    &:focus,
+    &:active {
+      background-color: rgba(255, 255, 255, .24);
+    }
+
+    &::after {
+      display: none;
+    }
+  }
+}

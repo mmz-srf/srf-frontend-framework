@@ -1,8 +1,12 @@
 {% set swipeable = ('collection--swipeable' in collection.styleModifier or 'collection--compact-swipeable' in collection.styleModifier) and collection.teasers|length > 3 %}
 {% set branded = 'collection--branded' in collection.styleModifier %}
 {% set selectable = 'collection--selectable' in collection.styleModifier %}
+{% set showTitlelink = collection.titleLink is defined or selectable %}
 
-<div class="collection {{ collection.styleModifier|default("collection--standard") }}">
+<div class="collection js-collection {{ collection.styleModifier|default("collection--standard") }}"
+    {% if collection.urn is defined %}data-urn="{{ collection.urn }}"{% endif %}
+    {% if selectable %}data-selectable-urn="{{ collection.selectableURN }}"{% endif %}>
+
     <div class="collection__branding-wrapper"{% if branded %} style="background-image: linear-gradient(120deg, #135c94, #ADD8E6);"{% endif %} >
         <div class="collection__content-wrapper">
             <h2 class="collection__title">
@@ -14,13 +18,15 @@
                     {% endif %}
                 </span>
 
-                {% if collection.titleLink is defined or selectable %}
-                    <a href="{{ collection.titleLink|default("#") }}" class="collection__title-link {{ selectable ? 'collection__title-link--plaintext' }}">
+                {% if showTitlelink %}
+                    <a href="{{ collection.titleLink|default("#") }}" class="collection__title-link">
                 {% endif %}
+
                 <span class="collection__title-text">
                     {{ collection.title|default("") }}
                 </span>
-                {% if collection.titleLink is defined %}
+
+                {% if showTitlelink %}
                         <span class="collection__title-a11y-help">Landingpage öffnen</span>
                         <span class="collection__title-link-icon"></span>
                     </a>
@@ -28,7 +34,11 @@
 
                 {% if selectable %}
                     <button class="selectable-button js-selectable-button">
-                        {% include 'atoms-icon-button' with {'iconStyleModifier': 'svg-icon--more', 'buttonText': collection.selectableText|default('Region wählen'), 'styleModifier': 'icon-button--collapsing-text-mobile icon-button--spaceless-right-mobile'} %}
+                        {% include 'atoms-icon-button' with {
+                            'iconStyleModifier': 'svg-icon--more',
+                            'buttonText': collection.selectableText|default('Region'),
+                            'styleModifier': 'icon-button--collapsing-text-mobile icon-button--spaceless-right-mobile'
+                        } %}
                     </button>
                 {% endif %}
             </h2>
@@ -46,16 +56,6 @@
 
             {% if collection.image is defined %}
                     </div>
-                </div>
-            {% endif %}
-
-            {% if selectable %}
-                <div class="collection__selectable-empty-area js-selectable-empty-state">
-                    {% for group in collection.selectableGroups %}
-                        <button class="selectable__button js-source-button">
-                            {{ group }}
-                        </button>
-                    {% endfor %}
                 </div>
             {% endif %}
 
@@ -104,12 +104,6 @@
                     {% endif %}
                 {% endfor %}
             </ul>
-
-            {# SWIPEABLE AREA WRAPPER END TAGS #}
-            {% if swipeable %}
-                    </div>
-                </div>
-            {% endif %}
 
             {% if collection.links is defined and collection.links|length > 0 %}
                 <ul class="collection__links">

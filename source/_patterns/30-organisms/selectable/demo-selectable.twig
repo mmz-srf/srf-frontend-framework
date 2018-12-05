@@ -1,0 +1,124 @@
+<h1>Standard Selectable with 3 Landingpage Sources</h1>
+
+{% include 'organisms-selectable' with {
+    'title': 'Regio-Modul',
+    'lead': 'Hier können Sie eine Region auswählen.',
+    'urn': 'srf:urn:collection:123',
+    'groups': [
+        {
+            'title': 'Zürich',
+            'urn': 'srf:urn:landingpage:1'
+        }, {
+            'title': 'St. Gallen',
+            'urn': 'srf:urn:landingpage:2'
+        }, {
+            'title': 'Bern',
+            'urn': 'srf:urn:landingpage:3'
+        }
+    ]
+} %}
+
+{% include 'organisms-collection' with {
+    'collection': {
+        "urn": "srf:urn:landingpage:1",
+        "styleModifier": "collection--standard collection--selectable",
+        "title": "Zürich",
+        "titleLink": "https://hurrdurr.com",
+        "lead": "Hier können Sie eine Region auswählen.",
+        "selectableText": "Region",
+        "selectableURN": "srf:urn:collection:123",
+        "teasers": collections[0].teasers[0:3]
+    }
+} %}
+
+{% include 'organisms-collection' with {
+    'collection': {
+        "urn": "srf:urn:landingpage:2",
+        "styleModifier": "collection--standard collection--selectable",
+        "title": "St. Gallen",
+        "titleLink": "https://hurrdurr.com",
+        "lead": "Hier können Sie eine Region auswählen.",
+        "selectableText": "Region",
+        "selectableURN": "srf:urn:collection:123",
+        "teasers": collections[0].teasers[0:3]
+    }
+} %}
+
+{% include 'organisms-collection' with {
+    'collection': {
+        "urn": "srf:urn:landingpage:3",
+        "styleModifier": "collection--standard collection--selectable",
+        "title": "Bern",
+        "titleLink": "https://hurrdurr.com",
+        "lead": "Hier können Sie eine Region auswählen.",
+        "selectableText": "Region",
+        "selectableURN": "srf:urn:collection:123",
+        "teasers": collections[0].teasers[0:3]
+    }
+} %}
+
+<h1>Highlight Selectable with 2 Landingpage Sources, 1 Landingpage Source without teasers and 1 Landingpage Source that is not rendered</h1>
+
+{% include 'organisms-selectable' with {
+    'title': 'Regio-Modul mit Theme',
+    'branded': true,
+    'lead': 'Hier können Sie eine Region auswählen.',
+    'urn': 'srf:urn:collection:234',
+    'groups': [
+        {
+            'title': 'Zürich',
+            'urn': 'srf:urn:landingpage:1'
+        }, {
+            'title': 'St. Gallen',
+            'urn': 'srf:urn:landingpage:2'
+        }, {
+            'title': 'Bern - you should never see me',
+            'urn': 'srf:urn:landingpage:3'
+        }, {
+            'title': 'Lugano - you should never see me',
+            'urn': 'srf:urn:landingpage:4'
+        }
+    ]
+} %}
+
+{% include 'organisms-collection' with {
+    'collection': {
+        "urn": "srf:urn:landingpage:1",
+        "styleModifier": "collection--highlight collection--branded collection--selectable",
+        'branded': true,
+        "title": "Zürich",
+        "titleLink": "https://hurrdurr.com",
+        "lead": "Hier können Sie eine Region auswählen.",
+        "selectableText": "Region",
+        "selectableURN": "srf:urn:collection:234",
+        "teasers": collections[0].teasers[0:3]
+    }
+} %}
+
+{% include 'organisms-collection' with {
+    'collection': {
+        "urn": "srf:urn:landingpage:2",
+        "styleModifier": "collection--highlight collection--branded collection--selectable",
+        'branded': true,
+        "title": "St. Gallen",
+        "titleLink": "https://hurrdurr.com",
+        "lead": "Hier können Sie eine Region auswählen.",
+        "selectableText": "Region",
+        "selectableURN": "srf:urn:collection:234",
+        "teasers": collections[0].teasers[0:3]
+    }
+} %}
+
+{% include 'organisms-collection' with {
+    'collection': {
+        "urn": "srf:urn:landingpage:3",
+        "styleModifier": "collection--highlight collection--branded collection--selectable",
+        'branded': true,
+        "title": "Bern",
+        "titleLink": "https://hurrdurr.com",
+        "lead": "Hier können Sie eine Region auswählen.",
+        "selectableText": "Region",
+        "selectableURN": "srf:urn:collection:234",
+        "teasers": []
+    }
+} %}
