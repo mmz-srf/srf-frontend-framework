@@ -1,7 +1,8 @@
 import {FefStorage} from '../classes/fef-storage';
 
 const STORAGE_KEY = 'srf:rlp:selectable:selected';
-const ANIMATION_PART_DURATION = 200;
+const SELECTED_COLLECTION_CLASS = 'js-selected-collection';
+const ANIMATION_PART_DURATION = 4000;
 
 export function init() {
     $('.js-selectable').each((i, elem) => {
@@ -14,6 +15,7 @@ export class SrfSelectableCollection {
     constructor(element) {
         this.$element = $(element);
         this.$brandingWrapper = $('.js-selectable-branding-wrapper', this.$element);
+        this.$animationWrapper = $('.js-selectable-animation-wrapper', this.$element);
         this.collectionTitle = this.$element.data('title');
         this.collectionURN = this.$element.data('urn');
 
@@ -50,6 +52,9 @@ export class SrfSelectableCollection {
             if (selectedSourceURN && this.connectsToCollection(selectedSourceURN)) {
                 this.$element.hide();
                 this.toggleCollections(selectedSourceURN);
+
+                let $collection = $(this.$sourceCollections.toArray().find(c => $(c).data('urn') === selectedSourceURN));
+                $collection.addClass(SELECTED_COLLECTION_CLASS);
                 return;
             }
         }
@@ -91,14 +96,55 @@ export class SrfSelectableCollection {
     }
 
     showSelectionElement(setFocus = true) {
-        this.$element.show();
-        this.toggleCollections(false);
+        let $collection = this.$sourceCollections.filter(`.${SELECTED_COLLECTION_CLASS}`).first();
+        // TODO: what if no collection?
+
+        this.$element.css({'position': 'absolute', 'height': 0}).show();
+        let $brandingWrapper = $collection.find('.js-collection-branding-wrapper');
+        let $contentWrapper = $collection.find('.js-collection-content-wrapper');
+        let newHeight = this.$brandingWrapper.height();
+        this.$animationWrapper.css('opacity', 0);
+
+        $contentWrapper.animate({'opacity': 0}, ANIMATION_PART_DURATION, () => {
+            $brandingWrapper.animate({'height': newHeight}, ANIMATION_PART_DURATION, () => {
+                this.$element.css({'position': '', 'height': ''});
+                $collection.hide();
+                $contentWrapper.css({'opacity': 1});
+                $brandingWrapper.css({'height': ''});
+
+                this.$animationWrapper.animate({'opacity': 1}, ANIMATION_PART_DURATION, () => {
+                    $collection.removeClass(SELECTED_COLLECTION_CLASS);
+                });
+            });
+        });
+        //this.$element.show();
+        //this.toggleCollections(false);
         //this.animateStateChange(() => {});
     }
 
     showSource(nextSource) {
-        this.$element.hide();
-        this.toggleCollections(nextSource);
+        this.$sourceCollections.each((_, coll) => $(coll).removeClass(SELECTED_COLLECTION_CLASS));
+
+        let $collection = $(this.$sourceCollections.toArray().find(c => $(c).data('urn') === nextSource));
+        $collection.css({'display': 'block', 'position': 'absolute', 'height': 0});
+        let $brandingWrapper = $collection.find('.js-collection-branding-wrapper');
+        let $contentWrapper = $collection.find('.js-collection-content-wrapper');
+        let newHeight = $brandingWrapper.height();
+        $contentWrapper.css('opacity', 0);
+
+        this.$animationWrapper.animate({'opacity': 0}, ANIMATION_PART_DURATION, () => {
+            this.$animationWrapper.animate({'height': newHeight}, ANIMATION_PART_DURATION, () => {
+                $collection.css({'position': '', 'height': ''});
+                this.$element.hide();
+                this.$animationWrapper.css({'height': '', 'opacity': 1});
+
+                $contentWrapper.animate({'opacity': 1}, ANIMATION_PART_DURATION, () => {
+                    $collection.addClass(SELECTED_COLLECTION_CLASS);
+                });
+            });
+        });
+        //this.$element.hide();
+        //this.toggleCollections(nextSource);
         //this.animateStateChange(() => {});
     }
 

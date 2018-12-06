@@ -5,6 +5,7 @@
 .selectable {
   margin: 0 0 $collection-gap;
   max-width: 100%;
+  overflow: hidden;
 
   @include tablet-up {
     margin-bottom: $collection-gap-tablet-up;
@@ -93,6 +94,12 @@
 .selectable--branded {
   --theme-color-nav: #ffffff;
   --theme-icon-filter: brightness(1000%);
+
+  .selectable__branding-wrapper {
+    max-width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
 
   .selectable__button {
     @include font-smoothing;

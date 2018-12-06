@@ -4,32 +4,32 @@
      data-groups="{{ groups|json_encode()|default([]) }}">
 
     <div class="selectable__branding-wrapper js-selectable-branding-wrapper" {% if branded %}style="background-image: linear-gradient(120deg, #135c94, #ADD8E6);"{% endif %}>
-
-        <span class="h-loading-only">
-            {% include 'atoms-shimmer' with {'styleModifier': 'shimmer--heading shimmer--shorter'} %}
-            {% if lead is defined %}
-                {% include 'atoms-shimmer' with {'styleModifier': 'shimmer--heading shimmer--short'} %}
-                {% include 'atoms-shimmer' with {'styleModifier': 'shimmer--heading shimmer--short'} %}
-            {% endif %}
-        </span>
-
-        <h2 class="collection__title">
-            <span class="collection__title-text">
-                {{ title|default("") }}
+        <div class="selectable__animation-wrapper js-selectable-animation-wrapper">
+            <span class="h-loading-only">
+                {% include 'atoms-shimmer' with {'styleModifier': 'shimmer--heading shimmer--shorter'} %}
+                {% if lead is defined %}
+                    {% include 'atoms-shimmer' with {'styleModifier': 'shimmer--heading shimmer--short'} %}
+                    {% include 'atoms-shimmer' with {'styleModifier': 'shimmer--heading shimmer--short'} %}
+                {% endif %}
             </span>
-        </h2>
 
-        {% if lead is defined %}
-            <p class="collection__lead">{{ lead }}</p>
-        {% endif %}
+            <h2 class="collection__title">
+                <span class="collection__title-text">
+                    {{ title|default("") }}
+                </span>
+            </h2>
 
-        <div class="selectable__button-wrapper">
-            {% for group in groups %}
-                <button class="selectable__button js-group-button" data-source="{{ group.urn }}">
-                    {{ group.title }}
-                </button>
-            {% endfor %}
+            {% if lead is defined %}
+                <p class="collection__lead">{{ lead }}</p>
+            {% endif %}
+
+            <div class="selectable__button-wrapper">
+                {% for group in groups %}
+                    <button class="selectable__button js-group-button" data-source="{{ group.urn }}">
+                        {{ group.title }}
+                    </button>
+                {% endfor %}
+            </div>
         </div>
-
     </div>
 </div>
