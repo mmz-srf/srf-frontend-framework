@@ -122,3 +122,46 @@
         "teasers": []
     }
 } %}
+
+<h1>Swipeable Selectable with 2 Landingpage Sources</h1>
+
+{% include 'organisms-selectable' with {
+    'title': 'Regio-Modul',
+    'lead': 'Hier können Sie eine Region auswählen.',
+    'urn': 'srf:urn:collection:345',
+    'groups': [
+        {
+            'title': 'Zürich',
+            'urn': 'srf:urn:landingpage:1'
+        }, {
+            'title': 'St. Gallen',
+            'urn': 'srf:urn:landingpage:2'
+        }
+    ]
+} %}
+
+{% include 'organisms-collection' with {
+    'collection': {
+        "urn": "srf:urn:landingpage:1",
+        "styleModifier": "collection--swipeable collection--selectable",
+        "title": "Zürich",
+        "titleLink": "https://hurrdurr.com",
+        "lead": "Hier können Sie eine Region auswählen.",
+        "selectableText": "Region",
+        "selectableURN": "srf:urn:collection:345",
+        "teasers": collections[0].teasers[0:5]
+    }
+} %}
+
+{% include 'organisms-collection' with {
+    'collection': {
+        "urn": "srf:urn:landingpage:2",
+        "styleModifier": "collection--swipeable collection--selectable",
+        "title": "St. Gallen",
+        "titleLink": "https://hurrdurr.com",
+        "lead": "Hier können Sie eine Region auswählen.",
+        "selectableText": "Region",
+        "selectableURN": "srf:urn:collection:345",
+        "teasers": collections[0].teasers[0:5]
+    }
+} %}

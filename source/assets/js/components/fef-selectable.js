@@ -60,7 +60,8 @@ export class SrfSelectableCollection {
             }
         }
 
-        this.showSelectionElement(false);
+        this.toggleCollections(false);
+        this.$element.show();
     }
 
     /**
