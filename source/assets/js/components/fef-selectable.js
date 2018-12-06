@@ -2,7 +2,7 @@ import {FefStorage} from '../classes/fef-storage';
 
 const STORAGE_KEY = 'srf:rlp:selectable:selected';
 const SELECTED_COLLECTION_CLASS = 'js-selected-collection';
-const ANIMATION_PART_DURATION = 4000;
+const ANIMATION_PART_DURATION = 200;
 
 export function init() {
     $('.js-selectable').each((i, elem) => {
