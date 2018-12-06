@@ -16,10 +16,12 @@
   }
 }
 
-.selectable__branding-wrapper {
-  max-width: $desktop-wide-size;
-  margin-left: auto;
-  margin-right: auto;
+.selectable__branding-element {
+  display: none;
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
 }
 
 .selectable__button-wrapper {
@@ -91,14 +93,76 @@
   }
 }
 
+.selectable__head-wrapper {
+  padding: 16px 24px 24px;
+
+  @include tablet-up {
+    padding: 16px 32px 32px;
+  }
+
+  @include desktop-up {
+    padding: 20px 32px 32px;
+  }
+
+  @include desktop-wide {
+    padding: 20px 40px 40px;
+  }
+}
+
+.selectable__title {
+  font-family: $font-medium;
+  font-feature-settings: "salt";
+  @include fontSize(24);
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: $emphasize-line-height-ratio;
+  color: $color-text-default;
+  margin: 0;
+
+  @include desktop-up {
+    @include fontSize(28);
+  }
+}
+
+.selectable__lead {
+  font-family: $font-light;
+  @include fontSize(20);
+  font-weight: 300;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: $emphasize-line-height-ratio;
+  color: $color-text-accentuation;
+  max-width: 624px;
+  margin: 12px 0 0;
+
+  @include tablet-up {
+    margin-top: 8px;
+  }
+
+  @include desktop-up {
+    @include fontSize(22);
+    max-width: 680px;
+  }
+}
+
 .selectable--branded {
   --theme-color-nav: #ffffff;
   --theme-icon-filter: brightness(1000%);
+  position: relative;
 
-  .selectable__branding-wrapper {
-    max-width: 100%;
-    margin-left: 0;
-    margin-right: 0;
+  .selectable__branding-element {
+    display: block;
+  }
+
+  .selectable__animation-wrapper {
+    position: relative;
+  }
+
+  .selectable__title,
+  .selectable__lead {
+    @include font-smoothing;
+    color: #ffffff;
   }
 
   .selectable__button {

@@ -14,7 +14,7 @@ export class SrfSelectableCollection {
 
     constructor(element) {
         this.$element = $(element);
-        this.$brandingWrapper = $('.js-selectable-branding-wrapper', this.$element);
+        this.$brandingElement = $('.js-selectable-branding-element', this.$element);
         this.$animationWrapper = $('.js-selectable-animation-wrapper', this.$element);
         this.collectionTitle = this.$element.data('title');
         this.collectionURN = this.$element.data('urn');
@@ -102,7 +102,7 @@ export class SrfSelectableCollection {
         this.$element.css({'position': 'absolute', 'height': 0}).show();
         let $brandingWrapper = $collection.find('.js-collection-branding-wrapper');
         let $contentWrapper = $collection.find('.js-collection-content-wrapper');
-        let newHeight = this.$brandingWrapper.height();
+        let newHeight = this.$animationWrapper.height();
         this.$animationWrapper.css('opacity', 0);
 
         $contentWrapper.animate({'opacity': 0}, ANIMATION_PART_DURATION, () => {
@@ -173,7 +173,7 @@ export class SrfSelectableCollection {
 
                 changeContentFn(); // 4
 
-                this.$element.animate({'height': this.$brandingWrapper.outerHeight(true)}, ANIMATION_PART_DURATION, () => { // 5
+                this.$element.animate({'height': this.$brandingElement.outerHeight(true)}, ANIMATION_PART_DURATION, () => { // 5
                     this.$contentWrapper.animate({'opacity': 1}, ANIMATION_PART_DURATION, () => { // 6
                         this.$element.height(''); // 7
                         // TODO: focus on first teaser or first sourceBtn
