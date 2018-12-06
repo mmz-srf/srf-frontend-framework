@@ -1,4 +1,5 @@
-import {FefStorage} from '../classes/fef-storage';
+import { FefStorage } from '../classes/fef-storage';
+import { setFocus } from '../components/fef-flying-focus';
 
 const STORAGE_KEY = 'srf:rlp:selectable:selected';
 const SELECTED_COLLECTION_CLASS = 'js-selected-collection';
@@ -95,31 +96,37 @@ export class SrfSelectableCollection {
         });
     }
 
-    showSelectionElement(setFocus = true) {
+    showSelectionElement(shouldFocus = true) {
         let $collection = this.$sourceCollections.filter(`.${SELECTED_COLLECTION_CLASS}`).first();
-        // TODO: what if no collection?
+        if (!$collection) {
+            this.$element.show();
+            return;
+        }
 
         this.$element.css({'position': 'absolute', 'height': 0}).show();
-        let $brandingWrapper = $collection.find('.js-collection-branding-wrapper');
         let $contentWrapper = $collection.find('.js-collection-content-wrapper');
         let newHeight = this.$animationWrapper.height();
         this.$animationWrapper.css('opacity', 0);
 
+        if (shouldFocus) {
+            $(':focus').blur();
+        }
+
         $contentWrapper.animate({'opacity': 0}, ANIMATION_PART_DURATION, () => {
-            $brandingWrapper.animate({'height': newHeight}, ANIMATION_PART_DURATION, () => {
+            $contentWrapper.animate({'height': newHeight}, ANIMATION_PART_DURATION, 'easeInOutSine', () => {
                 this.$element.css({'position': '', 'height': ''});
                 $collection.hide();
-                $contentWrapper.css({'opacity': 1});
-                $brandingWrapper.css({'height': ''});
+                $contentWrapper.css({'opacity': 1, 'height': ''});
 
                 this.$animationWrapper.animate({'opacity': 1}, ANIMATION_PART_DURATION, () => {
                     $collection.removeClass(SELECTED_COLLECTION_CLASS);
+
+                    if (shouldFocus) {
+                        setFocus(this.$groupButtons.first());
+                    }
                 });
             });
         });
-        //this.$element.show();
-        //this.toggleCollections(false);
-        //this.animateStateChange(() => {});
     }
 
     showSource(nextSource) {
@@ -127,59 +134,25 @@ export class SrfSelectableCollection {
 
         let $collection = $(this.$sourceCollections.toArray().find(c => $(c).data('urn') === nextSource));
         $collection.css({'display': 'block', 'position': 'absolute', 'height': 0});
-        let $brandingWrapper = $collection.find('.js-collection-branding-wrapper');
         let $contentWrapper = $collection.find('.js-collection-content-wrapper');
-        let newHeight = $brandingWrapper.height();
+        let newHeight = $contentWrapper.height();
         $contentWrapper.css('opacity', 0);
 
+        $(':focus').blur();
+
         this.$animationWrapper.animate({'opacity': 0}, ANIMATION_PART_DURATION, () => {
-            this.$animationWrapper.animate({'height': newHeight}, ANIMATION_PART_DURATION, () => {
+            this.$animationWrapper.animate({'height': newHeight}, ANIMATION_PART_DURATION, 'easeInOutSine', () => {
                 $collection.css({'position': '', 'height': ''});
                 this.$element.hide();
                 this.$animationWrapper.css({'height': '', 'opacity': 1});
 
                 $contentWrapper.animate({'opacity': 1}, ANIMATION_PART_DURATION, () => {
                     $collection.addClass(SELECTED_COLLECTION_CLASS);
+
+                    setFocus($collection.find('.teaser__main').first());
                 });
             });
         });
-        //this.$element.hide();
-        //this.toggleCollections(nextSource);
-        //this.animateStateChange(() => {});
-    }
-
-    /**
-     * Animates a state change, i.e. from "empty" to "default" state or back.
-     *
-     * @param changeContentFn function Function to be executed when the animation is halfway done.
-     * @param getElementToFocusOnFn function Function to be executed to get the element to focus on after the animation
-     */
-    animateStateChange(changeContentFn, getElementToFocusOnFn = false) {
-        // Animation:
-        // 1. Remove focus (otherwise the flying focus will stay visible)
-        // 2. Fade out content
-        // 3. set height of collection so it doesn't jump around during next step
-        // 4. show/hide/change content, teasers, etc.
-        // 5. animate collection's height to the content-wrapper's height
-        // 6. fade in content
-        // 7. remove fixed height
-        // 8. focus on the specified element if desired (=getElementToFocusOnFn is set)
-
-        $(':focus').blur(); // 1
-
-        this.$contentWrapper
-            .animate({'opacity': 0}, ANIMATION_PART_DURATION, () => { // 2
-                this.$element.height(this.$element.outerHeight()); // 3
-
-                changeContentFn(); // 4
-
-                this.$element.animate({'height': this.$brandingElement.outerHeight(true)}, ANIMATION_PART_DURATION, () => { // 5
-                    this.$contentWrapper.animate({'opacity': 1}, ANIMATION_PART_DURATION, () => { // 6
-                        this.$element.height(''); // 7
-                        // TODO: focus on first teaser or first sourceBtn
-                    });
-                });
-            });
     }
 
     /**
@@ -271,16 +244,5 @@ export class SrfSelectableCollection {
             event_name: `collection_${this.collectionTitle}(${ currentTitle })`,
             event_value: `collection_${this.collectionTitle}(${ nextSourceData.title })`
         });
-    }
-
-    /**
-     * Simply using .focus() doesn't suffice.
-     *
-     * @param $element jQuery.Element
-     */
-    setFocus($element) {
-        $element.attr('tabindex', -1).on('blur focusout', () => {
-            $element.removeAttr('tabindex');
-        }).focus();
     }
 }
