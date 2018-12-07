@@ -13,7 +13,7 @@ export function init() {
 
 export class SrfSelectableCollection {
 
-    constructor(element, interactionMeasureString) {
+    constructor(element, onCollectionShowCallback = () => {}, interactionMeasureString = '') {
         this.$element = $(element);
 
         this.collectionTitle = this.$element.data('title');
@@ -30,6 +30,8 @@ export class SrfSelectableCollection {
 
         // The selected source has to be saved temporarily to enable tracking when going "back" via empty state
         this.selectedSource = null;
+
+        this.onCollectionShowCallback = onCollectionShowCallback;
 
         this.registerListener();
         this.setInitialState();
@@ -185,6 +187,7 @@ export class SrfSelectableCollection {
 
                 $contentWrapper.animate({'opacity': 1}, ANIMATION_PART_DURATION, () => {
                     $collection.addClass(SELECTED_COLLECTION_CLASS);
+                    this.onCollectionShowCallback($collection);
 
                     if (shouldFocus) {
                         setFocus($collection.find('.teaser__main').first());
