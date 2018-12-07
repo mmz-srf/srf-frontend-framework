@@ -25,10 +25,6 @@ $background-overlap-wide: 50px;
     margin: 0 auto;
     background-color: transparent;
     box-shadow: none;
-
-    @include tablet-up {
-      margin-top: 20px;
-    }
   }
 }
 
