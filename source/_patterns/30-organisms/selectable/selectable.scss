@@ -24,6 +24,11 @@
   width: 100%;
 }
 
+.selectable__animation-wrapper {
+  max-width: $desktop-wide-size;
+  margin: 0 auto;
+}
+
 .selectable__button-wrapper {
   display: flex;
   flex-direction: column;

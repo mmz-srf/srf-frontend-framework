@@ -105,6 +105,12 @@
                 {% endfor %}
             </ul>
 
+            {# SWIPEABLE AREA WRAPPER END TAGS #}
+            {% if swipeable %}
+                    </div>
+                </div>
+            {% endif %}
+
             {% if collection.links is defined and collection.links|length > 0 %}
                 <ul class="collection__links">
                     {% for link in collection.links %}
