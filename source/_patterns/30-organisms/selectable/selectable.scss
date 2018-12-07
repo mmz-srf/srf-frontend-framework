@@ -3,6 +3,8 @@
 @import "../../breakpoints";
 
 .selectable {
+  // initially hidden, will be shown by JS depending on selection (see fef-selectable.js)
+  display: none;
   margin: 0 0 $collection-gap;
   max-width: 100%;
   overflow: hidden;

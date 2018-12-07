@@ -13,15 +13,15 @@ export function init() {
 
 export class SrfSelectableCollection {
 
-    constructor(element) {
+    constructor(element, interactionMeasureString) {
         this.$element = $(element);
-        this.$brandingElement = $('.js-selectable-branding-element', this.$element);
-        this.$animationWrapper = $('.js-selectable-animation-wrapper', this.$element);
+
         this.collectionTitle = this.$element.data('title');
         this.collectionURN = this.$element.data('urn');
+        this.interactionMeasureString = interactionMeasureString;
 
+        this.$animationWrapper = $('.js-selectable-animation-wrapper', this.$element);
         this.$groupButtons = $('.js-group-button', this.$element);
-
         this.$sourceCollections = $(`.js-collection[data-selectable-urn="${this.collectionURN}"]`);
 
         // Sources are read from a data attribute on the collection element.
@@ -33,17 +33,23 @@ export class SrfSelectableCollection {
 
         this.registerListener();
         this.setInitialState();
-        this.removeEmptySourceButtons();
+        this.removeUselessSourceButtons();
     }
 
     registerListener() {
         // Going back to the empty state when clicking on the buttons in the source collections
-        $('.js-selectable-button', this.$sourceCollections).on('click', () => this.showSelectionElement());
+        $('.js-selectable-button', this.$sourceCollections).on('click', (e) => this.showSelectionElement(e));
 
         // Changing between sources
-        this.$groupButtons.on('click', (e) => this.changeSelectedSource( $(e.currentTarget).data('source') ));
+        this.$groupButtons.on('click', (e) => this.changeSelectedSource( $(e.currentTarget).data('source'), e ));
     }
 
+    /**
+     * Read data from localstorage. If there's a selection for this selectable
+     * already saved, check if that collection exists and show that collection.
+     * In any other case, the selection element will be shown and all
+     * collections will be hidden.
+     */
     setInitialState() {
         if (FefStorage.isLocalStorageAvailable() && FefStorage.hasItem(STORAGE_KEY)) {
             let savedSelections = FefStorage.getItemJsonParsed(STORAGE_KEY);
@@ -55,11 +61,15 @@ export class SrfSelectableCollection {
                 this.toggleCollections(selectedSourceURN);
 
                 let $collection = $(this.$sourceCollections.toArray().find(c => $(c).data('urn') === selectedSourceURN));
-                $collection.addClass(SELECTED_COLLECTION_CLASS);
-                return;
+
+                if ($collection) {
+                    $collection.addClass(SELECTED_COLLECTION_CLASS);
+                    return;
+                }
             }
         }
 
+        // none was selected: hide all collections, show selection element
         this.toggleCollections(false);
         this.$element.show();
     }
@@ -72,23 +82,27 @@ export class SrfSelectableCollection {
      * - tracking
      *
      * @param {string} sourceURN
+     * @param {jQuery.event} e
      */
-    changeSelectedSource(sourceURN) {
+    changeSelectedSource(sourceURN, e) {
         let nextSource = this.sources.find(source => source.urn === sourceURN);
 
         if (!nextSource) {
             throw new Error(`Source '${ sourceURN }' can't be found in the selectable collection ${ this.collectionURN }.`);
         }
 
-        this.showSource(sourceURN);
-
-        this.saveSelection(sourceURN);
+        this.showSourceCollection(sourceURN, e);
+        this.saveSelectionInLocalStorage(sourceURN);
 
         this.track(this.selectedSource, nextSource);
-
         this.selectedSource = nextSource;
     }
 
+    /**
+     * Immediately shows/hides collections, depending on their urn.
+     *
+     * @param {string} sourceURN URN of a collection that acts as a source
+     */
     toggleCollections(sourceURN) {
         this.$sourceCollections.each((_, collection) => {
             let $collection = $(collection),
@@ -97,8 +111,14 @@ export class SrfSelectableCollection {
         });
     }
 
-    showSelectionElement(shouldFocus = true) {
-        let $collection = this.$sourceCollections.filter(`.${SELECTED_COLLECTION_CLASS}`).first();
+    /**
+     * Shows the selection element
+     * @param {jQuery.event} event Original event that triggered the change
+     */
+    showSelectionElement(event) {
+        let $collection = this.$sourceCollections.filter(`.${SELECTED_COLLECTION_CLASS}`).first(),
+            shouldFocus = event.screenX == 0 && event.screenY == 0;
+
         if (!$collection) {
             this.$element.show();
             return;
@@ -130,16 +150,32 @@ export class SrfSelectableCollection {
         });
     }
 
-    showSource(nextSource) {
-        this.$sourceCollections.each((_, coll) => $(coll).removeClass(SELECTED_COLLECTION_CLASS));
+    /**
+     * Changes from the selection element to a collection with animation.
+     * If the change was triggered by a mouseclick, it'll also focus on the
+     * first teaser of the collection after the animations are done.
+     *
+     * @param {string} nextSource URN of the collection to show
+     * @param {jQuery.event} event
+     */
+    showSourceCollection(nextSource, event) {
+        let $collection = $(this.$sourceCollections.toArray().find(c => $(c).data('urn') === nextSource)),
+            shouldFocus = event.screenX == 0 && event.screenY == 0;
 
-        let $collection = $(this.$sourceCollections.toArray().find(c => $(c).data('urn') === nextSource));
+        if (!$collection) {
+            this.$element.show();
+            return;
+        }
+
+        this.$sourceCollections.each((_, coll) => $(coll).removeClass(SELECTED_COLLECTION_CLASS));
         $collection.css({'display': 'block', 'position': 'absolute', 'height': 0});
         let $contentWrapper = $collection.find('.js-collection-content-wrapper');
         let newHeight = $contentWrapper.height();
         $contentWrapper.css('opacity', 0);
 
-        $(':focus').blur();
+        if (shouldFocus) {
+            $(':focus').blur();
+        }
 
         this.$animationWrapper.animate({'opacity': 0}, ANIMATION_PART_DURATION, () => {
             this.$animationWrapper.animate({'height': newHeight}, ANIMATION_PART_DURATION, 'easeInOutSine', () => {
@@ -150,7 +186,9 @@ export class SrfSelectableCollection {
                 $contentWrapper.animate({'opacity': 1}, ANIMATION_PART_DURATION, () => {
                     $collection.addClass(SELECTED_COLLECTION_CLASS);
 
-                    setFocus($collection.find('.teaser__main').first());
+                    if (shouldFocus) {
+                        setFocus($collection.find('.teaser__main').first());
+                    }
                 });
             });
         });
@@ -169,7 +207,7 @@ export class SrfSelectableCollection {
      *
      * @param sourceUrn
      */
-    saveSelection(sourceUrn) {
+    saveSelectionInLocalStorage(sourceUrn) {
         if (FefStorage.isLocalStorageAvailable()) {
             let savedSelections = FefStorage.getItemJsonParsed(STORAGE_KEY);
 
@@ -188,7 +226,7 @@ export class SrfSelectableCollection {
      * It can happen that a landingpage returns no teasers. In that case we
      * remove the button so that the user can't chose a selection that is empty.
      */
-    removeEmptySourceButtons() {
+    removeUselessSourceButtons() {
         this.$groupButtons.each((_, button) => {
             if (!this.connectsToCollection($(button).data('source'))) {
                 $(button).remove();
@@ -239,8 +277,7 @@ export class SrfSelectableCollection {
             currentTitle = currentSourceData.title;
         }
 
-        // TODO: use const from CMS instead of string
-        $(window).trigger('fef.track.interaction', {
+        $(window).trigger(this.interactionMeasureString, {
             event_source: 'user_setting_changed',
             event_name: `collection_${this.collectionTitle}(${ currentTitle })`,
             event_value: `collection_${this.collectionTitle}(${ nextSourceData.title })`
