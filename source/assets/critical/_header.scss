@@ -188,7 +188,7 @@
   font-family: $font-bold;
   @include fontSize(14);
   line-height: 1.14;
-  color: $color-text-accentuation;
+  @include customPropWithFallback('color', '--theme-color-nav', $color-text-accentuation);
 }
 
 .masthead__nav,
@@ -217,7 +217,8 @@
 .masthead__title-link:active,
 .masthead__title-link:visited {
     text-decoration: none;
-    color: $color-text-default;
+    /*color: $color-text-default;*/
+    @include customPropWithFallback('color', '--theme-color-title', $color-text-default);
 }
 
 .subnav__list {
@@ -225,6 +226,24 @@
   overflow: hidden;
 }
 
+
+/* THEME */
+
+/* COMMON SETTINGS FOR ALL THEMES EXCEPT DEFAULT */
+.masthead.masthead--theme-sport,
+.masthead.masthead--theme-meteo,
+.masthead.masthead--theme-kultur,
+.masthead.masthead--theme-dok,
+.masthead.masthead--theme-rtr_novitads,
+.masthead.masthead--theme-rtr_cultura,
+.masthead.masthead--theme-rtr_sport,
+.masthead.masthead--theme-rtr_uffants,
+.masthead.masthead--theme-rtr_archiv,
+.masthead.masthead--theme-rtr_aura,
+.masthead.masthead--theme-rtr_interpresa {
+  --theme-color-title: #FFF;
+  --theme-color-nav: #FFF;
+}
 
 /* THEME-SPECIFIC SETTINGS */
 .masthead.masthead--theme-sport {
