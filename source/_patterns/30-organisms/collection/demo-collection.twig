@@ -174,6 +174,19 @@
 </div>
 
 <div class="js-collection-wrapper">
+<h3>Compact Swipeable, 5 Teasers, Branded</h3>
+<div class="js-collection-wrapper-content">
+{% include 'organisms-collection' with {
+    'collection': {
+        'styleModifier': 'collection--compact-swipeable collection--branded',
+        "title": "News Schweiz",
+        "teasers": collections[0].teasers[0:5]
+    }
+} %}
+</div>
+</div>
+
+<div class="js-collection-wrapper">
 <h3>Compact Swipeable, 2 Teasers (= not actually swipeable, but standard</h3>
 <div class="js-collection-wrapper-content">
 {% include 'organisms-collection' with {
