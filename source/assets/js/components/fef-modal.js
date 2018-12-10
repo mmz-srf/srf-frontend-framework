@@ -70,7 +70,8 @@ export class FefModal {
      * - Pressing Escape
      */
     bindEvents() {
-        this.$element.find('.js-close-modal, .js-modal-overlay').on('click', () => {
+        this.$element.find('.js-close-modal, .js-modal-overlay').on('click', (event) => {
+            event.stopPropagation();
             this.close();
         });
 
