@@ -8,17 +8,16 @@ $background-overlap: 40px;
 $background-overlap-wide: 50px;
 
 .collection {
-  margin: 0 0 $collection-gap;
+  margin: $collection-gap 0 0;
   max-width: 100%;
 
   @include tablet-up {
-    margin-bottom: $collection-gap-tablet-up;
+    margin-top: $collection-gap-tablet-up;
   }
 
   @include desktop-wide {
-    margin-bottom: $collection-gap-desktop-wide;
+    margin-top: $collection-gap-desktop-wide;
   }
-
 
   .collection__content-wrapper {
     max-width: $desktop-wide-size;
@@ -29,57 +28,16 @@ $background-overlap-wide: 50px;
 }
 
 .collection--branded {
+  .collection--branded + &,
+  &:first-child {
+    // no space between two branded collections
+    margin-top: 0;
+  }
 
   .collection__branding-wrapper {
     max-width: 100%;
     margin-left: 0;
     margin-right: 0;
-  }
-
-  .collection__content-wrapper {
-    padding-top: 12px;
-
-    @include tablet-up {
-      padding-top: 16px;
-    }
-
-    @include desktop-wide {
-      padding-top: 20px;
-    }
-  }
-
-  // no space between two branded collections
-  & + .collection--branded {
-    margin-top: -#{$collection-gap};
-
-    @include tablet-up {
-      margin-top: -#{$collection-gap-tablet-up};
-    }
-
-    @include desktop-wide {
-      margin-top: -#{$collection-gap-desktop-wide};
-    }
-  }
-
-  // no space between header and an branded collection at first position
-  &:first-child {
-    margin-top: -16px;
-
-    @include tablet-up {
-      margin-top: -60px;
-    }
-
-    @include desktop-wide {
-      margin-top: -64px;
-    }
-
-    .collection__branding-wrapper {
-      padding-top: #{$collection-gap - 8};
-
-      @include tablet-up {
-        padding-top: #{$collection-gap-tablet-up - 8};
-      }
-    }
   }
 }
 
@@ -702,6 +660,7 @@ $background-overlap-wide: 50px;
 
 // Has an additional button on the top right that leads to a selection screen to change between groups of teasers
 .collection--selectable {
+  margin-top: 0;
   overflow: hidden;
   --theme-color-nav: #{$color-text-accentuation};
   --theme-selection-button-color: $color-text-default;

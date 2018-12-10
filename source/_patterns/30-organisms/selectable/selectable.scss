@@ -2,20 +2,37 @@
 @import "../../mixins";
 @import "../../breakpoints";
 
-.selectable {
-  // initially hidden, will be shown by JS depending on selection (see fef-selectable.js)
-  display: none;
-  margin: 0 0 $collection-gap;
-  max-width: 100%;
-  overflow: hidden;
+.selectable-wrapper {
+  margin: $collection-gap 0 0;
 
   @include tablet-up {
-    margin-bottom: $collection-gap-tablet-up;
+    margin-top: $collection-gap-tablet-up;
   }
 
   @include desktop-wide {
-    margin-bottom: $collection-gap-desktop-wide;
+    margin-top: $collection-gap-desktop-wide;
   }
+}
+
+.selectable-wrapper--branded {
+  .collection--branded + &,
+  .selectable-wrapper--branded + &,
+  & + .collection--branded,
+  &:first-child {
+    // no space between:
+    // * two branded selection wrappers
+    // * a branded selection wrapper and a branded selection
+    // * a branded selection and a branded selection wrapper
+    margin-top: 0;
+  }
+}
+
+.selectable {
+  // initially hidden, will be shown by JS depending on selection (see fef-selectable.js)
+  display: none;
+  margin: 0;
+  max-width: 100%;
+  overflow: hidden;
 }
 
 .selectable__branding-element {

@@ -1,5 +1,6 @@
 {# Standard Selectable with 3 Landingpage Sources #}
 
+<div class="selectable-wrapper">
 {% include 'organisms-selectable' with {
     'title': 'Regio-Modul',
     'lead': 'Standard Selectable with 3 Landingpage Sources',
@@ -56,9 +57,11 @@
         "teasers": collections[0].teasers[0:3]
     }
 } %}
+</div>
 
 {# Highlight Selectable with 2 Landingpage Sources, 1 Landingpage Source without teasers and 1 Landingpage Source that is not rendered #}
 
+<div class="selectable-wrapper selectable-wrapper--branded">
 {% include 'organisms-selectable' with {
     'title': 'Regio-Modul mit Theme',
     'branded': true,
@@ -122,9 +125,11 @@
         "teasers": []
     }
 } %}
+</div>
 
 {# Swipeable Selectable with 2 Landingpage Sources #}
 
+<div class="selectable-wrapper">
 {% include 'organisms-selectable' with {
     'title': 'Regio-Modul',
     'lead': 'Swipeable Selectable with 2 Landingpage Sources',
@@ -162,6 +167,17 @@
         "lead": "Hier können Sie eine Region auswählen.",
         "selectableText": "Region",
         "selectableURN": "srf:urn:collection:345",
+        "teasers": collections[0].teasers[0:5]
+    }
+} %}
+</div>
+
+{% include 'organisms-collection' with {
+    'collection': {
+        "urn": "srf:urn:landingpage:3",
+        "styleModifier": "collection--swipeable",
+        "title": "St. Gallen",
+        "titleLink": "https://hurrdurr.com",
         "teasers": collections[0].teasers[0:5]
     }
 } %}
