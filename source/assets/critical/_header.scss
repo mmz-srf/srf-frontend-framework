@@ -217,7 +217,6 @@
 .masthead__title-link:active,
 .masthead__title-link:visited {
     text-decoration: none;
-    /*color: $color-text-default;*/
     @include customPropWithFallback('color', '--theme-color-title', $color-text-default);
 }
 
