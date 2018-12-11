@@ -78,7 +78,9 @@
   margin: 16px 16px 16px 0;
   color: transparent; // hide alt-text in case image is broken
   position: relative; // for positioning ::pseudo elements
+  background-color: $color-image-dummy;
   align-self: start;
+  width: 101%; // dirty hack to avoid height problems in teaser
 
   // border on top of the images
   &::after {
