@@ -105,25 +105,6 @@ $background-overlap-wide: 50px;
   }
 }
 
-// A collection title link that looks like plaintext
-.collection__title-link--plaintext {
-  pointer-events: none;
-
-  color: $color-text-default;
-
-  // hide content
-  .collection__title-link-icon,
-  .collection__title-a11y-help {
-    display: none;
-    visibility: hidden;
-  }
-
-  // Element can still be accessed via tabulator
-  &:focus {
-    color: $color-text-default;
-  }
-}
-
 .collection__title-a11y-help {
   @include offscreen-non-focusable;
 }

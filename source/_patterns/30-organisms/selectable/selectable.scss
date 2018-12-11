@@ -71,9 +71,6 @@
   flex: 0 0 auto;
   font-family: $font-regular;
   font-size: 18px;
-  font-weight: normal;
-  font-style: normal;
-  font-stretch: normal;
   line-height: 1.33;
   letter-spacing: 0.4px;
   padding: 16px;
@@ -137,9 +134,6 @@
   font-family: $font-medium;
   font-feature-settings: "salt";
   @include fontSize(24);
-  font-weight: 500;
-  font-style: normal;
-  font-stretch: normal;
   line-height: $emphasize-line-height-ratio;
   color: $color-text-default;
   margin: 0;
@@ -152,9 +146,6 @@
 .selectable__lead {
   font-family: $font-light;
   @include fontSize(20);
-  font-weight: 300;
-  font-style: normal;
-  font-stretch: normal;
   line-height: $emphasize-line-height-ratio;
   color: $color-text-accentuation;
   max-width: 624px;
