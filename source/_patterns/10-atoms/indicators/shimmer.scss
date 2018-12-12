@@ -27,9 +27,12 @@
   position: absolute;
   left: 0;
   height: 100%;
-  animation: shimmeringAnimation 2.5s infinite ease-in-out;
-  will-change: transform;
   display: block;
+
+  @include a11yAnimation {
+    animation: shimmeringAnimation 2.5s infinite ease-in-out;
+    will-change: transform;
+  }
 }
 
 .shimmer:nth-of-type(2)::before {
