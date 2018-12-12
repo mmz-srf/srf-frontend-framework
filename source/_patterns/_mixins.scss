@@ -396,3 +396,17 @@
     @return calc(#{$nrOfColumns} * ((100% - 11 * #{$gutterSize}) / 12) + #{$nrOfColumns - 1} * #{$gutterSize});
   }
 }
+
+/* Uses these Styles when the User has enabled «Reduced Motion» */
+@mixin a11yAnimationFallback {
+  @media screen and (prefers-reduced-motion: reduce) {
+    @content;
+  }
+}
+
+/* Uses these Styles when the User has made __no preference__ to «Reduced Motion» known */
+@mixin a11yAnimation {
+  @media screen and (prefers-reduced-motion: no-preference) {
+    @content;
+  }
+}
