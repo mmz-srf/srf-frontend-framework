@@ -21,7 +21,9 @@
 }
 .teaser__label--live {
   .teaser__label-box {
-    animation: pulsatingLiveAnimation 3s infinite ease-in-out;
+    @include a11yAnimation {
+      animation: pulsatingLiveAnimation 3s infinite ease-in-out;
+    }
   }
   .teaser__label-box--time {
     display: none;
