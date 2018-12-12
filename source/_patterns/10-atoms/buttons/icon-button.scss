@@ -6,7 +6,7 @@
   padding: 16px;
   align-items: center;
   transition: opacity .2s ease-in-out;
-
+  -webkit-transform: translate3d(0, 100%, 0); //fixes an issue with transitions in safari
   /* fallback */
   color: $color-text-accentuation;
 
@@ -17,9 +17,6 @@
 
   &:hover {
     opacity: .8;
-      -webkit-transform: translate3d(0, 100%, 0);
-      transform: translate(0, 100%);
-
   }
 
   &:active {
