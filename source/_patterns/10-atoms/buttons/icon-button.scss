@@ -17,6 +17,9 @@
 
   &:hover {
     opacity: .8;
+      -webkit-transform: translate3d(0, 100%, 0);
+      transform: translate(0, 100%);
+
   }
 
   &:active {
