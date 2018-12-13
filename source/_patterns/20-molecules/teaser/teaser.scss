@@ -784,6 +784,12 @@
       background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6));
     }
   }
+  .teaser--longform__links {
+    background-color: rgba(0, 0, 0, 0.6);
+  }
+  .block-link--teaser-link {
+    filter: brightness(100)
+  }
 }
 
 // Longform Teaser in XL format has some special properties:
