@@ -1,7 +1,7 @@
 let ANIMATIONDURATION = 200;
 
 if (!window.matchMedia('(prefers-reduced-motion: no-preference)').matches) {
-  ANIMATIONDURATION = 0;
+    ANIMATIONDURATION = 0;
 }
 
 const ANIMATIONEASING = 'easeInOutCubic';
