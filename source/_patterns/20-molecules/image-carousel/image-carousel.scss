@@ -145,9 +145,8 @@
   border-width: 12px 0 12px 12px; // kompromiss :)
 
   &.carousel__link--waggle {
-    animation: waggleRightAnimation 1.6s cubic-bezier(0.445, 0.05, 0.55, 0.95);
-
     @include a11yAnimation {
+      animation: waggleRightAnimation 1.6s cubic-bezier(0.445, 0.05, 0.55, 0.95);
       animation-iteration-count: infinite;
     }
   }
