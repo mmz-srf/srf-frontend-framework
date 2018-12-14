@@ -11,26 +11,18 @@
 
 .masthead {
   height: 192px;
-
+  
   position: relative;
   z-index: 100;
   box-shadow: $shadow-elevation8;
   padding: 8px 32px 0;
+  background-color: #FFF;
 
   @include smartphone {
     height: 164px;
     margin-bottom: 16px;
     padding: 0 16px;
   }
-
-  /* fallback */
-  background: linear-gradient(
-    120deg,
-    $theme-default-color-1,
-    $theme-default-color-1 15%,
-    $theme-default-color-2 40%,
-    $theme-default-color-2
-  );
 
   &::before {
     content: '';
@@ -150,7 +142,7 @@
   font-family: $font-bold;
   @include fontSize(14);
   line-height: 1.14;
-  @include customPropWithFallback('color', '--theme-color-nav', $color-text-accentuation);
+  color: $color-text-accentuation;
 }
 
 .masthead__nav,
@@ -179,7 +171,7 @@
 .masthead__title-link:active,
 .masthead__title-link:visited {
     text-decoration: none;
-    @include customPropWithFallback('color', '--theme-color-title', $color-text-default);
+    color: $color-text-default;
 }
 
 .subnav__list {
@@ -202,8 +194,10 @@
 .masthead.masthead--theme-rtr_archiv,
 .masthead.masthead--theme-rtr_aura,
 .masthead.masthead--theme-rtr_interpresa {
-  --theme-color-title: #FFF;
-  --theme-color-nav: #FFF;
+  .masthead__title-link,
+  .portalsnav__link {
+    color: #FFF;
+  }
 }
 
 /* THEME-SPECIFIC SETTINGS */
