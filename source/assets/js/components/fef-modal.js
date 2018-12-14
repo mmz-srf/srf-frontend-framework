@@ -1,7 +1,11 @@
 import {DOM_CHANGED_EVENT} from '../classes/fef-dom-observer';
 import {FefResponsiveHelper} from '../classes/fef-responsive-helper';
 
-const ANIMATION_SPEED = 200;
+let ANIMATION_SPEED = 200;
+
+if (!window.matchMedia('(prefers-reduced-motion: no-preference)').matches) {
+  ANIMATION_SPEED = 0;
+}
 const KEYCODES = {
     'enter': 13,
     'tab': 9,
