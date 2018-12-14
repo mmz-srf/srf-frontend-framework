@@ -12,7 +12,7 @@
   border-top: 1px inset rgba(0,0,0,.08);
   opacity: 0;
   animation: fadeAndScaleInAnimation .2s forwards;
-  @include a11yAnimationFallback {
+  @include a11yAnimationReducedMotion {
     animation: fadeInAnimation .2s forwards;    
   }
 

@@ -398,7 +398,7 @@
 }
 
 /* Uses these Styles when the User has enabled «Reduced Motion» */
-@mixin a11yAnimationFallback {
+@mixin a11yAnimationReducedMotion {
   @media screen and (prefers-reduced-motion: reduce) {
     @content;
   }
