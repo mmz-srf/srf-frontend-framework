@@ -29,7 +29,7 @@
   height: 100%;
   display: block;
 
-  @include a11yAnimation {
+  @include sickAnimation {
     animation: shimmeringAnimation 2.5s infinite ease-in-out;
     will-change: transform;
   }

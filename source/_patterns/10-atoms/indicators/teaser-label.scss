@@ -21,7 +21,7 @@
 }
 .teaser__label--live {
   .teaser__label-box {
-    @include a11yAnimation {
+    @include sickAnimation {
       animation: pulsatingLiveAnimation 3s infinite ease-in-out;
     }
   }

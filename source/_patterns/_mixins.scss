@@ -397,16 +397,17 @@
   }
 }
 
-/* Uses these Styles when the User has enabled «Reduced Motion» */
-@mixin a11yAnimationReducedMotion {
+/* Use defined Animation AND disable the animation when the User has enabled «Reduced Motion» OS-Setting */
+@mixin sickAnimation {
+  @content;
+
   @media screen and (prefers-reduced-motion: reduce) {
-    @content;
+    animation: none;
   }
 }
 
-/* Uses these Styles when the User has made __no preference__ to «Reduced Motion» known */
-@mixin a11yAnimation {
-  @media screen and (prefers-reduced-motion: no-preference) {
+@mixin reducedMotion {
+  @media screen and (prefers-reduced-motion: reduce) {
     @content;
   }
 }
