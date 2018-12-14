@@ -1,4 +1,9 @@
-const ANIMATIONDURATION = 200;
+let ANIMATIONDURATION = 200;
+
+if (!window.matchMedia('(prefers-reduced-motion: no-preference)').matches) {
+  ANIMATIONDURATION = 0;
+}
+
 const ANIMATIONEASING = 'easeInOutCubic';
 const KEYCODES = {
     'enter': 13,
