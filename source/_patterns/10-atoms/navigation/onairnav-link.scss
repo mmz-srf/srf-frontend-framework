@@ -96,6 +96,11 @@
   max-height: 80px;
 }
 
+.onairnav-link__media--rtr-radiologo {
+  width: 80px;
+  height: 52px;
+  max-height: 52px;
+}
 
 
 /* Link-Elements Title */
@@ -117,6 +122,13 @@
 .onairnav-link__title--radiostation {
   font-family: $font-regular;
   @include fontSize(14);
+  line-height: 1.15;
+  color: #fff;
+}
+
+.onairnav-link__title--rtr-radiostation {
+  font-family: $font-regular;
+  @include fontSize(18);
   line-height: 1.15;
   color: #fff;
 }
