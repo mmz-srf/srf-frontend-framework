@@ -59,8 +59,16 @@
                     </div>
                 </div>
             </a>
-
-            {# space for teaser-links #}
+            {# TEASER LINKS #}
+            {% if teaser.showLinks|default(false) %}
+                <div class="teaser--longform__links">
+                    <div class="teaser__links">
+                        {% include 'atoms-block-link' with { 'styleModifier': 'block-link--teaser-link block-link--internal' } %}
+                        {% include 'atoms-block-link' with { 'styleModifier': 'block-link--teaser-link block-link--audio' } %}
+                        {% include 'atoms-block-link' with { 'styleModifier': 'block-link--teaser-link block-link--video' } %}
+                    </div>
+                </div>
+            {% endif %}
         </div>
     </div>
 </div>
