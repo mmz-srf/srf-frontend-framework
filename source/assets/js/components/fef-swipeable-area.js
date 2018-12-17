@@ -12,7 +12,8 @@ const HOOK_CLASS = 'js-swipeable-area',
     RIGHT_OFFSET = 24,
     DEFAULT_SCROLL_TIME = 400,
     DEBOUNCETIME = 50,
-    HINT_AMOUNT = 20;
+    HINT_AMOUNT = 20,
+    MINIMUM_HEIGHT = 50;
 
 export function init() {
     $(`.${HOOK_CLASS}`).each((index, element) => {
@@ -64,7 +65,10 @@ export class FefSwipeableArea {
     initContainerHeight() {
         this.$innerContainer.css('overflow', 'hidden');
         let height = this.$innerContainer.outerHeight();
-        this.$element.css('height', height);
+
+        if (height > MINIMUM_HEIGHT) {
+            this.$element.css('height', Math.floor(height));
+        }
         this.$innerContainer.css('overflow', '');
     }
 

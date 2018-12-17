@@ -50,7 +50,7 @@
 
 .sticky-container--home.sticky-container--longportalnames.affix {
   @include tablet {
-    margin-top: -62px;
+    margin-top: -56px;
   }
 }
 
@@ -60,32 +60,24 @@
 
 .affix-placeholder {
   top: 0;
-  height: 178px;
+  height: 162px;
 
   @include tablet-up {
-    height: 224px;
-  }
-
-  @include desktop-wide {
-    height: 232px;
+    height: 194px;
   }
 }
 
 .affix-placeholder--home {
-  height: 128px;
+  height: 112px;
 
   @include tablet-up {
-    height: 112px;
-  }
-
-  @include desktop-wide {
-    height: 120px;
+    height: 80px;
   }
 }
 
 .affix-placeholder--home.affix-placeholder--longportalnames {
   @include tablet {
-    height: 128px;
+    height: 112px;
   }
 }
 
