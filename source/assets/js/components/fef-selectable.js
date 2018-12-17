@@ -114,12 +114,15 @@ export class SrfSelectableCollection {
     }
 
     /**
-     * Shows the selection element
+     * Shows the selection element and removes the saved Selection from localstorage.
+     *
      * @param {jQuery.event} event Original event that triggered the change
      */
     showSelectionElement(event) {
         let $collection = this.$sourceCollections.filter(`.${SELECTED_COLLECTION_CLASS}`).first(),
             shouldFocus = event.screenX == 0 && event.screenY == 0;
+
+        this.removeSelectionFromLocalstorage();
 
         if (!$collection) {
             this.$element.show();
@@ -220,6 +223,26 @@ export class SrfSelectableCollection {
 
             // override the previously saved sourceURN for this collection (or set it if it didn't exist before)
             savedSelections[this.collectionURN] = sourceUrn;
+
+            FefStorage.setItem(STORAGE_KEY, JSON.stringify(savedSelections));
+        }
+    }
+
+    /**
+     * Removes a selection from localstorate. It replaces the previously saved
+     * object with a new object from which it deleted the key that is this
+     * collection's URN. If nothing was saved, nothing will be deleted. If no
+     * selection was saved for this collection, `delete` will not throw an error.
+     */
+    removeSelectionFromLocalstorage() {
+        if (FefStorage.isLocalStorageAvailable()) {
+            let savedSelections = FefStorage.getItemJsonParsed(STORAGE_KEY);
+
+            if (!savedSelections) {
+                savedSelections = {};
+            }
+
+            delete savedSelections[this.collectionURN];
 
             FefStorage.setItem(STORAGE_KEY, JSON.stringify(savedSelections));
         }
