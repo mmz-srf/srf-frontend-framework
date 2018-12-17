@@ -10,26 +10,32 @@
 }
 
 .masthead {
-  height: 192px;
+  height: 194px;
 
   position: relative;
   z-index: 100;
   box-shadow: $shadow-elevation8;
   padding: 8px 32px 0;
-
-  /* fallback */
-  background: linear-gradient(
-                  117deg,
-                  $theme-default-color-1,
-                  $theme-default-color-1 20%,
-                  $theme-default-color-2 40%,
-                  $theme-default-color-2
-  );
+  background-color: #FFF;
 
   @include smartphone {
     height: 164px;
     margin-bottom: 16px;
     padding: 0 16px;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+    opacity: 1;
+
+    /* theme */
+    background-color: var(--theme-color-gradient-1);
   }
 }
 
@@ -171,4 +177,67 @@
 .subnav__list {
   max-height: 56px;
   overflow: hidden;
+}
+
+
+/* THEME */
+
+/* COMMON SETTINGS FOR ALL THEMES EXCEPT DEFAULT */
+.masthead.masthead--theme-sport,
+.masthead.masthead--theme-meteo,
+.masthead.masthead--theme-kultur,
+.masthead.masthead--theme-dok,
+.masthead.masthead--theme-rtr_novitads,
+.masthead.masthead--theme-rtr_cultura,
+.masthead.masthead--theme-rtr_sport,
+.masthead.masthead--theme-rtr_uffants,
+.masthead.masthead--theme-rtr_archiv,
+.masthead.masthead--theme-rtr_aura,
+.masthead.masthead--theme-rtr_interpresa {
+  .masthead__title-link,
+  .portalsnav__link {
+    color: #FFF;
+  }
+}
+
+/* THEME-SPECIFIC SETTINGS */
+.masthead.masthead--theme-sport {
+  --theme-color-gradient-1: #{$theme-sport-color-1};
+}
+
+.masthead.masthead--theme-meteo,
+.masthead.masthead--theme-rtr_aura {
+  --theme-color-gradient-1: #{$theme-meteo-color-1};
+}
+
+.masthead.masthead--theme-kultur {
+  --theme-color-gradient-1: #{$theme-kultur-color-1};
+}
+
+.masthead.masthead--theme-dok {
+  --theme-color-gradient-1: #{$theme-dok-color-1};
+}
+
+.masthead.masthead--theme-rtr_novitads {
+  --theme-color-gradient-1: #{$theme-rtr-novitads-color-1};
+}
+
+.masthead.masthead--theme-rtr_cultura {
+  --theme-color-gradient-1: #{$theme-rtr-cultura-color-1};
+}
+
+.masthead.masthead--theme-rtr_sport {
+  --theme-color-gradient-1: #{$theme-rtr-sport-color-1};
+}
+
+.masthead.masthead--theme-rtr_uffants {
+  --theme-color-gradient-1: #{$theme-rtr-uffants-color-1};
+}
+
+.masthead.masthead--theme-rtr_archiv {
+  --theme-color-gradient-1: #{$theme-rtr-archivar-color-1};
+}
+
+.masthead.masthead--theme-rtr_interpresa {
+  --theme-color-gradient-1: #{$theme-rtr-interpresa-color-1};
 }
