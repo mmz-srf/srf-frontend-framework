@@ -80,6 +80,7 @@
   position: relative; // for positioning ::pseudo elements
   background-color: $color-image-dummy;
   align-self: start;
+  width: 100%;
 
   // border on top of the images
   &::after {
@@ -314,7 +315,7 @@
   }
 
   .teaser__medium {
-    width: 100%;
+    width: 101%; // dirty hack to make teaser images fit the correct hight
     height: auto;
   }
 
