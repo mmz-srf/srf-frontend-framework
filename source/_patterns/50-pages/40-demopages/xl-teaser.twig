@@ -1,3 +1,9 @@
+<style>
+    .teaser {
+        margin-bottom: 40px;
+    }
+</style>
+
 {% include 'molecules-teaser' with {
     'styleModifier': 'teaser--size-xl',
     'teaser': collections[0].teasers[0],
@@ -11,6 +17,7 @@
     'showLinks': false
 } %}
 
+<h1>With Opinion</h1>
 {% include 'molecules-teaser' with {
     'styleModifier': 'teaser--size-xl',
     'teaser': collections[0].teasers[0],
@@ -24,6 +31,7 @@
     'showLinks': false
 } %}
 
+<h1>With Live Center Results</h1>
 {% include 'molecules-teaser' with {
     'styleModifier': 'teaser--size-xl',
     'teaser': collections[0].teasers[0],

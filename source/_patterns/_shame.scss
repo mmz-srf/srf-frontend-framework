@@ -350,6 +350,10 @@ _:-ms-fullscreen,
   @supports not (animation: calc(0s)) {
     .teaser--size-xl .teaser__main {
       display: flex;
+
+      .ratio-wrapper {
+        height: auto;
+      }
     }
   }
 }
