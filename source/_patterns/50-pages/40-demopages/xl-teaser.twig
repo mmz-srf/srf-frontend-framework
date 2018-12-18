@@ -1,0 +1,46 @@
+<style>
+    .teaser {
+        margin-bottom: 40px;
+    }
+</style>
+
+{% include 'molecules-teaser' with {
+    'styleModifier': 'teaser--size-xl',
+    'teaser': collections[0].teasers[0],
+    'infoText': 'Vor 5 Minuten',
+    'infoType': 'live',
+    'infoMediaSource': 'Livestream',
+    'infoMediaTime': 'um 13:37',
+    'infoStyleModifier': 'teaser-info--live-pre',
+    'showOpinion': false,
+    'showScoreboard': false,
+    'showLinks': false
+} %}
+
+<h1>With Opinion</h1>
+{% include 'molecules-teaser' with {
+    'styleModifier': 'teaser--size-xl',
+    'teaser': collections[0].teasers[0],
+    'infoText': 'Vor 5 Minuten',
+    'infoType': 'live',
+    'infoMediaSource': 'Livestream',
+    'infoMediaTime': 'um 13:37',
+    'infoStyleModifier': 'teaser-info--live-pre',
+    'showOpinion': true,
+    'showScoreboard': false,
+    'showLinks': false
+} %}
+
+<h1>With Live Center Results</h1>
+{% include 'molecules-teaser' with {
+    'styleModifier': 'teaser--size-xl',
+    'teaser': collections[0].teasers[0],
+    'infoText': 'Vor 5 Minuten',
+    'infoType': 'live',
+    'infoMediaSource': 'Livestream',
+    'infoMediaTime': 'um 13:37',
+    'infoStyleModifier': 'teaser-info--live-pre',
+    'showOpinion': false,
+    'showScoreboard': true,
+    'showLinks': false
+} %}

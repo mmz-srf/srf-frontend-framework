@@ -339,3 +339,21 @@ _:-ms-fullscreen,
     }
   }
 }
+
+/**
+ * TARGETED BROWSER: Firefox 52 but since that's not easily possible, we target FF < 57 here.
+ * Old Firefox version (52) doesn't play nice with the ratio element and grid, which is used
+ * in the XL teasers because of opinion/live center results elements.
+ * Very sad. (⌯˃̶᷄ ﹏ ˂̶᷄⌯)
+ */
+@-moz-document url-prefix() {
+  @supports not (animation: calc(0s)) {
+    .teaser--size-xl .teaser__main {
+      display: flex;
+
+      .ratio-wrapper {
+        height: auto;
+      }
+    }
+  }
+}
