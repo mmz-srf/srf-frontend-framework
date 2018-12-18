@@ -8,7 +8,9 @@
 @import 'legacy_header';
 @import 'header';
 @import 'footer';
-
+body {
+  line-height: 1.5
+}
 .article-main-media,
 .article-content,
 .article-comments,
@@ -214,7 +216,7 @@ img {
   @include fontSize(22);
   color: #4e4d47;
   font-family: "SRG_SSR_Light", sans-serif;
-
+  line-height: 1.45;
   @include smartphone {
     margin: 13px 0 17px;
     @include fontSize(20);
