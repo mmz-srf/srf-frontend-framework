@@ -396,3 +396,18 @@
     @return calc(#{$nrOfColumns} * ((100% - 11 * #{$gutterSize}) / 12) + #{$nrOfColumns - 1} * #{$gutterSize});
   }
 }
+
+/* Use defined Animation AND disable the animation when the User has enabled «Reduced Motion» OS-Setting */
+@mixin sickAnimation {
+  @content;
+
+  @media screen and (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
+}
+
+@mixin reducedMotion {
+  @media screen and (prefers-reduced-motion: reduce) {
+    @content;
+  }
+}
