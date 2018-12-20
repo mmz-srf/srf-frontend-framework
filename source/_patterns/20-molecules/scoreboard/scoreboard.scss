@@ -70,6 +70,7 @@ $scoreboard-col-padding-height: 8px;
 .scoreboard__rank {
   width: 20px;
   flex-grow: 0;
+  flex-shrink: 0;
   line-height: 14px;
 }
 
