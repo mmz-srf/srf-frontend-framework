@@ -730,7 +730,10 @@
 .teaser--longform {
   height: 100%;
   position: relative; // necessary to position medium (see 2 lines below)
-
+  // necessary to have a translucent background (contrary to the default dark teaser)
+  &.teaser.teaser--theme-dark {
+    --teaser-color-background: transparent;
+  }
   .teaser__longform-medium {
     position: absolute;
     z-index: 0;
