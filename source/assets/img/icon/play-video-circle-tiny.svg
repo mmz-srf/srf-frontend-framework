@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="12px" height="12px" viewBox="0 0 12 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 51 (57462) - http://www.bohemiancoding.com/sketch -->
-    <title>Atoms/Icons/Video_Icon_Tiny</title>
-    <desc>Created with Sketch.</desc>
-    <defs></defs>
-    <g id="Atoms/Icons/Video_Icon_Tiny" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Video_Icon_Tiny">
-            <circle id="Oval-1" stroke="#4E4D47" cx="6" cy="6" r="5.625"></circle>
-            <path d="M4.3595935,8.94596476 C4.1615565,9.06621516 4,8.97887539 4,8.75229833 L4.00086858,3.24778357 C4.00130288,3.02078457 4.16285938,2.93386673 4.36089638,3.05411713 L8.85147225,5.78232443 C9.04950925,5.90257483 9.04950925,6.09919478 8.85147225,6.21944518 L4.3595935,8.94596476 Z" id="Fill-1" fill="#4E4D47"></path>
+    <g id="Artboards" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="srf-app-global-icons" transform="translate(-62.000000, -788.000000)">
+            <g id="Atoms/Icons/Video_Icon_Tiny" transform="translate(62.000000, 788.000000)">
+                <g id="Video_Icon_Tiny">
+                    <circle id="Oval-1" stroke="#4E4D47" cx="6" cy="6" r="5.5"></circle>
+                    <path d="M4.3595935,8.94596476 C4.1615565,9.06621516 4,8.97887539 4,8.75229833 L4.00086858,3.24778357 C4.00130288,3.02078457 4.16285938,2.93386673 4.36089638,3.05411713 L8.85147225,5.78232443 C9.04950925,5.90257483 9.04950925,6.09919478 8.85147225,6.21944518 L4.3595935,8.94596476 Z" id="Fill-1" fill="#4E4D47"></path>
+                </g>
+            </g>
         </g>
     </g>
 </svg>
