@@ -475,6 +475,10 @@
       width: 34.25%;
       @include customPropWithFallback('background-color', '--teaser-color-background', $color-bg-card);
     }
+
+    @include desktop-wide {
+      padding: 0 0 0 32px;
+    }
   }
 
   .teaser__medium {
