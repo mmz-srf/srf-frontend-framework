@@ -1,3 +1,7 @@
+import {FefDebounceHelper} from '../classes/fef-debounce-helper';
+
+const DEBOUNCETIME = 500;
+
 export function init() {
 
     let DURATION = 150;
@@ -20,11 +24,10 @@ export function init() {
         }
     }, false);
 
-    win.addEventListener('resize', function (event) {
-        if($('flying-focus').hasClass('flying-focus_visible')) {
-            placeFlyingFocus(doc.activeElement);
-        }
-    }, false);
+    win.addEventListener('resize',
+        FefDebounceHelper.debounce(() => placeFlyingFocus(doc.activeElement), DEBOUNCETIME),
+        false
+    );
 
     docElem.addEventListener('focus', function (event) {
         let target = event.target;
