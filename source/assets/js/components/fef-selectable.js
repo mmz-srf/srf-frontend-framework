@@ -120,7 +120,7 @@ export class SrfSelectableCollection {
      */
     showSelectionElement(event) {
         let $collection = this.$sourceCollections.filter(`.${SELECTED_COLLECTION_CLASS}`).first(),
-            shouldFocus = event.screenX == 0 && event.screenY == 0;
+            shouldFocus = event.screenX === 0 && event.screenY === 0;
 
         this.removeSelectionFromLocalstorage();
 
@@ -134,7 +134,7 @@ export class SrfSelectableCollection {
         let newHeight = this.$animationWrapper.height();
         this.$animationWrapper.css('opacity', 0);
 
-        if (shouldFocus) {
+        if (!shouldFocus) {
             $(':focus').blur();
         }
 
