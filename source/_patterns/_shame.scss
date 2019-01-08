@@ -368,3 +368,15 @@ _:-ms-fullscreen,
     }
   }
 }
+
+/*
+ * TARGETED BROWSER: IE 11
+ *
+ * IE11 has troubles with flex-container in grid.
+ */
+
+ @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+   .teaser__main-outer-wrapper {
+     height: 100%;
+   }
+ }
