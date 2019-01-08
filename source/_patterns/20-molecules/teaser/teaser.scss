@@ -763,9 +763,9 @@
     flex-grow: 0;
     flex-basis: auto;
     background-color: rgba(0, 0, 0, 0.6);
-    padding: 16px 12px 16px 16px;
+    padding: 16px;
     @include desktop-wide {
-      padding: 24px 12px 24px 24px;
+      padding: 24px;
     }
     margin: 0;
     position: relative;
