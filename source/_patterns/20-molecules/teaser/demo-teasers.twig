@@ -11,8 +11,9 @@
     }
 </style>
 
-{% include 'atoms-button' with {'buttonText' : 'Max-Width setzen', 'styleModifier': 'js-toggle-maxWidth'} %}
+<p><strong>Note:</strong> Teaser links and opinion links are added to teasers randomly on generation of this page.</p>
 
+{% include 'atoms-button' with {'buttonText' : 'Max-Width setzen', 'styleModifier': 'js-toggle-maxWidth'} %}
 
 <div class="js-togglable-wrapper togglable-wrapper">
     {% include 'molecules-teaser' with {
@@ -22,7 +23,10 @@
         'infoType': 'live',
         'infoMediaSource': 'Livestream',
         'infoMediaTime': 'um 13:37',
-        'infoStyleModifier': 'teaser-info--live-pre'
+        'infoStyleModifier': 'teaser-info--live-pre',
+        'showOpinion': random([true, false]),
+        'showScoreboard': false,
+        'showLinks': random([true, false])
     } %}
 </div>
 
@@ -35,7 +39,10 @@
         'infoType': 'state',
         'infoText': 'Vor 5 Minuten',
         'infoStyleModifier': 'teaser-info--visited-and-updated teaser-info--with-icon',
-        'teaser': collections[0].teasers[0]
+        'teaser': collections[0].teasers[0],
+        'showOpinion': random([true, false]),
+        'showScoreboard': false,
+        'showLinks': random([true, false])
     } %}
 </div>
 
@@ -44,7 +51,10 @@
 <div class="js-togglable-wrapper togglable-wrapper">
     {% include 'molecules-teaser' with {
         'styleModifier': 'teaser--size-m',
-        'teaser': collections[0].teasers[0]
+        'teaser': collections[0].teasers[0],
+        'showOpinion': random([true, false]),
+        'showScoreboard': false,
+        'showLinks': random([true, false])
     } %}
 </div>
 
@@ -53,7 +63,10 @@
 <div class='js-togglable-wrapper togglable-wrapper'>
     {% include 'molecules-teaser' with {
         "styleModifier": "teaser--size-m teaser--with-links teaser--size-s-on-mobile",
-        "teaser": collections[0].teasers[0]
+        "teaser": collections[0].teasers[0],
+        'showOpinion': random([true, false]),
+        'showScoreboard': false,
+        'showLinks': random([true, false])
     } %}
 </div>
 
@@ -62,7 +75,10 @@
 <div class="js-togglable-wrapper togglable-wrapper">
     {% include 'molecules-teaser' with {
         'styleModifier': 'teaser--size-l',
-        'teaser': collections[0].teasers[0]
+        'teaser': collections[0].teasers[0],
+        'showOpinion': random([true, false]),
+        'showScoreboard': false,
+        'showLinks': random([true, false])
     } %}
 </div>
 
@@ -71,7 +87,10 @@
 <div class="js-togglable-wrapper togglable-wrapper">
     {% include 'molecules-teaser' with {
         "styleModifier": "teaser--size-l teaser--with-links teaser--size-s-on-mobile",
-        "teaser": collections[0].teasers[0]
+        "teaser": collections[0].teasers[0],
+        'showOpinion': random([true, false]),
+        'showScoreboard': false,
+        'showLinks': random([true, false])
     } %}
 </div>
 
@@ -80,7 +99,10 @@
 <div class="js-togglable-wrapper togglable-wrapper">
     {% include 'molecules-teaser' with {
         'styleModifier': 'teaser--size-xl',
-        'teaser': collections[0].teasers[0]
+        'teaser': collections[0].teasers[0],
+        'showOpinion': random([true, false]),
+        'showScoreboard': false,
+        'showLinks': random([true, false])
     } %}
 </div>
 
@@ -89,7 +111,10 @@
 <div class='js-togglable-wrapper togglable-wrapper'>
     {% include 'molecules-teaser' with {
         "styleModifier": "teaser--size-s teaser--no-translate",
-        "teaser": collections[0].teasers[0]
+        "teaser": collections[0].teasers[0],
+        'showOpinion': random([true, false]),
+        'showScoreboard': false,
+        'showLinks': random([true, false])
     } %}
 </div>
 
@@ -99,7 +124,10 @@
     {% include 'molecules-teaser' with {
         "styleModifier": "teaser--theme-breaking",
         "preKicker": "Breaking",
-        "teaser": collections[0].teasers[0]
+        "teaser": collections[0].teasers[0],
+        'showOpinion': random([true, false]),
+        'showScoreboard': false,
+        'showLinks': random([true, false])
     } %}
 </div>
 
@@ -108,7 +136,10 @@
 <div class='js-togglable-wrapper togglable-wrapper'>
     {% include 'molecules-teaser' with {
         "styleModifier": "teaser--size-s teaser--theme-dark",
-        "teaser": collections[0].teasers[0]
+        "teaser": collections[0].teasers[0],
+        'showOpinion': random([true, false]),
+        'showScoreboard': false,
+        'showLinks': random([true, false])
     } %}
 </div>
 
@@ -117,7 +148,10 @@
 <div class='js-togglable-wrapper togglable-wrapper'>
     {% include 'molecules-teaser' with {
         "styleModifier": "teaser--size-s teaser--hoverable",
-        "teaser": collections[0].teasers[0]
+        "teaser": collections[0].teasers[0],
+        'showOpinion': random([true, false]),
+        'showScoreboard': false,
+        'showLinks': random([true, false])
     } %}
 </div>
 
@@ -126,7 +160,10 @@
 <div class='js-togglable-wrapper togglable-wrapper'>
     {% include 'molecules-teaser' with {
         "styleModifier": "teaser--size-s teaser--theme-dark teaser--hoverable",
-        "teaser": collections[0].teasers[0]
+        "teaser": collections[0].teasers[0],
+        'showOpinion': random([true, false]),
+        'showScoreboard': false,
+        'showLinks': random([true, false])
     } %}
 </div>
 
@@ -135,7 +172,10 @@
 <div class="js-togglable-wrapper togglable-wrapper">
     {% include 'molecules-teaser' with {
         'styleModifier': '',
-        'teaser': collections[0].teasers[0]
+        'teaser': collections[0].teasers[0],
+        'showOpinion': random([true, false]),
+        'showScoreboard': false,
+        'showLinks': random([true, false])
     } %}
 </div>
 
@@ -152,7 +192,10 @@
         'infoType': 'live',
         'infoMediaSource': 'Livestream',
         'infoMediaTime': 'um 13:37',
-        'infoStyleModifier': 'teaser-info--live-pre'
+        'infoStyleModifier': 'teaser-info--live-pre',
+        'showOpinion': random([true, false]),
+        'showScoreboard': false,
+        'showLinks': random([true, false])
     } %}
 </div>
 
@@ -166,7 +209,10 @@
         'infoType': 'live',
         'infoMediaSource': 'Liveticker',
         'infoMediaTime': 'um 13:37',
-        'infoStyleModifier': 'teaser-info--live-pre'
+        'infoStyleModifier': 'teaser-info--live-pre',
+        'showOpinion': random([true, false]),
+        'showScoreboard': false,
+        'showLinks': random([true, false])
     } %}
 </div>
 
@@ -180,7 +226,10 @@
         'infoType': 'live',
         'infoMediaSource': 'Livestream',
         'infoMediaTime': 'seit 2 Stunden',
-        'infoStyleModifier': 'teaser-info--live-live'
+        'infoStyleModifier': 'teaser-info--live-live',
+        'showOpinion': random([true, false]),
+        'showScoreboard': false,
+        'showLinks': random([true, false])
     } %}
 </div>
 
@@ -194,7 +243,10 @@
         'infoType': 'live',
         'infoMediaSource': 'Liveticker',
         'infoMediaTime': 'seit 2 Stunden',
-        'infoStyleModifier': 'teaser-info--live-live'
+        'infoStyleModifier': 'teaser-info--live-live',
+        'showOpinion': random([true, false]),
+        'showScoreboard': false,
+        'showLinks': random([true, false])
     } %}
 </div>
 
@@ -206,7 +258,10 @@
         'infoType': 'live',
         'infoMediaSource': 'Liveticker',
         'infoMediaTime': 'seit 2 Stunden',
-        'infoStyleModifier': 'teaser-info--live-live'
+        'infoStyleModifier': 'teaser-info--live-live',
+        'showOpinion': random([true, false]),
+        'showScoreboard': false,
+        'showLinks': random([true, false])
     } %}
 </div>
 
@@ -218,7 +273,10 @@
         'infoType': 'live',
         'infoMediaSource': 'Livestream',
         'infoMediaTime': 'seit 18 Minuten',
-        'infoStyleModifier': 'teaser-info--live-live'
+        'infoStyleModifier': 'teaser-info--live-live',
+        'showOpinion': random([true, false]),
+        'showScoreboard': false,
+        'showLinks': random([true, false])
     } %}
 </div>
 
@@ -234,7 +292,10 @@
         'teaser': collections[0].teasers[0],
         'infoType': 'state',
         'infoText': 'Vor 5 Minuten',
-        'infoStyleModifier': 'teaser-info--new'
+        'infoStyleModifier': 'teaser-info--new',
+        'showOpinion': random([true, false]),
+        'showScoreboard': false,
+        'showLinks': random([true, false])
     } %}
 </div>
 
@@ -244,7 +305,10 @@
         'teaser': collections[0].teasers[0],
         'infoType': 'state',
         'infoText': 'Vor 5 Minuten',
-        'infoStyleModifier': 'teaser-info--new'
+        'infoStyleModifier': 'teaser-info--new',
+        'showOpinion': random([true, false]),
+        'showScoreboard': false,
+        'showLinks': random([true, false])
     } %}
 </div>
 
@@ -255,7 +319,10 @@
         'teaser': collections[0].teasers[0],
         'infoType': 'state',
         'infoText': 'Vor 5 Minuten',
-        'infoStyleModifier': 'teaser-info--new'
+        'infoStyleModifier': 'teaser-info--new',
+        'showOpinion': random([true, false]),
+        'showScoreboard': false,
+        'showLinks': random([true, false])
     } %}
 </div>
 
@@ -267,7 +334,10 @@
         'teaser': collections[0].teasers[0],
         'infoType': 'state',
         'infoText': 'Gesehen',
-        'infoStyleModifier': 'teaser-info--visited teaser-info--with-icon'
+        'infoStyleModifier': 'teaser-info--visited teaser-info--with-icon',
+        'showOpinion': random([true, false]),
+        'showScoreboard': false,
+        'showLinks': random([true, false])
     } %}
 </div>
 
@@ -279,7 +349,10 @@
         'teaser': collections[0].teasers[0],
         'infoType': 'state',
         'infoText': 'Vor 5 Minuten',
-        'infoStyleModifier': 'teaser-info--visited-and-recently-updated teaser-info--with-icon'
+        'infoStyleModifier': 'teaser-info--visited-and-recently-updated teaser-info--with-icon',
+        'showOpinion': random([true, false]),
+        'showScoreboard': false,
+        'showLinks': random([true, false])
     } %}
 </div>
 
@@ -289,7 +362,9 @@
         'teaser': collections[0].teasers[0],
         'infoType': 'state',
         'infoText': 'Vor 5 Minuten',
-        'infoStyleModifier': 'teaser-info--visited-and-recently-updated teaser-info--with-icon'
+        'infoStyleModifier': 'teaser-info--visited-and-recently-updated teaser-info--with-icon',
+        'showOpinion': random([true, false]),
+        'showLinks': random([true, false])
     } %}
 </div>
 
@@ -300,7 +375,10 @@
         'teaser': collections[0].teasers[0],
         'infoType': 'state',
         'infoText': 'Vor 5 Minuten',
-        'infoStyleModifier': 'teaser-info--visited-and-recently-updated teaser-info--with-icon'
+        'infoStyleModifier': 'teaser-info--visited-and-recently-updated teaser-info--with-icon',
+        'showOpinion': random([true, false]),
+        'showScoreboard': false,
+        'showLinks': random([true, false])
     } %}
 </div>
 
@@ -312,7 +390,10 @@
         'teaser': collections[0].teasers[0],
         'infoType': 'state',
         'infoText': 'Vor 5 Minuten',
-        'infoStyleModifier': 'teaser-info--visited-and-updated teaser-info--with-icon'
+        'infoStyleModifier': 'teaser-info--visited-and-updated teaser-info--with-icon',
+        'showOpinion': random([true, false]),
+        'showScoreboard': false,
+        'showLinks': random([true, false])
     } %}
 </div>
 
@@ -322,7 +403,10 @@
         'teaser': collections[0].teasers[0],
         'infoType': 'state',
         'infoText': 'Vor 5 Minuten',
-        'infoStyleModifier': 'teaser-info--visited-and-updated teaser-info--with-icon'
+        'infoStyleModifier': 'teaser-info--visited-and-updated teaser-info--with-icon',
+        'showOpinion': random([true, false]),
+        'showScoreboard': false,
+        'showLinks': random([true, false])
     } %}
 </div>
 
@@ -333,7 +417,12 @@
         'teaser': collections[0].teasers[0],
         'infoType': 'state',
         'infoText': 'Vor 5 Minuten',
-        'infoStyleModifier': 'teaser-info--visited-and-updated teaser-info--with-icon'
+        'infoStyleModifier': 'teaser-info--visited-and-updated teaser-info--with-icon',
+        'showOpinion': random([true, false]),
+        'showScoreboard': false,
+        'showOpinion': random([true, false]),
+        'showScoreboard': false,
+        'showLinks': random([true, false])
     } %}
 </div>
 
@@ -345,7 +434,10 @@
         'teaser': collections[0].teasers[0],
         'infoType': 'state',
         'infoText': 'Vor 5 Minuten',
-        'infoStyleModifier': 'teaser-info--visited-and-updated teaser-info--with-icon'
+        'infoStyleModifier': 'teaser-info--visited-and-updated teaser-info--with-icon',
+        'showOpinion': random([true, false]),
+        'showScoreboard': false,
+        'showLinks': random([true, false])
     } %}
 </div>
 

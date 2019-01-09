@@ -8,82 +8,36 @@ $background-overlap: 40px;
 $background-overlap-wide: 50px;
 
 .collection {
-  margin: 0 0 $collection-gap;
+  margin: $collection-gap 0 0;
   max-width: 100%;
 
   @include tablet-up {
-    margin-bottom: $collection-gap-tablet-up;
+    margin-top: $collection-gap-tablet-up;
   }
 
   @include desktop-wide {
-    margin-bottom: $collection-gap-desktop-wide;
+    margin-top: $collection-gap-desktop-wide;
   }
-
 
   .collection__content-wrapper {
     max-width: $desktop-wide-size;
     margin: 0 auto;
     background-color: transparent;
     box-shadow: none;
-
-    @include tablet-up {
-      margin-top: 20px;
-    }
   }
 }
 
 .collection--branded {
+  .collection--branded + &,
+  &:first-child {
+    // no space between two branded collections
+    margin-top: 0;
+  }
 
   .collection__branding-wrapper {
     max-width: 100%;
     margin-left: 0;
     margin-right: 0;
-  }
-
-  .collection__content-wrapper {
-    padding-top: 12px;
-
-    @include tablet-up {
-      padding-top: 16px;
-    }
-
-    @include desktop-wide {
-      padding-top: 20px;
-    }
-  }
-
-  // no space between two branded collections
-  & + .collection--branded {
-    margin-top: -#{$collection-gap};
-
-    @include tablet-up {
-      margin-top: -#{$collection-gap-tablet-up};
-    }
-
-    @include desktop-wide {
-      margin-top: -#{$collection-gap-desktop-wide};
-    }
-  }
-
-  // no space between header and an branded collection at first position
-  &:first-child {
-    margin-top: -16px;
-
-    @include tablet-up {
-      margin-top: -60px;
-    }
-
-    @include desktop-wide {
-      margin-top: -64px;
-    }
-
-    .collection__branding-wrapper {
-      padding-top: #{$collection-gap - 8};
-
-      @include tablet-up {
-        padding-top: #{$collection-gap-tablet-up - 8};
-      }
-    }
   }
 }
 
@@ -330,11 +284,11 @@ $background-overlap-wide: 50px;
   }
 
   @include tablet-up {
-    margin: 0 32px 16px;
+    margin: 16px 32px 16px;
   }
 
   @include desktop-wide {
-    margin: 0 40px 20px;
+    margin: 20px 40px 20px;
   }
 }
 
@@ -343,8 +297,20 @@ $background-overlap-wide: 50px;
 //   <a class="collection__link"></a>
 // </li>
 .collection__link-item {
-  margin: 0;
+  margin: 0 0 2px 0;
   padding: 0;
+
+  @include tablet-up {
+    margin: 0 12px 0 0;
+  }
+
+  @include desktop-wide {
+    margin: 0 16px 0 0;
+  }
+
+  &:last-child {
+    margin: 0;
+  }
 
   // normally the fake border would be applied to the link-item. But
   // to apply styling when navigation by keyboard, style must be applied
@@ -373,41 +339,18 @@ $background-overlap-wide: 50px;
   font-stretch: normal;
   color: $color-text-default;
   border-radius: 2px;
-  background-color: $color-bg-button-transparent;
+  background-color: $color-link-bg-unboxed;
   transition: background-color .2s ease-in-out;
 
   &:hover {
     color: $color-text-default;
-    background-color: $color-bg-button-hover;
+    background-color: $color-link-bg-unboxed-hover;
   }
 
   &:active,
   &:focus {
     color: $color-text-default;
-    background-color: $color-bg-button-focus;
-  }
-
-  // On mobile, show a fake border between the links
-  @include smartphone {
-    &::before {
-      content: "";
-      position: absolute;
-      background-color: rgba(0, 0, 0, .08);
-      width: calc(100% - 8px);
-      height: 1px;
-      top: 0;
-      right: -8px;
-      opacity: 1;
-      transition: opacity .2s ease-in-out;
-    }
-
-    &:hover,
-    &:focus,
-    &:active {
-      &::before {
-        opacity: 0;
-      }
-    }
+    background-color: $color-link-bg-unboxed-active;
   }
 
   @include desktop-up {
@@ -456,19 +399,21 @@ $background-overlap-wide: 50px;
 
   .collection__teaser-item {
     padding-right: 8px;
-    min-width: calc(33.333333334% - (56px / 3)); // 56px is the visible part of the first 'overflowed' item
+    min-width: calc(100% - 40px);
+    padding-bottom: 12px;
+    margin: 0;
 
-    @include smartphone {
-      min-width: calc(100% - 40px);
-    }
 
     @include tablet-up {
-      padding-bottom: 8px;
+      min-width: calc((100% - 32px - 44px) / 3.00001 ); // 32px: left gap between Collection and Teaser; 44px: visible part of the first 'overflowed' item
+      padding-bottom: 16px;
       padding-right: 12px;
     }
 
     @include desktop-wide {
+      min-width: calc((100% - 40px - 56px) / 3.00001 );
       padding-right: 16px;
+      padding-bottom: 20px;
     }
 
     &:first-child {
@@ -483,31 +428,14 @@ $background-overlap-wide: 50px;
       }
     }
 
-    &:last-child {
-      padding-bottom: 8px;
-
-      &::after {
-        @include tablet-up {
-          content: '';
-          display: block;
-          width: 40px;
-          margin-right: -36px;
-        }
+    &:last-child::after {
+      @include tablet-up {
+        content: '';
+        display: block;
+        width: 40px;
+        margin-right: -36px;
       }
     }
-  }
-}
-
-.collection__swipeable-area {
-  margin-top: -8px;
-  margin-bottom: 2px;
-
-  @include tablet-up {
-    margin-bottom: 6px;
-  }
-
-  @include desktop-wide {
-    margin-bottom: 10px;
   }
 }
 
@@ -634,6 +562,8 @@ $background-overlap-wide: 50px;
   }
 
   .collection__link {
+      background-color: rgba(255, 255, 255, .08);
+
     &:hover {
       background-color: rgba(255, 255, 255, .12);
     }
@@ -706,5 +636,69 @@ $background-overlap-wide: 50px;
 
   &.collection--branded .collection__content-wrapper {
     padding-top: 0;
+  }
+}
+
+// Has an additional button on the top right that leads to a selection screen to change between groups of teasers
+.collection--selectable {
+  margin-top: 0;
+  overflow: hidden;
+  --theme-color-nav: #{$color-text-accentuation};
+  --theme-selection-button-color: $color-text-default;
+  --theme-selection-button-bg: #ebebe5;
+
+  .collection__title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: start; // don't center button, always keep in top right corner
+  }
+
+  .selectable-button {
+    display: flex;
+    align-items: center;
+    border: none;
+    background-color: transparent;
+    margin: -11px 0;
+    padding: 0;
+    cursor: pointer;
+
+    font-family: $font-regular;
+    font-size: 14px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.43;
+    letter-spacing: 0.4px;
+
+    // Parent element ends earlier/lower than needed -> negative margin on mobile
+    @include smartphone {
+      margin: -13px -16px -13px 0;
+    }
+  }
+
+  &.collection--branded {
+    --theme-color-nav: #ffffff;
+    --theme-icon-filter: brightness(1000%);
+
+    .selectable__button {
+      @include font-smoothing;
+      color: #ffffff;
+      background-color: rgba(255, 255, 255, .08);
+      transition: background-color .2s ease-in-out;
+
+      &:hover {
+        background-color: rgba(255, 255, 255, .12);
+      }
+
+      &:focus,
+      &:active {
+        background-color: rgba(255, 255, 255, .24);
+      }
+
+      &::after {
+        display: none;
+      }
+    }
   }
 }

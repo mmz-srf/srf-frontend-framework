@@ -20,6 +20,10 @@ body {
   background-color: $color-bg-box;
 }
 
+html, body {
+  line-height: $default-line-height-ratio;
+}
+
 ul, ol {
   counter-reset: item;
   list-style-type: none;

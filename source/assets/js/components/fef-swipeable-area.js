@@ -4,17 +4,16 @@ import {FefResponsiveHelper} from '../classes/fef-responsive-helper';
 const HOOK_CLASS = 'js-swipeable-area',
     INNER_CONTAINER_CLASS = 'js-swipeable-area-wrapper',
     ITEM_CLASS = 'js-swipeable-area-item',
+    DEFAULT_PARTIALLY_VISIBLE_ITEM_CLASS = 'swipeable-area__item--hidden',
     BACK_BUTTON_CLASS = 'swipeable-area__button swipeable-area__button--back',
     FORWARD_BUTTON_CLASS = 'swipeable-area__button swipeable-area__button--forward',
     BUTTON_ACTIVE_CLASS = 'swipeable-area__button--active',
-    BUTTON_HINTABLE_CLASS = 'swipeable-area__button--hintable',
     BUTTON_BACK_THRESHOLD = 2,
     RIGHT_OFFSET = 24,
     DEFAULT_SCROLL_TIME = 400,
     DEBOUNCETIME = 50,
-    MIN_BUTTON_WIDTH = 56,
-    MAX_BUTTON_WIDTH = 90,
-    HINT_AMOUNT = 20;
+    HINT_AMOUNT = 20,
+    MINIMUM_HEIGHT = 50;
 
 export function init() {
     $(`.${HOOK_CLASS}`).each((index, element) => {
@@ -35,17 +34,25 @@ export class FefSwipeableArea {
         this.$buttonBack = null;
         this.$buttonForward = null;
 
+        this.visibleClass = null;
+        this.hiddenClass = null;
+
+        this.initOnce();
         this.init();
+    }
+
+    initOnce() {
+        this.initItemCheck();
         this.registerListeners();
     }
 
     init() {
         this.initContainerHeight();
-        this.initItemCheck();
+        this.markItems();
+
         if (FefResponsiveHelper.isDesktopUp()) {
             this.addButtons();
             this.updateButtonStatus();
-            this.setButtonWidths();
             this.initItemPositions();
         }
     }
@@ -58,7 +65,10 @@ export class FefSwipeableArea {
     initContainerHeight() {
         this.$innerContainer.css('overflow', 'hidden');
         let height = this.$innerContainer.outerHeight();
-        this.$element.css('height', height);
+
+        if (height > MINIMUM_HEIGHT) {
+            this.$element.css('height', Math.floor(height));
+        }
         this.$innerContainer.css('overflow', '');
     }
 
@@ -66,9 +76,8 @@ export class FefSwipeableArea {
         const markVisibleClass = this.$element.data('mark-visible-items');
         const markHiddenClass = this.$element.data('mark-hidden-items');
 
-        if (markVisibleClass || markHiddenClass) {
-            this.$innerContainer.on('scroll', FefDebounceHelper.debounce(() => this.markItems(markVisibleClass, markHiddenClass), DEBOUNCETIME));
-        }
+        this.visibleClass = markVisibleClass ? markVisibleClass : '';
+        this.hiddenClass = markHiddenClass ? markHiddenClass : DEFAULT_PARTIALLY_VISIBLE_ITEM_CLASS;
     }
 
     initItemPositions() {
@@ -90,6 +99,10 @@ export class FefSwipeableArea {
     registerListeners() {
         $(window).on('resize', FefDebounceHelper.debounce(() => this.init(), DEBOUNCETIME));
         $(window).on('load', () => this.initContainerHeight());
+
+        this.setupHinting();
+        this.$items.on('click', (event) => this.onTeaserClick(event));
+        this.$innerContainer.on('scroll', FefDebounceHelper.throttle(() => this.markItems(), DEBOUNCETIME));
     };
 
     addButtons() {
@@ -108,37 +121,81 @@ export class FefSwipeableArea {
 
             this.$element.append(this.$buttonBack, this.$buttonForward);
 
-            // register listeners for buttons
             this.$innerContainer.on('scroll', FefDebounceHelper.debounce(() => this.updateButtonStatus(), DEBOUNCETIME));
-            this.$buttonBack.on('click', () => { this.pageBack(); });
-            this.$buttonForward.on('click', () => { this.pageForward(); });
-
-            this.setupHinting();
         }
     }
 
     /**
-     * When hovering over a button (forward or backward), the container content
+     * When hovering over a partially shown item, the container content
      * will be "hinted at", i.e. moved into view a bit more.
      */
     setupHinting() {
         // hinting = showing a little bit of the remaining elements on hovering over the buttons.
         const useHinting = !!this.$element.data('swipeable-hinting');
 
-        if (useHinting) {
-            this.$buttonBack
-                .addClass(BUTTON_HINTABLE_CLASS)
-                .hover(
-                    () => this.applyHint(HINT_AMOUNT),
-                    () => this.applyHint(0)
-                );
-            this.$buttonForward
-                .addClass(BUTTON_HINTABLE_CLASS)
-                .hover(
-                    () => this.applyHint(-HINT_AMOUNT),
-                    () => this.applyHint(0)
-                );
+        if (!useHinting) {
+            return;
         }
+
+        this.$items.hover(
+            (event) => this.onTeaserHover(event),
+            (_) => this.applyHint(0)
+        );
+    }
+
+    /**
+     * Hovering over an item can trigger the hinting mechanism, if it's
+     * partially visible.
+     *
+     * @param {jQery.event} event
+     */
+    onTeaserHover(event) {
+        let $item = $(event.currentTarget);
+
+        if (!$item.hasClass(this.hiddenClass) || !FefResponsiveHelper.isDesktopUp()) {
+            return;
+        }
+
+        // Hint left or right, depending on where the item is
+        this.applyHint(this.isOutOfBoundsLeft($item) ? HINT_AMOUNT : -HINT_AMOUNT);
+    }
+
+    /**
+     * Clicking an item can trigger pagination if it's partially visible.
+     * Instead of handing down the analytics methods or module to call upon
+     * pagination, we trigger a click on the buttons which have the correct
+     * data attribute already.
+     *
+     * @param {jQuery.event} event
+     */
+    onTeaserClick(event) {
+        let $item = $(event.currentTarget);
+
+        if (!$item.hasClass(this.hiddenClass) || !FefResponsiveHelper.isDesktopUp()) {
+            return;
+        }
+
+        // remove focus from the element that was just clicked if it was a mouse click (= coordinates are 0/0)
+        if (event.screenX !== 0 && event.screenY !== 0) {
+            $(':focus').blur();
+        }
+
+        if (this.isOutOfBoundsLeft($item)) {
+            this.pageBack();
+            if (this.$buttonBack) {
+                this.$buttonBack.trigger('click');
+            }
+        } else {
+            this.pageForward();
+            if (this.$buttonForward) {
+                this.$buttonForward.trigger('click');
+            }
+        }
+
+        // Don't go to the link of the teaser
+        event.preventDefault();
+        event.stopPropagation();
+        return false;
     }
 
     /**
@@ -217,11 +274,7 @@ export class FefSwipeableArea {
 
         this.$innerContainer
             .stop(true, false)
-            .animate( { scrollLeft: position }, time, 'easeInOutSine', () => {
-                if (FefResponsiveHelper.isDesktopUp()) {
-                    this.setButtonWidths();
-                }
-            });
+            .animate( { scrollLeft: position }, time, 'easeInOutSine');
     }
 
     checkFuturePosition(position) {
@@ -248,45 +301,14 @@ export class FefSwipeableArea {
         }
     }
 
-    setButtonWidths() {
-        // using findIndex() instead of find() here, because we have a polyfill for findIndex() in shame.js
-        let visibleAreaRightEdge = this.$innerContainer.scrollLeft() + this.$innerContainer.innerWidth(),
-            nextItemPos = this.itemPositions.findIndex(pos => pos.right > visibleAreaRightEdge);
-
-        if (nextItemPos > -1) {
-            this.setButtonWidth(this.$buttonForward, visibleAreaRightEdge - this.itemPositions[nextItemPos].left);
-        }
-
-        let visibleAreaLeftEdge = this.$innerContainer.scrollLeft(),
-            prevItemPos = this.itemPositions.findIndex(pos => pos.right > visibleAreaLeftEdge);
-
-        if (prevItemPos > -1) {
-            this.setButtonWidth(this.$buttonBack, this.itemPositions[prevItemPos].right - visibleAreaLeftEdge);
-        }
-    }
-
-    /**
-     * Sets the width of a button after clamping the desired width.
-     * Add 2 pixels for rounding errors and to hide elements' shadows.
-     *
-     * @param {JQuery.element} $button Button to set width of
-     * @param {Number} width Desired width
-     */
-    setButtonWidth($button, width) {
-        $button.width(Math.min(Math.max(Math.floor(width + 2), MIN_BUTTON_WIDTH), MAX_BUTTON_WIDTH));
-    }
-
-    markItems(markVisibleClass, markHiddenClass) {
+    markItems() {
         this.$items.each( (_, element) => {
-            const isInView = this.isItemCompletelyInView($(element));
+            let $element = $(element),
+                isInView = this.isItemCompletelyInView($element);
 
-            if (markVisibleClass) {
-                $(element).toggleClass(markVisibleClass, isInView);
-            }
-
-            if (markHiddenClass) {
-                $(element).toggleClass(markHiddenClass, !isInView);
-            }
+            $element
+                .toggleClass(this.visibleClass, isInView)
+                .toggleClass(this.hiddenClass, !isInView);
         });
     }
 

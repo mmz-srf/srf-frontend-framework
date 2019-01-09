@@ -1,7 +1,11 @@
 import {DOM_CHANGED_EVENT} from '../classes/fef-dom-observer';
 import {FefResponsiveHelper} from '../classes/fef-responsive-helper';
 
-const ANIMATION_SPEED = 200;
+let ANIMATION_SPEED = 200;
+
+if (!window.matchMedia('(prefers-reduced-motion: no-preference)').matches) {
+    ANIMATION_SPEED = 0;
+}
 const KEYCODES = {
     'enter': 13,
     'tab': 9,
@@ -70,7 +74,8 @@ export class FefModal {
      * - Pressing Escape
      */
     bindEvents() {
-        this.$element.find('.js-close-modal, .js-modal-overlay').on('click', () => {
+        this.$element.find('.js-close-modal, .js-modal-overlay').on('click', (event) => {
+            event.stopPropagation();
             this.close();
         });
 
@@ -176,8 +181,7 @@ export class FefModal {
             this.$mainWrapper.css({
                 'max-height': '100%',
                 'width': `calc(100% + ${scrollbarWidth}px)`,
-                'margin-right': scrollbarWidth,
-                'padding-right': scrollbarWidth
+                'margin-right': scrollbarWidth
             });
             this.$mainContent.animate({
                 'opacity': 1

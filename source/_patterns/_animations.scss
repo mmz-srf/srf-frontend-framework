@@ -165,6 +165,15 @@ $light-attention-color: #ff0000;
   }
 }
 
+@keyframes fadeInAnimation {
+  20% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 
 
 /*

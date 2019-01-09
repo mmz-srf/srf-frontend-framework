@@ -80,6 +80,7 @@
   position: relative; // for positioning ::pseudo elements
   background-color: $color-image-dummy;
   align-self: start;
+  width: 100%;
 
   // border on top of the images
   &::after {
@@ -107,15 +108,14 @@
 
   @include desktop-wide {
     margin: 24px;
-    // IE needs some convincing
-    max-width: calc(100% - 48px);
   }
 }
 
 .teaser__kicker {
   display: flex;
   flex-wrap: wrap;
-  align-items: baseline;
+  flex-shrink: 0;
+  align-items: flex-end;
   margin: 0 0 4px;
   font-family: $font-regular;
   @include fontSize(14);
@@ -159,6 +159,7 @@
 .teaser__lead {
   margin: 12px 0 0;
   display: none;
+  flex-shrink: 0;
   font-family: $font-light;
   @include fontSize(16);
   font-weight: normal;
@@ -217,15 +218,19 @@
   }
 }
 
+.teaser__scoreboard,
 .teaser__opinion {
   flex: 0 0 100%;
   display: flex;
   flex-direction: row;
-  background-color: $color-bg-caption;
-  padding: 8px 16px;
+  background-color: $color-bg-teaser-supplement;
 
   // IE11 extra sausage
   max-width: 100%;
+}
+
+.teaser__opinion {
+  padding: 8px 16px;
 
   @include desktop-wide {
     padding: 8px 24px;
@@ -310,7 +315,7 @@
   }
 
   .teaser__medium {
-    width: 100%;
+    width: 101%; // dirty hack to make teaser images fit the correct hight
     height: auto;
   }
 
@@ -318,7 +323,8 @@
     flex: 1 0 auto;
   }
 
-  .teaser__opinion {
+  .teaser__opinion,
+  .teaser__scoreboard {
     flex: 0 0 auto;
   }
 
@@ -356,7 +362,8 @@
     flex: 1 0 auto;
   }
 
-  .teaser__opinion {
+  .teaser__opinion,
+  .teaser__scoreboard {
     flex: 0 0 auto;
   }
 
@@ -519,7 +526,8 @@
     }
   }
 
-  .teaser__opinion {
+  .teaser__opinion,
+  .teaser__scoreboard {
     flex: 0 0 auto;
 
     @include tablet-up {
@@ -544,12 +552,20 @@
         grid-row: span 2;
       }
 
+      .teaser__scoreboard {
+        padding-left: 8px;
+      }
+
       .teaser__opinion {
         padding-left: 24px;
       }
     }
 
     @include desktop-wide {
+      .teaser__scoreboard {
+        padding-left: 8px;
+      }
+
       .teaser__opinion {
         padding-left: 32px;
       }
@@ -616,7 +632,8 @@
       display: inline;
     }
 
-    .teaser__opinion {
+    .teaser__opinion,
+    .teaser__scoreboard {
       flex: 0 0 100%;
     }
   }
@@ -711,8 +728,11 @@
 }
 
 .teaser--longform {
-  height: 100%;
   position: relative; // necessary to position medium (see 2 lines below)
+  // necessary to have a translucent background (contrary to the default dark teaser)
+  &.teaser.teaser--theme-dark {
+    --teaser-color-background: transparent;
+  }
 
   .teaser__longform-medium {
     position: absolute;
@@ -740,7 +760,10 @@
     flex-grow: 0;
     flex-basis: auto;
     background-color: rgba(0, 0, 0, 0.6);
-    padding: 16px 12px 16px 16px;
+    padding: 16px;
+    @include desktop-wide {
+      padding: 24px;
+    }
     margin: 0;
     position: relative;
     max-width: 100%;
@@ -754,6 +777,12 @@
       height: 80px;
       background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6));
     }
+  }
+  .teaser--longform__links {
+    background-color: rgba(0, 0, 0, .6);
+  }
+  .block-link--teaser-link {
+    filter: brightness(100);
   }
 }
 
@@ -801,7 +830,6 @@
   display: grid;
   position: relative;
   z-index: 1;
-  height: 100%;
 
   grid-template-columns: 100%;
   grid-template-rows: 100%;
@@ -822,9 +850,15 @@
 }
 /* autoprefixer grid: off */
 
-// Hide media icon when video is playing
+// Change icon when video is playing
 .teaser--video-playing {
-  .media-still__icon {
-    display: none;
+  .play-icon {
+    &::after {
+      background-image: url("../img/icon/stop-video.svg");
+    }
+
+    &:hover {
+      background-image: url("../img/icon/stop-video.svg");
+    }
   }
 }

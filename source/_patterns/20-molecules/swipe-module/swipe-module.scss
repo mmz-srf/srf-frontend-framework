@@ -24,8 +24,15 @@ $item-max-width: 400px;
   opacity: 1; /* OVERRIDE CRITICAL CSS */
   background: $color-bg-box;
   overflow-x: hidden;
+  padding-top: 2px;
 
-  @include desktop-up {
+  @include desktop {
+    margin-right: 0;
+    margin-left: 0;
+    max-width: 100%;
+  }
+
+  @include desktop-wide {
     overflow-x: visible;
   }
 
@@ -35,6 +42,11 @@ $item-max-width: 400px;
 
     @include tablet-up {
       margin-bottom: 40px;
+    }
+
+    @include desktop {
+      margin-left: 32px;
+      margin-right: 32px;
     }
 
     @include desktop-wide {
@@ -374,4 +386,3 @@ $item-max-width: 400px;
     background-image: url('../img/carousel/next.svg');
   }
 }
-

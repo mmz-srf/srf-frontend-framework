@@ -15,81 +15,42 @@ body.body--loading.body--loading {
   }
 
   .collection {
-    margin: 0 0 $collection-gap;
+    max-width: 100%;
+    margin: $collection-gap 0 0;
 
     @include tablet-up {
-      margin-bottom: $collection-gap-tablet-up;
+      margin-top: $collection-gap-tablet-up;
     }
 
     @include desktop-wide {
-      margin-bottom: $collection-gap-desktop-wide;
+      margin-top: $collection-gap-desktop-wide;
     }
-
-    max-width: 100%;
 
     .collection__content-wrapper {
       max-width: $desktop-wide-size;
       margin: 0 auto;
       background-color: transparent;
       box-shadow: none;
-
-      @include tablet-up {
-      margin-top: 20px;
-      }
     }
   }
 
   .collection--branded {
+    background-size: cover;
+
     .collection__branding-wrapper {
       max-width: 100%;
       margin-left: 0;
       margin-right: 0;
     }
 
-    .collection__content-wrapper {
-      padding-top: 12px;
-
-      @include tablet-up {
-        padding-top: 16px;
-      }
-
-      @include desktop-wide {
-        padding-top: 20px;
-      }
-    }
-
     // no space between two branded collections
     & + .collection--branded {
-      margin-top: -#{$collection-gap};
-
-      @include tablet-up {
-        margin-top: -#{$collection-gap-tablet-up};
-      }
-
-      @include desktop-wide {
-        margin-top: -#{$collection-gap-desktop-wide};
-      }
+      margin-top: 0;
     }
 
     // no space between header and an branded collection at first position
     &:first-child {
-      margin-top: -16px;
-
-      @include tablet-up {
-        margin-top: -60px;
-      }
-
-      @include desktop-wide {
-        margin-top: -64px;
-      }
-
-      .collection__branding-wrapper {
-        padding-top: #{$collection-gap - 8};
-
-        @include tablet-up {
-          padding-top: #{$collection-gap-tablet-up - 8};
-        }
-      }
+      margin-top: 0;
     }
   }
 
@@ -163,6 +124,7 @@ body.body--loading.body--loading {
   }
 
   .collection__title {
+    display: block;
     margin: 16px 24px 12px;
     font-family: $font-medium;
     @include fontSize(24);
@@ -189,6 +151,7 @@ body.body--loading.body--loading {
   .collection__lead {
     display: none;
   }
+
   .collection__title-text {
     display: none;
   }
@@ -228,11 +191,53 @@ body.body--loading.body--loading {
     }
   }
 
-  .collection--branded {
-    background-size: cover;
+  // Selectable: Hide the selection element, show the first collection after it.
+  // From that collection, only show the first 3 teasers
+  .selectable {
+    display: none;
+  }
 
-    .collection__content-wrapper {
-      background-color: transparent;
+  .collection--selectable {
+    display: none;
+    margin-top: 0;
+
+    .selectable-button {
+      display: none;
+    }
+  }
+
+  .selectable-wrapper {
+    margin: $collection-gap 0 0;
+
+    @include tablet-up {
+      margin-top: $collection-gap-tablet-up;
+    }
+
+    @include desktop-wide {
+      margin-top: $collection-gap-desktop-wide;
+    }
+  }
+
+  .selectable-wrapper--branded {
+    .collection--branded + &,
+    .selectable-wrapper--branded + &,
+    & + .collection--branded,
+    &:first-child {
+      // no space between:
+      // * two branded selection wrappers
+      // * a branded selection wrapper and a branded selection
+      // * a branded selection and a branded selection wrapper
+      // * header and a branded selection wrapper at first position
+      margin-top: 0;
+    }
+  }
+
+  // Selectable: show first 3 teasers of first collection:
+  .selectable + .collection--selectable {
+    display: block;
+
+    .collection__teaser-item:nth-child(n+4) {
+      display: none;
     }
   }
 
@@ -295,6 +300,7 @@ body.body--loading.body--loading {
     }
   }
 
+  .teaser__scoreboard,
   .teaser__opinion,
   .teaser__links {
     display: none;
