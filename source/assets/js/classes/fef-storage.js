@@ -152,13 +152,53 @@ export class FefStorage {
         return entry ? entry.value : optionalDefaultValue;
     }
 
+    /**
+     * Sorts the list by date (newest first) and returns the n newest items,
+     * n being the passed number or 1 by default. If no items are found, an
+     * empty array is returned. It's not guaranteed to be n items; if the
+     * list is smaller than n, the returned array will contain all existing
+     * values.
+     *
+     * @param {string} storageKey Key for the localstorage entry
+     * @param {number} numberOfItems Optional (default=1) number of how many items should be returned
+     * @returns {Array}
+     */
+    static getNewestFromList(storageKey, numberOfItems = 1) {
+        if (!FefStorage.isLocalStorageAvailable() || !FefStorage.getItem(storageKey, false)) {
+            return [];
+        }
+
+        let list = FefStorage.getItemJsonParsed(storageKey, []);
+        list = FefStorage.sortByDateAndLimitList(list, numberOfItems);
+
+        return list.map(item => item.value);
+    }
+
+    /**
+     * Saves an object in the form
+     * {
+     *   key: XXX,
+     *   value: YYY,
+     *   date: ZZZ
+     * }
+     * to the list at the specified key in the localstorage,
+     * where XXX is the supplied key, YYY the supplied value
+     * and ZZZ is the current date&time.
+     *
+     * The list will finally be sorted (newest entry first) and the oldest element removed.
+     *
+     * @param {string} storageKey Key for the localstorage entry
+     * @param {string} key Key for the object in the list
+     * @param {any} value Value for the object in the list
+     * @param {number} limit Optional (default=100) number of how many elements can be in the list
+     */
     static saveToList(storageKey, key, value, limit = DEFAULT_LIST_LIMIT) {
         if (!FefStorage.isLocalStorageAvailable()) {
             return;
         }
 
         let list = FefStorage.getItemJsonParsed(storageKey, []);
-        list = list.filter(item => item.key === key);
+        list = list.filter(item => item.key !== key);
         list.push({
             key: key,
             value: value,
@@ -166,10 +206,34 @@ export class FefStorage {
         });
 
         if (list.length > limit) {
-            list = list.sort((a, b) => a.date <= b.date);
-            list = list.slice(0, limit - 1);
+            list = FefStorage.sortByDateAndLimitList(list, limit);
         }
 
         return FefStorage.setItemJsonStringified(storageKey, list);
+    }
+
+    /**
+     * Removes a specific element from the list.
+     * This is achieved by getting the all items from the list where the key is
+     * is different from the provided key and writing this filtered list back
+     * to the localstorage.
+     *
+     * @param {string} storageKey
+     * @param {string} key
+     */
+    static removeFromList(storageKey, key) {
+        if (!FefStorage.isLocalStorageAvailable()) {
+            return;
+        }
+
+        let list = FefStorage.getItemJsonParsed(storageKey, []);
+        list = list.filter(item => item.key !== key);
+
+        return FefStorage.setItemJsonStringified(storageKey, list);
+    }
+
+    static sortByDateAndLimitList(list, limit) {
+        list = list.sort((a, b) => new Date(b.date) - new Date(a.date));
+        return list.slice(0, limit);
     }
 }
