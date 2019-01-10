@@ -703,6 +703,10 @@
   }
 
   &.teaser--size-l {
+    .teaser__lead.teaser__lead {
+      display: block;
+    }
+
     @include desktop-up {
       --media-time-indicator-font-size: 16px;
     }
@@ -714,6 +718,10 @@
   }
 
   &.teaser--size-xl {
+    .teaser__lead.teaser__lead {
+      display: block;
+    }
+
     @include tablet-up {
       --media-time-indicator-bottom: 20px;
       --media-time-indicator-right: 20px;
