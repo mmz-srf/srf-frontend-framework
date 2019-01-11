@@ -290,7 +290,7 @@ export class SrfSearch {
 
         this.$searchResults.html('');
 
-        const $searchResultElements = results.map((result) => {
+        results.map((result) => {
             let highlightedResult = this.highlightQuery(query, result.name);
             const $li = $('<li>', { class: `typeahead-suggestion ${wasAlreadyShowingResults ? 'typeahead-suggestion--no-animation' : ''}`});
             const $link = $('<a>', { class: `search-result__link`, href: result.url });
