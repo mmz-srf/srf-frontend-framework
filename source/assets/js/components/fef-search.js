@@ -1,11 +1,11 @@
 import {setFocus} from '../components/fef-flying-focus';
+import {FefStorage} from '../classes/fef-storage';
+
 
 export function init() {
     $('.js-search').each((i, elem) => {
         new SrfSearch(elem);
     });
-
-    console.log('HAHAH');
 }
 
 const DEFAULT_MAX_SUGGESTIONS = 7;
@@ -19,6 +19,7 @@ const KEYCODES = {
 };
 const ACTIVE_CLASS = 'search--active';
 const OUTSIDE_CLICK_LISTENER_NAME = 'click.search-destroyer';
+const LOCAL_STORAGE_KEY = 'srf.search.history';
 
 export class SrfSearch {
 
@@ -54,9 +55,12 @@ export class SrfSearch {
 
         this.$inputField.on('focus', (e) => {
 
-            // TODO: Add local storage read
-
             this.setSearchActive();
+
+            if (FefStorage.isLocalStorageAvailable() && FefStorage.hasItem(LOCAL_STORAGE_KEY)) {
+                const storedResults = FefStorage.getItemJsonParsed(LOCAL_STORAGE_KEY);
+                this.renderResults(storedResults, '');
+            }
         }).on('keyup', (e) => {
             this.onKeyUp(e);
         }).on('keydown', (e) => {
@@ -172,8 +176,13 @@ export class SrfSearch {
             $.getJSON(this.typeaheadUrl, (data) => {
                 this.typeaheadData = data;
 
-                // TODO: Add local storage items filter (check for existing items in typeaheadData)
-
+                if (FefStorage.isLocalStorageAvailable && FefStorage.hasItem(LOCAL_STORAGE_KEY)) {
+                    let items = FefStorage.getItemJsonParsed(LOCAL_STORAGE_KEY);
+                    items = items.filter((storedItem) => {
+                        return this.typeaheadData.find((fetchedItem) => { return (fetchedItem.name === storedItem.name && fetchedItem.url === storedItem.url) });
+                    });
+                    FefStorage.setItemJsonStringified(LOCAL_STORAGE_KEY, items);
+                }
             });
         }
 
@@ -279,13 +288,23 @@ export class SrfSearch {
         let html = '';
         const wasAlreadyShowingResults = this.$searchResults.children('li').length > 0;
 
+        this.$searchResults.html('');
+
         const $searchResultElements = results.map((result) => {
             let highlightedResult = this.highlightQuery(query, result.name);
             const $li = $('<li>', { class: `typeahead-suggestion ${wasAlreadyShowingResults ? 'typeahead-suggestion--no-animation' : ''}`});
             const $link = $('<a>', { class: `search-result__link`, href: result.url });
             $link.on('click', () => {
 
-                // TODO: Push result to local storage
+                if (FefStorage.isLocalStorageAvailable()) {
+                    let storedResults = [];
+                    if (FefStorage.hasItem(LOCAL_STORAGE_KEY)) {
+                        storedResults = FefStorage.getItemJsonParsed(LOCAL_STORAGE_KEY);
+                    }
+                    storedResults.unshift(result);
+                    storedResults = storedResults.slice(0, this.options.maxSuggestionCount);
+                    FefStorage.setItemJsonStringified(LOCAL_STORAGE_KEY, storedResults);
+                }
 
             });
 
