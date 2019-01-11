@@ -26,14 +26,6 @@
   letter-spacing: 0;
 }
 
-.article-title {
-  letter-spacing: -0.4px;
-}
-
-.article-lead {
-  letter-spacing: -0.3px;
-}
-
 .article-author__date {
   display: none;
 }
@@ -184,9 +176,10 @@ img {
 
 .article-title__text {
   margin: 3px 0 18px;
-  font-family: "SRG_SSR_Regular", sans-serif;
-  font-weight: 400;
+  font-family: "SRG_SSR_Medium", sans-serif;
+  font-weight: 500;
   font-size: 36px;
+  letter-spacing: 0;
   line-height: 43px;
   color: #22211d;
 
@@ -215,10 +208,10 @@ img {
   color: #4e4d47;
   font-family: "SRG_SSR_Light", sans-serif;
   line-height: 1.45;
+  letter-spacing: -0.3px;
   @include smartphone {
     margin: 13px 0 17px;
     @include fontSize(20);
-    letter-spacing: .145px;
   }
 }
 

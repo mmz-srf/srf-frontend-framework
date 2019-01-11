@@ -2,9 +2,8 @@
 @import "../../mixins";
 
 .article-author {
-  margin: 17px 0 26px;
-
   display: block;
+  margin: 17px 0 26px;
 
   @include tablet-up {
     margin: 22px 0 20px;
@@ -22,9 +21,9 @@
   display: block; /* OVERRIDE CRITICAL CSS */
   min-height: 16px;
   margin: 0;
-  font-family: $font-system;
-  font-size: 12px;
-  line-height: 16px;
+  font-family: $font-regular;
+  @include fontSize(12);
+  line-height: $secondary-line-height-ratio;
   color: $color-text-light;
 }
 
