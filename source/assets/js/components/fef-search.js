@@ -4,6 +4,8 @@ export function init() {
     $('.js-search').each((i, elem) => {
         new SrfSearch(elem);
     });
+
+    console.log('HAHAH');
 }
 
 const DEFAULT_MAX_SUGGESTIONS = 7;
@@ -51,6 +53,9 @@ export class SrfSearch {
         });
 
         this.$inputField.on('focus', (e) => {
+
+            // TODO: Add local storage read
+
             this.setSearchActive();
         }).on('keyup', (e) => {
             this.onKeyUp(e);
@@ -166,6 +171,9 @@ export class SrfSearch {
         if (this.typeaheadData === null) {
             $.getJSON(this.typeaheadUrl, (data) => {
                 this.typeaheadData = data;
+
+                // TODO: Add local storage items filter (check for existing items in typeaheadData)
+
             });
         }
 
@@ -261,28 +269,34 @@ export class SrfSearch {
     /**
      * Renders the received search results into the results list.
      * For the Screen-Reader's sake it'll be rendered twice, once with the found substring highlighted and once readable.
-     * 
+     *
      * If we're replacing previously shown search results, make sure they're not animated anymore.
      *
-     * @param {Object} results 
-     * @param {String} query 
+     * @param {Object} results
+     * @param {String} query
      */
     renderResults(results, query) {
         let html = '';
         const wasAlreadyShowingResults = this.$searchResults.children('li').length > 0;
 
-        results.forEach((result) => {
+        const $searchResultElements = results.map((result) => {
             let highlightedResult = this.highlightQuery(query, result.name);
-            html += `
-                <li class="typeahead-suggestion ${wasAlreadyShowingResults ? 'typeahead-suggestion--no-animation' : ''}">
-                    <a class="search-result__link" href="${result.url}">
-                        <span role="presentation" aria-hidden="true">${highlightedResult}</span>
-                        <span class="h-offscreen">${result.name}</span>
-                    </a>
-                </li>`;
+            const $li = $('<li>', { class: `typeahead-suggestion ${wasAlreadyShowingResults ? 'typeahead-suggestion--no-animation' : ''}`});
+            const $link = $('<a>', { class: `search-result__link`, href: result.url });
+            $link.on('click', () => {
+
+                // TODO: Push result to local storage
+
+            });
+
+            $('<span>', { role: 'presentation', 'aria-hidden': true }).append(highlightedResult).appendTo($link);
+            $('<span>', { class: 'h-offscreen' }).text(result.name).appendTo($link);
+
+            $li.append($link);
+            $li.appendTo(this.$searchResults);
         });
 
-        this.$searchResults.html(html).show();
+        this.$searchResults.show();
 
         // additional screenreader info (same behavior like meteo search field)
         let $result_alert = $('.search-result__alert');
