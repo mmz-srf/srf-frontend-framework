@@ -112,10 +112,9 @@
 .chmap__menu-wrapper {
   position: relative;
   padding: 16px;
-  width: 100%;
 
   @include tablet-up {
-    max-width: 332px;
+    padding: 16px $article-offset;
   }
 }
 

@@ -3,6 +3,7 @@
 
 .listmodule {
   margin: 24px 0;
+
   @include tablet-up {
     margin: 32px 0;
   }
@@ -19,9 +20,5 @@
 }
 
 .listmodule__list {
-  padding: 0 24px;
-
-  @include tablet-up {
-    padding: 0 16px;
-  }
+  padding: 0 $article-offset;
 }

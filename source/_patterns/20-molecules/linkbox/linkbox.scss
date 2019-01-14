@@ -28,13 +28,8 @@
 
   > li {
     margin: 0;
-    padding: 0;
+    padding: 0 0 0 $article-offset;
     border-top: 1px solid $color-bg-box;
-    margin-left: 16px;
-
-    @include smartphone {
-      margin-left: 24px;
-    }
 
     &:hover,
     &:focus {
@@ -48,13 +43,7 @@
     &:hover,
     &:focus,
     &:active {
-      padding-left: 16px;
-      margin-left: 0;
       border-bottom: 1px solid $color-bg-box;
-
-      @include smartphone {
-        padding-left: 24px;
-      }
 
       & + li {
         border-top: 0;
@@ -72,23 +61,31 @@
   margin: 0 16px 16px 0;
 
   @include tablet-up {
-    margin: 0 0 24px 172px;
+    margin: 0 0 24px 180px;
     padding-right: 0;
   }
 
   .linkbox__list {
     > li {
       margin-left: 0;
-      padding-left: 8px;
+      padding-left: 0;
+
+      @include tablet-up {
+        padding-left: 8px;
+      }
     }
   }
 
   .linkbox__title {
     @include fontSize(14);
     margin: 0 0 8px 0;
-    padding: 0 0 0 8px;
+    padding: 0;
     color: $color-text-light;
     font-family: $font-regular;
+
+    @include tablet-up {
+      padding-left: 8px;
+    }
   }
 }
 

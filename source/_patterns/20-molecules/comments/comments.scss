@@ -62,7 +62,7 @@
   padding: 16px 16px 20px;
 
   @include tablet-up {
-    padding-top: 24px;
+    padding: 24px 24px 20px;
   }
 }
 
@@ -75,6 +75,10 @@
   color: $color-text-accentuation;
   padding: 0 16px;
   display: block;
+
+  @include tablet-up {
+    padding: 0 24px;
+  }
 }
 
 .comments-infobox__text {
@@ -84,6 +88,7 @@
 // login info
 .comments-header__text {
   margin: 0 0 20px;
+
   a {
     @include text-link-defaults;
   }
@@ -109,6 +114,7 @@
   color: #22211d;
   padding: 0 16px;
   margin: -4px 0 4px;
+
   @include tablet-up {
     margin: 0 0 4px;
   }
@@ -126,6 +132,10 @@
 
 .comments-header__button-wrapper {
   padding: 0 16px;
+
+  @include tablet-up {
+    padding: 0 24px;
+  }
 }
 
 .comments-header__button {
@@ -200,7 +210,7 @@
 
   @include tablet-up {
     margin: 0;
-    padding: 0 16px;
+    padding: 0 $article-offset;
   }
 
   .comment,
@@ -400,14 +410,13 @@
   font-family: $font-regular;
   color: $color-tab-option-link;
   border-bottom: 1px solid $color-separator;
-  padding: 12px 16px 0;
+  padding: 12px 24px 0;
   white-space: nowrap;
   display: inline-block;
 
   @include smartphone {
-    text-align: center;
-    padding: 12px 24px 0;
     @include fontSize(14);
+    padding: 12px 12px 0;
   }
 
   &:hover {
@@ -433,15 +442,18 @@
 
 .comments__standalone-wrapper {
   padding: 0 16px;
+
   @include smartphone {
     padding: 0;
   }
 }
+
 /// replies (interactive commenting)
 .reply-container { // form
   background: transparent;
   margin-bottom: 36px;
   position: relative;
+
   @include smartphone {
     margin: 0 0 36px 16px;
   }

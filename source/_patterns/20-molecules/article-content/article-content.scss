@@ -17,7 +17,9 @@
 
   /* h1: usually not possible to create in article text but tiny mce knows no better :) */
   /* h3: usually not possible to create in article text but some users manage to do it :) */
-  & > h1, & > h2, & > h3 {
+  & > h1,
+  & > h2,
+  & > h3 {
     @include article-text-padding;
     margin: 32px 0 12px;
     font-family: $font-medium;
