@@ -186,6 +186,7 @@ export class SrfSearch {
                     items = items.filter((storedItem) => {
                         return this.typeaheadData.find((fetchedItem) => { return (fetchedItem.name === storedItem.name && fetchedItem.url === storedItem.url); });
                     });
+
                     FefStorage.setItemJsonStringified(LOCAL_STORAGE_KEY, items);
                 }
             });
@@ -306,6 +307,10 @@ export class SrfSearch {
                     if (FefStorage.hasItem(LOCAL_STORAGE_KEY)) {
                         storedResults = FefStorage.getItemJsonParsed(LOCAL_STORAGE_KEY);
                     }
+
+                    storedResults = storedResults.filter((item) => {
+                        return (item.name !== result.name && item.url !== result.url);
+                    });
                     storedResults.unshift(result);
                     storedResults = storedResults.slice(0, this.options.maxSuggestionCount);
                     FefStorage.setItemJsonStringified(LOCAL_STORAGE_KEY, storedResults);
