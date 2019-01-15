@@ -276,6 +276,17 @@ _:-ms-fullscreen,
       color: #ffffff;
     }
   }
+  .teaser--longform {
+    .block-link--internal.block-link--teaser-link {
+      background-color: transparent;
+      color: #FFF;
+    }
+    .teaser__longform-medium {
+      .image--media-still-dynamic {
+        height: 100%;
+      }
+    }
+  }
 }
 
 /*
@@ -294,7 +305,7 @@ _:-ms-fullscreen,
  * open the longform teasers. To prevent ugly hacks, we give them a min-height.
  */
 .teaser--longform {
-  &.teaser--size-m {
+    &.teaser--size-m {
     @include smartphone {
       min-height: 289px;
     }
@@ -357,3 +368,15 @@ _:-ms-fullscreen,
     }
   }
 }
+
+/*
+ * TARGETED BROWSER: IE 11
+ *
+ * IE11 has troubles with flex-container in grid.
+ */
+
+ @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+   .teaser__main-outer-wrapper {
+     height: 100%;
+   }
+ }

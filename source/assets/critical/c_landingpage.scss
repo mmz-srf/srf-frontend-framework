@@ -191,6 +191,13 @@ body.body--loading.body--loading {
     }
   }
 
+  // Borderless: teasers + teaser-items take up 100% of the width
+  .collection--borderless {
+    .collection__teaser-item {
+      width: 100%;
+    }
+  }
+
   // Selectable: Hide the selection element, show the first collection after it.
   // From that collection, only show the first 3 teasers
   .selectable {
@@ -322,6 +329,10 @@ body.body--loading.body--loading {
 
   .ratio--16-9::before {
     padding-top: 56.25%;
+  }
+
+  .teaser--static {
+    width: 100%;
   }
 
   .teaser--size-xl {

@@ -108,14 +108,13 @@
 
   @include desktop-wide {
     margin: 24px;
-    // IE needs some convincing
-    max-width: calc(100% - 48px);
   }
 }
 
 .teaser__kicker {
   display: flex;
   flex-wrap: wrap;
+  flex-shrink: 0;
   align-items: flex-end;
   margin: 0 0 4px;
   font-family: $font-regular;
@@ -160,6 +159,7 @@
 .teaser__lead {
   margin: 12px 0 0;
   display: none;
+  flex-shrink: 0;
   font-family: $font-light;
   @include fontSize(16);
   font-weight: normal;
@@ -734,8 +734,11 @@
 }
 
 .teaser--longform {
-  height: 100%;
   position: relative; // necessary to position medium (see 2 lines below)
+  // necessary to have a translucent background (contrary to the default dark teaser)
+  &.teaser.teaser--theme-dark {
+    --teaser-color-background: transparent;
+  }
 
   .teaser__longform-medium {
     position: absolute;
@@ -763,9 +766,9 @@
     flex-grow: 0;
     flex-basis: auto;
     background-color: rgba(0, 0, 0, 0.6);
-    padding: 16px 12px 16px 16px;
+    padding: 16px;
     @include desktop-wide {
-      padding: 24px 12px 24px 24px;
+      padding: 24px;
     }
     margin: 0;
     position: relative;
@@ -833,7 +836,6 @@
   display: grid;
   position: relative;
   z-index: 1;
-  height: 100%;
 
   grid-template-columns: 100%;
   grid-template-rows: 100%;
