@@ -19,7 +19,7 @@ const KEYCODES = {
 };
 const ACTIVE_CLASS = 'search--active';
 const OUTSIDE_CLICK_LISTENER_NAME = 'click.search-destroyer';
-const LOCAL_STORAGE_KEY = 'srf.search.history';
+const LOCAL_STORAGE_KEY = 'srf:search:history';
 
 export class SrfSearch {
 
