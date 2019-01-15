@@ -36,6 +36,7 @@ export class SrfSearch {
         }, options);
 
         this.typeaheadUrl = this.$element.attr('data-typeahead-url');
+        this.clickedSuggestionsEnabled = this.$element.data('suggestion-history');
         this.typeaheadData = null;
         this.suggestionUrl = '';
         this.currTimeout = null;
@@ -57,7 +58,9 @@ export class SrfSearch {
 
             this.setSearchActive();
 
-            if (FefStorage.isLocalStorageAvailable() && FefStorage.hasItem(LOCAL_STORAGE_KEY)) {
+            if (this.clickedSuggestionsEnabled
+                && FefStorage.isLocalStorageAvailable()
+                && FefStorage.hasItem(LOCAL_STORAGE_KEY)) {
                 const storedResults = FefStorage.getItemJsonParsed(LOCAL_STORAGE_KEY);
                 this.renderResults(storedResults, '');
             }
@@ -176,7 +179,9 @@ export class SrfSearch {
             $.getJSON(this.typeaheadUrl, (data) => {
                 this.typeaheadData = data;
 
-                if (FefStorage.isLocalStorageAvailable && FefStorage.hasItem(LOCAL_STORAGE_KEY)) {
+                if (this.clickedSuggestionsEnabled
+                    && FefStorage.isLocalStorageAvailable
+                    && FefStorage.hasItem(LOCAL_STORAGE_KEY)) {
                     let items = FefStorage.getItemJsonParsed(LOCAL_STORAGE_KEY);
                     items = items.filter((storedItem) => {
                         return this.typeaheadData.find((fetchedItem) => { return (fetchedItem.name === storedItem.name && fetchedItem.url === storedItem.url) });
@@ -296,7 +301,7 @@ export class SrfSearch {
             const $link = $('<a>', { class: `search-result__link`, href: result.url });
             $link.on('click', () => {
 
-                if (FefStorage.isLocalStorageAvailable()) {
+                if (this.clickedSuggestionsEnabled && FefStorage.isLocalStorageAvailable()) {
                     let storedResults = [];
                     if (FefStorage.hasItem(LOCAL_STORAGE_KEY)) {
                         storedResults = FefStorage.getItemJsonParsed(LOCAL_STORAGE_KEY);
