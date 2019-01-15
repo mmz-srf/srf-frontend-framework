@@ -116,7 +116,6 @@
   flex-wrap: wrap;
   flex-shrink: 0;
   align-items: flex-end;
-  margin: 0 0 4px;
   font-family: $font-regular;
   @include fontSize(14);
   font-weight: normal;
@@ -130,7 +129,7 @@
   @include customPropWithFallback('color', '--teaser-color-accentuation', $color-accentuation-red);
   > * {
     flex: 0 1 auto;
-    margin-right: 8px;
+    margin: 0 8px 4px 0;
   }
 
 }
