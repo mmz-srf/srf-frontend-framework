@@ -75,11 +75,7 @@
   }
 
   .medium__notice {
-    padding: 8px 24px;
-
-    @include tablet-up {
-      padding: 8px 16px;
-    }
+    padding: 8px $article-offset;
   }
 
   &.medium--video-gallery {

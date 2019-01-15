@@ -165,12 +165,12 @@ img {
 
   @include tablet {
     max-width: 720px;
-    padding: 0 24px
+    padding: 0 $article-offset;
   }
 
   @include desktop-up {
     padding: 0 40px;
-    max-width: 792px
+    max-width: 792px;
   }
 }
 
@@ -198,14 +198,14 @@ img {
 }
 
 .article-title__overline {
-  margin: 0 0 3px;
+  margin: 0;
   font-family: "SRG_SSR_Regular", sans-serif;
   @include fontSize(16);
   color: #c91024;
   display: block;
 
-  @include smartphone {
-    margin: 0;
+  @include tablet-up {
+    margin-bottom: 3px;
   }
 }
 
@@ -215,6 +215,7 @@ img {
   color: #4e4d47;
   font-family: "SRG_SSR_Light", sans-serif;
   line-height: 1.45;
+
   @include smartphone {
     margin: 13px 0 17px;
     @include fontSize(20);
@@ -234,7 +235,7 @@ img {
   margin: 0;
   font-family: "SRG_SSR_Regular", sans-serif;
   @include fontSize(14);
-  color: #22211d
+  color: #22211d;
 }
 
 .article-author__date {
@@ -242,11 +243,12 @@ img {
   font-family: $font-system;
   @include fontSize(12);
   line-height: $secondary-line-height-ratio;
-  color: #6b6960
+  color: #6b6960;
 }
 
 ul {
   padding: 0 16px;
+
   @include smartphone {
     margin: 8px 0 20px
   }
@@ -330,7 +332,7 @@ ul {
 
 
 .article-content > h2 {
-  padding: 0 24px;
+  padding: 0 $article-offset;
   margin: 32px 0 12px;
   font-family: "SRG_SSR_Medium", sans-serif;
   @include fontSize(24);
@@ -340,10 +342,6 @@ ul {
     margin: 24px 0 12px;
     @include fontSize(22);
     line-height: $emphasize-line-height-ratio;
-  }
-
-  @include tablet-up {
-    padding: 0 16px
   }
 }
 
@@ -357,11 +355,7 @@ ul {
 }
 
 .article-header {
-  padding: 0 24px;
-
-  @include tablet-up {
-    padding: 0 16px;
-  }
+  padding: 0 $article-offset;
 }
 
 
