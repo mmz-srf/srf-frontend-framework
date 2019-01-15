@@ -123,7 +123,11 @@
   }
 }
 
+/****************************************************************************
+ CAUTION: there are some overrides of block-link--teaser-link in teaser.scss!
+ ****************************************************************************/
 .block-link--teaser-link {
+  padding-right: 56px;
   font-family: $font-medium;
   @include fontSize(14);
   font-weight: 500;

@@ -450,6 +450,17 @@
         border-top-color: transparent;
       }
     }
+
+    @include desktop-wide {
+      .block-link--teaser-link {
+        margin-left: 8px;
+
+        &:hover {
+          padding-left: 32px;
+          margin-left: -24px;
+        }
+      }
+    }
   }
 
   .teaser__links {
@@ -474,10 +485,6 @@
       margin-left: 0;
       width: 34.25%;
       @include customPropWithFallback('background-color', '--teaser-color-background', $color-bg-card);
-    }
-
-    @include desktop-wide {
-      padding: 0 0 0 32px;
     }
   }
 
@@ -543,6 +550,15 @@
     @include desktop-up {
       @include fontSize(18);
       line-height: $secondary-line-height-ratio;
+    }
+  }
+
+  /* if there are teaser links and an opinion teaser */
+  &.teaser--with-links {
+    @include tablet-up {
+      .teaser__opinion {
+        display: none;
+      }
     }
   }
 
