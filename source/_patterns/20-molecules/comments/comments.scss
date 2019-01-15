@@ -112,11 +112,12 @@
   font-family: $font-regular;
   @include fontSize(14);
   color: #22211d;
-  padding: 0 16px;
+  padding: 0 $article-offset-mobile;
   margin: -4px 0 4px;
 
   @include tablet-up {
     margin: 0 0 4px;
+    padding: 0 $article-offset;
   }
 }
 
@@ -406,18 +407,18 @@
 .tab-option__link {
   height: 40px;
   width: 100%;
-  @include fontSize(16);
+  @include fontSize(14);
   line-height: 1;
   font-family: $font-regular;
   color: $color-tab-option-link;
   border-bottom: 1px solid $color-separator;
-  padding: 12px 24px 0;
+  padding: 12px $article-offset-mobile 0;
   white-space: nowrap;
   display: inline-block;
 
-  @include smartphone {
-    @include fontSize(14);
-    padding: 12px 12px 0;
+  @include tablet-up {
+    @include fontSize(16);
+    padding: 12px $article-offset 0;
   }
 
   &:hover {
