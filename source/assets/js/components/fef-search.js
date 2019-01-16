@@ -60,7 +60,8 @@ export class SrfSearch {
 
             if (this.clickedSuggestionsEnabled
                 && FefStorage.isLocalStorageAvailable()
-                && FefStorage.hasItem(LOCAL_STORAGE_KEY)) {
+                && FefStorage.hasItem(LOCAL_STORAGE_KEY)
+                && this.$inputField.val() === '') {
                 const storedResults = FefStorage.getItemJsonParsed(LOCAL_STORAGE_KEY);
                 this.renderResults(storedResults, '');
             }
@@ -296,11 +297,15 @@ export class SrfSearch {
 
         this.$searchResults.html('');
 
+        console.log(results);
+
         results.map((result) => {
             let highlightedResult = this.highlightQuery(query, result.name);
             const $li = $('<li>', { class: `typeahead-suggestion ${wasAlreadyShowingResults ? 'typeahead-suggestion--no-animation' : ''}`});
             const $link = $('<a>', { class: 'search-result__link', href: result.url });
             $link.on('click', () => {
+
+                this.$inputField.val("");
 
                 if (this.clickedSuggestionsEnabled && FefStorage.isLocalStorageAvailable()) {
                     let storedResults = [];
@@ -311,6 +316,7 @@ export class SrfSearch {
                     storedResults = storedResults.filter((item) => {
                         return (item.name !== result.name && item.url !== result.url);
                     });
+
                     storedResults.unshift(result);
                     storedResults = storedResults.slice(0, this.options.maxSuggestionCount);
                     FefStorage.setItemJsonStringified(LOCAL_STORAGE_KEY, storedResults);
