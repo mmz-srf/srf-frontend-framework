@@ -500,18 +500,18 @@
     @include smartphone {
       height: auto;
       width: 100%;
+
       &::after {
         border-bottom: solid 1px rgba(0, 0, 0, 0.04);
       }
     }
 
     @include tablet-up {
-      height: 100%;
+      flex: 0 0 $teaser-xl-medium-ratio;
 
       &::after {
         border-right: solid 1px rgba(0, 0, 0, 0.04);
       }
-      flex: 0 0 $teaser-xl-medium-ratio;
     }
   }
 
