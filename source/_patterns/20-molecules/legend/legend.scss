@@ -39,8 +39,8 @@
 
 .legend__description {
   margin: 0 16px 0 22px;
-  font-family: $font-system;
-  font-size: 12px;
-  line-height: 16px;
+  @include fontSize(12);
+  font-family: $font-regular;
+  line-height: $secondary-line-height-ratio;
   color: $color-text-light;
 }

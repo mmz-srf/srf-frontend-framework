@@ -176,7 +176,7 @@ img {
 
 .article-title__text {
   margin: 3px 0 18px;
-  font-family: "SRG_SSR_Medium", sans-serif;
+  font-family: $font-medium;
   font-weight: 500;
   font-size: 36px;
   letter-spacing: 0;
@@ -192,7 +192,7 @@ img {
 
 .article-title__overline {
   margin: 0 0 3px;
-  font-family: "SRG_SSR_Regular", sans-serif;
+  font-family: $font-regular;
   @include fontSize(16);
   color: #c91024;
   display: block;
@@ -206,7 +206,7 @@ img {
   margin: 18px 0 22px;
   @include fontSize(22);
   color: #4e4d47;
-  font-family: "SRG_SSR_Light", sans-serif;
+  font-family: $font-light;
   line-height: 1.45;
   letter-spacing: -0.3px;
   @include smartphone {
@@ -225,14 +225,14 @@ img {
 
 .article-author__name {
   margin: 0;
-  font-family: "SRG_SSR_Regular", sans-serif;
+  font-family: $font-regular;
   @include fontSize(14);
   color: #22211d
 }
 
 .article-author__date {
   margin: 0;
-  font-family: $font-system;
+  font-family: $font-regular;
   @include fontSize(12);
   line-height: $secondary-line-height-ratio;
   color: #6b6960
@@ -312,7 +312,7 @@ ul {
 
 .article-content {
   margin: 0 0 24px;
-  font-family: "SRG_SSR_Light", sans-serif;
+  font-family: $font-light;
   @include fontSize(20);
   color: #22211d;
 
@@ -325,7 +325,7 @@ ul {
 .article-content > h2 {
   padding: 0 24px;
   margin: 32px 0 12px;
-  font-family: "SRG_SSR_Medium", sans-serif;
+  font-family: $font-medium;
   @include fontSize(24);
   line-height: $emphasize-line-height-ratio;
 

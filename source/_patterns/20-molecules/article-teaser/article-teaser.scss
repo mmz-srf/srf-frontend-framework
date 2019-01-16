@@ -73,8 +73,8 @@
 
 .article-teaser__date {
   color: $color-text-light;
-  font-family: $font-system;
-  font-size: 12px;
-  line-height: 1.33;
+  font-family: $font-regular;
+  @include fontSize(12);
+  line-height: $secondary-line-height-ratio;
   margin: 0;
 }

@@ -7,7 +7,7 @@
             {% if comment.isEditorialAnswer %}<span
                     class="h-offscreen">({{ businessUnit|upper }})</span>{% else %}({{ comment.nickname }}){% endif %}
         </cite>
-        <span class="comment__time" data-timestamp="{{ comment.date }}"></span>
+        <span class="comment__time" data-timestamp="{{ comment.date }}">{{ comment.dateFormatted }}</span>
         <blockquote class="comment__content">{{ comment.message }}</blockquote>
         {% spaceless %}
             <a class="js-comment-like comment__link comment__link--like" role="link" title="{{ 'Zustimmen' }}" href="#{{ comment.id }}-like">
