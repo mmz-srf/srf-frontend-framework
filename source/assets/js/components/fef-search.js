@@ -303,7 +303,7 @@ export class SrfSearch {
             const $link = $('<a>', { class: 'search-result__link', href: result.url });
             $link.on('click', () => {
 
-                this.$inputField.val("");
+                this.$inputField.val('');
 
                 if (this.clickedSuggestionsEnabled && FefStorage.isLocalStorageAvailable()) {
                     let storedResults = [];
