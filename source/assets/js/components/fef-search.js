@@ -297,8 +297,6 @@ export class SrfSearch {
 
         this.$searchResults.html('');
 
-        console.log(results);
-
         results.map((result) => {
             let highlightedResult = this.highlightQuery(query, result.name);
             const $li = $('<li>', { class: `typeahead-suggestion ${wasAlreadyShowingResults ? 'typeahead-suggestion--no-animation' : ''}`});
