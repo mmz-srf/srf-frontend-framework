@@ -1,4 +1,6 @@
 import {setFocus} from '../components/fef-flying-focus';
+import {FefStorage} from '../classes/fef-storage';
+
 
 export function init() {
     $('.js-search').each((i, elem) => {
@@ -17,6 +19,7 @@ const KEYCODES = {
 };
 const ACTIVE_CLASS = 'search--active';
 const OUTSIDE_CLICK_LISTENER_NAME = 'click.search-destroyer';
+const LOCAL_STORAGE_KEY = 'srf:search:history';
 
 export class SrfSearch {
 
@@ -33,6 +36,7 @@ export class SrfSearch {
         }, options);
 
         this.typeaheadUrl = this.$element.attr('data-typeahead-url');
+        this.clickedSuggestionsEnabled = this.$element.data('suggestion-history');
         this.typeaheadData = null;
         this.suggestionUrl = '';
         this.currTimeout = null;
@@ -51,7 +55,16 @@ export class SrfSearch {
         });
 
         this.$inputField.on('focus', (e) => {
+
             this.setSearchActive();
+
+            if (this.clickedSuggestionsEnabled
+                && FefStorage.isLocalStorageAvailable()
+                && FefStorage.hasItem(LOCAL_STORAGE_KEY)
+                && this.$inputField.val() === '') {
+                const storedResults = FefStorage.getItemJsonParsed(LOCAL_STORAGE_KEY);
+                this.renderResults(storedResults, '');
+            }
         }).on('keyup', (e) => {
             this.onKeyUp(e);
         }).on('keydown', (e) => {
@@ -166,6 +179,17 @@ export class SrfSearch {
         if (this.typeaheadData === null) {
             $.getJSON(this.typeaheadUrl, (data) => {
                 this.typeaheadData = data;
+
+                if (this.clickedSuggestionsEnabled
+                    && FefStorage.isLocalStorageAvailable
+                    && FefStorage.hasItem(LOCAL_STORAGE_KEY)) {
+                    let items = FefStorage.getItemJsonParsed(LOCAL_STORAGE_KEY);
+                    items = items.filter((storedItem) => {
+                        return this.typeaheadData.find((fetchedItem) => { return (fetchedItem.name === storedItem.name && fetchedItem.url === storedItem.url); });
+                    });
+
+                    FefStorage.setItemJsonStringified(LOCAL_STORAGE_KEY, items);
+                }
             });
         }
 
@@ -261,28 +285,51 @@ export class SrfSearch {
     /**
      * Renders the received search results into the results list.
      * For the Screen-Reader's sake it'll be rendered twice, once with the found substring highlighted and once readable.
-     * 
+     *
      * If we're replacing previously shown search results, make sure they're not animated anymore.
      *
-     * @param {Object} results 
-     * @param {String} query 
+     * @param {Object} results
+     * @param {String} query
      */
     renderResults(results, query) {
         let html = '';
         const wasAlreadyShowingResults = this.$searchResults.children('li').length > 0;
 
-        results.forEach((result) => {
+        this.$searchResults.html('');
+
+        results.map((result) => {
             let highlightedResult = this.highlightQuery(query, result.name);
-            html += `
-                <li class="typeahead-suggestion ${wasAlreadyShowingResults ? 'typeahead-suggestion--no-animation' : ''}">
-                    <a class="search-result__link" href="${result.url}">
-                        <span role="presentation" aria-hidden="true">${highlightedResult}</span>
-                        <span class="h-offscreen">${result.name}</span>
-                    </a>
-                </li>`;
+            const $li = $('<li>', { class: `typeahead-suggestion ${wasAlreadyShowingResults ? 'typeahead-suggestion--no-animation' : ''}`});
+            const $link = $('<a>', { class: 'search-result__link', href: result.url });
+            $link.on('click', () => {
+
+                this.$inputField.val('');
+
+                if (this.clickedSuggestionsEnabled && FefStorage.isLocalStorageAvailable()) {
+                    let storedResults = [];
+                    if (FefStorage.hasItem(LOCAL_STORAGE_KEY)) {
+                        storedResults = FefStorage.getItemJsonParsed(LOCAL_STORAGE_KEY);
+                    }
+
+                    storedResults = storedResults.filter((item) => {
+                        return (item.name !== result.name && item.url !== result.url);
+                    });
+
+                    storedResults.unshift(result);
+                    storedResults = storedResults.slice(0, this.options.maxSuggestionCount);
+                    FefStorage.setItemJsonStringified(LOCAL_STORAGE_KEY, storedResults);
+                }
+
+            });
+
+            $('<span>', { role: 'presentation', 'aria-hidden': true }).append(highlightedResult).appendTo($link);
+            $('<span>', { class: 'h-offscreen' }).text(result.name).appendTo($link);
+
+            $li.append($link);
+            $li.appendTo(this.$searchResults);
         });
 
-        this.$searchResults.html(html).show();
+        this.$searchResults.show();
 
         // additional screenreader info (same behavior like meteo search field)
         let $result_alert = $('.search-result__alert');
