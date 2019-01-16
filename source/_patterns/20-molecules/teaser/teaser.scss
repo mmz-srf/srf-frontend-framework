@@ -425,6 +425,7 @@
 .teaser--size-xl {
   @include tablet-up {
     flex-direction: row;
+    position: relative; // anchor for absolute positioned teaser links
   }
 
   .teaser__main {
@@ -448,6 +449,17 @@
         border-top-color: transparent;
       }
     }
+
+    @include desktop-wide {
+      .block-link--teaser-link {
+        margin-left: 8px;
+
+        &:hover {
+          padding-left: 32px;
+          margin-left: -24px;
+        }
+      }
+    }
   }
 
   .teaser__links {
@@ -459,8 +471,8 @@
         top: -1rem;
         right: 0;
         left: 0;
-        @include customPropWithFallback('background', '--teaser-fake-shadow-gradient', 'linear-gradient(rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%)');
         height: 1rem;
+        @include customPropWithFallback('background', '--teaser-fake-shadow-gradient', 'linear-gradient(rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%)');
       }
     }
 
@@ -468,9 +480,10 @@
       position: absolute;
       right: 0;
       bottom: 0;
-      @include customPropWithFallback('background-color', '--teaser-color-background', $color-bg-card);
       padding: 0 0 0 24px;
-      width: calc(34.25% + 8px);
+      margin-left: 0;
+      width: 34.25%;
+      @include customPropWithFallback('background-color', '--teaser-color-background', $color-bg-card);
     }
   }
 
@@ -536,6 +549,15 @@
     @include desktop-up {
       @include fontSize(18);
       line-height: $secondary-line-height-ratio;
+    }
+  }
+
+  /* if there are teaser links and an opinion teaser */
+  &.teaser--with-links {
+    @include tablet-up {
+      .teaser__opinion {
+        display: none;
+      }
     }
   }
 

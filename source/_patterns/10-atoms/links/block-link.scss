@@ -123,7 +123,11 @@
   }
 }
 
+/****************************************************************************
+ CAUTION: there are some overrides of block-link--teaser-link in teaser.scss!
+ ****************************************************************************/
 .block-link--teaser-link {
+  padding-right: 56px;
   font-family: $font-medium;
   @include fontSize(14);
   font-weight: 500;
@@ -149,8 +153,8 @@
   &:active {
     width: auto;
     border-top: 1px solid transparent;
-    margin-left: -16px;
-    padding-left: 16px;
+    margin-left: -24px;
+    padding-left: 24px;
     margin-right: 0;
 
     @include desktop-up {
