@@ -12,7 +12,7 @@ const HOOK_CLASS = 'js-swipeable-area',
     RIGHT_OFFSET = 24,
     DEFAULT_SCROLL_TIME = 400,
     DEBOUNCETIME = 50,
-    DEBOUNCETIME_SCROLL_TRACKING = 1500,
+    DEBOUNCETIME_SCROLL_TRACKING = 1000,
     HINT_AMOUNT = 20,
     MINIMUM_HEIGHT = 50;
 
@@ -38,6 +38,8 @@ export class FefSwipeableArea {
 
         this.visibleClass = null;
         this.hiddenClass = null;
+
+        this.oldScrollLeft = this.$innerContainer.scrollLeft();
 
         this.initOnce();
         this.init();
@@ -105,7 +107,7 @@ export class FefSwipeableArea {
         this.setupHinting();
         this.$items.on('click', (event) => this.onTeaserClick(event));
         this.$innerContainer.on('scroll', FefDebounceHelper.throttle(() => this.markItems(), DEBOUNCETIME));
-        this.$innerContainer.on('scroll', FefDebounceHelper.throttle(() => this.track(), DEBOUNCETIME_SCROLL_TRACKING));
+        this.$innerContainer.on('scroll', FefDebounceHelper.debounce(() => this.track(), DEBOUNCETIME_SCROLL_TRACKING));
     };
 
     addButtons() {
@@ -348,7 +350,9 @@ export class FefSwipeableArea {
         $(window).trigger(this.interactionMeasureString, {
             event_source: trackingObject.event_source,
             event_name: trackingObject.event_name,
-            event_value: trackingObject.event_value
+            event_value: this.oldScrollLeft < this.$innerContainer.scrollLeft() ? 'scroll-right' : 'scroll-left'
         });
+
+        this.oldScrollLeft = this.$innerContainer.scrollLeft();
     }
 }
