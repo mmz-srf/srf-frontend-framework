@@ -12,12 +12,13 @@ const HOOK_CLASS = 'js-swipeable-area',
     RIGHT_OFFSET = 24,
     DEFAULT_SCROLL_TIME = 400,
     DEBOUNCETIME = 50,
+    DEBOUNCETIME_SCROLL_TRACKING = 1500,
     HINT_AMOUNT = 20,
     MINIMUM_HEIGHT = 50;
 
-export function init() {
+export function init(interactionMeasureString = '') {
     $(`.${HOOK_CLASS}`).each((index, element) => {
-        new FefSwipeableArea($(element));
+        new FefSwipeableArea($(element), interactionMeasureString);
     });
 }
 
@@ -26,13 +27,14 @@ export function init() {
  */
 export class FefSwipeableArea {
 
-    constructor($element) {
+    constructor($element, interactionMeasureString = '') {
         this.$element = $element;
         this.$innerContainer = $(`.${INNER_CONTAINER_CLASS}`, this.$element);
         this.$items = $(`.${ITEM_CLASS}`, this.$innerContainer);
         this.itemPositions = [];
         this.$buttonBack = null;
         this.$buttonForward = null;
+        this.interactionMeasureString = interactionMeasureString;
 
         this.visibleClass = null;
         this.hiddenClass = null;
@@ -103,6 +105,7 @@ export class FefSwipeableArea {
         this.setupHinting();
         this.$items.on('click', (event) => this.onTeaserClick(event));
         this.$innerContainer.on('scroll', FefDebounceHelper.throttle(() => this.markItems(), DEBOUNCETIME));
+        this.$innerContainer.on('scroll', FefDebounceHelper.throttle(() => this.track(), DEBOUNCETIME_SCROLL_TRACKING));
     };
 
     addButtons() {
@@ -329,5 +332,23 @@ export class FefSwipeableArea {
 
     applyHint(pixels) {
         this.$innerContainer.children().first().css('transform', `translateX(${pixels}px)`);
+    }
+
+    track() {
+        let trackingRaw = this.$element.data('tracking-back');
+        let trackingArray = decodeURIComponent(trackingRaw.replace(/\+/g, ' ')).split('&'); // simply using decodeURIComponent would fail on + character, if we ever need that.
+        let trackingObject = {};
+
+        // Generate Object from url_encoded string
+        for(let i = 0; i < trackingArray.length; i++) {
+            let keyValueArray = trackingArray[i].split('=');
+            trackingObject[keyValueArray[0]] = keyValueArray[1];
+        }
+
+        $(window).trigger(this.interactionMeasureString, {
+            event_source: trackingObject.event_source,
+            event_name: trackingObject.event_name,
+            event_value: trackingObject.event_value
+        });
     }
 }
