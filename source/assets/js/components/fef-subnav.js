@@ -76,6 +76,7 @@ export class FefSubnav {
 
     onResize() {
         this.init();
+        alert('Here');
         this.closeAllSubNavs();
     }
 
