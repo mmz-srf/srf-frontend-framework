@@ -400,7 +400,7 @@ _:-ms-fullscreen,
  *
  * Somehow, Safari and Chrome cut of the 24px ⨉ 24px SVG-Icon (background-image) by one pixel on its right side. These bowsers need a larger canvas to render the background-image in its full size (24⨉24). :rolling_eyes:
  * Reference: https://srfmmz.atlassian.net/browse/SRFCMSAL-1575
- * Note: The incrementation of one pixel does not change the position of the icon or the spacing between the icon and its label text.
+ * Note: Incrementing one pixel does not change the position of the icon or the spacing between the icon and its label text.
  */
 .masthead .svg-icon--play-video-circle {
   width: 25px;
