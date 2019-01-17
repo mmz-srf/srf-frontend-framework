@@ -56,6 +56,8 @@ export class FefSubnav {
         this.initItemPositions();
         this.registerListeners();
 
+        this.width = window.width;
+
         // Immediately centering the nav bar doesn't work correctly - move to bottom of stack for correct results.
         setTimeout(() => {
             this.centerActiveItem();
@@ -75,9 +77,11 @@ export class FefSubnav {
     }
 
     onResize() {
-        this.init();
-        alert('Here');
-        this.closeAllSubNavs();
+        if (this.width !== window.width) {
+            this.init();
+            this.closeAllSubNavs();
+            this.width = window.width;
+        }
     }
 
     registerListeners() {
