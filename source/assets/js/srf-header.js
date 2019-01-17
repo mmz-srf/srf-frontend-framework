@@ -66,12 +66,14 @@ export class SrfHeader {
     onDocumentClicked(e) {
         if (this.menuIsOpen && !$.contains(this.$element[0], e.target)) {
             this.close();
+            alert('Closing your menu in onDocumentClicked :)');
         }
     }
 
     closeIfOpen() {
         if (this.menuIsOpen) {
             this.close();
+            alert('Closing your menu in closeIfOpen :)');
         }
     }
 
