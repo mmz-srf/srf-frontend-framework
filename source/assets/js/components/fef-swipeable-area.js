@@ -40,6 +40,8 @@ export class FefSwipeableArea {
         this.hiddenClass = null;
 
         this.oldScrollLeft = this.$innerContainer.scrollLeft();
+        this.isPageBackClick = false;
+        this.isPageForwardClick = false;
 
         this.initOnce();
         this.init();
@@ -116,14 +118,6 @@ export class FefSwipeableArea {
             this.$buttonBack = $(`<div class='${BACK_BUTTON_CLASS}'><span></span></div>`);
             this.$buttonForward = $(`<div class='${FORWARD_BUTTON_CLASS}'><span></span></div>`);
 
-            // Apply tracking parameters if provided
-            if (this.$element.data('tracking-forward')) {
-                this.$buttonForward.attr('data-event-track', this.$element.data('tracking-forward'));
-            }
-            if (this.$element.data('tracking-back')) {
-                this.$buttonBack.attr('data-event-track', this.$element.data('tracking-back'));
-            }
-
             this.$element.append(this.$buttonBack, this.$buttonForward);
 
             this.$innerContainer.on('scroll', FefDebounceHelper.debounce(() => this.updateButtonStatus(), DEBOUNCETIME));
@@ -187,14 +181,8 @@ export class FefSwipeableArea {
 
         if (this.isOutOfBoundsLeft($item)) {
             this.pageBack();
-            if (this.$buttonBack) {
-                this.$buttonBack.trigger('click');
-            }
         } else {
             this.pageForward();
-            if (this.$buttonForward) {
-                this.$buttonForward.trigger('click');
-            }
         }
 
         // Don't go to the link of the teaser
@@ -244,6 +232,7 @@ export class FefSwipeableArea {
 
         let newPosition = this.itemPositions[nextItemIndex].center - (this.$innerContainer.innerWidth() / 2);
 
+        this.isPageForwardClick = true;
         this.scrollToPosition(newPosition);
     }
 
@@ -262,6 +251,7 @@ export class FefSwipeableArea {
 
         let newPosition = this.itemPositions[nextItemIndex].center - (this.$innerContainer.innerWidth() / 2);
 
+        this.isPageBackClick = true;
         this.scrollToPosition(newPosition);
     }
 
@@ -337,22 +327,22 @@ export class FefSwipeableArea {
     }
 
     track() {
-        let trackingRaw = this.$element.data('tracking-back');
-        let trackingArray = decodeURIComponent(trackingRaw.replace(/\+/g, ' ')).split('&'); // simply using decodeURIComponent would fail on + character, if we ever need that.
-        let trackingObject = {};
+        let eventValue = null;
 
-        // Generate Object from url_encoded string
-        for(let i = 0; i < trackingArray.length; i++) {
-            let keyValueArray = trackingArray[i].split('=');
-            trackingObject[keyValueArray[0]] = keyValueArray[1];
+        if (this.isPageBackClick || this.isPageForwardClick) {
+            eventValue = this.isPageBackClick ? 'click-right' : 'click-left';
+            this.isPageBackClick = false;
+            this.isPageForwardClick = false;
+        } else {
+            eventValue = this.oldScrollLeft < this.$innerContainer.scrollLeft() ? 'swipe-right' : 'swipe-left'
         }
 
-        $(window).trigger(this.interactionMeasureString, {
-            event_source: trackingObject.event_source,
-            event_name: trackingObject.event_name,
-            event_value: this.oldScrollLeft < this.$innerContainer.scrollLeft() ? 'swipe-right' : 'swipe-left'
-        });
-
         this.oldScrollLeft = this.$innerContainer.scrollLeft();
+
+        $(window).trigger(this.interactionMeasureString, {
+            event_source: this.$element.data('event-source'),
+            event_name: this.$element.data('event-name'),
+            event_value: eventValue
+        });
     }
 }
