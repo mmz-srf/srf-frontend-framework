@@ -183,20 +183,22 @@
 /* THEME */
 
 /* COMMON SETTINGS FOR ALL THEMES EXCEPT DEFAULT */
-.masthead.masthead--theme-sport,
-.masthead.masthead--theme-meteo,
-.masthead.masthead--theme-kultur,
-.masthead.masthead--theme-dok,
-.masthead.masthead--theme-rtr_novitads,
-.masthead.masthead--theme-rtr_cultura,
-.masthead.masthead--theme-rtr_sport,
-.masthead.masthead--theme-rtr_uffants,
-.masthead.masthead--theme-rtr_archiv,
-.masthead.masthead--theme-rtr_aura,
-.masthead.masthead--theme-rtr_interpresa {
-  .masthead__title-link,
-  .portalsnav__link {
-    color: #FFF;
+@supports (--foo: bar) {
+  .masthead.masthead--theme-sport,
+  .masthead.masthead--theme-meteo,
+  .masthead.masthead--theme-kultur,
+  .masthead.masthead--theme-dok,
+  .masthead.masthead--theme-rtr_novitads,
+  .masthead.masthead--theme-rtr_cultura,
+  .masthead.masthead--theme-rtr_sport,
+  .masthead.masthead--theme-rtr_uffants,
+  .masthead.masthead--theme-rtr_archiv,
+  .masthead.masthead--theme-rtr_aura,
+  .masthead.masthead--theme-rtr_interpresa {
+    .masthead__title-link,
+    .portalsnav__link {
+      color: #FFF;
+    }
   }
 }
 
