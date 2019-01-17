@@ -162,6 +162,7 @@ export class SrfHeader {
     }
 
     close() {
+        alert('Closing :)');
         this.changeMenuState(false);
     }
 
