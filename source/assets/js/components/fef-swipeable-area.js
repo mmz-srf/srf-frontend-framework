@@ -350,7 +350,7 @@ export class FefSwipeableArea {
         $(window).trigger(this.interactionMeasureString, {
             event_source: trackingObject.event_source,
             event_name: trackingObject.event_name,
-            event_value: this.oldScrollLeft < this.$innerContainer.scrollLeft() ? 'scroll-right' : 'scroll-left'
+            event_value: this.oldScrollLeft < this.$innerContainer.scrollLeft() ? 'swipe-right' : 'swipe-left'
         });
 
         this.oldScrollLeft = this.$innerContainer.scrollLeft();
