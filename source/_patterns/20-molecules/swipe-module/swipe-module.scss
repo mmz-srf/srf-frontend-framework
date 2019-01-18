@@ -251,9 +251,13 @@ $item-max-width: 400px;
   }
 }
 
-.swipemod-item--partially-hidden {
-  @include desktop-up {
+@include desktop-up {
+  .swipemod-item--partially-hidden {
     opacity: 0.2;
+
+    &:hover {
+      opacity: 0.6;
+    }
   }
 }
 
