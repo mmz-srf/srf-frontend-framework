@@ -77,10 +77,21 @@ export class FefSubnav {
     }
 
     onResize() {
-        if (this.width !== window.width) {
+        if (this.isWidthChangedSignificant()) {
             this.init();
             this.closeAllSubNavs();
-            this.width = window.width;
+        }
+        this.width = window.width;
+    }
+
+    // If changed more than 15%
+    isWidthChangedSignificant() {
+        if (this.width < window.width) {
+            // More than 15% bigger than before
+            return ((widow.width * 100 / this.width) - 100) > 15;
+        } else {
+            // More than 15% smaller than before
+            return ((this.width * 100 / window.width) - 100) > 15;
         }
     }
 
