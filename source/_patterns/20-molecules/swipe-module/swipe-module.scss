@@ -1,30 +1,25 @@
 @import "../../variables";
 @import "../../mixins";
 
-/*** LAYOUT ***/
-$outer-padding-small: 8px;
-$outer-padding: 32px;
-$inner-outer-padding: 16px;
+// padding between browser edge and items (left + right)
+$container-padding: 8px;
+$container-padding-tablet: 32px;
+$container-padding-desktop-wide: 2px; // this prevents cut off shadows
 
-/*** SPACING ***/
-$gutter-padding-small: 8px;
-$gutter-padding: 12px;
-$half-gutter-padding-small: $gutter-padding-small / 2;
-$half-gutter-padding: $gutter-padding / 2;
+// gap between the items
+$gap-between-items: 8px;
+$gap-between-items-tablet: 12px;
+$gap-between-items-desktop-wide: 16px;
 
-/*** UI ***/
-$swipe-remains-small: 48px;
-$swipe-remains: 52px;
-$swipe-remains-large: 92px;
-$row-count-tablet: 2;
-$row-count-desktop: 3;
+// how much is still visible of a potential next item when scrolled all the way to one side
+$visible-part-of-next-item: 40px;
+$visible-part-of-next-item-tablet: 44px;
+
 $item-max-width: 400px;
 
 .swipemod {
   opacity: 1; /* OVERRIDE CRITICAL CSS */
-  background: $color-bg-box;
   overflow-x: hidden;
-  padding-top: 2px;
 
   @include desktop {
     margin-right: 0;
@@ -35,35 +30,33 @@ $item-max-width: 400px;
   @include desktop-wide {
     overflow-x: visible;
   }
+}
 
-  > .l-card {
-    background: $color-bg-caption;
-    margin-bottom: 32px;
+.swipemod_inner-wrapper {
+  margin-bottom: 32px;
 
-    @include tablet-up {
-      margin-bottom: 40px;
-    }
-
-    @include desktop {
-      margin-left: 32px;
-      margin-right: 32px;
-    }
-
-    @include desktop-wide {
-      overflow-x: hidden;
-    }
+  @include tablet-up {
+    margin-bottom: 40px;
   }
 }
 
 .swipemod-container {
-  padding: 0 16px 4px;
   position: relative;
+  padding: 0 $container-padding 4px;
+
+  @include tablet-up {
+    padding: 0 $container-padding-tablet 4px;
+  }
+
+  @include desktop-wide {
+    padding: 0 $container-padding-desktop-wide 4px;
+  }
 }
 
 .swipemod-showall {
   display: flex;
-  justify-content: space-between;
-  padding: 20px 16px 12px;
+  align-items: center;
+  padding: 20px 24px 12px;
   color: $color-link-default;
 
   &,
@@ -76,22 +69,40 @@ $item-max-width: 400px;
   &:hover,
   &:focus {
     color: $color-link-hover;
+
+    // estimation of the above color
+    .swipemod-showall__icon {
+      filter: brightness(0.7);
+    }
   }
 
   &:active {
     color: $color-link-active;
+
+    // estimation of the above color
+    .swipemod-showall__icon {
+      filter: brightness(0.5);
+    }
+  }
+
+  @include tablet-up {
+    padding: 20px 32px 12px;
+  }
+
+  @include desktop-wide {
+    padding: 20px 0 12px;
   }
 }
 
 .swipemod-showall__title {
-  flex: 1 1 auto;
+  flex: 0 1 auto;
   margin: 0;
   font-family: $font-regular;
   @include fontSize(22);
   line-height: $emphasize-line-height-ratio;
-  color: $color-text-accentuation;
 }
 
+// only show --extended or --collapsed, depending on the breakpoint
 .swipemod-showall__title--extended {
   @include smartphone {
     @include offscreen-non-focusable;
@@ -104,45 +115,26 @@ $item-max-width: 400px;
   }
 }
 
-.swipemod-showall__text {
-  flex: 0 1 auto;
-  @include fontSize(16);
-  font-family: $font-regular;
-  line-height: 1;
-  align-self: center;
-
-  @include smartphone {
-    display: none;
-  }
-}
-
 .swipemod-showall__icon {
   @include caret('red', 'right', 'medium');
-  margin-right: -8px;
-  margin-top: 2px;
 }
 
 .swipemod-swipecontainer {
-  list-style-type: none; // overwrite global li-styles :-/
+  list-style-type: none; // overwrite global li-styles
   display: flex;
   overflow-x: scroll;
   -webkit-overflow-scrolling: touch;
-  margin: 0 -#{$outer-padding-small + $inner-outer-padding + $half-gutter-padding-small};
-  padding: 0 #{$outer-padding-small + $inner-outer-padding};
+  margin: 0 -#{$container-padding};
+  padding: 0 #{$container-padding};
 
-  @include tablet {
-    margin: 0 -#{$inner-outer-padding + $outer-padding};
-    padding: 0 #{$inner-outer-padding - $half-gutter-padding + $outer-padding};
-  }
-
-  @include desktop {
-    margin: 0 -#{$inner-outer-padding + $outer-padding};
-    padding: 0 #{$inner-outer-padding - $half-gutter-padding + $outer-padding};
+  @include tablet-up {
+    margin: 0 -#{$container-padding-tablet};
+    padding: 0 #{$container-padding-tablet};
   }
 
   @include desktop-wide {
-    margin: 0 -#{$inner-outer-padding};
-    padding: 0 #{$inner-outer-padding - $half-gutter-padding};
+    margin: 0 -#{$container-padding-desktop-wide};
+    padding: 0 #{$container-padding-desktop-wide};
   }
 
   // Browser-specific way to disable scrollbars - non-trivial with flex layout otherwise!
@@ -150,36 +142,27 @@ $item-max-width: 400px;
     display: none;
   }
 
-  .swipemod-item {
-    box-shadow: $shadow-elevation2;
-    &:hover,
-    &:focus,
-    &:active {
-      box-shadow: $shadow-elevation8;
-    }
-    &:hover,
-    &:focus {
-      background-color: #fafaf8;
-    }
-
-    &:active {
-      background-color: #f5f5f2;
-    }
-
-  }
-}
-
-.swipemod-container--2ormore .swipemod-swipecontainer {
+  // The gap between right container border and last item must be done with the :after pseudo element
   &::after {
-    content: "";
-    flex: 0 0 #{$outer-padding-small + $inner-outer-padding};
+    content: '';
+    flex: 0 0 $container-padding;
 
     @include tablet-up {
-      flex: 0 0 #{$outer-padding + $inner-outer-padding - $half-gutter-padding};
+      flex-basis: $container-padding-tablet;
     }
 
     @include desktop-wide {
-      flex: 0 0 #{$inner-outer-padding - $half-gutter-padding};
+      flex-basis: $container-padding-desktop-wide;
+    }
+  }
+
+  // the :after is not necessary if there are only 1, 2 or 3 teasers on tablet+
+  @include tablet-up {
+    &::after {
+      content: none;
+    }
+    .swipemod-container--4ormore &::after {
+      content: '';
     }
   }
 }
@@ -187,31 +170,23 @@ $item-max-width: 400px;
 .swipemod-item {
   flex: 1 0;
   display: flex;
-  margin: 0 $half-gutter-padding-small 8px;
-  padding-left: 0; // overwrite global li-styles :-/
-  max-width: $item-max-width;
   background: $color-bg-card;
   border-radius: 2px;
   border: 0;
+  box-shadow: $shadow-elevation2;
+  opacity: 1;
+  transition: box-shadow .2s ease-in-out, opacity .2s ease-in-out;
+  max-width: $item-max-width;
 
-  min-width: $smartphone-size - 2 * $outer-padding-small - 2 * $inner-outer-padding; //272px = 320 - 2*8 - 2*16
+  // gaps between the items is achieved via margin-right (a bit bigger on tablet+), so the last one has no margin-right
+  margin: 0 $gap-between-items 8px 0;
 
-  @include tablet {
-    margin: 0 $half-gutter-padding 8px;
-    max-width: calc((100% / #{$row-count-tablet}) - #{$gutter-padding});
-
-    min-width: ($tablet-size - 2 * $outer-padding - 2 * $inner-outer-padding - $gutter-padding) / 2; //306px = (720 - 2*32 - 2*16 - 12) / 2
+  @include tablet-up {
+    margin-right: $gap-between-items-tablet;
   }
 
-  @include desktop-up {
-    margin: 0 $half-gutter-padding 8px;
-    max-width: calc((100% / #{$row-count-desktop}) - #{$gutter-padding});
-
-    min-width: ($desktop-size - 2 * $outer-padding - 2 * $inner-outer-padding - 2 * $gutter-padding) / 3; //301.3px = (1024 - 2*32 - 2*16 - 2*12) / 3
-  }
-
-  @include desktop-wide {
-    min-width: ($content-width - 2 * $inner-outer-padding - 2 * $gutter-padding) / 3; //381.3px = (1200 - 2*16 - 2*12) / 3
+  &:last-child {
+    margin-right: 0;
   }
 
   > a { // overwrite global a-styles
@@ -224,40 +199,61 @@ $item-max-width: 400px;
       border: none;
     }
   }
-}
 
-.swipemod-container--2ormore .swipemod-item {
-  flex: 1 0 calc(100% - #{$swipe-remains-small} + #{$gutter-padding-small});
+  &:hover,
+  &:focus,
+  &:active {
+    box-shadow: $shadow-elevation8;
+  }
 
-  min-width: $smartphone-size - 2 * $outer-padding-small - $inner-outer-padding - $swipe-remains-small; //240px = 320 - 2*8 - 16 - 48
+  &:hover,
+  &:focus {
+    background-color: #fafaf8;
+  }
 
-  @include tablet-up {
-    flex: 1 0 calc(100% - #{$swipe-remains-small + $outer-padding} + #{$gutter-padding});
+  &:active {
+    background-color: #f5f5f2;
   }
 }
 
-@mixin maxWidthCalculator($count: $row-count-desktop, $remains: $swipe-remains-large) {
-  max-width: calc(((100% - #{$gutter-padding}) - #{$remains - $inner-outer-padding} - (#{($count - 1) * $gutter-padding})) / #{$count});
-}
+@include smartphone {
+  .swipemod-item {
+    flex-basis: 100%;
+  }
 
-.swipemod-container--3ormore .swipemod-item {
-  @include tablet {
-    @include maxWidthCalculator($row-count-tablet, $swipe-remains);
+  .swipemod-container--2ormore .swipemod-item {
+    flex-basis: calc((100% - #{$gap-between-items}) / 2.00001);
+    min-width: #{ $smartphone-size - $container-padding - $gap-between-items - $visible-part-of-next-item };
+  }
 
-    min-width: ($tablet-size - 2 * $outer-padding - $inner-outer-padding - $gutter-padding - $swipe-remains) / 2; //288px = (720 - 2*32 - 16 - 12 - 52) / 2
+  .swipemod-container--3ormore .swipemod-item {
+    flex-basis: calc((100% - #{$gap-between-items + $visible-part-of-next-item}) / 2.00001);
   }
 }
-.swipemod-container--4ormore .swipemod-item {
+
+@include tablet-up {
+  .swipemod-item {
+    flex-basis: $item-max-width;
+  }
+
+  .swipemod-container--2ormore .swipemod-item {
+    flex-basis: 0;
+  }
+
+  .swipemod-container--4ormore .swipemod-item {
+    flex-basis: calc((100% - #{3 * $gap-between-items-tablet + $visible-part-of-next-item-tablet - $container-padding-tablet }) / 3.00001);
+  }
+}
+
+@include desktop-wide {
+  .swipemod-container--4ormore .swipemod-item {
+    flex-basis: calc((100% - #{3 * $gap-between-items-desktop-wide + $visible-part-of-next-item-tablet - $container-padding-desktop-wide }) / 3.00001);
+  }
+}
+
+.swipemod-item--partially-hidden {
   @include desktop-up {
-    @include maxWidthCalculator($row-count-desktop, $swipe-remains);
-
-    min-width: ($desktop-size - 2 * $outer-padding - $inner-outer-padding - 2 * $gutter-padding - $swipe-remains) / 3; //289px = (1024 - 2*32 - 16 - 2*12 - 52) / 3
-  }
-
-  @include desktop-wide {
-    @include maxWidthCalculator($row-count-desktop, $swipe-remains-large);
-
-    min-width: ($content-width - $inner-outer-padding - 2 * $gutter-padding - $swipe-remains-large) / 3; //356px = (1200 - 16 - 2*12 - 92) / 3
+    opacity: 0.2;
   }
 }
 
@@ -322,19 +318,6 @@ $item-max-width: 400px;
     border-radius: 2px;
   }
 
-  &:hover,
-  &:focus {
-    &::after {
-      background-color: rgba(0, 0, 0, 0.48);
-    }
-  }
-
-  &:active {
-    &::after {
-      background-color: rgba(0, 0, 0, 0.8);
-    }
-  }
-
   &:focus,
   &:active {
     outline: none;
@@ -345,6 +328,7 @@ $item-max-width: 400px;
   @include tablet-up {
     display: block;
     cursor: pointer;
+    transition: opacity .2s ease-in-out;
 
     &::after {
       opacity: 0;
@@ -361,28 +345,19 @@ $item-max-width: 400px;
 }
 
 .swipemod-button__left {
-  left: -32px;
-
-  @include desktop-wide {
-    left: 0;
-  }
+  left: 0;
 
   &::after {
-    left: 0;
-    background-image: url('../img/carousel/previous.svg');
-    background-position: 8px 32px;
+    @include caret('grey', 'left', 'large');
+    left: 10px;
   }
 }
 
 .swipemod-button__right {
-  right: -32px;
-
-  @include desktop-wide {
-    right: 0;
-  }
+  right: 0;
 
   &::after {
-    right: 0;
-    background-image: url('../img/carousel/next.svg');
+    @include caret('grey', 'right', 'large');
+    right: 10px;
   }
 }
