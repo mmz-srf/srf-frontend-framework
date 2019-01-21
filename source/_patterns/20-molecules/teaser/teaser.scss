@@ -763,6 +763,14 @@
     --teaser-color-background: transparent;
   }
 
+  &.teaser--size-xl {
+    .teaser__longform-medium {
+      .image--media-still-dynamic {
+        height: 100%;
+      }
+    }
+  }
+
   .teaser__longform-medium {
     position: absolute;
     z-index: 0;
