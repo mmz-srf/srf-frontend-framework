@@ -18,6 +18,7 @@ import {init as FefSubnavInit} from './components/fef-subnav';
 import {init as FefPopupInit} from './components/fef-popup';
 import {init as FefSkiplinks} from './components/fef-skiplinks';
 import {init as FefSelectableInit} from './components/fef-selectable';
+import {init as FefAutoplayInit} from './srf-autoplay';
 
 
 /** SELF loading components without init **/
@@ -49,5 +50,6 @@ document.addEventListener('DOMContentLoaded', function(event) {
     FefPopupInit();
     FefSkiplinks();
     FefSelectableInit();
+    FefAutoplayInit();
     FefShameInit(); // this should probably be last, because it may contain code that depends on the previous scripts
 });
