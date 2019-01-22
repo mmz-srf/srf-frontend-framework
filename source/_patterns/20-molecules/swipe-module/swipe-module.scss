@@ -278,20 +278,27 @@ $item-max-width: 400px;
 .swipemod-item__title {
   margin: 0;
   padding: 16px;
-  font-family: $font-regular;
+  font-family: $font-medium;
   @include fontSize(16);
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: $emphasize-line-height-ratio;
   color: $color-text-default;
-
   @include breakLongWords();
 }
 
 .swipemod-item__overline {
+  display: block;
   margin: 0 0 4px 0;
   font-family: $font-regular;
   @include fontSize(14);
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
   line-height: 1.14;
   color: $color-accentuation-red;
-  display: block;
+  @include breakLongWords();
 }
 
 .swipemod-imagecontainer {
