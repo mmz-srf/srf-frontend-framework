@@ -33,16 +33,17 @@ $item-max-width: 400px;
 }
 
 .swipemod_inner-wrapper {
-  margin-bottom: 32px;
+  margin-bottom: 24px;
 
   @include tablet-up {
-    margin-bottom: 40px;
+    margin-bottom: 32px;
   }
 }
 
 .swipemod-container {
   position: relative;
   padding: 0 $container-padding 4px;
+  transition: transform .2s ease-in-out;
 
   @include tablet-up {
     padding: 0 $container-padding-tablet 4px;
@@ -58,6 +59,10 @@ $item-max-width: 400px;
   align-items: center;
   padding: 20px 24px 12px;
   color: $color-link-default;
+  @include fontSize(24px);
+  font-family: $font-medium;
+  font-feature-settings: "salt";
+  font-weight: 500;
 
   &,
   &:hover,
@@ -68,20 +73,21 @@ $item-max-width: 400px;
 
   &:hover,
   &:focus {
-    color: $color-link-hover;
+    color: #f1434a;
 
     // estimation of the above color
     .swipemod-showall__icon {
-      filter: brightness(0.7);
+      filter: brightness(1.3);
     }
   }
 
   &:active {
-    color: $color-link-active;
+    color: #ff6669;
 
     // estimation of the above color
     .swipemod-showall__icon {
-      filter: brightness(0.5);
+      filter: brightness(1.37);
+      opacity: 0.82;
     }
   }
 
@@ -89,17 +95,19 @@ $item-max-width: 400px;
     padding: 20px 32px 12px;
   }
 
+  @include desktop-up {
+    @include fontSize(28px);
+    padding-bottom: 16px;
+  }
+
   @include desktop-wide {
-    padding: 20px 0 12px;
+    padding: 20px 0 16px;
   }
 }
 
 .swipemod-showall__title {
   flex: 0 1 auto;
   margin: 0;
-  font-family: $font-regular;
-  @include fontSize(22);
-  line-height: $emphasize-line-height-ratio;
 }
 
 // only show --extended or --collapsed, depending on the breakpoint
@@ -172,14 +180,16 @@ $item-max-width: 400px;
   display: flex;
   background: $color-bg-card;
   border-radius: 2px;
+  overflow: hidden; // to cut off images' corners with border-radius
   border: 0;
-  box-shadow: $shadow-elevation2;
+  box-shadow: $shadow-elevation1;
   opacity: 1;
   transition: box-shadow .2s ease-in-out, opacity .2s ease-in-out;
   max-width: $item-max-width;
 
   // gaps between the items is achieved via margin-right (a bit bigger on tablet+), so the last one has no margin-right
-  margin: 0 $gap-between-items 8px 0;
+  // margin-bottom due to the shadow that should not be cut off
+  margin: 0 $gap-between-items 16px 0;
 
   @include tablet-up {
     margin-right: $gap-between-items-tablet;
@@ -192,27 +202,32 @@ $item-max-width: 400px;
   > a { // overwrite global a-styles
     border: none;
     width: 100%;
+    position: relative; // to position :after when :active
 
     &:hover,
     &:active,
     &:focus {
       border: none;
     }
+
+    &:active:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(185, 183, 172, .12);
+      pointer-events: none;
+    }
   }
 
-  &:hover,
-  &:focus,
-  &:active {
-    box-shadow: $shadow-elevation8;
-  }
-
-  &:hover,
-  &:focus {
-    background-color: #fafaf8;
-  }
-
-  &:active {
-    background-color: #f5f5f2;
+  @include desktop-up {
+    &:hover,
+    &:focus,
+    &:active {
+      box-shadow: $shadow-elevation16;
+    }
   }
 }
 
@@ -329,22 +344,10 @@ $item-max-width: 400px;
 }
 
 .swipemod-container--2ormore .swipemod-button {
-  @include tablet-up {
+  @include desktop-up {
     display: block;
     cursor: pointer;
     transition: opacity .2s ease-in-out;
-
-    &::after {
-      opacity: 0;
-    }
-
-    &:hover,
-    &:active,
-    &:focus {
-      &::after {
-        opacity: 1;
-      }
-    }
   }
 }
 

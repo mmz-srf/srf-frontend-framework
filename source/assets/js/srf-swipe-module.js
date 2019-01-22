@@ -55,6 +55,16 @@ export class SrfSwiper {
         this.$swipeContainer.on('scroll', FefDebounceHelper.throttle(() => this.afterUserScrolled(), DEBOUNCETIME) );
 
         $(window).on('resize', FefDebounceHelper.debounce(() => this.afterResize(), DEBOUNCETIME) );
+
+        this.$prevBtn.hover(
+            (_) => this.applyHint(5),
+            (_) => this.applyHint(0)
+        );
+
+        this.$nextBtn.hover(
+            (_) => this.applyHint(-5),
+            (_) => this.applyHint(0)
+        );
     }
 
     afterUserScrolled() {
@@ -134,7 +144,7 @@ export class SrfSwiper {
         let showLeft = false,
             showRight = false;
 
-        if (isSize2Plus()) {
+        if (isSize3Plus()) {
             showLeft = this.canScrollLeft();
             showRight = this.canScrollRight();
         }
@@ -294,5 +304,9 @@ export class SrfSwiper {
             $(document).trigger('flyingfocus:move');
 
         });
+    }
+
+    applyHint(pixels) {
+        this.$container.css('transform', `translateX(${pixels}px)`);
     }
 }
