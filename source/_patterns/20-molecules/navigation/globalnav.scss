@@ -136,6 +136,11 @@
     margin-bottom: -9px;
   }
 
+  @include tablet-up {
+    // Yes, we do things like this because we can do things like this
+    margin-bottom: -34px;
+  }
+
   .globalnav-item--sub {
     max-height: 100px;
     opacity: 1;
