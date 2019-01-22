@@ -330,7 +330,7 @@ export class FefSwipeableArea {
         let eventValue = null;
 
         if (this.isPageBackClick || this.isPageForwardClick) {
-            eventValue = this.isPageBackClick ? 'click-right' : 'click-left';
+            eventValue = this.isPageBackClick ? 'click-left' : 'click-right';
             this.isPageBackClick = false;
             this.isPageForwardClick = false;
         } else {
