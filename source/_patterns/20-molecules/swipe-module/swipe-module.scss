@@ -62,6 +62,7 @@ $item-max-width: 400px;
   font-family: $font-medium;
   font-feature-settings: "salt";
   font-weight: 500;
+  transition: color .2s ease-in-out, opacity .2s ease-in-out;
 
   &,
   &:hover,
@@ -107,6 +108,8 @@ $item-max-width: 400px;
 .swipemod-showall__title {
   flex: 0 1 auto;
   margin: 0;
+  font-size: 1em;
+  line-height: 1.25;
 }
 
 // only show --extended or --collapsed, depending on the breakpoint
@@ -209,15 +212,20 @@ $item-max-width: 400px;
       border: none;
     }
 
-    &:active:after {
+    &:after {
       content: '';
+      background-color: transparent;
       position: absolute;
       top: 0;
       left: 0;
       right: 0;
       bottom: 0;
-      background-color: rgba(185, 183, 172, .12);
       pointer-events: none;
+      transition: background-color .2s ease-in-out;
+    }
+
+    &:active:after {
+      background-color: rgba(185, 183, 172, .12);
     }
   }
 
