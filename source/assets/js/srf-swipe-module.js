@@ -57,12 +57,12 @@ export class SrfSwiper {
         $(window).on('resize', FefDebounceHelper.debounce(() => this.afterResize(), DEBOUNCETIME) );
 
         this.$prevBtn.hover(
-            (_) => this.applyHint(5),
+            (_) => this.applyHint(20),
             (_) => this.applyHint(0)
         );
 
         this.$nextBtn.hover(
-            (_) => this.applyHint(-5),
+            (_) => this.applyHint(-20),
             (_) => this.applyHint(0)
         );
     }
@@ -307,6 +307,6 @@ export class SrfSwiper {
     }
 
     applyHint(pixels) {
-        this.$container.css('transform', `translateX(${pixels}px)`);
+        this.$swipeContainer.children().css('transform', `translateX(${pixels}px)`);
     }
 }
