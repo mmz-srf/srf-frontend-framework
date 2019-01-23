@@ -169,8 +169,7 @@ img {
   }
 
   @include desktop-up {
-    padding: 0 40px;
-    max-width: 792px;
+    max-width: 728px;
   }
 }
 
@@ -360,7 +359,7 @@ ul {
 
 
 .breadcrumbs {
-  margin: 16px 0 16px;
+  margin: 16px 0 8px;
   padding: 0 $article-offset;
   white-space: nowrap;
   overflow-x: auto;
