@@ -7,7 +7,7 @@
   overflow: visible;
 }
 
-.search--active {
+.search--active.search--z-indexed {
   z-index: 200;
 }
 
