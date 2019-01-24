@@ -43,11 +43,7 @@
     &:hover,
     &:focus,
     &:active {
-      border-bottom: 1px solid $color-bg-box;
-
-      & + li {
-        border-top: 0;
-      }
+      border-color: transparent;
     }
 
     &:last-child {
