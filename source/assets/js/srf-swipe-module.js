@@ -18,6 +18,7 @@ const isSize2Plus    = () => { return window.innerWidth >= 768; };
 const isSize3Plus    = () => { return window.innerWidth >= 1024; };
 const isSize4        = () => { return window.innerWidth >= 1280; };
 const potentialSlots = () => { return isSize3Plus() ? 3 : isSize2() ? 2 : 1; };
+const PARTIALLY_HIDDEN_CLASS = 'swipemod-item--partially-hidden';
 
 export class SrfSwiper {
 
@@ -41,6 +42,7 @@ export class SrfSwiper {
         this.registerListeners();
 
         this.showHidePrevNextButtons();
+        this.changeVisibilityClasses();
     }
 
     registerListeners() {
@@ -50,19 +52,31 @@ export class SrfSwiper {
 
         this.$element.on('focusin', '.swipemod-item', event => this.onItemInteraction(event) );
 
-        this.$swipeContainer.on('scroll', FefDebounceHelper.debounce(() => this.afterUserScrolled(), DEBOUNCETIME) );
+        this.$swipeContainer.on('scroll', FefDebounceHelper.throttle(() => this.afterUserScrolled(), DEBOUNCETIME) );
 
         $(window).on('resize', FefDebounceHelper.debounce(() => this.afterResize(), DEBOUNCETIME) );
+
+        this.$prevBtn.hover(
+            (_) => this.applyHint(20),
+            (_) => this.applyHint(0)
+        );
+
+        this.$nextBtn.hover(
+            (_) => this.applyHint(-20),
+            (_) => this.applyHint(0)
+        );
     }
 
     afterUserScrolled() {
         if (!this.isAutoScrolling) {
             this.showHidePrevNextButtons();
         }
+        this.changeVisibilityClasses();
     }
 
     afterResize() {
         this.showHidePrevNextButtons();
+        this.changeVisibilityClasses();
     }
 
     onButtonClick(event) {
@@ -74,6 +88,17 @@ export class SrfSwiper {
             this.scrollLeft(nrOfElements);
         } else if (direction === DIRECTION.RIGHT) {
             this.scrollRight(nrOfElements);
+        }
+    }
+
+    changeVisibilityClasses() {
+        if (isSize3Plus()) {
+            this.$items.each((_, item) => {
+                let $item = $(item);
+                let isInView = this.isItemCompletelyInView($item);
+
+                $item.toggleClass(PARTIALLY_HIDDEN_CLASS, !isInView);
+            });
         }
     }
 
@@ -119,7 +144,7 @@ export class SrfSwiper {
         let showLeft = false,
             showRight = false;
 
-        if (isSize2Plus()) {
+        if (isSize3Plus()) {
             showLeft = this.canScrollLeft();
             showRight = this.canScrollRight();
         }
@@ -255,6 +280,8 @@ export class SrfSwiper {
 
             this.centerElement( $(this.$items.get(indexToCenter)), needsButtonCheck );
         }
+
+        this.changeVisibilityClasses();
     }
 
     /**
@@ -277,5 +304,9 @@ export class SrfSwiper {
             $(document).trigger('flyingfocus:move');
 
         });
+    }
+
+    applyHint(pixels) {
+        this.$swipeContainer.children().css('transform', `translateX(${pixels}px)`);
     }
 }

@@ -7,6 +7,7 @@
   padding: 16px;
   align-items: center;
   transition: opacity .2s ease-in-out;
+  -webkit-transform: translate3d(0,0,0); // prevents flickering on :hover in WebKit-based Browsers like Safari or Chrome (WebKit/Blink)
 
   /* fallback */
   color: $color-text-accentuation;

@@ -12,12 +12,13 @@ const HOOK_CLASS = 'js-swipeable-area',
     RIGHT_OFFSET = 24,
     DEFAULT_SCROLL_TIME = 400,
     DEBOUNCETIME = 50,
+    DEBOUNCETIME_SCROLL_TRACKING = 1000,
     HINT_AMOUNT = 20,
     MINIMUM_HEIGHT = 50;
 
-export function init() {
+export function init(interactionMeasureString = '') {
     $(`.${HOOK_CLASS}`).each((index, element) => {
-        new FefSwipeableArea($(element));
+        new FefSwipeableArea($(element), interactionMeasureString);
     });
 }
 
@@ -26,16 +27,21 @@ export function init() {
  */
 export class FefSwipeableArea {
 
-    constructor($element) {
+    constructor($element, interactionMeasureString = '') {
         this.$element = $element;
         this.$innerContainer = $(`.${INNER_CONTAINER_CLASS}`, this.$element);
         this.$items = $(`.${ITEM_CLASS}`, this.$innerContainer);
         this.itemPositions = [];
         this.$buttonBack = null;
         this.$buttonForward = null;
+        this.interactionMeasureString = interactionMeasureString;
 
         this.visibleClass = null;
         this.hiddenClass = null;
+
+        this.oldScrollLeft = this.$innerContainer.scrollLeft();
+        this.isPageBackClick = false;
+        this.isPageForwardClick = false;
 
         this.initOnce();
         this.init();
@@ -103,6 +109,7 @@ export class FefSwipeableArea {
         this.setupHinting();
         this.$items.on('click', (event) => this.onTeaserClick(event));
         this.$innerContainer.on('scroll', FefDebounceHelper.throttle(() => this.markItems(), DEBOUNCETIME));
+        this.$innerContainer.on('scroll', FefDebounceHelper.debounce(() => this.track(), DEBOUNCETIME_SCROLL_TRACKING));
     };
 
     addButtons() {
@@ -110,14 +117,6 @@ export class FefSwipeableArea {
         if (this.$buttonBack === null) {
             this.$buttonBack = $(`<div class='${BACK_BUTTON_CLASS}'><span></span></div>`);
             this.$buttonForward = $(`<div class='${FORWARD_BUTTON_CLASS}'><span></span></div>`);
-
-            // Apply tracking parameters if provided
-            if (this.$element.data('tracking-forward')) {
-                this.$buttonForward.attr('data-event-track', this.$element.data('tracking-forward'));
-            }
-            if (this.$element.data('tracking-back')) {
-                this.$buttonBack.attr('data-event-track', this.$element.data('tracking-back'));
-            }
 
             this.$element.append(this.$buttonBack, this.$buttonForward);
 
@@ -182,14 +181,8 @@ export class FefSwipeableArea {
 
         if (this.isOutOfBoundsLeft($item)) {
             this.pageBack();
-            if (this.$buttonBack) {
-                this.$buttonBack.trigger('click');
-            }
         } else {
             this.pageForward();
-            if (this.$buttonForward) {
-                this.$buttonForward.trigger('click');
-            }
         }
 
         // Don't go to the link of the teaser
@@ -239,6 +232,7 @@ export class FefSwipeableArea {
 
         let newPosition = this.itemPositions[nextItemIndex].center - (this.$innerContainer.innerWidth() / 2);
 
+        this.isPageForwardClick = true;
         this.scrollToPosition(newPosition);
     }
 
@@ -257,6 +251,7 @@ export class FefSwipeableArea {
 
         let newPosition = this.itemPositions[nextItemIndex].center - (this.$innerContainer.innerWidth() / 2);
 
+        this.isPageBackClick = true;
         this.scrollToPosition(newPosition);
     }
 
@@ -329,5 +324,25 @@ export class FefSwipeableArea {
 
     applyHint(pixels) {
         this.$innerContainer.children().first().css('transform', `translateX(${pixels}px)`);
+    }
+
+    track() {
+        let eventValue = null;
+
+        if (this.isPageBackClick || this.isPageForwardClick) {
+            eventValue = this.isPageBackClick ? 'click-left' : 'click-right';
+            this.isPageBackClick = false;
+            this.isPageForwardClick = false;
+        } else {
+            eventValue = this.oldScrollLeft < this.$innerContainer.scrollLeft() ? 'swipe-right' : 'swipe-left';
+        }
+
+        this.oldScrollLeft = this.$innerContainer.scrollLeft();
+
+        $(window).trigger(this.interactionMeasureString, {
+            event_source: this.$element.data('event-source'),
+            event_name: this.$element.data('event-name'),
+            event_value: eventValue
+        });
     }
 }

@@ -1,133 +1,41 @@
+{% set teasers = teasers|default(collections[0].teasers[0:5]) %}
+
 <section class="swipemod l-main-wrapper">
-  <div class="l-main-wrapper__space l-card">
+  <div class="swipemod_inner-wrapper">
     <a href="#" class="swipemod-showall">
       <h3 class="swipemod-showall__title" aria-hidden="true" role="presentation">
-        <span class="swipemod-showall__title--extended">Mehr aus Schweiz</span>
-        <span class="swipemod-showall__title--collapsed">Schweiz</span>
+        <span class="swipemod-showall__title--extended">{{ title|default("Mehr aus Schweiz") }}</span>
+        <span class="swipemod-showall__title--collapsed">{{ shortTitle|default("Schweiz") }}</span>
       </h3>
-      <div class="swipemod-showall__text">Alle anzeigen</div>
       <div class="swipemod-showall__icon"></div>
     </a>
 
-    <div class="swipemod-container swipemod-container--2ormore swipemod-container--3ormore swipemod-container--4ormore">
+    <div class="swipemod-container
+        {{ teasers|length >= 2 ? "swipemod-container--2ormore" }}
+        {{ teasers|length >= 3 ? "swipemod-container--3ormore" }}
+        {{ teasers|length >= 4 ? "swipemod-container--4ormore" }}">
       <ul class="swipemod-swipecontainer">
-        <li class="swipemod-item">
-          <a href="#">
-            <div class="swipemod-imagecontainer" aria-hidden="true" role="presentation">
-              <div class="swipemod-imagecontainer__inner">
-                <img src="{{ images[0].sources.s8.src }}" alt="Alt-Text" class="swipemod-image" />
+        {% for teaser in teasers %}
+          <li class="swipemod-item">
+            <a href="#">
+              <div class="swipemod-imagecontainer" aria-hidden="true" role="presentation">
+                <div class="swipemod-imagecontainer__inner">
+                  <img src="{{ images[0].sources.s8.src }}" alt="Alt-Text" class="swipemod-image" />
+                </div>
               </div>
-            </div>
-            <h3 class="swipemod-item__title">
-              <span class="swipemod-item__overline">{{ articleHeader.kicker }}</span>
-              <span class="h-offscreen" aria-hidden="true"> - </span>
-              {{ articleHeader.title }}
-            </h3>
-          </a>
-        </li>
-        <li class="swipemod-item">
-          <a href="#">
-            <div class="swipemod-imagecontainer" aria-hidden="true" role="presentation">
-              <div class="swipemod-imagecontainer__inner">
-                <img src="{{ images[1].sources.s8.src }}" alt="Alt-Text" class="swipemod-image" />
-              </div>
-            </div>
-            <h3 class="swipemod-item__title">
-              <span class="swipemod-item__overline">{{ articleHeader.kicker }}</span>
-              <span class="h-offscreen" aria-hidden="true"> - </span>
-              {{ articleHeader.title }}
-            </h3>
-          </a>
-        </li>
-        <li class="swipemod-item">
-          <a href="#">
-            <div class="swipemod-imagecontainer" aria-hidden="true" role="presentation">
-              <div class="swipemod-imagecontainer__inner">
-                <img src="{{ images[2].sources.s8.src }}" alt="Alt-Text" class="swipemod-image" />
-              </div>
-            </div>
-            <h3 class="swipemod-item__title">
-              <span class="swipemod-item__overline">{{ articleHeader.kicker }}</span>
-              <span class="h-offscreen" aria-hidden="true"> - </span>
-              {{ articleHeader.title }}
-            </h3>
-          </a>
-        </li>
-        <li class="swipemod-item">
-          <a href="#">
-            <div class="swipemod-imagecontainer" aria-hidden="true" role="presentation">
-              <div class="swipemod-imagecontainer__inner">
-                <img src="{{ images[3].sources.s8.src }}" alt="Alt-Text" class="swipemod-image" />
-              </div>
-            </div>
-            <h3 class="swipemod-item__title">
-              <span class="swipemod-item__overline">{{ articleHeader.kicker }}</span>
-              <span class="h-offscreen" aria-hidden="true"> - </span>
-              {{ articleHeader.title }}
-            </h3>
-          </a>
-        </li>
-        <li class="swipemod-item">
-          <a href="#">
-            <div class="swipemod-imagecontainer" aria-hidden="true" role="presentation">
-              <div class="swipemod-imagecontainer__inner">
-                <img src="{{ images[0].sources.s8.src }}" alt="Alt-Text" class="swipemod-image" />
-              </div>
-            </div>
-            <h3 class="swipemod-item__title">
-              <span class="swipemod-item__overline">{{ articleHeader.kicker }}</span>
-              <span class="h-offscreen" aria-hidden="true"> - </span>
-              {{ articleHeader.title }}
-            </h3>
-          </a>
-        </li>
-        <li class="swipemod-item">
-          <a href="#">
-            <div class="swipemod-imagecontainer" aria-hidden="true" role="presentation">
-              <div class="swipemod-imagecontainer__inner">
-                <img src="{{ images[1].sources.s8.src }}" alt="Alt-Text" class="swipemod-image" />
-              </div>
-            </div>
-            <h3 class="swipemod-item__title">
-              <span class="swipemod-item__overline">{{ articleHeader.kicker }}</span>
-              <span class="h-offscreen" aria-hidden="true"> - </span>
-              {{ articleHeader.title }}
-            </h3>
-          </a>
-        </li>
-        <li class="swipemod-item">
-          <a href="#">
-            <div class="swipemod-imagecontainer" aria-hidden="true" role="presentation">
-              <div class="swipemod-imagecontainer__inner">
-                <img src="{{ images[2].sources.s8.src }}" alt="Alt-Text" class="swipemod-image" />
-              </div>
-            </div>
-            <h3 class="swipemod-item__title">
-              <span class="swipemod-item__overline">{{ articleHeader.kicker }}</span>
-              <span class="h-offscreen" aria-hidden="true"> - </span>
-              {{ articleHeader.title }}
-            </h3>
-          </a>
-        </li>
-        <li class="swipemod-item">
-          <a href="#">
-            <div class="swipemod-imagecontainer" aria-hidden="true" role="presentation">
-              <div class="swipemod-imagecontainer__inner">
-                <img src="{{ images[3].sources.s8.src }}" alt="Alt-Text" class="swipemod-image" />
-              </div>
-            </div>
-            <h3 class="swipemod-item__title">
-              <span class="swipemod-item__overline">{{ articleHeader.kicker }}</span>
-              <span class="h-offscreen" aria-hidden="true"> - </span>
-              {{ articleHeader.title }}
-            </h3>
-          </a>
-        </li>
+              <h3 class="swipemod-item__title">
+                <span class="swipemod-item__overline">{{ articleHeader.kicker }}</span>
+                <span class="h-offscreen" aria-hidden="true"> - </span>
+                {{ articleHeader.title }}
+              </h3>
+            </a>
+          </li>
+        {% endfor %}
       </ul>
-    
+
       <button class="swipemod-button swipemod-button__left" data-direction="left" tabindex="-1" aria-hidden="true" role="presentation"></button>
       <button class="swipemod-button swipemod-button__right" data-direction="right" tabindex="-1" aria-hidden="true" role="presentation"></button>
-    
+
     </div>
   </div>
 </section>

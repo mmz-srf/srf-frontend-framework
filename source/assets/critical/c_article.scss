@@ -37,15 +37,15 @@
 
 
 .sharing-bar {
-  margin-top: 20px;
+  margin-top: 26px;
   margin-bottom: 24px;
   width: 100%;
   background-color: transparent;
   text-align: center;
 
   @include smartphone {
-    margin-top: 28px;
-    margin-bottom: 24px
+    margin-top: 24px;
+    margin-bottom: 32px
   }
 }
 
