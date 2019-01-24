@@ -32,11 +32,19 @@
   box-shadow: $shadow-elevation1;
   margin-top: -1px; // prevent collapsing margin; part I
   padding-top: 1px; // prevent collapsing margin; part II
-  margin-bottom: 20px;
+  margin-bottom: 16px;
   border-radius: 2px;
 
-  @include tablet-up {
-    margin-bottom: 24px;
+  @include tablet {
+    margin-bottom: 32px;
+  }
+
+  @include desktop {
+    margin-bottom: 32px;
+  }
+
+  @include desktop-wide {
+    margin-bottom: 40px;
   }
 
   // Clears collapsing margin for elements on the bottom of the card
