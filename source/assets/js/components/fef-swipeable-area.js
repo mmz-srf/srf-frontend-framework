@@ -334,7 +334,7 @@ export class FefSwipeableArea {
             this.isPageBackClick = false;
             this.isPageForwardClick = false;
         } else {
-            eventValue = this.oldScrollLeft < this.$innerContainer.scrollLeft() ? 'swipe-right' : 'swipe-left'
+            eventValue = this.oldScrollLeft < this.$innerContainer.scrollLeft() ? 'swipe-right' : 'swipe-left';
         }
 
         this.oldScrollLeft = this.$innerContainer.scrollLeft();
