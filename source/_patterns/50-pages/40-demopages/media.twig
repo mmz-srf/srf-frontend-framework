@@ -5,34 +5,34 @@
             <span class="article-title__overline">Demopage</span>
             <span class="article-title__text article-title__font-stylistic">Media</span>
         </h1>
-        {% include 'atoms-horizontal-separator' with {'styleModifier': 'horizontal-separator--content-max-width'} %}
+        {% include 'atoms-horizontal-separator' %}
     {% endblock %}
 
     {% block article_content %}
         <h2 class="content-heading ">Audio</h2>
         {% include 'molecules-medium' %}
-        {% include 'atoms-horizontal-separator' with {'styleModifier': 'horizontal-separator--content-max-width'} %}
+        {% include 'atoms-horizontal-separator' %}
         <h2 class="content-heading ">Video</h2>
         {% include 'molecules-medium--vertical' %}
-        {% include 'atoms-horizontal-separator' with {'styleModifier': 'horizontal-separator--content-max-width'} %}
+        {% include 'atoms-horizontal-separator' %}
         <h2 class="content-heading ">Audio Gallery</h2>
         {% include 'organisms-audio-gallery' %}
-        {% include 'atoms-horizontal-separator' with {'styleModifier': 'horizontal-separator--content-max-width'} %}
+        {% include 'atoms-horizontal-separator' %}
         <h2 class="content-heading ">Video Gallery</h2>
         {% include 'organisms-video-gallery' %}
-        {% include 'atoms-horizontal-separator' with {'styleModifier': 'horizontal-separator--content-max-width'} %}
+        {% include 'atoms-horizontal-separator' %}
         <h2 class="content-heading ">Video Gallery: Open</h2>
         {% include 'organisms-video-gallery' with { "styleModifierGallery": "media-window--playing" } %}
-        {% include 'atoms-horizontal-separator' with {'styleModifier': 'horizontal-separator--content-max-width'} %}
+        {% include 'atoms-horizontal-separator' %}
         <h2 class="content-heading ">Related Items</h2>
         {% include 'molecules-related-items-list' %}
-        {% include 'atoms-horizontal-separator' with {'styleModifier': 'horizontal-separator--content-max-width'} %}
+        {% include 'atoms-horizontal-separator' %}
         <h2 class="content-heading ">Listing</h2>
         {% include 'molecules-listmodule--listing' %}
-        {% include 'atoms-horizontal-separator' with {'styleModifier': 'horizontal-separator--content-max-width'} %}
+        {% include 'atoms-horizontal-separator' %}
         <h2 class="content-heading ">Listicle</h2>
         {% include 'molecules-listmodule--listicle' %}
-        {% include 'atoms-horizontal-separator' with {'styleModifier': 'horizontal-separator--content-max-width'} %}
+        {% include 'atoms-horizontal-separator' %}
         <h2 class="content-heading ">Liveticker</h2>
         {% include 'molecules-ticker--closed' %}
     {% endblock %}
