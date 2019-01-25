@@ -35,8 +35,12 @@
 
 .media-caption__title {
   flex: 0 0 auto;
+  margin-bottom: 4px;
   font-family: $font-medium;
   line-height: $emphasize-line-height-ratio;
+  @include tablet-up {
+    margin-bottom: 8px;
+  }
 }
 
 .media-caption__description {
