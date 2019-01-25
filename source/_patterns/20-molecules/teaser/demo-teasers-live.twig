@@ -66,6 +66,64 @@
     } %}
 </div>
 
+<h1>M-But-S-On-Mobile-Teaser</h1>
+<h2>Pre-Live</h2>
+
+<div class="js-togglable-wrapper togglable-wrapper">
+    {% include 'molecules-teaser' with {
+        'styleModifier': 'teaser--size-m teaser--size-s-on-mobile',
+        'teaser': collections[0].teasers[0],
+        'infoText': 'Vor 5 Minuten',
+        'infoType': 'live',
+        'infoMediaSource': 'Livestream',
+        'infoMediaTime': 'um 20:15',
+        'infoStyleModifier': 'teaser-info--live-pre',
+        'labelWording': 'Live',
+        'styleModifierType': 'teaser__label--pre',
+        'labelTime': '13:37'
+    } %}
+
+    {% include 'molecules-teaser' with {
+        'styleModifier': 'teaser--size-m teaser--size-s-on-mobile',
+        'teaser': collections[0].teasers[1],
+        'infoText': 'Vor 5 Minuten',
+        'infoType': 'live',
+        'infoMediaSource': 'Liveticker',
+        'infoMediaTime': 'um 13:37',
+        'infoStyleModifier': 'teaser-info--live-pre',
+        'labelWording': 'Liveticker',
+        'styleModifierType': 'teaser__label--pre',
+        'labelTime': '13:37'
+    } %}
+</div>
+
+<h2>Live</h2>
+<div class="js-togglable-wrapper togglable-wrapper">
+    {% include 'molecules-teaser' with {
+        'styleModifier': 'teaser--size-m teaser--size-s-on-mobile',
+        'teaser': collections[0].teasers[0],
+        'infoText': 'Vor 5 Minuten',
+        'infoType': 'live',
+        'infoMediaSource': 'Livestream',
+        'infoMediaTime': 'seit 4 Stunden',
+        'infoStyleModifier': 'teaser-info--live-live',
+        'labelWording': 'Live',
+        'styleModifierType': 'teaser__label--live'
+    } %}
+
+    {% include 'molecules-teaser' with {
+        'styleModifier': 'teaser--size-m teaser--size-s-on-mobile',
+        'teaser': collections[0].teasers[1],
+        'infoText': 'Vor 5 Minuten',
+        'infoType': 'live',
+        'infoMediaSource': 'Liveticker',
+        'infoMediaTime': 'seit 3 Minuten',
+        'infoStyleModifier': 'teaser-info--live-live',
+        'labelWording': 'Liveticker',
+        'styleModifierType': 'teaser__label--live'
+    } %}
+</div>
+
 <h1>M-Teaser</h1>
 <h2>Pre-Live</h2>
 

@@ -137,11 +137,15 @@
 .teaser.teaser--size-m.teaser--size-s-on-mobile,
 .teaser.teaser--size-l.teaser--size-s-on-mobile,
 .teaser.teaser--size-xl.teaser--size-s-on-mobile {
-  .teaser__label {
-    @include smartphone {
+  @include smartphone {
+    .teaser__label {
       position: static;
       top: auto;
       left: auto;
+    }
+
+    .teaser__label--pre {
+      display: none;
     }
   }
 }
