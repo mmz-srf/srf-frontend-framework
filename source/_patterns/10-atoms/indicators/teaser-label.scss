@@ -142,6 +142,8 @@
       position: static;
       top: auto;
       left: auto;
+      @include fontSize(12);
+      letter-spacing: normal;
     }
 
     .teaser__label--pre {
