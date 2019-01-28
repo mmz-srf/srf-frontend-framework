@@ -6,7 +6,7 @@
   align-items: flex-start;
   margin: 32px 0;
   background-color: $color-bg-caption;
-  flex-wrap: wrap;
+  flex-wrap: wrap; // the technical player (TP) is on the same level and has to wrap around
 
   @include smartphone {
     margin: 24px 0;
