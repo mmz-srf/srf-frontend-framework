@@ -27,8 +27,8 @@
   margin: 0;
 
   > li {
-    margin: 0;
-    padding: 0 0 0 $article-offset;
+    margin: 0 0 0 $article-offset;
+    padding: 0;
     border-top: 1px solid $color-bg-box;
 
     &:hover,
