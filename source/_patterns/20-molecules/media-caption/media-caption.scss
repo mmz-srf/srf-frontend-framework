@@ -33,6 +33,8 @@
   flex: 0 0 auto;
   font-family: $font-regular;
   letter-spacing: .5px;
+
+  @include breakLongWords();
 }
 
 .media-caption__description {
