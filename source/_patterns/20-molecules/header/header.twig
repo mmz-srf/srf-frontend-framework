@@ -1,7 +1,7 @@
 <div class="header">
 
   <div class="header-bar">
-    <div class="header-bar-wrapper l-main-wrapper">
+    <div class="header-bar-wrapper l-content-wrapper">
       <a href="/" class="header-startlink" title="Startseite SRF">
         <img class="header-logo" src="{{ frameworkAssetPath }}/img/srf_logo.svg" alt="Zur Startseite von Schweizer Radio und Fernsehen" />
       </a>
@@ -27,7 +27,7 @@
   </div>
 
   <div class="header-navigation js-header-navigation" aria-hidden="true" role="presentation">
-    <div class="header-navigation-wrapper l-main-wrapper">
+    <div class="header-navigation-wrapper l-content-wrapper">
       {% block navigation %}
         {% include 'molecules-navigation' with {'styleModifier': 'navigation--header', 'id': 'navigation--header'} %}
       {% endblock %}
