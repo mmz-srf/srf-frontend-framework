@@ -35,11 +35,7 @@
   margin-bottom: 16px;
   border-radius: 2px;
 
-  @include tablet {
-    margin-bottom: 32px;
-  }
-
-  @include desktop {
+  @include tablet-up {
     margin-bottom: 32px;
   }
 
