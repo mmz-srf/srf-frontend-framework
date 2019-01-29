@@ -150,13 +150,17 @@ img {
 .l-card {
   background-color: #fefefd;
   border-radius: 2px;
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.24), 0 0 2px 0 rgba(0, 0, 0, 0.12);
-  margin-bottom: 20px;
+  box-shadow: 0 0px 1px 0 rgba(0,0,0,.16), 0 0 1px 0 rgba(0,0,0,.08);
+  margin-bottom: 16px;
   margin-top: -1px;
   padding-top: 1px;
 
   @include tablet-up {
-    margin-bottom: 24px;
+    margin-bottom: 32px;
+  }
+
+  @include desktop-wide {
+    margin-bottom: 40px;
   }
 }
 
