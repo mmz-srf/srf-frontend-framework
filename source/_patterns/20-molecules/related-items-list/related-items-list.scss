@@ -40,7 +40,7 @@
 }
 
 .related-items-list__media-window {
-  margin-left: -#{$article-offset};
+  margin-left: #{-$article-offset};
 
   @include smartphone {
     margin-left: 0;
@@ -52,7 +52,7 @@
   &:hover,
   &:active,
   &:focus {
-    margin-left: -#{$article-offset};
+    margin-left: #{-$article-offset};
     margin-top: -1px;
     margin-bottom: -1px;
     padding-left: $article-offset;
