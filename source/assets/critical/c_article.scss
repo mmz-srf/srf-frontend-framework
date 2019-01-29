@@ -22,10 +22,6 @@
   letter-spacing: -0.2px;
 }
 
-.article-title__overline {
-  letter-spacing: 0;
-}
-
 .article-author__date {
   display: none;
 }
@@ -193,12 +189,14 @@ img {
 .article-title__overline {
   margin: 0 0 3px;
   font-family: $font-regular;
-  @include fontSize(16);
+  @include fontSize(18);
+  letter-spacing: 0;
   color: #c91024;
   display: block;
 
   @include smartphone {
     margin: 0;
+    @include fontSize(16);
   }
 }
 

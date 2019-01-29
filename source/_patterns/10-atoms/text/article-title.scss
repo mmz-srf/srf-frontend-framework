@@ -13,13 +13,13 @@
   display: block;
   margin: 0 0 1px;
   font-family: $font-regular;
-  @include fontSize(14);
+  @include fontSize(16);
   line-height: $emphasize-line-height-ratio;
   color: $color-accentuation-red;
 
   @include tablet-up {
     margin: 0 0 3px;
-    @include fontSize(16);
+    @include fontSize(18);
   }
 }
 
