@@ -44,6 +44,13 @@
     &:focus,
     &:active {
       border-color: transparent;
+      margin-left: 0;
+      padding-left: $article-offset;
+
+      // hide top border of the list item after the current one
+      & + li {
+        border-top-color: transparent;
+      }
     }
 
     &:last-child {
