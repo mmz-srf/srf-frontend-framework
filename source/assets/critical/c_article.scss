@@ -306,19 +306,6 @@ ul {
   position: relative;
   top: 25px;
   margin: 0;
-
-  @include tablet {
-      margin-left: calc((100vw - 100%) / 2 * -1);
-      margin-right: calc((100vw - 100%) / 2 * -1);
-  }
-  @include desktop {
-      margin-left: calc(((100vw - 100%) / 2 - 32px) * -1);
-      margin-right: calc(((100vw - 100%) / 2 - 32px) * -1);
-  }
-  @include desktop-wide {
-      margin-left: calc((1200px - 100%) / 2 * -1);
-      margin-right: calc((1200px - 100%) / 2 * -1);
-  }
 }
 
 .article-content {
