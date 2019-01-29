@@ -2,7 +2,7 @@
 @import "../../mixins";
 
 .listing-item {
-  margin: 0 -#{$article-offset};
+  margin: 0 #{-$article-offset};
   padding: 0 $article-offset;
 
   border-top: 1px solid rgb(236,236,230);
