@@ -3,8 +3,13 @@
 
 .form {
   background-color: $color-bg-caption;
-  padding: 16px;
-  margin: 0 8px;
+  padding: 12px $article-offset-mobile 16px;
+  margin: 20px 8px 20px;
+
+  @include tablet-up {
+    margin: 32px 0 24px;
+    padding: 12px $article-offset 16px;
+  }
 }
 
 .form__label {
@@ -49,4 +54,9 @@
 .form-button__group {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
+
+  @include tablet-up {
+    flex-wrap: nowrap;
+  }
 }

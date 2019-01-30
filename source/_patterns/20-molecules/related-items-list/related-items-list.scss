@@ -11,15 +11,11 @@
 }
 
 .related-items-list__heading {
-  margin: 10px 25px;
+  margin: 10px $article-offset;
   padding: 0;
   font-family: $font-medium;
   @include fontSize(16);
   line-height: $emphasize-line-height-ratio;
-
-  @include tablet-up {
-    margin: 10px 16px;
-  }
 }
 
 .related-items-list__list {
@@ -32,15 +28,9 @@
 }
 
 .related-items-list__item {
-  margin: 0 0 0 16px;
+  margin: 0 0 0 $article-offset;
   padding: 0;
   border-top: 1px solid $color-bg-box;
-
-  @include smartphone {
-    padding-right: 0px;
-    padding-left: 0px;
-    margin-left: 24px;
-  }
 
   &:last-child {
     border-bottom: 1px solid $color-bg-box;
@@ -48,11 +38,11 @@
 }
 
 .related-items-list__media-window {
-  margin-left: -16px;
+  margin-left: #{-$article-offset};
 
   @include smartphone {
     margin-left: 0;
-    padding-right: 24px;
+    padding-right: $article-offset;
   }
 }
 
@@ -60,18 +50,13 @@
   &:hover,
   &:active,
   &:focus {
-    margin-left: -16px;
+    margin-left: #{-$article-offset};
     margin-top: -1px;
     margin-bottom: -1px;
-    padding-left: 16px;
+    padding-left: $article-offset;
     background-color: $color-link-bg-hover;
     border-top: 1px solid $color-bg-box;
     border-bottom: 1px solid $color-bg-box;
-
-    @include smartphone {
-      margin-left: -24px;
-      padding-left: 24px;
-    }
   }
 
   &:active {

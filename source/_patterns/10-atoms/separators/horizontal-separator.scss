@@ -19,12 +19,6 @@
   margin: 0;
 }
 
-// it is fairly important to place this --content-max-width modifier AFTER the --withcontent modifier!
-// Why? 'cause of overwrites and stuff, duh!
-.horizontal-separator--content-max-width {
-  @include fullwidth-container;
-}
-
 .horizontal-separator--no-margins {
   margin: 0;
 }

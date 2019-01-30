@@ -17,11 +17,7 @@
 
 /* padding for text elements in the article */
 @mixin article-text-padding {
-  padding: 0 24px;
-
-  @include tablet-up {
-    padding: 0 16px;
-  }
+  padding: 0 $article-offset;
 }
 
 
@@ -114,12 +110,11 @@
 
   @include tablet {
     max-width: 720px;
-    padding: 0 32px;
+    padding: 0 $article-offset;
   }
 
   @include desktop-up {
-    padding: 0 40px;
-    max-width: 792px;
+    max-width: 728px;
   }
 }
 

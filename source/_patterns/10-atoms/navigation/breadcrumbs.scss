@@ -2,19 +2,13 @@
 @import "../../mixins";
 
 .breadcrumbs {
-  margin: 16px auto 16px 0;
-  padding: 0 24px;
+  margin: 16px auto 8px;
+  padding: 0 $article-offset;
   white-space: nowrap;
   overflow-x: auto;
 
   @include tablet-up {
-    max-width: 624px;
     margin: 24px auto 12px;
-    padding: 0;
-  }
-
-  @include desktop-up {
-    max-width: 680px;
   }
 }
 
