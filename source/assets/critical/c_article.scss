@@ -132,7 +132,7 @@ img {
 }
 
 
-.l-main-wrapper__space {
+.l-content-wrapper__space {
   margin-left: 8px;
   margin-right: 8px;
 
@@ -150,13 +150,17 @@ img {
 .l-card {
   background-color: #fefefd;
   border-radius: 2px;
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.24), 0 0 2px 0 rgba(0, 0, 0, 0.12);
-  margin-bottom: 20px;
+  box-shadow: $shadow-elevation1;
+  margin-bottom: 16px;
   margin-top: -1px;
   padding-top: 1px;
 
   @include tablet-up {
-    margin-bottom: 24px;
+    margin-bottom: 32px;
+  }
+
+  @include desktop-wide {
+    margin-bottom: 40px;
   }
 }
 
@@ -302,19 +306,6 @@ ul {
   position: relative;
   top: 25px;
   margin: 0;
-
-  @include tablet {
-      margin-left: calc((100vw - 100%) / 2 * -1);
-      margin-right: calc((100vw - 100%) / 2 * -1);
-  }
-  @include desktop {
-      margin-left: calc(((100vw - 100%) / 2 - 32px) * -1);
-      margin-right: calc(((100vw - 100%) / 2 - 32px) * -1);
-  }
-  @include desktop-wide {
-      margin-left: calc((1200px - 100%) / 2 * -1);
-      margin-right: calc((1200px - 100%) / 2 * -1);
-  }
 }
 
 .article-content {

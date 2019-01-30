@@ -1,5 +1,5 @@
 /* centers element with content-max-width */
-.l-main-wrapper {
+.l-content-wrapper {
   max-width: $content-width;
   min-width: $smartphone-size;
   margin: 0 auto;
@@ -11,7 +11,7 @@
 }
 
 /* Adds some special spacing to the main-wrapper (i.e. for boxes like comments, swipe-module etc.) */
-.l-main-wrapper__space {
+.l-content-wrapper__space {
   margin-right: 8px;
   margin-left: 8px;
 
@@ -29,14 +29,18 @@
 /* Adds Card-Design (bg-color, shadow etc.) to Element */
 .l-card {
   background-color: $color-bg-card;
-  box-shadow: $shadow-elevation2;
+  box-shadow: $shadow-elevation1;
   margin-top: -1px; // prevent collapsing margin; part I
   padding-top: 1px; // prevent collapsing margin; part II
-  margin-bottom: 20px;
+  margin-bottom: 16px;
   border-radius: 2px;
 
   @include tablet-up {
-    margin-bottom: 24px;
+    margin-bottom: 32px;
+  }
+
+  @include desktop-wide {
+    margin-bottom: 40px;
   }
 
   // Clears collapsing margin for elements on the bottom of the card
@@ -52,14 +56,6 @@
   @include desktop {
     overflow-x: hidden;
   }
-}
-
-.l-card-column-default {
-  @include content-column-default;
-}
-
-.l-card-alternative-background {
-  background-color: $color-bg-box;
 }
 
 /* Dims Background – e.g. on open modal, or on open 3rd-level navigation */
