@@ -3,25 +3,24 @@
 
 .embed-inline {
   position: relative;
-  margin: 32px 0;
+  margin: 24px 0;
   align-items: center;
   justify-content: center;
 
-  @include smartphone {
-    margin: 24px 0;
+  @include tablet-up {
+    margin: 32px 0;
   }
 }
 
 .embed-inline__title {
-  @include fontSize(20);
+  @include fontSize(18);
   font-family: $font-medium;
-  margin-bottom: 12px;
-  padding: 0 16px;
+  margin-bottom: 8px;
+  padding: 0 $article-offset;
 
-  @include smartphone {
-    @include fontSize(18);
-    margin-bottom: 8px;
-    padding: 0 24px;
+  @include tablet-up {
+    @include fontSize(20);
+    margin-bottom: 12px;
   }
 }
 
@@ -36,6 +35,7 @@ body[data-representation=web] {
       display: none;
     }
   }
+
   .linkbox.no-swear {
     display: none;
     @include smartphone {

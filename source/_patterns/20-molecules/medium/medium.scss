@@ -6,7 +6,7 @@
   align-items: flex-start;
   margin: 32px 0;
   background-color: $color-bg-caption;
-  flex-wrap: wrap;
+  flex-wrap: wrap; // the technical player (TP) is on the same level and has to wrap around
 
   @include smartphone {
     margin: 24px 0;
@@ -30,9 +30,10 @@
   flex-shrink: 0;
   width: 196px;
   background-color: #000;
+  margin-right: -8px; // medium-caption should be 12px/16px (Mobile/Tablet+) from the object when vertically arranged - but in general it's 24px. With these negative 8px/12px we manage this without changing the whole setup of the captions
 
   @include smartphone {
-    margin: 16px 0 16px 24px;
+    margin: 16px -12px 16px 24px; // negative margin on the right side? See comment above.
     width: 92px;
   }
 }
@@ -47,7 +48,7 @@
   font-weight: 500;
   @include font-smoothing;
   line-height: 1.33;
-  
+
   @include tablet-up {
     padding: 8px 12px;
   }
@@ -75,11 +76,7 @@
   }
 
   .medium__notice {
-    padding: 8px 24px;
-    
-    @include tablet-up {
-      padding: 8px 16px;
-    }
+    padding: 8px $article-offset;
   }
 
   &.medium--video-gallery {
@@ -121,7 +118,7 @@
 
   .medium__object {
     @include smartphone {
-      margin: 0;
+      margin: 0 12px 0 0;
     }
 
     @include tablet-up {
@@ -131,7 +128,7 @@
 
   .medium__notice {
     padding: 4px 8px;
-    
+
     @include tablet-up {
       padding: 8px 12px;
     }
@@ -153,8 +150,6 @@
   }
 
   .media-caption {
-    padding-left: 12px;
-
     @include tablet-up {
       margin: -12px 0;
     }
@@ -167,6 +162,7 @@
     @include smartphone {
       width: 68px;
       margin-left: 24px;
+      margin-right: -12px;
     }
   }
 
@@ -176,11 +172,11 @@
       margin: 16px 0 -16px -60px;
     }
   }
-  
+
   .medium__notice {
     @include fontSize(10);
     padding: 4px 6px;
-    
+
     @include tablet-up {
       @include fontSize(12);
       padding: 8px 12px;

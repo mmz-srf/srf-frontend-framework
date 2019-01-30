@@ -7,8 +7,7 @@ $ticker-margin-left: 7px;
 $ticker-margin-bottom: 7px;
 $ticker-margin-bottom-mobile: 20px;
 
-$ticker-wrapper-padding-mobile: 24px;
-$ticker-wrapper-padding-desktop: 16px;
+$ticker-wrapper-padding: $article-offset;
 
 $ticker-item-padding-horizontal-mobile: 16px;
 $ticker-item-padding-horizontal-desktop: 32px;
@@ -27,11 +26,7 @@ $ticker-item-border-width: 1px;
 }
 
 .ticker__wrapper {
-  padding: 0 $ticker-wrapper-padding-mobile;
-
-  @include tablet-up {
-    padding: 0 $ticker-wrapper-padding-desktop;
-  }
+  padding: 0 $ticker-wrapper-padding;
 
   ol,
   ul,
@@ -127,8 +122,8 @@ $ticker-item-border-width: 1px;
       // ~pchr 22.2.18
       position: relative;
       width: auto;
-      margin-left: -#{$ticker-margin-left + $ticker-wrapper-padding-mobile + $ticker-item-border-width + $ticker-item-padding-horizontal-mobile};
-      margin-right: -#{$ticker-wrapper-padding-mobile + $ticker-item-padding-horizontal-mobile};
+      margin-left: -#{$ticker-margin-left + $ticker-wrapper-padding + $ticker-item-border-width + $ticker-item-padding-horizontal-mobile};
+      margin-right: -#{$ticker-wrapper-padding + $ticker-item-padding-horizontal-mobile};
       margin-top: 10px;
       margin-bottom: 12px;
 

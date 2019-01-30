@@ -20,7 +20,7 @@
     content: counter(item) ".";
     counter-increment: item;
     position: absolute;
-    left: 16px;
+    left: $article-offset;
     top: 40px;
     color: #555;
     @include fontSize(18);

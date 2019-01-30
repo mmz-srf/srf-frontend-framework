@@ -2,12 +2,11 @@
 @import "../../mixins";
 
 .listicle-item {
-  margin: 0 -24px 24px;
-  padding: 0 24px;
+  margin: 0 #{-$article-offset} 24px;
+  padding: 0 $article-offset;
 
   @include tablet-up {
-    margin: 0 -16px 32px;
-    padding: 0 16px;
+    margin-bottom: 32px;
   }
 
   p {
@@ -30,10 +29,10 @@
 }
 
 .listicle-item__media {
-  margin: 12px -24px;
+  margin: 12px #{-$article-offset};
 
   @include tablet-up {
-    margin: -8px -16px;
+    margin: -8px #{-$article-offset};
   }
 }
 
@@ -51,9 +50,9 @@
 }
 
 .listicle-item__link {
-  margin: 12px -24px 16px 0;
+  margin: 12px #{-$article-offset} 16px 0;
 
   @include tablet-up {
-    margin: 24px -16px 24px 0;
+    margin: 24px #{-$article-offset} 24px 0;
   }
 }

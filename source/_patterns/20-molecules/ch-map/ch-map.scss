@@ -5,11 +5,11 @@
   margin: 0 auto;
   display: block;
   fill: #d2d2d2;
-  padding: 24px 16px 0;
+  padding: 24px $article-offset-mobile 12px;
   max-width: 100%;
 
-  @include smartphone {
-    padding-bottom: 12px;
+  @include tablet-up {
+    padding: 24px $article-offset 0;
   }
 }
 
@@ -25,10 +25,10 @@
 .chmap-wrapper {
   position: relative;
   background-color: $color-bg-caption;
-  margin: 32px 0;
+  margin: 24px 8px;
 
-  @include smartphone {
-    margin: 24px 8px;
+  @include tablet-up {
+    margin: 32px 0;
   }
 }
 
@@ -111,11 +111,10 @@
 
 .chmap__menu-wrapper {
   position: relative;
-  padding: 16px;
-  width: 100%;
+  padding: 16px $article-offset-mobile;
 
   @include tablet-up {
-    max-width: 332px;
+    padding: 16px $article-offset;
   }
 }
 

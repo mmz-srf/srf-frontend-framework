@@ -8,12 +8,11 @@
   @include fontSize(16);
   color: $color-link-default;
   border: none;
-  background: url('../img/linktypes/internal.svg') calc(100% - 16px) center no-repeat;
+  background: url('../img/linktypes/internal.svg') calc(100% - 24px) center no-repeat;
   background-size: 18px 18px;
 
   @include smartphone {
     padding: 12px 66px 12px 0;
-    background-position: calc(100% - 24px) center;
   }
 
   &:hover,
@@ -37,8 +36,8 @@
     border-top: 1px solid $color-separator;
     border-bottom: 1px solid $color-separator;
 
-    padding-left: 24px;
-    margin-left: -24px;
+    padding-left: $article-offset;
+    margin-left: -$article-offset;
 
     background-color: $color-link-bg-hover;
   }
@@ -46,13 +45,6 @@
   @include tablet-up {
     padding-left: 0;
     padding-right: 42px;
-
-    &:hover,
-    &:focus,
-    &:active {
-      padding-left: 16px;
-      margin-left: -16px;
-    }
   }
 
   // handling lines between two or more adjacent block-links

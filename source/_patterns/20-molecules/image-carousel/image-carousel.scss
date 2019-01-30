@@ -14,13 +14,12 @@
 .carousel-title {
   font-family: $font-medium;
   @include fontSize(18);
-  margin: 24px 0 -16px; // carrousels already have a top-margin of 24px :/
-  padding: 0 24px;
+  margin: 24px 0 -16px; // carrousels already have a top-margin of 24px
+  padding: 0 $article-offset;
 
   @include tablet-up {
     @include fontSize(20);
-    margin: 32px 0 -20px; // carrousels already have a top-margin of 32px :/
-    padding: 0 16px;
+    margin: 32px 0 -20px; // carrousels already have a top-margin of 32px
   }
 }
 

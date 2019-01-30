@@ -62,7 +62,7 @@
   padding: 16px 16px 20px;
 
   @include tablet-up {
-    padding-top: 24px;
+    padding: 24px 24px 20px;
   }
 }
 
@@ -73,8 +73,12 @@
 .comments-header__info-text {
   @include fontSize(16);
   color: $color-text-accentuation;
-  padding: 0 16px;
+  padding: 0 $article-offset-mobile;
   display: block;
+
+  @include tablet-up {
+    padding: 0 $article-offset;
+  }
 }
 
 .comments-infobox__text {
@@ -84,6 +88,7 @@
 // login info
 .comments-header__text {
   margin: 0 0 20px;
+
   a {
     @include text-link-defaults;
   }
@@ -107,10 +112,12 @@
   font-family: $font-regular;
   @include fontSize(14);
   color: #22211d;
-  padding: 0 16px;
+  padding: 0 $article-offset-mobile;
   margin: -4px 0 4px;
+
   @include tablet-up {
     margin: 0 0 4px;
+    padding: 0 $article-offset;
   }
 }
 
@@ -126,6 +133,10 @@
 
 .comments-header__button-wrapper {
   padding: 0 16px;
+
+  @include tablet-up {
+    padding: 0 24px;
+  }
 }
 
 .comments-header__button {
@@ -138,6 +149,7 @@
   background: #fff;
   display: block;
   cursor: pointer;
+  margin-bottom: 20px;
 
   @include tablet-up {
     margin-bottom: 24px;
@@ -195,12 +207,12 @@
 .comment { // ul li
   border-top: 1px solid $color-separator;
   padding: 0;
-  margin: 0 16px;
+  margin: 0 $article-offset-mobile;
   position: relative;
 
   @include tablet-up {
     margin: 0;
-    padding: 0 16px;
+    padding: 0 $article-offset;
   }
 
   .comment,
@@ -395,19 +407,18 @@
 .tab-option__link {
   height: 40px;
   width: 100%;
-  @include fontSize(16);
+  @include fontSize(14);
   line-height: 1;
   font-family: $font-regular;
   color: $color-tab-option-link;
   border-bottom: 1px solid $color-separator;
-  padding: 12px 16px 0;
+  padding: 12px $article-offset-mobile 0;
   white-space: nowrap;
   display: inline-block;
 
-  @include smartphone {
-    text-align: center;
-    padding: 12px 24px 0;
-    @include fontSize(14);
+  @include tablet-up {
+    @include fontSize(16);
+    padding: 12px $article-offset 0;
   }
 
   &:hover {
@@ -433,15 +444,18 @@
 
 .comments__standalone-wrapper {
   padding: 0 16px;
+
   @include smartphone {
     padding: 0;
   }
 }
+
 /// replies (interactive commenting)
 .reply-container { // form
   background: transparent;
   margin-bottom: 36px;
   position: relative;
+
   @include smartphone {
     margin: 0 0 36px 16px;
   }
