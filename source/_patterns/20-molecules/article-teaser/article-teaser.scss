@@ -58,23 +58,22 @@
 }
 
 .article-teaser__title {
-  color: #1a1916;
-  font-family: $font-regular;
-  @include fontSize(16);
   margin: 0;
   padding-bottom: 6px;
+  font-family: $font-medium;
+  @include fontSize(16);
+  line-height: $emphasize-line-height-ratio;
+  color: #1a1916;
 
   @include tablet-up {
-    @include fontSize(18);
-    margin: 0;
     padding-bottom: 8px;
   }
 }
 
 .article-teaser__date {
   color: $color-text-light;
-  font-family: $font-system;
-  font-size: 12px;
-  line-height: 1.33;
+  font-family: $font-regular;
+  @include fontSize(12);
+  line-height: $secondary-line-height-ratio;
   margin: 0;
 }

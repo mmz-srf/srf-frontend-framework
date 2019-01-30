@@ -31,25 +31,28 @@
 
 .media-caption__title {
   flex: 0 0 auto;
-  font-family: $font-regular;
-  letter-spacing: .5px;
-
+  margin-bottom: 4px;
+  font-family: $font-medium;
+  line-height: $emphasize-line-height-ratio;
   @include breakLongWords();
+
+  @include tablet-up {
+    margin-bottom: 8px;
+  }
 }
 
 .media-caption__description {
   flex: 0 0 auto;
-  margin-bottom: 4px;
+  margin-bottom: 8px;
+  line-height: $secondary-line-height-ratio;
   color: $color-text-accentuation;
-  letter-spacing: .5px;
 }
 
 .media-caption__source {
   flex: 0 0 auto;
-  font-family: $font-system;
-  font-size: 12px;
-  line-height: 16px;
-  letter-spacing: 0;
+  font-family: $font-regular;
+  @include fontSize(12);
+  line-height: $secondary-line-height-ratio;
   text-transform: uppercase;
   color: $color-text-light;
 

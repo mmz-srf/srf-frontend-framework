@@ -239,7 +239,7 @@ $ticker-item-border-width: 1px;
 }
 
 .ticker__info {
-  font-family: $font-system;
+  font-family: $font-regular;
   @include fontSize(12);
   line-height: $emphasize-line-height-ratio;
   color: $color-text-light;

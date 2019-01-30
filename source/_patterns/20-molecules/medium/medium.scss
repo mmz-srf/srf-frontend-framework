@@ -42,13 +42,11 @@
   display: block;
   padding: 4px 8px;
   background: #222;
-  color: #fafaf8;
-  font-family: $font-system;
-  font-size: 12px;
-  font-weight: 500;
+  font-family: $font-regular;
+  @include fontSize(12);
   @include font-smoothing;
-  line-height: 1.33;
-
+  line-height: $secondary-line-height-ratio;
+  color: #fafaf8;
   @include tablet-up {
     padding: 8px 12px;
   }

@@ -23,13 +23,12 @@
     @include article-text-padding;
     margin: 32px 0 12px;
     font-family: $font-medium;
-    @include fontSize(24);
+    @include fontSize(28);
     line-height: $secondary-line-height-ratio;
 
     @include smartphone {
       margin: 24px 0 12px;
-      @include fontSize(22);
-      line-height: 28px;
+      @include fontSize(24);
     }
   }
 

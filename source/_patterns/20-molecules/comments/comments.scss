@@ -301,11 +301,11 @@
 }
 
 .comment__time {
-  font-family: $font-system;
+  display: block;
+  font-family: $font-regular;
   @include fontSize(12);
   line-height: $emphasize-line-height-ratio;
   color: $color-text-light;
-  display: block;
 }
 
 .comment__content {
@@ -319,8 +319,8 @@
 }
 
 .comment__link {
-  border-bottom: 0;
   display: inline-block;
+  border-bottom: 0;
   cursor: pointer; // why would this be necessary!?
   padding: 8px 0;
   margin-right: 0;

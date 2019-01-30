@@ -10,28 +10,29 @@
 }
 
 .article-title__overline {
+  display: block;
   margin: 0 0 1px;
   font-family: $font-regular;
-  @include fontSize(14);
+  @include fontSize(16);
+  line-height: $emphasize-line-height-ratio;
   color: $color-accentuation-red;
-  display: block;
 
   @include tablet-up {
     margin: 0 0 3px;
-    @include fontSize(16);
+    @include fontSize(18);
   }
 }
 
 .article-title__text {
+  display: block;
   margin: 1px 0 13px;
+
+  font-family: $font-medium;
   @include fontSize(32);
   line-height: 40px;
-
-  font-weight: 400;
-  font-family: $font-regular;
   font-feature-settings: "salt";
+  font-weight: normal;
   color: $color-text-default;
-  display: block;
 
   @include tablet-up {
     margin: 3px 0 18px;

@@ -47,9 +47,9 @@
   }
 }
 .blockquote__function {
-  font-family: $font-system;
-  font-size: 12px;
-  line-height: 16px;
+  font-family: $font-regular;
+  @include fontSize(12);
+  line-height: $secondary-line-height-ratio;
   color: $color-text-light;
   display: block;
 }

@@ -2,8 +2,8 @@
 @import "../../mixins";
 
 .infoline {
+  font-family: $font-regular;
   @include fontSize(12);
-  font-family: $font-system;
   line-height: $emphasize-line-height-ratio;
   color: $color-text-light;
   margin: 8px 0;

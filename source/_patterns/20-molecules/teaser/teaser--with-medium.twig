@@ -21,7 +21,9 @@
         </div>
 
         <div class="teaser__content">
-            <h4 class="teaser__kicker">{{ teaser.kicker|default('') }}</h4>
+            <div class="teaser__kicker">
+                <span class="teaser__kicker-text">{{ teaser.kicker|default('') }}</span>
+            </div>
             <h3 class="teaser__title">{{ teaser.title|default('') }}</h3>
 
             <div class="teaser-info-wrapper">

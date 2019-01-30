@@ -13,11 +13,9 @@
 .related-items-list__heading {
   margin: 10px $article-offset;
   padding: 0;
-  font-family: $font-regular;
-  @include fontSize(14);
-  line-height: 1.41;
-  color: $color-text-light;
-  text-transform: uppercase;
+  font-family: $font-medium;
+  @include fontSize(16);
+  line-height: $emphasize-line-height-ratio;
 }
 
 .related-items-list__list {

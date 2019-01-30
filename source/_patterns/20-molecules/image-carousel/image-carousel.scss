@@ -150,17 +150,3 @@
     }
   }
 }
-
-.carousel-counter {
-  position: absolute;
-  margin-top: -30px;
-  left: 50%;
-  transform: translate(-50%, 0);
-
-  @include tablet-up {
-    margin-top: -40px;
-    @include fontSize(16);
-    line-height: $emphasize-line-height-ratio;
-    font-weight: 500;
-  }
-}

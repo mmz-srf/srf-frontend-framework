@@ -5,7 +5,9 @@
   display: block;
   width: 100%;
   padding: 12px 50px 12px 0;
+  font-family: $font-regular;
   @include fontSize(16);
+  line-height: $default-line-height-ratio;
   color: $color-link-default;
   border: none;
   background: url('../img/linktypes/internal.svg') calc(100% - 24px) center no-repeat;
