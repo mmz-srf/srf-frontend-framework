@@ -1,6 +1,6 @@
 let ANIMATIONDURATION = 200;
 
-if (!window.matchMedia('(prefers-reduced-motion: no-preference)').matches) {
+if (window.matchMedia('(prefers-reduced-motion)').matches) {
     ANIMATIONDURATION = 0;
 }
 
