@@ -196,6 +196,11 @@ body.body--loading.body--loading {
     .collection__teaser-item {
       width: 100%;
     }
+    .collection__title,
+    .collection__lead,
+    .collection__links {
+      display: none;
+    }
   }
 
   // Selectable: Hide the selection element, show the first collection after it.
