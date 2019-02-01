@@ -130,6 +130,7 @@ export class FefSubnav {
 
         $wrapper.animate({'opacity': 0}, 200, 'easeInOutCubic', () => {
             $navItem.removeClass(`${ITEM_OPEN_GROUP_CLASS} nav-group--open`);
+            $navItem.children('a').attr({'aria-expanded': false, 'aria-haspopup': false});
 
             // reset previously applied styles
             $wrapper.css({'left': '', 'right': '', 'opacity': '', 'max-height': ''});
@@ -143,7 +144,6 @@ export class FefSubnav {
         this.closeAllSubNavs();
 
         if (isClosing) {
-            $navItem.children('a').attr({'aria-expanded': false, 'aria-haspopup': false});
             return;
         }
 
