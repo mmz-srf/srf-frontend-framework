@@ -3,7 +3,7 @@ import {FefResponsiveHelper} from '../classes/fef-responsive-helper';
 
 let ANIMATION_SPEED = 200;
 
-if (!window.matchMedia('(prefers-reduced-motion: no-preference)').matches) {
+if (window.matchMedia('(prefers-reduced-motion)').matches) {
     ANIMATION_SPEED = 0;
 }
 const KEYCODES = {
