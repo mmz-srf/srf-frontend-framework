@@ -28,14 +28,14 @@
   background-color: #fefefd;
   border: 1px solid rgba(0,0,0,.08);
   border-bottom: 0;
-  
+
   /* theme */
   @supports (--foo: bar) {
     background-color: var(--theme-color-bg-search, #fefefd);
     border: var(--theme-search-border, 1px solid rgba(0,0,0,.08));
     border-bottom: var(--theme-search-border-bottom, 0);
   }
-  
+
   border-radius: 2px;
   transition: box-shadow .2s ease-in-out;
 }
@@ -106,7 +106,7 @@
     line-height: 21px;
     opacity: 1;
   }
-  
+
   &::placeholder {
     @supports (--foo: bar) {
       color: var(--theme-color-text-search, $color-text-light);
@@ -117,6 +117,10 @@
   &::-ms-clear {
     display: none;
   }
+}
+
+.search__input--loaded {
+  display: inline;
 }
 
 .search--active {
