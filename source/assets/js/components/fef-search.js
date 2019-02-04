@@ -24,6 +24,8 @@ const LOCAL_STORAGE_KEY = 'srf:search:history';
 export class SrfSearch {
 
     constructor(element, options) {
+        // eslint-disable-next-line no-console
+        console.log('CTOR SRFSEARCH', element, options);
 
         this.$element = $(element);
         this.$inputField = this.$element.find('.js-search-input');
@@ -42,6 +44,8 @@ export class SrfSearch {
         this.currTimeout = null;
 
         // search field is hidden before document.ready (events firing before document.ready can get lost)
+        // eslint-disable-next-line no-console
+        console.log('opening inputfield', this.$inputField);
         this.$inputField.show();
         this.registerListeners();
     }
