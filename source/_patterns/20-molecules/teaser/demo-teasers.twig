@@ -441,6 +441,17 @@
     } %}
 </div>
 
+<h3>XL with opinion and teaser links</h3>
+
+<div class="js-togglable-wrapper togglable-wrapper">
+    {% include 'molecules-teaser' with {
+        'styleModifier': 'teaser--size-xl',
+        'teaser': collections[0].teasers[0],
+        'showOpinion': true,
+        'showLinks': true
+    } %}
+</div>
+
 <script>
     let $btn = $('.js-toggle-maxWidth'),
         $togglableWrappers = $('.js-togglable-wrapper');
