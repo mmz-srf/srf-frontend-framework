@@ -17,6 +17,7 @@
 
 .media-caption--hover {
   transition: background 200ms $easing-in-out-standard;
+  background-color: $color-bg-box;
 }
 
 .media-caption--with-separator {
