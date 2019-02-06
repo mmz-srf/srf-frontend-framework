@@ -176,7 +176,7 @@
   background-color: transparent;
 
   @include tablet-up {
-    padding: 0 $article-offset;
+    padding: 0 16px;
   }
 
   &.media-caption--hover,

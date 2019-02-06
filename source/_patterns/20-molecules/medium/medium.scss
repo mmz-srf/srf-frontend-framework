@@ -87,6 +87,10 @@
     width: 100%;
     flex-basis: auto;
   }
+
+  .media-caption--audio {
+    padding: 12px $article-offset;
+  }
 }
 
 .medium--compact {
