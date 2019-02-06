@@ -31,10 +31,18 @@ $background-overlap-wide: 50px;
 
     @include tablet-up {
       margin-bottom: 16px; // 32px collection - 16px footer + THIS 16px = 32px
+
+      &.collection--branded {
+        margin-bottom: 0;
+      }
     }
 
     @include desktop-up {
       margin-bottom: 24px; // 32px collection - 16px footer + THIS 24px = 40px
+
+      &.collection--branded {
+        margin-bottom: 0;
+      }
     }
 
     &.collection--borderless {
