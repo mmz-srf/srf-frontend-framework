@@ -191,8 +191,13 @@ body.body--loading.body--loading {
     }
   }
 
-  // Borderless: teasers + teaser-items take up 100% of the width
+  // Borderless: teasers + teaser-items take up 100% of the width, teaser-list has no gaps
   .collection--borderless {
+    .collection__teaser-list {
+      margin-left: 0;
+      margin-right: 0;
+    }
+
     .collection__teaser-item {
       width: 100%;
     }
