@@ -25,12 +25,25 @@ $background-overlap-wide: 50px;
     background-color: transparent;
     box-shadow: none;
   }
+
+  &:last-child {
+    // compensate for collapsing margin on last collection/footer
+
+    @include tablet-up {      
+      margin-bottom: 16px; // 32px collection - 16px footer + THIS 16px = 32px
+    }
+
+    @include desktop-up {      
+      margin-bottom: 24px; // 32px collection - 16px footer + THIS 24px = 40px
+    }
+  }
 }
 
 .collection--branded {
   .collection--branded + &,
   &:first-child {
     // no space between two branded collections
+    // or if branded is the first collection of the page
     margin-top: 0;
   }
 
