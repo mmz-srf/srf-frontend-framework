@@ -29,12 +29,25 @@ $background-overlap-wide: 50px;
   &:last-child {
     // compensate for collapsing margin on last collection/footer
 
-    @include tablet-up {      
+    @include tablet-up {
       margin-bottom: 16px; // 32px collection - 16px footer + THIS 16px = 32px
     }
 
-    @include desktop-up {      
+    @include desktop-up {
       margin-bottom: 24px; // 32px collection - 16px footer + THIS 24px = 40px
+    }
+
+    &.collection--borderless {
+      // if last colleciton is a borderless collection
+      margin-bottom: 16px;
+
+      @include tablet-up {
+        margin-bottom: 32px;
+      }
+
+      @include desktop-up {
+        margin-bottom: 40px
+      }
     }
   }
 }
@@ -163,6 +176,7 @@ $background-overlap-wide: 50px;
 
   .collection__lead {
     color: $color-text-branded;
+    @include font-smoothing;
     margin-top: 0;
     margin-bottom: 24px;
 
