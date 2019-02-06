@@ -14,7 +14,7 @@
 
   /* fallback */
   color: $color-text-accentuation;
-  
+
   /* theme */
   @supports (--foo: bar) {
     color: var(--theme-color-nav, $color-text-accentuation);
@@ -31,7 +31,7 @@
     /* fallback */
     background-color: $color-nav-bg-hover;
     color: $color-text-accentuation;
-    
+
     /* theme*/
     @supports (--foo: bar) {
       background-color: var(--theme-color-bg-hover, $color-nav-bg-hover);
@@ -45,7 +45,7 @@
     /* fallback */
     background-color: $color-nav-bg-active;
     color: $color-text-accentuation;
-    
+
     /* theme */
     @supports (--foo: bar) {
       background-color: var(--theme-color-bg-active, $color-nav-bg-active);
@@ -64,7 +64,7 @@
   /* fallback */
   border-bottom-color: #f1434a;
   color: $color-accentuation-red;
-  
+
   /* theme */
   @supports (--foo: bar) {
     border-bottom-color: var(--theme-color-nav-active-border, #f1434a);
@@ -78,6 +78,7 @@
   padding-top: 16px;
   padding-right: 4px;
   padding-bottom: 14px;
+  position: relative; // prevents the icon to move relative to the nav-item's parent (see SRFCMSAL-1901 if you want to have a chuckle)
 
   @include tablet-up {
     padding-top: 17px;
