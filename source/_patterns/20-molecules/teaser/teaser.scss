@@ -595,72 +595,6 @@
   }
 }
 
-/* S-ON-MOBILE
- * override style to display a teaser as S-teaser on mobile
- * to be used together with a teaser--size-[m|l] class
- *
- * ↔️ on mobile
- */
-.teaser--size-s-on-mobile {
-  @include smartphone {
-    flex-direction: row;
-
-    &.teaser--with-links {
-      flex-direction: column;
-    }
-
-    .teaser__main {
-      flex-direction: row-reverse;
-      flex-wrap: wrap;
-    }
-
-    .teaser__content {
-      flex: 1 1 0px;
-    }
-
-    .teaser__kicker {
-      @include fontSize(14);
-      line-height: 1.14;
-    }
-
-    .teaser__title {
-      @include fontSize(16);
-      line-height: $emphasize-line-height-ratio;
-    }
-
-    .teaser__lead {
-      display: none;
-    }
-
-    .teaser__medium {
-      height: 80px;
-    }
-
-    .teaser__medium-wrapper {
-      margin: 16px 16px 16px 0;
-      border-radius: 2px;
-      overflow: hidden;
-      flex-basis: 80px;
-      height: 80px;
-
-      &::after {
-        border-radius: 2px;
-        border: solid 1px rgba(0, 0, 0, 0.04);
-        height: 80px;
-      }
-    }
-
-    .teaser__media-duration {
-      display: inline;
-    }
-
-    .teaser__opinion,
-    .teaser__scoreboard {
-      flex: 0 0 100%;
-    }
-  }
-}
-
 .teaser.teaser--theme-dark,
 .teaser.teaser--theme-breaking {
   .teaser__kicker,
@@ -897,6 +831,72 @@
 
     &:hover {
       background-image: url("../img/icon/stop-video.svg");
+    }
+  }
+}
+
+/* S-ON-MOBILE
+ * override style to display a teaser as S-teaser on mobile
+ * to be used together with a teaser--size-[m|l] class
+ *
+ * ↔️ on mobile
+ */
+.teaser--size-s-on-mobile {
+  @include smartphone {
+    flex-direction: row;
+
+    &.teaser--with-links {
+      flex-direction: column;
+    }
+
+    .teaser__main {
+      flex-direction: row-reverse;
+      flex-wrap: wrap;
+    }
+
+    .teaser__content {
+      flex: 1 1 0px;
+    }
+
+    .teaser__kicker {
+      @include fontSize(14);
+      line-height: 1.14;
+    }
+
+    .teaser__title {
+      @include fontSize(16);
+      line-height: $emphasize-line-height-ratio;
+    }
+
+    .teaser__lead {
+      display: none;
+    }
+
+    .teaser__medium {
+      height: 80px;
+    }
+
+    .teaser__medium-wrapper {
+      margin: 16px 16px 16px 0;
+      border-radius: 2px;
+      overflow: hidden;
+      flex-basis: 80px;
+      height: 80px;
+
+      &::after {
+        border-radius: 2px;
+        border: solid 1px rgba(0, 0, 0, 0.04);
+        height: 80px;
+      }
+    }
+
+    .teaser__media-duration {
+      display: inline;
+    }
+
+    .teaser__opinion,
+    .teaser__scoreboard {
+      flex: 0 0 100%;
     }
   }
 }
