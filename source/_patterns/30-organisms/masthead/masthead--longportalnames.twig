@@ -1,5 +1,6 @@
 <header class="masthead js-masthead masthead--home masthead--longportalnames">
     <div class="masthead__wrapper">
+        <h2 class="h-offscreen">Header</h2>
         <div class="masthead__universal">
             <div class="masthead__logo">
                 {% include 'atoms-main-logo' with {'styleModifier': 'main-logo--large'} %}
@@ -8,11 +9,22 @@
                 {% include 'molecules-portalsnav--portallongnames' with {'styleModifier': 'portalsnav--large'} %}
             </div>
             <div class="masthead__button-wrapper">
+                <h3 class="h-offscreen">TV/Radio-Navigation</h3>
                 <button class="masthead__button" data-modal-id="modal-onairnav" aria-haspopup="false" aria-expanded="false">
-                    {% include 'atoms-icon-button' with {'iconStyleModifier': 'svg-icon--play-video-circle', 'buttonText': 'Radio/TV'} %}
+                    {% include 'atoms-icon-button' with {
+                        'iconStyleModifier': 'svg-icon--play-video-circle',
+                        'buttonText': 'TV/Radio',
+                        'screenReaderText': 'TV/Radio (öffnet in einem Modal)'
+                    } %}
                 </button>
+                <h3 class="h-offscreen">Suche/Hauptnavigation</h3>
                 <button class="masthead__button" data-modal-id="modal-menu" aria-haspopup="false" aria-expanded="false">
-                    {% include 'atoms-icon-button' with {'iconStyleModifier': 'svg-icon--burger-dark', 'buttonText': 'Menu', 'styleModifier': 'icon-button--collapsing-text-tablet icon-button--spaceless-right-tablet'} %}
+                    {% include 'atoms-icon-button' with {
+                        'iconStyleModifier': 'svg-icon--searchmenu',
+                        'buttonText': 'Menü',
+                        'styleModifier': 'icon-button--collapsing-text-tablet icon-button--spaceless-right-tablet',
+                        'screenReaderText': 'Suche/Hauptnavigation (öffnet in einem Modal)'
+                    } %}
                 </button>
             </div>
         </div>

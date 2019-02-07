@@ -1,6 +1,8 @@
+<h3 class="h-offscreen">{{ 'Hauptnavigation'|trans }}</h3>
 <ul class="globalnav js-globalnav {{ styleModifier|default("") }}"
     id="{{ id|default("") }}">
   <li class="globalnav-group">
+    <h4 class="h-offscreen">Rubriken</h4>
     <ul class="globalnav-group__list">
       <li class="globalnav-item">{% include 'atoms-globalnav-link' with {'text': 'Home',   'url': '/',       'styleModifier': 'globalnav-link--portal'} %}</li>
       <li class="globalnav-item">{% include 'atoms-globalnav-link' with {'text': 'News',   'url': '/news',   'styleModifier': 'globalnav-link--portal'} %}</li>
@@ -11,6 +13,7 @@
     </ul>
   </li>
   <li class="globalnav-group">
+    <h4 class="h-offscreen">TV/Radio</h4>
     <ul class="globalnav-group__list">
       <li class="globalnav-item">{% include 'atoms-globalnav-link' with {'text': 'Play SRF',       'url': '/play'} %}</li>
       <li class="globalnav-item">{% include 'atoms-globalnav-link' with {'text': 'Sendungen A-Z',    'url': '/sendungen-a-z'} %}</li>
@@ -35,6 +38,7 @@
     </ul>
   </li>
   <li class="globalnav-group">
+    <h4 class="h-offscreen">Weitere Angebote</h4>
     <ul class="globalnav-group__list">
       <li class="globalnav-item">{% include 'atoms-globalnav-link' with {'text': 'Verkehr', 'url': '/verkehr'} %}</li>
       <li class="globalnav-item">{% include 'atoms-globalnav-link' with {'text': 'Zambo', 'url': '/sendungen/zambo'} %}</li>
