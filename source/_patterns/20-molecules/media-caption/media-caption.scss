@@ -29,6 +29,11 @@
   padding-right: 0;
 }
 
+.media-caption--audio {
+  padding-right: 16px;
+  padding-left: 16px;
+}
+
 .media-caption__title {
   flex: 0 0 auto;
   margin-bottom: 4px;
@@ -79,7 +84,6 @@
 
 .media-caption__source--audio {
   margin-bottom: 4px;
-  margin-top: 4px;
   text-transform: none;
 
   .media-caption__source-title {
@@ -89,7 +93,6 @@
 
 .media-caption__source--video {
   margin-bottom: 4px;
-  margin-top: 4px;
   text-transform: none;
 
   .media-caption__source-title {
@@ -173,7 +176,7 @@
   background-color: transparent;
 
   @include tablet-up {
-    padding: 0 $article-offset;
+    padding: 0 16px;
   }
 
   &.media-caption--hover,
