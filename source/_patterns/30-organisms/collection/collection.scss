@@ -28,17 +28,18 @@ $background-overlap-wide: 50px;
 
   &:last-child {
     // compensate for collapsing margin on last collection/footer
+    margin-bottom: 16px;
 
     @include tablet-up {
-      margin-bottom: 16px; // 32px collection - 16px footer + THIS 16px = 32px
+      margin-bottom: 32px;
 
       &.collection--branded {
         margin-bottom: 0;
       }
     }
 
-    @include desktop-up {
-      margin-bottom: 24px; // 32px collection - 16px footer + THIS 24px = 40px
+    @include desktop-wide {
+      margin-bottom: 40px;
 
       &.collection--branded {
         margin-bottom: 0;
@@ -53,8 +54,8 @@ $background-overlap-wide: 50px;
         margin-bottom: 32px;
       }
 
-      @include desktop-up {
-        margin-bottom: 40px
+      @include desktop-wide {
+        margin-bottom: 40px;
       }
     }
   }
