@@ -3,6 +3,8 @@
 {% set selectable = 'collection--selectable' in collection.styleModifier %}
 {% set showTitlelink = collection.titleLink is defined or selectable %}
 
+{% if selectable %}<div class="selectable-wrapper">{% endif %}
+
 <div class="collection js-collection {{ collection.styleModifier|default("collection--standard") }}"
     {% if collection.urn is defined %}data-urn="{{ collection.urn }}"{% endif %}
     {% if selectable %}data-selectable-urn="{{ collection.selectableURN }}"{% endif %}>
@@ -128,3 +130,5 @@
         </div>
     </div>
 </div>
+
+{% if swipeable %}</div>{% endif %}
