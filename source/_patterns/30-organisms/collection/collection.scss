@@ -26,6 +26,20 @@ $background-overlap-wide: 50px;
     box-shadow: none;
   }
 
+  &:first-child {
+    .collection__branding-wrapper {
+      padding-top: 28px;
+
+      @include tablet-up {
+        padding-top: 48px;
+      }
+
+      @include desktop-wide {
+        padding-top: 60px;
+      }
+    }
+  }
+
   &:last-child {
     // compensate for collapsing margin on last collection/footer
     margin-bottom: 16px;
