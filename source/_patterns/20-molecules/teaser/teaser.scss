@@ -763,6 +763,10 @@
   &.teaser.teaser--theme-dark {
     --teaser-color-background: transparent;
   }
+  
+  .image--media-still-dynamic {
+    position: absolute;
+  }
 
   &.teaser--size-xl {
     .teaser__longform-medium {
@@ -868,6 +872,7 @@
   display: grid;
   position: relative;
   z-index: 1;
+  flex-grow: 1;
 
   grid-template-columns: 100%;
   grid-template-rows: 100%;
