@@ -24,7 +24,6 @@ const LOCAL_STORAGE_KEY = 'srf:search:history';
 export class SrfSearch {
 
     constructor(element, options) {
-
         this.$element = $(element);
         this.$inputField = this.$element.find('.js-search-input');
         this.$searchResults = this.$element.find('.js-search-results');
@@ -42,7 +41,7 @@ export class SrfSearch {
         this.currTimeout = null;
 
         // search field is hidden before document.ready (events firing before document.ready can get lost)
-        this.$inputField.show();
+        this.$inputField.addClass('search__input--loaded');
         this.registerListeners();
     }
 

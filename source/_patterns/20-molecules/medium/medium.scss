@@ -30,10 +30,9 @@
   flex-shrink: 0;
   width: 196px;
   background-color: #000;
-  margin-right: -8px; // medium-caption should be 12px/16px (Mobile/Tablet+) from the object when vertically arranged - but in general it's 24px. With these negative 8px/12px we manage this without changing the whole setup of the captions
 
   @include smartphone {
-    margin: 16px -12px 16px 24px; // negative margin on the right side? See comment above.
+    margin: 16px 0 16px 24px;
     width: 92px;
   }
 }
@@ -87,6 +86,10 @@
     display: block;
     width: 100%;
     flex-basis: auto;
+  }
+
+  .media-caption--audio {
+    padding: 12px $article-offset;
   }
 }
 
