@@ -38,6 +38,12 @@ $background-overlap-wide: 50px;
         padding-top: 40px;
       }
     }
+
+    &.collection--borderless {
+      .collection__branding-wrapper {
+        padding-top: 0;
+      }
+    }
   }
 
   &:last-child {
@@ -77,6 +83,10 @@ $background-overlap-wide: 50px;
 
     &.collection--borderless {
       margin-bottom: 0;
+
+      .collection__branding-wrapper {
+        padding-bottom: 0;
+      }
     }
   }
 }
