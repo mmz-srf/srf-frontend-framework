@@ -96,6 +96,11 @@ body.body--loading.body--loading {
         .teaser__main {
           flex-direction: row-reverse;
         }
+        .teaser__a11y-wrapper {
+          flex-direction: row-reverse;
+          display: inline-flex;
+          flex-grow: 1;
+        }
         .teaser__medium-wrapper {
           padding-bottom: 0;
           width: 80px;
