@@ -1,75 +1,77 @@
 <div class="teaser js-teaser {{ styleModifier|default('teaser--size-m teaser--size-s-on-mobile') }}">
     <a class="teaser__main" href="{{ teaser.link|default('#') }}">
+        <div role="text">
 
-        {# MEDIUM #}
-        {% embed "ratio.twig" with {
-            'class': 'teaser__medium-wrapper',
-            'ratio': '16:9'
-        } %}
-            {% block ratio_content %}
-                <div class="teaser__medium">
-                    <div class="image image--media-still-dynamic">
-                        <img src="{{ teaser.image|default('') }}" alt="{{ teaser.title|default('') }}" />
+            {# MEDIUM #}
+            {% embed "ratio.twig" with {
+                'class': 'teaser__medium-wrapper',
+                'ratio': '16:9'
+            } %}
+                {% block ratio_content %}
+                    <div class="teaser__medium">
+                        <div class="image image--media-still-dynamic">
+                            <img src="{{ teaser.image|default('') }}" alt="{{ teaser.title|default('') }}" />
+                        </div>
                     </div>
+                {% endblock %}
+            {% endembed %}
+
+            {# SHIMMER #}
+            <div class="teaser__content-shimmer h-loading-only">
+                {% include 'atoms-shimmer' with {'styleModifier': 'shimmer--overline'} %}
+                {% include 'atoms-shimmer' with {'styleModifier': ''} %}
+                {% include 'atoms-shimmer' with {'styleModifier': ''} %}
+                {% include 'atoms-shimmer' with {'styleModifier': 'shimmer--short'} %}
+            </div>
+
+            {# CONTENT #}
+            <div class="teaser__content">
+                {% if preKicker %}<span class="h-offscreen" data-iefix="teaser__prekicker--fixed-for-ie"><strong>{{ preKicker }}</strong></span>{% endif %}
+
+                <div class="teaser__kicker">
+                    {% if labelWording %}
+                        {% include 'atoms-teaser-label' with {'labelWording': labelWording, 'labelTime': labelTime, 'styleModifierType': styleModifierType, 'styleModifierSize': styleModifier} %}
+                    {% endif %}
+
+                    <span class="teaser__kicker-text">{{ teaser.kicker|default('') }}</span>
                 </div>
-            {% endblock %}
-        {% endembed %}
+                <span class="teaser__title">{{ teaser.title|default('') }}</span>
+                <p class="teaser__lead">{{ teaser.lead|default('') }}</p>
 
-        {# SHIMMER #}
-        <div class="teaser__content-shimmer h-loading-only">
-            {% include 'atoms-shimmer' with {'styleModifier': 'shimmer--overline'} %}
-            {% include 'atoms-shimmer' with {'styleModifier': ''} %}
-            {% include 'atoms-shimmer' with {'styleModifier': ''} %}
-            {% include 'atoms-shimmer' with {'styleModifier': 'shimmer--short'} %}
-        </div>
-
-        {# CONTENT #}
-        <div class="teaser__content">
-            {% if preKicker %}<span class="h-offscreen" data-iefix="teaser__prekicker--fixed-for-ie"><strong>{{ preKicker }}</strong></span>{% endif %}
-
-            <div class="teaser__kicker">
-                {% if labelWording %}
-                    {% include 'atoms-teaser-label' with {'labelWording': labelWording, 'labelTime': labelTime, 'styleModifierType': styleModifierType, 'styleModifierSize': styleModifier} %}
+                {% set infoStyleModifier = infoStyleModifier|default('') %}
+                {% if 'teaser--size-l' in styleModifier or 'teaser--size-xl' in styleModifier %}
+                    {% set infoStyleModifier = infoStyleModifier ~ ' teaser-info--size-large' %}
                 {% endif %}
 
-                <span class="teaser__kicker-text">{{ teaser.kicker|default('') }}</span>
+                <div class="teaser-info-wrapper">
+                <div class="teaser-info-innerwrapper">
+                    {% include 'atoms-teaser-info' with {
+                        'type': infoType,
+                        'styleModifier': infoStyleModifier,
+                        'text': infoText|default(''),
+                        'mediaDuration': infoMediaDuration,
+                        'mediaSource': infoMediaSource,
+                        'mediaTime': infoMediaTime
+                    } %}
+                </div>
+                </div>
             </div>
-            <span class="teaser__title">{{ teaser.title|default('') }}</span>
-            <p class="teaser__lead">{{ teaser.lead|default('') }}</p>
 
-            {% set infoStyleModifier = infoStyleModifier|default('') %}
-            {% if 'teaser--size-l' in styleModifier or 'teaser--size-xl' in styleModifier %}
-                {% set infoStyleModifier = infoStyleModifier ~ ' teaser-info--size-large' %}
+            {# SCOREBOARD #}
+            {% if showScoreboard|default(false) %}
+                <div class="teaser__scoreboard">
+                    {% include 'molecules-scoreboard' %}
+                </div>
             {% endif %}
 
-            <div class="teaser-info-wrapper">
-              <div class="teaser-info-innerwrapper">
-                {% include 'atoms-teaser-info' with {
-                    'type': infoType,
-                    'styleModifier': infoStyleModifier,
-                    'text': infoText|default(''),
-                    'mediaDuration': infoMediaDuration,
-                    'mediaSource': infoMediaSource,
-                    'mediaTime': infoMediaTime
-                } %}
-            </div>
-            </div>
+            {# OPINION #}
+            {% if showOpinion|default(false) and teaser.opinion is defined %}
+                <div class="teaser__opinion">
+                    {% include 'atoms-image' with { 'styleModifier': 'image--circle image--profile-picture-small' } %}
+                    {% include 'atoms-person-details' %}
+                </div>
+            {% endif %}
         </div>
-
-        {# SCOREBOARD #}
-        {% if showScoreboard|default(false) %}
-            <div class="teaser__scoreboard">
-                {% include 'molecules-scoreboard' %}
-            </div>
-        {% endif %}
-
-        {# OPINION #}
-        {% if showOpinion|default(false) and teaser.opinion is defined %}
-            <div class="teaser__opinion">
-                {% include 'atoms-image' with { 'styleModifier': 'image--circle image--profile-picture-small' } %}
-                {% include 'atoms-person-details' %}
-            </div>
-        {% endif %}
     </a>
 
     {# TEASER LINKS #}

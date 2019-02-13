@@ -872,11 +872,14 @@
   grid-template-columns: 100%;
   grid-template-rows: 100%;
 
-  > * {
-    grid-row-start: 1;
-    grid-column-start: 1;
-    grid-row-end: 2;
-    grid-column-end: 2;
+  // A11Y Wrapper
+  div {
+    > * {
+      grid-row-start: 1;
+      grid-column-start: 1;
+      grid-row-end: 2;
+      grid-column-end: 2;
+    }
   }
 }
 

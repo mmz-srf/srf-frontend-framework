@@ -1,47 +1,49 @@
 {% set mediumType = mediumType|default(random(['audio', 'video'])) %}
 <div class="teaser js-teaser teaser--with-medium js-medium-hover {{ styleModifier|default('teaser--size-m teaser--size-s-on-mobile') }}" data-disable-still-hover="true">
     <a class="teaser__main" href="{{ teaser.link|default('#') }}">
+        <div role="text">
 
-        {% embed "ratio.twig" with {
-            'class': 'teaser__medium-wrapper',
-            'ratio': '16:9'
-        } %}
-            {% block ratio_content %}
-                <div class="teaser__medium">
-                    {% include 'molecules-media-still--dynamic' with { 'styleModifier': '', 'mediumType': mediumType } %}
-                </div>
-            {% endblock %}
-        {% endembed %}
+            {% embed "ratio.twig" with {
+                'class': 'teaser__medium-wrapper',
+                'ratio': '16:9'
+            } %}
+                {% block ratio_content %}
+                    <div class="teaser__medium">
+                        {% include 'molecules-media-still--dynamic' with { 'styleModifier': '', 'mediumType': mediumType } %}
+                    </div>
+                {% endblock %}
+            {% endembed %}
 
-        <div class="teaser__content-shimmer h-loading-only">
-            {% include 'atoms-shimmer' with {'styleModifier': 'shimmer--overline'} %}
-            {% include 'atoms-shimmer' with {'styleModifier': ''} %}
-            {% include 'atoms-shimmer' with {'styleModifier': ''} %}
-            {% include 'atoms-shimmer' with {'styleModifier': 'shimmer--short'} %}
-        </div>
-
-        <div class="teaser__content">
-            <div class="teaser__kicker">
-                <span class="teaser__kicker-text">{{ teaser.kicker|default('') }}</span>
+            <div class="teaser__content-shimmer h-loading-only">
+                {% include 'atoms-shimmer' with {'styleModifier': 'shimmer--overline'} %}
+                {% include 'atoms-shimmer' with {'styleModifier': ''} %}
+                {% include 'atoms-shimmer' with {'styleModifier': ''} %}
+                {% include 'atoms-shimmer' with {'styleModifier': 'shimmer--short'} %}
             </div>
-            <span class="teaser__title">{{ teaser.title|default('') }}</span>
 
-            <div class="teaser-info-wrapper">
-              <div class="teaser-info-innerwrapper">
-                {% include 'atoms-teaser-info' with {
-                    'type': 'state',
-                    'styleModifier': 'teaser-info--visited teaser-info--with-icon',
-                    'text': 'Gesehen'
-                } %}
+            <div class="teaser__content">
+                <div class="teaser__kicker">
+                    <span class="teaser__kicker-text">{{ teaser.kicker|default('') }}</span>
+                </div>
+                <span class="teaser__title">{{ teaser.title|default('') }}</span>
 
-                {% include 'atoms-teaser-info' with {
-                    'type': 'media-caption',
-                    'styleModifier': 'teaser-info--media-caption',
-                    'mediaDuration': '3.20',
-                    'mediaSource': '100 Sekunden Wissen',
-                    'mediaTime': 'vom 8.12.2018',
-                } %}
-              </div>
+                <div class="teaser-info-wrapper">
+                    <div class="teaser-info-innerwrapper">
+                        {% include 'atoms-teaser-info' with {
+                            'type': 'state',
+                            'styleModifier': 'teaser-info--visited teaser-info--with-icon',
+                            'text': 'Gesehen'
+                        } %}
+
+                        {% include 'atoms-teaser-info' with {
+                            'type': 'media-caption',
+                            'styleModifier': 'teaser-info--media-caption',
+                            'mediaDuration': '3.20',
+                            'mediaSource': '100 Sekunden Wissen',
+                            'mediaTime': 'vom 8.12.2018',
+                        } %}
+                    </div>
+                </div>
             </div>
 
         </div>
