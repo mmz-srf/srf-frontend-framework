@@ -28,14 +28,14 @@ $background-overlap-wide: 50px;
 
   &:first-child {
     .collection__branding-wrapper {
-      padding-top: 28px;
+      padding-top: 16px;
 
       @include tablet-up {
-        padding-top: 48px;
+        padding-top: 32px;
       }
 
       @include desktop-wide {
-        padding-top: 60px;
+        padding-top: 40px;
       }
     }
   }
@@ -43,6 +43,14 @@ $background-overlap-wide: 50px;
   &:last-child {
     // compensate for collapsing margin on last collection/footer
     margin-bottom: 16px;
+
+    &.collection--branded {
+      margin-bottom: 0;
+
+      .collection__branding-wrapper {
+        padding-bottom: 16px;
+      }
+    }
 
     @include tablet-up {
       margin-bottom: 32px;
