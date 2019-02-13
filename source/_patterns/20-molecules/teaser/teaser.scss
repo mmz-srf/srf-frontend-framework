@@ -41,6 +41,13 @@
   flex-wrap: wrap;
   position: relative; // to position the pseudo elements
 
+  .teaser__a11y-wrapper {
+    display: inline-flex;
+    flex-direction: column;
+    align-self: stretch;
+    flex: 1;
+  }
+
   /* Teasers have an invisible layer on top that gets sligthly opaque when active/focused */
   &::after {
     position: absolute;
@@ -872,14 +879,11 @@
   grid-template-columns: 100%;
   grid-template-rows: 100%;
 
-  // A11Y Wrapper
-  div {
-    > * {
-      grid-row-start: 1;
-      grid-column-start: 1;
-      grid-row-end: 2;
-      grid-column-end: 2;
-    }
+  > * {
+    grid-row-start: 1;
+    grid-column-start: 1;
+    grid-row-end: 2;
+    grid-column-end: 2;
   }
 }
 

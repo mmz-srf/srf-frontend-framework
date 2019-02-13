@@ -1,7 +1,7 @@
 {% set mediumType = mediumType|default(random(['audio', 'video'])) %}
 <div class="teaser js-teaser teaser--with-medium js-medium-hover {{ styleModifier|default('teaser--size-m teaser--size-s-on-mobile') }}" data-disable-still-hover="true">
     <a class="teaser__main" href="{{ teaser.link|default('#') }}">
-        <div role="text">
+        <div  class="teaser__a11y-wrapper" role="text">
 
             {% embed "ratio.twig" with {
                 'class': 'teaser__medium-wrapper',

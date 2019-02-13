@@ -2,7 +2,7 @@
 
 <div class="teaser js-teaser {{ styleModifier|default('teaser--size-m teaser--size-s-on-mobile') }} {{ showOpinion ? 'teaser--with-opinion' }}">
     <a class="teaser__main" href="{{ teaser.link|default('#') }}">
-        <div role="text">
+        <div class="teaser__a11y-wrapper" role="text">
 
             {# MEDIUM #}
             {% embed "ratio.twig" with {
