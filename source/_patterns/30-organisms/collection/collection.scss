@@ -27,15 +27,17 @@ $background-overlap-wide: 50px;
   }
 
   &:first-child {
-    .collection__branding-wrapper {
-      padding-top: 16px;
+    &.collection--branded {
+      .collection__branding-wrapper {
+        padding-top: 16px;
 
-      @include tablet-up {
-        padding-top: 32px;
-      }
+        @include tablet-up {
+          padding-top: 32px;
+        }
 
-      @include desktop-wide {
-        padding-top: 40px;
+        @include desktop-wide {
+          padding-top: 40px;
+        }
       }
     }
 
