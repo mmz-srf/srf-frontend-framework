@@ -104,6 +104,10 @@ _:-ms-fullscreen,
 :root .modal.modal--theme-dark .modal-main-wrapper {
   background-image: linear-gradient(135deg, #22211d, #111111);
   box-shadow: $shadow-elevation8;
+
+  .icon-button {
+    color: #fff;
+  }
 }
 
 
