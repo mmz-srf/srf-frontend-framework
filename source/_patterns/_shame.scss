@@ -108,6 +108,10 @@ _:-ms-fullscreen,
   .icon-button {
     color: #fff;
   }
+
+  .icon-button__icon {
+    filter: invert(100%) contrast(600%);
+  }
 }
 
 
