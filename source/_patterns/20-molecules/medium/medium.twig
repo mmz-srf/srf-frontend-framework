@@ -11,9 +11,9 @@
         </div>
         <div class="medium__caption">
             {% if mediumType == 'audio' %}
-                {% include 'molecules-media-caption-audio' with { 'styleModifier' : '' } %}
+                {% include 'molecules-media-caption-audio' with { 'styleModifier' : 'media-caption--audio' } %}
             {% elseif mediumType == 'video' %}
-                {% include 'molecules-media-caption-video' with { 'styleModifier' : '' } %}
+                {% include 'molecules-media-caption-video' with { 'styleModifier' : 'media-caption--video' } %}
             {% elseif mediumType == 'image' %}
                 {% include 'molecules-media-caption' with { 'styleModifier' : '' } %}
             {% endif %}
