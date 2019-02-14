@@ -122,7 +122,7 @@ gulp.task('copy-critical-js', function() {
 gulp.task('serve', function() {
   browserSync({
     notify: false,
-    port: 8080,
+    port: 8081,
     server: {
       baseDir: ['public/']
     },
