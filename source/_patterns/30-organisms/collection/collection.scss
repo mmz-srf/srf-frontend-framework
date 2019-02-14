@@ -25,12 +25,79 @@ $background-overlap-wide: 50px;
     background-color: transparent;
     box-shadow: none;
   }
+
+  &:first-child {
+    &.collection--branded {
+      .collection__branding-wrapper {
+        padding-top: 16px;
+
+        @include tablet-up {
+          padding-top: 32px;
+        }
+
+        @include desktop-wide {
+          padding-top: 40px;
+        }
+      }
+    }
+
+    &.collection--borderless {
+      .collection__branding-wrapper {
+        padding-top: 0;
+      }
+    }
+  }
+
+  &:last-child {
+    margin-bottom: 16px;
+
+    &.collection--branded {
+      margin-bottom: 0;
+
+      .collection__branding-wrapper {
+        padding-bottom: 16px;
+      }
+    }
+
+    @include tablet-up {
+      margin-bottom: 32px;
+
+      &.collection--branded {
+        margin-bottom: 0;
+
+        .collection__branding-wrapper {
+          padding-bottom: 32px;
+        }
+      }
+    }
+
+    @include desktop-wide {
+      margin-bottom: 40px;
+
+      &.collection--branded {
+        margin-bottom: 0;
+
+        .collection__branding-wrapper {
+          padding-bottom: 40px;
+        }
+      }
+    }
+
+    &.collection--borderless {
+      margin-bottom: 0;
+
+      .collection__branding-wrapper {
+        padding-bottom: 0;
+      }
+    }
+  }
 }
 
 .collection--branded {
   .collection--branded + &,
   &:first-child {
     // no space between two branded collections
+    // or if branded is the first collection of the page
     margin-top: 0;
   }
 
@@ -150,6 +217,7 @@ $background-overlap-wide: 50px;
 
   .collection__lead {
     color: $color-text-branded;
+    @include font-smoothing;
     margin-top: 0;
     margin-bottom: 24px;
 
