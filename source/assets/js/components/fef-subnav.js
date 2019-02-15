@@ -113,9 +113,8 @@ export class FefSubnav {
     }
 
     handleScroll(e) {
-        // firefox (mobile/tablet breakpoints) sends scroll events just after a click on 2nd level nav items
-        // with children which would close a corresponding 3rd level nav immediately after opening. that's
-        // why we check for a changed scroll position here.
+        // firefox sends scroll events just after a click on 2nd level nav items with children. this would close a
+        // corresponding 3rd level nav immediately after opening. that's why we check for a changed scroll position here.
         if (e.target.scrollLeft !== this.lastLeftScrollPos) {
             this.lastLeftScrollPos = e.target.scrollLeft;
             this.closeAllSubNavs();
