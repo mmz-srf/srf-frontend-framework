@@ -17,7 +17,7 @@ const HOOK_CLASS = 'js-swipeable-area',
     MINIMUM_HEIGHT = 50;
 
 export function init(interactionMeasureString = '') {
-    $(`.${HOOK_CLASS}`).each((index, element) => {
+    $(`.${HOOK_CLASS}`).each((_, element) => {
         new FefSwipeableArea($(element), interactionMeasureString);
     });
 }
@@ -105,6 +105,7 @@ export class FefSwipeableArea {
     registerListeners() {
         $(window).on('resize', FefDebounceHelper.debounce(() => this.init(), DEBOUNCETIME));
         $(window).on('load', () => this.initContainerHeight());
+        $(window).on('srf.styles.loaded', () => this.init());
 
         this.setupHinting();
         this.$items.on('click', (event) => this.onTeaserClick(event));
