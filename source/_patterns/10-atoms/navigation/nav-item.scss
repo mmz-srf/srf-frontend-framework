@@ -107,12 +107,9 @@
 
 .nav-item--third-level {
   display: block;
-  margin-right: 8px;
-  margin-left: 8px;
   padding-left: 16px;
   padding-right: 16px;
   @include fontSize(16);
-  border-radius: 2px;
 
   @include smartphone {
     text-align: center;
