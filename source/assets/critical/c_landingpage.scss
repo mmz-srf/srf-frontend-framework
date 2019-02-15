@@ -203,6 +203,49 @@ body.body--loading.body--loading {
     }
   }
 
+  .collection--swipeable {
+    .swipeable-area__wrapper {
+      width: 100%;
+      box-sizing: content-box;
+    }
+
+    .collection__teaser-list {
+      flex-wrap: nowrap;
+      margin: 0;
+    }
+
+    .collection__teaser-item {
+      padding-right: 8px;
+      min-width: calc(100% - 40px);
+      padding-bottom: 12px;
+      margin: 0;
+
+      @include tablet-up {
+        min-width: calc((100% - 32px - 44px) / 3.00001 ); // 32px: left gap between Collection and Teaser; 44px: visible part of the first 'overflowed' item
+        padding-bottom: 16px;
+        padding-right: 12px;
+      }
+
+      @include desktop-wide {
+        min-width: calc((100% - 40px - 56px) / 3.00001 );
+        padding-right: 16px;
+        padding-bottom: 20px;
+      }
+
+      &:first-child {
+        margin-left: 8px;
+
+        @include tablet-up {
+          margin-left: 32px;
+        }
+
+        @include desktop-wide {
+          margin-left: 40px;
+        }
+      }
+    }
+  }
+
   // Selectable: Hide the selection element, show the first collection after it.
   // From that collection, only show the first 3 teasers
   .selectable {
@@ -373,5 +416,9 @@ body.body--loading.body--loading {
           flex-basis: $teaser-xl-medium-ratio;
       }
     }
+  }
+
+  .rlp-footer {
+    display: none;
   }
 }

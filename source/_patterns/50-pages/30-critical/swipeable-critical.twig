@@ -1,0 +1,16 @@
+{% embed 'templates-landingpage' %}
+    {% block landingpage_content %}
+        {% include 'organisms-collection' with {
+            'collection': {
+                "styleModifier": "collection--swipeable",
+                "title": "News Schweiz",
+                "type": "swipeable",
+                "teasers": collections[0].teasers
+            }
+        } %}
+    {% endblock %}
+
+    {% block demo_content %}
+        {% include '_load-css-button.twig' %}
+    {% endblock %}
+{% endembed %}
