@@ -87,6 +87,6 @@
   }
 
   &::after {
-    border: solid 1px $color-text-light !important;
+    border: solid 1px $color-text-light !important; // Todo: Why !important?
   }
 }

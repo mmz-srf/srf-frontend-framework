@@ -552,10 +552,10 @@
     }
   }
 
-  /* if there are teaser links and an opinion teaser */
-  &.teaser--with-links {
+  /* if there are teaser links and an opinion, the opinion wins (links will be hidden) */
+  &.teaser--with-opinion {
     @include tablet-up {
-      .teaser__opinion {
+      .teaser__links {
         display: none;
       }
     }
@@ -629,7 +629,7 @@
     }
 
     .teaser__lead {
-      display: none;
+      display: none !important; // important: never show lead if element has modifier s-on-mobile -> if !important breaks all your things, it should work with '.teaser__lead.teaser__lead.teaser__lead' too ;-)
     }
 
     .teaser__medium {
