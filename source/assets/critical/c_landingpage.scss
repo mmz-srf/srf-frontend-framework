@@ -201,6 +201,11 @@ body.body--loading.body--loading {
     .collection__teaser-item {
       width: 100%;
     }
+    .collection__title,
+    .collection__lead,
+    .collection__links {
+      display: none;
+    }
   }
 
   .collection--swipeable {
@@ -325,7 +330,7 @@ body.body--loading.body--loading {
       box-sizing: border-box;
     }
     img {
-      display: none;
+      visibility: hidden; // not "display: none" because the lazy loading mechanism would fail
     }
 
   }
