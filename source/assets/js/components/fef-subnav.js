@@ -51,6 +51,7 @@ export class FefSubnav {
         this.$buttonForward = $(`.${BUTTON_FORWARD_CLASS}`, this.$element);
         this.$maskLeft = $(`.${MASK_LEFT_CLASS}`, this.$element);
         this.$maskRight = $(`.${MASK_RIGHT_CLASS}`, this.$element);
+        this.lastLeftScrollPos = 0;
 
         this.init();
         this.initItemPositions();
@@ -98,7 +99,7 @@ export class FefSubnav {
     registerListeners() {
         $(window).on('resize', FefDebounceHelper.debounce(() => this.onResize(), DEBOUNCETIME));
         this.$innerContainer.on('scroll', FefDebounceHelper.debounce(() => this.init(), DEBOUNCETIME));
-        this.$innerContainer.on('scroll', FefDebounceHelper.throttle(() => this.closeAllSubNavs(), THROTTLETIME));
+        this.$innerContainer.on('scroll', FefDebounceHelper.throttle((e) => this.handleScroll(e), THROTTLETIME));
         this.$buttonBack.on('click', () => { this.pageBack(); });
         this.$buttonForward.on('click', () => { this.pageForward(); });
 
@@ -109,6 +110,16 @@ export class FefSubnav {
                 this.toggleSubNav($(e.currentTarget));
             }
         });
+    }
+
+    handleScroll(e) {
+        // firefox (mobile/tablet breakpoints) sends scroll events just after a click on 2nd level nav items
+        // with children which would close a corresponding 3rd level nav immediately after opening. that's
+        // why we check for a changed scroll position here.
+        if (e.target.scrollLeft !== this.lastLeftScrollPos) {
+            this.lastLeftScrollPos = e.target.scrollLeft;
+            this.closeAllSubNavs();
+        }
     }
 
     closeAllSubNavs() {
@@ -268,6 +279,7 @@ export class FefSubnav {
             newScrollPos = currentScroll + diff;
 
         this.scrollToPosition(newScrollPos);
+        this.lastLeftScrollPos = newScrollPos;
     }
 
     scrollToPosition(position, time) {
