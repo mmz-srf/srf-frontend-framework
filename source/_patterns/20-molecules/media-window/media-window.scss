@@ -13,7 +13,11 @@
 
   @include tablet-up {
     margin: 32px 0;
-    padding: 0 58px 12px;
+    padding: 0 64px 12px;
+  }
+
+  @include desktop-up {
+    padding: 0 62px 12px;
   }
 
   &.media-window--playing {

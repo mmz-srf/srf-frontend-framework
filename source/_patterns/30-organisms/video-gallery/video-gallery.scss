@@ -86,10 +86,12 @@
 
   @include tablet {
     width: 270px;
+    margin-right: 4px;
   }
 
   @include desktop-up {
     width: 199px;
+    margin-right: 4px;
   }
 }
 
