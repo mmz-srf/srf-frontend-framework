@@ -306,6 +306,9 @@ export class FefSwipeableArea {
                 .toggleClass(this.visibleClass, isInView)
                 .toggleClass(this.hiddenClass, !isInView);
         });
+
+        // move the flying focus to the new position after scrolling
+        $(document).trigger('flyingfocus:move');
     }
 
     isItemCompletelyInView($itemElem) {
