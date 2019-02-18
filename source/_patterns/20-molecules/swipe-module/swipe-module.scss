@@ -186,9 +186,11 @@ $item-max-width: 400px;
   border: 0;
   box-shadow: $shadow-elevation1;
   opacity: 1;
+  // sass-lint:disable indentation
   transition: box-shadow .2s ease-in-out,
               opacity .2s ease-in-out,
               transform .2s ease-in-out;
+  // sass-lint:enable indentation
   -webkit-transform: translate3d(0,0,0); // Prevents flickering on scrolling on iOS
   max-width: $item-max-width;
 
