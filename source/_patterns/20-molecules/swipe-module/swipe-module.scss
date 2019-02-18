@@ -187,6 +187,7 @@ $item-max-width: 400px;
   box-shadow: $shadow-elevation1;
   opacity: 1;
   transition: box-shadow .2s ease-in-out, opacity .2s ease-in-out, transform .2s ease-in-out;;
+  -webkit-transform: translate3d(0,0,0);
   max-width: $item-max-width;
 
   // gaps between the items is achieved via margin-right (a bit bigger on tablet+), so the last one has no margin-right
@@ -276,6 +277,7 @@ $item-max-width: 400px;
 @include desktop-up {
   .swipemod-item--partially-hidden {
     opacity: 0.2;
+    -webkit-transform: translate3d(0,0,0);
 
     &:hover {
       opacity: 0.6;
