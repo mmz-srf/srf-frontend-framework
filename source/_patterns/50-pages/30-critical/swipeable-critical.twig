@@ -3,8 +3,16 @@
         {% include 'organisms-collection' with {
             'collection': {
                 "styleModifier": "collection--swipeable",
-                "title": "News Schweiz",
+                "title": "Swipeable",
                 "type": "swipeable",
+                "teasers": collections[0].teasers
+            }
+        } %}
+
+        {% include 'organisms-collection' with {
+            'collection': {
+                "styleModifier": "collection",
+                "title": "Non-Swipeable",
                 "teasers": collections[0].teasers
             }
         } %}
