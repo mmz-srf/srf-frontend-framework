@@ -186,7 +186,9 @@ $item-max-width: 400px;
   border: 0;
   box-shadow: $shadow-elevation1;
   opacity: 1;
-  transition: box-shadow .2s ease-in-out, opacity .2s ease-in-out, transform .2s ease-in-out;;
+  transition: box-shadow .2s ease-in-out,
+              opacity .2s ease-in-out,
+              transform .2s ease-in-out;
   -webkit-transform: translate3d(0,0,0);
   max-width: $item-max-width;
 
