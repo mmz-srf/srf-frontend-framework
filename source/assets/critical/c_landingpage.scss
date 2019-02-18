@@ -217,10 +217,12 @@ body.body--loading.body--loading {
     }
   }
 
-  .collection--swipeable {
+  .collection--swipeable,
+  .collection--compact-swipeable {
     .swipeable-area__wrapper {
       width: 100%;
       box-sizing: content-box;
+      overflow: hidden;
     }
 
     .collection__teaser-list {
@@ -234,6 +236,7 @@ body.body--loading.body--loading {
       min-width: calc(100% - 40px);
       padding-bottom: 12px;
       margin: 0;
+      width: auto;
 
       @include tablet-up {
         min-width: calc((100% - 32px - 44px) / 3.00001 ); // 32px: left gap between Collection and Teaser; 44px: visible part of the first 'overflowed' item
@@ -263,8 +266,6 @@ body.body--loading.body--loading {
     .teaser__main {
       flex-direction: column;
     }
-
-
   }
 
   // Selectable: Hide the selection element, show the first collection after it.
