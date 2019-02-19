@@ -10,6 +10,10 @@
         <span class="comment__time" data-timestamp="{{ comment.date }}">{{ comment.dateFormatted }}</span>
         <blockquote class="comment__content">{{ comment.message }}</blockquote>
         {% spaceless %}
+            <span class="comment__clarification">
+                {% include 'atoms-svg-icon' with {'styleModifier': 'svg-icon--respond-blue svg-icon--tiny'} %}
+                <span>{{ 'Antwort von SRF folgt' }}</span>
+            </span>
             <a class="js-comment-like comment__link comment__link--like" role="link" title="{{ 'Zustimmen' }}" href="#{{ comment.id }}-like">
                 {{ 'Zustimmen' }}
                 <span class="h-offscreen">{{ 'dem Kommentar zustimmen' }}</span>
@@ -44,6 +48,10 @@
                         <span class="comment__time" data-timestamp="{{ reply.date }}"></span>
                         <blockquote class="comment__content">{{ reply.message }}</blockquote>
                         {% spaceless %}
+                            <span class="comment__clarification">
+                                {% include 'atoms-svg-icon' with {'styleModifier': 'svg-icon--respond-blue svg-icon--tiny'} %}
+                                <span>{{ 'Antwort von SRF folgt' }}</span>
+                            </span>
                             <a class="comment__link comment__link--like" title="{{ 'Zustimmen' }}" role="link" href="#{{ comment.id }}-like">
                                 {{ 'Zustimmen' }}
                                 <span class="h-offscreen">{{ 'dem Kommentar zustimmen' }}</span>
