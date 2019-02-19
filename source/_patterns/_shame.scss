@@ -277,7 +277,13 @@ _:-ms-fullscreen,
     }
   }
   .teaser--longform {
-    .block-link--internal.block-link--teaser-link {
+    .block-link--internal.block-link--teaser-link,
+    .block-link--external.block-link--teaser-link,
+    .block-link--video.block-link--teaser-link,
+    .block-link--audio.block-link--teaser-link,
+    .block-link--pdf.block-link--teaser-link,
+    .block-link--docx.block-link--teaser-link,
+    .block-link--document.block-link--teaser-link {
       background-color: transparent;
       color: #FFF;
     }
