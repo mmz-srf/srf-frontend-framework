@@ -105,3 +105,13 @@
 @import '30-organisms/rlp-footer/rlp-footer';
 @import '30-organisms/selectable/selectable';
 @import 'shame';
+
+
+/*
+ * setting a hint for the page's javascript that the css is loaded
+ * (i.e. in order to finish a preload state)
+ */
+body::after {
+  content: "main-css-ready";
+  display: none; /* Prevent from displaying. */
+}
