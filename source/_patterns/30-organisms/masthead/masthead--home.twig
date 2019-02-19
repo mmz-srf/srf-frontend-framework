@@ -9,15 +9,14 @@
                 {% include 'molecules-portalsnav' with {'styleModifier': 'portalsnav--large'} %}
             </div>
             <div class="masthead__button-wrapper">
-                <h3 class="h-offscreen">TV/Radio-Navigation</h3>
+                <h3 class="h-offscreen">Navigation</h3>
                 <button class="masthead__button" data-modal-id="modal-onairnav" aria-haspopup="false" aria-expanded="false">
                     {% include 'atoms-icon-button' with {
                         'iconStyleModifier': 'svg-icon--play-video-circle',
                         'buttonText': 'TV/Radio',
-                        'screenReaderText': 'TV/Radio (öffnet in einem Modal)'
+                        'screenReaderText': 'TV/Radio-Navigation (öffnet in einem Modal)'
                     } %}
                 </button>
-                <h3 class="h-offscreen">Suche/Hauptnavigation</h3>
                 <button class="masthead__button" data-modal-id="modal-menu" aria-haspopup="false" aria-expanded="false">
                     {% include 'atoms-icon-button' with {
                         'iconStyleModifier': 'svg-icon--searchmenu',
