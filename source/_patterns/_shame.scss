@@ -439,3 +439,22 @@ _:-ms-fullscreen,
     }
   }
 }
+
+/*
+ * TARGETED BROWSER: Safari and Voice Over
+ * WHY:              Browser "feature"
+ * VoiceOver and Safari (macOS and iOS) remove list element semantics when list-style: none is used
+ * See: - https://unfetteredthoughts.net/2017/09/26/voiceover-and-list-style-type-none/
+ *      - https://www.scottohara.me/blog/2019/01/12/lists-and-safari.html
+ */
+
+.portalsnav,
+.subnav,
+.globalnav,
+.collection__teaser-list
+ {
+  li:before {
+    content: "\200B"; /* add zero-width space */
+    position: absolute; /* addition */
+  }
+}
