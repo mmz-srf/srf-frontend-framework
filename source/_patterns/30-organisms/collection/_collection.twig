@@ -11,7 +11,7 @@
 
     <div class="collection__branding-wrapper js-collection-branding-wrapper"{% if branded %} style="background-image: linear-gradient(120deg, #135c94, #ADD8E6);"{% endif %} >
         <div class="collection__content-wrapper js-collection-content-wrapper">
-            <h2 class="collection__title">
+            <h3 class="collection__title">
                 <span class="h-loading-only">
                     {% include 'atoms-shimmer' with {'styleModifier': 'shimmer--heading shimmer--shorter'} %}
                     {% if collection.lead is defined %}
@@ -43,7 +43,7 @@
                         } %}
                     </button>
                 {% endif %}
-            </h2>
+            </h3>
 
             {% if collection.image is defined %}
                 <div class="collection__background-image {{ collection.lead is defined ? "collection__background-image--with-lead" }}"

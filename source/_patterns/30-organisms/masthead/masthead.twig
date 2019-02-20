@@ -1,5 +1,6 @@
 <header class="masthead js-masthead {{ themeStyleModifier }}">
   <div class="masthead__wrapper">
+    <h2 class="h-offscreen">Header</h2>
     <div class="masthead__universal">
       <div class="masthead__logo">
         {% include 'atoms-main-logo' %}
@@ -9,18 +10,28 @@
         {% include 'molecules-portalsnav' with {'styleModifier': ''} %}
       </div>
       <div class="masthead__button-wrapper">
+        <h3 class="h-offscreen">Navigation</h3>
         <button class="masthead__button" data-modal-id="modal-onairnav" aria-haspopup="false" aria-expanded="false">
-          {% include 'atoms-icon-button' with {'iconStyleModifier': 'svg-icon--play-video-circle', 'buttonText': 'TV/Radio'} %}
+          {% include 'atoms-icon-button' with {
+              'iconStyleModifier': 'svg-icon--play-video-circle',
+              'buttonText': 'TV/Radio',
+              'screenReaderText': 'TV/Radio-Navigation (öffnet in einem Modal)'
+          } %}
         </button>
         <button class="masthead__button" data-modal-id="modal-menu" aria-haspopup="false" aria-expanded="false">
-          {% include 'atoms-icon-button' with {'iconStyleModifier': 'svg-icon--searchmenu', 'buttonText': 'Menü', 'styleModifier': 'icon-button--collapsing-text-tablet icon-button--spaceless-right-tablet'} %}
+          {% include 'atoms-icon-button' with {
+              'iconStyleModifier': 'svg-icon--searchmenu',
+              'buttonText': 'Menü',
+              'styleModifier': 'icon-button--collapsing-text-tablet icon-button--spaceless-right-tablet',
+              'screenReaderText': 'Suche/Hauptnavigation (öffnet in einem Modal)'
+          } %}
         </button>
       </div>
     </div>
+    <h3 class="h-offscreen">Subnavigation</h3>
     <div class="masthead__title">
       <a href="/news" class="masthead__title-link">
-        <span class="h-offscreen">Zur Portalübersicht</span>
-        News
+        News <span class="h-offscreen"> Übersicht</span>
       </a>
     </div>
     <div class="masthead__nav">

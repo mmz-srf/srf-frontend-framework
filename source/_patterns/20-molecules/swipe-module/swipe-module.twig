@@ -1,8 +1,9 @@
 {% set teasers = teasers|default(collections[0].teasers[0:5]) %}
-
+<h2 class="h-offscreen">Weitere Artikel aus der Rubrik News</h2>
 <section class="swipemod l-content-wrapper">
   <div class="swipemod_inner-wrapper">
     <a href="#" class="swipemod-showall">
+      <div class="h-offscreen">Zur Übersichtsseite der Rubrik News</div>
       <h3 class="swipemod-showall__title" aria-hidden="true" role="presentation">
         <span class="swipemod-showall__title--extended">{{ title|default("Mehr aus Schweiz") }}</span>
         <span class="swipemod-showall__title--collapsed">{{ shortTitle|default("Schweiz") }}</span>

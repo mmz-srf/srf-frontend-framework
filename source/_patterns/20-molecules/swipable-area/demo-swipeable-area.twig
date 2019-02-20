@@ -1,6 +1,6 @@
 <div class="collection {{ styleModifier|default("collection--standard") }}">
 
-    <h2 class="collection__title">
+    <h3 class="collection__title">
         {% if collection.titleLink is defined %}
         <a href="{{ collection.titleLink|default("#") }}" class="collection__title-link">
             {% endif %}
@@ -12,7 +12,7 @@
             <span class="collection__title-link-icon"></span>
         </a>
         {% endif %}
-    </h2>
+    </h3>
 
     {% if collection.lead is defined %}
         <p class="collection__lead">{{collection.lead|default("")}}</p>
@@ -35,7 +35,7 @@
 <h3>Demo with hinting</h3>
 <div class="collection {{ styleModifier|default("collection--standard") }}">
 
-    <h2 class="collection__title">
+    <h3 class="collection__title">
         {% if collection.titleLink is defined %}
         <a href="{{ collection.titleLink|default("#") }}" class="collection__title-link">
             {% endif %}
@@ -47,7 +47,7 @@
             <span class="collection__title-link-icon"></span>
         </a>
         {% endif %}
-    </h2>
+    </h3>
 
     {% if collection.lead is defined %}
         <p class="collection__lead">{{collection.lead|default("")}}</p>
@@ -70,7 +70,7 @@
 <h3>Demo with visible-item-class</h3>
 <div class="collection {{ styleModifier|default("collection--standard") }}">
 
-    <h2 class="collection__title">
+    <h3 class="collection__title">
         {% if collection.titleLink is defined %}
         <a href="{{ collection.titleLink|default("#") }}" class="collection__title-link">
             {% endif %}
@@ -82,7 +82,7 @@
             <span class="collection__title-link-icon"></span>
         </a>
         {% endif %}
-    </h2>
+    </h3>
 
     {% if collection.lead is defined %}
         <p class="collection__lead">{{collection.lead|default("")}}</p>
@@ -105,7 +105,7 @@
 <h3>Demo with many more items and hinting and marking hidden items</h3>
 <div class="collection {{ styleModifier|default("collection--standard") }}">
 
-    <h2 class="collection__title">
+    <h3 class="collection__title">
         {% if collection.titleLink is defined %}
         <a href="{{ collection.titleLink|default("#") }}" class="collection__title-link">
             {% endif %}
@@ -117,7 +117,7 @@
             <span class="collection__title-link-icon"></span>
         </a>
         {% endif %}
-    </h2>
+    </h3>
 
     {% if collection.lead is defined %}
         <p class="collection__lead">{{collection.lead|default("")}}</p>

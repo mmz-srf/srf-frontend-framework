@@ -1,9 +1,9 @@
 <div class="search-header {{ styleModifier|default("") }}">
-
   <div class="search-header__logo">
     {% include 'atoms-main-logo' with {'styleModifier': 'main-logo--large'} %}
   </div>
 
+  <h3 class="h-offscreen">Suche</h3>
   <div class="search-header__search">
     {% include 'atoms-search' with {'styleModifier': styleModifierSearch|default('')} %}
   </div>
