@@ -41,6 +41,9 @@
 }
 
 .search--active {
+  position: relative;
+  z-index: 1;
+
   .search-wrapper {
     box-shadow: $shadow-elevation4;
     background-color: #fefefd;
