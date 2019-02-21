@@ -191,7 +191,6 @@ $item-max-width: 400px;
               opacity .2s ease-in-out,
               transform .2s ease-in-out;
   // sass-lint:enable indentation
-  -webkit-transform: translate3d(0,0,0); // Prevents flickering on scrolling on iOS
   max-width: $item-max-width;
 
   // gaps between the items is achieved via margin-right (a bit bigger on tablet+), so the last one has no margin-right
@@ -281,7 +280,6 @@ $item-max-width: 400px;
 @include desktop-up {
   .swipemod-item--partially-hidden {
     opacity: 0.2;
-    -webkit-transform: translate3d(0,0,0); // Prevents flickering when scrolling on iOS
 
     &:hover {
       opacity: 0.6;

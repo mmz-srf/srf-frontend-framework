@@ -1,3 +1,4 @@
+import {FefTouchDetection} from './classes/fef-touch-detection';
 import {FefDebounceHelper} from './classes/fef-debounce-helper';
 
 export function init() {
@@ -92,6 +93,11 @@ export class SrfSwiper {
     }
 
     changeVisibilityClasses() {
+        // abort if Touch-Device
+        if (FefTouchDetection.isTouchSupported()) {
+          return;
+        }
+
         if (isSize3Plus()) {
             this.$items.each((_, item) => {
                 let $item = $(item);
@@ -141,6 +147,11 @@ export class SrfSwiper {
      * possible to scroll left/right any further.
      */
     showHidePrevNextButtons() {
+        // abort if Touch-Device
+        if (FefTouchDetection.isTouchSupported()) {
+          return;
+        }
+
         let showLeft = false,
             showRight = false;
 
