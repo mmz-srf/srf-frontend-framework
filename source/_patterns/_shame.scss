@@ -121,12 +121,22 @@ _:-ms-fullscreen,
 
     .search-input {
       &::placeholder {
-        color: $color-text-light;
+        color: #fff;
       }
     }
 
     .search-icon {
       background-position: 10px -32px;
+    }
+  }
+
+  .search--active {
+    .search-wrapper {
+      box-shadow: $shadow-elevation4;
+      background-color: #fefefd;
+      border: 1px solid rgba(0,0,0,.08);
+      border-bottom: 0;
+      color: #000;
     }
   }
 }
