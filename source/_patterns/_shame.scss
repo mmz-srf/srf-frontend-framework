@@ -120,9 +120,7 @@ _:-ms-fullscreen,
     border: 1px solid rgba(255,255,255,.12);
 
     .search-input {
-      &::placeholder {
-        color: #fff;
-      }
+      color: #fff;
     }
 
     .search-icon {
@@ -136,6 +134,9 @@ _:-ms-fullscreen,
       background-color: #fefefd;
       border: 1px solid rgba(0,0,0,.08);
       border-bottom: 0;
+    }
+
+    .search-input {
       color: #000;
     }
   }
