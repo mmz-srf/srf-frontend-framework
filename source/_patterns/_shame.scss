@@ -114,6 +114,21 @@ _:-ms-fullscreen,
       background-image: url(../img/icon/close-white.svg);
     }
   }
+
+  .search-wrapper {
+    background-color: rgba(0,0,0,.2);
+    border: 1px solid rgba(255,255,255,.12);
+
+    .search-input {
+      &::placeholder {
+        color: $color-text-light;
+      }
+    }
+
+    .search-icon {
+      background-position: 10px -32px;
+    }
+  }
 }
 
 
