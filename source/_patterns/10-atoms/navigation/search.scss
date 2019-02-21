@@ -41,14 +41,13 @@
 }
 
 .search--active {
-  position: relative;
-  z-index: 1;
-
   .search-wrapper {
     box-shadow: $shadow-elevation4;
     background-color: #fefefd;
     border: 1px solid rgba(0,0,0,.08);
     border-bottom: 0;
+    position: relative;
+    z-index: 1;
   }
 }
 
