@@ -161,6 +161,23 @@ _:-ms-fullscreen,
 
 
 /*
+ * TARGETED BROWSER: IE 11
+ *
+ * Let IE11 scale all images with svg ending (since the huso is ignoring width and height)
+ * see: https://gist.github.com/larrybotha/7881691
+ */
+
+ @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .onairnav-link {
+    img[src$=".svg"] {
+      width: 100%;
+    }
+  }
+}
+
+
+
+/*
  * TARGETED BROWSER: Safari
  *
  * Safari has troubles combining overflow-x: hidden and its own webkit-overflow-scrolling: touch.
