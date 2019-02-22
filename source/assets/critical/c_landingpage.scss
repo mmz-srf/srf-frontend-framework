@@ -348,6 +348,7 @@ body.body--loading.body--loading {
     }
     img {
       visibility: hidden; // not "display: none" because the lazy loading mechanism would fail
+      width: 0; // visibility: hidden; will still let the image keep its size which breaks the loading state.
     }
 
   }
