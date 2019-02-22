@@ -1,0 +1,76 @@
+{% embed 'templates-landingpage' %}
+    {% block landingpage_content %}
+        {# Standard Selectable with 3 Landingpage Sources #}
+
+        <div class="selectable-wrapper">
+        {% include 'organisms-selectable' with {
+            'title': 'Regio-Modul',
+            'lead': 'Standard Selectable with 3 Landingpage Sources',
+            'urn': 'srf:urn:collection:123',
+            'groups': [
+                {
+                    'title': 'Zürich',
+                    'urn': 'srf:urn:landingpage:1'
+                }, {
+                    'title': 'St. Gallen',
+                    'urn': 'srf:urn:landingpage:2'
+                }, {
+                    'title': 'Bern',
+                    'urn': 'srf:urn:landingpage:3'
+                }
+            ]
+        } %}
+
+        {% include 'organisms-collection' with {
+            'collection': {
+                "urn": "srf:urn:landingpage:1",
+                "styleModifier": "collection--standard collection--selectable",
+                "title": "Zürich",
+                "titleLink": "https://hurrdurr.com",
+                "lead": "Hier können Sie eine Region auswählen.",
+                "selectableText": "Region",
+                "selectableURN": "srf:urn:collection:123",
+                "teasers": collections[0].teasers[0:3]
+            }
+        } %}
+
+        {% include 'organisms-collection' with {
+            'collection': {
+                "urn": "srf:urn:landingpage:2",
+                "styleModifier": "collection--standard collection--selectable",
+                "title": "St. Gallen",
+                "titleLink": "https://hurrdurr.com",
+                "lead": "Hier können Sie eine Region auswählen.",
+                "selectableText": "Region",
+                "selectableURN": "srf:urn:collection:123",
+                "teasers": collections[0].teasers[0:3]
+            }
+        } %}
+
+        {% include 'organisms-collection' with {
+            'collection': {
+                "urn": "srf:urn:landingpage:3",
+                "styleModifier": "collection--standard collection--selectable",
+                "title": "Bern",
+                "titleLink": "https://hurrdurr.com",
+                "lead": "Hier können Sie eine Region auswählen.",
+                "selectableText": "Region",
+                "selectableURN": "srf:urn:collection:123",
+                "teasers": collections[0].teasers[0:3]
+            }
+        } %}
+        </div>
+
+        {% include 'organisms-collection' with {
+            'collection': {
+                "styleModifier": "collection",
+                "title": "Non-Selectable",
+                "teasers": collections[0].teasers
+            }
+        } %}
+    {% endblock %}
+
+    {% block demo_content %}
+        {% include '_load-css-button.twig' %}
+    {% endblock %}
+{% endembed %}
