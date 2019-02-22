@@ -629,7 +629,7 @@
     }
 
     .teaser__lead {
-      display: none;
+      display: none !important; // important: never show lead if element has modifier s-on-mobile -> if !important breaks all your things, it should work with '.teaser__lead.teaser__lead.teaser__lead' too ;-)
     }
 
     .teaser__medium {

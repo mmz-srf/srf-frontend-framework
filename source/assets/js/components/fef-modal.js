@@ -52,6 +52,9 @@ export class FefModal {
         this.animation = this.$element.attr('data-animation');
         this.previousScrollPosition = null;
 
+        // Accsessibility: when opening the modal, set all other content on the page to aria-hidden, so that screenreaders can't access them anymore.
+        this.$A11YElements = this.$element.siblings('div, section, footer, span, h1, a, img');
+
         $element.append('<a class="js-end-of-modal h-offscreen" href="#"></a>');
         this.$mainWrapper.append('<a class="js-close-modal h-offscreen h-offscreen-focusable h-offscreen-focusable--top" href="#">Schliessen</a>');
 
@@ -113,6 +116,8 @@ export class FefModal {
     onShowFinished() {
         this.preventScrolling();
 
+        this.setA11YProperties(true);
+
         if (this.$focusTarget && this.$focusTarget.length === 1) {
             this.setFocus(this.$focusTarget);
         }
@@ -134,6 +139,8 @@ export class FefModal {
                 this.$element.hide();
                 break;
         }
+
+        this.setA11YProperties(false);
 
         this.setFocus(this.$caller);
     }
@@ -217,5 +224,18 @@ export class FefModal {
             $(window).scrollTop(this.previousScrollPosition);
             this.previousScrollPosition = null;
         }
+    }
+
+    /**
+     * When the modal is open, make it accessible to screenreaders and
+     * hide the rest of the page from them.
+     *
+     * @param modalIsOpened {boolean}
+     */
+    setA11YProperties(modalIsOpened) {
+        this.$A11YElements.attr({
+            'aria-hidden': modalIsOpened,
+            'role': modalIsOpened ? 'presentation': ''
+        });
     }
 }
