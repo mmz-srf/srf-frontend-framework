@@ -53,7 +53,6 @@ export class FefSwipeableArea {
     }
 
     init() {
-        this.initContainerHeight();
         this.markItems();
 
         if (FefResponsiveHelper.isDesktopUp()) {
@@ -68,6 +67,7 @@ export class FefSwipeableArea {
     // potential scrollbars, then get the height and set it to the element before re-
     // enabling the scrollbars on the inner wrapper. This also enables us to use the
     // same mechanism on mobiles (i.e. iOS) where there's no scrollbars.
+    // This also causes issues with IE11. Disabled for now.
     initContainerHeight() {
         this.$innerContainer.css('overflow', 'hidden');
         let height = this.$innerContainer.outerHeight();
@@ -104,7 +104,6 @@ export class FefSwipeableArea {
 
     registerListeners() {
         $(window).on('resize', FefDebounceHelper.debounce(() => this.init(), DEBOUNCETIME));
-        $(window).on('load', () => this.initContainerHeight());
         $(window).on('srf.styles.loaded', () => this.init());
 
         this.setupHinting();
