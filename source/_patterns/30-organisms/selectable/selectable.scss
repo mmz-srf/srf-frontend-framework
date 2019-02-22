@@ -103,14 +103,14 @@
   }
 
   @include tablet-up {
-    margin-right: 24px;
+    margin-right: $teaser-col-gap-tablet-up;
     flex-shrink: 1;
-    @include IESafeFlexBasis(calc(33.3333334% - 24px));
+    @include IESafeFlexBasis(calc(33.3333334% - #{$teaser-col-gap-tablet-up}));
   }
 
-  @include desktop-up {
-    margin-right: 32px;
-    @include IESafeFlexBasis(calc(33.3333334% - 32px));
+  @include desktop-wide {
+    margin-right: $teaser-col-gap-desktop-wide;
+    @include IESafeFlexBasis(calc(33.3333334% - #{$teaser-col-gap-desktop-wide}));
   }
 }
 
