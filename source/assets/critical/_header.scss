@@ -82,6 +82,11 @@
   height: 24px;
   background-color: $color-srf;
   overflow: hidden;
+
+  img {
+    width: 100%;
+    height: auto;
+  }
 }
 
 .main-logo--large {
