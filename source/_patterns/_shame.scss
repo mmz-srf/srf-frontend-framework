@@ -429,3 +429,17 @@ _:-ms-fullscreen,
     }
   }
 }
+
+/**
+ * TARGETED BROWSER: IE 11
+ *
+ * IE11 gets confused when we have img-lazyloading, object-fit fallback and
+ * when it's outside of the viewport, e.g. in swipeable collections.
+ * A clean fix for IE11 only that can handle lazyloading + object-fit fallback
+ * would consume too much time.
+ */
+ @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .image--media-still-dynamic > img:not([src]) {
+    width: 0;
+  }
+}
