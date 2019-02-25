@@ -287,6 +287,19 @@ _:-ms-fullscreen,
       background-color: transparent;
       color: #FFF;
     }
+
+    .block-link--internal.block-link--teaser-link::after {
+      background-image: url('../img/icon/caret_white.svg');
+    }
+
+    .block-link--video.block-link--teaser-link::after {
+      background-image: url('../img/icon/play-video-circle-white.svg');
+    }
+
+    .block-link--audio.block-link--teaser-link::after {
+      background-image: url('../img/icon/play-audio-circle-white.svg');
+    }
+
     .teaser__longform-medium {
       .image--media-still-dynamic {
         height: 100%;
