@@ -868,6 +868,7 @@
   display: grid;
   position: relative;
   z-index: 1;
+  flex-grow: 1;
 
   grid-template-columns: 100%;
   grid-template-rows: 100%;
@@ -885,6 +886,7 @@
   align-items: stretch;
   flex-direction: column;
   justify-content: flex-end;
+  max-height: 100%;
 }
 /* autoprefixer grid: off */
 

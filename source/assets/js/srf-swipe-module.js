@@ -35,6 +35,9 @@ export class SrfSwiper {
 
             this.$items.slice(-nrOfItemsToRemove).remove();
             this.$items = this.$element.find('.swipemod-item');
+        } else if (this.$items.length === 0) {
+            // don't do anything if swipemodule contains no elements
+            return;
         }
 
         this.$prevBtn = this.$element.find('.swipemod-button[data-direction="left"]');

@@ -18,7 +18,7 @@ const HOOK_CLASS = 'js-swipeable-area',
     MINIMUM_HEIGHT = 50;
 
 export function init(interactionMeasureString = '') {
-    $(`.${HOOK_CLASS}`).each((index, element) => {
+    $(`.${HOOK_CLASS}`).each((_, element) => {
         new FefSwipeableArea($(element), interactionMeasureString);
     });
 }
@@ -54,7 +54,6 @@ export class FefSwipeableArea {
     }
 
     init() {
-        this.initContainerHeight();
         this.markItems();
 
         if (FefResponsiveHelper.isDesktopUp()) {
@@ -69,6 +68,7 @@ export class FefSwipeableArea {
     // potential scrollbars, then get the height and set it to the element before re-
     // enabling the scrollbars on the inner wrapper. This also enables us to use the
     // same mechanism on mobiles (i.e. iOS) where there's no scrollbars.
+    // This also causes issues with IE11. Disabled for now.
     initContainerHeight() {
         this.$innerContainer.css('overflow', 'hidden');
         let height = this.$innerContainer.outerHeight();
@@ -110,7 +110,7 @@ export class FefSwipeableArea {
 
     registerListeners() {
         $(window).on('resize', FefDebounceHelper.debounce(() => this.init(), DEBOUNCETIME));
-        $(window).on('load', () => this.initContainerHeight());
+        $(window).on('srf.styles.loaded', () => this.init());
 
         this.setupHinting();
         this.$items.on('click', (event) => this.onTeaserClick(event));
@@ -311,6 +311,9 @@ export class FefSwipeableArea {
                 .toggleClass(this.visibleClass, isInView)
                 .toggleClass(this.hiddenClass, !isInView);
         });
+
+        // move the flying focus to the new position after scrolling
+        $(document).trigger('flyingfocus:move');
     }
 
     isItemCompletelyInView($itemElem) {

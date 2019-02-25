@@ -117,5 +117,11 @@
 }
 
 .svg-icon--more {
-    background-image: url(../img/icon/more.svg);
+  background-image: url(../img/icon/more.svg);
+}
+
+.svg-icon--respond-blue {
+  &.svg-icon--tiny {
+    background-image: url(../img/icon/respond-blue-tiny.svg);
   }
+}
