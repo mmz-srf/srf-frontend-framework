@@ -1,4 +1,6 @@
 {% set headerType = headerType|default("") %}
+{% include 'atoms-skiplink' %}
+<h1 class="h-offscreen">{{ title }}</h1>
 
 <div class="affix-placeholder affix-placeholder--{{ headerType }} affix-placeholder--{{ variantModifier }}"></div>
 
@@ -12,8 +14,8 @@
     </div>
 {% endif %}
 
-<h1 class="h-offscreen">{{ title }}</h1>
 
+{% include 'atoms-skiplink-target' %}
 <section class="landingpage">
     {% block landingpage_content %}
         [-- LANDINGPAGE CONTENT --]

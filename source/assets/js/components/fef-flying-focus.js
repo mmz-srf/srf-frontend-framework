@@ -123,9 +123,18 @@ export function init() {
         let height = $(elem).height();
         $(elem).parents().each(function( ) {
             if ($(this).height() < height && $(this).css('overflow-x') == 'hidden') {
+                // workaround for wrong FF positioning problem: use standard behaviour
+                // (positioned absolutely on the page, not in the scroll container) if
+                // not easily fixable.
+                if ($(this).data('flying-focus-info') === 'ignore-scrollable-container') {
+                    return false;
+                }
+
                 $('#flying-focus').appendTo($(this));
                 top  = rect.top - ($(this).parent().offset().top - scrollTop) + $(this).scrollTop();
                 left = rect.left - $(this).parent().offset().left;
+                // stop trying it with other parents
+                return false;
             }
             height = $(this).height();
         });
@@ -173,7 +182,7 @@ export function init() {
 
 /**
  * Simply using .focus() doesn't suffice.
- * 
+ *
  * @param $element jQuery.Element
  */
 export function setFocus($element) {

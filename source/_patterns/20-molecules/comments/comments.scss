@@ -318,6 +318,22 @@
   }
 }
 
+.comment__clarification {
+  display: flex;
+  align-items: center;
+  margin-top: -10px;
+  margin-bottom: 3px;
+
+  font-family: $font-regular;
+  @include fontSize(12);
+  line-height: 1;
+  color: $color-button-success;
+
+  .svg-icon {
+    margin-right: 8px;
+  }
+}
+
 .comment__link {
   display: inline-block;
   border-bottom: 0;

@@ -172,6 +172,17 @@
 } %}
 </div>
 
+
+{% include 'organisms-collection' with {
+    'collection': {
+        "urn": "srf:urn:landingpage:3",
+        "styleModifier": "collection--standard",
+        "title": "St. Gallen",
+        "titleLink": "https://hurrdurr.com",
+        "teasers": collections[0].teasers[0:3]
+    }
+} %}
+
 {% include 'organisms-collection' with {
     'collection': {
         "urn": "srf:urn:landingpage:3",

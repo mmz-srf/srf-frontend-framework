@@ -104,6 +104,16 @@ _:-ms-fullscreen,
 :root .modal.modal--theme-dark .modal-main-wrapper {
   background-image: linear-gradient(135deg, #22211d, #111111);
   box-shadow: $shadow-elevation8;
+
+  .icon-button {
+    color: #fff;
+  }
+
+  .icon-button__icon {
+    .svg-icon--close-dark {
+      background-image: url(../img/icon/close-white.svg);
+    }
+  }
 }
 
 
@@ -452,5 +462,38 @@ _:-ms-fullscreen,
         }
       }
     }
+  }
+}
+
+/**
+ * TARGETED BROWSER: IE 11
+ *
+ * IE11 gets confused when we have img-lazyloading, object-fit fallback and
+ * when it's outside of the viewport, e.g. in swipeable collections.
+ * A clean fix for IE11 only that can handle lazyloading + object-fit fallback
+ * would consume too much time.
+ */
+ @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .image--media-still-dynamic > img:not([src]) {
+    width: 0;
+  }
+}
+
+/*
+ * TARGETED BROWSER: Safari and Voice Over
+ * WHY:              Browser "feature"
+ * VoiceOver and Safari (macOS and iOS) remove list element semantics when list-style: none is used
+ * See: - https://unfetteredthoughts.net/2017/09/26/voiceover-and-list-style-type-none/
+ *      - https://www.scottohara.me/blog/2019/01/12/lists-and-safari.html
+ */
+
+.portalsnav,
+.subnav,
+.globalnav,
+.collection__teaser-list
+ {
+  li:before {
+    content: "\200B"; /* add zero-width space */
+    position: absolute; /* addition */
   }
 }

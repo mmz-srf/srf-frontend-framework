@@ -1,0 +1,24 @@
+{% embed 'templates-landingpage' %}
+    {% block landingpage_content %}
+        {% include 'organisms-collection' with {
+            'collection': {
+                "styleModifier": "collection--swipeable",
+                "title": "Swipeable",
+                "type": "swipeable",
+                "teasers": collections[0].teasers
+            }
+        } %}
+
+        {% include 'organisms-collection' with {
+            'collection': {
+                "styleModifier": "collection",
+                "title": "Non-Swipeable",
+                "teasers": collections[0].teasers
+            }
+        } %}
+    {% endblock %}
+
+    {% block demo_content %}
+        {% include '_load-css-button.twig' %}
+    {% endblock %}
+{% endembed %}
