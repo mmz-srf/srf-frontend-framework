@@ -95,7 +95,7 @@ export class SrfSwiper {
     changeVisibilityClasses() {
         // abort if Touch-Device
         if (FefTouchDetection.isTouchSupported()) {
-          return;
+            return;
         }
 
         if (isSize3Plus()) {
@@ -149,7 +149,7 @@ export class SrfSwiper {
     showHidePrevNextButtons() {
         // abort if Touch-Device
         if (FefTouchDetection.isTouchSupported()) {
-          return;
+            return;
         }
 
         let showLeft = false,
