@@ -1,4 +1,4 @@
-import {FefTouchDetection} from './classes/fef-touch-detection';
+import {FefTouchDetection} from '../classes/fef-touch-detection';
 import {FefDebounceHelper} from '../classes/fef-debounce-helper';
 import {FefResponsiveHelper} from '../classes/fef-responsive-helper';
 
