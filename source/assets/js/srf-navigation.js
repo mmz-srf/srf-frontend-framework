@@ -1,6 +1,7 @@
 import {FefStorage} from './classes/fef-storage';
 
 const STORAGE_KEY = 'SRF.Navigations';
+const OPEN_BY_DEFAULT = true;
 const KEYCODES = {
     'enter': 13
 };
@@ -103,7 +104,7 @@ export class SrfNavigation {
      */
     checkAndSetupStorage() {
         if (!this.id) {
-            return false;
+            return OPEN_BY_DEFAULT;
         }
 
         const storedNavigationData = FefStorage.getItemJsonParsed(STORAGE_KEY);
@@ -111,9 +112,9 @@ export class SrfNavigation {
         if (storedNavigationData[this.id]) {
             return storedNavigationData[this.id].open;
         } else {
-            this.saveNavigationState(false);
+            this.saveNavigationState(OPEN_BY_DEFAULT);
 
-            return false;
+            return OPEN_BY_DEFAULT;
         }
     }
 
