@@ -286,6 +286,7 @@ _:-ms-fullscreen,
     .block-link--document.block-link--teaser-link {
       background-color: transparent;
       color: #FFF;
+      border-top-color: rgba(0,0,0,.08);
     }
 
     .block-link--internal.block-link--teaser-link::after {
