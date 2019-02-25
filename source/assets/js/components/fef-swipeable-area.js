@@ -1,3 +1,4 @@
+import {FefTouchDetection} from './classes/fef-touch-detection';
 import {FefDebounceHelper} from '../classes/fef-debounce-helper';
 import {FefResponsiveHelper} from '../classes/fef-responsive-helper';
 
@@ -79,6 +80,11 @@ export class FefSwipeableArea {
     }
 
     initItemCheck() {
+        // abort if Touch-Device
+        if (FefTouchDetection.isTouchSupported()) {
+            return;
+        }
+
         const markVisibleClass = this.$element.data('mark-visible-items');
         const markHiddenClass = this.$element.data('mark-hidden-items');
 
