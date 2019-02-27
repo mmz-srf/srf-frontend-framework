@@ -1,0 +1,32 @@
+{% embed 'templates-landingpage' %}
+    {% block landingpage_content %}
+        {% include 'organisms-collection' with {
+            'collection': {
+                "styleModifier": "collection--compact",
+                "title": "Compact",
+                "type": "compact",
+                "teasers": collections[0].teasers
+            }
+        } %}
+
+        {% include 'organisms-collection' with {
+            'collection': {
+                "styleModifier": "collection--compact-swipeable",
+                "title": "Compact Swipeable",
+                "type": "compact-swipeable",
+                "teasers": collections[0].teasers
+            }
+        } %}
+
+        {% include 'organisms-collection' with {
+            'collection': {
+                "title": "Non-Compact as comparison",
+                "teasers": collections[0].teasers
+            }
+        } %}
+    {% endblock %}
+
+    {% block demo_content %}
+        {% include '_load-css-button.twig' %}
+    {% endblock %}
+{% endembed %}

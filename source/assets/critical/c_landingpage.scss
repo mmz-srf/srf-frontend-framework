@@ -217,12 +217,64 @@ body.body--loading.body--loading {
     }
   }
 
+  .collection--compact,
+  .collection--compact-swipeable {
+    .collection__teaser-item {
+      // Tablet + Desktop: 16px row gap, 24px column gap
+      @include tablet-up {
+        flex-grow: 0;
+        flex-shrink: 0;
+        @include IESafeFlexBasis(50%);
+        padding: 0 $teaser-col-gap-tablet-up 16px 0;
+      }
+
+      // Desktop-wide: 20px row gap, 32px column gap
+      @include desktop-wide {
+        padding: 0 $teaser-col-gap-desktop-wide 20px 0;
+      }
+
+      .teaser__main {
+        flex-direction: row-reverse;
+      }
+
+      .teaser__medium-wrapper {
+        padding-bottom: 0;
+        width: 80px;
+        height: 80px;
+        margin: 16px 16px 16px 0;
+        border-radius: 2px;
+        overflow: hidden;
+      }
+
+      .teaser__medium {
+        object-fit: cover;
+      }
+    }
+
+    // Exception when it has 3 teasers: then it's aligned in 3 columns on desktop+
+    // Fancy CSS rules: style the first child that is also the 3rd last child
+    // and then also style all following siblings of the first child that is also the 3rd last child.
+    // --> apply styles to all children of a container that has exactly 3 children.
+    .collection__teaser-item:first-child:nth-last-child(3),
+    .collection__teaser-item:first-child:nth-last-child(3) ~ .collection__teaser-item {
+      @include desktop-up {
+        @include IESafeFlexBasis(33.3333334%);
+        padding-right: $teaser-col-gap-tablet-up;
+      }
+
+      @include desktop-wide {
+        padding-right: $teaser-col-gap-desktop-wide;
+      }
+    }
+  }
+
   .collection--swipeable,
   .collection--compact-swipeable {
     .swipeable-area__wrapper {
       width: 100%;
       box-sizing: content-box;
       overflow: hidden;
+      padding-top: 1px; // so that the items inside the wrapper can have a shadow
     }
 
     .collection__teaser-list {
