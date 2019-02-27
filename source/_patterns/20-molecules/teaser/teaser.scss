@@ -229,10 +229,11 @@
 }
 
 .teaser__opinion {
-  padding: 0 16px 8px;
+  padding: 8px 16px;
+  background-color: $color-bg-opinion-teaser;
 
   @include desktop-wide {
-    padding: 0 24px 8px;
+    padding: 8px 24px;
   }
 }
 
