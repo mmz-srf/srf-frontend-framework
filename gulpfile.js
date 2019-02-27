@@ -97,7 +97,11 @@ gulp.task('images', function() {
         .pipe(imagemin([
             imagemin.gifsicle(),
             imagemin.optipng(),
-            imagemin.svgo()
+            imagemin.svgo({
+                plugins: [
+                    {removeViewBox: false}
+                ]
+            })
         ]))
         .pipe(gulp.dest('public/assets/img'))
 });

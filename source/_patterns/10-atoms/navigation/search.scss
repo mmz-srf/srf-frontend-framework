@@ -7,10 +7,6 @@
   overflow: visible;
 }
 
-.search--active.search--z-indexed {
-  z-index: 200;
-}
-
 .search__close {
   display: none;
   text-decoration: none;
@@ -46,6 +42,8 @@
     background-color: #fefefd;
     border: 1px solid rgba(0,0,0,.08);
     border-bottom: 0;
+    position: relative;
+    z-index: 1;
   }
 }
 
