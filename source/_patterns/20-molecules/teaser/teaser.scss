@@ -776,8 +776,11 @@
   .teaser__longform-medium {
     position: absolute;
     z-index: 0;
-    width: 100%;
-    height: 100%;
+    // fill the whole container (width: 100% / height: 100% does not work in safari)
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
   }
 
   // Longform teasers have the dark theme (see _teaser-theme-settings.scss) but the kicker is white.
