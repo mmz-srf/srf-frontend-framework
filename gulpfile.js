@@ -26,14 +26,12 @@ var reload = browserSync.reload;
 var DEST = 'public';
 var AUTOPREFIXER_BROWSERS = [
     'ie >= 11',
-    'ie_mob >= 11',
     'ff >= 30',
     'chrome >= 34',
-    'safari >= 7',
+    'safari >= 9',
     'opera >= 23',
-    'ios >= 8',
-    'android >= 4.4',
-    'bb >= 10'
+    'ios >= 9',
+    'android >= 4.4'
 ];
 
 const FRONTIFY_PROJECT_ID = '28',
