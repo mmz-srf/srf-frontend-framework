@@ -42,6 +42,7 @@
     "vinyl-source-stream": "^2.0.0"
   },
   "scripts": {
+    "gulp": "./node_modules/.bin/gulp",
     "start": "./node_modules/.bin/gulp"
   },
   "babel": {
