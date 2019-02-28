@@ -171,11 +171,6 @@ gulp.task('build', function(cb) {
     );
 });
 
-gulp.task('gh-pages-deploy', function() {
-    return gulp.src('public/**/*')
-        .pipe($.ghPages());
-});
-
 gulp.task('js-lint', () => {
     // ESLint ignores files with "node_modules" paths.
     // So, it's best to have gulp ignore the directory as well.
@@ -266,13 +261,6 @@ gulp.task('frontify', function() {
         ['frontify-export-rewrite-paths', 'frontify-bundle-script'],
         ['frontify-pattern-sync'],
         ['frontify-asset-sync']
-    );
-});
-
-gulp.task('deploy', function() {
-    runSequence(
-        ['build'],
-        ['gh-pages-deploy']
     );
 });
 
