@@ -24,9 +24,7 @@
                     <a href="{{ collection.titleLink|default("#") }}" class="collection__title-link">
                 {% endif %}
 
-                <span class="collection__title-text">
-                    {{ collection.title|default("") }}
-                </span>
+                <span class="collection__title-text">{{ collection.title|default("") }}</span>
 
                 {% if showTitlelink %}
                         <span class="collection__title-a11y-help">Landingpage öffnen</span>
