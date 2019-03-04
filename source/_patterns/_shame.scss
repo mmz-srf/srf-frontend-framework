@@ -511,7 +511,6 @@ _:-ms-fullscreen,
  * See: - https://unfetteredthoughts.net/2017/09/26/voiceover-and-list-style-type-none/
  *      - https://www.scottohara.me/blog/2019/01/12/lists-and-safari.html
  */
-
 .portalsnav,
 .subnav,
 .globalnav,
@@ -521,4 +520,12 @@ _:-ms-fullscreen,
     content: "\200B"; /* add zero-width space */
     position: absolute; /* addition */
   }
+}
+
+/**
+ * TARGETED BROWSER: Safari 12
+ * prevent odd wrapping behaviour in Safari 12 (see SRFCMSAL-2144)
+ */
+.collection__title-link {
+  white-space: pre-wrap;
 }
