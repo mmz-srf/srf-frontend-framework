@@ -121,7 +121,7 @@ export class SrfSelectableCollection {
      */
     showSelectionElement(event) {
         let $collection = this.$sourceCollections.filter(`.${SELECTED_COLLECTION_CLASS}`).first(),
-            shouldFocus = FefTouchDetection.eventIsMouseclick(event);
+            shouldFocus = !FefTouchDetection.eventIsMouseclick(event);
 
         this.removeSelectionFromLocalstorage();
 
@@ -166,7 +166,7 @@ export class SrfSelectableCollection {
      */
     showSourceCollection(nextSource, event) {
         let $collection = $(this.$sourceCollections.toArray().find(c => $(c).data('urn') === nextSource)),
-            shouldFocus = FefTouchDetection.eventIsMouseclick(event);
+            shouldFocus = !FefTouchDetection.eventIsMouseclick(event);
 
         if (!$collection) {
             this.$element.show();
