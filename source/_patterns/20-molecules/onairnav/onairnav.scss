@@ -38,7 +38,7 @@
   }
 
   .onairnav-list__element {
-    flex: 0 1 100%;
+    flex: 0 1 auto;
     margin: 0;
     padding: 0;
 
@@ -50,6 +50,7 @@
     @include tablet-up {
       display: flex;
       flex-direction: column;
+      flex-basis: 100%;
     }
 
     @include desktop-up {

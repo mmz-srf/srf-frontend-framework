@@ -114,6 +114,32 @@ _:-ms-fullscreen,
       background-image: url(../img/icon/close-white.svg);
     }
   }
+
+  .search-wrapper {
+    background-color: rgba(0,0,0,.2);
+    border: 1px solid rgba(255,255,255,.12);
+
+    .search-input {
+      color: #fff;
+    }
+
+    .search-icon {
+      background-position: 10px -32px;
+    }
+  }
+
+  .search--active {
+    .search-wrapper {
+      box-shadow: $shadow-elevation4;
+      background-color: #fefefd;
+      border: 1px solid rgba(0,0,0,.08);
+      border-bottom: 0;
+    }
+
+    .search-input {
+      color: #000;
+    }
+  }
 }
 
 
@@ -132,7 +158,6 @@ _:-ms-fullscreen,
     }
   }
 }
-
 
 /*
  * TARGETED BROWSER: Safari
@@ -287,10 +312,35 @@ _:-ms-fullscreen,
     }
   }
   .teaser--longform {
-    .block-link--internal.block-link--teaser-link {
+    .block-link--teaser-link:hover {
+      color: #FFF;
+      background-color: rgba(255,255,255,.08);
+    }
+
+    .block-link--internal.block-link--teaser-link,
+    .block-link--external.block-link--teaser-link,
+    .block-link--video.block-link--teaser-link,
+    .block-link--audio.block-link--teaser-link,
+    .block-link--pdf.block-link--teaser-link,
+    .block-link--docx.block-link--teaser-link,
+    .block-link--document.block-link--teaser-link {
       background-color: transparent;
       color: #FFF;
+      border-top-color: rgba(255,255,255,.08);
     }
+
+    .block-link--internal.block-link--teaser-link::after {
+      background-image: url('../img/icon/caret_white.svg');
+    }
+
+    .block-link--video.block-link--teaser-link::after {
+      background-image: url('../img/icon/play-video-circle-white.svg');
+    }
+
+    .block-link--audio.block-link--teaser-link::after {
+      background-image: url('../img/icon/play-audio-circle-white.svg');
+    }
+
     .teaser__longform-medium {
       .image--media-still-dynamic {
         height: 100%;
