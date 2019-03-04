@@ -261,6 +261,22 @@
 </div>
 
 <div class="js-collection-wrapper">
+    <h3>Standard, with a very long Title Link</h3>
+    <div class="js-collection-wrapper-content">
+    {% include 'organisms-collection' with {
+        'collection': {
+            'styleModifier': 'collection--standard',
+            "title": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
+            "titleLink": "https://www-test.srf.ch/news/wirtschaft",
+            "lead": "Eigentlich unrealistisch, da man im Globi nur eine begrenzte Anzahl Zeichen für den Titel eingeben kann.",
+            "type": "standard",
+            "teasers": collections[0].teasers[0:1]
+        }
+    } %}
+    </div>
+</div>
+
+<div class="js-collection-wrapper">
     <h3>Standard, Title Link, Branded</h3>
     <div class="js-collection-wrapper-content">
     {% include 'organisms-collection' with {
