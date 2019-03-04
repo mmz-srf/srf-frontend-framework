@@ -1,5 +1,6 @@
 import { FefStorage } from '../classes/fef-storage';
 import { setFocus } from '../components/fef-flying-focus';
+import { FefTouchDetection } from '../classes/fef-touch-detection';
 
 const STORAGE_KEY = 'srf:rlp:selectable:selected';
 const SELECTED_COLLECTION_CLASS = 'js-selected-collection';
@@ -120,7 +121,7 @@ export class SrfSelectableCollection {
      */
     showSelectionElement(event) {
         let $collection = this.$sourceCollections.filter(`.${SELECTED_COLLECTION_CLASS}`).first(),
-            shouldFocus = event.screenX === 0 && event.screenY === 0;
+            shouldFocus = FefTouchDetection.eventIsMouseclick(event);
 
         this.removeSelectionFromLocalstorage();
 
@@ -165,7 +166,7 @@ export class SrfSelectableCollection {
      */
     showSourceCollection(nextSource, event) {
         let $collection = $(this.$sourceCollections.toArray().find(c => $(c).data('urn') === nextSource)),
-            shouldFocus = event.screenX == 0 && event.screenY == 0;
+            shouldFocus = FefTouchDetection.eventIsMouseclick(event);
 
         if (!$collection) {
             this.$element.show();

@@ -1,5 +1,6 @@
 import {FefDebounceHelper} from '../classes/fef-debounce-helper';
 import {FefResponsiveHelper} from '../classes/fef-responsive-helper';
+import {FefTouchDetection} from '../classes/fef-touch-detection';
 
 const HOOK_CLASS = 'js-swipeable-area',
     INNER_CONTAINER_CLASS = 'js-swipeable-area-wrapper',
@@ -174,8 +175,8 @@ export class FefSwipeableArea {
             return;
         }
 
-        // remove focus from the element that was just clicked if it was a mouse click (= coordinates are 0/0)
-        if (event.screenX !== 0 && event.screenY !== 0) {
+        // remove focus from the element that was just clicked if it was a mouse click
+        if (FefTouchDetection.eventIsMouseclick(event)) {
             $(':focus').blur();
         }
 

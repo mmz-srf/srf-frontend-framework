@@ -1,4 +1,5 @@
-import {FefStorage} from '../classes/fef-storage';
+import { FefStorage } from '../classes/fef-storage';
+import { FefTouchDetection } from '../classes/fef-touch-detection';
 
 const STORAGE_KEY = 'SRF.Navigations';
 const OPEN_BY_DEFAULT = true;
@@ -53,7 +54,7 @@ export class FefGlobalnav {
 
         if (!this.isInTransition) {
             let subMenuIsOpen = !this.$arrow.hasClass('expand-icon--open');
-            this.toggleMenu(subMenuIsOpen);
+            this.toggleMenu(subMenuIsOpen, e);
         }
     }
 
@@ -71,7 +72,7 @@ export class FefGlobalnav {
         }
     }
 
-    toggleMenu(subMenuIsOpen) {
+    toggleMenu(subMenuIsOpen, event) {
         // User should not be able to tab over the submenu when it's closed
         if (subMenuIsOpen) {
             this.isInTransition = false;
@@ -81,6 +82,11 @@ export class FefGlobalnav {
             this.$submenuWrapper.one('transitionend', () => {
                 this.$submenuWrapper.hide();
                 this.isInTransition = false;
+
+                // remove focus if the click originated from a mouse click
+                if (event && FefTouchDetection.eventIsMouseclick(event)) {
+                    $(':focus').blur();
+                }
             });
         }
 
