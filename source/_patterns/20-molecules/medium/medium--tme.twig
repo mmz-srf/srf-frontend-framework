@@ -1,0 +1,11 @@
+<a href="#LINK_TO_PLAYER">
+    <div class="medium medium--tme js-medium-hover">
+        <div class="medium__object">
+            {% include 'molecules-media-still--video' %}
+            {% if showNotice %}<span class="medium__notice">Video nicht mehr verfügbar</span>{% endif %}
+        </div>
+        <div class="medium__caption">
+            {% include 'molecules-media-caption-video' with { 'styleModifier' : 'media-caption--video' } %}
+        </div>
+    </div>
+</a>
