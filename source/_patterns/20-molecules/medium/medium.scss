@@ -60,6 +60,7 @@
   background-color: #000;
 }
 
+.medium--tme,
 .medium--vertical {
   flex-direction: column;
 
@@ -90,6 +91,16 @@
 
   .media-caption--audio {
     padding: 12px $article-offset;
+  }
+}
+
+.medium--tme.medium--tme {
+  margin: 0;
+
+  .media-still,
+  .media-caption {
+    max-width: 729px;
+    margin: 0 auto;
   }
 }
 
