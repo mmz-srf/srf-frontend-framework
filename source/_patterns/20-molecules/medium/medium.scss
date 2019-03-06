@@ -29,7 +29,7 @@
 .medium__object {
   flex-shrink: 0;
   width: 196px;
-  background-color: #000;
+  background-color: $color-bg-media;
 
   @include smartphone {
     margin: 16px 0 16px 24px;
