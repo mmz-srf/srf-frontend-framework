@@ -103,3 +103,17 @@ Behaviour:
     margin-right: 16px;
   }
 }
+
+.image-figure--tme.image-figure--tme {
+  margin: 0;
+
+  .image {
+    background-color: $color-bg-media;
+  }
+
+  .image-figure__image,
+  .media-caption {
+    max-width: 729px;
+    margin: 0 auto;
+  }
+}
