@@ -1,7 +1,7 @@
 <h2 class="carousel-title">Bildergalerie Title</h2>
 <h3 class="h-offscreen">{{ 'Bildergalerie' }}</h3>
 <span class="h-offscreen">{{ 'Bildergalerie enthält' }} {{ images|length }} {{ 'Bilder' }}</span>
-<div class="carousel-container">
+<div class="carousel-container {{ styleModifier|default("") }}">
     <div class="carousel js-carousel" id="{{ image_carousel.ID }}">
         {% for image in images %}
             <div class="carousel__item js-carousel-item">

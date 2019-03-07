@@ -150,3 +150,22 @@
     }
   }
 }
+
+.carousel-container--tme {
+  .carousel {
+  	margin: 0;
+
+  	.image-figure {
+  	  max-width: 729px;
+      margin: 0 auto;
+    }
+
+    .carousel__link--prev {
+      left: calc(50% - (729px / 2));
+    }
+
+    .carousel__link—next {
+  	  right: calc(50% - (729px / 2));
+    }
+  }
+}
