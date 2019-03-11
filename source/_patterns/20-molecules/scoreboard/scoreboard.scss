@@ -2,8 +2,6 @@
 $scoreboard-col-padding-height: 8px;
 
 .scoreboard {
-  display: grid;
-  grid-template-columns: [competitors-start] 1fr [competitors-end scores-start] auto [scores-end];
   width: 100%;
   border-collapse: collapse;
   font-family: $font-medium;
@@ -12,6 +10,15 @@ $scoreboard-col-padding-height: 8px;
   background-color: $color-bg-teaser-supplement;
   text-align: left;
   border-spacing: 0;
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  @supports (display: grid) {
+    display: grid;
+    grid-template-columns: [competitors-start] 1fr [competitors-end scores-start] auto [scores-end];
+  }
 }
 
 .scoreboard__competitor {
@@ -21,8 +28,13 @@ $scoreboard-col-padding-height: 8px;
   position: relative;
   color: $color-text-accentuation;
   text-align: left;
-  grid-column-start: competitors-start;
-  grid-column-end: competitors-end;
+
+  flex: 1 0 50%;
+
+  @supports (display: grid) {
+    grid-column-start: competitors-start;
+    grid-column-end: competitors-end;
+  }
 
   @include desktop-wide {
     padding-left: 24px;
@@ -49,10 +61,30 @@ $scoreboard-col-padding-height: 8px;
 }
 
 .scoreboard__scores {
-  grid-column-start: scores-start;
-  grid-column-end: scores-end;
   display: flex;
   flex-wrap: nowrap;
+
+  flex: 0 0 auto;
+
+  @supports (display: grid) {
+    grid-column-start: scores-start;
+    grid-column-end: scores-end;
+  }
+}
+
+// first and last row's scores are 8px higher
+.scoreboard__competitor:first-child {
+  margin-top: 8px;
+
+  & + .scoreboard__scores .score {
+    padding-top: 8px;
+    height: 28px;
+  }
+}
+
+.scoreboard__scores:last-child .score {
+  padding-bottom: 8px;
+  height: 28px;
 }
 
 .scoreboard__score {
