@@ -675,6 +675,15 @@ $background-overlap-wide: 50px;
   }
 }
 
+.collection--branded-dark {
+  .collection__title,
+  .collection__lead,
+  .collection__title-link,
+  .collection__link {
+    color: $color-text-branded-dark;
+  }
+}
+
 // Borderless:
 // No title, lead, links, etc.
 // No padding and only one teaser per row on all sizes
