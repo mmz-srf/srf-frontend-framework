@@ -61,7 +61,7 @@
         {# SCOREBOARD #}
         {% if showScoreboard|default(false) %}
             <div class="teaser__scoreboard">
-                {% include 'molecules-scoreboard' %}
+                {% include 'molecules-scoreboard' with { 'demo': true} %}
             </div>
         {% endif %}
 

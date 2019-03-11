@@ -2,6 +2,8 @@
 $scoreboard-col-padding-height: 8px;
 
 .scoreboard {
+  display: grid;
+  grid-template-columns: [competitors-start] 1fr [competitors-end scores-start] auto [scores-end];
   width: 100%;
   border-collapse: collapse;
   font-family: $font-medium;
@@ -10,45 +12,24 @@ $scoreboard-col-padding-height: 8px;
   background-color: $color-bg-teaser-supplement;
   text-align: left;
   border-spacing: 0;
-
-  td {
-    padding: 0;
-    // we're setting the most used background color here
-    // in order to avoid using many classes on td's
-    background-color: $color-bg-score-default;
-
-    &:nth-child(1n+3) {
-      border-left: 1px solid #fff;
-    }
-  }
-  /* there needs to be some more space before the first and after the last row. */
-  tbody tr:first-child {
-    height: 28px;
-    vertical-align: bottom;
-  }
-
-  tbody tr:last-child {
-    height: 28px;
-    vertical-align: top;
-  }
 }
 
-.scoreboard__competitors {
-  width: 100%;
+.scoreboard__competitor {
   height: 20px;
   padding: 0 0 0 16px;
   overflow: hidden;
   position: relative;
-  max-width: 20px;
   color: $color-text-accentuation;
   text-align: left;
+  grid-column-start: competitors-start;
+  grid-column-end: competitors-end;
 
   @include desktop-wide {
     padding-left: 24px;
   }
 }
 
-.scoreboard__competitors--winner {
+.scoreboard__competitor--winner {
   color: $color-text-default;
 }
 
@@ -65,6 +46,17 @@ $scoreboard-col-padding-height: 8px;
   align-items: center;
   white-space: nowrap;
   height: 20px;
+}
+
+.scoreboard__scores {
+  grid-column-start: scores-start;
+  grid-column-end: scores-end;
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.scoreboard__score {
+  flex: 1 1 auto;
 }
 
 .scoreboard__rank {
