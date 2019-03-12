@@ -76,6 +76,12 @@
   }
 }
 
+.carousel--tme {
+  max-width: 729px;
+  margin: 0 auto;
+  background-color: $color-bg-media;
+}
+
 .carousel__item {
   position: relative;
   float: left;
@@ -147,25 +153,6 @@
     @include sickAnimation {
       animation: waggleRightAnimation 1.6s cubic-bezier(0.445, 0.05, 0.55, 0.95);
       animation-iteration-count: infinite;
-    }
-  }
-}
-
-.carousel-container--tme {
-  .carousel {
-  	margin: 0;
-
-  	.image-figure {
-  	  max-width: 729px;
-      margin: 0 auto;
-    }
-
-    .carousel__link--prev {
-      left: calc(50% - (729px / 2));
-    }
-
-    .carousel__link—next {
-  	  right: calc(50% - (729px / 2));
     }
   }
 }
