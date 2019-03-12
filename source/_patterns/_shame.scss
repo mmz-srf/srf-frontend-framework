@@ -483,29 +483,6 @@ _:-ms-fullscreen,
   width: 25px;
 }
 
-/*
- * TARGETED BROWSER: Chrome
- * WHY:              Browser bug
- * Fix chromium bug for annyoing subpixel rounding errors resulting in a white 1px gap between scoreboard and teaser edge
- * See: https://bugs.chromium.org/p/chromium/issues/detail?id=306878
- *
- * media query hack by http://browserhacks.com/#hack-ac2480b5c83038f2d838e2a62e28a307
- */
-@media all and (-webkit-min-device-pixel-ratio:0) and (min-resolution: .001dpcm) {
-  @supports (display: grid) {
-    .teaser {
-      .teaser__scoreboard {
-        margin-right: -1px;
-        max-width: calc(100% + 1px);
-
-        td:last-child {
-          padding-right: 1px;
-        }
-      }
-    }
-  }
-}
-
 /**
  * TARGETED BROWSER: IE 11
  *

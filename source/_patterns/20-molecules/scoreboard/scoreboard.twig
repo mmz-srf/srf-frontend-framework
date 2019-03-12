@@ -52,6 +52,9 @@
             <span class="h-offscreen">{{ competitorCaption|default("Spieler/in") }}:</span>
             <span class="scoreboard__competitor-mask"></span>
             <span class="scoreboard__competitor-wrapper">
+                {% if competitor.rank is defined %}
+                    <span class="scoreboard__rank">{{ competitor.rank }}</span>
+                {% endif %}
                 {% if competitor.emblem is defined %}
                     <span class="scoreboard__emblem">
                         <img

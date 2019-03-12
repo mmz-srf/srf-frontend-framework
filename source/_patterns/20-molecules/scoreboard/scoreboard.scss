@@ -10,6 +10,7 @@ $scoreboard-col-padding-height: 8px;
   background-color: $color-bg-teaser-supplement;
   text-align: left;
   border-spacing: 0;
+  padding: 8px 0;
 
   display: flex;
   flex-direction: row;
@@ -72,23 +73,34 @@ $scoreboard-col-padding-height: 8px;
   }
 }
 
-// first and last row's scores are 8px higher
-.scoreboard__competitor:first-child {
-  margin-top: 8px;
+// first row's score is 8px higher (goes over border at the top)
+.scoreboard__competitor:first-child + .scoreboard__scores {
+  margin-top: -8px;
 
-  & + .scoreboard__scores .score {
+  .score {
     padding-top: 8px;
     height: 28px;
   }
 }
 
-.scoreboard__scores:last-child .score {
-  padding-bottom: 8px;
-  height: 28px;
+// last row's score is 8px higher (goes over border at the bottom)
+.scoreboard__scores:last-child {
+  margin-bottom: -8px;
+
+  .score {
+    padding-bottom: 8px;
+    height: 28px;
+  }
 }
 
+// scores have a white border between them. If there's only one, there's no border
 .scoreboard__score {
   flex: 1 1 auto;
+  border-right: 1px solid #ffffff;
+
+  &:last-child {
+    border-right: none;
+  }
 }
 
 .scoreboard__rank {
