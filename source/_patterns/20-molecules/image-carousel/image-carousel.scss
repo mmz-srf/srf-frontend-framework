@@ -78,11 +78,26 @@
 
 
 .carousel-container--tme {
+  position: relative;
+  overflow: hidden;
   background-color: $color-bg-media;
+
+  &::after {
+    content: '';
+    display: block;
+    z-index: 0;
+    position: absolute;
+    top: 547px;
+    right: 0;
+    left: 0;
+    height: 420px;
+    background-color: #f5f5f2;
+  }
 
   .carousel {
     max-width: 729px;
     margin: 0 auto;
+    z-index: 1;
   }
 }
 
