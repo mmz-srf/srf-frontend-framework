@@ -687,6 +687,14 @@ $background-overlap-wide: 50px;
   .collection__link-icon {
     @include caret('dark', 'right', 'medium');
   }
+
+  .swipeable-area__button--forward span {
+    @include caret('dark', 'right', 'large');
+  }
+
+  .swipeable-area__button span {
+    @include caret('dark', 'left', 'large');
+  }
 }
 
 // Borderless:
