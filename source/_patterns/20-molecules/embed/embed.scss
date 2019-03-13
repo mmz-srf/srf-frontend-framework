@@ -12,6 +12,16 @@
   }
 }
 
+.embed-inline--tme {
+  margin: 0;
+  background-color: $color-bg-media;
+
+  .embed-inline__content {
+    max-width: 729px;
+    margin: 0 auto;
+  }
+}
+
 .embed-inline__title {
   @include fontSize(18);
   font-family: $font-medium;
