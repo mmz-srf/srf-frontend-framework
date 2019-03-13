@@ -11,10 +11,6 @@
   }
 }
 
-.carousel-container--tme {
-  background-color: $color-bg-media;
-}
-
 .carousel-title {
   font-family: $font-medium;
   @include fontSize(18);
@@ -80,9 +76,14 @@
   }
 }
 
-.carousel--tme {
-  max-width: 729px;
-  margin: 0 auto;
+
+.carousel-container--tme {
+  background-color: $color-bg-media;
+
+  .carousel {
+    max-width: 729px;
+    margin: 0 auto;
+  }
 }
 
 .carousel__item {
