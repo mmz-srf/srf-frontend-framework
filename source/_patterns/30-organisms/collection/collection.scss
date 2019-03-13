@@ -682,6 +682,11 @@ $background-overlap-wide: 50px;
   .collection__link {
     color: $color-text-branded-dark;
   }
+
+  .collection__title-link-icon,
+  .collection__link-icon {
+    @include caret('dark', 'right', 'medium');
+  }
 }
 
 // Borderless:
