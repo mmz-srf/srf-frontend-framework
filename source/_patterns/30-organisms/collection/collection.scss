@@ -692,7 +692,7 @@ $background-overlap-wide: 50px;
     @include caret('dark', 'right', 'large');
   }
 
-  .swipeable-area__button span {
+  .swipeable-area__button--back span {
     @include caret('dark', 'left', 'large');
   }
 }
