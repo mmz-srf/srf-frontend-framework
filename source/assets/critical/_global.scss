@@ -1,3 +1,4 @@
+@import '../../_patterns/variables';
 @import '../../_patterns/breakpoints';
 
 * {
@@ -10,7 +11,7 @@ html {
 
 body {
   font-family: "SRG_SSR_Light", sans-serif;
-  background-color: #ebebe5;
+  background-color: $color-bg-page;
   margin: 0;
 }
 
