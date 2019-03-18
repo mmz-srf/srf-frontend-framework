@@ -60,7 +60,7 @@
   background-color: #000;
 }
 
-.medium--tme,
+.medium--fullwidth-element,
 .medium--vertical {
   flex-direction: column;
 
@@ -94,7 +94,7 @@
   }
 }
 
-.medium--tme.medium--tme {
+.medium--fullwidth-element.medium--fullwidth-element {
   margin: 0;
 
   .media-still,
