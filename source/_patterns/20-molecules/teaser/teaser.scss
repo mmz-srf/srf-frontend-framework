@@ -553,15 +553,6 @@
     }
   }
 
-  /* if there are teaser links and an opinion, the opinion wins (links will be hidden) */
-  &.teaser--with-opinion {
-    @include tablet-up {
-      .teaser__links {
-        display: none;
-      }
-    }
-  }
-
   @supports (display: grid) {
     @include tablet-up {
       .teaser__main {
