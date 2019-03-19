@@ -1,6 +1,6 @@
 {% set showOpinion = showOpinion|default(false) and teaser.opinion is defined %}
 
-<div class="teaser js-teaser {{ styleModifier|default('teaser--size-m teaser--size-s-on-mobile') }} {{ showOpinion ? 'teaser--with-opinion' }}">
+<div class="teaser js-teaser {{ styleModifier|default('teaser--size-m teaser--size-s-on-mobile') }}">
     <a class="teaser__main" href="{{ teaser.link|default('#') }}">
 
         {# MEDIUM #}
