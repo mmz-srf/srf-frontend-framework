@@ -12,13 +12,13 @@ $scoreboard-col-padding-height: 8px;
   border-spacing: 0;
   padding: 8px 0;
 
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: [competitors-start] 1fr [competitors-end scores-start] auto [scores-end];
 
-  @supports (display: grid) {
-    display: grid;
-    grid-template-columns: [competitors-start] 1fr [competitors-end scores-start] auto [scores-end];
+  @supports not (display: grid) {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
   }
 }
 
@@ -30,11 +30,11 @@ $scoreboard-col-padding-height: 8px;
   color: $color-text-accentuation;
   text-align: left;
 
-  flex: 1 0 50%;
+  grid-column-start: competitors-start;
+  grid-column-end: competitors-end;
 
-  @supports (display: grid) {
-    grid-column-start: competitors-start;
-    grid-column-end: competitors-end;
+  @supports not (display: grid) {
+    flex: 1 0 50%;
   }
 
   @include desktop-wide {
@@ -65,11 +65,11 @@ $scoreboard-col-padding-height: 8px;
   display: flex;
   flex-wrap: nowrap;
 
-  flex: 0 0 auto;
+  grid-column-start: scores-start;
+  grid-column-end: scores-end;
 
-  @supports (display: grid) {
-    grid-column-start: scores-start;
-    grid-column-end: scores-end;
+  @supports not (display: grid) {
+    flex: 0 0 auto;
   }
 }
 
