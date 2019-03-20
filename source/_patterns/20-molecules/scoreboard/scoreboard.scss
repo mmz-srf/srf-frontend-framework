@@ -2,6 +2,8 @@
 $scoreboard-col-padding-height: 8px;
 
 .scoreboard {
+  display: grid;
+  grid-template-columns: 1fr auto;
   width: 100%;
   border-collapse: collapse;
   font-family: $font-medium;
@@ -12,30 +14,20 @@ $scoreboard-col-padding-height: 8px;
   border-spacing: 0;
   padding: 8px 0;
 
-  display: grid;
-  grid-template-columns: [competitors-start] 1fr [competitors-end scores-start] auto [scores-end];
-
+  // if a browser supports @support but not grid, it's a very strange browser does not deserve our scoreboard 😤
   @supports not (display: grid) {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    display: none;
   }
 }
 
 .scoreboard__competitor {
+  grid-column: 1;
   height: 20px;
   padding: 0 0 0 16px;
   overflow: hidden;
   position: relative;
   color: $color-text-accentuation;
   text-align: left;
-
-  grid-column-start: competitors-start;
-  grid-column-end: competitors-end;
-
-  @supports not (display: grid) {
-    flex: 1 0 50%;
-  }
 
   @include desktop-wide {
     padding-left: 24px;
@@ -64,13 +56,7 @@ $scoreboard-col-padding-height: 8px;
 .scoreboard__scores {
   display: flex;
   flex-wrap: nowrap;
-
-  grid-column-start: scores-start;
-  grid-column-end: scores-end;
-
-  @supports not (display: grid) {
-    flex: 0 0 auto;
-  }
+  grid-column: 2;
 }
 
 // first row's score is 8px higher (goes over border at the top)
