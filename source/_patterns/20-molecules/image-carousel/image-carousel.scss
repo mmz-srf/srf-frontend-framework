@@ -81,10 +81,16 @@
   position: relative;
   overflow: hidden;
   background-color: $color-bg-media;
+  &.carousel-container--initialized {
+    height: auto;
+    padding-top: 0;
+    &::after {
+      display: block;
+    }
+  }
 
   &::after {
     content: '';
-    display: block;
     z-index: 0;
     position: absolute;
     top: 547px;
