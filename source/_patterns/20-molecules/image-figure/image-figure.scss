@@ -115,5 +115,8 @@ Behaviour:
   .media-caption {
     max-width: 1023px;
     margin: 0 auto;
+    @include desktop-up {
+      max-width: 728px;
+    }
   }
 }

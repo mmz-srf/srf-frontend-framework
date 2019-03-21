@@ -98,6 +98,9 @@
     max-width: 1023px;
     margin: 0 auto;
     z-index: 1;
+    @include desktop-up {
+      max-width: 728px;
+    }
   }
 }
 

@@ -82,11 +82,20 @@
       padding: 8px 12px;
     }
   }
+  .media-still__image {
+    opacity: 1;
+    transition: opacity .5s ease-in-out;
+    height: auto;
+    padding-top: 0;
 
+  }
   .medium__caption {
     display: block;
     width: 100%;
     flex-basis: auto;
+    opacity: 1;
+    transition: opacity .5s ease-in-out;
+    min-height: auto;
   }
 
   .media-caption--audio {
@@ -101,6 +110,9 @@
   .media-caption {
     max-width: 1023px;
     margin: 0 auto;
+    @include desktop-up {
+      max-width: 728px;
+    }
   }
 }
 

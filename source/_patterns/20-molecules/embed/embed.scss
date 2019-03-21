@@ -19,6 +19,9 @@
   .embed-inline__content {
     max-width: 1023px;
     margin: 0 auto;
+    @include desktop-up {
+      max-width: 728px;
+    }
   }
 }
 

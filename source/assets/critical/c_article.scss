@@ -100,7 +100,6 @@
 }
 
 
-
 ul {
   margin: 12px 0 24px;
   list-style-type: none;
@@ -391,4 +390,36 @@ body::after {
 .media-preloading--audio {
   height: 150px;
   background-color: #f5f5f2;
+}
+
+
+
+
+//TME
+
+.medium--fullwidth-element {
+  background: #f5f5f2;
+  .medium__object {
+    background: #111;
+  }
+  .media-still {
+    max-width: 1023px;
+    @include desktop-up {
+      max-width: 728px;
+    }
+    margin: 0 auto;
+  }
+  .media-still__image {
+    opacity: 0;
+    height: 0;
+    padding-top: 56.25%;
+  }
+  .media-still__indicator {
+    display: none;
+  }
+  .medium__caption {
+    opacity: 0;
+    min-height: 72px;
+  }
+
 }
