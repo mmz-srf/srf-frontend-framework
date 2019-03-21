@@ -136,9 +136,10 @@
   background-clip: content-box;
 
   @include tablet-up {
-    top: 246px;
+    top: 50%;
     width: 56px;
     height: 96px;
+    margin-top: -48px;
     background-size: 28px;
   }
   @include desktop-up {
