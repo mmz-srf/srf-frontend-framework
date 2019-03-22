@@ -82,7 +82,9 @@
       padding: 8px 12px;
     }
   }
-  .media-still__image {
+  .media-still__image,
+  .image-figure__image
+  {
     opacity: 1;
     transition: opacity .2s ease-in-out;
     height: auto;
