@@ -69,26 +69,30 @@
             </span>
         </div>
 
-        <div class="scoreboard__scores {{ competitor.modifier|default('') }}">
-            {% for score in competitor.scores|default([]) %}
-                <div class="scoreboard__score">
-                    <span class="h-offscreen">{{ scoreTitles[loop.index0]|default("") }}</span>
-                    {% if score.supplementScore|default(null) %}
-                        {% include 'atoms-score--with-supplement' with {
-                            "scoreValue": score.value,
-                            "styleModifier": score.modifier,
-                            "supplementScore": score.supplementScore,
-                            "supplementTitle": score.supplementTitle
-                        } %}
-                    {% else %}
-                        {% include 'atoms-score' with {
-                            "scoreValue": score.value,
-                            "styleModifier": score.modifier
-                        } %}
-                    {% endif %}
-                </div>
-            {% endfor %}
-        </div>
+        {% for score in competitor.scores|default([]) %}
+            <div class="scoreboard__score
+                        {{ competitor.modifier|default('') }}
+                        scoreboard__score--row-{{ loop.parent.loop.index }}
+                        scoreboard__score--col-{{ loop.index + 1 }}
+                        {{ loop.last ? 'scoreboard__score--col-last' }}
+                        {{ loop.parent.loop.first ? 'scoreboard__score--row-first' : loop.parent.loop.last ? 'scoreboard__score--row-last' }}
+                        ">
+                <span class="h-offscreen">{{ scoreTitles[loop.index0]|default("") }}</span>
+                {% if score.supplementScore|default(null) %}
+                    {% include 'atoms-score--with-supplement' with {
+                        "scoreValue": score.value,
+                        "styleModifier": score.modifier,
+                        "supplementScore": score.supplementScore,
+                        "supplementTitle": score.supplementTitle
+                    } %}
+                {% else %}
+                    {% include 'atoms-score' with {
+                        "scoreValue": score.value,
+                        "styleModifier": score.modifier
+                    } %}
+                {% endif %}
+            </div>
+        {% endfor %}
     {% endfor %}
 </div>
 {% endspaceless %}

@@ -53,14 +53,8 @@ $scoreboard-col-padding-height: 8px;
   height: 20px;
 }
 
-.scoreboard__scores {
-  display: flex;
-  flex-wrap: nowrap;
-  grid-column: 2;
-}
-
 // first row's score is 8px higher (goes over border at the top)
-.scoreboard__competitor:first-child + .scoreboard__scores {
+.scoreboard__score--row-first {
   margin-top: -8px;
 
   .score {
@@ -70,7 +64,7 @@ $scoreboard-col-padding-height: 8px;
 }
 
 // last row's score is 8px higher (goes over border at the bottom)
-.scoreboard__scores:last-child {
+.scoreboard__score--row-last {
   margin-bottom: -8px;
 
   .score {
@@ -84,7 +78,7 @@ $scoreboard-col-padding-height: 8px;
   flex: 1 1 auto;
   border-right: 1px solid #ffffff;
 
-  &:last-child {
+  &.scoreboard__score--col-last {
     border-right: none;
   }
 }
