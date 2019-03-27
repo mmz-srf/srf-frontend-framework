@@ -111,6 +111,39 @@
   }
 }
 
+.teaser__broadcast-info {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 16px 0 8px;
+}
+
+.teaser__station-logo {
+  img {
+    width: auto;
+    height: 18px;
+  }
+}
+
+.teaser__broadcast-slot {
+  margin-left: 10px;
+  font-family: $font-regular;
+  @include fontSize(12);
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: $emphasize-line-height-ratio;
+  color: $color-text-light;
+
+  @include tablet-up {
+    @include fontSize(14);
+  }
+
+  @include desktop-wide {
+    @include fontSize(16);
+  }
+}
+
 .teaser__kicker {
   display: flex;
   flex-wrap: wrap;
@@ -153,6 +186,26 @@
 
   /* theme */
   @include customPropWithFallback('color', '--teaser-color-title', $color-text-default);
+}
+
+.teaser__subtitle {
+  margin: 4px 0;
+  font-family: $font-regular;
+  @include fontSize(14);
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: $secondary-line-height-ratio;
+  color: $color-text-semi-light;
+
+  @include tablet-up {
+    @include fontSize(16);
+  }
+
+  @include desktop-wide {
+    @include fontSize(18);
+    line-height: $emphasize-line-height-ratio;
+  }
 }
 
 .teaser__lead {
