@@ -425,7 +425,6 @@
  */
 .teaser--size-xl {
   @include tablet-up {
-    flex-direction: row;
     position: relative; // anchor for absolute positioned teaser links
   }
 
@@ -780,6 +779,7 @@
   }
 
   .teaser__longform-medium {
+    background-color: $color-image-dummy;
     position: absolute;
     z-index: 0;
     // fill the whole container (width: 100% / height: 100% does not work in safari)
