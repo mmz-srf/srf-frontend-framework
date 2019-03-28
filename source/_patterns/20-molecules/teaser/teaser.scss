@@ -315,7 +315,7 @@
   }
 
   .teaser__medium {
-    width: 101%; // dirty hack to make teaser images fit the correct hight
+    width: 100%;
     height: auto;
   }
 
@@ -425,7 +425,6 @@
  */
 .teaser--size-xl {
   @include tablet-up {
-    flex-direction: row;
     position: relative; // anchor for absolute positioned teaser links
   }
 
@@ -635,6 +634,7 @@
 
     .teaser__medium {
       height: 80px;
+      object-fit: cover;
     }
 
     .teaser__medium-wrapper {
@@ -674,7 +674,12 @@
 .teaser--hoverable {
   &:hover {
     &::after {
-      opacity: 0.6;
+      opacity: .6;
+
+      /* theme */
+      @supports (--srf: cool) {
+        opacity: var(--theme-hoverable-after-opacity);
+      }
     }
   }
 
@@ -774,6 +779,7 @@
   }
 
   .teaser__longform-medium {
+    background-color: $color-image-dummy;
     position: absolute;
     z-index: 0;
     // fill the whole container (width: 100% / height: 100% does not work in safari)
