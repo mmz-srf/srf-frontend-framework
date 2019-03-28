@@ -29,7 +29,7 @@
 
   font-family: $font-medium;
   @include fontSize(32);
-  line-height: 1.25;
+  line-height: $emphasize-line-height-ratio;
   font-feature-settings: "salt";
   font-weight: normal;
   color: $color-text-default;
