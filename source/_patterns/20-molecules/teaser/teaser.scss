@@ -674,7 +674,12 @@
 .teaser--hoverable {
   &:hover {
     &::after {
-      opacity: 0.6;
+      opacity: .6;
+
+      /* theme */
+      @supports (--srf: cool) {
+        opacity: var(--theme-hoverable-after-opacity);
+      }
     }
   }
 
