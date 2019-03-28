@@ -42,15 +42,14 @@
     margin: 0;
     padding: 0;
 
-    @include tablet {
-      flex-basis: calc(33.3334% - 2 * 12px);
-      margin: 0 12px;
-    }
-
     @include tablet-up {
       display: flex;
       flex-direction: column;
-      flex-basis: 100%;
+    }
+
+    @include tablet {
+      flex-basis: calc(33.3334% - 2 * 12px);
+      margin: 0 12px;
     }
 
     @include desktop-up {
