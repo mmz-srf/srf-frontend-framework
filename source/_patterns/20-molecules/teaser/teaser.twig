@@ -3,8 +3,6 @@
 {% if 'teaser--size-l' in styleModifier or 'teaser--size-xl' in styleModifier %}
     {% set infoStyleModifier = infoStyleModifier ~ ' teaser-info--size-large' %}
 {% endif %}
-{% set stationLogo = stationLogo|default(random(['tv-srf-1', 'tv-srf-zwei', 'tv-srf-info'])) %}
-
 
 <div class="teaser js-teaser {{ styleModifier|default('teaser--size-m teaser--size-s-on-mobile') }} {{ showOpinion ? 'teaser--with-opinion' }}">
     <a class="teaser__main" href="{{ teaser.link|default('#') }}">
@@ -34,48 +32,42 @@
         {# CONTENT #}
         <div class="teaser__content">
 
-            {# BROADCAST INFO #}
-            {% if broadcastInfo %}
-                <div class="teaser__broadcast-info">
-                    <span class="teaser__station-logo"><img src="{{ frameworkAssetPath ~ '/img/stationlogos/' ~ stationLogo ~ '.svg' }}" alt="SRF (1|zwei|info)"></span>
-                    <span class="teaser__broadcast-slot">Morgen, 21:00</span>
-                </div>
-            {% endif %}
-
-            {# PREKICKER #}
-            {% if preKicker %}<span class="h-offscreen" data-iefix="teaser__prekicker--fixed-for-ie"><strong>{{ preKicker }}</strong></span>{% endif %}
+            {% block broadcastinfo %}{% endblock %}
 
             {# KICKER #}
-            {% if labelWording or teaser.kicker %}
-            <div class="teaser__kicker">
-                {% if labelWording %}
-                    {% include 'atoms-teaser-label' with {'labelWording': labelWording, 'labelTime': labelTime, 'styleModifierType': styleModifierType, 'styleModifierSize': styleModifier} %}
-                {% endif %}
+            {% block kicker %}
+                {% if preKicker %}<span class="h-offscreen" data-iefix="teaser__prekicker--fixed-for-ie"><strong>{{ preKicker }}</strong></span>{% endif %}
 
-                <span class="teaser__kicker-text">{{ teaser.kicker|default('') }}</span>
-            </div>
-            {% endif %}
+                <div class="teaser__kicker">
+                    {% if labelWording %}
+                        {% include 'atoms-teaser-label' with {'labelWording': labelWording, 'labelTime': labelTime, 'styleModifierType': styleModifierType, 'styleModifierSize': styleModifier} %}
+                    {% endif %}
 
-            {# TEXTCONTENT #}
-            <span class="teaser__title">{{ teaser.title|default('') }}</span>
-            {% if teaser.subtitle %}
-                <span class="teaser__subtitle">{{ teaser.subtitle }}</span>
-            {% endif %}
-            <p class="teaser__lead">{{ teaser.lead|default('') }}</p>
+                    <span class="teaser__kicker-text">{{ teaser.kicker|default('') }}</span>
+                </div>
+            {% endblock %}
+
+            {# TEASERTEXT #}
+            {% block teasertext %}
+                <span class="teaser__title">{{ teaser.title|default('') }}</span>
+                <p class="teaser__lead">{{ teaser.lead|default('') }}</p>
+            {% endblock %}
 
             {# TEASERINFO/STATUS #}
-            <div class="teaser-info-wrapper">
-              <div class="teaser-info-innerwrapper">
-                {% include 'atoms-teaser-info' with {
-                    'type': infoType,
-                    'styleModifier': infoStyleModifier,
-                    'text': infoText|default(''),
-                    'mediaDuration': infoMediaDuration,
-                    'mediaSource': infoMediaSource,
-                    'mediaTime': infoMediaTime
-                } %}
-            </div>
-            </div>
+            {% block teaserinfo %}
+                <div class="teaser-info-wrapper">
+                  <div class="teaser-info-innerwrapper">
+                    {% include 'atoms-teaser-info' with {
+                        'type': infoType,
+                        'styleModifier': infoStyleModifier,
+                        'text': infoText|default(''),
+                        'mediaDuration': infoMediaDuration,
+                        'mediaSource': infoMediaSource,
+                        'mediaTime': infoMediaTime
+                    } %}
+                    </div>
+                </div>
+            {% endblock %}
         </div>
 
         {# SCOREBOARD #}

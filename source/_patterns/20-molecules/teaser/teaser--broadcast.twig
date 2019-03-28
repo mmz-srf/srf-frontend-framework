@@ -1,15 +1,27 @@
-{% include 'molecules-teaser' with {
-    'styleModifier': styleModifier,
-    'broadcastInfo': true,
-    'teaser': {
-        "link": "#",
-        "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
-        "kicker": "",
-        "title": "Bring bringt's nach Hause",
-        "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
-        "lead": "In der dritten Folge von «Auf und davon» steht für die Tokays in Südafrika der erste Schultag an. Sylvia und Markus Buob beginnen in Schweden mit.",
-    },
-    'showOpinion': false,
-    'showScoreboard': false,
-    'showLinks': false
-} %}
+{% extends "teaser.twig" %}
+
+{% set showOpinion = false %}
+{% set showScoreboard = false %}
+{% set showLinks = false %}
+
+{% block broadcastinfo %}
+    {# BROADCAST INFO #}
+        {% set stationLogo = stationLogo|default(random(['tv-srf-1', 'tv-srf-zwei', 'tv-srf-info'])) %}
+        <div class="teaser__broadcast-info">
+            <span class="teaser__station-logo"><img src="{{ frameworkAssetPath ~ '/img/stationlogos/' ~ stationLogo ~ '.svg' }}" alt="SRF (1|zwei|info)"></span>
+            <span class="teaser__broadcast-slot">Morgen, 21:00</span>
+        </div>
+{% endblock %}
+
+{% block kicker %}{% endblock %}
+
+{% block teasertext %}
+    <span class="teaser__title">{{ teaser.title|default('') }}</span>
+    <span class="teaser__subtitle">{{ teaser.subtitle }}</span>
+    <p class="teaser__lead">{{ teaser.lead|default('') }}</p>
+{% endblock %}
+
+{% block teaserinfo %}{% endblock %}
+
+
+

@@ -115,7 +115,7 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  margin: 16px 0 8px;
+  margin: 0 0 8px;
 }
 
 .teaser__station-logo {
@@ -126,17 +126,18 @@
 }
 
 .teaser__broadcast-slot {
-  margin-left: 10px;
+  padding-left: 10px;
   font-family: $font-regular;
   @include fontSize(12);
   font-weight: normal;
   font-style: normal;
   font-stretch: normal;
-  line-height: $emphasize-line-height-ratio;
+  line-height: $default-line-height-ratio;
   color: $color-text-light;
 
   @include tablet-up {
     @include fontSize(14);
+    line-height: $emphasize-line-height-ratio;
   }
 
   @include desktop-wide {
@@ -189,7 +190,7 @@
 }
 
 .teaser__subtitle {
-  margin: 4px 0;
+  margin: 4px 0 0;
   font-family: $font-regular;
   @include fontSize(14);
   font-weight: normal;
