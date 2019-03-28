@@ -17,7 +17,7 @@
 .spinner__circle--dash {
   stroke: $color-srf-light;
   stroke-linecap: round;
-  stroke-dasharray: 89, 200; // this has to be set initially so IE11 at least shows an rotating «incomplete» circle (not quite the animation we want, but at least something is moving in IE11)
+  stroke-dasharray: 89, 200; // this has to be set initially so IE11 at least shows a rotating «incomplete» circle (not quite the animation we want, but at least something is moving in IE11)
   stroke-miterlimit: 10;
   animation: spinnerDashAnimation 1.5s ease-in-out infinite;
 }
