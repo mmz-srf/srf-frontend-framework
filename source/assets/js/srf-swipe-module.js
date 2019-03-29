@@ -22,7 +22,7 @@ const PARTIALLY_HIDDEN_CLASS = 'swipemod-item--partially-hidden';
 
 export class SrfSwiper {
 
-    constructor(element, options) {
+    constructor(element, options = { maxitems: 6 }) {
         this.$element = $(element);
         this.$swipeContainer = this.$element.find('.swipemod-swipecontainer');
         this.$container = this.$element.find('.swipemod-container');
