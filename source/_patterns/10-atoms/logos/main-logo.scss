@@ -3,11 +3,16 @@
   height: 24px;
   display: inline-block;
   background: none; /* OVERRIDE CRITICAL CSS */
+
+  @include tablet-up {
+    width: 48px;
+    height: 32px;
+  }
 }
 
 .main-logo--large {
   @include tablet-up {
-    width: 48px;
-    height: 32px;
+    width: 60px;
+    height: 40px;
   }
 }
