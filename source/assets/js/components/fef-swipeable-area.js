@@ -109,7 +109,10 @@ export class FefSwipeableArea {
 
         this.setupHinting();
         this.$items.on('click', (event) => this.onTeaserClick(event));
-        this.$innerContainer.on('scroll', FefDebounceHelper.throttle(() => this.markItems(), DEBOUNCETIME));
+        if (!FefTouchDetection.isTouchSupported()) {
+            this.$innerContainer.on('scroll', FefDebounceHelper.throttle(() => this.markItems(), DEBOUNCETIME));
+        }
+
         this.$innerContainer.on('scroll', FefDebounceHelper.debounce(() => this.track(), DEBOUNCETIME_SCROLL_TRACKING));
     };
 
@@ -308,9 +311,8 @@ export class FefSwipeableArea {
         });
 
         // move the flying focus to the new position after scrolling
-        if (!FefTouchDetection.isTouchSupported()) {
-            $(document).trigger('flyingfocus:move');
-        }
+        $(document).trigger('flyingfocus:move');
+
     }
 
     isItemCompletelyInView($itemElem) {
