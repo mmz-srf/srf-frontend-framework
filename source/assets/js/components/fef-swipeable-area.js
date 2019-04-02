@@ -1,7 +1,6 @@
 import {FefTouchDetection} from '../classes/fef-touch-detection';
 import {FefDebounceHelper} from '../classes/fef-debounce-helper';
 import {FefResponsiveHelper} from '../classes/fef-responsive-helper';
-import {FefTouchDetection} from '../classes/fef-touch-detection';
 
 const HOOK_CLASS = 'js-swipeable-area',
     INNER_CONTAINER_CLASS = 'js-swipeable-area-wrapper',
