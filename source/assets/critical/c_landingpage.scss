@@ -60,7 +60,22 @@ body.body--loading.body--loading {
     margin-right: auto;
   }
 
-  .collection__content-wrapper {
+  .collection__background-image {
+    width: 100%;
+    margin-bottom: -40px;
+    background-color: $color-bg-card;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+
+    @include forceAspectRatio("16:9");
+    @include tablet-up {
+      @include forceAspectRatio("3:1");
+    }
+
+  }
+    .collection__content-wrapper {
     display: flex;
     flex-direction: column;
   }
