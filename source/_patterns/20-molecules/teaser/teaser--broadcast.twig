@@ -5,12 +5,11 @@
 {% set showLinks = false %}
 
 {% block broadcastinfo %}
-    {# BROADCAST INFO #}
-        {% set stationLogo = stationLogo|default(random(['tv-srf-1', 'tv-srf-zwei', 'tv-srf-info'])) %}
-        <div class="teaser__broadcast-info">
-            <span class="teaser__station-logo"><img src="{{ frameworkAssetPath ~ '/img/stationlogos/' ~ stationLogo ~ '.svg' }}" alt="SRF (1|zwei|info)"></span>
-            <span class="teaser__broadcast-slot">Morgen, 21:00</span>
-        </div>
+    {% set stationLogo = stationLogo|default(random(['tv-srf-1', 'tv-srf-zwei', 'tv-srf-info'])) %}
+    <div class="teaser__broadcast-info">
+        <span class="teaser__station-logo"><img src="{{ frameworkAssetPath ~ '/img/stationlogos/' ~ stationLogo ~ '.svg' }}" alt="SRF (1|zwei|info)"></span>
+        <span class="teaser__broadcast-slot">Morgen, 21:00</span>
+    </div>
 {% endblock %}
 
 {% block kicker %}{% endblock %}
