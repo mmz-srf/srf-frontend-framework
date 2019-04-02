@@ -29,7 +29,7 @@
 
   font-family: $font-medium;
   @include fontSize(32);
-  line-height: 40px;
+  line-height: $emphasize-line-height-ratio;
   font-feature-settings: "salt";
   font-weight: normal;
   color: $color-text-default;
@@ -37,6 +37,5 @@
   @include tablet-up {
     margin: 3px 0 18px;
     @include fontSize(36);
-    line-height: 43px;
   }
 }
