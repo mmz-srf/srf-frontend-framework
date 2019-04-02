@@ -170,6 +170,7 @@
   border: none;
   padding: 0;
   cursor: pointer; // firefox needs the cursor definition directly on a button element - it's not working when it's on a child
+  height: 56px;
 }
 
 .masthead__button--search {
@@ -207,8 +208,8 @@
     }
   }
   @include tablet-up {
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-top: 12px;
+    padding-bottom: 12px;
 
     .masthead__logo {
       flex-grow: 0;
