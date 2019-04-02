@@ -62,16 +62,32 @@ body.body--loading.body--loading {
 
   .collection__background-image {
     width: 100%;
-    margin-bottom: -40px;
-    background-color: $color-bg-card;
+    background-color: #dadad2;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     position: relative;
 
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: calc(100% - 2px);
+      left: 0;
+      border-top: 1px solid rgba(0, 0, 0, .08);
+      border-bottom: 1px solid rgba(0, 0, 0, .08);
+    }
+
     @include forceAspectRatio("16:9");
     @include tablet-up {
       @include forceAspectRatio("3:1");
+    }
+    margin-bottom: -40px;
+
+    @include desktop-wide {
+      margin-bottom: -50px;
+      border-radius: 3px;
     }
 
   }
