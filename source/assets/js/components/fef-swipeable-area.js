@@ -106,7 +106,10 @@ export class FefSwipeableArea {
     registerListeners() {
         $(window).on('resize', FefDebounceHelper.debounce(() => this.init(), DEBOUNCETIME));
         $(window).on('srf.styles.loaded', () => this.init());
+        window.setTimeout(() => {
+        this.$element.css('-webkit-overflow-scrolling', 'touch');
 
+        }, 1000);
 
         this.$items.on('click', (event) => this.onTeaserClick(event));
         if (!FefTouchDetection.isTouchSupported()) {
@@ -311,7 +314,9 @@ export class FefSwipeableArea {
         });
 
         // move the flying focus to the new position after scrolling
-        $(document).trigger('flyingfocus:move');
+        if (!FefTouchDetection.isTouchSupported()) {
+            $(document).trigger('flyingfocus:move');
+        }
 
     }
 
