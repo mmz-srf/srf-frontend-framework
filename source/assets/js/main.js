@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
     FefGlobalnavInit();
     FefSwipeableAreaInit();
     FefSwipeModuleInit();
-    FefFlyingFocusInit();
+    //FefFlyingFocusInit();
     FefExpandableBoxInit();
     FefStickyHeaderInit();
     FefSubnavInit();
