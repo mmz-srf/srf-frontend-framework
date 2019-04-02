@@ -308,7 +308,9 @@ export class FefSwipeableArea {
         });
 
         // move the flying focus to the new position after scrolling
-        $(document).trigger('flyingfocus:move');
+        if (!FefTouchDetection.isTouchSupported()) {
+            $(document).trigger('flyingfocus:move');
+        }
     }
 
     isItemCompletelyInView($itemElem) {
