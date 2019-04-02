@@ -107,9 +107,10 @@ export class FefSwipeableArea {
         $(window).on('resize', FefDebounceHelper.debounce(() => this.init(), DEBOUNCETIME));
         $(window).on('srf.styles.loaded', () => this.init());
 
-        this.setupHinting();
+
         this.$items.on('click', (event) => this.onTeaserClick(event));
         if (!FefTouchDetection.isTouchSupported()) {
+            this.setupHinting();
             this.$innerContainer.on('scroll', FefDebounceHelper.debounce(() => this.track(), DEBOUNCETIME_SCROLL_TRACKING));
             this.$innerContainer.on('scroll', FefDebounceHelper.throttle(() => this.markItems(), DEBOUNCETIME));
         }

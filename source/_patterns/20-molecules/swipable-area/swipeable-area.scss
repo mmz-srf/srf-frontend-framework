@@ -59,6 +59,7 @@
 .swipeable-area__item {
   opacity: 1;
   transition: none !important;
+  -webkit-transform: translatez(0);
 }
 
 // (at least) partially hidden item:
