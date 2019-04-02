@@ -48,7 +48,6 @@
   overflow-y: hidden;
   width: 100%;
   box-sizing: content-box;
-  -webkit-overflow-scrolling: touch; // enable momentum scrolling on ios
   transition: none !important;
   // Direct child (usually an <ul>) can be animated by the hinting mechanism (See fef-swipeable-area.js:hintOn/hintOff)
   > * {
