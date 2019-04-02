@@ -48,7 +48,7 @@
   overflow-y: hidden;
   width: 100%;
   box-sizing: content-box;
-  -webkit-backface-visibility: hidden;
+  -webkit-perspective: 0;
   -webkit-overflow-scrolling: touch;
   // Direct child (usually an <ul>) can be animated by the hinting mechanism (See fef-swipeable-area.js:hintOn/hintOff)
   > * {
