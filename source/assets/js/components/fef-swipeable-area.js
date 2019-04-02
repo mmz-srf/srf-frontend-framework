@@ -111,8 +111,8 @@ export class FefSwipeableArea {
         this.$items.on('click', (event) => this.onTeaserClick(event));
         if (!FefTouchDetection.isTouchSupported()) {
             this.$innerContainer.on('scroll', FefDebounceHelper.debounce(() => this.track(), DEBOUNCETIME_SCROLL_TRACKING));
+            this.$innerContainer.on('scroll', FefDebounceHelper.throttle(() => this.markItems(), DEBOUNCETIME));
         }
-        this.$innerContainer.on('scroll', FefDebounceHelper.throttle(() => this.markItems(), DEBOUNCETIME));
     };
 
     addButtons() {
