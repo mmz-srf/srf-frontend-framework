@@ -112,10 +112,13 @@ export class FefSwipeableArea {
         $(window).on('resize', FefDebounceHelper.debounce(() => this.init(), DEBOUNCETIME));
         $(window).on('srf.styles.loaded', () => this.init());
 
-        this.setupHinting();
         this.$items.on('click', (event) => this.onTeaserClick(event));
-        this.$innerContainer.on('scroll', FefDebounceHelper.throttle(() => this.markItems(), DEBOUNCETIME));
-        this.$innerContainer.on('scroll', FefDebounceHelper.debounce(() => this.track(), DEBOUNCETIME_SCROLL_TRACKING));
+        if (!FefTouchDetection.isTouchSupported()) {
+            this.setupHinting();
+
+            this.$innerContainer.on('scroll', FefDebounceHelper.throttle(() => this.markItems(), DEBOUNCETIME));
+            this.$innerContainer.on('scroll', FefDebounceHelper.debounce(() => this.track(), DEBOUNCETIME_SCROLL_TRACKING));
+        }
     };
 
     addButtons() {
