@@ -62,10 +62,8 @@ body.body--loading.body--loading {
 
   .collection__background-image {
     width: 100%;
-    background-color: #dadad2;
-    background-repeat: no-repeat;
     background-size: cover;
-    background-position: center;
+    background: #dadad2 no-repeat center;
     position: relative;
 
     &::after {
