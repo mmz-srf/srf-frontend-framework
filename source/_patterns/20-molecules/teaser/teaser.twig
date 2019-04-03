@@ -1,4 +1,8 @@
 {% set showOpinion = showOpinion|default(false) and teaser.opinion is defined %}
+{% set infoStyleModifier = infoStyleModifier|default('') %}
+{% if 'teaser--size-l' in styleModifier or 'teaser--size-xl' in styleModifier %}
+    {% set infoStyleModifier = infoStyleModifier ~ ' teaser-info--size-large' %}
+{% endif %}
 
 <div class="teaser js-teaser {{ styleModifier|default('teaser--size-m teaser--size-s-on-mobile') }} {{ showOpinion ? 'teaser--with-opinion' }}">
     <a class="teaser__main" href="{{ teaser.link|default('#') }}">
@@ -27,35 +31,43 @@
 
         {# CONTENT #}
         <div class="teaser__content">
-            {% if preKicker %}<span class="h-offscreen" data-iefix="teaser__prekicker--fixed-for-ie"><strong>{{ preKicker }}</strong></span>{% endif %}
 
-            <div class="teaser__kicker">
-                {% if labelWording %}
-                    {% include 'atoms-teaser-label' with {'labelWording': labelWording, 'labelTime': labelTime, 'styleModifierType': styleModifierType, 'styleModifierSize': styleModifier} %}
-                {% endif %}
+            {% block broadcastinfo %}{% endblock %}
 
-                <span class="teaser__kicker-text">{{ teaser.kicker|default('') }}</span>
-            </div>
-            <span class="teaser__title">{{ teaser.title|default('') }}</span>
-            <p class="teaser__lead">{{ teaser.lead|default('') }}</p>
+            {# KICKER #}
+            {% block kicker %}
+                {% if preKicker %}<span class="h-offscreen" data-iefix="teaser__prekicker--fixed-for-ie"><strong>{{ preKicker }}</strong></span>{% endif %}
 
-            {% set infoStyleModifier = infoStyleModifier|default('') %}
-            {% if 'teaser--size-l' in styleModifier or 'teaser--size-xl' in styleModifier %}
-                {% set infoStyleModifier = infoStyleModifier ~ ' teaser-info--size-large' %}
-            {% endif %}
+                <div class="teaser__kicker">
+                    {% if labelWording %}
+                        {% include 'atoms-teaser-label' with {'labelWording': labelWording, 'labelTime': labelTime, 'styleModifierType': styleModifierType, 'styleModifierSize': styleModifier} %}
+                    {% endif %}
 
-            <div class="teaser-info-wrapper">
-              <div class="teaser-info-innerwrapper">
-                {% include 'atoms-teaser-info' with {
-                    'type': infoType,
-                    'styleModifier': infoStyleModifier,
-                    'text': infoText|default(''),
-                    'mediaDuration': infoMediaDuration,
-                    'mediaSource': infoMediaSource,
-                    'mediaTime': infoMediaTime
-                } %}
-            </div>
-            </div>
+                    <span class="teaser__kicker-text">{{ teaser.kicker|default('') }}</span>
+                </div>
+            {% endblock %}
+
+            {# TEASERTEXT #}
+            {% block teasertext %}
+                <span class="teaser__title">{{ teaser.title|default('') }}</span>
+                <p class="teaser__lead">{{ teaser.lead|default('') }}</p>
+            {% endblock %}
+
+            {# TEASERINFO/STATUS #}
+            {% block teaserinfo %}
+                <div class="teaser-info-wrapper">
+                  <div class="teaser-info-innerwrapper">
+                    {% include 'atoms-teaser-info' with {
+                        'type': infoType,
+                        'styleModifier': infoStyleModifier,
+                        'text': infoText|default(''),
+                        'mediaDuration': infoMediaDuration,
+                        'mediaSource': infoMediaSource,
+                        'mediaTime': infoMediaTime
+                    } %}
+                    </div>
+                </div>
+            {% endblock %}
         </div>
 
         {# SCOREBOARD #}
