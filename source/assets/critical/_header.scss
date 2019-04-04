@@ -87,12 +87,22 @@
     width: 100%;
     height: auto;
   }
+
+  @include tablet-up {
+    width: 48px;
+    height: 32px;
+  }
 }
 
 .main-logo--large {
   @include tablet-up {
-    width: 48px;
-    height: 32px;
+    width: 60px;
+    height: 40px;
+  }
+
+  svg {
+    transform: scale(1.25);
+    transform-origin: 0 0;
   }
 }
 
