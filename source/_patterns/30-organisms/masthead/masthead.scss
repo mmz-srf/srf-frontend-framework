@@ -90,10 +90,6 @@
   max-width: $content-width;
   margin: 0 auto;
   position: relative;
-
-  @include tablet-up {
-    padding: 8px 0;
-  }
 }
 
 .masthead__title {
@@ -199,6 +195,12 @@
   width: 100%;
   top: 0;
   padding-top: 0;
+
+  .masthead__wrapper {
+    @include tablet-up {
+      padding: 8px 0;
+    }
+  }
 }
 
 .masthead--home {
