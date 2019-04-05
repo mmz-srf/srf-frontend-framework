@@ -1,12 +1,10 @@
-{% include 'atoms-skiplink' %}
+<div class="affix-placeholder affix-placeholder--compact"></div>
 
-{% include 'molecules-header' %}
+{% include 'organisms-masthead--compact' with {"themeStyleModifier": themeStyleModifier} %}
 
 <div class="l-card l-card--with-fullwidth-elements">
     <article class="article">
-
         {% include 'atoms-breadcrumbs' %}
-        {% include 'atoms-skiplink-target' %}
         {% include 'molecules-article-header' %}
         {% include 'molecules-sharing-bar' %}
         {% include 'atoms-shimmer-box' %}
@@ -25,4 +23,8 @@
 {% include 'molecules-comments' %}
 {% include 'molecules-swipe-module' %}
 
-{% include 'molecules-footer' %}
+{% include 'organisms-rlp-footer' %}
+
+{% include 'organisms-modal-menu' %}
+{% include 'organisms-modal-onairnav' %}
+{% include 'organisms-modal-search' %}

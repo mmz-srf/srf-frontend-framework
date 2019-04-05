@@ -1,0 +1,242 @@
+{
+  "bodyClass": "",
+  "criticalCssFile": "c_landingpage.css",
+  "collections": [
+    {
+      "styleModifier": "collection--hero",
+      "title": "News Schweiz",
+      "lead": "Noch mehr Besucherzuwachs: Madame Tussauds freut sich über weiteres Umsatzplus.",
+      "teasers": [
+        {
+          "title": "Auf und davon",
+          "kicker": "",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "In der dritten Folge von «Auf und davon» steht für die Tokays in Südafrika der erste Schultag an. Sylvia und Markus Buob beginnen in Schweden mit der Renovation. Und in Mexiko gehen Stefano Navarretta und Stefano Lotti vorübergehend getrennte Wege."
+        },
+        {
+          "title": "Wenn die Motorsäge keine ist",
+          "kicker": "Ein begnadeter Imitator",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "Der Graurücken-Leierschwanz sorgt in seiner Heimat Australien des öftern für Verwirrung: Alarmsirenen, klickende Kameras oder sogar Motorsägen ahmt er täuschend echt nach."
+        },
+        {
+          "title": "Anti-Merkel-Shirt vom Markt genommen",
+          "kicker": "Aufdruck der Kanzlerin",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet."
+        },
+        {
+          "title": "Richtungsweisende Erfindung",
+          "kicker": "Kompass",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet."
+        },
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "styleModifier": "collection--duo",
+      "title": "News Schweiz",
+      "lead": "Noch mehr Besucherzuwachs: Madame Tussauds freut sich über weiteres Umsatzplus.",
+      "teasers": [
+        {
+          "title": "Schoggimilch kommt von braunen Kühen",
+          "kicker": "Kühe geben sich Mühe",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "Sieben Prozent der Amerikaner glauben, dass Schokolademilch von braunen Kühen stammt."
+        },
+        {
+          "title": "Wenn die Motorsäge keine ist",
+          "kicker": "Ein begnadeter Imitator",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "Der Graurücken-Leierschwanz sorgt in seiner Heimat Australien des öftern für Verwirrung: Alarmsirenen, klickende Kameras oder sogar Motorsägen ahmt er täuschend echt nach."
+        },
+        {
+          "title": "Anti-Merkel-Shirt vom Markt genommen",
+          "kicker": "Aufdruck der Kanzlerin",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet."
+        },
+        {
+          "title": "Richtungsweisende Erfindung",
+          "kicker": "Kompass",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet."
+        },
+        {
+          "title": "Betrunkener randalierte im Wald ",
+          "kicker": "Schlug Specht",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet."
+        },
+        null,
+        null
+      ]
+    },
+    {
+      "title": "Nur 3",
+      "teasers": [
+        {
+          "title": "Kleinkind weiss schon, wie die Geschichte weitergeht",
+          "kicker": "Vorgelesen",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet."
+        },
+        {
+          "title": "Stalker will Vorwürfe der Belästigung selbst überprüfen",
+          "kicker": "Geht dem nach",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet."
+        },
+        {
+          "title": "Im Zoo lebender Wassermarder hat durchschnittlichen Fischkonsum",
+          "kicker": "Otter Normalverbraucher",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet."
+        },
+        null,
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "styleModifier": "collection--compact-swipeable",
+      "title": "Nur 4",
+      "teasers": [
+        {
+          "title": "Kneipengast scheint Alkoholiker zu sein",
+          "kicker": "Immer Klarer",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet."
+        },
+        {
+          "title": "Haremsdame verrät geheimen Zugang zum Palast",
+          "kicker": "Kennt alle Scheichwege",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet."
+        },
+        {
+          "title": "Fahrschule geschlossen",
+          "kicker": "Bot nur Crashkurse an",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet."
+        },
+        {
+          "title": "Gesuchter Bankräuber mit Hund auf dem Arm kaum zu erkennen",
+          "kicker": "Trägt jetzt einen Schnauzer",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet."
+        }
+      ]
+    },
+    {
+      "styleModifier": "collection--standard collection--branded",
+      "title": "News Schweiz",
+      "teasers": [
+        {
+          "title": "Wissenschaftler sagen: Kühe geben Milch",
+          "kicker": "Milchsee",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet."
+        }, {
+          "title": "Wissenschaftler sagen: Kühe geben Milch",
+          "kicker": "Milchsee",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet."
+        }, {
+          "title": "Wissenschaftler sagen: Kühe geben Milch",
+          "kicker": "Milchsee",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet."
+        },
+        null,
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "styleModifier": "collection--compact",
+      "title": "Quidditch",
+      "titleLink" : "https://www.swissquidditch.ch/",
+      "teasers": [
+        {
+          "title": "Ponika verhilft Neuseeland zum Sieg",
+          "kicker": "Ozeanien-Liga",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "Ngapo Ponika holt den Snitch in Minute 87, Neuseeland besiegt Wales 240 zu 180."
+        },
+        {
+          "title": "Heidelberg Harriers mit neuem Kapitän",
+          "kicker": "Transfer",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "Hermann Krabat wechselt von den Karasjok Kites und leitet neu das deutsche Nationalteam."
+        },
+        {
+          "title": "Ponika verhilft Neuseeland zum Sieg",
+          "kicker": "Ozeanien-Liga",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "Ngapo Ponika holt den Snitch in Minute 87, Neuseeland besiegt Wales 240 zu 180."
+        },
+        {
+          "title": "Heidelberg Harriers mit neuem Kapitän",
+          "kicker": "Transfer",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "Hermann Krabat wechselt von den Karasjok Kites und leitet neu das deutsche Nationalteam."
+        },
+        null,
+        null,
+        null
+      ]
+    }
+  ]
+}

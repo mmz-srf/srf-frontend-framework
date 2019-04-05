@@ -111,6 +111,37 @@
   }
 }
 
+.teaser__broadcast-info {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 0 0 8px;
+}
+
+.teaser__station-logo {
+  img {
+    width: auto;
+    height: 18px;
+  }
+}
+
+.teaser__broadcast-slot {
+  padding-left: 10px;
+  font-family: $font-regular;
+  @include fontSize(12);
+  line-height: $default-line-height-ratio;
+  color: $color-text-light;
+
+  @include tablet-up {
+    @include fontSize(14);
+    line-height: $emphasize-line-height-ratio;
+  }
+
+  @include desktop-wide {
+    @include fontSize(16);
+  }
+}
+
 .teaser__kicker {
   display: flex;
   flex-wrap: wrap;
@@ -153,6 +184,23 @@
 
   /* theme */
   @include customPropWithFallback('color', '--teaser-color-title', $color-text-default);
+}
+
+.teaser__subtitle {
+  margin: 4px 0 0;
+  font-family: $font-regular;
+  @include fontSize(14);
+  line-height: $secondary-line-height-ratio;
+  color: $color-text-semi-light;
+
+  @include tablet-up {
+    @include fontSize(16);
+  }
+
+  @include desktop-wide {
+    @include fontSize(18);
+    line-height: $emphasize-line-height-ratio;
+  }
 }
 
 .teaser__lead {
@@ -549,15 +597,6 @@
     @include desktop-up {
       @include fontSize(18);
       line-height: $secondary-line-height-ratio;
-    }
-  }
-
-  /* if there are teaser links and an opinion, the opinion wins (links will be hidden) */
-  &.teaser--with-opinion {
-    @include tablet-up {
-      .teaser__links {
-        display: none;
-      }
     }
   }
 

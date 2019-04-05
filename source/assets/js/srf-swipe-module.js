@@ -9,7 +9,7 @@ export function init() {
 $.extend(jQuery.easing,{
     easeOutCubic: function (x, t, b, c, d) { return c*((t=t/d-1)*t*t + 1) + b; },
 });
-const MAXITEMS = 6;
+
 const ANIMATIONSPEED = 500;
 const DEBOUNCETIME = 100;
 const DIRECTION = {LEFT: 'left', RIGHT: 'right'};
@@ -22,15 +22,16 @@ const PARTIALLY_HIDDEN_CLASS = 'swipemod-item--partially-hidden';
 
 export class SrfSwiper {
 
-    constructor(element) {
+    constructor(element, options = { maxitems: 6 }) {
         this.$element = $(element);
         this.$swipeContainer = this.$element.find('.swipemod-swipecontainer');
         this.$container = this.$element.find('.swipemod-container');
         this.isAutoScrolling = false;
+        this.maxitems = options.maxitems || 6;
 
         this.$items = this.$element.find('.swipemod-item');
-        if (this.$items.length > MAXITEMS) {
-            let nrOfItemsToRemove = this.$items.length - MAXITEMS;
+        if (this.$items.length > this.maxitems) {
+            let nrOfItemsToRemove = this.$items.length - this.maxitems;
 
             this.$items.slice(-nrOfItemsToRemove).remove();
             this.$items = this.$element.find('.swipemod-item');
