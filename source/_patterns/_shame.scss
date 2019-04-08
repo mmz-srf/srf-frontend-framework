@@ -50,51 +50,6 @@
 }
 
 /*
- * TARGETED BROWSERS: ALL :(
- *
- * For iOS mobile devices we did some funky stuff with the <html> and <body> element (namely position: relative;) on
- * the body and position: fixed; on the menu on tablet-up. This results in wrong positioning of the Floating-Focus-Elem.
- * After the Header has been properly fixed, this can be removed.
- */
-// sass-lint:disable no-ids
-.menu--opened #flying-focus {
-  margin-top: -56px;
-}
-
-@media (max-width: 719px) {
-  .menu--opened #flying-focus {
-    display: block;
-    margin-top: 0;
-  }
-}
-// sass-lint:enable no-ids
-
-
-/*
- * TARGETED BROWSER: IE 11
- *
- * IE11 _sometimes_ has problems with scaled images with svg sources. The usual remedies (viewbox, no widths, etc.)
- * didn't help. This is the last resort - hiding the img and setting a background-image on the parent.
- */
-.header-startlink--fixed-for-ie {
-  width: 39px;
-  height: 26px;
-  background-image: url('../img/srf_logo_fallback.png');
-  margin: 15px 16px;
-  padding: 0;
-}
-
-.header-startlink--fixed-for-ie-rtr {
-  background-image: url('../img/rtr_logo_fallback.png');
-}
-
-.header-startlink--fixed-for-ie .header-logo {
-  display: none;
-}
-
-
-
-/*
  * TARGETED BROWSER: IE 11
  *
  * CSS Custom Properties double-fallbacks 'cause of IE 11 … why-oh-why do we still support Internet Explorer!?
@@ -141,7 +96,6 @@ _:-ms-fullscreen,
     }
   }
 }
-
 
 /*
  * TARGETED BROWSER: IE 11

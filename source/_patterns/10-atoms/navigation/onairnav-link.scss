@@ -3,7 +3,7 @@
 
 .onairnav-link {
   display: block;
-  position: relative;
+  position: relative; // to position the pseudo elements
   height: 100%;
   border-radius: 2px;
   background-color: #22211d;
@@ -17,22 +17,51 @@
     flex-grow: 1;
   }
 
+  /* OnAirNav-Links have (as Teasers do) an invisible layer on top that gets sligthly opaque when active/focused */
+  &::after {
+    position: absolute;
+    content: '';
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    pointer-events: none;
+
+    /* theme */
+    @include customPropWithFallback('background-color', '--teaser-background-link-hover', rgba(255,255,255,.08));
+
+    // performance improvement: Don't animate the background-color, but the opacity
+    opacity: 0;
+    transition: opacity .2s ease-in-out;
+  }
+
   &:hover,
   &:focus {
-    background-color: rgba(255,255,255,.08);
     color: #fff;
+
+    &::after {
+      opacity: 1;
+    }
   }
 
   &:active {
-    background-color: rgba(255,255,255,.12);
     color: #fff;
+
+    &::after {
+      /* theme */
+      @include customPropWithFallback('background-color', '--teaser-background-link-active', rgba(255,255,255,.12));
+
+      opacity: 1;
+    }
   }
 }
 
 .onairnav-link--arrow {
   padding: 18px 56px 18px 16px;
 
-  &:after {
+  &:before {
     content: '';
     display: block;
     position: absolute;

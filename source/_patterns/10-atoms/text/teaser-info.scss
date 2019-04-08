@@ -240,7 +240,7 @@
 .teaser-info--size-large {
   margin: 16px 0 0;
 
-  @include tablet-up {
+  @include desktop-up {
     margin-top: 20px;
   }
 }

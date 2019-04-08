@@ -1,7 +1,8 @@
 /*** COLORS ***/
 $color-accentuation-red: #c91024 !default;
+$color-bg-page: #f5f5f2 !default;
 $color-bg-caption: #f5f5f2 !default;
-$color-bg-box: #f5f5f2 !default;
+$color-bg-box: #ebebe5 !default;
 $color-bg-box-hover: #dadad2 !default;
 $color-bg-box-focus: #cac8bf !default;
 $color-bg-card: #fefefd !default;
@@ -15,7 +16,9 @@ $color-separator: $color-bg-box !default;
 $color-text-default: #22211d !default;
 $color-text-accentuation: #4e4d47 !default;
 $color-text-light: #6b6960 !default;
+$color-text-semi-light: #383732 !default;
 $color-text-branded: #ffffff !default;
+$color-text-branded-dark: $color-text-default !default;
 $color-table-bg-zebra-light: $color-link-bg-hover !default;
 $color-table-bg-zebra-dark: $color-bg-caption !default;
 $color-table-bg-header: $color-bg-box !default;
