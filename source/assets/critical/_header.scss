@@ -59,6 +59,12 @@
   height: 56px;
   margin-bottom: 0;
   padding-top: 0;
+
+  .masthead__wrapper {
+    @include tablet-up {
+      padding: 8px 0;
+    }
+  }
 }
 
 
