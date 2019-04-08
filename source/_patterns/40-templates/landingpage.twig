@@ -6,11 +6,18 @@
 
 {% if headerType == "home" %}
     <div class="sticky-container sticky-container--{{ headerType }} sticky-container--{{ variantModifier }} affix-top js-affix">
-        {% include 'organisms-masthead--home' with {"variantModifier": variantModifier, "themeStyleModifier": themeStyleModifier, "headerType": headerType} %}
+        {% include 'organisms-masthead--home' with {
+            "variantModifier": variantModifier,
+            "themeStyleModifier": themeStyleModifier,
+            "headerType": headerType
+        } %}
     </div>
 {% else %}
     <div class="sticky-container affix-top js-affix">
-        {% include 'organisms-masthead' with {"themeStyleModifier": themeStyleModifier} %}
+        {% include 'organisms-masthead' with {
+            "themeStyleModifier": themeStyleModifier,
+            "title": title
+        } %}
     </div>
 {% endif %}
 
