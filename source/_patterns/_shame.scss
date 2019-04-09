@@ -484,31 +484,31 @@ _:-ms-fullscreen,
  * Without IE11, we can then finally get rid of the explicit grid definitions.
  */
 .scoreboard {
-  .scoreboard__score--col-2 {
+  .scoreboard__col-2 {
     grid-column: 2;
   }
   
-  .scoreboard__score--col-3 {
+  .scoreboard__col-3 {
     grid-column: 3;
   }
   
-  .scoreboard__score--col-4 {
+  .scoreboard__col-4 {
     grid-column: 4;
   }
   
-  .scoreboard__score--col-5 {
+  .scoreboard__col-5 {
     grid-column: 5;
   }
   
-  .scoreboard__score--row-1 {
+  .scoreboard__row-1 {
     grid-row: 1;
   }
   
-  .scoreboard__score--row-2 {
+  .scoreboard__row-2 {
     grid-row: 2;
   }
   
-  .scoreboard__score--row-3 {
+  .scoreboard__row-3 {
     grid-row: 3;
   }
 }

@@ -49,7 +49,7 @@
 {% spaceless %}
 <div class="scoreboard">
     {% for competitor in competitors|default([]) %}
-        <div class="scoreboard__competitor {{ competitor.modifier|default('') }}">
+        <div class="scoreboard__competitor {{ competitor.modifier|default('') }} scoreboard__row-{{ loop.index }}">
             <span class="h-offscreen">{{ competitorCaption|default("Spieler/in") }}:</span>
             <span class="scoreboard__competitor-mask"></span>
             <span class="scoreboard__competitor-wrapper">
@@ -72,10 +72,10 @@
         {% for score in competitor.scores|default([]) %}
             <div class="scoreboard__score
                         {{ competitor.modifier|default('') }}
-                        scoreboard__score--row-{{ loop.parent.loop.index }}
-                        scoreboard__score--col-{{ loop.index + 1 }}
-                        {{ loop.last ? 'scoreboard__score--col-last' }}
-                        {{ loop.parent.loop.first ? 'scoreboard__score--row-first' : loop.parent.loop.last ? 'scoreboard__score--row-last' }}
+                        scoreboard__row-{{ loop.parent.loop.index }}
+                        scoreboard__col-{{ loop.index + 1 }}
+                        {{ loop.last ? 'scoreboard__col-last' }}
+                        {{ loop.parent.loop.first ? 'scoreboard__row-first' : loop.parent.loop.last ? 'scoreboard__row-last' }}
                         ">
                 <span class="h-offscreen">{{ scoreTitles[loop.index0]|default("") }}</span>
                 {% if score.supplementScore|default(null) %}

@@ -54,7 +54,7 @@ $scoreboard-col-padding-height: 8px;
 }
 
 // first row's score is 8px higher (goes over border at the top)
-.scoreboard__score--row-first {
+.scoreboard__row-first {
   margin-top: -8px;
 
   .score {
@@ -64,7 +64,7 @@ $scoreboard-col-padding-height: 8px;
 }
 
 // last row's score is 8px higher (goes over border at the bottom)
-.scoreboard__score--row-last {
+.scoreboard__row-last {
   margin-bottom: -8px;
 
   .score {
@@ -78,7 +78,7 @@ $scoreboard-col-padding-height: 8px;
   flex: 1 1 auto;
   border-right: 1px solid #ffffff;
 
-  &.scoreboard__score--col-last {
+  &.scoreboard__col-last {
     border-right: none;
   }
 }
