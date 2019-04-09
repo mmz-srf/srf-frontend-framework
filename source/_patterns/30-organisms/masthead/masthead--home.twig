@@ -1,7 +1,7 @@
 <header class="masthead js-masthead masthead--home {{ themeStyleModifier }} masthead--{{ variantModifier }}">
     <div class="masthead__wrapper">
         <h2 class="h-offscreen">Header</h2>
-        <div class="masthead__universal">
+        <div class="masthead__universal {{ mastheadUniversalModifier|default('') }}">
             <div class="masthead__logo">
                 {% include 'atoms-main-logo' with {'styleModifier': 'main-logo--large'} %}
             </div>
@@ -27,7 +27,7 @@
                 </button>
             </div>
         </div>
-        <div class="masthead__nav" aria-hidden="true" role="presentation">
+        <div class="masthead__nav {{ mastheadNavModifier|default('') }}" aria-hidden="true" role="presentation">
             {% include 'molecules-subnav' with {
                 "styleModifier": "subnav--portals",
                 "headerType": headerType,

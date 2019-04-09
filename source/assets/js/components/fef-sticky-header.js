@@ -9,6 +9,7 @@ export function init() {
 
 const DEBOUNCE_TIME = 100;
 const AFFIX_SELECTOR = '.js-affix';
+const PLACEHOLDER_SELECTOR = '.js-affix-placeholder';
 
 export class FeFStickyHeader {
 
@@ -28,40 +29,41 @@ export class FeFStickyHeader {
         // not home
         if (!this.$masthead.hasClass('masthead--home')) {
             shouldInitializeAffix = true;
-        }
-        else {
-
-            // rtr home - affix on smartphone and tablet
-            if (this.$masthead.hasClass('masthead--longportalnames')) {
+        } else {
+            if (this.$masthead.hasClass('masthead--longportalnames')) { // rtr home - affix on smartphone and tablet
                 if (FefResponsiveHelper.isSmartphone() || FefResponsiveHelper.isTablet()) {
                     shouldInitializeAffix = true;
-                }
-                else {
+                } else {
                     shouldInitializeAffix = false;
                 }
-            }
-
-            // srf home - affix on smartphone only
-            else {
+            } else { // srf home - affix on smartphone only
                 if (FefResponsiveHelper.isSmartphone()) {
                     shouldInitializeAffix = true;
-                }
-                else {
+                } else {
                     shouldInitializeAffix = false;
                 }
             }
         }
 
-        if(shouldInitializeAffix) {
+        if (shouldInitializeAffix) {
             $(AFFIX_SELECTOR).affix({offset:{top: this.getAffixMarginTop()}});
+
+            $(AFFIX_SELECTOR).on('affix.bs.affix', (e) => {
+                // when the masthead will be affixed, the placeholder's height is set to the masthead's
+                $(PLACEHOLDER_SELECTOR).css('height', this.$masthead.outerHeight(true));
+            }).on('affixed-top.bs.affix', (e) => {
+                // when the masthead is no longer affixed, the placeholder's height is reset
+                $(PLACEHOLDER_SELECTOR).css('height', '');
+            });
         }
     }
-    /* eslint-disable */
+    /* eslint-enable no-lonely-if */
 
     reInitializeAffix() {
         // make sure that the affix is not registered twice
         $(window).off('.affix');
         $(AFFIX_SELECTOR).removeClass('affix affix-top').removeData('bs.affix');
+        $(AFFIX_SELECTOR).off('affixed-top.bs.affix affix.bs.affix');
 
         this.initializeAffix();
     }

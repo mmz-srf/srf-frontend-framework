@@ -3,8 +3,6 @@
  */
 
 .sticky-container {
-  top: 0;
-  position: absolute;
   z-index: 100;
   transform: translate3d(0,0,0); // this fixes the scroll lag for sticky headers in Safari on iOS
   margin: 0 auto;
@@ -15,72 +13,23 @@
     position: fixed;
     top: 0;
 
+    // undo the padding of the masthead
     @include tablet-up {
-      margin-top: -138px;
+      //margin-top: -8px;
     }
 
-    @include smartphone {
-      margin-top: -106px;
-    }
-  }
-}
-
-.sticky-container--home {
-
-  @include tablet-up {
-    position: fixed;
-  }
-
-  &.affix {
-    @include smartphone {
-      margin-top: -56px;
+    .sticky-container__hidden-when-sticky {
+      display: none;
     }
   }
 }
+
 .sticky-container--longportalnames {
-
   @include tablet {
     position: absolute;
-  }
-
-  @include desktop-up {
-    position: fixed;
-  }
-}
-
-.sticky-container--home.sticky-container--longportalnames.affix {
-  @include tablet {
-    margin-top: -56px;
   }
 }
 
 .affix-top {
   margin-top: 0;
-}
-
-.affix-placeholder {
-  top: 0;
-  height: 162px;
-
-  @include tablet-up {
-    height: 194px;
-  }
-}
-
-.affix-placeholder--home {
-  height: 112px;
-
-  @include tablet-up {
-    height: 80px;
-  }
-}
-
-.affix-placeholder--home.affix-placeholder--longportalnames {
-  @include tablet {
-    height: 112px;
-  }
-}
-
-.affix-placeholder--compact {
-  height: 56px;
 }
