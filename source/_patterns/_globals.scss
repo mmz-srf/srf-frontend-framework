@@ -8,6 +8,8 @@ our own) within the patternlab...
 */
 * {
   box-sizing: border-box;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-touch-callout: none;
 }
 
 html {
@@ -48,13 +50,6 @@ a {
 
   &:active {
     color: $color-link-active;
-  }
-
-  &:hover,
-  &:active,
-  &:focus {
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    -webkit-touch-callout: none;
   }
 }
 
