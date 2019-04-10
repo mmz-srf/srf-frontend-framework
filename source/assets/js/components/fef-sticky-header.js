@@ -31,17 +31,9 @@ export class FeFStickyHeader {
             shouldInitializeAffix = true;
         } else {
             if (this.$masthead.hasClass('masthead--longportalnames')) { // rtr home - affix on smartphone and tablet
-                if (FefResponsiveHelper.isSmartphone() || FefResponsiveHelper.isTablet()) {
-                    shouldInitializeAffix = true;
-                } else {
-                    shouldInitializeAffix = false;
-                }
+                shouldInitializeAffix = FefResponsiveHelper.isSmartphone() || FefResponsiveHelper.isTablet();
             } else { // srf home - affix on smartphone only
-                if (FefResponsiveHelper.isSmartphone()) {
-                    shouldInitializeAffix = true;
-                } else {
-                    shouldInitializeAffix = false;
-                }
+                shouldInitializeAffix = FefResponsiveHelper.isSmartphone();
             }
         }
 
@@ -51,9 +43,11 @@ export class FeFStickyHeader {
             $(AFFIX_SELECTOR).on('affix.bs.affix', (e) => {
                 // when the masthead will be affixed, the placeholder's height is set to the masthead's
                 $(PLACEHOLDER_SELECTOR).css('height', this.$masthead.outerHeight(true));
+                this.$masthead.addClass('masthead--affixed');
             }).on('affixed-top.bs.affix', (e) => {
                 // when the masthead is no longer affixed, the placeholder's height is reset
                 $(PLACEHOLDER_SELECTOR).css('height', '');
+                this.$masthead.removeClass('masthead--affixed');
             });
         }
     }

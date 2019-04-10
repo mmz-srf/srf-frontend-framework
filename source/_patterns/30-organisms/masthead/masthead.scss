@@ -86,6 +86,10 @@
   }
 }
 
+.masthead--affixed {
+  padding-top: 0px;
+}
+
 .masthead__wrapper {
   max-width: $content-width;
   margin: 0 auto;
@@ -197,7 +201,6 @@
 }
 
 .masthead--home {
-  position: fixed;
   width: 100%;
   top: 0;
 
@@ -206,6 +209,7 @@
       display: none;
     }
   }
+
   @include tablet-up {
     padding-top: 12px;
     padding-bottom: 12px;

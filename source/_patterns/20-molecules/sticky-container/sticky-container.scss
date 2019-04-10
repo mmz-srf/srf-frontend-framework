@@ -13,23 +13,8 @@
     position: fixed;
     top: 0;
 
-    // undo the padding of the masthead
-    @include tablet-up {
-      //margin-top: -8px;
-    }
-
     .sticky-container__hidden-when-sticky {
       display: none;
     }
   }
-}
-
-.sticky-container--longportalnames {
-  @include tablet {
-    position: absolute;
-  }
-}
-
-.affix-top {
-  margin-top: 0;
 }
