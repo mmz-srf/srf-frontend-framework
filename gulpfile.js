@@ -4,7 +4,7 @@
 var gulp = require('gulp'),
     gulpLoadPlugins = require('gulp-load-plugins'),
     del = require('del'),
-    runSequence = require('run-sequence'),
+    runSequence = require('gulp4-run-sequence'),
     browserSync = require('browser-sync'),
     babel = require('babelify'),
     browserify = require('browserify'),
@@ -26,14 +26,12 @@ var reload = browserSync.reload;
 var DEST = 'public';
 var AUTOPREFIXER_BROWSERS = [
     'ie >= 11',
-    'ie_mob >= 11',
     'ff >= 30',
     'chrome >= 34',
-    'safari >= 7',
+    'safari >= 9',
     'opera >= 23',
-    'ios >= 8',
-    'android >= 4.4',
-    'bb >= 10'
+    'ios >= 9',
+    'android >= 4.4'
 ];
 
 const FRONTIFY_PROJECT_ID = '28',
@@ -93,7 +91,7 @@ gulp.task('scripts-vendor', function() {
 });
 
 gulp.task('images', function() {
-    gulp.src('source/assets/img/**/*')
+    return gulp.src('source/assets/img/**/*')
         .pipe(imagemin([
             imagemin.gifsicle(),
             imagemin.optipng(),
@@ -124,7 +122,7 @@ gulp.task('copy-critical-js', function() {
 });
 
 gulp.task('serve', function() {
-  browserSync({
+  return browserSync({
     notify: false,
     port: 8081,
     server: {
@@ -152,15 +150,16 @@ gulp.task('patternlab-export', function (cb) {
 });
 
 gulp.task('watch', function(cb) {
-    gulp.watch('source/_patterns/**/*.scss', ['styles'], reload);
-    gulp.watch('source/assets/js/**/*.js', ['scripts'], reload);
-    gulp.watch('source/assets/!(img)/**/*', ['copy'], reload);
-    gulp.watch('source/assets/img/**/*', ['images'], reload);
-    exec('php core/console --watch --patternsonly', function (err, stdout, stderr) {
-        console.log(stdout);
-        console.log(stderr);
-        cb(err);
-    });
+        gulp.watch('source/_patterns/**/*.scss', gulp.series('styles', done => {reload(); done()})),
+        gulp.watch('source/assets/js/**/*.js', gulp.series('scripts', done => {reload(); done()})),
+        gulp.watch('source/assets/!(img)/**/*', gulp.series('copy', done => {reload(); done()})),
+        gulp.watch('source/assets/img/**/*', gulp.series('images', done => {reload(); done()})),
+        exec('php core/console --watch --patternsonly', function (err, stdout, stderr) {
+            console.log(stdout);
+            console.log(stderr);
+            cb(err);
+        });
+    cb();
 });
 
 gulp.task('build', function(cb) {
@@ -170,11 +169,6 @@ gulp.task('build', function(cb) {
         ['copy', 'copy-critical-js', 'images', 'styles', 'scripts', 'scripts-vendor'],
         cb
     );
-});
-
-gulp.task('gh-pages-deploy', function() {
-    return gulp.src('public/**/*')
-        .pipe($.ghPages());
 });
 
 gulp.task('js-lint', () => {
@@ -270,16 +264,10 @@ gulp.task('frontify', function() {
     );
 });
 
-gulp.task('deploy', function() {
+gulp.task('default', function(callback) {
     runSequence(
         ['build'],
-        ['gh-pages-deploy']
-    );
-});
-
-gulp.task('default', function() {
-    runSequence(
-        ['build'],
-        ['serve', 'watch']
+        ['serve', 'watch'],
+        callback
     );
 });

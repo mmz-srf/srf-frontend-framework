@@ -1,0 +1,17 @@
+{% embed 'templates-landingpage' %}
+    {% block landingpage_content %}
+        {% for collection in collections %}
+
+            {% set currentVariation = random([ 'showBroadcastInfo', 'showOpinion', 'showScoreboard' ]) %}
+
+            {% include 'organisms-collection' with {
+                'collection': collection,
+                'showBroadcastInfo': currentVariation is same as ('showBroadcastInfo'),
+                'showOpinion': currentVariation is same as ('showOpinion'),
+                'showScoreboard': currentVariation is same as  ('showScoreboard'),
+                'showLinks': false
+                }
+            %}
+        {% endfor %}
+    {% endblock %}
+{% endembed %}

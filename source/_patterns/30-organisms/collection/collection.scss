@@ -675,6 +675,28 @@ $background-overlap-wide: 50px;
   }
 }
 
+.collection--branded-dark {
+  .collection__title,
+  .collection__lead,
+  .collection__title-link,
+  .collection__link {
+    color: $color-text-branded-dark;
+  }
+
+  .collection__title-link-icon,
+  .collection__link-icon {
+    @include caret('dark', 'right', 'medium');
+  }
+
+  .swipeable-area__button--forward span {
+    @include caret('dark', 'right', 'large');
+  }
+
+  .swipeable-area__button--back span {
+    @include caret('dark', 'left', 'large');
+  }
+}
+
 // Borderless:
 // No title, lead, links, etc.
 // No padding and only one teaser per row on all sizes

@@ -7,9 +7,6 @@
 
 export function init() {
     objectFitForIE();
-
-    replaceSVGLogoForIE();
-
     addFixedforIEClass();
 }
 
@@ -26,8 +23,8 @@ function copyPropertiesFromOldImage(oldImg, fakeImg, objectFitVal) {
     fakeImg.style.backgroundPosition = 'center center';
     fakeImg.style.backgroundRepeat = 'no-repeat';
     fakeImg.className = imageClasses + ' js-fake-image-object-fit';
-
 }
+
 function getObjectFitValue(elem) {
     let objectFitVal = 'contain';
 
@@ -36,11 +33,9 @@ function getObjectFitValue(elem) {
     }
 
     return objectFitVal;
-
 }
 
 export function polyfillObjectFit(element) {
-
     //only do something if there is no objectFit
     if ('objectFit' in document.documentElement.style ) {
         return;
@@ -58,7 +53,6 @@ export function polyfillObjectFit(element) {
     let objectFitVal = getObjectFitValue(element);
 
     if (objectFitVal === 'contain' || objectFitVal === 'cover') {
-
         let fakeImg = document.createElement('div');
 
         element.parentNode.insertBefore(fakeImg, element.parentNode.childNodes[0]);
@@ -72,24 +66,22 @@ export function polyfillObjectFit(element) {
         });
 
         copyPropertiesFromOldImage(element, fakeImg, objectFitVal);
-
     }
-
 }
-function objectFitForIE() {
 
-    /*
-    * TARGETED BROWSER: IE 11 and Edge <= 15
-    *
-    * This one is a object-fit-Fallback for Browsers not supporting object-fit --> IE 11 and Edge <= 15.
-    *
-    * It checks what kind of object-fit is used on the img ('contain' or 'cover') and sets the appropriate alternative
-    * BackgroundSize. Except in Edge, where we set the 'contain'-value per default (because we use 'contain' more often
-    * than 'cover' in the RA). We do this, because Edge does not let us read out the value of the prop it does not
-    * understand (object-fit) - unlike good-old IE.
-    * Additionally, a load-event-listener is bound to the image. If the source is changed (e.g. in image galleries,
-    * where images after the 2nd are only loaded on interaction with the gallery), we do the same procedure again.
-    */
+function objectFitForIE() {
+    /**
+     * TARGETED BROWSER: IE 11 and Edge <= 15
+     *
+     * This one is a object-fit-Fallback for Browsers not supporting object-fit --> IE 11 and Edge <= 15.
+     *
+     * It checks what kind of object-fit is used on the img ('contain' or 'cover') and sets the appropriate alternative
+     * BackgroundSize. Except in Edge, where we set the 'contain'-value per default (because we use 'contain' more often
+     * than 'cover' in the RA). We do this, because Edge does not let us read out the value of the prop it does not
+     * understand (object-fit) - unlike good-old IE.
+     * Additionally, a load-event-listener is bound to the image. If the source is changed (e.g. in image galleries,
+     * where images after the 2nd are only loaded on interaction with the gallery), we do the same procedure again.
+     */
 
     if ('objectFit' in document.documentElement.style === false) {
 
@@ -102,7 +94,8 @@ function objectFitForIE() {
                 '.media-still__image',
                 '.teaser:not(.teaser--with-medium) .teaser__medium-wrapper', // teaser--with-medium do also contain a media-still__image!
                 '.teaser__longform-medium',
-                '.meteo-anchorman-image'
+                '.meteo-anchorman-image',
+                '.onairnav-list__element .teaser__medium' // livestreams in onair-flyout
             ],
             containers = document.querySelectorAll( relevantClasses.join(', ') );
 
@@ -130,25 +123,6 @@ function addFixedforIEClass() {
         }
     }
 }
-
-
-/*
- * TARGETED BROWSER: IE 11
- *
- * IE11 _sometimes_ has problems with scaled images with svg sources. The usual remedies (viewbox, no widths, etc.)
- * didn't help. This is the last resort - hiding the img and setting a background-image on the parent.
- */
-function replaceSVGLogoForIE() {
-    if (navigator.userAgent.indexOf('MSIE')!==-1 || navigator.appVersion.indexOf('Trident/') > 0) {
-        let bu = document.body.getAttribute('data-bu');
-        let fixClassNames = (bu === 'rtr') ? 'header-startlink--fixed-for-ie header-startlink--fixed-for-ie-rtr' : 'header-startlink--fixed-for-ie';
-
-        if(document.getElementsByClassName('header-startlink').length > 0) {
-            document.getElementsByClassName('header-startlink')[0].classList.add(fixClassNames);
-        }
-    }
-}
-
 
 /*
  * TARGETED BROWSER: IE 11

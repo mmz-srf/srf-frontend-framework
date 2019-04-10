@@ -1,0 +1,29 @@
+{
+    "bodyClass": "body--loading",
+    "criticalCssOnly": true,
+    "criticalCssFile": "c_landingpage.css",
+    "themeStyleModifier": "masthead--theme-meteo",
+    "collections": [
+        {
+            "styleModifier": "collection--hero collection--branded",
+            "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+            "teasers": [
+                {},
+                null,
+                null,
+                null,
+                null
+            ]
+        },
+        {
+            "styleModifier": "collection--standard collection--branded",
+            "teasers": [
+                {},
+                {},
+                {},
+                null,
+                null
+            ]
+        }
+    ]
+}
