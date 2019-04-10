@@ -50,16 +50,19 @@ export class FefSwipeableArea {
 
     initOnce() {
         this.initItemCheck();
-        this.registerListeners();
+        this.registerGeneralListeners();
     }
 
     init() {
-        this.markItems();
-
-        if (FefResponsiveHelper.isDesktopUp()) {
+        if (FefResponsiveHelper.isDesktopUp() && !FefTouchDetection.isTouchSupported()) {
+            this.registerDesktopListeners();
+            this.markItems();
             this.addButtons();
             this.updateButtonStatus();
             this.initItemPositions();
+            this.setupHinting();
+        } else {
+            this.deregisterDesktopListeners();
         }
     }
 
@@ -103,15 +106,26 @@ export class FefSwipeableArea {
         });
     }
 
-    registerListeners() {
+    registerGeneralListeners() {
         $(window).on('resize', FefDebounceHelper.debounce(() => this.init(), DEBOUNCETIME));
         $(window).on('srf.styles.loaded', () => this.init());
-
-        this.setupHinting();
-        this.$items.on('click', (event) => this.onTeaserClick(event));
-        this.$innerContainer.on('scroll', FefDebounceHelper.throttle(() => this.markItems(), DEBOUNCETIME));
-        this.$innerContainer.on('scroll', FefDebounceHelper.debounce(() => this.track(), DEBOUNCETIME_SCROLL_TRACKING));
+        this.$innerContainer.on('scroll', FefDebounceHelper.throttle(() => this.track(), DEBOUNCETIME_SCROLL_TRACKING));
     };
+
+    registerDesktopListeners() {
+        this.$items.off('click.srf.swipeable-area').on('click.srf.swipeable-area', (event) => this.onTeaserClick(event));
+        this.$innerContainer.off('scroll.srf.swipeable-area').on('scroll.srf.swipeable-area', FefDebounceHelper.debounce(() => this.scrollHandlerDesktop(), DEBOUNCETIME));
+    }
+
+    deregisterDesktopListeners() {
+        this.$items.off('click.srf.swipeable-area');
+        this.$innerContainer.off('scroll.srf.swipeable-area');
+    }
+
+    scrollHandlerDesktop() {
+        this.markItems();
+        this.updateButtonStatus();
+    }
 
     addButtons() {
         // making sure to add the buttons only once
@@ -120,8 +134,6 @@ export class FefSwipeableArea {
             this.$buttonForward = $(`<div class='${FORWARD_BUTTON_CLASS}'><span></span></div>`);
 
             this.$element.append(this.$buttonBack, this.$buttonForward);
-
-            this.$innerContainer.on('scroll', FefDebounceHelper.debounce(() => this.updateButtonStatus(), DEBOUNCETIME));
         }
     }
 
@@ -147,12 +159,13 @@ export class FefSwipeableArea {
      * Hovering over an item can trigger the hinting mechanism, if it's
      * partially visible.
      *
+     *
      * @param {jQery.event} event
      */
     onTeaserHover(event) {
         let $item = $(event.currentTarget);
 
-        if (!$item.hasClass(this.hiddenClass) || !FefResponsiveHelper.isDesktopUp()) {
+        if (!$item.hasClass(this.hiddenClass)){
             return;
         }
 
@@ -171,7 +184,7 @@ export class FefSwipeableArea {
     onTeaserClick(event) {
         let $item = $(event.currentTarget);
 
-        if (!$item.hasClass(this.hiddenClass) || !FefResponsiveHelper.isDesktopUp()) {
+        if (!$item.hasClass(this.hiddenClass)) {
             return;
         }
 
@@ -200,7 +213,7 @@ export class FefSwipeableArea {
      */
     updateButtonStatus() {
         // show forward/back buttons if needed
-        if (this.hasScrollableOverflow() && FefResponsiveHelper.isDesktopUp()) {
+        if (this.hasScrollableOverflow()) {
             this.$buttonForward.toggleClass(BUTTON_ACTIVE_CLASS, !this.isAtScrollEnd());
             this.$buttonBack.toggleClass(BUTTON_ACTIVE_CLASS, !this.isAtScrollBeginning());
         }
@@ -278,22 +291,20 @@ export class FefSwipeableArea {
         // scroll to one direction anymore, remove the hinting. We could
         // do this in the callback of animate, but if it happens
         // when starting the animation, it's less janky.
-        if (FefResponsiveHelper.isDesktopUp()) {
-            let willBeOutOfBoundsOnAnySide = false;
+        let willBeOutOfBoundsOnAnySide = false;
 
-            if (position <= 0) {
-                willBeOutOfBoundsOnAnySide = true;
-                this.$buttonBack.removeClass(BUTTON_ACTIVE_CLASS);
-            }
+        if (position <= 0) {
+            willBeOutOfBoundsOnAnySide = true;
+            this.$buttonBack.removeClass(BUTTON_ACTIVE_CLASS);
+        }
 
-            if (position + this.$innerContainer.innerWidth() >= this.$innerContainer[0].scrollWidth) {
-                willBeOutOfBoundsOnAnySide = true;
-                this.$buttonForward.removeClass(BUTTON_ACTIVE_CLASS);
-            }
+        if (position + this.$innerContainer.innerWidth() >= this.$innerContainer[0].scrollWidth) {
+            willBeOutOfBoundsOnAnySide = true;
+            this.$buttonForward.removeClass(BUTTON_ACTIVE_CLASS);
+        }
 
-            if (willBeOutOfBoundsOnAnySide) {
-                this.applyHint(0);
-            }
+        if (willBeOutOfBoundsOnAnySide) {
+            this.applyHint(0);
         }
     }
 
