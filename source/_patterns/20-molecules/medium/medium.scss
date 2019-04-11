@@ -29,7 +29,7 @@
 .medium__object {
   flex-shrink: 0;
   width: 196px;
-  background-color: #000;
+  background-color: $color-bg-media;
 
   @include smartphone {
     margin: 16px 0 16px 24px;
@@ -60,6 +60,7 @@
   background-color: #000;
 }
 
+.medium--fullwidth-element,
 .medium--vertical {
   flex-direction: column;
 
@@ -81,15 +82,38 @@
       padding: 8px 12px;
     }
   }
+  .media-still__image,
+  .image-figure__image
+  {
+    opacity: 1;
+    transition: opacity .2s ease-in-out;
+    height: auto;
+    padding-top: 0;
 
+  }
   .medium__caption {
     display: block;
     width: 100%;
     flex-basis: auto;
+    opacity: 1;
+    min-height: auto;
   }
 
   .media-caption--audio {
     padding: 12px $article-offset;
+  }
+}
+
+.medium--fullwidth-element.medium--fullwidth-element {
+  margin: 0;
+
+  .media-still,
+  .media-caption {
+    max-width: 1023px;
+    margin: 0 auto;
+    @include desktop-up {
+      max-width: 728px;
+    }
   }
 }
 
