@@ -2,7 +2,7 @@
 {% include 'atoms-skiplink' %}
 <h1 class="h-offscreen">{{ title }}</h1>
 
-<div class="affix-placeholder affix-placeholder--{{ headerType }} affix-placeholder--{{ variantModifier }}"></div>
+<div class="affix-placeholder affix-placeholder--{{ headerType }} affix-placeholder--{{ variantModifier }} js-affix-placeholder"></div>
 
 {% if headerType == "home" %}
     <div class="sticky-container sticky-container--{{ headerType }} sticky-container--{{ variantModifier }} affix-top js-affix">
@@ -16,7 +16,9 @@
     <div class="sticky-container affix-top js-affix">
         {% include 'organisms-masthead' with {
             "themeStyleModifier": themeStyleModifier,
-            "title": title
+            "title": title,
+            "mastheadUniversalModifier": "sticky-container__hidden-when-sticky",
+            "mastheadTitleModifier": "sticky-container__hidden-when-sticky"
         } %}
     </div>
 {% endif %}

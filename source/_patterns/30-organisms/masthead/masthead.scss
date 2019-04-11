@@ -208,6 +208,12 @@
     .masthead__portals {
       display: none;
     }
+
+    &.masthead--affixed {
+      .masthead__universal {
+        display: none;
+      }
+    }
   }
 
   @include tablet-up {
@@ -237,6 +243,7 @@
       display: none;
     }
   }
+  
   @include tablet-up {
     .masthead__nav {
       display: block;
@@ -246,6 +253,7 @@
       flex-grow: 1;
     }
   }
+
   @include desktop-up {
     .masthead__portals {
       display: flex;
@@ -258,6 +266,15 @@
 }
 
 .masthead--home.masthead--longportalnames {
+
+  @include desktop-down {
+    &.masthead--affixed {
+      .masthead__universal {
+        display: none;
+      }
+    }
+  }
+
   @include tablet-up {
     padding-top: 0;
     padding-bottom: 0;

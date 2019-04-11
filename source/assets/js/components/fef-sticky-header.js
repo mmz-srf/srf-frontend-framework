@@ -10,6 +10,8 @@ export function init() {
 const DEBOUNCE_TIME = 100;
 const AFFIX_SELECTOR = '.js-affix';
 const PLACEHOLDER_SELECTOR = '.js-affix-placeholder';
+const AFFIX_EVENT_START = 'affix.bs.affix';
+const AFFIX_EVENT_STOP = 'affixed-top.bs.affix';
 
 export class FeFStickyHeader {
 
@@ -24,49 +26,84 @@ export class FeFStickyHeader {
 
     /* eslint-disable no-lonely-if */
     initializeAffix() {
-        let shouldInitializeAffix = false;
+        let offsetTop = this.getAffixOffsetTop();
 
-        // not home
-        if (!this.$masthead.hasClass('masthead--home')) {
-            shouldInitializeAffix = true;
-        } else {
-            if (this.$masthead.hasClass('masthead--longportalnames')) { // rtr home - affix on smartphone and tablet
-                shouldInitializeAffix = FefResponsiveHelper.isSmartphone() || FefResponsiveHelper.isTablet();
-            } else { // srf home - affix on smartphone only
-                shouldInitializeAffix = FefResponsiveHelper.isSmartphone();
+        // home: offset is 0 on tablet+
+        // home + longportalnames: offset is 0 on desktop+
+        if (this.$masthead.hasClass('masthead--home')) {
+            const isRTRHomeAndDesktopUp = this.$masthead.hasClass('masthead--longportalnames') && FefResponsiveHelper.isDesktopUp();
+            const isSRFHomeAndTabletUp = !this.$masthead.hasClass('masthead--longportalnames') && FefResponsiveHelper.isTabletUp();
+
+            if (isRTRHomeAndDesktopUp || isSRFHomeAndTabletUp) {
+                offsetTop = 0;
             }
         }
 
-        if (shouldInitializeAffix) {
-            $(AFFIX_SELECTOR).affix({offset:{top: this.getAffixMarginTop()}});
-
-            $(AFFIX_SELECTOR).on('affix.bs.affix', (e) => {
-                // when the masthead will be affixed, the placeholder's height is set to the masthead's
-                $(PLACEHOLDER_SELECTOR).css('height', this.$masthead.outerHeight(true));
-                this.$masthead.addClass('masthead--affixed');
-            }).on('affixed-top.bs.affix', (e) => {
-                // when the masthead is no longer affixed, the placeholder's height is reset
-                $(PLACEHOLDER_SELECTOR).css('height', '');
-                this.$masthead.removeClass('masthead--affixed');
-            });
+        // if already affixed, make sure the placeholder's height is correct
+        if (this.$masthead.hasClass('masthead--affixed')) {
+            $(PLACEHOLDER_SELECTOR).css('height', this.getMastheadHeight());
         }
+
+        $(AFFIX_SELECTOR)
+            .affix({offset:{top: offsetTop}})
+            .on(AFFIX_EVENT_START, (_) => this.onMastheadAffix())
+            .on(AFFIX_EVENT_STOP, (_) => this.onMastheadUnaffix());
     }
     /* eslint-enable no-lonely-if */
+
+    onMastheadAffix() {
+        // when the masthead will be affixed, the placeholder's height is set to the masthead's
+        $(PLACEHOLDER_SELECTOR).css('height', this.getMastheadHeight());
+        this.$masthead.addClass('masthead--affixed');
+    }
+
+    onMastheadUnaffix() {
+        // when the masthead is no longer affixed, the placeholder's height is reset
+        $(PLACEHOLDER_SELECTOR).css('height', '');
+        this.$masthead.removeClass('masthead--affixed');
+    }
 
     reInitializeAffix() {
         // make sure that the affix is not registered twice
         $(window).off('.affix');
         $(AFFIX_SELECTOR).removeClass('affix affix-top').removeData('bs.affix');
-        $(AFFIX_SELECTOR).off('affixed-top.bs.affix affix.bs.affix');
+        $(AFFIX_SELECTOR).off(`${AFFIX_EVENT_START} ${AFFIX_EVENT_STOP}`);
 
         this.initializeAffix();
     }
 
-    getAffixMarginTop() {
+    getAffixOffsetTop() {
+        let offsetTop = this.getMastheadHeight();
+
+        // subtract navigation's height if it exists
         if (this.$mastheadNav.outerHeight() !== undefined) {
-            return this.$masthead.outerHeight() - this.$mastheadNav.outerHeight() ;
-        } else {
-            return this.$masthead.outerHeight();
+            offsetTop -= this.$mastheadNav.outerHeight();
         }
+
+        return offsetTop;
+    }
+
+    /**
+     * When resizing, it's possible that elements in the masthead are hidden
+     * that have an influence on the offset. That's why we check if the
+     * masthead is currently affixed and thus might have hidden elements.
+     * If so, we quickly show them before measuring the height and then hide
+     * them again immediately.
+     */
+    getMastheadHeight() {
+        const isAffixed = this.$masthead.hasClass('masthead--affixed');
+        let height = 0;
+
+        if (isAffixed) {
+            this.$masthead.removeClass('masthead--affixed');
+        }
+
+        height = this.$masthead.outerHeight(true);
+
+        if (isAffixed) {
+            this.$masthead.addClass('masthead--affixed');
+        }
+
+        return height;
     }
 }
