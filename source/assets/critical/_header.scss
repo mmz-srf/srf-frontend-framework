@@ -5,10 +5,6 @@
 /* sticky container */
 @import '../../_patterns/20-molecules/sticky-container/sticky-container';
 
-.affix-placeholder--compact {
-  height: 56px;
-}
-
 .masthead {
   height: 194px;
 
@@ -60,6 +56,13 @@
   padding-top: 0;
 }
 
+.affix-placeholder--compact {
+  height: 56px;
+
+  @include tablet-up {
+    height: 72px;
+  }
+}
 
 .masthead__universal {
   display: flex;
