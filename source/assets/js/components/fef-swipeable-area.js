@@ -12,7 +12,7 @@ const HOOK_CLASS = 'js-swipeable-area',
     BUTTON_BACK_THRESHOLD = 2,
     RIGHT_OFFSET = 24,
     DEFAULT_SCROLL_TIME = 400,
-    DEBOUNCETIME = 50,
+    DEBOUNCETIME = 75,
     DEBOUNCETIME_SCROLL_TRACKING = 1000,
     HINT_AMOUNT = 20,
     MINIMUM_HEIGHT = 50;
@@ -63,6 +63,7 @@ export class FefSwipeableArea {
             this.setupHinting();
         } else {
             this.deregisterDesktopListeners();
+            this.disableHinting();
         }
     }
 
@@ -113,13 +114,13 @@ export class FefSwipeableArea {
     };
 
     registerDesktopListeners() {
-        this.$items.off('click.srf.swipeable-area').on('click.srf.swipeable-area', (event) => this.onTeaserClick(event));
-        this.$innerContainer.off('scroll.srf.swipeable-area').on('scroll.srf.swipeable-area', FefDebounceHelper.debounce(() => this.scrollHandlerDesktop(), DEBOUNCETIME));
+        this.$items.off('click.srf.swipeable-area-desktop').on('click.srf.swipeable-area-desktop', (event) => this.onTeaserClick(event));
+        this.$innerContainer.off('scroll.srf.swipeable-area-desktop').on('scroll.srf.swipeable-area-desktop', FefDebounceHelper.throttle(() => this.scrollHandlerDesktop(), DEBOUNCETIME));
     }
 
     deregisterDesktopListeners() {
-        this.$items.off('click.srf.swipeable-area');
-        this.$innerContainer.off('scroll.srf.swipeable-area');
+        this.$items.off('click.srf.swipeable-area-desktop');
+        this.$innerContainer.off('scroll.srf.swipeable-area-desktop');
     }
 
     scrollHandlerDesktop() {
@@ -149,10 +150,13 @@ export class FefSwipeableArea {
             return;
         }
 
-        this.$items.hover(
-            (event) => this.onTeaserHover(event),
-            (_) => this.applyHint(0)
-        );
+        this.$items.on('mouseenter.srf.swipeable-area-desktop', (event) => this.onTeaserHover(event));
+        this.$items.on('mouseleave.srf.swipeable-area-desktop', (_) => this.applyHint(0));
+    }
+
+    disableHinting() {
+        this.$items.off('mouseenter.srf.swipeable-area-desktop');
+        this.$items.off('mouseleave.srf.swipeable-area-desktop');
     }
 
     /**
@@ -165,7 +169,7 @@ export class FefSwipeableArea {
     onTeaserHover(event) {
         let $item = $(event.currentTarget);
 
-        if (!$item.hasClass(this.hiddenClass)){
+        if (!$item.hasClass(this.hiddenClass)) {
             return;
         }
 
