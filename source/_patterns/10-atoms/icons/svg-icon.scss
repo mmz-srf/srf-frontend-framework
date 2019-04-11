@@ -27,6 +27,10 @@
   }
 }
 
+.svg-icon--arrow-red-down-tiny {
+  @include caret('red', 'down', 'tiny');
+}
+
 .svg-icon--arrow-down-tiny {
   @include caret('grey', 'down', 'tiny');
 }
@@ -41,6 +45,10 @@
 
 .svg-icon--arrow-left {
   @include caret('grey', 'left', 'medium');
+}
+
+.svg-icon--arrow-red-up-tiny {
+  @include caret('red', 'up', 'tiny');
 }
 
 .svg-icon--arrow-up {
