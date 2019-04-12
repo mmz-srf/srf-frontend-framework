@@ -31,24 +31,6 @@
                 </h4>
                 <span class="teaser__title">{{ teaser.title|default('') }}</span>
                 <p class="teaser__lead">{{ teaser.lead|default('') }}</p>
-
-                {% set infoStyleModifier = infoStyleModifier|default('') %}
-                {% if 'teaser--size-l' in styleModifier or 'teaser--size-xl' in styleModifier %}
-                    {% set infoStyleModifier = infoStyleModifier ~ ' teaser-info--size-large' %}
-                {% endif %}
-
-                <div class="teaser-info-wrapper">
-                    <div class="teaser-info-innerwrapper">
-                    {% include 'atoms-teaser-info' with {
-                        'type': infoType,
-                        'styleModifier': infoStyleModifier,
-                        'text': infoText|default(''),
-                        'mediaDuration': infoMediaDuration,
-                        'mediaSource': infoMediaSource,
-                        'mediaTime': infoMediaTime
-                    } %}
-                    </div>
-                </div>
             </div>
         </a>
         {# TEASER LINKS #}
