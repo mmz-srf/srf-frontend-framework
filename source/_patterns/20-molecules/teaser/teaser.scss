@@ -875,10 +875,6 @@
     }
   }
 
-  .teaser--longform__links {
-    background-color: rgba(0, 0, 0, .6);
-  }
-
   .block-link--teaser-link {
     filter: brightness(100);
   }
@@ -886,34 +882,72 @@
 
 // Longform Teaser in XL format has some special properties:
 .teaser--longform.teaser--size-xl {
+  .teaser__fullsize-link {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+
+  @include smartphone {
+    .teaser__fullsize-link {
+      display: none;
+    }
+  }
 
   @include tablet-up {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: stretch;
+
     // enforce 16:9 ratio or higher (of image part)
     &::before {
       padding-top: 36.984375%; // 9/16 * 65.75%
     }
 
-    .teaser__main {
-      flex-direction: row;
-      align-content: stretch;
-      justify-items: flex-end;
-      display: flex;
-    }
-
-    .teaser__content {
-      flex: 0 0 calc(100% - #{$teaser-xl-medium-ratio});
+    .teaser__main-wrapper {
+      flex: 0 0 34.25%;
+      position: relative;
+      background-color: rgba(0,0,0, .6);
       // subpixel rendering makes the content stick out of the teaser
-      // sometimes - with the 2px negative bottom margin and additional
-      // 2px padding at the bottom this is prevented.
-      padding: 32px 24px #{32px + 2px} 32px;
+      // sometimes - with the 2px negative bottom margin and 2px padding
+      // at the bottom this is prevented.
+      padding-bottom: 2px;
       margin-bottom: -2px;
 
       &::before {
+        position: absolute;
+        content: '';
         background-image: linear-gradient(to right, rgba(0,0,0,0), rgba(0,0,0,0.6));
         width: 80px;
         height: 100%;
         top: 0;
         left: -80px;
+      }
+    }
+
+    .teaser__main {
+      display: flex;
+      flex-direction: column;
+      align-content: stretch;
+      justify-items: flex-end;
+    }
+
+    .teaser__content {
+      flex: 1 1 auto;
+      padding: 32px 24px 32px 32px;
+      background-color: transparent;
+    }
+
+    .teaser__links {
+      position: relative;
+      width: initial;
+      background-color: transparent;
+
+      &::before {
+        content: none;
       }
     }
   }
