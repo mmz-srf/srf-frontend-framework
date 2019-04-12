@@ -804,28 +804,37 @@
 
 .teaser--longform {
   position: relative; // necessary to position medium (see 2 lines below)
+  background-color: $color-image-dummy;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+
+  // todo:
+  .teaser__image-loader {
+    display: none;
+  }
+
+  // enforce 1:1 ratio or higher
+  &::before {
+    content: "";
+    width: 1px;
+    margin-left: -1px;
+    float: left;
+    height: 0;
+    padding-top: 100%;
+  }
+
+  .teaser__main-wrapper {
+    display: flex;
+    align-items: stretch;
+    flex-direction: column;
+    justify-content: flex-end;
+    flex: 1 1 auto;
+  }
+
   // necessary to have a translucent background (contrary to the default dark teaser)
   &.teaser.teaser--theme-dark {
     --teaser-color-background: transparent;
-  }
-
-  &.teaser--size-xl {
-    .teaser__longform-medium {
-      .image--media-still-dynamic {
-        height: 100%;
-      }
-    }
-  }
-
-  .teaser__longform-medium {
-    background-color: $color-image-dummy;
-    position: absolute;
-    z-index: 0;
-    // fill the whole container (width: 100% / height: 100% does not work in safari)
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
   }
 
   // Longform teasers have the dark theme (see _teaser-theme-settings.scss) but the kicker is white.
@@ -865,9 +874,11 @@
       background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6));
     }
   }
+
   .teaser--longform__links {
     background-color: rgba(0, 0, 0, .6);
   }
+
   .block-link--teaser-link {
     filter: brightness(100);
   }
@@ -875,22 +886,22 @@
 
 // Longform Teaser in XL format has some special properties:
 .teaser--longform.teaser--size-xl {
-  .svg-ratio-enforcer--xl-teaser {
-    display: none;
-  }
 
   @include tablet-up {
+    // enforce 16:9 ratio or higher (of image part)
+    &::before {
+      padding-top: 36.984375%; // 9/16 * 65.75%
+    }
+
     .teaser__main {
       flex-direction: row;
       align-content: stretch;
-      height: 100%;
-      width: 100%;
       justify-items: flex-end;
       display: flex;
     }
 
     .teaser__content {
-      width: calc(100% - #{$teaser-xl-medium-ratio});
+      flex: 0 0 calc(100% - #{$teaser-xl-medium-ratio});
       padding: 32px 24px 32px 32px;
 
       &::before {
@@ -901,43 +912,8 @@
         left: -80px;
       }
     }
-
-    .svg-ratio-enforcer {
-      display: none;
-    }
-
-    .svg-ratio-enforcer--xl-teaser {
-      display: block;
-    }
   }
 }
-
-.teaser__main-outer-wrapper {
-  width: 100%;
-  display: grid;
-  position: relative;
-  z-index: 1;
-  flex-grow: 1;
-
-  grid-template-columns: 100%;
-  grid-template-rows: 100%;
-
-  > * {
-    grid-row-start: 1;
-    grid-column-start: 1;
-    grid-row-end: 2;
-    grid-column-end: 2;
-  }
-}
-
-.teaser__main-inner-wrapper {
-  display: flex;
-  align-items: stretch;
-  flex-direction: column;
-  justify-content: flex-end;
-  height: 100%;
-}
-/* autoprefixer grid: off */
 
 // Change icon when video is playing
 .teaser--video-playing {
@@ -945,9 +921,11 @@
     &::after {
       background-image: url("../img/icon/stop-video.svg");
     }
-
+    
     &:hover {
       background-image: url("../img/icon/stop-video.svg");
     }
   }
 }
+
+/* autoprefixer grid: off */
