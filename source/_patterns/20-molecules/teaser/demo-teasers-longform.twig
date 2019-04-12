@@ -34,7 +34,15 @@
 
 {% include 'molecules-teaser--longform' with {
     'styleModifier': 'teaser--size-xl',
-    'teaser': collections[0].teasers[0]
+    'teaser': {
+        "title": "Wissenschaftler sagen: Kühe geben Milch. Stadtbewohner erstaunt und entrüstet: 'Igitt!'",
+        "styleModifier": "teaser--longform",
+        "kicker": "Milchsee",
+        "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+        "link": "#",
+        "showLinks": true,
+        "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet."
+    }
 } %}
 
 <h2>No Translate</h2>
