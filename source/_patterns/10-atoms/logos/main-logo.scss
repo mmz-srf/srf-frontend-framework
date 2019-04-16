@@ -3,11 +3,32 @@
   height: 24px;
   display: inline-block;
   background: none; /* OVERRIDE CRITICAL CSS */
+  
+  /* We have to scale up the Logo with transform here (from its initial size of 48x32 pixels), due to there is no other way to manipulate an inline SVG size if it is included via <use> */
+  svg {
+    transform: scale(.75);
+    transform-origin: 0 0;
+  }
+
+  @include tablet-up {
+    width: 48px;
+    height: 32px;
+
+    svg {
+      transform: none;
+    }
+  }
 }
 
 .main-logo--large {
   @include tablet-up {
-    width: 48px;
-    height: 32px;
+    width: 60px;
+    height: 40px;
+  }
+
+  /* We have to scale up the Logo with transform here (from its initial size of 48x32 pixels), due to there is no other way to manipulate an inline SVG size if it is included via <use> */
+  svg {
+    transform: scale(1.25);
+    transform-origin: 0 0;
   }
 }
