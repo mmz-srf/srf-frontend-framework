@@ -313,58 +313,6 @@ _:-ms-fullscreen,
   @include font-smoothing;
 }
 
-/*
- * TARGETED BROWSER: Firefox 52 - 60, IE11
- * Older browsers have troubles with the only working method we found for spanning
- * open the longform teasers. To prevent ugly hacks, we give them a min-height.
- */
-.teaser--longform {
-    &.teaser--size-m {
-    @include smartphone {
-      min-height: 289px;
-    }
-    @include tablet {
-      min-height: 263px;
-    }
-    @include desktop {
-      min-height: 299px;
-    }
-    @include desktop-wide {
-      min-height: 374px;
-    }
-  }
-
-  &.teaser--size-l {
-    @include smartphone {
-      min-height: 289px;
-    }
-    @include tablet {
-      min-height: 308px;
-    }
-    @include desktop {
-      min-height: 460px;
-    }
-    @include desktop-wide {
-      min-height: 572px;
-    }
-  }
-
-  &.teaser--size-xl {
-    @include smartphone {
-      min-height: 289px;
-    }
-    @include tablet {
-      min-height: 237px;
-    }
-    @include desktop {
-      min-height: 350px;
-    }
-    @include desktop-wide {
-      min-height: 440px;
-    }
-  }
-}
-
 /**
  * TARGETED BROWSER: Firefox 52 but since that's not easily possible, we target FF < 57 here.
  * Old Firefox version (52) doesn't play nice with the ratio element and grid, which is used

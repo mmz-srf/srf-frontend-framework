@@ -530,7 +530,7 @@
       bottom: 0;
       padding: 0 0 0 24px;
       margin-left: 0;
-      width: 34.25%;
+      width: #{100% - $teaser-xl-medium-ratio};
       @include customPropWithFallback('background-color', '--teaser-color-background', $color-bg-card);
     }
   }
@@ -803,7 +803,6 @@
 }
 
 .teaser--longform {
-  position: relative; // necessary to position medium (see 2 lines below)
   background-color: $color-image-dummy;
   display: flex;
   flex-direction: row;
@@ -856,15 +855,15 @@
   .teaser__content {
     flex-grow: 0;
     flex-basis: auto;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 0, 0, .6);
     padding: 16px;
     @include desktop-wide {
       padding: 24px;
     }
     margin: 0;
-    position: relative;
-    max-width: 100%;
+    position: relative; // necessary to position before (see 2 lines below)
 
+    // vertical gradient between/over image and content ↕️
     &::before {
       content: "";
       position: absolute;
@@ -872,16 +871,18 @@
       bottom: 100%;
       left: 0;
       height: 80px;
-      background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6));
+      background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, .6));
     }
   }
 
+  // teaser-links should have same bg color as main content
   .teaser__links {
     background-color: rgba(0, 0, 0, .6);
     margin: 0;
     padding-left: 16px;
   }
 
+  // makes the icons brigther
   .block-link--teaser-link {
     filter: brightness(100);
   }
@@ -909,21 +910,22 @@
     justify-content: flex-end;
     align-items: stretch;
 
-    // enforce 16:9 ratio or higher (of image part)
+    // enforce 16:9 ratio or higher (ONLY regarding the image, not the content)
     &::before {
-      padding-top: 36.984375%; // 9/16 * 65.75%
+      padding-top: #{$teaser-xl-medium-ratio * 9 / 16}; // 65.75% * 9/16 = 36.984375%
     }
 
     .teaser__main-wrapper {
-      flex: 0 0 34.25%;
+      flex: 0 0 #{100% - $teaser-xl-medium-ratio};
       position: relative;
-      background-color: rgba(0,0,0, .6);
+      background-color: rgba(0, 0, 0, .6);
       // subpixel rendering makes the content stick out of the teaser
       // sometimes - with the 2px negative bottom margin and 2px padding
       // at the bottom this is prevented.
       padding-bottom: 2px;
       margin-bottom: -2px;
 
+      // horizontal gradient between/over image and content ↔️
       &::before {
         position: absolute;
         content: '';
@@ -932,6 +934,9 @@
         height: 100%;
         top: 0;
         left: -80px;
+        // because we use a 2nd fullscreen link, hovering over this gradient
+        // should look like a hover over the 2nd link (.teaser__fullsize-link)
+        pointer-events: none;
       }
     }
 
@@ -944,7 +949,7 @@
 
     .teaser__content {
       flex: 1 1 auto;
-      padding: 32px 24px 32px 32px;
+      padding: 24px 16px;
       background-color: transparent;
     }
 
@@ -956,6 +961,22 @@
       &::before {
         content: none;
       }
+    }
+  }
+
+  @include desktop-up {
+    .teaser__content {
+      padding: 24px;
+    }
+
+    .teaser__links {
+      padding-left: 24px;
+    }
+  }
+
+  @include desktop-wide {
+    .teaser__content {
+      padding: 32px 24px;
     }
   }
 }
