@@ -1,37 +1,59 @@
+<style>
+    .togglable-wrapper {
+        max-width: 100%;
+        transition: max-width .2s ease-in-out;
+    }
+    .teaser-demo-wrapper {
+        max-width: 320px;
+    }
+    .togglable-wrapper--xl.teaser-demo-wrapper {
+        max-width: 640px;
+    }
+    h2 {
+        margin: 20px;
+    }
+</style>
+
+{% include 'atoms-button' with {'buttonText' : 'Max-Width für Teaser setzen', 'styleModifier': 'js-toggle-max-width'} %}
+
 <h2>S-Teaser</h2>
 
 <p>Does not exist</p>
 
 <h2>M-Teaser</h2>
-
+<div class="js-togglable-wrapper togglable-wrapper">
 {% include 'molecules-teaser--longform' with {
     'styleModifier': 'teaser--size-m',
     'teaser': collections[0].teasers[0]
 } %}
+</div>
 
 <h2>M-Teaser which looks like an S-Teaser on Mobile</h2>
-
+<div class="js-togglable-wrapper togglable-wrapper">
 {% include 'molecules-teaser--longform' with {
     "styleModifier": "teaser--size-m teaser--size-s-on-mobile",
     "teaser": collections[0].teasers[0]
 } %}
+</div>
 
 <h2>L-Teaser</h2>
-
+<div class="js-togglable-wrapper togglable-wrapper">
 {% include 'molecules-teaser--longform' with {
     'styleModifier': 'teaser--size-l',
     'teaser': collections[0].teasers[0]
 } %}
+</div>
 
 <h2>L-Teaser which looks like an S-Teaser on Mobile</h2>
-
+<div class="js-togglable-wrapper togglable-wrapper">
 {% include 'molecules-teaser--longform' with {
     "styleModifier": "teaser--size-l teaser--size-s-on-mobile",
     "teaser": collections[0].teasers[0]
 } %}
+</div>
 
 <h2>XL-Teaser</h2>
-
+<div class="js-togglable-wrapper togglable-wrapper togglable-wrapper--xl">
 {% include 'molecules-teaser--longform' with {
     'styleModifier': 'teaser--size-xl',
     'teaser': {
@@ -44,9 +66,10 @@
         "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet."
     }
 } %}
+</div>
 
 <h2>XL-Teaser with links</h2>
-
+<div class="js-togglable-wrapper togglable-wrapper togglable-wrapper--xl">
 {% include 'molecules-teaser--longform' with {
     'styleModifier': 'teaser--size-xl',
     'teaser': {
@@ -59,13 +82,15 @@
         "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet."
     }
 } %}
+</div>
 
 <h2>No Translate</h2>
-
+<div class="js-togglable-wrapper togglable-wrapper">
 {% include 'molecules-teaser--longform' with {
     "styleModifier": "teaser--size-s teaser--no-translate",
     "teaser": collections[0].teasers[0]
 } %}
+</div>
 
 <h2>In collections</h2>
 <h3>Longform as shortest</h3>
@@ -257,3 +282,11 @@
         ]
     }
 } %}
+
+<script>
+    let $btn = $('.js-toggle-max-width'),
+        $togglableWrappers = $('.js-togglable-wrapper');
+    $btn.on('click', () => {
+        $togglableWrappers.toggleClass('teaser-demo-wrapper');
+    });
+</script>
