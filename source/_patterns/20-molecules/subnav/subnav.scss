@@ -33,6 +33,12 @@
   padding: 0;
   margin: 0;
   font-family: $font-regular;
+
+  @include smartphone {
+    &:first-of-type {
+      margin-left: 4px;
+    }
+  }
 }
 
 .subnav__mask {
