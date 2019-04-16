@@ -79,7 +79,7 @@
   color: transparent; // hide alt-text in case image is broken
   position: relative; // for positioning ::pseudo elements
   background-color: $color-image-dummy;
-  align-self: start;
+  align-self: stretch;
   width: 100%;
 
   // border on top of the images
