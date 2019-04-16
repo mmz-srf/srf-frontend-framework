@@ -435,3 +435,15 @@ _:-ms-fullscreen,
 .collection__title-link {
   white-space: pre-wrap;
 }
+
+/**
+ * TARGETED BROWSER: Chrome
+ * When an element with css filter overlaps an element with an animation, there
+ * seems to be a bug in Chrome: https://codepen.io/piko_/pen/pBpjpN?editors=1100
+ */
+.teaser--longform.teaser--with-links {
+  .teaser__main::after {
+    top: 0;
+    height: calc(100% - 1px);
+  }
+}

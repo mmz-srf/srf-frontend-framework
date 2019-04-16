@@ -4,7 +4,7 @@
     {% set styleModifier = 'teaser--size-m' %}
 {% endif %}
 
-<div class="teaser teaser--theme-dark teaser--longform js-image-loader {{ styleModifier }}">
+<div class="teaser teaser--theme-dark teaser--longform {{ teaser.showLinks|default(false) ? 'teaser--with-links' }} js-image-loader {{ styleModifier }}">
 
     {# fullsize link needed in XL longform teasers #}
     {% if 'teaser--size-xl' in styleModifier %}
