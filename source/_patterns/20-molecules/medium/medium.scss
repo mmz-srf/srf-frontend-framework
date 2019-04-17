@@ -44,13 +44,13 @@
   @include font-smoothing;
   line-height: $secondary-line-height-ratio;
   color: #fafaf8;
+}
 
-  .text-notice {
-    display: block;
-    padding: 4px 8px;
-    @include tablet-up {
-      padding: 8px 12px;
-    }
+.medium__notice-text {
+  display: block;
+  padding: 4px 8px;
+  @include tablet-up {
+    padding: 8px 12px;
   }
 }
 
@@ -76,12 +76,12 @@
     }
   }
 
-  .text-notice {
+  .medium__notice-text {
     padding: 8px $article-offset;
   }
 
   &.medium--video-gallery {
-    .text-notice {
+    .medium__notice-text {
       padding: 8px 12px;
     }
   }
@@ -112,7 +112,7 @@
 
   .media-still,
   .media-caption,
-  .text-notice {
+  .medium__notice-text {
     max-width: 1023px;
     margin: 0 auto;
     @include desktop-up {
@@ -155,7 +155,7 @@
     }
   }
 
-  .text-notice {
+  .medium__notice-text {
     padding: 4px 8px;
 
     @include tablet-up {
@@ -202,7 +202,7 @@
     }
   }
 
-  .text-notice {
+  .medium__notice-text {
     @include fontSize(10);
     padding: 4px 6px;
 
