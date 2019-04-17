@@ -810,10 +810,6 @@
   background-position: center;
   background-size: cover;
 
-  .teaser__image-loader {
-    display: none;
-  }
-
   // enforce 1:1 ratio or higher
   &::before {
     content: "";

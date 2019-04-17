@@ -4,16 +4,13 @@
     {% set styleModifier = 'teaser--size-m' %}
 {% endif %}
 
-<div class="teaser teaser--theme-dark teaser--longform {{ teaser.showLinks|default(false) ? 'teaser--with-links' }} js-image-loader {{ styleModifier }}">
+<div class="teaser teaser--theme-dark teaser--longform {{ teaser.showLinks|default(false) ? 'teaser--with-links' }} {{ styleModifier }}"
+     style="background-image: url({{ teaser.image|default('') }});">
 
     {# fullsize link needed in XL longform teasers #}
     {% if 'teaser--size-xl' in styleModifier %}
         <a class="teaser__fullsize-link" tabindex="-1" href="{{ teaser.link|default('#') }}"></a>
     {% endif %}
-
-    <div class="teaser__image-loader">
-        <img class="js-image-loader-source" src="{{ teaser.image|default('') }}" />
-    </div>
 
     <div class="teaser__content-shimmer h-loading-only">
         {% include 'atoms-shimmer' with {'styleModifier': 'shimmer--overline'} %}
