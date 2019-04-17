@@ -496,16 +496,17 @@ body.body--loading.body--loading {
 
   .teaser--longform {
     flex-direction: column;
+
+    &::before {
+      content: '';
+      width: 100%;
+      padding-top: 56.25%;
+      background-color: #dadad2;
+    }
   }
 
-  .teaser__longform-medium {
-    position: relative;
-    background-color: $color-image-dummy;
-
-    & > .image {
-      visibility: hidden;
-      @include forceAspectRatio("16:9");
-    }
+  .teaser__fullsize-link {
+    display: none;
   }
 
   .teaser--longform.teaser--size-xl {
@@ -513,7 +514,12 @@ body.body--loading.body--loading {
       flex-direction: row;
 
       .teaser__longform-medium {
-          flex-basis: $teaser-xl-medium-ratio;
+        &::before {
+          // enforce 16:9 ratio or higher (ONLY regarding the image, not the content)
+          // 65.75% * 9/16 = 36.984375%
+          padding-top: #{$teaser-xl-medium-ratio * 9 / 16};
+          width: $teaser-xl-medium-ratio;
+        }
       }
     }
   }
