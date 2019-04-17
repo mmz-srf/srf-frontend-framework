@@ -1,0 +1,26 @@
+.button-group {
+  display: flex;
+  flex-direction: column;
+
+  @include tablet-up {
+    flex-direction: row;
+  }
+}
+
+.button-group__item--vertical-gap-on-tablet-up {
+  @include tablet-up {
+    margin-right: 24px;
+
+    &:last-of-type {
+      margin-right: 0;
+    }
+  }
+}
+
+.button-group--center-aligned {
+  justify-content: center;
+}
+
+.button-group--right-aligned {
+  justify-content: flex-end;
+}

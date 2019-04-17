@@ -1,0 +1,8 @@
+<div class="button-group {{styleModifier}}">
+    <div class="button-group__item {{styleModifierItem}}"> {# e.g. button-group__item--vertical-gap-on-tablet-up #}
+        {% include 'atoms-button' with {'styleModifier' : 'button--secondary',   'buttonText' : 'Gesendet'} %}
+    </div>
+    <div class="button-group__item {{styleModifierItem}}">
+        {% include 'atoms-button' with {'styleModifier' : '',   'buttonText' : 'Senden'} %}
+    </div>
+</div>
