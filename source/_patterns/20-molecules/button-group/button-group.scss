@@ -7,7 +7,17 @@
   }
 }
 
-.button-group__item--vertical-gap-on-tablet-up {
+.button-group__item--gap-inbetween-horizontal-on-mobile {
+  @include smartphone {
+    margin-bottom: 12px;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.button-group__item--gap-inbetween-vertical-on-tablet-up {
   @include tablet-up {
     margin-right: 24px;
 
