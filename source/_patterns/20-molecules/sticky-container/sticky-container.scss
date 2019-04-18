@@ -82,5 +82,9 @@
 }
 
 .affix-placeholder--compact {
-  height: 72px;
+  height: 56px;
+
+  @include tablet-up {
+    height: 72px;
+  }
 }
