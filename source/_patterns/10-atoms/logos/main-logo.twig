@@ -1,9 +1,6 @@
 <a href="/" class="main-logo {{ styleModifier|default("") }}">
-    <span class="h-offscreen">Schweizer Radio und Fernsehen, zur Startseite</span>
-    <img src="{{ frameworkAssetPath }}{{ path|default("/img/srf_logo.svg") }}"
-         alt=""
-         title="{{ alt|default("Zur Startseite von Schweizer Radio und Fernsehen") }}"
-         aria-hidden="true"
-         aria-disabled="true"
-    />
+    <span class="h-offscreen">Zur Startseite von Schweizer Radio und Fernsehen</span>
+    <svg aria-hidden="true" aria-disabled="true">
+      <use xlink:href="#srf-logo" />
+    </svg>
 </a>

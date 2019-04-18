@@ -103,3 +103,20 @@ Behaviour:
     margin-right: 16px;
   }
 }
+
+.image-figure--fullwidth-element.image-figure--fullwidth-element {
+  margin: 0;
+
+  .image {
+    background-color: $color-bg-media;
+  }
+
+  .image-figure__image,
+  .media-caption {
+    max-width: 1023px;
+    margin: 0 auto;
+    @include desktop-up {
+      max-width: 728px;
+    }
+  }
+}
