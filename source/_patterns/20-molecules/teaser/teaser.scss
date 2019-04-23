@@ -859,7 +859,7 @@
       padding: 24px;
     }
     margin: 0;
-    position: relative; // necessary to position before (see 2 lines below)
+    position: relative; // necessary to position ::before (see 2 lines below)
 
     // vertical gradient between/over image and content ↕️
     &::before {
