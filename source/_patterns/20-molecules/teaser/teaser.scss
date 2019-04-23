@@ -812,7 +812,7 @@
 
   // enforce 1:1 ratio or higher
   &::before {
-    content: "";
+    content: '';
     width: 1px;
     margin-left: -1px;
     float: left;
