@@ -863,7 +863,7 @@
 
     // vertical gradient between/over image and content ↕️
     &::before {
-      content: "";
+      content: '';
       position: absolute;
       width: 100%;
       bottom: 100%;
