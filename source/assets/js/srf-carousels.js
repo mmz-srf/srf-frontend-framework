@@ -15,6 +15,7 @@ export function init() {
 
     // prevent flicker effect on page load
     $carousels.on('init', function () {
+        $(this).closest('.carousel-container').addClass('carousel-container--initialized');
         $(css.containers).css('visibility', 'visible');
     });
 

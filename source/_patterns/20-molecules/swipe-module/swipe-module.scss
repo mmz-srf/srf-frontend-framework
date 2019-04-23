@@ -147,10 +147,7 @@ $item-max-width: 400px;
     padding: 0 #{$container-padding-desktop-wide};
   }
 
-  // Browser-specific way to disable scrollbars - non-trivial with flex layout otherwise!
-  &::-webkit-scrollbar {
-    display: none;
-  }
+  @include preventScrollbars();
 
   // The gap between right container border and last item must be done with the :after pseudo element
   &::after {
