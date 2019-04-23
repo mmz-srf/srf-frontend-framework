@@ -4,6 +4,11 @@
 
 .selectable-wrapper {
   margin: $collection-gap 0 0;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 
   @include tablet-up {
     margin-top: $collection-gap-tablet-up;
