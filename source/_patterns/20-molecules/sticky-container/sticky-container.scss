@@ -18,3 +18,44 @@
     }
   }
 }
+
+.sticky-container--home.sticky-container--longportalnames.affix {
+  @include tablet {
+    margin-top: -56px;
+  }
+}
+
+.affix-top {
+  margin-top: 0;
+}
+
+.affix-placeholder {
+  top: 0;
+  height: 162px;
+
+  @include tablet-up {
+    height: 194px;
+  }
+}
+
+.affix-placeholder--home {
+  height: 112px;
+
+  @include tablet-up {
+    height: 72px;
+  }
+}
+
+.affix-placeholder--home.affix-placeholder--longportalnames {
+  @include tablet {
+    height: 112px;
+  }
+}
+
+.affix-placeholder--compact {
+  height: 56px;
+
+  @include tablet-up {
+    height: 72px;
+  }
+}

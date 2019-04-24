@@ -98,22 +98,6 @@ _:-ms-fullscreen,
 }
 
 /*
- * TARGETED BROWSER: IE 11
- *
- * overriding the img { height: auto } in _globals.scss because "IE will auto-scale the image area to keep the width:height
- * aspect ratio constant, but it won't scale the actual drawing to match the scale of the image dimensions.
- * see: https://css-tricks.com/scale-svg/#article-header-id-2
- */
-
-@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
-  .main-logo {
-    img {
-      height: 100%;
-    }
-  }
-}
-
-/*
  * TARGETED BROWSER: Safari
  *
  * Safari has troubles combining overflow-x: hidden and its own webkit-overflow-scrolling: touch.
@@ -313,58 +297,6 @@ _:-ms-fullscreen,
   @include font-smoothing;
 }
 
-/*
- * TARGETED BROWSER: Firefox 52 - 60, IE11
- * Older browsers have troubles with the only working method we found for spanning
- * open the longform teasers. To prevent ugly hacks, we give them a min-height.
- */
-.teaser--longform {
-    &.teaser--size-m {
-    @include smartphone {
-      min-height: 289px;
-    }
-    @include tablet {
-      min-height: 263px;
-    }
-    @include desktop {
-      min-height: 299px;
-    }
-    @include desktop-wide {
-      min-height: 374px;
-    }
-  }
-
-  &.teaser--size-l {
-    @include smartphone {
-      min-height: 289px;
-    }
-    @include tablet {
-      min-height: 308px;
-    }
-    @include desktop {
-      min-height: 460px;
-    }
-    @include desktop-wide {
-      min-height: 572px;
-    }
-  }
-
-  &.teaser--size-xl {
-    @include smartphone {
-      min-height: 289px;
-    }
-    @include tablet {
-      min-height: 237px;
-    }
-    @include desktop {
-      min-height: 350px;
-    }
-    @include desktop-wide {
-      min-height: 440px;
-    }
-  }
-}
-
 /**
  * TARGETED BROWSER: Firefox 52 but since that's not easily possible, we target FF < 57 here.
  * Old Firefox version (52) doesn't play nice with the ratio element and grid, which is used
@@ -381,18 +313,6 @@ _:-ms-fullscreen,
       }
     }
   }
-}
-
-/*
- * TARGETED BROWSER: IE 11
- *
- * IE11 has troubles with flex-container in grid.
- */
-
-@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
-   .teaser__main-outer-wrapper {
-     height: 100%;
-   }
 }
 
 /*
@@ -437,29 +357,6 @@ _:-ms-fullscreen,
   width: 25px;
 }
 
-/*
- * TARGETED BROWSER: Chrome
- * WHY:              Browser bug
- * Fix chromium bug for annyoing subpixel rounding errors resulting in a white 1px gap between scoreboard and teaser edge
- * See: https://bugs.chromium.org/p/chromium/issues/detail?id=306878
- *
- * media query hack by http://browserhacks.com/#hack-ac2480b5c83038f2d838e2a62e28a307
- */
-@media all and (-webkit-min-device-pixel-ratio:0) and (min-resolution: .001dpcm) {
-  @supports (display: grid) {
-    .teaser {
-      .teaser__scoreboard {
-        margin-right: -1px;
-        max-width: calc(100% + 1px);
-
-        td:last-child {
-          padding-right: 1px;
-        }
-      }
-    }
-  }
-}
-
 /**
  * TARGETED BROWSER: IE 11
  *
@@ -498,4 +395,52 @@ _:-ms-fullscreen,
  */
 .collection__title-link {
   white-space: pre-wrap;
+}
+
+
+/*
+ * TARGETED BROWSER: IE11
+ * WHY:              IE needs specific directions in grids
+ * Without IE11, we can then finally get rid of the explicit grid definitions.
+ */
+.scoreboard {
+  .scoreboard__col-2 {
+    grid-column: 2;
+  }
+  
+  .scoreboard__col-3 {
+    grid-column: 3;
+  }
+  
+  .scoreboard__col-4 {
+    grid-column: 4;
+  }
+  
+  .scoreboard__col-5 {
+    grid-column: 5;
+  }
+  
+  .scoreboard__row-1 {
+    grid-row: 1;
+  }
+  
+  .scoreboard__row-2 {
+    grid-row: 2;
+  }
+  
+  .scoreboard__row-3 {
+    grid-row: 3;
+  }
+}
+
+/**
+ * TARGETED BROWSER: Chrome
+ * When an element with css filter overlaps an element with an animation, there
+ * seems to be a bug in Chrome: https://codepen.io/piko_/pen/pBpjpN?editors=1100
+ */
+.teaser--longform.teaser--with-links {
+  .teaser__main::after {
+    top: 0;
+    height: calc(100% - 1px);
+  }
 }

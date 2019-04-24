@@ -408,3 +408,24 @@
     @content;
   }
 }
+
+/**
+ * Prevents scrollbars with CSS only. Might not work on certain browsers or
+ * lead to side effects. Use at your own risk!
+ * 
+ * Usage:
+ *    @include preventScrollbars();
+ */
+@mixin preventScrollbars {
+  // webkit-based
+  &::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+  
+  // firefox 64+
+  scrollbar-width: none;
+  
+  // edge/ie (autohiding, but they appear again on interaction)
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+}

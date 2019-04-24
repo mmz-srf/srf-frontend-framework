@@ -2,6 +2,8 @@
 $scoreboard-col-padding-height: 8px;
 
 .scoreboard {
+  display: grid;
+  grid-template-columns: 1fr auto;
   width: 100%;
   border-collapse: collapse;
   font-family: $font-medium;
@@ -10,36 +12,20 @@ $scoreboard-col-padding-height: 8px;
   background-color: $color-bg-teaser-supplement;
   text-align: left;
   border-spacing: 0;
+  padding: 8px 0;
 
-  td {
-    padding: 0;
-    // we're setting the most used background color here
-    // in order to avoid using many classes on td's
-    background-color: $color-bg-score-default;
-
-    &:nth-child(1n+3) {
-      border-left: 1px solid #fff;
-    }
-  }
-  /* there needs to be some more space before the first and after the last row. */
-  tbody tr:first-child {
-    height: 28px;
-    vertical-align: bottom;
-  }
-
-  tbody tr:last-child {
-    height: 28px;
-    vertical-align: top;
+  // if a browser supports @support but not grid, it's a very strange browser does not deserve our scoreboard 😤
+  @supports not (display: grid) {
+    display: none;
   }
 }
 
-.scoreboard__competitors {
-  width: 100%;
+.scoreboard__competitor {
+  grid-column: 1;
   height: 20px;
   padding: 0 0 0 16px;
   overflow: hidden;
   position: relative;
-  max-width: 20px;
   color: $color-text-accentuation;
   text-align: left;
 
@@ -48,7 +34,7 @@ $scoreboard-col-padding-height: 8px;
   }
 }
 
-.scoreboard__competitors--winner {
+.scoreboard__competitor--winner {
   color: $color-text-default;
 }
 
@@ -65,6 +51,36 @@ $scoreboard-col-padding-height: 8px;
   align-items: center;
   white-space: nowrap;
   height: 20px;
+}
+
+// first row's score is 8px higher (goes over border at the top)
+.scoreboard__row-first {
+  margin-top: -8px;
+
+  .score {
+    padding-top: 8px;
+    height: 28px;
+  }
+}
+
+// last row's score is 8px higher (goes over border at the bottom)
+.scoreboard__row-last {
+  margin-bottom: -8px;
+
+  .score {
+    padding-bottom: 8px;
+    height: 28px;
+  }
+}
+
+// scores have a white border between them. If there's only one, there's no border
+.scoreboard__score {
+  flex: 1 1 auto;
+  border-right: 1px solid #ffffff;
+
+  &.scoreboard__col-last {
+    border-right: none;
+  }
 }
 
 .scoreboard__rank {

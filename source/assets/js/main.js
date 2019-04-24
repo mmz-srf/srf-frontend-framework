@@ -45,5 +45,6 @@ document.addEventListener('DOMContentLoaded', function(event) {
     FefPopupInit();
     FefSkiplinks();
     FefSelectableInit();
+
     FefShameInit(); // this should probably be last, because it may contain code that depends on the previous scripts
 });
