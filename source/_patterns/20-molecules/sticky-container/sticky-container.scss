@@ -19,14 +19,11 @@
   }
 }
 
-.sticky-container--home.sticky-container--longportalnames.affix {
-  @include tablet {
-    margin-top: -56px;
+// masthead on home is always sticky (fixed) on tablet+
+.sticky-container--home {
+  @include tablet-up {
+    display: fixed;
   }
-}
-
-.affix-top {
-  margin-top: 0;
 }
 
 .affix-placeholder {
