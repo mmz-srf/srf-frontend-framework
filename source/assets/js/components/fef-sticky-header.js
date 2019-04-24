@@ -39,10 +39,7 @@ export class FeFStickyHeader {
             }
         }
 
-        // if already affixed, make sure the placeholder's height is correct
-        if (this.$masthead.hasClass('masthead--affixed')) {
-            $(PLACEHOLDER_SELECTOR).css('height', this.getMastheadHeight());
-        }
+        $(PLACEHOLDER_SELECTOR).css('height', this.getMastheadHeight());
 
         $(AFFIX_SELECTOR)
             .affix({offset:{top: offsetTop}})
@@ -58,8 +55,6 @@ export class FeFStickyHeader {
     }
 
     onMastheadUnaffix() {
-        // when the masthead is no longer affixed, the placeholder's height is reset
-        $(PLACEHOLDER_SELECTOR).css('height', '');
         this.$masthead.removeClass('masthead--affixed');
     }
 
