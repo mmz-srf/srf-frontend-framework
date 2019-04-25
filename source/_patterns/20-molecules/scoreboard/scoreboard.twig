@@ -1,37 +1,98 @@
-<table class="scoreboard">
-    <caption class="h-offscreen">Spielstand</caption>
-    <thead class="h-offscreen">
-        <tr>
-            <th scope="col">Spieler/in</th>
-            <th scope="col">1. Satz</th>
-            <th scope="col">2. Satz</th>
-            <th scope="col">3. Satz</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <th scope="row" class="scoreboard__competitors">
-                <span class="scoreboard__competitor-mask"></span>
-                <span class="scoreboard__competitor-wrapper">
-                    <span class="scoreboard__emblem"><img alt="SUI" title="SUI" src="../../assets/demo/img/emblems/SUI.png"></span>
-                    <span class="scoreboard__name">Nicole Prascovia Elikolani Valiente Scherzinger</span>
-                </span>
-            </th>
-            <td>{% include 'atoms-score' with { "styleModifier": "" } %}</td>
-            <td>{% include 'atoms-score--with-supplement' with { "styleModifier": "score--winner" } %}</td>
-            <td class="scoreboard__score-live">{% include 'atoms-score' with { "styleModifier": "score--live" } %}</td>
-        </tr>
-        <tr>
-            <th scope="row" class="scoreboard__competitors">
-                <span class="scoreboard__competitor-mask"></span>
-                <span class="scoreboard__competitor-wrapper">
-                    <span class="scoreboard__emblem"><img alt="FRA" title="FRA" src="../../assets/demo/img/emblems/FRA.png"></span>
-                    <span class="scoreboard__name">Pierre-Huegues Herbert</span>
-                </span>
-            </th>
-            <td>{% include 'atoms-score' with { "styleModifier": "score--winner" } %}</td>
-            <td>{% include 'atoms-score--with-supplement' with { "styleModifier": "score--winner" } %}</td>
-            <td class="scoreboard__score-live">{% include 'atoms-score' with { "styleModifier": "score--live" } %}</td>
-        </tr>
-    </tbody>
-</table>
+{% if demo|default(false)%}
+    {% set caption = "Spielstand" %}
+    {% set competitorCaption = "Spieler/in" %}
+    {% set competitors = [
+        {
+            "name": "Nicole Prascovia Elikolani Valiente Scherzinger",
+            "emblem": "../../assets/demo/img/emblems/SUI.png",
+            "emblemAlt": "SUI",
+            "modifier": "scoreboard__competitor--winner",
+            "scores": [
+                {
+                    "value": 6,
+                    "modifier": ""
+                }, {
+                    "value": 6,
+                    "modifier": "score--winner",
+                    "supplementTitle": "Tie break points",
+                    "supplementScore": 7
+                }, {
+                    "value": 6,
+                    "modifier": "score--live"
+                }
+            ]
+        }, {
+            "name": "Pierre-Huegues Herbert",
+            "emblem": "../../assets/demo/img/emblems/FRA.png",
+            "emblemAlt": "FRA",
+            "scores": [
+                {
+                    "value": 6,
+                    "modifier": "score--winner"
+                }, {
+                    "value": 6,
+                    "modifier": "",
+                    "supplementTitle": "Tie break points",
+                    "supplementScore": 7
+                }, {
+                    "value": 6,
+                    "modifier": "score--winner score--live"
+                }
+            ]
+        }
+    ] %}
+    {% set scoreTitles = ["1. Satz", "2. Satz", "3. Satz"] %}
+{% endif %}
+
+<div class="h-offscreen">{{ caption|default("Spielstand") }}</div>
+
+{% spaceless %}
+<div class="scoreboard">
+    {% for competitor in competitors|default([]) %}
+        <div class="scoreboard__competitor {{ competitor.modifier|default('') }} scoreboard__row-{{ loop.index }}">
+            <span class="h-offscreen">{{ competitorCaption|default("Spieler/in") }}:</span>
+            <span class="scoreboard__competitor-mask"></span>
+            <span class="scoreboard__competitor-wrapper">
+                {% if competitor.rank is defined %}
+                    <span class="scoreboard__rank">{{ competitor.rank }}</span>
+                {% endif %}
+                {% if competitor.emblem is defined %}
+                    <span class="scoreboard__emblem">
+                        <img
+                            alt="{{ competitor.emblemAlt|default("") }}"
+                            title="{{ competitor.emblemAlt|default("") }}"
+                            src="{{ competitor.emblem }}"
+                        >
+                    </span>
+                {% endif %}
+                <span class="scoreboard__name">{{ competitor.name|default("") }}</span>
+            </span>
+        </div>
+
+        {% for score in competitor.scores|default([]) %}
+            <div class="scoreboard__score
+                        {{ competitor.modifier|default('') }}
+                        scoreboard__row-{{ loop.parent.loop.index }}
+                        scoreboard__col-{{ loop.index + 1 }}
+                        {{ loop.last ? 'scoreboard__col-last' }}
+                        {{ loop.parent.loop.first ? 'scoreboard__row-first' : loop.parent.loop.last ? 'scoreboard__row-last' }}
+                        ">
+                <span class="h-offscreen">{{ scoreTitles[loop.index0]|default("") }}</span>
+                {% if score.supplementScore|default(null) %}
+                    {% include 'atoms-score--with-supplement' with {
+                        "scoreValue": score.value,
+                        "styleModifier": score.modifier,
+                        "supplementScore": score.supplementScore,
+                        "supplementTitle": score.supplementTitle
+                    } %}
+                {% else %}
+                    {% include 'atoms-score' with {
+                        "scoreValue": score.value,
+                        "styleModifier": score.modifier
+                    } %}
+                {% endif %}
+            </div>
+        {% endfor %}
+    {% endfor %}
+</div>
+{% endspaceless %}

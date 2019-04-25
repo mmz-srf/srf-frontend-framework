@@ -16,34 +16,22 @@
 <div class="demo-grid">
     <div>
         <h3>Pre-Live</h3>
-        <table class="scoreboard">
-            <caption class="h-offscreen">Spielstand</caption>
-            <thead class="h-offscreen">
-            <tr>
-                <th scope="col">Spieler/in</th>
-            </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th scope="row" class="scoreboard__competitors">
-                        <span class="scoreboard__competitor-mask"></span>
-                        <span class="scoreboard__competitor-wrapper">
-                            <span class="scoreboard__emblem"><img alt="SUI" title="SUI" src="../../assets/demo/img/emblems/SUI.png"></span>
-                            <span class="scoreboard__name">Nicole Prascovia Elikolani Valiente Scherzinger</span>
-                        </span>
-                    </th>
-                </tr>
-                <tr>
-                    <th scope="row" class="scoreboard__competitors">
-                        <span class="scoreboard__competitor-mask"></span>
-                        <span class="scoreboard__competitor-wrapper">
-                            <span class="scoreboard__emblem"><img alt="FRA" title="FRA" src="../../assets/demo/img/emblems/FRA.png"></span>
-                            <span class="scoreboard__name">Pierre-Huegues Herbert</span>
-                        </span>
-                    </th>
-                </tr>
-            </tbody>
-        </table>
+
+        {% include 'molecules-scoreboard' with {
+            "caption": "Spielstand",
+            "competitorCaption": "Spieler/in",
+            "competitors": [
+                {
+                    "name": "Nicole Prascovia Elikolani Valiente Scherzinger",
+                    "emblem": "../../assets/demo/img/emblems/SUI.png",
+                    "emblemAlt": "SUI"
+                }, {
+                    "name": "Pierre-Huegues Herbert",
+                    "emblem": "../../assets/demo/img/emblems/FRA.png",
+                    "emblemAlt": "FRA"
+                },
+            ]
+        } %}
     </div>
 </div>
 
@@ -52,87 +40,107 @@
 <div class="demo-grid">
     <div>
         <h3>Live</h3>
-        <table class="scoreboard">
-            <caption class="h-offscreen">Spielstand</caption>
-            <thead class="h-offscreen">
-            <tr>
-                <th scope="col">Spieler/in</th>
-                <th scope="col">1. Satz</th>
-                <th scope="col">2. Satz</th>
-                <th scope="col">3. Satz</th>
-            </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th scope="row" class="scoreboard__competitors">
-                        <span class="scoreboard__competitor-mask"></span>
-                        <span class="scoreboard__competitor-wrapper">
-                        <span class="scoreboard__emblem">
-                            <img alt="SUI" title="SUI" src="../../assets/demo/img/emblems/SUI.png"></span>
-                            <span class="scoreboard__name">Nicole Prascovia Elikolani Valiente Scherzinger</span>
-                        </span>
-                    </th>
-                    <td>{% include 'atoms-score' with { "styleModifier": "" } %}</td>
-                    <td>{% include 'atoms-score--with-supplement' with { "styleModifier": "score--winner" } %}</td>
-                    <td class="scoreboard__score-live">{% include 'atoms-score' with { "styleModifier": "score--live" } %}</td>
-                </tr>
-                <tr>
-                    <th scope="row" class="scoreboard__competitors">
-                        <span class="scoreboard__competitor-mask"></span>
-                        <span class="scoreboard__competitor-wrapper">
-                            <span class="scoreboard__emblem"><img alt="FRA" title="FRA"
-                                                                  src="../../assets/demo/img/emblems/FRA.png"></span>
-                            <span class="scoreboard__name">Pierre-Huegues Herbert</span>
-                        </span>
-                    </th>
-                    <td>{% include 'atoms-score' with { "styleModifier": "score--winner" } %}</td>
-                    <td>{% include 'atoms-score--with-supplement' with { "styleModifier": "score--winner" } %}</td>
-                    <td class="scoreboard__score-live">{% include 'atoms-score' with { "styleModifier": "score--live" } %}</td>
-                </tr>
-            </tbody>
-        </table>
+
+        {% include 'molecules-scoreboard' with {
+            "caption": "Spielstand",
+            "competitorCaption": "Spieler/in",
+            "competitors": [
+                {
+                    "name": "Nicole Prascovia Elikolani Valiente Scherzinger",
+                    "emblem": "../../assets/demo/img/emblems/SUI.png",
+                    "emblemAlt": "SUI",
+                    "scores": [
+                        {
+                            "value": 6,
+                            "modifier": ""
+                        }, {
+                            "value": 6,
+                            "modifier": "score--winner",
+                            "supplementTitle": "Tie break points",
+                            "supplementScore": 7
+                        }, {
+                            "value": 6,
+                            "modifier": "score--live"
+                        }
+                    ]
+                }, {
+                    "name": "Pierre-Huegues Herbert",
+                    "emblem": "../../assets/demo/img/emblems/FRA.png",
+                    "emblemAlt": "FRA",
+                    "scores": [
+                        {
+                            "value": 6,
+                            "modifier": "score--winner"
+                        }, {
+                            "value": 6,
+                            "modifier": "",
+                            "supplementTitle": "Tie break points",
+                            "supplementScore": 7
+                        }, {
+                            "value": 6,
+                            "modifier": "score--winner score--live"
+                        }
+                    ]
+                },
+            ],
+            "scoreTitles": [
+                "1. Satz",
+                "2. Satz",
+                "3. Satz"
+            ]
+        } %}
     </div>
     <div>
         <h3>Post-Live</h3>
-        <table class="scoreboard">
-            <caption class="h-offscreen">Spielstand</caption>
-            <thead class="h-offscreen">
-            <tr>
-                <th scope="col">Spieler/in</th>
-                <th scope="col">1. Satz</th>
-                <th scope="col">2. Satz</th>
-                <th scope="col">3. Satz</th>
-            </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th scope="row" class="scoreboard__competitors scoreboard__competitors--winner">
-                        <span class="scoreboard__competitor-mask"></span>
-                        <span class="scoreboard__competitor-wrapper">
-                            <span class="scoreboard__emblem"><img alt="SUI" title="SUI"
-                                                                  src="../../assets/demo/img/emblems/SUI.png"></span>
-                            <span class="scoreboard__name">Nicole Prascovia Elikolani Valiente Scherzinger</span>
-                        </span>
-                    </th>
-                    <td>{% include 'atoms-score' %}</td>
-                    <td>{% include 'atoms-score--with-supplement' with { "styleModifier": "score--winner" } %}</td>
-                    <td>{% include 'atoms-score' with { "styleModifier": "score--winner" } %}</td>
-                </tr>
-                <tr>
-                    <th scope="row" class="scoreboard__competitors">
-                        <span class="scoreboard__competitor-mask"></span>
-                        <span class="scoreboard__competitor-wrapper">
-                            <span class="scoreboard__emblem"><img alt="FRA" title="FRA"
-                                                                  src="../../assets/demo/img/emblems/FRA.png"></span>
-                            <span class="scoreboard__name">Pierre-Huegues Herbert</span>
-                        </span>
-                    </th>
-                    <td>{% include 'atoms-score' with { "styleModifier": "score--winner" } %}</td>
-                    <td>{% include 'atoms-score--with-supplement' %}</td>
-                    <td>{% include 'atoms-score' %}</td>
-                </tr>
-            </tbody>
-        </table>
+        {% include 'molecules-scoreboard' with {
+            "caption": "Spielstand",
+            "competitorCaption": "Spieler/in",
+            "competitors": [
+                {
+                    "name": "Nicole Prascovia Elikolani Valiente Scherzinger",
+                    "emblem": "../../assets/demo/img/emblems/SUI.png",
+                    "emblemAlt": "SUI",
+                    "modifier": "scoreboard__competitor--winner",
+                    "scores": [
+                        {
+                            "value": 6,
+                            "modifier": ""
+                        }, {
+                            "value": 6,
+                            "modifier": "score--winner",
+                            "supplementTitle": "Tie break points",
+                            "supplementScore": 7
+                        }, {
+                            "value": 6,
+                            "modifier": "score--winner"
+                        }
+                    ]
+                }, {
+                    "name": "Pierre-Huegues Herbert",
+                    "emblem": "../../assets/demo/img/emblems/FRA.png",
+                    "emblemAlt": "FRA",
+                    "scores": [
+                        {
+                            "value": 6,
+                            "modifier": "score--winner"
+                        }, {
+                            "value": 6,
+                            "modifier": "",
+                            "supplementTitle": "Tie break points",
+                            "supplementScore": 7
+                        }, {
+                            "value": 6,
+                            "modifier": ""
+                        }
+                    ]
+                },
+            ],
+            "scoreTitles": [
+                "1. Satz",
+                "2. Satz",
+                "3. Satz"
+            ]
+        } %}
     </div>
 </div>
 
@@ -143,103 +151,96 @@
 <div class="demo-grid">
     <div>
         <h3>Live</h3>
-        <table class="scoreboard">
-            <caption class="h-offscreen">Führende Rennfahrer</caption>
-            <thead class="h-offscreen">
-                <tr>
-                    <th scope="col">Rennfahrer</th>
-                    <th scope="col">Zeitmessung</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th scope="row" class="scoreboard__competitors">
-                        <span class="scoreboard__competitor-mask"></span>
-                        <span class="scoreboard__competitor-wrapper">
-                            <span class="scoreboard__rank">1.</span>
-                            <span class="scoreboard__emblem"><img alt="SUI" title="SUI"
-                                                                  src="../../assets/demo/img/emblems/SUI.png"></span>
-                            <span class="scoreboard__name">Lara Gut</span>
-                        </span>
-                    </th>
-                    <td class="scoreboard__score-live">{% include 'atoms-score' with { "styleModifier": "score--live", "scoreValue": "2:23.02" } %}</td>
-                </tr>
-                <tr>
-                    <th scope="row" class="scoreboard__competitors">
-                        <span class="scoreboard__competitor-mask"></span>
-                        <span class="scoreboard__competitor-wrapper">
-                            <span class="scoreboard__rank">2.</span>
-                            <span class="scoreboard__emblem"><img alt="USA" title="USA"
-                                                                  src="../../assets/demo/img/emblems/USA.png"></span>
-                            <span class="scoreboard__name">Mikaela Shiffrin</span>
-                        </span>
-                    </th>
-                    <td class="scoreboard__score-live">{% include 'atoms-score' with { "styleModifier": "score--live", "scoreValue": "+ 1.44" } %}</td>
-                </tr>
-                <tr>
-                    <th scope="row" class="scoreboard__competitors">
-                        <span class="scoreboard__competitor-mask"></span>
-                        <span class="scoreboard__competitor-wrapper">
-                            <span class="scoreboard__rank">3.</span>
-                            <span class="scoreboard__emblem"><img alt="ITA" title="ITA"
-                                                                  src="../../assets/demo/img/emblems/ITA.png"></span>
-                            <span class="scoreboard__name">Marta Bassino</span>
-                        </span>
-                    </th>
-                    <td class="scoreboard__score-live">{% include 'atoms-score' with { "styleModifier": "score--live", "scoreValue": "+ 1.93" } %}</td>
-                </tr>
-            </tbody>
-        </table>
+        {% include 'molecules-scoreboard' with {
+            "caption": "Führende Rennfahrer",
+            "competitorCaption": "Rennfahrer",
+            "competitors": [
+                {
+                    "name": "Lara Gut",
+                    "emblem": "../../assets/demo/img/emblems/SUI.png",
+                    "emblemAlt": "SUI",
+                    "rank": "1.",
+                    "scores": [
+                        {
+                            "value": "2:23.02",
+                            "modifier": "score--live"
+                        }
+                    ]
+                }, {
+                    "name": "Mikaela Shiffrin",
+                    "emblem": "../../assets/demo/img/emblems/USA.png",
+                    "emblemAlt": "USA",
+                    "rank": "2.",
+                    "scores": [
+                        {
+                            "value": "+ 1.44",
+                            "modifier": "score--live"
+                        }
+                    ]
+                }, {
+                    "name": "Marta Bassino",
+                    "emblem": "../../assets/demo/img/emblems/ITA.png",
+                    "emblemAlt": "ITA",
+                    "rank": "3.",
+                    "scores": [
+                        {
+                            "value": "+ 1.93",
+                            "modifier": "score--live"
+                        }
+                    ]
+                },
+            ],
+            "scoreTitles": [
+                "Zeitmessung"
+            ]
+        } %}
     </div>
     <div>
         <h3>Post-Live</h3>
-        <table class="scoreboard">
-            <caption class="h-offscreen">Führende Rennfahrer</caption>
-            <thead class="h-offscreen">
-                <tr>
-                    <th scope="col">Rennfahrer</th>
-                    <th scope="col">Zeitmessung</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th scope="row" class="scoreboard__competitors scoreboard__competitors--winner">
-                        <span class="scoreboard__competitor-mask"></span>
-                        <span class="scoreboard__competitor-wrapper">
-                            <span class="scoreboard__rank">1.</span>
-                            <span class="scoreboard__emblem"><img alt="SUI" title="SUI"
-                                                                  src="../../assets/demo/img/emblems/SUI.png"></span>
-                            <span class="scoreboard__name">Lara Gut</span>
-                        </span>
-                    </th>
-                    <td>{% include 'atoms-score' with { "styleModifier": "score--winner", "scoreValue": "2:23.02" } %}</td>
-                </tr>
-                <tr>
-                    <th scope="row" class="scoreboard__competitors">
-                        <span class="scoreboard__competitor-mask"></span>
-                        <span class="scoreboard__competitor-wrapper">
-                            <span class="scoreboard__rank">2.</span>
-                            <span class="scoreboard__emblem"><img alt="USA" title="USA"
-                                                                  src="../../assets/demo/img/emblems/USA.png"></span>
-                            <span class="scoreboard__name">Mikaela Shiffrin</span>
-                        </span>
-                    </th>
-                    <td>{% include 'atoms-score' with { "scoreValue": "+ 1.44" } %}</td>
-                </tr>
-                <tr>
-                    <th scope="row" class="scoreboard__competitors">
-                        <span class="scoreboard__competitor-mask"></span>
-                        <span class="scoreboard__competitor-wrapper">
-                            <span class="scoreboard__rank">3.</span>
-                            <span class="scoreboard__emblem"><img alt="ITA" title="ITA"
-                                                                  src="../../assets/demo/img/emblems/ITA.png"></span>
-                            <span class="scoreboard__name">Marta Bassino</span>
-                        </span>
-                    </th>
-                    <td>{% include 'atoms-score' with { "scoreValue": "+ 1.93" } %}</td>
-                </tr>
-            </tbody>
-        </table>
+        {% include 'molecules-scoreboard' with {
+            "caption": "Führende Rennfahrer",
+            "competitorCaption": "Rennfahrer",
+            "competitors": [
+                {
+                    "name": "Lara Gut",
+                    "emblem": "../../assets/demo/img/emblems/SUI.png",
+                    "emblemAlt": "SUI",
+                    "modifier": "scoreboard__competitor--winner",
+                    "rank": "1.",
+                    "scores": [
+                        {
+                            "value": "2:23.02",
+                            "modifier": "score--winner"
+                        }
+                    ]
+                }, {
+                    "name": "Mikaela Shiffrin",
+                    "emblem": "../../assets/demo/img/emblems/USA.png",
+                    "emblemAlt": "USA",
+                    "rank": "2.",
+                    "scores": [
+                        {
+                            "value": "+ 1.44",
+                            "modifier": ""
+                        }
+                    ]
+                }, {
+                    "name": "Marta Bassino",
+                    "emblem": "../../assets/demo/img/emblems/ITA.png",
+                    "emblemAlt": "ITA",
+                    "rank": "3.",
+                    "scores": [
+                        {
+                            "value": "+ 1.93",
+                            "modifier": ""
+                        }
+                    ]
+                },
+            ],
+            "scoreTitles": [
+                "Zeitmessung"
+            ]
+        } %}
     </div>
 </div>
 <br><br>
@@ -248,103 +249,96 @@
 <div class="demo-grid">
     <div>
         <h3>Live</h3>
-        <table class="scoreboard">
-            <caption class="h-offscreen">Führende Rennfahrer</caption>
-            <thead class="h-offscreen">
-                <tr>
-                    <th scope="col">Rennfahrer</th>
-                    <th scope="col">Zeitmessung</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th scope="row" class="scoreboard__competitors">
-                        <span class="scoreboard__competitor-mask"></span>
-                        <span class="scoreboard__competitor-wrapper">
-                            <span class="scoreboard__rank">1.</span>
-                            <span class="scoreboard__emblem"><img alt="GBR" title="GBR"
-                                                                  src="../../assets/demo/img/emblems/GBR.png"></span>
-                            <span class="scoreboard__name">Lewis Hamilton</span>
-                        </span>
-                    </th>
-                    <td class="scoreboard__score-live">{% include 'atoms-score' with { "styleModifier": "score--live", "scoreValue": "Runde 1" } %}</td>
-                </tr>
-                <tr>
-                    <th scope="row" class="scoreboard__competitors">
-                        <span class="scoreboard__competitor-mask"></span>
-                        <span class="scoreboard__competitor-wrapper">
-                            <span class="scoreboard__rank">2.</span>
-                            <span class="scoreboard__emblem"><img alt="NED" title="NED"
-                                                                  src="../../assets/demo/img/emblems/NED.png"></span>
-                            <span class="scoreboard__name">Max Verstappen</span>
-                        </span>
-                    </th>
-                    <td class="scoreboard__score-live">{% include 'atoms-score' with { "styleModifier": "score--live", "scoreValue": "+ 07.090" } %}</td>
-                </tr>
-                <tr>
-                    <th scope="row" class="scoreboard__competitors">
-                        <span class="scoreboard__competitor-mask"></span>
-                        <span class="scoreboard__competitor-wrapper">
-                            <span class="scoreboard__rank">3.</span>
-                            <span class="scoreboard__emblem"><img alt="FIN" title="FIN"
-                                                                  src="../../assets/demo/img/emblems/FIN.png"></span>
-                            <span class="scoreboard__name">Kimi Räikkönen</span>
-                        </span>
-                    </th>
-                    <td class="scoreboard__score-live">{% include 'atoms-score' with { "styleModifier": "score--live", "scoreValue": "+ 25.888" } %}</td>
-                </tr>
-            </tbody>
-        </table>
+        {% include 'molecules-scoreboard' with {
+            "caption": "Führende Rennfahrer",
+            "competitorCaption": "Rennfahrer",
+            "competitors": [
+                {
+                    "name": "Lewis Hamilton",
+                    "emblem": "../../assets/demo/img/emblems/GBR.png",
+                    "emblemAlt": "GBR",
+                    "rank": "1.",
+                    "scores": [
+                        {
+                            "value": "Runde 1",
+                            "modifier": "score--live"
+                        }
+                    ]
+                }, {
+                    "name": "Max Verstappen",
+                    "emblem": "../../assets/demo/img/emblems/NED.png",
+                    "emblemAlt": "NED",
+                    "rank": "2.",
+                    "scores": [
+                        {
+                            "value": "+ 07.090",
+                            "modifier": "score--live"
+                        }
+                    ]
+                }, {
+                    "name": "Kimi Räikkönen",
+                    "emblem": "../../assets/demo/img/emblems/FIN.png",
+                    "emblemAlt": "FIN",
+                    "rank": "3.",
+                    "scores": [
+                        {
+                            "value": "+ 25.888",
+                            "modifier": "score--live"
+                        }
+                    ]
+                },
+            ],
+            "scoreTitles": [
+                "Zeitmessung"
+            ]
+        } %}
     </div>
     <div>
         <h3>Post-Live</h3>
-        <table class="scoreboard">
-            <caption class="h-offscreen">Führende Rennfahrer</caption>
-            <thead class="h-offscreen">
-                <tr>
-                    <th scope="col">Rennfahrer</th>
-                    <th scope="col">Zeitmessung</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th scope="row" class="scoreboard__competitors scoreboard__competitors--winner">
-                        <span class="scoreboard__competitor-mask"></span>
-                        <span class="scoreboard__competitor-wrapper">
-                            <span class="scoreboard__rank">1.</span>
-                            <span class="scoreboard__emblem"><img alt="GBR" title="GBR"
-                                                                  src="../../assets/demo/img/emblems/GBR.png"></span>
-                            <span class="scoreboard__name">Lewis Hamilton</span>
-                        </span>
-                    </th>
-                    <td>{% include 'atoms-score' with { "styleModifier": "score--winner", "scoreValue": "1:30:11.385" } %}</td>
-                </tr>
-                <tr>
-                    <th scope="row" class="scoreboard__competitors">
-                        <span class="scoreboard__competitor-mask"></span>
-                        <span class="scoreboard__competitor-wrapper">
-                            <span class="scoreboard__rank">2.</span>
-                            <span class="scoreboard__emblem"><img alt="NED" title="NED"
-                                                                  src="../../assets/demo/img/emblems/NED.png"></span>
-                            <span class="scoreboard__name">Max Verstappen</span>
-                        </span>
-                    </th>
-                    <td>{% include 'atoms-score' with { "scoreValue": "+ 07.090" } %}</td>
-                </tr>
-                <tr>
-                    <th scope="row" class="scoreboard__competitors">
-                        <span class="scoreboard__competitor-mask"></span>
-                        <span class="scoreboard__competitor-wrapper">
-                            <span class="scoreboard__rank">3.</span>
-                            <span class="scoreboard__emblem"><img alt="FIN" title="FIN"
-                                                                  src="../../assets/demo/img/emblems/FIN.png"></span>
-                            <span class="scoreboard__name">Kimi Räikkönen</span>
-                        </span>
-                    </th>
-                    <td>{% include 'atoms-score' with { "scoreValue": "+ 25.888" } %}</td>
-                </tr>
-            </tbody>
-        </table>
+        {% include 'molecules-scoreboard' with {
+            "caption": "Führende Rennfahrer",
+            "competitorCaption": "Rennfahrer",
+            "competitors": [
+                {
+                    "name": "Lewis Hamilton",
+                    "emblem": "../../assets/demo/img/emblems/GBR.png",
+                    "emblemAlt": "GBR",
+                    "modifier": "scoreboard__competitor--winner",
+                    "rank": "1.",
+                    "scores": [
+                        {
+                            "value": "1:30:11.385",
+                            "modifier": "score--winner"
+                        }
+                    ]
+                }, {
+                    "name": "Max Verstappen",
+                    "emblem": "../../assets/demo/img/emblems/NED.png",
+                    "emblemAlt": "NED",
+                    "rank": "2.",
+                    "scores": [
+                        {
+                            "value": "+ 07.090",
+                            "modifier": ""
+                        }
+                    ]
+                }, {
+                    "name": "Kimi Räikkönen",
+                    "emblem": "../../assets/demo/img/emblems/FIN.png",
+                    "emblemAlt": "FIN",
+                    "rank": "3.",
+                    "scores": [
+                        {
+                            "value": "+ 25.888",
+                            "modifier": ""
+                        }
+                    ]
+                },
+            ],
+            "scoreTitles": [
+                "Zeitmessung"
+            ]
+        } %}
     </div>
 </div>
 
@@ -353,73 +347,70 @@
 <div class="demo-grid">
     <div>
         <h3>Live</h3>
-        <table class="scoreboard">
-            <caption class="h-offscreen">Spielstand</caption>
-            <thead class="h-offscreen">
-                <tr>
-                    <th scope="col">Mannschaft</th>
-                    <th scope="col">Resultat</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th scope="row" class="scoreboard__competitors">
-                        <span class="scoreboard__competitor-mask"></span>
-                        <span class="scoreboard__competitor-wrapper">
-                            <span class="scoreboard__emblem"><img alt="" src="../../assets/demo/img/emblems/5477_real.png"></span>
-                            <span class="scoreboard__name">Real Madrid</span>
-                        </span>
-                    </th>
-                    <td class="scoreboard__score-live">{% include 'atoms-score' with { "styleModifier": "score--live", "scoreValue": "2" } %}</td>
-                </tr>
-                <tr>
-                    <th scope="row" class="scoreboard__competitors">
-                        <span class="scoreboard__competitor-mask"></span>
-                        <span class="scoreboard__competitor-wrapper">
-                            <span class="scoreboard__emblem"><img alt=""
-                                                                  src="../../assets/demo/img/emblems/6072_atletico.png"></span>
-                            <span class="scoreboard__name">Atletico Madrid</span>
-                        </span>
-                    </th>
-                    <td class="scoreboard__score-live">{% include 'atoms-score' with { "styleModifier": "score--live", "scoreValue": "2" } %}</td>
-                </tr>
-            </tbody>
-        </table>
+        {% include 'molecules-scoreboard' with {
+            "caption": "Spielstand",
+            "competitorCaption": "Mannschaft",
+            "competitors": [
+                {
+                    "name": "Real Madrid",
+                    "emblem": "../../assets/demo/img/emblems/5477_real.png",
+                    "emblemAlt": "Real Madrid",
+                    "scores": [
+                        {
+                            "value": "2",
+                            "modifier": "score--live"
+                        }
+                    ]
+                }, {
+                    "name": "Atletico Madrid",
+                    "emblem": "../../assets/demo/img/emblems/6072_atletico.png",
+                    "emblemAlt": "Atletico Madrid",
+                    "scores": [
+                        {
+                            "value": "2",
+                            "modifier": "score--live"
+                        }
+                    ]
+                }
+            ],
+            "scoreTitles": [
+                "Resultat"
+            ]
+        } %}
     </div>
     <div>
         <h3>Post-Live</h3>
-        <table class="scoreboard">
-            <caption class="h-offscreen">Spielstand</caption>
-            <thead class="h-offscreen">
-                <tr>
-                    <th scope="col">Mannschaft</th>
-                    <th scope="col">Resultat</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th scope="row" class="scoreboard__competitors scoreboard__competitors--winner">
-                        <span class="scoreboard__competitor-mask"></span>
-                        <span class="scoreboard__competitor-wrapper">
-                            <span class="scoreboard__emblem"><img alt="" src="../../assets/demo/img/emblems/5477_real.png"></span>
-                            <span class="scoreboard__name">Real Madrid</span>
-                        </span>
-                    </th>
-                    <td>{% include 'atoms-score' with { "styleModifier": "score--winner", "scoreValue": "3" } %}</td>
-                </tr>
-                <tr>
-                    <th scope="row" class="scoreboard__competitors">
-                        <span class="scoreboard__competitor-mask"></span>
-                        <span class="scoreboard__competitor-wrapper">
-                            <span class="scoreboard__emblem"><img alt=""
-                                                                  src="../../assets/demo/img/emblems/6072_atletico.png"></span>
-                            <span class="scoreboard__name">Atletico Madrid</span>
-                        </span>
-                    </th>
-                    <td>{% include 'atoms-score' with { "scoreValue": "2" } %}</td>
-                </tr>
-                </tbody>
-        </table>
+        {% include 'molecules-scoreboard' with {
+            "caption": "Spielstand",
+            "competitorCaption": "Mannschaft",
+            "competitors": [
+                {
+                    "name": "Real Madrid",
+                    "emblem": "../../assets/demo/img/emblems/5477_real.png",
+                    "emblemAlt": "Real Madrid",
+                    "modifier": "scoreboard__competitor--winner",
+                    "scores": [
+                        {
+                            "value": "3",
+                            "modifier": "score--winner"
+                        }
+                    ]
+                }, {
+                    "name": "Atletico Madrid",
+                    "emblem": "../../assets/demo/img/emblems/6072_atletico.png",
+                    "emblemAlt": "Atletico Madrid",
+                    "scores": [
+                        {
+                            "value": "2",
+                            "modifier": ""
+                        }
+                    ]
+                }
+            ],
+            "scoreTitles": [
+                "Resultat"
+            ]
+        } %}
     </div>
 </div>
 
@@ -427,74 +418,69 @@
 <div class="demo-grid">
     <div>
         <h3>Live</h3>
-        <table class="scoreboard">
-            <caption class="h-offscreen">Spielstand</caption>
-            <thead class="h-offscreen">
-                <tr>
-                    <th scope="col">Mannschaft</th>
-                    <th scope="col">Resultat</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th scope="row" class="scoreboard__competitors">
-                        <span class="scoreboard__competitor-mask"></span>
-                        <span class="scoreboard__competitor-wrapper">
-                            <span class="scoreboard__emblem"><img alt="ZSZ" title="ZSZ"
-                                                                  src="../../assets/demo/img/emblems/21_zsc.png"></span>
-                            <span class="scoreboard__name">ZSC Lions</span>
-                        </span>
-                    </th>
-                    <td class="scoreboard__score-live">{% include 'atoms-score' with { "styleModifier": "score--live", "scoreValue": "1" } %}</td>
-                </tr>
-                <tr>
-                    <th scope="row" class="scoreboard__competitors">
-                        <span class="scoreboard__competitor-mask"></span>
-                        <span class="scoreboard__competitor-wrapper">
-                            <span class="scoreboard__emblem"><img alt="Lugano" title="Lugano"
-                                                                  src="../../assets/demo/img/emblems/14_lugano.png"></span>
-                            <span class="scoreboard__name">Lugano</span>
-                        </span>
-                    </th>
-                    <td class="scoreboard__score-live">{% include 'atoms-score' with { "styleModifier": "score--live", "scoreValue": "1" } %}</td>
-                </tr>
-            </tbody>
-        </table>
+        {% include 'molecules-scoreboard' with {
+            "caption": "Spielstand",
+            "competitorCaption": "Mannschaft",
+            "competitors": [
+                {
+                    "name": "ZSC Lions",
+                    "emblem": "../../assets/demo/img/emblems/21_zsc.png",
+                    "emblemAlt": "ZSC",
+                    "scores": [
+                        {
+                            "value": "1",
+                            "modifier": "score--live"
+                        }
+                    ]
+                }, {
+                    "name": "Lugano",
+                    "emblem": "../../assets/demo/img/emblems/14_lugano.png",
+                    "emblemAlt": "Lugano",
+                    "scores": [
+                        {
+                            "value": "1",
+                            "modifier": "score--live"
+                        }
+                    ]
+                }
+            ],
+            "scoreTitles": [
+                "Resultat"
+            ]
+        } %}
     </div>
     <div>
         <h3>Post-Live</h3>
-        <table class="scoreboard">
-            <caption class="h-offscreen">Spielstand</caption>
-            <thead class="h-offscreen">
-                <tr>
-                    <th scope="col">Mannschaft</th>
-                    <th scope="col">Resultat</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th scope="row" class="scoreboard__competitors">
-                        <span class="scoreboard__competitor-mask"></span>
-                        <span class="scoreboard__competitor-wrapper">
-                            <span class="scoreboard__emblem"><img alt="ZSZ" title="ZSZ"
-                                                                  src="../../assets/demo/img/emblems/21_zsc.png"></span>
-                            <span class="scoreboard__name">ZSC Lions</span>
-                        </span>
-                    </th>
-                    <td>{% include 'atoms-score' with { "scoreValue": "1" } %}</td>
-                </tr>
-                <tr>
-                    <th scope="row" class="scoreboard__competitors scoreboard__competitors--winner">
-                        <span class="scoreboard__competitor-mask"></span>
-                        <span class="scoreboard__competitor-wrapper">
-                            <span class="scoreboard__emblem"><img alt="Lugano" title="Lugano"
-                                                                  src="../../assets/demo/img/emblems/14_lugano.png"></span>
-                            <span class="scoreboard__name">Lugano</span>
-                        </span>
-                    </th>
-                    <td>{% include 'atoms-score' with { "styleModifier": "score--winner", "scoreValue": "2" } %}</td>
-                </tr>
-            </tbody>
-        </table>
+        {% include 'molecules-scoreboard' with {
+            "caption": "Spielstand",
+            "competitorCaption": "Mannschaft",
+            "competitors": [
+                {
+                    "name": "ZSC Lions",
+                    "emblem": "../../assets/demo/img/emblems/21_zsc.png",
+                    "emblemAlt": "ZSC",
+                    "scores": [
+                        {
+                            "value": "1",
+                            "modifier": ""
+                        }
+                    ]
+                }, {
+                    "name": "Lugano",
+                    "emblem": "../../assets/demo/img/emblems/14_lugano.png",
+                    "emblemAlt": "Lugano",
+                    "modifier": "scoreboard__competitor--winner",
+                    "scores": [
+                        {
+                            "value": "2",
+                            "modifier": "score--winner"
+                        }
+                    ]
+                }
+            ],
+            "scoreTitles": [
+                "Resultat"
+            ]
+        } %}
     </div>
 </div>
