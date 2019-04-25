@@ -22,7 +22,7 @@
 // masthead on home is always sticky (fixed) on tablet+
 .sticky-container--home {
   @include tablet-up {
-    display: fixed;
+    position: fixed;
   }
 }
 
