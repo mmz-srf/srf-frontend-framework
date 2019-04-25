@@ -4,13 +4,13 @@
     {% set styleModifier = 'teaser--size-m' %}
 {% endif %}
 
-<div class="teaser teaser--theme-dark teaser--longform {{ styleModifier }}">
+<div class="teaser teaser--theme-dark teaser--longform {{ teaser.showLinks|default(false) ? 'teaser--with-links' }} {{ styleModifier }}"
+     style="background-image: url({{ teaser.image|default('') }});">
 
-    <div class="teaser__longform-medium">
-        <div class="image image--media-still-dynamic">
-            <img src="{{ teaser.image|default('') }}" alt="{{ teaser.title|default('') }}" />
-        </div>
-    </div>
+    {# fullsize link needed in XL longform teasers #}
+    {% if 'teaser--size-xl' in styleModifier %}
+        <a class="teaser__fullsize-link" tabindex="-1" href="{{ teaser.link|default('#') }}"></a>
+    {% endif %}
 
     <div class="teaser__content-shimmer h-loading-only">
         {% include 'atoms-shimmer' with {'styleModifier': 'shimmer--overline'} %}
@@ -19,56 +19,29 @@
         {% include 'atoms-shimmer' with {'styleModifier': 'shimmer--short'} %}
     </div>
 
-    <div class="teaser__main-outer-wrapper">
-        <svg class="svg-ratio-enforcer" viewBox="0 0 1 1" />
-        {% if 'teaser--size-xl' in styleModifier %}
-            {# 16/9 but only in 65.75% of the width = 24.335/9 #}
-            <svg class="svg-ratio-enforcer--xl-teaser" viewBox="0 0 24.334600760456 9" />
-        {% endif %}
-        <div class="teaser__main-inner-wrapper">
-            <a class="teaser__main" href="{{ teaser.link|default('#') }}">
-                <div class="teaser__content">
-                    {% if preKicker %}<span class="h-offscreen" data-iefix="teaser__prekicker--fixed-for-ie"><strong>{{ preKicker }}</strong></span>{% endif %}
+    <div class="teaser__main-wrapper">
+        <a class="teaser__main" href="{{ teaser.link|default('#') }}">
+            <div class="teaser__content">
+                {% if preKicker %}<span class="h-offscreen" data-iefix="teaser__prekicker--fixed-for-ie"><strong>{{ preKicker }}</strong></span>{% endif %}
 
-                    <h4 class="teaser__kicker">
-                        {% if labelWording %}
-                            {% include 'atoms-teaser-label' with {'labelWording': labelWording, 'labelTime': labelTime, 'styleModifierType': styleModifierType, 'styleModifierSize': styleModifier} %}
-                        {% endif %}
-
-                        <span class="teaser__kicker-text">{{ teaser.kicker|default('') }}</span>
-                    </h4>
-                    <span class="teaser__title">{{ teaser.title|default('') }}</span>
-                    <p class="teaser__lead">{{ teaser.lead|default('') }}</p>
-
-                    {% set infoStyleModifier = infoStyleModifier|default('') %}
-                    {% if 'teaser--size-l' in styleModifier or 'teaser--size-xl' in styleModifier %}
-                        {% set infoStyleModifier = infoStyleModifier ~ ' teaser-info--size-large' %}
+                <h4 class="teaser__kicker">
+                    {% if labelWording %}
+                        {% include 'atoms-teaser-label' with {'labelWording': labelWording, 'labelTime': labelTime, 'styleModifierType': styleModifierType, 'styleModifierSize': styleModifier} %}
                     {% endif %}
 
-                    <div class="teaser-info-wrapper">
-                      <div class="teaser-info-innerwrapper">
-                        {% include 'atoms-teaser-info' with {
-                            'type': infoType,
-                            'styleModifier': infoStyleModifier,
-                            'text': infoText|default(''),
-                            'mediaDuration': infoMediaDuration,
-                            'mediaSource': infoMediaSource,
-                            'mediaTime': infoMediaTime
-                        } %}
-                      </div>
-                    </div>
-                </div>
-            </a>
-            {# TEASER LINKS #}
-            {% if teaser.showLinks|default(false) %}
-                <div class="teaser--longform__links">
-                    <div class="teaser__links">
-                        {% include 'atoms-block-link' with { 'styleModifier': 'block-link--teaser-link block-link--internal' } %}
-                        {% include 'atoms-block-link' with { 'styleModifier': 'block-link--teaser-link block-link--audio' } %}
-                        {% include 'atoms-block-link' with { 'styleModifier': 'block-link--teaser-link block-link--video' } %}
-                    </div>
-                </div>
-            {% endif %}
-        </div>
+                    <span class="teaser__kicker-text">{{ teaser.kicker|default('') }}</span>
+                </h4>
+                <span class="teaser__title">{{ teaser.title|default('') }}</span>
+                <p class="teaser__lead">{{ teaser.lead|default('') }}</p>
+            </div>
+        </a>
+        {# TEASER LINKS #}
+        {% if teaser.showLinks|default(false) %}
+            <div class="teaser__links">
+                {% include 'atoms-block-link' with { 'styleModifier': 'block-link--teaser-link block-link--internal' } %}
+                {% include 'atoms-block-link' with { 'styleModifier': 'block-link--teaser-link block-link--audio' } %}
+                {% include 'atoms-block-link' with { 'styleModifier': 'block-link--teaser-link block-link--video' } %}
+            </div>
+        {% endif %}
     </div>
 </div>

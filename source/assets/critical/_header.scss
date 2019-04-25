@@ -87,16 +87,21 @@
   width: 36px;
   height: 24px;
   background-color: $color-srf;
+  display: inline-block;
   overflow: hidden;
-
-  img {
-    width: 100%;
-    height: auto;
+  
+  svg {
+    transform: scale(.75);
+    transform-origin: 0 0;
   }
 
   @include tablet-up {
     width: 48px;
     height: 32px;
+
+    svg {
+      transform: none;
+    }
   }
 }
 
@@ -124,16 +129,6 @@
     @include tablet-up {
       display: flex;
     }
-  }
-}
-
-.masthead--home {
-  height: 112px;
-
-  @include tablet-up {
-    height: 80px;
-    padding-top: 12px;
-    padding-bottom: 12px;
   }
 }
 

@@ -9,7 +9,23 @@
 @import '../../_patterns/10-atoms/wrapper/ratio';
 @import '../../_patterns/40-templates/landingpage';
 
+@font-face {
+  font-family: 'SRG_SSR_Bold';
+  src: url('../fonts/SRGSSRTypeText_W_Bd.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 body.body--loading.body--loading {
+  .portalsnav__link,
+  .masthead__title {
+    font-family: $font-bold;
+    font-feature-settings: "salt";
+    font-weight: 400;
+    @include font-smoothing;
+  }
+
   .h-loading-only {
     display: block;
   }
@@ -440,10 +456,6 @@ body.body--loading.body--loading {
     flex-grow: 1;
   }
 
-  .teaser__main-outer-wrapper {
-    display: none;
-  }
-
   .teaser__content {
     display: none;
   }
@@ -500,24 +512,28 @@ body.body--loading.body--loading {
 
   .teaser--longform {
     flex-direction: column;
+
+    &::before {
+      content: '';
+      width: 100%;
+      padding-top: 56.25%;
+      background-color: #dadad2;
+    }
   }
 
-  .teaser__longform-medium {
-    position: relative;
-    background-color: $color-image-dummy;
-
-    & > .image {
-      visibility: hidden;
-      @include forceAspectRatio("16:9");
-    }
+  .teaser__fullsize-link {
+    display: none;
   }
 
   .teaser--longform.teaser--size-xl {
     @include tablet-up {
       flex-direction: row;
 
-      .teaser__longform-medium {
-          flex-basis: $teaser-xl-medium-ratio;
+      &::before {
+        // enforce 16:9 ratio or higher (ONLY regarding the image, not the content)
+        // 65.75% * 9/16 = 36.984375%
+        padding-top: #{$teaser-xl-medium-ratio * 9 / 16};
+        width: $teaser-xl-medium-ratio;
       }
     }
   }

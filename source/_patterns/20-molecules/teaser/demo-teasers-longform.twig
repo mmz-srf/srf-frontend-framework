@@ -1,87 +1,292 @@
+<style>
+    .togglable-wrapper {
+        max-width: 100%;
+        transition: max-width .2s ease-in-out;
+    }
+    .teaser-demo-wrapper {
+        max-width: 320px;
+    }
+    .togglable-wrapper--xl.teaser-demo-wrapper {
+        max-width: 640px;
+    }
+    h2 {
+        margin: 20px;
+    }
+</style>
+
+{% include 'atoms-button' with {'buttonText' : 'Max-Width für Teaser setzen', 'styleModifier': 'js-toggle-max-width'} %}
+
 <h2>S-Teaser</h2>
 
 <p>Does not exist</p>
 
 <h2>M-Teaser</h2>
-
+<div class="js-togglable-wrapper togglable-wrapper">
 {% include 'molecules-teaser--longform' with {
     'styleModifier': 'teaser--size-m',
     'teaser': collections[0].teasers[0]
 } %}
+</div>
 
 <h2>M-Teaser which looks like an S-Teaser on Mobile</h2>
-
+<div class="js-togglable-wrapper togglable-wrapper">
 {% include 'molecules-teaser--longform' with {
     "styleModifier": "teaser--size-m teaser--size-s-on-mobile",
     "teaser": collections[0].teasers[0]
 } %}
+</div>
 
 <h2>L-Teaser</h2>
-
+<div class="js-togglable-wrapper togglable-wrapper">
 {% include 'molecules-teaser--longform' with {
     'styleModifier': 'teaser--size-l',
     'teaser': collections[0].teasers[0]
 } %}
+</div>
 
 <h2>L-Teaser which looks like an S-Teaser on Mobile</h2>
-
+<div class="js-togglable-wrapper togglable-wrapper">
 {% include 'molecules-teaser--longform' with {
     "styleModifier": "teaser--size-l teaser--size-s-on-mobile",
     "teaser": collections[0].teasers[0]
 } %}
+</div>
 
 <h2>XL-Teaser</h2>
-
+<div class="js-togglable-wrapper togglable-wrapper togglable-wrapper--xl">
 {% include 'molecules-teaser--longform' with {
     'styleModifier': 'teaser--size-xl',
-    'teaser': collections[0].teasers[0]
+    'teaser': {
+        "title": "Wissenschaftler sagen: Kühe geben Milch. Stadtbewohner erstaunt und entrüstet: 'Igitt!'",
+        "styleModifier": "teaser--longform",
+        "kicker": "Milchsee",
+        "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+        "link": "#",
+        "showLinks": false,
+        "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet."
+    }
 } %}
+</div>
+
+<h2>XL-Teaser with links</h2>
+<div class="js-togglable-wrapper togglable-wrapper togglable-wrapper--xl">
+{% include 'molecules-teaser--longform' with {
+    'styleModifier': 'teaser--size-xl',
+    'teaser': {
+        "title": "Wissenschaftler sagen: Kühe geben Milch. Stadtbewohner erstaunt und entrüstet: 'Igitt!'",
+        "styleModifier": "teaser--longform",
+        "kicker": "Milchsee",
+        "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+        "link": "#",
+        "showLinks": true,
+        "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet."
+    }
+} %}
+</div>
 
 <h2>No Translate</h2>
-
+<div class="js-togglable-wrapper togglable-wrapper">
 {% include 'molecules-teaser--longform' with {
     "styleModifier": "teaser--size-s teaser--no-translate",
     "teaser": collections[0].teasers[0]
 } %}
+</div>
 
-<h2>Status</h2>
+<h2>In collections</h2>
+<h3>Longform as shortest</h3>
 
-<h3>New</h3>
-
-{% include 'molecules-teaser--longform' with {
-    'styleModifier': 'teaser--size-s',
-    'teaser': collections[0].teasers[0],
-    'infoType': 'state',
-    'infoText': 'Vor 5 Minuten',
-    'infoStyleModifier': 'teaser-info--new'
+{% include 'organisms-collection' with {
+    'collection': {
+        'styleModifier': 'collection--standard',
+        "teasers": [
+            {
+                "title": "Wissenschaftler sagen: Kühe geben Milch. Stadtbewohner erstaunt und entrüstet: 'Igitt!' Wissenschaftler sagen: Kühe geben Milch. Stadtbewohner erstaunt und entrüstet: 'Igitt!'",
+                "kicker": "Milchsee",
+                "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+                "link": "#",
+                "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet."
+            }, {
+                "title": "Kühe geben Milch - Stadtbewohner erstaunt und entrüstet",
+                "styleModifier": "teaser--longform",
+                "kicker": "Milchsee",
+                "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+                "link": "#",
+                "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet."
+            }, {
+                "title": "Wissenschaftler sagen: Kühe geben Milch. Stadtbewohner erstaunt und entrüstet: 'Igitt!'",
+                "kicker": "Milchsee",
+                "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+                "link": "#",
+                "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet."
+            }
+        ]
+    }
 } %}
 
-<h3>Visited</h3>
+<h3>Longform as longest</h3>
 
-{% include 'molecules-teaser--longform' with {
-    'styleModifier': 'teaser--size-l',
-    'teaser': collections[0].teasers[0],
-    'infoType': 'state',
-    'infoText': 'Gesehen',
-    'infoStyleModifier': 'teaser-info--visited teaser-info--with-icon'
+{% include 'organisms-collection' with {
+    'collection': {
+        'styleModifier': 'collection--standard',
+        "teasers": [
+            {
+                "title": "Kühe geben Milch - Stadtbewohner erstaunt und entrüstet",
+                "kicker": "Milchsee",
+                "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+                "link": "#",
+                "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt."
+            }, {
+                "title": "Wissenschaftler sagen: Kühe geben Milch. Stadtbewohner erstaunt und entrüstet: 'Igitt!'",
+                "styleModifier": "teaser--longform",
+                "kicker": "Milchsee",
+                "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+                "link": "#",
+                "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet. Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet. Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet. Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet."
+            }, {
+                "title": "Kühe geben Milch - Stadtbewohner erstaunt und entrüstet",
+                "kicker": "Milchsee",
+                "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+                "link": "#",
+                "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt."
+            }
+        ]
+    }
 } %}
 
-<h3>Visited with updates in the last 2 hours</h3>
-
-{% include 'molecules-teaser--longform' with {
-    'styleModifier': 'teaser--size-m',
-    'teaser': collections[0].teasers[0],
-    'infoType': 'state',
-    'infoText': 'Vor 5 Minuten',
-    'infoStyleModifier': 'teaser-info--visited-and-recently-updated teaser-info--with-icon'
+<h3>Longform with teaserlinks</h3>
+{% include 'organisms-collection' with {
+    'collection': {
+        'styleModifier': 'collection--standard',
+        "teasers": [
+            {
+                "title": "Wissenschaftler sagen: Kühe geben Milch. Stadtbewohner erstaunt und entrüstet: 'Igitt!'",
+                "styleModifier": "teaser--longform",
+                "kicker": "Milchsee",
+                "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+                "link": "#",
+                "showLinks": true,
+                "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet."
+            }, {
+                "title": "Wissenschaftler sagen: Kühe geben Milch. Stadtbewohner erstaunt und entrüstet: 'Igitt!'",
+                "styleModifier": "teaser--longform",
+                "kicker": "Milchsee",
+                "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+                "link": "#",
+                "showLinks": true,
+                "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet."
+            }, {
+                "title": "Wissenschaftler sagen: Kühe geben Milch. Stadtbewohner erstaunt und entrüstet: 'Igitt!'",
+                "styleModifier": "teaser--longform",
+                "kicker": "Milchsee",
+                "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+                "link": "#",
+                "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet."
+            }
+        ]
+    }
 } %}
 
-<h3>Visited with updates</h3>
+<h3>Longform in Duo Collection</h3>
 
-{% include 'molecules-teaser--longform' with {
-    'styleModifier': 'teaser--size-xl',
-    'teaser': collections[0].teasers[0],
-    'infoType': 'state',
-    'infoText': 'Aktualisiert',
-    'infoStyleModifier': 'teaser-info--visited-and-updated teaser-info--with-icon'
+{% include 'organisms-collection' with {
+    'collection': {
+        'styleModifier': 'collection--duo',
+        "title": "News Schweiz",
+        "teasers": [
+            {
+                "title": "Wissenschaftler sagen: Kühe geben Milch. Stadtbewohner erstaunt und entrüstet: 'Igitt!'",
+                "styleModifier": "teaser--longform",
+                "kicker": "Milchsee",
+                "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+                "link": "#",
+                "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet."
+            }, {
+                "title": "Wissenschaftler sagen: Kühe geben Milch. Stadtbewohner erstaunt und entrüstet: 'Igitt!'",
+                "styleModifier": "teaser--longform",
+                "kicker": "Milchsee",
+                "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+                "link": "#",
+                "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet."
+            }, {
+                "title": "Wissenschaftler sagen: Kühe geben Milch. Stadtbewohner erstaunt und entrüstet: 'Igitt!'",
+                "styleModifier": "teaser--longform",
+                "kicker": "Milchsee",
+                "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+                "link": "#",
+                "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet."
+            }
+        ]
+    }
 } %}
+
+<h3>Longform in Hero Collection</h3>
+{% include 'organisms-collection' with {
+    'collection': {
+        'styleModifier': 'collection--hero',
+        "title": "News Schweiz",
+        "teasers": [
+            {
+                "title": "Wissenschaftler sagen: Kühe geben Milch. Stadtbewohner erstaunt und entrüstet: 'Igitt!'",
+                "styleModifier": "teaser--longform",
+                "kicker": "Milchsee",
+                "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+                "link": "#",
+                "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet."
+            }, {
+                "title": "Wissenschaftler sagen: Kühe geben Milch. Stadtbewohner erstaunt und entrüstet: 'Igitt!'",
+                "styleModifier": "teaser--longform",
+                "kicker": "Milchsee",
+                "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+                "link": "#",
+                "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet."
+            }, {
+                "title": "Wissenschaftler sagen: Kühe geben Milch. Stadtbewohner erstaunt und entrüstet: 'Igitt!'",
+                "styleModifier": "teaser--longform",
+                "kicker": "Milchsee",
+                "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+                "link": "#",
+                "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet."
+            }
+        ]
+    }
+} %}
+
+<h3>Longform in compact Collection</h3>
+{% include 'organisms-collection' with {
+    'collection': {
+        'styleModifier': 'collection--compact',
+        "title": "News Schweiz",
+        "teasers": [
+            {
+                "title": "Wissenschaftler sagen: Kühe geben Milch. Stadtbewohner erstaunt und entrüstet: 'Igitt!'",
+                "styleModifier": "teaser--longform",
+                "kicker": "Milchsee",
+                "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+                "link": "#",
+                "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet."
+            }, {
+                "title": "Wissenschaftler sagen: Kühe geben Milch. Stadtbewohner erstaunt und entrüstet: 'Igitt!'",
+                "styleModifier": "teaser--longform",
+                "kicker": "Milchsee",
+                "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+                "link": "#",
+                "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet."
+            }, {
+                "title": "Wissenschaftler sagen: Kühe geben Milch. Stadtbewohner erstaunt und entrüstet: 'Igitt!'",
+                "styleModifier": "teaser--longform",
+                "kicker": "Milchsee",
+                "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+                "link": "#",
+                "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet."
+            }
+        ]
+    }
+} %}
+
+<script>
+    let $btn = $('.js-toggle-max-width'),
+        $togglableWrappers = $('.js-togglable-wrapper');
+    $btn.on('click', () => {
+        $togglableWrappers.toggleClass('teaser-demo-wrapper');
+    });
+</script>
