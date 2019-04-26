@@ -106,8 +106,11 @@
 }
 
 .nav-item--third-level {
+  width: 100%;
   position: relative;
-  display: block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
   padding-left: 16px;
   padding-right: 16px;
   @include fontSize(16);
@@ -133,13 +136,12 @@
   }
 
   .nav-item--third-level__icon {
-    position: absolute;
-    right: 8px;
-    top: 16px;
     display: inline-block;
     width: 24px;
     height: 24px;
     transform: rotate(-90deg);
+    margin-left: 8px;
+    margin-right: -8px;
     background-image: url(../img/icon/check-red.svg);
   }
 }
