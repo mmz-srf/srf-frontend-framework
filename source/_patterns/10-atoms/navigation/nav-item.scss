@@ -106,6 +106,7 @@
 }
 
 .nav-item--third-level {
+  position: relative;
   display: block;
   padding-left: 16px;
   padding-right: 16px;
@@ -129,6 +130,17 @@
 
   &:active {
     background-color: $color-nav-bg-active;
+  }
+
+  .nav-item--third-level__icon {
+    position: absolute;
+    right: 8px;
+    top: 16px;
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    transform: rotate(-90deg);
+    background-image: url(../img/icon/check-red.svg);
   }
 }
 
