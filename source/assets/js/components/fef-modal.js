@@ -1,5 +1,6 @@
-import {DOM_CHANGED_EVENT} from '../classes/fef-dom-observer';
-import {FefResponsiveHelper} from '../classes/fef-responsive-helper';
+import { DOM_CHANGED_EVENT } from '../classes/fef-dom-observer';
+import { FefResponsiveHelper } from '../classes/fef-responsive-helper';
+import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 
 let ANIMATION_SPEED = 200;
 
@@ -208,6 +209,8 @@ export class FefModal {
         if (this.$mainContent.outerHeight() >= $(window).outerHeight() && (FefResponsiveHelper.isTablet() || FefResponsiveHelper.isSmartphone())) {
             this.previousScrollPosition = $(window).scrollTop();
             $('html').addClass('h-prevent-scrolling');
+
+            disableBodyScroll(this.$element);
         }
     }
 
@@ -223,6 +226,8 @@ export class FefModal {
             $('html').removeClass('h-prevent-scrolling');
             $(window).scrollTop(this.previousScrollPosition);
             this.previousScrollPosition = null;
+
+            enableBodyScroll(this.$element);
         }
     }
 
