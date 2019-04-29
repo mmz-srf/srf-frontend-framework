@@ -885,8 +885,8 @@
   }
 
   // makes the icons brigther
-  .block-link--teaser-link {
-    filter: brightness(100);
+  .block-link--teaser-link::after {
+    filter: brightness(5);
   }
 }
 

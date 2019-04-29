@@ -9,7 +9,23 @@
 @import '../../_patterns/10-atoms/wrapper/ratio';
 @import '../../_patterns/40-templates/landingpage';
 
+@font-face {
+  font-family: 'SRG_SSR_Bold';
+  src: url('../fonts/SRGSSRTypeText_W_Bd.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 body.body--loading.body--loading {
+  .portalsnav__link,
+  .masthead__title {
+    font-family: $font-bold;
+    font-feature-settings: "salt";
+    font-weight: 400;
+    @include font-smoothing;
+  }
+
   .h-loading-only {
     display: block;
   }

@@ -4,6 +4,7 @@
 
 .selectable-wrapper {
   margin: $collection-gap 0 0;
+  user-select: none;
 
   @include tablet-up {
     margin-top: $collection-gap-tablet-up;
