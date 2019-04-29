@@ -210,7 +210,7 @@ export class FefModal {
             this.previousScrollPosition = $(window).scrollTop();
             $('html').addClass('h-prevent-scrolling');
 
-            disableBodyScroll(this.$element);
+            disableBodyScroll(this.$element[0]);
         }
     }
 
@@ -227,7 +227,7 @@ export class FefModal {
             $(window).scrollTop(this.previousScrollPosition);
             this.previousScrollPosition = null;
 
-            enableBodyScroll(this.$element);
+            enableBodyScroll(this.$element[0]);
         }
     }
 
