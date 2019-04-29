@@ -19,6 +19,15 @@ export class FefResponsiveHelper {
     }
 
     /**
+     * Returns true if current breakpoint is NOT 'smartphone'
+     * 
+     * @returns {boolean}
+     */
+    static isTabletUp() {
+        return !this.isSmartphone();
+    }
+
+    /**
      * Returns true if current breakpoint is 'desktop'
      *
      * @returns {boolean}
