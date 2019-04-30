@@ -1,7 +1,9 @@
+/* autoprefixer grid: on */
 .canton-nav {
   display: grid;
-  grid-template-columns: repeat(8, 46px [col-start]);
-  grid-template-rows: repeat(6, 46px [row-start]);
+  grid-template-columns: repeat(8, 42px [col-start]);
+  grid-template-rows: repeat(6, 42px [row-start]);
+  grid-gap: 4px;
 }
 
 .canton-navpoint--vd {
@@ -60,3 +62,5 @@
   grid-column-end: 5;
   justify-self: center;
 }
+/* autoprefixer grid: off */
+
