@@ -3,7 +3,7 @@
 
 $cantonBorderWidth: 42px;
 
-.canton-nav {
+.canton-navpoint {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -13,7 +13,7 @@ $cantonBorderWidth: 42px;
   background-color: $color-bg-box;
 }
 
-.canton-nav__link {
+.canton-navpoint__link {
   width: 100%;
   height: 100%;
   text-align: center;

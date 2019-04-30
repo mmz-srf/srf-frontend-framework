@@ -1,0 +1,34 @@
+{% set cantons = [
+    {'name': 'Basel', 'shortcut': 'bs'},
+    {'name': 'Schaffhausen', 'shortcut': 'sh'},
+    {'name': 'Jura', 'shortcut': 'ju'},
+    {'name': 'Basel-Landschaft', 'shortcut': 'bl'},
+    {'name': 'Aargau', 'shortcut': 'ag'},
+    {'name': 'Zürich', 'shortcut': 'zh'},
+    {'name': 'Thurgau', 'shortcut': 'tg'},
+    {'name': 'Appenzell Ausserrhoden', 'shortcut': 'ar'},
+    {'name': 'Neuenburg', 'shortcut': 'ne'},
+    {'name': 'Solothurn', 'shortcut': 'so'},
+    {'name': 'Luzern', 'shortcut': 'lu'},
+    {'name': 'Zug', 'shortcut': 'zg'},
+    {'name': 'St. Gallen', 'shortcut': 'sg'},
+    {'name': 'Appenzell Innerrhoden', 'shortcut': 'ai'},
+    {'name': 'Waadt', 'shortcut': 'vd'},
+    {'name': 'Freiburg', 'shortcut': 'fr'},
+    {'name': 'Bern', 'shortcut': 'be'},
+    {'name': 'Nidwalden', 'shortcut': 'nw'},
+    {'name': 'Schwyz', 'shortcut': 'sz'},
+    {'name': 'Glarus', 'shortcut': 'gl'},
+    {'name': 'Graubünden', 'shortcut': 'gr'},
+    {'name': 'Genf', 'shortcut': 'ge'},
+    {'name': 'Wallis', 'shortcut': 'vs'},
+    {'name': 'Obwalden', 'shortcut': 'ow'},
+    {'name': 'Uri', 'shortcut': 'ur'},
+    {'name': 'Tessin', 'shortcut': 'ti'},
+] %}
+
+<div class="canton-nav">
+    {% for canton in cantons %}
+        {% include 'atoms-canton' with {'canton': canton} %}
+    {% endfor %}
+</div>

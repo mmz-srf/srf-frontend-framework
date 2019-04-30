@@ -1,0 +1,41 @@
+.canton-nav {
+  display: grid;
+  grid-template-columns: repeat(8, 46px [col-start]);
+  grid-template-rows: repeat(6, 46px [row-start]);
+}
+
+.canton-navpoint--bs {
+  grid-column-start: 4;
+}
+
+.canton-navpoint--sh {
+  grid-column-start: 6;
+}
+
+.canton-navpoint--ju {
+  grid-column-start: 3;
+}
+
+.canton-navpoint--ne {
+  grid-column-start: 3;
+}
+
+.canton-navpoint--vd {
+  grid-column-start: 2;
+}
+
+.canton-navpoint--ge {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  justify-self: center;
+}
+
+.canton-navpoint--vs {
+  grid-column-start: 3;
+  grid-column-end: 5;
+  justify-self: center;
+}
+
+.canton-navpoint--ti {
+  grid-column-start: 6;
+}

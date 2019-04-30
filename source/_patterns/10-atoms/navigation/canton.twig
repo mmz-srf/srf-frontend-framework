@@ -1,5 +1,7 @@
-<div class="canton-nav">
-    <a class="canton-nav__link" href="#" title="Zürich">
-        ZH
+{% set canton = canton is defined and canton is not empty ? canton : {'name': 'Zürich', 'shortcut': 'zh'} %}
+
+<div class="canton-navpoint canton-navpoint--{{ canton.shortcut|lower() }}">
+    <a class="canton-navpoint__link" href="#" title="{{ canton.name }}">
+        {{ canton.shortcut|upper() }}
     </a>
 </div>
