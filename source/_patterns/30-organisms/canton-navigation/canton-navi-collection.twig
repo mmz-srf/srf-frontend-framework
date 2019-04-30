@@ -1,6 +1,5 @@
-{% if cantonNav is defined and cantonNav is not empty %}
-    <div class="canton-nav-collection collection collection__branding-wrapper">
-
+<div class="canton-nav-collection collection collection__branding-wrapper">
+    {% if cantonNav is defined and cantonNav is not empty %}
         <div class="canton-nav-collection__content">
 
             {% if cantonNav.kicker is defined and cantonNav.kicker is not empty %}
@@ -22,10 +21,11 @@
             {% endif %}
 
         </div>
+    {% endif %}
 
+    {% if cantons is defined and cantons is not empty %}
         <div class="canton-nav-collection__navigation">
             {% include 'molecules-cantonnav' %}
         </div>
-
-    </div>
-{% endif %}
+    {% endif %}
+</div>
