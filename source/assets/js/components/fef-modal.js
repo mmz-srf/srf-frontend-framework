@@ -213,9 +213,10 @@ export class FefModal {
             //disableBodyScroll(this.$mainContent[0]);
 
             //
-            $('body').on('touchmove', (e) => {
+            this.$element.on('touchmove', (e) => {
                 // eslint-disable-next-line no-console
                 console.log(e);
+                e.preventDefault();
             });
         }
     }
