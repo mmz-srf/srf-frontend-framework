@@ -116,7 +116,7 @@
   @include fontSize(16);
 
   @include smartphone {
-    text-align: center;
+    flex-direction: column;
   }
 
   // Override Theming for 3rd level Nav
@@ -143,6 +143,12 @@
     margin-left: 8px;
     margin-right: -8px;
     background-image: url(../img/icon/check-red.svg);
+
+    @include smartphone {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+    }
   }
 }
 
