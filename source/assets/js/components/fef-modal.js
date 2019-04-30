@@ -211,6 +211,12 @@ export class FefModal {
             $('html').addClass('h-prevent-scrolling');
 
             //disableBodyScroll(this.$mainContent[0]);
+
+            //
+            $(body).on('touchmove', (e) => {
+                // eslint-disable-next-line no-console
+                console.log(e);
+            });
         }
     }
 
