@@ -1,6 +1,6 @@
 import { DOM_CHANGED_EVENT } from '../classes/fef-dom-observer';
 import { FefResponsiveHelper } from '../classes/fef-responsive-helper';
-import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
+import { enable as enableBounce, disable as disableBounce } from 'inobounce';
 
 let ANIMATION_SPEED = 200;
 
@@ -210,6 +210,7 @@ export class FefModal {
             this.previousScrollPosition = $(window).scrollTop();
             $('html').addClass('h-prevent-scrolling');
 
+            disableBounce();
             //disableBodyScroll(this.$mainContent[0]);
         }
     }
@@ -227,6 +228,7 @@ export class FefModal {
             $(window).scrollTop(this.previousScrollPosition);
             this.previousScrollPosition = null;
 
+            enableBounce();
         }
         //enableBodyScroll(this.$mainContent[0]);
     }
