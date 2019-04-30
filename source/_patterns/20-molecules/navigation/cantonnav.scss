@@ -4,24 +4,49 @@
   grid-template-rows: repeat(6, 46px [row-start]);
 }
 
-.canton-navpoint--bs {
-  grid-column-start: 4;
-}
-
-.canton-navpoint--sh {
-  grid-column-start: 6;
-}
-
-.canton-navpoint--ju {
-  grid-column-start: 3;
-}
-
-.canton-navpoint--ne {
-  grid-column-start: 3;
-}
-
 .canton-navpoint--vd {
-  grid-column-start: 2;
+  grid-column: 2 / 3;
+}
+
+.canton-navpoint--ju,
+.canton-navpoint--ne,
+.canton-navpoint--fr {
+  grid-column: 3 / 4;
+}
+
+.canton-navpoint--bs,
+.canton-navpoint--bl,
+.canton-navpoint--so,
+.canton-navpoint--be {
+  grid-column: 4 / 5;
+}
+
+.canton-navpoint--ag,
+.canton-navpoint--lu,
+.canton-navpoint--nw,
+.canton-navpoint--ow {
+  grid-column: 5 / 6;
+}
+
+.canton-navpoint--sh,
+.canton-navpoint--zh,
+.canton-navpoint--zg,
+.canton-navpoint--sz,
+.canton-navpoint--ur,
+.canton-navpoint--ti {
+  grid-column: 6 / 7;
+}
+
+.canton-navpoint--tg,
+.canton-navpoint--sg,
+.canton-navpoint--gl {
+  grid-column: 7 / 8;
+}
+
+.canton-navpoint--ar,
+.canton-navpoint--al,
+.canton-navpoint--gr {
+  grid-column: 8 / 9;
 }
 
 .canton-navpoint--ge {
@@ -34,8 +59,4 @@
   grid-column-start: 3;
   grid-column-end: 5;
   justify-self: center;
-}
-
-.canton-navpoint--ti {
-  grid-column-start: 6;
 }
