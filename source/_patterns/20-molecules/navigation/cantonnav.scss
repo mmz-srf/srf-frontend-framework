@@ -1,66 +1,127 @@
 /* autoprefixer grid: on */
 .canton-nav {
   display: grid;
-  grid-template-columns: repeat(8, 42px [col-start]);
-  grid-template-rows: repeat(6, 42px [row-start]);
   grid-gap: 4px;
+  grid-template:
+    "aa ab ac ad ae af ag ah" 42px
+    "ba bb bc bd be bf bg bh" 42px
+    "ca cb cc cd ce cf cg ch" 42px
+    "da db dc dd de df dg dh" 42px
+    "ea eb ec ed ee ef eg eh" 42px
+    "fa fb fc fd fe ff fg fh" 42px /
+    42px 42px 42px 42px 42px 42px 42px 42px;
+}
+
+.canton-navpoint--bs {
+  grid-area: ad;
+}
+
+.canton-navpoint--sh {
+  grid-area: af;
+}
+
+.canton-navpoint--ju {
+  grid-area: bc;
+}
+
+.canton-navpoint--bl {
+  grid-area: bd;
+}
+
+.canton-navpoint--ag {
+  grid-area: be;
+}
+
+.canton-navpoint--zh {
+  grid-area: bf;
+}
+
+.canton-navpoint--tg {
+  grid-area: bg;
+}
+
+.canton-navpoint--ar {
+  grid-area: bh;
+}
+
+.canton-navpoint--ne {
+  grid-area: cc;
+}
+
+.canton-navpoint--so {
+  grid-area: cd;
+}
+
+.canton-navpoint--lu {
+  grid-area: ce;
+}
+
+.canton-navpoint--zg {
+  grid-area: cf;
+}
+
+.canton-navpoint--sg {
+  grid-area: cg;
+}
+
+.canton-navpoint--ai {
+  grid-area: ch;
 }
 
 .canton-navpoint--vd {
-  grid-column: 2 / 3;
+  grid-area: db;
 }
 
-.canton-navpoint--ju,
-.canton-navpoint--ne,
 .canton-navpoint--fr {
-  grid-column: 3 / 4;
+  grid-area: dc;
 }
 
-.canton-navpoint--bs,
-.canton-navpoint--bl,
-.canton-navpoint--so,
 .canton-navpoint--be {
-  grid-column: 4 / 5;
+  grid-area: dd;
 }
 
-.canton-navpoint--ag,
-.canton-navpoint--lu,
-.canton-navpoint--nw,
-.canton-navpoint--ow {
-  grid-column: 5 / 6;
+.canton-navpoint--nw {
+  grid-area: de;
 }
 
-.canton-navpoint--sh,
-.canton-navpoint--zh,
-.canton-navpoint--zg,
-.canton-navpoint--sz,
-.canton-navpoint--ur,
-.canton-navpoint--ti {
-  grid-column: 6 / 7;
+.canton-navpoint--sz {
+  grid-area: df;
 }
 
-.canton-navpoint--tg,
-.canton-navpoint--sg,
 .canton-navpoint--gl {
-  grid-column: 7 / 8;
+  grid-area: dg;
 }
 
-.canton-navpoint--ar,
-.canton-navpoint--al,
 .canton-navpoint--gr {
-  grid-column: 8 / 9;
+  grid-area: dh;
 }
 
 .canton-navpoint--ge {
-  grid-column-start: 1;
-  grid-column-end: 3;
+  grid-area: ea;
+  @supports (grid-area: ea / ea / eb / eb) {
+    grid-area: ea / ea / eb / eb;
+  }
   justify-self: center;
 }
 
 .canton-navpoint--vs {
-  grid-column-start: 3;
-  grid-column-end: 5;
+  grid-area: ec;
+  @supports (grid-area: ec / ec / ed / ed) {
+    grid-area: ec / ec / ed / ed;
+  }
   justify-self: center;
+}
+
+.canton-navpoint--ow {
+  grid-area: ee;
+}
+
+.canton-navpoint--ur {
+  grid-area: ef;
+}
+
+.canton-navpoint--ti {
+  grid-area: ff;
 }
 /* autoprefixer grid: off */
 
