@@ -207,7 +207,10 @@ export class FefModal {
      */
     preventScrolling() {
         if (this.$mainContent.outerHeight() >= $(window).outerHeight() && (FefResponsiveHelper.isTablet() || FefResponsiveHelper.isSmartphone())) {
-            disableBodyScroll(this.$mainContent[0]);
+            this.previousScrollPosition = $(window).scrollTop();
+            $('html').addClass('h-prevent-scrolling');
+
+            //disableBodyScroll(this.$mainContent[0]);
         }
     }
 
@@ -219,7 +222,13 @@ export class FefModal {
      * This makes it appear as if we never even scrolled away.
      */
     scrollToPreviousPosition() {
-        enableBodyScroll(this.$mainContent[0]);
+        if (this.previousScrollPosition !== null) {
+            $('html').removeClass('h-prevent-scrolling');
+            $(window).scrollTop(this.previousScrollPosition);
+            this.previousScrollPosition = null;
+
+        }
+        //enableBodyScroll(this.$mainContent[0]);
     }
 
     /**

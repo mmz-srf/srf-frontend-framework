@@ -57,11 +57,11 @@
 }
 
 .h-prevent-scrolling {
-  height: 100%;
+  height: 100vh;
 
   body {
-    height: 100%;
-    position: relative; // Because Safari doesn't prevent scrollbars without this
+    height: 100vh;
+    position: absolute; // Because Safari doesn't prevent scrollbars without this
     overflow: hidden;
   }
 }
