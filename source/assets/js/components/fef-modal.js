@@ -1,5 +1,8 @@
 import { DOM_CHANGED_EVENT } from '../classes/fef-dom-observer';
 import { FefResponsiveHelper } from '../classes/fef-responsive-helper';
+// Not a typo. "enable" is meant as "enable plugin", which results in scroll
+// prevention on the body. Aliasing it here to maintain your sanity.
+// Homepage: https://github.com/lazd/iNoBounce
 import { enable as preventBodyScrolling, disable as enableBodyScrolling } from 'inobounce';
 
 let ANIMATION_SPEED = 200;
@@ -16,6 +19,9 @@ const END_OF_MODAL = '.js-end-of-modal';
 
 let existingModals = {};
 let scrollbarWidth = 0;
+
+// Plugin autostarts itself, so we have to manually enable scrolling on the body when loaded:
+enableBodyScrolling();
 
 $(window).on(DOM_CHANGED_EVENT, (e) => {
     scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
@@ -202,7 +208,10 @@ export class FefModal {
      * We achieve this by setting the body to overflow: hidden and setting the height to 100%, thus
      * effectively cutting the rest of the page off. This scrolls to the top of the page, so we
      * also have to save the previous scroll state.
-     *
+     * 
+     * Additionally, the iNoBounce plugin is used to prevent bouncy body
+     * scrolling which can lead to subpar experience on iOS devices.
+     * 
      * We only do this if the modal covers the whole page and on mobile/tablet.
      */
     preventScrolling() {
@@ -218,6 +227,7 @@ export class FefModal {
      * If, upon opening the modal, the ability to scroll was removed, we give it back now. This means:
      * - removing the class that prevents the scrolling
      * - scrolling back to the previously saved scroll position
+     * - additionally we re-enable bouncy body scrolling
      *
      * This makes it appear as if we never even scrolled away.
      */
@@ -227,8 +237,8 @@ export class FefModal {
             $(window).scrollTop(this.previousScrollPosition);
             this.previousScrollPosition = null;
 
-            enableBodyScrolling();
         }
+        enableBodyScrolling();
     }
 
     /**
