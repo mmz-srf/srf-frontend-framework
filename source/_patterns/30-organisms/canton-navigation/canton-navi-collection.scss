@@ -1,0 +1,95 @@
+@import "../../variables";
+@import "../../mixins";
+
+.canton-nav-collection {
+  box-shadow: $shadow-elevation16;
+  display: flex;
+  flex-direction: column;
+  padding: 16px 10px 16px 9px;
+
+  @include tablet-up {
+    padding-top: 32px;
+    padding-bottom: 24px;
+    flex-direction: row;
+  }
+}
+
+/**
+ * Canton navigation content
+ */
+.canton-nav-collection__content {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0;
+}
+
+/**
+ * Kicker
+ */
+.canton-nav-collection__kicker {
+  margin-bottom: 4px;
+}
+
+.canton-nav-collection__kicker--text {
+  font-family: $font-regular;
+  line-height: 1.13;
+  @include fontSize(16);
+  @include font-smoothing();
+  color: $color-accentuation-red;
+
+  @include tablet-up {
+    line-height: 1.14;
+    @include fontSize(18);
+  }
+}
+
+
+/**
+ * Title
+ */
+.canton-nav-collection__title {
+  margin: 0;
+}
+
+.canton-nav-collection__title--text {
+  font-family: $font-medium;
+  font-weight: 500;
+  line-height: 1.25;
+  @include fontSize(28);
+  @include font-smoothing();
+  margin: 0;
+
+  @include tablet-up {
+    @include fontSize(24);
+  }
+}
+
+
+/**
+ * Lead
+ */
+.canton-nav-collection__lead {
+  margin-top: 12px;
+}
+
+.canton-nav-collection__lead--text {
+  font-family: $font-light;
+  @include fontSize(16);
+  @include font-smoothing();
+  margin: 0;
+}
+
+
+
+/**
+ * Canton switzerland navigation
+ */
+.canton-nav-collection__navigation {
+  flex: 1;
+  margin-top: 24px;
+  & > div {
+    margin-left: -24px;
+    justify-content: center;
+    align-items: center;
+  }
+}

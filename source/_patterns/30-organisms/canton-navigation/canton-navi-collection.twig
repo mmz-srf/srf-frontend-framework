@@ -1,0 +1,31 @@
+{% if cantonNav is defined and cantonNav is not empty %}
+    <div class="canton-nav-collection collection collection__branding-wrapper">
+
+        <div class="canton-nav-collection__content">
+
+            {% if cantonNav.kicker is defined and cantonNav.kicker is not empty %}
+                <div class="canton-nav-collection__kicker">
+                    <span class="canton-nav-collection__kicker--text">{{ cantonNav.kicker|trim }}</span>
+                </div>
+            {% endif %}
+
+            {% if cantonNav.title is defined and cantonNav.title is not empty %}
+                <div class="canton-nav-collection__title">
+                    <h3 class="canton-nav-collection__title--text">{{ cantonNav.title|trim }}</h3>
+                </div>
+            {% endif %}
+
+            {% if cantonNav.lead is defined and cantonNav.lead is not empty %}
+                <div class="canton-nav-collection__lead">
+                    <p class="canton-nav-collection__lead--text">{{ cantonNav.lead|trim }}</p>
+                </div>
+            {% endif %}
+
+        </div>
+
+        <div class="canton-nav-collection__navigation">
+            {% include 'molecules-cantonnav' %}
+        </div>
+
+    </div>
+{% endif %}
