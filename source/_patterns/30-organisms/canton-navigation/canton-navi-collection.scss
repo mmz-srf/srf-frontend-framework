@@ -2,14 +2,13 @@
 @import "../../mixins";
 
 .canton-nav-collection {
-  box-shadow: $shadow-elevation16;
+  box-shadow: $shadow-elevation1;
   display: flex;
   flex-direction: column;
   padding: 16px 10px 16px 9px;
 
   @include tablet-up {
-    padding-top: 32px;
-    padding-bottom: 24px;
+    padding: 32px 32px 24px 32px;
     flex-direction: row;
   }
 }
@@ -38,7 +37,7 @@
   color: $color-accentuation-red;
 
   @include tablet-up {
-    line-height: 1.14;
+    line-height: 1.11;
     @include fontSize(18);
   }
 }
@@ -54,13 +53,13 @@
 .canton-nav-collection__title--text {
   font-family: $font-medium;
   font-weight: 500;
-  line-height: 1.25;
-  @include fontSize(28);
+  line-height: $emphasize-line-height-ratio;
+  @include fontSize(24);
   @include font-smoothing();
   margin: 0;
 
   @include tablet-up {
-    @include fontSize(24);
+    @include fontSize(28);
   }
 }
 
@@ -74,9 +73,14 @@
 
 .canton-nav-collection__lead--text {
   font-family: $font-light;
+  line-height: $secondary-line-height-ratio;
   @include fontSize(16);
   @include font-smoothing();
   margin: 0;
+
+  @include tablet-up {
+    @include fontSize(18);
+  }
 }
 
 
@@ -91,5 +95,12 @@
     margin-left: -24px;
     justify-content: center;
     align-items: center;
+  }
+
+  @include tablet-up {
+    & > div {
+      margin-left: 0;
+      justify-content: right;
+    }
   }
 }
