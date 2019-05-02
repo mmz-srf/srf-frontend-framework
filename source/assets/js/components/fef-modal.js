@@ -52,7 +52,7 @@ export class FefModal {
         this.$mainContent = this.$element.find('.js-modal-main-content');
         this.animation = this.$element.attr('data-animation');
         this.previousScrollPosition = null;
-        this.shouldPreventBouncyBody = FefBouncePrevention.checkSupport();
+        this.browserSupportsElasticScrolling = FefBouncePrevention.checkSupport();
 
         // Accsessibility: when opening the modal, set all other content on the page to aria-hidden, so that screenreaders can't access them anymore.
         this.$A11YElements = this.$element.siblings('div, section, footer, span, h1, a, img');
@@ -214,7 +214,7 @@ export class FefModal {
             this.previousScrollPosition = $(window).scrollTop();
             $('html').addClass('h-prevent-scrolling');
 
-            if (this.shouldPreventBouncyBody) {
+            if (this.browserSupportsElasticScrolling) {
                 FefBouncePrevention.enable();
             }
         }
@@ -236,7 +236,7 @@ export class FefModal {
 
         }
 
-        if (this.shouldPreventBouncyBody) {
+        if (this.browserSupportsElasticScrolling) {
             FefBouncePrevention.disable();
         }
     }
