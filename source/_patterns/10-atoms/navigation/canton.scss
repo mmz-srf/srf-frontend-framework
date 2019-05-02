@@ -9,8 +9,6 @@ $cantonBorderWidth: 42px;
   align-items: center;
   width: $cantonBorderWidth;
   height: $cantonBorderWidth;
-  border-radius: 2px;
-  background-color: $color-bg-box;
 }
 
 .canton-navpoint__link {
@@ -22,4 +20,17 @@ $cantonBorderWidth: 42px;
   font-family: $font-regular;
   @include fontSize(18);
   @include font-smoothing();
+  border-radius: 2px;
+  background-color: $color-bg-box;
+
+  &:hover {
+    color: $color-text-default;
+    background-color: $color-bg-box-hover;
+  }
+
+  &:active,
+  &:focus {
+    color: $color-text-default;
+    background-color: $color-bg-box-focus;
+  }
 }
