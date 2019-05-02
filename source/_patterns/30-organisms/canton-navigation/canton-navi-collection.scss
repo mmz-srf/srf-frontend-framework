@@ -7,16 +7,8 @@
   flex-direction: column;
   padding: 16px;
 
-  * {
-    border: 1px solid red;
-  }
   @include tablet-up {
     padding: 24px 32px 24px 24px;
-    flex-direction: row;
-  }
-
-  @include desktop-up {
-    padding: 32px 32px 24px 32px;
     flex-direction: row;
   }
 }
