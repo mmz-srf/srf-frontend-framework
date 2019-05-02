@@ -18,7 +18,9 @@
 }
 
 .medium--no-hover {
-  pointer-events: none;
+  &:hover {
+    background-color: $color-bg-caption;
+  }
 }
 
 .medium__wrapper {
@@ -38,14 +40,17 @@
 }
 
 .medium__notice {
-  display: block;
-  padding: 4px 8px;
   background: #222;
   font-family: $font-regular;
   @include fontSize(12);
   @include font-smoothing;
   line-height: $secondary-line-height-ratio;
   color: #fafaf8;
+}
+
+.medium__notice-text {
+  display: block;
+  padding: 4px 8px;
   @include tablet-up {
     padding: 8px 12px;
   }
@@ -73,12 +78,12 @@
     }
   }
 
-  .medium__notice {
+  .medium__notice-text {
     padding: 8px $article-offset;
   }
 
   &.medium--video-gallery {
-    .medium__notice {
+    .medium__notice-text {
       padding: 8px 12px;
     }
   }
@@ -108,7 +113,8 @@
   margin: 0;
 
   .media-still,
-  .media-caption {
+  .media-caption,
+  .medium__notice-text {
     max-width: 1023px;
     margin: 0 auto;
     @include desktop-up {
@@ -151,7 +157,7 @@
     }
   }
 
-  .medium__notice {
+  .medium__notice-text {
     padding: 4px 8px;
 
     @include tablet-up {
@@ -198,7 +204,7 @@
     }
   }
 
-  .medium__notice {
+  .medium__notice-text {
     @include fontSize(10);
     padding: 4px 6px;
 

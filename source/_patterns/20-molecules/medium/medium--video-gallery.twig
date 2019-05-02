@@ -2,7 +2,7 @@
     <div class="medium medium--vertical medium--video-gallery js-medium-hover">
         <div class="medium__object">
             {% include 'molecules-media-still--video' with { 'styleModifier' : '' } %}
-            {% if showNotice %}<span class="medium__notice">Video nicht mehr verfügbar</span>{% endif %}
+            {% if showNotice %}<div class="medium__notice"><span class="medium__notice-text">Video nicht mehr verfügbar</span></div>{% endif %}
         </div>
         <div class="medium__caption">
             {% include 'molecules-media-caption-video' with { 'styleModifier' : 'media-caption--no-bg' } %}

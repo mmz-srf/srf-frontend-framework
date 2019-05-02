@@ -49,6 +49,7 @@
   width: 100%;
   box-sizing: content-box;
   -webkit-overflow-scrolling: touch; // enable momentum scrolling on ios
+  @include preventScrollbars();
 
   // Direct child (usually an <ul>) can be animated by the hinting mechanism (See fef-swipeable-area.js:hintOn/hintOff)
   > * {
@@ -58,7 +59,9 @@
 
 .swipeable-area__item {
   opacity: 1;
-  transition: 0.2s opacity ease-in-out;
+  @include desktop-up {
+    transition: 0.2s opacity ease-in-out;
+  }
 }
 
 // (at least) partially hidden item:

@@ -5,10 +5,6 @@
 /* sticky container */
 @import '../../_patterns/20-molecules/sticky-container/sticky-container';
 
-.affix-placeholder--compact {
-  height: 0;
-}
-
 .masthead {
   height: 194px;
 
@@ -20,7 +16,6 @@
 
   @include smartphone {
     height: 164px;
-    margin-bottom: 16px;
     padding: 0 16px;
   }
 
@@ -67,6 +62,13 @@
   }
 }
 
+.affix-placeholder--compact {
+  height: 56px;
+
+  @include tablet-up {
+    height: 72px;
+  }
+}
 
 .masthead__universal {
   display: flex;
@@ -87,16 +89,21 @@
   width: 36px;
   height: 24px;
   background-color: $color-srf;
+  display: inline-block;
   overflow: hidden;
-
-  img {
-    width: 100%;
-    height: auto;
+  
+  svg {
+    transform: scale(.75);
+    transform-origin: 0 0;
   }
 
   @include tablet-up {
     width: 48px;
     height: 32px;
+
+    svg {
+      transform: none;
+    }
   }
 }
 
@@ -124,16 +131,6 @@
     @include tablet-up {
       display: flex;
     }
-  }
-}
-
-.masthead--home {
-  height: 112px;
-
-  @include tablet-up {
-    height: 80px;
-    padding-top: 12px;
-    padding-bottom: 12px;
   }
 }
 
