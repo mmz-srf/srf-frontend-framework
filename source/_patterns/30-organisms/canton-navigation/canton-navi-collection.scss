@@ -8,6 +8,11 @@
   padding: 16px;
 
   @include tablet-up {
+    padding: 24px 32px 24px 24px;
+    flex-direction: row;
+  }
+
+  @include desktop-up {
     padding: 32px 32px 24px 32px;
     flex-direction: row;
   }
@@ -38,7 +43,7 @@
   @include font-smoothing();
   color: $color-accentuation-red;
 
-  @include tablet-up {
+  @include desktop-up {
     line-height: 1.11;
     @include fontSize(18);
   }
@@ -60,8 +65,8 @@
   @include font-smoothing();
   margin: 0;
 
-  @include tablet-up {
-    @include fontSize(28);
+  @include desktop-up {
+    @include fontSize(24);
   }
 }
 
@@ -80,7 +85,7 @@
   @include font-smoothing();
   margin: 0;
 
-  @include tablet-up {
+  @include desktop-up {
     @include fontSize(18);
   }
 }
