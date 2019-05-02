@@ -47,6 +47,12 @@
 
 .globalnav-link--highlight {
   color: $color-accentuation-red;
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: $color-accentuation-red;
+  }
 }
 
 .globalnav-link__img {
