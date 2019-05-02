@@ -1,0 +1,40 @@
+@import '../../variables';
+@import '../../mixins';
+
+$highlight-nav-margin: 16px;
+
+.highlight-nav {
+  margin: 0 -16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.highlight-nav-items {
+  display: flex;
+  flex-direction: column;
+
+  @include tablet-up {
+    flex-direction: row;
+  }
+}
+
+.highlight-nav-item {
+  flex: 0 0 auto;
+}
+
+.highlight-nav-title {
+  @include fontSize(12);
+  color: $color-text-light;
+  margin: 16px 0 0 24px;
+
+  @include tablet-up {
+    margin: 8px 0 0 16px;
+  }
+}
+
+.highlight-nav-divider {
+  height: 1px;
+  @include fullwidth-element();
+  border-bottom: 1px solid $color-nav-divider;
+  margin-top: 8px;
+}

@@ -45,6 +45,10 @@
   }
 }
 
+.globalnav-link--highlight {
+  color: $color-accentuation-red;
+}
+
 .globalnav-link__img {
   flex: 0 0 auto;
   align-self: center;

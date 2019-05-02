@@ -11,6 +11,7 @@
         </div>
 
         <div class="modal__body modal-wrapper">
+          {% include 'molecules-highlight-nav' with {'styleModifier': '', 'id': 'highlight-nav'} %}
           {% include 'molecules-globalnav' with {'styleModifier': '', 'id': 'globalnav--menu'} %}
         </div>
     {% endblock %}
