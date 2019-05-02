@@ -1,20 +1,6 @@
 let startY = 0; // Stores the Y position where the touch started
 
 export class FefBouncePrevention {
-    static supportsPassiveListeners() {
-        let supportsPassiveOption = false;
-        try {
-            let opts = Object.defineProperty({}, 'passive', {
-                get: function() {
-                    supportsPassiveOption = true;
-                }
-            });
-            window.addEventListener('test', null, opts);
-        } catch (e) {}
-
-        return supportsPassiveOption;
-    }
-
     static handleTouchstart(evt) {
         // Store the first Y position of the touch
         startY = evt.touches ? evt.touches[0].screenY : evt.screenY;
@@ -80,17 +66,14 @@ export class FefBouncePrevention {
     }
     
     static enable() {
-        let supportsPassiveOption = FefBouncePrevention.supportsPassiveListeners();
-
         // Listen to a couple key touch events
-        window.addEventListener('touchstart', FefBouncePrevention.handleTouchstart, supportsPassiveOption ? { passive : false } : false);
-        window.addEventListener('touchmove', FefBouncePrevention.handleTouchmove, supportsPassiveOption ? { passive : false } : false);
+        $(window).on('touchstart.bouncePrevention', FefBouncePrevention.handleTouchstart);
+        $(window).on('touchmove.bouncePrevention', FefBouncePrevention.handleTouchmove);
     }
     
     static disable() {
         // Stop listening
-        window.removeEventListener('touchstart', FefBouncePrevention.handleTouchstart, false);
-        window.removeEventListener('touchmove', FefBouncePrevention.handleTouchmove, false);
+        $(window).off('.bouncePrevention');
     }
     
     static checkSupport() {
