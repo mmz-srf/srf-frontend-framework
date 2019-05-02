@@ -51,9 +51,11 @@
 }
 
 .masthead--compact {
-  height: 72px;
-  margin-bottom: 0;
+  position: fixed;
+  width: 100%;
+  top: 0;
   padding-top: 0;
+  height: 72px;
 
   .masthead__wrapper {
     @include tablet-up {

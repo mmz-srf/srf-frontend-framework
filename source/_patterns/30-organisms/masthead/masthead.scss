@@ -194,19 +194,6 @@
   }
 }
 
-.masthead--compact {
-  position: fixed;
-  width: 100%;
-  top: 0;
-  padding-top: 0;
-
-  .masthead__wrapper {
-    @include tablet-up {
-      padding: 8px 0;
-    }
-  }
-}
-
 .masthead--home {
   width: 100%;
   top: 0;
