@@ -1,11 +1,7 @@
-export class FefBouncePrevention {
-    constructor () {
-        this.enabled = false;
-        this.startY = 0; // Stores the Y position where the touch started
-        this.supportsPassiveOption = this.supportsPassiveListeners();
-    }
+let startY = 0; // Stores the Y position where the touch started
 
-    supportsPassiveListeners() {
+export class FefBouncePrevention {
+    static supportsPassiveListeners() {
         let supportsPassiveOption = false;
         try {
             let opts = Object.defineProperty({}, 'passive', {
@@ -19,12 +15,12 @@ export class FefBouncePrevention {
         return supportsPassiveOption;
     }
 
-    handleTouchstart(evt) {
+    static handleTouchstart(evt) {
         // Store the first Y position of the touch
-        this.startY = evt.touches ? evt.touches[0].screenY : evt.screenY;
+        startY = evt.touches ? evt.touches[0].screenY : evt.screenY;
     }
 
-    handleTouchmove(evt) {
+    static handleTouchmove(evt) {
         // Get the element that was scrolled upon
         let el = evt.target;
     
@@ -63,8 +59,8 @@ export class FefBouncePrevention {
     
                 // Determine if the user is trying to scroll past the top or bottom
                 // In this case, the window will bounce, so we have to prevent scrolling completely
-                let isAtTop = (this.startY <= curY && el.scrollTop === 0);
-                let isAtBottom = (this.startY >= curY && el.scrollHeight - el.scrollTop === height);
+                let isAtTop = (startY <= curY && el.scrollTop === 0);
+                let isAtBottom = (startY >= curY && el.scrollHeight - el.scrollTop === height);
     
                 // Stop a bounce bug when at the bottom or top of the scrollable element
                 if (isAtTop || isAtBottom) {
@@ -83,21 +79,21 @@ export class FefBouncePrevention {
         evt.preventDefault();
     }
     
-    enable() {
+    static enable() {
+        let supportsPassiveOption = FefBouncePrevention.supportsPassiveListeners();
+
         // Listen to a couple key touch events
-        window.addEventListener('touchstart', this.handleTouchstart, this.supportsPassiveOption ? { passive : false } : false);
-        window.addEventListener('touchmove', this.handleTouchmove, this.supportsPassiveOption ? { passive : false } : false);
-        this.enabled = true;
+        window.addEventListener('touchstart', FefBouncePrevention.handleTouchstart, supportsPassiveOption ? { passive : false } : false);
+        window.addEventListener('touchmove', FefBouncePrevention.handleTouchmove, supportsPassiveOption ? { passive : false } : false);
     }
     
-    disable() {
+    static disable() {
         // Stop listening
-        window.removeEventListener('touchstart', this.handleTouchstart, false);
-        window.removeEventListener('touchmove', this.handleTouchmove, false);
-        this.enabled = false;
+        window.removeEventListener('touchstart', FefBouncePrevention.handleTouchstart, false);
+        window.removeEventListener('touchmove', FefBouncePrevention.handleTouchmove, false);
     }
     
-    checkSupport() {
+    static checkSupport() {
         // Check if the browser supports -webkit-overflow-scrolling
         // Test this by setting the property with JavaScript on an element that exists in the DOM
         // Then, see if the property is reflected in the computed style

@@ -17,9 +17,6 @@ const END_OF_MODAL = '.js-end-of-modal';
 let existingModals = {};
 let scrollbarWidth = 0;
 
-// Plugin autostarts itself, so we have to manually enable scrolling on the body when loaded:
-enableBodyScrolling();
-
 $(window).on(DOM_CHANGED_EVENT, (e) => {
     scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
     $('[data-modal-id]').each((index, element) => {
@@ -55,6 +52,7 @@ export class FefModal {
         this.$mainContent = this.$element.find('.js-modal-main-content');
         this.animation = this.$element.attr('data-animation');
         this.previousScrollPosition = null;
+        this.shouldPreventBouncyBody = FefBouncePrevention.checkSupport();
 
         // Accsessibility: when opening the modal, set all other content on the page to aria-hidden, so that screenreaders can't access them anymore.
         this.$A11YElements = this.$element.siblings('div, section, footer, span, h1, a, img');
@@ -216,7 +214,9 @@ export class FefModal {
             this.previousScrollPosition = $(window).scrollTop();
             $('html').addClass('h-prevent-scrolling');
 
-            //preventBodyScrolling();
+            if (this.shouldPreventBouncyBody) {
+                FefBouncePrevention.enable();
+            }
         }
     }
 
@@ -235,7 +235,10 @@ export class FefModal {
             this.previousScrollPosition = null;
 
         }
-        //enableBodyScrolling();
+
+        if (this.shouldPreventBouncyBody) {
+            FefBouncePrevention.disable();
+        }
     }
 
     /**
