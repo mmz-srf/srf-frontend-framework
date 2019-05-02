@@ -1,27 +1,25 @@
 @import "../../variables";
 @import "../../mixins";
 
-$cantonBorderWidth: 42px;
+$cantonDesktop: 42px;
+$cantonMobile: 40px;
 
 .canton-navpoint {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: $cantonBorderWidth;
-  height: $cantonBorderWidth;
-}
-
-.canton-navpoint__link {
-  width: 100%;
-  height: 100%;
+  display: block;
+  width: $cantonMobile;
   text-align: center;
-  line-height: $cantonBorderWidth;
+  line-height: $cantonMobile;
   color: $color-text-default;
   font-family: $font-regular;
   @include fontSize(18);
   @include font-smoothing();
   border-radius: 2px;
   background-color: $color-bg-box;
+
+  @include tablet-up {
+    width: $cantonDesktop;
+    line-height: $cantonDesktop;
+  }
 
   &:hover {
     color: $color-text-default;

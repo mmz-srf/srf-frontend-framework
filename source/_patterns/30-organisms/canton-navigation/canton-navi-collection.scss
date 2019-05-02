@@ -7,6 +7,9 @@
   flex-direction: column;
   padding: 16px;
 
+  * {
+    border: 1px solid red;
+  }
   @include tablet-up {
     padding: 24px 32px 24px 24px;
     flex-direction: row;
@@ -34,11 +37,8 @@
  */
 .canton-nav-collection__kicker {
   margin-bottom: 4px;
-}
-
-.canton-nav-collection__kicker--text {
   font-family: $font-regular;
-  line-height: 1.13;
+  line-height: $emphasize-line-height-ratio;
   @include fontSize(16);
   @include font-smoothing();
   color: $color-accentuation-red;
@@ -54,10 +54,6 @@
  * Title
  */
 .canton-nav-collection__title {
-  margin: 0;
-}
-
-.canton-nav-collection__title--text {
   font-family: $font-medium;
   font-weight: 500;
   line-height: $emphasize-line-height-ratio;
@@ -75,15 +71,12 @@
  * Lead
  */
 .canton-nav-collection__lead {
-  margin-top: 12px;
-}
-
-.canton-nav-collection__lead--text {
   font-family: $font-light;
   line-height: $secondary-line-height-ratio;
   @include fontSize(16);
   @include font-smoothing();
-  margin: 0;
+  margin-top: 12px;
+  margin-bottom: 0;
 
   @include desktop-up {
     @include fontSize(18);
@@ -102,16 +95,9 @@
   flex-shrink: 1;
   margin-top: 24px;
 
-  & > div {
-    margin-left: -24px;
-  }
-
   @include tablet-up {
     justify-content: flex-end;
     flex-basis: 0;
     margin-top: 0;
-    & > div {
-      margin-left: 0;
-    }
   }
 }
