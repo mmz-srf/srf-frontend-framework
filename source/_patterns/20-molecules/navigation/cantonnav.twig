@@ -1,5 +1,5 @@
 <div class="canton-nav">
-    {% for canton in cantons if cantons is defined%}
+    {% for canton in cantons|default([]) %}
         {% include 'atoms-canton' with {'canton': canton} %}
     {% endfor %}
 </div>
