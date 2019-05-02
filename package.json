@@ -30,7 +30,6 @@
     "gulp-sourcemaps": "^2.6.5",
     "gulp-vulcanize": "^7.0.0",
     "gulp4-run-sequence": "^0.3.1",
-    "inobounce": "^0.1.6",
     "jquery": "^3.3.1",
     "merge-stream": "*",
     "minimist": "^1.2.0",

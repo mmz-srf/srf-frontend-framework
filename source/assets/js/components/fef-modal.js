@@ -1,9 +1,6 @@
 import { DOM_CHANGED_EVENT } from '../classes/fef-dom-observer';
 import { FefResponsiveHelper } from '../classes/fef-responsive-helper';
-// Not a typo. "enable" is meant as "enable plugin", which results in scroll
-// prevention on the body. Aliasing it here to maintain your sanity.
-// Homepage: https://github.com/lazd/iNoBounce
-import { enable as preventBodyScrolling, disable as enableBodyScrolling } from 'inobounce';
+import { FefBouncePrevention } from './fef-bounce-prevention';
 
 let ANIMATION_SPEED = 200;
 
@@ -219,7 +216,7 @@ export class FefModal {
             this.previousScrollPosition = $(window).scrollTop();
             $('html').addClass('h-prevent-scrolling');
 
-            preventBodyScrolling();
+            //preventBodyScrolling();
         }
     }
 
@@ -238,7 +235,7 @@ export class FefModal {
             this.previousScrollPosition = null;
 
         }
-        enableBodyScrolling();
+        //enableBodyScrolling();
     }
 
     /**
