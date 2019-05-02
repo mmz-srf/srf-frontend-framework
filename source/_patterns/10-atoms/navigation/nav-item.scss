@@ -131,7 +131,7 @@
     background-color: $color-nav-bg-hover;
   }
 
-  &:active, &--active {
+  &:active {
     background-color: $color-nav-bg-active;
   }
 
@@ -151,6 +151,11 @@
       right: 16px;
     }
   }
+}
+
+.nav-item--third-level--active,
+.nav-item--third-level--active:hover {
+  background-color: $color-nav-bg-active;
 }
 
 .nav-item--home {
