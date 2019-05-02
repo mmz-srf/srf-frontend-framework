@@ -1,3 +1,14 @@
+/**
+ * FefBouncePrevention does what it says on the tin:
+ * it prevents bounces. To elaborate:
+ * On iOS, it's possible to "overscroll" the page. This messes with the
+ * scrolling in absolute/fixed positioned elements like modals.
+ * This file basically prevents scrolling (touchmove) upwards if the body is
+ * already scrolled all the way up (and the same for the downward direction).
+ * 
+ * See: https://srfmmz.atlassian.net/browse/SRFCMSAL-2036
+ */
+
 let startY = 0; // Stores the Y position where the touch started
 
 export class FefBouncePrevention {
