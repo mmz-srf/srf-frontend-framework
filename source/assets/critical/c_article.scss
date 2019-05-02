@@ -8,6 +8,12 @@
 @import 'header';
 @import 'footer';
 
+.masthead--compact {
+  position: fixed;
+  width: 100%;
+  top: 0;
+}
+
 .article-main-media,
 .article-content,
 .article-comments,
@@ -391,11 +397,7 @@ body::after {
   background-color: #f5f5f2;
 }
 
-
-
-
 //TME
-
 .medium--fullwidth-element {
   background: #f5f5f2;
   margin: 0;
@@ -423,7 +425,6 @@ body::after {
     opacity: 0;
     min-height: 72px;
   }
-
 }
 
 .carousel-container--fullwidth-element {
