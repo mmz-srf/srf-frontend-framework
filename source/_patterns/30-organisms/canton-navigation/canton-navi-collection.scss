@@ -5,7 +5,11 @@
   box-shadow: $shadow-elevation1;
   display: flex;
   flex-direction: column;
-  padding: 16px 10px 16px 9px;
+  padding: 16px;
+  border: 1px solid #4ECE5B;
+  * {
+    border: 1px solid red;
+  }
 
   @include tablet-up {
     padding: 32px 32px 24px 32px;
@@ -17,9 +21,11 @@
  * Canton navigation content
  */
 .canton-nav-collection__content {
-  display: flex;
-  flex-direction: column;
-  flex: 1 1 0;
+  flex-grow:1;
+  flex-shrink: 1;
+  @include tablet-up {
+    flex-basis: 0;
+  }
 }
 
 /**
@@ -54,7 +60,7 @@
   font-family: $font-medium;
   font-weight: 500;
   line-height: $emphasize-line-height-ratio;
-  @include fontSize(24);
+  @include fontSize(20);
   @include font-smoothing();
   margin: 0;
 
@@ -89,8 +95,10 @@
  * Canton switzerland navigation
  */
 .canton-nav-collection__navigation {
-  flex: 1;
+  flex-grow:1;
+  flex-shrink: 1;
   margin-top: 24px;
+
   & > div {
     margin-left: -24px;
     justify-content: center;
@@ -98,6 +106,8 @@
   }
 
   @include tablet-up {
+    flex-basis: 0;
+    margin-top: 0;
     & > div {
       margin-left: 0;
       justify-content: right;
