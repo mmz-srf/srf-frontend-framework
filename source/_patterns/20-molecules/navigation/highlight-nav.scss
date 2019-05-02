@@ -9,7 +9,7 @@ $highlight-nav-margin: 16px;
   flex-direction: column;
 }
 
-.highlight-nav-items {
+.highlight-nav__items {
   display: flex;
   flex-direction: column;
 
@@ -18,11 +18,11 @@ $highlight-nav-margin: 16px;
   }
 }
 
-.highlight-nav-item {
+.highlight-nav__item {
   flex: 0 0 auto;
 }
 
-.highlight-nav-title {
+.highlight-nav__title {
   @include fontSize(12);
   color: $color-text-light;
   margin: 16px 0 0 24px;
@@ -32,7 +32,7 @@ $highlight-nav-margin: 16px;
   }
 }
 
-.highlight-nav-divider {
+.highlight-nav__divider {
   height: 1px;
   @include fullwidth-element();
   border-bottom: 1px solid $color-nav-divider;
