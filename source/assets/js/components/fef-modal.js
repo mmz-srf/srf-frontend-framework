@@ -204,8 +204,8 @@ export class FefModal {
      * effectively cutting the rest of the page off. This scrolls to the top of the page, so we
      * also have to save the previous scroll state.
      * 
-     * Additionally, the iNoBounce plugin is used to prevent bouncy body
-     * scrolling which can lead to subpar experience on iOS devices.
+     * Additionally, we prevent bouncy body scrolling which can lead to subpar
+     * experience on iOS devices.
      * 
      * We only do this if the modal covers the whole page and on mobile/tablet.
      */
