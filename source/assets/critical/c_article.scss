@@ -8,12 +8,6 @@
 @import 'header';
 @import 'footer';
 
-.masthead--compact {
-  position: fixed;
-  width: 100%;
-  top: 0;
-}
-
 .article-main-media,
 .article-content,
 .article-comments,
@@ -35,7 +29,6 @@
   display: block;
   width: 120px;
 }
-
 
 .sharing-bar {
   margin-top: 26px;
