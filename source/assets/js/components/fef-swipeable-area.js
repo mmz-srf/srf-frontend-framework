@@ -14,8 +14,7 @@ const HOOK_CLASS = 'js-swipeable-area',
     DEFAULT_SCROLL_TIME = 400,
     DEBOUNCETIME = 75,
     DEBOUNCETIME_SCROLL_TRACKING = 1000,
-    HINT_AMOUNT = 20,
-    MINIMUM_HEIGHT = 50;
+    HINT_AMOUNT = 20;
 
 export function init(interactionMeasureString = '') {
     $(`.${HOOK_CLASS}`).each((_, element) => {
@@ -319,7 +318,7 @@ export class FefSwipeableArea {
     }
 
     isOutOfBoundsRight($itemElem) {
-        let rightEdgeItem = $itemElem.offset().left + $itemElem.outerWidth(),
+        let rightEdgeItem =  Math.floor($itemElem.offset().left + $itemElem.outerWidth())-1,
             rightEdgeContainer = this.$innerContainer.offset().left + this.$innerContainer.outerWidth();
 
         return rightEdgeItem > rightEdgeContainer;

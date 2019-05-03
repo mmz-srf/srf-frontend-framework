@@ -497,12 +497,28 @@ $background-overlap-wide: 50px;
       }
     }
 
-    &:last-child::after {
+
+    // the last item must have more space at the right side in order to align with the last teaser of
+    // the other collections
+    &:last-child {
       @include tablet-up {
-        content: '';
-        display: block;
-        width: 40px;
-        margin-right: -36px;
+        min-width: calc(((100% - 32px - 44px)/3.00001) + 18px);
+      }
+
+      @include desktop-wide {
+        min-width: calc((100% - 40px - 56px) / 3.00001 + 24px );
+      }
+
+      &::after {
+        @include tablet-up {
+          content: '';
+          flex-grow: 0;
+          flex-shrink: 0;
+          @include IESafeFlexBasis(20px);
+        }
+        @include desktop-wide {
+          @include IESafeFlexBasis(24px);
+        }
       }
     }
   }
