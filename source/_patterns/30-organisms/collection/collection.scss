@@ -528,8 +528,22 @@ $background-overlap-wide: 50px;
 // Standard Swipeable collection: On Tablet, only 2 teasers are visible instead of 3.
 .collection--compact-swipeable {
   .collection__teaser-item {
+
     @include tablet {
       min-width: calc(50% - (56px / 3) - 12px);
+
+      // the last item must have more space at the right side in order to align with the last teaser of
+      // the other collections
+      &:last-child {
+        min-width: calc(50% - (56px / 3) - 12px + 20px);
+
+        &::after {
+            content: '';
+            flex-grow: 0;
+            flex-shrink: 0;
+            @include IESafeFlexBasis(20px);
+        }
+      }
     }
   }
 
