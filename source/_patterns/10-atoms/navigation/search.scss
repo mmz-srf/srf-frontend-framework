@@ -53,10 +53,8 @@
 }
 
 .search__icon {
-  background-image: url(../img/search-sprite.svg);
-  background-position: 10px -32px;
-  background-size: 28px;
-  background-repeat: no-repeat;
+  background: url(../img/search-sprite.svg) no-repeat 4px -48px;
+  background-size: 36px;
   width: 48px;
   flex-shrink: 0;
 
@@ -84,15 +82,14 @@
   height: 100%;
   width: calc(100% + 48px);
   @include fontSize(16);
-  font-family: $font-light;
+  font-family: $font-regular;
   line-height: 1.1; // line-height 1 cuts off "bottom parts of letters"
-  letter-spacing: .6px;
   color: $color-text-light;
   background: transparent;
   border: 0;
   padding: 14px 48px;
   margin: 0 -48px;
-  @include font-smoothing;
+  //@include font-smoothing;
 
   &:focus::placeholder {
     opacity: 0;
