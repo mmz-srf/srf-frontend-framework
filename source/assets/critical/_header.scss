@@ -55,7 +55,6 @@
   width: 100%;
   top: 0;
   padding-top: 0;
-  height: 72px;
 
   .masthead__wrapper {
     @include tablet-up {
@@ -64,7 +63,8 @@
   }
 }
 
-.affix-placeholder--compact {
+.affix-placeholder--compact,
+.masthead--compact {
   height: 56px;
 
   @include tablet-up {

@@ -199,10 +199,12 @@
   width: 100%;
   top: 0;
   padding-top: 0;
-  height: 72px;
+  height: 56px;
 
-  .masthead__wrapper {
-    @include tablet-up {
+  @include tablet-up {
+    height: 72px;
+
+    .masthead__wrapper {
       padding: 8px 0;
     }
   }
