@@ -1,0 +1,33 @@
+{% embed 'templates-landingpage' %}
+    {% block landingpage_content %}
+        <div class="collection collection--standard collection--with-title-button">
+            <div class="collection__branding-wrapper js-collection-branding-wrapper">
+                <div class="collection__content-wrapper js-collection-content-wrapper">
+                    <h3 class="collection__title">
+                        <span class="h-loading-only">
+                            <span class="shimmer shimmer--heading shimmer--shorter"></span>
+                            <span class="shimmer shimmer--heading shimmer--short"></span>
+                            <span class="shimmer shimmer--heading shimmer--short"></span>
+                        </span>
+                        <span class="collection__title-logo"></span>
+                        <span class="collection__title-text">Zürich</span>
+                        <a href="#" class="collection__title-button">Kanton wechseln</a>
+                    </h3>
+                </div>
+            </div>
+        </div>
+        {% for collection in collections %}
+
+            {% set currentVariation = random([ 'showBroadcastInfo', 'showOpinion', 'showScoreboard' ]) %}
+
+            {% include 'organisms-collection' with {
+                'collection': collection,
+                'showBroadcastInfo': currentVariation is same as ('showBroadcastInfo'),
+                'showOpinion': currentVariation is same as ('showOpinion'),
+                'showScoreboard': currentVariation is same as  ('showScoreboard'),
+                'showLinks': false
+                }
+            %}
+        {% endfor %}
+    {% endblock %}
+{% endembed %}

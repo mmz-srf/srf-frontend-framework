@@ -732,9 +732,9 @@ $background-overlap-wide: 50px;
   }
 }
 
-// Has an additional button on the top right that leads to a selection screen to change between groups of teasers
+// Has an additional button on the top right
+.collection--with-title-button,
 .collection--selectable {
-  margin-top: 0;
   overflow: hidden;
   --theme-color-nav: #{$color-text-accentuation};
   --theme-selection-button-color: $color-text-default;
@@ -745,6 +745,33 @@ $background-overlap-wide: 50px;
     flex-direction: row;
     justify-content: space-between;
     align-items: start; // don't center button, always keep in top right corner
+    align-items: center;
+  }
+
+  .collection__title-logo {
+    flex-grow: 0;
+    flex-shrink: 0;
+    @include IESafeFlexBasis(48px);
+    height: 39px;
+
+    &::before {
+      content: '';
+      display: inline-block;
+      width: 32px;
+      height: 100%;
+      background: grey;
+    }
+  }
+
+  .collection__title-text {
+    flex-grow: 1;
+  }
+
+  .collection__title-button {
+    font-family: $font-regular;
+    @include fontSize(18);
+    line-height: $emphasize-line-height-ratio;
+    color: $color-text-default;
   }
 
   .selectable-button {
@@ -794,4 +821,18 @@ $background-overlap-wide: 50px;
       }
     }
   }
+}
+
+.collection--with-title-button {
+  @include smartphone {
+    .collection__title {
+      margin-left: 8px;
+      margin-right: 8px;
+
+    }
+  }
+}
+
+.collection--selectable {
+  margin-top: 0;
 }
