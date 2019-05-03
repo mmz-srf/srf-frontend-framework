@@ -89,7 +89,7 @@
   border: 0;
   padding: 14px 48px;
   margin: 0 -48px;
-  //@include font-smoothing;
+  @include font-smoothing;
 
   &:focus::placeholder {
     opacity: 0;
@@ -165,11 +165,12 @@
     display: block;
     width: 100%;
     @include fontSize(16);
-    font-weight: 300;
+    font-family: $font-regular;
     text-align: left;
     color: $color-text-default;
     text-decoration: none;
     padding: 12px 24px;
+    @include font-smoothing;
 
     @include tablet-up {
       padding-left: 24px;
