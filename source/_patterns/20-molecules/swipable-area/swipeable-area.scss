@@ -59,6 +59,7 @@
 
 .swipeable-area__item {
   opacity: 1;
+
   @include desktop-up {
     transition: 0.2s opacity ease-in-out;
   }
