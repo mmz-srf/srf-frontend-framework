@@ -84,6 +84,19 @@ export class SrfSearch {
         this.$searchResults.on('keydown', (e) => {
             this.onResultsKeyDown(e);
         });
+
+        this.$element.on('submit', (e) => {
+            let mod_obj = {};
+            this.$inputField.data('referrer-track').split('&').forEach((item, index) => {
+                let parts = item.split('=');
+                mod_obj[parts[0]] = parts[1];
+            });
+            mod_obj['srf_mod3'] = this.$inputField.val(); // keyword
+            mod_obj['srf_mod4'] = this.$searchResults.find('li').length; // typeahead length
+
+            FefStorage.setItem('srf_analytics_mod', JSON.stringify(mod_obj));
+            FefStorage.setItem('srf_analytics_mod_app', JSON.stringify(mod_obj));
+        });
     }
 
     onKeyUp(e) {
