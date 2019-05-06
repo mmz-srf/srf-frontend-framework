@@ -8,10 +8,17 @@
   display: flex;
   flex-direction: column;
   padding: 16px;
+  max-width: 1280px;
+  margin: 0 8px;
 
   @include tablet-up {
     padding: 24px 32px 24px 24px;
+    margin: 0 32px 0 32px;
     flex-direction: row;
+  }
+
+  @include desktop-wide {
+    margin: 0 40px 0 40px;
   }
 }
 
