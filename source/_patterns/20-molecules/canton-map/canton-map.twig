@@ -1,0 +1,5 @@
+<div class="canton-map">
+    {% for canton in cantons|default([]) %}
+        {% include 'atoms-canton-link' with {'canton': canton} %}
+    {% endfor %}
+</div>

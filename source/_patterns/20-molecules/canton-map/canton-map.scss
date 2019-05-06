@@ -1,5 +1,5 @@
 /* autoprefixer grid: on */
-.canton-nav {
+.canton-map {
   display: grid;
   grid-gap: 2px;
   grid-template:
@@ -26,91 +26,91 @@
   }
 }
 
-.canton-navpoint--bs {
+.canton-link--bs {
   grid-area: ad;
 }
 
-.canton-navpoint--sh {
+.canton-link--sh {
   grid-area: af;
 }
 
-.canton-navpoint--ju {
+.canton-link--ju {
   grid-area: bc;
 }
 
-.canton-navpoint--bl {
+.canton-link--bl {
   grid-area: bd;
 }
 
-.canton-navpoint--ag {
+.canton-link--ag {
   grid-area: be;
 }
 
-.canton-navpoint--zh {
+.canton-link--zh {
   grid-area: bf;
 }
 
-.canton-navpoint--tg {
+.canton-link--tg {
   grid-area: bg;
 }
 
-.canton-navpoint--ar {
+.canton-link--ar {
   grid-area: bh;
 }
 
-.canton-navpoint--ne {
+.canton-link--ne {
   grid-area: cc;
 }
 
-.canton-navpoint--so {
+.canton-link--so {
   grid-area: cd;
 }
 
-.canton-navpoint--lu {
+.canton-link--lu {
   grid-area: ce;
 }
 
-.canton-navpoint--zg {
+.canton-link--zg {
   grid-area: cf;
 }
 
-.canton-navpoint--sg {
+.canton-link--sg {
   grid-area: cg;
 }
 
-.canton-navpoint--ai {
+.canton-link--ai {
   grid-area: ch;
 }
 
-.canton-navpoint--vd {
+.canton-link--vd {
   grid-area: db;
 }
 
-.canton-navpoint--fr {
+.canton-link--fr {
   grid-area: dc;
 }
 
-.canton-navpoint--be {
+.canton-link--be {
   grid-area: dd;
 }
 
-.canton-navpoint--nw {
+.canton-link--nw {
   grid-area: de;
 }
 
-.canton-navpoint--sz {
+.canton-link--sz {
   grid-area: df;
 }
 
-.canton-navpoint--gl {
+.canton-link--gl {
   grid-area: dg;
 }
 
-.canton-navpoint--gr {
+.canton-link--gr {
   grid-area: dh;
 }
 
-.canton-navpoint--ge {
+.canton-link--ge {
   grid-area: ea;
   @supports (grid-area: ea / ea / eb / eb) {
     grid-area: ea / ea / eb / eb;
@@ -118,7 +118,7 @@
   justify-self: center;
 }
 
-.canton-navpoint--vs {
+.canton-link--vs {
   grid-area: ec;
   @supports (grid-area: ec / ec / ed / ed) {
     grid-area: ec / ec / ed / ed;
@@ -126,15 +126,15 @@
   justify-self: center;
 }
 
-.canton-navpoint--ow {
+.canton-link--ow {
   grid-area: ee;
 }
 
-.canton-navpoint--ur {
+.canton-link--ur {
   grid-area: ef;
 }
 
-.canton-navpoint--ti {
+.canton-link--ti {
   grid-area: ff;
 }
 /* autoprefixer grid: off */

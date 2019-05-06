@@ -1,7 +1,7 @@
 @import "../../variables";
 @import "../../mixins";
 
-.canton-nav-collection {
+.collection-canton {
   box-shadow: $shadow-elevation1;
   display: flex;
   flex-direction: column;
@@ -16,7 +16,7 @@
 /**
  * Canton navigation content
  */
-.canton-nav-collection__content {
+.collection-canton__content {
   flex-grow:1;
   flex-shrink: 1;
   @include tablet-up {
@@ -27,7 +27,7 @@
 /**
  * Kicker
  */
-.canton-nav-collection__kicker {
+.collection-canton__kicker {
   margin-bottom: 4px;
   font-family: $font-regular;
   line-height: $emphasize-line-height-ratio;
@@ -45,7 +45,7 @@
 /**
  * Title
  */
-.canton-nav-collection__title {
+.collection-canton__title {
   font-family: $font-medium;
   font-weight: 500;
   line-height: $emphasize-line-height-ratio;
@@ -62,7 +62,7 @@
 /**
  * Lead
  */
-.canton-nav-collection__lead {
+.collection-canton__lead {
   font-family: $font-light;
   line-height: $secondary-line-height-ratio;
   @include fontSize(16);
@@ -80,7 +80,7 @@
 /**
  * Canton switzerland navigation
  */
-.canton-nav-collection__navigation {
+.collection-canton__navigation {
   display: flex;
   justify-content: center;
   flex-grow:1;
