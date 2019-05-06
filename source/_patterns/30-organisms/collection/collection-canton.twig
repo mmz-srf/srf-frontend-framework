@@ -1,16 +1,16 @@
 <div class="collection-canton collection collection__branding-wrapper">
-    {% if cantonNav is defined and cantonNav is not empty %}
+    {% if teaser is defined and teaser is not empty %}
         <div class="collection-canton__content">
-            {% if cantonNav.kicker is defined and cantonNav.kicker is not empty %}
-                <div class="collection-canton__kicker">{{ cantonNav.kicker|trim }}</div>
+            {% if teaser.kicker is defined and teaser.kicker is not empty %}
+                <div class="collection-canton__kicker">{{ teaser.kicker|trim }}</div>
             {% endif %}
 
-            {% if cantonNav.title is defined and cantonNav.title is not empty %}
-                <h3 class="collection-canton__title">{{ cantonNav.title|trim }}</h3>
+            {% if teaser.title is defined and teaser.title is not empty %}
+                <h3 class="collection-canton__title">{{ teaser.title|trim }}</h3>
             {% endif %}
 
-            {% if cantonNav.lead is defined and cantonNav.lead is not empty %}
-                <p class="collection-canton__lead">{{ cantonNav.lead|trim }}</p>
+            {% if teaser.lead is defined and teaser.lead is not empty %}
+                <p class="collection-canton__lead">{{ teaser.lead|trim }}</p>
             {% endif %}
         </div>
     {% endif %}
