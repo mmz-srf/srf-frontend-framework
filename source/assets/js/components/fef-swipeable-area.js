@@ -54,7 +54,9 @@ export class FefSwipeableArea {
     }
 
     init() {
+        console.log('swipeable-area init');
         if (FefResponsiveHelper.isDesktopUp() && !FefTouchDetection.isTouchSupported()) {
+            console.log('desktopUp and not touch');
             this.registerDesktopListeners();
             this.markItems();
             this.addButtons();
@@ -62,6 +64,7 @@ export class FefSwipeableArea {
             this.initItemPositions();
             this.setupHinting();
         } else {
+            console.log('not desktopUp or touch');
             this.deregisterDesktopListeners();
             this.disableHinting();
         }
@@ -92,6 +95,7 @@ export class FefSwipeableArea {
     }
 
     registerGeneralListeners() {
+        console.log('registerGeneralListeners');
         $(window).on('resize', FefDebounceHelper.debounce(() => this.init(), DEBOUNCETIME));
         $(window).on('srf.styles.loaded', () => this.init());
         this.$innerContainer.on('scroll', FefDebounceHelper.throttle(() => this.track(), DEBOUNCETIME_SCROLL_TRACKING));
@@ -151,6 +155,7 @@ export class FefSwipeableArea {
      * @param {jQery.event} event
      */
     onTeaserHover(event) {
+        console.log("onTeaserHover");
         let $item = $(event.currentTarget);
 
         if (!$item.hasClass(this.hiddenClass)) {
@@ -170,6 +175,7 @@ export class FefSwipeableArea {
      * @param {jQuery.event} event
      */
     onTeaserClick(event) {
+        console.log("onTeaserClick");
         let $item = $(event.currentTarget);
 
         if (!$item.hasClass(this.hiddenClass)) {
@@ -200,6 +206,7 @@ export class FefSwipeableArea {
      * - If scrolled to the very beginning, don't show the back button
      */
     updateButtonStatus() {
+        console.log("updating buttons");
         // show forward/back buttons if needed
         if (this.hasScrollableOverflow()) {
             this.$buttonForward.toggleClass(BUTTON_ACTIVE_CLASS, !this.isAtScrollEnd());
@@ -265,6 +272,7 @@ export class FefSwipeableArea {
      * @param {Number} [time] How long it should take, optional
      */
     scrollToPosition(position, time) {
+        console.log("scrolling to", position, time);
         time = typeof time === 'undefined' ? DEFAULT_SCROLL_TIME : time;
 
         this.checkFuturePosition(position);
@@ -297,6 +305,7 @@ export class FefSwipeableArea {
     }
 
     markItems() {
+        console.log("marking items");
         this.$items.each( (_, element) => {
             let $element = $(element),
                 isInView = this.isItemCompletelyInView($element);
@@ -326,10 +335,12 @@ export class FefSwipeableArea {
     }
 
     applyHint(pixels) {
+        console.log("applying hint by", pixels);
         this.$innerContainer.children().first().css('transform', `translateX(${pixels}px)`);
     }
 
     track() {
+        console.log('track');
         let eventValue = null;
 
         if (this.isPageBackClick || this.isPageForwardClick) {
