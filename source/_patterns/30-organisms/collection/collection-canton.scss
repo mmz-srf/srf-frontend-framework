@@ -2,7 +2,9 @@
 @import "../../mixins";
 
 .collection-canton {
+  background-color: $color-bg-card;
   box-shadow: $shadow-elevation1;
+  border-radius: 2px;
   display: flex;
   flex-direction: column;
   padding: 16px;
