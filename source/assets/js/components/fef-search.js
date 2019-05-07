@@ -91,11 +91,14 @@ export class SrfSearch {
                 let parts = item.split('=');
                 mod_obj[parts[0]] = parts[1];
             });
-            mod_obj['srf_mod3'] = this.$inputField.val(); // keyword
-            mod_obj['srf_mod4'] = this.$searchResults.find('li').length; // typeahead length
+            mod_obj['srg_mod3'] = this.$inputField.val(); // keyword
+            mod_obj['srg_mod4'] = this.$searchResults.find('li').length; // typeahead length
 
-            FefStorage.setItem('srf_analytics_mod', JSON.stringify(mod_obj));
-            FefStorage.setItem('srf_analytics_mod_app', JSON.stringify(mod_obj));
+            // TODO: the following has changed on test :/
+            FefStorage.setItem('srf_analytics_mod', JSON.stringify(mod_obj)); // => srf:analytics:mod
+            FefStorage.setItem('srf:analytics:mod', JSON.stringify(mod_obj));
+            FefStorage.setItem('srf_analytics_mod_app', JSON.stringify(mod_obj)); // => srf:analytics:mod:app
+            FefStorage.setItem('srf:analytics:mod:app', JSON.stringify(mod_obj));
         });
     }
 
