@@ -1,5 +1,11 @@
 <div class="collection-canton">
     {% if teaser is defined and teaser is not empty %}
+        <div class="collection-canton__content-shimmer h-loading-only">
+            <div class="shimmer shimmer--overline"></div>
+            <div class="shimmer"></div>
+            <div class="shimmer"></div>
+            <div class="shimmer shimmer--short"></div>
+        </div>
         <div class="collection-canton__content">
             {% if teaser.kicker is defined and teaser.kicker is not empty %}
                 <div class="collection-canton__kicker">{{ teaser.kicker|trim }}</div>
@@ -16,6 +22,10 @@
     {% endif %}
 
     {% if cantons is defined and cantons is not empty %}
+        <div class="collection-canton__navigation-shimmer h-loading-only">
+            <div class="image image--media-still-dynamic"></div>
+        </div>
+
         <div class="collection-canton__navigation">
             {% include 'molecules-canton-map' %}
         </div>

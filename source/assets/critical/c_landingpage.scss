@@ -541,4 +541,53 @@ body.body--loading.body--loading {
   .rlp-footer {
     display: none;
   }
+
+  .collection-canton {
+    background-color: $color-bg-card;
+    box-shadow: $shadow-elevation1;
+    display: flex;
+    flex-direction: column;
+    max-width: 1280px;
+    margin: 0 8px;
+    padding: 0;
+    height: 430px;
+
+    @include tablet-up {
+      margin: 0 8px 0 32px;
+      padding: 0;
+      flex-direction: row;
+      height: 322px;
+    }
+
+    @include desktop-wide {
+      margin: 0 8px 0 40px;
+      height: 320px;
+    }
+
+    .collection-canton__content,
+    .collection-canton__navigation {
+      display: none;
+    }
+
+    .collection-canton__content-shimmer,
+    .collection-canton__navigation-shimmer {
+      flex-grow:1;
+      flex-shrink: 1;
+      @include tablet-up {
+        flex-basis: 0;
+      }
+    }
+
+    .collection-canton__content-shimmer {
+      padding: 16px;
+      @include tablet-up {
+        padding: 24px 32px 24px 24px;
+      }
+    }
+
+    .collection-canton__navigation-shimmer {
+      background-color: #DFDFD8;
+      min-height: 250px;
+    }
+  }
 }
