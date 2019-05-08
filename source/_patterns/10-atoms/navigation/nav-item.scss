@@ -106,13 +106,17 @@
 }
 
 .nav-item--third-level {
-  display: block;
+  width: 100%;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
   padding-left: 16px;
   padding-right: 16px;
   @include fontSize(16);
 
   @include smartphone {
-    text-align: center;
+    flex-direction: column;
   }
 
   // Override Theming for 3rd level Nav
@@ -130,6 +134,27 @@
   &:active {
     background-color: $color-nav-bg-active;
   }
+
+  .nav-item--third-level__icon {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    margin-left: 8px;
+    margin-right: -8px;
+    filter: var(--theme-grayscale-filter, none);
+    background-image: url(../img/icon/check-red.svg);
+
+    @include smartphone {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+    }
+  }
+}
+
+.nav-item--third-level--active,
+.nav-item--third-level--active:hover {
+  background-color: $color-nav-bg-active;
 }
 
 .nav-item--home {

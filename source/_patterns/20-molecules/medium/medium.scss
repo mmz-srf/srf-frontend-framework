@@ -18,7 +18,9 @@
 }
 
 .medium--no-hover {
-  pointer-events: none;
+  &:hover {
+    background-color: $color-bg-caption;
+  }
 }
 
 .medium__wrapper {

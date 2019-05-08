@@ -86,6 +86,10 @@
   }
 }
 
+.masthead--affixed {
+  padding-top: 0px;
+}
+
 .masthead__wrapper {
   max-width: $content-width;
   margin: 0 auto;
@@ -195,16 +199,18 @@
   width: 100%;
   top: 0;
   padding-top: 0;
+  height: 56px;
 
-  .masthead__wrapper {
-    @include tablet-up {
+  @include tablet-up {
+    height: 72px;
+
+    .masthead__wrapper {
       padding: 8px 0;
     }
   }
 }
 
 .masthead--home {
-  position: fixed;
   width: 100%;
   top: 0;
 
@@ -212,7 +218,14 @@
     .masthead__portals {
       display: none;
     }
+
+    &.masthead--affixed {
+      .masthead__universal {
+        display: none;
+      }
+    }
   }
+
   @include tablet-up {
     padding-top: 8px;
     padding-bottom: 8px;
@@ -240,6 +253,7 @@
       display: none;
     }
   }
+  
   @include tablet-up {
     .masthead__nav {
       display: block;
@@ -249,6 +263,7 @@
       flex-grow: 1;
     }
   }
+
   @include desktop-up {
     .masthead__portals {
       display: flex;
@@ -261,6 +276,15 @@
 }
 
 .masthead--home.masthead--longportalnames {
+
+  @include desktop-down {
+    &.masthead--affixed {
+      .masthead__universal {
+        display: none;
+      }
+    }
+  }
+
   @include tablet-up {
     padding-top: 0;
     padding-bottom: 0;
