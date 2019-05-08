@@ -93,6 +93,10 @@ $background-overlap-wide: 50px;
   }
 }
 
+.collection--headless {
+  margin-top: 62px;
+}
+
 .collection--branded {
   .collection--branded + &,
   &:first-child {
