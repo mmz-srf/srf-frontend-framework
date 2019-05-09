@@ -203,4 +203,8 @@ $search-box-border-fallback: 1px solid rgba(0,0,0,.2);
   &:focus {
     background-color: $color-bg-button-focus;
   }
+
+  strong {
+    font-family: $font-bold;
+  }
 }
