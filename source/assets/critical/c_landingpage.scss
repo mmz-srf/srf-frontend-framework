@@ -542,7 +542,7 @@ body.body--loading.body--loading {
     display: none;
   }
 
-  .collection-canton {
+  .teaser-cantons-nav {
     background-color: $color-bg-card;
     box-shadow: $shadow-elevation1;
     display: flex;
@@ -564,13 +564,13 @@ body.body--loading.body--loading {
       height: 320px;
     }
 
-    .collection-canton__content,
-    .collection-canton__navigation {
+    .teaser-cantons-nav__content,
+    .teaser-cantons-nav__navigation {
       display: none;
     }
 
-    .collection-canton__content-shimmer,
-    .collection-canton__navigation-shimmer {
+    .teaser-cantons-nav__content-shimmer,
+    .teaser-cantons-nav__navigation-shimmer {
       flex-grow:1;
       flex-shrink: 1;
       @include tablet-up {
@@ -578,14 +578,14 @@ body.body--loading.body--loading {
       }
     }
 
-    .collection-canton__content-shimmer {
+    .teaser-cantons-nav__content-shimmer {
       padding: 16px;
       @include tablet-up {
         padding: 24px 32px 24px 24px;
       }
     }
 
-    .collection-canton__navigation-shimmer {
+    .teaser-cantons-nav__navigation-shimmer {
       background-color: #DFDFD8;
       min-height: 250px;
     }
