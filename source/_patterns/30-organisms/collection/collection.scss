@@ -664,6 +664,14 @@ $background-overlap-wide: 50px;
     @include caret('white', 'right', 'medium');
   }
 
+  .swipeable-area__button--forward span {
+    @include caret('white', 'right', 'large');
+  }
+
+  .swipeable-area__button--back span {
+    @include caret('white', 'left', 'large');
+  }
+
   @include smartphone {
     .collection__link-item {
       .collection__link {
