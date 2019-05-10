@@ -732,8 +732,6 @@ $background-overlap-wide: 50px;
   }
 }
 
-// Has an additional button on the top right
-.collection--with-title-button,
 .collection--selectable {
   overflow: hidden;
   --theme-color-nav: #{$color-text-accentuation};
@@ -745,33 +743,10 @@ $background-overlap-wide: 50px;
     flex-direction: row;
     justify-content: space-between;
     align-items: start; // don't center button, always keep in top right corner
-    align-items: center;
-  }
-
-  .collection__title-logo {
-    flex-grow: 0;
-    flex-shrink: 0;
-    @include IESafeFlexBasis(48px);
-    height: 39px;
-
-    &::before {
-      content: '';
-      display: inline-block;
-      width: 32px;
-      height: 100%;
-      background: grey;
-    }
   }
 
   .collection__title-text {
     flex-grow: 1;
-  }
-
-  .collection__title-button {
-    font-family: $font-regular;
-    @include fontSize(18);
-    line-height: $emphasize-line-height-ratio;
-    color: $color-text-default;
   }
 
   .selectable-button {
@@ -819,6 +794,64 @@ $background-overlap-wide: 50px;
       &::after {
         display: none;
       }
+    }
+  }
+}
+
+// has an additional button on the top right
+.collection--with-title-button {
+  overflow: hidden;
+  --theme-color-nav: #{$color-text-accentuation};
+  --theme-selection-button-color: $color-text-default;
+  --theme-selection-button-bg: #ebebe5;
+
+  @include smartphone {
+    margin-left: 24px;
+    margin-right: 24px;
+  }
+
+  .collection__title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .collection__title-logo {
+    flex-grow: 0;
+    flex-shrink: 0;
+    @include IESafeFlexBasis(48px);
+    height: 39px;
+
+    img {
+      content: '';
+      display: inline-block;
+      width: 32px;
+      height: 100%;
+    }
+  }
+
+  .collection__title-text {
+    flex-grow: 1;
+    line-height: 1.07;
+  }
+
+  .collection__title-button {
+    font-family: $font-regular;
+    @include fontSize(18);
+    line-height: $emphasize-line-height-ratio;
+    color: $color-text-default;
+  }
+
+  .collection__title-button-text {
+    @include smartphone {
+      @include offscreen-non-focusable;
+    }
+  }
+
+  .collection__title-button-text-mobile {
+    @include tablet-up {
+      display: none;
     }
   }
 }
