@@ -285,19 +285,22 @@
   font-family: $font-regular;
   @include fontSize(16);
   margin: 20px 0 2px;
-  display: block;
+  display: flex;
 
   @include tablet-up {
     margin-top: 24px;
   }
 }
 
-.comment__user--srf {
-  background: transparent url('../img/srf_logo.svg') no-repeat scroll right 2px / 24px auto;
-}
+.comment__logo {
+  height: 16px;
+  width: 24px;
+  margin-left: auto;
 
-.comment__user--rtr {
-  background: transparent url('../img/rtr_logo.svg') no-repeat scroll right 2px / 24px auto;
+  svg {
+    transform: scale(.5);
+    transform-origin: 0 0;
+  }
 }
 
 .comment__time {
