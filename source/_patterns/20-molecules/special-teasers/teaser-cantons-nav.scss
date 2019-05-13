@@ -1,6 +1,19 @@
 @import "../../variables";
 @import "../../mixins";
 
+// Fix margin bottom if the borderless collection is at the las pos
+.collection:last-child.collection--borderless .teaser-cantons-nav {
+  margin-bottom: 16px;
+
+  @include tablet-up {
+    margin-bottom: 32px;
+  }
+
+  @include desktop-wide {
+    margin-bottom: 40px;
+  }
+}
+
 .teaser-cantons-nav {
   background-color: $color-bg-card;
   box-shadow: $shadow-elevation1;
