@@ -1,0 +1,97 @@
+{% embed 'templates-landingpage' %}
+
+    {% block landingpage_content %}
+        <div class="demo-button-container">
+            {% include 'atoms-button' with {
+                'buttonText' : 'Less Teasers',
+                'className': 'js-button--less-teasers'
+            } %}
+
+            {% include 'atoms-button' with {
+                'buttonText' : 'Random Teasers',
+                'className': 'js-button--random-teasers'
+            } %}
+
+            {% include 'atoms-button' with {
+                'buttonText' : 'More Teasers',
+                'className': 'js-button--more-teasers'
+            } %}
+        </div>
+
+        {% include 'organisms-collection' with {
+            'collection': {
+                'styleModifier': 'collection--swipeable',
+                "title": "News Schweiz",
+                "titleLink": "https://www-test.srf.ch/news/wirtschaft",
+                "lead": "1996 schrieb John Perry Barlow die «Unabhängigkeitserklärung des Cyberspace». Darin kritisierte er Poeten.",
+                "type": "swipeable",
+                "teasers": collections[0].teasers[0:5]
+            }
+        } %}
+    {% endblock %}
+
+{% endembed %}
+
+<style>
+    .demo-button-container {
+        display: flex;
+        justify-content: space-evenly;
+        margin-bottom: 40px;
+    }
+</style>
+
+<script>
+    //-- temporary fix:  in frontify, jquery is loaded later than the vendor.js
+    window.addEventListener('DOMContentLoaded', function() {
+        let createTeaser = (title, lead) => `
+                <li class="collection__teaser-item js-swipeable-area-item swipeable-area__item">
+                    <div class="teaser js-teaser teaser--size-m">
+                        <a class="teaser__main" href="#">
+                            <div class="ratio-wrapper teaser__medium-wrapper">
+                                <div class="ratio ratio--16-9">
+                                    <div class="teaser__medium">
+                                        <div class="image image--media-still-dynamic">
+                                            <img src="../../assets/demo/img/bild2/bild_mobile_max.jpg" alt="${title}">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="teaser__content">
+                                <span class="teaser__title">${title}</span>
+                                <p class="teaser__lead">${lead}</p>
+                            </div>
+                        </a>
+                    </div>
+                </li>`,
+            titles = ["Schoggimilch kommt von braunen Kühen", "Kühe geben sich Mühe", "Wenn die Motorsäge keine ist", "Anti-Merkel-Shirt vom Markt genommen", "Richtungsweisende Erfindung", "Betrunkener randalierte im Wald", "Meister Lampe nach Stadionbesuch angeschlagen"],
+            leads = ["Noch mehr Besucherzuwachs: Madame Tussauds freut sich über weiteres Umsatzplus.", "Sieben Prozent der Amerikaner glauben, dass Schokolademilch von braunen Kühen stammt.", "Der Graurücken-Leierschwanz sorgt in seiner Heimat Australien des öftern für Verwirrung: Alarmsirenen, klickende Kameras oder sogar Motorsägen ahmt er täuschend echt nach.", "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet.", "Hermann Krabat wechselt von den Karasjok Kites und leitet neu das deutsche Nationalteam.", "", "", "", "", "Ngapo Ponika holt den Snitch in Minute 87, Neuseeland besiegt Wales 240 zu 180."],
+            randomTitle = () => titles[Math.floor(Math.random() * titles.length)],
+            randomLead = () => leads[Math.floor(Math.random() * leads.length)];
+
+        let $collection = $(".js-collection"),
+            $btnAddTeaser = $(".js-button--more-teasers"),
+            $btnRemoveTeaser = $(".js-button--less-teasers"),
+            $btnRandomTeasers = $(".js-button--random-teasers");
+
+        $btnAddTeaser.on("click", function() {
+            $collection.find(".js-swipeable-area-wrapper ul").append(createTeaser(randomTitle(), randomLead()));
+            $collection.find(".js-swipeable-area").trigger("srf.swipeable.content-changed");
+        });
+
+        $btnRemoveTeaser.on("click", function() {
+            $collection.find(".js-swipeable-area-item").last().remove();
+            $collection.find(".js-swipeable-area").trigger("srf.swipeable.content-changed");
+        });
+
+        $btnRandomTeasers.on("click", function() {
+            let nrOfTeasers = Math.floor(Math.random() * 10);
+
+            $collection.find(".js-swipeable-area-item").remove();
+            for (let i = 0; i < nrOfTeasers; i++) {
+                $collection.find(".js-swipeable-area-wrapper ul").append(createTeaser(randomTitle(), randomLead()));
+            }
+            $collection.find(".js-swipeable-area").trigger("srf.swipeable.content-changed");
+        });
+    });
+</script>
