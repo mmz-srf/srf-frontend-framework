@@ -3,6 +3,7 @@
 {% include 'organisms-masthead--compact' with {"themeStyleModifier": themeStyleModifier} %}
 
 <div class="l-card l-card--with-fullwidth-elements">
+    {% block top_media %}{% endblock %}
     <article class="article">
         {% include 'atoms-breadcrumbs' %}
         {% include 'molecules-article-header' %}

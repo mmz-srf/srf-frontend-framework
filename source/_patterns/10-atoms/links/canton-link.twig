@@ -1,0 +1,5 @@
+{% set canton = canton is defined and canton is not empty ? canton : {'url': '#', 'name': 'Zürich', 'shortcut': 'zh'} %}
+
+<a class="canton-link canton-link--{{ canton.shortcut|lower() }}" href="{{ canton.url }}" title="{{ canton.name }}">
+    {{ canton.shortcut|upper() }}
+</a>
