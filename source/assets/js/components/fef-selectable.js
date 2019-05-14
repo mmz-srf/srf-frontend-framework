@@ -197,12 +197,12 @@ export class SrfSelectableCollection {
                     if (shouldFocus) {
                         setFocus($collection.find('.teaser__main').first());
                     }
+
+                    // reinitialize swipeable area for chosen collection
+                    $($swipeableArea).trigger('srf.swipeableArea.reinitialize');
                 });
             });
         });
-
-        // reinitialize swipeable area for chosen collection
-        $($swipeableArea).trigger('srf.swipeableArea.reinitialize');
     }
 
     /**
