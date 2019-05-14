@@ -1,0 +1,117 @@
+@import "../../variables";
+@import "../../mixins";
+
+// Fix margin bottom if the borderless collection is at the las pos
+.collection:last-child.collection--borderless .teaser-cantons-nav {
+  margin-bottom: 16px;
+
+  @include tablet-up {
+    margin-bottom: 32px;
+  }
+
+  @include desktop-wide {
+    margin-bottom: 40px;
+  }
+}
+
+.teaser-cantons-nav {
+  background-color: $color-bg-card;
+  box-shadow: $shadow-elevation1;
+  border-radius: 2px;
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  max-width: 1280px;
+  margin: 0 8px;
+
+  @include tablet-up {
+    padding: 24px 32px 24px 24px;
+    margin: 0 32px 0 32px;
+    flex-direction: row;
+  }
+
+  @include desktop-wide {
+    margin: 0 40px 0 40px;
+  }
+}
+
+/**
+ * Canton navigation content
+ */
+.teaser-cantons-nav__content {
+  flex-grow:1;
+  flex-shrink: 1;
+  @include tablet-up {
+    flex-basis: 0;
+  }
+}
+
+/**
+ * Kicker
+ */
+.teaser-cantons-nav__kicker {
+  margin-bottom: 4px;
+  font-family: $font-regular;
+  line-height: $emphasize-line-height-ratio;
+  @include fontSize(16);
+  @include font-smoothing();
+  color: $color-accentuation-red;
+
+  @include desktop-up {
+    line-height: 1.11;
+    @include fontSize(18);
+  }
+}
+
+
+/**
+ * Title
+ */
+.teaser-cantons-nav__title {
+  font-family: $font-medium;
+  font-weight: 500;
+  line-height: $emphasize-line-height-ratio;
+  @include fontSize(20);
+  @include font-smoothing();
+  margin: 0;
+
+  @include desktop-up {
+    @include fontSize(24);
+  }
+}
+
+
+/**
+ * Lead
+ */
+.teaser-cantons-nav__lead {
+  font-family: $font-light;
+  line-height: $secondary-line-height-ratio;
+  @include fontSize(16);
+  @include font-smoothing();
+  margin-top: 12px;
+  margin-bottom: 0;
+
+  @include desktop-up {
+    @include fontSize(18);
+  }
+}
+
+
+
+/**
+ * Canton switzerland navigation
+ */
+.teaser-cantons-nav__navigation {
+  display: flex;
+  justify-content: center;
+  flex-grow:1;
+  flex-shrink: 1;
+  margin-top: 24px;
+
+  @include tablet-up {
+    justify-content: flex-end;
+    flex-basis: 0;
+    margin-top: 0;
+  }
+}
