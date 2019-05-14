@@ -199,7 +199,7 @@ export class SrfSelectableCollection {
                     }
 
                     // reinitialize swipeable area for chosen collection
-                    $($swipeableArea).trigger('srf.swipeableArea.reinitialize');
+                    $swipeableArea.trigger('srf.swipeableArea.reinitialize');
                 });
             });
         });
