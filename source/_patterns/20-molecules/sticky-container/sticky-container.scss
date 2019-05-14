@@ -1,61 +1,29 @@
 /*
  * This file is also included in the critical css - please try to keep it small
  */
-
 .sticky-container {
-  top: 0;
-  position: absolute;
   z-index: 100;
   transform: translate3d(0,0,0); // this fixes the scroll lag for sticky headers in Safari on iOS
   margin: 0 auto;
   width: 100%;
   backface-visibility: hidden;
+  position: absolute;
+  top: 0;
 
   &.affix {
     position: fixed;
-    top: 0;
 
-    @include tablet-up {
-      margin-top: -138px;
-    }
-
-    @include smartphone {
-      margin-top: -106px;
+    .sticky-container__hidden-when-sticky {
+      display: none;
     }
   }
 }
 
+// masthead on home is always sticky (fixed) on tablet+
 .sticky-container--home {
-
   @include tablet-up {
     position: fixed;
   }
-
-  &.affix {
-    @include smartphone {
-      margin-top: -56px;
-    }
-  }
-}
-.sticky-container--longportalnames {
-
-  @include tablet {
-    position: absolute;
-  }
-
-  @include desktop-up {
-    position: fixed;
-  }
-}
-
-.sticky-container--home.sticky-container--longportalnames.affix {
-  @include tablet {
-    margin-top: -56px;
-  }
-}
-
-.affix-top {
-  margin-top: 0;
 }
 
 .affix-placeholder {

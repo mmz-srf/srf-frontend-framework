@@ -12,10 +12,9 @@ const HOOK_CLASS = 'js-swipeable-area',
     BUTTON_BACK_THRESHOLD = 2,
     RIGHT_OFFSET = 24,
     DEFAULT_SCROLL_TIME = 400,
-    DEBOUNCETIME = 50,
+    DEBOUNCETIME = 75,
     DEBOUNCETIME_SCROLL_TRACKING = 1000,
-    HINT_AMOUNT = 20,
-    MINIMUM_HEIGHT = 50;
+    HINT_AMOUNT = 20;
 
 export function init(interactionMeasureString = '') {
     $(`.${HOOK_CLASS}`).each((_, element) => {
@@ -50,16 +49,20 @@ export class FefSwipeableArea {
 
     initOnce() {
         this.initItemCheck();
-        this.registerListeners();
+        this.registerGeneralListeners();
     }
 
     init() {
-        this.markItems();
-
-        if (FefResponsiveHelper.isDesktopUp()) {
+        if (FefResponsiveHelper.isDesktopUp() && !FefTouchDetection.isTouchSupported()) {
+            this.registerDesktopListeners();
+            this.markItems();
             this.addButtons();
             this.updateButtonStatus();
             this.initItemPositions();
+            this.setupHinting();
+        } else {
+            this.deregisterDesktopListeners();
+            this.disableHinting();
         }
     }
 
@@ -87,15 +90,26 @@ export class FefSwipeableArea {
         });
     }
 
-    registerListeners() {
+    registerGeneralListeners() {
         $(window).on('resize', FefDebounceHelper.debounce(() => this.init(), DEBOUNCETIME));
         $(window).on('srf.styles.loaded', () => this.init());
-
-        this.setupHinting();
-        this.$items.on('click', (event) => this.onTeaserClick(event));
-        this.$innerContainer.on('scroll', FefDebounceHelper.throttle(() => this.markItems(), DEBOUNCETIME));
-        this.$innerContainer.on('scroll', FefDebounceHelper.debounce(() => this.track(), DEBOUNCETIME_SCROLL_TRACKING));
+        this.$innerContainer.on('scroll', FefDebounceHelper.throttle(() => this.track(), DEBOUNCETIME_SCROLL_TRACKING));
     };
+
+    registerDesktopListeners() {
+        this.$items.off('click.srf.swipeable-area-desktop').on('click.srf.swipeable-area-desktop', (event) => this.onTeaserClick(event));
+        this.$innerContainer.off('scroll.srf.swipeable-area-desktop').on('scroll.srf.swipeable-area-desktop', FefDebounceHelper.throttle(() => this.scrollHandlerDesktop(), DEBOUNCETIME));
+    }
+
+    deregisterDesktopListeners() {
+        this.$items.off('click.srf.swipeable-area-desktop');
+        this.$innerContainer.off('scroll.srf.swipeable-area-desktop');
+    }
+
+    scrollHandlerDesktop() {
+        this.markItems();
+        this.updateButtonStatus();
+    }
 
     addButtons() {
         // making sure to add the buttons only once
@@ -104,8 +118,6 @@ export class FefSwipeableArea {
             this.$buttonForward = $(`<div class='${FORWARD_BUTTON_CLASS}'><span></span></div>`);
 
             this.$element.append(this.$buttonBack, this.$buttonForward);
-
-            this.$innerContainer.on('scroll', FefDebounceHelper.debounce(() => this.updateButtonStatus(), DEBOUNCETIME));
         }
     }
 
@@ -121,22 +133,26 @@ export class FefSwipeableArea {
             return;
         }
 
-        this.$items.hover(
-            (event) => this.onTeaserHover(event),
-            (_) => this.applyHint(0)
-        );
+        this.$items.on('mouseenter.srf.swipeable-area-desktop', (event) => this.onTeaserHover(event));
+        this.$items.on('mouseleave.srf.swipeable-area-desktop', (_) => this.applyHint(0));
+    }
+
+    disableHinting() {
+        this.$items.off('mouseenter.srf.swipeable-area-desktop');
+        this.$items.off('mouseleave.srf.swipeable-area-desktop');
     }
 
     /**
      * Hovering over an item can trigger the hinting mechanism, if it's
      * partially visible.
      *
+     *
      * @param {jQery.event} event
      */
     onTeaserHover(event) {
         let $item = $(event.currentTarget);
 
-        if (!$item.hasClass(this.hiddenClass) || !FefResponsiveHelper.isDesktopUp()) {
+        if (!$item.hasClass(this.hiddenClass)) {
             return;
         }
 
@@ -155,7 +171,7 @@ export class FefSwipeableArea {
     onTeaserClick(event) {
         let $item = $(event.currentTarget);
 
-        if (!$item.hasClass(this.hiddenClass) || !FefResponsiveHelper.isDesktopUp()) {
+        if (!$item.hasClass(this.hiddenClass)) {
             return;
         }
 
@@ -184,7 +200,7 @@ export class FefSwipeableArea {
      */
     updateButtonStatus() {
         // show forward/back buttons if needed
-        if (this.hasScrollableOverflow() && FefResponsiveHelper.isDesktopUp()) {
+        if (this.hasScrollableOverflow()) {
             this.$buttonForward.toggleClass(BUTTON_ACTIVE_CLASS, !this.isAtScrollEnd());
             this.$buttonBack.toggleClass(BUTTON_ACTIVE_CLASS, !this.isAtScrollBeginning());
         }
@@ -262,22 +278,20 @@ export class FefSwipeableArea {
         // scroll to one direction anymore, remove the hinting. We could
         // do this in the callback of animate, but if it happens
         // when starting the animation, it's less janky.
-        if (FefResponsiveHelper.isDesktopUp()) {
-            let willBeOutOfBoundsOnAnySide = false;
+        let willBeOutOfBoundsOnAnySide = false;
 
-            if (position <= 0) {
-                willBeOutOfBoundsOnAnySide = true;
-                this.$buttonBack.removeClass(BUTTON_ACTIVE_CLASS);
-            }
+        if (position <= 0) {
+            willBeOutOfBoundsOnAnySide = true;
+            this.$buttonBack.removeClass(BUTTON_ACTIVE_CLASS);
+        }
 
-            if (position + this.$innerContainer.innerWidth() >= this.$innerContainer[0].scrollWidth) {
-                willBeOutOfBoundsOnAnySide = true;
-                this.$buttonForward.removeClass(BUTTON_ACTIVE_CLASS);
-            }
+        if (position + this.$innerContainer.innerWidth() >= this.$innerContainer[0].scrollWidth) {
+            willBeOutOfBoundsOnAnySide = true;
+            this.$buttonForward.removeClass(BUTTON_ACTIVE_CLASS);
+        }
 
-            if (willBeOutOfBoundsOnAnySide) {
-                this.applyHint(0);
-            }
+        if (willBeOutOfBoundsOnAnySide) {
+            this.applyHint(0);
         }
     }
 
@@ -304,7 +318,7 @@ export class FefSwipeableArea {
     }
 
     isOutOfBoundsRight($itemElem) {
-        let rightEdgeItem = $itemElem.offset().left + $itemElem.outerWidth(),
+        let rightEdgeItem =  Math.floor($itemElem.offset().left + $itemElem.outerWidth())-1,
             rightEdgeContainer = this.$innerContainer.offset().left + this.$innerContainer.outerWidth();
 
         return rightEdgeItem > rightEdgeContainer;

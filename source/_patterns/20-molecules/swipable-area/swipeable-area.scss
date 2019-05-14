@@ -19,7 +19,7 @@
   span {
     margin-left: 16px;
     flex-shrink: 0;
-    @include caret('white', 'left', 'large');
+    @include caret('grey', 'left', 'large');
   }
 
   @include desktop-up {
@@ -35,7 +35,7 @@
   span {
     margin-left: 0;
     margin-right: 16px;
-    @include caret('white', 'right', 'large');
+    @include caret('grey', 'right', 'large');
   }
 }
 
@@ -59,7 +59,9 @@
 
 .swipeable-area__item {
   opacity: 1;
-  transition: 0.2s opacity ease-in-out;
+  @include desktop-up {
+    transition: 0.2s opacity ease-in-out;
+  }
 }
 
 // (at least) partially hidden item:
