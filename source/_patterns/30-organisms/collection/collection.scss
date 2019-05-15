@@ -843,16 +843,23 @@ $background-overlap-wide: 50px;
   --theme-selection-button-color: $color-text-default;
   --theme-selection-button-bg: #ebebe5;
 
-  @include smartphone {
-    margin-left: 24px;
-    margin-right: 24px;
-  }
-
   .collection__title {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+
+    @include smartphone {
+      margin: 0 24px;
+    }
+
+    @include tablet-up {
+      margin: 0 32px;
+    }
+
+    @include desktop-wide {
+      margin: 0 40px;
+    }
   }
 
   .collection__title-logo {
@@ -889,16 +896,6 @@ $background-overlap-wide: 50px;
   .collection__title-button-text-mobile {
     @include tablet-up {
       display: none;
-    }
-  }
-}
-
-.collection--with-title-button {
-  @include smartphone {
-    .collection__title {
-      margin-left: 8px;
-      margin-right: 8px;
-
     }
   }
 }
