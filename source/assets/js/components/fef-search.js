@@ -298,9 +298,17 @@ export class SrfSearch {
         this.$searchResults.html('');
 
         results.map((result, index) => {
+            /*** for testing purposes only ****/
+            let origin = window.location.origin;
+            let url = result.url;
+            if (url.indexOf(origin) === -1) { // not production
+                url = url.split('srf.ch')[1];
+            }
+
             let highlightedResult = this.highlightQuery(query, result.name);
             const $li = $('<li>', { class: `typeahead-suggestion ${wasAlreadyShowingResults ? 'typeahead-suggestion--no-animation' : ''}`});
-            const $link = $('<a>', { class: 'search-result__link', href: result.url, 'data-referrer-track' : 'srg_mod1=search_suggestions&srg_mod2=search&srg_mod3=' + query + '&srg_mod4=' + resultLength + '-' + (index + 1)});
+            // const $link = $('<a>', { class: 'search-result__link', href: result.url, 'data-referrer-track' : 'srg_mod1=search_suggestions&srg_mod2=search&srg_mod3=' + query + '&srg_mod4=' + resultLength + '-' + (index + 1)});
+            const $link = $('<a>', { class: 'search-result__link', href: url, 'data-referrer-track' : 'srg_mod1=search_suggestions&srg_mod2=search&srg_mod3=' + query + '&srg_mod4=' + resultLength + '-' + (index + 1)});
 
             $link.on('click', () => {
 
