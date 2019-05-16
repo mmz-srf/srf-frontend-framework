@@ -73,7 +73,7 @@ $item-max-width: 400px;
 
   &:hover,
   &:focus {
-    color: #f1434a;
+    color: rgba(241,67,74,1);
 
     // estimation of the above color
     .swipemod-showall__icon {
@@ -82,7 +82,7 @@ $item-max-width: 400px;
   }
 
   &:active {
-    color: #ff6669;
+    color: rgba(255,102,105,1);
 
     // estimation of the above color
     .swipemod-showall__icon {
@@ -222,7 +222,7 @@ $item-max-width: 400px;
     }
 
     &:active:after {
-      background-color: rgba(185, 183, 172, .12);
+      background-color: rgba(185,183,172,.12);
     }
   }
 
@@ -307,7 +307,7 @@ $item-max-width: 400px;
 }
 
 .swipemod-imagecontainer {
-  background-color: #000;
+  background-color: rgba(0,0,0,1);
   width: 100%;
   position: relative;
 }

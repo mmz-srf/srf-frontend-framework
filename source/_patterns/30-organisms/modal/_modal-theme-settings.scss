@@ -9,10 +9,10 @@
 
 /* DEFAULTS */
 .modal {
-  --theme-color-background: linear-gradient(135deg, #fefefd, #fafaf8);
+  --theme-color-background: linear-gradient(135deg, rgba(254,254,253,1), rgba(250,250,248,1));
   --theme-icon-filter: none;
 
-  --theme-color-bg-search: #fefefd;
+  --theme-color-bg-search: rgba(254,254,253,1);
   --theme-color-text-search: #{$color-text-light};
   --theme-search-border: 1px solid rgba(0,0,0,.08);
   --theme-search-border-bottom: 0;
@@ -22,15 +22,15 @@
 
 /* COMMON SETTINGS FOR ALL THEMES EXCEPT DEFAULT */
 .modal.modal--theme-dark {
-  --theme-color-background: linear-gradient(135deg, #111111, #111111);
+  --theme-color-background: linear-gradient(135deg, rgba(17,17,17,1), rgba(17,17,17,1));
   --theme-icon-filter: invert(100%) contrast(600%);
 
-  --theme-color-nav: #fff;
-  --theme-color-active: #fff;
-  --theme-color-nav-hover-text: #fff;
+  --theme-color-nav: rgba(255,255,255,1);
+  --theme-color-active: rgba(255,255,255,1);
+  --theme-color-nav-hover-text: rgba(255,255,255,1);
 
   --theme-color-bg-search: rgba(0,0,0,.2);
-  --theme-color-text-search: #fff;
+  --theme-color-text-search: rgba(255,255,255,1);
   --theme-search-border: 1px solid rgba(255,255,255,.12);
   --theme-search-border-bottom: var(--theme-search-border);
 

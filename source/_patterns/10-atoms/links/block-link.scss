@@ -95,7 +95,7 @@
 }
 
 .block-link--box {
-  border-top: 1px solid rgba(0,0,0,0.1);
+  border-top: 1px solid rgba(0,0,0,.1);
 
   padding-left: 16px;
   padding-right: 42px;
@@ -103,7 +103,7 @@
 
   &:hover {
     background-color: $color-bg-box-hover;
-    border-top: 1px solid rgba(0,0,0,0.1);
+    border-top: 1px solid rgba(0,0,0,.1);
   }
 
   &:focus {
@@ -138,7 +138,7 @@
   align-items: center;
 
   /* theme */
-  @include customPropWithFallback('border-top-color', '--teaser-border-color-link', 'rgba(0,0,0,.08)'); // rgb(234,234,233); // = rgba(0,0,0,.08) on white
+  @include customPropWithFallback('border-top-color', '--teaser-border-color-link', 'rgba(0,0,0,.08)');
   @include customPropWithFallback('color', '--teaser-color-text', $color-text-default);
   @include customPropWithFallback('background-color', '--teaser-color-background', $color-bg-card);
 
@@ -161,23 +161,23 @@
   &:focus {
     /* theme */
     @include customPropWithFallback('color', '--teaser-color-text', $color-text-default);
-    @include customPropWithFallback('background-color', '--teaser-background-link-hover', 'rgb(246,246,243)');
+    @include customPropWithFallback('background-color', '--teaser-background-link-hover', 'rgba(246,246,243,1)');
   }
 
   &:active {
     /* theme */
     @include customPropWithFallback('color', '--teaser-color-text', $color-text-default);
-    @include customPropWithFallback('background-color', '--teaser-background-link-active', 'rgb(237,237,234)');
+    @include customPropWithFallback('background-color', '--teaser-background-link-active', 'rgba(237,237,234,1)');
   }
 
   // handling lines between two or more adjacent block-links
   &:hover + &,
   &:focus + & {
-    @include customPropWithFallback('border-top-color', '--teaser-background-link-hover', 'rgb(246,246,243)');
+    @include customPropWithFallback('border-top-color', '--teaser-background-link-hover', 'rgba(246,246,243,1)');
   }
 
   &:active + & {
-    @include customPropWithFallback('border-top-color', '--teaser-background-link-active', 'rgb(237,237,234)');
+    @include customPropWithFallback('border-top-color', '--teaser-background-link-active', 'rgba(237,237,234,1)');
   }
 
   &::after {

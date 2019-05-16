@@ -62,12 +62,12 @@
   border-radius: 0; // if this one would not be overwritten, little red pixels will be displayed on the top corners (like ears)
 
   /* fallback */
-  border-bottom-color: #f1434a;
+  border-bottom-color: rgba(241,67,74,1);
   color: $color-accentuation-red;
 
   /* theme */
   @supports (--foo: bar) {
-    border-bottom-color: var(--theme-color-nav-active-border, #f1434a);
+    border-bottom-color: var(--theme-color-nav-active-border, rgba(241,67,74,1));
     color: var(--theme-color-active, $color-accentuation-red);
   }
 }
@@ -158,5 +158,5 @@
 }
 
 .nav-item--home {
-  color: #22211d;
+  color: rgba(34,33,29,1);
 }

@@ -12,11 +12,11 @@
 
 .modal-main-wrapper {
   /* fallback */
-  background-image: linear-gradient(135deg, #fefefd, #fafaf8);
+  background-image: linear-gradient(135deg, rgba(254,254,253,1), rgba(250,250,248,1));
 
   /* theme */
   @supports (--foo: bar) {
-    background-image: var(--theme-color-background, linear-gradient(135deg, #fefefd, #fafaf8));
+    background-image: var(--theme-color-background, linear-gradient(135deg, rgba(254,254,253,1), rgba(250,250,248,1)));
   }
 
   position: fixed;

@@ -21,7 +21,7 @@
 }
 
 .media-caption--with-separator {
-  border-bottom: 1px solid #cac8bf;
+  border-bottom: 1px solid rgba(202,200,191,1);
 }
 
 .media-caption--in-box {
@@ -67,7 +67,7 @@
 }
 
 .media-caption__source_link {
-  color: #555;
+  color: rgba(85,85,85,1);
   font-weight: bold;
   text-decoration: none;
 
@@ -109,7 +109,7 @@
 
 .media-caption--chmap {
   padding: 12px 16px;
-  border-bottom: 2px solid #fff;
+  border-bottom: 2px solid rgba(255,255,255,1);
 
   @include tablet-up {
     flex-direction: row;

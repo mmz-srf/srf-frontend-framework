@@ -2,8 +2,8 @@
 @import "../../mixins";
 @import "../../breakpoints";
 
-$color-collection-dim: rgba(0, 0, 0, .6) !default;
-$color-collection-dim-fade: rgba(0, 0, 0, 0) !default;
+$color-collection-dim: rgba(0,0,0,.6) !default;
+$color-collection-dim-fade: rgba(0,0,0,0) !default;
 $background-overlap: 40px;
 $background-overlap-wide: 50px;
 
@@ -152,7 +152,7 @@ $background-overlap-wide: 50px;
   transition: color .2s ease-in-out;
 
   &:hover {
-    color: #f1434a;
+    color: rgba(241,67,74,1);
 
     // estimation of the above color
     .collection__title-link-icon {
@@ -162,7 +162,7 @@ $background-overlap-wide: 50px;
 
   &:active,
   &:focus {
-    color: #ff6669;
+    color: rgba(255,102,105,1);
 
     // estimation of the above color
     .collection__title-link-icon {
@@ -203,8 +203,8 @@ $background-overlap-wide: 50px;
     width: 100%;
     height: calc(100% - 2px);
     left: 0;
-    border-top: 1px solid rgba(0, 0, 0, .08);
-    border-bottom: 1px solid rgba(0, 0, 0, .08);
+    border-top: 1px solid rgba(0,0,0,.08);
+    border-bottom: 1px solid rgba(0,0,0,.08);
   }
 
   @include tablet-up {
@@ -663,15 +663,15 @@ $background-overlap-wide: 50px;
   }
 
   .collection__link {
-      background-color: rgba(255, 255, 255, .08);
+      background-color: rgba(255,255,255,.08);
 
     &:hover {
-      background-color: rgba(255, 255, 255, .12);
+      background-color: rgba(255,255,255,.12);
     }
 
     &:active,
     &:focus {
-      background-color: rgba(255, 255, 255, .24);
+      background-color: rgba(255,255,255,.24);
     }
   }
 
@@ -706,7 +706,7 @@ $background-overlap-wide: 50px;
     .collection__link-item {
       .collection__link {
         &::before {
-          background-color: rgba(255, 255, 255, .12);
+          background-color: rgba(255,255,255,.12);
         }
       }
     }
@@ -776,7 +776,7 @@ $background-overlap-wide: 50px;
   overflow: hidden;
   --theme-color-nav: #{$color-text-accentuation};
   --theme-selection-button-color: $color-text-default;
-  --theme-selection-button-bg: #ebebe5;
+  --theme-selection-button-bg: rgba(235,235,229,1);
 
   .collection__title {
     display: flex;
@@ -809,22 +809,22 @@ $background-overlap-wide: 50px;
   }
 
   &.collection--branded {
-    --theme-color-nav: #ffffff;
+    --theme-color-nav: rgba(255,255,255,1);
     --theme-icon-filter: brightness(1000%);
 
     .selectable__button {
       @include font-smoothing;
-      color: #ffffff;
-      background-color: rgba(255, 255, 255, .08);
+      color: rgba(255,255,255,1);
+      background-color: rgba(255,255,255,.08);
       transition: background-color .2s ease-in-out;
 
       &:hover {
-        background-color: rgba(255, 255, 255, .12);
+        background-color: rgba(255,255,255,.12);
       }
 
       &:focus,
       &:active {
-        background-color: rgba(255, 255, 255, .24);
+        background-color: rgba(255,255,255,.24);
       }
 
       &::after {

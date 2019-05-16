@@ -12,7 +12,7 @@
   padding: 12px 0;
   border: 0;
   border-radius: 2px;
-  background: #ebebe5 url('../img/arrows/menu_arrow.svg') no-repeat right 16px center;
+  background: rgba(235,235,229,1) url('../img/arrows/menu_arrow.svg') no-repeat right 16px center;
   box-shadow: $shadow-elevation2;
   transition: background-color .2s ease-in-out, box-shadow .2s ease-in-out;
 
@@ -21,15 +21,15 @@
   }
 
   &:hover {
-    background-color: #dadad2;
+    background-color: rgba(218,218,210,1);
     cursor: pointer;
   }
 
   &:active,
   &:focus {
     outline: none;
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    background-color: #cac8bf;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    background-color: rgba(202,200,191,1);
   }
 
   &:hover,
@@ -81,7 +81,7 @@ _:-ms-lang(x),
 
   &:hover,
   &:active {
-    background-color: #ebebe5;
+    background-color: rgba(235,235,229,1);
     box-shadow: $shadow-elevation2;
     cursor: default;
   }

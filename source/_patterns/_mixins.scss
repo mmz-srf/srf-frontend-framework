@@ -167,7 +167,7 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-@mixin spinner($line-width: 1px, $dash-color: $color-srf-light, $bg-color: #dadad2, $parent-color: #4e4d47) {
+@mixin spinner($line-width: 1px, $dash-color: $color-srf-light, $bg-color: rgba(218,218,210,1), $parent-color: rgba(78,77,71,1)) {
 
   position: relative;
   height: 24px;

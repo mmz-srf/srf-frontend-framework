@@ -103,15 +103,15 @@
 // info: there are no comments yet ...
 .comments-infobox {
   padding: 20px 0;
-  background-color: #fefefd;
-  border-top: 1px solid #ebebe5;
+  background-color: rgba(254,254,253,1);
+  border-top: 1px solid rgba(235,235,229,1);
 }
 
 .comments-infobox__title,
 .comments-header__info-title {
   font-family: $font-regular;
   @include fontSize(14);
-  color: #22211d;
+  color: rgba(34,33,29,1);
   padding: 0 $article-offset-mobile;
   margin: -4px 0 4px;
 
@@ -146,7 +146,7 @@
   padding: 12px;
   border: 1px solid $color-form-field;
   border-radius: 2px;
-  background: #fff;
+  background: rgba(255,255,255,1);
   display: block;
   cursor: pointer;
   margin-bottom: 20px;
@@ -517,7 +517,7 @@
   border: 1px solid $color-form-field;
   border-radius: 2px;
   padding: 0;
-  background-color: #fff;
+  background-color: rgba(255,255,255,1);
   position: relative;
   margin: 4px 0 16px 0;
 
@@ -532,7 +532,7 @@
 
 .reply__textarea {
   width: calc(100% - 32px);
-  color: #383732; // new color :/
+  color: rgba(56,55,50,1);
   background-color: transparent;
   display: block;
   position: relative;
@@ -557,7 +557,7 @@
   display: block;
   @include fontSize(16);
   font-family: $font-regular;
-  color: #4e4d47;
+  color: rgba(78,77,71,1);
   margin: 0;
   padding: 0;
   margin-top: 20px;
@@ -567,14 +567,14 @@
 }
 
 .reply__help {
-  color: #6b6960;
+  color: rgba(107,105,96,1);
   font-family: "SRG_SSR_Light", sans-serif;
   margin-top: 4px;
 }
 
 .reply__help--error-only {
   display: none;
-  color: #c91024;
+  color: rgba(201,16,36,1);
 }
 
 .reply__form-row {
@@ -583,11 +583,11 @@
 
 .form__validation--error {
   .reply__label {
-    color: #c91024;
+    color: rgba(201,16,36,1);
   }
 
   .reply__textfield {
-    border-color: #c91024;
+    border-color: rgba(201,16,36,1);
   }
 
   .reply__help--error-only {
@@ -595,19 +595,19 @@
   }
 
   .checkbox-label::after {
-    border: 1px solid #c91024;
+    border: 1px solid rgba(201,16,36,1);
   }
 }
 .reply__textfield {
   width: 100%;
   @include fontSize(16);
   font-family: $font-light;
-  color: #383732;
-  background-color: #fff;
+  color: rgba(56,55,50,1);
+  background-color: rgba(255,255,255,1);
   padding: 12px 44px 12px 16px;
   margin: 4px 0 2px;
   box-sizing: border-box;
-  border: 1px solid #b9b7ac;
+  border: 1px solid rgba(185,183,172,1);
   border-radius: 2px;
   transition: border-color 0.2s ease-in-out;
 }
@@ -645,5 +645,5 @@
 // pink background
 .reply--overboard {
   color: transparent;
-  background-color: #ffe2e2;
+  background-color: rgba(255,226,226,1);
 }

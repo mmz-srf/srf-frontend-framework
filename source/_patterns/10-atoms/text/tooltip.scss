@@ -9,21 +9,21 @@
 
   box-shadow: $shadow-elevation2;
   border-radius: 2px;
-  background-color: #fff;
+  background-color: rgba(255,255,255,1);
   white-space: nowrap;
 }
 
 .tooltip-arrow {
   position: absolute;
-  background-color: #fff;
+  background-color: rgba(255,255,255,1);
   left: 50%;
   bottom: -3px;
   margin-left: -4px;
 
-  border: 4px solid #fff;
-  border-color: transparent transparent #fff #fff;
+  border: 4px solid rgba(255,255,255,1);
+  border-color: transparent transparent rgba(255,255,255,1) rgba(255,255,255,1);
 
-  box-shadow: -2px 2px 2px 0 rgba(0, 0, 0, .18);
+  box-shadow: -2px 2px 2px 0 rgba(0,0,0,.18);
 
   transform: rotate(-45deg);
 }

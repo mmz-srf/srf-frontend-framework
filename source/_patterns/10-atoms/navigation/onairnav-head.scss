@@ -19,7 +19,7 @@
   @include fontSize(24);
   font-weight: 500;
   line-height: 1;
-  color: #fff;
+  color: rgba(255,255,255,1);
   margin: 0;
   align-self: baseline;
   @include font-smoothing;
@@ -34,7 +34,7 @@
   @include fontSize(16);
   font-weight: 300;
   line-height: 1;
-  color: #fff;
+  color: rgba(255,255,255,1);
   align-self: baseline;
   white-space: nowrap;
   transition: opacity .2s ease-in-out;
@@ -43,7 +43,7 @@
   &:hover,
   &:focus,
   &:active {
-    color: #fff;
+    color: rgba(255,255,255,1);
   }
 
   &:hover,

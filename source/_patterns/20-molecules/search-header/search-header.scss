@@ -63,7 +63,7 @@
   margin-left: 8px;
   @include fontSize(14);
   font-family: $font-regular;
-  color: #4e4d47;
+  color: rgba(78,77,71,1);
 
   @include smartphone {
     display: none;

@@ -215,7 +215,7 @@
   line-height: $emphasize-line-height-ratio;
 
   /* theme */
-  @include customPropWithFallback('color', '--teaser-color-text', '#383732');
+  @include customPropWithFallback('color', '--teaser-color-text', 'rgba(56,55,50,1)');
 }
 
 .teaser__live {
@@ -230,7 +230,7 @@
   font-stretch: normal;
   line-height: 1.33;
   letter-spacing: normal;
-  color: #fff;
+  color: rgba(255,255,255,1);
   text-transform: uppercase;
   animation: pulsatingLiveAnimation 3s infinite ease-in-out;
   @include font-smoothing;
@@ -299,7 +299,7 @@
 
     &::after {
       border-radius: 2px;
-      border: solid 1px rgba(0, 0, 0, 0.04);
+      border: solid 1px rgba(0,0,0,.04);
       height: 80px;
 
       @include desktop-up {
@@ -358,7 +358,7 @@
 
     &::after {
       border-radius: 0;
-      border-bottom: solid 1px rgba(0, 0, 0, 0.04);
+      border-bottom: solid 1px rgba(0,0,0,.04);
     }
   }
 
@@ -421,7 +421,7 @@
     border-radius: 2px 2px 0 0;
 
     &::after {
-      border-bottom: solid 1px rgba(0, 0, 0, 0.04);
+      border-bottom: solid 1px rgba(0,0,0,.04);
     }
   }
 }
@@ -550,7 +550,7 @@
       width: 100%;
 
       &::after {
-        border-bottom: solid 1px rgba(0, 0, 0, 0.04);
+        border-bottom: solid 1px rgba(0,0,0,.04);
       }
     }
 
@@ -558,7 +558,7 @@
       flex: 0 0 $teaser-xl-medium-ratio;
 
       &::after {
-        border-right: solid 1px rgba(0, 0, 0, 0.04);
+        border-right: solid 1px rgba(0,0,0,.04);
       }
     }
   }
@@ -685,7 +685,7 @@
 
       &::after {
         border-radius: 2px;
-        border: solid 1px rgba(0, 0, 0, 0.04);
+        border: solid 1px rgba(0,0,0,.04);
         height: 80px;
       }
     }
@@ -837,7 +837,7 @@
 
   // Longform teasers have the dark theme (see _teaser-theme-settings.scss) but the kicker is white.
   .teaser__kicker {
-    color: #ffffff;
+    color: rgba(255,255,255,1);
   }
 
   .teaser__lead {
@@ -853,7 +853,7 @@
   .teaser__content {
     flex-grow: 0;
     flex-basis: auto;
-    background-color: rgba(0, 0, 0, .6);
+    background-color: rgba(0,0,0,.6);
     padding: 16px;
     @include desktop-wide {
       padding: 24px;
@@ -869,13 +869,13 @@
       bottom: 100%;
       left: 0;
       height: 80px;
-      background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, .6));
+      background-image: linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,.6));
     }
   }
 
   // teaser-links should have same bg color as main content
   .teaser__links {
-    background-color: rgba(0, 0, 0, .6);
+    background-color: rgba(0,0,0,.6);
     margin: 0;
     padding-left: 16px;
 
@@ -920,7 +920,7 @@
     .teaser__main-wrapper {
       flex: 0 0 #{100% - $teaser-xl-medium-ratio};
       position: relative;
-      background-color: rgba(0, 0, 0, .6);
+      background-color: rgba(0,0,0,.6);
       // subpixel rendering makes the content stick out of the teaser
       // sometimes - with the 2px negative bottom margin and 2px padding
       // at the bottom this is prevented.

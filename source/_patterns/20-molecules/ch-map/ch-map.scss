@@ -4,7 +4,7 @@
 .chmap {
   margin: 0 auto;
   display: block;
-  fill: #d2d2d2;
+  fill: rgba(210,210,210,1);
   padding: 24px $article-offset-mobile 12px;
   max-width: 100%;
 
@@ -14,7 +14,7 @@
 }
 
 .chmap--no-touch { // link
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
 
   &:active,
   &:focus {
@@ -37,7 +37,7 @@
 }
 
 .chmap__location {
-  stroke: #fff; // cantons
+  stroke: rgba(255,255,255,1); // cantons
   stroke-width: .5px;
   cursor: pointer;
 
@@ -47,10 +47,10 @@
 }
 
 .chmap__location--shadow {
-  stroke: rgb(34, 34, 34);
+  stroke: rgba(34,34,34,1);
   filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=3, OffY=3, Color='#444')";
-  -webkit-filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, .5));
-  filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, .5));
+  -webkit-filter: drop-shadow(3px 3px 3px rgba(0,0,0,.5));
+  filter: drop-shadow(3px 3px 3px rgba(0,0,0,.5));
   transition: fill 1s ease-in 0s;
 }
 
@@ -95,7 +95,7 @@
 
 .chmap-infowindow__text {
   @include fontSize(14);
-  color: #4e4d47;
+  color: rgba(78,77,71,1);
   margin: 0;
 }
 

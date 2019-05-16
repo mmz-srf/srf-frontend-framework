@@ -18,7 +18,7 @@
     &:focus,
     &:hover {
       + .checkbox--with-bg:not(.checkbox--inactive) {
-        background-color: #cac8bf;
+        background-color: rgba(202,200,191,1);
       }
     }
   }

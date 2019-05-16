@@ -14,7 +14,7 @@ $button-animation-duration: .3s;
   @include fontSize(16);
   font-family: $font-regular;
   letter-spacing: 0.8px; // Interactive overriding default values
-  color: #fff;
+  color: rgba(255,255,255,1);
   @include font-smoothing;
   border: 0;
   border-radius: 2px;
@@ -91,7 +91,7 @@ $button-animation-duration: .3s;
 
   .button-icon {
     display: inline-block;
-    @include spinner(1px, #fff, #7a7a7a, $color-text-accentuation);
+    @include spinner(1px, rgba(255,255,255,1), rgba(122,122,122,1), $color-text-accentuation);
 
     margin: -1px auto -7px auto;
   }

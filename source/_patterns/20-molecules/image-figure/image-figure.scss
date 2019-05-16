@@ -67,7 +67,7 @@ Behaviour:
     max-height: 9000px;
     max-width: 16000px;
     height: calc(100vw * 9000.0 / 16000.0);
-    background-color: #dadad2;
+    background-color: rgba(218,218,210,1);
 
     @include desktop-up {
       // using max-width and max-height as 16:8 ratio for calculating the height
@@ -84,7 +84,7 @@ Behaviour:
 }
 
 .image-figure__image {
-  background-color: #dadad2;
+  background-color: rgba(218,218,210,1);
 }
 
 .image-figure--in-box {

@@ -1,7 +1,7 @@
 @import "../../variables";
 @import "../../mixins";
 
-$default-input-background: #fff;
+$default-input-background: rgba(255,255,255,1);
 
 .input-field {
   position: relative;

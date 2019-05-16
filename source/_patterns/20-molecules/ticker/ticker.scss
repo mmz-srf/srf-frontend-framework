@@ -54,7 +54,7 @@ $ticker-item-border-width: 1px;
   .ticker-item:first-of-type::after {
     top: 0;
     height: 3px;
-    border-left: 1px solid #fff;
+    border-left: 1px solid rgba(255,255,255,1);
   }
 }
 .ticker--scheduled,
@@ -68,7 +68,7 @@ $ticker-item-border-width: 1px;
 .ticker--live {
   .ticker-item--new::before { // red center
     left: -6px;
-    border: 2px solid #fff;
+    border: 2px solid rgba(255,255,255,1);
     background-color: $color-accentuation-red;
     box-shadow: 0 0 0 1px $color-border;
     box-sizing: border-box;
@@ -93,7 +93,7 @@ $ticker-item-border-width: 1px;
     width: 11px;
     top: 3px;
     left: -7px;
-    background-color: #fff;
+    background-color: rgba(255,255,255,1);
     border: 1px solid $color-border;
     border-radius: 50%;
   }
@@ -127,9 +127,9 @@ $ticker-item-border-width: 1px;
       margin-top: 10px;
       margin-bottom: 12px;
 
-      border: 5px solid #fff;
+      border: 5px solid rgba(255,255,255,1);
       border-width: 5px 0;
-      box-shadow: 0 0 10px 10px #fff; // like gradient
+      box-shadow: 0 0 10px 10px rgba(255,255,255,1); // like gradient
     }
   }
 
@@ -157,7 +157,7 @@ $ticker-item-border-width: 1px;
 
   // html embeds special :(
   .embed-inline {
-    background-color: #fff;
+    background-color: rgba(255,255,255,1);
 
     @include tablet-up {
       justify-content: flex-start;
@@ -170,7 +170,7 @@ $ticker-item-border-width: 1px;
     left: 0;
     margin: 32px 0;
     padding: 0;
-    background-color: #fff;
+    background-color: rgba(255,255,255,1);
 
     @include smartphone {
       margin: 23px 0;
@@ -243,8 +243,8 @@ $ticker-item-border-width: 1px;
   @include fontSize(12);
   line-height: $emphasize-line-height-ratio;
   color: $color-text-light;
-  background-color: #fff;
-  box-shadow: 0 5px 10px 5px #fff; // like gradient
+  background-color: rgba(255,255,255,1);
+  box-shadow: 0 5px 10px 5px rgba(255,255,255,1); // like gradient
   position: relative;
   z-index: 1;
 

@@ -80,7 +80,7 @@
   cursor: pointer;
   text-align: left;
   color: $color-text-default;
-  background-color: #ebebe5;
+  background-color: rgba(235,235,229,1);
 
   &::after {
     position: absolute;
@@ -163,7 +163,7 @@
 }
 
 .selectable--branded {
-  --theme-color-nav: #ffffff;
+  --theme-color-nav: rgba(255,255,255,1);
   --theme-icon-filter: brightness(1000%);
   position: relative;
 
@@ -178,22 +178,22 @@
   .selectable__title,
   .selectable__lead {
     @include font-smoothing;
-    color: #ffffff;
+    color: rgba(255,255,255,1);
   }
 
   .selectable__button {
     @include font-smoothing;
-    color: #ffffff;
-    background-color: rgba(255, 255, 255, .08);
+    color: rgba(255,255,255,1);
+    background-color: rgba(255,255,255,.08);
     transition: background-color .2s ease-in-out;
 
     &:hover {
-      background-color: rgba(255, 255, 255, .12);
+      background-color: rgba(255,255,255,.12);
     }
 
     &:focus,
     &:active {
-      background-color: rgba(255, 255, 255, .24);
+      background-color: rgba(255,255,255,.24);
     }
 
     &::after {

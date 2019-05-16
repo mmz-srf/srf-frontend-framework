@@ -35,7 +35,7 @@
   color: $color-text-light;
 
   b {
-    color: #22211D;
+    color: rgba(34,33,29,1);
   }
 
 }
@@ -50,7 +50,7 @@
   font-family: $font-bold;
   line-height: $emphasize-line-height-ratio;
   text-align: center;
-  color: #22211D;
+  color: rgba(34,33,29,1);
   border: none;
 
   // Make hover area circled so corners don't trigger mouseenter/hover
@@ -68,7 +68,7 @@
   opacity: .84;
   outline: none;
   border: none;
-  color: #22211d;
+  color: rgba(34,33,29,1);
 }
 
 .sharing-bar__button--facebook {

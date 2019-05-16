@@ -28,7 +28,7 @@
 
 .score--live {
   background-color: $color-bg-score-live;
-  color: #FFF;
+  color: rgba(255,255,255,1);
 
   .score__value {
     opacity: 1;

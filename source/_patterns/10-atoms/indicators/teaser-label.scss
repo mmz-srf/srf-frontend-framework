@@ -15,7 +15,7 @@
 .teaser__label--live {
   .teaser__label-box {
     background-color: $color-srf-light;
-    color: #ffffff;
+    color: rgba(255,255,255,1);
     @include font-smoothing;
   }
 }
@@ -33,7 +33,7 @@
 .teaser__label--pre {
   .teaser__label-box {
     background-color: rgba(255,255,255,.8);
-    color: #4e4d47;
+    color: rgba(78,77,71,1);
     backdrop-filter: blur(2px);
   }
 }

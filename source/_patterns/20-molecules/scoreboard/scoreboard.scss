@@ -76,7 +76,7 @@ $scoreboard-col-padding-height: 8px;
 // scores have a white border between them. If there's only one, there's no border
 .scoreboard__score {
   flex: 1 1 auto;
-  border-right: 1px solid #ffffff;
+  border-right: 1px solid rgba(255,255,255,1);
 
   &.scoreboard__col-last {
     border-right: none;

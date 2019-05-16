@@ -11,31 +11,31 @@
   --teaser-color-background: #{$color-bg-card};
   --teaser-color-text: #{$color-text-default};
   --teaser-color-text-emphasis: #{$color-text-default};
-  --teaser-color-title: #383732;
+  --teaser-color-title: rgba(56,55,50,1);
   --teaser-color-accentuation: #{$color-accentuation-red};
   --teaser-color-overlay: #{$color-bg-button-hover};
   --teaser-color-info-new: #{$color-srf-light};
   --teaser-color-info-visited: #{$color-button-success};
   --teaser-color-info-updated: #{$color-text-light};
   --teaser-border-color-link: rgba(0,0,0,.08);
-  --teaser-background-link-hover: rgb(246,246,243);
-  --teaser-background-link-active: rgb(237,237,234);
+  --teaser-background-link-hover: rgba(246,246,243,1);
+  --teaser-background-link-active: rgba(237,237,234,1);
   --teaser-fake-shadow-gradient: linear-gradient(rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%);
   /* NOTE: There are some assets too, but those can't be linked with custom properties here (propably 'cause of gulp or something) and are therefore declared directly in the scss with the corresponding classes -> see teaser-info.scss */
 }
 
 /* COMMON SETTINGS FOR ALL THEMES EXCEPT DEFAULT */
 .teaser.teaser--theme-dark {
-  --teaser-color-background: #22211d;
-  --teaser-color-text: #ffffff;
-  --teaser-color-text-emphasis: #dadad2;
-  --teaser-color-title: #ffffff;
-  --teaser-color-accentuation: #dadad2;
-  --teaser-color-overlay: rgba(255, 255, 255, .12);
-  --teaser-color-info-new: #ffffff;
-  --teaser-color-info-visited: #ffffff;
-  --teaser-color-info-updated: #ffffff;
-  --teaser-border-color-link: rgba(255, 255, 255, .12);
+  --teaser-color-background: rgba(34,33,29,1);
+  --teaser-color-text: rgba(255,255,255,1);
+  --teaser-color-text-emphasis: rgba(218,218,210,1);
+  --teaser-color-title: rgba(255,255,255,1);
+  --teaser-color-accentuation: rgba(218,218,210,1);
+  --teaser-color-overlay: rgba(255,255,255,.12);
+  --teaser-color-info-new: rgba(255,255,255,1);
+  --teaser-color-info-visited: rgba(255,255,255,1);
+  --teaser-color-info-updated: rgba(255,255,255,1);
+  --teaser-border-color-link: rgba(255,255,255,.12);
   --teaser-background-link-hover: rgba(255,255,255,.08);
   --teaser-background-link-active: rgba(255,255,255,.12);
   --teaser-fake-shadow-gradient: linear-gradient(rgba(34,33,29,0) 0%,rgba(34,33,29,1) 100%);
@@ -45,15 +45,15 @@
 }
 
 .teaser.teaser--theme-breaking {
-  --teaser-color-background: #c91024;
-  --teaser-color-text: #ffffff;
-  --teaser-color-text-emphasis: #ffffff;
-  --teaser-color-title: #ffffff;
-  --teaser-color-accentuation: #ffffff;
-  --teaser-color-overlay: rgba(255, 255, 255, .12);
-  --teaser-color-info-new: #ffffff;
-  --teaser-color-info-visited: #ffffff;
-  --teaser-color-info-updated: #ffffff;
+  --teaser-color-background: rgba(201,16,36,1);
+  --teaser-color-text: rgba(255,255,255,1);
+  --teaser-color-text-emphasis: rgba(255,255,255,1);
+  --teaser-color-title: rgba(255,255,255,1);
+  --teaser-color-accentuation: rgba(255,255,255,1);
+  --teaser-color-overlay: rgba(255,255,255,.12);
+  --teaser-color-info-new: rgba(255,255,255,1);
+  --teaser-color-info-visited: rgba(255,255,255,1);
+  --teaser-color-info-updated: rgba(255,255,255,1);
   --teaser-border-color-link: rgba(255,255,255,.08);
   --teaser-background-link-hover: rgba(255,255,255,.08);
   --teaser-background-link-active: rgba(255,255,255,.24);

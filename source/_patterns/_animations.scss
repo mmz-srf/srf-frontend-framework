@@ -7,8 +7,8 @@
 
 $small-size: .8;
 $big-size: 1;
-$dark-attention-color: #aa0000;
-$light-attention-color: #ff0000;
+$dark-attention-color: rgba(170,0,0,1);
+$light-attention-color: rgba(255,0,0,1);
 
 @keyframes pulsatingAnimation {
   0% {
@@ -51,7 +51,7 @@ $light-attention-color: #ff0000;
     background-color: $color-srf-light;
   }
   50% {
-    background-color: #ed7004;
+    background-color: rgba(237,112,4,1);
   }
   75% {
     background-color: $color-srf-light;
@@ -87,13 +87,13 @@ $light-attention-color: #ff0000;
 
 @keyframes rippleShadowAnimation {
   0% {
-    box-shadow: 0 0 0 rgba(0, 0, 0, .0);
+    box-shadow: 0 0 0 rgba(0,0,0,.0);
   }
   20% {
-    box-shadow: 0 4px 16px rgba(0, 0, 0, .3);
+    box-shadow: 0 4px 16px rgba(0,0,0,.3);
   }
   100% {
-    box-shadow: 0 0 0 rgba(0, 0, 0, .0);
+    box-shadow: 0 0 0 rgba(0,0,0,.0);
   }
 }
 
@@ -136,10 +136,10 @@ $light-attention-color: #ff0000;
 
 @keyframes fadeToGreyAnimation {
   0% {
-    background-color: rgba(0, 0, 0, 0);
+    background-color: rgba(0,0,0,0);
   }
   100% {
-    background-color: rgba(0, 0, 0, .12);
+    background-color: rgba(0,0,0,.12);
   }
 }
 

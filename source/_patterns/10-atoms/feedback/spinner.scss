@@ -10,7 +10,7 @@
 }
 
 .spinner__circle--bg {
-  stroke: #dadad2;
+  stroke: rgba(218,218,210,1);
   opacity: .4;
 }
 
@@ -24,7 +24,7 @@
 
 .spinner--white-dash {
   .spinner__circle--dash {
-    stroke: #fff;
+    stroke: rgba(255,255,255,1);
   }
 }
 

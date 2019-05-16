@@ -22,7 +22,7 @@
     position: absolute;
     left: $article-offset;
     top: 40px;
-    color: #555;
+    color: rgba(85,85,85,1);
     @include fontSize(18);
     font-family: $font-medium;
     line-height: 20px;
@@ -36,6 +36,6 @@
 
 .audio-gallery__item--playing {
   &::before {
-    color: #fff;
+    color: rgba(255,255,255,1);
   }
 }
