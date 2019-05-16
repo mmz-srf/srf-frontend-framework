@@ -173,6 +173,7 @@ export class SrfSelectableCollection {
             return;
         }
 
+        let $swipeableArea = $collection.find('.js-swipeable-area');
         this.$sourceCollections.each((_, coll) => $(coll).removeClass(SELECTED_COLLECTION_CLASS));
         $collection.css({'display': 'block', 'position': 'absolute', 'height': 0});
         let $contentWrapper = $collection.find('.js-collection-content-wrapper');
@@ -196,6 +197,9 @@ export class SrfSelectableCollection {
                     if (shouldFocus) {
                         setFocus($collection.find('.teaser__main').first());
                     }
+
+                    // reinitialize swipeable area for chosen collection
+                    $swipeableArea.trigger('srf.swipeableArea.reinitialize');
                 });
             });
         });

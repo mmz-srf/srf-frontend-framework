@@ -1,0 +1,141 @@
+/* autoprefixer grid: on */
+.canton-map {
+  display: grid;
+  grid-gap: 2px;
+  grid-template:
+          "aa ab ac ad ae af ag ah" 40px
+          "ba bb bc bd be bf bg bh" 40px
+          "ca cb cc cd ce cf cg ch" 40px
+          "da db dc dd de df dg dh" 40px
+          "ea eb ec ed ee ef eg eh" 40px
+          "fa fb fc fd fe ff fg fh" 40px /
+    40px 40px 40px 40px 40px 40px 40px 40px;
+  margin-left: -22px;
+
+  @include tablet-up {
+    grid-gap: 4px;
+    grid-template:
+            "aa ab ac ad ae af ag ah" 42px
+            "ba bb bc bd be bf bg bh" 42px
+            "ca cb cc cd ce cf cg ch" 42px
+            "da db dc dd de df dg dh" 42px
+            "ea eb ec ed ee ef eg eh" 42px
+            "fa fb fc fd fe ff fg fh" 42px /
+    42px 42px 42px 42px 42px 42px 42px 42px;
+    margin-left: 0;
+  }
+}
+
+.canton-link--bs {
+  grid-area: ad;
+}
+
+.canton-link--sh {
+  grid-area: af;
+}
+
+.canton-link--ju {
+  grid-area: bc;
+}
+
+.canton-link--bl {
+  grid-area: bd;
+}
+
+.canton-link--ag {
+  grid-area: be;
+}
+
+.canton-link--zh {
+  grid-area: bf;
+}
+
+.canton-link--tg {
+  grid-area: bg;
+}
+
+.canton-link--ar {
+  grid-area: bh;
+}
+
+.canton-link--ne {
+  grid-area: cc;
+}
+
+.canton-link--so {
+  grid-area: cd;
+}
+
+.canton-link--lu {
+  grid-area: ce;
+}
+
+.canton-link--zg {
+  grid-area: cf;
+}
+
+.canton-link--sg {
+  grid-area: cg;
+}
+
+.canton-link--ai {
+  grid-area: ch;
+}
+
+.canton-link--vd {
+  grid-area: db;
+}
+
+.canton-link--fr {
+  grid-area: dc;
+}
+
+.canton-link--be {
+  grid-area: dd;
+}
+
+.canton-link--nw {
+  grid-area: de;
+}
+
+.canton-link--sz {
+  grid-area: df;
+}
+
+.canton-link--gl {
+  grid-area: dg;
+}
+
+.canton-link--gr {
+  grid-area: dh;
+}
+
+.canton-link--ge {
+  grid-area: ea;
+  @supports (grid-area: ea / ea / eb / eb) {
+    grid-area: ea / ea / eb / eb;
+  }
+  justify-self: center;
+}
+
+.canton-link--vs {
+  grid-area: ec;
+  @supports (grid-area: ec / ec / ed / ed) {
+    grid-area: ec / ec / ed / ed;
+  }
+  justify-self: center;
+}
+
+.canton-link--ow {
+  grid-area: ee;
+}
+
+.canton-link--ur {
+  grid-area: ef;
+}
+
+.canton-link--ti {
+  grid-area: ff;
+}
+/* autoprefixer grid: off */
+

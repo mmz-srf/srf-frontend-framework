@@ -1,5 +1,6 @@
-import {DOM_CHANGED_EVENT} from '../classes/fef-dom-observer';
-import {FefResponsiveHelper} from '../classes/fef-responsive-helper';
+import { DOM_CHANGED_EVENT } from '../classes/fef-dom-observer';
+import { FefResponsiveHelper } from '../classes/fef-responsive-helper';
+import { FefBouncePrevention } from './fef-bounce-prevention';
 
 let ANIMATION_SPEED = 200;
 
@@ -51,6 +52,7 @@ export class FefModal {
         this.$mainContent = this.$element.find('.js-modal-main-content');
         this.animation = this.$element.attr('data-animation');
         this.previousScrollPosition = null;
+        this.browserSupportsElasticScrolling = FefBouncePrevention.checkSupport();
 
         // Accsessibility: when opening the modal, set all other content on the page to aria-hidden, so that screenreaders can't access them anymore.
         this.$A11YElements = this.$element.siblings('div, section, footer, span, h1, a, img');
@@ -201,13 +203,20 @@ export class FefModal {
      * We achieve this by setting the body to overflow: hidden and setting the height to 100%, thus
      * effectively cutting the rest of the page off. This scrolls to the top of the page, so we
      * also have to save the previous scroll state.
-     *
+     * 
+     * Additionally, we prevent bouncy body scrolling which can lead to subpar
+     * experience on iOS devices.
+     * 
      * We only do this if the modal covers the whole page and on mobile/tablet.
      */
     preventScrolling() {
         if (this.$mainContent.outerHeight() >= $(window).outerHeight() && (FefResponsiveHelper.isTablet() || FefResponsiveHelper.isSmartphone())) {
             this.previousScrollPosition = $(window).scrollTop();
             $('html').addClass('h-prevent-scrolling');
+
+            if (this.browserSupportsElasticScrolling) {
+                FefBouncePrevention.enable();
+            }
         }
     }
 
@@ -215,6 +224,7 @@ export class FefModal {
      * If, upon opening the modal, the ability to scroll was removed, we give it back now. This means:
      * - removing the class that prevents the scrolling
      * - scrolling back to the previously saved scroll position
+     * - additionally we re-enable bouncy body scrolling
      *
      * This makes it appear as if we never even scrolled away.
      */
@@ -223,6 +233,11 @@ export class FefModal {
             $('html').removeClass('h-prevent-scrolling');
             $(window).scrollTop(this.previousScrollPosition);
             this.previousScrollPosition = null;
+
+        }
+
+        if (this.browserSupportsElasticScrolling) {
+            FefBouncePrevention.disable();
         }
     }
 

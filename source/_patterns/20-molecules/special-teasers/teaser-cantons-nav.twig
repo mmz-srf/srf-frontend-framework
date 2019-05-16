@@ -1,0 +1,33 @@
+<div class="teaser-cantons-nav">
+    {% if teaser is defined and teaser is not empty %}
+        <div class="teaser-cantons-nav__content-shimmer h-loading-only">
+            <div class="shimmer shimmer--overline"></div>
+            <div class="shimmer"></div>
+            <div class="shimmer"></div>
+            <div class="shimmer shimmer--short"></div>
+        </div>
+        <div class="teaser-cantons-nav__content">
+            {% if teaser.kicker is defined and teaser.kicker is not empty %}
+                <div class="teaser-cantons-nav__kicker">{{ teaser.kicker|trim }}</div>
+            {% endif %}
+
+            {% if teaser.title is defined and teaser.title is not empty %}
+                <h3 class="teaser-cantons-nav__title">{{ teaser.title|trim }}</h3>
+            {% endif %}
+
+            {% if teaser.lead is defined and teaser.lead is not empty %}
+                <p class="teaser-cantons-nav__lead">{{ teaser.lead|trim }}</p>
+            {% endif %}
+        </div>
+    {% endif %}
+
+    {% if cantons is defined and cantons is not empty %}
+        <div class="teaser-cantons-nav__navigation-shimmer h-loading-only">
+            <div class="image image--media-still-dynamic"></div>
+        </div>
+
+        <div class="teaser-cantons-nav__navigation">
+            {% include 'molecules-canton-map' %}
+        </div>
+    {% endif %}
+</div>
