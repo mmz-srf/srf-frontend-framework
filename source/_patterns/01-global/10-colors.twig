@@ -1,31 +1,235 @@
-{% set sass_variable_block %}
-    {# hint: just copy/paste the sass color variables here and remove those variables with a variable as value #}
-    $color-accentuation-red: #c91024;
-    $color-bg-caption: #f5f5f2;
-    $color-bg-box: #ebebe5;
-    $color-bg-box-hover: #dadad2;
-    $color-link-hover: #8d0614;
-    $color-link-active: #6a0b0c;
-    $color-link-bg-hover: #fafaf8;
-    $color-list-bullet: #e31f2b;
-    $color-text-default: #22211d;
-    $color-text-accentuation: #4e4d47;
-    $color-text-light: #888579;
-    $color-border: #cac8bf;
-    $color-border-medium: #d2d2d2;
-    $color-button-default: #6b6960;
-    $color-button-success: #1a7ac5;
-    $color-form-field: #b9b7ac;
-    $color-form-field-hint: #6b6960;
-    $color-media-playing: #383732;
-{% endset %}
+{% set globalColors =
+  {
+    'srf-red-300': {
+      'hex': '#ff6669',
+      'rgba': 'rgba(255,102,105,1)'
+    },
+    'srf-red-400': {
+      'hex': '#f1434a',
+      'rgba': 'rgba(241,67,74,1)'
+    },
+    'srf-red-500': {
+      'hex': '#e31f2b',
+      'rgba': 'rgba(227,31,43,1)'
+    },
+    'srf-red-600': {
+      'hex': '#c91024',
+      'rgba': 'rgba(201,16,36,1)'
+    },
+    'srf-red-700 (!)': {
+      'hex': '#af001e',
+      'rgba': 'rgba(175,0,30,1)'
+    },
+    'srf-red-800': {
+      'hex': '#8d0614',
+      'rgba': 'rgba(141,6,20,1)'
+    },
+    'srf-red-900': {
+      'hex': '#6a0b0c',
+      'rgba': 'rgba(106,11,12,1)'
+    },
+    'srf-warmgrey-10': {
+      'hex': '#fafaf8',
+      'rgba': 'rgba(250,250,248,1)'
+    },
+    'srf-warmgrey-25': {
+      'hex': '#f5f5f2',
+      'rgba': 'rgba(245,245,242,1)'
+    },
+    'srf-warmgrey-50': {
+      'hex': '#ebebe5',
+      'rgba': 'rgba(235,235,229,1)'
+    },
+    'srf-warmgrey-100': {
+      'hex': '#dadad2',
+      'rgba': 'rgba(218,218,210,1)'
+    },
+    'srf-warmgrey-200': {
+      'hex': '#cac8bf',
+      'rgba': 'rgba(202,200,191,1)'
+    },
+    'srf-warmgrey-300 with ALPHA': {
+      'hex': '#b9b7ac',
+      'rgba': 'rgba(185,183,172,1)'
+    },
+    'srf-warmgrey-700': {
+      'hex': '#888579',
+      'rgba': 'rgba(136,133,121,1)'
+    },
+    'srf-warmgrey-800': {
+      'hex': '#6b6960',
+      'rgba': 'rgba(107,105,96,1)'
+    },
+    'srf-warmgrey-900': {
+      'hex': '#4e4d47',
+      'rgba': 'rgba(78,77,71,1)'
+    },
+    'srf-warmgrey-1000': {
+      'hex': '#383732',
+      'rgba': 'rgba(56,55,50,1)'
+    },
+    'srf-warmgrey-1100': {
+      'hex': '#22211d',
+      'rgba': 'rgba(34,33,29,1)'
+    },
+    'srf-yellow-500': {
+      'hex': '#f7a600',
+      'rgba': 'rgba(247,166,0,1)'
+    },
+    'srf-blue-600': {
+      'hex': '#1a7ac5',
+      'rgba': 'rgba(26,122,197,1)'
+    },
+    'srf-neutral-white': {
+      'hex': '#ffffff',
+      'rgba': 'rgba(255,255,255,1)'
+    },
+    'srf-neutral-01': {
+      'hex': '#555555',
+      'rgba': 'rgba(85,85,85,1)'
+    },
+    'srf-neutral-02': {
+      'hex': '#333333',
+      'rgba': 'rgba(51,51,51,1)'
+    },
+    'srf-neutral-03': {
+      'hex': '#222222',
+      'rgba': 'rgba(34,34,34,1)'
+    },
+    'srf-neutral-black with ALPHA': {
+      'hex': '#000000',
+      'rgba': 'rgba(0,0,0,1)'
+    },
+    'brand-facebook': {
+      'hex': '#3a5999',
+      'rgba': 'rgba(58,89,153,1)'
+    },
+    'brand-facebook-hover': {
+      'hex': '#4e69a2',
+      'rgba': 'rgba(78,105,162,1)'
+    },
+    'brand-facebook-active': {
+      'hex': '#6980b0',
+      'rgba': 'rgba(105,128,176,1)'
+    },
+    'brand-twitter': {
+      'hex': '#56adef',
+      'rgba': 'rgba(86,173,239,1)'
+    },
+    'brand-twitter-hover': {
+      'hex': '#66b4ef',
+      'rgba': 'rgba(102,180,239,1)'
+    },
+    'brand-twitter-active': {
+      'hex': '#7dbff2',
+      'rgba': 'rgba(125,191,242,1)'
+    },
+    'unknown-color-fefefd': {
+      'hex': '#fefefd',
+      'rgba': 'rgba(254,254,253,1)'
+    },
+    'unknown-color-fefefc': {
+      'hex': '#fefefc',
+      'rgba': 'rgba(254,254,252,1)'
+    },
+    'unknown-color-d2d2d2': {
+      'hex': '#d2d2d2',
+      'rgba': 'rgba(210,210,210,1)'
+    },
+    'unknown-color-111111': {
+      'hex': '#111111',
+      'rgba': 'rgba(17,17,17,1)'
+    },
+    'unknown-color-f6f6f3': {
+      'hex': '#f6f6f3',
+      'rgba': 'rgba(246,246,243,1)'
+    },
+    'unknown-color-ededea': {
+      'hex': '#ededea',
+      'rgba': 'rgba(237,237,234,1)'
+    },
+    'unknown-color-ecece6': {
+      'hex': '#ecece6',
+      'rgba': 'rgba(236,236,230,1)'
+    },
+    'unknown-color-42a3f1': {
+      'hex': '#42a3f1',
+      'rgba': 'rgba(66,163,241,1)'
+    },
+    'unknown-color-6c6960': {
+      'hex': '#6c6960',
+      'rgba': 'rgba(108,105,96,1)'
+    },
+    'unknown-color-2e2e2e': {
+      'hex': '#2e2e2e',
+      'rgba': 'rgba(46,46,46,1)'
+    },
+    'unknown-color-1a1916': {
+      'hex': '#1a1916',
+      'rgba': 'rgba(26,25,22,1)'
+    },
+    'unknown-color-ffe2e2': {
+      'hex': '#ffe2e2',
+      'rgba': 'rgba(255,226,226,1)'
+    },
+    'unknown-color-aa0000': {
+      'hex': '#aa0000',
+      'rgba': 'rgba(170,0,0,1)'
+    },
+    'unknown-color-ff0000': {
+      'hex': '#ff0000',
+      'rgba': 'rgba(255,0,0,1)'
+    },
+    'unknown-color-ed7004': {
+      'hex': '#ed7004',
+      'rgba': 'rgba(237,112,4,1)'
+    },
+    'unknown-color-1e8ce3': {
+      'hex': '#1e8ce3',
+      'rgba': 'rgba(30,140,227,1)'
+    },
+    'unknown-color-91ceff': {
+      'hex': '#91ceff',
+      'rgba': 'rgba(145,206,255,1)'
+    },
+    'unknown-color-': {
+      'hex': '#',
+      'rgba': 'rgba()'
+    },
+    'unknown-color-': {
+      'hex': '#',
+      'rgba': 'rgba()'
+    },
+    'unknown-color-': {
+      'hex': '#',
+      'rgba': 'rgba()'
+    },
+    'unknown-color-': {
+      'hex': '#',
+      'rgba': 'rgba()'
+    }
+  }
+%}
 
-{% set colors = sass_variable_block|split(";") %}
+<style>
+.select {
+  -webkit-touch-callout: all;
+  -webkit-user-select: all;
+  -moz-user-select: all;
+  -ms-user-select: all;
+  user-select: all;
+}
+</style>
+
 <ul class="demo-colors" id="introduction">
-    {% for color in colors|slice(0, colors.length-1) %}
-        <li class="demo-colors__item">
-            <span class="demo-swatch" style="background: {{ color|split(":")|last }}"></span>
-            <span class="demo-label">{{ color }}</span>
-        </li>
-    {% endfor %}
+  {% for colorName,colorCode in globalColors %}
+    <li class="demo-colors__item">
+      <span class="demo-swatch" style="background: {{ colorCode.rgba }}"></span>
+      <span class="demo-label">
+        <strong class="select">{{ colorName }}</strong><br />
+        <span class="select">{{ colorCode.hex }}</span><br />
+        <span class="select">{{ colorCode.rgba }}</span>
+      </span>
+    </li>
+  {% endfor %}
 </ul>
