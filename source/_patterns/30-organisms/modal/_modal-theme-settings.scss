@@ -14,7 +14,7 @@
 
   --theme-color-bg-search: #fefefd;
   --theme-color-text-search: #{$color-text-light};
-  --theme-search-border: 1px solid rgba(0,0,0,.08);
+  --theme-search-border: 1px solid rgba(0,0,0,.2);
   --theme-search-border-bottom: 0;
 
   --theme-hoverable-after-opacity: .6;
@@ -31,7 +31,7 @@
 
   --theme-color-bg-search: rgba(0,0,0,.2);
   --theme-color-text-search: #fff;
-  --theme-search-border: 1px solid rgba(255,255,255,.12);
+  --theme-search-border: 1px solid rgba(255,255,255,.4);
   --theme-search-border-bottom: var(--theme-search-border);
 
   --theme-hoverable-after-opacity: .684;
