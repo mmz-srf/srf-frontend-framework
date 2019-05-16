@@ -46,6 +46,7 @@
 @import '10-atoms/navigation/expand-icon';
 @import '10-atoms/navigation/onairnav-head';
 @import '10-atoms/navigation/onairnav-link';
+@import '10-atoms/links/canton-link';
 @import '10-atoms/separators/horizontal-separator';
 @import '10-atoms/separators/vertical-separator';
 @import '10-atoms/icons/play-icon';
@@ -86,6 +87,9 @@
 @import '20-molecules/comments/comments';
 @import '20-molecules/navigation/globalnav';
 @import '20-molecules/navigation/portalsnav';
+@import '20-molecules/navigation/highlight-nav';
+@import '20-molecules/canton-map/canton-map';
+@import '20-molecules/special-teasers/teaser-cantons-nav';
 @import '20-molecules/legend/legend';
 @import '20-molecules/media-window/media-window';
 @import '20-molecules/swipable-area/swipeable-area';

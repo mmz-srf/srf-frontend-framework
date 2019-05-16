@@ -1,0 +1,30 @@
+{
+    "cantons": [
+        {"url": "#", "name": "Basel", "shortcut": "bs"},
+        {"url": "#", "name": "Schaffhausen", "shortcut": "sh"},
+        {"url": "#", "name": "Jura", "shortcut": "ju"},
+        {"url": "#", "name": "Basel-Landschaft", "shortcut": "bl"},
+        {"url": "#", "name": "Aargau", "shortcut": "ag"},
+        {"url": "#", "name": "Zürich", "shortcut": "zh"},
+        {"url": "#", "name": "Thurgau", "shortcut": "tg"},
+        {"url": "#", "name": "Appenzell Ausserrhoden", "shortcut": "ar"},
+        {"url": "#", "name": "Neuenburg", "shortcut": "ne"},
+        {"url": "#", "name": "Solothurn", "shortcut": "so"},
+        {"url": "#", "name": "Luzern", "shortcut": "lu"},
+        {"url": "#", "name": "Zug", "shortcut": "zg"},
+        {"url": "#", "name": "St. Gallen", "shortcut": "sg"},
+        {"url": "#", "name": "Appenzell Innerrhoden", "shortcut": "ai"},
+        {"url": "#", "name": "Waadt", "shortcut": "vd"},
+        {"url": "#", "name": "Freiburg", "shortcut": "fr"},
+        {"url": "#", "name": "Bern", "shortcut": "be"},
+        {"url": "#", "name": "Nidwalden", "shortcut": "nw"},
+        {"url": "#", "name": "Schwyz", "shortcut": "sz"},
+        {"url": "#", "name": "Glarus", "shortcut": "gl"},
+        {"url": "#", "name": "Graubünden", "shortcut": "gr"},
+        {"url": "#", "name": "Genf", "shortcut": "ge"},
+        {"url": "#", "name": "Wallis", "shortcut": "vs"},
+        {"url": "#", "name": "Obwalden", "shortcut": "ow"},
+        {"url": "#", "name": "Uri", "shortcut": "ur"},
+        {"url": "#", "name": "Tessin", "shortcut": "ti"}
+    ]
+}
