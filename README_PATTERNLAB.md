@@ -29,7 +29,7 @@ The fastest way to get started with the Standard Edition for Twig is to [downloa
 
 ### Use Composer to create a project
 
-Pattern Lab uses [Composer](https://getcomposer.org/) to manage project dependencies.
+Pattern Lab uses [Composer](https://getcomposer.org/) to manage project dependencies!
 
 #### 1. Install Composer
 
