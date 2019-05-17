@@ -37,9 +37,9 @@
 .masthead.masthead--theme-rtr_archiv,
 .masthead.masthead--theme-rtr_aura,
 .masthead.masthead--theme-rtr_interpresa,
-.masthead.masthead--theme-radio-srf-2-kultur,
-.masthead.masthead--theme-radio-srf-3,
-.masthead.masthead--theme-radio-srf-musikwelle {
+.masthead.masthead--theme-radio-srf_2_kultur,
+.masthead.masthead--theme-radio_srf_3,
+.masthead.masthead--theme-radio_srf_musikwelle {
   --theme-color-bg-hover: rgba(255, 255, 255, 0.12);
   --theme-color-bg-active: rgba(255, 255, 255, 0.24);
   --theme-color-title: #FFF;
@@ -154,7 +154,7 @@
   --theme-color-pager-end-transparent: #{$theme-rtr-interpresa-color-bg-pager-end-transparent};
 }
 
-.masthead.masthead--theme-radio-srf-1 {
+.masthead.masthead--theme-radio_srf_1 {
   --theme-color-gradient-1: #{$theme-radio-srf-1-color-1};
   --theme-color-gradient-2: #{$theme-radio-srf-1-color-2};
   --theme-color-pager-start: #{$theme-radio-srf-1-color-bg-pager-start};
@@ -165,7 +165,7 @@
   --theme-color-nav-active-border: #000;
 }
 
-.masthead.masthead--theme-radio-srf-2-kultur {
+.masthead.masthead--theme-radio-srf_2_kultur {
   --theme-color-gradient-1: #{$theme-radio-srf-2-color-1};
   --theme-color-gradient-2: #{$theme-radio-srf-2-color-2};
   --theme-color-pager-start: #{$theme-radio-srf-2-color-bg-pager-start};
@@ -174,7 +174,7 @@
   --theme-color-pager-end-transparent: #{$theme-radio-srf-2-color-bg-pager-end-transparent};
 }
 
-.masthead.masthead--theme-radio-srf-3 {
+.masthead.masthead--theme-radio_srf_3 {
   --theme-color-gradient-1: #{$theme-radio-srf-3-color-1};
   --theme-color-gradient-2: #{$theme-radio-srf-3-color-2};
   --theme-color-pager-start: #{$theme-radio-srf-3-color-bg-pager-start};
@@ -183,7 +183,7 @@
   --theme-color-pager-end-transparent: #{$theme-radio-srf-3-color-bg-pager-end-transparent};
 }
 
-.masthead.masthead--theme-radio-srf-musikwelle {
+.masthead.masthead--theme-radio_srf_musikwelle {
   --theme-color-gradient-1: #{$theme-radio-srf-musikwelle-color-1};
   --theme-color-gradient-2: #{$theme-radio-srf-musikwelle-color-2};
   --theme-color-pager-start: #{$theme-radio-srf-musikwelle-color-bg-pager-start};
@@ -192,7 +192,7 @@
   --theme-color-pager-end-transparent: #{$theme-radio-srf-musikwelle-color-bg-pager-end-transparent};
 }
 
-.masthead.masthead--theme-radio-srf-virus {
+.masthead.masthead--theme-radio_srf_virus {
   --theme-color-gradient-1: #{$theme-radio-srf-virus-color-1};
   --theme-color-gradient-2: #{$theme-radio-srf-virus-color-2};
   --theme-color-pager-start: #{$theme-radio-srf-virus-color-bg-pager-start};
