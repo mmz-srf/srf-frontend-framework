@@ -302,7 +302,7 @@ export class SrfSearch {
             let origin = window.location.origin;
             let url = result.url;
             if (url.indexOf(origin) === -1) { // not production
-                url = url.split('srf.ch')[1];
+                url = url.split('srf.ch')[1] || url.split('srf.ch')[0];
             }
 
             let highlightedResult = this.highlightQuery(query, result.name);
