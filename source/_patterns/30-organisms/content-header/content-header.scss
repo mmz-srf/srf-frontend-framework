@@ -3,13 +3,28 @@
 @import "../../breakpoints";
 
 .content-header {
+  position: relative;
   width: 100%;
 }
 
+.content-header__background-wrapper {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  bottom: 36px;
+  left: 0;
+  background-color: #FFF;
+  border-bottom: 1px solid $color-separator;
+  box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.24);
+}
+
 .content-header__wrapper {
+  position: relative;
+  z-index: 2;
   display: flex;
   flex-wrap: wrap;
-  max-width: $content-max-width;
+  max-width: $desktop-wide-size;
   margin: 0 auto;
 }
 
