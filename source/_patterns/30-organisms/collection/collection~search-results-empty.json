@@ -1,0 +1,26 @@
+{
+    "collection": {
+        "styleModifier": "collection--swipeable collection--branded collection--search-results collection--search-results--empty",
+        "title": "Search Results",
+        "teasers": [],
+        "theme": {
+            "colorStart": "#111111",
+            "colorEnd": "#111111"
+        },
+        "links": [
+            {
+                "title": "Google",
+                "link": "https://www.google.com"
+            },
+            {
+                "title": "Bing",
+                "link": "https://www.bing.com"
+            },
+            {
+                "title": "DuckDuckGo",
+                "link": "https://www.duckduckgo.com"
+            }
+        ]
+    }
+}
+        

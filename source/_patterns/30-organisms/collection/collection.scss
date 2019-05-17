@@ -833,3 +833,26 @@ $background-overlap-wide: 50px;
     }
   }
 }
+
+.collection--search-results {
+
+  .collection__teaser-item {
+    padding-bottom: 0;
+  }
+
+  .collection__links {
+    margin-top: 12px;
+    margin-bottom: 12px;
+  }
+}
+
+// only shows the teaser-links
+.collection--search-results--empty {
+  .collection__title,
+  .collection__background-image,
+  .collection__lead,
+  .collection__swipeable-area,
+  .collection__teaser-list {
+    display: none;
+  }
+}
