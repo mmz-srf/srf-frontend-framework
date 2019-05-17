@@ -468,14 +468,17 @@ $background-overlap-wide: 50px;
 
   .collection__teaser-item {
     min-width: calc(100% - 40px);
+    padding-right: 8px;
     margin: 0;
 
     @include tablet-up {
       min-width: calc((100% - 32px - 44px) / 3.00001 ); // 32px: left gap between Collection and Teaser; 44px: visible part of the first 'overflowed' item
+      padding-right: 12px;
     }
 
     @include desktop-wide {
       min-width: calc((100% - 40px - 56px) / 3.00001 );
+      padding-right: 16px;
     }
 
     &:first-child {
