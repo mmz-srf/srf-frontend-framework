@@ -91,7 +91,7 @@ $button-animation-duration: .3s;
 
   .button-icon {
     display: inline-block;
-    @include spinner(1px, rgba(255,255,255,1), rgba(122,122,122,1), $color-text-accentuation);
+    @include spinner(1px, rgba(255,255,255,1), rgba(245,245,242,1), $color-text-accentuation);
 
     margin: -1px auto -7px auto;
   }
