@@ -95,6 +95,7 @@ export class FefSwipeableArea {
     registerGeneralListeners() {
         $(window).on('resize', FefDebounceHelper.debounce(() => this.init(), DEBOUNCETIME));
         $(window).on('srf.styles.loaded', () => this.init());
+        this.$element.on('srf.swipeableArea.reinitialize', () => this.init());
         this.$innerContainer.on('scroll', FefDebounceHelper.throttle(() => this.track(), DEBOUNCETIME_SCROLL_TRACKING));
         this.$element.on('srf.swipeable.content-changed', () => this.init());
     };
