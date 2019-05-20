@@ -18,8 +18,8 @@
   --teaser-color-info-visited: #{$color-button-success};
   --teaser-color-info-updated: #{$color-text-light};
   --teaser-border-color-link: rgba(0,0,0,.08);
-  --teaser-background-link-hover: rgba(246,246,243,1);
-  --teaser-background-link-active: rgba(237,237,234,1);
+  --teaser-background-link-hover: rgba(245,245,242,1);
+  --teaser-background-link-active: rgba(235,235,229,1);
   --teaser-fake-shadow-gradient: linear-gradient(rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%);
   /* NOTE: There are some assets too, but those can't be linked with custom properties here (propably 'cause of gulp or something) and are therefore declared directly in the scss with the corresponding classes -> see teaser-info.scss */
 }

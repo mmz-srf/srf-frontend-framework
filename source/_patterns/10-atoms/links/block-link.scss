@@ -161,23 +161,23 @@
   &:focus {
     /* theme */
     @include customPropWithFallback('color', '--teaser-color-text', $color-text-default);
-    @include customPropWithFallback('background-color', '--teaser-background-link-hover', 'rgba(246,246,243,1)');
+    @include customPropWithFallback('background-color', '--teaser-background-link-hover', 'rgba(245,245,242,1)');
   }
 
   &:active {
     /* theme */
     @include customPropWithFallback('color', '--teaser-color-text', $color-text-default);
-    @include customPropWithFallback('background-color', '--teaser-background-link-active', 'rgba(237,237,234,1)');
+    @include customPropWithFallback('background-color', '--teaser-background-link-active', 'rgba(235,235,229,1)');
   }
 
   // handling lines between two or more adjacent block-links
   &:hover + &,
   &:focus + & {
-    @include customPropWithFallback('border-top-color', '--teaser-background-link-hover', 'rgba(246,246,243,1)');
+    @include customPropWithFallback('border-top-color', '--teaser-background-link-hover', 'rgba(245,245,242,1)');
   }
 
   &:active + & {
-    @include customPropWithFallback('border-top-color', '--teaser-background-link-active', 'rgba(237,237,234,1)');
+    @include customPropWithFallback('border-top-color', '--teaser-background-link-active', 'rgba(235,235,229,1)');
   }
 
   &::after {
