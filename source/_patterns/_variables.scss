@@ -55,15 +55,14 @@ $color-table-bg-zebra-light: $color-link-bg-hover !default;
 $color-table-bg-zebra-dark: $color-bg-caption !default;
 $color-table-bg-header: $color-bg-box !default;
 $color-border: rgba(202,200,191,1) !default; // #cac8bf
-$color-border-medium: rgba(210,210,210,1) !default; // #d2d2d2
 $color-tab-option-link: rgba(107,105,96,1) !default; // #6b6960
 $color-button-default: rgba(107,105,96,1) !default; // #6b6960
 $color-button-active: rgba(136,133,121,1) !default; // #888579
 $color-button-active-secondary: $color-border !default;
 $color-button-success: rgba(26,122,197,1) !default; // #1a7ac5
-$color-bg-button-transparent: rgba(185,183,172,0) !default; // #b9b7ac alpha 0
-$color-bg-button-hover: rgba(185,183,172,.12) !default; // #b9b7ac alpha 12
-$color-bg-button-focus: rgba(185,183,172,.24) !default; // #b9b7ac alpha 24
+$color-bg-button-transparent: rgba(185,183,172,0) !default; // #b9b7ac alpha 0 ---- ONLY HERE
+$color-bg-button-hover: rgba(185,183,172,.12) !default; // #b9b7ac alpha 12 ---- ONLY HERE
+$color-bg-button-focus: rgba(185,183,172,.24) !default; // #b9b7ac alpha 24 ---- ONLY HERE
 $color-form-field: rgba(185,183,172,1) !default; // #b9b7ac
 $color-form-field-hint: rgba(107,105,96,1) !default; // #6b6960
 $color-bg-facebook: rgba(58,89,153,1) !default; // #3a5999
@@ -74,9 +73,9 @@ $color-bg-twitter-hover: rgba(102,180,239,1) !default; // #66b4ef
 $color-bg-twitter-active: rgba(125,191,242,1) !default; // #7dbff2
 $color-bg-media: rgba(17,17,17,1) !default; // #111111
 $color-media-playing: rgba(56,55,50,1) !default; // #383732
-$color-nav-bg-hover: rgba(185,183,172,.12) !default; // #b9b7ac alpha 12
-$color-nav-bg-active: rgba(185,183,172,.24) !default; // #b9b7ac alpha 24
-$color-nav-divider: rgba(0,0,0,.08) !default; // #000000 alpha 8
+$color-nav-bg-hover: rgba(185,183,172,.12) !default; // #b9b7ac alpha 12 ---- ONLY HERE
+$color-nav-bg-active: rgba(185,183,172,.24) !default; // #b9b7ac alpha 24 ---- ONLY HERE
+$color-nav-divider: rgba(0,0,0,.08) !default; // #000000 alpha 8 ---- ONLY HERE
 $color-srf: rgba(175,0,30,1); // #af001e
 $color-srf-light: rgba(227,31,43,1); // #e31f2b
 $color-image-dummy: rgba(218,218,210,1) !default; // #dadad2
