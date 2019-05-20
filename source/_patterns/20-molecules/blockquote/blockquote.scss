@@ -6,7 +6,7 @@
   @include fontSize(22);
 
   font-family: $font-serif;
-  color: $color-text-default;
+  color: $color-srf-warmgrey-1100;
 
   @include article-text-padding;
 
@@ -26,12 +26,12 @@
 
 .blockquote__text::after {
   content: '\00a0»';
-  color: $color-accentuation-red;
+  color: $color-srf-red-600;
 }
 
 .blockquote__text::before {
   content: '«\00a0';
-  color: $color-accentuation-red;
+  color: $color-srf-red-600;
 }
 
 .blockquote__author {
@@ -40,7 +40,7 @@
   display: block;
   font-family: $font-regular;
   @include fontSize(14);
-  color: $color-text-default;
+  color: $color-srf-warmgrey-1100;
 
   @include tablet-up {
     margin-top: 8px;
@@ -50,6 +50,6 @@
   font-family: $font-regular;
   @include fontSize(12);
   line-height: $secondary-line-height-ratio;
-  color: $color-text-light;
+  color: $color-srf-warmgrey-800;
   display: block;
 }

@@ -18,10 +18,10 @@
 
 .person-details__name {
   @include fontSize(14);
-  color: $color-text-default;
+  color: $color-srf-warmgrey-1100;
 }
 
 .person-details__function {
   @include fontSize(12);
-  color: $color-text-light;
+  color: $color-srf-warmgrey-800;
 }

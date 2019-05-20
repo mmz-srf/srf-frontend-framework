@@ -79,8 +79,8 @@
   border: none;
   cursor: pointer;
   text-align: left;
-  color: $color-text-default;
-  background-color: rgba(235,235,229,1);
+  color: $color-srf-warmgrey-1100;
+  background-color: $color-srf-warmgrey-50;
 
   &::after {
     position: absolute;
@@ -95,12 +95,12 @@
   }
 
   &:hover::after {
-    background-color: $color-nav-bg-hover;
+    background-color: $color-srf-warmgrey-300a12;
   }
 
   &:focus::after,
   &:active::after {
-    background-color: $color-nav-bg-active;
+    background-color: $color-srf-warmgrey-300a24;
   }
 
   @include tablet-up {
@@ -136,7 +136,7 @@
   font-feature-settings: "salt";
   @include fontSize(24);
   line-height: $emphasize-line-height-ratio;
-  color: $color-text-default;
+  color: $color-srf-warmgrey-1100;
   margin: 0;
 
   @include desktop-up {
@@ -148,7 +148,7 @@
   font-family: $font-light;
   @include fontSize(20);
   line-height: $emphasize-line-height-ratio;
-  color: $color-text-accentuation;
+  color: $color-srf-warmgrey-900;
   max-width: 624px;
   margin: 12px 0 0;
 
@@ -163,7 +163,7 @@
 }
 
 .selectable--branded {
-  --theme-color-nav: rgba(255,255,255,1);
+  --theme-color-nav: #{$color-srf-neutral-white};
   --theme-icon-filter: brightness(1000%);
   position: relative;
 
@@ -178,22 +178,22 @@
   .selectable__title,
   .selectable__lead {
     @include font-smoothing;
-    color: rgba(255,255,255,1);
+    color: $color-srf-neutral-white;
   }
 
   .selectable__button {
     @include font-smoothing;
-    color: rgba(255,255,255,1);
-    background-color: rgba(255,255,255,.08);
+    color: $color-srf-neutral-white;
+    background-color: $color-srf-neutral-whitea08;
     transition: background-color .2s ease-in-out;
 
     &:hover {
-      background-color: rgba(255,255,255,.12);
+      background-color: $color-srf-neutral-whitea12;
     }
 
     &:focus,
     &:active {
-      background-color: rgba(255,255,255,.24);
+      background-color: $color-srf-neutral-whitea24;
     }
 
     &::after {

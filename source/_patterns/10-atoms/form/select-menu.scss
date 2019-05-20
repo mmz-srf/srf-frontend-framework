@@ -4,7 +4,7 @@
 .select-menu {
   // height: 48px;
   width: 100%;
-  color: $color-text-accentuation;
+  color: $color-srf-warmgrey-900;
   @include fontSize(16);
   font-family: $font-regular;
   letter-spacing: 0.8px; // Interactive, overriding default values
@@ -12,7 +12,7 @@
   padding: 12px 0;
   border: 0;
   border-radius: 2px;
-  background: rgba(235,235,229,1) url('../img/arrows/menu_arrow.svg') no-repeat right 16px center;
+  background: $color-srf-warmgrey-50 url('../img/arrows/menu_arrow.svg') no-repeat right 16px center;
   box-shadow: $shadow-elevation2;
   transition: background-color .2s ease-in-out, box-shadow .2s ease-in-out;
 
@@ -21,15 +21,15 @@
   }
 
   &:hover {
-    background-color: rgba(218,218,210,1);
+    background-color: $color-srf-warmgrey-100;
     cursor: pointer;
   }
 
   &:active,
   &:focus {
     outline: none;
-    -webkit-tap-highlight-color: rgba(0,0,0,0);
-    background-color: rgba(202,200,191,1);
+    -webkit-tap-highlight-color: $color-srf-neutral-blacka00;
+    background-color: $color-srf-warmgrey-200;
   }
 
   &:hover,
@@ -44,7 +44,7 @@
 
   &:-moz-focusring {
     color: transparent;
-    text-shadow: 0 0 0 $color-text-accentuation;
+    text-shadow: 0 0 0 $color-srf-warmgrey-900;
   }
 }
 
@@ -71,7 +71,7 @@ _:-ms-lang(x),
   display: block;
   @include fontSize(16);
   font-family: $font-regular;
-  color: $color-text-accentuation;
+  color: $color-srf-warmgrey-900;
   margin: 20px 0 4px;
 }
 
@@ -81,7 +81,7 @@ _:-ms-lang(x),
 
   &:hover,
   &:active {
-    background-color: rgba(235,235,229,1);
+    background-color: $color-srf-warmgrey-50;
     box-shadow: $shadow-elevation2;
     cursor: default;
   }

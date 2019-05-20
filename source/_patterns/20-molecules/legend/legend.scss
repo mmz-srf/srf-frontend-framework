@@ -33,7 +33,7 @@
   width: 12px;
   float: left;
   box-sizing: initial;
-  border: 1px solid rgba(255,255,255,1);
+  border: 1px solid $color-srf-neutral-white;
   margin-top: 1px;
 }
 
@@ -42,5 +42,5 @@
   @include fontSize(12);
   font-family: $font-regular;
   line-height: $secondary-line-height-ratio;
-  color: $color-text-light;
+  color: $color-srf-warmgrey-800;
 }

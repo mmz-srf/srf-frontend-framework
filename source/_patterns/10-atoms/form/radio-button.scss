@@ -7,10 +7,10 @@
   &:active,
   &:checked {
     + .radio-button-label {
-      background-color: $color-bg-box-hover;
+      background-color: $color-srf-warmgrey-100;
 
       &::after {
-        background-color: $color-bg-box-hover;
+        background-color: $color-srf-warmgrey-100;
       }
     }
   }
@@ -19,7 +19,7 @@
     &:focus,
     &:hover {
       + .radio-button-label {
-        background-color: rgba(202,200,191,1);
+        background-color: $color-srf-warmgrey-200;
       }
     }
   }
@@ -28,7 +28,7 @@
   &:focus:checked {
     + .radio-button-label {
       &::after {
-        border: solid 1px $color-accentuation-red;
+        border: solid 1px $color-srf-red-600;
         background-color: transparent;
       }
     }
@@ -52,7 +52,7 @@
     width: 12px;
     height: 12px;
     display: inline-block;
-    background-color: $color-accentuation-red;
+    background-color: $color-srf-red-600;
   }
 
   &::after { // inside border (hiding the dot)
@@ -61,19 +61,19 @@
     width: 18px;
     height: 18px;
     display: inline-block;
-    background-color: $color-bg-box;
+    background-color: $color-srf-warmgrey-50;
     // transition fix:
     transition: background-color 0.2s ease-in-out;
-    border: solid 1px $color-text-light;
+    border: solid 1px $color-srf-warmgrey-800;
   }
 
   &:hover::after,
   &:focus::after { // red dot
-    background-color: $color-bg-box-hover;
+    background-color: $color-srf-warmgrey-100;
   }
 
   &.checkbox--inactive:hover {
-    background-color: $color-bg-box;
+    background-color: $color-srf-warmgrey-50;
   }
   // custom radios end here
 }
@@ -83,10 +83,10 @@
 
   // visible when state changes after the button was activated
   &::before {
-    background-color: $color-text-light;
+    background-color: $color-srf-warmgrey-800;
   }
 
   &::after {
-    border: solid 1px $color-text-light !important; // Todo: Why !important?
+    border: solid 1px $color-srf-warmgrey-800 !important; // Todo: Why !important?
   }
 }

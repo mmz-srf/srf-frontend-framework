@@ -43,7 +43,7 @@
 }
 
 .article-teaser__kicker {
-  color: $color-accentuation-red;
+  color: $color-srf-red-600;
   font-family: $font-regular;
   font-size: 12px;
   letter-spacing: .2px;
@@ -63,7 +63,7 @@
   font-family: $font-medium;
   @include fontSize(16);
   line-height: $emphasize-line-height-ratio;
-  color: rgba(34,33,29,1);
+  color: $color-srf-warmgrey-1100;
 
   @include tablet-up {
     padding-bottom: 8px;
@@ -71,7 +71,7 @@
 }
 
 .article-teaser__date {
-  color: $color-text-light;
+  color: $color-srf-warmgrey-800;
   font-family: $font-regular;
   @include fontSize(12);
   line-height: $secondary-line-height-ratio;

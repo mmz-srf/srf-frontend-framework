@@ -1,93 +1,101 @@
-/*
-
-# How To Variables @ SRF
-1. Global Color Variables
-   Name all the colors and keep 'em neutral (e.g. don't use «light», use «secondary» or a value like 100, since in dark-themes a «light»-color might be something «dark»)
-   
-   + 0
-   + .08
-   + .1
-   + .12
-   + .2
-   + .24
-   + .3
-   + .48
-   + .5
-   + .6
-   + .7
-   + .8
-
-2. Element-Variables
-   Add variables on a element-basis
-
-3. Variable to Variable
-   Reference element-variables to corresponding global color variables
-
-(Optional)
-4. Add Themes (like a Dark-Theme)
-   Just overwrite element-variables inside theme-media-queries (ideally no new colors needed in this step)
-
-*/
-
-
 /*** COLORS ***/
-$color-accentuation-red: rgba(201,16,36,1) !default; // #c91024
-$color-bg-page: rgba(245,245,242,1) !default; // #f5f5f2
-$color-bg-caption: rgba(245,245,242,1) !default; // #f5f5f2
-$color-bg-box: rgba(235,235,229,1) !default; // #ebebe5
-$color-bg-box-hover: rgba(218,218,210,1) !default; // #dadad2
-$color-bg-box-focus: rgba(202,200,191,1) !default; // #cac8bf
-$color-bg-card: rgba(254,254,253,1) !default; // #fefefd
-$color-link-default: $color-accentuation-red !default;
-$color-link-hover: rgba(141,6,20,1) !default; // #8d0614
-$color-link-active: rgba(106,11,12,1) !default; // #6a0b0c
-$color-link-bg-hover: rgba(250,250,248,1) !default; // #fafaf8
-$color-link-bg-active: $color-bg-caption !default;
-$color-list-bullet: $color-accentuation-red !default;
-$color-separator: $color-bg-box !default;
-$color-text-default: rgba(34,33,29,1) !default; // #22211d
-$color-text-accentuation: rgba(78,77,71,1) !default; // #4e4d47
-$color-text-light: rgba(107,105,96,1) !default; // #6b6960
-$color-text-semi-light: rgba(56,55,50,1) !default; // #383732
-$color-text-branded: rgba(255,255,255,1) !default; // #ffffff
-$color-text-branded-dark: $color-text-default !default;
-$color-table-bg-zebra-light: $color-link-bg-hover !default;
-$color-table-bg-zebra-dark: $color-bg-caption !default;
-$color-table-bg-header: $color-bg-box !default;
-$color-border: rgba(202,200,191,1) !default; // #cac8bf
-$color-tab-option-link: rgba(107,105,96,1) !default; // #6b6960
-$color-button-default: rgba(107,105,96,1) !default; // #6b6960
-$color-button-active: rgba(136,133,121,1) !default; // #888579
-$color-button-active-secondary: $color-border !default;
-$color-button-success: rgba(26,122,197,1) !default; // #1a7ac5
-$color-bg-button-transparent: rgba(185,183,172,0) !default; // #b9b7ac alpha 0 ---- ONLY HERE
-$color-bg-button-hover: rgba(185,183,172,.12) !default; // #b9b7ac alpha 12 ---- ONLY HERE
-$color-bg-button-focus: rgba(185,183,172,.24) !default; // #b9b7ac alpha 24 ---- ONLY HERE
-$color-form-field: rgba(185,183,172,1) !default; // #b9b7ac
-$color-form-field-hint: rgba(107,105,96,1) !default; // #6b6960
-$color-bg-facebook: rgba(58,89,153,1) !default; // #3a5999
-$color-bg-facebook-hover: rgba(78,105,162,1) !default; // #4e69a2
-$color-bg-facebook-active: rgba(105,128,176,1) !default; // #6980b0
-$color-bg-twitter: rgba(86,173,239,1) !default; // #56adef
-$color-bg-twitter-hover: rgba(102,180,239,1) !default; // #66b4ef
-$color-bg-twitter-active: rgba(125,191,242,1) !default; // #7dbff2
-$color-bg-media: rgba(17,17,17,1) !default; // #111111
-$color-media-playing: rgba(56,55,50,1) !default; // #383732
-$color-nav-bg-hover: rgba(185,183,172,.12) !default; // #b9b7ac alpha 12 ---- ONLY HERE
-$color-nav-bg-active: rgba(185,183,172,.24) !default; // #b9b7ac alpha 24 ---- ONLY HERE
-$color-nav-divider: rgba(0,0,0,.08) !default; // #000000 alpha 8 ---- ONLY HERE
-$color-srf: rgba(175,0,30,1); // #af001e
-$color-srf-light: rgba(227,31,43,1); // #e31f2b
-$color-image-dummy: rgba(218,218,210,1) !default; // #dadad2
-$color-bg-teaser-supplement: rgba(250,250,248,1) !default; // #fafaf8
-$color-bg-score-default: rgba(247,166,0,1) !default; // #f7a600
-$color-bg-score-live: $color-srf-light !default;
-$color-link-bg-unboxed: $color-bg-teaser-supplement;
-$color-link-bg-unboxed-hover: rgba(254,254,253,1) !default; // #fefefc
-$color-link-bg-unboxed-active: rgba(255,255,255,1) !default; // #ffffff
-$color-bg-opinion-teaser: rgba(250,250,248,1) !default; // #fafaf8
+// # How To Color-Variables @ SRF
+// 1. Global Color Variables
+//    Name all the colors and keep 'em neutral (e.g. don't use «light», use «secondary» or a value like 100, since in dark-themes a «light»-color might be something «dark»)
+// 
+// 2. Element-Variables
+//    Add variables on a element-basis
+// 
+// 3. Variable to Variable
+//    Reference element-variables to corresponding global color variables
+// 
+// (Optional)
+// 4. Add Themes (like a Dark-Theme)
+//    Just overwrite element-variables inside theme-media-queries (ideally no new colors needed in this step)
 
-/*** THEMING ***/
+// SRF Color RED
+$color-srf-red-50:     rgba(255,230,230,1); // #ffe6e6
+$color-srf-red-300:    rgba(255,102,105,1); // #ff6669
+$color-srf-red-400:    rgba(241,67,74,1);   // #f1434a
+$color-srf-red-500:    rgba(227,31,43,1);   // #e31f2b
+$color-srf-red-600:    rgba(201,16,36,1);   // #c91024
+$color-srf-red-600a00: rgba(201,16,36,0);   // #c91024 alpha  0%
+$color-srf-red-600a12: rgba(201,16,36,.12); // #c91024 alpha 12%
+$color-srf-red-600a24: rgba(201,16,36,.24); // #c91024 alpha 24%
+$color-srf-red-700:    rgba(175,0,30,1);    // #af001e
+$color-srf-red-800:    rgba(141,6,20,1);    // #8d0614
+$color-srf-red-900:    rgba(106,11,12,1);   // #6a0b0c
+
+// SRF Color Yellow
+$color-srf-yellow-500: rgba(247,166,0,1); // #f7a600
+$color-srf-yellow-700: rgba(237,112,4,1); // #ed7004
+
+// SRF Color Blue
+$color-srf-blue-200: rgba(145,206,255,1); // #91ceff
+$color-srf-blue-400: rgba(66,163,241,1);  // #42a3f1
+$color-srf-blue-500: rgba(30,140,227,1);  // #1e8ce3
+$color-srf-blue-600: rgba(26,122,197,1);  // #1a7ac5
+
+// SRF Color Warmgrey
+$color-srf-warmgrey-10:      rgba(250,250,248,1);   // #fafaf8
+$color-srf-warmgrey-10a00:   rgba(250,250,248,1);   // #fafaf8 alpha  0%
+$color-srf-warmgrey-25:      rgba(245,245,242,1);   // #f5f5f2
+$color-srf-warmgrey-50:      rgba(235,235,229,1);   // #ebebe5
+$color-srf-warmgrey-100:     rgba(218,218,210,1);   // #dadad2
+$color-srf-warmgrey-200:     rgba(202,200,191,1);   // #cac8bf
+$color-srf-warmgrey-300:     rgba(185,183,172,1);   // #b9b7ac
+$color-srf-warmgrey-300a12:  rgba(185,183,172,.12); // #b9b7ac alpha 12%
+$color-srf-warmgrey-300a24:  rgba(185,183,172,.24); // #b9b7ac alpha 24%
+$color-srf-warmgrey-700:     rgba(136,133,121,1);   // #888579
+$color-srf-warmgrey-800:     rgba(107,105,96,1);    // #6b6960
+$color-srf-warmgrey-900:     rgba(78,77,71,1);      // #4e4d47
+$color-srf-warmgrey-1000:    rgba(56,55,50,1);      // #383732
+$color-srf-warmgrey-1100:    rgba(34,33,29,1);      // #22211d
+$color-srf-warmgrey-1100a00: rgba(34,33,29,0);      // #22211d alpha  0%
+$color-srf-warmgrey-1100a12: rgba(34,33,29,.12);    // #22211d alpha 12%
+$color-srf-warmgrey-1100a24: rgba(34,33,29,.24);    // #22211d alpha 24%
+
+// SRF Color Neutral
+$color-srf-neutral-white:       rgba(255,255,255,1);   // #ffffff
+$color-srf-neutral-whitea00:    rgba(255,255,255,0);   // #ffffff alpha  0%
+$color-srf-neutral-whitea08:    rgba(255,255,255,.08); // #ffffff alpha  8%
+$color-srf-neutral-whitea12:    rgba(255,255,255,.12); // #ffffff alpha 12%
+$color-srf-neutral-whitea24:    rgba(255,255,255,.24); // #ffffff alpha 24%
+$color-srf-neutral-whitea80:    rgba(255,255,255,.8);  // #ffffff alpha 80%
+$color-srf-neutral-offwhite:    rgba(254,254,253,1);   // #fefefd
+$color-srf-neutral-offwhitea00: rgba(254,254,253,0);   // #fefefd alpha  0%
+$color-srf-neutral-01:          rgba(85,85,85,1);      // #555555
+$color-srf-neutral-02:          rgba(51,51,51,1);      // #333333
+$color-srf-neutral-03:          rgba(34,34,34,1);      // #222222
+$color-srf-neutral-04:          rgba(17,17,17,1);      // #111111
+$color-srf-neutral-black:       rgba(0,0,0,1);         // #000000
+$color-srf-neutral-blacka00:    rgba(0,0,0,0);         // #000000 alpha  0%
+$color-srf-neutral-blacka04:    rgba(0,0,0,.04);       // #000000 alpha  4%
+$color-srf-neutral-blacka08:    rgba(0,0,0,.08);       // #000000 alpha  8%
+$color-srf-neutral-blacka10:    rgba(0,0,0,.1);        // #000000 alpha 10%
+$color-srf-neutral-blacka12:    rgba(0,0,0,.12);       // #000000 alpha 12%
+$color-srf-neutral-blacka16:    rgba(0,0,0,.16);       // #000000 alpha 16%
+$color-srf-neutral-blacka18:    rgba(0,0,0,.18);       // #000000 alpha 18%
+$color-srf-neutral-blacka20:    rgba(0,0,0,.2);        // #000000 alpha 20%
+$color-srf-neutral-blacka30:    rgba(0,0,0,.3);        // #000000 alpha 30%
+$color-srf-neutral-blacka32:    rgba(0,0,0,.32);       // #000000 alpha 32%
+$color-srf-neutral-blacka48:    rgba(0,0,0,.48);       // #000000 alpha 48%
+$color-srf-neutral-blacka50:    rgba(0,0,0,.5);        // #000000 alpha 50%
+$color-srf-neutral-blacka60:    rgba(0,0,0,.6);        // #000000 alpha 60%
+$color-srf-neutral-blacka70:    rgba(0,0,0,.7);        // #000000 alpha 70%
+$color-srf-neutral-blacka75:    rgba(0,0,0,.75);       // #000000 alpha 75%
+$color-srf-neutral-blacka80:    rgba(0,0,0,.8);        // #000000 alpha 80%
+
+// Brand Colors
+$color-brand-facebook:        rgba(58,89,153,1);   // #3a5999
+$color-brand-facebook-hover:  rgba(78,105,162,1);  // #4e69a2
+$color-brand-facebook-active: rgba(105,128,176,1); // #6980b0
+$color-brand-twitter:         rgba(86,173,239,1);  // #56adef
+$color-brand-twitter-hover:   rgba(102,180,239,1); // #66b4ef
+$color-brand-twitter-active:  rgba(125,191,242,1); //#7dbff2
+
+
+// Header-Themes
 $theme-default-color-1: rgba(254,254,253,1); // #fefefd
 $theme-default-color-2: rgba(250,250,248,1); // #fafaf8
 $theme-default-color-bg-pager-start: rgba(254,254,253,1); // #fefefd
@@ -165,6 +173,8 @@ $theme-rtr-interpresa-color-bg-pager-start-transparent: rgba(201,16,36,0); // #c
 $theme-rtr-interpresa-color-bg-pager-end: rgba(175,0,29,1); // #af001d
 $theme-rtr-interpresa-color-bg-pager-end-transparent: rgba(175,0,29,0); // #af001d alpha 0
 
+
+
 /*** FONTS ***/
 $font-bold: 'SRG_SSR_Bold', sans-serif !default;
 $font-medium: 'SRG_SSR_Medium', sans-serif !default;
@@ -172,35 +182,44 @@ $font-regular: 'SRG_SSR_Regular', sans-serif !default;
 $font-light: 'SRG_SSR_Light', sans-serif !default;
 $font-serif: 'SRG_SSR_Serif_Regular', serif !default;
 
+// System UI font stack, for details see
+// => for IE11 support: NEVER use font: size/line-height $font-system; (short form) but font-family: $font-system instead!
+// https://www.smashingmagazine.com/2015/11/using-system-ui-fonts-practical-guide/
+$font-system: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",  sans-serif;
+
+
+
+/*** LINE HEIGHTS ***/
 $default-line-height-ratio: 1.5 !default;
 
-// i.e. Short lead, description
+// e.g. Short lead, description
 $secondary-line-height-ratio: 1.35 !default;
 
-// i.e. Headings, Teaser
+// e.g. Headings, Teaser
 $emphasize-line-height-ratio: 1.25 !default;
+
+
 
 /*** IMAGE SIZES ***/
 $image-size-preview: 92px !default;
 $image-size-preview-gallery: 68px !default;
 
-// System UI font stack, for details see
-// https://www.smashingmagazine.com/2015/11/using-system-ui-fonts-practical-guide/
-$font-system: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",  sans-serif;
-// => for IE11 support: NEVER use font: size/line-height $font-system; (short form) but font-family: $font-system instead!
+
 
 /*** SHADOWS ***/
 // References: https://app.zeplin.io/project/5850263ad407f4ca12956e5d/screen/5880e352ba72814f33f7cc9b
 // => Bug in Safari/WebKit for elevation1. Design: «mir würded vorerscht mitem bug läbe» (2018-08)
 // => DEMO -> https://codepen.io/albuvee/full/qyJKMe/
 // => BUG -> https://bugs.webkit.org/show_bug.cgi?id=188446
-$shadow-elevation1:  0 0px  1px 0 rgba(0,0,0,.16), 0 0  1px 0 rgba(0,0,0,.08);
-$shadow-elevation2:  0 1px  2px 0 rgba(0,0,0,.16), 0 0  2px 0 rgba(0,0,0,.08);
-$shadow-elevation4:  0 2px  4px 0 rgba(0,0,0,.16), 0 0  4px 0 rgba(0,0,0,.08);
-$shadow-elevation6:  0 3px  6px 0 rgba(0,0,0,.16), 0 0  6px 0 rgba(0,0,0,.08);
-$shadow-elevation8:  0 4px  8px 0 rgba(0,0,0,.16), 0 0  8px 0 rgba(0,0,0,.08);
-$shadow-elevation12: 0 6px 12px 0 rgba(0,0,0,.16), 0 0 12px 0 rgba(0,0,0,.08);
-$shadow-elevation16: 0 8px 16px 0 rgba(0,0,0,.16), 0 0 16px 0 rgba(0,0,0,.08);
+$shadow-elevation1:  0 0px  1px 0 $color-srf-neutral-blacka16, 0 0  1px 0 $color-srf-neutral-blacka08;
+$shadow-elevation2:  0 1px  2px 0 $color-srf-neutral-blacka16, 0 0  2px 0 $color-srf-neutral-blacka08;
+$shadow-elevation4:  0 2px  4px 0 $color-srf-neutral-blacka16, 0 0  4px 0 $color-srf-neutral-blacka08;
+$shadow-elevation6:  0 3px  6px 0 $color-srf-neutral-blacka16, 0 0  6px 0 $color-srf-neutral-blacka08;
+$shadow-elevation8:  0 4px  8px 0 $color-srf-neutral-blacka16, 0 0  8px 0 $color-srf-neutral-blacka08;
+$shadow-elevation12: 0 6px 12px 0 $color-srf-neutral-blacka16, 0 0 12px 0 $color-srf-neutral-blacka08;
+$shadow-elevation16: 0 8px 16px 0 $color-srf-neutral-blacka16, 0 0 16px 0 $color-srf-neutral-blacka08;
+
+
 
 /*** BREAKPOINT AND CONTENT related variables ***/
 $smartphone-size: 320px !default;
@@ -210,14 +229,22 @@ $desktop-wide-size: 1280px !default;
 $content-width: 1200px !default; // max-width ($widedesktopsize = 1280) - 2 * 40px (Outside Gutter)
 $content-max-width: 1480px !default;
 
+
+
 /*** ANIMATIONS ***/
 $easing-in-out-standard: cubic-bezier(0.4, 0.0, 0.2, 1);
+
+
 
 /*** BREADCRUMB ***/
 $breadcrumb-touch-area-expansion: 8px !default;
 
+
+
 /*** ICONS ***/
 $play-button-border-size: 2px;
+
+
 
 /*** COLLECTIONS ***/
 // defined here and not in collection.scss because they are also used in the critical css
@@ -229,11 +256,13 @@ $teaser-col-gap-desktop-wide: 32px;
 $teaser-xl-medium-ratio: 65.75%;
 
 
+
 /*** ICONS ***/
 // defined here because it's needed in two different places
-$color-play-icon-normal: rgba(0,0,0,.32); // #000000 alpha 32
-$color-play-icon-active: rgba(241,67,74,1); // #f1434a
-$color-play-icon-hover:  $color-srf-light;
+$color-play-icon-normal: $color-srf-neutral-blacka32;
+$color-play-icon-active: $color-srf-red-400;
+$color-play-icon-hover:  $color-srf-red-500;
+
 
 
 /*** ARTICLE ***/

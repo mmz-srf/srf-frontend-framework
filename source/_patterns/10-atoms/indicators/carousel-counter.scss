@@ -8,8 +8,8 @@
   @include font-smoothing;
   @include fontSize(12);
   line-height: $default-line-height-ratio;
-  background-color: rgba(0,0,0,.7);
-  color: rgba(255,255,255,1);
+  background-color: $color-srf-neutral-blacka70;
+  color: $color-srf-neutral-white;
 
   @include tablet-up {
     margin-top: -40px;

@@ -4,7 +4,7 @@
 .chmap {
   margin: 0 auto;
   display: block;
-  fill: rgba(185,183,172,1);
+  fill: $color-srf-warmgrey-300;
   padding: 24px $article-offset-mobile 12px;
   max-width: 100%;
 
@@ -14,7 +14,7 @@
 }
 
 .chmap--no-touch { // link
-  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-tap-highlight-color: $color-srf-neutral-blacka00;
 
   &:active,
   &:focus {
@@ -24,7 +24,7 @@
 
 .chmap-wrapper {
   position: relative;
-  background-color: $color-bg-caption;
+  background-color: $color-srf-warmgrey-25;
   margin: 24px 8px;
 
   @include tablet-up {
@@ -37,7 +37,7 @@
 }
 
 .chmap__location {
-  stroke: rgba(255,255,255,1); // cantons
+  stroke: $color-srf-neutral-white; // cantons
   stroke-width: .5px;
   cursor: pointer;
 
@@ -47,20 +47,20 @@
 }
 
 .chmap__location--shadow {
-  stroke: rgba(34,34,34,1);
+  stroke: $color-srf-neutral-03;
   filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=3, OffY=3, Color='#444')";
-  -webkit-filter: drop-shadow(3px 3px 3px rgba(0,0,0,.5));
-  filter: drop-shadow(3px 3px 3px rgba(0,0,0,.5));
+  -webkit-filter: drop-shadow(3px 3px 3px $color-srf-neutral-blacka50);
+  filter: drop-shadow(3px 3px 3px $color-srf-neutral-blacka50);
   transition: fill 1s ease-in 0s;
 }
 
 .chmap-tooltip {
   position: absolute;
-  color: $color-text-default;
+  color: $color-srf-warmgrey-1100;
   @include fontSize(18);
   font-family: $font-medium;
   padding: 4px 12px;
-  background-color: $color-link-bg-hover;
+  background-color: $color-srf-warmgrey-10;
   box-shadow: $shadow-elevation8;
   border-radius: 2px;
   white-space: nowrap;
@@ -70,7 +70,7 @@
     position: absolute;
     left: 0;
     bottom: -15px;
-    border-color: $color-link-bg-hover transparent;
+    border-color: $color-srf-warmgrey-10 transparent;
     border-style: solid;
     border-width: 16px 16px 0 0;
   }
@@ -95,7 +95,7 @@
 
 .chmap-infowindow__text {
   @include fontSize(14);
-  color: rgba(78,77,71,1);
+  color: $color-srf-warmgrey-900;
   margin: 0;
 }
 

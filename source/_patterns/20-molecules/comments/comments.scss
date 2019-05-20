@@ -25,7 +25,7 @@
 }
 
 .comments-header {
-  background-color: $color-link-bg-hover;
+  background-color: $color-srf-warmgrey-10;
   position: relative;
 
   .form__validation--success p {
@@ -50,7 +50,7 @@
 }
 
 .comments-header--top {
-  background-color: $color-link-bg-hover;
+  background-color: $color-srf-warmgrey-10;
 }
 
 // Kommentare
@@ -72,7 +72,7 @@
 .comments-infobox__text,
 .comments-header__info-text {
   @include fontSize(16);
-  color: $color-text-accentuation;
+  color: $color-srf-warmgrey-900;
   padding: 0 $article-offset-mobile;
   display: block;
 
@@ -103,15 +103,15 @@
 // info: there are no comments yet ...
 .comments-infobox {
   padding: 20px 0;
-  background-color: rgba(254,254,253,1);
-  border-top: 1px solid rgba(235,235,229,1);
+  background-color: $color-srf-neutral-offwhite;
+  border-top: 1px solid $color-srf-warmgrey-50;
 }
 
 .comments-infobox__title,
 .comments-header__info-title {
   font-family: $font-regular;
   @include fontSize(14);
-  color: rgba(34,33,29,1);
+  color: $color-srf-warmgrey-1100;
   padding: 0 $article-offset-mobile;
   margin: -4px 0 4px;
 
@@ -142,11 +142,11 @@
 .comments-header__button {
   font-family: $font-light;
   @include fontSize(16);
-  color: $color-text-light;
+  color: $color-srf-warmgrey-800;
   padding: 12px;
-  border: 1px solid $color-form-field;
+  border: 1px solid $color-srf-warmgrey-300;
   border-radius: 2px;
-  background: rgba(255,255,255,1);
+  background: $color-srf-neutral-white;
   display: block;
   cursor: pointer;
   margin-bottom: 20px;
@@ -156,8 +156,8 @@
   }
 
   &:hover {
-    color: $color-text-light;
-    border-bottom: 1px solid $color-form-field;
+    color: $color-srf-warmgrey-800;
+    border-bottom: 1px solid $color-srf-warmgrey-300;
   }
 }
 
@@ -183,7 +183,7 @@
 .comments-header__border { // hack :(
   position: absolute;
   width: 100%;
-  border-bottom: 1px solid $color-separator;
+  border-bottom: 1px solid $color-srf-warmgrey-50;
   border-width: 0 0 1px;
   margin: 0;
   bottom: 0;
@@ -205,7 +205,7 @@
 }
 
 .comment { // ul li
-  border-top: 1px solid $color-separator;
+  border-top: 1px solid $color-srf-warmgrey-50;
   padding: 0;
   margin: 0 $article-offset-mobile;
   position: relative;
@@ -305,7 +305,7 @@
   font-family: $font-regular;
   @include fontSize(12);
   line-height: $emphasize-line-height-ratio;
-  color: $color-text-light;
+  color: $color-srf-warmgrey-800;
 }
 
 .comment__content {
@@ -327,7 +327,7 @@
   font-family: $font-regular;
   @include fontSize(12);
   line-height: 1;
-  color: $color-button-success;
+  color: $color-srf-blue-600;
 
   .svg-icon {
     margin-right: 8px;
@@ -400,7 +400,7 @@
 .comment__link--disabled,
 .comment__link--disabled:hover,
 .comment__link--disabled:active {
-  color: $color-text-light;
+  color: $color-srf-warmgrey-800;
 }
 
 .tabs {
@@ -426,8 +426,8 @@
   @include fontSize(14);
   line-height: 1;
   font-family: $font-regular;
-  color: $color-tab-option-link;
-  border-bottom: 1px solid $color-separator;
+  color: $color-srf-warmgrey-800;
+  border-bottom: 1px solid $color-srf-warmgrey-50;
   padding: 12px $article-offset-mobile 0;
   white-space: nowrap;
   display: inline-block;
@@ -438,19 +438,19 @@
   }
 
   &:hover {
-    color: $color-tab-option-link;
-    border-bottom: 1px solid $color-separator;
+    color: $color-srf-warmgrey-800;
+    border-bottom: 1px solid $color-srf-warmgrey-50;
   }
 }
 
 .tab-option__link--selected {
-  color: $color-accentuation-red;
-  border-bottom: 2px solid $color-accentuation-red;
+  color: $color-srf-red-600;
+  border-bottom: 2px solid $color-srf-red-600;
   padding-bottom: 10px;
 
   &:hover {
-    color: $color-accentuation-red;
-    border-bottom: 2px solid $color-accentuation-red;
+    color: $color-srf-red-600;
+    border-bottom: 2px solid $color-srf-red-600;
   }
 
   &:focus {
@@ -514,10 +514,10 @@
 }
 
 .reply { // fieldset
-  border: 1px solid $color-form-field;
+  border: 1px solid $color-srf-warmgrey-300;
   border-radius: 2px;
   padding: 0;
-  background-color: rgba(255,255,255,1);
+  background-color: $color-srf-neutral-white;
   position: relative;
   margin: 4px 0 16px 0;
 
@@ -527,12 +527,12 @@
 }
 
 .reply--on-focus {
-  border: 1px solid $color-text-accentuation;
+  border: 1px solid $color-srf-warmgrey-900;
 }
 
 .reply__textarea {
   width: calc(100% - 32px);
-  color: rgba(56,55,50,1);
+  color: $color-srf-warmgrey-1000;
   background-color: transparent;
   display: block;
   position: relative;
@@ -557,7 +557,7 @@
   display: block;
   @include fontSize(16);
   font-family: $font-regular;
-  color: rgba(78,77,71,1);
+  color: $color-srf-warmgrey-900;
   margin: 0;
   padding: 0;
   margin-top: 20px;
@@ -567,14 +567,14 @@
 }
 
 .reply__help {
-  color: rgba(107,105,96,1);
+  color: $color-srf-warmgrey-800;
   font-family: "SRG_SSR_Light", sans-serif;
   margin-top: 4px;
 }
 
 .reply__help--error-only {
   display: none;
-  color: rgba(201,16,36,1);
+  color: $color-srf-red-600;
 }
 
 .reply__form-row {
@@ -583,11 +583,11 @@
 
 .form__validation--error {
   .reply__label {
-    color: rgba(201,16,36,1);
+    color: $color-srf-red-600;
   }
 
   .reply__textfield {
-    border-color: rgba(201,16,36,1);
+    border-color: $color-srf-red-600;
   }
 
   .reply__help--error-only {
@@ -595,26 +595,26 @@
   }
 
   .checkbox-label::after {
-    border: 1px solid rgba(201,16,36,1);
+    border: 1px solid $color-srf-red-600;
   }
 }
 .reply__textfield {
   width: 100%;
   @include fontSize(16);
   font-family: $font-light;
-  color: rgba(56,55,50,1);
-  background-color: rgba(255,255,255,1);
+  color: $color-srf-warmgrey-1000;
+  background-color: $color-srf-neutral-white;
   padding: 12px 44px 12px 16px;
   margin: 4px 0 2px;
   box-sizing: border-box;
-  border: 1px solid rgba(185,183,172,1);
+  border: 1px solid $color-srf-warmgrey-300;
   border-radius: 2px;
   transition: border-color 0.2s ease-in-out;
 }
 
 .reply-info {
   @include fontSize(14);
-  color: $color-text-light;
+  color: $color-srf-warmgrey-800;
   margin: 0 16px 10px;
   padding-top: 10px;
   height: 30px;
@@ -622,14 +622,14 @@
 
 .reply-info__count {
   @include fontSize(14);
-  color: $color-text-light;
+  color: $color-srf-warmgrey-800;
   float: right;
   position: absolute;
   opacity: 0;
 }
 
 .reply-info__count--warn {
-  color: $color-accentuation-red;
+  color: $color-srf-red-600;
 }
 
 // txt higlighting
@@ -645,5 +645,5 @@
 // pink background
 .reply--overboard {
   color: transparent;
-  background-color: rgba(255,230,230,1);
+  background-color: $color-srf-red-50;
 }

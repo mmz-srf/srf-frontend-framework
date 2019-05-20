@@ -13,11 +13,11 @@
   transition: background-color .2s ease-in-out;
 
   /* fallback */
-  color: $color-text-accentuation;
+  color: $color-srf-warmgrey-900;
 
   /* theme */
   @supports (--foo: bar) {
-    color: var(--theme-color-nav, $color-text-accentuation);
+    color: var(--theme-color-nav, $color-srf-warmgrey-900);
   }
 
   @include smartphone {
@@ -29,13 +29,13 @@
     border-bottom: 2px solid transparent;
 
     /* fallback */
-    background-color: $color-nav-bg-hover;
-    color: $color-text-accentuation;
+    background-color: $color-srf-warmgrey-300a12;
+    color: $color-srf-warmgrey-900;
 
     /* theme*/
     @supports (--foo: bar) {
-      background-color: var(--theme-color-bg-hover, $color-nav-bg-hover);
-      color: var(--theme-color-nav, $color-text-accentuation);
+      background-color: var(--theme-color-bg-hover,$color-srf-warmgrey-300a12);
+      color: var(--theme-color-nav, $color-srf-warmgrey-900);
     }
   }
 
@@ -43,13 +43,13 @@
     border-bottom: 2px solid transparent;
 
     /* fallback */
-    background-color: $color-nav-bg-active;
-    color: $color-text-accentuation;
+    background-color: $color-srf-warmgrey-300a24;
+    color: $color-srf-warmgrey-900;
 
     /* theme */
     @supports (--foo: bar) {
-      background-color: var(--theme-color-bg-active, $color-nav-bg-active);
-      color: var(--theme-color-nav, $color-text-accentuation);
+      background-color: var(--theme-color-bg-active, $color-srf-warmgrey-300a24);
+      color: var(--theme-color-nav, $color-srf-warmgrey-900);
     }
   }
 }
@@ -62,13 +62,13 @@
   border-radius: 0; // if this one would not be overwritten, little red pixels will be displayed on the top corners (like ears)
 
   /* fallback */
-  border-bottom-color: rgba(241,67,74,1);
-  color: $color-accentuation-red;
+  border-bottom-color: $color-srf-red-400;
+  color: $color-srf-red-600;
 
   /* theme */
   @supports (--foo: bar) {
-    border-bottom-color: var(--theme-color-nav-active-border, rgba(241,67,74,1));
-    color: var(--theme-color-active, $color-accentuation-red);
+    border-bottom-color: var(--theme-color-nav-active-border, $color-srf-red-400);
+    color: var(--theme-color-active, $color-srf-red-600);
   }
 }
 
@@ -124,15 +124,15 @@
   &:hover,
   &:active,
   &:focus {
-    color: $color-text-accentuation;
+    color: $color-srf-warmgrey-900;
   }
 
   &:hover {
-    background-color: $color-nav-bg-hover;
+    background-color: $color-srf-warmgrey-300a12;
   }
 
   &:active {
-    background-color: $color-nav-bg-active;
+    background-color: $color-srf-warmgrey-300a24;
   }
 
   .nav-item--third-level__icon {
@@ -154,9 +154,9 @@
 
 .nav-item--third-level--active,
 .nav-item--third-level--active:hover {
-  background-color: $color-nav-bg-active;
+  background-color: $color-srf-warmgrey-300a24;
 }
 
 .nav-item--home {
-  color: rgba(34,33,29,1);
+  color: $color-srf-warmgrey-1100;
 }

@@ -5,7 +5,7 @@
   padding: 12px $article-offset;
   font-family: $font-light;
   @include fontSize(16);
-  color: $color-text-default;
+  color: $color-srf-warmgrey-1100;
   display: flex;
   flex-direction: column;
   background-color: transparent;
@@ -17,11 +17,11 @@
 
 .media-caption--hover {
   transition: background 200ms $easing-in-out-standard;
-  background-color: $color-bg-box;
+  background-color: $color-srf-warmgrey-50;
 }
 
 .media-caption--with-separator {
-  border-bottom: 1px solid rgba(202,200,191,1);
+  border-bottom: 1px solid $color-srf-warmgrey-200;
 }
 
 .media-caption--in-box {
@@ -50,7 +50,7 @@
   flex: 0 0 auto;
   margin-bottom: 8px;
   line-height: $secondary-line-height-ratio;
-  color: $color-text-accentuation;
+  color: $color-srf-warmgrey-900;
 }
 
 .media-caption__source {
@@ -59,7 +59,7 @@
   @include fontSize(12);
   line-height: $secondary-line-height-ratio;
   text-transform: uppercase;
-  color: $color-text-light;
+  color: $color-srf-warmgrey-800;
 
   .small {
     text-transform: none;
@@ -67,7 +67,7 @@
 }
 
 .media-caption__source_link {
-  color: rgba(85,85,85,1);
+  color: $color-srf-neutral-01;
   font-weight: bold;
   text-decoration: none;
 
@@ -78,7 +78,7 @@
 }
 
 .media-caption__title--audio {
-  color: $color-text-default;
+  color: $color-srf-warmgrey-1100;
   margin-bottom: 4px;
 }
 
@@ -87,7 +87,7 @@
   text-transform: none;
 
   .media-caption__source-title {
-    color: $color-text-accentuation;
+    color: $color-srf-warmgrey-900;
   }
 }
 
@@ -96,7 +96,7 @@
   text-transform: none;
 
   .media-caption__source-title {
-    color: $color-text-accentuation;
+    color: $color-srf-warmgrey-900;
   }
 }
 
@@ -109,7 +109,7 @@
 
 .media-caption--chmap {
   padding: 12px 16px;
-  border-bottom: 2px solid rgba(255,255,255,1);
+  border-bottom: 2px solid $color-srf-neutral-white;
 
   @include tablet-up {
     flex-direction: row;
@@ -133,12 +133,12 @@
 
 .media-caption--active {
   .media-caption__title {
-    color: $color-bg-caption;
+    color: $color-srf-warmgrey-25;
   }
 
   .media-caption__source,
   .media-caption__source-title {
-    color: $color-border;
+    color: $color-srf-warmgrey-200;
   }
 
   .media-caption__title,
@@ -186,12 +186,12 @@
   }
 
   .media-caption__title--video {
-    color: $color-text-default;
+    color: $color-srf-warmgrey-1100;
     margin-bottom: 4px;
   }
 
   .media-caption__source--video {
-    color: $color-text-light;
+    color: $color-srf-warmgrey-800;
     text-transform: none;
   }
 }

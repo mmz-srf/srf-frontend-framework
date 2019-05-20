@@ -61,7 +61,7 @@
     height: 100%;
 
     border-radius: 50%;
-    border: 2px solid rgba(254,254,253,1);
+    border: 2px solid $color-srf-neutral-offwhite;
   }
 }
 
@@ -77,6 +77,6 @@
   padding-bottom: 0;
 
   img {
-    border: 1px solid rgba(254,254,253,1);
+    border: 1px solid $color-srf-neutral-offwhite;
   }
 }

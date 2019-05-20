@@ -8,7 +8,7 @@
   font-family: $font-regular;
   @include fontSize(16);
   line-height: $default-line-height-ratio;
-  color: $color-link-default;
+  color: $color-srf-red-600;
   border: none;
   background: url('../img/linktypes/internal.svg') calc(100% - 24px) center no-repeat;
   background-size: 18px 18px;
@@ -21,27 +21,27 @@
   &:focus,
   &:active {
     border: none;
-    color: $color-link-default;
+    color: $color-srf-red-600;
   }
 }
 
 .block-link--with-separator {
   padding-right: 48px;
   width: auto;
-  border-top: 1px solid $color-separator;
-  border-bottom: 1px solid $color-separator;
+  border-top: 1px solid $color-srf-warmgrey-50;
+  border-bottom: 1px solid $color-srf-warmgrey-50;
 
   &:hover,
   &:focus,
   &:active {
     width: auto;
-    border-top: 1px solid $color-separator;
-    border-bottom: 1px solid $color-separator;
+    border-top: 1px solid $color-srf-warmgrey-50;
+    border-bottom: 1px solid $color-srf-warmgrey-50;
 
     padding-left: $article-offset;
     margin-left: -$article-offset;
 
-    background-color: $color-link-bg-hover;
+    background-color: $color-srf-warmgrey-10;
   }
 
   @include tablet-up {
@@ -58,7 +58,7 @@
     &:active {
       margin-top: -1px;
       padding-top: 13px;
-      border-top: 1px solid $color-separator;
+      border-top: 1px solid $color-srf-warmgrey-50;
     }
   }
 
@@ -95,19 +95,19 @@
 }
 
 .block-link--box {
-  border-top: 1px solid rgba(0,0,0,.1);
+  border-top: 1px solid $color-srf-neutral-blacka10;
 
   padding-left: 16px;
   padding-right: 42px;
   background-position-x: calc(100% - 11px);
 
   &:hover {
-    background-color: $color-bg-box-hover;
-    border-top: 1px solid rgba(0,0,0,.1);
+    background-color: $color-srf-warmgrey-100;
+    border-top: 1px solid $color-srf-neutral-blacka10;
   }
 
   &:focus {
-    background-color: $color-bg-box-focus;
+    background-color: $color-srf-warmgrey-200;
   }
 
   @include tablet-up {
@@ -138,9 +138,9 @@
   align-items: center;
 
   /* theme */
-  @include customPropWithFallback('border-top-color', '--teaser-border-color-link', 'rgba(0,0,0,.08)');
-  @include customPropWithFallback('color', '--teaser-color-text', $color-text-default);
-  @include customPropWithFallback('background-color', '--teaser-color-background', $color-bg-card);
+  @include customPropWithFallback('border-top-color', '--teaser-border-color-link', $color-srf-neutral-blacka08);
+  @include customPropWithFallback('color', '--teaser-color-text', $color-srf-warmgrey-1100);
+  @include customPropWithFallback('background-color', '--teaser-color-background', $color-srf-neutral-offwhite);
 
   &:hover,
   &:focus,
@@ -160,24 +160,24 @@
   &:hover,
   &:focus {
     /* theme */
-    @include customPropWithFallback('color', '--teaser-color-text', $color-text-default);
-    @include customPropWithFallback('background-color', '--teaser-background-link-hover', 'rgba(245,245,242,1)');
+    @include customPropWithFallback('color', '--teaser-color-text', $color-srf-warmgrey-1100);
+    @include customPropWithFallback('background-color', '--teaser-background-link-hover', $color-srf-warmgrey-25);
   }
 
   &:active {
     /* theme */
-    @include customPropWithFallback('color', '--teaser-color-text', $color-text-default);
-    @include customPropWithFallback('background-color', '--teaser-background-link-active', 'rgba(235,235,229,1)');
+    @include customPropWithFallback('color', '--teaser-color-text', $color-srf-warmgrey-1100);
+    @include customPropWithFallback('background-color', '--teaser-background-link-active', $color-srf-warmgrey-50);
   }
 
   // handling lines between two or more adjacent block-links
   &:hover + &,
   &:focus + & {
-    @include customPropWithFallback('border-top-color', '--teaser-background-link-hover', 'rgba(245,245,242,1)');
+    @include customPropWithFallback('border-top-color', '--teaser-background-link-hover', $color-srf-warmgrey-25);
   }
 
   &:active + & {
-    @include customPropWithFallback('border-top-color', '--teaser-background-link-active', 'rgba(235,235,229,1)');
+    @include customPropWithFallback('border-top-color', '--teaser-background-link-active', $color-srf-warmgrey-50);
   }
 
   &::after {

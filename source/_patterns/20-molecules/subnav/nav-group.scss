@@ -4,12 +4,12 @@
   flex-direction: column;
   border-bottom-left-radius: 2px;
   border-bottom-right-radius: 2px;
-  background-color: rgba(254,254,253,1);
+  background-color: $color-srf-neutral-offwhite;
   margin: 0;
   padding: 8px 0;
   box-shadow: $shadow-elevation8;
   min-width: 200px;
-  border-top: 1px inset rgba(0,0,0,.08);
+  border-top: 1px inset $color-srf-neutral-blacka08;
   opacity: 0;
   animation: fadeAndScaleInAnimation .2s forwards;
 
@@ -42,13 +42,13 @@
 .nav-group--open {
   > .nav-item {
     /* fallback */
-    background-color: $color-nav-bg-active;
-    color: $color-text-accentuation;
+    background-color: $color-srf-warmgrey-300a24;
+    color: $color-srf-warmgrey-900;
     
     /* theme */
     @supports (--foo: bar) {
-      background-color: var(--theme-color-bg-active, $color-nav-bg-active);
-      color: var(--theme-color-nav, $color-text-accentuation);
+      background-color: var(--theme-color-bg-active, $color-srf-warmgrey-300a24);
+      color: var(--theme-color-nav, $color-srf-warmgrey-900);
     }
   }
 

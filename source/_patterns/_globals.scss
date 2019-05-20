@@ -8,7 +8,7 @@ our own) within the patternlab...
 */
 * {
   box-sizing: border-box;
-  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-tap-highlight-color: $color-srf-neutral-blacka00;
   -webkit-touch-callout: none;
 }
 
@@ -19,7 +19,7 @@ html {
 body {
   margin: 0;
   font-family: $font-light;
-  background-color: $color-bg-page;
+  background-color: $color-srf-warmgrey-25;
 }
 
 html, body {
@@ -42,14 +42,14 @@ h4 {
 
 a {
   text-decoration: none;
-  color: $color-link-default;
+  color: $color-srf-red-600;
 
   &:hover {
-    color: $color-link-hover;
+    color: $color-srf-red-800;
   }
 
   &:active {
-    color: $color-link-active;
+    color: $color-srf-red-900;
   }
 }
 
@@ -87,7 +87,7 @@ th {
   top: 0;
   content: "";
   position: absolute;
-  box-shadow: 0 0 2px 1px rgba(66,163,241,1), 0 0 0 1px rgba(66,163,241,1), inset 0 0 0 1px rgba(145,206,255,1);
+  box-shadow: 0 0 2px 1px $color-srf-blue-400, 0 0 0 1px $color-srf-blue-400, inset 0 0 0 1px $color-srf-blue-200;
   border-radius: 2px;
 }
 // sass-lint:enable no-ids

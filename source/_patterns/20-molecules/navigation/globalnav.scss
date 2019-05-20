@@ -39,7 +39,7 @@
 
   &:not(:last-of-type) {
     @include smartphone {
-      border-bottom: 1px solid rgba(0,0,0,.08);
+      border-bottom: 1px solid $color-srf-neutral-blacka08;
     }
   }
 
@@ -107,8 +107,8 @@
 .globalnav--sub-wrapper {
   margin: 8px 0 -8px;
   padding: 8px 0;
-  border-top: 1px solid rgba(0,0,0,.08);
-  background-color: $color-bg-caption;
+  border-top: 1px solid $color-srf-neutral-blacka08;
+  background-color: $color-srf-warmgrey-25;
   // sass-lint:disable indentation
   transition: margin-top .2s ease-in-out,
               margin-bottom .2s ease-in-out,
@@ -128,8 +128,8 @@
 }
 
 .globalnav--sub-wrapper--open {
-  border-top: 1px solid rgba(0,0,0,.08);
-  border-bottom: 1px solid rgba(0,0,0,.08);
+  border-top: 1px solid $color-srf-neutral-blacka08;
+  border-bottom: 1px solid $color-srf-neutral-blacka08;
 
   @include smartphone {
     // hide the border of the parent element by subtracting 1 more pix.

@@ -9,7 +9,7 @@ $scoreboard-col-padding-height: 8px;
   font-family: $font-medium;
   font-size: 14px;
   letter-spacing: 0.4px;
-  background-color: $color-bg-teaser-supplement;
+  background-color: $color-srf-warmgrey-10;
   text-align: left;
   border-spacing: 0;
   padding: 8px 0;
@@ -26,7 +26,7 @@ $scoreboard-col-padding-height: 8px;
   padding: 0 0 0 16px;
   overflow: hidden;
   position: relative;
-  color: $color-text-accentuation;
+  color: $color-srf-warmgrey-900;
   text-align: left;
 
   @include desktop-wide {
@@ -35,7 +35,7 @@ $scoreboard-col-padding-height: 8px;
 }
 
 .scoreboard__competitor--winner {
-  color: $color-text-default;
+  color: $color-srf-warmgrey-1100;
 }
 
 .scoreboard__competitor-mask {
@@ -43,7 +43,7 @@ $scoreboard-col-padding-height: 8px;
   right: 0;
   width: 50px;
   height: 50px; // IE needs an absolute height
-  background: linear-gradient(to right, rgba(250,250,248,0), rgba(250,250,248,1));
+  background: linear-gradient(to right, $color-srf-warmgrey-10a00, $color-srf-warmgrey-10);
 }
 
 .scoreboard__competitor-wrapper {
@@ -76,7 +76,7 @@ $scoreboard-col-padding-height: 8px;
 // scores have a white border between them. If there's only one, there's no border
 .scoreboard__score {
   flex: 1 1 auto;
-  border-right: 1px solid rgba(255,255,255,1);
+  border-right: 1px solid $color-srf-neutral-white;
 
   &.scoreboard__col-last {
     border-right: none;
@@ -110,5 +110,5 @@ $scoreboard-col-padding-height: 8px;
 }
 
 .scoreboard__score-live.scoreboard__score-live {
-  background-color: $color-bg-score-live;
+  background-color: $color-srf-red-500;
 }

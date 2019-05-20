@@ -21,14 +21,14 @@
 
 .search-wrapper {
   /* fallback */
-  background-color: rgba(254,254,253,1);
-  border: 1px solid rgba(0,0,0,.08);
+  background-color: $color-srf-neutral-offwhite;
+  border: 1px solid $color-srf-neutral-blacka08;
   border-bottom: 0;
 
   /* theme */
   @supports (--foo: bar) {
-    background-color: var(--theme-color-bg-search, rgba(254,254,253,1));
-    border: var(--theme-search-border, 1px solid rgba(0,0,0,.08));
+    background-color: var(--theme-color-bg-search, $color-srf-neutral-offwhite);
+    border: var(--theme-search-border, 1px solid $color-srf-neutral-blacka08);
     border-bottom: var(--theme-search-border-bottom, 0);
   }
 
@@ -39,8 +39,8 @@
 .search--active {
   .search-wrapper {
     box-shadow: $shadow-elevation4;
-    background-color: rgba(254,254,253,1);
-    border: 1px solid rgba(0,0,0,.08);
+    background-color: $color-srf-neutral-offwhite;
+    border: 1px solid $color-srf-neutral-blacka08;
     border-bottom: 0;
     position: relative;
     z-index: 1;
@@ -49,7 +49,7 @@
 
 .search__input--wrapper {
   display: flex;
-  border-bottom: solid 1px rgba(0,0,0,.08);
+  border-bottom: solid 1px $color-srf-neutral-blacka08;
 }
 
 .search__icon {
@@ -87,7 +87,7 @@
   font-family: $font-light;
   line-height: 1.1; // line-height 1 cuts off "bottom parts of letters"
   letter-spacing: .6px;
-  color: $color-text-light;
+  color: $color-srf-warmgrey-800;
   background: transparent;
   border: 0;
   padding: 14px 48px;
@@ -100,14 +100,14 @@
 
   // safari needs it's own line-height and opacity
   &::-webkit-input-placeholder {
-    color: $color-text-light;
+    color: $color-srf-warmgrey-800;
     line-height: 21px;
     opacity: 1;
   }
 
   &::placeholder {
     @supports (--foo: bar) {
-      color: var(--theme-color-text-search, $color-text-light);
+      color: var(--theme-color-text-search, $color-srf-warmgrey-800);
     }
   }
 
@@ -123,7 +123,7 @@
 
 .search--active {
   .search__input {
-    color: $color-text-default;
+    color: $color-srf-warmgrey-1100;
   }
 }
 
@@ -170,7 +170,7 @@
     @include fontSize(16);
     font-weight: 300;
     text-align: left;
-    color: $color-text-default;
+    color: $color-srf-warmgrey-1100;
     text-decoration: none;
     padding: 12px 24px;
 
@@ -182,7 +182,7 @@
     &:hover,
     &:focus,
     &:active {
-      color: $color-text-default;
+      color: $color-srf-warmgrey-1100;
     }
   }
 
@@ -197,11 +197,11 @@
 
 .search-result__link {
   &:hover {
-    background-color: $color-bg-button-hover;
+    background-color: $color-srf-warmgrey-300a12;
   }
 
   &:active,
   &:focus {
-    background-color: $color-bg-button-focus;
+    background-color: $color-srf-warmgrey-300a24;
   }
 }

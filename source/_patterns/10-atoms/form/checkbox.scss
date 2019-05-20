@@ -10,7 +10,7 @@
   &:active,
   &:checked {
     + .checkbox--with-bg:not(.checkbox--inactive) {
-      background-color: $color-bg-box-hover;
+      background-color: $color-srf-warmgrey-100;
     }
   }
 
@@ -18,7 +18,7 @@
     &:focus,
     &:hover {
       + .checkbox--with-bg:not(.checkbox--inactive) {
-        background-color: rgba(202,200,191,1);
+        background-color: $color-srf-warmgrey-200;
       }
     }
   }
@@ -28,7 +28,7 @@
     + :not(.checkbox--inactive) {
       &.checkbox-label {
         &::after {
-          border-color: $color-accentuation-red;
+          border-color: $color-srf-red-600;
         }
 
         &::before {
@@ -53,7 +53,7 @@
   display: block;
   @include fontSize(16);
   font-family: $font-light;
-  color: $color-media-playing;
+  color: $color-srf-warmgrey-1000;
   margin: 0 0 2px;
   padding: 0 0 0 32px;
   cursor: pointer;
@@ -69,7 +69,7 @@
     left: 0;
     width: 16px;
     height: 16px;
-    border: solid 1px $color-button-active;
+    border: solid 1px $color-srf-warmgrey-700;
   }
 }
 
@@ -88,9 +88,9 @@
 }
 
 .checkbox--on-error {
-  color: $color-accentuation-red;
+  color: $color-srf-red-600;
 
   &::after {
-    border-color: $color-accentuation-red;
+    border-color: $color-srf-red-600;
   }
 }

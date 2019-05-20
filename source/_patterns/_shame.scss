@@ -57,11 +57,11 @@
  */
 _:-ms-fullscreen,
 :root .modal.modal--theme-dark .modal-main-wrapper {
-  background-image: linear-gradient(135deg, rgba(34,33,29,1), rgba(17,17,17,1));
+  background-image: linear-gradient(135deg, $color-srf-warmgrey-1100, $color-srf-neutral-04);
   box-shadow: $shadow-elevation8;
 
   .icon-button {
-    color: rgba(255,255,255,1);
+    color: $color-srf-neutral-white;
   }
 
   .icon-button__icon {
@@ -71,11 +71,11 @@ _:-ms-fullscreen,
   }
 
   .search-wrapper {
-    background-color: rgba(0,0,0,.2);
-    border: 1px solid rgba(255,255,255,.12);
+    background-color: $color-srf-neutral-blacka20;
+    border: 1px solid $color-srf-neutral-whitea12;
 
     .search-input {
-      color: rgba(255,255,255,1);
+      color: $color-srf-neutral-white;
     }
 
     .search-icon {
@@ -86,13 +86,13 @@ _:-ms-fullscreen,
   .search--active {
     .search-wrapper {
       box-shadow: $shadow-elevation4;
-      background-color: rgba(254,254,253,1);
-      border: 1px solid rgba(0,0,0,.08);
+      background-color: $color-srf-neutral-offwhite;
+      border: 1px solid $color-srf-neutral-blacka08;
       border-bottom: 0;
     }
 
     .search-input {
-      color: rgba(0,0,0,1);
+      color: $color-srf-neutral-black;
     }
   }
 }
@@ -153,12 +153,12 @@ _:-ms-fullscreen,
     display: inline-block;
     margin: 0 8px 8px 0;
     padding: 2px 6px 0;
-    background-color: $color-srf-light;
+    background-color: $color-srf-red-500;
     font-family: $font-medium;
     font-weight: 500;
     font-style: normal;
     font-stretch: normal;
-    color: rgba(255,255,255,1);
+    color: $color-srf-neutral-white;
     text-transform: uppercase;
     @include font-smoothing;
     @include fontSize(12);
@@ -182,8 +182,8 @@ _:-ms-fullscreen,
  * removing blue bar on ie11's selected option within select menu (polis/chmap)
  */
 .select-menu:focus::-ms-value {
-  color: $color-text-accentuation;
-  background-color: rgba(202,200,191,1);
+  color: $color-srf-warmgrey-900;
+  background-color: $color-srf-warmgrey-200;
 }
 
 /*
@@ -196,7 +196,7 @@ _:-ms-fullscreen,
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
   .teaser,
   .collection__content-wrapper {
-    box-shadow: 0 0 2px 0 rgba(0,0,0,.16), 0 0 2px 0 rgba(0,0,0,.08);
+    box-shadow: 0 0 2px 0 $color-srf-neutral-blacka16, 0 0 2px 0 $color-srf-neutral-blacka08;
   }
 }
 
@@ -222,15 +222,15 @@ _:-ms-fullscreen,
   }
 
   .teaser--theme-dark {
-    color: rgba(255,255,255,1);
-    background-color: rgba(34,33,29,1);
+    color: $color-srf-neutral-white;
+    background-color: $color-srf-warmgrey-1100;
 
     &:after {
-      background-color: rgba(255,255,255,.12);
+      background-color: $color-srf-neutral-whitea12;
     }
 
     .teaser__kicker {
-      color: rgba(218,218,210,1);
+      color: $color-srf-warmgrey-100;
     }
 
     .teaser__title,
@@ -246,13 +246,13 @@ _:-ms-fullscreen,
     .teaser-info--mediaicon-audio,
     .teaser-info--mediaicon-image,
     .teaser-info--media-caption {
-      color: rgba(255,255,255,1);
+      color: $color-srf-neutral-white;
     }
   }
   .teaser--longform {
     .block-link--teaser-link:hover {
-      color: rgba(255,255,255,1);
-      background-color: rgba(255,255,255,.08);
+      color: $color-srf-neutral-white;
+      background-color: $color-srf-neutral-whitea08;
     }
 
     .block-link--internal.block-link--teaser-link,
@@ -263,8 +263,8 @@ _:-ms-fullscreen,
     .block-link--docx.block-link--teaser-link,
     .block-link--document.block-link--teaser-link {
       background-color: transparent;
-      color: rgba(255,255,255,1);
-      border-top-color: rgba(255,255,255,.08);
+      color: $color-srf-neutral-white;
+      border-top-color: $color-srf-neutral-whitea08;
     }
 
     .block-link--internal.block-link--teaser-link::after {

@@ -7,8 +7,8 @@
   opacity: 1;
   pointer-events: auto;
   /***/
-  color: $color-text-default;
-  background: linear-gradient(117deg, rgba(254,254,253,1), rgba(254,254,253,1) 20%, rgba(250,250,248,1) 40%, rgba(250,250,248,1));
+  color: $color-srf-warmgrey-1100;
+  background: linear-gradient(117deg, #{$color-srf-neutral-offwhite}, #{$color-srf-neutral-offwhite} 20%, #{$color-srf-warmgrey-10} 40%, $color-srf-warmgrey-10);
   box-shadow: $shadow-elevation1;
 }
 
@@ -60,7 +60,7 @@
   @include fontSize(14);
   line-height: 1.14;
   font-family: $font-regular;
-  color: $color-button-default;
+  color: $color-srf-warmgrey-800;
   display: block;
   border-radius: 2px;
   padding: 16px;
@@ -70,14 +70,14 @@
   transition: background-color 0.2s ease-in-out;
 
   &:hover {
-    color: $color-button-default;
-    background-color: $color-bg-button-hover;
+    color: $color-srf-warmgrey-800;
+    background-color: $color-srf-warmgrey-300a12;
   }
 
   &:focus,
   &:active {
-    color: $color-button-default;
-    background-color: $color-bg-button-focus;
+    color: $color-srf-warmgrey-800;
+    background-color: $color-srf-warmgrey-300a24;
   }
 
   @include tablet-up {
@@ -116,7 +116,7 @@
   font-size: 12px;
   line-height: 1.33;
   letter-spacing: .4px;
-  color: $color-text-light;
+  color: $color-srf-warmgrey-800;
   margin: 8px 0 16px;
 
   @include tablet-up {
@@ -140,7 +140,7 @@
   margin: 0 8px 0 0;
   padding: 0;
   flex: 1 1 auto;
-  background-color: $color-bg-box;
+  background-color: $color-srf-warmgrey-50;
 
   &:last-of-type {
     margin-right: 0;
@@ -158,20 +158,20 @@
   font-family: $font-regular;
   line-height: 1.14;
   text-align: center;
-  color: $color-text-light;
+  color: $color-srf-warmgrey-800;
   width: 100%;
   border-radius: 2px;
-  background-color: $color-bg-box;
+  background-color: $color-srf-warmgrey-50;
   transition: background-color 0.2s ease-in-out;
 
   &:hover {
-    color: $color-text-light; //override global <a> style
-    background-color: $color-bg-button-hover;
+    color: $color-srf-warmgrey-800; //override global <a> style
+    background-color: $color-srf-warmgrey-300a12;
   }
 
   &:active,
   &:focus {
-    color: $color-text-light; //override global <a> style
-    background-color: $color-bg-button-focus;
+    color: $color-srf-warmgrey-800; //override global <a> style
+    background-color: $color-srf-warmgrey-300a24;
   }
 }

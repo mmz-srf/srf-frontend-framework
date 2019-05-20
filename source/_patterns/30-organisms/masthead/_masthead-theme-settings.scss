@@ -11,13 +11,13 @@
 .masthead {
   --theme-color-gradient-1: #{$theme-default-color-1};
   --theme-color-gradient-2: #{$theme-default-color-2};
-  --theme-color-title: #{$color-text-default};
-  --theme-color-nav: #{$color-text-accentuation};
-  --theme-color-bg-hover: #{$color-nav-bg-hover};
-  --theme-color-bg-active: #{$color-nav-bg-active};
-  --theme-color-active: #{$color-accentuation-red};
-  --theme-color-nav-active-border: rgba(241,67,74,1);
-  --theme-color-nav-hover-text: #{$color-text-default};
+  --theme-color-title: #{$color-srf-warmgrey-1100};
+  --theme-color-nav: #{$color-srf-warmgrey-900};
+  --theme-color-bg-hover: #{$color-srf-warmgrey-300a12};
+  --theme-color-bg-active: #{$color-srf-warmgrey-300a24};
+  --theme-color-active: #{$color-srf-red-600};
+  --theme-color-nav-active-border: #{$color-srf-red-400};
+  --theme-color-nav-hover-text: #{$color-srf-warmgrey-1100};
   --theme-color-pager-start: #{$theme-default-color-bg-pager-start};
   --theme-color-pager-start-transparent: #{$theme-default-color-bg-pager-start-transparent};
   --theme-color-pager-end: #{$theme-default-color-bg-pager-end};
@@ -37,13 +37,13 @@
 .masthead.masthead--theme-rtr_archiv,
 .masthead.masthead--theme-rtr_aura,
 .masthead.masthead--theme-rtr_interpresa {
-  --theme-color-bg-hover: rgba(255,255,255,.12);
-  --theme-color-bg-active: rgba(255,255,255,.24);
-  --theme-color-title: rgba(255,255,255,1);
-  --theme-color-nav: rgba(255,255,255,1);
-  --theme-color-active: rgba(255,255,255,1);
-  --theme-color-nav-active-border: rgba(255,255,255,1);
-  --theme-color-nav-hover-text: rgba(255,255,255,1);
+  --theme-color-bg-hover: #{$color-srf-neutral-whitea12};
+  --theme-color-bg-active: #{$color-srf-neutral-whitea24};
+  --theme-color-title: #{$color-srf-neutral-white};
+  --theme-color-nav: #{$color-srf-neutral-white};
+  --theme-color-active: #{$color-srf-neutral-white};
+  --theme-color-nav-active-border: #{$color-srf-neutral-white};
+  --theme-color-nav-hover-text: #{$color-srf-neutral-white};
   --theme-icon-filter: invert(100%) contrast(600%);
   --theme-item-opacity: 1;
   --theme-grayscale-filter: grayscale(100%);
@@ -53,7 +53,7 @@
   .masthead__title-link {
     //only browsers that support css custom properties (and therefore themes) should add a text-shadow
     @supports (--foo: bar) {
-      text-shadow: 0 0 8px rgba(0,0,0,.12);
+      text-shadow: 0 0 8px $color-srf-neutral-blacka12;
     }
   }
 }

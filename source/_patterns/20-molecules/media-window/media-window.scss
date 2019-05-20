@@ -5,7 +5,7 @@
   position: relative;
   margin: 24px 0;
   padding: 0 20px 12px;
-  background-color: rgba(245,245,242,1);
+  background-color: $color-srf-warmgrey-25;
 
   @include smartphone {
     overflow: hidden;
@@ -22,7 +22,7 @@
 
   &.media-window--playing {
     .media-window::after { // dreieckli
-      border-bottom: solid 10px rgba(245,245,242,1);
+      border-bottom: solid 10px $color-srf-warmgrey-25;
     }
   }
 }
@@ -34,7 +34,7 @@
   position: relative;
   margin-right: -24px;
   margin-left: -24px;
-  background-color: $color-bg-media;
+  background-color: $color-srf-neutral-04;
   outline: none;
 
   @include fullwidth-container;
@@ -65,7 +65,7 @@
       width: 0;
       border-left: solid 10px transparent;
       border-right: solid 10px transparent;
-      border-bottom: solid 10px rgba(255,255,255,1);
+      border-bottom: solid 10px $color-srf-neutral-white;
     }
   }
 
