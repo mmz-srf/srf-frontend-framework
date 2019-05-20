@@ -63,7 +63,7 @@
   font-family: $font-medium;
   @include fontSize(16);
   line-height: $emphasize-line-height-ratio;
-  color: rgba(26,25,22,1);
+  color: rgba(34,33,29,1);
 
   @include tablet-up {
     padding-bottom: 8px;
