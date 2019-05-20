@@ -1,6 +1,7 @@
 {% set swipeable = ('collection--swipeable' in collection.styleModifier or 'collection--compact-swipeable' in collection.styleModifier) and collection.teasers|length > 3 %}
 {% set branded = 'collection--branded' in collection.styleModifier %}
 {% set selectable = 'collection--selectable' in collection.styleModifier %}
+{% set renderTitlePrecusor = 'collection--search-results' in collection.styleModifier %}
 {% set showTitlelink = collection.titleLink is defined or selectable %}
 {% set themeColorStart = collection.theme is defined and collection.theme.colorStart is defined ? collection.theme.colorStart : '#135c94' %}
 {% set themeColorEnd = collection.theme is defined and collection.theme.colorEnd is defined ? collection.theme.colorEnd : '#ADD8E6' %}
@@ -22,6 +23,11 @@
                         {% include 'atoms-shimmer' with {'styleModifier': 'shimmer--heading shimmer--short'} %}
                     {% endif %}
                 </span>
+
+                {% if renderTitlePrecusor %}
+                    {# e.g. used in search results for play, where the search key is shown in the title precursor #}
+                    <div class="collection__title-precursor js-collection-title-precursor">tages</div>
+                {% endif %}
 
                 {% if showTitlelink %}
                     <a href="{{ collection.titleLink|default("#") }}" class="collection__title-link">
@@ -98,15 +104,21 @@
                             {% set teaserFormat = 'teaser--size-m' %}
                         {% endif %}
 
-                        {% set teaserStyleModifier = teaserFormat ~ " " ~ teaser.styleModifier|default("") %}
+                        {% set teaserStyleModifier = teaserFormat ~ " " ~ (teaser.styleModifier|default("")) %}
+                        {% set teaserParameters = {
+                            "teaser": teaser,
+                            "styleModifier": teaserStyleModifier
+                        } %}
 
                         <li class="collection__teaser-item {{ swipeable ? "js-swipeable-area-item swipeable-area__item" }}">
                             {% if 'teaser--longform' in teaser.styleModifier|default("") %}
-                                {% include 'molecules-teaser--longform' with {'teaser': teaser, "styleModifier": teaserStyleModifier} %}
+                                {% include 'molecules-teaser--longform' with teaserParameters %}
                             {% elseif teaser.showScoreboard %}
-                                {% include 'molecules-teaser--scoreboard' with {'teaser': teaser, "styleModifier": teaserStyleModifier} %}
+                                {% include 'molecules-teaser--scoreboard' with teaserParameters %}
+                            {% elseif 'collection--search-results' in collection.styleModifier %}
+                                {% include 'molecules-teaser--search-result' with teaserParameters %}
                             {% else %}
-                                {% include random(['molecules-teaser', 'molecules-teaser--with-medium', 'molecules-teaser--broadcast']) with {'teaser': teaser, "styleModifier": teaserStyleModifier} %}
+                                {% include random(['molecules-teaser', 'molecules-teaser--with-medium', 'molecules-teaser--broadcast']) with teaserParameters %}
                             {% endif %}
                         </li>
                     {% endif %}

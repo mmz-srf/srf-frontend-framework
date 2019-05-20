@@ -836,13 +836,43 @@ $background-overlap-wide: 50px;
 
 .collection--search-results {
 
-  .collection__teaser-item {
-    padding-bottom: 0;
+  @include smartphone {
+    // show 2 teasers (+ some of a 3rd) on mobile instead of just 1
+    .collection__teaser-item,
+    .collection__teaser-item:last-child {
+      padding-bottom: 0;
+      min-width: calc((100% - 40px) / 2.00001);
+    }
+
+    // slightly smaller font size on mobile
+    .collection__title {
+      @include fontSize(20);
+    }
   }
 
   .collection__links {
     margin-top: 12px;
     margin-bottom: 12px;
+  }
+
+  // links are as wide as a teaser on tablet+
+  .collection__link-item {
+    @include tablet-up {
+      min-width: calc((100% - 48px) / 3.00001 );
+    }
+
+    @include desktop-wide {
+      min-width: calc((100% - 64px) / 3.00001 );
+    }
+  }
+
+  .collection__title-precursor {
+    font-family: $font-bold;
+
+    &::before,
+    &::after {
+      content: "'";
+    }
   }
 }
 
@@ -852,7 +882,8 @@ $background-overlap-wide: 50px;
   .collection__background-image,
   .collection__lead,
   .collection__swipeable-area,
-  .collection__teaser-list {
+  .collection__teaser-list,
+  .collection__title-precursor {
     display: none;
   }
 }

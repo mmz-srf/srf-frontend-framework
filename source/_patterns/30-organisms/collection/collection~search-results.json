@@ -1,7 +1,8 @@
 {
     "collection": {
         "styleModifier": "collection--swipeable collection--branded collection--search-results",
-        "title": "Search Results",
+        "title": "in Sendungen, Video und Audio",
+        "titleLink": "#",
         "teasers": [
             {
                 "title": "1. Ponika verhilft Neuseeland zum Sieg",
@@ -74,18 +75,9 @@
         },
         "links": [
             {
-                "title": "Google",
-                "link": "https://www.google.com"
-            },
-            {
-                "title": "Bing",
-                "link": "https://www.bing.com"
-            },
-            {
-                "title": "DuckDuckGo",
-                "link": "https://www.duckduckgo.com"
+                "title": "Weiter zu Play SRF",
+                "link": "https://www.srf.ch/play"
             }
         ]
     }
 }
-        

@@ -1,7 +1,8 @@
 {
     "collection": {
         "styleModifier": "collection--swipeable collection--branded collection--search-results collection--search-results--empty",
-        "title": "Search Results",
+        "title": "in Sendungen, Video und Audio",
+        "titleLink": "#",
         "teasers": [],
         "theme": {
             "colorStart": "#111111",
@@ -9,18 +10,9 @@
         },
         "links": [
             {
-                "title": "Google",
-                "link": "https://www.google.com"
-            },
-            {
-                "title": "Bing",
-                "link": "https://www.bing.com"
-            },
-            {
-                "title": "DuckDuckGo",
-                "link": "https://www.duckduckgo.com"
+                "title": "Weiter zu Play SRF",
+                "link": "https://www.srf.ch/play"
             }
         ]
     }
 }
-        
