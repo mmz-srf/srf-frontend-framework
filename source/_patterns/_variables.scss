@@ -59,80 +59,116 @@ $color-bg-opinion-teaser: #fafaf8 !default;
 /*** THEMING ***/
 $theme-default-color-1: #FEFEFD;
 $theme-default-color-2: #FAFAF8;
-$theme-default-color-bg-pager-start: rgba(254, 254, 253, 1);
-$theme-default-color-bg-pager-start-transparent: rgba(254, 254, 253, 0);
-$theme-default-color-bg-pager-end: rgba(250, 250, 248, 1);
-$theme-default-color-bg-pager-end-transparent: rgba(250, 250, 248, 0);
+$theme-default-color-bg-pager-start: rgba($theme-default-color-1, 1);
+$theme-default-color-bg-pager-start-transparent: rgba($theme-default-color-1, 0);
+$theme-default-color-bg-pager-end: rgba($theme-default-color-2, 1);
+$theme-default-color-bg-pager-end-transparent: rgba($theme-default-color-2, 0);
 
 $theme-sport-color-1: #ED7004;
 $theme-sport-color-2: #C91024;
-$theme-sport-color-bg-pager-start: rgba(237, 112, 4, 1);
-$theme-sport-color-bg-pager-start-transparent: rgba(237, 112, 4, 0);
-$theme-sport-color-bg-pager-end: rgba(201, 16, 36, 1);
-$theme-sport-color-bg-pager-end-transparent: rgba(201, 16, 36, 0);
+$theme-sport-color-bg-pager-start: rgba($theme-sport-color-1, 1);
+$theme-sport-color-bg-pager-start-transparent: rgba($theme-sport-color-1, 0);
+$theme-sport-color-bg-pager-end: rgba($theme-sport-color-2, 1);
+$theme-sport-color-bg-pager-end-transparent: rgba($theme-sport-color-2, 0);
 
 $theme-meteo-color-1: #105082;
 $theme-meteo-color-2: #0A385C;
-$theme-meteo-color-bg-pager-start: rgba(16, 80, 130, 1);
-$theme-meteo-color-bg-pager-start-transparent: rgba(16, 80, 130, 0);
-$theme-meteo-color-bg-pager-end: rgba(10, 56, 92, 1);
-$theme-meteo-color-bg-pager-end-transparent: rgba(10, 56, 92, 0);
+$theme-meteo-color-bg-pager-start: rgba($theme-meteo-color-1, 1);
+$theme-meteo-color-bg-pager-start-transparent: rgba($theme-meteo-color-1, 0);
+$theme-meteo-color-bg-pager-end: rgba($theme-meteo-color-2, 1);
+$theme-meteo-color-bg-pager-end-transparent: rgba($theme-meteo-color-2, 0);
 
 $theme-kultur-color-1: #C91D7D;
 $theme-kultur-color-2: #8C1D60;
-$theme-kultur-color-bg-pager-start: rgba(201, 29, 125, 1);
-$theme-kultur-color-bg-pager-start-transparent: rgba(173, 52, 146, 0);
-$theme-kultur-color-bg-pager-end: rgba(140, 29, 96, 1);
-$theme-kultur-color-bg-pager-end-transparent: rgba(121, 36, 101, 0);
+$theme-kultur-color-bg-pager-start: rgba($theme-kultur-color-1, 1);
+$theme-kultur-color-bg-pager-start-transparent: rgba(#AD3492, 0);
+$theme-kultur-color-bg-pager-end: rgba($theme-kultur-color-2, 1);
+$theme-kultur-color-bg-pager-end-transparent: rgba(#792465, 0);
 
 $theme-dok-color-1: #4B7F5B;
 $theme-dok-color-2: #154E60;
-$theme-dok-color-bg-pager-start: rgba(75, 127, 91, 1);
-$theme-dok-color-bg-pager-start-transparent: rgba(22, 140, 90, 0);
-$theme-dok-color-bg-pager-end: rgba(21, 78, 96, 1);
-$theme-dok-color-bg-pager-end-transparent: rgba(14, 89, 58, 0);
+$theme-dok-color-bg-pager-start: rgba($theme-dok-color-1, 1);
+$theme-dok-color-bg-pager-start-transparent: rgba(#168C5A, 0);
+$theme-dok-color-bg-pager-end: rgba($theme-dok-color-2, 1);
+$theme-dok-color-bg-pager-end-transparent: rgba(#0E593A, 0);
 
 $theme-rtr-novitads-color-1: #d92a5d;
 $theme-rtr-novitads-color-2: #b83151;
-$theme-rtr-novitads-color-bg-pager-start: rgba(217, 42, 93, 1);
-$theme-rtr-novitads-color-bg-pager-start-transparent: rgba(217, 42, 93, 0);
-$theme-rtr-novitads-color-bg-pager-end: rgba(184, 49, 81, 1);
-$theme-rtr-novitads-color-bg-pager-end-transparent: rgba(184, 49, 81, 0);
+$theme-rtr-novitads-color-bg-pager-start: rgba($theme-rtr-novitads-color-1, 1);
+$theme-rtr-novitads-color-bg-pager-start-transparent: rgba($theme-rtr-novitads-color-1, 0);
+$theme-rtr-novitads-color-bg-pager-end: rgba($theme-rtr-novitads-color-2, 1);
+$theme-rtr-novitads-color-bg-pager-end-transparent: rgba($theme-rtr-novitads-color-2, 0);
 
 $theme-rtr-cultura-color-1: #8f44c9;
 $theme-rtr-cultura-color-2: #5f1a7d;
-$theme-rtr-cultura-color-bg-pager-start: rgba(143, 68, 201, 1);
-$theme-rtr-cultura-color-bg-pager-start-transparent: rgba(143, 68, 201, 0);
-$theme-rtr-cultura-color-bg-pager-end: rgba(95, 26, 125, 1);
-$theme-rtr-cultura-color-bg-pager-end-transparent: rgba(95, 26, 125, 0);
+$theme-rtr-cultura-color-bg-pager-start: rgba($theme-rtr-cultura-color-1, 1);
+$theme-rtr-cultura-color-bg-pager-start-transparent: rgba($theme-rtr-cultura-color-1, 0);
+$theme-rtr-cultura-color-bg-pager-end: rgba($theme-rtr-cultura-color-2, 1);
+$theme-rtr-cultura-color-bg-pager-end-transparent: rgba($theme-rtr-cultura-color-2, 0);
 
 $theme-rtr-sport-color-1: #e2731f;
 $theme-rtr-sport-color-2: #c7411e;
-$theme-rtr-sport-color-bg-pager-start: rgba(226, 115, 31, 1);
-$theme-rtr-sport-color-bg-pager-start-transparent: rgba(226, 115, 31, 0);
-$theme-rtr-sport-color-bg-pager-end: rgba(199, 65, 30, 1);
-$theme-rtr-sport-color-bg-pager-end-transparent: rgba(199, 65, 30, 0);
+$theme-rtr-sport-color-bg-pager-start: rgba($theme-rtr-sport-color-1, 1);
+$theme-rtr-sport-color-bg-pager-start-transparent: rgba($theme-rtr-sport-color-1, 0);
+$theme-rtr-sport-color-bg-pager-end: rgba($theme-rtr-sport-color-2, 1);
+$theme-rtr-sport-color-bg-pager-end-transparent: rgba($theme-rtr-sport-color-2, 0);
 
 $theme-rtr-uffants-color-1: #3c997b;
 $theme-rtr-uffants-color-2: #458c5a;
-$theme-rtr-uffants-color-bg-pager-start: rgba(60, 153, 123, 1);
-$theme-rtr-uffants-color-bg-pager-start-transparent: rgba(60, 153, 123, 0);
-$theme-rtr-uffants-color-bg-pager-end: rgba(69, 140, 90, 1);
-$theme-rtr-uffants-color-bg-pager-end-transparent: rgba(69, 140, 90, 0);
+$theme-rtr-uffants-color-bg-pager-start: rgba($theme-rtr-uffants-color-1, 1);
+$theme-rtr-uffants-color-bg-pager-start-transparent: rgba($theme-rtr-uffants-color-1, 0);
+$theme-rtr-uffants-color-bg-pager-end: rgba($theme-rtr-uffants-color-2, 1);
+$theme-rtr-uffants-color-bg-pager-end-transparent: rgba($theme-rtr-uffants-color-2, 0);
 
 $theme-rtr-archivar-color-1: #47464b;
 $theme-rtr-archivar-color-2: #232326;
-$theme-rtr-archivar-color-bg-pager-start: rgba(71, 70, 75, 1);
-$theme-rtr-archivar-color-bg-pager-start-transparent: rgba(71, 70, 75, 0);
-$theme-rtr-archivar-color-bg-pager-end: rgba(35, 35, 38, 1);
-$theme-rtr-archivar-color-bg-pager-end-transparent: rgba(35, 35, 38, 0);
+$theme-rtr-archivar-color-bg-pager-start: rgba($theme-rtr-archivar-color-1, 1);
+$theme-rtr-archivar-color-bg-pager-start-transparent: rgba($theme-rtr-archivar-color-1, 0);
+$theme-rtr-archivar-color-bg-pager-end: rgba($theme-rtr-archivar-color-2, 1);
+$theme-rtr-archivar-color-bg-pager-end-transparent: rgba($theme-rtr-archivar-color-2, 0);
 
 $theme-rtr-interpresa-color-1: #c91024;
 $theme-rtr-interpresa-color-2: #af001d;
-$theme-rtr-interpresa-color-bg-pager-start: rgba(201, 16, 36, 1);
-$theme-rtr-interpresa-color-bg-pager-start-transparent: rgba(201, 16, 36, 0);
-$theme-rtr-interpresa-color-bg-pager-end: rgba(175, 0, 29, 1);
-$theme-rtr-interpresa-color-bg-pager-end-transparent: rgba(175, 0, 29, 0);
+$theme-rtr-interpresa-color-bg-pager-start: rgba($theme-rtr-interpresa-color-1, 1);
+$theme-rtr-interpresa-color-bg-pager-start-transparent: rgba($theme-rtr-interpresa-color-1, 0);
+$theme-rtr-interpresa-color-bg-pager-end: rgba($theme-rtr-interpresa-color-2, 1);
+$theme-rtr-interpresa-color-bg-pager-end-transparent: rgba($theme-rtr-interpresa-color-2, 0);
+
+$theme-radio-srf-1-color-1: #FFD651;
+$theme-radio-srf-1-color-2: #F7A600;
+$theme-radio-srf-1-color-bg-pager-start: rgba($theme-radio-srf-1-color-1, 1);
+$theme-radio-srf-1-color-bg-pager-start-transparent: rgba($theme-radio-srf-1-color-1, 0);
+$theme-radio-srf-1-color-bg-pager-end: rgba($theme-radio-srf-1-color-2, 1);
+$theme-radio-srf-1-color-bg-pager-end-transparent: rgba($theme-radio-srf-1-color-2, 0);
+
+$theme-radio-srf-2-color-1: #C91D7D;
+$theme-radio-srf-2-color-2: #8c1d60;
+$theme-radio-srf-2-color-bg-pager-start: rgba($theme-radio-srf-2-color-1, 1);
+$theme-radio-srf-2-color-bg-pager-start-transparent: rgba($theme-radio-srf-2-color-1, 0);
+$theme-radio-srf-2-color-bg-pager-end: rgba($theme-radio-srf-2-color-2, 1);
+$theme-radio-srf-2-color-bg-pager-end-transparent: rgba($theme-radio-srf-2-color-2, 0);
+
+$theme-radio-srf-3-color-1: #464646;
+$theme-radio-srf-3-color-2: #000;
+$theme-radio-srf-3-color-bg-pager-start: rgba($theme-radio-srf-3-color-1, 1);
+$theme-radio-srf-3-color-bg-pager-start-transparent: rgba($theme-radio-srf-3-color-1, 0);
+$theme-radio-srf-3-color-bg-pager-end: rgba($theme-radio-srf-3-color-2, 1);
+$theme-radio-srf-3-color-bg-pager-end-transparent: rgba($theme-radio-srf-3-color-2, 0);
+
+$theme-radio-srf-musikwelle-color-1: #007FC6;
+$theme-radio-srf-musikwelle-color-2: #0066B0;
+$theme-radio-srf-musikwelle-color-bg-pager-start: rgba($theme-radio-srf-musikwelle-color-1, 1);
+$theme-radio-srf-musikwelle-color-bg-pager-start-transparent: rgba($theme-radio-srf-musikwelle-color-1, 0);
+$theme-radio-srf-musikwelle-color-bg-pager-end: rgba($theme-radio-srf-musikwelle-color-2, 1);
+$theme-radio-srf-musikwelle-color-bg-pager-end-transparent: rgba($theme-radio-srf-musikwelle-color-2, 0);
+
+$theme-radio-srf-virus-color-1: #BDFF44;
+$theme-radio-srf-virus-color-2: #A5FF00;
+$theme-radio-srf-virus-color-bg-pager-start: rgba($theme-radio-srf-virus-color-1, 1);
+$theme-radio-srf-virus-color-bg-pager-start-transparent: rgba($theme-radio-srf-virus-color-1, 0);
+$theme-radio-srf-virus-color-bg-pager-end: rgba($theme-radio-srf-virus-color-2, 1);
+$theme-radio-srf-virus-color-bg-pager-end-transparent: rgba($theme-radio-srf-virus-color-2, 0);
+
 
 /*** FONTS ***/
 $font-bold: 'SRG_SSR_Bold', sans-serif !default;
