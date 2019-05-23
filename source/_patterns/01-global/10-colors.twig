@@ -1,411 +1,524 @@
 {% set globalColors =
   {
-    'color-srf-red-50': {
-      'hex': '#ffe6e6',
-      'rgba': 'rgba(255,230,230,.5)'
-    },
-    'color-srf-red-300': {
-      'hex': '#ff6669',
-      'rgba': 'rgba(255,102,105,1)'
-    },
-    'color-srf-red-400': {
-      'hex': '#f1434a',
-      'rgba': 'rgba(241,67,74,1)'
-    },
-    'color-srf-red-500': {
-      'hex': '#e31f2b',
-      'rgba': 'rgba(227,31,43,1)'
-    },
-    'color-srf-red-600': {
-      'hex': '#c91024',
-      'rgba': 'rgba(201,16,36,1)'
-    },
-    'color-srf-red-600a00': {
-      'hex': '#c91024',
-      'rgba': 'rgba(201,16,36,0)',
-      'alpha': '0%'
-    },
-    'color-srf-red-600a12': {
-      'hex': '#c91024',
-      'rgba': 'rgba(201,16,36,.12)',
-      'alpha': '12%'
-    },
-    'color-srf-red-600a24': {
-      'hex': '#c91024',
-      'rgba': 'rgba(201,16,36,.24)',
-      'alpha': '24%'
-    },
-    'color-srf-red-700': {
-      'hex': '#af001d',
-      'rgba': 'rgba(175,0,29,1)'
-    },
-    'color-srf-red-700a00': {
-      'hex': '#af001d',
-      'rgba': 'rgba(175,0,29,0)',
-      'alpha': '0%'
-    },
-    'color-srf-red-800': {
-      'hex': '#8d0614',
-      'rgba': 'rgba(141,6,20,1)'
-    },
-    'color-srf-red-900': {
-      'hex': '#6a0b0c',
-      'rgba': 'rgba(106,11,12,1)'
-    },
-    'color-srf-yellow-500': {
-      'hex': '#f7a600',
-      'rgba': 'rgba(247,166,0,1)'
-    },
-    'color-srf-yellow-700': {
-      'hex': '#ed7004',
-      'rgba': 'rgba(237,112,4,1)'
-    },
-    'color-srf-yellow-700a00': {
-      'hex': '#ed7004',
-      'rgba': 'rgba(237,112,4,0)',
-      'alpha': '0%'
-    },
-    'color-srf-blue-200': {
-      'hex': '#91ceff',
-      'rgba': 'rgba(145,206,255,1)'
-    },
-    'color-srf-blue-400': {
-      'hex': '#42a3f1',
-      'rgba': 'rgba(66,163,241,1)'
-    },
-    'color-srf-blue-500': {
-      'hex': '#1e8ce3',
-      'rgba': 'rgba(30,140,227,1)'
-    },
-    'color-srf-blue-600': {
-      'hex': '#1a7ac5',
-      'rgba': 'rgba(26,122,197,1)'
-    },
-    'color-srf-blue-800': {
-      'hex': '#105082',
-      'rgba': 'rgba(16,80,130,1)'
-    },
-    'color-srf-blue-800a00': {
-      'hex': '#105082',
-      'rgba': 'rgba(16,80,130,0)',
-      'alpha': '0%'
-    },
-    'color-srf-blue-900': {
-      'hex': '#0a385c',
-      'rgba': 'rgba(10,56,92,1)'
-    },
-    'color-srf-blue-900a00': {
-      'hex': '#0a385c',
-      'rgba': 'rgba(10,56,92,0)',
-      'alpha': '0%'
-    },
-    'color-srf-purple-700': {
-      'hex': '#ad3492',
-      'rgba': 'rgba(173,52,146,1)'
-    },
-    'color-srf-purple-700a00': {
-      'hex': '#ad3492',
-      'rgba': 'rgba(173,52,146,0)',
-      'alpha': '0%'
-    },
-    'color-srf-purple-900': {
-      'hex': '#792465',
-      'rgba': 'rgba(121,36,101,1)'
-    },
-    'color-srf-purple-900a00': {
-      'hex': '#792465',
-      'rgba': 'rgba(121,36,101,1)',
-      'alpha': '0%'
-    },
-    'color-srf-green-700': {
-      'hex': '#168c5a',
-      'rgba': 'rgba(22,140,90,1)'
-    },
-    'color-srf-green-700a00': {
-      'hex': '#168c5a',
-      'rgba': 'rgba(22,140,90,0)',
-      'alpha': '0%'
-    },
-    'color-srf-green-900': {
-      'hex': '#0e593a',
-      'rgba': 'rgba(14,89,58,1)'
-    },
-    'color-srf-green-900a00': {
-      'hex': '#0e593a',
-      'rgba': 'rgba(14,89,58,1)',
-      'alpha': '0%'
-    },
-    'color-srf-warmgrey-10': {
-      'hex': '#fafaf8',
-      'rgba': 'rgba(250,250,248,1)'
-    },
-    'color-srf-warmgrey-10a00': {
-      'hex': '#fafaf8',
-      'rgba': 'rgba(250,250,248,0)',
-      'alpha': '0%'
-    },
-    'color-srf-warmgrey-25': {
-      'hex': '#f5f5f2',
-      'rgba': 'rgba(245,245,242,1)'
-    },
-    'color-srf-warmgrey-50': {
-      'hex': '#ebebe5',
-      'rgba': 'rgba(235,235,229,1)'
-    },
-    'color-srf-warmgrey-100': {
-      'hex': '#dadad2',
-      'rgba': 'rgba(218,218,210,1)'
-    },
-    'color-srf-warmgrey-200': {
-      'hex': '#cac8bf',
-      'rgba': 'rgba(202,200,191,1)'
-    },
-    'color-srf-warmgrey-300': {
-      'hex': '#b9b7ac',
-      'rgba': 'rgba(185,183,172,1)'
-    },
-    'color-srf-warmgrey-300a12': {
-      'hex': '#b9b7ac',
-      'rgba': 'rgba(185,183,172,.12)',
-      'alpha': '12%'
-    },
-    'color-srf-warmgrey-300a24': {
-      'hex': '#b9b7ac',
-      'rgba': 'rgba(185,183,172,.24)',
-      'alpha': '24%'
-    },
-    'color-srf-warmgrey-700': {
-      'hex': '#888579',
-      'rgba': 'rgba(136,133,121,1)'
-    },
-    'color-srf-warmgrey-800': {
-      'hex': '#6b6960',
-      'rgba': 'rgba(107,105,96,1)'
-    },
-    'color-srf-warmgrey-900': {
-      'hex': '#4e4d47',
-      'rgba': 'rgba(78,77,71,1)'
-    },
-    'color-srf-warmgrey-1000': {
-      'hex': '#383732',
-      'rgba': 'rgba(56,55,50,1)'
-    },
-    'color-srf-warmgrey-1100': {
-      'hex': '#22211d',
-      'rgba': 'rgba(34,33,29,1)'
-    },
-    'color-srf-warmgrey-1100a00': {
-      'hex': '#22211d',
-      'rgba': 'rgba(34,33,29,0)',
-      'alpha': '0%'
-    },
-    'color-srf-warmgrey-1100a12': {
-      'hex': '#22211d',
-      'rgba': 'rgba(34,33,29,.12)',
-      'alpha': '12%'
-    },
-    'color-srf-warmgrey-1100a24': {
-      'hex': '#22211d',
-      'rgba': 'rgba(34,33,29,.24)',
-      'alpha': '24%'
-    },
-    'color-srf-neutral-white': {
-      'hex': '#ffffff',
-      'rgba': 'rgba(255,255,255,1)'
-    },
-    'color-srf-neutral-whitea00': {
-      'hex': '#ffffff',
-      'rgba': 'rgba(255,255,255,0)',
-      'alpha': '0%'
-    },
-    'color-srf-neutral-whitea08': {
-      'hex': '#ffffff',
-      'rgba': 'rgba(255,255,255,.08)',
-      'alpha': '8%'
-    },
-    'color-srf-neutral-whitea12': {
-      'hex': '#ffffff',
-      'rgba': 'rgba(255,255,255,.12)',
-      'alpha': '12%'
-    },
-    'color-srf-neutral-whitea24': {
-      'hex': '#ffffff',
-      'rgba': 'rgba(255,255,255,.24)',
-      'alpha': '24%'
-    },
-    'color-srf-neutral-whitea40': {
-      'hex': '#ffffff',
-      'rgba': 'rgba(255,255,255,.4)',
-      'alpha': '40%'
-    },
-    'color-srf-neutral-white80': {
-      'hex': '#ffffff',
-      'rgba': 'rgba(255,255,255,.8)',
-      'alpha': '8%'
-    },
-    'color-srf-neutral-offwhite': {
-      'hex': '#fefefd',
-      'rgba': 'rgba(254,254,253,1)'
-    },
-    'color-srf-neutral-offwhitea00': {
-      'hex': '#fefefd',
-      'rgba': 'rgba(254,254,253,0)',
-      'alpha': '0%'
-    },
-    'color-srf-neutral-01': {
-      'hex': '#555555',
-      'rgba': 'rgba(85,85,85,1)'
-    },
-    'color-srf-neutral-02': {
-      'hex': '#333333',
-      'rgba': 'rgba(51,51,51,1)'
-    },
-    'color-srf-neutral-03': {
-      'hex': '#222222',
-      'rgba': 'rgba(34,34,34,1)'
-    },
-    'color-srf-neutral-04': {
-      'hex': '#111111',
-      'rgba': 'rgba(17,17,17,1)'
-    },
-    'color-srf-neutral-black': {
-      'hex': '#000000',
-      'rgba': 'rgba(0,0,0,1)'
-    },
-    'color-srf-neutral-blacka00': {
-      'hex': '#000000',
-      'rgba': 'rgba(0,0,0,0)',
-      'alpha': '0%'
-    },
-    'color-srf-neutral-blacka04': {
-      'hex': '#000000',
-      'rgba': 'rgba(0,0,0,.4)',
-      'alpha': '4%'
-    },
-    'color-srf-neutral-blacka08': {
-      'hex': '#000000',
-      'rgba': 'rgba(0,0,0,.8)',
-      'alpha': '8%'
-    },
-    'color-srf-neutral-blacka10': {
-      'hex': '#000000',
-      'rgba': 'rgba(0,0,0,.1)',
-      'alpha': '10%'
-    },
-    'color-srf-neutral-blacka12': {
-      'hex': '#000000',
-      'rgba': 'rgba(0,0,0,.12)',
-      'alpha': '12%'
-    },
-    'color-srf-neutral-blacka16': {
-      'hex': '#000000',
-      'rgba': 'rgba(0,0,0,.16)',
-      'alpha': '16%'
-    },
-    'color-srf-neutral-blacka18': {
-      'hex': '#000000',
-      'rgba': 'rgba(0,0,0,.18)',
-      'alpha': '18%'
-    },
-    'color-srf-neutral-blacka20': {
-      'hex': '#000000',
-      'rgba': 'rgba(0,0,0,.2)',
-      'alpha': '20%'
-    },
-    'color-srf-neutral-blacka30': {
-      'hex': '#000000',
-      'rgba': 'rgba(0,0,0,.3)',
-      'alpha': '30%'
-    },
-    'color-srf-neutral-blacka32': {
-      'hex': '#000000',
-      'rgba': 'rgba(0,0,0,.32)',
-      'alpha': '32%'
-    },
-    'color-srf-neutral-blacka48': {
-      'hex': '#000000',
-      'rgba': 'rgba(0,0,0,.48)',
-      'alpha': '48%'
-    },
-    'color-srf-neutral-blacka50': {
-      'hex': '#000000',
-      'rgba': 'rgba(0,0,0,.5)',
-      'alpha': '50%'
-    },
-    'color-srf-neutral-blacka60': {
-      'hex': '#000000',
-      'rgba': 'rgba(0,0,0,.6)',
-      'alpha': '60%'
-    },
-    'color-srf-neutral-blacka70': {
-      'hex': '#000000',
-      'rgba': 'rgba(0,0,0,.7)',
-      'alpha': '70%'
-    },
-    'color-srf-neutral-blacka75': {
-      'hex': '#000000',
-      'rgba': 'rgba(0,0,0,.75)',
-      'alpha': '75%'
-    },
-    'color-srf-neutral-blacka80': {
-      'hex': '#000000',
-      'rgba': 'rgba(0,0,0,.8)',
-      'alpha': '80%'
-    },
-    'color-brand-facebook': {
-      'hex': '#3464a5',
-      'rgba': 'rgba(52,100,165,1)'
-    },
-    'color-brand-twitter': {
-      'hex': '#5aa8df',
-      'rgba': 'rgba(90,168,223,1)'
-    },
-    'color-brand-whatsapp': {
-      'hex': '#4ece5b',
-      'rgba': 'rgba(78,206,91,1)'
+    "red": {
+      "title": "SRF Red",
+      "varName": "color-srf-red",
+      "tints": {
+        "50": {
+          "hex": "#ffe6e6",
+          "rgba": "rgba(255,230,230,1)"
+        },
+        "100": {
+          "hex": "#ffbbbc",
+          "rgba": "rgba(255,187,188,1)"
+        },
+        "200": {
+          "hex": "#ff9193",
+          "rgba": "rgba(255,145,147,1)"
+        },      
+        "300": {
+          "hex": "#ff6669",
+          "rgba": "rgba(255,102,105,1)"
+        },
+        "400": {
+          "hex": "#f1434a",
+          "rgba": "rgba(241,67,74,1)"
+        },
+        "500": {
+          "hex": "#e31f2b",
+          "rgba": "rgba(227,31,43,1)"
+        },
+        "600": {
+          "hex": "#c91024",
+          "rgba": "rgba(201,16,36,1)",
+          "alpha": {
+            "00": {
+              "rgba": "rgba(201,16,36,0)"
+            },
+            "12": {
+              "rgba": "rgba(201,16,36,.12)"
+            },
+            "24": {
+              "rgba": "rgba(201,16,36,.24)"
+            }
+          }
+        },
+        "700": {
+          "hex": "#af001d",
+          "rgba": "rgba(175,0,29,1)",
+          "alpha": {
+            "00": {
+              "rgba": "rgba(175,0,29,1,0)"
+            }
+          }
+        },
+        "800": {
+          "hex": "#8d0614",
+          "rgba": "rgba(141,6,20,1)"
+        },
+        "900": {
+          "hex": "#6a0b0c",
+          "rgba": "rgba(106,11,12,1)"
+        }
+      }
+    },
+    "yellow": {
+      "title": "SRF Yellow",
+      "varName": "color-srf-yellow",
+      "tints": {
+        "50": {
+          "hex": "#fff9e6",
+          "rgba": "rgba(255,249,230,1)"
+        },
+        "100": {
+          "hex": "#ffedb4",
+          "rgba": "rgba(255,237,180,1)"
+        },
+        "200": {
+          "hex": "#ffe283",
+          "rgba": "rgba(255,226,131,1)"
+        },
+        "300": {
+          "hex": "#ffd651",
+          "rgba": "rgba(255,214,81,1)"
+        },
+        "400": {
+          "hex": "#fbbe29",
+          "rgba": "rgba(251,190,41,1)"
+        },
+        "500": {
+          "hex": "#f7a600",
+          "rgba": "rgba(247,166,0,1)"
+        },
+        "600": {
+          "hex": "#f28b02",
+          "rgba": "rgba(242,139,2,1)"
+        },
+        "700": {
+          "hex": "#ed7004",
+          "rgba": "rgba(237,112,4,1)",
+          "alpha": {
+            "00": {
+              "rgba": "rgba(237,112,4,0)"
+            }
+          }
+        },
+        "800": {
+          "hex": "cd570c",
+          "rgba": "rgba(205,87,12,1)"
+        },
+        "900": {
+          "hex": "#ad3e14",
+          "rgba": "rgba(173,62,20,1)"
+        }
+      }
+    },
+    "green": {
+      "title": "SRF Green",
+      "varName": "color-srf-green",
+      "tints": {
+        "50": {
+          "hex": "#e3fcf3",
+          "rgba": "rgba(227,252,243,1)"
+        },
+        "100": {
+          "hex": "#c2eedc",
+          "rgba": "rgba(194,238,220,1)"
+        },
+        "200": {
+          "hex": "#a0dfc6",
+          "rgba": "rgba(160,223,198,1)"
+        },
+        "300": {
+          "hex": "#7fd1af",
+          "rgba": "rgba(127,209,175,1)"
+        },
+        "400": {
+          "hex": "#4ec291",
+          "rgba": "rgba(78,194,145,1)"
+        },
+        "500": {
+          "hex": "#1cb373",
+          "rgba": "rgba(28,179,115,1)"
+        },
+        "600": {
+          "hex": "#19a067",
+          "rgba": "rgba(25,160,103,1)"
+        },
+        "700": {
+          "hex": "#168c5a",
+          "rgba": "rgba(22,140,90,1)",
+          "alpha": {
+            "00": {
+              "rgba": "rgba(22,140,90,0)"
+            }
+          }
+        },
+        "800": {
+          "hex": "#12734a",
+          "rgba": "rgba(18,115,74,1)"
+        },
+        "900": {
+          "hex": "#0e593a",
+          "rgba": "rgba(14,89,58,1)",
+          "alpha": {
+            "00": {
+              "rgba": "rgba(14,89,58,0)"
+            }
+          }
+        }
+      }
+    },
+    "blue": {
+      "title": "SRF Blue",
+      "varName": "color-srf-blue",
+      "tints": {
+        "50": {
+          "hex": "#e6f4ff",
+          "rgba": "rgba(230,244,255,1)"
+        },
+        "100": {
+          "hex": "#bbe1ff",
+          "rgba": "rgba(187,225,255,1)"
+        },
+        "200": {
+          "hex": "#91ceff",
+          "rgba": "rgba(145,206,255,1)"
+        },
+        "300": {
+          "hex": "#66bbff",
+          "rgba": "rgba(102,187,255,1)"
+        },
+        "400": {
+          "hex": "#42a3f1",
+          "rgba": "rgba(66,163,241,1)"
+        },
+        "500": {
+          "hex": "#1e8ce3",
+          "rgba": "rgba(30,140,227,1)"
+        },
+        "600": {
+          "hex": "#1a7ac5",
+          "rgba": "rgba(26,122,197,1)"
+        },
+        "650": {
+          "hex": "#1871b6",
+          "rgba": "rgba(24,113,182,1)"
+        },
+        "700": {
+          "hex": "#1667a7",
+          "rgba": "rgba(22,103,167,1)"
+        },
+        "750": {
+          "hex": "#135c94",
+          "rgba": "rgba(19,92,148,1)"
+        },
+        "800": {
+          "hex": "#105082",
+          "rgba": "rgba(16,80,130,1)",
+          "alpha": {
+            "00": {
+              "rgba": "rgba(16,80,130,0)"
+            }
+          }
+        },
+        "850": {
+          "hex": "#0d446f",
+          "rgba": "rgba(13,68,111,1)"
+        },
+        "900": {
+          "hex": "#0a385c",
+          "rgba": "rgba(10,56,92,1)",
+          "alpha": {
+            "00": {
+              "rgba": "rgba(10,56,92,0)"
+            }
+          }
+        },
+        "950": {
+          "hex": "#052d41",
+          "rgba": "rgba(5,45,65,1)"
+        }
+      }
+    },
+    "purple": {
+      "title": "SRF Purple",
+      "varName": "color-srf-purple",
+      "tints": {
+        "50": {
+          "hex": "#fce3f6",
+          "rgba": "rgba(252,227,246,1)"
+        },
+        "100": {
+          "hex": "#f4c9ea",
+          "rgba": "rgba(244,201,234,1)"
+        },
+        "200": {
+          "hex": "#ebb0dd",
+          "rgba": "rgba(235,176,221,1)"
+        },
+        "300": {
+          "hex": "#e396d1",
+          "rgba": "rgba(227,150,209,1)"
+        },
+        "400": {
+          "hex": "#d674c0",
+          "rgba": "rgba(214,116,192,1)"
+        },
+        "500": {
+          "hex": "#ca51af",
+          "rgba": "rgba(202,81,175,1)"
+        },
+        "600": {
+          "hex": "#bc399f",
+          "rgba": "rgba(188,57,159,1)"
+        },
+        "700": {
+          "hex": "#ad3492",
+          "rgba": "rgba(173,52,146,1)"
+        },
+        "800": {
+          "hex": "#932c7b",
+          "rgba": "rgba(147,44,123,1)"
+        },
+        "900": {
+          "hex": "#792465",
+          "rgba": "rgba(121,36,101,1)"
+        }
+      }
+    },
+    "warmgrey": {
+      "title": "SRF Warmgrey",
+      "varName": "color-srf-warmgrey",
+      "tints": {
+        "10": {
+          "hex": "#fafaf8",
+          "rgba": "rgba(250,250,248,1)",
+          "alpha": {
+            "00": {
+              "rgba": "rgba(250,250,248,0)"
+            }
+          }
+        },
+        "25": {
+          "hex": "#f5f5f2",
+          "rgba": "rgba(245,245,242,1)"
+        },
+        "50": {
+          "hex": "#ebebe5",
+          "rgba": "rgba(235,235,229,1)"
+        },
+        "100": {
+          "hex": "#dadad2",
+          "rgba": "rgba(218,218,210,1)"
+        },
+        "200": {
+          "hex": "#cac8bf",
+          "rgba": "rgba(202,200,191,1)"
+        },
+        "300": {
+          "hex": "#b9b7ac",
+          "rgba": "rgba(185,183,172,1)",
+          "alpha": {
+            "12": {
+              "rgba": "rgba(185,183,172,.12)"
+            },
+            "24": {
+              "rgba": "rgba(185,183,172,.24)"
+            }
+          }
+        },
+        "400": {
+          "hex": "#acaa9e",
+          "rgba": "rgba(172,170,158,1)"
+        },
+        "500": {
+          "hex": "#9f9c90",
+          "rgba": "rgba(159,156,144,1)"
+        },
+        "600": {
+          "hex": "#939184",
+          "rgba": "rgba(147,145,132,1)"
+        },
+        "700": {
+          "hex": "#888579",
+          "rgba": "rgba(136,133,121,1)"
+        },
+        "800": {
+          "hex": "#6b6960",
+          "rgba": "rgba(107,105,96,1)"
+        },
+        "900": {
+          "hex": "#4e4d47",
+          "rgba": "rgba(78,77,71,1)"
+        },
+        "1000": {
+          "hex": "#383732",
+          "rgba": "rgba(56,55,50,1)"
+        },
+        "1100": {
+          "hex": "#22211d",
+          "rgba": "rgba(34,33,29,1)",
+          "alpha": {
+            "00": {
+              "rgba": "rgba(34,33,29,0)"
+            },
+            "12": {
+              "rgba": "rgba(34,33,29,.12)"
+            },
+            "24": {
+              "rgba": "rgba(34,33,29,.24)"
+            }
+          }
+        }
+      }
+    },
+    "neutral": {
+      "title": "SRF Neutral",
+      "varName": "color-srf-neutral",
+      "tints": {
+        "white": {
+          "hex": "#ffffff",
+          "rgba": "rgba(255,255,255,1)",
+          "alpha": {
+            "00": {
+              "rgba": "rgba(255,255,255,0)"
+            },
+            "08": {
+              "rgba": "rgba(255,255,255,.08)"
+            },
+            "12": {
+              "rgba": "rgba(255,255,255,.12)"
+            },
+            "24": {
+              "rgba": "rgba(255,255,255,.24)"
+            },
+            "40": {
+              "rgba": "rgba(255,255,255,.4)"
+            },
+            "80": {
+              "rgba": "rgba(255,255,255,.8)"
+            }
+          }
+        },
+        "offwhite": {
+          "hex": "#fefefd",
+          "rgba": "rgba(254,254,253,1)",
+          "alpha": {
+            "00": {
+              "rgba": "rgba(254,254,253,0)"
+            }
+          }
+        },
+        "01": {
+          "hex": "#555555",
+          "rgba": "rgba(85,85,85,1)"
+        },
+        "02": {
+          "hex": "#333333",
+          "rgba": "rgba(51,51,51,1)"
+        },
+        "03": {
+          "hex": "#222222",
+          "rgba": "rgba(34,34,34,1)"
+        },
+        "04": {
+          "hex": "#111111",
+          "rgba": "rgba(17,17,17,1)"
+        },
+        "black": {
+          "hex": "#000000",
+          "rgba": "rgba(0,0,0,1)",
+          "alpha": {
+            "00": {
+              "rgba": "rgba(0,0,0,0)"
+            },
+            "04": {
+              "rgba": "rgba(0,0,0,.04)"
+            },
+            "08": {
+              "rgba": "rgba(0,0,0,.08)"
+            },
+            "10": {
+              "rgba": "rgba(0,0,0,.1)"
+            },
+            "12": {
+              "rgba": "rgba(0,0,0,.12)"
+            },
+            "16": {
+              "rgba": "rgba(0,0,0,.16)"
+            },
+            "18": {
+              "rgba": "rgba(0,0,0,.18)"
+            },
+            "20": {
+              "rgba": "rgba(0,0,0,.2)"
+            },
+            "30": {
+              "rgba": "rgba(0,0,0,.3)"
+            },
+            "32": {
+              "rgba": "rgba(0,0,0,.32)"
+            },
+            "48": {
+              "rgba": "rgba(0,0,0,.48)"
+            },
+            "50": {
+              "rgba": "rgba(0,0,0,.5)"
+            },
+            "60": {
+              "rgba": "rgba(0,0,0,.6)"
+            },
+            "70": {
+              "rgba": "rgba(0,0,0,.7)"
+            },
+            "80": {
+              "rgba": "rgba(0,0,0,.8)"
+            }
+          }
+        }
+      }
     }
   }
 %}
 
-<style>
-.demo-colors {
-  margin-top: 1.5rem;
-}
+{% include 'atoms-button' with {'styleModifier' : 'button--retry color-palette-button js-demo-alphas', 'buttonText' : 'Toggle the Alphas'} %}
 
-.select {
-  -webkit-touch-callout: all;
-  -webkit-user-select: all;
-  -moz-user-select: all;
-  -ms-user-select: all;
-  user-select: all;
-}
-.hasAlpha {
-  background-color: white;
-  background-image: linear-gradient(45deg, rgba(128,128,128,.1) 25%, transparent 25%, transparent 75%, rgba(128,128,128,.1) 75%, rgba(128,128,128,.1)),linear-gradient(45deg, rgba(128,128,128,.1) 25%, transparent 25%, transparent 75%, rgba(128,128,128,.1) 75%, rgba(128,128,128,.1));
-  background-size: 16px 16px;
-  background-position: 0 0, 8px 8px;
-}
-</style>
+<div class="color-palette">
+  {% for group in globalColors %}
+    <div class="color-palette-group">
+      <h2>{{ group.title }}</h2>
+      <ul>
+        {% for tint, tintCode  in group.tints %}
+            <li>
+              <article class="color-palette-color">
+                <div class="color-palette-swatch" style="background-color:{{ tintCode.rgba }}"></div>
+                <div class="color-palette-info">
+                  <span class="color-palette-title u-user-select">{{ group.varName }}-{{ tint }}</span><br />
+                  <span class="color-palette-code">{{ tintCode.hex }}</span><br />
+                  <span class="color-palette-code">{{ tintCode.rgba }}</span>
+                  {% for alpha, alphaCode in tintCode.alpha %}
+                    <div class="color-palette-color color-palette-color--mini">
+                      <div class="color-palette-swatch color-palette-swatch--mini" style="background-color:{{ alphaCode.rgba }}"></div>
+                      <div class="color-palette-info color-palette-info--mini">
+                        <span class="color-palette-title color-palette-title--mini u-user-select">{{ group.varName }}-{{ tint }}a{{ alpha }}</span><br />
+                        <span class="color-palette-code color-palette-code--mini">{{ alphaCode.rgba }} ({{ alpha }}%)</span>
+                      </div>
+                    </div>
+                  {% endfor %}
+                </div>
+              </article>
+            </li>
+        {% endfor %}
+      </ul>
+    </div>
+  {% endfor %}
+</div>
 
 <script>
 $(document).ready(function(){
   $('.js-demo-alphas').on('click', function(){
-    $('.hasAlpha').toggle();
+    $('.color-palette-color--mini').toggle();
   });
 });
 </script>
-
-{% include 'atoms-button' with {'styleModifier' : 'button--retry js-demo-alphas', 'buttonText' : 'Toggle the Alphas'} %}
-
-<ul class="demo-colors" id="introduction">
-  {% for colorName,colorCode in globalColors %}
-    <li class="demo-colors__item{% if colorCode.alpha is not empty %} hasAlpha{% endif %}">
-      <span class="demo-swatch" style="background: {{ colorCode.rgba }}"></span>
-      <span class="demo-label">
-        <strong class="select">{{ colorName }}</strong><br />
-        <span class="select">{{ colorCode.hex }}{% if colorCode.alpha is not empty %} (alpha {{ colorCode.alpha }}){% endif %}</span><br />
-        <span class="select">{{ colorCode.rgba }}</span>
-      </span>
-    </li>
-  {% endfor %}
-</ul>

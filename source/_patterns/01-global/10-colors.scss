@@ -1,0 +1,80 @@
+@import "../variables";
+@import "../mixins";
+
+.color-palette-button {
+  margin: 0 auto 1.125rem;
+}
+
+.color-palette {
+  background: rgba(252,252,252,1);
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.color-palette-group {
+  flex: 1 0 auto;
+  margin: 0 1rem;
+  margin-bottom: 12rem;
+}
+
+.color-palette-title,
+.color-palette-code {
+  line-height: $emphasize-line-height-ratio;
+}
+
+
+.color-palette-title {
+  @include fontSize(16);
+  font-family: $font-regular;
+}
+
+.color-palette-code {
+  @include fontSize(14);
+  font-family: $font-light;
+}
+
+.color-palette-title--mini,
+.color-palette-code--mini {
+  @include fontSize(12);
+  line-height: 1;
+}
+
+.color-palette-color {
+  display: flex;
+}
+
+.color-palette-color--mini {
+  margin-top: .5rem;
+}
+
+.color-palette-color--mini:first-of-type {
+  margin-top: 1rem;
+}
+
+.color-palette-color--mini:last-of-type {
+  margin-bottom: .5rem;
+}
+
+.color-palette-swatch {
+  width: 5rem;
+  height: 5rem;
+  margin-right: .5rem;
+}
+
+.color-palette-swatch--mini {
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 1px solid $color-srf-neutral-01;
+}
+
+.color-palette-info--mini {
+  margin-top: -.334rem;
+}
+
+.u-user-select {
+  -webkit-touch-callout: all;
+  -webkit-user-select: all;
+  -moz-user-select: all;
+  -ms-user-select: all;
+  user-select: all;
+}
