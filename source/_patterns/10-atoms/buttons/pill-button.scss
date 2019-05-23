@@ -1,0 +1,53 @@
+.pill-button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+
+  height: 56px;
+  padding: 0 40px;
+  margin: 0 10px;
+  border-radius: 28px;
+  font-family: $font-regular;
+  @include fontSize(16);
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: #4e4d47;
+  background: no-repeat;
+  background-clip: padding-box;
+  background-color: #fafaf8;
+  box-shadow: $shadow-elevation1;
+
+  &:hover {
+    box-shadow: $shadow-elevation8;
+    transition: all .2s ease-in-out;
+    color: #22211d;
+    filter: brightness(1.05);
+  }
+}
+
+.pill-button__text {
+  white-space: nowrap;
+}
+
+.pill-button--icon-only {
+  padding: 0;
+  min-width: 56px;
+}
+
+.pill-button--themed {
+  background-image: linear-gradient(to right, var(--theme-color-gradient-1), var(--theme-color-gradient-2));
+}
+
+.pill-button--primary {
+  box-shadow: 0 0 12px rgba(247, 166, 0, 0.6), $shadow-elevation1;
+
+  &:hover {
+    box-shadow: 0 0 8px rgba(247, 166, 0, 0.6), $shadow-elevation8;
+  }
+}
+
+.pill-button--theme-radio-srf-1 {
+  --theme-color-gradient-1: yellow;
+  --theme-color-gradient-2: orange;
+}

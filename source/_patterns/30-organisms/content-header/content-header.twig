@@ -4,7 +4,14 @@
         <div class="content-header__slot content-header__slot--first">First Slot<br><br></div>
         <div class="content-header__slot content-header__slot--second">Second Slot<br><br></div>
         <div class="content-header__slot content-header__slot--third">Third Slot<br><br></div>
-        <div class="content-header__buttonbar content-header__buttonbar--primary">Primary Buttonbar</div>
-        <div class="content-header__buttonbar content-header__buttonbar--secondary">Secondary Buttonbar</div>
+        <div class="content-header__buttonbar content-header__buttonbar--primary">
+            {% include 'atoms-pill-button' with {'styleModifier': 'pill-button--primary pill-button--themed pill-button--theme-radio-srf-1'} %}
+            {% include 'atoms-pill-button' with {'styleModifier': 'pill-button--icon-only', 'buttonText': 'X'} %}
+        </div>
+        <div class="content-header__buttonbar content-header__buttonbar--secondary">
+            {% include 'atoms-pill-button' with {'buttonText': 'Kontakt ins Studio'} %}
+            {% include 'atoms-pill-button' with {'styleModifier': 'pill-button--icon-only', 'buttonText': 'X'} %}
+            {% include 'atoms-pill-button' with {'styleModifier': 'pill-button--icon-only', 'buttonText': 'X'} %}
+        </div>
     </div>
 </div>
