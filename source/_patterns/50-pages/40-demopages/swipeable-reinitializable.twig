@@ -20,12 +20,21 @@
 
         {% include 'organisms-collection' with {
             'collection': {
-                'styleModifier': 'collection--swipeable',
-                "title": "News Schweiz",
-                "titleLink": "https://www-test.srf.ch/news/wirtschaft",
-                "lead": "1996 schrieb John Perry Barlow die «Unabhängigkeitserklärung des Cyberspace». Darin kritisierte er Poeten.",
-                "type": "swipeable",
-                "teasers": collections[0].teasers[0:5]
+                "styleModifier": "collection--swipeable collection--branded collection--search-results collection--search-results--empty",
+                "title": "in Sendungen, Video und Audio",
+                "titleLink": "#",
+                "swipeable": true,
+                "teasers": [],
+                "theme": {
+                    "colorStart": "#111111",
+                    "colorEnd": "#111111"
+                },
+                "links": [
+                    {
+                        "title": "Weiter zu Play SRF",
+                        "link": "https://www.srf.ch/play"
+                    }
+                ]
             }
         } %}
     {% endblock %}
@@ -72,16 +81,20 @@
         let $collection = $(".js-collection"),
             $btnAddTeaser = $(".js-button--more-teasers"),
             $btnRemoveTeaser = $(".js-button--less-teasers"),
-            $btnRandomTeasers = $(".js-button--random-teasers");
+            $btnRandomTeasers = $(".js-button--random-teasers"),
+            afterContentUpdate = () => {
+                $collection.toggleClass("collection--search-results--empty", $collection.find(".js-swipeable-area-item").length === 0);
+                $collection.find(".js-swipeable-area").trigger("srf.swipeable.content-changed");
+            };
 
         $btnAddTeaser.on("click", function() {
             $collection.find(".js-swipeable-area-wrapper ul").append(createTeaser(randomTitle(), randomLead()));
-            $collection.find(".js-swipeable-area").trigger("srf.swipeable.content-changed");
+            afterContentUpdate();
         });
 
         $btnRemoveTeaser.on("click", function() {
             $collection.find(".js-swipeable-area-item").last().remove();
-            $collection.find(".js-swipeable-area").trigger("srf.swipeable.content-changed");
+            afterContentUpdate();
         });
 
         $btnRandomTeasers.on("click", function() {
@@ -91,7 +104,7 @@
             for (let i = 0; i < nrOfTeasers; i++) {
                 $collection.find(".js-swipeable-area-wrapper ul").append(createTeaser(randomTitle(), randomLead()));
             }
-            $collection.find(".js-swipeable-area").trigger("srf.swipeable.content-changed");
+            afterContentUpdate();
         });
     });
 </script>

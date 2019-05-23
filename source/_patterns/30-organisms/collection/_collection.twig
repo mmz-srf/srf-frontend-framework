@@ -1,4 +1,4 @@
-{% set swipeable = ('collection--swipeable' in collection.styleModifier or 'collection--compact-swipeable' in collection.styleModifier) and collection.teasers|length > 3 %}
+{% set swipeable = collection.swipeable|default(('collection--swipeable' in collection.styleModifier or 'collection--compact-swipeable' in collection.styleModifier) and collection.teasers|length > 3) %}
 {% set branded = 'collection--branded' in collection.styleModifier %}
 {% set selectable = 'collection--selectable' in collection.styleModifier %}
 {% set renderTitlePrecusor = 'collection--search-results' in collection.styleModifier %}
