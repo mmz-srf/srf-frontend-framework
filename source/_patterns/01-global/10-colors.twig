@@ -368,6 +368,10 @@
 %}
 
 <style>
+.demo-colors {
+  margin-top: 1.5rem;
+}
+
 .select {
   -webkit-touch-callout: all;
   -webkit-user-select: all;
@@ -382,6 +386,16 @@
   background-position: 0 0, 8px 8px;
 }
 </style>
+
+<script>
+$(document).ready(function(){
+  $('.js-demo-alphas').on('click', function(){
+    $('.hasAlpha').toggle();
+  });
+});
+</script>
+
+{% include 'atoms-button' with {'styleModifier' : 'button--retry js-demo-alphas', 'buttonText' : 'Toggle the Alphas'} %}
 
 <ul class="demo-colors" id="introduction">
   {% for colorName,colorCode in globalColors %}
