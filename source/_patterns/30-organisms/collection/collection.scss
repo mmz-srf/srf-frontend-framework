@@ -907,11 +907,15 @@ $background-overlap-wide: 50px;
 }
 
 .collection--search-results {
+  .collection__teaser-item,
+  .collection__teaser-item:last-child {
+    padding-bottom: 0;
+  }
+
   @include smartphone {
     // show 2 teasers (+ some of a 3rd) on mobile instead of just 1
     .collection__teaser-item,
     .collection__teaser-item:last-child {
-      padding-bottom: 0;
       min-width: calc((100% - 40px) / 2.00001);
     }
 
