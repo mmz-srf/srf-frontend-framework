@@ -852,7 +852,7 @@ $background-overlap-wide: 50px;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    min-height: 48px; // in case there's no title-logo
+    min-height: 40px; // in case there's no title-logo
 
     @include smartphone {
       margin: 0 24px;
