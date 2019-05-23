@@ -770,7 +770,6 @@ $background-overlap-wide: 50px;
   }
 }
 
-// Has an additional button on the top right that leads to a selection screen to change between groups of teasers
 .collection--selectable {
   margin-top: 0;
   overflow: hidden;
@@ -783,6 +782,10 @@ $background-overlap-wide: 50px;
     flex-direction: row;
     justify-content: space-between;
     align-items: start; // don't center button, always keep in top right corner
+  }
+
+  .collection__title-text {
+    flex-grow: 1;
   }
 
   .selectable-button {
@@ -834,7 +837,80 @@ $background-overlap-wide: 50px;
   }
 }
 
+// has an additional button on the top right and an image to the left (i.e. a flag, optional)
+.collection--with-title-button {
+  overflow: hidden;
+  --theme-color-nav: #{$color-text-accentuation};
+  --theme-selection-button-color: $color-text-default;
+  --theme-selection-button-bg: #ebebe5;
+
+  @include smartphone {
+    margin-top: 18px;
+  }
+
+  .collection__title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 48px; // in case there's no title-logo
+
+    @include smartphone {
+      margin: 0 24px;
+    }
+
+    @include tablet-up {
+      margin: 0 32px;
+    }
+
+    @include desktop-wide {
+      margin: 0 40px;
+    }
+  }
+
+  .collection__title-logo {
+    flex-grow: 0;
+    flex-shrink: 0;
+    @include IESafeFlexBasis(48px);
+    height: 39px;
+
+    img {
+      display: inline-block;
+      width: 32px;
+      height: 100%;
+    }
+  }
+
+  .collection__title-text {
+    flex-grow: 1;
+    line-height: 1.07;
+  }
+
+  .collection__title-button {
+    font-family: $font-regular;
+    @include fontSize(18);
+    line-height: $emphasize-line-height-ratio;
+    color: $color-text-default;
+  }
+
+  .collection__title-button-text {
+    @include smartphone {
+      @include offscreen-non-focusable;
+    }
+  }
+
+  .collection__title-button-text-mobile {
+    @include tablet-up {
+      display: none;
+    }
+  }
+}
+
 .collection--search-results {
+  .collection__teaser-item,
+  .collection__teaser-item:last-child {
+    padding-bottom: 0;
+  }
 
   .collection__title {
     line-height: 1.21;
@@ -854,7 +930,6 @@ $background-overlap-wide: 50px;
     // show 2 teasers (+ some of a 3rd) on mobile instead of just 1
     .collection__teaser-item,
     .collection__teaser-item:last-child {
-      padding-bottom: 0;
       min-width: calc((100% - 40px) / 2.00001);
     }
 
@@ -887,6 +962,11 @@ $background-overlap-wide: 50px;
     &::after {
       content: "'";
     }
+  }
+
+  // branding-wrapper should not have padding
+  &.collection.collection--branded .collection__branding-wrapper {
+    padding: 0;
   }
 }
 
