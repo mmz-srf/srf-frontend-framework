@@ -22,13 +22,13 @@
 .search-wrapper {
   /* fallback */
   background-color: $color-srf-neutral-offwhite;
-  border: 1px solid $color-srf-neutral-blacka08;
+  border: 1px solid $color-srf-neutral-blacka20;
   border-bottom: 0;
 
   /* theme */
   @supports (--foo: bar) {
     background-color: var(--theme-color-bg-search, $color-srf-neutral-offwhite);
-    border: var(--theme-search-border, 1px solid $color-srf-neutral-blacka08);
+    border: var(--theme-search-border, 1px solid $color-srf-neutral-blacka20);
     border-bottom: var(--theme-search-border-bottom, 0);
   }
 
@@ -40,7 +40,6 @@
   .search-wrapper {
     box-shadow: $shadow-elevation4;
     background-color: $color-srf-neutral-offwhite;
-    border: 1px solid $color-srf-neutral-blacka08;
     border-bottom: 0;
     position: relative;
     z-index: 1;
@@ -49,14 +48,12 @@
 
 .search__input--wrapper {
   display: flex;
-  border-bottom: solid 1px $color-srf-neutral-blacka08;
+  border-bottom: 1px solid $color-srf-neutral-blacka20;
 }
 
 .search__icon {
-  background-image: url(../img/search-sprite.svg);
-  background-position: 10px -32px;
-  background-size: 28px;
-  background-repeat: no-repeat;
+  background: url(../img/search-sprite.svg) no-repeat 4px -52px;
+  background-size: 36px;
   width: 48px;
   flex-shrink: 0;
 
@@ -84,9 +81,8 @@
   height: 100%;
   width: calc(100% + 48px);
   @include fontSize(16);
-  font-family: $font-light;
+  font-family: $font-regular;
   line-height: 1.1; // line-height 1 cuts off "bottom parts of letters"
-  letter-spacing: .6px;
   color: $color-srf-warmgrey-800;
   background: transparent;
   border: 0;
@@ -137,7 +133,7 @@
 .typeahead-suggestion {
   display: block;
   background-image: none;
-  border-bottom: 0px;
+  border-bottom: 0;
   margin: 0;
   padding: 0;
 
@@ -168,11 +164,12 @@
     display: block;
     width: 100%;
     @include fontSize(16);
-    font-weight: 300;
+    font-family: $font-regular;
     text-align: left;
     color: $color-srf-warmgrey-1100;
     text-decoration: none;
     padding: 12px 24px;
+    @include font-smoothing;
 
     @include tablet-up {
       padding-left: 24px;
@@ -203,5 +200,9 @@
   &:active,
   &:focus {
     background-color: $color-srf-warmgrey-300a24;
+  }
+
+  strong {
+    font-family: $font-bold;
   }
 }
