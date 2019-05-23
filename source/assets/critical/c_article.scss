@@ -75,17 +75,17 @@
 }
 
 .sharing-bar__button--facebook {
-  background-color: #3464A5;
+  background-color: $color-brand-facebook;
 }
 .sharing-bar__button--twitter {
-  background-color: #5AA8DF;
+  background-color: $color-brand-twitter;
 }
 .sharing-bar__button--comment {
   background-color: $color-srf-warmgrey-900;
 }
 .sharing-bar__button--whatsapp {
   display: none;
-  background-color: #4ECE5B;
+  background-color: $color-brand-whatsapp;
 
   @include smartphone {
     display: inline-block
