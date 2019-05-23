@@ -482,7 +482,9 @@
   }
 %}
 
-{% include 'atoms-button' with {'styleModifier' : 'button--retry color-palette-button js-demo-alphas', 'buttonText' : 'Toggle the Alphas'} %}
+<div class="color-palette-checkbox">
+  {% include 'atoms-checkbox' with { 'fieldID': 'alphas', 'required': true, 'hintFieldlID': hintFieldID, 'styleModifier': 'js-demo-alphas', 'checkboxText': 'Hide Alphas' } %}
+</div>
 
 <div class="color-palette">
   {% for group in globalColors %}
@@ -517,7 +519,7 @@
 
 <script>
 $(document).ready(function(){
-  $('.js-demo-alphas').on('click', function(){
+  $('#alphas').on('change', function(){
     $('.color-palette-color--mini').toggle();
   });
 });
