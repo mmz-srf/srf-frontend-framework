@@ -949,6 +949,11 @@ $background-overlap-wide: 50px;
       content: "'";
     }
   }
+
+  // branding-wrapper should not have padding
+  &.collection.collection--branded .collection__branding-wrapper {
+    padding: 0;
+  }
 }
 
 // only shows the teaser-links
