@@ -1,0 +1,18 @@
+{
+    "collection": {
+        "styleModifier": "collection--swipeable collection--branded collection--search-results collection--search-results--empty",
+        "title": "in Sendungen, Video und Audio",
+        "titleLink": "#",
+        "teasers": [],
+        "theme": {
+            "colorStart": "#111111",
+            "colorEnd": "#111111"
+        },
+        "links": [
+            {
+                "title": "Weiter zu Play SRF",
+                "link": "https://www.srf.ch/play"
+            }
+        ]
+    }
+}

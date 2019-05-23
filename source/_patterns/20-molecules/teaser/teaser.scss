@@ -996,4 +996,22 @@
   }
 }
 
+.teaser--search-result {
+  @include smartphone {
+    .teaser__title {
+      @include fontSize(14);
+    }
+
+    .teaser__content {
+      margin-left: 12px;
+    }
+  }
+
+  .teaser-info {
+    @include tablet-up {
+      @include fontSize(14);
+    }
+  }
+}
+
 /* autoprefixer grid: off */
