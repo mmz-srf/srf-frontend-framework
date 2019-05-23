@@ -836,6 +836,20 @@ $background-overlap-wide: 50px;
 
 .collection--search-results {
 
+  .collection__title {
+    line-height: 1.21;
+    margin-top: 0;
+    margin-bottom: 26px;
+  }
+
+  .collection__title-link {
+    font-family: $font-regular;
+  }
+
+  .collection__link {
+    font-family: $font-regular;
+  }
+
   @include smartphone {
     // show 2 teasers (+ some of a 3rd) on mobile instead of just 1
     .collection__teaser-item,
