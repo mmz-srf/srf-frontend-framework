@@ -55,6 +55,9 @@ export class FefSwipeableArea {
     init() {
         this.$items = $(`.${ITEM_CLASS}`, this.$innerContainer);
 
+        // scroll back to the beginning (matters when swipeable was reinitialized)
+        this.scrollToPosition(0, 0);
+
         if (FefResponsiveHelper.isDesktopUp() && !FefTouchDetection.isTouchSupported()) {
             this.registerDesktopListeners();
             this.markItems();
