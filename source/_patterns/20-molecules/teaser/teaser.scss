@@ -1012,6 +1012,12 @@
       @include fontSize(14);
     }
   }
+
+  // REALLY enforce & center 16:9 images
+  .teaser__medium {
+    position: absolute;
+    height: 100%;
+  }
 }
 
 /* autoprefixer grid: off */
