@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.3 (57544) - http://www.bohemiancoding.com/sketch -->
+    <title>Icons/Facebook_Icon_Outline_Color</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Icons/Facebook_Icon_Outline_Color" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+        <g id="social-media-facebook" transform="translate(6.000000, 0.000000)" stroke="#3464A5">
+            <path d="M12.768,7.5 L8.5,7.5 L8.5,5.6 C8.46160432,5.31374267 8.5524997,5.02523615 8.74804774,4.81268392 C8.94359579,4.6001317 9.2235408,4.48555084 9.512,4.5 C9.93,4.5 12.5,4.51 12.5,4.51 L12.5,0.5 L8.171,0.5 C4.244,0.5 3.5,3.474 3.5,5.355 L3.5,7.5 L0.5,7.5 L0.5,11.5 L3.5,11.5 L3.5,23.5 L8.5,23.5 L8.5,11.5 L12.351,11.5 L12.768,7.5 Z" id="Shape"></path>
+        </g>
+    </g>
+</svg>

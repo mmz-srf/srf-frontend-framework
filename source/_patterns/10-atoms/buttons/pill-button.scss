@@ -26,6 +26,16 @@
   }
 }
 
+.pill-button__icon {
+  width: 24px;
+  height: 24px;
+
+  // add a space between button and an existing text
+  & + .pill-button__text:not(:empty) {
+    margin-left: 8px;
+  }
+}
+
 .pill-button__text {
   white-space: nowrap;
 }

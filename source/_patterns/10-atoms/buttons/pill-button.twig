@@ -1,4 +1,7 @@
+
 <a href="#" class="pill-button {{ styleModifier }}">
-    <span class="pill-button__icon"></span>
-    <span class="pill-button__text">{{ buttonText|default("Jetzt hören") }}</span>
+    {% if buttonIcon %}
+        <span class="pill-button__icon">{% include 'atoms-svg-icon' with {'styleModifier': buttonIcon} %}</span>
+    {% endif %}
+    <span class="pill-button__text">{{ buttonText|default('') }}</span>
 </a>
