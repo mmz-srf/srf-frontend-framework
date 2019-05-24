@@ -417,6 +417,12 @@ body.body--loading.body--loading {
     }
   }
 
+  .collection--search-results--empty {
+    .collection__title {
+      display: none;
+    }
+  }
+
   .teaser {
     display: flex;
     flex-grow: 1;
