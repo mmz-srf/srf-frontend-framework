@@ -1013,9 +1013,10 @@
     }
   }
 
-  // REALLY enforce 16:9 images
+  // REALLY enforce & center 16:9 images
   .teaser__medium {
     position: absolute;
+    height: 100%;
   }
 }
 
