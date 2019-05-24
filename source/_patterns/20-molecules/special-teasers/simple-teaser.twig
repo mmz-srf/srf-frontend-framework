@@ -1,0 +1,20 @@
+<div class="simple-teaser">
+    <div class="simple-teaser__content">
+        <div class="h-loading-only">
+            <div class="shimmer shimmer--overline"></div>
+            <div class="shimmer"></div>
+            <div class="shimmer shimmer--short"></div>
+        </div>
+        {% if kicker is defined and kicker is not empty %}
+            <div class="simple-teaser__kicker">{{ kicker|trim }}</div>
+        {% endif %}
+
+        {% if title is defined and title is not empty %}
+            <div class="simple-teaser__title">{{ title|trim }}</div>
+        {% endif %}
+
+        {% if lead is defined and lead is not empty %}
+            <div class="simple-teaser__lead">{{ lead|trim }}</div>
+        {% endif %}
+    </div>
+</div>

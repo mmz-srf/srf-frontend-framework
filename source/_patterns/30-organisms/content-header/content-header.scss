@@ -25,6 +25,15 @@
   flex-wrap: wrap;
   max-width: $desktop-wide-size;
   margin: 0 auto;
+  padding: abs($collection-gap - 24px);
+
+  @include tablet-up {
+    padding: #{$collection-gap-tablet-up - 24px};
+  }
+
+  @include desktop-wide {
+    padding: #{$collection-gap-desktop-wide - 24px};
+  }
 }
 
 .content-header__slot {
@@ -47,6 +56,8 @@
 }
 
 .content-header__slot--first {
+  display: flex;
+
   @include tablet {
     @include IESafeFlexBasis(50%);
     border-right: 1px solid $color-separator-column;
@@ -83,6 +94,23 @@
   }
 }
 
+.content-header__station-logo {
+  flex-basis: calc(80px + 16px);
+  flex-shrink: 0;
+  flex-grow: 0;
+  padding-right: 16px;
+
+  img {
+    width: 100%;
+  }
+
+  @include desktop-up {
+    flex-basis: calc(96px + 20px);
+    padding-right: 20px;
+  }
+
+}
+
 .content-header__buttonbar {
   display: flex;
   flex-grow: 0;
@@ -105,10 +133,18 @@
 
 .content-header__buttonbar--primary {
   @include smartphone {
+    justify-content: center;
     order: 2;
   }
   @include tablet {
     order: 3;
+  }
+
+  .content-header__button {
+    margin-right: 20px;
+    @include smartphone {
+      margin: 0 10px;
+    }
   }
 }
 
@@ -116,9 +152,17 @@
   justify-content: flex-end;
 
   @include smartphone {
+    justify-content: center;
     order: 5;
   }
   @include tablet {
     order: 5;
+  }
+
+  .content-header__button {
+    margin-left: 20px;
+    @include smartphone {
+      margin: 0 10px;
+    }
   }
 }
