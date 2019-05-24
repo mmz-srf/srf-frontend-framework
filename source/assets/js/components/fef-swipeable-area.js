@@ -302,12 +302,18 @@ export class FefSwipeableArea {
 
         if (position <= 0) {
             willBeOutOfBoundsOnAnySide = true;
-            this.$buttonBack.removeClass(BUTTON_ACTIVE_CLASS);
+
+            if (this.$buttonBack) {
+                this.$buttonBack.removeClass(BUTTON_ACTIVE_CLASS);
+            }
         }
 
         if (position + this.$innerContainer.innerWidth() >= this.$innerContainer[0].scrollWidth) {
             willBeOutOfBoundsOnAnySide = true;
-            this.$buttonForward.removeClass(BUTTON_ACTIVE_CLASS);
+
+            if (this.$buttonForward) {
+                this.$buttonForward.removeClass(BUTTON_ACTIVE_CLASS);
+            }
         }
 
         if (willBeOutOfBoundsOnAnySide) {
