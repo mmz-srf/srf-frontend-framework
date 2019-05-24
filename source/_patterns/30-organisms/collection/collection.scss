@@ -895,17 +895,35 @@ $background-overlap-wide: 50px;
 }
 
 .collection--search-results {
+  .collection__teaser-item,
+  .collection__teaser-item:last-child {
+    padding-bottom: 0;
+  }
+
+  .collection__title {
+    line-height: 1.21;
+    margin-bottom: 26px;
+  }
+
+  .collection__title-link {
+    font-family: $font-regular;
+  }
+
+  .collection__link {
+    font-family: $font-regular;
+  }
+
   @include smartphone {
     // show 2 teasers (+ some of a 3rd) on mobile instead of just 1
     .collection__teaser-item,
     .collection__teaser-item:last-child {
-      padding-bottom: 0;
       min-width: calc((100% - 40px) / 2.00001);
     }
 
-    // slightly smaller font size on mobile
+    // slightly smaller font size on mobile, smaller gap between title and teasers
     .collection__title {
       @include fontSize(20);
+      margin-bottom: 12px;
     }
   }
 
@@ -932,6 +950,11 @@ $background-overlap-wide: 50px;
     &::after {
       content: "'";
     }
+  }
+
+  // branding-wrapper should not have padding
+  &.collection.collection--branded .collection__branding-wrapper {
+    padding: 0;
   }
 }
 
