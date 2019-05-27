@@ -474,13 +474,13 @@ $background-overlap-wide: 50px;
 
 
     @include tablet-up {
-      min-width: calc((100% - 32px - 44px) / 3.00001 ); // 32px: left gap between Collection and Teaser; 44px: visible part of the first 'overflowed' item
+      min-width: calc((100% - 32px - 44px) / 3.00001); // 32px: left gap between Collection and Teaser; 44px: visible part of the first 'overflowed' item
       padding-bottom: 16px;
       padding-right: 12px;
     }
 
     @include desktop-wide {
-      min-width: calc((100% - 40px - 56px) / 3.00001 );
+      min-width: calc((100% - 40px - 56px) / 3.00001);
       padding-right: 16px;
       padding-bottom: 20px;
     }
@@ -502,11 +502,11 @@ $background-overlap-wide: 50px;
     // the other collections
     &:last-child {
       @include tablet-up {
-        min-width: calc(((100% - 32px - 44px)/3.00001) + 18px);
+        min-width: calc(((100% - 32px - 44px) / 3.00001) + 18px);
       }
 
       @include desktop-wide {
-        min-width: calc((100% - 40px - 56px) / 3.00001 + 24px );
+        min-width: calc((100% - 40px - 56px) / 3.00001 + 24px);
       }
 
       &::after {
@@ -538,10 +538,10 @@ $background-overlap-wide: 50px;
         min-width: calc(50% - (56px / 3) - 12px + 20px);
 
         &::after {
-            content: '';
-            flex-grow: 0;
-            flex-shrink: 0;
-            @include IESafeFlexBasis(20px);
+          content: '';
+          flex-grow: 0;
+          flex-shrink: 0;
+          @include IESafeFlexBasis(20px);
         }
       }
     }
@@ -663,7 +663,7 @@ $background-overlap-wide: 50px;
   }
 
   .collection__link {
-      background-color: rgba(255, 255, 255, .08);
+    background-color: rgba(255, 255, 255, .08);
 
     &:hover {
       background-color: rgba(255, 255, 255, .12);
@@ -942,16 +942,17 @@ $background-overlap-wide: 50px;
   .collection__links {
     margin-top: 12px;
     margin-bottom: 12px;
+    display: none
   }
 
   // links are as wide as a teaser on tablet+
   .collection__link-item {
     @include tablet-up {
-      min-width: calc((100% - 48px) / 3.00001 );
+      min-width: calc((100% - 48px) / 3.00001);
     }
 
     @include desktop-wide {
-      min-width: calc((100% - 64px) / 3.00001 );
+      min-width: calc((100% - 64px) / 3.00001);
     }
   }
 
@@ -987,5 +988,9 @@ $background-overlap-wide: 50px;
   .collection__teaser-list,
   .collection__title-precursor {
     display: none;
+  }
+
+  .collection__links {
+    display: block;
   }
 }
