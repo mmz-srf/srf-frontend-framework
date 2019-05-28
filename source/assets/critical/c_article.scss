@@ -395,7 +395,7 @@ body::after {
   background: $color-srf-warmgrey-25;
   margin: 0;
   .medium__object {
-    background: $color-srf-neutral-04;
+    background: $color-srf-neutral-1000;
   }
   .media-still,
   .image {
@@ -423,7 +423,7 @@ body::after {
 .carousel-container--fullwidth-element {
   position: relative;
   overflow: hidden;
-  background-color: $color-srf-neutral-04;
+  background-color: $color-srf-neutral-1000;
   height: 0;
   padding-top: 56.25%;
   &::after {

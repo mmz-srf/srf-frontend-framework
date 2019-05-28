@@ -31,7 +31,7 @@
 .medium__object {
   flex-shrink: 0;
   width: 196px;
-  background-color: $color-srf-neutral-04;
+  background-color: $color-srf-neutral-1000;
 
   @include smartphone {
     margin: 16px 0 16px 24px;
@@ -40,7 +40,7 @@
 }
 
 .medium__notice {
-  background: $color-srf-neutral-03;
+  background: $color-srf-neutral-900;
   font-family: $font-regular;
   @include fontSize(12);
   @include font-smoothing;

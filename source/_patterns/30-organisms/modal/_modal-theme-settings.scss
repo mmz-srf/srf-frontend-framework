@@ -22,7 +22,7 @@
 
 /* COMMON SETTINGS FOR ALL THEMES EXCEPT DEFAULT */
 .modal.modal--theme-dark {
-  --theme-color-background: linear-gradient(135deg, #{$color-srf-neutral-04}, #{$color-srf-neutral-04});
+  --theme-color-background: linear-gradient(135deg, #{$color-srf-neutral-1000}, #{$color-srf-neutral-1000});
   --theme-icon-filter: invert(100%) contrast(600%);
 
   --theme-color-nav: #{$color-srf-neutral-white};
