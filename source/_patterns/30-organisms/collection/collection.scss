@@ -799,7 +799,7 @@ $background-overlap-wide: 50px;
   }
 
   &.collection--branded {
-    --theme-color-nav: $color-srf-neutral-white;
+    --theme-color-nav: #{$color-srf-neutral-white};
     --theme-icon-filter: brightness(1000%);
 
     .selectable__button {
@@ -827,9 +827,9 @@ $background-overlap-wide: 50px;
 // has an additional button on the top right and an image to the left (i.e. a flag, optional)
 .collection--with-title-button {
   overflow: hidden;
-  --theme-color-nav: #{$color-text-accentuation};
-  --theme-selection-button-color: $color-text-default;
-  --theme-selection-button-bg: #ebebe5;
+  --theme-color-nav: #{$color-srf-warmgrey-900};
+  --theme-selection-button-color: #{$color-srf-warmgrey-1100};
+  --theme-selection-button-bg: #{$color-srf-warmgrey-50};
 
   @include smartphone {
     margin-top: 18px;
@@ -877,7 +877,7 @@ $background-overlap-wide: 50px;
     font-family: $font-regular;
     @include fontSize(18);
     line-height: $emphasize-line-height-ratio;
-    color: $color-text-default;
+    color: $color-srf-warmgrey-1100;
   }
 
   .collection__title-button-text {
