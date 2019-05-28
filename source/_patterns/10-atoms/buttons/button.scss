@@ -78,6 +78,10 @@ $button-animation-duration: .3s;
   }
 }
 
+.button--no-spacing {
+  margin-top: 0;
+}
+
 .button--pending {
 
   &:hover,
