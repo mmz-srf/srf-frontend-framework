@@ -407,27 +407,27 @@ _:-ms-fullscreen,
   .scoreboard__col-2 {
     grid-column: 2;
   }
-  
+
   .scoreboard__col-3 {
     grid-column: 3;
   }
-  
+
   .scoreboard__col-4 {
     grid-column: 4;
   }
-  
+
   .scoreboard__col-5 {
     grid-column: 5;
   }
-  
+
   .scoreboard__row-1 {
     grid-row: 1;
   }
-  
+
   .scoreboard__row-2 {
     grid-row: 2;
   }
-  
+
   .scoreboard__row-3 {
     grid-row: 3;
   }
@@ -443,4 +443,35 @@ _:-ms-fullscreen,
     top: 0;
     height: calc(100% - 1px);
   }
+}
+
+/**
+ * TARGETED BROWSER: IE11
+ * When the supported browser list contains ie11, autoprefixer for grid shows a warning that
+ * there are unused grid areas. This ugly workaround hides the warning at buildtime.
+ */
+.canton-map__unused-grid-area {
+  grid-area: aa;
+  grid-area: ab;
+  grid-area: ac;
+  grid-area: ad;
+  grid-area: ae;
+  grid-area: ag;
+  grid-area: ah;
+  grid-area: ba;
+  grid-area: bb;
+  grid-area: ca;
+  grid-area: cb;
+  grid-area: da;
+  grid-area: eb;
+  grid-area: ed;
+  grid-area: eg;
+  grid-area: eh;
+  grid-area: fa;
+  grid-area: fb;
+  grid-area: fc;
+  grid-area: fd;
+  grid-area: fe;
+  grid-area: fg;
+  grid-area: fh;
 }
