@@ -233,16 +233,11 @@ body.body--loading.body--loading {
         flex-grow: 0;
         flex-shrink: 0;
         @include IESafeFlexBasis(33.3333334%);
-        padding: 0 $teaser-col-gap-tablet-up 32px 0;
 
         &:nth-child(1),
         &:nth-child(2) {
           flex-basis: 50%;
         }
-      }
-
-      @include desktop-wide {
-        padding: 0 $teaser-col-gap-desktop-wide 40px 0;
       }
     }
   }
