@@ -62,6 +62,8 @@
 }
 
 /* THEME-SPECIFIC SETTINGS */
+
+/* SRF Main Portals */
 .masthead.masthead--theme-sport {
   --theme-color-gradient-1: #{$theme-sport-color-1};
   --theme-color-gradient-2: #{$theme-sport-color-2};
@@ -99,7 +101,63 @@
   --theme-color-pager-end-transparent: #{$theme-dok-color-bg-pager-end-transparent};
 }
 
+/* SRF Radio Portals */
+.masthead.masthead--theme-radio_srf_1 {
+  --theme-color-gradient-1: #{$theme-radio-srf-1-color-1};
+  --theme-color-gradient-2: #{$theme-radio-srf-1-color-2};
+  --theme-color-pager-start: #{$theme-radio-srf-1-color-bg-pager-start};
+  --theme-color-pager-start-transparent: #{$theme-radio-srf-1-color-bg-pager-start-transparent};
+  --theme-color-pager-end: #{$theme-radio-srf-1-color-bg-pager-end};
+  --theme-color-pager-end-transparent: #{$theme-radio-srf-1-color-bg-pager-end-transparent};
+  --theme-color-nav: #22211d;
+  --theme-color-active: #000;
+  --theme-color-nav-active-border: #000;
+  --theme-color-bg-hover: rgba(0,0,0,0.08);
+  --theme-color-bg-active: rgba(0,0,0,0.12);
+}
 
+.masthead.masthead--theme-radio-srf_2_kultur {
+  --theme-color-gradient-1: #{$theme-radio-srf-2-color-1};
+  --theme-color-gradient-2: #{$theme-radio-srf-2-color-2};
+  --theme-color-pager-start: #{$theme-radio-srf-2-color-bg-pager-start};
+  --theme-color-pager-start-transparent: #{$theme-radio-srf-2-color-bg-pager-start-transparent};
+  --theme-color-pager-end: #{$theme-radio-srf-2-color-bg-pager-end};
+  --theme-color-pager-end-transparent: #{$theme-radio-srf-2-color-bg-pager-end-transparent};
+}
+
+.masthead.masthead--theme-radio_srf_3 {
+  --theme-color-gradient-1: #{$theme-radio-srf-3-color-1};
+  --theme-color-gradient-2: #{$theme-radio-srf-3-color-2};
+  --theme-color-pager-start: #{$theme-radio-srf-3-color-bg-pager-start};
+  --theme-color-pager-start-transparent: #{$theme-radio-srf-3-color-bg-pager-start-transparent};
+  --theme-color-pager-end: #{$theme-radio-srf-3-color-bg-pager-end};
+  --theme-color-pager-end-transparent: #{$theme-radio-srf-3-color-bg-pager-end-transparent};
+}
+
+.masthead.masthead--theme-radio_srf_musikwelle {
+  --theme-color-gradient-1: #{$theme-radio-srf-musikwelle-color-1};
+  --theme-color-gradient-2: #{$theme-radio-srf-musikwelle-color-2};
+  --theme-color-pager-start: #{$theme-radio-srf-musikwelle-color-bg-pager-start};
+  --theme-color-pager-start-transparent: #{$theme-radio-srf-musikwelle-color-bg-pager-start-transparent};
+  --theme-color-pager-end: #{$theme-radio-srf-musikwelle-color-bg-pager-end};
+  --theme-color-pager-end-transparent: #{$theme-radio-srf-musikwelle-color-bg-pager-end-transparent};
+}
+
+.masthead.masthead--theme-radio_srf_virus {
+  --theme-color-gradient-1: #{$theme-radio-srf-virus-color-1};
+  --theme-color-gradient-2: #{$theme-radio-srf-virus-color-2};
+  --theme-color-pager-start: #{$theme-radio-srf-virus-color-bg-pager-start};
+  --theme-color-pager-start-transparent: #{$theme-radio-srf-virus-color-bg-pager-start-transparent};
+  --theme-color-pager-end: #{$theme-radio-srf-virus-color-bg-pager-end};
+  --theme-color-pager-end-transparent: #{$theme-radio-srf-virus-color-bg-pager-end-transparent};
+  --theme-color-nav: #22211d;
+  --theme-color-active: #000;
+  --theme-color-nav-active-border: #000;
+  --theme-color-bg-hover: rgba(0,0,0,0.08);
+  --theme-color-bg-active: rgba(0,0,0,0.12);
+}
+
+/* RTR Portals */
 .masthead.masthead--theme-rtr_novitads {
   --theme-color-gradient-1: #{$theme-rtr-novitads-color-1};
   --theme-color-gradient-2: #{$theme-rtr-novitads-color-2};
@@ -152,53 +210,4 @@
   --theme-color-pager-start-transparent: #{$theme-rtr-interpresa-color-bg-pager-start-transparent};
   --theme-color-pager-end: #{$theme-rtr-interpresa-color-bg-pager-end};
   --theme-color-pager-end-transparent: #{$theme-rtr-interpresa-color-bg-pager-end-transparent};
-}
-
-.masthead.masthead--theme-radio_srf_1 {
-  --theme-color-gradient-1: #{$theme-radio-srf-1-color-1};
-  --theme-color-gradient-2: #{$theme-radio-srf-1-color-2};
-  --theme-color-pager-start: #{$theme-radio-srf-1-color-bg-pager-start};
-  --theme-color-pager-start-transparent: #{$theme-radio-srf-1-color-bg-pager-start-transparent};
-  --theme-color-pager-end: #{$theme-radio-srf-1-color-bg-pager-end};
-  --theme-color-pager-end-transparent: #{$theme-radio-srf-1-color-bg-pager-end-transparent};
-  --theme-color-active: #000;
-  --theme-color-nav-active-border: #000;
-}
-
-.masthead.masthead--theme-radio-srf_2_kultur {
-  --theme-color-gradient-1: #{$theme-radio-srf-2-color-1};
-  --theme-color-gradient-2: #{$theme-radio-srf-2-color-2};
-  --theme-color-pager-start: #{$theme-radio-srf-2-color-bg-pager-start};
-  --theme-color-pager-start-transparent: #{$theme-radio-srf-2-color-bg-pager-start-transparent};
-  --theme-color-pager-end: #{$theme-radio-srf-2-color-bg-pager-end};
-  --theme-color-pager-end-transparent: #{$theme-radio-srf-2-color-bg-pager-end-transparent};
-}
-
-.masthead.masthead--theme-radio_srf_3 {
-  --theme-color-gradient-1: #{$theme-radio-srf-3-color-1};
-  --theme-color-gradient-2: #{$theme-radio-srf-3-color-2};
-  --theme-color-pager-start: #{$theme-radio-srf-3-color-bg-pager-start};
-  --theme-color-pager-start-transparent: #{$theme-radio-srf-3-color-bg-pager-start-transparent};
-  --theme-color-pager-end: #{$theme-radio-srf-3-color-bg-pager-end};
-  --theme-color-pager-end-transparent: #{$theme-radio-srf-3-color-bg-pager-end-transparent};
-}
-
-.masthead.masthead--theme-radio_srf_musikwelle {
-  --theme-color-gradient-1: #{$theme-radio-srf-musikwelle-color-1};
-  --theme-color-gradient-2: #{$theme-radio-srf-musikwelle-color-2};
-  --theme-color-pager-start: #{$theme-radio-srf-musikwelle-color-bg-pager-start};
-  --theme-color-pager-start-transparent: #{$theme-radio-srf-musikwelle-color-bg-pager-start-transparent};
-  --theme-color-pager-end: #{$theme-radio-srf-musikwelle-color-bg-pager-end};
-  --theme-color-pager-end-transparent: #{$theme-radio-srf-musikwelle-color-bg-pager-end-transparent};
-}
-
-.masthead.masthead--theme-radio_srf_virus {
-  --theme-color-gradient-1: #{$theme-radio-srf-virus-color-1};
-  --theme-color-gradient-2: #{$theme-radio-srf-virus-color-2};
-  --theme-color-pager-start: #{$theme-radio-srf-virus-color-bg-pager-start};
-  --theme-color-pager-start-transparent: #{$theme-radio-srf-virus-color-bg-pager-start-transparent};
-  --theme-color-pager-end: #{$theme-radio-srf-virus-color-bg-pager-end};
-  --theme-color-pager-end-transparent: #{$theme-radio-srf-virus-color-bg-pager-end-transparent};
-  --theme-color-active: #000;
-  --theme-color-nav-active-border: #000;
 }
