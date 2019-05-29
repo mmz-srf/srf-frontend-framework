@@ -1,4 +1,5 @@
 @import "modal-theme-settings";
+@import "../../mixins";
 
 .modal {
   display: none;
@@ -27,6 +28,29 @@
   overflow-y: scroll;
   overflow-x: hidden;
   box-shadow: $shadow-elevation8;
+  background-color: red !important;
+
+  @include smartphone {
+    &::before {
+      position: fixed;
+      top: -100px;
+      left: 0;
+      height: 100px;
+      width: 100%;
+      background-color: yellow;
+      content: '';
+    }
+
+    &::after {
+      position: fixed;
+      left: 0;
+      bottom: -50px;
+      background-color: red;
+      height: 100px;
+      width: 100%;
+      content: '';
+    }
+  }
 
   @include momentumScrolling;
 }
