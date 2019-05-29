@@ -1,6 +1,8 @@
 @import "modal-theme-settings";
 @import "../../mixins";
 
+$modal-z-index: 100;
+
 .modal {
   display: none;
   position: fixed;
@@ -8,7 +10,7 @@
   width: 100%;
   left: 0;
   height: 100%;
-  z-index: 100;
+  z-index: $modal-z-index;
 }
 
 .modal-main-wrapper {
@@ -29,6 +31,7 @@
   overflow-x: hidden;
   box-shadow: $shadow-elevation8;
   background-color: red !important;
+  z-index: $modal-z-index;
 
   @include smartphone {
 
