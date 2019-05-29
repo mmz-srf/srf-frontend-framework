@@ -1,139 +1,86 @@
-/*** COLORS ***/
-$color-accentuation-red: #c91024 !default;
-$color-bg-page: #f5f5f2 !default;
-$color-bg-caption: #f5f5f2 !default;
-$color-bg-box: #ebebe5 !default;
-$color-bg-box-hover: #dadad2 !default;
-$color-bg-box-focus: #cac8bf !default;
-$color-bg-card: #fefefd !default;
-$color-link-default: $color-accentuation-red !default;
-$color-link-hover: #8d0614 !default;
-$color-link-active: #6a0b0c !default;
-$color-link-bg-hover: #fafaf8 !default;
-$color-link-bg-active: $color-bg-caption !default;
-$color-list-bullet: $color-accentuation-red !default;
-$color-separator: $color-bg-box !default;
-$color-separator-column: #f5f5f2 !default;
-$color-text-default: #22211d !default;
-$color-text-accentuation: #4e4d47 !default;
-$color-text-light: #6b6960 !default;
-$color-text-semi-light: #383732 !default;
-$color-text-branded: #ffffff !default;
-$color-text-branded-dark: $color-text-default !default;
-$color-table-bg-zebra-light: $color-link-bg-hover !default;
-$color-table-bg-zebra-dark: $color-bg-caption !default;
-$color-table-bg-header: $color-bg-box !default;
-$color-border: #cac8bf !default;
-$color-border-medium: #D2D2D2 !default;
-$color-tab-option-link: #6b6960 !default;
-$color-button-default: #6b6960 !default;
-$color-button-active: #888579 !default;
-$color-button-active-secondary: $color-border !default;
-$color-button-success: #1a7ac5 !default;
-$color-bg-button-transparent: rgba(185, 183, 172, 0) !default;
-$color-bg-button-hover: rgba(185, 183, 172, .12) !default;
-$color-bg-button-focus: rgba(185, 183, 172, .24) !default;
-$color-form-field: #b9b7ac !default;
-$color-form-field-hint: #6b6960 !default;
-$color-bg-facebook: rgb(58,89,153) !default;
-$color-bg-facebook-hover: rgb(78,105,162) !default;
-$color-bg-facebook-active: rgb(105,128,176) !default;
-$color-bg-twitter: rgb(86,173,239) !default;
-$color-bg-twitter-hover: rgb(102,180,239) !default;
-$color-bg-twitter-active: rgb(125,191,242) !default;
-$color-bg-media: #111111 !default;
-$color-media-playing: #383732 !default;
-$color-nav-bg-hover: rgba(185, 183, 172, 0.12) !default;
-$color-nav-bg-active: rgba(185, 183, 172, 0.24) !default;
-$color-nav-divider: rgba(0, 0, 0, 0.08) !default;
-$color-srf: #AF001E;
-$color-srf-light: #E31F2B;
-$color-image-dummy: #dadad2 !default;
-$color-bg-teaser-supplement: #fafaf8 !default;
-$color-bg-score-default: #f7a600 !default;
-$color-bg-score-live: $color-srf-light !default;
-$color-link-bg-unboxed: $color-bg-teaser-supplement;
-$color-link-bg-unboxed-hover: #fefefc !default;
-$color-link-bg-unboxed-active: #ffffff !default;
-$color-bg-opinion-teaser: #fafaf8 !default;
+@import 'colors';
 
-/*** THEMING ***/
-$theme-default-color-1: #FEFEFD;
-$theme-default-color-2: #FAFAF8;
-$theme-default-color-bg-pager-start: rgba(254, 254, 253, 1);
-$theme-default-color-bg-pager-start-transparent: rgba(254, 254, 253, 0);
-$theme-default-color-bg-pager-end: rgba(250, 250, 248, 1);
-$theme-default-color-bg-pager-end-transparent: rgba(250, 250, 248, 0);
+/*** Header-Themes ***/
+// Header-Themes SRF
+$theme-default-color-1:                                       $color-srf-neutral-offwhite;
+$theme-default-color-2:                                       $color-srf-warmgrey-10;
+$theme-default-color-bg-pager-start:                          $color-srf-neutral-offwhite;
+$theme-default-color-bg-pager-start-transparent:              $color-srf-neutral-offwhitea00;
+$theme-default-color-bg-pager-end:                            $color-srf-warmgrey-10;
+$theme-default-color-bg-pager-end-transparent:                $color-srf-warmgrey-10a00;
 
-$theme-sport-color-1: #ED7004;
-$theme-sport-color-2: #C91024;
-$theme-sport-color-bg-pager-start: rgba(237, 112, 4, 1);
-$theme-sport-color-bg-pager-start-transparent: rgba(237, 112, 4, 0);
-$theme-sport-color-bg-pager-end: rgba(201, 16, 36, 1);
-$theme-sport-color-bg-pager-end-transparent: rgba(201, 16, 36, 0);
+$theme-sport-color-1:                                         $color-srf-yellow-700;
+$theme-sport-color-2:                                         $color-srf-red-600;
+$theme-sport-color-bg-pager-start:                            $color-srf-yellow-700;
+$theme-sport-color-bg-pager-start-transparent:                $color-srf-yellow-700a00;
+$theme-sport-color-bg-pager-end:                              $color-srf-red-600;
+$theme-sport-color-bg-pager-end-transparent:                  $color-srf-red-600a00;
 
-$theme-meteo-color-1: #105082;
-$theme-meteo-color-2: #0A385C;
-$theme-meteo-color-bg-pager-start: rgba(16, 80, 130, 1);
-$theme-meteo-color-bg-pager-start-transparent: rgba(16, 80, 130, 0);
-$theme-meteo-color-bg-pager-end: rgba(10, 56, 92, 1);
-$theme-meteo-color-bg-pager-end-transparent: rgba(10, 56, 92, 0);
+$theme-meteo-color-1:                                         $color-srf-blue-800;
+$theme-meteo-color-2:                                         $color-srf-blue-900;
+$theme-meteo-color-bg-pager-start:                            $color-srf-blue-800;
+$theme-meteo-color-bg-pager-start-transparent:                $color-srf-blue-800a00;
+$theme-meteo-color-bg-pager-end:                              $color-srf-blue-900;
+$theme-meteo-color-bg-pager-end-transparent:                  $color-srf-blue-900a00;
 
-$theme-kultur-color-1: #C91D7D;
-$theme-kultur-color-2: #8C1D60;
-$theme-kultur-color-bg-pager-start: rgba(201, 29, 125, 1);
-$theme-kultur-color-bg-pager-start-transparent: rgba(173, 52, 146, 0);
-$theme-kultur-color-bg-pager-end: rgba(140, 29, 96, 1);
-$theme-kultur-color-bg-pager-end-transparent: rgba(121, 36, 101, 0);
+$theme-kultur-color-1:                                        $color-brand-srf-kultur-1;
+$theme-kultur-color-2:                                        $color-brand-srf-kultur-2;
+$theme-kultur-color-bg-pager-start:                           $color-brand-srf-kultur-1;
+$theme-kultur-color-bg-pager-start-transparent:               $color-srf-purple-700a00;
+$theme-kultur-color-bg-pager-end:                             $color-brand-srf-kultur-2;
+$theme-kultur-color-bg-pager-end-transparent:                 $color-srf-purple-900a00;
 
-$theme-dok-color-1: #4B7F5B;
-$theme-dok-color-2: #154E60;
-$theme-dok-color-bg-pager-start: rgba(75, 127, 91, 1);
-$theme-dok-color-bg-pager-start-transparent: rgba(22, 140, 90, 0);
-$theme-dok-color-bg-pager-end: rgba(21, 78, 96, 1);
-$theme-dok-color-bg-pager-end-transparent: rgba(14, 89, 58, 0);
+$theme-dok-color-1:                                           $color-brand-srf-dok-1;
+$theme-dok-color-2:                                           $color-brand-srf-dok-2;
+$theme-dok-color-bg-pager-start:                              $color-brand-srf-dok-1;
+$theme-dok-color-bg-pager-start-transparent:                  $color-srf-green-700a00;
+$theme-dok-color-bg-pager-end:                                $color-brand-srf-dok-2;
+$theme-dok-color-bg-pager-end-transparent:                    $color-srf-green-900a00;
 
-$theme-rtr-novitads-color-1: #d92a5d;
-$theme-rtr-novitads-color-2: #b83151;
-$theme-rtr-novitads-color-bg-pager-start: rgba(217, 42, 93, 1);
-$theme-rtr-novitads-color-bg-pager-start-transparent: rgba(217, 42, 93, 0);
-$theme-rtr-novitads-color-bg-pager-end: rgba(184, 49, 81, 1);
-$theme-rtr-novitads-color-bg-pager-end-transparent: rgba(184, 49, 81, 0);
+// Header-Themes RTR
+$theme-rtr-novitads-color-1:                                  $color-brand-rtr-novitads-1;
+$theme-rtr-novitads-color-2:                                  $color-brand-rtr-novitads-2;
+$theme-rtr-novitads-color-bg-pager-start:                     $color-brand-rtr-novitads-1;
+$theme-rtr-novitads-color-bg-pager-start-transparent:         $color-brand-rtr-novitads-1a00;
+$theme-rtr-novitads-color-bg-pager-end:                       $color-brand-rtr-novitads-2;
+$theme-rtr-novitads-color-bg-pager-end-transparent:           $color-brand-rtr-novitads-2a00;
 
-$theme-rtr-cultura-color-1: #8f44c9;
-$theme-rtr-cultura-color-2: #5f1a7d;
-$theme-rtr-cultura-color-bg-pager-start: rgba(143, 68, 201, 1);
-$theme-rtr-cultura-color-bg-pager-start-transparent: rgba(143, 68, 201, 0);
-$theme-rtr-cultura-color-bg-pager-end: rgba(95, 26, 125, 1);
-$theme-rtr-cultura-color-bg-pager-end-transparent: rgba(95, 26, 125, 0);
+$theme-rtr-cultura-color-1:                                   $color-brand-rtr-cultura-1;
+$theme-rtr-cultura-color-2:                                   $color-brand-rtr-cultura-2;
+$theme-rtr-cultura-color-bg-pager-start:                      $color-brand-rtr-cultura-1;
+$theme-rtr-cultura-color-bg-pager-start-transparent:          $color-brand-rtr-cultura-1a00;
+$theme-rtr-cultura-color-bg-pager-end:                        $color-brand-rtr-cultura-2;
+$theme-rtr-cultura-color-bg-pager-end-transparent:            $color-brand-rtr-cultura-2a00;
 
-$theme-rtr-sport-color-1: #e2731f;
-$theme-rtr-sport-color-2: #c7411e;
-$theme-rtr-sport-color-bg-pager-start: rgba(226, 115, 31, 1);
-$theme-rtr-sport-color-bg-pager-start-transparent: rgba(226, 115, 31, 0);
-$theme-rtr-sport-color-bg-pager-end: rgba(199, 65, 30, 1);
-$theme-rtr-sport-color-bg-pager-end-transparent: rgba(199, 65, 30, 0);
+$theme-rtr-sport-color-1:                                     $color-brand-rtr-sport-1;
+$theme-rtr-sport-color-2:                                     $color-brand-rtr-sport-2;
+$theme-rtr-sport-color-bg-pager-start:                        $color-brand-rtr-sport-1;
+$theme-rtr-sport-color-bg-pager-start-transparent:            $color-brand-rtr-sport-1a00;
+$theme-rtr-sport-color-bg-pager-end:                          $color-brand-rtr-sport-2;
+$theme-rtr-sport-color-bg-pager-end-transparent:              $color-brand-rtr-sport-2a00;
 
-$theme-rtr-uffants-color-1: #3c997b;
-$theme-rtr-uffants-color-2: #458c5a;
-$theme-rtr-uffants-color-bg-pager-start: rgba(60, 153, 123, 1);
-$theme-rtr-uffants-color-bg-pager-start-transparent: rgba(60, 153, 123, 0);
-$theme-rtr-uffants-color-bg-pager-end: rgba(69, 140, 90, 1);
-$theme-rtr-uffants-color-bg-pager-end-transparent: rgba(69, 140, 90, 0);
+$theme-rtr-uffants-color-1:                                   $color-brand-rtr-uffants-1;
+$theme-rtr-uffants-color-2:                                   $color-brand-rtr-uffants-2;
+$theme-rtr-uffants-color-bg-pager-start:                      $color-brand-rtr-uffants-1;
+$theme-rtr-uffants-color-bg-pager-start-transparent:          $color-brand-rtr-uffants-1a00;
+$theme-rtr-uffants-color-bg-pager-end:                        $color-brand-rtr-uffants-2;
+$theme-rtr-uffants-color-bg-pager-end-transparent:            $color-brand-rtr-uffants-2a00;
 
-$theme-rtr-archivar-color-1: #47464b;
-$theme-rtr-archivar-color-2: #232326;
-$theme-rtr-archivar-color-bg-pager-start: rgba(71, 70, 75, 1);
-$theme-rtr-archivar-color-bg-pager-start-transparent: rgba(71, 70, 75, 0);
-$theme-rtr-archivar-color-bg-pager-end: rgba(35, 35, 38, 1);
-$theme-rtr-archivar-color-bg-pager-end-transparent: rgba(35, 35, 38, 0);
+$theme-rtr-archivar-color-1:                                  $color-brand-rtr-archivar-1;
+$theme-rtr-archivar-color-2:                                  $color-brand-rtr-archivar-2;
+$theme-rtr-archivar-color-bg-pager-start:                     $color-brand-rtr-archivar-1;
+$theme-rtr-archivar-color-bg-pager-start-transparent:         $color-brand-rtr-archivar-1a00;
+$theme-rtr-archivar-color-bg-pager-end:                       $color-brand-rtr-archivar-2;
+$theme-rtr-archivar-color-bg-pager-end-transparent:           $color-brand-rtr-archivar-2a00;
 
-$theme-rtr-interpresa-color-1: #c91024;
-$theme-rtr-interpresa-color-2: #af001d;
-$theme-rtr-interpresa-color-bg-pager-start: rgba(201, 16, 36, 1);
-$theme-rtr-interpresa-color-bg-pager-start-transparent: rgba(201, 16, 36, 0);
-$theme-rtr-interpresa-color-bg-pager-end: rgba(175, 0, 29, 1);
-$theme-rtr-interpresa-color-bg-pager-end-transparent: rgba(175, 0, 29, 0);
+$theme-rtr-interpresa-color-1:                                $color-srf-red-600;
+$theme-rtr-interpresa-color-2:                                $color-srf-red-700;
+$theme-rtr-interpresa-color-bg-pager-start:                   $color-srf-red-600;
+$theme-rtr-interpresa-color-bg-pager-start-transparent:       $color-srf-red-600a00;
+$theme-rtr-interpresa-color-bg-pager-end:                     $color-srf-red-700;
+$theme-rtr-interpresa-color-bg-pager-end-transparent:         $color-srf-red-700a00;
+
+
 
 /*** FONTS ***/
 $font-bold: 'SRG_SSR_Bold', sans-serif !default;
@@ -142,35 +89,44 @@ $font-regular: 'SRG_SSR_Regular', sans-serif !default;
 $font-light: 'SRG_SSR_Light', sans-serif !default;
 $font-serif: 'SRG_SSR_Serif_Regular', serif !default;
 
+// System UI font stack, for details see
+// => for IE11 support: NEVER use font: size/line-height $font-system; (short form) but font-family: $font-system instead!
+// https://www.smashingmagazine.com/2015/11/using-system-ui-fonts-practical-guide/
+$font-system: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",  sans-serif;
+
+
+
+/*** LINE HEIGHTS ***/
 $default-line-height-ratio: 1.5 !default;
 
-// i.e. Short lead, description
+// e.g. Short lead, description
 $secondary-line-height-ratio: 1.35 !default;
 
-// i.e. Headings, Teaser
+// e.g. Headings, Teaser
 $emphasize-line-height-ratio: 1.25 !default;
+
+
 
 /*** IMAGE SIZES ***/
 $image-size-preview: 92px !default;
 $image-size-preview-gallery: 68px !default;
 
-// System UI font stack, for details see
-// https://www.smashingmagazine.com/2015/11/using-system-ui-fonts-practical-guide/
-$font-system: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",  sans-serif;
-// => for IE11 support: NEVER use font: size/line-height $font-system; (short form) but font-family: $font-system instead!
+
 
 /*** SHADOWS ***/
 // References: https://app.zeplin.io/project/5850263ad407f4ca12956e5d/screen/5880e352ba72814f33f7cc9b
 // => Bug in Safari/WebKit for elevation1. Design: «mir würded vorerscht mitem bug läbe» (2018-08)
 // => DEMO -> https://codepen.io/albuvee/full/qyJKMe/
 // => BUG -> https://bugs.webkit.org/show_bug.cgi?id=188446
-$shadow-elevation1:  0 0px  1px 0 rgba(0,0,0,.16), 0 0  1px 0 rgba(0,0,0,.08);
-$shadow-elevation2:  0 1px  2px 0 rgba(0,0,0,.16), 0 0  2px 0 rgba(0,0,0,.08);
-$shadow-elevation4:  0 2px  4px 0 rgba(0,0,0,.16), 0 0  4px 0 rgba(0,0,0,.08);
-$shadow-elevation6:  0 3px  6px 0 rgba(0,0,0,.16), 0 0  6px 0 rgba(0,0,0,.08);
-$shadow-elevation8:  0 4px  8px 0 rgba(0,0,0,.16), 0 0  8px 0 rgba(0,0,0,.08);
-$shadow-elevation12: 0 6px 12px 0 rgba(0,0,0,.16), 0 0 12px 0 rgba(0,0,0,.08);
-$shadow-elevation16: 0 8px 16px 0 rgba(0,0,0,.16), 0 0 16px 0 rgba(0,0,0,.08);
+$shadow-elevation1:  0 0px  1px 0 $color-srf-neutral-blacka16, 0 0  1px 0 $color-srf-neutral-blacka08;
+$shadow-elevation2:  0 1px  2px 0 $color-srf-neutral-blacka16, 0 0  2px 0 $color-srf-neutral-blacka08;
+$shadow-elevation4:  0 2px  4px 0 $color-srf-neutral-blacka16, 0 0  4px 0 $color-srf-neutral-blacka08;
+$shadow-elevation6:  0 3px  6px 0 $color-srf-neutral-blacka16, 0 0  6px 0 $color-srf-neutral-blacka08;
+$shadow-elevation8:  0 4px  8px 0 $color-srf-neutral-blacka16, 0 0  8px 0 $color-srf-neutral-blacka08;
+$shadow-elevation12: 0 6px 12px 0 $color-srf-neutral-blacka16, 0 0 12px 0 $color-srf-neutral-blacka08;
+$shadow-elevation16: 0 8px 16px 0 $color-srf-neutral-blacka16, 0 0 16px 0 $color-srf-neutral-blacka08;
+
+
 
 /*** BREAKPOINT AND CONTENT related variables ***/
 $smartphone-size: 320px !default;
@@ -180,14 +136,22 @@ $desktop-wide-size: 1280px !default;
 $content-width: 1200px !default; // max-width ($widedesktopsize = 1280) - 2 * 40px (Outside Gutter)
 $content-max-width: 1480px !default;
 
+
+
 /*** ANIMATIONS ***/
 $easing-in-out-standard: cubic-bezier(0.4, 0.0, 0.2, 1);
+
+
 
 /*** BREADCRUMB ***/
 $breadcrumb-touch-area-expansion: 8px !default;
 
+
+
 /*** ICONS ***/
 $play-button-border-size: 2px;
+
+
 
 /*** COLLECTIONS ***/
 // defined here and not in collection.scss because they are also used in the critical css
@@ -199,11 +163,13 @@ $teaser-col-gap-desktop-wide: 32px;
 $teaser-xl-medium-ratio: 65.75%;
 
 
+
 /*** ICONS ***/
 // defined here because it's needed in two different places
-$color-play-icon-normal: rgba(0, 0, 0, .32);
-$color-play-icon-active: #f1434a;
-$color-play-icon-hover:  $color-srf-light;
+$color-play-icon-normal: $color-srf-neutral-blacka32;
+$color-play-icon-active: $color-srf-red-400;
+$color-play-icon-hover:  $color-srf-red-500;
+
 
 
 /*** ARTICLE ***/

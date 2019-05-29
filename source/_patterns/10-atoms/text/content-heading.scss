@@ -6,7 +6,7 @@
   font-family: $font-medium;
   @include fontSize(24);
   line-height: $emphasize-line-height-ratio;
-  color: $color-text-default;
+  color: $color-srf-warmgrey-1100;
 
   @include article-text-padding;
 

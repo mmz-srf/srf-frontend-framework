@@ -11,7 +11,7 @@ html {
 
 body {
   font-family: "SRG_SSR_Light", sans-serif;
-  background-color: $color-bg-page;
+  background-color: $color-srf-warmgrey-25;
   margin: 0;
 }
 
@@ -21,7 +21,7 @@ html, body {
 
 a {
   text-decoration: none;
-  color: #c91024;
+  color: $color-srf-red-600;
 }
 
 .h-offscreen {

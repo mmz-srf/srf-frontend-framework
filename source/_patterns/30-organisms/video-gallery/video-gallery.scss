@@ -30,13 +30,13 @@
       }
 
       &:hover {
-        background-color: #ebebe5;
+        background-color: $color-srf-warmgrey-50;
       }
 
       &:active,
       &:focus {
         outline: none;
-        background-color: #dadad2;
+        background-color: $color-srf-warmgrey-100;
       }
 
       &.slick-disabled {
@@ -152,7 +152,7 @@
       font-family: $font-system;
       @include fontSize(28);
       line-height: 10px;
-      color: #000;
+      color: $color-srf-neutral-blacka10;
       opacity: .2;
     }
 

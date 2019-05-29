@@ -9,7 +9,7 @@
   margin: 0 0 24px;
   font-family: $font-light;
   @include fontSize(20);
-  color: $color-text-default;
+  color: $color-srf-warmgrey-1100;
 
   @include smartphone {
     @include fontSize(18);
