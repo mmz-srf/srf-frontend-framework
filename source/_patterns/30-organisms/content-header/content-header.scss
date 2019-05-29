@@ -65,11 +65,11 @@
 
   @include tablet {
     @include IESafeFlexBasis(50%);
-    border-right: 1px solid $color-separator-column;
+    border-right: 1px solid $color-srf-warmgrey-25;
   }
 
   @include desktop-up {
-      border-right: 1px solid $color-separator-column;
+      border-right: 1px solid $color-srf-warmgrey-25;
   }
 }
 
@@ -85,7 +85,7 @@
 
   @include desktop-up {
     .content-header__slot--first {
-      border-right: 1px solid $color-separator-column;
+      border-right: 1px solid $color-srf-warmgrey-25;
     }
   }
 }
