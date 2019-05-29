@@ -5,7 +5,7 @@
   display: flex;
   align-items: flex-start;
   margin: 32px 0;
-  background-color: $color-bg-caption;
+  background-color: $color-srf-warmgrey-25;
   flex-wrap: wrap; // the technical player (TP) is on the same level and has to wrap around
 
   @include smartphone {
@@ -13,13 +13,13 @@
   }
 
   &:hover {
-    background-color: $color-bg-box;
+    background-color: $color-srf-warmgrey-50;
   }
 }
 
 .medium--no-hover {
   &:hover {
-    background-color: $color-bg-caption;
+    background-color: $color-srf-warmgrey-25;
   }
 }
 
@@ -31,7 +31,7 @@
 .medium__object {
   flex-shrink: 0;
   width: 196px;
-  background-color: $color-bg-media;
+  background-color: $color-srf-neutral-1000;
 
   @include smartphone {
     margin: 16px 0 16px 24px;
@@ -40,12 +40,12 @@
 }
 
 .medium__notice {
-  background: #222;
+  background: $color-srf-neutral-900;
   font-family: $font-regular;
   @include fontSize(12);
   @include font-smoothing;
   line-height: $secondary-line-height-ratio;
-  color: #fafaf8;
+  color: $color-srf-warmgrey-10;
 }
 
 .medium__notice-text {
@@ -62,7 +62,7 @@
 
 .medium__player-wrapper {
   flex: 0 0 100%;
-  background-color: #000;
+  background-color: $color-srf-neutral-black;
 }
 
 .medium--fullwidth-element,
@@ -224,7 +224,7 @@
 
   &,
   &:hover {
-    background-color: #ffffff;
+    background-color: $color-srf-neutral-white;
   }
 
   .media-caption__title {
@@ -242,13 +242,13 @@
   }
 
   .media-caption--hover {
-    background-color: #fafaf8;
+    background-color: $color-srf-warmgrey-10;
   }
 }
 
 .medium--active,
 .medium--active:hover {
-  background-color: $color-media-playing;
+  background-color: $color-srf-warmgrey-1000;
 
   &.medium--related-items {
     @include tablet-up {
@@ -259,13 +259,13 @@
 
   &.medium--related-items--video,
   &.medium--related-items--video:hover {
-    background-color: $color-link-bg-hover;
+    background-color: $color-srf-warmgrey-10;
   }
 }
 
 .medium--lastplayed,
 .medium--lastplayed:hover {
-  background-color: $color-bg-box;
+  background-color: $color-srf-warmgrey-50;
 }
 
 .medium--no-bg,

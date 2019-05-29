@@ -17,7 +17,7 @@
 
 .sharing-bar__container {
   padding: 0 10px;
-  background-color: $color-bg-card;
+  background-color: $color-srf-neutral-offwhite;
   margin: 0 auto;
   display: inline-block;
   position: relative;
@@ -32,10 +32,10 @@
   font-family: $font-regular;
   line-height: $secondary-line-height-ratio;
   text-align: center;
-  color: $color-text-light;
+  color: $color-srf-warmgrey-800;
 
   b {
-    color: #22211D;
+    color: $color-srf-warmgrey-1100;
   }
 
 }
@@ -50,7 +50,7 @@
   font-family: $font-bold;
   line-height: $emphasize-line-height-ratio;
   text-align: center;
-  color: #22211D;
+  color: $color-srf-warmgrey-1100;
   border: none;
 
   // Make hover area circled so corners don't trigger mouseenter/hover
@@ -68,7 +68,7 @@
   opacity: .84;
   outline: none;
   border: none;
-  color: #22211d;
+  color: $color-srf-warmgrey-1100;
 }
 
 .sharing-bar__button--facebook {

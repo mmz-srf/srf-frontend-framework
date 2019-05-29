@@ -57,7 +57,7 @@ $item-max-width: 400px;
   display: flex;
   align-items: center;
   padding: 20px 24px 12px;
-  color: $color-link-default;
+  color: $color-srf-red-600;
   @include fontSize(24px);
   font-family: $font-medium;
   font-feature-settings: "salt";
@@ -73,7 +73,7 @@ $item-max-width: 400px;
 
   &:hover,
   &:focus {
-    color: #f1434a;
+    color: $color-srf-red-400;
 
     // estimation of the above color
     .swipemod-showall__icon {
@@ -82,7 +82,7 @@ $item-max-width: 400px;
   }
 
   &:active {
-    color: #ff6669;
+    color: $color-srf-red-300;
 
     // estimation of the above color
     .swipemod-showall__icon {
@@ -177,7 +177,7 @@ $item-max-width: 400px;
 .swipemod-item {
   flex: 1 0;
   display: flex;
-  background: $color-bg-card;
+  background: $color-srf-neutral-offwhite;
   border-radius: 2px;
   overflow: hidden; // to cut off images' corners with border-radius
   border: 0;
@@ -222,7 +222,7 @@ $item-max-width: 400px;
     }
 
     &:active:after {
-      background-color: rgba(185, 183, 172, .12);
+      background-color: $color-srf-warmgrey-300a12;
     }
   }
 
@@ -289,7 +289,7 @@ $item-max-width: 400px;
   font-style: normal;
   font-stretch: normal;
   line-height: $emphasize-line-height-ratio;
-  color: $color-text-default;
+  color: $color-srf-warmgrey-1100;
   @include breakLongWords();
 }
 
@@ -302,12 +302,12 @@ $item-max-width: 400px;
   font-style: normal;
   font-stretch: normal;
   line-height: 1.14;
-  color: $color-accentuation-red;
+  color: $color-srf-red-600;
   @include breakLongWords();
 }
 
 .swipemod-imagecontainer {
-  background-color: #000;
+  background-color: $color-srf-neutral-black;
   width: 100%;
   position: relative;
 }

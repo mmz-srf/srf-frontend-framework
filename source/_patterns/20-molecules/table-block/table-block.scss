@@ -30,8 +30,8 @@ $gap-to-window-mobile: 8px;
     font-family: $font-medium;
     text-align: left;
     text-transform: uppercase;
-    color: $color-text-default;
-    background: $color-bg-box;
+    color: $color-srf-warmgrey-1100;
+    background: $color-srf-warmgrey-50;
 
     @include tablet-up {
       @include fontSize(16);
@@ -47,12 +47,12 @@ $gap-to-window-mobile: 8px;
   }
 
   // if there is a thead, begin with a light bg-color
-  thead + tbody tr:nth-child(even) {background-color: $color-table-bg-zebra-dark}
-  thead + tbody tr:nth-child(odd) {background-color: $color-table-bg-zebra-light}
+  thead + tbody tr:nth-child(even) {background-color: $color-srf-warmgrey-25}
+  thead + tbody tr:nth-child(odd) {background-color: $color-srf-warmgrey-10}
 
   // otherwise begin with a dark bg-color
-  tbody tr:nth-child(even) {background-color: $color-table-bg-zebra-light}
-  tbody tr:nth-child(odd) {background-color: $color-table-bg-zebra-dark}
+  tbody tr:nth-child(even) {background-color: $color-srf-warmgrey-10}
+  tbody tr:nth-child(odd) {background-color: $color-srf-warmgrey-25}
 
   td {
     @include fontSize(14);
@@ -66,7 +66,7 @@ $gap-to-window-mobile: 8px;
     padding: 13px $article-offset-mobile 15px;
 
     border-style: solid;
-    border-color: #fff;
+    border-color: $color-srf-neutral-white;
     border-width: 0 1px 2px 0;
     vertical-align: top;
 
@@ -103,8 +103,8 @@ $gap-to-window-mobile: 8px;
     font-family: $font-medium;
     text-align: left;
     text-transform: uppercase;
-    color: $color-text-default;
-    background: $color-bg-box;
+    color: $color-srf-warmgrey-1100;
+    background: $color-srf-warmgrey-50;
 
     @include smartphone {
       @include fontSize(14);

@@ -14,7 +14,7 @@
   margin: 0;
   font-family: $font-regular;
   @include fontSize(14);
-  color: $color-text-default;
+  color: $color-srf-warmgrey-1100;
 }
 
 .article-author__date {
@@ -24,7 +24,7 @@
   font-family: $font-regular;
   @include fontSize(12);
   line-height: $secondary-line-height-ratio;
-  color: $color-text-light;
+  color: $color-srf-warmgrey-800;
 }
 
 .article-author__date-update {

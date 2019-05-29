@@ -2,7 +2,7 @@
   margin: 32px 0;
   font-size: 12px;
   line-height: 1.3;
-  background-color: $color-bg-caption;
+  background-color: $color-srf-warmgrey-25;
   overflow-y: hidden;
 
   @include smartphone {
@@ -67,7 +67,7 @@ Behaviour:
     max-height: 9000px;
     max-width: 16000px;
     height: calc(100vw * 9000.0 / 16000.0);
-    background-color: #dadad2;
+    background-color: $color-srf-warmgrey-100;
 
     @include desktop-up {
       // using max-width and max-height as 16:8 ratio for calculating the height
@@ -84,7 +84,7 @@ Behaviour:
 }
 
 .image-figure__image {
-  background-color: #dadad2;
+  background-color: $color-srf-warmgrey-100;
 }
 
 .image-figure--in-box {
@@ -108,7 +108,7 @@ Behaviour:
   margin: 0;
 
   .image {
-    background-color: $color-bg-media;
+    background-color: $color-srf-neutral-1000;
   }
 
   .image-figure__image,

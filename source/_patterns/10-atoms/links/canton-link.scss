@@ -9,12 +9,12 @@ $cantonMobile: 40px;
   width: $cantonMobile;
   text-align: center;
   line-height: $cantonMobile;
-  color: $color-text-default;
+  color: $color-srf-warmgrey-1100;
   font-family: $font-regular;
   @include fontSize(18);
   @include font-smoothing();
   border-radius: 2px;
-  background-color: $color-bg-box;
+  background-color: $color-srf-warmgrey-50;
 
   @include tablet-up {
     width: $cantonDesktop;
@@ -22,13 +22,13 @@ $cantonMobile: 40px;
   }
 
   &:hover {
-    color: $color-text-default;
-    background-color: $color-bg-box-hover;
+    color: $color-srf-warmgrey-1100;
+    background-color: $color-srf-warmgrey-100;
   }
 
   &:active,
   &:focus {
-    color: $color-text-default;
-    background-color: $color-bg-box-focus;
+    color: $color-srf-warmgrey-1100;
+    background-color: $color-srf-warmgrey-200;
   }
 }
