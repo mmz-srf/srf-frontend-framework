@@ -2,40 +2,40 @@
 
 /*** Header-Themes ***/
 // Header-Themes SRF
-$theme-default-color-1:                          $color-srf-neutral-offwhite;
-$theme-default-color-2:                          $color-srf-warmgrey-10;
-$theme-default-color-bg-pager-start:             $color-srf-neutral-offwhite;
-$theme-default-color-bg-pager-start-transparent: $color-srf-neutral-offwhitea00;
-$theme-default-color-bg-pager-end:               $color-srf-warmgrey-10;
-$theme-default-color-bg-pager-end-transparent:   $color-srf-warmgrey-10a00;
+$theme-default-color-1:                                       $color-srf-neutral-offwhite;
+$theme-default-color-2:                                       $color-srf-warmgrey-10;
+$theme-default-color-bg-pager-start:                          $color-srf-neutral-offwhite;
+$theme-default-color-bg-pager-start-transparent:              $color-srf-neutral-offwhitea00;
+$theme-default-color-bg-pager-end:                            $color-srf-warmgrey-10;
+$theme-default-color-bg-pager-end-transparent:                $color-srf-warmgrey-10a00;
 
-$theme-sport-color-1:                            $color-srf-yellow-700;
-$theme-sport-color-2:                            $color-srf-red-600;
-$theme-sport-color-bg-pager-start:               $color-srf-yellow-700;
-$theme-sport-color-bg-pager-start-transparent:   $color-srf-yellow-700a00;
-$theme-sport-color-bg-pager-end:                 $color-srf-red-600;
-$theme-sport-color-bg-pager-end-transparent:     $color-srf-red-600a00;
+$theme-sport-color-1:                                         $color-srf-yellow-700;
+$theme-sport-color-2:                                         $color-srf-red-600;
+$theme-sport-color-bg-pager-start:                            $color-srf-yellow-700;
+$theme-sport-color-bg-pager-start-transparent:                $color-srf-yellow-700a00;
+$theme-sport-color-bg-pager-end:                              $color-srf-red-600;
+$theme-sport-color-bg-pager-end-transparent:                  $color-srf-red-600a00;
 
-$theme-meteo-color-1:                            $color-srf-blue-800;
-$theme-meteo-color-2:                            $color-srf-blue-900;
-$theme-meteo-color-bg-pager-start:               $color-srf-blue-800;
-$theme-meteo-color-bg-pager-start-transparent:   $color-srf-blue-800a00;
-$theme-meteo-color-bg-pager-end:                 $color-srf-blue-900;
-$theme-meteo-color-bg-pager-end-transparent:     $color-srf-blue-900a00;
+$theme-meteo-color-1:                                         $color-srf-blue-800;
+$theme-meteo-color-2:                                         $color-srf-blue-900;
+$theme-meteo-color-bg-pager-start:                            $color-srf-blue-800;
+$theme-meteo-color-bg-pager-start-transparent:                $color-srf-blue-800a00;
+$theme-meteo-color-bg-pager-end:                              $color-srf-blue-900;
+$theme-meteo-color-bg-pager-end-transparent:                  $color-srf-blue-900a00;
 
-$theme-kultur-color-1:                           $color-brand-srf-kultur-1;
-$theme-kultur-color-2:                           $color-brand-srf-kultur-2;
-$theme-kultur-color-bg-pager-start:              $color-brand-srf-kultur-1;
-$theme-kultur-color-bg-pager-start-transparent:  $color-srf-purple-700a00;
-$theme-kultur-color-bg-pager-end:                $color-brand-srf-kultur-2;
-$theme-kultur-color-bg-pager-end-transparent:    $color-srf-purple-900a00;
+$theme-kultur-color-1:                                        $color-brand-srf-kultur-1;
+$theme-kultur-color-2:                                        $color-brand-srf-kultur-2;
+$theme-kultur-color-bg-pager-start:                           $color-brand-srf-kultur-1;
+$theme-kultur-color-bg-pager-start-transparent:               $color-srf-purple-700a00;
+$theme-kultur-color-bg-pager-end:                             $color-brand-srf-kultur-2;
+$theme-kultur-color-bg-pager-end-transparent:                 $color-srf-purple-900a00;
 
-$theme-dok-color-1:                              $color-brand-srf-dok-1;
-$theme-dok-color-2:                              $color-brand-srf-dok-2;
-$theme-dok-color-bg-pager-start:                 $color-brand-srf-dok-1;
-$theme-dok-color-bg-pager-start-transparent:     $color-srf-green-700a00;
-$theme-dok-color-bg-pager-end:                   $color-brand-srf-dok-2;
-$theme-dok-color-bg-pager-end-transparent:       $color-srf-green-900a00;
+$theme-dok-color-1:                                           $color-brand-srf-dok-1;
+$theme-dok-color-2:                                           $color-brand-srf-dok-2;
+$theme-dok-color-bg-pager-start:                              $color-brand-srf-dok-1;
+$theme-dok-color-bg-pager-start-transparent:                  $color-srf-green-700a00;
+$theme-dok-color-bg-pager-end:                                $color-brand-srf-dok-2;
+$theme-dok-color-bg-pager-end-transparent:                    $color-srf-green-900a00;
 
 $theme-radio-srf-1-color-1:                                   $color-srf-yellow-300;
 $theme-radio-srf-1-color-2:                                   $color-srf-yellow-500;
@@ -73,47 +73,47 @@ $theme-radio-srf-virus-color-bg-pager-end:                    $color-brand-radio
 $theme-radio-srf-virus-color-bg-pager-end-transparent:        $color-brand-radio-srf-virus-color-2a00;
 
 // Header-Themes RTR
-$theme-rtr-novitads-color-1:                            $color-brand-rtr-novitads-1;
-$theme-rtr-novitads-color-2:                            $color-brand-rtr-novitads-2;
-$theme-rtr-novitads-color-bg-pager-start:               $color-brand-rtr-novitads-1;
-$theme-rtr-novitads-color-bg-pager-start-transparent:   $color-brand-rtr-novitads-1a00;
-$theme-rtr-novitads-color-bg-pager-end:                 $color-brand-rtr-novitads-2;
-$theme-rtr-novitads-color-bg-pager-end-transparent:     $color-brand-rtr-novitads-2a00;
+$theme-rtr-novitads-color-1:                                  $color-brand-rtr-novitads-1;
+$theme-rtr-novitads-color-2:                                  $color-brand-rtr-novitads-2;
+$theme-rtr-novitads-color-bg-pager-start:                     $color-brand-rtr-novitads-1;
+$theme-rtr-novitads-color-bg-pager-start-transparent:         $color-brand-rtr-novitads-1a00;
+$theme-rtr-novitads-color-bg-pager-end:                       $color-brand-rtr-novitads-2;
+$theme-rtr-novitads-color-bg-pager-end-transparent:           $color-brand-rtr-novitads-2a00;
 
-$theme-rtr-cultura-color-1:                             $color-brand-rtr-cultura-1;
-$theme-rtr-cultura-color-2:                             $color-brand-rtr-cultura-2;
-$theme-rtr-cultura-color-bg-pager-start:                $color-brand-rtr-cultura-1;
-$theme-rtr-cultura-color-bg-pager-start-transparent:    $color-brand-rtr-cultura-1a00;
-$theme-rtr-cultura-color-bg-pager-end:                  $color-brand-rtr-cultura-2;
-$theme-rtr-cultura-color-bg-pager-end-transparent:      $color-brand-rtr-cultura-2a00;
+$theme-rtr-cultura-color-1:                                   $color-brand-rtr-cultura-1;
+$theme-rtr-cultura-color-2:                                   $color-brand-rtr-cultura-2;
+$theme-rtr-cultura-color-bg-pager-start:                      $color-brand-rtr-cultura-1;
+$theme-rtr-cultura-color-bg-pager-start-transparent:          $color-brand-rtr-cultura-1a00;
+$theme-rtr-cultura-color-bg-pager-end:                        $color-brand-rtr-cultura-2;
+$theme-rtr-cultura-color-bg-pager-end-transparent:            $color-brand-rtr-cultura-2a00;
 
-$theme-rtr-sport-color-1:                               $color-brand-rtr-sport-1;
-$theme-rtr-sport-color-2:                               $color-brand-rtr-sport-2;
-$theme-rtr-sport-color-bg-pager-start:                  $color-brand-rtr-sport-1;
-$theme-rtr-sport-color-bg-pager-start-transparent:      $color-brand-rtr-sport-1a00;
-$theme-rtr-sport-color-bg-pager-end:                    $color-brand-rtr-sport-2;
-$theme-rtr-sport-color-bg-pager-end-transparent:        $color-brand-rtr-sport-2a00;
+$theme-rtr-sport-color-1:                                     $color-brand-rtr-sport-1;
+$theme-rtr-sport-color-2:                                     $color-brand-rtr-sport-2;
+$theme-rtr-sport-color-bg-pager-start:                        $color-brand-rtr-sport-1;
+$theme-rtr-sport-color-bg-pager-start-transparent:            $color-brand-rtr-sport-1a00;
+$theme-rtr-sport-color-bg-pager-end:                          $color-brand-rtr-sport-2;
+$theme-rtr-sport-color-bg-pager-end-transparent:              $color-brand-rtr-sport-2a00;
 
-$theme-rtr-uffants-color-1:                             $color-brand-rtr-uffants-1;
-$theme-rtr-uffants-color-2:                             $color-brand-rtr-uffants-2;
-$theme-rtr-uffants-color-bg-pager-start:                $color-brand-rtr-uffants-1;
-$theme-rtr-uffants-color-bg-pager-start-transparent:    $color-brand-rtr-uffants-1a00;
-$theme-rtr-uffants-color-bg-pager-end:                  $color-brand-rtr-uffants-2;
-$theme-rtr-uffants-color-bg-pager-end-transparent:      $color-brand-rtr-uffants-2a00;
+$theme-rtr-uffants-color-1:                                   $color-brand-rtr-uffants-1;
+$theme-rtr-uffants-color-2:                                   $color-brand-rtr-uffants-2;
+$theme-rtr-uffants-color-bg-pager-start:                      $color-brand-rtr-uffants-1;
+$theme-rtr-uffants-color-bg-pager-start-transparent:          $color-brand-rtr-uffants-1a00;
+$theme-rtr-uffants-color-bg-pager-end:                        $color-brand-rtr-uffants-2;
+$theme-rtr-uffants-color-bg-pager-end-transparent:            $color-brand-rtr-uffants-2a00;
 
-$theme-rtr-archivar-color-1:                            $color-brand-rtr-archivar-1;
-$theme-rtr-archivar-color-2:                            $color-brand-rtr-archivar-2;
-$theme-rtr-archivar-color-bg-pager-start:               $color-brand-rtr-archivar-1;
-$theme-rtr-archivar-color-bg-pager-start-transparent:   $color-brand-rtr-archivar-1a00;
-$theme-rtr-archivar-color-bg-pager-end:                 $color-brand-rtr-archivar-2;
-$theme-rtr-archivar-color-bg-pager-end-transparent:     $color-brand-rtr-archivar-2a00;
+$theme-rtr-archivar-color-1:                                  $color-brand-rtr-archivar-1;
+$theme-rtr-archivar-color-2:                                  $color-brand-rtr-archivar-2;
+$theme-rtr-archivar-color-bg-pager-start:                     $color-brand-rtr-archivar-1;
+$theme-rtr-archivar-color-bg-pager-start-transparent:         $color-brand-rtr-archivar-1a00;
+$theme-rtr-archivar-color-bg-pager-end:                       $color-brand-rtr-archivar-2;
+$theme-rtr-archivar-color-bg-pager-end-transparent:           $color-brand-rtr-archivar-2a00;
 
-$theme-rtr-interpresa-color-1:                          $color-srf-red-600;
-$theme-rtr-interpresa-color-2:                          $color-srf-red-700;
-$theme-rtr-interpresa-color-bg-pager-start:             $color-srf-red-600;
-$theme-rtr-interpresa-color-bg-pager-start-transparent: $color-srf-red-600a00;
-$theme-rtr-interpresa-color-bg-pager-end:               $color-srf-red-700;
-$theme-rtr-interpresa-color-bg-pager-end-transparent:   $color-srf-red-700a00;
+$theme-rtr-interpresa-color-1:                                $color-srf-red-600;
+$theme-rtr-interpresa-color-2:                                $color-srf-red-700;
+$theme-rtr-interpresa-color-bg-pager-start:                   $color-srf-red-600;
+$theme-rtr-interpresa-color-bg-pager-start-transparent:       $color-srf-red-600a00;
+$theme-rtr-interpresa-color-bg-pager-end:                     $color-srf-red-700;
+$theme-rtr-interpresa-color-bg-pager-end-transparent:         $color-srf-red-700a00;
 
 
 
