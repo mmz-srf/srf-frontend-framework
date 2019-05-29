@@ -10,8 +10,8 @@
 }
 
 .form__validation--success {
-  color: #ffffff;
-  background-color: #1a7ac5;
+  color: $color-srf-neutral-white;
+  background-color: $color-srf-blue-600;
   border-radius: 2px;
   padding: 28px 32px;
   height: 104px;
@@ -46,7 +46,7 @@
 }
 
 .form__validation--error p {
-  color: #c91024;
+  color: $color-srf-red-600;
   font-weight: 300;
 }
 

@@ -34,7 +34,7 @@
   @include breakLongWords;
 
   /* theme */
-  @include customPropWithFallback('color', '--teaser-color-text', $color-text-default);
+  @include customPropWithFallback('color', '--teaser-color-text', $color-srf-warmgrey-1100);
 
   &::after {
     content: '';
@@ -44,7 +44,7 @@
     width: 2px;
     height: 2px;
     border-radius: 100%;
-    background-color: #b9b7ac;
+    background-color: $color-srf-warmgrey-300;
   }
 
   &:last-child {
@@ -87,7 +87,7 @@
   font-family: $font-regular;
 
   /* theme */
-  @include customPropWithFallback('color', '--teaser-color-text-emphasis', $color-text-light);
+  @include customPropWithFallback('color', '--teaser-color-text-emphasis', $color-srf-warmgrey-800);
 }
 
 .teaser-info__duration,
@@ -96,7 +96,7 @@
     font-family: $font-medium;
 
     /* theme */
-    @include customPropWithFallback('color', '--teaser-color-text', $color-text-default);
+    @include customPropWithFallback('color', '--teaser-color-text', $color-srf-warmgrey-1100);
   }
 }
 
@@ -125,7 +125,7 @@
 .teaser-info--new,
 .teaser-info--new strong {
   /* theme */
-  @include customPropWithFallback('color', '--teaser-color-info-new', $color-srf-light);
+  @include customPropWithFallback('color', '--teaser-color-info-new', $color-srf-red-500);
 }
 
 .teaser-info--visited-and-updated,
@@ -133,7 +133,7 @@
 .teaser-info--mediaicon-audio,
 .teaser-info--mediaicon-image {
     /* theme */
-    @include customPropWithFallback('color', '--teaser-color-info-updated', $color-text-light);
+    @include customPropWithFallback('color', '--teaser-color-info-updated', $color-srf-warmgrey-800);
 }
 
 
@@ -142,7 +142,7 @@
 
 .teaser-info--visited {
   /* theme */
-  @include customPropWithFallback('color', '--teaser-color-info-visited', $color-button-success);
+  @include customPropWithFallback('color', '--teaser-color-info-visited', $color-srf-blue-600);
 
   &::before {
     background-image: url(../img/seen_blue.svg);
@@ -161,7 +161,7 @@
 
 .teaser-info--visited-and-recently-updated {
   /* theme */
-  @include customPropWithFallback('color', '--teaser-color-info-new', $color-srf-light);
+  @include customPropWithFallback('color', '--teaser-color-info-new', $color-srf-red-500);
 
   &::before {
     background-image: url(../img/retry_red.svg);

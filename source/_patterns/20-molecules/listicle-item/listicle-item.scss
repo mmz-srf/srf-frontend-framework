@@ -20,7 +20,7 @@
 
   font-weight: 500;
   font-family: $font-medium;
-  color: $color-text-default;
+  color: $color-srf-warmgrey-1100;
 
   @include tablet-up {
     @include fontSize(20);
@@ -40,7 +40,7 @@
   font-weight: 300;
   @include fontSize(18);
   font-family: $font-light;
-  color: $color-text-default;
+  color: $color-srf-warmgrey-1100;
   margin: 12px 0;
 
   @include tablet-up {

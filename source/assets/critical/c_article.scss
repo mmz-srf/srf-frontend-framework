@@ -45,7 +45,7 @@
 
 .sharing-bar__container {
   padding: 0 12px;
-  background-color: #fff;
+  background-color: $color-srf-neutral-white;
   margin: 0 auto;
   display: inline-block;
   position: relative;
@@ -75,17 +75,17 @@
 }
 
 .sharing-bar__button--facebook {
-  background-color: #3464A5;
+  background-color: $color-brand-facebook;
 }
 .sharing-bar__button--twitter {
-  background-color: #5AA8DF;
+  background-color: $color-brand-twitter;
 }
 .sharing-bar__button--comment {
-  background-color: #4E4D47;
+  background-color: $color-srf-warmgrey-900;
 }
 .sharing-bar__button--whatsapp {
   display: none;
-  background-color: #4ECE5B;
+  background-color: $color-brand-whatsapp;
 
   @include smartphone {
     display: inline-block
@@ -133,7 +133,7 @@ img {
 }
 
 .l-card {
-  background-color: #fefefd;
+  background-color: $color-srf-neutral-offwhite;
   border-radius: 2px;
   box-shadow: $shadow-elevation1;
   margin-bottom: 16px;
@@ -177,7 +177,7 @@ img {
   font-size: 36px;
   letter-spacing: 0;
   line-height: 43px;
-  color: #22211d;
+  color: $color-srf-warmgrey-1100;
 
   @include smartphone {
     margin: 0 0 13px;
@@ -191,7 +191,7 @@ img {
   font-family: $font-regular;
   @include fontSize(18);
   letter-spacing: 0;
-  color: #c91024;
+  color: $color-srf-red-600;
   display: block;
 
   @include tablet-up {
@@ -203,7 +203,7 @@ img {
 .article-lead {
   margin: 18px 0 22px;
   @include fontSize(22);
-  color: #4e4d47;
+  color: $color-srf-warmgrey-900;
   font-family: $font-light;
   line-height: 1.45;
 
@@ -225,7 +225,7 @@ img {
   margin: 0;
   font-family: $font-regular;
   @include fontSize(14);
-  color: #22211d;
+  color: $color-srf-warmgrey-1100;
 }
 
 .article-author__date {
@@ -233,7 +233,7 @@ img {
   font-family: $font-regular;
   @include fontSize(12);
   line-height: $secondary-line-height-ratio;
-  color: #6b6960;
+  color: $color-srf-warmgrey-800;
 }
 
 ul {
@@ -248,7 +248,7 @@ ul {
   @include fontSize(14);
   line-height: 1.14;
   font-family: $font-regular;
-  background-color: #ebebe5;
+  background-color: $color-srf-warmgrey-50;
   padding: 7px 23px 7px 12px;
   display: inline-block;
   vertical-align: middle;
@@ -258,7 +258,7 @@ ul {
   background-clip: padding-box;
   -moz-background-clip: padding;
   -webkit-background-clip: padding;
-  color: #4e4d47;
+  color: $color-srf-warmgrey-900;
   border-bottom: 8px solid transparent;
   -webkit-touch-callout: none;
   outline: 0
@@ -272,8 +272,8 @@ ul {
   right: 12px;
   height: 6px;
   width: 6px;
-  border-bottom: 1px solid #6c6960;
-  border-right: 1px solid #6c6960;
+  border-bottom: 1px solid $color-srf-warmgrey-800;
+  border-right: 1px solid $color-srf-warmgrey-800;
   -webkit-transform: rotate(-45deg);
   transform: rotate(-45deg)
 }
@@ -282,7 +282,7 @@ ul {
   margin: 24px -24px 20px;
   height: 1px;
   border: 0;
-  background: #ebebe5 50% 0 no-repeat;
+  background: $color-srf-warmgrey-50 50% 0 no-repeat;
 
   @include smartphone {
     margin-top: 32px;
@@ -300,7 +300,7 @@ ul {
   margin: 0 0 24px;
   font-family: $font-light;
   @include fontSize(20);
-  color: #22211d;
+  color: $color-srf-warmgrey-1100;
 
   @include smartphone {
     @include fontSize(18);
@@ -387,15 +387,15 @@ body::after {
 
 .media-preloading--audio {
   height: 150px;
-  background-color: #f5f5f2;
+  background-color: $color-srf-warmgrey-25;
 }
 
 //TME
 .medium--fullwidth-element {
-  background: #f5f5f2;
+  background: $color-srf-warmgrey-25;
   margin: 0;
   .medium__object {
-    background: #111;
+    background: $color-srf-neutral-1000;
   }
   .media-still,
   .image {
@@ -423,7 +423,7 @@ body::after {
 .carousel-container--fullwidth-element {
   position: relative;
   overflow: hidden;
-  background-color: #111;
+  background-color: $color-srf-neutral-1000;
   height: 0;
   padding-top: 56.25%;
   &::after {
