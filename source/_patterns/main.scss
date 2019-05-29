@@ -1,4 +1,5 @@
 @import 'fonts';
+@import 'colors';
 @import 'variables';
 @import 'breakpoints';
 @import 'mixins';
@@ -8,6 +9,7 @@
 @import 'layout';
 @import 'ripple';
 @import '01-global/05-fonts';
+@import '01-global/10-colors';
 @import '01-global/20-helpers';
 @import '40-templates/article';
 @import '40-templates/landingpage';

@@ -21,11 +21,11 @@
   transition: background-color 0.2s ease-in-out;
 
   /* fallback */
-  color: $color-text-accentuation;
+  color: $color-srf-warmgrey-900;
 
   /* theme */
   @supports (--foo: bar) {
-    color: var(--theme-color-nav, $color-text-accentuation);
+    color: var(--theme-color-nav, $color-srf-warmgrey-900);
   }
 
   &:hover,
@@ -34,32 +34,32 @@
     border-bottom: none;
 
     /* fallback */
-    color: $color-text-accentuation;
+    color: $color-srf-warmgrey-900;
 
     /* theme */
     @supports (--foo: bar) {
-      color: var(--theme-color-nav, $color-text-accentuation);
+      color: var(--theme-color-nav, $color-srf-warmgrey-900);
     }
   }
 
   &:hover {
     /* fallback */
-    background-color: $color-nav-bg-hover;
+    background-color: $color-srf-warmgrey-300a12;
 
     /* theme */
     @supports (--foo: bar) {
-      background-color: var(--theme-color-bg-hover, $color-nav-bg-hover);
+      background-color: var(--theme-color-bg-hover,$color-srf-warmgrey-300a12);
     }
   }
 
   &:active,
   &:focus {
     /* fallback */
-    background-color: $color-nav-bg-active;
+    background-color: $color-srf-warmgrey-300a24;
 
     /* theme */
     @supports (--foo: bar) {
-      background-color: var(--theme-color-bg-active, $color-nav-bg-active);
+      background-color: var(--theme-color-bg-active, $color-srf-warmgrey-300a24);
     }
   }
 }
@@ -69,6 +69,6 @@
     padding: 16px 12px;
     @include fontSize(18);
     line-height: $secondary-line-height-ratio;
-    color: $color-text-default;
+    color: $color-srf-warmgrey-1100;
   }
 }

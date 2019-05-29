@@ -7,8 +7,8 @@
 
 $small-size: .8;
 $big-size: 1;
-$dark-attention-color: #aa0000;
-$light-attention-color: #ff0000;
+$dark-attention-color: $color-srf-red-700;
+$light-attention-color: $color-srf-red-500;
 
 @keyframes pulsatingAnimation {
   0% {
@@ -48,13 +48,13 @@ $light-attention-color: #ff0000;
 
 @keyframes pulsatingLiveAnimation {
   25% {
-    background-color: $color-srf-light;
+    background-color: $color-srf-red-500;
   }
   50% {
-    background-color: #ed7004;
+    background-color: $color-srf-yellow-700;
   }
   75% {
-    background-color: $color-srf-light;
+    background-color: $color-srf-red-500;
   }
 }
 
@@ -87,13 +87,13 @@ $light-attention-color: #ff0000;
 
 @keyframes rippleShadowAnimation {
   0% {
-    box-shadow: 0 0 0 rgba(0, 0, 0, .0);
+    box-shadow: 0 0 0 $color-srf-neutral-blacka00;
   }
   20% {
-    box-shadow: 0 4px 16px rgba(0, 0, 0, .3);
+    box-shadow: 0 4px 16px $color-srf-neutral-blacka30;
   }
   100% {
-    box-shadow: 0 0 0 rgba(0, 0, 0, .0);
+    box-shadow: 0 0 0 $color-srf-neutral-blacka00;
   }
 }
 
@@ -136,10 +136,10 @@ $light-attention-color: #ff0000;
 
 @keyframes fadeToGreyAnimation {
   0% {
-    background-color: rgba(0, 0, 0, 0);
+    background-color: $color-srf-neutral-blacka00;
   }
   100% {
-    background-color: rgba(0, 0, 0, .12);
+    background-color: $color-srf-neutral-blacka12;
   }
 }
 

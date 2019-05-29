@@ -1,0 +1,184 @@
+/*** COLORS ***/
+//
+// # How To Color-Variables @ SRF
+//
+// 1. Global Color Variables
+//    Name all the colors and keep 'em neutral (e.g. don't use «light», use «secondary» or a value like 100, since in dark-themes a «light»-color might be something «dark»)
+// 
+// 2. Element-Variables
+//    Add variables on a element-basis
+// 
+// 3. Variable to Variable
+//    Reference element-variables to corresponding global color variables
+// 
+// (Optional)
+// 4. Add Themes (like a Dark-Theme)
+//    Just overwrite element-variables inside theme-media-queries (ideally no new colors needed in this step)
+//
+// *** REMINDER: Don't forget to add new colors to 01-global/10-colors.twig ***
+//
+
+// SRF Color RED
+$color-srf-red-50:              rgba(255,230,230,1);   // #ffe6e6
+$color-srf-red-100:             rgba(255,187,188,1);   // #ffbbbc
+$color-srf-red-200:             rgba(255,145,147,1);   // #ff9193
+$color-srf-red-300:             rgba(255,102,105,1);   // #ff6669
+$color-srf-red-400:             rgba(241,67,74,1);     // #f1434a
+$color-srf-red-500:             rgba(227,31,43,1);     // #e31f2b
+$color-srf-red-600:             rgba(201,16,36,1);     // #c91024
+$color-srf-red-600a00:          rgba(201,16,36,0);     // #c91024 alpha  0%
+$color-srf-red-600a12:          rgba(201,16,36,.12);   // #c91024 alpha 12%
+$color-srf-red-600a24:          rgba(201,16,36,.24);   // #c91024 alpha 24%
+$color-srf-red-700:             rgba(175,0,29,1);      // #af001d
+$color-srf-red-700a00:          rgba(175,0,29,0);      // #af001d alpha  0%
+$color-srf-red-800:             rgba(141,6,20,1);      // #8d0614
+$color-srf-red-900:             rgba(106,11,12,1);     // #6a0b0c
+
+// SRF Color Yellow
+$color-srf-yellow-50:           rgba(255,249,230,1);   // #fff9e6
+$color-srf-yellow-100:          rgba(255,237,180,1);   // #ffedb4
+$color-srf-yellow-200:          rgba(255,226,131,1);   // #ffe283
+$color-srf-yellow-300:          rgba(255,214,81,1);    // #ffd651
+$color-srf-yellow-400:          rgba(251,190,41,1);    // #fbbe29
+$color-srf-yellow-500:          rgba(247,166,0,1);     // #f7a600
+$color-srf-yellow-600:          rgba(242,139,2,1);     // #f28b02
+$color-srf-yellow-700:          rgba(237,112,4,1);     // #ed7004
+$color-srf-yellow-700a00:       rgba(237,112,4,0);     // #ed7004 alpha  0%
+$color-srf-yellow-800:          rgba(205,87,12,1);     // #cd570c
+$color-srf-yellow-900:          rgba(173,62,20,1);     // #ad3e14
+
+// SRF Color Green
+$color-srf-green-50:            rgba(227,252,243,1);   // #e3fcf3
+$color-srf-green-100:           rgba(194,238,220,1);   // #c2eedc
+$color-srf-green-200:           rgba(160,223,198,1);   // #a0dfc6
+$color-srf-green-300:           rgba(127,209,175,1);   // #7fd1af
+$color-srf-green-400:           rgba(78,194,145,1);    // #4ec291
+$color-srf-green-500:           rgba(28,179,115,1);    // #1cb373
+$color-srf-green-600:           rgba(25,160,103,1);    // #19a067
+$color-srf-green-700:           rgba(22,140,90,1);     // #168c5a
+$color-srf-green-700a00:        rgba(22,140,90,0);     // #168c5a alpha  0%
+$color-srf-green-800:           rgba(18,115,74,1);     // #12734a
+$color-srf-green-900:           rgba(14,89,58,1);      // #0e593a
+$color-srf-green-900a00:        rgba(14,89,58,0);      // #0e593a alpha  0%
+
+// SRF Color Blue
+$color-srf-blue-50:             rgba(230,244,255,1);   // #e6f4ff
+$color-srf-blue-100:            rgba(187,225,255,1);   // #bbe1ff
+$color-srf-blue-200:            rgba(145,206,255,1);   // #91ceff
+$color-srf-blue-300:            rgba(102,187,255,1);   // #66bbff
+$color-srf-blue-400:            rgba(66,163,241,1);    // #42a3f1
+$color-srf-blue-500:            rgba(30,140,227,1);    // #1e8ce3
+$color-srf-blue-600:            rgba(26,122,197,1);    // #1a7ac5
+$color-srf-blue-650:            rgba(24,113,182,1);    // #1871b6
+$color-srf-blue-700:            rgba(22,103,167,1);    // #1667a7
+$color-srf-blue-750:            rgba(19,92,148,1);     // #135c94
+$color-srf-blue-800:            rgba(16,80,130,1);     // #105082
+$color-srf-blue-800a00:         rgba(16,80,130,0);     // #105082 alpha  0%
+$color-srf-blue-850:            rgba(13,68,111,1);     // #0d446f
+$color-srf-blue-900:            rgba(10,56,92,1);      // #0a385c
+$color-srf-blue-900a00:         rgba(10,56,92,0);      // #0a385c alpha  0%
+$color-srf-blue-950:            rgba(5,45,65,1);       // #052d41
+
+// SRF Color Purple
+$color-srf-purple-50:           rgba(252,227,246,1);   // #fce3f6
+$color-srf-purple-100:          rgba(244,201,234,1);   // #f4c9ea
+$color-srf-purple-200:          rgba(235,176,221,1);   // #ebb0dd
+$color-srf-purple-300:          rgba(227,150,209,1);   // #e396d1
+$color-srf-purple-400:          rgba(214,116,192,1);   // #d674c0
+$color-srf-purple-500:          rgba(202,81,175,1);    // #ca51af
+$color-srf-purple-600:          rgba(188,57,159,1);    // #bc399f
+$color-srf-purple-700:          rgba(173,52,146,1);    // #ad3492
+$color-srf-purple-700a00:       rgba(173,52,146,0);    // #ad3492 alpha  0%
+$color-srf-purple-800:          rgba(147,44,123,1);    // #932c7b
+$color-srf-purple-900:          rgba(121,36,101,1);    // #792465
+$color-srf-purple-900a00:       rgba(121,36,101,0);    // #792465 alpha  0%
+
+// SRF Color Warmgrey
+$color-srf-warmgrey-10:         rgba(250,250,248,1);   // #fafaf8
+$color-srf-warmgrey-10a00:      rgba(250,250,248,0);   // #fafaf8 alpha  0%
+$color-srf-warmgrey-25:         rgba(245,245,242,1);   // #f5f5f2
+$color-srf-warmgrey-50:         rgba(235,235,229,1);   // #ebebe5
+$color-srf-warmgrey-100:        rgba(218,218,210,1);   // #dadad2
+$color-srf-warmgrey-200:        rgba(202,200,191,1);   // #cac8bf
+$color-srf-warmgrey-300:        rgba(185,183,172,1);   // #b9b7ac
+$color-srf-warmgrey-300a12:     rgba(185,183,172,.12); // #b9b7ac alpha 12%
+$color-srf-warmgrey-300a24:     rgba(185,183,172,.24); // #b9b7ac alpha 24%
+$color-srf-warmgrey-400:        rgba(172,170,158,1);   // #acaa9e
+$color-srf-warmgrey-500:        rgba(159,156,144,1);   // #9f9c90
+$color-srf-warmgrey-600:        rgba(147,145,132,1);   // #939184
+$color-srf-warmgrey-700:        rgba(136,133,121,1);   // #888579
+$color-srf-warmgrey-800:        rgba(107,105,96,1);    // #6b6960
+$color-srf-warmgrey-900:        rgba(78,77,71,1);      // #4e4d47
+$color-srf-warmgrey-1000:       rgba(56,55,50,1);      // #383732
+$color-srf-warmgrey-1100:       rgba(34,33,29,1);      // #22211d
+$color-srf-warmgrey-1100a00:    rgba(34,33,29,0);      // #22211d alpha  0%
+$color-srf-warmgrey-1100a12:    rgba(34,33,29,.12);    // #22211d alpha 12%
+$color-srf-warmgrey-1100a24:    rgba(34,33,29,.24);    // #22211d alpha 24%
+
+// SRF Color Neutral
+$color-srf-neutral-white:       rgba(255,255,255,1);   // #ffffff
+$color-srf-neutral-whitea00:    rgba(255,255,255,0);   // #ffffff alpha  0%
+$color-srf-neutral-whitea08:    rgba(255,255,255,.08); // #ffffff alpha  8%
+$color-srf-neutral-whitea12:    rgba(255,255,255,.12); // #ffffff alpha 12%
+$color-srf-neutral-whitea24:    rgba(255,255,255,.24); // #ffffff alpha 24%
+$color-srf-neutral-whitea40:    rgba(255,255,255,.4);  // #ffffff alpha 40%
+$color-srf-neutral-whitea80:    rgba(255,255,255,.8);  // #ffffff alpha 80%
+$color-srf-neutral-offwhite:    rgba(254,254,253,1);   // #fefefd
+$color-srf-neutral-offwhitea00: rgba(254,254,253,0);   // #fefefd alpha  0%
+$color-srf-neutral-600:         rgba(85,85,85,1);      // #555555
+$color-srf-neutral-800:         rgba(51,51,51,1);      // #333333
+$color-srf-neutral-900:         rgba(34,34,34,1);      // #222222
+$color-srf-neutral-1000:        rgba(17,17,17,1);      // #111111
+$color-srf-neutral-black:       rgba(0,0,0,1);         // #000000
+$color-srf-neutral-blacka00:    rgba(0,0,0,0);         // #000000 alpha  0%
+$color-srf-neutral-blacka04:    rgba(0,0,0,.04);       // #000000 alpha  4%
+$color-srf-neutral-blacka08:    rgba(0,0,0,.08);       // #000000 alpha  8%
+$color-srf-neutral-blacka10:    rgba(0,0,0,.1);        // #000000 alpha 10%
+$color-srf-neutral-blacka12:    rgba(0,0,0,.12);       // #000000 alpha 12%
+$color-srf-neutral-blacka16:    rgba(0,0,0,.16);       // #000000 alpha 16%
+$color-srf-neutral-blacka18:    rgba(0,0,0,.18);       // #000000 alpha 18%
+$color-srf-neutral-blacka20:    rgba(0,0,0,.2);        // #000000 alpha 20%
+$color-srf-neutral-blacka30:    rgba(0,0,0,.3);        // #000000 alpha 30%
+$color-srf-neutral-blacka32:    rgba(0,0,0,.32);       // #000000 alpha 32%
+$color-srf-neutral-blacka48:    rgba(0,0,0,.48);       // #000000 alpha 48%
+$color-srf-neutral-blacka50:    rgba(0,0,0,.5);        // #000000 alpha 50%
+$color-srf-neutral-blacka60:    rgba(0,0,0,.6);        // #000000 alpha 60%
+$color-srf-neutral-blacka70:    rgba(0,0,0,.7);        // #000000 alpha 70%
+$color-srf-neutral-blacka75:    rgba(0,0,0,.75);       // #000000 alpha 75%
+$color-srf-neutral-blacka80:    rgba(0,0,0,.8);        // #000000 alpha 80%
+
+// Brand Colors
+$color-brand-facebook:          rgba(52,100,165,1);    // #3464a5
+$color-brand-twitter:           rgba(90,168,223,1);    // #5aa8df
+$color-brand-whatsapp:          rgba(78,206,91,1);     // #4ece5b
+
+$color-brand-srf-kultur-1:      rgba(201,29,125,1);    // #c91d7d
+$color-brand-srf-kultur-2:      rgba(140,29,96,1);     // #8c1d60
+
+$color-brand-srf-dok-1:         rgba(75,127,91,1);     // #4b7f5b
+$color-brand-srf-dok-2:         rgba(21,78,96,1);      // #154e60
+
+$color-brand-rtr-novitads-1:    rgba(217,42,93,1);     // #d92a5d
+$color-brand-rtr-novitads-1a00: rgba(217,42,93,0);     // #d92a5d alpha  0%
+$color-brand-rtr-novitads-2:    rgba(184,49,81,1);     // #b83151
+$color-brand-rtr-novitads-2a00: rgba(184,49,81,0);     // #b83151 alpha  0%
+
+$color-brand-rtr-cultura-1:     rgba(143,68,201,1);    // #8f44c9
+$color-brand-rtr-cultura-1a00:  rgba(143,68,201,0);    // #8f44c9 alpha  0%
+$color-brand-rtr-cultura-2:     rgba(95,26,125,1);     // #5f1a7d
+$color-brand-rtr-cultura-2a00:  rgba(95,26,125,0);     // #5f1a7d alpha  0%
+
+$color-brand-rtr-sport-1:       rgba(226,115,31,1);    // #e2731f
+$color-brand-rtr-sport-1a00:    rgba(226,115,31,0);    // #e2731f alpha  0%
+$color-brand-rtr-sport-2:       rgba(199,65,30,1);     // #c7411e
+$color-brand-rtr-sport-2a00:    rgba(199,65,30,0);     // #c7411e alpha  0%
+
+$color-brand-rtr-uffants-1:     rgba(60,153,123,1);    // #3c997b
+$color-brand-rtr-uffants-1a00:  rgba(60,153,123,0);    // #3c997b alpha  0%
+$color-brand-rtr-uffants-2:     rgba(69,140,90,1);     // #458c5a
+$color-brand-rtr-uffants-2a00:  rgba(69,140,90,0);     // #458c5a alpha  0%
+
+$color-brand-rtr-archivar-1:    rgba(71,70,75,1);      // #47464b
+$color-brand-rtr-archivar-1a00: rgba(71,70,75,0);      // #47464b alpha  0%
+$color-brand-rtr-archivar-2:    rgba(35,35,38,1);      // #232326
+$color-brand-rtr-archivar-2a00: rgba(35,35,38,0);      // #232326 alpha  0%

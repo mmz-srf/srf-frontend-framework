@@ -103,7 +103,7 @@
   @include fontSize(32);
   line-height: $emphasize-line-height-ratio;
   font-weight: normal; /* OVERRIDE CRITICAL CSS */
-  @include customPropWithFallback('color', '--theme-color-title', $color-text-default);
+  @include customPropWithFallback('color', '--theme-color-title', $color-srf-warmgrey-1100);
 
 
   @include tablet-up {
@@ -118,7 +118,7 @@
 .masthead__title-link:visited {
     text-decoration: none;
 
-    @include customPropWithFallback('color', '--theme-color-title', $color-text-default);
+    @include customPropWithFallback('color', '--theme-color-title', $color-srf-warmgrey-1100);
 }
 
 .masthead__universal {

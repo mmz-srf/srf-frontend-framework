@@ -10,8 +10,8 @@
   font-size: 14px;
   line-height: 14px;
   white-space: nowrap;
-  color: $color-text-default;
-  background-color: $color-bg-score-default;
+  color: $color-srf-warmgrey-1100;
+  background-color: $color-srf-yellow-500;
 }
 
 .score__value {
@@ -27,8 +27,8 @@
 }
 
 .score--live {
-  background-color: $color-bg-score-live;
-  color: #FFF;
+  background-color: $color-srf-red-500;
+  color: $color-srf-neutral-white;
 
   .score__value {
     opacity: 1;

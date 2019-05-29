@@ -12,7 +12,7 @@
   z-index: 100;
   box-shadow: $shadow-elevation8;
   padding: 8px 32px 0;
-  background-color: #FFF;
+  background-color: $color-srf-neutral-white;
 
   @include smartphone {
     height: 164px;
@@ -90,7 +90,7 @@
 .main-logo {
   width: 36px;
   height: 24px;
-  background-color: $color-srf;
+  background-color: $color-srf-red-700;
   display: inline-block;
   overflow: hidden;
   
@@ -163,7 +163,7 @@
   font-family: $font-bold;
   @include fontSize(14);
   line-height: 1.14;
-  color: $color-text-accentuation;
+  color: $color-srf-warmgrey-900;
 }
 
 .masthead__nav,
@@ -192,7 +192,7 @@
 .masthead__title-link:active,
 .masthead__title-link:visited {
     text-decoration: none;
-    color: $color-text-default;
+    color: $color-srf-warmgrey-1100;
 }
 
 .subnav__list {
@@ -218,7 +218,7 @@
   .masthead.masthead--theme-rtr_interpresa {
     .masthead__title-link,
     .portalsnav__link {
-      color: #FFF;
+      color: $color-srf-neutral-white;
     }
   }
 }

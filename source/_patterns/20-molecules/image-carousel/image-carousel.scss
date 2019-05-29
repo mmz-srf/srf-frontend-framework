@@ -4,7 +4,7 @@
 /* smaller devices treat embed components like full-width containers */
 .carousel-container {
   /* overwrite in component; components in loading state have a grey background */
-  background-color: #dadad2;
+  background-color: $color-srf-warmgrey-100;
   @include smartphone {
     width: 100%;
     position: relative;
@@ -27,7 +27,7 @@
   position: relative;
   width: 100%;
   max-width: none; /* OVERRIDE CRITICAL CSS */
-  background-color: #f5f5f2;
+  background-color: $color-srf-warmgrey-25;
   overflow: hidden;
   margin: 32px 0;
 
@@ -43,7 +43,7 @@
   }
 
   .image-figure__image {
-    background-color: #000;
+    background-color: $color-srf-neutral-black;
     height: 100%;
     position: absolute;
     top: 0;
@@ -56,7 +56,7 @@
   }
 
   .image {
-    background: rgba(0, 0, 0, .8);
+    background: $color-srf-neutral-blacka80;
     position: relative;
 
     &::before {
@@ -80,7 +80,7 @@
 .carousel-container--fullwidth-element {
   position: relative;
   overflow: hidden;
-  background-color: $color-bg-media;
+  background-color: $color-srf-neutral-1000;
   &.carousel-container--initialized {
     height: auto;
     padding-top: 0;
@@ -97,7 +97,7 @@
     right: 0;
     left: 0;
     height: 512px;
-    background-color: #f5f5f2;
+    background-color: $color-srf-warmgrey-25;
   }
 
   .carousel {
@@ -152,11 +152,11 @@
     top: 267px;
   }
   &:hover {
-    background-color: rgba(0, 0, 0, .48);
+    background-color: $color-srf-neutral-blacka48;
   }
 
   &:active {
-    background-color: rgba(0, 0, 0, .8);
+    background-color: $color-srf-neutral-blacka80;
   }
 
   &.untouched {
