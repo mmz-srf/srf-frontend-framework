@@ -23,20 +23,23 @@ export class FefStorage {
     }
 
     /**
-     * Returns (safely) a JS object
+     * Returns (safely) json parsed content of a given key.
+     * If the key is not set, the optional default value is returned. When no default value is provided the
+     * default value is set to a simple JavaScript object.
      *
      * @param key
+     * @param optionalDefaultValue
      * @returns {*}
      */
-    static getItemJsonParsed(key) {
+    static getItemJsonParsed(key, optionalDefaultValue = {}) {
         if (!this.hasItem(key)) {
-            return {};
+            return optionalDefaultValue;
         }
 
         try {
-            return JSON.parse(this.getItem(key, '{}'));
+            return JSON.parse(this.getItem(key, JSON.stringify(optionalDefaultValue)));
         } catch (e) {
-            return {};
+            return optionalDefaultValue;
         }
     }
 
