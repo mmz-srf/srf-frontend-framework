@@ -56,6 +56,14 @@
   }
 }
 
+.teaser-info--search {
+  color: $color-image-dummy;
+
+  @include tablet-up {
+    @include fontSize(14);
+  }
+}
+
 .teaser-info--with-icon {
   padding-left: 20px;
   display: inline-flex;

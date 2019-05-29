@@ -15,7 +15,7 @@
     <div class="teaser-info-wrapper">
         <div class="teaser-info-innerwrapper">
 
-            {% set randomMediumModifier = random(['teaser-info--mediaicon-audio teaser-info--with-icon', 'teaser-info--mediaicon-video teaser-info--with-icon']) %}
+            {% set randomMediumModifier = random(['teaser-info--search teaser-info--mediaicon-audio teaser-info--with-icon', 'teaser-info--search teaser-info--mediaicon-video teaser-info--with-icon']) %}
 
             {% include 'atoms-teaser-info' with {
                 'type': 'media-icon',

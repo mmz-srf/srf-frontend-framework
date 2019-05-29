@@ -1007,14 +1007,6 @@
     }
   }
 
-  .teaser-info {
-    color: $color-image-dummy;
-
-    @include tablet-up {
-      @include fontSize(14);
-    }
-  }
-
   // REALLY enforce & center 16:9 images
   .teaser__medium {
     position: absolute;
