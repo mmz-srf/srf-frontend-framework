@@ -10,11 +10,11 @@
   -webkit-transform: translate3d(0,0,0); // prevents flickering on :hover in WebKit-based Browsers like Safari or Chrome (WebKit/Blink)
 
   /* fallback */
-  color: $color-text-accentuation;
+  color: $color-srf-warmgrey-900;
 
   /* theme */
   @supports (--foo: bar) {
-    color: var(--theme-color-nav, $color-text-accentuation);
+    color: var(--theme-color-nav, $color-srf-warmgrey-900);
   }
 
   &:hover {

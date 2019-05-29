@@ -10,10 +10,10 @@
   position: relative;
   margin: 0 0 2px;
   padding: 0;
-  background-color: $color-bg-caption;
+  background-color: $color-srf-warmgrey-25;
 
   &:hover {
-    background-color: $color-bg-box;
+    background-color: $color-srf-warmgrey-50;
   }
 
   &::before { // numbering
@@ -22,7 +22,7 @@
     position: absolute;
     left: $article-offset;
     top: 40px;
-    color: #555;
+    color: $color-srf-neutral-600;
     @include fontSize(18);
     font-family: $font-medium;
     line-height: 20px;
@@ -36,6 +36,6 @@
 
 .audio-gallery__item--playing {
   &::before {
-    color: #fff;
+    color: $color-srf-neutral-white;
   }
 }

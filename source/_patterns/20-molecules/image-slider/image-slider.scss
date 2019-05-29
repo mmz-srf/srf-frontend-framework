@@ -1,6 +1,6 @@
 .image-slider {
   margin: 32px 0;
-  background-color: #f5f5f2;
+  background-color: $color-srf-warmgrey-25;
 
   @include smartphone {
     margin-top: 24px;
@@ -54,8 +54,8 @@
   top: 0;
   bottom: 0;
   overflow: hidden;
-  border-right: 1px solid #fff;
-  box-shadow: 0 0 12px 0 rgba(0, 0, 0, .75);
+  border-right: 1px solid $color-srf-neutral-white;
+  box-shadow: 0 0 12px 0 $color-srf-neutral-blacka75;
 }
 
 .image-slider__image--cover {

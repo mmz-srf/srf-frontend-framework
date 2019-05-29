@@ -2,7 +2,7 @@
 
 .related-items-list {
   opacity: 1; /* OVERRIDE CRITICAL CSS */
-  color: $color-text-default;
+  color: $color-srf-warmgrey-1100;
   margin: 24px 0 32px;
 
   @include tablet-up {
@@ -30,10 +30,10 @@
 .related-items-list__item {
   margin: 0 0 0 $article-offset;
   padding: 0;
-  border-top: 1px solid $color-bg-box;
+  border-top: 1px solid $color-srf-warmgrey-50;
 
   &:last-child {
-    border-bottom: 1px solid $color-bg-box;
+    border-bottom: 1px solid $color-srf-warmgrey-50;
   }
 }
 
@@ -54,12 +54,12 @@
     margin-top: -1px;
     margin-bottom: -1px;
     padding-left: $article-offset;
-    background-color: $color-link-bg-hover;
-    border-top: 1px solid $color-bg-box;
-    border-bottom: 1px solid $color-bg-box;
+    background-color: $color-srf-warmgrey-10;
+    border-top: 1px solid $color-srf-warmgrey-50;
+    border-bottom: 1px solid $color-srf-warmgrey-50;
   }
 
   &:active {
-    background-color: $color-link-bg-active;
+    background-color: $color-srf-warmgrey-25;
   }
 }

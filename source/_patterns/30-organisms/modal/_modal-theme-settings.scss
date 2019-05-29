@@ -9,12 +9,12 @@
 
 /* DEFAULTS */
 .modal {
-  --theme-color-background: linear-gradient(135deg, #fefefd, #fafaf8);
+  --theme-color-background: linear-gradient(135deg, #{$color-srf-neutral-offwhite}, #{$color-srf-warmgrey-10});
   --theme-icon-filter: none;
 
-  --theme-color-bg-search: #fefefd;
-  --theme-color-text-search: #{$color-text-light};
-  --theme-search-border: 1px solid rgba(0,0,0,.2);
+  --theme-color-bg-search: #{$color-srf-neutral-offwhite};
+  --theme-color-text-search: #{$color-srf-warmgrey-800};
+  --theme-search-border: 1px solid #{$color-srf-neutral-blacka20};
   --theme-search-border-bottom: 0;
 
   --theme-hoverable-after-opacity: .6;
@@ -22,16 +22,16 @@
 
 /* COMMON SETTINGS FOR ALL THEMES EXCEPT DEFAULT */
 .modal.modal--theme-dark {
-  --theme-color-background: linear-gradient(135deg, #111111, #111111);
+  --theme-color-background: linear-gradient(135deg, #{$color-srf-neutral-1000}, #{$color-srf-neutral-1000});
   --theme-icon-filter: invert(100%) contrast(600%);
 
-  --theme-color-nav: #fff;
-  --theme-color-active: #fff;
-  --theme-color-nav-hover-text: #fff;
+  --theme-color-nav: #{$color-srf-neutral-white};
+  --theme-color-active: #{$color-srf-neutral-white};
+  --theme-color-nav-hover-text: #{$color-srf-neutral-white};
 
-  --theme-color-bg-search: rgba(0,0,0,.2);
-  --theme-color-text-search: #fff;
-  --theme-search-border: 1px solid rgba(255,255,255,.4);
+  --theme-color-bg-search: #{$color-srf-neutral-blacka20};
+  --theme-color-text-search: #{$color-srf-neutral-white};
+  --theme-search-border: 1px solid #{$color-srf-neutral-whitea40};
   --theme-search-border-bottom: var(--theme-search-border);
 
   --theme-hoverable-after-opacity: .684;

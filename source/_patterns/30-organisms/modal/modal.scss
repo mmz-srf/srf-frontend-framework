@@ -15,11 +15,11 @@ $modal-z-index: 100;
 
 .modal-main-wrapper {
   /* fallback */
-  background-image: linear-gradient(135deg, #fefefd, #fafaf8);
+  background-image: linear-gradient(135deg, #{$color-srf-neutral-offwhite}, #{$color-srf-warmgrey-10});
 
   /* theme */
   @supports (--foo: bar) {
-    background-image: var(--theme-color-background, linear-gradient(135deg, #fefefd, #fafaf8));
+    background-image: var(--theme-color-background, linear-gradient(135deg, #{$color-srf-neutral-offwhite}, #{$color-srf-warmgrey-10}));
   }
 
   position: fixed;
