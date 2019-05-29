@@ -31,22 +31,23 @@
   background-color: red !important;
 
   @include smartphone {
-    &::before {
-      position: fixed;
-      top: -100px;
-      left: 0;
-      height: 100px;
-      width: 100%;
-      background-color: yellow;
-      content: '';
-    }
 
     &::after {
+      /* fallback */
+      background-image: linear-gradient(135deg, #fefefd, #fafaf8);
+
+      /* theme */
+      @supports (--foo: bar) {
+        background-image: var(--theme-color-background, linear-gradient(135deg, #fefefd, #fafaf8));
+      }
+
+      /* Put it behind the modal so we fake a nice background */
+      z-index: 99;
+
       position: fixed;
       left: 0;
-      bottom: -50px;
-      background-color: red;
-      height: 100px;
+      bottom: -20px;
+      height: 200px;
       width: 100%;
       content: '';
     }
