@@ -57,7 +57,7 @@
 }
 
 .teaser-info--search {
-  color: $color-image-dummy;
+  color: $color-srf-warmgrey-100;
 
   @include tablet-up {
     @include fontSize(14);
