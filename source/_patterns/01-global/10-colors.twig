@@ -80,7 +80,12 @@
         },
         "300": {
           "hex": "#ffd651",
-          "rgba": "rgba(255,214,81,1)"
+          "rgba": "rgba(255,214,81,1)",
+          "alpha": {
+            "00": {
+              "rgba": "rgba(255,214,81,0)"
+            }
+          }
         },
         "400": {
           "hex": "#fbbe29",
@@ -88,7 +93,12 @@
         },
         "500": {
           "hex": "#f7a600",
-          "rgba": "rgba(247,166,0,1)"
+          "rgba": "rgba(247,166,0,1)",
+          "alpha": {
+            "00": {
+              "rgba": "rgba(247,166,0,0)"
+            }
+          }
         },
         "600": {
           "hex": "#f28b02",
@@ -496,14 +506,14 @@
               <article class="color-palette-color">
                 <div class="color-palette-swatch" style="background-color:{{ tintCode.rgba }}"></div>
                 <div class="color-palette-info">
-                  <span class="color-palette-title u-user-select">{{ group.varName }}-{{ tint }}</span><br />
+                  <span class="color-palette-title u-user-select">${{ group.varName }}-{{ tint }}</span><br />
                   <span class="color-palette-code">{{ tintCode.hex }}</span><br />
                   <span class="color-palette-code">{{ tintCode.rgba }}</span>
                   {% for alpha, alphaCode in tintCode.alpha %}
                     <div class="color-palette-color color-palette-color--mini">
                       <div class="color-palette-swatch color-palette-swatch--mini" style="background-color:{{ alphaCode.rgba }}"></div>
                       <div class="color-palette-info color-palette-info--mini">
-                        <span class="color-palette-title color-palette-title--mini u-user-select">{{ group.varName }}-{{ tint }}a{{ alpha }}</span><br />
+                        <span class="color-palette-title color-palette-title--mini u-user-select">${{ group.varName }}-{{ tint }}a{{ alpha }}</span><br />
                         <span class="color-palette-code color-palette-code--mini">{{ alphaCode.rgba }} ({{ alpha }}%)</span>
                       </div>
                     </div>
