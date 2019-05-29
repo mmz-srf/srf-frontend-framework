@@ -5,7 +5,7 @@
   margin: 0 #{-$article-offset};
   padding: 0 $article-offset;
 
-  border-top: 1px solid rgb(236,236,230);
+  border-top: 1px solid $color-srf-warmgrey-50;
 
   /* clearfix */
   &:after {
@@ -16,7 +16,7 @@
 }
 
 .listing-item:last-of-type {
-  border-bottom: 1px solid rgb(236,236,230);
+  border-bottom: 1px solid $color-srf-warmgrey-50;
 }
 
 .listing-item__media {
@@ -39,7 +39,7 @@
   font-family: $font-regular;
   @include fontSize(18);
   font-weight: normal;
-  color: $color-text-default;
+  color: $color-srf-warmgrey-1100;
   margin: 12px 0 8px;
 
   @include tablet-up {
@@ -52,7 +52,7 @@
   font-family: $font-light;
   @include fontSize(18);
   font-weight: 300;
-  color: $color-text-default;
+  color: $color-srf-warmgrey-1100;
   margin: 8px 0;
 
   @include tablet-up {

@@ -2,8 +2,8 @@
 @import "../../mixins";
 @import "../../breakpoints";
 
-$color-collection-dim: rgba(0, 0, 0, .6) !default;
-$color-collection-dim-fade: rgba(0, 0, 0, 0) !default;
+$color-collection-dim: $color-srf-neutral-blacka60 !default;
+$color-collection-dim-fade: $color-srf-neutral-blacka00 !default;
 $background-overlap: 40px;
 $background-overlap-wide: 50px;
 
@@ -129,7 +129,7 @@ $background-overlap-wide: 50px;
   font-style: normal;
   font-stretch: normal;
   line-height: $emphasize-line-height-ratio;
-  color: $color-text-default;
+  color: $color-srf-warmgrey-1100;
 
   @include tablet-up {
     margin: 16px 32px 12px;
@@ -148,11 +148,11 @@ $background-overlap-wide: 50px;
 .collection__title-link {
   display: inline-flex;
   align-items: center;
-  color: $color-link-default;
+  color: $color-srf-red-600;
   transition: color .2s ease-in-out;
 
   &:hover {
-    color: #f1434a;
+    color: $color-srf-red-400;
 
     // estimation of the above color
     .collection__title-link-icon {
@@ -162,7 +162,7 @@ $background-overlap-wide: 50px;
 
   &:active,
   &:focus {
-    color: #ff6669;
+    color: $color-srf-red-300;
 
     // estimation of the above color
     .collection__title-link-icon {
@@ -203,8 +203,8 @@ $background-overlap-wide: 50px;
     width: 100%;
     height: calc(100% - 2px);
     left: 0;
-    border-top: 1px solid rgba(0, 0, 0, .08);
-    border-bottom: 1px solid rgba(0, 0, 0, .08);
+    border-top: 1px solid $color-srf-neutral-blacka08;
+    border-bottom: 1px solid $color-srf-neutral-blacka08;
   }
 
   @include tablet-up {
@@ -216,7 +216,7 @@ $background-overlap-wide: 50px;
   }
 
   .collection__lead {
-    color: $color-text-branded;
+    color: $color-srf-neutral-white;
     @include font-smoothing;
     margin-top: 0;
     margin-bottom: 24px;
@@ -273,7 +273,7 @@ $background-overlap-wide: 50px;
   font-style: normal;
   font-stretch: normal;
   line-height: $emphasize-line-height-ratio;
-  color: $color-text-accentuation;
+  color: $color-srf-warmgrey-900;
   margin: -4px 24px 24px;
   max-width: 624px;
 
@@ -411,20 +411,20 @@ $background-overlap-wide: 50px;
   font-weight: 500;
   font-style: normal;
   font-stretch: normal;
-  color: $color-text-default;
+  color: $color-srf-warmgrey-1100;
   border-radius: 2px;
-  background-color: $color-link-bg-unboxed;
+  background-color: $color-srf-warmgrey-10;
   transition: background-color .2s ease-in-out;
 
   &:hover {
-    color: $color-text-default;
-    background-color: $color-link-bg-unboxed-hover;
+    color: $color-srf-warmgrey-1100;
+    background-color: $color-srf-neutral-offwhite;
   }
 
   &:active,
   &:focus {
-    color: $color-text-default;
-    background-color: $color-link-bg-unboxed-active;
+    color: $color-srf-warmgrey-1100;
+    background-color: $color-srf-neutral-white;
   }
 
   @include desktop-up {
@@ -645,21 +645,21 @@ $background-overlap-wide: 50px;
   .collection__lead,
   .collection__title-link,
   .collection__link {
-    color: $color-text-branded;
+    color: $color-srf-neutral-white;
 
     @include font-smoothing;
   }
 
   .collection__link {
-      background-color: rgba(255, 255, 255, .08);
+      background-color: $color-srf-neutral-whitea08;
 
     &:hover {
-      background-color: rgba(255, 255, 255, .12);
+      background-color: $color-srf-neutral-whitea12;
     }
 
     &:active,
     &:focus {
-      background-color: rgba(255, 255, 255, .24);
+      background-color: $color-srf-neutral-whitea24;
     }
   }
 
@@ -694,7 +694,7 @@ $background-overlap-wide: 50px;
     .collection__link-item {
       .collection__link {
         &::before {
-          background-color: rgba(255, 255, 255, .12);
+          background-color: $color-srf-neutral-whitea12;
         }
       }
     }
@@ -706,7 +706,7 @@ $background-overlap-wide: 50px;
   .collection__lead,
   .collection__title-link,
   .collection__link {
-    color: $color-text-branded-dark;
+    color: $color-srf-warmgrey-1100;
   }
 
   .collection__title-link-icon,
@@ -760,9 +760,9 @@ $background-overlap-wide: 50px;
 
 .collection--selectable {
   overflow: hidden;
-  --theme-color-nav: #{$color-text-accentuation};
-  --theme-selection-button-color: $color-text-default;
-  --theme-selection-button-bg: #ebebe5;
+  --theme-color-nav: #{$color-srf-warmgrey-900};
+  --theme-selection-button-color: #{$color-srf-warmgrey-1100};
+  --theme-selection-button-bg: #{$color-srf-warmgrey-50};
 
   .collection__title {
     display: flex;
@@ -799,22 +799,22 @@ $background-overlap-wide: 50px;
   }
 
   &.collection--branded {
-    --theme-color-nav: #ffffff;
+    --theme-color-nav: #{$color-srf-neutral-white};
     --theme-icon-filter: brightness(1000%);
 
     .selectable__button {
       @include font-smoothing;
-      color: #ffffff;
-      background-color: rgba(255, 255, 255, .08);
+      color: $color-srf-neutral-white;
+      background-color: $color-srf-neutral-whitea08;
       transition: background-color .2s ease-in-out;
 
       &:hover {
-        background-color: rgba(255, 255, 255, .12);
+        background-color: $color-srf-neutral-whitea12;
       }
 
       &:focus,
       &:active {
-        background-color: rgba(255, 255, 255, .24);
+        background-color: $color-srf-neutral-whitea24;
       }
 
       &::after {
@@ -827,9 +827,9 @@ $background-overlap-wide: 50px;
 // has an additional button on the top right and an image to the left (i.e. a flag, optional)
 .collection--with-title-button {
   overflow: hidden;
-  --theme-color-nav: #{$color-text-accentuation};
-  --theme-selection-button-color: $color-text-default;
-  --theme-selection-button-bg: #ebebe5;
+  --theme-color-nav: #{$color-srf-warmgrey-900};
+  --theme-selection-button-color: #{$color-srf-warmgrey-1100};
+  --theme-selection-button-bg: #{$color-srf-warmgrey-50};
 
   @include smartphone {
     margin-top: 18px;
@@ -877,7 +877,7 @@ $background-overlap-wide: 50px;
     font-family: $font-regular;
     @include fontSize(18);
     line-height: $emphasize-line-height-ratio;
-    color: $color-text-default;
+    color: $color-srf-warmgrey-1100;
   }
 
   .collection__title-button-text {

@@ -6,8 +6,8 @@
   position: relative; // to position the pseudo elements
   height: 100%;
   border-radius: 2px;
-  background-color: #22211d;
-  color: #fff;
+  background-color: $color-srf-warmgrey-1100;
+  color: $color-srf-neutral-white;
   margin: 1px 0;
   padding: 18px 16px;
   transition: background .2s ease-in-out;
@@ -30,7 +30,7 @@
     pointer-events: none;
 
     /* theme */
-    @include customPropWithFallback('background-color', '--teaser-background-link-hover', rgba(255,255,255,.08));
+    @include customPropWithFallback('background-color', '--teaser-background-link-hover', $color-srf-neutral-whitea08);
 
     // performance improvement: Don't animate the background-color, but the opacity
     opacity: 0;
@@ -39,7 +39,7 @@
 
   &:hover,
   &:focus {
-    color: #fff;
+    color: $color-srf-neutral-white;
 
     &::after {
       opacity: 1;
@@ -47,11 +47,11 @@
   }
 
   &:active {
-    color: #fff;
+    color: $color-srf-neutral-white;
 
     &::after {
       /* theme */
-      @include customPropWithFallback('background-color', '--teaser-background-link-active', rgba(255,255,255,.12));
+      @include customPropWithFallback('background-color', '--teaser-background-link-active', $color-srf-neutral-whitea12);
 
       opacity: 1;
     }
@@ -105,13 +105,13 @@
   display: inline-block;
   padding: 4px 8px;
   backdrop-filter: blur(2px);
-  background-color: $color-srf-light;
+  background-color: $color-srf-red-500;
   @include fontSize(16);
   line-height: 1;
   font-weight: 500;
   font-family: $font-medium;
   text-transform: uppercase;
-  color: #fff;
+  color: $color-srf-neutral-white;
   max-height: auto;
   animation: pulsatingLiveAnimation 3s infinite ease-in-out;
   @include font-smoothing;
@@ -147,14 +147,14 @@
   font-family: $font-regular;
   @include fontSize(14);
   line-height: 1.15;
-  color: #fff;
+  color: $color-srf-neutral-white;
 }
 
 .onairnav-link__title--rtr-radiostation {
   font-family: $font-regular;
   @include fontSize(18);
   line-height: 1.15;
-  color: #fff;
+  color: $color-srf-neutral-white;
 }
 
 
@@ -163,8 +163,8 @@
 .onairnav-link__progress {
   appearance: none; /* Needed for WebKit/Blink */
   border: none; /* Needed for Firefox */
-  background-color: #383732;
-  color: #8d0614; /* For IE10 */
+  background-color: $color-srf-warmgrey-1000;
+  color: $color-srf-red-800; /* For IE10 */
   position: absolute;
   width: 100%;
   height: 2px;
@@ -173,15 +173,15 @@
 }
 
 .onairnav-link__progress[value]::-webkit-progress-bar { /* Needed for WebKit/Blink */
-  background-color: #383732;
+  background-color: $color-srf-warmgrey-1000;
 }
 
 .onairnav-link__progress[value]::-webkit-progress-value { /* Needed for WebKit/Blink */
   position: relative;
-  background-color: #8d0614;
+  background-color: $color-srf-red-800;
 }
 
 .onairnav-link__progress[value]::-moz-progress-bar { /* Needed for Firefox */
   position: relative;
-  background-color: #8d0614;
+  background-color: $color-srf-red-800;
 }

@@ -15,7 +15,7 @@
   font-family: $font-regular;
   @include fontSize(16);
   line-height: $emphasize-line-height-ratio;
-  color: $color-accentuation-red;
+  color: $color-srf-red-600;
 
   @include tablet-up {
     margin: 0 0 3px;
@@ -32,7 +32,7 @@
   line-height: $emphasize-line-height-ratio;
   font-feature-settings: "salt";
   font-weight: normal;
-  color: $color-text-default;
+  color: $color-srf-warmgrey-1100;
 
   @include tablet-up {
     margin: 3px 0 18px;

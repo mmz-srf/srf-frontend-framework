@@ -14,7 +14,7 @@
   @include fontSize(22);
   font-family: $font-medium;
   line-height: $emphasize-line-height-ratio;
-  color: $color-text-default;
+  color: $color-srf-warmgrey-1100;
   margin: 0 0 16px;
   @include article-text-padding;
 }

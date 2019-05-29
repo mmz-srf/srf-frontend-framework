@@ -65,16 +65,16 @@
   /* fallback */
   background: linear-gradient(
     to right,
-    rgba(254, 254, 253, 1),
-    rgba(254, 254, 253, 0)
+    $color-srf-neutral-offwhite,
+    $color-srf-neutral-offwhitea00
   );
 
   /* theme */
   @supports (--foo: bar) {
     background: linear-gradient(
       to right,
-      var(--theme-color-pager-start, rgba(254, 254, 253, 1)),
-      var(--theme-color-pager-start-transparent, rgba(254, 254, 253, 0))
+      var(--theme-color-pager-start, #{$color-srf-neutral-offwhite}),
+      var(--theme-color-pager-start-transparent, #{$color-srf-neutral-offwhitea00})
     );
   }
 }
@@ -85,16 +85,16 @@
   /* fallback */
   background: linear-gradient(
     to right,
-    rgba(250, 250, 248, 0),
-    rgba(250, 250, 248, 1)
+    $color-srf-warmgrey-10a00,
+    $color-srf-warmgrey-10
   );
 
   /* theme */
   @supports (--foo: bar) {
     background: linear-gradient(
       to right,
-      var(--theme-color-pager-end-transparent, rgba(250, 250, 248, 0)),
-      var(--theme-color-pager-end, rgba(250, 250, 248, 1))
+      var(--theme-color-pager-end-transparent, $color-srf-warmgrey-10a00),
+      var(--theme-color-pager-end, $color-srf-warmgrey-10)
     );
   }
 }
@@ -116,18 +116,18 @@
     /* fallback */
     background: linear-gradient(
       to right,
-      rgba(254, 254, 253, 1),
-      rgba(254, 254, 253, 1) 58px,
-      rgba(255, 255, 255, 0)
+      $color-srf-neutral-offwhite,
+      $color-srf-neutral-offwhite 58px,
+      $color-srf-neutral-whitea00
     );
 
     /* theme */
     @supports (--foo: bar) {
       background: linear-gradient(
         to right,
-        var(--theme-color-pager-start, rgba(254, 254, 253, 1)),
-        var(--theme-color-pager-start, rgba(254, 254, 253, 1)) 58px,
-        var(--theme-color-pager-start-transparent, rgba(255, 255, 255, 0))
+        var(--theme-color-pager-start, $color-srf-neutral-offwhite),
+        var(--theme-color-pager-start, $color-srf-neutral-offwhite) 58px,
+        var(--theme-color-pager-start-transparent, $color-srf-neutral-whitea00)
       );
     }
   }
@@ -148,18 +148,18 @@
     /* fallback */
     background: linear-gradient(
       to right,
-      rgba(255, 255, 255, 0),
-      rgba(250, 250, 248, 1) 28px,
-      rgba(250, 250, 248, 1)
+      $color-srf-neutral-whitea00,
+      $color-srf-warmgrey-10 28px,
+      $color-srf-warmgrey-10
     );
 
     /* theme */
     @supports (--foo: bar) {
       background: linear-gradient(
         to right,
-        var(--theme-color-pager-end-transparent, rgba(255, 255, 255, 0)),
-        var(--theme-color-pager-end, rgba(250, 250, 248, 1)) 28px,
-        var(--theme-color-pager-end, rgba(250, 250, 248, 1))
+        var(--theme-color-pager-end-transparent, $color-srf-neutral-whitea00),
+        var(--theme-color-pager-end, $color-srf-warmgrey-10) 28px,
+        var(--theme-color-pager-end, $color-srf-warmgrey-10)
       );
     }
   }
@@ -178,22 +178,22 @@
     &:hover {
 
       /* fallback */
-      background-color: $color-nav-bg-hover;
+      background-color: $color-srf-warmgrey-300a12;
 
       /* theme*/
       @supports (--foo: bar) {
-        background-color: var(--theme-color-bg-hover, $color-nav-bg-hover);
+        background-color: var(--theme-color-bg-hover,$color-srf-warmgrey-300a12);
       }
     }
 
     &:active {
 
       /* fallback */
-      background-color: $color-nav-bg-active;
+      background-color: $color-srf-warmgrey-300a24;
 
       /* theme */
       @supports (--foo: bar) {
-        background-color: var(--theme-color-bg-active, $color-nav-bg-active);
+        background-color: var(--theme-color-bg-active, $color-srf-warmgrey-300a24);
       }
     }
   }

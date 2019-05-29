@@ -16,7 +16,7 @@
   position: absolute;
   border-radius: 50%;
   transform: scale(.7);
-  background: rgba(255, 255, 255, 1);
+  background: $color-srf-neutral-white;
   opacity: .45;
   animation: rippleAnimation 2s forwards;
 }
