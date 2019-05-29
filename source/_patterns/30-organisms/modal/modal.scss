@@ -30,26 +30,25 @@ $modal-z-index: 100;
   overflow-y: scroll;
   overflow-x: hidden;
   box-shadow: $shadow-elevation8;
-  background-color: red !important;
   z-index: $modal-z-index;
 
   @include smartphone {
 
     &::after {
       /* fallback */
-      background-image: linear-gradient(135deg, #fefefd, #fafaf8);
+      background-image: linear-gradient(135deg, #{$color-srf-neutral-offwhite}, #{$color-srf-warmgrey-10});
 
       /* theme */
       @supports (--foo: bar) {
-        background-image: var(--theme-color-background, linear-gradient(135deg, #fefefd, #fafaf8));
+        background-image: var(--theme-color-background, linear-gradient(135deg, #{$color-srf-neutral-offwhite}, #{$color-srf-warmgrey-10}));
       }
 
       /* Put it behind the modal so we fake a nice background */
       z-index: -1;
 
       position: fixed;
-      left: 0;
       bottom: -200px;
+      left: 0;
       height: 400px;
       width: 100%;
       content: '';
