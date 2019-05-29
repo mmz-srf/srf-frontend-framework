@@ -14,7 +14,7 @@ $button-animation-duration: .3s;
   @include fontSize(16);
   font-family: $font-regular;
   letter-spacing: 0.8px; // Interactive overriding default values
-  color: #fff;
+  color: $color-srf-neutral-white;
   @include font-smoothing;
   border: 0;
   border-radius: 2px;
@@ -22,7 +22,7 @@ $button-animation-duration: .3s;
   display: block;
   // the following makes iOs display the button with css
   -webkit-appearance: none;
-  background-color: $color-text-accentuation;
+  background-color: $color-srf-warmgrey-900;
   box-shadow: $shadow-elevation2;
   transition: background-color $button-animation-duration ease-in-out,
               box-shadow $button-animation-duration ease-in-out;
@@ -55,11 +55,11 @@ $button-animation-duration: .3s;
 
   &:hover,
   &:focus {
-    background-color: $color-text-light;
+    background-color: $color-srf-warmgrey-800;
   }
 
   &:active {
-    background-color: $color-button-active;
+    background-color: $color-srf-warmgrey-700;
   }
 
   &::before {
@@ -78,20 +78,24 @@ $button-animation-duration: .3s;
   }
 }
 
+.button--no-spacing {
+  margin-top: 0;
+}
+
 .button--pending {
 
   &:hover,
   &:active,
   &:focus {
     cursor: default;
-    background-color: $color-text-accentuation;
+    background-color: $color-srf-warmgrey-900;
     box-shadow: $shadow-elevation2;
     transition: none;
   }
 
   .button-icon {
     display: inline-block;
-    @include spinner(1px, #fff, #7a7a7a, $color-text-accentuation);
+    @include spinner(1px, $color-srf-neutral-white, $color-srf-warmgrey-25, $color-srf-warmgrey-900);
 
     margin: -1px auto -7px auto;
   }
@@ -114,7 +118,7 @@ $button-animation-duration: .3s;
   &:hover,
   &:focus,
   &:active {
-    background-color: $color-accentuation-red;
+    background-color: $color-srf-red-600;
     cursor: default;
     box-shadow: $shadow-elevation2;
     transition: none;
@@ -129,7 +133,7 @@ $button-animation-duration: .3s;
   height: $button-height;
 
   &::before {
-    background-color: $color-accentuation-red;
+    background-color: $color-srf-red-600;
     transition: height $button-animation-duration cubic-bezier(0.18, 0.89, 0.32, 1.28);
     height: 100%;
     border-radius: 2px;
@@ -155,7 +159,7 @@ $button-animation-duration: .3s;
   &:hover,
   &:focus,
   &:active {
-    background-color: $color-button-success;
+    background-color: $color-srf-blue-600;
     cursor: default;
     box-shadow: $shadow-elevation2;
     transition: none;
@@ -170,7 +174,7 @@ $button-animation-duration: .3s;
   height: $button-height;
 
   &::before {
-    background-color: $color-button-success;
+    background-color: $color-srf-blue-600;
     transition: height $button-animation-duration cubic-bezier(0.18, 0.89, 0.32, 1.28);
     height: 100%;
     border-radius: 2px;
@@ -192,16 +196,16 @@ $button-animation-duration: .3s;
 }
 
 .button--secondary {
-  color: $color-text-accentuation;
-  background-color: $color-bg-box;
+  color: $color-srf-warmgrey-900;
+  background-color: $color-srf-warmgrey-50;
 
   &:hover,
   &:active {
-    background-color: $color-bg-box-hover;
+    background-color: $color-srf-warmgrey-100;
   }
 
   &:focus {
-    background-color: $color-button-active-secondary;
+    background-color: $color-srf-warmgrey-200;
   }
 }
 
@@ -212,7 +216,7 @@ $button-animation-duration: .3s;
   &:active,
   &:focus {
     cursor: default;
-    background-color: $color-text-accentuation;
+    background-color: $color-srf-warmgrey-900;
     box-shadow: $shadow-elevation2;
     transition: none;
   }

@@ -8,56 +8,56 @@
 
 /* DEFAULTS */
 .teaser {
-  --teaser-color-background: #{$color-bg-card};
-  --teaser-color-text: #{$color-text-default};
-  --teaser-color-text-emphasis: #{$color-text-default};
-  --teaser-color-title: #383732;
-  --teaser-color-accentuation: #{$color-accentuation-red};
-  --teaser-color-overlay: #{$color-bg-button-hover};
-  --teaser-color-info-new: #{$color-srf-light};
-  --teaser-color-info-visited: #{$color-button-success};
-  --teaser-color-info-updated: #{$color-text-light};
-  --teaser-border-color-link: rgba(0,0,0,.08);
-  --teaser-background-link-hover: rgb(246,246,243);
-  --teaser-background-link-active: rgb(237,237,234);
-  --teaser-fake-shadow-gradient: linear-gradient(rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%);
+  --teaser-color-background: #{$color-srf-neutral-offwhite};
+  --teaser-color-text: #{$color-srf-warmgrey-1100};
+  --teaser-color-text-emphasis: #{$color-srf-warmgrey-1100};
+  --teaser-color-title: #{$color-srf-warmgrey-1000};
+  --teaser-color-accentuation: #{$color-srf-red-600};
+  --teaser-color-overlay: #{$color-srf-warmgrey-300a12};
+  --teaser-color-info-new: #{$color-srf-red-500};
+  --teaser-color-info-visited: #{$color-srf-blue-600};
+  --teaser-color-info-updated: #{$color-srf-warmgrey-800};
+  --teaser-border-color-link: #{$color-srf-neutral-blacka08};
+  --teaser-background-link-hover: #{$color-srf-warmgrey-25};
+  --teaser-background-link-active: #{$color-srf-warmgrey-50};
+  --teaser-fake-shadow-gradient: linear-gradient(#{$color-srf-neutral-whitea00} 0%, #{$color-srf-neutral-white} 100%);
   /* NOTE: There are some assets too, but those can't be linked with custom properties here (propably 'cause of gulp or something) and are therefore declared directly in the scss with the corresponding classes -> see teaser-info.scss */
 }
 
 /* COMMON SETTINGS FOR ALL THEMES EXCEPT DEFAULT */
 .teaser.teaser--theme-dark {
-  --teaser-color-background: #22211d;
-  --teaser-color-text: #ffffff;
-  --teaser-color-text-emphasis: #dadad2;
-  --teaser-color-title: #ffffff;
-  --teaser-color-accentuation: #dadad2;
-  --teaser-color-overlay: rgba(255, 255, 255, .12);
-  --teaser-color-info-new: #ffffff;
-  --teaser-color-info-visited: #ffffff;
-  --teaser-color-info-updated: #ffffff;
-  --teaser-border-color-link: rgba(255, 255, 255, .12);
-  --teaser-background-link-hover: rgba(255,255,255,.08);
-  --teaser-background-link-active: rgba(255,255,255,.12);
-  --teaser-fake-shadow-gradient: linear-gradient(rgba(34,33,29,0) 0%,rgba(34,33,29,1) 100%);
+  --teaser-color-background: #{$color-srf-warmgrey-1100};
+  --teaser-color-text: #{$color-srf-neutral-white};
+  --teaser-color-text-emphasis: #{$color-srf-warmgrey-100};
+  --teaser-color-title: #{$color-srf-neutral-white};
+  --teaser-color-accentuation: #{$color-srf-warmgrey-100};
+  --teaser-color-overlay: #{$color-srf-neutral-whitea12};
+  --teaser-color-info-new: #{$color-srf-neutral-white};
+  --teaser-color-info-visited: #{$color-srf-neutral-white};
+  --teaser-color-info-updated: #{$color-srf-neutral-white};
+  --teaser-border-color-link: #{$color-srf-neutral-whitea12};
+  --teaser-background-link-hover: #{$color-srf-neutral-whitea08};
+  --teaser-background-link-active: #{$color-srf-neutral-whitea12};
+  --teaser-fake-shadow-gradient: linear-gradient(#{$color-srf-warmgrey-1100a00} 0%, #{$color-srf-warmgrey-1100} 100%);
   /* NOTE: There are some assets too, but those can't be linked with custom properties here (propably 'cause of gulp or something) and are therefore declared directly in the scss with the corresponding classes -> see teaser-info.scss */
 
   @include font-smoothing;
 }
 
 .teaser.teaser--theme-breaking {
-  --teaser-color-background: #c91024;
-  --teaser-color-text: #ffffff;
-  --teaser-color-text-emphasis: #ffffff;
-  --teaser-color-title: #ffffff;
-  --teaser-color-accentuation: #ffffff;
-  --teaser-color-overlay: rgba(255, 255, 255, .12);
-  --teaser-color-info-new: #ffffff;
-  --teaser-color-info-visited: #ffffff;
-  --teaser-color-info-updated: #ffffff;
-  --teaser-border-color-link: rgba(255,255,255,.08);
-  --teaser-background-link-hover: rgba(255,255,255,.08);
-  --teaser-background-link-active: rgba(255,255,255,.24);
-  --teaser-fake-shadow-gradient: linear-gradient(rgba(201,16,36,0) 0%,rgba(201,16,36,1) 100%);
+  --teaser-color-background: #{$color-srf-red-600};
+  --teaser-color-text: #{$color-srf-neutral-white};
+  --teaser-color-text-emphasis: #{$color-srf-neutral-white};
+  --teaser-color-title: #{$color-srf-neutral-white};
+  --teaser-color-accentuation: #{$color-srf-neutral-white};
+  --teaser-color-overlay: #{$color-srf-neutral-whitea12};
+  --teaser-color-info-new: #{$color-srf-neutral-white};
+  --teaser-color-info-visited: #{$color-srf-neutral-white};
+  --teaser-color-info-updated: #{$color-srf-neutral-white};
+  --teaser-border-color-link: #{$color-srf-neutral-whitea08};
+  --teaser-background-link-hover: #{$color-srf-neutral-whitea08};
+  --teaser-background-link-active: #{$color-srf-neutral-whitea24};
+  --teaser-fake-shadow-gradient: linear-gradient(#{$color-srf-red-600a00} 0%, #{$color-srf-red-600} 100%);
   /* NOTE: There are some assets too, but those can't be linked with custom properties here (propably 'cause of gulp or something) and are therefore declared directly in the scss with the corresponding classes -> see teaser-info.scss */
 
   @include font-smoothing;

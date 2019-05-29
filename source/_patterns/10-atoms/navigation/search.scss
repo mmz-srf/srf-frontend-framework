@@ -1,8 +1,6 @@
 @import "../../variables";
 @import "../../mixins";
 
-$search-box-border-fallback: 1px solid rgba(0,0,0,.2);
-
 .search {
   position: relative;
   height: 48px;
@@ -23,14 +21,14 @@ $search-box-border-fallback: 1px solid rgba(0,0,0,.2);
 
 .search-wrapper {
   /* fallback */
-  background-color: #fefefd;
-  border: $search-box-border-fallback;
+  background-color: $color-srf-neutral-offwhite;
+  border: 1px solid $color-srf-neutral-blacka20;
   border-bottom: 0;
 
   /* theme */
   @supports (--foo: bar) {
-    background-color: var(--theme-color-bg-search, #fefefd);
-    border: var(--theme-search-border, $search-box-border-fallback);
+    background-color: var(--theme-color-bg-search, $color-srf-neutral-offwhite);
+    border: var(--theme-search-border, 1px solid $color-srf-neutral-blacka20);
     border-bottom: var(--theme-search-border-bottom, 0);
   }
 
@@ -41,7 +39,7 @@ $search-box-border-fallback: 1px solid rgba(0,0,0,.2);
 .search--active {
   .search-wrapper {
     box-shadow: $shadow-elevation4;
-    background-color: #fefefd;
+    background-color: $color-srf-neutral-offwhite;
     border-bottom: 0;
     position: relative;
     z-index: 1;
@@ -50,12 +48,12 @@ $search-box-border-fallback: 1px solid rgba(0,0,0,.2);
 
 .search__input--wrapper {
   display: flex;
-  border-bottom: $search-box-border-fallback;
+  border-bottom: 1px solid $color-srf-neutral-blacka20;
 }
 
 .search__icon {
-  background: url(../img/search-sprite.svg) no-repeat 4px -52px;
-  background-size: 36px;
+  background: url(../img/search-sprite.svg) no-repeat 8px -42px;
+  background-size: 32px;
   width: 48px;
   flex-shrink: 0;
 
@@ -85,7 +83,7 @@ $search-box-border-fallback: 1px solid rgba(0,0,0,.2);
   @include fontSize(16);
   font-family: $font-regular;
   line-height: 1.1; // line-height 1 cuts off "bottom parts of letters"
-  color: $color-text-light;
+  color: $color-srf-warmgrey-800;
   background: transparent;
   border: 0;
   padding: 14px 48px;
@@ -98,14 +96,14 @@ $search-box-border-fallback: 1px solid rgba(0,0,0,.2);
 
   // safari needs it's own line-height and opacity
   &::-webkit-input-placeholder {
-    color: $color-text-light;
+    color: $color-srf-warmgrey-800;
     line-height: 21px;
     opacity: 1;
   }
 
   &::placeholder {
     @supports (--foo: bar) {
-      color: var(--theme-color-text-search, $color-text-light);
+      color: var(--theme-color-text-search, $color-srf-warmgrey-800);
     }
   }
 
@@ -121,7 +119,7 @@ $search-box-border-fallback: 1px solid rgba(0,0,0,.2);
 
 .search--active {
   .search__input {
-    color: $color-text-default;
+    color: $color-srf-warmgrey-1100;
   }
 }
 
@@ -168,7 +166,7 @@ $search-box-border-fallback: 1px solid rgba(0,0,0,.2);
     @include fontSize(16);
     font-family: $font-regular;
     text-align: left;
-    color: $color-text-default;
+    color: $color-srf-warmgrey-1100;
     text-decoration: none;
     padding: 12px 24px;
     @include font-smoothing;
@@ -181,7 +179,7 @@ $search-box-border-fallback: 1px solid rgba(0,0,0,.2);
     &:hover,
     &:focus,
     &:active {
-      color: $color-text-default;
+      color: $color-srf-warmgrey-1100;
     }
   }
 
@@ -196,12 +194,12 @@ $search-box-border-fallback: 1px solid rgba(0,0,0,.2);
 
 .search-result__link {
   &:hover {
-    background-color: $color-bg-button-hover;
+    background-color: $color-srf-warmgrey-300a12;
   }
 
   &:active,
   &:focus {
-    background-color: $color-bg-button-focus;
+    background-color: $color-srf-warmgrey-300a24;
   }
 
   strong {

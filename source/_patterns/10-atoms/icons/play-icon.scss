@@ -12,7 +12,7 @@
   position: relative;
   height: 100%;
   width: 100%;
-  outline: $play-button-border-size solid rgba(0,0,0,0);
+  outline: $play-button-border-size solid $color-srf-neutral-blacka00;
   border: 0;
   border-radius: 50%;
   overflow: hidden;
@@ -26,7 +26,7 @@
     position: absolute;
     width: 100%;
     height: 100%;
-    border: $play-button-border-size solid #FFF;
+    border: $play-button-border-size solid $color-srf-neutral-white;
     border-radius: 50%;
     background: url("../img/icon/play-video.svg"), $color-play-icon-normal;
     @include bg-settings;

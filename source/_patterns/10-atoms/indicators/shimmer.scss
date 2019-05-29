@@ -9,7 +9,7 @@
   width: 100%;
   height: 11px;
   margin-bottom: 11px;
-  background: rgba(34,33,29,.12);
+  background: $color-srf-warmgrey-1100a12;
   position: relative;
   overflow: hidden;
   display: block;
@@ -22,7 +22,7 @@
 
 .shimmer::before {
   content: "";
-  background: linear-gradient(90deg,transparent,rgba(34,33,29,.24) 50%,transparent);
+  background: linear-gradient(90deg,transparent,$color-srf-warmgrey-1100a24 50%,transparent);
   width: 800px;
   position: absolute;
   left: 0;
@@ -52,10 +52,10 @@
 }
 
 .shimmer--dark {
-  background: rgba(255,255,255,.12);
+  background: $color-srf-neutral-whitea12;
 
   &::before {
-    background: linear-gradient(90deg,transparent,rgba(255,255,255,.24) 50%,transparent);
+    background: linear-gradient(90deg,transparent,$color-srf-neutral-whitea24 50%,transparent);
   }
 }
 
@@ -81,14 +81,14 @@
 .shimmer--overline {
   width: 33%;
   height: 11px;
-  background: rgba(201,16,36,.12);
+  background: $color-srf-red-600a12;
 
   @include desktop-up {
     height: 11px;
   }
 
   &::before {
-    background: linear-gradient(90deg,transparent,rgba(201,16,36,.24) 50%,transparent);
+    background: linear-gradient(90deg,transparent,$color-srf-red-600a24 50%,transparent);
   }
 }
 

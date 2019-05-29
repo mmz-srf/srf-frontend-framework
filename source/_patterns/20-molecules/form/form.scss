@@ -2,7 +2,7 @@
 @import "../../mixins";
 
 .form {
-  background-color: $color-bg-caption;
+  background-color: $color-srf-warmgrey-25;
   padding: 12px $article-offset-mobile 16px;
   margin: 20px 8px 20px;
 
@@ -16,7 +16,7 @@
   @include fontSize(22);
   line-height: $emphasize-line-height-ratio;
   font-family: $font-medium;
-  color: $color-text-default;
+  color: $color-srf-warmgrey-1100;
 }
 
 .form-fieldset {
@@ -34,14 +34,14 @@
   display: block;
   font-family: $font-regular;
   @include fontSize(16);
-  color: $color-text-accentuation;
+  color: $color-srf-warmgrey-900;
   padding: 20px 0 4px; // margin: 20px 0 4px;
 }
 
 .form-fieldset__hint {
   font-family: $font-light;
   @include fontSize(16);
-  color: $color-form-field-hint;
+  color: $color-srf-warmgrey-800;
   margin-top: 2px;
 }
 
