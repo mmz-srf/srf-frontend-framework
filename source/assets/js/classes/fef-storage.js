@@ -106,8 +106,9 @@ export class FefStorage {
      * @param maxItems
      */
     static prependIdToList(key, id, maxItems = 100) {
-        let listItems = this.getItemJsonParsed(key, []);
+        this.removeIdFromList(key, id);
 
+        let listItems = this.getItemJsonParsed(key, []);
         if (typeof id !== 'string') {
             return;
         }
@@ -117,7 +118,6 @@ export class FefStorage {
             listItems = [];
         }
 
-        this.removeIdFromList(key, id);
         let newItems = listItems.unshift(item);
 
         if (newItems.length > maxItems) {
