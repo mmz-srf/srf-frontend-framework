@@ -3,6 +3,7 @@
   // Flex: Fallback if browser does not support CSS Grid -> iOS 10.2 and older, which are supported by SRF News App
   display: flex;
   flex-wrap: wrap;
+  margin-top: -4px;
 
   @supports (display: grid) {
     display: grid;
@@ -15,6 +16,7 @@
             "ea eb ec ed ee ef eg eh" 40px
             "fa fb fc fd fe ff fg fh" 40px /
       40px 40px 40px 40px 40px 40px 40px 40px;
+    margin-top: 0;
     margin-left: -22px;
 
     @include tablet-up {
@@ -29,6 +31,14 @@
       42px 42px 42px 42px 42px 42px 42px 42px;
       margin-left: 0;
     }
+  }
+}
+
+.canton-map__link {
+  margin: 4px 4px 0 0;
+
+  @supports (display: grid) {
+    margin: 0;
   }
 }
 
