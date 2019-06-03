@@ -34,14 +34,6 @@
   }
 }
 
-.canton-map__link {
-  margin: 4px 4px 0 0;
-
-  @supports (display: grid) {
-    margin: 0;
-  }
-}
-
 .canton-map__link--bs {
   grid-area: ad;
 }
