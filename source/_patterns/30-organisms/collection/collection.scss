@@ -824,7 +824,7 @@ $background-overlap-wide: 50px;
   }
 }
 
-// has an additional button on the top right and an image to the left (i.e. a flag, optional)
+// has an additional button on the top right and an optional image to the left (i.e. a flag)
 .collection--with-title-button {
   overflow: hidden;
   --theme-color-nav: #{$color-srf-warmgrey-900};
@@ -840,7 +840,7 @@ $background-overlap-wide: 50px;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    min-height: 48px; // in case there's no title-logo
+    min-height: 40px; // in case there's no title-logo
 
     @include smartphone {
       margin: 0 24px;
@@ -890,6 +890,12 @@ $background-overlap-wide: 50px;
     @include tablet-up {
       display: none;
     }
+  }
+
+  .collection__title-button-icon {
+    position: relative;
+    top: 6px;
+    @include caret('grey', 'right', 'medium');
   }
 }
 
