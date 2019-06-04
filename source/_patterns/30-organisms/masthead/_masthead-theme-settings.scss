@@ -36,7 +36,10 @@
 .masthead.masthead--theme-rtr_uffants,
 .masthead.masthead--theme-rtr_archiv,
 .masthead.masthead--theme-rtr_aura,
-.masthead.masthead--theme-rtr_interpresa {
+.masthead.masthead--theme-rtr_interpresa,
+.masthead.masthead--theme-radio-srf_2_kultur,
+.masthead.masthead--theme-radio_srf_3,
+.masthead.masthead--theme-radio_srf_musikwelle {
   --theme-color-bg-hover: #{$color-srf-neutral-whitea12};
   --theme-color-bg-active: #{$color-srf-neutral-whitea24};
   --theme-color-title: #{$color-srf-neutral-white};
@@ -59,6 +62,8 @@
 }
 
 /* THEME-SPECIFIC SETTINGS */
+
+/* SRF Main Portals */
 .masthead.masthead--theme-sport {
   --theme-color-gradient-1: #{$theme-sport-color-1};
   --theme-color-gradient-2: #{$theme-sport-color-2};
@@ -96,7 +101,63 @@
   --theme-color-pager-end-transparent: #{$theme-dok-color-bg-pager-end-transparent};
 }
 
+/* SRF Radio Portals */
+.masthead.masthead--theme-radio_srf_1 {
+  --theme-color-gradient-1: #{$theme-radio-srf-1-color-1};
+  --theme-color-gradient-2: #{$theme-radio-srf-1-color-2};
+  --theme-color-pager-start: #{$theme-radio-srf-1-color-bg-pager-start};
+  --theme-color-pager-start-transparent: #{$theme-radio-srf-1-color-bg-pager-start-transparent};
+  --theme-color-pager-end: #{$theme-radio-srf-1-color-bg-pager-end};
+  --theme-color-pager-end-transparent: #{$theme-radio-srf-1-color-bg-pager-end-transparent};
+  --theme-color-nav: #{$color-srf-warmgrey-1100};
+  --theme-color-active: #{$color-srf-neutral-black};
+  --theme-color-nav-active-border: #{$color-srf-neutral-black};
+  --theme-color-bg-hover: #{$color-srf-neutral-blacka08};
+  --theme-color-bg-active: #{$color-srf-neutral-blacka12};
+}
 
+.masthead.masthead--theme-radio-srf_2_kultur {
+  --theme-color-gradient-1: #{$theme-radio-srf-2-color-1};
+  --theme-color-gradient-2: #{$theme-radio-srf-2-color-2};
+  --theme-color-pager-start: #{$theme-radio-srf-2-color-bg-pager-start};
+  --theme-color-pager-start-transparent: #{$theme-radio-srf-2-color-bg-pager-start-transparent};
+  --theme-color-pager-end: #{$theme-radio-srf-2-color-bg-pager-end};
+  --theme-color-pager-end-transparent: #{$theme-radio-srf-2-color-bg-pager-end-transparent};
+}
+
+.masthead.masthead--theme-radio_srf_3 {
+  --theme-color-gradient-1: #{$theme-radio-srf-3-color-1};
+  --theme-color-gradient-2: #{$theme-radio-srf-3-color-2};
+  --theme-color-pager-start: #{$theme-radio-srf-3-color-bg-pager-start};
+  --theme-color-pager-start-transparent: #{$theme-radio-srf-3-color-bg-pager-start-transparent};
+  --theme-color-pager-end: #{$theme-radio-srf-3-color-bg-pager-end};
+  --theme-color-pager-end-transparent: #{$theme-radio-srf-3-color-bg-pager-end-transparent};
+}
+
+.masthead.masthead--theme-radio_srf_musikwelle {
+  --theme-color-gradient-1: #{$theme-radio-srf-musikwelle-color-1};
+  --theme-color-gradient-2: #{$theme-radio-srf-musikwelle-color-2};
+  --theme-color-pager-start: #{$theme-radio-srf-musikwelle-color-bg-pager-start};
+  --theme-color-pager-start-transparent: #{$theme-radio-srf-musikwelle-color-bg-pager-start-transparent};
+  --theme-color-pager-end: #{$theme-radio-srf-musikwelle-color-bg-pager-end};
+  --theme-color-pager-end-transparent: #{$theme-radio-srf-musikwelle-color-bg-pager-end-transparent};
+}
+
+.masthead.masthead--theme-radio_srf_virus {
+  --theme-color-gradient-1: #{$theme-radio-srf-virus-color-1};
+  --theme-color-gradient-2: #{$theme-radio-srf-virus-color-2};
+  --theme-color-pager-start: #{$theme-radio-srf-virus-color-bg-pager-start};
+  --theme-color-pager-start-transparent: #{$theme-radio-srf-virus-color-bg-pager-start-transparent};
+  --theme-color-pager-end: #{$theme-radio-srf-virus-color-bg-pager-end};
+  --theme-color-pager-end-transparent: #{$theme-radio-srf-virus-color-bg-pager-end-transparent};
+  --theme-color-nav: #{$color-srf-warmgrey-1100};
+  --theme-color-active: #{$color-srf-neutral-black};
+  --theme-color-nav-active-border: #{$color-srf-neutral-black};
+  --theme-color-bg-hover: #{$color-srf-neutral-blacka08};
+  --theme-color-bg-active: #{$color-srf-neutral-blacka12};
+}
+
+/* RTR Portals */
 .masthead.masthead--theme-rtr_novitads {
   --theme-color-gradient-1: #{$theme-rtr-novitads-color-1};
   --theme-color-gradient-2: #{$theme-rtr-novitads-color-2};
