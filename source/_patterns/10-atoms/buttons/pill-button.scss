@@ -1,3 +1,7 @@
+@import "../../variables";
+@import "../../breakpoints";
+@import "../../mixins";
+
 .pill-button {
   display: inline-flex;
   justify-content: center;
@@ -11,16 +15,17 @@
   @include fontSize(16);
   letter-spacing: 0.8px;
   text-transform: uppercase;
-  color: #4e4d47;
+  color: $color-srf-warmgrey-900;
   background: no-repeat;
   background-clip: padding-box;
-  background-color: #fafaf8;
+  background-color: $color-srf-warmgrey-10;
   box-shadow: $shadow-elevation1;
+  transition: box-shadow .2s ease-in-out, filter .2s ease-in-out;
 
   &:hover {
     box-shadow: $shadow-elevation8;
     transition: all .2s ease-in-out;
-    color: #22211d;
+    color: $color-srf-warmgrey-900;
     filter: brightness(1.05);
   }
 }
@@ -44,19 +49,61 @@
   min-width: 56px;
 }
 
-.pill-button--themed {
-  background-image: linear-gradient(to right, var(--theme-color-gradient-1), var(--theme-color-gradient-2));
-}
-
 .pill-button--primary {
-  box-shadow: 0 0 12px rgba(247, 166, 0, 0.6), $shadow-elevation1;
+  box-shadow: 0 0 12px var(--theme-color-shadow, $color-srf-neutral-blacka16), $shadow-elevation1;
 
   &:hover {
-    box-shadow: 0 0 8px rgba(247, 166, 0, 0.6), $shadow-elevation8;
+    box-shadow: 0 0 8px var(--theme-color-shadow, $color-srf-neutral-blacka16), $shadow-elevation8;
   }
 }
 
+.pill-button--themed {
+  color: var(--theme-color-button-text, $color-srf-neutral-white);
+  background-image: linear-gradient(to right, var(--theme-color-gradient-1, $color-srf-warmgrey-1100), var(--theme-color-gradient-2, $color-srf-red-600));
+
+  &:hover {
+    color: var(--theme-color-button-text, $color-srf-neutral-white);
+  }
+}
+
+/* theme settings */
 .pill-button--theme-radio-srf-1 {
-  --theme-color-gradient-1: yellow;
-  --theme-color-gradient-2: orange;
+  --theme-color-gradient-1: #{$color-srf-yellow-300};
+  --theme-color-gradient-2: #{$color-srf-yellow-500};
+  --theme-color-shadow: #{$color-srf-yellow-300a60};
+  --theme-color-button-text: #{$color-srf-warmgrey-1100};
+
+  .pill-button__icon {
+    filter: invert(86.5%);
+  }
+}
+
+.pill-button--theme-radio-srf-2 {
+  --theme-color-gradient-1: #{$color-brand-radio-srf-2-1};
+  --theme-color-gradient-2: #{$color-brand-radio-srf-2-2};
+  --theme-color-shadow: #{$color-brand-radio-srf-2-1a60};
+}
+
+.pill-button--theme-radio-srf-3,
+.pill-button--theme-radio-srf-4 {
+  --theme-color-gradient-1: #{$color-srf-red-500};
+  --theme-color-gradient-2: #{$color-srf-red-600};
+  --theme-color-shadow: #{$color-srf-red-500a60};
+}
+
+.pill-button--theme-radio-srf-musikwelle {
+  --theme-color-gradient-1: #{$color-brand-radio-srf-musikwelle-color-1};
+  --theme-color-gradient-2: #{$color-brand-radio-srf-musikwelle-color-2};
+  --theme-color-shadow: #{$color-brand-radio-srf-musikwelle-color-1a60};
+}
+
+.pill-button--theme-radio-srf-virus {
+  --theme-color-gradient-1: #{$color-brand-radio-srf-virus-color-1};
+  --theme-color-gradient-2: #{$color-brand-radio-srf-virus-color-2};
+  --theme-color-shadow: #{$color-brand-radio-srf-virus-color-1a60};
+  --theme-color-button-text: #{$color-srf-warmgrey-1100};
+
+  .pill-button__icon {
+    filter: invert(86.5%);
+  }
 }

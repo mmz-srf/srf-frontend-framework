@@ -27,11 +27,14 @@
                 'kicker': 'Am Mikrofon',
                 'lead': 'Marietta Tomaschett'
             }%}
+            <div class="content-header__presenter-image">
+                {% include 'atoms-image' with { 'styleModifier': 'image--circle image--profile-picture-presenter' } %}
+            </div>
         </div>
         <div class="content-header__buttonbar content-header__buttonbar--primary">
             {% include 'atoms-pill-button' with {
                 'styleModifier': 'pill-button--primary pill-button--themed pill-button--theme-radio-srf-1 content-header__button',
-                'buttonIcon': 'svg-icon--play-audio-dark',
+                'buttonIcon': 'svg-icon--play-audio',
                 'buttonText': 'Jetzt hören'
             }%}
             {% include 'atoms-pill-button' with {
