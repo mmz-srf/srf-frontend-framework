@@ -31,6 +31,7 @@
   @include fontSize(14);
   font-weight: normal;
   line-height: $secondary-line-height-ratio;
+  color: $color-srf-warmgrey-1100;
 
   @include desktop-up {
     @include fontSize(16);
