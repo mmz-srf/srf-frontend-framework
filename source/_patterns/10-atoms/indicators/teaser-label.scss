@@ -93,6 +93,12 @@
   .svg-icon {
     margin: 2px 4px 0 0;
   }
+
+  .svg-icon--tiny-but-small-on-desktop-up {
+    @include smartphone {
+      margin: 1px 4px 0 0;
+    }
+  }
 }
 
 /* Positioning */
