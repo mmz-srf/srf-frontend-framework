@@ -472,12 +472,13 @@ $background-overlap-wide: 50px;
     margin: 0;
 
     @include tablet-up {
-      min-width: calc((100% - 32px - 44px) / 3.00001 ); // 32px: left gap between Collection and Teaser; 44px: visible part of the first 'overflowed' item
+      min-width: calc((100% - 32px - 44px) / 3.00001); // 32px: left gap between Collection and Teaser; 44px: visible part of the first 'overflowed' item
+      padding-bottom: 16px;
       padding-right: 12px;
     }
 
     @include desktop-wide {
-      min-width: calc((100% - 40px - 56px) / 3.00001 );
+      min-width: calc((100% - 40px - 56px) / 3.00001);
       padding-right: 16px;
     }
 
@@ -498,11 +499,11 @@ $background-overlap-wide: 50px;
     // the other collections
     &:last-child {
       @include tablet-up {
-        min-width: calc(((100% - 32px - 44px)/3.00001) + 18px);
+        min-width: calc(((100% - 32px - 44px) / 3.00001) + 18px);
       }
 
       @include desktop-wide {
-        min-width: calc((100% - 40px - 56px) / 3.00001 + 24px );
+        min-width: calc((100% - 40px - 56px) / 3.00001 + 24px);
       }
 
       &::after {
@@ -534,10 +535,10 @@ $background-overlap-wide: 50px;
         min-width: calc(50% - (56px / 3) - 12px + 20px);
 
         &::after {
-            content: '';
-            flex-grow: 0;
-            flex-shrink: 0;
-            @include IESafeFlexBasis(20px);
+          content: '';
+          flex-grow: 0;
+          flex-shrink: 0;
+          @include IESafeFlexBasis(20px);
         }
       }
     }
@@ -651,7 +652,7 @@ $background-overlap-wide: 50px;
   }
 
   .collection__link {
-      background-color: $color-srf-neutral-whitea08;
+    background-color: $color-srf-neutral-whitea08;
 
     &:hover {
       background-color: $color-srf-neutral-whitea12;
@@ -759,6 +760,7 @@ $background-overlap-wide: 50px;
 }
 
 .collection--selectable {
+  margin-top: 0;
   overflow: hidden;
   --theme-color-nav: #{$color-srf-warmgrey-900};
   --theme-selection-button-color: #{$color-srf-warmgrey-1100};
@@ -899,6 +901,95 @@ $background-overlap-wide: 50px;
   }
 }
 
-.collection--selectable {
-  margin-top: 0;
+.collection--search-results {
+  .collection__teaser-item,
+  .collection__teaser-item:last-child {
+    padding-bottom: 0;
+  }
+
+  .collection__title {
+    line-height: 1.21;
+    margin-bottom: 26px;
+  }
+
+  .collection__title-link {
+    font-family: $font-regular;
+  }
+
+  .collection__link {
+    font-family: $font-regular;
+  }
+
+  @include smartphone {
+    // show 2 teasers (+ some of a 3rd) on mobile instead of just 1
+    .collection__teaser-item,
+    .collection__teaser-item:last-child {
+      min-width: calc((100% - 48px) / 2.00001);
+    }
+
+    // slightly smaller font size on mobile, smaller gap between title and teasers
+    .collection__title {
+      @include fontSize(20);
+      margin-bottom: 12px;
+    }
+  }
+
+  .collection__swipeable-area {
+    margin-bottom: 12px;
+  }
+
+  .collection__links {
+    margin-top: 12px;
+    margin-bottom: 12px;
+    display: none
+  }
+
+  // links are as wide as a teaser on tablet+
+  .collection__link-item {
+    @include tablet-up {
+      min-width: calc((100% - 48px) / 3.00001);
+    }
+
+    @include desktop-wide {
+      min-width: calc((100% - 64px) / 3.00001);
+    }
+  }
+
+  .collection__title-precursor {
+    font-family: $font-bold;
+
+    &::before,
+    &::after {
+      content: "'";
+    }
+  }
+
+  // branding-wrapper should not have padding
+  &.collection.collection--branded .collection__branding-wrapper {
+    padding: 0;
+  }
+
+  .collection__teaser-item {
+    max-width: calc((100% - 48px) / 2.00001);
+
+    @include tablet-up {
+      max-width: calc((100% - 74px) / 3.00001);
+    }
+  }
+}
+
+// only shows the teaser-links
+.collection--search-results--empty {
+  .collection__title,
+  .collection__background-image,
+  .collection__lead,
+  .collection__swipeable-area,
+  .collection__teaser-list,
+  .collection__title-precursor {
+    display: none;
+  }
+
+  .collection__links {
+    display: flex;
+  }
 }

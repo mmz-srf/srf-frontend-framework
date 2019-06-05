@@ -996,4 +996,22 @@
   }
 }
 
+.teaser--search-result {
+  @include smartphone {
+    .teaser__title {
+      @include fontSize(14);
+    }
+
+    .teaser__content {
+      margin-left: 12px;
+    }
+  }
+
+  // REALLY enforce & center 16:9 images
+  .teaser__medium {
+    position: absolute;
+    height: 100%;
+  }
+}
+
 /* autoprefixer grid: off */
