@@ -15,7 +15,7 @@
   bottom: 52px;
   left: 0;
   background-color: $color-srf-neutral-offwhite;
-  box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.24);
+  box-shadow: 0 0 1px 0 $color-srf-neutral-blacka24;
 
   @include desktop-wide {
     bottom: 68px;
@@ -128,7 +128,9 @@
 }
 
 .content-header__buttonbar {
+  position: relative;
   display: flex;
+
   flex-grow: 0;
   flex-shrink: 0;
   @include IESafeFlexBasis(50%);
@@ -162,14 +164,44 @@
       margin: 0 10px;
     }
   }
+
+  // separator-line
+  &:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -48px;
+    right: -48px;
+    height: 1px;
+    border-top: 1px solid $color-srf-neutral-blacka08;
+    z-index: -1;
+
+    @include desktop-up {
+      content: none;
+    }
+  }
 }
 
 .content-header__buttonbar--secondary {
   justify-content: flex-end;
 
   @include smartphone {
+    flex-wrap: wrap;
     justify-content: center;
     order: 5;
+
+    // separator-line
+    &:before {
+      content: '';
+      position: absolute;
+      top: 25%;
+      left: -48px;
+      right: -48px;
+      height: 1px;
+      border-top: 1px solid $color-srf-neutral-blacka08;
+      z-index: -1;
+    }
+
   }
   @include tablet {
     order: 5;
@@ -179,6 +211,10 @@
     margin-left: 20px;
     @include smartphone {
       margin: 0 10px;
+
+      &:first-child {
+        margin: 0 200px 24px; // large side margins used as trick to force the following buttons on a new line
+      }
     }
   }
 }

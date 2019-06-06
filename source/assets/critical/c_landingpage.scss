@@ -48,6 +48,7 @@ body.body--loading.body--loading {
     max-width: $desktop-wide-size;
     margin: 0 auto;
     display: flex;
+    flex-wrap: wrap;
     padding: abs($collection-gap - 24px);
 
     @include tablet-up {
