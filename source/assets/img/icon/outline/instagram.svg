@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.3 (57544) - http://www.bohemiancoding.com/sketch -->
+    <title>social-instagram</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <radialGradient cx="26.5626266%" cy="107.702106%" fx="26.5626266%" fy="107.702106%" r="99.107386%" id="radialGradient-1">
+            <stop stop-color="#FFDD55" offset="0%"></stop>
+            <stop stop-color="#FFDD55" offset="10%"></stop>
+            <stop stop-color="#FF543E" offset="50%"></stop>
+            <stop stop-color="#C837AB" offset="100%"></stop>
+        </radialGradient>
+    </defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+        <g id="Icons/Instagram_Icon_Outline_Color">
+            <g id="social-instagram">
+                <rect id="Rectangle-path" stroke="url(#radialGradient-1)" x="0.5" y="0.5" width="23" height="23" rx="6"></rect>
+                <circle id="Oval" stroke="url(#radialGradient-1)" cx="12" cy="12" r="6"></circle>
+                <circle id="Oval" stroke="#C837AB" cx="19" cy="5" r="1.5"></circle>
+            </g>
+        </g>
+    </g>
+</svg>

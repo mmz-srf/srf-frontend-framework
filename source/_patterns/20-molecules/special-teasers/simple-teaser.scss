@@ -1,0 +1,39 @@
+.simple-teaser {}
+
+.simple-teaser__kicker {
+  margin: 0 0 4px 0;
+  font-family: $font-regular;
+  @include fontSize(14);
+  line-height: $emphasize-line-height-ratio;
+  color: $color-srf-red-600;
+
+  @include desktop-up {
+    @include fontSize(16);
+  }
+}
+
+.simple-teaser__title {
+  margin: 0 0 4px 0;
+  font-family: $font-medium;
+  @include fontSize(16);
+  font-weight: 500;
+  line-height: $emphasize-line-height-ratio;
+  color: $color-srf-warmgrey-1100;
+  word-wrap: break-word; // Enforce breaking words for IE11
+
+  @include desktop-up {
+    @include fontSize(18);
+  }
+}
+
+.simple-teaser__lead {
+  font-family: $font-light;
+  @include fontSize(14);
+  font-weight: normal;
+  line-height: $secondary-line-height-ratio;
+  color: $color-srf-warmgrey-1100;
+
+  @include desktop-up {
+    @include fontSize(16);
+  }
+}
