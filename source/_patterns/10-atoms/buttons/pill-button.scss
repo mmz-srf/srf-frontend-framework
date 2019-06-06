@@ -67,7 +67,8 @@
 }
 
 /* theme settings */
-.pill-button--theme-radio-srf-1 {
+/* note: theme suffixes use underscore due to portal names in the cms */
+.pill-button--theme-radio_srf_1 {
   --theme-color-gradient-1: #{$color-srf-yellow-300};
   --theme-color-gradient-2: #{$color-srf-yellow-500};
   --theme-color-shadow: #{$color-srf-yellow-300a60};
@@ -78,26 +79,26 @@
   }
 }
 
-.pill-button--theme-radio-srf-2 {
+.pill-button--theme-radio_srf_2_kultur {
   --theme-color-gradient-1: #{$color-brand-radio-srf-2-1};
   --theme-color-gradient-2: #{$color-brand-radio-srf-2-2};
   --theme-color-shadow: #{$color-brand-radio-srf-2-1a60};
 }
 
-.pill-button--theme-radio-srf-3,
-.pill-button--theme-radio-srf-4 {
+.pill-button--theme-radio_srf_3,
+.pill-button--theme-radio_srf_4_news {
   --theme-color-gradient-1: #{$color-srf-red-500};
   --theme-color-gradient-2: #{$color-srf-red-600};
   --theme-color-shadow: #{$color-srf-red-500a60};
 }
 
-.pill-button--theme-radio-srf-musikwelle {
+.pill-button--theme-radio_srf_musikwelle {
   --theme-color-gradient-1: #{$color-brand-radio-srf-musikwelle-color-1};
   --theme-color-gradient-2: #{$color-brand-radio-srf-musikwelle-color-2};
   --theme-color-shadow: #{$color-brand-radio-srf-musikwelle-color-1a60};
 }
 
-.pill-button--theme-radio-srf-virus {
+.pill-button--theme-radio_srf_virus {
   --theme-color-gradient-1: #{$color-brand-radio-srf-virus-color-1};
   --theme-color-gradient-2: #{$color-brand-radio-srf-virus-color-2};
   --theme-color-shadow: #{$color-brand-radio-srf-virus-color-1a60};

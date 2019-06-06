@@ -2,6 +2,11 @@
     <div class="content-header__background-wrapper"></div>
     <div class="content-header__wrapper">
         <div class="content-header__slot content-header__slot--first">
+            <div class="h-loading-only">
+                <div class="shimmer shimmer--overline"></div>
+                <div class="shimmer shimmer--short"></div>
+                <div class="shimmer shimmer--short"></div>
+            </div>
             <div class="content-header__station-logo">
                 <img src="{{ frameworkAssetPath }}/img/stationlogos/radio-srf-1-square.svg"
                      alt="Logo Radio SRF 1"
@@ -15,6 +20,11 @@
             }%}
         </div>
         <div class="content-header__slot content-header__slot--second">
+            <div class="h-loading-only">
+                <div class="shimmer shimmer--overline"></div>
+                <div class="shimmer shimmer--short"></div>
+                <div class="shimmer shimmer--short"></div>
+            </div>
             {% include 'molecules-simple-teaser' with {
                 'styleModifier': '',
                 'kicker': 'Gespielte Musik',
@@ -22,6 +32,10 @@
             }%}
         </div>
         <div class="content-header__slot content-header__slot--third">
+            <div class="h-loading-only">
+                <div class="shimmer shimmer--overline"></div>
+                <div class="shimmer shimmer--short"></div>
+            </div>
             {% include 'molecules-simple-teaser' with {
                 'styleModifier': '',
                 'kicker': 'Am Mikrofon',
@@ -33,7 +47,7 @@
         </div>
         <div class="content-header__buttonbar content-header__buttonbar--primary">
             {% include 'atoms-pill-button' with {
-                'styleModifier': 'pill-button--primary pill-button--themed pill-button--theme-radio-srf-1 content-header__button',
+                'styleModifier': 'pill-button--primary pill-button--themed pill-button--theme-radio_srf_1 content-header__button',
                 'buttonIcon': 'svg-icon--play-audio',
                 'buttonText': 'Jetzt hören'
             }%}

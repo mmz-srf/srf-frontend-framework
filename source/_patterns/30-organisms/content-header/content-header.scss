@@ -85,9 +85,7 @@
   }
 
   @include desktop-up {
-    .content-header__slot--first {
-      border-right: 1px solid $color-srf-warmgrey-25;
-    }
+    border-right: 1px solid $color-srf-warmgrey-25;
   }
 }
 
