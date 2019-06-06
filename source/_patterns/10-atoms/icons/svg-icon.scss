@@ -17,6 +17,16 @@
   height: 12px;
 }
 
+.svg-icon--tiny-but-small-on-tablet-up {
+  width: 12px;
+  height: 12px;
+
+  @include tablet-up {
+    width: 16px;
+    height: 16px;
+  }
+}
+
 .svg-icon--tiny-but-small-on-desktop-up {
   width: 12px;
   height: 12px;
@@ -88,7 +98,7 @@
   }
 }
 
-.svg-icon--play-video-circle-tiny-to-small {
+.svg-icon--play-video-circle-tiny-to-small-on-desktop-up {
   background-image: url(../img/icon/play-video-circle-tiny.svg);
 
   @include desktop-up {
@@ -108,7 +118,15 @@
   }
 }
 
-.svg-icon--play-video-circle-white-tiny-to-small {
+.svg-icon--play-video-circle-white-tiny-to-small-on-tablet-up {
+  background-image: url(../img/icon/play-video-circle-white-tiny.svg);
+
+  @include tablet-up {
+    background-image: url(../img/icon/play-video-circle-white-small.svg);
+  }
+}
+
+.svg-icon--play-video-circle-white-tiny-to-small-on-desktop-up {
   background-image: url(../img/icon/play-video-circle-white-tiny.svg);
 
   @include desktop-up {
