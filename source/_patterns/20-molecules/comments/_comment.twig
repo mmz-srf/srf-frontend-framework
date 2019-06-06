@@ -2,11 +2,20 @@
 {% for comment in comments %}
     {% set commentIds = commentIds|merge([comment.id]) %}
     <li class="comment_{{ comment.id }} comment" data-id="{{ comment.id }}">
-        <cite class="comment__user {% if comment.isEditorialAnswer %} comment__user--{{ businessUnit }}{% endif %}" role="combobox">
-            <span class="h-offscreen">{{ 'Kommentar von' }} </span>{{ comment.name }}
-            {% if comment.isEditorialAnswer %}<span
-                    class="h-offscreen">({{ businessUnit|upper }})</span>{% else %}({{ comment.nickname }}){% endif %}
+        <cite class="comment__user" role="combobox">
+            <span class="h-offscreen">{{ 'Kommentar von' }} </span><span>{{ comment.name }}</span>
+            {% if comment.isEditorialAnswer %}
+                <span class="h-offscreen">({{ businessUnit|upper }})</span>
+                <span class="comment__logo">
+                    <svg aria-hidden="true" aria-disabled="true">
+                        <use xlink:href="#{{ businessUnit }}-logo"></use>
+                    </svg>
+                </span>
+            {% else %}
+                ({{ comment.nickname }})
+            {% endif %}
         </cite>
+
         <span class="comment__time" data-timestamp="{{ comment.date }}">{{ comment.dateFormatted }}</span>
         <blockquote class="comment__content">{{ comment.message }}</blockquote>
         {% spaceless %}
@@ -43,8 +52,17 @@
                     {% set commentIds = commentIds|merge([reply.id]) %}
                     <li class="comment_{{ reply.id }} comment" data-id="{{ reply.id }}">
                         <span class="h-offscreen">{{ 'Antwort von' }} </span>
-                        <cite class="comment__user {% if reply.isEditorialAnswer %} comment__user--{{ businessUnit }}{% endif %}">
-                            {{ reply.name }}{% if not reply.isEditorialAnswer %} ({{ reply.nickname }}){% endif %}</cite>
+                        <cite class="comment__user">
+                            {{ reply.name }}
+                            {% if not reply.isEditorialAnswer %} ({{ reply.nickname }}){% endif %}
+                            {% if reply.isEditorialAnswer %}
+                                <span class="comment__logo">
+                                    <svg aria-hidden="true" aria-disabled="true">
+                                        <use xlink:href="#{{ businessUnit }}-logo"></use>
+                                    </svg>
+                                </span>
+                            {% endif %}
+                        </cite>
                         <span class="comment__time" data-timestamp="{{ reply.date }}"></span>
                         <blockquote class="comment__content">{{ reply.message }}</blockquote>
                         {% spaceless %}
