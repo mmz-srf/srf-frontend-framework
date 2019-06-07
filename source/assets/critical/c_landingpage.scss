@@ -30,68 +30,6 @@ body.body--loading.body--loading {
     display: block;
   }
 
-  .content-header {
-    width: 100%;
-    min-height: 210px;
-    background-color: $color-srf-neutral-offwhite;
-
-    @include smartphone {
-      min-height: 460px;
-    }
-
-    @include tablet {
-      min-height: 345px;
-    }
-  }
-
-  .content-header__wrapper {
-    max-width: $desktop-wide-size;
-    margin: 0 auto;
-    display: flex;
-    flex-wrap: wrap;
-    padding: abs($collection-gap - 24px);
-
-    @include tablet-up {
-      padding: #{$collection-gap-tablet-up - 24px};
-    }
-
-    @include desktop-wide {
-      padding: #{$collection-gap-desktop-wide - 24px};
-    }
-  }
-
-  .content-header__slot {
-    display: block;
-
-    flex-grow: 0;
-    flex-shrink: 0;
-    @include IESafeFlexBasis(33.3333333334%);
-    padding: 16px;
-
-    @include smartphone {
-      @include IESafeFlexBasis(100%);
-    }
-
-    @include tablet {
-      @include IESafeFlexBasis(100%);
-    }
-
-    @include desktop-wide {
-      padding: 24px;
-    }
-  }
-
-  .content-header__slot--first {
-    padding-left: 142px;
-  }
-
-  .content-header__station-logo,
-  .content-header__buttonbar,
-  .simple-teaser,
-  .content-header__presenter-image {
-    display: none;
-  }
-
   .collection {
     max-width: 100%;
     margin: $collection-gap 0 0;
@@ -647,7 +585,69 @@ body.body--loading.body--loading {
     }
   }
 
-  .simple-teaser__content {
+  .content-header {
+    width: 100%;
+    background-color: $color-srf-neutral-offwhite;
+  }
+
+  .content-header__wrapper {
+    max-width: $desktop-wide-size;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .content-header__slot {
+    display: block;
+
+    flex-grow: 0;
+    flex-shrink: 0;
+    @include IESafeFlexBasis(33.3333333334%);
+    padding: $collection-gap;
+    min-height: calc(80px + $collection-gap);
+
+    @include smartphone {
+      @include IESafeFlexBasis(100%);
+    }
+
+    @include tablet {
+      @include IESafeFlexBasis(50%);
+      padding: $collection-gap-tablet-up;
+      min-height: calc(80px + $collection-gap-tablet-up);
+    }
+
+    @include desktop {
+      padding: $collection-gap-tablet-up;
+      min-height: calc(96px + $collection-gap-tablet-up);
+    }
+
+    @include desktop-wide {
+      padding: $collection-gap-desktop-wide;
+      min-height: calc(96px + $collection-gap-desktop-wide);
+
+    }
+  }
+
+  .content-header__slot--first {
+    @include smartphone {
+      margin-bottom: 72px;
+    }
+  }
+
+  .content-header__buttonbar {
+    height: 56px;
+    visibility: hidden;
+    overflow: hidden;
+    @include IESafeFlexBasis(100%);
+
+    @include desktop-up {
+      @include IESafeFlexBasis(50%);
+    }
+  }
+
+  .simple-teaser,
+  .content-header__station-logo,
+  .content-header__presenter-image {
     display: none;
   }
 }
