@@ -1,0 +1,83 @@
+{
+    "collection": {
+        "styleModifier": "collection--swipeable collection--branded collection--search-results",
+        "title": "in Sendungen, Video und Audio",
+        "titleLink": "#",
+        "teasers": [
+            {
+                "title": "1. Ponika verhilft Neuseeland zum Sieg",
+                "kicker": "Ozeanien-Liga",
+                "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+                "link": "#",
+                "lead": "Ngapo Ponika holt den Snitch in Minute 87, Neuseeland besiegt Wales 240 zu 180.",
+                "styleModifier": "teaser--theme-dark teaser--search-result"
+            },
+            {
+                "title": "2. Heidelberg Harriers mit neuem Kapitän",
+                "kicker": "Transfer",
+                "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+                "link": "#",
+                "lead": "Hermann Krabat wechselt von den Karasjok Kites und leitet neu das deutsche Nationalteam.",
+                "styleModifier": "teaser--theme-dark teaser--search-result"
+            },
+            {
+                "title": "3. Ponika verhilft Neuseeland zum Sieg",
+                "kicker": "Ozeanien-Liga",
+                "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+                "link": "#",
+                "lead": "Ngapo Ponika holt den Snitch in Minute 87, Neuseeland besiegt Wales 240 zu 180.",
+                "styleModifier": "teaser--theme-dark teaser--search-result"
+            },
+            {
+                "title": "4. Heidelberg Harriers mit neuem Kapitän",
+                "kicker": "Transfer",
+                "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+                "link": "#",
+                "lead": "Hermann Krabat wechselt von den Karasjok Kites und leitet neu das deutsche Nationalteam.",
+                "styleModifier": "teaser--theme-dark teaser--search-result"
+            },
+            {
+                "title": "5. Ponika verhilft Neuseeland zum Sieg",
+                "kicker": "Ozeanien-Liga",
+                "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+                "link": "#",
+                "lead": "Ngapo Ponika holt den Snitch in Minute 87, Neuseeland besiegt Wales 240 zu 180.",
+                "styleModifier": "teaser--theme-dark teaser--search-result"
+            },
+            {
+                "title": "6. Ponika verhilft Neuseeland zum Sieg",
+                "kicker": "Ozeanien-Liga",
+                "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+                "link": "#",
+                "lead": "Ngapo Ponika holt den Snitch in Minute 87, Neuseeland besiegt Wales 240 zu 180.",
+                "styleModifier": "teaser--theme-dark teaser--search-result"
+            },
+            {
+                "title": "7. Ponika verhilft Neuseeland zum Sieg",
+                "kicker": "Ozeanien-Liga",
+                "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+                "link": "#",
+                "lead": "Ngapo Ponika holt den Snitch in Minute 87, Neuseeland besiegt Wales 240 zu 180.",
+                "styleModifier": "teaser--theme-dark teaser--search-result"
+            },
+            {
+                "title": "8. Ponika verhilft Neuseeland zum Sieg",
+                "kicker": "Ozeanien-Liga",
+                "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+                "link": "#",
+                "lead": "Ngapo Ponika holt den Snitch in Minute 87, Neuseeland besiegt Wales 240 zu 180.",
+                "styleModifier": "teaser--theme-dark teaser--search-result"
+            }
+        ],
+        "theme": {
+            "colorStart": "#111111",
+            "colorEnd": "#111111"
+        },
+        "links": [
+            {
+                "title": "Weiter zu Play SRF",
+                "link": "https://www.srf.ch/play"
+            }
+        ]
+    }
+}

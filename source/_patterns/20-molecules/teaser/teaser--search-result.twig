@@ -1,0 +1,27 @@
+{% extends "teaser.twig" %}
+
+{% set showOpinion = false %}
+{% set showScoreboard = false %}
+{% set showLinks = false %}
+
+{% block broadcastinfo %}{% endblock %}
+{% block kicker %}{% endblock %}
+
+{% block teasertext %}
+    <span class="teaser__title">{{ teaser.title|default('') }}</span>
+{% endblock %}
+
+{% block teaserinfo %}
+    <div class="teaser-info-wrapper">
+        <div class="teaser-info-innerwrapper">
+
+            {% set randomMediumModifier = random(['teaser-info--search teaser-info--mediaicon-audio teaser-info--with-icon', 'teaser-info--search teaser-info--mediaicon-video teaser-info--with-icon']) %}
+
+            {% include 'atoms-teaser-info' with {
+                'type': 'media-icon',
+                'styleModifier': randomMediumModifier,
+                'text': 'Tagesschau in Gebärdensprache, 19.05.2019, 19:30 Uhr'
+            } %}
+        </div>
+    </div>
+{% endblock %}

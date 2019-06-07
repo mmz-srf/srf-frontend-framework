@@ -58,7 +58,7 @@
                 <div class="teaser-info-wrapper">
                   <div class="teaser-info-innerwrapper">
                     {% include 'atoms-teaser-info' with {
-                        'type': infoType,
+                        'type': infoType|default(''),
                         'styleModifier': infoStyleModifier,
                         'text': infoText|default(''),
                         'mediaDuration': infoMediaDuration,

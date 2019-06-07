@@ -61,6 +61,7 @@ export function init() {
         ringElem.style.top = offset.top + 'px';
         ringElem.style.width = target.offsetWidth + 'px';
         ringElem.style.height = target.offsetHeight + 'px';
+        ringElem.style.maxHeight = '666px';
 
         // Special handling for hidden input fields
         if ($(target).is('input') && $(target).hasClass('h-offscreen')) {
