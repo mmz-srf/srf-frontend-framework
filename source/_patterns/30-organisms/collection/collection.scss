@@ -876,11 +876,17 @@ $background-overlap-wide: 50px;
   }
 
   .collection__title-button {
+    display: flex;
+    align-items: center;
+    padding-top: 6px;
     font-family: $font-regular;
     @include fontSize(18);
     line-height: $emphasize-line-height-ratio;
     color: $color-srf-warmgrey-1100;
     white-space: nowrap;
+    @include desktop-up {
+      padding-top: 8px;
+    }
   }
 
   .collection__title-button-text {
@@ -896,8 +902,6 @@ $background-overlap-wide: 50px;
   }
 
   .collection__title-button-icon {
-    position: relative;
-    top: 6px;
     @include caret('grey', 'right', 'medium');
   }
 }
