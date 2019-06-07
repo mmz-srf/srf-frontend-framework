@@ -5,6 +5,15 @@
 .content-header {
   position: relative;
   width: 100%;
+  margin-bottom: -#{$collection-gap};
+
+  @include tablet-up {
+    margin-bottom: -#{$collection-gap-tablet-up};
+  }
+
+  @include desktop-wide {
+    margin-bottom: -#{$collection-gap-desktop-wide};
+  }
 }
 
 .content-header__background-wrapper {
@@ -16,6 +25,10 @@
   left: 0;
   background-color: $color-srf-neutral-offwhite;
   box-shadow: 0 0 1px 0 $color-srf-neutral-blacka24;
+
+  @include tablet-up {
+    bottom: 60px;
+  }
 
   @include desktop-wide {
     bottom: 68px;
@@ -33,7 +46,7 @@
   padding: abs($collection-gap - 24px);
 
   @include tablet-up {
-    padding: #{$collection-gap-tablet-up - 24px};
+    padding: #{$collection-gap-tablet-up - 16px};
   }
 
   @include desktop-wide {
