@@ -74,8 +74,10 @@
   --theme-color-shadow: #{$color-srf-yellow-300a60};
   --theme-color-button-text: #{$color-srf-warmgrey-1100};
 
-  .pill-button__icon {
-    filter: invert(86.5%);
+  @supports (--srf: cool) {
+    .pill-button__icon {
+      filter: invert(86.5%);
+    }
   }
 }
 
@@ -104,7 +106,9 @@
   --theme-color-shadow: #{$color-brand-radio-srf-virus-color-1a60};
   --theme-color-button-text: #{$color-srf-warmgrey-1100};
 
-  .pill-button__icon {
-    filter: invert(86.5%);
+  @supports (--srf: cool) {
+    .pill-button__icon {
+      filter: invert(86.5%);
+    }
   }
 }
