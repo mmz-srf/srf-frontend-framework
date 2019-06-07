@@ -880,6 +880,7 @@ $background-overlap-wide: 50px;
     @include fontSize(18);
     line-height: $emphasize-line-height-ratio;
     color: $color-srf-warmgrey-1100;
+    white-space: nowrap;
   }
 
   .collection__title-button-text {
