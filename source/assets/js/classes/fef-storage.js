@@ -101,6 +101,47 @@ export class FefStorage {
     }
 
     /**
+     * @param key
+     * @param id
+     * @param maxItems
+     */
+    static prependIdToList(key, id, maxItems = 100) {
+        this.removeIdFromList(key, id);
+
+        let listItems = this.getItemJsonParsed(key, []);
+        if (typeof id !== 'string') {
+            return;
+        }
+
+        // let the method fix wrong data types
+        if (!Array.isArray(listItems)) {
+            listItems = [];
+        }
+
+        let newItems = listItems.unshift(item);
+
+        if (newItems.length > maxItems) {
+            newItems = newItems.reverse().slice(newItems.length - maxItems).reverse();
+        }
+
+        this.setItemJsonStringified(key, newItems);
+    }
+
+    /**
+     * @param key
+     * @param id
+     */
+    static removeIdFromList(key, id) {
+        if (typeof id !== 'string') {
+            return;
+        }
+
+        const listItems = this.getItemJsonParsed(key, []);
+        const newItems = listItems.filter((listItem) => { return listItem !== id; });
+        this.setItemJsonStringified(key, newItems);
+    }
+
+    /**
      * Most possible secure (and dumb) way to check for local storage
      * (At least Modernizr is using this method too)
      *

@@ -30,7 +30,7 @@ export class FefSwipeableArea {
     constructor($element, interactionMeasureString = '') {
         this.$element = $element;
         this.$innerContainer = $(`.${INNER_CONTAINER_CLASS}`, this.$element);
-        this.$items = $(`.${ITEM_CLASS}`, this.$innerContainer);
+        this.$items = [];
         this.itemPositions = [];
         this.$buttonBack = null;
         this.$buttonForward = null;
@@ -53,6 +53,11 @@ export class FefSwipeableArea {
     }
 
     init() {
+        this.$items = $(`.${ITEM_CLASS}`, this.$innerContainer);
+
+        // scroll back to the beginning (matters when swipeable was reinitialized)
+        this.scrollToPosition(0, 0);
+
         if (FefResponsiveHelper.isDesktopUp() && !FefTouchDetection.isTouchSupported()) {
             this.registerDesktopListeners();
             this.markItems();
@@ -95,11 +100,17 @@ export class FefSwipeableArea {
         $(window).on('srf.styles.loaded', () => this.init());
         this.$element.on('srf.swipeableArea.reinitialize', () => this.init());
         this.$innerContainer.on('scroll', FefDebounceHelper.throttle(() => this.track(), DEBOUNCETIME_SCROLL_TRACKING));
+        this.$element.on('srf.swipeable.content-changed', () => this.init());
     };
 
     registerDesktopListeners() {
-        this.$items.off('click.srf.swipeable-area-desktop').on('click.srf.swipeable-area-desktop', (event) => this.onTeaserClick(event));
-        this.$innerContainer.off('scroll.srf.swipeable-area-desktop').on('scroll.srf.swipeable-area-desktop', FefDebounceHelper.throttle(() => this.scrollHandlerDesktop(), DEBOUNCETIME));
+        this.$items
+            .off('click.srf.swipeable-area-desktop')
+            .on('click.srf.swipeable-area-desktop', (event) => this.onTeaserClick(event));
+
+        this.$innerContainer
+            .off('scroll.srf.swipeable-area-desktop')
+            .on('scroll.srf.swipeable-area-desktop', FefDebounceHelper.throttle(() => this.scrollHandlerDesktop(), DEBOUNCETIME));
     }
 
     deregisterDesktopListeners() {
@@ -134,8 +145,11 @@ export class FefSwipeableArea {
             return;
         }
 
-        this.$items.on('mouseenter.srf.swipeable-area-desktop', (event) => this.onTeaserHover(event));
-        this.$items.on('mouseleave.srf.swipeable-area-desktop', (_) => this.applyHint(0));
+        this.$items
+            .off('mouseenter.srf.swipeable-area-desktop')
+            .on('mouseenter.srf.swipeable-area-desktop', (event) => this.onTeaserHover(event))
+            .off('mouseleave.srf.swipeable-area-desktop')
+            .on('mouseleave.srf.swipeable-area-desktop', (_) => this.applyHint(0));
     }
 
     disableHinting() {
@@ -198,12 +212,17 @@ export class FefSwipeableArea {
      * - Buttons only appear on Breakpoints Desktop and Desktop Wide
      * - If scrolled to the very end, don't show the forward button
      * - If scrolled to the very beginning, don't show the back button
+     * 
+     * If the buttons shouldn't be visible at all, they're hidden here.
      */
     updateButtonStatus() {
         // show forward/back buttons if needed
         if (this.hasScrollableOverflow()) {
             this.$buttonForward.toggleClass(BUTTON_ACTIVE_CLASS, !this.isAtScrollEnd());
             this.$buttonBack.toggleClass(BUTTON_ACTIVE_CLASS, !this.isAtScrollBeginning());
+        } else {
+            this.$buttonForward.removeClass(BUTTON_ACTIVE_CLASS);
+            this.$buttonBack.removeClass(BUTTON_ACTIVE_CLASS);
         }
     }
 
@@ -283,12 +302,18 @@ export class FefSwipeableArea {
 
         if (position <= 0) {
             willBeOutOfBoundsOnAnySide = true;
-            this.$buttonBack.removeClass(BUTTON_ACTIVE_CLASS);
+
+            if (this.$buttonBack) {
+                this.$buttonBack.removeClass(BUTTON_ACTIVE_CLASS);
+            }
         }
 
         if (position + this.$innerContainer.innerWidth() >= this.$innerContainer[0].scrollWidth) {
             willBeOutOfBoundsOnAnySide = true;
-            this.$buttonForward.removeClass(BUTTON_ACTIVE_CLASS);
+
+            if (this.$buttonForward) {
+                this.$buttonForward.removeClass(BUTTON_ACTIVE_CLASS);
+            }
         }
 
         if (willBeOutOfBoundsOnAnySide) {
