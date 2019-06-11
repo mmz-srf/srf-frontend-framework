@@ -736,8 +736,14 @@ $background-overlap-wide: 50px;
     @include caret('dark', 'left', 'large');
   }
   
-  .selectable-button .icon-button {
-    color: $color-srf-warmgrey-1100;
+  .selectable-button{
+    .icon-button {
+      color: $color-srf-warmgrey-1100;
+    }
+
+    .icon-button__icon {
+      filter: none;
+    }
   }
 }
 
