@@ -14,8 +14,8 @@
 .teaser__label--breaking,
 .teaser__label--live {
   .teaser__label-box {
-    background-color: $color-srf-light;
-    color: #ffffff;
+    background-color: $color-srf-red-500;
+    color: $color-srf-neutral-white;
     @include font-smoothing;
   }
 }
@@ -32,8 +32,8 @@
 
 .teaser__label--pre {
   .teaser__label-box {
-    background-color: rgba(255,255,255,.8);
-    color: #4e4d47;
+    background-color: $color-srf-neutral-whitea80;
+    color: $color-srf-warmgrey-900;
     backdrop-filter: blur(2px);
   }
 }
@@ -92,6 +92,12 @@
 
   .svg-icon {
     margin: 2px 4px 0 0;
+  }
+
+  .svg-icon--tiny-but-small-on-tablet-up {
+    @include smartphone {
+      margin: 1px 4px 0 0;
+    }
   }
 }
 

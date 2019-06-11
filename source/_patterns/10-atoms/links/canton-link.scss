@@ -9,26 +9,38 @@ $cantonMobile: 40px;
   width: $cantonMobile;
   text-align: center;
   line-height: $cantonMobile;
-  color: $color-text-default;
+  height: $cantonMobile;
+  color: $color-srf-warmgrey-1100;
   font-family: $font-regular;
   @include fontSize(18);
   @include font-smoothing();
   border-radius: 2px;
-  background-color: $color-bg-box;
+  background-color: $color-srf-warmgrey-50;
+  margin: 4px 4px 0 0; // Margin: Fallback if browser does not support CSS Grid -> iOS 10.2 and older, which are supported by SRF News App
+
+  @supports (display: grid) {
+    margin: 0;
+    height: auto;
+  }
 
   @include tablet-up {
     width: $cantonDesktop;
     line-height: $cantonDesktop;
+    height: $cantonDesktop;
+
+    @supports (display: grid) {
+      height: auto;
+    }
   }
 
   &:hover {
-    color: $color-text-default;
-    background-color: $color-bg-box-hover;
+    color: $color-srf-warmgrey-1100;
+    background-color: $color-srf-warmgrey-100;
   }
 
   &:active,
   &:focus {
-    color: $color-text-default;
-    background-color: $color-bg-box-focus;
+    color: $color-srf-warmgrey-1100;
+    background-color: $color-srf-warmgrey-200;
   }
 }

@@ -24,7 +24,7 @@ $highlight-nav-margin: 16px;
 
 .highlight-nav__title {
   @include fontSize(12);
-  color: $color-text-light;
+  color: $color-srf-warmgrey-800;
   margin: 16px 0 0 24px;
 
   @include tablet-up {
@@ -35,6 +35,6 @@ $highlight-nav-margin: 16px;
 .highlight-nav__divider {
   height: 1px;
   @include fullwidth-element();
-  border-bottom: 1px solid $color-nav-divider;
+  border-bottom: 1px solid $color-srf-neutral-blacka08;
   margin-top: 8px;
 }

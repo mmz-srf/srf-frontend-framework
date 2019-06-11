@@ -1,4 +1,7 @@
 @import "modal-theme-settings";
+@import "../../mixins";
+
+$modal-z-index: 100;
 
 .modal {
   display: none;
@@ -7,16 +10,16 @@
   width: 100%;
   left: 0;
   height: 100%;
-  z-index: 100;
+  z-index: $modal-z-index;
 }
 
 .modal-main-wrapper {
   /* fallback */
-  background-image: linear-gradient(135deg, #fefefd, #fafaf8);
+  background-image: linear-gradient(135deg, #{$color-srf-neutral-offwhite}, #{$color-srf-warmgrey-10});
 
   /* theme */
   @supports (--foo: bar) {
-    background-image: var(--theme-color-background, linear-gradient(135deg, #fefefd, #fafaf8));
+    background-image: var(--theme-color-background, linear-gradient(135deg, #{$color-srf-neutral-offwhite}, #{$color-srf-warmgrey-10}));
   }
 
   position: fixed;
@@ -27,6 +30,30 @@
   overflow-y: scroll;
   overflow-x: hidden;
   box-shadow: $shadow-elevation8;
+  z-index: $modal-z-index;
+
+  @include smartphone {
+
+    &::after {
+      /* fallback */
+      background-image: linear-gradient(135deg, #{$color-srf-neutral-offwhite}, #{$color-srf-warmgrey-10});
+
+      /* theme */
+      @supports (--foo: bar) {
+        background-image: var(--theme-color-background, linear-gradient(135deg, #{$color-srf-neutral-offwhite}, #{$color-srf-warmgrey-10}));
+      }
+
+      /* Put it behind the modal so we fake a nice background */
+      z-index: -1;
+
+      position: fixed;
+      bottom: -200px;
+      left: 0;
+      height: 400px;
+      width: 100%;
+      content: '';
+    }
+  }
 
   @include momentumScrolling;
 }

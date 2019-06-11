@@ -1,4 +1,5 @@
 @import 'fonts';
+@import 'colors';
 @import 'variables';
 @import 'breakpoints';
 @import 'mixins';
@@ -8,6 +9,7 @@
 @import 'layout';
 @import 'ripple';
 @import '01-global/05-fonts';
+@import '01-global/10-colors';
 @import '01-global/20-helpers';
 @import '40-templates/article';
 @import '40-templates/landingpage';
@@ -36,6 +38,7 @@
 @import '10-atoms/form/validation';
 @import '10-atoms/buttons/load-more';
 @import '10-atoms/buttons/icon-button';
+@import '10-atoms/buttons/pill-button';
 @import '10-atoms/feedback/spinner';
 @import '10-atoms/feedback/spinner-container';
 @import '10-atoms/text/person-details';
@@ -90,6 +93,7 @@
 @import '20-molecules/navigation/highlight-nav';
 @import '20-molecules/canton-map/canton-map';
 @import '20-molecules/special-teasers/teaser-cantons-nav';
+@import '20-molecules/special-teasers/simple-teaser';
 @import '20-molecules/legend/legend';
 @import '20-molecules/media-window/media-window';
 @import '20-molecules/swipable-area/swipeable-area';
@@ -99,6 +103,7 @@
 @import '20-molecules/teaser/teaser';
 @import '30-organisms/audio-gallery/audio-gallery';
 @import '30-organisms/collection/collection';
+@import '30-organisms/content-header/content-header';
 @import '30-organisms/masthead/masthead';
 @import '30-organisms/modal/modal';
 @import '30-organisms/modal/modal-player';

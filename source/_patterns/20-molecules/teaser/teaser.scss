@@ -12,8 +12,8 @@
   overflow: hidden; // to cut off image with border radius
 
   /* theme */
-  @include customPropWithFallback('color', '--teaser-color-text', $color-text-default);
-  @include customPropWithFallback('background-color', '--teaser-color-background', $color-bg-card);
+  @include customPropWithFallback('color', '--teaser-color-text', $color-srf-warmgrey-1100);
+  @include customPropWithFallback('background-color', '--teaser-color-background', $color-srf-neutral-offwhite);
 
   box-shadow: $shadow-elevation1;
   transition: box-shadow .2s ease-in-out;
@@ -51,7 +51,7 @@
 
 
     /* theme */
-    @include customPropWithFallback('background-color', '--teaser-color-overlay', $color-bg-button-hover);
+    @include customPropWithFallback('background-color', '--teaser-color-overlay', $color-srf-warmgrey-300a12);
 
     // performance improvement: Don't animate the background-color, but the opacity
     opacity: 0;
@@ -78,7 +78,7 @@
   margin: 16px 16px 16px 0;
   color: transparent; // hide alt-text in case image is broken
   position: relative; // for positioning ::pseudo elements
-  background-color: $color-image-dummy;
+  background-color: $color-srf-warmgrey-100;
   align-self: stretch;
   width: 100%;
 
@@ -130,7 +130,7 @@
   font-family: $font-regular;
   @include fontSize(12);
   line-height: $default-line-height-ratio;
-  color: $color-text-light;
+  color: $color-srf-warmgrey-800;
 
   @include tablet-up {
     @include fontSize(14);
@@ -153,11 +153,11 @@
   font-style: normal;
   font-stretch: normal;
   line-height: 1.14;
-  color: $color-accentuation-red;
+  color: $color-srf-red-600;
   word-wrap: break-word; // Enforce breaking words for IE11
 
   /* theme */
-  @include customPropWithFallback('color', '--teaser-color-accentuation', $color-accentuation-red);
+  @include customPropWithFallback('color', '--teaser-color-accentuation', $color-srf-red-600);
   > * {
     flex: 0 1 auto;
     margin: 0 8px 4px 0;
@@ -179,11 +179,11 @@
   font-style: normal;
   font-stretch: normal;
   line-height: $emphasize-line-height-ratio;
-  color: $color-text-default;
+  color: $color-srf-warmgrey-1100;
   word-wrap: break-word; // Enforce breaking words for IE11
 
   /* theme */
-  @include customPropWithFallback('color', '--teaser-color-title', $color-text-default);
+  @include customPropWithFallback('color', '--teaser-color-title', $color-srf-warmgrey-1100);
 }
 
 .teaser__subtitle {
@@ -191,7 +191,7 @@
   font-family: $font-regular;
   @include fontSize(14);
   line-height: $secondary-line-height-ratio;
-  color: $color-text-semi-light;
+  color: $color-srf-warmgrey-1000;
 
   @include tablet-up {
     @include fontSize(16);
@@ -215,14 +215,14 @@
   line-height: $emphasize-line-height-ratio;
 
   /* theme */
-  @include customPropWithFallback('color', '--teaser-color-text', '#383732');
+  @include customPropWithFallback('color', '--teaser-color-text', $color-srf-warmgrey-1000);
 }
 
 .teaser__live {
   display: inline-block;
   margin: 0 8px 2px 0;
   padding: 1px 6px;
-  background-color: $color-srf-light;
+  background-color: $color-srf-red-500;
   font-family: $font-medium;
   font-size: 12px;
   font-weight: 500;
@@ -230,7 +230,7 @@
   font-stretch: normal;
   line-height: 1.33;
   letter-spacing: normal;
-  color: #fff;
+  color: $color-srf-neutral-white;
   text-transform: uppercase;
   animation: pulsatingLiveAnimation 3s infinite ease-in-out;
   @include font-smoothing;
@@ -278,7 +278,7 @@
 
 .teaser__opinion {
   padding: 8px 16px;
-  background-color: $color-bg-opinion-teaser;
+  background-color: $color-srf-warmgrey-10;
 
   @include desktop-wide {
     padding: 8px 24px;
@@ -299,7 +299,7 @@
 
     &::after {
       border-radius: 2px;
-      border: solid 1px rgba(0, 0, 0, 0.04);
+      border: solid 1px $color-srf-neutral-blacka04;
       height: 80px;
 
       @include desktop-up {
@@ -358,7 +358,7 @@
 
     &::after {
       border-radius: 0;
-      border-bottom: solid 1px rgba(0, 0, 0, 0.04);
+      border-bottom: solid 1px $color-srf-neutral-blacka04;
     }
   }
 
@@ -421,7 +421,7 @@
     border-radius: 2px 2px 0 0;
 
     &::after {
-      border-bottom: solid 1px rgba(0, 0, 0, 0.04);
+      border-bottom: solid 1px $color-srf-neutral-blacka04;
     }
   }
 }
@@ -442,7 +442,7 @@
       line-height: $secondary-line-height-ratio;
 
       /* theme */
-      @include customPropWithFallback('color', '--teaser-color-text', $color-media-playing);
+      @include customPropWithFallback('color', '--teaser-color-text', $color-srf-warmgrey-1000);
     }
   }
 
@@ -520,7 +520,7 @@
         right: 0;
         left: 0;
         height: 1rem;
-        @include customPropWithFallback('background', '--teaser-fake-shadow-gradient', 'linear-gradient(rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%)');
+        @include customPropWithFallback('background', '--teaser-fake-shadow-gradient', 'linear-gradient($color-srf-neutral-whitea00 0%,$color-srf-neutral-white 100%)');
       }
     }
 
@@ -531,7 +531,7 @@
       padding: 0 0 0 24px;
       margin-left: 0;
       width: #{100% - $teaser-xl-medium-ratio};
-      @include customPropWithFallback('background-color', '--teaser-color-background', $color-bg-card);
+      @include customPropWithFallback('background-color', '--teaser-color-background', $color-srf-neutral-offwhite);
     }
   }
 
@@ -550,7 +550,7 @@
       width: 100%;
 
       &::after {
-        border-bottom: solid 1px rgba(0, 0, 0, 0.04);
+        border-bottom: solid 1px $color-srf-neutral-blacka04;
       }
     }
 
@@ -558,7 +558,7 @@
       flex: 0 0 $teaser-xl-medium-ratio;
 
       &::after {
-        border-right: solid 1px rgba(0, 0, 0, 0.04);
+        border-right: solid 1px $color-srf-neutral-blacka04;
       }
     }
   }
@@ -614,7 +614,7 @@
 
       .teaser__scoreboard {
         padding-left: 8px;
-        background-color: $color-bg-teaser-supplement;
+        background-color: $color-srf-warmgrey-10;
       }
 
       .teaser__opinion {
@@ -685,7 +685,7 @@
 
       &::after {
         border-radius: 2px;
-        border: solid 1px rgba(0, 0, 0, 0.04);
+        border: solid 1px $color-srf-neutral-blacka04;
         height: 80px;
       }
     }
@@ -803,7 +803,7 @@
 }
 
 .teaser--longform {
-  background-color: $color-image-dummy;
+  background-color: $color-srf-warmgrey-100;
   display: flex;
   flex-direction: row;
   align-items: stretch;
@@ -837,7 +837,7 @@
 
   // Longform teasers have the dark theme (see _teaser-theme-settings.scss) but the kicker is white.
   .teaser__kicker {
-    color: #ffffff;
+    color: $color-srf-neutral-white;
   }
 
   .teaser__lead {
@@ -853,7 +853,7 @@
   .teaser__content {
     flex-grow: 0;
     flex-basis: auto;
-    background-color: rgba(0, 0, 0, .6);
+    background-color: $color-srf-neutral-blacka60;
     padding: 16px;
     @include desktop-wide {
       padding: 24px;
@@ -869,13 +869,13 @@
       bottom: 100%;
       left: 0;
       height: 80px;
-      background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, .6));
+      background-image: linear-gradient(to bottom, $color-srf-neutral-blacka00, $color-srf-neutral-blacka60);
     }
   }
 
   // teaser-links should have same bg color as main content
   .teaser__links {
-    background-color: rgba(0, 0, 0, .6);
+    background-color: $color-srf-neutral-blacka60;
     margin: 0;
     padding-left: 16px;
 
@@ -920,7 +920,7 @@
     .teaser__main-wrapper {
       flex: 0 0 #{100% - $teaser-xl-medium-ratio};
       position: relative;
-      background-color: rgba(0, 0, 0, .6);
+      background-color: $color-srf-neutral-blacka60;
       // subpixel rendering makes the content stick out of the teaser
       // sometimes - with the 2px negative bottom margin and 2px padding
       // at the bottom this is prevented.
@@ -931,7 +931,7 @@
       &::before {
         position: absolute;
         content: '';
-        background-image: linear-gradient(to right, rgba(0,0,0,0), rgba(0,0,0,0.6));
+        background-image: linear-gradient(to right, $color-srf-neutral-blacka00, $color-srf-neutral-blacka60);
         width: 80px;
         height: 100%;
         top: 0;
@@ -1004,14 +1004,6 @@
 
     .teaser__content {
       margin-left: 12px;
-    }
-  }
-
-  .teaser-info {
-    color: $color-image-dummy;
-
-    @include tablet-up {
-      @include fontSize(14);
     }
   }
 

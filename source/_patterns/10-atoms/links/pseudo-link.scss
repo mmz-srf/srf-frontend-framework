@@ -1,18 +1,18 @@
 
 .pseudo-link {
   position: relative;
-  color: $color-link-default;
+  color: $color-srf-red-600;
   cursor: pointer;
-  border-bottom: 1px solid $color-link-default;
+  border-bottom: 1px solid $color-srf-red-600;
 
   &:hover {
-    color: $color-link-hover;
-    border-bottom: 1px solid $color-link-hover;
+    color: $color-srf-red-800;
+    border-bottom: 1px solid $color-srf-red-800;
   }
 
   &:active {
-    color: $color-link-active;
-    border-bottom: 1px solid $color-link-active;
+    color: $color-srf-red-900;
+    border-bottom: 1px solid $color-srf-red-900;
   }
 
   //creates larger touch area for the pseudo link

@@ -1,28 +1,36 @@
 /* autoprefixer grid: on */
 .canton-map {
-  display: grid;
-  grid-gap: 2px;
-  grid-template:
-          "aa ab ac ad ae af ag ah" 40px
-          "ba bb bc bd be bf bg bh" 40px
-          "ca cb cc cd ce cf cg ch" 40px
-          "da db dc dd de df dg dh" 40px
-          "ea eb ec ed ee ef eg eh" 40px
-          "fa fb fc fd fe ff fg fh" 40px /
-    40px 40px 40px 40px 40px 40px 40px 40px;
-  margin-left: -22px;
+  // Flex: Fallback if browser does not support CSS Grid -> iOS 10.2 and older, which are supported by SRF News App
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: -4px;
 
-  @include tablet-up {
-    grid-gap: 4px;
+  @supports (display: grid) {
+    display: grid;
+    grid-gap: 2px;
     grid-template:
-            "aa ab ac ad ae af ag ah" 42px
-            "ba bb bc bd be bf bg bh" 42px
-            "ca cb cc cd ce cf cg ch" 42px
-            "da db dc dd de df dg dh" 42px
-            "ea eb ec ed ee ef eg eh" 42px
-            "fa fb fc fd fe ff fg fh" 42px /
-    42px 42px 42px 42px 42px 42px 42px 42px;
-    margin-left: 0;
+            "aa ab ac ad ae af ag ah" 40px
+            "ba bb bc bd be bf bg bh" 40px
+            "ca cb cc cd ce cf cg ch" 40px
+            "da db dc dd de df dg dh" 40px
+            "ea eb ec ed ee ef eg eh" 40px
+            "fa fb fc fd fe ff fg fh" 40px /
+      40px 40px 40px 40px 40px 40px 40px 40px;
+    margin-top: 0;
+    margin-left: -22px;
+
+    @include tablet-up {
+      grid-gap: 4px;
+      grid-template:
+              "aa ab ac ad ae af ag ah" 42px
+              "ba bb bc bd be bf bg bh" 42px
+              "ca cb cc cd ce cf cg ch" 42px
+              "da db dc dd de df dg dh" 42px
+              "ea eb ec ed ee ef eg eh" 42px
+              "fa fb fc fd fe ff fg fh" 42px /
+      42px 42px 42px 42px 42px 42px 42px 42px;
+      margin-left: 0;
+    }
   }
 }
 

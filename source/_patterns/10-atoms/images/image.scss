@@ -61,7 +61,7 @@
     height: 100%;
 
     border-radius: 50%;
-    border: 2px solid #fefefd;
+    border: 2px solid $color-srf-neutral-offwhite;
   }
 }
 
@@ -77,6 +77,12 @@
   padding-bottom: 0;
 
   img {
-    border: 1px solid #fefefd;
+    border: 1px solid $color-srf-neutral-offwhite;
+  }
+}
+
+.image--profile-picture-presenter {
+  img {
+    border: 1px solid $color-srf-neutral-blacka04;
   }
 }
