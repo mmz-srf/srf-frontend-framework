@@ -630,7 +630,6 @@ body.body--loading.body--loading {
     @include desktop-wide {
       padding: $collection-gap-desktop-wide;
       min-height: calc(96px + $collection-gap-desktop-wide);
-
     }
   }
 
