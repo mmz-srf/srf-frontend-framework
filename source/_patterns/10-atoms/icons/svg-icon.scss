@@ -98,6 +98,14 @@
   }
 }
 
+.svg-icon--play-video-circle-tiny-to-small-on-tablet-up {
+  background-image: url(../img/icon/play-video-circle-tiny.svg);
+
+  @include tablet-up {
+    background-image: url(../img/icon/play-video-circle-small.svg);
+  }
+}
+
 .svg-icon--play-video-circle-tiny-to-small-on-desktop-up {
   background-image: url(../img/icon/play-video-circle-tiny.svg);
 
