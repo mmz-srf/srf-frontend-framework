@@ -150,7 +150,7 @@ gulp.task('patternlab-export', function (cb) {
 });
 
 gulp.task('watch', function(cb) {
-        gulp.watch('source/_patterns/**/*.scss', gulp.series('styles', done => {reload(); done()})),
+        gulp.watch(['source/_patterns/**/*.scss', 'source/assets/critical/**/*.scss'], gulp.series('styles', done => {reload(); done()})),
         gulp.watch('source/assets/js/**/*.js', gulp.series('scripts', done => {reload(); done()})),
         gulp.watch('source/assets/!(img)/**/*', gulp.series('copy', done => {reload(); done()})),
         gulp.watch('source/assets/img/**/*', gulp.series('images', done => {reload(); done()})),

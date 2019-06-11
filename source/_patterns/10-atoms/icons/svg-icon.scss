@@ -116,10 +116,18 @@
   }
 }
 
+.svg-icon--play-audio {
+  background-image: url(../img/icon/play-audio-white-tiny.svg);
+}
+
 .svg-icon--play-audio-white {
   &.svg-icon--tiny {
     background-image: url(../img/icon/play-audio-white-tiny.svg);
   }
+}
+
+.svg-icon--play-audio-dark {
+  background-image: url(../img/icon/play-audio-dark.svg);
 }
 
 .svg-icon--play-audio-circle {
@@ -138,4 +146,33 @@
   &.svg-icon--tiny {
     background-image: url(../img/icon/respond-blue-tiny.svg);
   }
+}
+
+/* OUTLINE ICONS */
+.svg-icon--outline-facebook-color {
+  background-image: url(../img/icon/outline/facebook-color.svg);
+}
+
+.svg-icon--outline-instagram {
+  background-image: url(../img/icon/outline/instagram.svg);
+}
+
+.svg-icon--outline-mail {
+  background-image: url(../img/icon/outline/mail.svg);
+}
+
+.svg-icon--outline-phone {
+  background-image: url(../img/icon/outline/phone.svg);
+}
+
+.svg-icon--outline-webcam {
+  background-image: url(../img/icon/outline/webcam.svg);
+}
+
+.svg-icon--outline-webcam-active {
+  background-image: url(../img/icon/outline/webcam-active.svg);
+}
+
+.svg-icon--outline-whatsapp {
+  background-image: url(../img/icon/outline/whatsapp.svg);
 }

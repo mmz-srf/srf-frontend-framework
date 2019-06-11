@@ -1,0 +1,10 @@
+{% embed 'templates-landingpage' %}
+    {% block content_header %}
+        {% include 'organisms-content-header' %}
+    {% endblock %}
+    {% block landingpage_content %}
+        {% for collection in collections %}
+            {% include 'organisms-collection' with {'collection': collection} %}
+        {% endfor %}
+    {% endblock %}
+{% endembed %}
