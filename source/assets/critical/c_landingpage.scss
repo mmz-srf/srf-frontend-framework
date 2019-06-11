@@ -610,7 +610,7 @@ body.body--loading.body--loading {
     flex-shrink: 0;
     @include IESafeFlexBasis(33.3333333334%);
     padding: $collection-gap;
-    min-height: calc(80px + $collection-gap);
+    min-height: calc(80px + #{$collection-gap});
 
     @include smartphone {
       @include IESafeFlexBasis(100%);
@@ -619,17 +619,17 @@ body.body--loading.body--loading {
     @include tablet {
       @include IESafeFlexBasis(50%);
       padding: $collection-gap-tablet-up;
-      min-height: calc(80px + $collection-gap-tablet-up);
+      min-height: calc(80px + #{$collection-gap-tablet-up});
     }
 
     @include desktop {
       padding: $collection-gap-tablet-up;
-      min-height: calc(96px + $collection-gap-tablet-up);
+      min-height: calc(96px + #{$collection-gap-tablet-up});
     }
 
     @include desktop-wide {
       padding: $collection-gap-desktop-wide;
-      min-height: calc(96px + $collection-gap-desktop-wide);
+      min-height: calc(96px + #{$collection-gap-desktop-wide});
     }
   }
 
