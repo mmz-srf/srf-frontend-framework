@@ -170,7 +170,7 @@ export class SrfSearch {
         // Listen to clicks outside of the element --> deactivates this search component
         $(document).on(OUTSIDE_CLICK_LISTENER_NAME, (e) => {
             // Disable this search if the click was not a descendant of any .js-search or if it's a descendant of a different search component or on the search results page.
-            if (!$(e.target).parents('.js-search').length && $(e.target).parents('.js-search') !== this.$element && !this.$element.is('.search--resultpage')) {
+            if (!$(e.target).parents('.js-search').length && $(e.target).parents('.js-search') !== this.$element) {
                 this.setSearchInactive();
             }
         });
@@ -245,7 +245,9 @@ export class SrfSearch {
     }
 
     clearInput() {
-        this.$inputField.val('');
+        if (!this.$inputField.data('keep-keyword-on-blur')) {
+            this.$inputField.val('');
+        }
         this.$closeIcon.hide();
         this.suggestionUrl = '';
     }
