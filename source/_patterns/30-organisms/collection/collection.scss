@@ -878,7 +878,7 @@ $background-overlap-wide: 50px;
   .collection__title-button {
     display: flex;
     align-items: center;
-    padding-top: 6px;
+    padding-top: 5px;
     font-family: $font-regular;
     @include fontSize(18);
     line-height: $emphasize-line-height-ratio;
