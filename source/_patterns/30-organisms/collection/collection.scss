@@ -710,6 +710,19 @@ $background-overlap-wide: 50px;
     color: $color-srf-warmgrey-1100;
   }
 
+  .collection__link {
+    background-color: $color-srf-neutral-blacka04;
+
+    &:hover {
+      background-color: $color-srf-neutral-blacka08;
+    }
+
+    &:active,
+    &:focus {
+      background-color: $color-srf-neutral-blacka12;
+    }
+  }
+
   .collection__title-link-icon,
   .collection__link-icon {
     @include caret('dark', 'right', 'medium');
@@ -721,6 +734,10 @@ $background-overlap-wide: 50px;
 
   .swipeable-area__button--back span {
     @include caret('dark', 'left', 'large');
+  }
+  
+  .selectable-button .icon-button {
+    color: $color-srf-warmgrey-1100;
   }
 }
 
