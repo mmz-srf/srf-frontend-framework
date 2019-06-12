@@ -702,20 +702,16 @@ $background-overlap-wide: 50px;
   }
 }
 
-.collection--branded-dark,
-.selectable--branded-dark {
+.collection--branded-dark {
   .collection__title,
   .collection__lead,
   .collection__title-link,
   .collection__link,
-  .selectable__title,
-  .selectable-button .icon-button,
-  .selectable__button {
+  .selectable-button .icon-button {
     color: $color-srf-warmgrey-1100;
   }
 
-  .collection__link,
-  .selectable__button {
+  .collection__link {
     background-color: $color-srf-neutral-blacka04;
 
     &:hover {
