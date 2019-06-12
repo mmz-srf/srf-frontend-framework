@@ -54,7 +54,6 @@ export class SrfSearch {
         });
 
         this.$inputField.on('focus', (e) => {
-
             this.setSearchActive();
 
             if (this.clickedSuggestionsEnabled
@@ -73,12 +72,11 @@ export class SrfSearch {
         });
 
         this.$closeIcon.on('click', (e) => {
-            this.setSearchInactive();
-        }).on('keydown', (e) => {
-            this.onCloseIconKeyDown(e);
-        }).on('click', e => {
             e.preventDefault();
             this.setSearchInactive();
+            this.clearInput();
+        }).on('keydown', (e) => {
+            this.onCloseIconKeyDown(e);
         });
 
         this.$searchResults.on('keydown', (e) => {
@@ -91,9 +89,9 @@ export class SrfSearch {
             case KEYCODES.tab:
                 break;
             case KEYCODES.escape:
-                this.clearInput();
                 this.$inputField.blur();
                 this.setSearchInactive();
+                this.clearInput();
                 break;
             default:
                 let query = this.$inputField.val().toString().toLowerCase();
@@ -107,6 +105,7 @@ export class SrfSearch {
                 if (e.shiftKey) {
                     // Shift-Tabbing out of the search component
                     this.setSearchInactive();
+                    this.clearInputIfAllowed();
                 }
                 break;
             case KEYCODES.up:
@@ -126,10 +125,12 @@ export class SrfSearch {
         switch (e.keyCode) {
             case KEYCODES.escape:
                 this.setSearchInactive();
+                this.clearInput();
                 break;
             case KEYCODES.tab:
                 if (this.$searchResults.children().length === 0) {
                     this.setSearchInactive();
+                    this.clearInputIfAllowed();
                 }
                 break;
             default:
@@ -141,11 +142,13 @@ export class SrfSearch {
         switch (e.keyCode) {
             case KEYCODES.escape:
                 this.setSearchInactive();
+                this.clearInputIfAllowed();
                 break;
             case KEYCODES.tab:
                 // tabbing away from the last result
                 if ($(e.target).parents('li').is(':last-child') && !e.shiftKey) {
                     this.setSearchInactive();
+                    this.clearInputIfAllowed();
                 }
                 break;
             case KEYCODES.up:
@@ -196,7 +199,6 @@ export class SrfSearch {
     }
 
     setSearchInactive() {
-        this.clearInput();
         this.hideResults();
         this.$element.removeClass(ACTIVE_CLASS);
         $(document).off(OUTSIDE_CLICK_LISTENER_NAME);
@@ -245,12 +247,16 @@ export class SrfSearch {
     }
 
     clearInput() {
-        // if data-keep-keyword-on-blur is set, don't remove content
-        if (this.$inputField.data('keep-keyword-on-blur') === undefined) {
-            this.$inputField.val('');
-        }
+        this.$inputField.val('');
         this.$closeIcon.hide();
         this.suggestionUrl = '';
+    }
+
+    clearInputIfAllowed() {
+        // clear input if data-keep-keyword-on-blur was not set
+        if (this.$inputField.data('keep-keyword-on-blur') === undefined) {
+            this.clearInput();
+        }
     }
 
     lookup(query) {
