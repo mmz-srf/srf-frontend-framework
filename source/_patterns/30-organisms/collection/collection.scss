@@ -702,7 +702,8 @@ $background-overlap-wide: 50px;
   }
 }
 
-.collection--branded-dark {
+.collection--branded-dark,
+.selectable--branded-dark {
   .collection__title,
   .collection__lead,
   .collection__title-link,
