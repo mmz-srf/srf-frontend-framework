@@ -118,13 +118,13 @@ export class FefStorage {
             listItems = [];
         }
 
-        let newItems = listItems.unshift(item);
+        listItems.unshift(id);
 
-        if (newItems.length > maxItems) {
-            newItems = newItems.reverse().slice(newItems.length - maxItems).reverse();
+        if (listItems.length > maxItems) {
+            listItems.reverse().slice(listItems.length - maxItems).reverse();
         }
 
-        this.setItemJsonStringified(key, newItems);
+        this.setItemJsonStringified(key, listItems);
     }
 
     /**
@@ -136,7 +136,13 @@ export class FefStorage {
             return;
         }
 
-        const listItems = this.getItemJsonParsed(key, []);
+        let listItems = this.getItemJsonParsed(key, []);
+
+        // Clean up corrupt data types
+        if (!Array.isArray(listItems)) {
+            listItems = [];
+        }
+
         const newItems = listItems.filter((listItem) => { return listItem !== id; });
         this.setItemJsonStringified(key, newItems);
     }
