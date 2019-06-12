@@ -245,7 +245,8 @@ export class SrfSearch {
     }
 
     clearInput() {
-        if (!this.$inputField.data('keep-keyword-on-blur')) {
+        // if data-keep-keyword-on-blur is set, don't remove content
+        if (this.$inputField.data('keep-keyword-on-blur') === undefined) {
             this.$inputField.val('');
         }
         this.$closeIcon.hide();
