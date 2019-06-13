@@ -365,7 +365,7 @@ _:-ms-fullscreen,
  * A clean fix for IE11 only that can handle lazyloading + object-fit fallback
  * would consume too much time.
  */
- @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
   .image--media-still-dynamic > img:not([src]) {
     width: 0;
   }
@@ -381,8 +381,7 @@ _:-ms-fullscreen,
 .portalsnav,
 .subnav,
 .globalnav,
-.collection__teaser-list
- {
+.collection__teaser-list {
   li:before {
     content: "\200B"; /* add zero-width space */
     position: absolute; /* addition */
