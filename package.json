@@ -34,6 +34,7 @@
     "merge-stream": "*",
     "minimist": "^1.2.0",
     "natives": "^1.1.6",
+    "rebase": "^0.3.0",
     "request": "^2.88.0",
     "run-sequence": "^2.2.1",
     "slick-carousel": "*",
