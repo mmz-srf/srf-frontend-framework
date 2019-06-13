@@ -37,7 +37,7 @@ $default-input-background: $color-srf-neutral-white;
   }
 
   &.input-field--on-error {
-    background: $default-input-background url('../img/exclamation-mark-red.svg') no-repeat right 16px center;
+    background: $default-input-background url('../../../assets/img/exclamation-mark-red.svg') no-repeat right 16px center;
 
     &:focus {
       background: $default-input-background none;
@@ -45,7 +45,7 @@ $default-input-background: $color-srf-neutral-white;
   }
 
   &.input-field--success {
-    background: $default-input-background url('../img/small_tick-blue.svg') no-repeat right 16px center;
+    background: $default-input-background url('../../../assets/img/small_tick-blue.svg') no-repeat right 16px center;
 
     &:focus {
       background: $default-input-background none;

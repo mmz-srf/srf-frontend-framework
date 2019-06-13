@@ -290,13 +290,13 @@
   transition: transform .2s ease-in-out;
 
   @if $color == 'red' {
-    background-image: url(../img/icon/caret_red.svg);
+    background-image: url(../assets/img/icon/caret_red.svg);
   } @else if $color == 'grey' {
-    background-image: url(../img/icon/caret_grey.svg);
+    background-image: url(../assets/img/icon/caret_grey.svg);
   } @else if $color == 'dark' {
-    background-image: url(../img/icon/caret_dark.svg);
+    background-image: url(../assets/img/icon/caret_dark.svg);
   } @else {
-    background-image: url(../img/icon/caret_white.svg);
+    background-image: url(../assets/img/icon/caret_white.svg);
   }
 
   @if $direction == 'up' {
@@ -412,7 +412,7 @@
 /**
  * Prevents scrollbars with CSS only. Might not work on certain browsers or
  * lead to side effects. Use at your own risk!
- * 
+ *
  * Usage:
  *    @include preventScrollbars();
  */
@@ -422,10 +422,10 @@
     width: 0;
     height: 0;
   }
-  
+
   // firefox 64+
   scrollbar-width: none;
-  
+
   // edge/ie (autohiding, but they appear again on interaction)
   -ms-overflow-style: -ms-autohiding-scrollbar;
 }

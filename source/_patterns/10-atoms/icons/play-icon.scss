@@ -28,7 +28,7 @@
     height: 100%;
     border: $play-button-border-size solid $color-srf-neutral-white;
     border-radius: 50%;
-    background: url("../img/icon/play-video.svg"), $color-play-icon-normal;
+    background: url("../../../assets/img/icon/play-video.svg"), $color-play-icon-normal;
     @include bg-settings;
   }
 
@@ -38,7 +38,7 @@
     outline: none;
     border: $play-button-border-size hidden $color-play-icon-hover;
     border-radius: 50%;
-    background: url("../img/icon/play-video.svg"), $color-play-icon-hover;
+    background: url("../../../assets/img/icon/play-video.svg"), $color-play-icon-hover;
     @include bg-settings;
     background-size: 102% auto;
 
@@ -61,7 +61,7 @@
   &:hover,
   &:active,
   &::after {
-    background-image: url("../img/icon/play-audio.svg");
+    background-image: url("../../../assets/img/icon/play-audio.svg");
   }
 }
 
@@ -74,7 +74,7 @@
     &:active,
     &::after {
       outline: none;
-      background-image: url("../img/icon/play-generic-high-contrast.svg");
+      background-image: url("../../../assets/img/icon/play-generic-high-contrast.svg");
     }
   }
 }
