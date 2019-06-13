@@ -72,16 +72,16 @@
 }
 
 .sharing-bar__button--facebook {
-  background-image: url('../img/share/icon_share_facebook.svg');
+  background-image: url('../../../assets/img/share/icon_share_facebook.svg');
 }
 
 .sharing-bar__button--twitter {
-  background-image: url('../img/share/icon_share_twitter.svg');
+  background-image: url('../../../assets/img/share/icon_share_twitter.svg');
 }
 
 .sharing-bar__button--whatsapp {
   display: none;
-  background-image: url('../img/share/icon_share_whatsapp.svg');
+  background-image: url('../../../assets/img/share/icon_share_whatsapp.svg');
 
   @include smartphone {
     display: inline-block;
@@ -89,7 +89,7 @@
 }
 
 .sharing-bar__button--comment {
-  background-image: url('../img/share/icon_share_comments.svg');
+  background-image: url('../../../assets/img/share/icon_share_comments.svg');
   line-height: 39px;
 }
 
@@ -98,5 +98,5 @@
 }
 
 .sharing-bar__button--comment-zero {
-  background-image: url('../img/share/icon_share_comments_zero.svg');
+  background-image: url('../../../assets/img/share/icon_share_comments_zero.svg');
 }

@@ -17,7 +17,8 @@ var gulp = require('gulp'),
     frontifyApi = require('@frontify/frontify-api'),
     minimist = require('minimist'),
     replace = require('gulp-replace'),
-    concat = require('gulp-concat')
+    concat = require('gulp-concat'),
+    rebase = require('rebase/tasks/gulp-rebase')
 ;
 
 var $ = gulpLoadPlugins();
@@ -64,6 +65,13 @@ gulp.task('styles', function () {
         .pipe($.autoprefixer({
             browsers: AUTOPREFIXER_BROWSERS,
             grid: true
+        }))
+        .pipe(rebase({
+            url: {
+                "../assets/fonts/": "../fonts/",
+                "../../../assets/img/": "../img/",
+                "../assets/img/": "../img/",
+            }
         }))
         .pipe(gulp.dest('public/assets/css'))
         .pipe($.size({

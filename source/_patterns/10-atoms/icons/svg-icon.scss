@@ -66,106 +66,106 @@
 }
 
 .svg-icon--searchmenu {
-  background-image: url(../img/icon/searchmenu.svg);
+  background-image: url(../../../assets/img/icon/searchmenu.svg);
   width: 35px;
 }
 
 .svg-icon--burger-dark {
-  background-image: url(../img/icon/burger-dark.svg);
+  background-image: url(../../../assets/img/icon/burger-dark.svg);
 }
 
 .svg-icon--close-white {
-  background-image: url(../img/icon/close-white.svg);
+  background-image: url(../../../assets/img/icon/close-white.svg);
 }
 
 .svg-icon--close-dark {
-  background-image: url(../img/icon/close-dark.svg);
+  background-image: url(../../../assets/img/icon/close-dark.svg);
 }
 
 .svg-icon--search-dark {
-  background-image: url(../img/icon/search-dark.svg);
+  background-image: url(../../../assets/img/icon/search-dark.svg);
 }
 
 .svg-icon--play-video-circle {
-  background-image: url(../img/icon/play-video-circle.svg);
+  background-image: url(../../../assets/img/icon/play-video-circle.svg);
 
   &.svg-icon--small {
-    background-image: url(../img/icon/play-video-circle-small.svg);
+    background-image: url(../../../assets/img/icon/play-video-circle-small.svg);
   }
 
   &.svg-icon--tiny {
-    background-image: url(../img/icon/play-video-circle-tiny.svg);
+    background-image: url(../../../assets/img/icon/play-video-circle-tiny.svg);
   }
 }
 
 .svg-icon--play-video-circle-tiny-to-small-on-tablet-up {
-  background-image: url(../img/icon/play-video-circle-tiny.svg);
+  background-image: url(../../../assets/img/icon/play-video-circle-tiny.svg);
 
   @include tablet-up {
-    background-image: url(../img/icon/play-video-circle-small.svg);
+    background-image: url(../../../assets/img/icon/play-video-circle-small.svg);
   }
 }
 
 .svg-icon--play-video-circle-tiny-to-small-on-desktop-up {
-  background-image: url(../img/icon/play-video-circle-tiny.svg);
+  background-image: url(../../../assets/img/icon/play-video-circle-tiny.svg);
 
   @include desktop-up {
-    background-image: url(../img/icon/play-video-circle-small.svg);
+    background-image: url(../../../assets/img/icon/play-video-circle-small.svg);
   }
 }
 
 .svg-icon--play-video-circle-white {
-  background-image: url(../img/icon/play-video-circle-white.svg);
+  background-image: url(../../../assets/img/icon/play-video-circle-white.svg);
 
   &.svg-icon--small {
-    background-image: url(../img/icon/play-video-circle-white-small.svg);
+    background-image: url(../../../assets/img/icon/play-video-circle-white-small.svg);
   }
 
   &.svg-icon--tiny {
-    background-image: url(../img/icon/play-video-circle-white-tiny.svg);
+    background-image: url(../../../assets/img/icon/play-video-circle-white-tiny.svg);
   }
 }
 
 .svg-icon--play-video-circle-white-tiny-to-small-on-tablet-up {
-  background-image: url(../img/icon/play-video-circle-white-tiny.svg);
+  background-image: url(../../../assets/img/icon/play-video-circle-white-tiny.svg);
 
   @include tablet-up {
-    background-image: url(../img/icon/play-video-circle-white-small.svg);
+    background-image: url(../../../assets/img/icon/play-video-circle-white-small.svg);
   }
 }
 
 .svg-icon--play-video-circle-white-tiny-to-small-on-desktop-up {
-  background-image: url(../img/icon/play-video-circle-white-tiny.svg);
+  background-image: url(../../../assets/img/icon/play-video-circle-white-tiny.svg);
 
   @include desktop-up {
-    background-image: url(../img/icon/play-video-circle-white-small.svg);
+    background-image: url(../../../assets/img/icon/play-video-circle-white-small.svg);
   }
 }
 
 .svg-icon--play-audio {
-  background-image: url(../img/icon/play-audio-white-tiny.svg);
+  background-image: url(../../../assets/img/icon/play-audio-white-tiny.svg);
 }
 
 .svg-icon--play-audio-white {
   &.svg-icon--tiny {
-    background-image: url(../img/icon/play-audio-white-tiny.svg);
+    background-image: url(../../../assets/img/icon/play-audio-white-tiny.svg);
   }
 }
 
 .svg-icon--play-audio-dark {
-  background-image: url(../img/icon/play-audio-dark.svg);
+  background-image: url(../../../assets/img/icon/play-audio-dark.svg);
 }
 
 .svg-icon--play-audio-circle {
-  background-image: url(../img/icon/play-audio-circle.svg);
+  background-image: url(../../../assets/img/icon/play-audio-circle.svg);
 }
 
 .svg-icon--play-audio-circle-white {
-  background-image: url(../img/icon/play-audio-circle-white.svg);
+  background-image: url(../../../assets/img/icon/play-audio-circle-white.svg);
 }
 
 .svg-icon--more {
-  background-image: url(../img/icon/more.svg);
+  background-image: url(../../../assets/img/icon/more.svg);
 }
 
 .svg-icon--more-dark {
@@ -174,35 +174,35 @@
 
 .svg-icon--respond-blue {
   &.svg-icon--tiny {
-    background-image: url(../img/icon/respond-blue-tiny.svg);
+    background-image: url(../../../assets/img/icon/respond-blue-tiny.svg);
   }
 }
 
 /* OUTLINE ICONS */
 .svg-icon--outline-facebook-color {
-  background-image: url(../img/icon/outline/facebook-color.svg);
+  background-image: url(../../../assets/img/icon/outline/facebook-color.svg);
 }
 
 .svg-icon--outline-instagram {
-  background-image: url(../img/icon/outline/instagram.svg);
+  background-image: url(../../../assets/img/icon/outline/instagram.svg);
 }
 
 .svg-icon--outline-mail {
-  background-image: url(../img/icon/outline/mail.svg);
+  background-image: url(../../../assets/img/icon/outline/mail.svg);
 }
 
 .svg-icon--outline-phone {
-  background-image: url(../img/icon/outline/phone.svg);
+  background-image: url(../../../assets/img/icon/outline/phone.svg);
 }
 
 .svg-icon--outline-webcam {
-  background-image: url(../img/icon/outline/webcam.svg);
+  background-image: url(../../../assets/img/icon/outline/webcam.svg);
 }
 
 .svg-icon--outline-webcam-active {
-  background-image: url(../img/icon/outline/webcam-active.svg);
+  background-image: url(../../../assets/img/icon/outline/webcam-active.svg);
 }
 
 .svg-icon--outline-whatsapp {
-  background-image: url(../img/icon/outline/whatsapp.svg);
+  background-image: url(../../../assets/img/icon/outline/whatsapp.svg);
 }
