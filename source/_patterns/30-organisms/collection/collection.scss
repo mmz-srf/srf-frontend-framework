@@ -706,8 +706,26 @@ $background-overlap-wide: 50px;
   .collection__title,
   .collection__lead,
   .collection__title-link,
-  .collection__link {
+  .collection__link,
+  .selectable-button .icon-button {
     color: $color-srf-warmgrey-1100;
+  }
+
+  .collection__link {
+    background-color: $color-srf-neutral-blacka04;
+
+    &:hover {
+      background-color: $color-srf-neutral-blacka08;
+    }
+
+    &:active,
+    &:focus {
+      background-color: $color-srf-neutral-blacka12;
+    }
+  }
+
+  .selectable-button .icon-button__icon {
+    filter: none;
   }
 
   .collection__title-link-icon,
