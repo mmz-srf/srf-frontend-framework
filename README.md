@@ -16,6 +16,11 @@ Doc: https://srfmmz.atlassian.net/wiki/display/PRODS/SRF+Frontend+Framework
 1. `composer install`
 2. `npm install`
 
+## Useful commands
+`gulp sass-lint` lint all sass files
+
+`gulp js-lint` lint all JS files
+
 ## Other
 
 In case of the following error:
