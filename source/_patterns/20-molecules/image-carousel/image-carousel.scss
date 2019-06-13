@@ -166,7 +166,7 @@
 
 .carousel__link--prev {
   left: 0;
-  background-image: url('../img/carousel/previous.svg');
+  background-image: url('../../../assets/img/carousel/previous.svg');
   border-radius: 0 15px 15px 0;
   border-width: 12px 12px 12px 0; // <= kompromiss: schoene runde ecken UND extended touch area :(
   z-index: 1; // so the thing is visible "behind" the gallery
@@ -174,7 +174,7 @@
 
 .carousel__link--next {
   right: 0;
-  background-image: url('../img/carousel/next.svg');
+  background-image: url('../../../assets/img/carousel/next.svg');
   border-radius: 15px 0 0 15px;
   border-width: 12px 0 12px 12px; // kompromiss :)
 

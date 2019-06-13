@@ -227,7 +227,7 @@
       width: 19px;
       left: -26px;
       top: -8px;
-      background-image: url('../img/icon/intendation.svg');
+      background-image: url('../../../assets/img/icon/intendation.svg');
 
       @include tablet-up {
         left: -30px;
@@ -245,7 +245,7 @@
 
     &::before {
       transform: rotate(180deg);
-      background-image: url('../img/linktypes/reply.svg');
+      background-image: url('../../../assets/img/linktypes/reply.svg');
       top: 0;
       left: 0;
 
@@ -388,7 +388,7 @@
     width: 40px;
     left: 0;
     top: -3px;
-    background: url('../img/linktypes/reply.svg') no-repeat 10px center;
+    background: url('../../../assets/img/linktypes/reply.svg') no-repeat 10px center;
   }
 }
 
@@ -486,7 +486,7 @@
     left: -26px;
     top: -7px;
     width: 19px;
-    background-image: url('../img/icon/intendation.svg');
+    background-image: url('../../../assets/img/icon/intendation.svg');
 
     @include tablet-up {
       left: -46px;
