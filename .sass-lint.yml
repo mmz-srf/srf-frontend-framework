@@ -72,7 +72,8 @@ rules:
   no-mergeable-selectors: 0
   no-misspelled-properties:
     - 1
-    - extra-properties: []
+    - extra-properties:
+      - 'scrollbar-width'
   no-qualifying-elements:
     - 0
     - allow-element-with-attribute: true

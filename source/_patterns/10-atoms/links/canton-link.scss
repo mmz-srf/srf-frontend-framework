@@ -1,15 +1,15 @@
 @import "../../variables";
 @import "../../mixins";
 
-$cantonDesktop: 42px;
-$cantonMobile: 40px;
+$canton-desktop: 42px;
+$canton-mobile: 40px;
 
 .canton-link {
   display: block;
-  width: $cantonMobile;
+  width: $canton-mobile;
   text-align: center;
-  line-height: $cantonMobile;
-  height: $cantonMobile;
+  line-height: $canton-mobile;
+  height: $canton-mobile;
   color: $color-srf-warmgrey-1100;
   font-family: $font-regular;
   @include fontSize(18);
@@ -24,9 +24,9 @@ $cantonMobile: 40px;
   }
 
   @include tablet-up {
-    width: $cantonDesktop;
-    line-height: $cantonDesktop;
-    height: $cantonDesktop;
+    width: $canton-desktop;
+    line-height: $canton-desktop;
+    height: $canton-desktop;
 
     @supports (display: grid) {
       height: auto;
