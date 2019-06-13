@@ -5,6 +5,7 @@
   flex-wrap: wrap;
   margin-top: -4px;
 
+  // sass-lint:disable indentation
   @supports (display: grid) {
     display: grid;
     grid-gap: 2px;
@@ -32,6 +33,7 @@
       margin-left: 0;
     }
   }
+  // sass-lint:enable indentation
 }
 
 .canton-map__link--bs {

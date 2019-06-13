@@ -132,8 +132,8 @@
 .teaser-info--mediaicon-video,
 .teaser-info--mediaicon-audio,
 .teaser-info--mediaicon-image {
-    /* theme */
-    @include customPropWithFallback('color', '--teaser-color-info-updated', $color-srf-warmgrey-800);
+  /* theme */
+  @include customPropWithFallback('color', '--teaser-color-info-updated', $color-srf-warmgrey-800);
 }
 
 

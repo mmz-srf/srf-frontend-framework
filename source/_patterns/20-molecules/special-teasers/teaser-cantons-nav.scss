@@ -39,7 +39,7 @@
  * Canton navigation content
  */
 .teaser-cantons-nav__content {
-  flex-grow:1;
+  flex-grow: 1;
   flex-shrink: 1;
   @include tablet-up {
     flex-basis: 0;
@@ -105,7 +105,7 @@
 .teaser-cantons-nav__navigation {
   display: flex;
   justify-content: center;
-  flex-grow:1;
+  flex-grow: 1;
   flex-shrink: 1;
   margin-top: 24px;
 
