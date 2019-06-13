@@ -11,25 +11,30 @@
 }
 
 .log__entry {
-  margin-left: 24px;
+  margin-left: 0;
   padding: 12px 24px 12px 0;
-  border-bottom: 1px solid $color-srf-neutral-blacka08;
+  border-top: 1px solid $color-srf-neutral-blacka08;
 
-  &:last-of-type {
-    border-bottom: none;
+  &:first-of-type {
+    border-top: none;
   }
 
   &:hover,
-  &:focus {
+  &:focus,
+  &:active {
     background-color: $color-srf-warmgrey-10;
-    margin-left: 0;
+    border-top-color: transparent;
+    margin-left: -24px;
     padding-left: 24px;
+
+    // hide bottom border of the list item after the current one
+    & + li {
+      border-top-color: transparent;
+    }
   }
 
   &:active {
     background-color: $color-srf-warmgrey-25;
-    margin-left: 0;
-    padding-left: 24px;
   }
 
   @include tablet-up {
