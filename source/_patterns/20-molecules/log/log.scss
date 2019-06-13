@@ -1,4 +1,4 @@
-.songlog {
+.log {
   margin-bottom: 32px;
 
   @include tablet-up {
@@ -10,7 +10,7 @@
   }
 }
 
-.songlog__entry {
+.log__entry {
   margin-left: 24px;
   padding: 12px 24px 12px 0;
   border-bottom: 1px solid $color-srf-neutral-blacka08;
@@ -39,7 +39,7 @@
   }
 }
 
-.songlog__time {
+.log__time {
   margin-bottom: 4px;
   font-family: $font-regular;
   @include fontSize(12);
@@ -54,7 +54,7 @@
   }
 }
 
-.songlog__title {
+.log__title {
   font-family: $font-medium;
   @include fontSize(16);
   font-weight: 500;
@@ -67,7 +67,7 @@
   }
 }
 
-.songlog__artist {
+.log__artist {
   font-family: $font-light;
   @include fontSize(16);
   font-weight: 300;
