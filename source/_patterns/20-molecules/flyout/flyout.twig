@@ -1,0 +1,20 @@
+<div class="flyout">
+    <div class="flyout__head">
+        <div class="flyout__title">{{ flyoutTitle|default('Titel') }}</div>
+        <div class="flyout__buttons">
+            <a href="#" class="js-flyout-close-button">
+                {% include 'atoms-icon-button' with {
+                    'iconStyleModifier': 'svg-icon--close-dark',
+                    'screenReaderText': 'Schliessen',
+                    'styleModifier': ''
+                } %}
+            </a>
+        </div>
+    </div>
+    <div class="flyout__content">
+        {% block flyout_content %}
+            <!-- content: there is intentionally no padding on flyout__content in order to be flexible with content items -->
+            <p style="margin: 0; padding: 16px 24px">Hier könnte Ihr Inhalt stehen.</p>
+        {% endblock %}
+    </div>
+</div>

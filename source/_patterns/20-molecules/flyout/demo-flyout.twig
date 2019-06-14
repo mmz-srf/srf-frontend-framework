@@ -1,0 +1,27 @@
+
+<h3>Basic Flyout</h3>
+{% include 'molecules-flyout' %}
+
+<br>
+<h3>Radio-Header-Flyout</h3>
+
+{% embed 'molecules-flyout'  with { 'flyoutTitle': 'Kontakt ins Studio' } %}
+    {% block flyout_content %}
+        {% embed 'molecules-menu-list' %}
+            {% block list_content %}
+                <li class="menu-list__item">
+                    {% include 'atoms-menu-link' with {'text': 'Mail ins Studio', 'iconStyleModifier': 'svg-icon--outline-mail'} %}
+                </li>
+                <li class="menu-list__item">
+                    {% include 'atoms-menu-link' with {'text': '0848 80 80 80', 'iconStyleModifier': 'svg-icon--outline-phone'} %}
+                </li>
+                <li class="menu-list__item">
+                    {% include 'atoms-menu-link' with {'text': 'WhatsApp', 'iconStyleModifier': 'svg-icon--outline-whatsapp'} %}
+                </li>
+                <li class="menu-list__item">
+                    {% include 'atoms-menu-link' with {'text': 'Kontaktformular', 'iconStyleModifier': 'svg-icon--outline-mail'} %}
+                </li>
+            {% endblock %}
+        {% endembed %}
+    {% endblock %}
+{% endembed %}

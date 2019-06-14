@@ -1,0 +1,16 @@
+<ul class="menu-list">
+    {% block list_content %}
+        <li class="menu-list__item">
+            {% include 'atoms-menu-link' with {'text': 'Eintrag ohne Icon'} %}
+        </li>
+        <li class="menu-list__item">
+            {% include 'atoms-menu-link' with {'text': '0848 80 80 80', 'iconStyleModifier': 'svg-icon--outline-phone'} %}
+        </li>
+        <li class="menu-list__item">
+            {% include 'atoms-menu-link' with {'text': 'WhatsApp', 'iconStyleModifier': 'svg-icon--outline-whatsapp'} %}
+        </li>
+        <li class="menu-list__item">
+            {% include 'atoms-menu-link' with {'text': 'Kontaktformular', 'iconStyleModifier': 'svg-icon--outline-mail'} %}
+        </li>
+    {% endblock %}
+</ul>

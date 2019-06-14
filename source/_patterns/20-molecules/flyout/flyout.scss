@@ -1,0 +1,41 @@
+@import "../../colors";
+@import "../../variables";
+@import "../../mixins";
+
+.flyout {
+  width: 372px;
+  border-radius: 2px;
+  background-color: $color-srf-neutral-offwhite;
+  box-shadow: 0 4px 8px 0 $color-srf-neutral-blacka24,0 0 8px 0 $color-srf-neutral-blacka12;
+  @include smartphone {
+    width: 100%;
+  }
+}
+
+.flyout__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 0 0 0 24px;
+}
+
+.flyout__title {
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: auto;
+  padding: 18px 0 16px;
+  font-family: $font-medium;
+  @include fontSize(18);
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: $emphasize-line-height-ratio;
+  color: $color-srf-warmgrey-1100;
+  word-wrap: break-word; // Enforce breaking words for IE11
+}
+
+.flyout__buttons {
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: auto;
+}
