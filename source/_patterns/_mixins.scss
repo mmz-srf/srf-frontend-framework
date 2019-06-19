@@ -290,13 +290,13 @@
   transition: transform .2s ease-in-out;
 
   @if $color == 'red' {
-    background-image: url(../img/icon/caret_red.svg);
+    background-image: url(../assets/img/icon/caret_red.svg);
   } @else if $color == 'grey' {
-    background-image: url(../img/icon/caret_grey.svg);
+    background-image: url(../assets/img/icon/caret_grey.svg);
   } @else if $color == 'dark' {
-    background-image: url(../img/icon/caret_dark.svg);
+    background-image: url(../assets/img/icon/caret_dark.svg);
   } @else {
-    background-image: url(../img/icon/caret_white.svg);
+    background-image: url(../assets/img/icon/caret_white.svg);
   }
 
   @if $direction == 'up' {
@@ -368,29 +368,29 @@
  * (and the other breakpoints as well)
  *
  */
-@mixin columnCalculator($property, $nrOfColumns, $withGutter: false) {
+@mixin columnCalculator($property, $nr-of-columns, $with-gutter: false) {
   @include smartphone {
-    #{property}: col($nrOfColumns, 8px, $withGutter);
+    #{property}: col($nr-of-columns, 8px, $with-gutter);
   }
 
   @include tablet {
-    #{property}: col($nrOfColumns, 24px, $withGutter);
+    #{property}: col($nr-of-columns, 24px, $with-gutter);
   }
 
   @include desktop {
-    #{property}: col($nrOfColumns, 24px, $withGutter);
+    #{property}: col($nr-of-columns, 24px, $with-gutter);
   }
 
   @include desktop-widest {
-    #{property}: col($nrOfColumns, 32px, $withGutter);
+    #{property}: col($nr-of-columns, 32px, $with-gutter);
   }
 }
 
-@function col($nrOfColumns, $gutterSize, $withGutter: false) {
-  @if ($withGutter) {
-    @return calc(#{$nrOfColumns} * ((100% - 11 * #{$gutterSize}) / 12) + #{$nrOfColumns + 1} * #{$gutterSize});
+@function col($nr-of-columns, $gutter-size, $with-gutter: false) {
+  @if ($with-gutter) {
+    @return calc(#{$nr-of-columns} * ((100% - 11 * #{$gutter-size}) / 12) + #{$nr-of-columns + 1} * #{$gutter-size});
   } @else {
-    @return calc(#{$nrOfColumns} * ((100% - 11 * #{$gutterSize}) / 12) + #{$nrOfColumns - 1} * #{$gutterSize});
+    @return calc(#{$nr-of-columns} * ((100% - 11 * #{$gutter-size}) / 12) + #{$nr-of-columns - 1} * #{$gutter-size});
   }
 }
 
@@ -412,7 +412,7 @@
 /**
  * Prevents scrollbars with CSS only. Might not work on certain browsers or
  * lead to side effects. Use at your own risk!
- * 
+ *
  * Usage:
  *    @include preventScrollbars();
  */
@@ -422,10 +422,10 @@
     width: 0;
     height: 0;
   }
-  
+
   // firefox 64+
   scrollbar-width: none;
-  
+
   // edge/ie (autohiding, but they appear again on interaction)
   -ms-overflow-style: -ms-autohiding-scrollbar;
 }

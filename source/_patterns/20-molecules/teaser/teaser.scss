@@ -730,15 +730,15 @@
   }
 
   .block-link--teaser-link.block-link--internal::after {
-    background-image: url('../img/icon/caret_white.svg');
+    background-image: url('../../../assets/img/icon/caret_white.svg');
   }
 
   .block-link--teaser-link.block-link--video::after {
-    background-image: url('../img/icon/play-video-circle-white.svg');
+    background-image: url('../../../assets/img/icon/play-video-circle-white.svg');
   }
 
   .block-link--teaser-link.block-link--audio::after {
-    background-image: url('../img/icon/play-audio-circle-white.svg');
+    background-image: url('../../../assets/img/icon/play-audio-circle-white.svg');
   }
 }
 
@@ -987,11 +987,11 @@
 .teaser--video-playing {
   .play-icon {
     &::after {
-      background-image: url("../img/icon/stop-video.svg");
+      background-image: url("../../../assets/img/icon/stop-video.svg");
     }
-    
+
     &:hover {
-      background-image: url("../img/icon/stop-video.svg");
+      background-image: url("../../../assets/img/icon/stop-video.svg");
     }
   }
 }
@@ -1011,6 +1011,17 @@
   .teaser__medium {
     position: absolute;
     height: 100%;
+  }
+}
+
+.teaser--centered {
+
+  .teaser__content {
+    justify-content: center;
+  }
+
+  .teaser__title {
+    text-align: center;
   }
 }
 

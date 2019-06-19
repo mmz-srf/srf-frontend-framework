@@ -201,3 +201,24 @@
     }
   }
 }
+
+
+.selectable--branded-dark {
+  .selectable__title,
+  .selectable__button {
+    color: $color-srf-warmgrey-1100;
+  }
+
+  .selectable__button {
+    background-color: $color-srf-neutral-blacka04;
+
+    &:hover {
+      background-color: $color-srf-neutral-blacka08;
+    }
+
+    &:active,
+    &:focus {
+      background-color: $color-srf-neutral-blacka12;
+    }
+  }
+}

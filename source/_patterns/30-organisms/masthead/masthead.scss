@@ -116,9 +116,9 @@
 .masthead__title-link:hover,
 .masthead__title-link:active,
 .masthead__title-link:visited {
-    text-decoration: none;
+  text-decoration: none;
 
-    @include customPropWithFallback('color', '--theme-color-title', $color-srf-warmgrey-1100);
+  @include customPropWithFallback('color', '--theme-color-title', $color-srf-warmgrey-1100);
 }
 
 .masthead__universal {

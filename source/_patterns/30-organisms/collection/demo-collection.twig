@@ -229,6 +229,19 @@
 </div>
 
 <div class="js-collection-wrapper">
+    <h3>Compact Swipeable, 5 Teasers, Branded dark</h3>
+    <div class="js-collection-wrapper-content">
+    {% include 'organisms-collection' with {
+        'collection': {
+            'styleModifier': 'collection--compact-swipeable collection--branded collection--branded-dark',
+            "title": "News Schweiz",
+            "teasers": collections[0].teasers[0:5]
+        }
+    } %}
+    </div>
+</div>
+
+<div class="js-collection-wrapper">
     <h3>Standard, Title Link</h3>
     <div class="js-collection-wrapper-content">
     {% include 'organisms-collection' with {
@@ -293,6 +306,22 @@
 </div>
 
 <div class="js-collection-wrapper">
+    <h3>Standard, Title Link, Branded dark</h3>
+    <div class="js-collection-wrapper-content">
+    {% include 'organisms-collection' with {
+        'collection': {
+            'styleModifier': 'collection--standard collection--branded collection--branded-dark',
+            "title": "News Schweiz",
+            "titleLink": "https://www-test.srf.ch/news/wirtschaft",
+            "lead": "1996 schrieb John Perry Barlow die «Unabhängigkeitserklärung des Cyberspace». Darin kritisierte er Poeten.",
+            "type": "standard",
+            "teasers": collections[0].teasers[0:1]
+        }
+    } %}
+    </div>
+</div>
+
+<div class="js-collection-wrapper">
     <h3>Standard + Lead</h3>
     <div class="js-collection-wrapper-content">
     {% include 'organisms-collection' with {
@@ -323,11 +352,40 @@
 </div>
 
 <div class="js-collection-wrapper">
+    <h3>Standard + Lead, Branded dark</h3>
+    <div class="js-collection-wrapper-content">
+    {% include 'organisms-collection' with {
+        'collection': {
+            'styleModifier': 'collection--standard collection--branded collection--branded-dark',
+            "title": "News Schweiz",
+            "lead": "1996 schrieb John Perry Barlow die «Unabhängigkeitserklärung des Cyberspace». Darin kritisierte er Poeten.",
+            "type": "standard",
+            "teasers": collections[0].teasers[0:1]
+        }
+    } %}
+    </div>
+</div>
+
+<div class="js-collection-wrapper">
     <h3>Standard + Lead, Branded</h3>
     <div class="js-collection-wrapper-content">
     {% include 'organisms-collection' with {
         'collection': {
             'styleModifier': 'collection--standard collection--branded',
+            "title": "News Schweiz",
+            "lead": "1996 schrieb John Perry Barlow die «Unabhängigkeitserklärung des Cyberspace». Darin kritisierte er Poeten.",
+            "teasers": collections[0].teasers[0:1]
+        }
+    } %}
+    </div>
+</div>
+
+<div class="js-collection-wrapper">
+    <h3>Standard + Lead, Branded dark</h3>
+    <div class="js-collection-wrapper-content">
+    {% include 'organisms-collection' with {
+        'collection': {
+            'styleModifier': 'collection--standard collection--branded collection--branded-dark',
             "title": "News Schweiz",
             "lead": "1996 schrieb John Perry Barlow die «Unabhängigkeitserklärung des Cyberspace». Darin kritisierte er Poeten.",
             "teasers": collections[0].teasers[0:1]
@@ -448,11 +506,51 @@
 </div>
 
 <div class="js-collection-wrapper">
+    <h3>Standard with Links, 3 Teaser, branded dark</h3>
+    <div class="js-collection-wrapper-content">
+    {% include 'organisms-collection' with {
+        'collection': {
+            'styleModifier': 'collection--standard collection--branded collection--branded-dark',
+            "title": "News Schweiz",
+            "type": "standard",
+            "links": [
+                {
+                    "title": "Google",
+                    "link": "https://www.google.com"
+                }, {
+                    "title": "Bing",
+                    "link": "https://www.bing.com"
+                }, {
+                    "title": "DuckDuckGo",
+                    "link": "https://www.duckduckgo.com"
+                }
+            ],
+            "teasers": collections[0].teasers[0:3]
+        }
+    } %}
+    </div>
+</div>
+
+<div class="js-collection-wrapper">
     <h3>Compact, 5 Teaser, Branded</h3>
     <div class="js-collection-wrapper-content">
     {% include 'organisms-collection' with {
         'collection': {
             'styleModifier': 'collection--compact collection--branded',
+            "title": "News Schweiz",
+            "type": "standard",
+            "teasers": collections[0].teasers[0:5]
+        }
+    } %}
+    </div>
+</div>
+
+<div class="js-collection-wrapper">
+    <h3>Compact, 5 Teaser, Branded dark</h3>
+    <div class="js-collection-wrapper-content">
+    {% include 'organisms-collection' with {
+        'collection': {
+            'styleModifier': 'collection--compact collection--branded collection--branded-dark',
             "title": "News Schweiz",
             "type": "standard",
             "teasers": collections[0].teasers[0:5]
@@ -609,6 +707,51 @@
 </div>
 
 <div class="js-collection-wrapper">
+<h3>Standard with Links, 3 Teaser, branded dark</h3>
+<div class="js-collection-wrapper-content">
+{% include 'organisms-collection' with {
+    'collection': {
+        'styleModifier': 'collection--standard collection--branded collection--branded-dark',
+        "title": "News Schweiz",
+        "links": [
+            {
+                "title": "Google",
+                "link": "https://www.google.com"
+            }, {
+                "title": "Bing",
+                "link": "https://www.bing.com"
+            }, {
+                "title": "DuckDuckGo",
+                "link": "https://www.duckduckgo.com"
+            }
+        ],
+        "teasers": [
+            {
+                "title": "Wissenschaftler sagen: Kühe geben Milch. Stadtbewohner erstaunt und entrüstet: 'Igitt!'",
+                "kicker": "Milchsee",
+                "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+                "link": "#",
+                "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet."
+            }, {
+                "title": "Wissenschaftler sagen: Kühe geben Milch. Stadtbewohner erstaunt und entrüstet: 'Igitt!'",
+                "kicker": "Milchsee",
+                "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+                "link": "#",
+                "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet."
+            }, {
+                "title": "Wissenschaftler sagen: Kühe geben Milch. Stadtbewohner erstaunt und entrüstet: 'Igitt!'",
+                "kicker": "Milchsee",
+                "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+                "link": "#",
+                "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet."
+            }
+        ]
+    }
+} %}
+</div>
+</div>
+
+<div class="js-collection-wrapper">
 <h3>Standard with Links, 3 Teaser, branded</h3>
 <div class="js-collection-wrapper-content">
 {% include 'organisms-collection' with {
@@ -651,6 +794,52 @@
     }
 } %}
 </div>
+</div>
+
+<div class="js-collection-wrapper">
+<h3>Standard with Links, 3 Teaser, branded dark</h3>
+<div class="js-collection-wrapper-content">
+{% include 'organisms-collection' with {
+    'collection': {
+        'styleModifier': 'collection--standard collection--branded collection--branded-dark',
+        "title": "News Schweiz",
+        "links": [
+            {
+                "title": "Google",
+                "link": "https://www.google.com"
+            }, {
+                "title": "Bing",
+                "link": "https://www.bing.com"
+            }, {
+                "title": "DuckDuckGo",
+                "link": "https://www.duckduckgo.com"
+            }
+        ],
+        "teasers": [
+            {
+                "title": "Wissenschaftler sagen: Kühe geben Milch. Stadtbewohner erstaunt und entrüstet: 'Igitt!'",
+                "kicker": "Milchsee",
+                "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+                "link": "#",
+                "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet."
+            }, {
+                "title": "Wissenschaftler sagen: Kühe geben Milch. Stadtbewohner erstaunt und entrüstet: 'Igitt!'",
+                "kicker": "Milchsee",
+                "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+                "link": "#",
+                "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet."
+            }, {
+                "title": "Wissenschaftler sagen: Kühe geben Milch. Stadtbewohner erstaunt und entrüstet: 'Igitt!'",
+                "kicker": "Milchsee",
+                "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+                "link": "#",
+                "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet."
+            }
+        ]
+    }
+} %}
+</div>
+</div>
 
 <div class="js-collection-wrapper">
     <h3>Unboxed Standard with Links, 3 Teaser, branded</h3>
@@ -658,6 +847,52 @@
     {% include 'organisms-collection' with {
         'collection': {
             'styleModifier': 'collection--standard collection--unboxed collection--branded',
+            "title": "News Schweiz",
+            "type": "standard",
+            "links": [
+                {
+                    "title": "Google",
+                    "link": "https://www.google.com"
+                }, {
+                    "title": "Bing",
+                    "link": "https://www.bing.com"
+                }, {
+                    "title": "DuckDuckGo",
+                    "link": "https://www.duckduckgo.com"
+                }
+            ],
+            "teasers": [
+                {
+                    "title": "Wissenschaftler sagen: Kühe geben Milch. Stadtbewohner erstaunt und entrüstet: 'Igitt!'",
+                    "kicker": "Milchsee",
+                    "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+                    "link": "#",
+                    "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet."
+                }, {
+                    "title": "Wissenschaftler sagen: Kühe geben Milch. Stadtbewohner erstaunt und entrüstet: 'Igitt!'",
+                    "kicker": "Milchsee",
+                    "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+                    "link": "#",
+                    "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet."
+                }, {
+                    "title": "Wissenschaftler sagen: Kühe geben Milch. Stadtbewohner erstaunt und entrüstet: 'Igitt!'",
+                    "kicker": "Milchsee",
+                    "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+                    "link": "#",
+                    "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet."
+                }
+            ]
+        }
+    } %}
+    </div>
+</div>
+
+<div class="js-collection-wrapper">
+    <h3>Unboxed Standard with Links, 3 Teaser, branded dark</h3>
+    <div class="js-collection-wrapper-content">
+    {% include 'organisms-collection' with {
+        'collection': {
+            'styleModifier': 'collection--standard collection--unboxed collection--branded collection--branded-dark',
             "title": "News Schweiz",
             "type": "standard",
             "links": [
@@ -771,11 +1006,123 @@
 </div>
 
 <div class="js-collection-wrapper">
+    <h3>Two consecutive Standard, 3 Teaser, branded dark</h3>
+    <div class="js-collection-wrapper-content">
+        {% include 'organisms-collection' with {
+            'collection': {
+                'styleModifier': 'collection--standard collection--branded collection--branded-dark',
+                "title": "News Schweiz",
+                "teasers": [
+                    {
+                        "title": "Wissenschaftler sagen: Kühe geben Milch. Stadtbewohner erstaunt und entrüstet: 'Igitt!'",
+                        "kicker": "Milchsee",
+                        "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+                        "link": "#",
+                        "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet."
+                    }, {
+                        "title": "Wissenschaftler sagen: Kühe geben Milch. Stadtbewohner erstaunt und entrüstet: 'Igitt!'",
+                        "kicker": "Milchsee",
+                        "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+                        "link": "#",
+                        "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet."
+                    }, {
+                        "title": "Wissenschaftler sagen: Kühe geben Milch. Stadtbewohner erstaunt und entrüstet: 'Igitt!'",
+                        "kicker": "Milchsee",
+                        "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+                        "link": "#",
+                        "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet."
+                    }
+                ]
+            }
+        } %}
+        {% include 'organisms-collection' with {
+            'collection': {
+                'styleModifier': 'collection--standard collection--branded collection--branded-dark',
+                "title": "News Schweiz",
+                "links": [
+                    {
+                        "title": "Google",
+                        "link": "https://www.google.com"
+                    }, {
+                        "title": "Bing",
+                        "link": "https://www.bing.com"
+                    }, {
+                        "title": "DuckDuckGo",
+                        "link": "https://www.duckduckgo.com"
+                    }
+                ],
+                "teasers": [
+                    {
+                        "title": "Wissenschaftler sagen: Kühe geben Milch. Stadtbewohner erstaunt und entrüstet: 'Igitt!'",
+                        "kicker": "Milchsee",
+                        "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+                        "link": "#",
+                        "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet."
+                    }, {
+                        "title": "Wissenschaftler sagen: Kühe geben Milch. Stadtbewohner erstaunt und entrüstet: 'Igitt!'",
+                        "kicker": "Milchsee",
+                        "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+                        "link": "#",
+                        "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet."
+                    }, {
+                        "title": "Wissenschaftler sagen: Kühe geben Milch. Stadtbewohner erstaunt und entrüstet: 'Igitt!'",
+                        "kicker": "Milchsee",
+                        "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+                        "link": "#",
+                        "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet."
+                    }
+                ]
+            }
+        } %}
+    </div>
+</div>
+
+<div class="js-collection-wrapper">
     <h3>One Standard, 3 Teaser, branded; One Standard, 2 Teaser</h3>
     <div class="js-collection-wrapper-content">
         {% include 'organisms-collection' with {
             'collection': {
                 'styleModifier': 'collection--standard collection--branded',
+                "title": "News Schweiz",
+                "teasers": [
+                    {
+                        "title": "Wissenschaftler sagen: Kühe geben Milch. Stadtbewohner erstaunt und entrüstet: 'Igitt!'",
+                        "kicker": "Milchsee",
+                        "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+                        "link": "#",
+                        "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet."
+                    }, {
+                        "title": "Wissenschaftler sagen: Kühe geben Milch. Stadtbewohner erstaunt und entrüstet: 'Igitt!'",
+                        "kicker": "Milchsee",
+                        "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+                        "link": "#",
+                        "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet."
+                    }, {
+                        "title": "Wissenschaftler sagen: Kühe geben Milch. Stadtbewohner erstaunt und entrüstet: 'Igitt!'",
+                        "kicker": "Milchsee",
+                        "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+                        "link": "#",
+                        "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet."
+                    }
+                ]
+            }
+        } %}
+        {% include 'organisms-collection' with {
+            'collection': {
+                'styleModifier': 'collection--standard',
+                "title": "News Schweiz",
+                "teasers": collections[0].teasers[0:3]
+            }
+        } %}
+    </div>
+</div>
+
+<div class="js-collection-wrapper">
+    <h3>One Standard, 3 Teaser, branded dark; One Standard, 2 Teaser</h3>
+    <div class="js-collection-wrapper-content">
+        {% include 'organisms-collection' with {
+            'collection': {
+                'styleModifier': 'collection--standard collection--branded collection--branded-dark',
                 "title": "News Schweiz",
                 "teasers": [
                     {
@@ -1024,6 +1371,39 @@
 </div>
 
 <div class="js-collection-wrapper">
+    <h3>Borderless collection, 3 Teaser, branded dark</h3>
+    <div class="js-collection-wrapper-content">
+        {% include 'organisms-collection' with {
+            'collection': {
+                'styleModifier': 'collection--borderless collection--branded collection--branded-dark',
+                "title": "News Schweiz",
+                "teasers": [
+                    {
+                        "title": "Wissenschaftler sagen: Kühe geben Milch. Stadtbewohner erstaunt und entrüstet: 'Igitt!'",
+                        "kicker": "Milchsee",
+                        "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+                        "link": "#",
+                        "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet."
+                    }, {
+                        "title": "Wissenschaftler sagen: Kühe geben Milch. Stadtbewohner erstaunt und entrüstet: 'Igitt!'",
+                        "kicker": "Milchsee",
+                        "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+                        "link": "#",
+                        "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet."
+                    }, {
+                        "title": "Wissenschaftler sagen: Kühe geben Milch. Stadtbewohner erstaunt und entrüstet: 'Igitt!'",
+                        "kicker": "Milchsee",
+                        "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+                        "link": "#",
+                        "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet."
+                    }
+                ]
+            }
+        } %}
+    </div>
+</div>
+
+<div class="js-collection-wrapper">
     <h3>Borderless collection, 3 Teaser</h3>
     <div class="js-collection-wrapper-content">
         {% include 'organisms-collection' with {
@@ -1067,6 +1447,30 @@
         {% include 'organisms-collection' with {
             'collection': {
                 "styleModifier": "collection--standard collection--selectable collection--branded",
+                "title": "Bern Freiburg Wallis",
+                "titleLink": "https://hurrdurr.com",
+                "lead": "Hier könnte Ihre Werbung stehen!",
+                "selectableText": "Region wählen",
+                "selectableGroups": [
+                    "Zürich",
+                    "Basel",
+                    "Bern",
+                    "Liechtenstein",
+                    "St.Gallen",
+                    "Wallis"
+                ],
+                "teasers": collections[0].teasers[0:3]
+            }
+        } %}
+    </div>
+</div>
+
+<div class="js-collection-wrapper">
+    <h3>Selectable, Standard, Branded dark</h3>
+    <div class="js-collection-wrapper-content">
+        {% include 'organisms-collection' with {
+            'collection': {
+                "styleModifier": "collection--standard collection--selectable collection--branded collection--branded-dark",
                 "title": "Bern Freiburg Wallis",
                 "titleLink": "https://hurrdurr.com",
                 "lead": "Hier könnte Ihre Werbung stehen!",

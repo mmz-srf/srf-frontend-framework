@@ -2,7 +2,7 @@
 
 @font-face {
   font-family: 'SRG_SSR_Display_Light';
-  src: url('../fonts/SRGSSRTypeDisplay_W_Lt.woff2') format('woff2'), url('../fonts/SRGSSRTypeDisplay_W_Lt.woff') format('woff');
+  src: url('../assets/fonts/SRGSSRTypeDisplay_W_Lt.woff2') format('woff2'), url('../assets/fonts/SRGSSRTypeDisplay_W_Lt.woff') format('woff');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -10,7 +10,7 @@
 
 @font-face {
   font-family: 'SRG_SSR_Display_Regular';
-  src: url('../fonts/SRGSSRTypeDisplay_W_Rg.woff2') format('woff2'), url('../fonts/SRGSSRTypeDisplay_W_Rg.woff') format('woff');
+  src: url('../assets/fonts/SRGSSRTypeDisplay_W_Rg.woff2') format('woff2'), url('../assets/fonts/SRGSSRTypeDisplay_W_Rg.woff') format('woff');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -18,7 +18,7 @@
 
 @font-face {
   font-family: 'SRG_SSR_Display_Italic';
-  src: url('../fonts/SRGSSRTypeDisplay_W_It.woff2') format('woff2'), url('../fonts/SRGSSRTypeDisplay_W_It.woff') format('woff');
+  src: url('../assets/fonts/SRGSSRTypeDisplay_W_It.woff2') format('woff2'), url('../assets/fonts/SRGSSRTypeDisplay_W_It.woff') format('woff');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -26,7 +26,7 @@
 
 @font-face {
   font-family: 'SRG_SSR_Display_Medium';
-  src: url('../fonts/SRGSSRTypeDisplay_W_Md.woff2') format('woff2'), url('../fonts/SRGSSRTypeDisplay_W_Md.woff') format('woff');
+  src: url('../assets/fonts/SRGSSRTypeDisplay_W_Md.woff2') format('woff2'), url('../assets/fonts/SRGSSRTypeDisplay_W_Md.woff') format('woff');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -34,7 +34,7 @@
 
 @font-face {
   font-family: 'SRG_SSR_Display_Bold';
-  src: url('../fonts/SRGSSRTypeDisplay_W_Bd.woff2') format('woff2'), url('../fonts/SRGSSRTypeDisplay_W_Bd.woff') format('woff');
+  src: url('../assets/fonts/SRGSSRTypeDisplay_W_Bd.woff2') format('woff2'), url('../assets/fonts/SRGSSRTypeDisplay_W_Bd.woff') format('woff');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -42,7 +42,7 @@
 
 @font-face {
   font-family: 'SRG_SSR_Display_Bold_Italic';
-  src: url('../fonts/SRGSSRTypeDisplay_W_BdIt.woff2') format('woff2'), url('../fonts/SRGSSRTypeDisplay_W_BdIt.woff') format('woff');
+  src: url('../assets/fonts/SRGSSRTypeDisplay_W_BdIt.woff2') format('woff2'), url('../assets/fonts/SRGSSRTypeDisplay_W_BdIt.woff') format('woff');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -50,7 +50,7 @@
 
 @font-face {
   font-family: 'SRG_SSR_Display_Heavy';
-  src: url('../fonts/SRGSSRTypeDisplay_W_He.woff2') format('woff2'), url('../fonts/SRGSSRTypeDisplay_W_He.woff') format('woff');
+  src: url('../assets/fonts/SRGSSRTypeDisplay_W_He.woff2') format('woff2'), url('../assets/fonts/SRGSSRTypeDisplay_W_He.woff') format('woff');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -58,7 +58,7 @@
 
 @font-face {
   font-family: 'SRG_SSR_Serif_Display_Light';
-  src: url('../fonts/SRGSSRTypeSerifDisplay_W_Lt.woff2') format('woff2'), url('../fonts/SRGSSRTypeSerifDisplay_W_Lt.woff') format('woff');
+  src: url('../assets/fonts/SRGSSRTypeSerifDisplay_W_Lt.woff2') format('woff2'), url('../assets/fonts/SRGSSRTypeSerifDisplay_W_Lt.woff') format('woff');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -66,7 +66,7 @@
 
 @font-face {
   font-family: 'SRG_SSR_Serif_Display_Regulart';
-  src: url('../fonts/SRGSSRTypeSerifDisplay_W_Rg.woff2') format('woff2'), url('../fonts/SRGSSRTypeSerifDisplay_W_Rg.woff') format('woff');
+  src: url('../assets/fonts/SRGSSRTypeSerifDisplay_W_Rg.woff2') format('woff2'), url('../assets/fonts/SRGSSRTypeSerifDisplay_W_Rg.woff') format('woff');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -74,7 +74,7 @@
 
 @font-face {
   font-family: 'SRG_SSR_Serif_Display_Medium';
-  src: url('../fonts/SRGSSRTypeSerifDisplay_W_Md.woff2') format('woff2'), url('../fonts/SRGSSRTypeSerifDisplay_W_Md.woff') format('woff');
+  src: url('../assets/fonts/SRGSSRTypeSerifDisplay_W_Md.woff2') format('woff2'), url('../assets/fonts/SRGSSRTypeSerifDisplay_W_Md.woff') format('woff');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -82,7 +82,7 @@
 
 @font-face {
   font-family: 'SRG_SSR_Light';
-  src: url('../fonts/SRGSSRTypeText_W_Lt.woff2') format('woff2'), url('../fonts/SRGSSRTypeText_W_Lt.woff') format('woff');
+  src: url('../assets/fonts/SRGSSRTypeText_W_Lt.woff2') format('woff2'), url('../assets/fonts/SRGSSRTypeText_W_Lt.woff') format('woff');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -90,7 +90,7 @@
 
 @font-face {
   font-family: 'SRG_SSR_Regular';
-  src: url('../fonts/SRGSSRTypeText_W_Rg.woff2') format('woff2'), url('../fonts/SRGSSRTypeText_W_Rg.woff') format('woff');
+  src: url('../assets/fonts/SRGSSRTypeText_W_Rg.woff2') format('woff2'), url('../assets/fonts/SRGSSRTypeText_W_Rg.woff') format('woff');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -98,7 +98,7 @@
 
 @font-face {
   font-family: 'SRG_SSR_Italic';
-  src: url('../fonts/SRGSSRTypeText_W_It.woff2') format('woff2'), url('../fonts/SRGSSRTypeText_W_It.woff') format('woff');
+  src: url('../assets/fonts/SRGSSRTypeText_W_It.woff2') format('woff2'), url('../assets/fonts/SRGSSRTypeText_W_It.woff') format('woff');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -106,7 +106,7 @@
 
 @font-face {
   font-family: 'SRG_SSR_Medium';
-  src: url('../fonts/SRGSSRTypeText_W_Md.woff2') format('woff2'), url('../fonts/SRGSSRTypeText_W_Md.woff') format('woff');
+  src: url('../assets/fonts/SRGSSRTypeText_W_Md.woff2') format('woff2'), url('../assets/fonts/SRGSSRTypeText_W_Md.woff') format('woff');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -114,7 +114,7 @@
 
 @font-face {
   font-family: 'SRG_SSR_Bold';
-  src: url('../fonts/SRGSSRTypeText_W_Bd.woff2') format('woff2'), url('../fonts/SRGSSRTypeText_W_Bd.woff') format('woff');
+  src: url('../assets/fonts/SRGSSRTypeText_W_Bd.woff2') format('woff2'), url('../assets/fonts/SRGSSRTypeText_W_Bd.woff') format('woff');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -122,7 +122,7 @@
 
 @font-face {
   font-family: 'SRG_SSR_Bold_Italic';
-  src: url('../fonts/SRGSSRTypeText_W_BdIt.woff2') format('woff2'), url('../fonts/SRGSSRTypeText_W_BdIt.woff') format('woff');
+  src: url('../assets/fonts/SRGSSRTypeText_W_BdIt.woff2') format('woff2'), url('../assets/fonts/SRGSSRTypeText_W_BdIt.woff') format('woff');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -130,7 +130,7 @@
 
 @font-face {
   font-family: 'SRG_SSR_Heavy';
-  src: url('../fonts/SRGSSRTypeText_W_He.woff2') format('woff2'), url('../fonts/SRGSSRTypeText_W_He.woff') format('woff');
+  src: url('../assets/fonts/SRGSSRTypeText_W_He.woff2') format('woff2'), url('../assets/fonts/SRGSSRTypeText_W_He.woff') format('woff');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -138,7 +138,7 @@
 
 @font-face {
   font-family: 'SRG_SSR_Serif_Light';
-  src: url('../fonts/SRGSSRTypeSerifText_W_Lt.woff2') format('woff2'), url('../fonts/SRGSSRTypeSerifText_W_Lt.woff') format('woff');
+  src: url('../assets/fonts/SRGSSRTypeSerifText_W_Lt.woff2') format('woff2'), url('../assets/fonts/SRGSSRTypeSerifText_W_Lt.woff') format('woff');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -146,7 +146,7 @@
 
 @font-face {
   font-family: 'SRG_SSR_Serif_Regular';
-  src: url('../fonts/SRGSSRTypeSerifText_W_Rg.woff2') format('woff2'), url('../fonts/SRGSSRTypeSerifText_W_Rg.woff') format('woff');
+  src: url('../assets/fonts/SRGSSRTypeSerifText_W_Rg.woff2') format('woff2'), url('../assets/fonts/SRGSSRTypeSerifText_W_Rg.woff') format('woff');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -154,7 +154,7 @@
 
 @font-face {
   font-family: 'SRG_SSR_Serif_Medium';
-  src: url('../fonts/SRGSSRTypeSerifText_W_Md.woff2') format('woff2'), url('../fonts/SRGSSRTypeSerifText_W_Md.woff') format('woff');
+  src: url('../assets/fonts/SRGSSRTypeSerifText_W_Md.woff2') format('woff2'), url('../assets/fonts/SRGSSRTypeSerifText_W_Md.woff') format('woff');
   font-weight: normal;
   font-style: normal;
   font-display: swap;

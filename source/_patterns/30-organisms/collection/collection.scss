@@ -706,8 +706,26 @@ $background-overlap-wide: 50px;
   .collection__title,
   .collection__lead,
   .collection__title-link,
-  .collection__link {
+  .collection__link,
+  .selectable-button .icon-button {
     color: $color-srf-warmgrey-1100;
+  }
+
+  .collection__link {
+    background-color: $color-srf-neutral-blacka04;
+
+    &:hover {
+      background-color: $color-srf-neutral-blacka08;
+    }
+
+    &:active,
+    &:focus {
+      background-color: $color-srf-neutral-blacka12;
+    }
+  }
+
+  .selectable-button .icon-button__icon {
+    filter: none;
   }
 
   .collection__title-link-icon,
@@ -876,10 +894,17 @@ $background-overlap-wide: 50px;
   }
 
   .collection__title-button {
+    display: flex;
+    align-items: center;
+    padding-top: 5px;
     font-family: $font-regular;
     @include fontSize(18);
     line-height: $emphasize-line-height-ratio;
     color: $color-srf-warmgrey-1100;
+    white-space: nowrap;
+    @include desktop-up {
+      padding-top: 8px;
+    }
   }
 
   .collection__title-button-text {
@@ -895,8 +920,6 @@ $background-overlap-wide: 50px;
   }
 
   .collection__title-button-icon {
-    position: relative;
-    top: 6px;
     @include caret('grey', 'right', 'medium');
   }
 }
@@ -941,7 +964,7 @@ $background-overlap-wide: 50px;
   .collection__links {
     margin-top: 12px;
     margin-bottom: 12px;
-    display: none
+    display: none;
   }
 
   // links are as wide as a teaser on tablet+
