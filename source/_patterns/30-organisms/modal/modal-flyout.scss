@@ -2,7 +2,7 @@
 @import "../../variables";
 @import "../../mixins";
 
-.flyout {
+.modal-flyout {
   display: none;
   position: absolute;
   width: 372px;
@@ -20,7 +20,7 @@
   }
 }
 
-.flyout__overlay {
+.modal-flyout__overlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -29,14 +29,14 @@
   z-index: -1;
 }
 
-.flyout__head {
+.modal-flyout__head {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   padding: 0 0 0 24px;
 }
 
-.flyout__title {
+.modal-flyout__title {
   flex-grow: 1;
   flex-shrink: 1;
   flex-basis: auto;
@@ -51,7 +51,7 @@
   word-wrap: break-word; // Enforce breaking words for IE11
 }
 
-.flyout__buttons {
+.modal-flyout__buttons {
   flex-grow: 0;
   flex-shrink: 0;
   flex-basis: auto;
