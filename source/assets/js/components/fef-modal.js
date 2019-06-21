@@ -240,11 +240,11 @@ export class FefModal {
                 'opacity': 0
             });
 
-            let callerBox = this.$caller[0].getBoundingClientRect();
+            let callerBox = this.$caller.offset();
             let flyoutBox = this.$element[0].getBoundingClientRect();
 
-            let newPosLeft = Math.ceil(callerBox.left + (callerBox.width/2) - (flyoutBox.width/2));
-            let newPosTop = Math.ceil(callerBox.top + (callerBox.height/2) - (flyoutBox.height/2));
+            let newPosLeft = Math.ceil(callerBox.left + (this.$caller.width()/2) - (flyoutBox.width/2));
+            let newPosTop = Math.ceil(callerBox.top + (this.$caller.height()/2) - (flyoutBox.height/2));
 
             this.$element.css({
                 'position': 'absolute',
