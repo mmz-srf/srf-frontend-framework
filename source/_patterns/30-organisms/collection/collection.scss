@@ -993,3 +993,10 @@ $background-overlap-wide: 50px;
     display: flex;
   }
 }
+
+// Hide on initial load
+.collection--search-results--initial {
+  .collection__links {
+    display: none;
+  }
+}
