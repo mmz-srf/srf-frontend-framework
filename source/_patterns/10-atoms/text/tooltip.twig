@@ -1,5 +1,94 @@
-<div style="background-color: lightgrey; margin-top: 50px; width: 120px; height: 30px; font-size: 12px; margin-left: 50px;"
+<style>
+    .tooltip-demo-element {
+        background-color: lightgrey;
+        margin: 50px 0 0 50px;
+        padding: 8px;
+        min-width: 30px;
+        max-width: 300px;
+    }
+
+    .so-fancy {
+        background: linear-gradient(124deg, #ff2400, #e81d1d, #e8b71d, #e3e81d, #1de840, #1ddde8, #2b1de8, #dd00f3, #dd00f3);
+        background-size: 1800% 1800%;
+
+        -webkit-animation: rainbow 18s ease infinite;
+        -z-animation: rainbow 18s ease infinite;
+        -o-animation: rainbow 18s ease infinite;
+        animation: rainbow 18s ease infinite;
+    }
+
+    .so-fancy .tooltip-arrow {
+        border: none;
+    }
+
+    @-webkit-keyframes rainbow {
+        0%{background-position:0% 82%}
+        50%{background-position:100% 19%}
+        100%{background-position:0% 82%}
+    }
+    @-moz-keyframes rainbow {
+        0%{background-position:0% 82%}
+        50%{background-position:100% 19%}
+        100%{background-position:0% 82%}
+    }
+    @-o-keyframes rainbow {
+        0%{background-position:0% 82%}
+        50%{background-position:100% 19%}
+        100%{background-position:0% 82%}
+    }
+    @keyframes rainbow { 
+        0%{background-position:0% 82%}
+        50%{background-position:100% 19%}
+        100%{background-position:0% 82%}
+    }
+</style>
+
+<div class="tooltip-demo-element"
      data-tooltip-toggle="top"
      data-tooltip-content="This is a tooltip">
     Hover me, I have a Tooltip!
 </div>
+
+<div class="tooltip-demo-element"
+     data-tooltip-toggle="top"
+     data-tooltip-content="This is a tooltip"
+     data-tooltip-touch="true">
+    I also toggle my tooltip on touch devices!
+</div>
+
+<div class="tooltip-demo-element"
+     data-tooltip-toggle="top"
+     data-tooltip-content="This is a tooltip"
+     data-tooltip-offset="30">
+    I have a tooltip with changed offset
+</div>
+
+<div class="tooltip-demo-element"
+     data-tooltip-toggle="top"
+     data-tooltip-content="I'M SO FANCY"
+     data-tooltip-modifier="so-fancy">
+    I have a tooltip with custom modifier
+</div>
+
+<div class="tooltip-demo-element js-toggle-button-target"
+     data-tooltip-toggle="top"
+     data-tooltip-content="This is a tooltip"
+     data-tooltip-no-hover>
+    I have a tooltip, but you can only trigger it by code. Sorry.
+</div>
+
+<button class="js-show-tooltip">Show Tooltip</button>
+<button class="js-hide-tooltip">Hide Tooltip</button>
+
+
+<script>
+    let $buttonTarget = $('.js-toggle-button-target');
+
+    $('.js-show-tooltip').on('click', () => {
+        $buttonTarget.trigger('srf.tooltip.show');
+    });
+
+    $('.js-hide-tooltip').on('click', () => {
+        $buttonTarget.trigger('srf.tooltip.hide');
+    });
+</script>
