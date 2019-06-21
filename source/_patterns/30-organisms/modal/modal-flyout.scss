@@ -9,7 +9,7 @@
   border-radius: 2px;
   background-color: $color-srf-neutral-offwhite;
   box-shadow: 0 4px 8px 0 $color-srf-neutral-blacka24,0 0 8px 0 $color-srf-neutral-blacka12;
-  z-index: 1000;
+  z-index: 90;
 
   @include smartphone {
     position: fixed;
