@@ -98,6 +98,7 @@ export class FefModal {
 
     /**
      * Show the modal, depending on the provided animation.
+     * The actual _showing_ of the modal is done by jQuery ($.show() or $.fadeIn()).
      */
     show() {
         this.$caller.attr({'aria-expanded': true, 'aria-haspopup': true});
