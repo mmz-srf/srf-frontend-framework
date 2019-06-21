@@ -28,7 +28,7 @@ Additional changes to the tooltip can be done in your own CSS and then passing t
 | --------------------- |:--------:| ----------------------------- | --------------------------------------------- |
 |`data-tooltip-toggle`  | No       | "top"/"right"/"bottom"/"left" | Which direction the tooltip opens             |
 |`data-tooltip-content` | No       | String or HTML                | Content of the tooltip                        |
-|`data-tooltip-touch`   | Yes      | "true"                        | Should tooltip also trogger on touch devices? |
+|`data-tooltip-touch`   | Yes      | "true"                        | Should tooltip also trigger on touch devices? |
 |`data-tooltip-offset`  | Yes      | Number ("12")                 | Size of gap between tooltip and element       |
 |`data-tooltip-no-hover`| Yes      | no value needed               | Should hover/touch events be ignored?         |
 |`data-tooltip-modifier`| Yes      | String ("my-custom-class")    | Modifier/Custom styles via custom class       |
