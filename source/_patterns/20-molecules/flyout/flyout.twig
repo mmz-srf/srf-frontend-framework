@@ -1,12 +1,13 @@
-<div class="flyout">
-    <div class="flyout__head">
+<div class="flyout {{ styleModifier }}" {% if flyoutId %}data-id="{{ flyoutId }}"{% endif %} data-animation="as-flyout-from-origin">
+    <div class="flyout__overlay js-modal-overlay"></div>
+    <div class="flyout__head js-focus-target">
         <div class="flyout__title">{{ flyoutTitle|default('Titel') }}</div>
         <div class="flyout__buttons">
             <a href="#" class="js-flyout-close-button">
                 {% include 'atoms-icon-button' with {
                     'iconStyleModifier': 'svg-icon--close-dark',
                     'screenReaderText': 'Schliessen',
-                    'styleModifier': ''
+                    'styleModifier': 'js-close-modal'
                 } %}
             </a>
         </div>

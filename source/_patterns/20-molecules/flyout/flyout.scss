@@ -3,13 +3,30 @@
 @import "../../mixins";
 
 .flyout {
+  display: none;
+  position: absolute;
   width: 372px;
   border-radius: 2px;
   background-color: $color-srf-neutral-offwhite;
   box-shadow: 0 4px 8px 0 $color-srf-neutral-blacka24,0 0 8px 0 $color-srf-neutral-blacka12;
+  z-index: 1000;
+
   @include smartphone {
+    position: fixed;
+    bottom: 0;
     width: 100%;
+    max-height: 100vh;
+    overflow-x: scroll;
   }
+}
+
+.flyout__overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
 }
 
 .flyout__head {

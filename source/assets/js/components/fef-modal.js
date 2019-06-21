@@ -107,6 +107,9 @@ export class FefModal {
             case 'scale-from-origin':
                 this.scaleFromOrigin(() => this.onShowFinished());
                 break;
+            case 'as-flyout-from-origin':
+                this.asFlyoutFromOrigin(() => this.onShowFinished());
+                break;
             case 'fade-in-out':
                 this.$element.stop(true, true).fadeIn(ANIMATION_SPEED, () => this.onShowFinished());
                 break;
@@ -137,6 +140,9 @@ export class FefModal {
         switch (this.animation) {
             case 'fade-in-out':
                 this.$element.stop(true, true).fadeOut(ANIMATION_SPEED);
+                break;
+            case 'as-flyout-from-origin':
+                this.$element.fadeOut(ANIMATION_SPEED).hide();
                 break;
             default:
                 this.$element.hide();
@@ -197,6 +203,62 @@ export class FefModal {
                 'opacity': 1
             }, ANIMATION_SPEED, callBack);
         });
+    }
+
+    /**
+     * Flyout opening animation:
+     * - used for flyout-modals
+     * - smartphone: flyout is fixed to the bottom of the viewport
+     * - tablet-up: flyout is centered over the caller element (i.e. a button)
+     */
+
+    asFlyoutFromOrigin(callBack) {
+
+        // clear existing inline styles on flyout (in case a resizing of the viewport happened)
+        this.$element.attr('style', '');
+
+        if (FefResponsiveHelper.isSmartphone()) {
+            this.$element.css({
+                'display': 'block',
+                'opacity': '0'
+            });
+
+            this.$element.animate({
+                'opacity': 1
+            }, ANIMATION_SPEED, 'easeInOutSine', callBack);
+
+        } else {
+            // a flyout can be placed anywhere in the dom. but for positioning it relative to the caller (while staying
+            // there on scrolling), it must be positioned absolutely relative to the page. that's why we move it in the
+            // DOM to be a first-level child of the body element, if needed
+            if(this.$element.parent().get(0).tagName !== 'BODY') {
+                $('body').append(this.$element);
+            }
+
+            this.$element.css({
+                'display': 'block',
+                'opacity': 0
+            });
+
+            let callerBox = this.$caller[0].getBoundingClientRect();
+            let flyoutBox = this.$element[0].getBoundingClientRect();
+
+            let newPosLeft = Math.ceil(callerBox.left + (callerBox.width/2) - (flyoutBox.width/2));
+            let newPosTop = Math.ceil(callerBox.top + (callerBox.height/2) - (flyoutBox.height/2));
+
+            this.$element.css({
+                'position': 'absolute',
+                'left': newPosLeft+'px',
+                'top': newPosTop+'px'
+            })
+
+            // TODO: keep flyout in viewport
+
+            this.$element.animate({
+                'opacity': 1
+            }, ANIMATION_SPEED, 'easeInOutSine', callBack);
+
+        }
     }
 
     /**
