@@ -9,6 +9,9 @@ $(window).on(DOM_CHANGED_EVENT, (e) => {
 
 });
 
+const DEFAULT_OFFSET = 16; // distance between tooltip's triange and the edge of the parent
+const ADDITIONAL_OFFSET = 9; // padding + triangle
+
 export class FefTooltip {
 
     /**
@@ -37,8 +40,14 @@ export class FefTooltip {
         // We need the original size before insertion of tooltip content
         this.originalWidth = $element.width();
 
-        this.template = '<div class="tooltip" role="tooltip"><div class="tooltip-arrow"></div>'
-            + '<div class="tooltip-content"></div></div>';
+        // enable passing a modifier to the tooltip
+        let modifier = $element.data('tooltipModifier') === undefined ? '' : $element.data('tooltipModifier');
+
+        this.template = `
+            <div class="tooltip ${modifier}" role="tooltip">
+                <div class="tooltip-arrow"></div>
+                <div class="tooltip-content"></div>
+            </div>`;
 
         // Disable on touch devices if not explicitly set
         if (this.clientTouchSupported && !this.touchEnabled) {
@@ -52,12 +61,22 @@ export class FefTooltip {
     }
 
     /**
-     * This function will bind mouseenter and focus events
+     * This function will bind events when the tooltip should be shown and
+     * hidden. This can be mouse and focus events, but also manually triggered
+     * events.
      *
      * @param $element
      */
     bindEvents ($element) {
-        $element.on('mouseenter focus', () => {
+        let showEvents = 'srf.tooltip.show',
+            hideEvents = 'srf.tooltip.hide';
+
+        if ($element.data('tooltipNoHover') === undefined) {
+            showEvents += ' mouseenter focus';
+            hideEvents += ' mouseleave focusout';
+        }
+
+        $element.on(showEvents, () => {
             $element.children('.tooltip').remove();
 
             $element.append(this.template);
@@ -67,21 +86,20 @@ export class FefTooltip {
 
             const $tooltip = $element.children('.tooltip');
 
+            // use custom offset, if defined. Otherwise take the default offset
+            let offset = $element.data('tooltipOffset') ? $element.data('tooltipOffset') : DEFAULT_OFFSET;
+
             // Move tooltip in right position relative to its parent
             const leftPosition = (this.originalWidth - $tooltip.width()) / 2;
-
-            const topPosition = ($tooltip.height() + 25) * -1;
+            const topPosition = ($tooltip.height() + ADDITIONAL_OFFSET + offset) * -1;
 
             $tooltip.css({
                 'top': topPosition,
                 'left': leftPosition - 8,
                 'position': 'absolute'
             });
-        });
-
-        $element.on('mouseleave focusout', () => {
+        }).on(hideEvents, () => {
             $element.children('.tooltip').remove();
         });
     }
-
 }
