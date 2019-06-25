@@ -170,16 +170,9 @@ export class FefModal {
      * @param $element jQuery.Element
      */
     setFocus($element) {
-        // adding a tabindex to enable focus on "non-focusable" elements
         $element.attr('tabindex', -1).on('blur focusout', () => {
             $element.removeAttr('tabindex');
-        });
-
-        // do focus but prevent scrolling into view (prevents flyouts at the top of the viewport from jumping)
-        $element.focus((e) => {
-            e.preventDefault();
-            e.target.focus({preventScroll: true});
-        })
+        }).get(0).focus({preventScroll: true});
     }
 
     /**
