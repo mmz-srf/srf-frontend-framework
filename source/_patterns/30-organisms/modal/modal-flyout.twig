@@ -1,0 +1,23 @@
+<div class="modal-flyout {{ styleModifier }}" {% if flyoutId %}data-id="{{ flyoutId }}"{% endif %} data-animation="as-flyout-from-origin">
+    <div class="modal-flyout__overlay js-modal-overlay"></div>
+    <div class="js-main-wrapper">
+        <div class="modal-flyout__head">
+            <div class="modal-flyout__title js-focus-target">{{ flyoutTitle|default('Titel') }}</div>
+            <div class="modal-flyout__buttons">
+                <a href="#" class="js-close-modal">
+                    {% include 'atoms-icon-button' with {
+                        'iconStyleModifier': 'svg-icon--close-dark',
+                        'screenReaderText': 'Schliessen',
+                        'styleModifier': 'js-close-modal'
+                    } %}
+                </a>
+            </div>
+        </div>
+        <div class="modal-flyout__content">
+            {% block flyout_content %}
+                <!-- content: there is intentionally no padding on modal-flyout__content in order to be flexible with content items -->
+                <p style="margin: 0; padding: 16px 24px">Hier könnte Ihr Inhalt stehen.</p>
+            {% endblock %}
+        </div>
+    </div>
+</div>

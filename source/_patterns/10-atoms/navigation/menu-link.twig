@@ -1,0 +1,10 @@
+<a class="menu-link {{ styleModifier|default("") }}" href="{{ url|default("#") }}">
+    {% if iconStyleModifier %}
+        <span class="menu-link__icon">
+            {% include 'atoms-svg-icon' with {'styleModifier': iconStyleModifier } %}
+        </span>
+    {% endif %}
+    <span class="menu-link__text">
+        {{ text|default('Menu-Link Item') }}
+    </span>
+</a>
