@@ -259,7 +259,7 @@ export class FefModal {
                 'position': 'absolute',
                 'left': newPosLeft+'px',
                 'top': newPosTop+'px'
-            })
+            });
 
             this.$element.animate({
                 'opacity': 1
