@@ -1,12 +1,17 @@
 .log {
   margin-bottom: 32px;
+  width: 100%;
+
+  max-width: $tablet-content-max-width;
 
   @include tablet-up {
     margin-bottom: 48px;
+    max-width: $desktop-content-max-width;
   }
 
   @include desktop-wide {
     margin-bottom: 60px;
+    max-width: $desktop-wide-content-max-width;
   }
 }
 
@@ -67,9 +72,17 @@
   font-weight: 500;
   line-height: $emphasize-line-height-ratio;
   color: $color-srf-warmgrey-1100;
-  width: 268px;
+  width: 280px;
   display: inline-block;
-  padding-right: 10px;
+  padding-right: 24px;
+
+  @include tablet-up {
+    width: 326px
+  }
+
+  @include desktop-wide {
+    width: 422px;
+  }
 
   @include smartphone {
     display: block;
@@ -118,6 +131,7 @@
   width: auto;
   padding-right: 0;
   vertical-align: top;
+  display: inline-block;
 }
 
 .log__artist--compact {
