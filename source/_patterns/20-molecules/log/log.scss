@@ -1,16 +1,12 @@
 .log {
-  margin-bottom: 32px;
   width: 100%;
-
   max-width: $tablet-content-max-width;
 
   @include tablet-up {
-    margin-bottom: 48px;
     max-width: $desktop-content-max-width;
   }
 
   @include desktop-wide {
-    margin-bottom: 60px;
     max-width: $desktop-wide-content-max-width;
   }
 }
@@ -20,6 +16,7 @@
   padding: 12px 24px 12px 0;
   border-top: 1px solid $color-srf-neutral-blacka08;
   display: table;
+  width: 100%;
 
   &:first-of-type {
     border-top: none;
@@ -30,8 +27,6 @@
   &:active {
     background-color: $color-srf-warmgrey-10;
     border-top-color: transparent;
-    margin-left: -24px;
-    padding-left: 24px;
 
     // hide bottom border of the list item after the current one
     & + li {
@@ -49,7 +44,6 @@
   font-family: $font-regular;
   @include fontSize(12);
   color: $color-srf-warmgrey-800;
-
   display: table-cell;
   vertical-align: top;
   padding-right: 24px;
@@ -62,7 +56,6 @@
 
   @include smartphone {
     display: block;
-    width: 100%;
   }
 }
 
@@ -73,7 +66,7 @@
   line-height: $emphasize-line-height-ratio;
   color: $color-srf-warmgrey-1100;
   width: 280px;
-  display: inline-block;
+  display: table-cell;
   padding-right: 24px;
 
   @include tablet-up {
@@ -86,6 +79,7 @@
 
   @include smartphone {
     display: block;
+    width: auto;
   }
 }
 
@@ -96,16 +90,22 @@
   line-height: 1.43;
   color: $color-srf-warmgrey-900;
   vertical-align: top;
+  display: table-cell;
 
   @include tablet-up {
     line-height: $emphasize-line-height-ratio;
+  }
+
+  @include smartphone {
+    display: block;
+    width: auto;
   }
 }
 
 .log__entry--compact {
   border-top: none;
-  clear: both;
   padding: 3px 0 4px 0;
+  width: auto;
 
   &:hover,
   &:focus,
@@ -118,11 +118,14 @@
   @include fontSize(12);
   padding-right: 12px;
   padding-top: 2px;
+
+  @include smartphone {
+    display: table-cell;
+  }
 }
 
 .log__info {
-  display: table-cell;
-  width: 100%;
+  display: table;
   line-height: 20px;
 }
 
@@ -131,10 +134,11 @@
   width: auto;
   padding-right: 0;
   vertical-align: top;
-  display: inline-block;
+  display: contents;
 }
 
 .log__artist--compact {
   @include fontSize(14);
   line-height: $default-line-height-ratio;
+  display: contents;
 }
