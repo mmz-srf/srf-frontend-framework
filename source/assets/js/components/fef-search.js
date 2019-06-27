@@ -309,7 +309,7 @@ export class SrfSearch {
         results.map((result, index) => {
             let highlightedResult = this.highlightQuery(query, result.name);
             const $li = $('<li>', { class: `typeahead-suggestion ${wasAlreadyShowingResults ? 'typeahead-suggestion--no-animation' : ''}`});
-            const $link = $('<a>', { class: 'search-result__link', href: result.url, 'data-referrer-track' : 'srg_mod1=search_suggestions&srg_mod2=search_result&srg_mod3=' + query + '&srg_mod4=' + resultLength + '-' + (index + 1)});
+            const $link = $('<a>', { class: 'search-result__link', href: result.url, 'data-referrer-track' : 'srg_override_mod1=search_suggestions&srg_override_mod2=search_result&srg_override_mod3=' + query + '&srg_override_mod4=' + resultLength + '-' + (index + 1)});
 
             $link.on('click', () => {
 
