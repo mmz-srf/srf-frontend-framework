@@ -2,6 +2,10 @@
   width: 100%;
   max-width: $tablet-content-max-width;
 
+  @include smartphone {
+    margin-left: 16px;
+  }
+
   @include tablet-up {
     max-width: $desktop-content-max-width;
   }
@@ -13,7 +17,7 @@
 
 .log__entry {
   margin-left: 0;
-  padding: 12px 24px 12px 0;
+  padding: 11px 24px 11px 0;
   border-top: 1px solid $color-srf-neutral-blacka08;
   display: table;
   width: 100%;
