@@ -95,7 +95,9 @@
     opacity: 1;
     min-height: auto;
   }
-
+  .media-still__indicator {
+    display: block;
+  }
   .media-caption--audio {
     padding: 12px $article-offset;
   }
