@@ -701,8 +701,8 @@ $background-overlap-wide: 50px;
     }
   }
 
-  .collection--swipeable,
-  .collection--compact-swipeable {
+  &.collection--swipeable,
+  &.collection--compact-swipeable {
     .collection__teaser-list {
       margin-bottom: 12px;
     }
