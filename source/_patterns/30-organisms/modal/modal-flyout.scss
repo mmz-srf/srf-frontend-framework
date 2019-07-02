@@ -48,7 +48,7 @@
   font-stretch: normal;
   line-height: $emphasize-line-height-ratio;
   color: $color-srf-warmgrey-1100;
-  word-wrap: break-word; // Enforce breaking words for IE11
+  @include breakLongWords();
 }
 
 .modal-flyout__buttons {
