@@ -225,25 +225,15 @@ export class FefModal {
         // clear existing inline styles on flyout (in case a resizing of the viewport happened)
         this.$element.attr('style', '');
 
-        if (FefResponsiveHelper.isSmartphone()) {
-            this.$element.css({
-                'display': 'block',
-                'opacity': '0'
-            });
+        this.$element.css({
+            'display': 'block',
+            'opacity': 0
+        });
 
-            this.$element.animate({
-                'opacity': 1
-            }, ANIMATION_SPEED, 'easeInOutSine', callBack);
-
-        } else {
+        if (!FefResponsiveHelper.isSmartphone()) {
             // a flyout can be placed anywhere in the dom. but for positioning it relative to the caller (while staying
             // at place on scrolling), it must be positioned absolutely relative to the page. that's why we move it in
             // the DOM to be a first-level child of the body element, if needed.
-
-            this.$element.css({
-                'display': 'block',
-                'opacity': 0
-            });
 
             if(this.$element.parent().get(0).tagName !== 'BODY') {
                 $('body').append(this.$element);
@@ -260,11 +250,11 @@ export class FefModal {
                 'left': newPosLeft+'px',
                 'top': newPosTop+'px'
             });
-
-            this.$element.animate({
-                'opacity': 1
-            }, ANIMATION_SPEED, 'easeInOutSine', callBack);
         }
+
+        this.$element.animate({
+            'opacity': 1
+        }, ANIMATION_SPEED, 'easeInOutSine', callBack);
     }
 
     /**
