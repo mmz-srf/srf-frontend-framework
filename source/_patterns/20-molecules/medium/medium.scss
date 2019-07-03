@@ -61,6 +61,7 @@
 }
 
 .medium__player-wrapper {
+  position: relative;
   flex: 0 0 100%;
   background-color: $color-srf-neutral-black;
 }
@@ -195,7 +196,7 @@
     @include smartphone {
       width: 68px;
       margin-left: 24px;
-      margin-right: -12px;
+      margin-right: 0;
     }
   }
 

@@ -30,8 +30,13 @@
 }
 
 .media-caption--audio {
-  padding-right: 16px;
-  padding-left: 16px;
+  padding-right: 12px;
+  padding-left: 12px;
+  
+  @include tablet-up {
+    padding-right: 16px;
+    padding-left: 16px;
+  }
 }
 
 .media-caption__title {

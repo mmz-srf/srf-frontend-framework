@@ -194,8 +194,8 @@
     content: '';
     position: absolute;
     top: 50%;
-    left: -48px;
-    right: -48px;
+    left: 0;
+    right: 0;
     height: 1px;
     border-top: 1px solid $color-srf-neutral-blacka08;
     z-index: -1;
@@ -218,9 +218,9 @@
     &:before {
       content: '';
       position: absolute;
-      top: 25%;
-      left: -48px;
-      right: -48px;
+      top: 20%;
+      left: 0;
+      right: 0;
       height: 1px;
       border-top: 1px solid $color-srf-neutral-blacka08;
       z-index: -1;
