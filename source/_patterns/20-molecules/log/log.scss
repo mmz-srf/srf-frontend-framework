@@ -1,26 +1,29 @@
 .log {
   width: 100%;
-  max-width: $tablet-content-max-width;
+  margin-left: -24px;
+  padding-left: 24px;
 
   @include smartphone {
     margin-left: 16px;
-  }
-
-  @include tablet-up {
-    max-width: $desktop-content-max-width;
-  }
-
-  @include desktop-wide {
-    max-width: $desktop-wide-content-max-width;
+    padding-left: 0;
+    margin-right: -8px;
   }
 }
 
 .log__entry {
   margin-left: 0;
-  padding: 11px 24px 11px 0;
+  padding: 12px 24px 12px 0;
   border-top: 1px solid $color-srf-neutral-blacka08;
   display: table;
-  width: 100%;
+  width: $tablet-content-max-width;
+
+  @include tablet-up {
+    width: $desktop-content-max-width;
+  }
+
+  @include desktop-wide {
+    width: $desktop-wide-content-max-width;
+  }
 
   &:first-of-type {
     border-top: none;
@@ -30,12 +33,22 @@
   &:focus,
   &:active {
     background-color: $color-srf-warmgrey-10;
-    border-top-color: transparent;
+    margin-left: -24px;
+    padding-left: 24px;
 
-    // hide bottom border of the list item after the current one
-    & + li {
-      border-top-color: transparent;
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+    &+ li {
+      border-top: 0;
     }
+
+    @include tablet-up {
+      width: calc(#{$desktop-content-max-width} + 24px);
+    }
+
+    @include desktop-wide {
+      width: calc(#{$desktop-wide-content-max-width} + 24px);
+    }
+
   }
 
   &:active {
@@ -60,6 +73,7 @@
 
   @include smartphone {
     display: block;
+    padding-bottom: 4px;
   }
 }
 
@@ -67,7 +81,7 @@
   font-family: $font-medium;
   @include fontSize(16);
   font-weight: 500;
-  line-height: $emphasize-line-height-ratio;
+  line-height: $default-line-height-ratio;
   color: $color-srf-warmgrey-1100;
   width: 280px;
   display: table-cell;
@@ -91,10 +105,11 @@
   font-family: $font-light;
   @include fontSize(16);
   font-weight: 300;
-  line-height: 1.43;
+  line-height: $default-line-height-ratio;
   color: $color-srf-warmgrey-900;
   vertical-align: top;
   display: table-cell;
+  min-width: 218px;
 
   @include tablet-up {
     line-height: $emphasize-line-height-ratio;
