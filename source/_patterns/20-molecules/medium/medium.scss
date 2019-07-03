@@ -52,7 +52,7 @@
   display: block;
   padding: 4px 8px;
   @include tablet-up {
-    padding: 8px 12px;
+    padding: 8px $article-offset;
   }
 }
 
@@ -79,13 +79,9 @@
     }
   }
 
-  .medium__notice-text {
-    padding: 8px $article-offset;
-  }
-
   &.medium--video-gallery {
     .medium__notice-text {
-      padding: 8px 12px;
+      padding: 8px $article-offset;
     }
   }
 
@@ -123,6 +119,10 @@
     transition: opacity .2s ease-in-out;
     height: auto;
     padding-top: 0;
+  }
+
+  .medium__notice-text {
+    padding: 8px $article-offset;
   }
 }
 
@@ -164,7 +164,7 @@
     padding: 4px 8px;
 
     @include tablet-up {
-      padding: 8px 12px;
+      padding: 8px $article-offset;
     }
   }
 
@@ -213,7 +213,7 @@
 
     @include tablet-up {
       @include fontSize(12);
-      padding: 8px 12px;
+      padding: 8px $article-offset;
     }
   }
 
