@@ -1,5 +1,6 @@
 .log {
   width: 100%;
+  min-height: 800px;
   margin-left: -24px;
   padding-left: 24px;
 
@@ -16,6 +17,11 @@
   border-top: 1px solid $color-srf-neutral-blacka08;
   display: table;
   width: $tablet-content-max-width;
+
+  @include smartphone {
+    display: block;
+    width: auto;
+  }
 
   @include tablet-up {
     width: $desktop-content-max-width;
@@ -66,7 +72,6 @@
   padding-right: 24px;
 
   @include tablet-up {
-    width: calc(84px - 24px);
     margin-bottom: 0;
     @include fontSize(14);
   }
@@ -111,14 +116,14 @@
   display: table-cell;
   min-width: 218px;
 
-  @include tablet-up {
-    line-height: $emphasize-line-height-ratio;
-  }
-
   @include smartphone {
     display: block;
     width: auto;
   }
+}
+
+.log--compact {
+  min-height: auto;
 }
 
 .log__entry--compact {
@@ -130,6 +135,15 @@
   &:focus,
   &:active {
     background-color: transparent;
+    border: none;
+
+    @include tablet-up {
+      width: auto;
+    }
+
+    @include desktop-wide {
+      width: auto;
+    }
   }
 }
 
