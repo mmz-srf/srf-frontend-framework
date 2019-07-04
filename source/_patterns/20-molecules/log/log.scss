@@ -69,7 +69,7 @@
   color: $color-srf-warmgrey-800;
   display: table-cell;
   vertical-align: top;
-  padding-right: 24px;
+  width: 60px;
 
   @include tablet-up {
     margin-bottom: 0;
@@ -157,6 +157,7 @@
   @include fontSize(12);
   padding-right: 12px;
   padding-top: 2px;
+  width: auto;
 
   @include smartphone {
     display: table-cell;
