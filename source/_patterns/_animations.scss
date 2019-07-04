@@ -212,31 +212,6 @@ $light-attention-color: $color-srf-red-500;
   }
 }
 
-
-
-/*
- *
- * Animates the Dash of the Spinner
- * Used by spinner.scss
- *
- */
-
-@keyframes spinnerDashAnimation {
-  0% {
-    stroke-dasharray: 1, 200;
-    stroke-dashoffset: 0;
-  }
-  50% {
-    stroke-dasharray: 89, 200;
-    stroke-dashoffset: -35;
-  }
-  100% {
-    stroke-dasharray: 89, 200;
-    stroke-dashoffset: -124;
-  }
-}
-
-
 @keyframes rotateSparselyAnimation {
   0% {
     transform: rotate(0deg);
