@@ -1,0 +1,59 @@
+.nav-bar {
+  /* dev only */
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 72px;
+
+  display: flex;
+  flex-direction: row;
+  padding: 12px 0;
+  background-color: $color-srf-warmgrey-25;
+  overflow: scroll;
+
+  @include desktop-up {
+    justify-content: space-around;
+    align-content: stretch;
+  }
+
+  li {
+    flex: 1 0 auto;
+    justify-content: center;
+
+    display: flex;
+  }
+
+  a {
+    display: block;
+    width: 100%;
+    margin-right: 2px;
+    border-radius: 2px;
+    padding: 12px 16px;
+    color: $color-srf-warmgrey-1100;
+    white-space: nowrap;
+    align-content: center;
+    align-items: stretch;
+    justify-content: center;
+
+    &:last-of-type {
+      margin-right: 0;
+    }
+
+    @include desktop-up {
+      padding: 0;
+    }
+
+    &:focus,
+    &:hover {
+      background-color: $color-srf-warmgrey-50;
+    }
+
+    .active &,
+    &:active {
+      background-color: $color-srf-warmgrey-100;
+    }
+  }
+  
+  .inactive {
+    color: $color-srf-warmgrey-1100a24;
+  }
+}

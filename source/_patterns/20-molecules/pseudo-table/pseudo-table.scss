@@ -166,6 +166,10 @@
   line-height: $secondary-line-height-ratio;
   color: $color-srf-warmgrey-800;
 
+  @include smartphone {
+    margin-bottom: 12px;
+  }
+
   @include tablet {
     flex-basis: 181px;
   }
@@ -182,11 +186,9 @@
 .pseudo-table__innercell--cats {
   margin-top: auto;
   @include fontSize(14);
-  line-height: 1.71;
 
   @include tablet {
     flex-basis: 219px;
-    line-height: 2.29;
     padding-right: 0;
   }
 
@@ -201,7 +203,6 @@
 
   @include desktop-up {
     @include fontSize(16);
-    line-height: 1.5;
   }
 
   @include desktop-wide {
@@ -210,15 +211,26 @@
   }
 
   a {
-    text-decoration: underline;
     color: $color-srf-red-600;
+    border-bottom: 1px solid $color-srf-red-600;
+    line-height: 2.29;
+
     white-space: nowrap;
     position: relative;
 
+    @include desktop-up {
+      line-height: $default-line-height-ratio;
+    }
+
     &:focus,
-    &:hover,
-    &:active {
+    &:hover {
       color: $color-srf-red-800;
+      border-bottom: 1px solid $color-srf-red-800;
+    }
+
+    &:active {
+      color: $color-srf-red-900;
+      border-bottom: 1px solid $color-srf-red-900;
     }
   }
 }
