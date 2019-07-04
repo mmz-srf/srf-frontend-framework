@@ -2,7 +2,10 @@
   margin: 8px 0;
 }
 
+
+
 .pseudo-table__row {
+  position: relative;
   display: flex;
   padding: 8px 0px;
   border-bottom: 1px solid $color-srf-neutral-blacka08;
@@ -10,7 +13,13 @@
   &:first-of-type {
     border-top: 1px solid $color-srf-neutral-blacka08;
   }
+  
+  &:hover .pseudo-table__innercell--title a::after {
+    background: rgba(0,0,0,.25);
+  }
 }
+
+
 
 .pseudo-table__cell {
   flex: 0 0 auto;
@@ -21,20 +30,23 @@
   width: 80px;
   height: 80px;
   margin-right: 8px;
-  background: $color-srf-warmgrey-200;
+  background: $color-srf-red-100;
 }
 
 .pseudo-table__cell--info {
-  background: $color-srf-red-600a12;
   flex-basis: calc(100% - (80px + 8px));
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 
   @include tablet-up {
     flex-direction: row;
     align-items: center;
+    overflow: visible;
   }
 }
+
+
 
 .pseudo-table__innercell {
   flex-grow: 0;
@@ -47,17 +59,37 @@
   line-height: $emphasize-line-height-ratio;
   color: $color-srf-warmgrey-1100;
   margin-bottom: 4px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 
   @include tablet {
     flex-basis: 208px;
   }
 
+  @include tablet-up {
+    white-space: normal;
+    overflow: visible;
+  }
   @include desktop {
     flex-basis: 308px;
   }
 
   @include desktop-wide {
     flex-basis: 512px;
+  }
+
+  a {
+    color: inherit;
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+    }
   }
 }
 
@@ -109,5 +141,11 @@
   a {
     text-decoration: underline;
     color: $color-srf-red-600;
+    white-space: nowrap;
+    position: relative;
+
+    &:hover {
+      color: blue;
+    }
   }
 }
