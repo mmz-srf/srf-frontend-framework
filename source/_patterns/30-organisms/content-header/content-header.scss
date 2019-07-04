@@ -49,14 +49,14 @@
     padding: $collection-gap-desktop-wide;
   }
 
-  &:before {
+  &::before {
     content: none; // only visible when needed - see below
     position: absolute;
     top: 0;
     left: 0;
     bottom: 0;
     width: 0;
-    border-right: 1px solid $color-srf-warmgrey-25;
+    border-left: 1px solid $color-srf-warmgrey-50;
 
     @include tablet-up {
       top: $collection-gap-tablet-up;
@@ -67,6 +67,11 @@
       top: $collection-gap-desktop-wide;
       bottom: $collection-gap-desktop-wide;
     }
+  }
+
+  // empty slots should not have a left border
+  &:empty::before {
+    content: none;
   }
 }
 
