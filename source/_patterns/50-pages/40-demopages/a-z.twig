@@ -1,0 +1,18 @@
+{% embed 'templates-landingpage' %}
+    {% block landingpage_content %}
+<div class="collection collection--branded collection--branded-dark">
+    <div class="collection__branding-wrapper js-collection-branding-wrapper" style="background-color: #fefefd;">
+        <div class="collection__content-wrapper">
+            <h3 class="collection__title">
+                <span class="collection__title-text">#0-9</span>
+            </h3>
+            <ul class="collection__teaser-list">
+                <li class="collection__teaser-item">
+                    {% include 'molecules-pseudo-table' %}
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+    {% endblock %}
+{% endembed %}

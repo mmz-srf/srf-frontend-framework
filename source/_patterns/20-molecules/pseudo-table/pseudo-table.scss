@@ -1,5 +1,21 @@
 .pseudo-table {
-  margin: 8px 0;
+  margin: 12px 0 32px;
+
+  @include tablet {
+    margin-bottom: 48px;
+  }
+
+  @include desktop-up {
+    margin-top: 16px;
+  }
+
+  @include desktop {
+    margin-bottom: 48px;
+  }
+
+  @include desktop-wide {
+    margin-bottom: 60px;
+  }
 }
 
 
@@ -7,16 +23,35 @@
 .pseudo-table__row {
   position: relative;
   display: flex;
-  padding: 8px 0px;
+  padding: 8px 0;
   border-bottom: 1px solid $color-srf-neutral-blacka08;
 
   &:first-of-type {
     border-top: 1px solid $color-srf-neutral-blacka08;
   }
   
-  &:hover .pseudo-table__innercell--title a::after {
-    background: rgba(0,0,0,.25);
+  &:hover {
+    background-color: $color-srf-warmgrey-10;
+    margin-left: #{-$article-offset};
+    padding-left: #{$article-offset};
   }
+  
+  &:active {
+    background-color: $color-srf-warmgrey-25;
+  }
+
+  // handling lines between two or more adjacent rows
+  & + & {
+    border-top: 1px solid transparent;
+
+    &:hover,
+    &:active {
+      margin-top: -1px;
+      padding-top: calc(8px + 1px);
+      border-top: 1px solid $color-srf-neutral-blacka08;
+    }
+  }
+
 }
 
 
@@ -26,11 +61,21 @@
 }
 
 .pseudo-table__cell--image {
+  // dev only
+  background: $color-srf-red-100;
+  
   flex-basis: 80px;
   width: 80px;
   height: 80px;
   margin-right: 8px;
-  background: $color-srf-red-100;
+
+  @include tablet {
+    margin-right: 16px;
+  }
+
+  @include desktop-up {
+    margin-right: 24px;
+  }
 }
 
 .pseudo-table__cell--info {
@@ -44,12 +89,35 @@
     align-items: center;
     overflow: visible;
   }
+
+  @include tablet {
+    flex-basis: calc(100% - (80px + 16px));
+  }
+
+  @include desktop-up {
+    flex-basis: calc(100% - (80px + 24px));
+  }
 }
 
 
 
 .pseudo-table__innercell {
   flex-grow: 0;
+
+  @include tablet {
+    padding-right: 24px;
+  }
+
+  @include tablet-up {
+    overflow: visible;
+  }
+  @include desktop {
+    padding-right: 24px;
+  }
+
+  @include desktop-wide {
+    padding-right: 32px;
+  }
 }
 
 .pseudo-table__innercell--title {
@@ -119,6 +187,7 @@
   @include tablet {
     flex-basis: 219px;
     line-height: 2.29;
+    padding-right: 0;
   }
 
   @include tablet-up {
@@ -127,6 +196,7 @@
 
   @include desktop {
     flex-basis: 304px;
+    padding-right: 0;
   }
 
   @include desktop-up {
@@ -136,6 +206,7 @@
 
   @include desktop-wide {
     flex-basis: 276px;
+    padding-right: 0;
   }
 
   a {
@@ -144,8 +215,10 @@
     white-space: nowrap;
     position: relative;
 
-    &:hover {
-      color: blue;
+    &:focus,
+    &:hover,
+    &:active {
+      color: $color-srf-red-800;
     }
   }
 }
