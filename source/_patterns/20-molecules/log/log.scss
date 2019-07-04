@@ -124,6 +124,8 @@
 
 .log--compact {
   min-height: auto;
+  margin-left: 0;
+  padding-left: 0;
 }
 
 .log__entry--compact {
@@ -144,6 +146,10 @@
     @include desktop-wide {
       width: auto;
     }
+  }
+
+  @include smartphone {
+    display: table;
   }
 }
 
