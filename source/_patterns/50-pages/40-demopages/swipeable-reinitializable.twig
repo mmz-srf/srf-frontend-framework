@@ -83,8 +83,12 @@
             $btnRemoveTeaser = $(".js-button--less-teasers"),
             $btnRandomTeasers = $(".js-button--random-teasers"),
             afterContentUpdate = () => {
-                $collection.toggleClass("collection--search-results--empty", $collection.find(".js-swipeable-area-item").length === 0);
-                $collection.find(".js-swipeable-area").trigger("srf.swipeable.content-changed");
+                let nrOfTeasers = $collection.find(".js-swipeable-area-item").length;
+
+                $collection.toggleClass("collection--search-results--empty", nrOfTeasers === 0);
+                $collection.find(".js-swipeable-area")
+                    .trigger("srf.swipeable.content-changed")
+                    .toggleClass("swipeable-area--unswipeable", nrOfTeasers < 4);
             };
 
         $btnAddTeaser.on("click", function() {
