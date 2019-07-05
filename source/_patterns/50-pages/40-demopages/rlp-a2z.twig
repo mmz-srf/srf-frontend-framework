@@ -1,0 +1,57 @@
+{% embed 'templates-landingpage' %}
+    {% block landingpage_content %}
+        {% include 'atoms-button' with {'styleModifier': 'js-modal', 'buttonText': 'A-Z-Modal', 'additionalAttributes': 'data-modal-id="modal-a2z"'} %}
+
+        {% embed "modal.twig" with {
+            'id': 'modal-a2z',
+            'animation': '',
+            'styleModifier': 'modal--no-overlay modal--attachment-bottom',
+            'styleModifierModalWrapper': ''
+        } %}
+            {% block content %}
+
+                <div class="modal__head modal-wrapper">
+                    <a href="#" class="js-close-modal">
+                        {% include 'atoms-icon-button' with {
+                            'iconStyleModifier': 'svg-icon--close-dark',
+                            'screenReaderText': 'Schliessen',
+                            'styleModifier': 'js-close-modal'
+                        } %}
+                    </a>
+                </div>
+
+                <div class="modal__body modal-wrapper">
+                    BODY<br>
+                    BODY<br>
+                    BODY<br>
+                    BODY<br>
+                    BODY<br>
+                    BODY<br>
+                    BODY<br>
+                    BODY<br>
+                    BODY<br>
+                    BODY<br>
+                    BODY<br>
+                    BODY<br>
+                    BODY<br>
+                    BODY<br>
+                    BODY<br>
+                    BODY<br>
+                    BODY<br>
+                    BODY<br>
+                    BODY<br>
+                    BODY<br>
+                    BODY<br>
+                    BODY<br>
+                    BODY<br>
+                    BODY<br>
+                    BODY<br>
+                    BODY<br>
+
+                </div>
+            {% endblock %}
+        {% endembed %}
+
+
+    {% endblock %}
+{% endembed %}

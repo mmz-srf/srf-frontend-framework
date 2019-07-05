@@ -102,3 +102,15 @@ $modal-z-index: 100;
     display: none;
   }
 }
+
+.modal--attachment-bottom {
+  .modal-main-wrapper {
+    top: auto;
+    bottom: 0;
+    max-height: 50vh;
+
+    @include smartphone {
+      max-height: 66vh;
+    }
+  }
+}
