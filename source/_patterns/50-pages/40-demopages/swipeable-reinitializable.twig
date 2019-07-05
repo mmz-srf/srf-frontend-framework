@@ -86,9 +86,7 @@
                 let nrOfTeasers = $collection.find(".js-swipeable-area-item").length;
 
                 $collection.toggleClass("collection--search-results--empty", nrOfTeasers === 0);
-                $collection.find(".js-swipeable-area")
-                    .trigger("srf.swipeable.content-changed")
-                    .toggleClass("swipeable-area--unswipeable", nrOfTeasers < 4);
+                $collection.find(".js-swipeable-area").trigger("srf.swipeable.content-changed");
             };
 
         $btnAddTeaser.on("click", function() {
