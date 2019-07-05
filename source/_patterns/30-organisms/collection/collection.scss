@@ -519,6 +519,36 @@ $background-overlap-wide: 50px;
       }
     }
   }
+
+  // only one teaser on mobile: remove 40px gap on the right
+  @include smartphone {
+    .collection__teaser-item:last-child:first-child {
+      min-width: calc(100% - 8px);
+    }
+  }
+
+  // 1-3 teasers on tablet+: larger gap between teasers, flex-basis same as standard teasers;
+  @include tablet-up {
+    .collection__teaser-item:nth-last-child(-n+3):first-child,
+    .collection__teaser-item:nth-last-child(-n+3):first-child ~ .collection__teaser-item {
+      flex-basis: calc((100% - 40px) / 3.00001);
+      padding-right: 24px;
+      max-width: none;
+
+      @include desktop-wide {
+        padding-right: 32px;
+      }
+
+        &:last-child{
+        min-width: 0;
+        margin-right: 8px;
+
+          &::after{
+          content: none; 
+        }
+      }
+    }
+  }
 }
 
 // Compact Swipeable has (next to only having S teasers on all BPs) one difference to the
@@ -1004,6 +1034,16 @@ $background-overlap-wide: 50px;
 
     @include tablet-up {
       max-width: calc((100% - 74px) / 3.00001);
+    }
+  }
+
+  // Search results can show 2 teasers on mobile, so if there are exactly 2
+  // teasers on mobile: remove 40px gap on the right and let the teasers grow
+  @include smartphone {
+    .collection__teaser-item:nth-last-child(2):first-child, 
+    .collection__teaser-item:nth-last-child(2):first-child ~ .collection__teaser-item {
+      max-width: none;
+      flex-basis: 50%;
     }
   }
 }
