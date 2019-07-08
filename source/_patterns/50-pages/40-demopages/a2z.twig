@@ -1,0 +1,84 @@
+<div class="demo-pagelimit">
+
+
+
+<div class="button-group {{styleModifier}}">
+    <div class="button-group__item {{styleModifierItem}}"> {# e.g. button-group__item--vertical-gap-on-tablet-up #}
+
+  {# BEGIN % include 'atoms-search' % #}
+
+  <form autocomplete="off"
+        class="search {{ styleModifier|default("") }} js-search"
+        data-typeahead-url="/assets/demo/typeahead_search.json"
+        data-referrer-track="srf_suchfeld=''"
+        data-suggestion-history="true"
+        action="suche"
+        role="search">
+
+      <div class="search-wrapper">
+          <div class="search__input--wrapper">
+              <div class="search__icon"></div>
+
+              <label class="search__label">
+                  <span class="h-offscreen">Sendung Suchen</span>
+                  <input class="search__input js-search-input"
+                      name="q"
+                      type="text"
+                      placeholder="Sendung Suchen"
+                      data-result-alert-text="Resultate für">
+              </label>
+
+              <a href="#" class="search__close js-search-close">
+                  <img src="{{ frameworkAssetPath }}/img/close.svg" title="Suchfeld schliessen" width="10" height="10" alt="Suchfeld schliessen" />
+              </a>
+
+              <button type="submit"
+                      class="h-offscreen"
+                      tabindex="-1"
+                      aria-hidden="true">Suchen</button>
+          </div>
+
+          <ul class="search__results js-search-results"
+              aria-live="polite"
+              aria-relevant="additions">
+          </ul>
+      </div>
+  </form>
+
+  {# END % include 'atoms-search' % #}
+
+    </div>
+    <div class="button-group__item {{styleModifierItem}}">
+
+  {# BEGIN % include 'atoms-select-menu' % #}
+
+  <select class="select-menu" id="stations">
+    <option value="all">Alle Sender</option>
+    <option value="radio-srf-1">Radio SRF 1</option>
+    <option value="radio-srf-2-kultur">Radio SRF 2 Kultur</option>
+    <option value="radio-srf-3">Radio SRF 3</option>
+    <option value="radio-srf-4">Radio SRF 4 News</option>
+    <option value="radio-srf-musikwelle">Radio SRF Musikwelle</option>
+  </select>
+
+  {# END % include 'atoms-select-menu' % #}
+
+    </div>
+</div>
+
+
+
+</div>
+
+{% include 'molecules-nav-bar' %}
+
+<div class="demo-pagelimit">
+  {% include 'molecules-pseudo-table' %}
+</div>
+
+<style>
+.demo-pagelimit {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+</style>
