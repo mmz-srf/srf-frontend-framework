@@ -1,3 +1,7 @@
+.nav-bar-wrapper {
+  background-color: $color-srf-warmgrey-25;
+}
+
 .nav-bar {
   /* dev only */
   max-width: 1200px;
@@ -22,8 +26,8 @@
     display: flex;
   }
 
-  a {
-    display: block;
+  .nav-bar__letter {
+    display: flex;
     width: 100%;
     margin-right: 2px;
     border-radius: 2px;
@@ -31,7 +35,7 @@
     color: $color-srf-warmgrey-1100;
     white-space: nowrap;
     align-content: center;
-    align-items: stretch;
+    align-items: center;
     justify-content: center;
 
     &:last-of-type {
@@ -42,18 +46,21 @@
       padding: 0;
     }
 
-    &:focus,
-    &:hover {
+    &:not(span):focus,
+    &:not(span):hover {
       background-color: $color-srf-warmgrey-50;
     }
 
-    .active &,
-    &:active {
+    &:not(span):active {
       background-color: $color-srf-warmgrey-100;
     }
   }
-  
-  .inactive {
+
+  .nav-bar__letter--active {
+    background-color: $color-srf-warmgrey-100;
+  }
+
+  .nav-bar__letter--inactive {
     color: $color-srf-warmgrey-1100a24;
   }
 }
