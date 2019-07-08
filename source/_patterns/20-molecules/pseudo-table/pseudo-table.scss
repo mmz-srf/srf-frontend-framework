@@ -65,13 +65,16 @@
   background: $color-srf-red-100;
   
   flex-basis: 80px;
-  align-self: center;
   width: 80px;
   height: 80px;
   margin-right: 8px;
 
   @include tablet {
     margin-right: 16px;
+  }
+
+  @include tablet-up {
+    align-self: center;
   }
 
   @include desktop-up {
