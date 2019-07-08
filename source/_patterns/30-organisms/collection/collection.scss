@@ -539,11 +539,11 @@ $background-overlap-wide: 50px;
         padding-right: 32px;
       }
 
-        &:last-child{
+      &:last-child {
         min-width: 0;
         margin-right: 8px;
 
-          &::after{
+        &::after {
           content: none; 
         }
       }
