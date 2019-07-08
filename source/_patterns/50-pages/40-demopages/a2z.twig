@@ -1,84 +1,154 @@
+<style>
+/* quick and drity - dev only */
+.demo-pagelimit {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+</style>
+
+
 <div class="demo-pagelimit">
 
+  <div class="a2z-elem-group">
+    <div class="a2z-elem-group__item"> {# e.g. button-group__item--vertical-gap-on-tablet-up #}
 
+      {# BEGIN % include 'atoms-search' % #}
 
-<div class="button-group {{styleModifier}}">
-    <div class="button-group__item {{styleModifierItem}}"> {# e.g. button-group__item--vertical-gap-on-tablet-up #}
+      <form autocomplete="off"
+            class="search {{ styleModifier|default("") }} js-search"
+            data-typeahead-url="/assets/demo/typeahead_search.json"
+            data-referrer-track="srf_suchfeld=''"
+            data-suggestion-history="true"
+            action="suche"
+            role="search">
 
-  {# BEGIN % include 'atoms-search' % #}
-
-  <form autocomplete="off"
-        class="search {{ styleModifier|default("") }} js-search"
-        data-typeahead-url="/assets/demo/typeahead_search.json"
-        data-referrer-track="srf_suchfeld=''"
-        data-suggestion-history="true"
-        action="suche"
-        role="search">
-
-      <div class="search-wrapper">
+        <div class="search-wrapper">
           <div class="search__input--wrapper">
-              <div class="search__icon"></div>
+            <div class="search__icon"></div>
 
-              <label class="search__label">
-                  <span class="h-offscreen">Sendung Suchen</span>
-                  <input class="search__input js-search-input"
-                      name="q"
-                      type="text"
-                      placeholder="Sendung Suchen"
-                      data-result-alert-text="Resultate für">
-              </label>
+            <label class="search__label">
+              <span class="h-offscreen">Sendung Suchen</span>
+              <input class="search__input js-search-input"
+                  name="q"
+                  type="text"
+                  placeholder="Sendung Suchen"
+                  data-result-alert-text="Resultate für">
+            </label>
 
-              <a href="#" class="search__close js-search-close">
-                  <img src="{{ frameworkAssetPath }}/img/close.svg" title="Suchfeld schliessen" width="10" height="10" alt="Suchfeld schliessen" />
-              </a>
+            <a href="#" class="search__close js-search-close">
+              <img src="{{ frameworkAssetPath }}/img/close.svg" title="Suchfeld schliessen" width="10" height="10" alt="Suchfeld schliessen" />
+            </a>
 
-              <button type="submit"
-                      class="h-offscreen"
-                      tabindex="-1"
-                      aria-hidden="true">Suchen</button>
+            <button type="submit"
+                    class="h-offscreen"
+                    tabindex="-1"
+                    aria-hidden="true">Suchen</button>
           </div>
 
           <ul class="search__results js-search-results"
               aria-live="polite"
               aria-relevant="additions">
           </ul>
-      </div>
-  </form>
+        </div>
+      </form>
 
-  {# END % include 'atoms-search' % #}
-
-    </div>
-    <div class="button-group__item {{styleModifierItem}}">
-
-  {# BEGIN % include 'atoms-select-menu' % #}
-
-  <select class="select-menu" id="stations">
-    <option value="all">Alle Sender</option>
-    <option value="radio-srf-1">Radio SRF 1</option>
-    <option value="radio-srf-2-kultur">Radio SRF 2 Kultur</option>
-    <option value="radio-srf-3">Radio SRF 3</option>
-    <option value="radio-srf-4">Radio SRF 4 News</option>
-    <option value="radio-srf-musikwelle">Radio SRF Musikwelle</option>
-  </select>
-
-  {# END % include 'atoms-select-menu' % #}
+      {# END % include 'atoms-search' % #}
 
     </div>
-</div>
+    <div class="a2z-elem-group__item {{styleModifierItem}}">
 
+      {# BEGIN % include 'atoms-select-menu' % #}
 
+      <select class="select-menu" id="stations">
+        <option value="all">Alle Sender</option>
+        <option value="radio-srf-1">Radio SRF 1</option>
+        <option value="radio-srf-2-kultur">Radio SRF 2 Kultur</option>
+        <option value="radio-srf-3">Radio SRF 3</option>
+        <option value="radio-srf-4">Radio SRF 4 News</option>
+        <option value="radio-srf-musikwelle">Radio SRF Musikwelle</option>
+      </select>
+
+      {# END % include 'atoms-select-menu' % #}
+
+    </div>
+  </div>
 
 </div>
 
 {% include 'molecules-nav-bar' %}
 
 <div class="demo-pagelimit">
-  {% include 'molecules-pseudo-table' %}
-</div>
+  <div class="a2z-wrapper">
+    <div class="a2z" id="a2z-0">
+      <h2 class="a2z-title">#0-9</h2>
+      <div class="pseudo-table">
+        <div class="pseudo-table__row">
+          <div class="pseudo-table__cell pseudo-table__cell--image"><img src="#" /></div>
+          <div class="pseudo-table__cell pseudo-table__cell--info">
+            <div class="pseudo-table__innercell pseudo-table__innercell--title"><a href="#sendung">#SRF Global</a></div>
+            <div class="pseudo-table__innercell pseudo-table__innercell--station">Radio SRF 3</div>
+            <div class="pseudo-table__innercell pseudo-table__innercell--cats"><a href="#hintergrund">Hintergrund</a>, <a href="#politik-wirtschaft">Politik & Wirtschaft</a></div>
+          </div>
+        </div>
+        <div class="pseudo-table__row">
+          <div class="pseudo-table__cell pseudo-table__cell--image"><img src="#" /></div>
+          <div class="pseudo-table__cell pseudo-table__cell--info">
+            <div class="pseudo-table__innercell pseudo-table__innercell--title"><a href="#sendung">4 X 4 Podcasts</a></div>
+            <div class="pseudo-table__innercell pseudo-table__innercell--station">Radio SRF 4 News</div>
+            <div class="pseudo-table__innercell pseudo-table__innercell--cats"><a href="#hintergrund">Hintergrund</a>, <a href="#politik-wirtschaft">Politik & Wirtschaft</a></div>
+          </div>
+        </div>
+        <div class="pseudo-table__row">
+          <div class="pseudo-table__cell pseudo-table__cell--image"><img src="#" /></div>
+          <div class="pseudo-table__cell pseudo-table__cell--info">
+            <div class="pseudo-table__innercell pseudo-table__innercell--title"><a href="#sendung">52 Beste Bücher</a></div>
+            <div class="pseudo-table__innercell pseudo-table__innercell--station">Radio SRF 2 Kultur</div>
+            <div class="pseudo-table__innercell pseudo-table__innercell--cats"><a href="#hintergrund">Hintergrund</a>, <a href="#politik-wirtschaft">Politik & Wirtschaft</a>, <a href="#news">News</a>, <a href="#kultur-religion">Kultur & Religion</a>, <a href="#hintergrund">Hintergrund</a>, <a href="#politik-wirtschaft">Politik & Wirtschaft</a>, <a href="#news">News</a>, <a href="#kultur-religion">Kultur & Religion</a></div>
+          </div>
+        </div>
+        <div class="pseudo-table__row">
+          <div class="pseudo-table__cell pseudo-table__cell--image"><img src="#" /></div>
+          <div class="pseudo-table__cell pseudo-table__cell--info">
+            <div class="pseudo-table__innercell pseudo-table__innercell--title"><a href="#sendung">100 Sekunden Wissen</a></div>
+            <div class="pseudo-table__innercell pseudo-table__innercell--station">Radio SRF 2 Kultur</div>
+            <div class="pseudo-table__innercell pseudo-table__innercell--cats"><a href="#hintergrund">Hintergrund</a>, <a href="#politik-wirtschaft">Politik & Wirtschaft</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-<style>
-.demo-pagelimit {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-</style>
+    <div class="a2z" id="a2z-a">
+      <h2 class="a2z-title">A</h2>
+      <div class="pseudo-table">
+        <div class="pseudo-table__row">
+          <div class="pseudo-table__cell pseudo-table__cell--image"><img src="#" /></div>
+          <div class="pseudo-table__cell pseudo-table__cell--info">
+            <div class="pseudo-table__innercell pseudo-table__innercell--title"><a href="#sendung">A Point</a></div>
+            <div class="pseudo-table__innercell pseudo-table__innercell--station">Radio SRF 1</div>
+            <div class="pseudo-table__innercell pseudo-table__innercell--cats"><a href="#hintergrund">Ratgeber</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="a2z" id="a2z-b">
+      <h2 class="a2z-title">B</h2>
+      <div class="pseudo-table__row">
+        <div class="pseudo-table__cell pseudo-table__cell--image"><img src="#" /></div>
+        <div class="pseudo-table__cell pseudo-table__cell--info">
+          <div class="pseudo-table__innercell pseudo-table__innercell--title"><a href="#sendung">Bestseller auf dem Plattenteller</a></div>
+          <div class="pseudo-table__innercell pseudo-table__innercell--station">Radio SRF Musikwelle</div>
+          <div class="pseudo-table__innercell pseudo-table__innercell--cats"><a href="#hintergrund">Musik</a></div>
+        </div>
+      </div>
+      <div class="pseudo-table__row">
+        <div class="pseudo-table__cell pseudo-table__cell--image"><img src="#" /></div>
+        <div class="pseudo-table__cell pseudo-table__cell--info">
+          <div class="pseudo-table__innercell pseudo-table__innercell--title"><a href="#sendung">Buchzeichen</a></div>
+          <div class="pseudo-table__innercell pseudo-table__innercell--station">Radio SRF 2 Kultur</div>
+          <div class="pseudo-table__innercell pseudo-table__innercell--cats"><a href="#kultur-religion">Kultur & Religion</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
