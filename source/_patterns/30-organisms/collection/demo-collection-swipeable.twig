@@ -2,7 +2,6 @@
     'collection': {
         'styleModifier': 'collection--standard',
         "title": "Standard, 3 Teasers",
-        "type": "standard",
         "teasers": collections[0].teasers[0:3]
     }
 } %}
@@ -11,9 +10,6 @@
     'collection': {
         'styleModifier': 'collection--swipeable',
         "title": "Swipeable, 3 Teasers",
-        "titleLink": "https://www-test.srf.ch/news/wirtschaft",
-        "lead": "1996 schrieb John Perry Barlow die «Unabhängigkeitserklärung des Cyberspace». Darin kritisierte er Poeten.",
-        "type": "swipeable",
         "teasers": collections[0].teasers[0:3]
     }
 } %}
@@ -22,9 +18,6 @@
     'collection': {
         'styleModifier': 'collection--swipeable',
         "title": "Swipeable, 2 Teasers",
-        "titleLink": "https://www-test.srf.ch/news/wirtschaft",
-        "lead": "1996 schrieb John Perry Barlow die «Unabhängigkeitserklärung des Cyberspace». Darin kritisierte er Poeten.",
-        "type": "swipeable",
         "teasers": collections[0].teasers[0:2]
     }
 } %}
@@ -33,9 +26,6 @@
     'collection': {
         'styleModifier': 'collection--swipeable',
         "title": "Swipeable, 1 Teaser",
-        "titleLink": "https://www-test.srf.ch/news/wirtschaft",
-        "lead": "1996 schrieb John Perry Barlow die «Unabhängigkeitserklärung des Cyberspace». Darin kritisierte er Poeten.",
-        "type": "swipeable",
         "teasers": collections[0].teasers[0:1]
     }
 } %}
@@ -44,9 +34,48 @@
     'collection': {
         'styleModifier': 'collection--swipeable',
         "title": "Swipeable, 4 Teasers",
-        "titleLink": "https://www-test.srf.ch/news/wirtschaft",
-        "lead": "1996 schrieb John Perry Barlow die «Unabhängigkeitserklärung des Cyberspace». Darin kritisierte er Poeten.",
-        "type": "swipeable",
+        "teasers": collections[0].teasers[0:4]
+    }
+} %}
+
+<hr />
+
+{% include 'organisms-collection' with {
+    'collection': {
+        'styleModifier': 'collection--compact',
+        "title": "Compact, 3 Teasers",
+        "teasers": collections[0].teasers[0:3]
+    }
+} %}
+
+{% include 'organisms-collection' with {
+    'collection': {
+        'styleModifier': 'collection--compact-swipeable',
+        "title": "Compact Swipeable, 3 Teasers",
+        "teasers": collections[0].teasers[0:3]
+    }
+} %}
+
+{% include 'organisms-collection' with {
+    'collection': {
+        'styleModifier': 'collection--compact-swipeable',
+        "title": "Compact Swipeable, 2 Teasers",
+        "teasers": collections[0].teasers[0:2]
+    }
+} %}
+
+{% include 'organisms-collection' with {
+    'collection': {
+        'styleModifier': 'collection--compact-swipeable',
+        "title": "Compact Swipeable, 1 Teaser",
+        "teasers": collections[0].teasers[0:1]
+    }
+} %}
+
+{% include 'organisms-collection' with {
+    'collection': {
+        'styleModifier': 'collection--compact-swipeable',
+        "title": "Compact Swipeable, 4 Teasers",
         "teasers": collections[0].teasers[0:4]
     }
 } %}
