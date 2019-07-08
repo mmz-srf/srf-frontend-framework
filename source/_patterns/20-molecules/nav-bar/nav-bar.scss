@@ -11,7 +11,6 @@
   display: flex;
   flex-direction: row;
   padding: 12px 0;
-  background-color: $color-srf-warmgrey-25;
   overflow: scroll;
 
   @include desktop-up {
