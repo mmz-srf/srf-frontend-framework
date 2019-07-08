@@ -18,30 +18,21 @@
     align-content: stretch;
   }
 
-  li {
-    flex: 1 0 auto;
-    justify-content: center;
-
-    display: flex;
-  }
-
   .nav-bar__letter {
     display: flex;
     width: 100%;
-    margin-right: 2px;
+    margin-right: 1px;
     border-radius: 2px;
-    padding: 12px 16px;
+    padding-right: 16px;
+    padding-left: 16px;
     color: $color-srf-warmgrey-1100;
     white-space: nowrap;
     align-content: center;
     align-items: center;
     justify-content: center;
 
-    &:last-of-type {
-      margin-right: 0;
-    }
-
     @include desktop-up {
+      margin-right: 2px;
       padding: 0;
     }
 
@@ -61,5 +52,16 @@
 
   .nav-bar__letter--inactive {
     color: $color-srf-warmgrey-1100a24;
+  }
+
+  li {
+    flex: 1 0 auto;
+    justify-content: center;
+
+    display: flex;
+
+    &:last-of-type .nav-bar__letter {
+      margin-right: 0;
+    }
   }
 }
