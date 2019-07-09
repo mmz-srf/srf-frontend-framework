@@ -1,8 +1,6 @@
 .log {
   width: 100%;
   min-height: 800px;
-  margin-left: -24px;
-  padding-left: 24px;
 
   @include smartphone {
     margin-left: 16px;
@@ -33,32 +31,6 @@
 
   &:first-of-type {
     border-top: none;
-  }
-
-  &:hover,
-  &:focus,
-  &:active {
-    background-color: $color-srf-warmgrey-10;
-    margin-left: -24px;
-    padding-left: 24px;
-
-    border-bottom: 1px solid rgba(0,0,0,0.08);
-    &+ li {
-      border-top: 0;
-    }
-
-    @include tablet-up {
-      width: calc(#{$desktop-content-max-width} + 24px);
-    }
-
-    @include desktop-wide {
-      width: calc(#{$desktop-wide-content-max-width} + 24px);
-    }
-
-  }
-
-  &:active {
-    background-color: $color-srf-warmgrey-25;
   }
 
 }
@@ -132,21 +104,6 @@
   border-top: none;
   padding: 3px 0 4px 0;
   width: auto;
-
-  &:hover,
-  &:focus,
-  &:active {
-    background-color: transparent;
-    border: none;
-
-    @include tablet-up {
-      width: auto;
-    }
-
-    @include desktop-wide {
-      width: auto;
-    }
-  }
 
   @include smartphone {
     display: table;
