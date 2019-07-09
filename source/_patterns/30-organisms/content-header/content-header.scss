@@ -115,14 +115,14 @@
 .content-header__slot-wrapper {
   display: flex;
   justify-content: space-between;
-  padding: $collection-gap / 2;
+  padding: #{$collection-gap / 2};
 
   @include tablet-up {
-    padding: $collection-gap-tablet-up / 2;
+    padding: #{$collection-gap-tablet-up / 2};
   }
 
   @include desktop-wide {
-    padding: $collection-gap-desktop-wide / 2;
+    padding: #{$collection-gap-desktop-wide / 2};
   }
 
   &:hover {
