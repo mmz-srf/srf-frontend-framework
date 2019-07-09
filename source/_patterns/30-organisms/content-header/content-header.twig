@@ -2,55 +2,61 @@
     <div class="content-header__background-wrapper"></div>
     <div class="content-header__wrapper">
         <div class="content-header__slot content-header__slot--first">
-            <div class="h-loading-only">
-                <div class="shimmer shimmer--overline"></div>
-                <div class="shimmer shimmer--short"></div>
-                <div class="shimmer shimmer--short"></div>
-            </div>
-            <div class="content-header__station-logo">
-                <img src="{{ frameworkAssetPath }}/img/stationlogos/radio-srf-1-square.svg"
-                     alt="Logo Radio SRF 1"
-                     aria-hidden="true" role="presentation" />
-            </div>
-            {% include 'molecules-simple-teaser' with {
-                'styleModifier': '',
-                'kicker': 'Jetzt auf Sendung',
-                'title': 'Treffpunkt',
-                'lead': 'So sieht der Traum vom Auswandern in Wirklichkeit aus'
-            }%}
+            <a href="#" class="content-header__slot-wrapper">
+                <div class="h-loading-only">
+                    <div class="shimmer shimmer--overline"></div>
+                    <div class="shimmer shimmer--short"></div>
+                    <div class="shimmer shimmer--short"></div>
+                </div>
+                <div class="content-header__station-logo">
+                    <img src="{{ frameworkAssetPath }}/img/stationlogos/radio-srf-1-square.svg"
+                         alt="Logo Radio SRF 1"
+                         aria-hidden="true" role="presentation" />
+                </div>
+                {% include 'molecules-simple-teaser' with {
+                    'styleModifier': '',
+                    'kicker': 'Jetzt auf Sendung',
+                    'title': 'Treffpunkt',
+                    'lead': 'So sieht der Traum vom Auswandern in Wirklichkeit aus'
+                }%}
+            </a>
         </div>
         <div class="content-header__slot content-header__slot--second">
-            <div class="h-loading-only">
-                <div class="shimmer shimmer--overline"></div>
-                <div class="shimmer shimmer--short"></div>
-                <div class="shimmer shimmer--short"></div>
-            </div>
-            <div class="simple-teaser">
-                <div class="simple-teaser__content">
-                    <div class="simple-teaser__kicker">Gespielte Musik</div>
-                    {% include 'molecules-log'  with {
-                        'styleModifierLog': 'log--compact',
-                        'styleModifierEntry': 'log__entry--compact',
-                        'styleModifierTime': 'log__time--compact',
-                        'styleModifierTitle': 'log__title--compact',
-                        'styleModifierArtist': 'log__artist--compact',
-                    }%}
+            <a href="#" class="content-header__slot-wrapper">
+                <div class="h-loading-only">
+                    <div class="shimmer shimmer--overline"></div>
+                    <div class="shimmer shimmer--short"></div>
+                    <div class="shimmer shimmer--short"></div>
                 </div>
-            </div>
+                <div class="simple-teaser">
+                    <div class="simple-teaser__content">
+                        <div class="simple-teaser__kicker">Gespielte Musik</div>
+                        {% include 'molecules-log'  with {
+                            'styleModifierLog': 'log--compact',
+                            'styleModifierEntry': 'log__entry--compact',
+                            'styleModifierTime': 'log__time--compact',
+                            'styleModifierTitle': 'log__title--compact',
+                            'styleModifierArtist': 'log__artist--compact',
+                        }%}
+                    </div>
+                </div>
+            </a>
         </div>
         <div class="content-header__slot content-header__slot--third">
-            <div class="h-loading-only">
-                <div class="shimmer shimmer--overline"></div>
-                <div class="shimmer shimmer--short"></div>
-            </div>
-            {% include 'molecules-simple-teaser' with {
-                'styleModifier': '',
-                'kicker': 'Am Mikrofon',
-                'lead': 'Marietta Tomaschett'
-            }%}
-            <div class="content-header__presenter-image">
-                {% include 'atoms-image' with { 'styleModifier': 'image--circle image--profile-picture-presenter' } %}
-            </div>
+            <a href="#" class="content-header__slot-wrapper">
+                <div class="h-loading-only">
+                    <div class="shimmer shimmer--overline"></div>
+                    <div class="shimmer shimmer--short"></div>
+                </div>
+                {% include 'molecules-simple-teaser' with {
+                    'styleModifier': '',
+                    'kicker': 'Am Mikrofon',
+                    'lead': 'Marietta Tomaschett'
+                }%}
+                <div class="content-header__presenter-image">
+                    {% include 'atoms-image' with { 'styleModifier': 'image--circle image--profile-picture-presenter' } %}
+                </div>
+            </a>
         </div>
         <div class="content-header__buttonbar content-header__buttonbar--primary">
             {% include 'atoms-pill-button' with {
