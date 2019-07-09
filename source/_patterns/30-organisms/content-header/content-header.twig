@@ -25,11 +25,18 @@
                 <div class="shimmer shimmer--short"></div>
                 <div class="shimmer shimmer--short"></div>
             </div>
-            {% include 'molecules-simple-teaser' with {
-                'styleModifier': '',
-                'kicker': 'Gespielte Musik',
-                'lead': '09:58 Lalalalala'
-            }%}
+            <div class="simple-teaser">
+                <div class="simple-teaser__content">
+                    <div class="simple-teaser__kicker">Gespielte Musik</div>
+                    {% include 'molecules-log'  with {
+                        'styleModifierLog': 'log--compact',
+                        'styleModifierEntry': 'log__entry--compact',
+                        'styleModifierTime': 'log__time--compact',
+                        'styleModifierTitle': 'log__title--compact',
+                        'styleModifierArtist': 'log__artist--compact',
+                    }%}
+                </div>
+            </div>
         </div>
         <div class="content-header__slot content-header__slot--third">
             <div class="h-loading-only">

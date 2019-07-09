@@ -171,6 +171,10 @@ $desktop-wide-size: 1280px !default;
 $content-width: 1200px !default; // max-width ($widedesktopsize = 1280) - 2 * 40px (Outside Gutter)
 $content-max-width: 1480px !default;
 
+/*** BREAKPOINT AND MAX CONTENT WIDTH (design grid) ***/
+$tablet-content-max-width: 705px;
+$desktop-content-max-width: 714px;
+$desktop-wide-content-max-width: 892px;
 
 
 /*** ANIMATIONS ***/
