@@ -66,7 +66,8 @@
         <div class="content-header__buttonbar content-header__buttonbar--secondary">
             {% include 'atoms-pill-button' with {
                 'styleModifier': 'content-header__button',
-                'buttonText': 'Kontakt ins Studio'
+                'buttonText': 'Kontakt ins Studio',
+                'additionalAttributes': 'data-modal-id="test-modal-1"'
             }%}
             {% include 'atoms-pill-button' with {
                 'styleModifier': 'pill-button--icon-only content-header__button',
@@ -77,5 +78,25 @@
                 'buttonIcon': 'svg-icon--outline-instagram'
             }%}
         </div>
+        {% embed 'organisms-modal-flyout'  with { 'styleModifier': 'js-modal', 'flyoutId': 'test-modal-1', 'flyoutTitle': 'Kontakt ins Studio' } %}
+            {% block flyout_content %}
+                {% embed 'molecules-menu-list' %}
+                    {% block list_content %}
+                        <li class="menu-list__item">
+                            {% include 'atoms-menu-link' with {'styleModifier': '', 'text': 'Mail ins Studio', 'iconStyleModifier': 'svg-icon--outline-mail'} %}
+                        </li>
+                        <li class="menu-list__item">
+                            {% include 'atoms-menu-link' with {'styleModifier': '', 'text': '0848 80 80 80', 'iconStyleModifier': 'svg-icon--outline-phone'} %}
+                        </li>
+                        <li class="menu-list__item">
+                            {% include 'atoms-menu-link' with {'styleModifier': '', 'text': 'WhatsApp', 'iconStyleModifier': 'svg-icon--outline-whatsapp'} %}
+                        </li>
+                        <li class="menu-list__item">
+                            {% include 'atoms-menu-link' with {'styleModifier': '', 'text': 'Kontaktformular', 'iconStyleModifier': 'svg-icon--outline-mail'} %}
+                        </li>
+                    {% endblock %}
+                {% endembed %}
+            {% endblock %}
+        {% endembed %}
     </div>
 </div>

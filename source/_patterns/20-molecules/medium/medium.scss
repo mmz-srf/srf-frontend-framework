@@ -61,6 +61,7 @@
 }
 
 .medium__player-wrapper {
+  position: relative;
   flex: 0 0 100%;
   background-color: $color-srf-neutral-black;
 }
@@ -78,10 +79,6 @@
     }
   }
 
-  .medium__notice-text {
-    padding: 8px $article-offset;
-  }
-
   &.medium--video-gallery {
     .medium__notice-text {
       padding: 8px 12px;
@@ -95,7 +92,9 @@
     opacity: 1;
     min-height: auto;
   }
-
+  .media-still__indicator {
+    display: block;
+  }
   .media-caption--audio {
     padding: 12px $article-offset;
   }
@@ -120,6 +119,10 @@
     transition: opacity .2s ease-in-out;
     height: auto;
     padding-top: 0;
+  }
+
+  .medium__notice-text {
+    padding: 8px $article-offset;
   }
 }
 
@@ -193,7 +196,7 @@
     @include smartphone {
       width: 68px;
       margin-left: 24px;
-      margin-right: -12px;
+      margin-right: 0;
     }
   }
 
