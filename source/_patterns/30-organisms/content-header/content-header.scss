@@ -125,11 +125,11 @@
     padding: #{$collection-gap-desktop-wide / 2};
   }
 
-  &:hover {
+  &[href]:hover {
     background-color: $color-srf-warmgrey-300a12;
   }
 
-  &:active {
+  &[href]:active {
     background-color: $color-srf-warmgrey-300a24;
   }
 }
