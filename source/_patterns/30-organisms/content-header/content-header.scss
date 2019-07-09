@@ -29,13 +29,47 @@
 
 .content-header__slot {
   position: relative;
-
   flex-grow: 0;
   flex-shrink: 0;
   @include IESafeFlexBasis(33.3333333334%);
 
+  padding: #{$collection-gap / 2};
+
   @include smartphone {
     @include IESafeFlexBasis(100%);
+  }
+
+  @include tablet-up {
+    padding: #{$collection-gap-tablet-up / 2};
+  }
+
+  @include desktop-wide {
+    padding: #{$collection-gap-desktop-wide / 2};
+  }
+
+  &::before {
+    content: none; // only visible when needed - see below
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    border-left: 1px solid $color-srf-warmgrey-50;
+
+    @include tablet-up {
+      top: $collection-gap-tablet-up;
+      bottom: $collection-gap-tablet-up;
+    }
+
+    @include desktop-wide {
+      top: $collection-gap-desktop-wide;
+      bottom: $collection-gap-desktop-wide;
+    }
+  }
+
+  // empty slots should not have a left border
+  &:empty::before {
+    content: none;
   }
 }
 
@@ -55,9 +89,9 @@
     @include IESafeFlexBasis(100%);
   }
 
-  .content-header__slot-wrapper {
-    @include tablet-up {
-      border-left: 1px solid $color-srf-warmgrey-50;
+  @include tablet-up {
+    &:before {
+      content: '';
     }
   }
 }
@@ -71,9 +105,9 @@
     @include IESafeFlexBasis(50%);
   }
 
-  .content-header__slot-wrapper {
-    @include tablet-up {
-      border-left: 1px solid $color-srf-warmgrey-50;
+  @include tablet-up {
+    &:before {
+      content: '';
     }
   }
 }
@@ -81,18 +115,22 @@
 .content-header__slot-wrapper {
   display: flex;
   justify-content: space-between;
-  margin: $collection-gap;
+  padding: $collection-gap / 2;
 
   @include tablet-up {
-    margin: $collection-gap-tablet-up;
+    padding: $collection-gap-tablet-up / 2;
   }
 
   @include desktop-wide {
-    margin: $collection-gap-desktop-wide;
+    padding: $collection-gap-desktop-wide / 2;
   }
 
   &:hover {
-    background-color: $color-srf-warmgrey-50;
+    background-color: $color-srf-warmgrey-300a12;
+  }
+
+  &:active {
+    background-color: $color-srf-warmgrey-300a24;
   }
 }
 
