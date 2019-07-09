@@ -52,7 +52,7 @@
   display: block;
   padding: 4px 8px;
   @include tablet-up {
-    padding: 8px $article-offset;
+    padding: 8px 12px;
   }
 }
 
@@ -81,7 +81,7 @@
 
   &.medium--video-gallery {
     .medium__notice-text {
-      padding: 8px $article-offset;
+      padding: 8px 12px;
     }
   }
 
@@ -164,7 +164,7 @@
     padding: 4px 8px;
 
     @include tablet-up {
-      padding: 8px $article-offset;
+      padding: 8px 12px;
     }
   }
 
@@ -213,7 +213,7 @@
 
     @include tablet-up {
       @include fontSize(12);
-      padding: 8px $article-offset;
+      padding: 8px 12px;
     }
   }
 

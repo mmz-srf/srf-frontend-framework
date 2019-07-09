@@ -6,8 +6,6 @@
 @import '../../_patterns/breakpoints';
 @import '../../_patterns/mixins';
 @import '../../_patterns/10-atoms/indicators/shimmer';
-@import '../../_patterns/10-atoms/feedback/spinner-container';
-@import '../../_patterns/10-atoms/feedback/spinner';
 @import '../../_patterns/10-atoms/wrapper/ratio';
 @import '../../_patterns/40-templates/landingpage';
 
@@ -72,7 +70,7 @@ body.body--loading.body--loading {
     }
 
     &.collection--swipeable,
-	  &.collection--compact-swipeable {
+    &.collection--compact-swipeable {
 	    .collection__teaser-list {
 	      margin-bottom: 12px;
 	    }
