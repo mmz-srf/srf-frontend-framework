@@ -1,12 +1,19 @@
-<div class="a2z-elem-group">
-  <div class="a2z-elem-group__item">
-
-    {# % include 'atoms-search' % #}
-
+<div class="a2z-search">
+  <div class="a2z-search__input">
+    &#123;% include 'atoms-search' %&#125;
   </div>
-  <div class="a2z-elem-group__item">
+  <div class="a2z-search__select">
+    &#123;% include 'atoms-select-menu' %&#125;
+  </div>
+</div>
 
-    {# % include 'atoms-select-menu' % #}
+<div class="a2z-nav-bar">
+  &#123;% include 'molecules-nav-bar' %&#125;
+</div>
 
+<div class="a2z-lists">
+  <div class="a2z-lists__block" id="a2z-0">
+    <h2 class="a2z-lists__title">a2z-lists__title</h2>
+    &#123;% include 'molecules-pseudo-table' %&#125;
   </div>
 </div>
