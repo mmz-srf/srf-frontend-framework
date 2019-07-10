@@ -1,0 +1,221 @@
+.pseudo-table {
+  margin-bottom: 32px;
+
+  @include tablet-up {
+    margin-bottom: 48px;
+  }
+
+  @include desktop-wide {
+    margin-bottom: 60px;
+  }
+}
+
+.pseudo-table__row {
+  position: relative;
+  display: flex;
+  padding: 8px 0;
+  border-bottom: 1px solid $color-srf-neutral-blacka08;
+
+  &:first-of-type {
+    border-top: 1px solid $color-srf-neutral-blacka08;
+  }
+  
+  &:hover,
+  &:active {
+    background-color: $color-srf-warmgrey-10;
+    margin-left: #{-$article-offset};
+    padding-left: #{$article-offset};
+  }
+  
+  &:active {
+    background-color: $color-srf-warmgrey-25;
+  }
+
+  // handling lines between two or more adjacent rows
+  & + & {
+    border-top: 1px solid transparent;
+
+    &:hover,
+    &:active {
+      margin-top: -1px;
+      padding-top: calc(8px + 1px);
+      border-top: 1px solid $color-srf-neutral-blacka08;
+    }
+  }
+
+}
+
+.pseudo-table__cell {
+  flex: 0 0 auto;
+}
+
+.pseudo-table__cell--image {
+  flex-basis: 80px;
+  max-height: 80px;
+  margin-right: 8px;
+
+  @include tablet {
+    margin-right: 16px;
+  }
+
+  @include tablet-up {
+    align-self: center;
+  }
+
+  @include desktop-up {
+    margin-right: 24px;
+  }
+
+  img {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+.pseudo-table__cell--info {
+  flex-basis: calc(100% - (80px + 8px));
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  @include tablet-up {
+    flex-direction: row;
+    align-items: center;
+    overflow: visible;
+  }
+
+  @include tablet {
+    flex-basis: calc(100% - (80px + 16px));
+  }
+
+  @include desktop-up {
+    flex-basis: calc(100% - (80px + 24px));
+  }
+}
+
+.pseudo-table__innercell {
+  flex-grow: 0;
+
+  @include tablet-up {
+    padding-right: 24px;
+    overflow: visible;
+  }
+
+  @include desktop-wide {
+    padding-right: 32px;
+  }
+}
+
+.pseudo-table__innercell--title {
+  font-family: $font-medium;
+  @include fontSize(16);
+  font-weight: 500;
+  line-height: $emphasize-line-height-ratio;
+  color: $color-srf-warmgrey-1100;
+  margin-bottom: 4px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+
+  @include tablet {
+    flex-basis: 208px;
+  }
+
+  @include tablet-up {
+    white-space: normal;
+    overflow: visible;
+  }
+  @include desktop {
+    flex-basis: 308px;
+  }
+
+  @include desktop-wide {
+    flex-basis: 512px;
+  }
+
+  a {
+    color: inherit;
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+    }
+  }
+}
+
+.pseudo-table__innercell--station {
+  @include fontSize(14);
+  line-height: $secondary-line-height-ratio;
+  color: $color-srf-warmgrey-800;
+
+  @include smartphone {
+    margin-bottom: 12px;
+  }
+
+  @include tablet {
+    flex-basis: 181px;
+  }
+
+  @include desktop {
+    flex-basis: 246px;
+  }
+
+  @include desktop-wide {
+    flex-basis: 308px;
+  }
+}
+
+.pseudo-table__innercell--cats {
+  margin-top: auto;
+  @include fontSize(14);
+
+  @include tablet {
+    flex-basis: 219px;
+    padding-right: 0;
+  }
+
+  @include tablet-up {
+    margin-top: 0;
+  }
+
+  @include desktop {
+    flex-basis: 304px;
+  }
+
+  @include desktop-up {
+    @include fontSize(16);
+    padding-right: 0;
+  }
+
+  @include desktop-wide {
+    flex-basis: 276px;
+  }
+
+  a {
+    color: $color-srf-red-600;
+    border-bottom: 1px solid $color-srf-red-600;
+    line-height: 2.29;
+
+    white-space: nowrap;
+    position: relative;
+
+    @include desktop-up {
+      line-height: $default-line-height-ratio;
+    }
+
+    &:focus,
+    &:hover {
+      color: $color-srf-red-800;
+      border-bottom: 1px solid $color-srf-red-800;
+    }
+
+    &:active {
+      color: $color-srf-red-900;
+      border-bottom: 1px solid $color-srf-red-900;
+    }
+  }
+}
