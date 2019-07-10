@@ -3,5 +3,7 @@
     <span class="icon-button__icon">
         {% include 'atoms-svg-icon' with {'styleModifier': iconStyleModifier|default("") } %}
     </span>
-    <span class="icon-button__text" aria-hidden="true" role="presentation">{{ buttonText|default("Menü") }}</span>
+    {% if buttonText %}
+        <span class="icon-button__text" aria-hidden="true" role="presentation">{{ buttonText }}</span>
+    {% endif %}
 </span>

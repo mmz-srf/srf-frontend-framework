@@ -19,7 +19,7 @@
   background: no-repeat;
   background-clip: padding-box;
   background-color: $color-srf-warmgrey-10;
-  box-shadow: $shadow-elevation1;
+  box-shadow: $shadow-elevation2;
   transition: box-shadow .2s ease-in-out, filter .2s ease-in-out;
 
   &:hover {
@@ -50,7 +50,7 @@
 }
 
 .pill-button--primary {
-  box-shadow: 0 0 12px var(--theme-color-shadow, $color-srf-neutral-blacka16), $shadow-elevation1;
+  box-shadow: 0 0 12px var(--theme-color-shadow, $color-srf-neutral-blacka16), $shadow-elevation2;
 
   &:hover {
     box-shadow: 0 0 8px var(--theme-color-shadow, $color-srf-neutral-blacka16), $shadow-elevation8;

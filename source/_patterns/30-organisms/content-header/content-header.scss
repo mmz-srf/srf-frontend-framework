@@ -49,36 +49,35 @@
     padding: $collection-gap-desktop-wide;
   }
 
-  &:after {
+  &::before {
     content: none; // only visible when needed - see below
     position: absolute;
     top: 0;
-    right: 0;
+    left: 0;
     bottom: 0;
     width: 0;
-    border-right: 1px solid $color-srf-warmgrey-25;
+    border-left: 1px solid $color-srf-warmgrey-50;
+
+    @include tablet-up {
+      top: $collection-gap-tablet-up;
+      bottom: $collection-gap-tablet-up;
+    }
+
+    @include desktop-wide {
+      top: $collection-gap-desktop-wide;
+      bottom: $collection-gap-desktop-wide;
+    }
+  }
+
+  // empty slots should not have a left border
+  &:empty::before {
+    content: none;
   }
 }
 
 .content-header__slot--first {
   @include tablet {
     @include IESafeFlexBasis(50%);
-  }
-
-  @include tablet-up {
-    &:after {
-      content: '';
-      top: $collection-gap-tablet-up;
-      bottom: $collection-gap-tablet-up;
-    }
-  }
-
-  @include desktop-wide {
-    &:after {
-      content: '';
-      top: $collection-gap-desktop-wide;
-      bottom: $collection-gap-desktop-wide;
-    }
   }
 }
 
@@ -92,19 +91,9 @@
     @include IESafeFlexBasis(100%);
   }
 
-  @include desktop {
-    &:after {
+  @include tablet-up {
+    &:before {
       content: '';
-      top: $collection-gap-tablet-up;
-      bottom: $collection-gap-tablet-up;
-    }
-  }
-
-  @include desktop-wide {
-    &:after {
-      content: '';
-      top: $collection-gap-desktop-wide;
-      bottom: $collection-gap-desktop-wide;
     }
   }
 }
@@ -116,6 +105,12 @@
   @include tablet {
     order: 2;
     @include IESafeFlexBasis(50%);
+  }
+
+  @include tablet-up {
+    &:before {
+      content: '';
+    }
   }
 }
 
@@ -194,8 +189,8 @@
     content: '';
     position: absolute;
     top: 50%;
-    left: -48px;
-    right: -48px;
+    left: 0;
+    right: 0;
     height: 1px;
     border-top: 1px solid $color-srf-neutral-blacka08;
     z-index: -1;
@@ -218,9 +213,9 @@
     &:before {
       content: '';
       position: absolute;
-      top: 25%;
-      left: -48px;
-      right: -48px;
+      top: 20%;
+      left: 0;
+      right: 0;
       height: 1px;
       border-top: 1px solid $color-srf-neutral-blacka08;
       z-index: -1;

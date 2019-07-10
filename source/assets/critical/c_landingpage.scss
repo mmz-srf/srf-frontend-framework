@@ -68,6 +68,13 @@ body.body--loading.body--loading {
     &:first-child {
       margin-top: 0;
     }
+
+    &.collection--swipeable,
+    &.collection--compact-swipeable {
+	    .collection__teaser-list {
+	      margin-bottom: 12px;
+	    }
+	  }
   }
 
   .collection__branding-wrapper {
@@ -652,7 +659,8 @@ body.body--loading.body--loading {
 
   .simple-teaser,
   .content-header__station-logo,
-  .content-header__presenter-image {
+  .content-header__presenter-image,
+  .modal-flyout {
     display: none;
   }
 }
