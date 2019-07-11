@@ -1,8 +1,8 @@
-.nav-bar-wrapper {
+.filter-bar-wrapper {
   background-color: $color-srf-warmgrey-25;
 }
 
-.nav-bar {
+.filter-bar {
   /* dev only */
   max-width: 1200px;
   margin: 0 auto;
@@ -18,7 +18,7 @@
     align-content: stretch;
   }
 
-  .nav-bar__letter {
+  .filter-bar__letter {
     display: flex;
     width: 100%;
     margin-right: 1px;
@@ -37,7 +37,7 @@
     }
 
     &:not(span):focus,
-    &:not(span):not(.nav-bar__letter--active):hover {
+    &:not(span):not(.filter-bar__letter--active):hover {
       background-color: $color-srf-warmgrey-50;
     }
 
@@ -46,11 +46,11 @@
     }
   }
 
-  .nav-bar__letter--active {
+  .filter-bar__letter--active {
     background-color: $color-srf-warmgrey-100;
   }
 
-  .nav-bar__letter--inactive {
+  .filter-bar__letter--inactive {
     color: $color-srf-warmgrey-1100a24;
   }
 
@@ -60,7 +60,7 @@
 
     display: flex;
 
-    &:last-of-type .nav-bar__letter {
+    &:last-of-type .filter-bar__letter {
       margin-right: 0;
     }
   }
