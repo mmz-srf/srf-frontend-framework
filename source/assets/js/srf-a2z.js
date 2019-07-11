@@ -3,7 +3,8 @@ export function init() {
     let triggers = document.querySelectorAll('.js-filter-bar-trigger');
     for (let i = 0; i < triggers.length; i++) {
         let currentTrigger = triggers[i];
-        currentTrigger.addEventListener('click', function() {
+        currentTrigger.addEventListener('click', function(e) {
+            e.preventDefault();
 
             const blockID = this.getAttribute('data-blockid'),
                 allID = 'a2z-all',
@@ -24,10 +25,10 @@ export function init() {
                     thisNode.classList.remove(hiddenClass);
                 });
             } else {
-                document.querySelectorAll('.' + blockClass + '#' + blockID).forEach(function(thisNode) {
+                document.querySelectorAll('.' + blockClass + '[data-block="' + blockID + '"]').forEach(function(thisNode) {
                     thisNode.classList.remove(hiddenClass);
                 });
-                document.querySelectorAll('.' + blockClass + ':not(#' + blockID + ')').forEach(function(thisNode) {
+                document.querySelectorAll('.' + blockClass + ':not([data-block="' + blockID + '"])').forEach(function(thisNode) {
                     thisNode.classList.add(hiddenClass);
                 });
             }
