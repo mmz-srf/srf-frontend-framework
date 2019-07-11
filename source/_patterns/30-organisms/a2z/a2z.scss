@@ -46,6 +46,10 @@
   
 }
 
+.a2z-lists__block--hidden {
+  display: none;
+}
+
 .a2z-lists__title {
   font-family: $font-medium;
   @include fontSize(24);

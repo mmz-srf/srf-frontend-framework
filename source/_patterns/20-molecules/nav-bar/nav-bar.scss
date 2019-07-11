@@ -37,7 +37,7 @@
     }
 
     &:not(span):focus,
-    &:not(span):hover {
+    &:not(span):not(.nav-bar__letter--active):hover {
       background-color: $color-srf-warmgrey-50;
     }
 

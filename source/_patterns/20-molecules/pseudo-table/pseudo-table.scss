@@ -172,6 +172,7 @@
 .pseudo-table__innercell--cats {
   margin-top: auto;
   @include fontSize(14);
+  color: $color-srf-red-600;
 
   @include tablet {
     flex-basis: 219px;
