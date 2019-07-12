@@ -33,7 +33,7 @@
   flex-shrink: 0;
   @include IESafeFlexBasis(33.3333333334%);
 
-  padding: #{$collection-gap / 2};
+  padding: #{$collection-gap} #{$collection-gap / 2};
 
   @include smartphone {
     @include IESafeFlexBasis(100%);
@@ -119,6 +119,7 @@
 
   @include tablet-up {
     padding: #{$collection-gap-tablet-up / 2};
+    height: 100%;
   }
 
   @include desktop-wide {
