@@ -742,10 +742,10 @@
   }
 }
 
-// Static Teasers take up as much space as they can. Beyond that, overflowing content is cut off left & right
+// Static Teasers take up as much space as they can. Beyond that, overflowing content is cut
 .teaser--static {
   width: 100%;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 .teaser--with-medium {
