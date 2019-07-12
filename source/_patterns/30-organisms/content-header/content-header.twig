@@ -2,7 +2,7 @@
     <div class="content-header__background-wrapper"></div>
     <div class="content-header__wrapper">
         <div class="content-header__slot content-header__slot--first">
-            <a href="#" class="content-header__slot-wrapper">
+            <div class="content-header__slot-wrapper">
                 <div class="h-loading-only">
                     <div class="shimmer shimmer--overline"></div>
                     <div class="shimmer shimmer--short"></div>
@@ -19,7 +19,7 @@
                     'title': 'Treffpunkt',
                     'lead': 'So sieht der Traum vom Auswandern in Wirklichkeit aus'
                 }%}
-            </a>
+            </div>
         </div>
         <div class="content-header__slot content-header__slot--second">
             <a href="#" class="content-header__slot-wrapper">
@@ -30,7 +30,7 @@
                 </div>
                 <div class="simple-teaser">
                     <div class="simple-teaser__content">
-                        <div class="simple-teaser__kicker">Gespielte Musik</div>
+                        <div class="simple-teaser__kicker">Gespielte Musik&nbsp;{% include 'atoms-svg-icon' with {'styleModifier': 'simple-teaser__kicker-icon svg-icon--small svg-icon--arrow-right-red'} %}</div>
                         {% include 'molecules-log'  with {
                             'styleModifierLog': 'log--compact',
                             'styleModifierEntry': 'log__entry--compact',
@@ -43,7 +43,7 @@
             </a>
         </div>
         <div class="content-header__slot content-header__slot--third">
-            <a href="#" class="content-header__slot-wrapper">
+            <div class="content-header__slot-wrapper">
                 <div class="h-loading-only">
                     <div class="shimmer shimmer--overline"></div>
                     <div class="shimmer shimmer--short"></div>
@@ -56,7 +56,7 @@
                 <div class="content-header__presenter-image">
                     {% include 'atoms-image' with { 'styleModifier': 'image--circle image--profile-picture-presenter' } %}
                 </div>
-            </a>
+            </div>
         </div>
         <div class="content-header__buttonbar content-header__buttonbar--primary">
             {% include 'atoms-pill-button' with {
