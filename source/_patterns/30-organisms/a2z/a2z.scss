@@ -1,10 +1,27 @@
 .a2z-search {
   display: flex;
   flex-direction: column;
+  margin-right: 8px;
+  margin-left: 8px;
+
+  @include tablet {
+    margin-right: 24px;
+    margin-left: 24px;
+  }
 
   @include tablet-up {
     flex-direction: row;
     margin-bottom: 24px;
+  }
+
+  @include desktop {
+    margin-right: 32px;
+    margin-left: 32px;
+  }
+
+  @include desktop-wide {
+    margin-right: 40px;
+    margin-left: 40px;
   }
 }
 
@@ -35,7 +52,27 @@
 }
 
 .a2z-filter-bar {
-  margin-bottom: 60px;
+  background-color: $color-srf-warmgrey-25;
+
+  @include desktop-up {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin: 0 -50vw 60px;
+  }
+}
+
+.a2z-lists {
+  margin-left: 24px;
+
+  @include tablet-up {
+    margin-left: 32px;
+  }
+
+  @include desktop-wide {
+    margin-left: 40px;
+  }
 }
 
 .a2z-lists__block--hidden {
@@ -48,11 +85,12 @@
   font-weight: 500;
   line-height: $emphasize-line-height-ratio;
   color: $color-srf-warmgrey-1100;
-  margin: 0 0 12px 0;
+  margin: 0 0 12px;
   padding: 0;
   
   @include desktop-up {
     @include fontSize(28);
     margin-bottom: 16px;
+    margin-left: 40px;
   }
 }
