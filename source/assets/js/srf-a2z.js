@@ -40,5 +40,10 @@ export function init() {
             }
 
         });
-    };
+    }
+
+    $('.js-select-menu').on('change', function (e) {
+        e.preventDefault();
+        $('.js-a2z-filter:not([data-filter*="' + $(this).val() + '"])').hide();
+    })
 }
