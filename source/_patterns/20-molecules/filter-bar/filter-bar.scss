@@ -1,6 +1,4 @@
 .filter-bar {
-  /* dev only */
-  max-width: 1200px;
   margin: 0;
   height: 72px;
 
@@ -12,6 +10,12 @@
   @include desktop-up {
     justify-content: space-around;
     align-content: stretch;
+    max-width: calc(100% - (2 * 32px));
+    margin: 0 32px;
+  }
+
+  @include desktop-wide {
+    max-width: 1200px;
     margin: 0 auto;
   }
 
@@ -64,11 +68,11 @@
     &:first-of-type {
       margin-left: 8px;
 
-      @include tablet-up {
+      @include tablet {
         margin-left: 32px;
       }
 
-      @include desktop-wide {
+      @include desktop-up {
         margin-left: 0;
       }
     }
@@ -76,11 +80,11 @@
     &:last-of-type {
       margin-right: 8px;
 
-      @include tablet-up {
+      @include tablet {
         margin-right: 32px;
       }
 
-      @include desktop-wide {
+      @include desktop-up {
         margin-right: 0;
       }
     }
