@@ -27,6 +27,12 @@ export function init() {
             } else {
                 document.querySelectorAll('.' + blockClass + '[data-block="' + blockID + '"]').forEach(function(thisNode) {
                     thisNode.classList.remove(hiddenClass);
+                    thisNode.querySelectorAll('img:not(.loaded)').forEach((imageNode) => {
+                        if (imageNode.hasAttribute('data-src')) {
+                            imageNode.classList.add('loaded');
+                            imageNode.src = imageNode.dataset.src;
+                        }
+                    })
                 });
                 document.querySelectorAll('.' + blockClass + ':not([data-block="' + blockID + '"])').forEach(function(thisNode) {
                     thisNode.classList.add(hiddenClass);
