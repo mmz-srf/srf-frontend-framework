@@ -20,16 +20,16 @@ export function init() {
             this.classList.add(letterActiveClass);
 
             // show/hide selected Block of Elements
-            if (blockID == allID) {
+            if (blockID === allID) {
                 document.querySelectorAll('.' + hiddenClass).forEach(function(thisNode) {
-                    thisNode.classList.remove(hiddenClass);
+                    thisNode.closest('.js-collection').classList.remove(hiddenClass);
                 });
             } else {
                 document.querySelectorAll('.' + blockClass + '[data-block="' + blockID + '"]').forEach(function(thisNode) {
-                    thisNode.classList.remove(hiddenClass);
+                    thisNode.closest('.js-collection').classList.remove(hiddenClass);
                 });
                 document.querySelectorAll('.' + blockClass + ':not([data-block="' + blockID + '"])').forEach(function(thisNode) {
-                    thisNode.classList.add(hiddenClass);
+                    thisNode.closest('.js-collection').classList.add(hiddenClass);
                 });
             }
 
