@@ -87,10 +87,14 @@
   color: $color-srf-warmgrey-1100;
   margin: 0 0 12px;
   padding: 0;
-  
+
   @include desktop-up {
     @include fontSize(28);
     margin-bottom: 16px;
     margin-left: 40px;
   }
+}
+
+.pseudo-table__row--hidden {
+  display: none;
 }
