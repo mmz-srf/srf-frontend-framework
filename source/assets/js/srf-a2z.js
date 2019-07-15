@@ -32,7 +32,7 @@ export function init() {
                             imageNode.classList.add('loaded');
                             imageNode.src = imageNode.dataset.src;
                         }
-                    })
+                    });
                 });
                 document.querySelectorAll('.' + blockClass + ':not([data-block="' + blockID + '"])').forEach(function(thisNode) {
                     thisNode.classList.add(hiddenClass);
@@ -53,6 +53,6 @@ export function init() {
             if($(this).find('.js-a2z-filter:visible').length === 0) {
                 $(this).addClass('a2z-lists__block--hidden');
             }
-        })
-    })
+        });
+    });
 }

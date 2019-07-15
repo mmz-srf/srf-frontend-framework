@@ -56,7 +56,8 @@
     position: relative;
     left: 50%;
     right: 50%;
-    margin: 0 -50vw;
+    margin-right: -50vw;
+    margin-left: -50vw;
   }
 
   @include desktop-wide {
