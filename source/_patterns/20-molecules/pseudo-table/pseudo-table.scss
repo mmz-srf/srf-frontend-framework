@@ -1,9 +1,5 @@
 .pseudo-table {
   margin-bottom: 32px;
-  
-  @include tablet-up {
-    margin-left: 32px;
-  }
 
   @include desktop-wide {
     margin-bottom: 60px;
