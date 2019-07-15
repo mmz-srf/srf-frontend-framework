@@ -63,10 +63,18 @@
 
     &:first-of-type {
       margin-left: 8px;
+
+      @include tablet {
+        margin-left: 24px;
+      }
     }
 
     &:last-of-type {
       margin-right: 8px;
+
+      @include tablet {
+        margin-right: 24px;
+      }
     }
   }
 }

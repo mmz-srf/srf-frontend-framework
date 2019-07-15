@@ -53,13 +53,22 @@
 
 .a2z-filter-bar {
   background-color: $color-srf-warmgrey-25;
+  margin-bottom: 32px;
+
+  @include tablet-up {
+    margin-bottom: 48px;
+  }
 
   @include desktop-up {
     width: 100vw;
     position: relative;
     left: 50%;
     right: 50%;
-    margin: 0 -50vw 60px;
+    margin: 0 -50vw;
+  }
+
+  @include desktop-wide {
+    margin-bottom: 60px;
   }
 }
 
@@ -87,10 +96,14 @@
   color: $color-srf-warmgrey-1100;
   margin: 0 0 12px;
   padding: 0;
-  
+
   @include desktop-up {
     @include fontSize(28);
     margin-bottom: 16px;
     margin-left: 40px;
   }
+}
+
+.pseudo-table__row--hidden {
+  display: none;
 }

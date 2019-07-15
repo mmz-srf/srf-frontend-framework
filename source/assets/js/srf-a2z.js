@@ -40,5 +40,19 @@ export function init() {
             }
 
         });
-    };
+    }
+
+    $('.js-select-menu').on('change', function (e) {
+        e.preventDefault();
+        $('.js-a2z-filter').removeClass('pseudo-table__row--hidden');
+        if ($(this).val() !== 'all') {
+            $('.js-a2z-filter:not([data-filter*="' + $(this).val() + '"])').addClass('pseudo-table__row--hidden');
+        }
+
+        $('.a2z-lists__block').removeClass('a2z-lists__block--hidden').each(function (e) {
+            if($(this).find('.js-a2z-filter:visible').length === 0) {
+                $(this).addClass('a2z-lists__block--hidden');
+            }
+        })
+    })
 }
