@@ -64,16 +64,24 @@
     &:first-of-type {
       margin-left: 8px;
 
-      @include tablet {
-        margin-left: 24px;
+      @include tablet-up {
+        margin-left: 32px;
+      }
+
+      @include desktop-wide {
+        margin-left: 0;
       }
     }
 
     &:last-of-type {
       margin-right: 8px;
 
-      @include tablet {
-        margin-right: 24px;
+      @include tablet-up {
+        margin-right: 32px;
+      }
+
+      @include desktop-wide {
+        margin-right: 0;
       }
     }
   }
