@@ -1,11 +1,7 @@
-.filter-bar-wrapper {
-  background-color: $color-srf-warmgrey-25;
-}
-
 .filter-bar {
   /* dev only */
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 0;
   height: 72px;
 
   display: flex;
@@ -16,6 +12,7 @@
   @include desktop-up {
     justify-content: space-around;
     align-content: stretch;
+    margin: 0 auto;
   }
 
   .filter-bar__letter {
@@ -62,6 +59,14 @@
 
     &:last-of-type .filter-bar__letter {
       margin-right: 0;
+    }
+
+    &:first-of-type {
+      margin-left: 8px;
+    }
+
+    &:last-of-type {
+      margin-right: 8px;
     }
   }
 }
