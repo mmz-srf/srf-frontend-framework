@@ -1,10 +1,8 @@
-const CONTAINER = '.js-a2z';
-const CONTAINER_LETTER_BOX = '.a2z-lists__block';
-const CONTAINER_LETTER_BOX_ENTRY = '.js-a2z-filter';
-const CONTAINER_FILTER_BAR = '.js-filter-bar';
+const CONTAINER_LETTER_BOX = '.js-a2z-letter-box';
+const CONTAINER_TEASER = '.js-a2z-teaser';
+const CONTAINER_FILTER_BAR = '.js-a2z-filter-bar';
 const CONTAINER_FILTER_BAR_LETTER = '.js-a2z-filter-bar-letter';
-
-const FILTER_SELECT = '.js-select-menu';
+const CONTAINER_FILTER_SELECT = '.js-a2z-select-menu';
 
 const CLASS_ACTIVATE_FILTER_LETTERS = 'filter-bar__letter--active';
 const CLASS_HIDE_FILTER_LETTERS = 'filter-bar__letter--inactive';
@@ -19,7 +17,7 @@ export class A2zFilter {
     }
 
     startObserver() {
-        $(FILTER_SELECT).on('change', (event) => {
+        $(CONTAINER_FILTER_SELECT).on('change', (event) => {
             event.preventDefault();
             this.resetFiltersForSelectBoxFilter();
             $(`${CONTAINER_FILTER_BAR_LETTER}[data-blockid="a2z-all"]`).addClass(CLASS_ACTIVATE_FILTER_LETTERS);
@@ -68,12 +66,12 @@ export class A2zFilter {
 
 
     filterTeasersByChannelId(filterValue) {
-        $(`${CONTAINER_LETTER_BOX_ENTRY}:not([data-filter*="${filterValue}"])`).addClass(CLASS_HIDE_TEASER);
+        $(`${CONTAINER_TEASER}:not([data-filter*="${filterValue}"])`).addClass(CLASS_HIDE_TEASER);
     }
 
     toggleLettersAndLetterBoxes() {
         $(CONTAINER_LETTER_BOX).each(function () {
-            if($(this).find(`${CONTAINER_LETTER_BOX_ENTRY}:visible`).length === 0) {
+            if($(this).find(`${CONTAINER_TEASER}:visible`).length === 0) {
                 $(this).addClass(CLASS_HIDE_TEASER);
             } else {
                 $(`${CONTAINER_FILTER_BAR} ${CONTAINER_FILTER_BAR_LETTER}[data-blockid="${$(this).data('block')}"]`).removeClass(CLASS_HIDE_FILTER_LETTERS);
@@ -97,7 +95,7 @@ export class A2zFilter {
 }
 
 export function init() {
-    if ($(CONTAINER).length) {
+    if ($(CONTAINER_FILTER_BAR).length) {
         new A2zFilter();
     }
 }
