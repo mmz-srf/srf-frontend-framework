@@ -17,6 +17,11 @@
   }
 }
 
+.a2z-search--centered {
+  align-items: center;
+  justify-content: center;
+}
+
 .a2z-search__input {
   @include smartphone {
     margin-bottom: 8px;
