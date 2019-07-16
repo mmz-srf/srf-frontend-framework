@@ -25,6 +25,7 @@ export class A2zFilter {
                 this.filterTeasersByChannelId($(event.target).val());
             }
             this.toggleLettersAndLetterBoxes();
+            this.loadImages();
         });
 
 
@@ -34,6 +35,7 @@ export class A2zFilter {
                 this.resetLetterBoxFilter();
                 $(event.target).addClass(CLASS_ACTIVATE_FILTER_LETTERS);
                 this.hideLetterBoxesExpectId($(event.target).data('blockid'));
+                this.loadImages();
             }
         });
 
@@ -41,6 +43,7 @@ export class A2zFilter {
             event.preventDefault();
             this.resetLetterBoxFilter();
             $(event.target).addClass(CLASS_ACTIVATE_FILTER_LETTERS);
+            this.loadImages();
         });
 
     }
@@ -85,12 +88,9 @@ export class A2zFilter {
     }
 
     loadImages() {
-            // thisNode.querySelectorAll('img:not(.loaded)').forEach((imageNode) => {
-            //                     if (imageNode.hasAttribute('data-src')) {
-            //                         imageNode.classList.add('loaded');
-            //                         imageNode.src = imageNode.dataset.src;
-            //                     }
-            //                 });
+        // Scroll a little bit to trigger image lazyloading for images in viewport
+        $(window).scrollTop($(window).scrollTop() + 2);
+        $(window).scrollTop($(window).scrollTop() - 2);
     }
 }
 
