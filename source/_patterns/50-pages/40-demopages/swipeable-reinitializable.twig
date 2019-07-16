@@ -83,7 +83,9 @@
             $btnRemoveTeaser = $(".js-button--less-teasers"),
             $btnRandomTeasers = $(".js-button--random-teasers"),
             afterContentUpdate = () => {
-                $collection.toggleClass("collection--search-results--empty", $collection.find(".js-swipeable-area-item").length === 0);
+                let nrOfTeasers = $collection.find(".js-swipeable-area-item").length;
+
+                $collection.toggleClass("collection--search-results--empty", nrOfTeasers === 0);
                 $collection.find(".js-swipeable-area").trigger("srf.swipeable.content-changed");
             };
 
