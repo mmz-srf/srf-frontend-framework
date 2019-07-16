@@ -1,0 +1,23 @@
+<script src="../../assets/demo/js/toc.js"></script>
+
+
+{% embed 'templates-article-plain' %}
+
+    {% block article_header %}
+        <h1 class="article-title">
+            <span class="article-title__overline">SRF Frontend Framework (FEF)</span>
+            <span class="article-title__text">Javascript Guidelines</span>
+        </h1>
+        {% include 'atoms-horizontal-separator' %}
+    {% endblock %}
+
+    {% block article_content %}
+
+        <div class="js-demo-toc"></div>
+
+        <hr class="horizontal-separator" role="presentation" aria-hidden="true">
+
+        {{ include('@docs/README.md')|markdown }}
+
+    {% endblock %}
+{% endembed %}

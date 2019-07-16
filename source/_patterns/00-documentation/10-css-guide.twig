@@ -1,12 +1,11 @@
 <script src="../../assets/demo/js/toc.js"></script>
 
-
 {% embed 'templates-article-plain' %}
 
     {% block article_header %}
         <h1 class="article-title">
-            <span class="article-title__overline">Introduction</span>
-            <span class="article-title__text">SRF Frontend Framework (FEF)</span>
+            <span class="article-title__overline">SRF Frontend Framework (FEF)</span>
+            <span class="article-title__text">CSS/Sass Development Guidelines</span>
         </h1>
         {% include 'atoms-horizontal-separator' %}
     {% endblock %}
@@ -17,106 +16,31 @@
 
         <hr class="horizontal-separator" role="presentation" aria-hidden="true">
 
-        <p><strong>Please note:</strong> This page uses patterns of the SRF Frontend Framework but is no reference for its usage in general (there are also some specific styles only for this page in use).</p>
+        {{ include('@docs/styles.md')|markdown }}
 
-        <h2>General information</h2>
+    {% endblock %}
+{% endembed %}
 
-        <h3>Code structure</h3>
-        <p>All our FEF source code resides in the <em>source</em> folder. Some which contains (among others) the following important locations:</p>
-        <ul>
-            <li><em>/source/_patterns</em>: this is where all the patterns are located</li>
-            <li><em>/source/assets</em>: location of images, fonts, js, critical css etc.</li>
-            <li><em>/source/assets/critical</em>: critical css files for the preload state of landingpages and articles</li>
-            <li><em>/source/assets/js</em>: location of all javascript files</li>
-        </ul>
 
-        <h3>Patterns</h3>
-        <p>Patterns consist of one or more of the following files (all located in the same folder)</p>
 
-        <ul>
-            <li>myelement.twig: the html structure of the pattern. this file must be present and its name defines the name of the pattern.</li>
-            <li>myelement.scss (usually needed): all styles of the pattern</li>
-            <li>myelement.md (optional): a documentation of the pattern</li>
-            <li>myelement.json (optional): specific/overriding data for this pattern</li>
-            <li>myelement~example1.json (optional): data for a variant of the pattern</li>
-            <li>demo-myelement.twig (optional): a demo page which presents the pattern, its variants, applications etc.</li>
-        </ul>
+{#% embed 'templates-article-plain' %}
 
-        <h3>Styles</h3>
+    {% block article_header %}
+        <h1 class="article-title">
+            <span class="article-title__overline">SRF Frontend Framework (FEF)</span>
+            <span class="article-title__text">CSS/Sass Development Guidelines</span>
+        </h1>
+        {% include 'atoms-horizontal-separator' %}
+    {% endblock %}
 
-        <p>
-            Styles have to be included in the <em>source/_patterns/main.scss</em> : <br>
-            <code>@import "10-atoms/charts/charts";</code>
-        </p>
+    {% block article_content %}
 
-        <p>See <a href="#style_guidelines">CSS/Sass Development Guideline</a> for further informations.</p>
+        <div class="js-demo-toc"></div>
 
-        <h3>Javascript</h3>
+        <hr class="horizontal-separator" role="presentation" aria-hidden="true">
 
-        <p>
-            Javascript for your pattern has to be in the folder <em>source/assets/js</em>. Use a <code>srf-</code> prefix and include the file in the <em>main.js</em> (only for usage in FEF).
-        </p>
 
-        <p><strong>Important:</strong> Do not write JS code in FEF which is only usable in a SRF context. FEF components should always be independent and reusable.</p>
-
-        <h3>What to include in the FEF?</h3>
-        <p>Frontend elements, which</p>
-        <ul>
-            <li>are generally reusable</li>
-            <li>are expected to be reused (follow the YAGNI principle)</li>
-            <li>don’t have a complex logic</li>
-        </ul>
-
-        <p>Examples:</p>
-
-        <ul>
-            <li>Buttons</li>
-            <li>Textbox</li>
-            <li>Image carousel</li>
-            <li>...</li>
-        </ul>
-
-        <h3>What <strong>not</strong> to include in the FEF?</h3>
-
-        <p>Frontend elements, which are</p>
-
-        <ul>
-            <li>not general reusable</li>
-            <li>application specific</li>
-            <li>not content-agnostic</li>
-        </ul>
-
-        <p>Examples:</p>
-
-        <ul>
-            <li>Polis-Map</li>
-            <li>External Charts (i.e. AMCharts)</li>
-            <li>Carto-Maps</li>
-            <li>SRF Embed Element</li>
-            <li>...</li>
-        </ul>
-
-        <h3>Atomic design</h3>
-
-        <img src="http://atomicdesign.bradfrost.com/images/content/atomic-design-process.png" />
-
-        <p>FEF is based on the principles of atomic design by Brad Frost.</p>
-
-        <div class="linkbox">
-            <ul class="linkbox__list">
-                <li>
-                    <a href="http://atomicdesign.bradfrost.com/chapter-2/" class="block-link block-link--external" target="_blank">
-                        Atomic Design by Brad Frost
-                    </a>
-                </li>
-            </ul>
-        </div>
-
-        <h2><a id="style_guidelines"></a>CSS/Sass Development Guidelines</h2>
-
-        <p>This guidelines describe the development within the SRF Frontend Framework, not it's use.</p>
-
-        <h3 class="demo-documentation__content-subtitle">General considerations</h3>
+        <h2 class="demo-documentation__content-subtitle">General considerations</h2>
         <ul class="text-list text-list--unordered">
             <li>The main idea behind our <a href="#BEM">BEM blocks</a> is that they could be used independently and anywhere. A vision is that - when we are ready to use http/2 - each block will have a separate generated CSS file so that just the styles for blocks used on a web page need to be included. Therefore: Avoid global styles and code a block in a way that all its styling is in one Sass file.</li>
             <li>Maintainability should be the primary goal when writing CSS/Sass-Code for the framework even if it results in more code.</li>
@@ -125,7 +49,7 @@
                 Therefore only use margins not padding for top and bottom spaces. Sometimes it is necessary to add a wrapper <code>&lt;div&gt;</code> to make margins work as desired.</li>
         </ul>
 
-        <h3 class="demo-documentation__content-subtitle">Formatting</h3>
+        <h2 class="demo-documentation__content-subtitle">Formatting</h2>
         <ul class="text-list text-list--unordered">
             <li>Use soft tabs (2 spaces) for indentation</li>
             <li>Do not use ID selectors</li>
@@ -167,7 +91,7 @@
     </code></pre>
         </div>
 
-        <h3 class="demo-documentation__content-subtitle">Nesting selectors</h3>
+        <h2 class="demo-documentation__content-subtitle">Nesting selectors</h2>
         <p>Avoid the nesting of selectors in order to reduce <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity">specificity</a>; whenever possible, use class selectors.</p>
         <p>But in any case: <strong>Do not nest selectors more than three levels deep!</strong></p>
         <div class="textbox textbox--article-indentation">
@@ -211,7 +135,7 @@
     </code></pre>
         </div>
 
-        <h3 class="demo-documentation__content-subtitle">Ordering of property declarations</h3>
+        <h2 class="demo-documentation__content-subtitle">Ordering of property declarations</h2>
         <ol>
             <li>
                 <p>Property declarations</p>
@@ -256,7 +180,7 @@
             </li>
         </ol>
 
-        <h3 class="demo-documentation__content-subtitle">Comments</h3>
+        <h2 class="demo-documentation__content-subtitle">Comments</h2>
         <ul class="text-list text-list--unordered">
             <li>Prefer line comments (<code>//</code> in Sass-Files) to block comments.</li>
             <li>Write detailed comments for code that isn’t self-documenting, i.e.:
@@ -267,7 +191,7 @@
             </li>
         </ul>
 
-        <h3 class="demo-documentation__content-subtitle">Class naming</h3>
+        <h2 class="demo-documentation__content-subtitle">Class naming</h2>
 
         <ul class="text-list text-list--unordered">
             <li>In general, use BEM for naming classes where sensible. The block names should correspond to the pattern name in patternlab.</li>
@@ -364,7 +288,7 @@
             </ul>
         </div>
 
-        <h3 class="demo-documentation__content-subtitle"><a id="utility_classes"></a>Utility/helper classes</h3>
+        <h2 class="demo-documentation__content-subtitle"><a id="utility_classes"></a>Utility/helper classes</h2>
         <blockquote class="blockquote ">
             <div class="blockquote__quote">
                 <span class="blockquote__text">A utility class applies a single rule or a very simple, universal pattern. Think .float-right, .align-center, or .font-small for single rules; .list-unstyled, .clearfix, and .visually-hidden for patterns. (Sometimes they’re called “helpers,” as in Bootstrap.)</span>
@@ -390,17 +314,17 @@
             </ul>
         </div>
 
-        <h3 class="demo-documentation__content-subtitle"><a id="js_hooks"></a>JavaScript hooks</h3>
+        <h2 class="demo-documentation__content-subtitle"><a id="js_hooks"></a>JavaScript hooks</h2>
         <p>Avoid binding to the same class in both your CSS and JavaScript. Conflating the two often leads to, at a minimum, time wasted during refactoring when a developer must cross-reference each class they are changing, and at its worst, developers being afraid to make changes for fear of breaking functionality.</p>
         <p>Therefore, please create JavaScript-specific classes to bind to, prefixed with <code>js-</code> and preferably followed by the block name if sensible.</p>
         <div class="textbox textbox--article-indentation">
             <pre ><code>&lt;button class=&quot;js-sharing-bar-comment-counter sharing-bar__button sharing-bar__button--comment&quot;&gt;123&lt;/button&gt;</code></pre>
         </div>
 
-        <h3 class="demo-documentation__content-subtitle">ID selectors</h3>
+        <h2 class="demo-documentation__content-subtitle">ID selectors</h2>
         <p>While it is possible to select elements by ID in CSS, it should generally be considered an anti-pattern. ID selectors introduce an unnecessarily high level of <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity">specificity</a> to your rule declarations, and they are not reusable.</p>
 
-        <h3 class="demo-documentation__content-subtitle">!important declarations</h3>
+        <h2 class="demo-documentation__content-subtitle">!important declarations</h2>
         <p>This statement says it all:</p>
         <blockquote class="blockquote">
             <div class="blockquote__quote">
@@ -415,20 +339,20 @@
         </blockquote>
         <p>If you really must use an <code>!important</code> statement, please comment the reasons for its use in the code.</p>
 
-        <h3 class="demo-documentation__content-subtitle">Sass-Variables</h3>
+        <h2 class="demo-documentation__content-subtitle">Sass-Variables</h2>
         <p>Prefer dash-cased variable names (e.g. <code>$my-variable</code>) over camelCased or snake_cased variable names. It is acceptable to prefix variable names that are intended to be used only within the same file with an underscore (e.g. <code>$_my-variable</code>).</p>
 
-        <h3 class="demo-documentation__content-subtitle">Colors in FEF</h3>
+        <h2 class="demo-documentation__content-subtitle">Colors in FEF</h2>
         <p>Switch to Global/Colors to learn more about the topic «Colors on SRF.ch» by opening the Pattern Infos (Gear-/Settings-Icon in the top right corner).</p>
 
 
-        <h3 class="demo-documentation__content-subtitle">Mixins</h3>
+        <h2 class="demo-documentation__content-subtitle">Mixins</h2>
         <p>Mixins should be used to DRY up your code, add clarity, or abstract complexity–in much the same way as well-named functions. Mixins that accept no arguments can be useful for this, but note that if you are not compressing your payload (e.g. gzip), this may contribute to unnecessary code duplication in the resulting styles.</p>
 
-        <h3 class="demo-documentation__content-subtitle">Extend directive</h3>
+        <h2 class="demo-documentation__content-subtitle">Extend directive</h2>
         <p><code>@extend</code> must be avoided because it has unintuitive and potentially dangerous behavior, especially when used with nested selectors. Even extending top-level placeholder selectors can cause problems if the order of selectors ends up changing later (e.g. if they are in other files and the order the files are loaded shifts). Gzipping should handle most of the savings you would have gained by using <code>@extend</code>, and you can DRY up your stylesheets nicely with <strong>mixins</strong>.</p>
 
-        <h3 class="demo-documentation__content-subtitle">Credits</h3>
+        <h2 class="demo-documentation__content-subtitle">Credits</h2>
         <p>This style guide is based on the <a href="https://github.com/airbnb/css" target="_blank">Airbnb CSS / Sass Styleguide</a> with adaptations for the SRF Frontend Framework.</p>
 
 
@@ -436,4 +360,4 @@
 
     {% endblock %}
 
-{% endembed %}
+{% endembed %#}
