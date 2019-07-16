@@ -148,9 +148,7 @@
     margin-top: -48px;
     background-size: 28px;
   }
-  @include desktop-up {
-    top: 267px;
-  }
+
   &:hover {
     background-color: $color-srf-neutral-blacka48;
   }
