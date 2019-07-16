@@ -1,58 +1,102 @@
-export function init() {
+const CONTAINER_LETTER_BOX = '.js-a2z-letter-box';
+const CONTAINER_TEASER = '.js-a2z-teaser';
+const CONTAINER_FILTER_BAR = '.js-a2z-filter-bar';
+const CONTAINER_FILTER_BAR_LETTER = '.js-a2z-filter-bar-letter';
+const CONTAINER_FILTER_SELECT = '.js-a2z-select-menu';
 
-    let triggers = document.querySelectorAll('.js-filter-bar-trigger');
-    for (let i = 0; i < triggers.length; i++) {
-        let currentTrigger = triggers[i];
-        currentTrigger.addEventListener('click', function(e) {
-            e.preventDefault();
+const CLASS_ACTIVATE_FILTER_LETTERS = 'filter-bar__letter--active';
+const CLASS_HIDE_FILTER_LETTERS = 'filter-bar__letter--inactive';
+const CLASS_HIDE_LETTER_BOX = 'a2z-lists__block--hidden';
+const CLASS_HIDE_TEASER = 'pseudo-table__row--hidden';
 
-            const blockID = this.getAttribute('data-blockid'),
-                allID = 'a2z-all',
-                letterClass = 'filter-bar__letter',
-                letterActiveClass = 'filter-bar__letter--active',
-                blockClass = 'a2z-lists__block',
-                hiddenClass = 'a2z-lists__block--hidden';
 
-            // styles clicked filter-bar-Element as active
-            document.querySelectorAll('.' + letterClass).forEach(function(thisNode) {
-                thisNode.classList.remove(letterActiveClass);
-            });
-            this.classList.add(letterActiveClass);
+export class A2zFilter {
 
-            // show/hide selected Block of Elements
-            if (blockID === allID) {
-                document.querySelectorAll('.' + hiddenClass).forEach(function(thisNode) {
-                    thisNode.classList.remove(hiddenClass);
-                });
-            } else {
-                document.querySelectorAll('.' + blockClass + '[data-block="' + blockID + '"]').forEach(function(thisNode) {
-                    thisNode.classList.remove(hiddenClass);
-                    thisNode.querySelectorAll('img:not(.loaded)').forEach((imageNode) => {
-                        if (imageNode.hasAttribute('data-src')) {
-                            imageNode.classList.add('loaded');
-                            imageNode.src = imageNode.dataset.src;
-                        }
-                    });
-                });
-                document.querySelectorAll('.' + blockClass + ':not([data-block="' + blockID + '"])').forEach(function(thisNode) {
-                    thisNode.classList.add(hiddenClass);
-                });
+    constructor() {
+        this.startObserver();
+    }
+
+    startObserver() {
+        $(CONTAINER_FILTER_SELECT).on('change', (event) => {
+            event.preventDefault();
+            this.resetFiltersForSelectBoxFilter();
+            $(`${CONTAINER_FILTER_BAR_LETTER}[data-blockid="a2z-all"]`).addClass(CLASS_ACTIVATE_FILTER_LETTERS);
+            if ($(event.target).val() !== 'all') {
+                this.filterTeasersByChannelId($(event.target).val());
             }
+            this.toggleLettersAndLetterBoxes();
+            this.loadImages();
+        });
 
+
+        $(`${CONTAINER_FILTER_BAR_LETTER}:not([data-blockid="a2z-all"])`).on('click', (event) => {
+            event.preventDefault();
+            if (!$(event.target).hasClass(CLASS_HIDE_FILTER_LETTERS)) {
+                this.resetLetterBoxFilter();
+                $(event.target).addClass(CLASS_ACTIVATE_FILTER_LETTERS);
+                this.hideLetterBoxesExpectId($(event.target).data('blockid'));
+                this.loadImages();
+            }
+        });
+
+        $(`${CONTAINER_FILTER_BAR_LETTER}[data-blockid="a2z-all"]`).on('click', (event) => {
+            event.preventDefault();
+            this.resetLetterBoxFilter();
+            $(event.target).addClass(CLASS_ACTIVATE_FILTER_LETTERS);
+            this.loadImages();
+        });
+
+    }
+
+    resetFiltersForSelectBoxFilter() {
+        this.resetLetterBoxFilter();
+        this.resetLetterFilter();
+        this.resetTeaserFilter();
+    }
+
+    resetLetterFilter() {
+        $(`${CONTAINER_FILTER_BAR} ${CONTAINER_FILTER_BAR_LETTER}`).addClass(CLASS_HIDE_FILTER_LETTERS);
+    }
+
+    resetLetterBoxFilter() {
+        $(`.${CLASS_HIDE_LETTER_BOX}`).removeClass(CLASS_HIDE_LETTER_BOX);
+        $(`.${CLASS_ACTIVATE_FILTER_LETTERS}`).removeClass(CLASS_ACTIVATE_FILTER_LETTERS);
+    }
+
+    resetTeaserFilter() {
+        $(`.${CLASS_HIDE_TEASER}`).removeClass(CLASS_HIDE_TEASER);
+    }
+
+
+    filterTeasersByChannelId(filterValue) {
+        $(`${CONTAINER_TEASER}:not([data-filter*="${filterValue}"])`).addClass(CLASS_HIDE_TEASER);
+    }
+
+    toggleLettersAndLetterBoxes() {
+        $(CONTAINER_LETTER_BOX).each(function () {
+            if($(this).find(`${CONTAINER_TEASER}:visible`).length === 0) {
+                $(this).addClass(CLASS_HIDE_TEASER);
+            } else {
+                $(`${CONTAINER_FILTER_BAR} ${CONTAINER_FILTER_BAR_LETTER}[data-blockid="${$(this).data('block')}"]`).removeClass(CLASS_HIDE_FILTER_LETTERS);
+                $(`${CONTAINER_FILTER_BAR} ${CONTAINER_FILTER_BAR_LETTER}[data-blockid="a2z-all"]`).removeClass(CLASS_HIDE_FILTER_LETTERS);
+            }
         });
     }
 
-    $('.js-select-menu').on('change', function (e) {
-        e.preventDefault();
-        $('.js-a2z-filter').removeClass('pseudo-table__row--hidden');
-        if ($(this).val() !== 'all') {
-            $('.js-a2z-filter:not([data-filter*="' + $(this).val() + '"])').addClass('pseudo-table__row--hidden');
-        }
+    hideLetterBoxesExpectId(targetId) {
+        $(`${CONTAINER_LETTER_BOX}:not([data-block="${targetId}"])`).addClass(CLASS_HIDE_LETTER_BOX);
+    }
 
-        $('.a2z-lists__block').removeClass('a2z-lists__block--hidden').each(function (e) {
-            if($(this).find('.js-a2z-filter:visible').length === 0) {
-                $(this).addClass('a2z-lists__block--hidden');
-            }
-        });
-    });
+    loadImages() {
+        // Scroll a little bit to trigger image lazyloading for images in viewport
+        $(window).scrollTop($(window).scrollTop() + 2);
+        $(window).scrollTop($(window).scrollTop() - 2);
+    }
 }
+
+export function init() {
+    if ($(CONTAINER_FILTER_BAR).length) {
+        new A2zFilter();
+    }
+}
+
