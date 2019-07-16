@@ -1,4 +1,63 @@
+const CONTAINER = '.js-a2z';
+const CONTAINER_LETTER_BOX = '.a2z-lists__block';
+const CONTAINER_LETTER_BOX_ENTRY = '.js-a2z-filter';
+const CONTAINER_FILTER_BAR = '.js-filter-bar';
+const CONTAINER_FILTER_BAR_LETTER = '.js-a2z-filter-bar-letter';
+const FILTER_SELECT = '.js-select-menu';
+const CLASS_HIDE = 'a2z--hidden';
+const CLASS_HIDE_FILTER_LETTERS = 'filter-bar__letter--inactive';
+
+export class A2zFilter {
+
+    constructor($container) {
+        this.$container = $container;
+        this.startObserver();
+    }
+
+    startObserver() {
+        this.$container.on('change', FILTER_SELECT, (event) => {
+            event.preventDefault();
+
+            this.resetFilters();
+            if ($(event.target).val() !== 'all') {
+                this.filterTeasersByChannelId($(event.target).val());
+            }
+            this.toggleLettersAndLetterBoxes();
+        });
+    }
+
+    resetFilters() {
+        $(`.${CLASS_HIDE}`).removeClass(CLASS_HIDE);
+        $(`${CONTAINER_FILTER_BAR} ${CONTAINER_FILTER_BAR_LETTER}`).addClass(CLASS_HIDE_FILTER_LETTERS);
+    }
+
+    filterTeasersByChannelId(filterValue) {
+        $(`${CONTAINER_LETTER_BOX_ENTRY}:not([data-filter*="${filterValue}"])`).addClass(CLASS_HIDE);
+    }
+
+    toggleLettersAndLetterBoxes() {
+        $(CONTAINER_LETTER_BOX).each(function () {
+            if($(this).find(`${CONTAINER_LETTER_BOX_ENTRY}:visible`).length === 0) {
+                $(this).addClass(CLASS_HIDE);
+            } else {
+                $(`${CONTAINER_FILTER_BAR} ${CONTAINER_FILTER_BAR_LETTER}[data-blockid="${$(this).data('block')}"]`).removeClass(CLASS_HIDE_FILTER_LETTERS);
+                $(`${CONTAINER_FILTER_BAR} ${CONTAINER_FILTER_BAR_LETTER}[data-blockid="a2z-all"]`).removeClass(CLASS_HIDE_FILTER_LETTERS);
+            }
+        });
+    }
+
+    loadImages() {
+
+    }
+}
+
 export function init() {
+
+    let $container = $(CONTAINER);
+    if ($container.length) {
+        let a2zFilter = new A2zFilter($container);
+    }
+
 
     let triggers = document.querySelectorAll('.js-filter-bar-trigger');
     for (let i = 0; i < triggers.length; i++) {
@@ -41,18 +100,5 @@ export function init() {
 
         });
     }
-
-    $('.js-select-menu').on('change', function (e) {
-        e.preventDefault();
-        $('.js-a2z-filter').removeClass('pseudo-table__row--hidden');
-        if ($(this).val() !== 'all') {
-            $('.js-a2z-filter:not([data-filter*="' + $(this).val() + '"])').addClass('pseudo-table__row--hidden');
-        }
-
-        $('.a2z-lists__block').removeClass('a2z-lists__block--hidden').each(function (e) {
-            if($(this).find('.js-a2z-filter:visible').length === 0) {
-                $(this).addClass('a2z-lists__block--hidden');
-            }
-        });
-    });
 }
+
