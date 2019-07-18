@@ -37,18 +37,23 @@
       padding: 0;
     }
 
-    &:not(span):focus,
-    &:not(span):not(.filter-bar__letter--active):hover {
+    &:focus,
+    &:hover {
       background-color: $color-srf-warmgrey-50;
     }
 
-    &:not(span):active {
+    &:active {
       background-color: $color-srf-warmgrey-100;
     }
   }
 
   .filter-bar__letter--active {
     background-color: $color-srf-warmgrey-100;
+    
+    &:focus,
+    &:hover {
+      background-color: $color-srf-warmgrey-100;
+    }
   }
 
   .filter-bar__letter--inactive {
