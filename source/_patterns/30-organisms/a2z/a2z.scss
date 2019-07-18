@@ -48,6 +48,7 @@
 }
 
 .a2z-filter-bar {
+  display: block;
   background-color: $color-srf-warmgrey-25;
   margin-bottom: 32px;
 
@@ -70,6 +71,7 @@
 }
 
 .a2z-lists {
+  display: block;
   margin-left: 24px;
 
   @include tablet-up {
