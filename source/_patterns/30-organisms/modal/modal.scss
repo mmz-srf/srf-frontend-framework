@@ -101,6 +101,12 @@ $modal-z-index: 100;
   .modal__overlay {
     display: none;
   }
+
+  .modal-main-wrapper {
+    &::after {
+      display: none;
+    }
+  }
 }
 
 .modal--attachment-bottom {

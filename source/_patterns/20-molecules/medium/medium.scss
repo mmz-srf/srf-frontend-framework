@@ -61,6 +61,7 @@
 }
 
 .medium__player-wrapper {
+  position: relative;
   flex: 0 0 100%;
   background-color: $color-srf-neutral-black;
 }
@@ -76,10 +77,6 @@
     @include smartphone {
       margin: 0;
     }
-  }
-
-  .medium__notice-text {
-    padding: 8px $article-offset;
   }
 
   &.medium--video-gallery {
@@ -122,6 +119,10 @@
     transition: opacity .2s ease-in-out;
     height: auto;
     padding-top: 0;
+  }
+
+  .medium__notice-text {
+    padding: 8px $article-offset;
   }
 }
 
