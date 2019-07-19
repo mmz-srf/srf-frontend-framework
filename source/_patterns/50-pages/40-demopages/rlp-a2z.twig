@@ -1,0 +1,125 @@
+{% embed 'templates-landingpage' %}
+    {% block landingpage_content %}
+        {% include 'atoms-button' with {'styleModifier': 'js-modal', 'buttonText': 'Modal, wenig Inhalt', 'additionalAttributes': 'data-modal-id="modal-a2z"'} %}
+        {% include 'atoms-button' with {'styleModifier': 'js-modal', 'buttonText': 'Modal, mittelgrosser Inhalt', 'additionalAttributes': 'data-modal-id="modal-a2z-medium"'} %}
+        {% include 'atoms-button' with {'styleModifier': 'js-modal', 'buttonText': 'Modal, viel Inhalt', 'additionalAttributes': 'data-modal-id="modal-a2z-large"'} %}
+        {% include 'atoms-button' with {'styleModifier': 'js-modal', 'buttonText': 'Modal, mittelgrosser Inhalt, mit Overlay', 'additionalAttributes': 'data-modal-id="modal-a2z-medium-overlay"'} %}
+
+
+        {# MODAL SMALL #}
+        {% embed "modal.twig" with {
+            'id': 'modal-a2z',
+            'animation': '',
+            'styleModifier': 'modal--no-overlay modal--attachment-bottom',
+            'styleModifierModalWrapper': ''
+        } %}
+            {% block content %}
+
+                <div class="modal__head modal-wrapper">
+                    <a href="#" class="js-close-modal">
+                        {% include 'atoms-icon-button' with {
+                            'iconStyleModifier': 'svg-icon--close-dark',
+                            'screenReaderText': 'Schliessen',
+                            'styleModifier': 'js-close-modal'
+                        } %}
+                    </a>
+                </div>
+
+                <div class="modal__body modal-wrapper">
+                    <h2 class="content-heading ">Dies ist ein Beispiel mit wenig Inhalt</h2>
+                    {% include 'molecules-expandable-box' with {'styleModifier': ''} %}
+                </div>
+            {% endblock %}
+        {% endembed %}
+
+
+        {# MODAL MEDIUM #}
+        {% embed "modal.twig" with {
+            'id': 'modal-a2z-medium',
+            'animation': '',
+            'styleModifier': 'modal--no-overlay modal--attachment-bottom',
+            'styleModifierModalWrapper': ''
+        } %}
+            {% block content %}
+
+                <div class="modal__head modal-wrapper">
+                    <a href="#" class="js-close-modal">
+                        {% include 'atoms-icon-button' with {
+                            'iconStyleModifier': 'svg-icon--close-dark',
+                            'screenReaderText': 'Schliessen',
+                            'styleModifier': 'js-close-modal'
+                        } %}
+                    </a>
+                </div>
+
+                <div class="modal__body modal-wrapper">
+                    <h2 class="content-heading ">Dies ist ein Beispiel mit mittelgrossem Inhalt</h2>
+                    <p>Man kann trotz offenem Modal die Seite dahinter auch noch scrollen.</p>
+                    <p>Wenn das Modal bis fast zum Header kommt und der Header z.B. "sticky" wird, kann das verwirrend wirken.</p>
+                    {% include 'molecules-expandable-box' with {'styleModifier': ''} %}
+                    {% include 'molecules-medium' %}
+                </div>
+            {% endblock %}
+        {% endembed %}
+
+
+        {# MODAL LARGE #}
+        {% embed "modal.twig" with {
+            'id': 'modal-a2z-large',
+            'animation': '',
+            'styleModifier': 'modal--no-overlay modal--attachment-bottom',
+            'styleModifierModalWrapper': ''
+        } %}
+            {% block content %}
+
+                <div class="modal__head modal-wrapper">
+                    <a href="#" class="js-close-modal">
+                        {% include 'atoms-icon-button' with {
+                            'iconStyleModifier': 'svg-icon--close-dark',
+                            'screenReaderText': 'Schliessen',
+                            'styleModifier': 'js-close-modal'
+                        } %}
+                    </a>
+                </div>
+
+                <div class="modal__body modal-wrapper">
+                    <h2 class="content-heading ">Dies ist ein Beispiel mit viel Inhalt</h2>
+                    {% include 'molecules-expandable-box' with {'styleModifier': ''} %}
+                    {% include 'molecules-highlight-nav' with {'styleModifier': '', 'id': 'highlight-nav'} %}
+                    {% include 'molecules-globalnav' with {'styleModifier': '', 'id': 'globalnav--menu'} %}
+                </div>
+            {% endblock %}
+        {% endembed %}
+
+        {# MODAL MEDIUM WITH OVERLAY #}
+        {% embed "modal.twig" with {
+            'id': 'modal-a2z-medium-overlay',
+            'animation': '',
+            'styleModifier': 'modal--attachment-bottom',
+            'styleModifierModalWrapper': ''
+        } %}
+            {% block content %}
+
+                <div class="modal__head modal-wrapper">
+                    <a href="#" class="js-close-modal">
+                        {% include 'atoms-icon-button' with {
+                            'iconStyleModifier': 'svg-icon--close-dark',
+                            'screenReaderText': 'Schliessen',
+                            'styleModifier': 'js-close-modal'
+                        } %}
+                    </a>
+                </div>
+
+                <div class="modal__body modal-wrapper">
+                    <h2 class="content-heading ">Dies ist ein Beispiel mit mittelgrossem Inhalt</h2>
+                    <p>Man kann trotz offenem Modal die Seite dahinter auch noch scrollen.</p>
+                    <p>Wenn das Modal bis fast zum Header kommt und der Header z.B. "sticky" wird, kann das verwirrend wirken.</p>
+                    {% include 'molecules-expandable-box' with {'styleModifier': ''} %}
+                    {% include 'molecules-medium' %}
+                </div>
+            {% endblock %}
+        {% endembed %}
+
+
+    {% endblock %}
+{% endembed %}

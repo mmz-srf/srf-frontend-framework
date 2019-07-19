@@ -1,4 +1,4 @@
-<button class="button {{ className|default("") }} {{ styleModifier|default("") }}">
+<button class="button {{ className|default("") }} {{ styleModifier|default("") }}" {{ additionalAttributes|default("") }}>
   <span class="h-offscreen">{{ screenReaderText|default("Screenreader-Text für Schaltfläche") }}</span>
   <div class="button-wrapper">
     <span class="button-icon"></span>
