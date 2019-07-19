@@ -113,6 +113,7 @@ $modal-z-index: 100;
   .modal-main-wrapper {
     top: auto;
     bottom: 0;
+    overflow-y: auto;
   }
 
   .modal__body {
