@@ -113,10 +113,10 @@ $modal-z-index: 100;
   .modal-main-wrapper {
     top: auto;
     bottom: 0;
-    max-height: 50vh;
+  }
 
-    @include smartphone {
-      max-height: 66vh;
-    }
+  .modal__body {
+    max-height: calc(100vh - 56px);
+    overflow-y: scroll;
   }
 }
