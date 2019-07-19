@@ -1,4 +1,6 @@
-### JavaScript - Coding Standards
+# JavaScript
+
+### Coding Standards
 
 - Semicolons at the end of the line
 - 4 spaces (no tabs)

@@ -1,3 +1,5 @@
+# FEF - CSS/Sass Development Guidelines
+
 ## General considerations
 
 *   The main idea behind our [BEM blocks](#BEM) is that they could be used independently and anywhere. A vision is that - when we are ready to use http/2 - each block will have a separate generated CSS file so that just the styles for blocks used on a web page need to be included. Therefore: Avoid global styles and code a block in a way that all its styling is in one Sass file.
