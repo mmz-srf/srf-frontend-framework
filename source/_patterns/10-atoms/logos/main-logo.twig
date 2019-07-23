@@ -1,6 +1,6 @@
 <a href="/" class="main-logo {{ styleModifier|default("") }}">
     <span class="h-offscreen">Zur Startseite von Schweizer Radio und Fernsehen</span>
-    <svg aria-hidden="true" aria-disabled="true">
+    <svg aria-hidden="true" aria-disabled="true" focusable="false"> {# ie11 sets focus to the svg. tabindex is not yet supportet > focusable="false" as a workaround #}
       <use xlink:href="#srf-logo" />
     </svg>
 </a>

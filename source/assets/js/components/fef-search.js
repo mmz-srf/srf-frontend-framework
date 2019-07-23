@@ -241,9 +241,16 @@ export class SrfSearch {
 
     hideResults() {
         this.$inputField.attr('aria-expanded', false);
-        this.$searchResults.hide().html('').removeClass('search__results--showed-results');
         this.suggestionUrl = '';
         this.$element.find('.search-result__alert').empty();
+
+        /**
+         *  This fixes a different behavior in ie 11, which causes not being able to leave the input field.
+         */
+        setTimeout(() => {
+            this.$searchResults.hide().html('').removeClass ('search__results--showed-results');
+        }, 0);
+
     }
 
     clearInput() {
