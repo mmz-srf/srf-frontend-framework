@@ -4,6 +4,7 @@ const CONTAINER_FILTER_BAR = '.js-a2z-filter-bar';
 const CONTAINER_FILTER_BAR_LETTER = '.js-a2z-filter-bar-letter';
 const CONTAINER_FILTER_SELECT = '.js-a2z-select-menu';
 const CONTAINER_INPUT_SEARCH = '.js-a2z-search-input';
+const CONTAINER_INPUT_SEARCH_CLOSE = '.js-search-close';
 
 const CLASS_ACTIVATE_FILTER_LETTERS = 'filter-bar__letter--active';
 const CLASS_HIDE_FILTER_LETTERS = 'filter-bar__letter--inactive';
@@ -33,6 +34,15 @@ export class A2zFilter {
             this.toggleLettersAndLetterBoxes();
             this.loadImages();
         });
+
+        $(CONTAINER_INPUT_SEARCH_CLOSE).on('click', () => {
+            this.resetLetterBoxFilter();
+            this.resetLetterFilter();
+            this.resetKeymatchFilter();
+            this.toggleLettersAndLetterBoxes();
+            this.loadImages();
+        });
+
 
         $(CONTAINER_FILTER_SELECT).on('change', (event) => {
             event.preventDefault();
@@ -83,10 +93,6 @@ export class A2zFilter {
 
     resetTeaserFilter() {
         $(`.${CLASS_HIDE_TEASER}`).removeClass(CLASS_HIDE_TEASER);
-    }
-
-    resetSearchInput() {
-        $(CONTAINER_INPUT_SEARCH).val('');
     }
 
     resetKeymatchFilter() {
