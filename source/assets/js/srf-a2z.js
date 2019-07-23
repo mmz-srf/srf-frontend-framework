@@ -3,6 +3,7 @@ const CONTAINER_TEASER = '.js-a2z-teaser';
 const CONTAINER_FILTER_BAR = '.js-a2z-filter-bar';
 const CONTAINER_FILTER_BAR_LETTER = '.js-a2z-filter-bar-letter';
 const CONTAINER_FILTER_SELECT = '.js-a2z-select-menu';
+const CONTAINER_SEARCH = '.js-a2z-search';
 const CONTAINER_INPUT_SEARCH = '.js-a2z-search-input';
 const CONTAINER_INPUT_SEARCH_CLOSE = '.js-search-close';
 
@@ -20,6 +21,13 @@ export class A2zFilter {
     }
 
     startObserver() {
+
+        $(CONTAINER_SEARCH).on('keydown', (e) => {
+            let key = e.charCode || e.keyCode || 0;
+            if (key == 13) {
+                e.preventDefault();
+            }
+        });
 
         $(CONTAINER_INPUT_SEARCH).on('input', (event) => {
             event.preventDefault();
