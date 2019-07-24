@@ -1,5 +1,4 @@
 /** INIT loading components **/
-import {init as FefA2ZInit} from './srf-a2z';
 import {init as FefCarouselsInit} from './srf-carousels';
 import {init as FefChartsInit} from './srf-charts';
 import {init as FefCHMapInit} from './srf-chmap';
@@ -31,7 +30,6 @@ import './components/fef-ripple';
 import './utils/fef-easings';
 
 document.addEventListener('DOMContentLoaded', function(event) {
-    FefA2ZInit();
     FefCarouselsInit();
     FefChartsInit();
     FefCHMapInit();
