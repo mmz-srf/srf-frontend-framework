@@ -6,7 +6,6 @@ const ANIMATION_FADE_IN_OUT = 'fade-in-out';
 const ANIMATION_SCALE_FROM_ORIGIN = 'scale-from-origin';
 const ANIMATION_FLYOUT = 'as-flyout-from-origin';
 const ANIMATION_SPEED = 200;
-const HIDE_ANIMATION_SPEED = 400;
 
 if (window.matchMedia('(prefers-reduced-motion)').matches) {
     ANIMATION_SPEED = 0;
@@ -157,7 +156,7 @@ export class FefModal {
                 this.$element.fadeOut(ANIMATION_SPEED, () => this.setFocus(this.$caller)).hide();
                 break;
             default:
-                this.$element.hide(HIDE_ANIMATION_SPEED, '', () => this.setFocus(this.$caller));
+                this.$element.hide(ANIMATION_SPEED, '', () => this.setFocus(this.$caller));
                 this.setA11YProperties(false);
                 break;
         }
