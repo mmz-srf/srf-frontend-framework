@@ -5,8 +5,8 @@ import { FefBouncePrevention } from './fef-bounce-prevention';
 const ANIMATION_FADE_IN_OUT = 'fade-in-out';
 const ANIMATION_SCALE_FROM_ORIGIN = 'scale-from-origin';
 const ANIMATION_FLYOUT = 'as-flyout-from-origin';
-let ANIMATION_SPEED = 200;
-let HIDE_ANIMATION_SPEED = 400;
+const ANIMATION_SPEED = 200;
+const HIDE_ANIMATION_SPEED = 400;
 
 if (window.matchMedia('(prefers-reduced-motion)').matches) {
     ANIMATION_SPEED = 0;
@@ -150,7 +150,7 @@ export class FefModal {
 
         switch (this.animation) {
             case ANIMATION_FADE_IN_OUT:
-                this.$element.stop(true, true).fadeOut(ANIMATION_SPEEDD, () => this.setFocus(this.$caller));
+                this.$element.stop(true, true).fadeOut(ANIMATION_SPEED, () => this.setFocus(this.$caller));
                 this.setA11YProperties(false);
                 break;
             case ANIMATION_FLYOUT:
