@@ -102,6 +102,20 @@
   }
 }
 
+.a2z-lists__error {
+  font-family: $font-light;
+  @include fontSize(18);
+  text-align: center;
+}
+
+.a2z-lists__error--bold {
+  font-family: $font-medium;
+}
+
+.a2z-lists__error--hidden {
+  display: none;
+}
+
 .pseudo-table__row--hidden {
   display: none;
 }
