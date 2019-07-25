@@ -16,9 +16,34 @@ const HOOK_CLASS = 'js-swipeable-area',
     DESKTOP_WIDTH = 1024;
 
 export function init(interactionMeasureString = '') {
+
+    let startTime = 0,
+        endTime = 0;
+
+    startTime = performance.now() || new Date().getTime(); // with fallback
+
     $(`.${HOOK_CLASS}`).each((_, element) => {
         new FefSwipeableArea($(element), interactionMeasureString);
     });
+
+    endTime = performance.now() || new Date().getTime();
+
+    let result = endTime - startTime,
+        allEntries = [];
+
+    if (localStorage.getItem('srf.swipeable.performance')) {
+        allEntries = JSON.parse(localStorage.getItem('srf.swipeable.performance'));
+    }
+
+    allEntries.push(result);
+    localStorage.setItem('srf.swipeable.performance', JSON.stringify(allEntries));
+
+    // eslint-disable-next-line no-console
+    console.log(`All Swipeables initialized in ${result}ms`);
+    // eslint-disable-next-line no-console
+    console.table(allEntries);
+    // eslint-disable-next-line no-console
+    console.log(`Average: ${allEntries.reduce((accumulator, entry) => accumulator + entry, 0) / allEntries.length}ms`);
 }
 
 /**
