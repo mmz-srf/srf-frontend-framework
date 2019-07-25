@@ -552,6 +552,7 @@ $background-overlap-wide: 50px;
   }
 }
 
+
 // Compact Swipeable has (next to only having S teasers on all BPs) one difference to the
 // Standard Swipeable collection: On Tablet, only 2 teasers are visible instead of 3.
 .collection--compact-swipeable {
@@ -633,6 +634,45 @@ $background-overlap-wide: 50px;
     }
   }
 }
+
+
+
+// Square Compact Swipeable
+//
+.collection--square-compact-swipeable {
+  .collection__teaser-list {
+    flex-wrap: nowrap;
+    flex-direction: row;
+    margin: 0;
+  }
+
+  .collection__teaser-item {
+    min-width: calc((100% - 40px - 16px) / 2.00001);
+    padding-right: 8px;
+    margin: 0;
+
+    @include tablet-up {
+      min-width: calc((100% - 48px - 56px) / 6.00001);
+      padding-right: 12px;
+      max-width: none;
+    }
+
+    &:first-child {
+      margin-left: 8px;
+
+      @include tablet-up {
+        margin-left: 32px;
+      }
+
+      @include desktop-wide {
+        margin-left: 40px;
+      }
+    }
+  }
+}
+
+
+
 
 // Hero: 1st teaser XL + fills whole row, rest M which fills 1/3 of a row.
 .collection--hero {

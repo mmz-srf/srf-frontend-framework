@@ -31,6 +31,22 @@
   &.teaser--no-translate {
     box-shadow: none;
   }
+
+  &.teaser--no-card {
+    background-color: transparent;
+    box-shadow: none;
+
+    &:hover,
+    &:focus {
+      box-shadow: none;
+      background-color: $color-srf-warmgrey-300a12;
+    }
+
+    &:active {
+      box-shadow: none;
+      background-color: $color-srf-warmgrey-300a24;
+    }
+  }
 }
 
 .teaser__main {
@@ -802,6 +818,27 @@
   }
 }
 
+
+// switches position of medium and content of a teaser
+// normally only used together with modifier `teaser--size-s`
+.teaser--with-medium-reverse {
+  .teaser__medium-wrapper {
+    order: 1;
+  }
+
+  &.teaser--size-s {
+    --media-time-indicator-display: none;
+
+    .teaser__medium-wrapper {
+      margin: 16px 0 16px 16px;
+
+      @include desktop-wide {
+        margin: 24px 0 24px 24px;
+      }
+    }
+  }
+}
+
 .teaser--longform {
   background-color: $color-srf-warmgrey-100;
   display: flex;
@@ -1014,8 +1051,21 @@
   }
 }
 
-.teaser--centered {
+.teaser--square {
+  box-shadow: none;
 
+  .teaser__medium-wrapper {
+    margin: 0;
+    flex-basis: auto;
+  }
+
+  // teaser content is just used for A11Y (alternative link text)
+  .teaser__content {
+    @include offscreen-non-focusable;
+  }
+}
+
+.teaser--centered {
   .teaser__content {
     justify-content: center;
   }
