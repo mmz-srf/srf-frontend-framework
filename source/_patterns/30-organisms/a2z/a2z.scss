@@ -103,11 +103,16 @@
 }
 
 .a2z-error {
+  margin: 32px 0;
+}
+
+.a2z-error__heading {
   @include fontSize(20);
   line-height: $default-line-height-ratio;
-  color: $color-srf-warmgrey-1100;
-  margin: 32px 0 24px;
   font-family: $font-regular;
+  color: $color-srf-warmgrey-1100;
+  margin: 0;
+  padding: 0;
 
   @include tablet-up {
     @include fontSize(24);
@@ -125,6 +130,11 @@
 
 .a2z-error__term {
   font-family: $font-bold;
+
+  &::before,
+  &::after {
+    content: "'";
+  }
 }
 
 // TODO: move following lines to pseudo-table-styles
