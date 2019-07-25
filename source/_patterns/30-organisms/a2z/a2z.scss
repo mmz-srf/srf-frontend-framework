@@ -104,6 +104,7 @@
 
 .a2z-error {
   margin: 32px 0;
+  min-height: 256px;
 }
 
 .a2z-error__heading {
@@ -130,6 +131,7 @@
 
 .a2z-error__term {
   font-family: $font-bold;
+  display: block;
 
   &::before,
   &::after {
