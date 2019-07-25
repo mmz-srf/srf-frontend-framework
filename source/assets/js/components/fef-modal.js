@@ -5,11 +5,7 @@ import { FefBouncePrevention } from './fef-bounce-prevention';
 const ANIMATION_FADE_IN_OUT = 'fade-in-out';
 const ANIMATION_SCALE_FROM_ORIGIN = 'scale-from-origin';
 const ANIMATION_FLYOUT = 'as-flyout-from-origin';
-let animationSpeed = 200;
-
-if (window.matchMedia('(prefers-reduced-motion)').matches) {
-    animationSpeed = 0;
-}
+const ANIMATION_SPEED = (window.matchMedia('(prefers-reduced-motion)').matches) ? 0 : 200;
 const KEYCODES = {
     'enter': 13,
     'tab': 9,
@@ -119,7 +115,7 @@ export class FefModal {
                 this.asFlyoutFromOrigin(() => this.onShowFinished());
                 break;
             case ANIMATION_FADE_IN_OUT:
-                this.$element.stop(true, true).fadeIn(animationSpeed, () => this.onShowFinished());
+                this.$element.stop(true, true).fadeIn(ANIMATION_SPEED, () => this.onShowFinished());
                 break;
             default:
                 this.$element.show(() => this.onShowFinished());
@@ -149,14 +145,14 @@ export class FefModal {
 
         switch (this.animation) {
             case ANIMATION_FADE_IN_OUT:
-                this.$element.stop(true, true).fadeOut(animationSpeed, () => this.setFocus(this.$caller));
+                this.$element.stop(true, true).fadeOut(ANIMATION_SPEED, () => this.setFocus(this.$caller));
                 this.setA11YProperties(false);
                 break;
             case ANIMATION_FLYOUT:
-                this.$element.fadeOut(animationSpeed, () => this.setFocus(this.$caller)).hide();
+                this.$element.fadeOut(ANIMATION_SPEED, () => this.setFocus(this.$caller)).hide();
                 break;
             default:
-                this.$element.hide(animationSpeed, '', () => this.setFocus(this.$caller));
+                this.$element.hide(ANIMATION_SPEED, '', () => this.setFocus(this.$caller));
                 this.setA11YProperties(false);
                 break;
         }
@@ -200,7 +196,7 @@ export class FefModal {
             'max-height': originalHeight,
             'top': 0,
             'opacity': 1
-        }, animationSpeed, 'easeInOutSine', () => {
+        }, ANIMATION_SPEED, 'easeInOutSine', () => {
             // remove the scrollbars
             this.$mainWrapper.css({
                 'max-height': '100%',
@@ -209,7 +205,7 @@ export class FefModal {
             });
             this.$mainContent.animate({
                 'opacity': 1
-            }, animationSpeed, callBack);
+            }, ANIMATION_SPEED, callBack);
         });
     }
 
@@ -252,7 +248,7 @@ export class FefModal {
 
         this.$element.animate({
             'opacity': 1
-        }, animationSpeed, 'easeInOutSine', callBack);
+        }, ANIMATION_SPEED, 'easeInOutSine', callBack);
     }
 
     /**
