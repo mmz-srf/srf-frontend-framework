@@ -102,19 +102,32 @@
   }
 }
 
-.a2z-lists__error {
-  font-family: $font-light;
-  @include fontSize(18);
-  text-align: center;
+.a2z-error {
+  @include fontSize(20);
+  line-height: $default-line-height-ratio;
+  color: $color-srf-warmgrey-1100;
+  margin: 32px 0 24px;
+  font-family: $font-regular;
+
+  @include tablet-up {
+    @include fontSize(24);
+    line-height: $emphasize-line-height-ratio;
+  }
+
+  @include desktop-up {
+    @include fontSize(28);
+  }
 }
 
-.a2z-lists__error--bold {
-  font-family: $font-medium;
-}
-
-.a2z-lists__error--hidden {
+.a2z-error--hidden {
   display: none;
 }
+
+.a2z-error__term {
+  font-family: $font-bold;
+}
+
+// TODO: move following lines to pseudo-table-styles
 
 .pseudo-table__row--hidden {
   display: none;
