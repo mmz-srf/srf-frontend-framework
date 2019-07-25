@@ -41,6 +41,14 @@
 
 }
 
+.pseudo-table__row--hidden {
+  display: none;
+}
+
+.pseudo-table__row-keymatch--hidden {
+  display: none;
+}
+
 .pseudo-table__cell {
   flex: 0 0 auto;
 }
