@@ -13,6 +13,7 @@ const HOOK_CLASS = 'js-swipeable-area',
     DEFAULT_SCROLL_TIME = 400,
     DEBOUNCETIME = 75,
     DEBOUNCETIME_SCROLL_TRACKING = 1000,
+    HINT_AMOUNT = 20,
     DESKTOP_WIDTH = 1024;
 
 export function init(interactionMeasureString = '') {
@@ -62,6 +63,9 @@ export class FefSwipeableArea {
 
         this.isTouchSupported = FefTouchDetection.isTouchSupported();
         this.isMobile = this.checkIfIsMobile();
+
+        this.useHinting = !!this.$element.data('swipeable-hinting');
+        this.$hintingContainer = this.$innerContainer.children().first();
         
         this.visibleClass = null;
         this.hiddenClass = null;
@@ -213,12 +217,21 @@ export class FefSwipeableArea {
     registerDesktopListeners() {
         // prevent double binding by unbinding the events first in some edge cases
         this.unregisterDesktopListeners();
+
         this.$items.on('click.srf.swipeable-area-desktop', (event) => this.onTeaserClick(event));
         this.$innerContainer.on('scroll.srf.swipeable-area-desktop', FefDebounceHelper.throttle(() => this.scrollHandlerDesktop(), DEBOUNCETIME));
+
+        if (this.useHinting) {
+            // When hovering over a partially shown item, the container content
+            // will be "hinted at", i.e. moved into view a bit more.
+            this.$items
+                .on('mouseenter.srf.swipeable-area-desktop', (event) => this.onTeaserHover(event))
+                .on('mouseleave.srf.swipeable-area-desktop', (_) => this.applyHint(0));
+        }
     }
 
     unregisterDesktopListeners() {
-        this.$items.off('click.srf.swipeable-area-desktop');
+        this.$items.off('click.srf.swipeable-area-desktop mouseenter.srf.swipeable-area-desktop mouseleave.srf.swipeable-area-desktop');
         this.$innerContainer.off('scroll.srf.swipeable-area-desktop');
     }
 
@@ -233,6 +246,23 @@ export class FefSwipeableArea {
             this.$buttonForward = $(`<div class='${FORWARD_BUTTON_CLASS}'><span></span></div>`);
 
             this.$element.append(this.$buttonBack, this.$buttonForward);
+        }
+    }
+
+    /**
+     * Hovering over an item can trigger the hinting mechanism, if it's
+     * partially visible.
+     *
+     * @param {jQery.event} event
+     */
+    onTeaserHover(event) {
+        let itemIndex = $(event.currentTarget).attr('index');
+
+        // Hint left or right, depending on where the item is
+        if (this.isOutOfBoundsRight(itemIndex)) {
+            this.applyHint(-HINT_AMOUNT);
+        } else if (this.isOutOfBoundsLeft(itemIndex)) {
+            this.applyHint(HINT_AMOUNT);
         }
     }
 
@@ -398,6 +428,10 @@ export class FefSwipeableArea {
         // subtract the current scroll position from the "cached" offset to get the current one
         const currentOffset = this.itemPositions[itemIndex].right - this.$innerContainer.scrollLeft();
         return currentOffset > this.innerContainerDimensions.right;
+    }
+
+    applyHint(pixels) {
+        this.$hintingContainer.css('transform', `translateX(${pixels}px)`);
     }
 
     track() {
