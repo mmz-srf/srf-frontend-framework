@@ -5,7 +5,6 @@ import {FefTouchDetection} from '../classes/fef-touch-detection';
 const HOOK_CLASS = 'js-swipeable-area',
     INNER_CONTAINER_CLASS = 'js-swipeable-area-wrapper',
     ITEM_CLASS = 'js-swipeable-area-item',
-    DEFAULT_PARTIALLY_VISIBLE_ITEM_CLASS = 'swipeable-area__item--hidden',
     BACK_BUTTON_CLASS = 'swipeable-area__button swipeable-area__button--back',
     FORWARD_BUTTON_CLASS = 'swipeable-area__button swipeable-area__button--forward',
     BUTTON_ACTIVE_CLASS = 'swipeable-area__button--active',
@@ -14,7 +13,7 @@ const HOOK_CLASS = 'js-swipeable-area',
     DEFAULT_SCROLL_TIME = 400,
     DEBOUNCETIME = 75,
     DEBOUNCETIME_SCROLL_TRACKING = 1000,
-    HINT_AMOUNT = 20;
+    DESKTOP_WIDTH = 1024;
 
 export function init(interactionMeasureString = '') {
     $(`.${HOOK_CLASS}`).each((_, element) => {
@@ -31,58 +30,124 @@ export class FefSwipeableArea {
         this.$element = $element;
         this.$innerContainer = $(`.${INNER_CONTAINER_CLASS}`, this.$element);
         this.$items = [];
-        this.itemPositions = [];
+        this.itemPositions = []; // save the items' positions so we don't have to collect them on every event we need them. Will be updated on resize and when the items change
+        this.innerContainerDimensions = {};
         this.$buttonBack = null;
         this.$buttonForward = null;
-        this.interactionMeasureString = interactionMeasureString;
 
+        this.isTouchSupported = FefTouchDetection.isTouchSupported();
+        this.isMobile = this.checkIfIsMobile();
+        
         this.visibleClass = null;
         this.hiddenClass = null;
-
+        
+        // tracking stuff
+        this.interactionMeasureString = interactionMeasureString;
         this.oldScrollLeft = this.$innerContainer.scrollLeft();
         this.isPageBackClick = false;
         this.isPageForwardClick = false;
 
-        this.initOnce();
-        this.init();
+        // let's go!
+        this.initialSetup();
     }
 
-    initOnce() {
-        this.initItemCheck();
-        this.registerGeneralListeners();
+    /**
+     * Determine if this is a mobile breakpoint; "mobile" meaning a screenwidth
+     * less than 1024px and without touch support.
+     * 
+     * @returns {boolean}
+     */
+    checkIfIsMobile() {
+        return $(window).width() < DESKTOP_WIDTH && !this.isTouchSupported;
     }
 
-    init() {
+    /**
+     * What needs to happen the first time the component is initialized:
+     * - gather all items
+     * - save their positions and indices
+     * - register the general listeners ()
+     */
+    initialSetup() {
         this.$items = $(`.${ITEM_CLASS}`, this.$innerContainer);
+        this.setItemIndices();
+        this.updatePositions();
+        this.registerGeneralListeners();
 
-        // scroll back to the beginning (matters when swipeable was reinitialized)
-        this.scrollToPosition(0, 0);
-
-        if (FefResponsiveHelper.isDesktopUp() && !FefTouchDetection.isTouchSupported()) {
-            this.registerDesktopListeners();
-            this.markItems();
-            this.addButtons();
-            this.updateButtonStatus();
-            this.initItemPositions();
-            this.setupHinting();
-        } else {
-            this.deregisterDesktopListeners();
-            this.disableHinting();
+        if (!this.isMobile) {
+            this.setUpDesktop();
         }
     }
 
-    initItemCheck() {
-        const markVisibleClass = this.$element.data('mark-visible-items');
-        const markHiddenClass = this.$element.data('mark-hidden-items');
-
-        this.visibleClass = markVisibleClass ? markVisibleClass : '';
-        this.hiddenClass = markHiddenClass ? markHiddenClass : DEFAULT_PARTIALLY_VISIBLE_ITEM_CLASS;
+    /**
+     * When the styles are loaded, the JS might or might have not been loaded.
+     */
+    onStylesLoaded() {
+        this.reinit();
     }
 
-    initItemPositions() {
+    /**
+     * When content was added or removed, the items changed. This means that
+     * the positions and indices of them are invalid and must be calculated
+     * again.
+     * We also scroll back to the beginning.
+     */
+    reinit() {
+        this.$items = $(`.${ITEM_CLASS}`, this.$innerContainer);
+        this.setItemIndices();
+        this.updatePositions();
+
+        this.scrollToPosition(0, 0);
+    }
+
+    /**
+     * On resize, the items most likely also got resized --> we need to save
+     * their widths & positions again.
+     * If there was a change in breakpoint, quite some things change (e.g. the
+     * buttons for paging appear on desktop+)
+     */
+    onResize() {
+        let willBeMobile = this.checkIfIsMobile();
+
+        // always have to update positions
+        this.updatePositions();
+
+        // no further actions required if breakpoint stays the same
+        if (this.isMobile === willBeMobile) {
+            return;
+        }
+
+        this.isMobile = willBeMobile;
+
+        if (willBeMobile) {
+            // changing to mobile: unregister desktop-specific listeners
+            this.unregisterDesktopListeners();
+        } else {
+            // changing to desktop
+            this.setUpDesktop();
+        }
+    }
+
+    setUpDesktop() {
+        this.addButtons();
+        this.updateButtonStatus();
+        this.registerDesktopListeners();
+    }
+
+    setItemIndices() {
+        this.$items.each( (index, element) => {
+            $(element).attr('index', index);
+        });
+    }
+
+    /**
+     * To improve performance, the items' positions are saved in the beginning.
+     * Later we need to check them often and can just read the values instead
+     * of querying the DOM all the time.
+     */
+    updatePositions() {
         this.itemPositions = [];
 
-        this.$items.each( (index, element) => {
+        this.$items.each( (_, element) => {
             const left = $(element).position().left;
             // take width of first child because element itself may have margin/padding which should not be counted
             const width = $(element).children().first().innerWidth();
@@ -93,33 +158,46 @@ export class FefSwipeableArea {
                 right: left + width
             });
         });
+
+        // do the same for the inner container:
+        const left = this.$innerContainer.offset().left;
+        const width = this.$innerContainer.outerWidth();
+
+        this.innerContainerDimensions = {
+            left: left,
+            center: left + (width / 2),
+            innerWidth: this.$innerContainer.innerWidth(),
+            right: left + width
+        };
     }
 
+    /**
+     * Only needs to happen once at the beginning, since these events are not
+     * connected to any specific elements or breakpoints.
+     */
     registerGeneralListeners() {
-        $(window).on('resize', FefDebounceHelper.debounce(() => this.init(), DEBOUNCETIME));
-        $(window).on('srf.styles.loaded', () => this.init());
-        this.$element.on('srf.swipeableArea.reinitialize', () => this.init());
+        $(window).on('resize', FefDebounceHelper.debounce(() => this.onResize(), DEBOUNCETIME));
+        $(window).on('srf.styles.loaded', () => this.onStylesLoaded());
+
+        // Content can be added and removed dynamically from the swipeable
+        this.$element.on('srf.swipeableArea.reinitialize srf.swipeable.content-changed', () => this.reinit());
+        
         this.$innerContainer.on('scroll', FefDebounceHelper.throttle(() => this.track(), DEBOUNCETIME_SCROLL_TRACKING));
-        this.$element.on('srf.swipeable.content-changed', () => this.init());
     };
 
     registerDesktopListeners() {
-        this.$items
-            .off('click.srf.swipeable-area-desktop')
-            .on('click.srf.swipeable-area-desktop', (event) => this.onTeaserClick(event));
-
-        this.$innerContainer
-            .off('scroll.srf.swipeable-area-desktop')
-            .on('scroll.srf.swipeable-area-desktop', FefDebounceHelper.throttle(() => this.scrollHandlerDesktop(), DEBOUNCETIME));
+        // prevent double binding by unbinding the events first in some edge cases
+        this.unregisterDesktopListeners();
+        this.$items.on('click.srf.swipeable-area-desktop', (event) => this.onTeaserClick(event));
+        this.$innerContainer.on('scroll.srf.swipeable-area-desktop', FefDebounceHelper.throttle(() => this.scrollHandlerDesktop(), DEBOUNCETIME));
     }
 
-    deregisterDesktopListeners() {
+    unregisterDesktopListeners() {
         this.$items.off('click.srf.swipeable-area-desktop');
         this.$innerContainer.off('scroll.srf.swipeable-area-desktop');
     }
 
     scrollHandlerDesktop() {
-        this.markItems();
         this.updateButtonStatus();
     }
 
@@ -134,48 +212,6 @@ export class FefSwipeableArea {
     }
 
     /**
-     * When hovering over a partially shown item, the container content
-     * will be "hinted at", i.e. moved into view a bit more.
-     */
-    setupHinting() {
-        // hinting = showing a little bit of the remaining elements on hovering over the buttons.
-        const useHinting = !!this.$element.data('swipeable-hinting');
-
-        if (!useHinting) {
-            return;
-        }
-
-        this.$items
-            .off('mouseenter.srf.swipeable-area-desktop')
-            .on('mouseenter.srf.swipeable-area-desktop', (event) => this.onTeaserHover(event))
-            .off('mouseleave.srf.swipeable-area-desktop')
-            .on('mouseleave.srf.swipeable-area-desktop', (_) => this.applyHint(0));
-    }
-
-    disableHinting() {
-        this.$items.off('mouseenter.srf.swipeable-area-desktop');
-        this.$items.off('mouseleave.srf.swipeable-area-desktop');
-    }
-
-    /**
-     * Hovering over an item can trigger the hinting mechanism, if it's
-     * partially visible.
-     *
-     *
-     * @param {jQery.event} event
-     */
-    onTeaserHover(event) {
-        let $item = $(event.currentTarget);
-
-        if (!$item.hasClass(this.hiddenClass)) {
-            return;
-        }
-
-        // Hint left or right, depending on where the item is
-        this.applyHint(this.isOutOfBoundsLeft($item) ? HINT_AMOUNT : -HINT_AMOUNT);
-    }
-
-    /**
      * Clicking an item can trigger pagination if it's partially visible.
      * Instead of handing down the analytics methods or module to call upon
      * pagination, we trigger a click on the buttons which have the correct
@@ -184,9 +220,10 @@ export class FefSwipeableArea {
      * @param {jQuery.event} event
      */
     onTeaserClick(event) {
-        let $item = $(event.currentTarget);
+        let itemIndex = Number.parseInt($(event.currentTarget).attr('index'));
 
-        if (!$item.hasClass(this.hiddenClass)) {
+        // let the normal link do its work if the teaser is completely visible
+        if (this.isItemCompletelyInView(itemIndex)) {
             return;
         }
 
@@ -195,7 +232,7 @@ export class FefSwipeableArea {
             $(':focus').blur();
         }
 
-        if (this.isOutOfBoundsLeft($item)) {
+        if (this.isOutOfBoundsLeft(itemIndex)) {
             this.pageBack();
         } else {
             this.pageForward();
@@ -216,22 +253,39 @@ export class FefSwipeableArea {
      * If the buttons shouldn't be visible at all, they're hidden here.
      */
     updateButtonStatus() {
-        // show forward/back buttons if needed
         if (this.hasScrollableOverflow()) {
-            this.$buttonForward.toggleClass(BUTTON_ACTIVE_CLASS, !this.isAtScrollEnd());
-            this.$buttonBack.toggleClass(BUTTON_ACTIVE_CLASS, !this.isAtScrollBeginning());
+            // performance improvement: prevent second forced reflow by first accessing layout and then setting classes
+            let isAtEnd = this.isAtScrollEnd();
+            let isAtBegin = this.isAtScrollBeginning();
+
+            this.$buttonForward.toggleClass(BUTTON_ACTIVE_CLASS, !isAtEnd);
+            this.$buttonBack.toggleClass(BUTTON_ACTIVE_CLASS, !isAtBegin);
         } else {
             this.$buttonForward.removeClass(BUTTON_ACTIVE_CLASS);
             this.$buttonBack.removeClass(BUTTON_ACTIVE_CLASS);
         }
     }
 
+    updateButtonStatusForFuturePosition(position) {
+        if (position <= 0) {
+            if (this.$buttonBack) {
+                this.$buttonBack.removeClass(BUTTON_ACTIVE_CLASS);
+            }
+        }
+
+        if (position + this.innerContainerDimensions.innerWidth >= this.$innerContainer[0].scrollWidth) {
+            if (this.$buttonForward) {
+                this.$buttonForward.removeClass(BUTTON_ACTIVE_CLASS);
+            }
+        }
+    }
+
     hasScrollableOverflow() {
-        return this.$innerContainer[0].scrollWidth > this.$innerContainer.innerWidth() + RIGHT_OFFSET;
+        return this.$innerContainer[0].scrollWidth > this.innerContainerDimensions.innerWidth + RIGHT_OFFSET;
     }
 
     isAtScrollEnd() {
-        return this.$innerContainer.scrollLeft() + this.$innerContainer.innerWidth() >= this.$innerContainer[0].scrollWidth;
+        return this.$innerContainer.scrollLeft() + this.innerContainerDimensions.innerWidth >= this.$innerContainer[0].scrollWidth;
     }
 
     isAtScrollBeginning() {
@@ -246,12 +300,12 @@ export class FefSwipeableArea {
      * we just take the last (the right-most) and use this.
      */
     pageForward() {
-        let visibleAreaRightEdge = this.$innerContainer.scrollLeft() + this.$innerContainer.innerWidth(),
+        let visibleAreaRightEdge = this.$innerContainer.scrollLeft() + this.innerContainerDimensions.innerWidth,
             nextItemIndex = this.itemPositions.findIndex(pos => pos.right > visibleAreaRightEdge);
 
         nextItemIndex = Math.min(nextItemIndex + 1, this.itemPositions.length - 1);
 
-        let newPosition = this.itemPositions[nextItemIndex].center - (this.$innerContainer.innerWidth() / 2);
+        let newPosition = this.itemPositions[nextItemIndex].center - this.innerContainerDimensions.center;
 
         this.isPageForwardClick = true;
         this.scrollToPosition(newPosition);
@@ -270,7 +324,7 @@ export class FefSwipeableArea {
 
         nextItemIndex = Math.max(nextItemIndex - 1, 0);
 
-        let newPosition = this.itemPositions[nextItemIndex].center - (this.$innerContainer.innerWidth() / 2);
+        let newPosition = this.itemPositions[nextItemIndex].center - this.innerContainerDimensions.center;
 
         this.isPageBackClick = true;
         this.scrollToPosition(newPosition);
@@ -278,7 +332,6 @@ export class FefSwipeableArea {
 
     /**
      * Scrolls to a specified position in a specified (or default) time.
-     * Also resets the hinting, if applicable, by removing the translation.
      *
      * @param {Number} position Where to scroll to
      * @param {Number} [time] How long it should take, optional
@@ -286,72 +339,40 @@ export class FefSwipeableArea {
     scrollToPosition(position, time) {
         time = typeof time === 'undefined' ? DEFAULT_SCROLL_TIME : time;
 
-        this.checkFuturePosition(position);
-
-        this.$innerContainer
-            .stop(true, false)
-            .animate( { scrollLeft: position }, time, 'easeInOutSine');
-    }
-
-    checkFuturePosition(position) {
-        // If the scroll position *will* be so that it's not possible to
-        // scroll to one direction anymore, remove the hinting. We could
-        // do this in the callback of animate, but if it happens
-        // when starting the animation, it's less janky.
-        let willBeOutOfBoundsOnAnySide = false;
-
-        if (position <= 0) {
-            willBeOutOfBoundsOnAnySide = true;
-
-            if (this.$buttonBack) {
-                this.$buttonBack.removeClass(BUTTON_ACTIVE_CLASS);
-            }
+        // update the buttons for the target position if not on mobile
+        if (!this.isMobile) {
+            this.updateButtonStatusForFuturePosition(position);
         }
 
-        if (position + this.$innerContainer.innerWidth() >= this.$innerContainer[0].scrollWidth) {
-            willBeOutOfBoundsOnAnySide = true;
-
-            if (this.$buttonForward) {
-                this.$buttonForward.removeClass(BUTTON_ACTIVE_CLASS);
-            }
-        }
-
-        if (willBeOutOfBoundsOnAnySide) {
-            this.applyHint(0);
+        // performance improvement: if scroll should happen immediately, don't use $.animate
+        if (time === 0) {
+            this.$innerContainer[0].scrollLeft = position;
+        } else {
+            this.$innerContainer
+                .stop(true, false)
+                .animate( { scrollLeft: position }, time, 'easeInOutSine');
         }
     }
 
-    markItems() {
-        this.$items.each( (_, element) => {
-            let $element = $(element),
-                isInView = this.isItemCompletelyInView($element);
-
-            $element
-                .toggleClass(this.visibleClass, isInView)
-                .toggleClass(this.hiddenClass, !isInView);
-        });
-
-        // move the flying focus to the new position after scrolling
-        $(document).trigger('flyingfocus:move');
+    /**
+     * An item is completely in view if the left and right edge are inside of the scroll container.
+     *
+     * @param {Number} itemIndex Index of the item in the list of items
+     */
+    isItemCompletelyInView(itemIndex) {
+        return !this.isOutOfBoundsLeft(itemIndex) && !this.isOutOfBoundsRight(itemIndex);
     }
 
-    isItemCompletelyInView($itemElem) {
-        return !this.isOutOfBoundsLeft($itemElem) && !this.isOutOfBoundsRight($itemElem);
+    isOutOfBoundsLeft(itemIndex) {
+        // subtract the current scroll position from the "cached" offset to get the current one
+        const currentOffset = this.itemPositions[itemIndex].left - this.$innerContainer.scrollLeft();
+        return currentOffset < this.innerContainerDimensions.left;
     }
 
-    isOutOfBoundsLeft($itemElem) {
-        return $itemElem.offset().left < this.$innerContainer.offset().left;
-    }
-
-    isOutOfBoundsRight($itemElem) {
-        let rightEdgeItem =  Math.floor($itemElem.offset().left + $itemElem.outerWidth())-1,
-            rightEdgeContainer = this.$innerContainer.offset().left + this.$innerContainer.outerWidth();
-
-        return rightEdgeItem > rightEdgeContainer;
-    }
-
-    applyHint(pixels) {
-        this.$innerContainer.children().first().css('transform', `translateX(${pixels}px)`);
+    isOutOfBoundsRight(itemIndex) {
+        // subtract the current scroll position from the "cached" offset to get the current one
+        const currentOffset = this.itemPositions[itemIndex].right - this.$innerContainer.scrollLeft();
+        return currentOffset > this.innerContainerDimensions.right;
     }
 
     track() {
