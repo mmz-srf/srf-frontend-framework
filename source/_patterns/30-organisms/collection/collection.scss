@@ -637,9 +637,10 @@ $background-overlap-wide: 50px;
 
 
 
-// Square Compact Swipeable
-//
-.collection--square-compact-swipeable {
+// Dense Swipeable
+// displays up to 6 teasers (smartphone: 2) in one row at once. becomes swipeable for more teasers.
+// usually used for square teasers.
+.collection--dense-swipeable {
   .collection__teaser-list {
     flex-wrap: nowrap;
     flex-direction: row;
@@ -647,14 +648,19 @@ $background-overlap-wide: 50px;
   }
 
   .collection__teaser-item {
-    min-width: calc((100% - 40px - 16px) / 2.00001);
+    box-sizing: content-box; // paddings must not be included in ratio 1:1 calculation!
+    min-width: calc((100% - 40px - 16px - (2 * 8px)) / 2.00001);
     padding-right: 8px;
     margin: 0;
 
     @include tablet-up {
-      min-width: calc((100% - 48px - 56px) / 6.00001);
+      min-width: calc((100% - 40px - 56px - (6 * 16px)) / 6.00001);
       padding-right: 12px;
       max-width: none;
+    }
+
+    @include desktop-wide {
+      padding-right: 16px;
     }
 
     &:first-child {
@@ -667,6 +673,30 @@ $background-overlap-wide: 50px;
       @include desktop-wide {
         margin-left: 40px;
       }
+    }
+
+    &:last-child {
+      padding-right: 0;
+    }
+  }
+
+  // 1-6 teasers: not swipeable on tablet-up. teasers should use the same grid as 3 compact teasers.
+  .collection__teaser-item:nth-last-child(6):first-child,
+  .collection__teaser-item:nth-last-child(6):first-child ~ .collection__teaser-item {
+    @include tablet-up {
+      width: calc((100% - 40px ) / 6.0001);
+      padding-right: 24px;
+      min-width: 0;
+
+      &::after {
+        content: none;
+      }
+    }
+
+    // slightly different gaps/gutter on desktop-wide+
+    @include desktop-wide {
+      width: calc((100% - 48px ) / 6.0001);
+      padding-right: 32px;
     }
   }
 }
