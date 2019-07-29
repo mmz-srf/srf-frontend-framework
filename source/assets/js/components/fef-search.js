@@ -176,7 +176,7 @@ export class SrfSearch {
             }
         });
 
-        if (this.showTypeahed && this.typeaheadData === null ) {
+        if (this.showTypeahed && this.typeaheadData === null) {
             $.getJSON(this.typeaheadUrl, (data) => {
                 this.typeaheadData = data;
 
