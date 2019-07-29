@@ -39,7 +39,7 @@ export class SrfSearch {
         this.typeaheadData = null;
         this.suggestionUrl = '';
         this.currTimeout = null;
-        this.showTypeahed = typeof this.$element.data('show-typeahed')==="undefined" ? true : this.$element.data('show-typeahed');
+        this.showTypeahed = typeof this.$element.data('show-typeahed') === "undefined" ? true : this.$element.data('show-typeahed');
 
         // search field is hidden before document.ready (events firing before document.ready can get lost)
         this.$inputField.addClass('search__input--loaded');
