@@ -8,8 +8,6 @@ const HOOK_CLASS = 'js-swipeable-area',
     BACK_BUTTON_CLASS = 'swipeable-area__button swipeable-area__button--back',
     FORWARD_BUTTON_CLASS = 'swipeable-area__button swipeable-area__button--forward',
     BUTTON_ACTIVE_CLASS = 'swipeable-area__button--active',
-    BUTTON_BACK_THRESHOLD = 2,
-    RIGHT_OFFSET = 24,
     DEFAULT_SCROLL_TIME = 400,
     DEBOUNCETIME = 75,
     DEBOUNCETIME_SCROLL_TRACKING = 1000,
@@ -174,12 +172,16 @@ export class FefSwipeableArea {
      * of querying the DOM all the time.
      */
     updatePositions() {
+        // collect positioning data for the inner container:
+        const containerLeft = this.$innerContainer.offset().left;
+        const containerWidth = this.$innerContainer.outerWidth();
+
         this.itemPositions = [];
 
         this.$items.each( (_, element) => {
-            const left = $(element).position().left;
-            // take width of first child because element itself may have margin/padding which should not be counted
-            const width = $(element).children().first().innerWidth();
+            const $child = $(element).children().first();
+            const left = $child.offset().left - containerLeft;
+            const width = $child.innerWidth();
 
             this.itemPositions.push({
                 left: left,
@@ -188,15 +190,12 @@ export class FefSwipeableArea {
             });
         });
 
-        // do the same for the inner container:
-        const left = this.$innerContainer.offset().left;
-        const width = this.$innerContainer.outerWidth();
-
         this.innerContainerDimensions = {
-            left: left,
-            center: left + (width / 2),
+            left: containerLeft,
+            center: containerLeft + (containerWidth / 2),
             innerWidth: this.$innerContainer.innerWidth(),
-            right: left + width
+            right: containerLeft + containerWidth,
+            isScrollable: this.itemPositions[this.itemPositions.length - 1].right > containerLeft + containerWidth
         };
     }
 
@@ -256,7 +255,7 @@ export class FefSwipeableArea {
      * @param {jQery.event} event
      */
     onTeaserHover(event) {
-        let itemIndex = $(event.currentTarget).attr('index');
+        let itemIndex = Number.parseInt($(event.currentTarget).attr('index'));
 
         // Hint left or right, depending on where the item is
         if (this.isOutOfBoundsRight(itemIndex)) {
@@ -308,7 +307,7 @@ export class FefSwipeableArea {
      * If the buttons shouldn't be visible at all, they're hidden here.
      */
     updateButtonStatus() {
-        if (this.hasScrollableOverflow()) {
+        if (this.innerContainerDimensions.isScrollable) {
             // performance improvement: prevent second forced reflow by first accessing layout and then setting classes
             let isAtEnd = this.isAtScrollEnd();
             let isAtBegin = this.isAtScrollBeginning();
@@ -321,30 +320,48 @@ export class FefSwipeableArea {
         }
     }
 
+    /**
+     * If the scroll position *will* be so that it's not possible to scroll to
+     * one direction anymore, remove the hinting. We could do this in the
+     * callback of animate, but if it happens when starting the animation, it's
+     * less janky.
+     *
+     * @param {number} position 
+     */
     updateButtonStatusForFuturePosition(position) {
         if (position <= 0) {
             if (this.$buttonBack) {
                 this.$buttonBack.removeClass(BUTTON_ACTIVE_CLASS);
             }
-        }
-
-        if (position + this.innerContainerDimensions.innerWidth >= this.$innerContainer[0].scrollWidth) {
+        } else if (!this.isOutOfBoundsRight(this.itemPositions.length - 1, position)) {
             if (this.$buttonForward) {
                 this.$buttonForward.removeClass(BUTTON_ACTIVE_CLASS);
             }
+        } else {
+            return; // Abort, neither side will be reached
         }
+
+        this.applyHint(0);
     }
 
-    hasScrollableOverflow() {
-        return this.$innerContainer[0].scrollWidth > this.innerContainerDimensions.innerWidth + RIGHT_OFFSET;
-    }
-
+    /**
+     * The list is scrolled all the way to the end if the last item is
+     * completely visible.
+     *
+     * @returns {boolean}
+     */
     isAtScrollEnd() {
-        return this.$innerContainer.scrollLeft() + this.innerContainerDimensions.innerWidth >= this.$innerContainer[0].scrollWidth;
+        return !this.isOutOfBoundsRight(this.itemPositions.length - 1);
     }
 
+    /**
+     * The list is scrolled all the way to the beginning if the first item is
+     * completely visible.
+     *
+     * @returns {boolean}
+     */
     isAtScrollBeginning() {
-        return this.$innerContainer.scrollLeft() <= BUTTON_BACK_THRESHOLD;
+        return !this.isOutOfBoundsLeft(0);
     }
 
     /**
@@ -418,16 +435,14 @@ export class FefSwipeableArea {
         return !this.isOutOfBoundsLeft(itemIndex) && !this.isOutOfBoundsRight(itemIndex);
     }
 
-    isOutOfBoundsLeft(itemIndex) {
-        // subtract the current scroll position from the "cached" offset to get the current one
-        const currentOffset = this.itemPositions[itemIndex].left - this.$innerContainer.scrollLeft();
-        return currentOffset < this.innerContainerDimensions.left;
+    isOutOfBoundsLeft(itemIndex, position = this.$innerContainer.scrollLeft()) {
+        // compare the current scroll position to the original left edge of the item
+        return this.itemPositions[itemIndex].left < position;
     }
 
-    isOutOfBoundsRight(itemIndex) {
-        // subtract the current scroll position from the "cached" offset to get the current one
-        const currentOffset = this.itemPositions[itemIndex].right - this.$innerContainer.scrollLeft();
-        return currentOffset > this.innerContainerDimensions.right;
+    isOutOfBoundsRight(itemIndex, position = this.$innerContainer.scrollLeft()) {
+        // add the current scroll position to the original right edge of the container to compare it to the original right edge of the item
+        return this.itemPositions[itemIndex].right > this.innerContainerDimensions.right + position;
     }
 
     applyHint(pixels) {
