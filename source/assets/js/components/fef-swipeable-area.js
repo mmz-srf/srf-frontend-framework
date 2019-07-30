@@ -1,20 +1,19 @@
 import {FefDebounceHelper} from '../classes/fef-debounce-helper';
-import {FefResponsiveHelper} from '../classes/fef-responsive-helper';
 import {FefTouchDetection} from '../classes/fef-touch-detection';
 
 const HOOK_CLASS = 'js-swipeable-area',
-    INNER_CONTAINER_CLASS = 'js-swipeable-area-wrapper',
+    OUTER_CONTAINER_CLASS = 'js-swipeable-area-wrapper',
+    INNER_CONTAINER_CLASS = 'js-collection-teaser-list',
     ITEM_CLASS = 'js-swipeable-area-item',
     BACK_BUTTON_CLASS = 'swipeable-area__button swipeable-area__button--back',
     FORWARD_BUTTON_CLASS = 'swipeable-area__button swipeable-area__button--forward',
     BUTTON_ACTIVE_CLASS = 'swipeable-area__button--active',
     DEFAULT_SCROLL_TIME = 400,
     DEBOUNCETIME = 75,
-    DEBOUNCETIME_SCROLL_TRACKING = 1000,
     HINT_AMOUNT = 20,
     DESKTOP_WIDTH = 1024;
 
-export function init(interactionMeasureString = '') {
+export function init() {
 
     let startTime = 0,
         endTime = 0;
@@ -22,7 +21,7 @@ export function init(interactionMeasureString = '') {
     startTime = performance.now() || new Date().getTime(); // with fallback
 
     $(`.${HOOK_CLASS}`).each((_, element) => {
-        new FefSwipeableArea($(element), interactionMeasureString);
+        new FefSwipeableArea($(element));
     });
 
     endTime = performance.now() || new Date().getTime();
@@ -50,29 +49,22 @@ export function init(interactionMeasureString = '') {
  */
 export class FefSwipeableArea {
 
-    constructor($element, interactionMeasureString = '') {
+    constructor($element) {
+        // DOM references cached here for performance and readability reasons
         this.$element = $element;
-        this.$innerContainer = $(`.${INNER_CONTAINER_CLASS}`, this.$element);
-        this.$items = [];
-        this.itemPositions = []; // save the items' positions so we don't have to collect them on every event we need them. Will be updated on resize and when the items change
-        this.innerContainerDimensions = {};
+        this.$scrollContainer = $(`.${OUTER_CONTAINER_CLASS}`, this.$element);  // scrollable parent of the <ul>
+        this.$innerContainer = $(`.${INNER_CONTAINER_CLASS}`, this.$element);   // <ul>, the direct parent of the teasers
+        this.$items = $(`.${ITEM_CLASS}`, this.$innerContainer);                // <li>, the wrappers around the teaser elements
         this.$buttonBack = null;
         this.$buttonForward = null;
+
+        this.itemPositions = []; // save the items' positions so we don't have to collect them on every event we need them. Will be updated on resize and when the items change
+        this.containerDimensions = {};
 
         this.isTouchSupported = FefTouchDetection.isTouchSupported();
         this.isMobile = this.checkIfIsMobile();
 
-        this.useHinting = !!this.$element.data('swipeable-hinting');
-        this.$hintingContainer = this.$innerContainer.children().first();
-        
-        this.visibleClass = null;
-        this.hiddenClass = null;
-        
-        // tracking stuff
-        this.interactionMeasureString = interactionMeasureString;
-        this.oldScrollLeft = this.$innerContainer.scrollLeft();
-        this.isPageBackClick = false;
-        this.isPageForwardClick = false;
+        this.useHinting = !!this.$element.data('swipeable-hinting'); // hinting can be enabled by using "data-swipeable-hinting" on the root component
 
         // let's go!
         this.initialSetup();
@@ -89,13 +81,9 @@ export class FefSwipeableArea {
     }
 
     /**
-     * What needs to happen the first time the component is initialized:
-     * - gather all items
-     * - save their positions and indices
-     * - register the general listeners ()
+     * What needs to happen the first time the component is initialized
      */
     initialSetup() {
-        this.$items = $(`.${ITEM_CLASS}`, this.$innerContainer);
         this.setItemIndices();
         this.updatePositions();
         this.registerGeneralListeners();
@@ -135,10 +123,10 @@ export class FefSwipeableArea {
     onResize() {
         let willBeMobile = this.checkIfIsMobile();
 
-        // always have to update positions
+        // Positions always need to be updated
         this.updatePositions();
 
-        // no further actions required if breakpoint stays the same
+        // No further actions required if breakpoint stays the same
         if (this.isMobile === willBeMobile) {
             return;
         }
@@ -170,32 +158,63 @@ export class FefSwipeableArea {
      * To improve performance, the items' positions are saved in the beginning.
      * Later we need to check them often and can just read the values instead
      * of querying the DOM all the time.
+     * 
+     * What we save:
+     * - left edge, center, right edge of each item
+     * - width of the scrollContainer
+     * - center of the scrollContainer
+     * - wether or not the whole thing is scrollable or not
+     * 
+     * Diagram time!
+     *
+     * left, center  +->
+     * and right edge|--------->
+     * of 1st item   +------------------->
+     *
+     * left, center  |---------------------->
+     * and right edge|------------------------------>
+     * of 2nd item   +---------------------------------------->
+     *
+     * etc - you get the idea
+     *                               |                                                                                                                              |
+     *                               |                +----------------------------------------------------------------------------------------+                    |
+     *               +---------------------------------------------------------------------------------------------------------------------------------------------------+
+     *               |               |                |                                                                                        |                    |    |
+     *               | +-----------------+  +-----------------+  +-----------------+  +-----------------+  +-----------------+  +-----------------+  +-----------------+ |
+     *               | |             |   |  |         |       |  |                 |  |                 |  |                 |  |              |  |  |              |  | |
+     *               | |             |   |  |         |       |  |                 |  |                 |  |                 |  |              |  |  |              |  | |
+     *               | |             |   |  |         |       |  |                 |  |                 |  |                 |  |              |  |  |              |  | |
+     *               | +-----------------+  +-----------------+  +-----------------+  +-----------------+  +-----------------+  +-----------------+  +-----------------+ |
+     *               | $items[0]     |      $items[1] |          etc                                                                           |                    |    |
+     *               +---------------------------------------------------------------------------------------------------------------------------------------------------+
+     *               $innerContainer |                +----------------------------------------------------------------------------------------+                    |
+     *                               |                $scrollContainer                                                                                              |
+     *                               |                                                                                                                              |
+     *                               left edge of browser                                                                                       right edge of browser
      */
     updatePositions() {
-        // collect positioning data for the inner container:
-        const containerLeft = this.$innerContainer.offset().left;
-        const containerWidth = this.$innerContainer.outerWidth();
+        const innerContainerOffset = this.$innerContainer.offset().left;
 
-        this.itemPositions = [];
-
-        this.$items.each( (_, element) => {
+        this.itemPositions = this.$items.toArray().map(element => {
             const $child = $(element).children().first();
-            const left = $child.offset().left - containerLeft;
+            const left = $child.offset().left - innerContainerOffset;
             const width = $child.innerWidth();
 
-            this.itemPositions.push({
+            return {
                 left: left,
                 center: left + (width / 2),
                 right: left + width
-            });
+            };
         });
 
-        this.innerContainerDimensions = {
-            left: containerLeft,
+        // collect positioning data for the inner container:
+        const containerLeft = this.$scrollContainer.offset().left;
+        const containerWidth = this.$scrollContainer.outerWidth();
+
+        this.containerDimensions = {
             center: containerLeft + (containerWidth / 2),
-            innerWidth: this.$innerContainer.innerWidth(),
-            right: containerLeft + containerWidth,
-            isScrollable: this.itemPositions[this.itemPositions.length - 1].right > containerLeft + containerWidth
+            width: containerWidth,
+            isScrollable: this.itemPositions[this.itemPositions.length - 1].right > containerWidth
         };
     }
 
@@ -209,8 +228,6 @@ export class FefSwipeableArea {
 
         // Content can be added and removed dynamically from the swipeable
         this.$element.on('srf.swipeableArea.reinitialize srf.swipeable.content-changed', () => this.reinit());
-        
-        this.$innerContainer.on('scroll', FefDebounceHelper.throttle(() => this.track(), DEBOUNCETIME_SCROLL_TRACKING));
     };
 
     registerDesktopListeners() {
@@ -218,7 +235,7 @@ export class FefSwipeableArea {
         this.unregisterDesktopListeners();
 
         this.$items.on('click.srf.swipeable-area-desktop', (event) => this.onTeaserClick(event));
-        this.$innerContainer.on('scroll.srf.swipeable-area-desktop', FefDebounceHelper.throttle(() => this.scrollHandlerDesktop(), DEBOUNCETIME));
+        this.$scrollContainer.on('scroll.srf.swipeable-area-desktop', FefDebounceHelper.throttle(() => this.scrollHandlerDesktop(), DEBOUNCETIME));
 
         if (this.useHinting) {
             // When hovering over a partially shown item, the container content
@@ -231,7 +248,7 @@ export class FefSwipeableArea {
 
     unregisterDesktopListeners() {
         this.$items.off('click.srf.swipeable-area-desktop mouseenter.srf.swipeable-area-desktop mouseleave.srf.swipeable-area-desktop');
-        this.$innerContainer.off('scroll.srf.swipeable-area-desktop');
+        this.$scrollContainer.off('scroll.srf.swipeable-area-desktop');
     }
 
     scrollHandlerDesktop() {
@@ -240,7 +257,8 @@ export class FefSwipeableArea {
 
     addButtons() {
         // making sure to add the buttons only once
-        if (this.$buttonBack === null) {
+        if (!this.$buttonBack) {
+            // create and save reference to the buttons
             this.$buttonBack = $(`<div class='${BACK_BUTTON_CLASS}'><span></span></div>`);
             this.$buttonForward = $(`<div class='${FORWARD_BUTTON_CLASS}'><span></span></div>`);
 
@@ -307,7 +325,7 @@ export class FefSwipeableArea {
      * If the buttons shouldn't be visible at all, they're hidden here.
      */
     updateButtonStatus() {
-        if (this.innerContainerDimensions.isScrollable) {
+        if (this.containerDimensions.isScrollable) {
             // performance improvement: prevent second forced reflow by first accessing layout and then setting classes
             let isAtEnd = this.isAtScrollEnd();
             let isAtBegin = this.isAtScrollBeginning();
@@ -326,7 +344,7 @@ export class FefSwipeableArea {
      * callback of animate, but if it happens when starting the animation, it's
      * less janky.
      *
-     * @param {number} position 
+     * @param {Number} position 
      */
     updateButtonStatusForFuturePosition(position) {
         if (position <= 0) {
@@ -372,14 +390,13 @@ export class FefSwipeableArea {
      * we just take the last (the right-most) and use this.
      */
     pageForward() {
-        let visibleAreaRightEdge = this.$innerContainer.scrollLeft() + this.innerContainerDimensions.innerWidth,
+        let visibleAreaRightEdge = this.$scrollContainer.scrollLeft() + this.containerDimensions.width,
             nextItemIndex = this.itemPositions.findIndex(pos => pos.right > visibleAreaRightEdge);
 
         nextItemIndex = Math.min(nextItemIndex + 1, this.itemPositions.length - 1);
 
-        let newPosition = this.itemPositions[nextItemIndex].center - this.innerContainerDimensions.center;
+        let newPosition = this.itemPositions[nextItemIndex].center - this.containerDimensions.center;
 
-        this.isPageForwardClick = true;
         this.scrollToPosition(newPosition);
     }
 
@@ -391,14 +408,13 @@ export class FefSwipeableArea {
      * we just take the first (the left-most) and use this.
      */
     pageBack() {
-        let visibleAreaLeftEdge = this.$innerContainer.scrollLeft(),
+        let visibleAreaLeftEdge = this.$scrollContainer.scrollLeft(),
             nextItemIndex = this.itemPositions.findIndex(pos => pos.right > visibleAreaLeftEdge);
 
         nextItemIndex = Math.max(nextItemIndex - 1, 0);
 
-        let newPosition = this.itemPositions[nextItemIndex].center - this.innerContainerDimensions.center;
+        let newPosition = this.itemPositions[nextItemIndex].center - this.containerDimensions.center;
 
-        this.isPageBackClick = true;
         this.scrollToPosition(newPosition);
     }
 
@@ -408,9 +424,7 @@ export class FefSwipeableArea {
      * @param {Number} position Where to scroll to
      * @param {Number} [time] How long it should take, optional
      */
-    scrollToPosition(position, time) {
-        time = typeof time === 'undefined' ? DEFAULT_SCROLL_TIME : time;
-
+    scrollToPosition(position, time = DEFAULT_SCROLL_TIME) {
         // update the buttons for the target position if not on mobile
         if (!this.isMobile) {
             this.updateButtonStatusForFuturePosition(position);
@@ -418,10 +432,10 @@ export class FefSwipeableArea {
 
         // performance improvement: if scroll should happen immediately, don't use $.animate
         if (time === 0) {
-            this.$innerContainer[0].scrollLeft = position;
+            this.$scrollContainer[0].scrollLeft = position;
         } else {
-            this.$innerContainer
-                .stop(true, false)
+            this.$scrollContainer
+                .stop(true, false) // stop any previously started and maybe still ongoing animations on the scrollContainer
                 .animate( { scrollLeft: position }, time, 'easeInOutSine');
         }
     }
@@ -435,37 +449,92 @@ export class FefSwipeableArea {
         return !this.isOutOfBoundsLeft(itemIndex) && !this.isOutOfBoundsRight(itemIndex);
     }
 
-    isOutOfBoundsLeft(itemIndex, position = this.$innerContainer.scrollLeft()) {
-        // compare the current scroll position to the original left edge of the item
-        return this.itemPositions[itemIndex].left < position;
+    /**
+     * Checks if an item is partially or completely out of the visible area on
+     * the left side.
+     * Mathematically, this means if the scrolled amount (displacement to the
+     * left) is greater than the distance from the beginning of the container
+     * to the left edge of the item, then it's (at least partially) outside of
+     * the visible area.
+     *
+     * Digram time!
+     *
+     *
+     *  <--------------------------------+    scrolled amount ("position")
+     *  +---------------------->     Distance from container edge to item1's left edge. It's less than the scrolled amount so it's out of bound on the left.
+     *  +------------------------------------------->  Distance from container edge to item2's left edge. It's more than the scrolled amount, so not out of bounds on the left.
+     *
+     *                  |                                                                                                                              |
+     *                  |                                                                                                                              |
+     *                  |                +----------------------------------------------------------------------------------------+                    |
+     *  +---------------------------------------------------------------------------------------------------------------------------------------------------+
+     *  |               |                |                                                                                        |                    |    |
+     *  | +-----------------+  +-----------------+  +-----------------+  +-----------------+  +-----------------+  +-----------------+  +-----------------+ |
+     *  | |             |   |  |         |       |  |                 |  |                 |  |                 |  |              |  |  |              |  | |
+     *  | |             |   |  |         |       |  |                 |  |                 |  |                 |  |              |  |  |              |  | |
+     *  | |             |   |  |         |       |  |                 |  |                 |  |                 |  |              |  |  |              |  | |
+     *  | +-----------------+  +-----------------+  +-----------------+  +-----------------+  +-----------------+  +-----------------+  +-----------------+ |
+     *  | $items[0]     |      $items[1] |          etc                                                                           |                    |    |
+     *  +---------------------------------------------------------------------------------------------------------------------------------------------------+
+     *  $innerContainer |                +----------------------------------------------------------------------------------------+                    |
+     *                  |                $scrollContainer                                                                                              |
+     *                  |                                                                                                                              |
+     *                  left edge of browser                                                                                       right edge of browser
+     *
+     * @param {Number} itemIndex 
+     * @param {Number} position (default: current scroll position)
+     */
+    isOutOfBoundsLeft(itemIndex, position = this.$scrollContainer.scrollLeft()) {
+        return position > this.itemPositions[itemIndex].left;
     }
 
-    isOutOfBoundsRight(itemIndex, position = this.$innerContainer.scrollLeft()) {
+    /**
+     * Checks if an item is partially or completely out of the visible area on
+     * the right side.
+     * 
+     * Diagram Time!
+     * 
+     *      scrolled amount ("position")                           $scrollContainer's width
+     *  <--------------------------------+---------------------------------------------------------------------------------------->
+     * 
+     *  Distance from $innerContainer's edge to item4's right edge; shorter than the scrolled amount + $scrollContainer's width, thus not out of bounds on the right
+     *  +------------------------------------------------------------------------------------------------------->
+     * 
+     *  Distance from $innerContainer's edge to item5's right edge; longer than the scrolled amount + $scrollContainer's width, thus out of bounds on the right
+     *  +---------------------------------------------------------------------------------------------------------------------------->
+     *
+     *                  |                                                                                                                              |
+     *                  |                                                                                                                              |
+     *                  |                +----------------------------------------------------------------------------------------+                    |
+     *  +---------------------------------------------------------------------------------------------------------------------------------------------------+
+     *  |               |                |                                                                                        |                    |    |
+     *  | +-----------------+  +-----------------+  +-----------------+  +-----------------+  +-----------------+  +-----------------+  +-----------------+ |
+     *  | |             |   |  |         |       |  |                 |  |                 |  |                 |  |              |  |  |              |  | |
+     *  | |             |   |  |         |       |  |                 |  |                 |  |                 |  |              |  |  |              |  | |
+     *  | |             |   |  |         |       |  |                 |  |                 |  |                 |  |              |  |  |              |  | |
+     *  | +-----------------+  +-----------------+  +-----------------+  +-----------------+  +-----------------+  +-----------------+  +-----------------+ |
+     *  | $items[0]     |      $items[1] |          etc                                                                           |                    |    |
+     *  +---------------------------------------------------------------------------------------------------------------------------------------------------+
+     *  $innerContainer |                +----------------------------------------------------------------------------------------+                    |
+     *                  |                $scrollContainer                                                                                              |
+     *                  |                                                                                                                              |
+     *                  left edge of browser                                                                                       right edge of browser
+     *
+     * @param {Number} itemIndex 
+     * @param {Number} position (default: current scroll position)
+     */
+    isOutOfBoundsRight(itemIndex, position = this.$scrollContainer.scrollLeft()) {
         // add the current scroll position to the original right edge of the container to compare it to the original right edge of the item
-        return this.itemPositions[itemIndex].right > this.innerContainerDimensions.right + position;
+        return this.itemPositions[itemIndex].right > this.containerDimensions.width + position;
     }
 
+    /**
+     * Apply the specified amount of hinting to the container to reveal some
+     * more of the next teasers.
+     *
+     * @param {Number} pixels 
+     */
     applyHint(pixels) {
-        this.$hintingContainer.css('transform', `translateX(${pixels}px)`);
-    }
-
-    track() {
-        let eventValue = null;
-
-        if (this.isPageBackClick || this.isPageForwardClick) {
-            eventValue = this.isPageBackClick ? 'click-left' : 'click-right';
-            this.isPageBackClick = false;
-            this.isPageForwardClick = false;
-        } else {
-            eventValue = this.oldScrollLeft < this.$innerContainer.scrollLeft() ? 'swipe-right' : 'swipe-left';
-        }
-
-        this.oldScrollLeft = this.$innerContainer.scrollLeft();
-
-        $(window).trigger(this.interactionMeasureString, {
-            event_source: this.$element.data('event-source'),
-            event_name: this.$element.data('event-name'),
-            event_value: eventValue
-        });
+        this.$innerContainer.css('transform', `translateX(${pixels}px)`);
     }
 }
