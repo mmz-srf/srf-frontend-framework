@@ -1,12 +1,12 @@
+<style>
+    /* simulating a missing play icon - in production, this element should be removed from the DOM */
+    .collection--compact-swipeable .media-still__icon {
+        display: none;
+    }
+</style>
+
 {% embed 'templates-landingpage' %}
     {% block landingpage_content %}
-
-        <style>
-            /* simulating a missing play icon - in production, this element should be removed from the DOM */
-            .collection--compact-swipeable .media-still__icon {
-                display: none;
-            }
-        </style>
 
         {% include 'organisms-collection' with {
             'collection': {
