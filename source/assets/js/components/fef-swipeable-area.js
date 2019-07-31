@@ -77,7 +77,7 @@ export class FefSwipeableArea {
      * @returns {boolean}
      */
     checkIfIsMobile() {
-        return $(window).width() < DESKTOP_WIDTH && !this.isTouchSupported;
+        return $(window).outerWidth() < DESKTOP_WIDTH && !this.isTouchSupported;
     }
 
     /**
