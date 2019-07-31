@@ -160,9 +160,9 @@ export class FefSwipeableArea {
      * of querying the DOM all the time.
      * 
      * What we save:
-     * - left edge, center, right edge of each item
-     * - width of the scrollContainer
-     * - center of the scrollContainer
+     * - left edge, center, right edge of each item (for calculations to figure out if the item is partiall/completely outside of the container)
+     * - width of the scrollContainer (to know if an item is out of bounds)
+     * - center of the scrollContainer (to know where the item's center should be aligned to when paginating)
      * - wether or not the whole thing is scrollable or not
      * 
      * Diagram time!
@@ -208,11 +208,10 @@ export class FefSwipeableArea {
         });
 
         // collect positioning data for the inner container:
-        const containerLeft = this.$scrollContainer.offset().left;
         const containerWidth = this.$scrollContainer.outerWidth();
 
         this.containerDimensions = {
-            center: containerLeft + (containerWidth / 2),
+            center: containerWidth / 2,
             width: containerWidth,
             isScrollable: this.itemPositions[this.itemPositions.length - 1].right > containerWidth
         };
@@ -285,17 +284,15 @@ export class FefSwipeableArea {
 
     /**
      * Clicking an item can trigger pagination if it's partially visible.
-     * Instead of handing down the analytics methods or module to call upon
-     * pagination, we trigger a click on the buttons which have the correct
-     * data attribute already.
      *
      * @param {jQuery.event} event
      */
     onTeaserClick(event) {
-        let itemIndex = Number.parseInt($(event.currentTarget).attr('index'));
+        const itemIndex = Number.parseInt($(event.currentTarget).attr('index'));
+        const isOutOfBoundsLeft = this.isOutOfBoundsLeft(itemIndex);
 
-        // let the normal link do its work if the teaser is completely visible
-        if (this.isItemCompletelyInView(itemIndex)) {
+        // let the normal link do its work if the teaser is completely visible (= not out of bounds on either side)
+        if (!isOutOfBoundsLeft && !this.isOutOfBoundsRight(itemIndex)) {
             return;
         }
 
@@ -304,16 +301,16 @@ export class FefSwipeableArea {
             $(':focus').blur();
         }
 
-        if (this.isOutOfBoundsLeft(itemIndex)) {
+        // Don't go to the link of the teaser
+        event.preventDefault();
+        event.stopPropagation();
+
+        // Paginate back for forwards, depending on which side the item is out of bounds
+        if (isOutOfBoundsLeft) {
             this.pageBack();
         } else {
             this.pageForward();
         }
-
-        // Don't go to the link of the teaser
-        event.preventDefault();
-        event.stopPropagation();
-        return false;
     }
 
     /**
@@ -438,15 +435,6 @@ export class FefSwipeableArea {
                 .stop(true, false) // stop any previously started and maybe still ongoing animations on the scrollContainer
                 .animate( { scrollLeft: position }, time, 'easeInOutSine');
         }
-    }
-
-    /**
-     * An item is completely in view if the left and right edge are inside of the scroll container.
-     *
-     * @param {Number} itemIndex Index of the item in the list of items
-     */
-    isItemCompletelyInView(itemIndex) {
-        return !this.isOutOfBoundsLeft(itemIndex) && !this.isOutOfBoundsRight(itemIndex);
     }
 
     /**
