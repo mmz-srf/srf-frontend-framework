@@ -1,5 +1,6 @@
 import {FefDebounceHelper} from '../classes/fef-debounce-helper';
 import {FefTouchDetection} from '../classes/fef-touch-detection';
+import {FefResponsiveHelper} from '../classes/fef-responsive-helper';
 
 const HOOK_CLASS = 'js-swipeable-area',
     OUTER_CONTAINER_CLASS = 'js-swipeable-area-wrapper',
@@ -10,8 +11,7 @@ const HOOK_CLASS = 'js-swipeable-area',
     BUTTON_ACTIVE_CLASS = 'swipeable-area__button--active',
     DEFAULT_SCROLL_TIME = 400,
     DEBOUNCETIME = 75,
-    HINT_AMOUNT = 20,
-    DESKTOP_WIDTH = 1024;
+    HINT_AMOUNT = 20;
 
 export function init() {
     $(`.${HOOK_CLASS}`).each((_, element) => {
@@ -52,7 +52,7 @@ export class FefSwipeableArea {
      * @returns {boolean}
      */
     checkIfIsMobile() {
-        return $(window).outerWidth() < DESKTOP_WIDTH && !this.isTouchSupported;
+        return !FefResponsiveHelper.isDesktopUp() && !this.isTouchSupported;
     }
 
     /**
