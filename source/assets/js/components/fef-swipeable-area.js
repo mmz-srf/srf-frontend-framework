@@ -37,7 +37,7 @@ export class FefSwipeableArea {
         this.containerDimensions = {};
 
         this.isTouchSupported = FefTouchDetection.isTouchSupported();
-        this.isMobile = this.checkIfIsMobile();
+        this.isDesktopMode = this.checkIfIsDesktopMode();
 
         this.useHinting = !!this.$element.data('swipeable-hinting'); // hinting can be enabled by using "data-swipeable-hinting" on the root component
 
@@ -46,13 +46,14 @@ export class FefSwipeableArea {
     }
 
     /**
-     * Determine if this is a mobile breakpoint; "mobile" meaning a screenwidth
-     * less than 1024px and without touch support.
+     * "Desktop mode":
+     * Show buttons, use hinting on hover, paginate.
+     * Only on Desktop+ and if device doesn't support touch.
      * 
      * @returns {boolean}
      */
-    checkIfIsMobile() {
-        return !FefResponsiveHelper.isDesktopUp() && !this.isTouchSupported;
+    checkIfIsDesktopMode() {
+        return FefResponsiveHelper.isDesktopUp() && !this.isTouchSupported;
     }
 
     /**
@@ -63,7 +64,7 @@ export class FefSwipeableArea {
         this.updatePositions();
         this.registerGeneralListeners();
 
-        if (!this.isMobile) {
+        if (this.isDesktopMode) {
             this.setUpDesktop();
         }
     }
@@ -96,24 +97,24 @@ export class FefSwipeableArea {
      * buttons for paging appear on desktop+)
      */
     onResize() {
-        let willBeMobile = this.checkIfIsMobile();
+        let willBeDesktopMode = this.checkIfIsDesktopMode();
 
         // Positions always need to be updated
         this.updatePositions();
 
         // No further actions required if breakpoint stays the same
-        if (this.isMobile === willBeMobile) {
+        if (this.isDesktopMode === willBeDesktopMode) {
             return;
         }
 
-        this.isMobile = willBeMobile;
+        this.isDesktopMode = willBeDesktopMode;
 
-        if (willBeMobile) {
-            // changing to mobile: unregister desktop-specific listeners
-            this.unregisterDesktopListeners();
-        } else {
+        if (willBeDesktopMode) {
             // changing to desktop
             this.setUpDesktop();
+        } else {
+            // changing to mobile: unregister desktop-specific listeners
+            this.unregisterDesktopListeners();
         }
     }
 
@@ -397,8 +398,8 @@ export class FefSwipeableArea {
      * @param {Number} [time] How long it should take, optional
      */
     scrollToPosition(position, time = DEFAULT_SCROLL_TIME) {
-        // update the buttons for the target position if not on mobile
-        if (!this.isMobile) {
+        // update the buttons for the target position, if necessary
+        if (this.isDesktopMode) {
             this.updateButtonStatusForFuturePosition(position);
         }
 
