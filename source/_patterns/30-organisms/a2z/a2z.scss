@@ -27,7 +27,7 @@
   }
 
   @include tablet-up {
-    flex-basis: calc(100% - 300px);
+    flex-grow: 1;
     margin-right: 24px;
   }
 

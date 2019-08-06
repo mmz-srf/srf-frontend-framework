@@ -1,64 +1,20 @@
 .filter-bar {
   margin: 0;
-  height: 72px;
-
   display: flex;
   flex-direction: row;
   padding: 12px 0;
-  overflow: scroll;
+  overflow-x: scroll;
 
   @include desktop-up {
-    justify-content: space-around;
+    justify-content: space-between;
     align-content: stretch;
     max-width: calc(100% - (2 * 32px));
     margin: 0 32px;
   }
 
   @include desktop-wide {
-    max-width: 1200px;
+    max-width: $content-width;
     margin: 0 auto;
-  }
-
-  .filter-bar__letter {
-    display: flex;
-    width: 100%;
-    margin-right: 1px;
-    border-radius: 2px;
-    padding-right: 16px;
-    padding-left: 16px;
-    color: $color-srf-warmgrey-1100;
-    white-space: nowrap;
-    align-content: center;
-    align-items: center;
-    justify-content: center;
-
-    @include desktop-up {
-      margin-right: 2px;
-      padding: 0;
-    }
-
-    &:focus,
-    &:hover {
-      background-color: $color-srf-warmgrey-50;
-    }
-
-    &:active {
-      background-color: $color-srf-warmgrey-100;
-    }
-  }
-
-  .filter-bar__letter--active {
-    background-color: $color-srf-warmgrey-100;
-    
-    &:focus,
-    &:hover {
-      background-color: $color-srf-warmgrey-100;
-    }
-  }
-
-  .filter-bar__letter--inactive {
-    color: $color-srf-warmgrey-1100a24;
-    cursor: default;
   }
 
   li {
@@ -95,4 +51,45 @@
       }
     }
   }
+}
+
+.filter-bar__letter {
+  display: inline-block;
+  width: 100%;
+  margin-right: 1px;
+  border-radius: 2px;
+  padding: 12px 16px;
+  color: $color-srf-warmgrey-1100;
+  white-space: nowrap;
+  text-align: center;
+
+  @include desktop-up {
+    margin-right: 2px;
+    padding: 12px 0;
+  }
+
+  &:focus,
+  &:hover {
+    background-color: $color-srf-warmgrey-50;
+    color: $color-srf-warmgrey-1100;
+  }
+
+  &:active {
+    background-color: $color-srf-warmgrey-100;
+    color: $color-srf-warmgrey-1100;
+  }
+}
+
+.filter-bar__letter--active {
+  background-color: $color-srf-warmgrey-100;
+  
+  &:focus,
+  &:hover {
+    background-color: $color-srf-warmgrey-100;
+  }
+}
+
+.filter-bar__letter--inactive {
+  color: $color-srf-warmgrey-1100a24;
+  cursor: default;
 }
