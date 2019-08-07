@@ -32,7 +32,7 @@
 .media-caption--audio {
   padding-right: 12px;
   padding-left: 12px;
-  
+
   @include tablet-up {
     padding-right: 16px;
     padding-left: 16px;
@@ -64,7 +64,7 @@
   @include fontSize(12);
   line-height: $secondary-line-height-ratio;
   text-transform: uppercase;
-  color: $color-srf-warmgrey-800;
+  color: $color-srf-green-500;
 
   .small {
     text-transform: none;
@@ -92,7 +92,7 @@
   text-transform: none;
 
   .media-caption__source-title {
-    color: $color-srf-warmgrey-900;
+    color: $color-srf-green-500;
   }
 }
 
@@ -101,7 +101,7 @@
   text-transform: none;
 
   .media-caption__source-title {
-    color: $color-srf-warmgrey-900;
+    color: $color-srf-green-500;
   }
 }
 
