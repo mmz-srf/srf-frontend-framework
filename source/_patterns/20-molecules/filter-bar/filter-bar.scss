@@ -94,4 +94,5 @@
 .filter-bar__letter--inactive {
   color: $color-srf-warmgrey-1100a24;
   cursor: default;
+  pointer-events: none;
 }

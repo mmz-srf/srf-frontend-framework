@@ -34,17 +34,14 @@
     &:hover,
     &:active {
       margin-top: -1px;
-      padding-top: calc(8px + 1px);
+      padding-top: 9px; // its 8px + 1px, stupid
       border-top: 1px solid $color-srf-neutral-blacka08;
     }
   }
 
 }
 
-.pseudo-table__row--hidden {
-  display: none;
-}
-
+.pseudo-table__row--hidden,
 .pseudo-table__row-keymatch--hidden {
   display: none;
 }
@@ -54,20 +51,12 @@
 }
 
 .pseudo-table__cell--image {
-  flex-basis: 80px;
+  flex: 0 0 88px;
   max-height: 80px;
-  margin-right: 8px;
-
-  @include tablet {
-    margin-right: 16px;
-  }
 
   @include tablet-up {
     align-self: center;
-  }
-
-  @include desktop-up {
-    margin-right: 24px;
+    flex: 0 0 104px;
   }
 
   img {
@@ -129,6 +118,7 @@
     white-space: normal;
     overflow: visible;
   }
+
   @include desktop {
     flex-basis: 308px;
   }
@@ -139,15 +129,6 @@
 
   a {
     color: inherit;
-
-    &::after {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 0;
-      right: 0;
-      bottom: 0;
-    }
   }
 }
 
