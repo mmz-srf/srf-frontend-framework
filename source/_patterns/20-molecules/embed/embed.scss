@@ -41,6 +41,11 @@
   margin: 0 auto;
 }
 
+// Article's/landingpage's CSS sets letter-spacing to .2 or .4 (depending on BP). This does not play well with inline SVGs like News Infographics.
+.embed-inline__content svg {
+  letter-spacing: 0;
+}
+
 body[data-representation=web] {
   .embed-inline.no-swear {
     display: block;
