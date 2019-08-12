@@ -67,6 +67,25 @@ body.body--loading.body--loading {
     // no space between header and an branded collection at first position
     &:first-child {
       margin-top: 0;
+
+      .collection__branding-wrapper {
+        padding-top: 16px;
+
+        @include tablet-up {
+          padding-top: 32px;
+        }
+
+        @include desktop-wide {
+          padding-top: 40px;
+        }
+      }
+
+      &.collection--borderless {
+        .collection__branding-wrapper {
+          padding-top: 0;
+        }
+      }
+
     }
 
     &.collection--swipeable,
@@ -660,7 +679,10 @@ body.body--loading.body--loading {
   .simple-teaser,
   .content-header__station-logo,
   .content-header__presenter-image,
-  .modal-flyout {
+  .modal-flyout,
+  .a2z-search,
+  .a2z-filter-bar,
+  .a2z-lists {
     display: none;
   }
 }
