@@ -18,6 +18,7 @@ const SUBNAV_CLASS = 'js-subnav-container',
     ITEM_GROUP_WRAPPER_CLASS = 'js-nav-group-wrapper',
     OUTSIDE_CLICK_LISTENER_NAME = 'click.nav-group',
     OUTSIDE_KEYPRESS_LISTENER_NAME = 'keydown.nav-group',
+    FOCUSOUT_LISTENER_NAME = 'focusout.js-nav-group-wrapper',
     DEBOUNCETIME = 10,
     THROTTLETIME = 100,
     RIGHT_OFFSET = 24,
@@ -158,6 +159,10 @@ export class FefSubnav {
             }
         }).on(OUTSIDE_KEYPRESS_LISTENER_NAME, (e) => {
             if(e.keyCode === KEYCODES.escape) {
+                this.closeAllSubNavs();
+            }
+        }).on(FOCUSOUT_LISTENER_NAME, (e) => {
+            if ($(e.target).hasClass('nav-item--third-level') && $(e.target).closest('li').index() === $(e.target).closest('ul').children().length - 1) {
                 this.closeAllSubNavs();
             }
         });
