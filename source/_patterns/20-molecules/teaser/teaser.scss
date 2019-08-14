@@ -618,38 +618,38 @@
     }
   }
 
-  @supports (display: grid) {
-    @include tablet-up {
-      .teaser__main {
-        display: grid;
-        grid-template-columns: $teaser-xl-medium-ratio auto;
-        grid-template-rows: 1fr max-content;
-      }
-
-      .teaser__medium-wrapper {
-        grid-row: span 2;
-      }
-
-      .teaser__scoreboard {
-        padding-left: 8px;
-        background-color: $color-srf-warmgrey-10;
-      }
-
-      .teaser__opinion {
-        padding-left: 24px;
-      }
-    }
-
-    @include desktop-wide {
-      .teaser__scoreboard {
-        padding-left: 8px;
-      }
-
-      .teaser__opinion {
-        padding-left: 32px;
-      }
-    }
-  }
+  //@supports (display: grid) {
+  //  @include tablet-up {
+  //    .teaser__main {
+  //      display: grid;
+  //      grid-template-columns: $teaser-xl-medium-ratio auto;
+  //      grid-template-rows: 1fr max-content;
+  //    }
+  //
+  //    .teaser__medium-wrapper {
+  //      grid-row: span 2;
+  //    }
+  //
+  //    .teaser__scoreboard {
+  //      padding-left: 8px;
+  //      background-color: $color-srf-warmgrey-10;
+  //    }
+  //
+  //    .teaser__opinion {
+  //      padding-left: 24px;
+  //    }
+  //  }
+  //
+  //  @include desktop-wide {
+  //    .teaser__scoreboard {
+  //      padding-left: 8px;
+  //    }
+  //
+  //    .teaser__opinion {
+  //      padding-left: 32px;
+  //    }
+  //  }
+  //}
 }
 
 /* S-ON-MOBILE
