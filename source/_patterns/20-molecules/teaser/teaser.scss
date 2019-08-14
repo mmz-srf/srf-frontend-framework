@@ -473,7 +473,23 @@
  */
 .teaser--size-xl {
   @include tablet-up {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: stretch;
+    
     position: relative; // anchor for absolute positioned teaser links
+
+    .teaser__main-wrapper {
+      flex: 0 0 #{100% - $teaser-xl-medium-ratio};
+      position: relative;
+      background-color: $color-srf-neutral-blacka60;
+      // subpixel rendering makes the content stick out of the teaser
+      // sometimes - with the 2px negative bottom margin and 2px padding
+      // at the bottom this is prevented.
+      padding-bottom: 2px;
+      margin-bottom: -2px;
+    }
   }
 
   .teaser__main {
@@ -481,9 +497,14 @@
     flex-wrap: nowrap;
 
     @include tablet-up {
-      flex-direction: row;
+      display: flex;
+      flex-direction: column;
+      align-content: stretch;
+      justify-items: flex-end;
       flex-wrap: wrap;
     }
+
+    justify-content: flex-end;
 
     // if XL-Teaser is being clicked … do the following with its siblings and children
     &:active ~ .teaser__links {
@@ -511,27 +532,24 @@
   }
 
   .teaser__links {
-    @include tablet {
-      &::before {
-        content: '';
-        display: block;
-        position: absolute;
-        top: -1rem;
-        right: 0;
-        left: 0;
-        height: 1rem;
-        @include customPropWithFallback('background', '--teaser-fake-shadow-gradient', 'linear-gradient($color-srf-neutral-whitea00 0%,$color-srf-neutral-white 100%)');
-      }
-    }
+    // teaser-links should have same bg color as main content
+    background-color: $color-srf-neutral-blacka60;
+    margin: 0;
+    padding-left: 16px;
 
     @include tablet-up {
-      position: absolute;
-      right: 0;
-      bottom: 0;
-      padding: 0 0 0 24px;
-      margin-left: 0;
-      width: #{100% - $teaser-xl-medium-ratio};
-      @include customPropWithFallback('background-color', '--teaser-color-background', $color-srf-neutral-offwhite);
+      position: relative;
+      width: initial;
+      background-color: transparent;
+    }
+
+    @include desktop-up {
+      padding-left: 24px;
+    }
+
+    // makes the icons brigther
+    .block-link--teaser-link::after {
+      filter: brightness(5);
     }
   }
 
@@ -567,7 +585,7 @@
     flex: 1 0 auto;
 
     @include tablet-up {
-      flex: 1 0 0px;
+      flex: 1 1 auto;
       margin: 24px 16px 24px 24px;
     }
 
