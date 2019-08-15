@@ -18,11 +18,11 @@
   }
 
   &:hover {
-    opacity: .8;
+    background-color: $color-srf-warmgrey-10;
   }
 
   &:active {
-    opacity: .6;
+    background-color: $color-srf-warmgrey-25;
   }
 }
 
