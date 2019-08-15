@@ -10,6 +10,7 @@
   flex-direction: column;
   border-radius: 2px;
   overflow: hidden; // to cut off image with border radius
+  position: relative; // anchor for absolute positioned fullsize-link
 
   /* theme */
   @include customPropWithFallback('color', '--teaser-color-text', $color-srf-warmgrey-1100);
@@ -489,8 +490,6 @@
     flex-direction: row;
     justify-content: flex-end;
     align-items: stretch;
-    
-    position: relative; // anchor for absolute positioned teaser links
 
     .teaser__main-wrapper {
       flex: 0 0 #{100% - $teaser-xl-medium-ratio};
