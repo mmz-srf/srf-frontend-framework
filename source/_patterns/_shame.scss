@@ -100,14 +100,20 @@ _:-ms-fullscreen,
 /*
  * TARGETED BROWSER: Safari
  *
- * Safari has troubles combining overflow-x: hidden and its own webkit-overflow-scrolling: touch.
- * This makes the 3rd-level-Navigation points not show up.
+ * Fix 1: Safari has troubles combining overflow-x: hidden and its own webkit-overflow-scrolling: touch.
+ * This makes the 3rd level navigation points not show up.
+ *
+ * Fix 2: fixes a strange safari bug when opening a 3rd level navigation by tabbing via keyboard - the overflow of the 2nd level navigation container
+ * does not work and it's padding moves the whole moves the whole 2nd level navigation up (overflow/padding is used to hide the scrollbar).
+ * setting the box-sizing temporarily to border-box as a fix causes no harm, since the 3rd level navigation is closed onscroll anyway.
+ *
  */
 .subnav--open-3rd-level {
-  overflow-x: auto;
+  overflow-x: auto; /* fix 1 */
+  box-sizing: border-box; /* fix 2 */
 
   .subnav__list {
-    -webkit-overflow-scrolling: initial;
+    -webkit-overflow-scrolling: initial; /* fix 1 */
   }
 }
 
