@@ -46,6 +46,16 @@
   }
 }
 
+.teaser__main-wrapper {
+  display: flex;
+  align-items: stretch;
+  flex-direction: column;
+  justify-content: flex-end;
+  flex: 1 1 auto;
+
+  width: 100%; // make sure content doesn't overflow on IE11
+}
+
 .teaser__main {
   display: flex;
   flex-direction: row-reverse;
@@ -502,16 +512,6 @@
     }
   }
 
-  .teaser__main-wrapper {
-    display: flex;
-    align-items: stretch;
-    flex-direction: column;
-    justify-content: flex-end;
-    flex: 1 1 auto;
-
-    width: 100%; // make sure content doesn't overflow on IE11
-  }
-
   .teaser__main {
     flex-direction: column;
     flex-wrap: nowrap;
@@ -854,16 +854,6 @@
     float: left;
     height: 0;
     padding-top: 100%;
-  }
-
-  .teaser__main-wrapper {
-    display: flex;
-    align-items: stretch;
-    flex-direction: column;
-    justify-content: flex-end;
-    flex: 1 1 auto;
-
-    width: 100%; // make sure content doesn't overflow on IE11
   }
 
   // necessary to have a translucent background (contrary to the default dark teaser)
