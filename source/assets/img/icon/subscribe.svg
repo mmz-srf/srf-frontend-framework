@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="13px" height="13px" viewBox="0 0 13 13" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 55.2 (78181) - https://sketchapp.com -->
+    <title>Group</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+        <g id="Icons/Subscribe_Icon" transform="translate(-6.000000, -6.000000)" stroke="#4E4D47">
+            <g id="Group" transform="translate(6.500000, 6.500000)">
+                <path d="M6,0 L6,12" id="Line-2"></path>
+                <path d="M6,0 L6,12" id="Line-2" transform="translate(6.000000, 6.000000) rotate(-90.000000) translate(-6.000000, -6.000000) "></path>
+            </g>
+        </g>
+    </g>
+</svg>
