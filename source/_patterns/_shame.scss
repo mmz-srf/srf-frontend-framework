@@ -110,10 +110,10 @@ _:-ms-fullscreen,
  */
 .subnav--open-3rd-level {
   overflow-x: auto; /* fix 1 */
-  box-sizing: border-box; /* fix 2 */
 
   .subnav__list {
     -webkit-overflow-scrolling: initial; /* fix 1 */
+    box-sizing: border-box; /* fix 2 */
   }
 }
 
