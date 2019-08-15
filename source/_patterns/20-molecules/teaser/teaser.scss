@@ -3,7 +3,6 @@
 @import "../../breakpoints";
 @import "teaser-theme-settings";
 
-/* autoprefixer grid: on */
 .teaser {
   display: flex;
   flex-grow: 1;
@@ -44,25 +43,6 @@
   @include smartphone {
     display: none;
   }
-}
-
-.teaser__main-wrapper {
-  display: flex;
-  align-items: stretch;
-  flex-direction: column;
-  justify-content: flex-end;
-  flex: 1 1 auto;
-
-  width: 100%; // make sure content doesn't overflow on IE11
-}
-
-.teaser__main {
-  display: flex;
-  flex-direction: row-reverse;
-  flex-grow: 1;
-  width: 100%;
-  flex-wrap: wrap;
-  position: relative; // to position the pseudo elements
 
   /* Teasers have an invisible layer on top that gets sligthly opaque when active/focused */
   &::after {
@@ -87,6 +67,25 @@
       opacity: 1;
     }
   }
+}
+
+.teaser__main-wrapper {
+  display: flex;
+  align-items: stretch;
+  flex-direction: column;
+  justify-content: flex-end;
+  flex: 1 1 auto;
+
+  width: 100%; // make sure content doesn't overflow on IE11
+}
+
+.teaser__main {
+  display: flex;
+  flex-direction: row-reverse;
+  flex-grow: 1;
+  width: 100%;
+  flex-wrap: wrap;
+  position: relative; // to position the pseudo elements
 
   // if any Teaser(size) is being clicked … do the following with its siblings and children
   &:active ~ .teaser__links {
@@ -635,39 +634,6 @@
       line-height: $secondary-line-height-ratio;
     }
   }
-
-  //@supports (display: grid) {
-  //  @include tablet-up {
-  //    .teaser__main {
-  //      display: grid;
-  //      grid-template-columns: $teaser-xl-medium-ratio auto;
-  //      grid-template-rows: 1fr max-content;
-  //    }
-  //
-  //    .teaser__medium-wrapper {
-  //      grid-row: span 2;
-  //    }
-  //
-  //    .teaser__scoreboard {
-  //      padding-left: 8px;
-  //      background-color: $color-srf-warmgrey-10;
-  //    }
-  //
-  //    .teaser__opinion {
-  //      padding-left: 24px;
-  //    }
-  //  }
-  //
-  //  @include desktop-wide {
-  //    .teaser__scoreboard {
-  //      padding-left: 8px;
-  //    }
-  //
-  //    .teaser__opinion {
-  //      padding-left: 32px;
-  //    }
-  //  }
-  //}
 }
 
 /* S-ON-MOBILE
@@ -1036,5 +1002,3 @@
     text-align: center;
   }
 }
-
-/* autoprefixer grid: off */
