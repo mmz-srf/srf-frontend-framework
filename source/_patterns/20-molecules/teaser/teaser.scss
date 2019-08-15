@@ -33,6 +33,18 @@
   }
 }
 
+.teaser__fullsize-link {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  @include smartphone {
+    display: none;
+  }
+}
+
 .teaser__main {
   display: flex;
   flex-direction: row-reverse;
@@ -483,7 +495,6 @@
     .teaser__main-wrapper {
       flex: 0 0 #{100% - $teaser-xl-medium-ratio};
       position: relative;
-      background-color: $color-srf-neutral-blacka60;
       // subpixel rendering makes the content stick out of the teaser
       // sometimes - with the 2px negative bottom margin and 2px padding
       // at the bottom this is prevented.
@@ -908,20 +919,6 @@
 
 // Longform Teaser in XL format has some special properties:
 .teaser--longform.teaser--size-xl {
-  .teaser__fullsize-link {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-  }
-
-  @include smartphone {
-    .teaser__fullsize-link {
-      display: none;
-    }
-  }
-
   @include tablet-up {
     display: flex;
     flex-direction: row;
