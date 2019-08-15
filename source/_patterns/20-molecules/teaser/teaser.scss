@@ -644,7 +644,7 @@
  */
 .teaser--size-s-on-mobile {
   @include smartphone {
-    flex-direction: row;
+    flex-direction: row-reverse;
 
     &.teaser--with-links {
       flex-direction: column;
