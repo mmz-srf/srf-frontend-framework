@@ -31,6 +31,20 @@
 
 .podcast-details__link {
   margin-bottom: 12px;
+  font-family: $font-regular;
+  display: block;
+
+  &:hover {
+    .svg-icon {
+      filter: brightness(0.6);
+    }
+  }
+
+  .svg-icon {
+    position: relative;
+    top: 7px;
+    bottom: 7px;
+  }
 }
 
 .podcast-details__title {

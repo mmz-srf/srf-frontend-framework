@@ -27,6 +27,14 @@
   @include caret('red', 'right', 'medium');
 }
 
+.svg-icon--arrow-right-red-small {
+  @include caret('red', 'right', 'small');
+}
+
+.svg-icon--arrow-right-red-tiny {
+  @include caret('red', 'right', 'tiny');
+}
+
 .svg-icon--arrow-left {
   @include caret('grey', 'left', 'medium');
 }
