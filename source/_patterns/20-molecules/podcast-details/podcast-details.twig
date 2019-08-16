@@ -1,0 +1,25 @@
+<div class="podcast-details">
+    <img src="../../../assets/img/Placeholder-1to1.svg" alt="placeholder" class="podcast-details__image">
+    <div class="podcast-details__header">
+        <div class="podcast-details__link">
+            {% include 'atoms-block-link' with {'hyperlink':{url: '#', title:'Zur Sendungsseite'}, 'styleModifier': 'block-link--no-padding'} %}
+        </div>
+        <h2 class="podcast-details__title">
+            4x4 Podcast
+        </h2>
+    </div>
+    <div class="podcast-details__content">
+        <p class="podcast-details__text">
+            Wer die Nachrichten schon kennt, will möglichst bald mehr: mehr Einordnung, mehr
+            Analyse, mehr Hintergrund. SRF 4 News bietet deshalb mit …
+        </p>
+        <div class="podcast-details__categories">
+            {% include 'atoms-underlined-link' with {'url': '#', 'linkText': 'Hintergrund,'} %}
+            {% include 'atoms-underlined-link' with {'url': '#', 'linkText': 'Politik & Wirtschaft'} %}
+        </div>
+        <div class="podcast-details__actions">
+            {% include 'atoms-icon-button' with {'buttonText':'Abonnieren', 'iconStyleModifier':'svg-icon--subscribe', 'styleModifier':'icon-button--small js-podcast-button-subscribe'} %}
+            {% include 'atoms-icon-button' with {'buttonText':'Teilen', 'iconStyleModifier':'svg-icon--share', 'styleModifier':'icon-button--small'} %}
+        </div>
+    </div>
+</div>
