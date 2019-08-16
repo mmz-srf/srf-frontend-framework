@@ -5,6 +5,8 @@ import { FefBouncePrevention } from './fef-bounce-prevention';
 const ANIMATION_FADE_IN_OUT = 'fade-in-out';
 const ANIMATION_SCALE_FROM_ORIGIN = 'scale-from-origin';
 const ANIMATION_FLYOUT = 'as-flyout-from-origin';
+const ANIMATION_SLIDE_FROM_BOTTOM = 'slide-from-bottom';
+
 const ANIMATION_SPEED = (window.matchMedia('(prefers-reduced-motion)').matches) ? 0 : 200;
 const KEYCODES = {
     'enter': 13,
@@ -116,6 +118,9 @@ export class FefModal {
                 break;
             case ANIMATION_FADE_IN_OUT:
                 this.$element.stop(true, true).fadeIn(ANIMATION_SPEED, () => this.onShowFinished());
+                break;
+            case ANIMATION_SLIDE_FROM_BOTTOM:
+                this.slideFromBottom(() => this.onShowFinished());
                 break;
             default:
                 this.$element.show(() => this.onShowFinished());
@@ -250,6 +255,21 @@ export class FefModal {
             'opacity': 1
         }, ANIMATION_SPEED, 'easeInOutSine', callBack);
     }
+
+    /**
+     *
+     */
+    slideFromBottom(callBack) {
+        this.$element.show();
+        let modalHeight = this.$element.outerHeight();
+
+        this.$mainWrapper.css({
+            'bottom': `-${modalHeight}px`,
+        }).animate({
+            'bottom': 0,
+        }, 2 * ANIMATION_SPEED, 'easeInOutSine', callBack);
+    }
+
 
     /**
      * Prevent scrollable page when the modal is open.

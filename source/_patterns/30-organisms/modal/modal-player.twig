@@ -1,5 +1,5 @@
 {% embed "modal.twig" with {
-    'id': 'modal-player',
+    'id': id|default('modal-player'),
     'animation': 'scale-from-origin',
     'styleModifier': 'modal--theme-dark modal--no-overlay'
 } %}

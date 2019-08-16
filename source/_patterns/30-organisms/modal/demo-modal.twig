@@ -1,13 +1,101 @@
-{% include 'organisms-modal' with {'id': 'test-modal-1', 'styleModifier': '', 'title': 'Erstes Modal'} %}
+<h2>Demopage Modals</h2>
 
-<button data-modal-id="test-modal-1">Open Modal 1</button>
+{% include 'organisms-modal' with {
+    'id': 'test-modal-1',
+    'styleModifier': '',
+    'title': 'Erstes Modal'
+   }
+%}
+{% include 'atoms-button' with {
+    'styleModifier': '',
+    'buttonText': 'First modal',
+    'additionalAttributes': 'data-modal-id="test-modal-1"'
+   }
+%}
 
-{% include 'organisms-modal' with {'id': 'test-modal-2', 'styleModifier': '', 'title': 'Zweites Modal'} %}
+{% include 'organisms-modal' with {
+    'id': 'test-modal-2',
+    'styleModifier': '',
+    'title': 'Zweites Modal'
+   }
+%}
+{% include 'atoms-button' with {
+    'styleModifier': '',
+    'buttonText': 'Second modal',
+    'additionalAttributes': 'data-modal-id="test-modal-2"'
+}
+%}
 
-<button data-modal-id="test-modal-2">Open Modal 2</button>
+{% include 'organisms-modal-player' with {
+    'id': 'test-modal-3'
+   }
+%}
+{% include 'atoms-button' with {
+    'styleModifier': '',
+    'buttonText': 'Player modal',
+    'additionalAttributes': 'data-modal-id="test-modal-3"'
+}
+%}
 
-{% include 'organisms-modal-player' %}
+{% include 'organisms-modal' with {
+    'id': 'test-modal-4',
+    'animation': 'slide-from-bottom',
+    'styleModifier': 'modal--attachment-bottom',
+    'styleModifierModalWrapper': ''
+   }
+%}
+{% include 'atoms-button' with {
+    'styleModifier': '',
+    'buttonText': 'Bottom modal',
+    'additionalAttributes': 'data-modal-id="test-modal-4"'
+}
+%}
 
-<button data-modal-id="modal-player">Open Modal 3</button>
+{% embed 'organisms-modal-flyout'  with { 'styleModifier': '', 'flyoutId': 'test-modal-flyout-1', 'flyoutTitle': 'Kontakt ins Studio' } %}
+    {% block flyout_content %}
+        {% embed 'molecules-menu-list' %}
+            {% block list_content %}
+                <li class="menu-list__item">
+                    {% include 'atoms-menu-link' with {'styleModifier': '', 'text': 'Mail ins Studio', 'iconStyleModifier': 'svg-icon--outline-mail'} %}
+                </li>
+                <li class="menu-list__item">
+                    {% include 'atoms-menu-link' with {'styleModifier': '', 'text': '0848 80 80 80', 'iconStyleModifier': 'svg-icon--outline-phone'} %}
+                </li>
+                <li class="menu-list__item">
+                    {% include 'atoms-menu-link' with {'styleModifier': '', 'text': 'WhatsApp', 'iconStyleModifier': 'svg-icon--outline-whatsapp'} %}
+                </li>
+                <li class="menu-list__item">
+                    {% include 'atoms-menu-link' with {'styleModifier': '', 'text': 'Kontaktformular', 'iconStyleModifier': 'svg-icon--outline-mail'} %}
+                </li>
+            {% endblock %}
+        {% endembed %}
+    {% endblock %}
+{% endembed %}
+{% include 'atoms-button' with {
+    'styleModifier': 'button--secondary',
+    'buttonText': 'Flyout modal 1',
+    'additionalAttributes': 'data-modal-id="test-modal-flyout-1"'
+   }
+%}
 
-<br><br><br><br><br><br><br><br><br>
+
+{% embed 'organisms-modal-flyout'  with { 'styleModifier': '', 'flyoutId': 'test-modal-flyout-2', 'flyoutTitle': 'Kontakt ins Studio' } %}
+    {% block flyout_content %}
+        {% embed 'molecules-menu-list' %}
+            {% block list_content %}
+                <li class="menu-list__item">
+                    {% include 'atoms-menu-link' with {'styleModifier': '', 'text': 'Mail ins Studio', 'iconStyleModifier': 'svg-icon--outline-mail'} %}
+                </li>
+                <li class="menu-list__item">
+                    {% include 'atoms-menu-link' with {'styleModifier': '', 'text': '0848 80 80 80', 'iconStyleModifier': 'svg-icon--outline-phone'} %}
+                </li>
+            {% endblock %}
+        {% endembed %}
+    {% endblock %}
+{% endembed %}
+{% include 'atoms-button' with {
+    'styleModifier': 'button--secondary button--fixed-bottom-right',
+    'buttonText': 'Flyout modal 2',
+    'additionalAttributes': 'data-modal-id="test-modal-flyout-2"'
+   }
+%}
