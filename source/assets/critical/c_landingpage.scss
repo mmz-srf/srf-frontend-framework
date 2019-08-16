@@ -215,14 +215,13 @@ body.body--loading.body--loading {
     justify-content: space-between;
     align-items: center;
     padding: 16px;
-    @include fontSize(16);
-    color: $color-srf-warmgrey-1100;
     border-radius: 2px;
     background-color: $color-srf-warmgrey-10;
+  }
 
-    @include desktop-up {
-      @include fontSize(18);
-    }
+  .collection__link-text,
+  .collection__link-icon {
+    opacity: 0;
   }
 
   .collection:not(.collection--swipeable) {
