@@ -200,6 +200,7 @@ body.body--loading.body--loading {
   .collection__link-item {
     margin: 0 0 2px 0;
     padding: 0;
+    list-style-type: none;
 
     @include tablet-up {
       margin: 0 12px 0 0;
