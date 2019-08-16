@@ -156,6 +156,10 @@ export class FefModal {
             case ANIMATION_FLYOUT:
                 this.$element.fadeOut(ANIMATION_SPEED, () => this.setFocus(this.$caller)).hide();
                 break;
+            case ANIMATION_SLIDE_FROM_BOTTOM:
+                this.slideFromBottomClose();
+                this.setA11YProperties(false);
+                break;
             default:
                 this.$element.hide(ANIMATION_SPEED, '', () => this.setFocus(this.$caller));
                 this.setA11YProperties(false);
@@ -257,19 +261,40 @@ export class FefModal {
     }
 
     /**
-     *
+     * modal opening animation:
+     * - slides the modal in from the bottom
+     * - adjusts the animation speed depending on modal height
+     * - calls an optional callback
      */
     slideFromBottom(callBack) {
         this.$element.show();
-        let modalHeight = this.$element.outerHeight();
+        let modalHeight = this.$mainWrapper.outerHeight();
+        let animationSpeed = (ANIMATION_SPEED > 0) ? ANIMATION_SPEED + (Math.floor(modalHeight / 100) * 25) : 0; // adjusting animation speed
 
         this.$mainWrapper.css({
             'bottom': `-${modalHeight}px`,
-        }).animate({
-            'bottom': 0,
-        }, 2 * ANIMATION_SPEED, 'easeInOutSine', callBack);
+            'transition': `transform ${animationSpeed}ms ease-in-out`,
+            'transform': `translateY(-${modalHeight}px)`
+        });
+
+        return callBack;
     }
 
+    /**
+     * corresponding closing animation for slideFromBottom:
+     * - slides the modal out to the bottom
+     * - sets the focus to the caller
+     */
+    slideFromBottomClose() {
+        this.$mainWrapper.one('transitionend', () => {
+            this.$element.hide();
+            this.setFocus(this.$caller);
+        });
+
+        this.$mainWrapper.css({
+            'transform': 'translateY(0)'
+        });
+    }
 
     /**
      * Prevent scrollable page when the modal is open.

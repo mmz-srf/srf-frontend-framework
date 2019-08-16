@@ -51,6 +51,41 @@
 }
 %}
 
+{# MODAL LARGE #}
+{% embed "modal.twig" with {
+    'id': 'test-modal-5',
+    'animation': 'slide-from-bottom',
+    'styleModifier': 'modal--attachment-bottom',
+    'styleModifierModalWrapper': ''
+} %}
+    {% block content %}
+
+        <div class="modal__head modal-wrapper">
+            <a href="#" class="js-close-modal">
+                {% include 'atoms-icon-button' with {
+                    'iconStyleModifier': 'svg-icon--close-dark',
+                    'screenReaderText': 'Schliessen',
+                    'styleModifier': 'js-close-modal'
+                } %}
+            </a>
+        </div>
+
+        <div class="modal__body modal-wrapper">
+            <h2 class="content-heading ">Dies ist ein Beispiel mit viel Inhalt</h2>
+            {% include 'molecules-expandable-box' with {'styleModifier': ''} %}
+            {% include 'molecules-highlight-nav' with {'styleModifier': '', 'id': 'highlight-nav'} %}
+            {% include 'molecules-globalnav' with {'styleModifier': '', 'id': 'globalnav--menu'} %}
+        </div>
+    {% endblock %}
+{% endembed %}
+
+{% include 'atoms-button' with {
+    'styleModifier': '',
+    'buttonText': 'Bottom modal large',
+    'additionalAttributes': 'data-modal-id="test-modal-5"'
+}
+%}
+
 {% embed 'organisms-modal-flyout'  with { 'styleModifier': '', 'flyoutId': 'test-modal-flyout-1', 'flyoutTitle': 'Kontakt ins Studio' } %}
     {% block flyout_content %}
         {% embed 'molecules-menu-list' %}
