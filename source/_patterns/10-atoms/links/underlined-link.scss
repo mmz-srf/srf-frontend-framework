@@ -1,0 +1,6 @@
+.list-link {
+  color: $color-srf-red-600;
+  font-family: $font-regular;
+  @include fontSize(16);
+  text-decoration: underline;
+}
