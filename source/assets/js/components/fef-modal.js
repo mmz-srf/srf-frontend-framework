@@ -277,7 +277,7 @@ export class FefModal {
             'transform': `translateY(-${modalHeight}px)`
         });
 
-        return callBack;
+        callBack();
     }
 
     /**
