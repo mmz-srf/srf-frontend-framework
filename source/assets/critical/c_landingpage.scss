@@ -218,6 +218,14 @@ body.body--loading.body--loading {
     padding: 16px;
     border-radius: 2px;
     background-color: $color-srf-warmgrey-10;
+
+    .collection--branded & {
+      background-color: $color-srf-neutral-whitea08;
+    }
+
+    .collection--branded-dark & {
+      background-color: $color-srf-neutral-blacka04;
+    }
   }
 
   .collection__link-text,
