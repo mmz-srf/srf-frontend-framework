@@ -1,3 +1,15 @@
+.path {
+  background: rgba(0,117,227,1);
+  color: rgba(255,255,255,1);
+  letter-spacing: .025em;
+}
+
+span.path {
+  display: inline-block;
+  background: none;
+  color: rgba(0,117,227,1);
+}
+
 pre,
 code {
   background: rgba(253,246,227,1);
