@@ -1,7 +1,7 @@
 # CSS/Sass Development Guidelines
 
 ## General considerations
-- The main idea behind our [BEM blocks](#BEM) is that they could be used independently and anywhere. A vision is that - when we are ready to use http/2 - each block will have a separate generated CSS file so that just the styles for blocks used on a web page need to be included. Therefore: Avoid global styles and code a block in a way that all its styling is in one Sass file.
+- The main idea behind our [BEM blocks](#BEM) is that they could be used independently and anywhere. A vision is that – when we are ready to use http/2 – each block will have a separate generated CSS file so that just the styles for blocks used on a web page need to be included. Therefore: Avoid global styles and code a block in a way that all its styling is in one Sass file.
 - Maintainability should be the primary goal when writing CSS/Sass-Code for the framework even if it results in more code.
 - Top and bottom spaces between components should be ruled by [collapsing margins](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model/Mastering_margin_collapsing). The component with the larger margin wins. Therefore only use margins not padding for top and bottom spaces. Sometimes it is necessary to add a wrapper `<div />` to make margins work as desired.
 
