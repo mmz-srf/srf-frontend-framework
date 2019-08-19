@@ -9,7 +9,9 @@
 
 - Validate and lint your code before committing to ensure your changes follow our coding standards
 
-  ```gulp js-lint```
+  ```shell
+  gulp js-lint
+  ```
 
 
 ### JavaScript - Creating components
@@ -25,7 +27,7 @@
 
 ### JavaScript - Naming
 
-- Name your component JS file with a ```fef-``` prefix (```fef-tooltip.js```, ```fef-search.js```, ...)
+- Name your component JS file with a `fef-` prefix (`fef-tooltip.js`, `fef-search.js`, ...)
 - Use CamelCase notation for class and variable names
 - Names of classes start with a capital letter
 - Constants should use only upper case characters (THIS_IS_A_CONSTANT)
@@ -35,12 +37,13 @@
 ### JavaScript - Events
 
 - Your component may fire events which can trigger actions outside of the frontend framework
-- Always use ```fef``` as the prefix of your event name
+- Always use `fef` as the prefix of your event name
 - Event names are not camel case, concatenate your event description like this
 
-```javascript
-this.$element.trigger('fef.button.of.my.component.clicked');
-```
+  ```javascript
+  this.$element.trigger('fef.button.of.my.component.clicked');
+  ```
+
 - Document in detail what your event is for and what it indicates
 - Provide callback functions in your component if you want to interact with the outside world
 - Do not limit components which possibly subscribe to an event (Avoid documentation like: *"When triggered, outside 

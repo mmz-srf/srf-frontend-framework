@@ -1,14 +1,14 @@
-
 # Frontify
 
 ## Synchronizing the FEF patterns to Frontify
 
 FEF patterns can be synced to the srf frontify project by using the following command:
 
-```gulp frontify --token <access_token>```
+```shell
+gulp frontify --token <access_token>
+```
 
-
-`<access_token>` is the frontify access token (it's stored in our password safe).
+Hint: `<access_token>` is the frontify access token (it's stored in our password safe).
 
 
 ## What happens in the sync task?
