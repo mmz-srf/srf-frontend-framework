@@ -1,12 +1,8 @@
 .pill-link-wrapper {
-  margin-right: -16px;
   margin-bottom: 8px;
-  margin-left: -16px;
 
   @include tablet-up {
-    margin-right: 0;
     margin-bottom: 32px;
-    margin-left: 0;
   }
 
   @include desktop-wide {
