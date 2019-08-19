@@ -148,7 +148,7 @@ Please do not abbreviate and nest class names with the sass parent selector (`&`
 | `js-`          | [**J** ava **s** cript hooks](#js_hooks) |
 | `demo-`, `sg-` | Class names beginning with `demo-` or `sg-` are **not** part of the SRF Frontend Framework patterns. Use them only to style this patternlab styleguide. |
 
-### BEM
+### <a id="BEM"></a>BEM
 **BEM**, or «Block-Element-Modifier», is a _naming convention_ for classes in HTML and CSS. It was originally developed by Yandex with large codebases and scalability in mind, and can serve as a solid set of guidelines for implementing OOCSS.
 
 We use a variant of BEM called [«Two Dashes style»](https://en.bem.info/methodology/naming-convention/#two-dashes-style):
@@ -223,11 +223,11 @@ If you really must use an `!important` statement, please comment the reasons for
 ## Sass-Variables
 Prefer dash-cased variable names (e.g. `$my-variable`) over camelCased or snake_cased variable names. It is acceptable to prefix variable names that are intended to be used only within the same file with an underscore (e.g. `$_my-variable`).
 
-## Colors in FEF
-Switch to Global/Colors to learn more about the topic «Colors on SRF.ch» by opening the Pattern Infos (Gear-/Settings-Icon in the top right corner).
+## Colors
+Consult <a href="docs/colors.md" data-fef-href="/patterns/00-documentation-30-colors/00-documentation-30-colors.html">Colors in FEF</a> for important information about using Colors in FEF.
 
 ## Mixins
-Mixins should be used to DRY up your code, add clarity, or abstract complexity–in much the same way as well-named functions. Mixins that accept no arguments can be useful for this, but note that if you are not compressing your payload (e.g. gzip), this may contribute to unnecessary code duplication in the resulting styles.
+Mixins should be used to DRY up your code, add clarity, or abstract complexity – in much the same way as well-named functions. Mixins that accept no arguments can be useful for this, but note that if you are not compressing your payload (e.g. gzip), this may contribute to unnecessary code duplication in the resulting styles.
 
 ## Extend directive
 `@extend` must be avoided because it has unintuitive and potentially dangerous behavior, especially when used with nested selectors. Even extending top-level placeholder selectors can cause problems if the order of selectors ends up changing later (e.g. if they are in other files and the order the files are loaded shifts). Gzipping should handle most of the savings you would have gained by using `@extend`, and you can DRY up your stylesheets nicely with **mixins**.
