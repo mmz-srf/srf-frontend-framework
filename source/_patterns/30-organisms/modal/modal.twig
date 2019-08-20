@@ -3,16 +3,13 @@
      data-animation="{{ animation|default("") }}">
   <div class="modal__overlay js-modal-overlay"></div>
 
-  <div class="modal-main-wrapper {{ styleModifierModalWrapper|default("") }} js-modal-main-wrapper">
-    <div class="modal-main-content js-modal-main-content">
+  <div class="modal__main-wrapper {{ styleModifierModalWrapper|default("") }} js-modal-main-wrapper">
+    <div class="modal__main-content js-modal-main-content">
       {% block content %}
         <span class="h-offscreen js-focus-target">Modal-Titel</span>
 
-        <div class="modal__head modal-wrapper">
+        <div class="modal__content-wrapper">
           <h1>{{ title | default("Your header could be here!") }}</h1>
-        </div>
-
-        <div class="modal__body modal-wrapper">
           <p>And your content could be here!</p>
         </div>
       {% endblock %}
