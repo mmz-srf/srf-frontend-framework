@@ -41,6 +41,7 @@
 
   overflow-x: scroll;
   overflow-y: hidden;
+  @include preventScrollbars;
 
   &::after {
     content: '';
@@ -117,8 +118,13 @@
   .onairnav-list__element {
     display: flex;
     flex-direction: column;
-    flex: 1 0 calc((100% / 6) - (5 * 24px));
-    margin: 0 24px 0 0;
+    flex: 1 0 calc((100% / 6) - (5 * 2px));
+    margin: 0 2px 0 0;
+
+    @include desktop-up {
+      flex-basis: calc((100% / 6) - (5 * 24px));
+      margin-right: 24px;
+    }
 
     &:last-of-type {
       margin-right: 0;
