@@ -18,19 +18,18 @@
 }
 
 .podcast-details__header {
-  flex-basis: calc(100% - (112px + 24px));
+  flex-basis: calc(100% - (112px + 12px));
 
-  @include smartphone() {
-    flex-basis: calc(100% - (112px + 12px));
+  @include tablet-up() {
+    flex-basis: calc(100% - (112px + 24px));
   }
 }
 
 .podcast-details__content {
-  margin-bottom: 16px;
-  flex-basis: calc(100% - (112px + 24px));
+  flex-basis: 100%;
 
-  @include smartphone {
-    flex-basis: 100%;
+  @include tablet-up {
+    flex-basis: calc(100% - (112px + 24px));
   }
 }
 
@@ -54,7 +53,7 @@
 
 .podcast-details__title {
   font-family: $font-medium;
-  @include fontSize(28);
+  @include fontSize(24);
   color: $color-srf-warmgrey-1100;
   margin-top: 0;
   margin-bottom: 8px;
@@ -63,12 +62,8 @@
     color: inherit;
   }
 
-  @include smartphone {
-    @include fontSize(24);
-  }
-
-  @include tablet {
-    @include fontSize(24);
+  @include desktop-up {
+    @include fontSize(28);
   }
 }
 
@@ -101,14 +96,41 @@
   display: flex;
 }
 
-.podcast-details__actions__subscribe {
+.podcast-details__actions__container {
   background: $color-srf-warmgrey-10;
   border: solid 1px #eeeeee;
-  padding: 0 8px 16px;
   margin-top: 12px;
+  padding: 0 8px 16px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+
+  @include tablet-up {
+    padding: 0 32px 16px;
+    flex-direction: row;
+  }
+
+  @include desktop-wide {
+    padding: 0 40px 16px;
+  }
 }
 
-.podcast-details__button {
+.podcast-details__button--secondary {
+  @include tablet {
+    margin-right: 24px;
+    flex-basis: calc(50% - (24px / 2));
+
+    &:nth-of-type(2n) {
+      margin-right: 0;
+    }
+  }
+
+  @include tablet-up {
+    margin-right: 16px;
+  }
+}
+
+.podcast-details__icon-button {
   position: relative;
 
   &::before,
@@ -120,6 +142,7 @@
   }
 
   //square that is rotated 45 degrees
+  //caution, weird px values
   &::before {
     background: $color-srf-warmgrey-10;
     border: 1px solid #eeeeee;

@@ -20,14 +20,14 @@
             {% include 'atoms-underlined-link' with {'url': '#', 'linkText': 'Politik & Wirtschaft'} %}
         </div>
         <div class="podcast-details__actions">
-            {% include 'atoms-icon-button' with {'buttonText':'Abonnieren', 'iconStyleModifier':'svg-icon--subscribe', 'styleModifier':'icon-button--small podcast-details__button'} %}
-            {% include 'atoms-icon-button' with {'buttonText':'Teilen', 'iconStyleModifier':'svg-icon--share', 'styleModifier':'icon-button--small podcast-details__button'} %}
-        </div>
-        <div class="podcast-details__actions__subscribe">
-            {% set buttonTexts = ['apple podcasts', 'google podcasts', 'spotify', 'link kopieren'] %}
-            {% for buttonText in buttonTexts %}
-                {% include 'atoms-button' with {'styleModifier':'button--secondary', 'buttonText':buttonText} %}
-            {% endfor %}
+            {% include 'atoms-icon-button' with {'buttonText':'Abonnieren', 'iconStyleModifier':'svg-icon--subscribe', 'styleModifier':'icon-button--small podcast-details__icon-button'} %}
+            {% include 'atoms-icon-button' with {'buttonText':'Teilen', 'iconStyleModifier':'svg-icon--share', 'styleModifier':'icon-button--small podcast-details__icon-button'} %}
         </div>
     </div>
+</div>
+<div class="podcast-details__actions__container">
+    {% set buttonTexts = ['apple podcasts', 'google podcasts', 'spotify', 'link kopieren'] %}
+    {% for buttonText in buttonTexts %}
+        {% include 'atoms-button' with {'styleModifier':'button--secondary podcast-details__button--secondary', 'buttonText':buttonText} %}
+    {% endfor %}
 </div>
