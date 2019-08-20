@@ -1,3 +1,52 @@
+/**
+ *
+ * This stylesheet is for styles you want to include only when displaying demo OR docs-pages
+ *
+ * These styles will not be in your production CSS.
+ *
+ */
+
+
+/* Styles for DEMO-Elements */
+body.demo-pattern-page {
+  background-color: #FFF;
+}
+
+.demo-fonts {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.demo-fonts__item {
+  margin: 0 0.5vw 0.5vw 0;
+  border: 1px solid #ddd;
+}
+
+.demo-play-icons__container {
+  width: 64px;
+  height: 64px;
+  margin: 16px;
+}
+
+.demo-text {
+  display: block;
+  padding: 1rem;
+  border-bottom: 1px solid #ddd;
+}
+
+.demo-label {
+  display: block;
+  font-size: 80%;
+  line-height: 1.4;
+  padding: 0 1rem 0.5rem;
+}
+
+
+
+/* Styles for DOCS-Elements */
 .path {
   background: rgba(0,117,227,1);
   color: rgba(255,255,255,1);
