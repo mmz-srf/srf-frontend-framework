@@ -1176,5 +1176,59 @@
           }
         ]
       }
+  ],
+  "categories": [
+    {
+      "url": "#",
+      "name": "Hörspiele & Geschichten"
+    },
+    {
+      "url": "#",
+      "name": "Kinder & Familie"
+    },
+    {
+      "url": "#",
+      "name": "Krimi & True Crime"
+    },
+    {
+      "url": "#",
+      "name": "Kultur & Religion"
+    },
+    {
+      "url": "#",
+      "name": "Menschen & Gesellschaft"
+    },
+    {
+      "url": "#",
+      "name": "Musik"
+    },
+    {
+      "url": "#",
+      "name": "News"
+    },
+    {
+      "url": "#",
+      "name": "Politik & Wirtschaft"
+    },
+    {
+      "url": "#",
+      "name": "Ratgeber"
+    },
+    {
+      "url": "#",
+      "name": "Satire & Comedy"
+    },
+    {
+      "url": "#",
+      "name": "Sport"
+    },
+    {
+      "url": "#",
+      "name": "Talk"
+    },
+    {
+      "url": "#",
+      "name": "Wissen"
+    }
   ]
 }
