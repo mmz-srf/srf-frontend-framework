@@ -1,36 +1,49 @@
-<div class="podcast-details">
-    <a href="#">
-        <img src="../../../assets/img/Placeholder-1to1.svg" alt="placeholder" class="podcast-details__image">
+<div class="podcast-details js-podcast-details js-expander">
+    <div class="podcast-details__flex">
+        <a href="#">
+            <img src="../../../assets/img/Placeholder-1to1.svg" alt="placeholder" class="podcast-details__image">
+        </a>
+        <div class="podcast-details__header">
+            <a href="#" class="podcast-details__link">
+                Zur Sendungsseite {% include 'atoms-svg-icon' with {'styleModifier':'svg-icon--arrow-right-red-small'} %}
+            </a>
+            <h2 class="podcast-details__title">
+                <a href="#">4x4 Podcast</a>
+            </h2>
+        </div>
+        <div class="podcast-details__content">
+            <a href="#" class="podcast-details__text">
+                Wer die Nachrichten schon kennt, will möglichst bald mehr: mehr Einordnung, mehr
+                Analyse, mehr Hintergrund. SRF 4 News bietet deshalb mit …
+            </a>
+            <div class="podcast-details__categories">
+                {% include 'atoms-underlined-link' with {'url': '#', 'linkText': 'Hintergrund,'} %}
+                {% include 'atoms-underlined-link' with {'url': '#', 'linkText': 'Politik & Wirtschaft'} %}
+            </div>
+            <div class="podcast-details__actions">
+                {% include 'atoms-icon-button' with {'buttonText':'Abonnieren', 'iconStyleModifier':'svg-icon--subscribe', 'styleModifier':'icon-button--small podcast-details__icon-button', 'expanderId':'subscribe'} %}
+                {% include 'atoms-icon-button' with {'buttonText':'Teilen', 'iconStyleModifier':'svg-icon--share', 'styleModifier':'icon-button--small podcast-details__icon-button', 'expanderId':'share'} %}
+            </div>
+        </div>
+    </div>
+    <div class="podcast-details__expander-area" data-expander-area="subscribe">
+        <div class="podcast-details__actions__container">
+            {% set buttonTexts = ['apple podcasts', 'google podcasts', 'spotify', 'link kopieren'] %}
+            {% for buttonText in buttonTexts %}
+                {% include 'atoms-button' with {'styleModifier':'button--secondary podcast-details__button--secondary', 'buttonText':buttonText} %}
+            {% endfor %}
+        </div>
+    </div>
+    <div class="podcast-details__expander-area" data-expander-area="share">
+        <div class="podcast-details__actions__container">
+            {% set buttonTexts = ['facebook', 'twitter', 'whatsapp', 'e-mail'] %}
+            {% for buttonText in buttonTexts %}
+                {% include 'atoms-button' with {'styleModifier':'button--secondary podcast-details__button--secondary', 'buttonText':buttonText} %}
+            {% endfor %}
+        </div>
+    </div>
+
+    <a href="#" class="podcast-details__link podcast-details__link--black">
+        Alle Episoden anzeigen {% include 'atoms-svg-icon' with {'styleModifier':'svg-icon--arrow-right'} %}
     </a>
-    <div class="podcast-details__header">
-        <a href="#" class="podcast-details__link">
-            Zur Sendungsseite {% include 'atoms-svg-icon' with {'styleModifier':'svg-icon--arrow-right-red-small'} %}
-        </a>
-        <h2 class="podcast-details__title">
-            <a href="#">4x4 Podcast</a>
-        </h2>
-    </div>
-    <div class="podcast-details__content">
-        <a href="#" class="podcast-details__text">
-            Wer die Nachrichten schon kennt, will möglichst bald mehr: mehr Einordnung, mehr
-            Analyse, mehr Hintergrund. SRF 4 News bietet deshalb mit …
-        </a>
-        <div class="podcast-details__categories">
-            {% include 'atoms-underlined-link' with {'url': '#', 'linkText': 'Hintergrund,'} %}
-            {% include 'atoms-underlined-link' with {'url': '#', 'linkText': 'Politik & Wirtschaft'} %}
-        </div>
-        <div class="podcast-details__actions">
-            {% include 'atoms-icon-button' with {'buttonText':'Abonnieren', 'iconStyleModifier':'svg-icon--subscribe', 'styleModifier':'icon-button--small podcast-details__icon-button'} %}
-            {% include 'atoms-icon-button' with {'buttonText':'Teilen', 'iconStyleModifier':'svg-icon--share', 'styleModifier':'icon-button--small podcast-details__icon-button'} %}
-        </div>
-    </div>
 </div>
-<div class="podcast-details__actions__container">
-    {% set buttonTexts = ['apple podcasts', 'google podcasts', 'spotify', 'link kopieren'] %}
-    {% for buttonText in buttonTexts %}
-        {% include 'atoms-button' with {'styleModifier':'button--secondary podcast-details__button--secondary', 'buttonText':buttonText} %}
-    {% endfor %}
-</div>
-<a href="#" class="podcast-details__link podcast-details__link--black">
-    Alle Episoden anzeigen {% include 'atoms-svg-icon' with {'styleModifier':'svg-icon--arrow-right'} %}
-</a>

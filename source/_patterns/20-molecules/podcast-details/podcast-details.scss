@@ -1,4 +1,4 @@
-.podcast-details {
+.podcast-details__flex {
   display: flex;
   justify-content: flex-end;
   flex-wrap: wrap;
@@ -135,6 +135,14 @@
   @include desktop-wide {
     padding: 0 40px 16px;
   }
+}
+
+.podcast-details__expander-area {
+  display: none;
+}
+
+.podcast-details__expander-area--expanded {
+  display: block;
 }
 
 .podcast-details__button--secondary {
