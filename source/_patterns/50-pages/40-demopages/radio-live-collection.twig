@@ -1,0 +1,39 @@
+{% embed 'templates-landingpage' %}
+    {% block landingpage_content %}
+        <div class="collection js-collection collection--branded collection--branded-dark">
+            <div class="collection__branding-wrapper js-collection-branding-wrapper" style="background-image: linear-gradient(120deg, white, white);">
+                <div class="collection__content-wrapper js-collection-content-wrapper">
+                    <h3 class="collection__title">
+                        <span class="collection__title-text">Radio hören</span>
+                    </h3>
+                    <div class="onairnav-list-wrapper">
+                        <ul class="onairnav-list onairnav-list--compact">
+                            <li class="onairnav-list__element">
+                                {% include 'atoms-onairnav-link' with { 'styleModifier': 'onairnav-link--compact', 'url': '/radio-srf-1', 'styleModifierMedia': 'onairnav-link__media--radiologo', 'media': '/img/stationlogos/radio-srf-1-square.svg','title': 'Radio SRF 1', 'styleModifierTitle': 'onairnav-link__title--radiostation' } %}
+                            </li>
+                            <li class="onairnav-list__element">
+                                {% include 'atoms-onairnav-link' with { 'styleModifier': 'onairnav-link--compact', 'url': '/radio-srf-2', 'styleModifierMedia': 'onairnav-link__media--radiologo', 'media': '/img/stationlogos/radio-srf-2-square.svg','title': 'Radio SRF 2 Kultur', 'styleModifierTitle': 'onairnav-link__title--radiostation' } %}
+                            </li>
+                            <li class="onairnav-list__element">
+                                {% include 'atoms-onairnav-link' with { 'styleModifier': 'onairnav-link--compact', 'url': '/radio-srf-3', 'styleModifierMedia': 'onairnav-link__media--radiologo', 'media': '/img/stationlogos/radio-srf-3-square.svg','title': 'Radio SRF 3', 'styleModifierTitle': 'onairnav-link__title--radiostation' } %}
+                            </li>
+                            <li class="onairnav-list__element">
+                                {% include 'atoms-onairnav-link' with { 'styleModifier': 'onairnav-link--compact', 'url': '/radio-srf-4-news', 'styleModifierMedia': 'onairnav-link__media--radiologo', 'media': '/img/stationlogos/radio-srf-4-square.svg','title': 'Radio SRF 4 News', 'styleModifierTitle': 'onairnav-link__title--radiostation' } %}
+                            </li>
+                            <li class="onairnav-list__element">
+                                {% include 'atoms-onairnav-link' with { 'styleModifier': 'onairnav-link--compact', 'url': '/radio-srf-musikwelle', 'styleModifierMedia': 'onairnav-link__media--radiologo', 'media': '/img/stationlogos/radio-srf-musikwelle-square.svg','title': 'Radio SRF Musikwelle', 'styleModifierTitle': 'onairnav-link__title--radiostation' } %}
+                            </li>
+                            <li class="onairnav-list__element">
+                                {% include 'atoms-onairnav-link' with { 'styleModifier': 'onairnav-link--compact','url': '/radio-srf-virus',  'styleModifierMedia': 'onairnav-link__media--radiologo', 'media': '/img/stationlogos/radio-srf-virus-square.svg','title': 'Radio SRF Virus', 'styleModifierTitle': 'onairnav-link__title--radiostation' } %}
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {% for collection in collections %}
+            {% include 'organisms-collection' with {'collection': collection} %}
+        {% endfor %}
+    {% endblock %}
+{% endembed %}
