@@ -18,23 +18,60 @@
   }
 }
 
+.onairnav-list-wrapper {
+  overflow: hidden;
+  margin: 0 0 24px 0;
+
+  @include tablet-up {
+    margin: 0 32px 32px;
+  }
+
+  @include desktop-wide {
+    margin: 0 40px 32px;
+  }
+}
+
 .onairnav-list {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   flex-direction: column;
-  margin: 0 -16px;
-  padding: 0;
+  position: relative;
+  margin: 0;
+  padding: 0 8px;
+
+  overflow-x: scroll;
+  overflow-y: hidden;
+
+  &::after {
+    content: '';
+    display: block;
+    background-color: transparent;
+    flex: 0 0 8px;
+  }
 
   @include tablet-up {
     flex-direction: row;
+    padding: 0;
+
+    &::after {
+      display: none;
+    }
   }
 
-  @include tablet {
-    margin: 0 -12px;
-  }
-
-  @include desktop-up {
+  .modal--theme-dark & {
     margin: 0 -16px;
+    flex-wrap: wrap;
+
+    overflow-x: visible;
+    overflow-y: visible;
+
+    @include tablet {
+      margin: 0 -12px;
+    }
+
+    @include desktop-up {
+      margin: 0 -16px;
+    }
   }
 
   .onairnav-list__element {
