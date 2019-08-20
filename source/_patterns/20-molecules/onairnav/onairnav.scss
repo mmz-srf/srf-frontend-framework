@@ -80,22 +80,34 @@
   .onairnav-list__element {
     display: flex;
     flex-direction: column;
-    flex-grow: 0;
-    flex-shrink: 1;
-    flex-basis: calc(33.3334% - 2 * 1px);
-    margin: 1px;
-    max-width: calc(33.3334% - 2 * 1px);
+    flex: 1 0 calc((100% / 6) - (5 * 24px));
+    margin: 0 24px 0 0;
 
-    @include tablet {
-      flex-basis: calc(16.6667% - 2 * 1px);
+    &:last-of-type {
+      margin-right: 0;
     }
 
-    @include tablet-up {
-      max-width: auto;
-    }
+    .modal--theme-dark & {
+      flex-grow: 0;
+      flex-basis: calc(33.3334% - 2 * 1px);
+      margin: 1px;
+      max-width: calc(33.3334% - 2 * 1px);
 
-    @include desktop-up {
-      flex-basis: calc(11.1111% - 2 * 1px);
+      &:last-of-type {
+        margin-right: 1px;
+      }
+
+      @include tablet {
+        flex-basis: calc(16.6667% - 2 * 1px);
+      }
+
+      @include tablet-up {
+        max-width: auto;
+      }
+
+      @include desktop-up {
+        flex-basis: calc(11.1111% - 2 * 1px);
+      }
     }
   }
 
