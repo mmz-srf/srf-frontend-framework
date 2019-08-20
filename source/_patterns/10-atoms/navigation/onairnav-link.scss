@@ -30,7 +30,7 @@
     pointer-events: none;
 
     /* theme */
-    @include customPropWithFallback('background-color', '--teaser-background-link-hover', $color-srf-neutral-whitea08);
+    @include customPropWithFallback('background-color', '--teaser-background-link-hover', $color-srf-neutral-blacka08);
 
     // performance improvement: Don't animate the background-color, but the opacity
     opacity: 0;
@@ -39,7 +39,7 @@
 
   &:hover,
   &:focus {
-    color: $color-srf-neutral-white;
+    color: $color-srf-warmgrey-1100;
 
     &::after {
       opacity: 1;
@@ -47,11 +47,11 @@
   }
 
   &:active {
-    color: $color-srf-neutral-white;
+    color: $color-srf-warmgrey-1100;
 
     &::after {
       /* theme */
-      @include customPropWithFallback('background-color', '--teaser-background-link-active', $color-srf-neutral-whitea12);
+      @include customPropWithFallback('background-color', '--teaser-background-link-active', $color-srf-neutral-blacka12);
 
       opacity: 1;
     }
@@ -60,6 +60,25 @@
   .modal--theme-dark & {
     background-color: $color-srf-warmgrey-1100;
     color: $color-srf-neutral-white;
+
+    &::after {
+      /* theme */
+      @include customPropWithFallback('background-color', '--teaser-background-link-hover', $color-srf-neutral-whitea08);
+    }
+
+    &:hover,
+    &:focus {
+      color: $color-srf-neutral-white;
+    }
+
+    &:active {
+      color: $color-srf-neutral-white;
+
+      &::after {
+        /* theme */
+        @include customPropWithFallback('background-color', '--teaser-background-link-active', $color-srf-neutral-whitea12);
+      }
+    }
   }
 }
 
