@@ -1,0 +1,11 @@
+.pill-link-wrapper {
+  margin: 0 8px 8px;
+
+  @include tablet-up {
+    margin: 0 32px 32px;
+  }
+
+  @include desktop-wide {
+    margin: 0 40px 40px;
+  }
+}
