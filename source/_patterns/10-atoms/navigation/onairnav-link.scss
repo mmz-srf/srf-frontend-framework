@@ -6,8 +6,8 @@
   position: relative; // to position the pseudo elements
   height: 100%;
   border-radius: 2px;
-  background-color: $color-srf-warmgrey-1100;
-  color: $color-srf-neutral-white;
+  background-color: $color-srf-warmgrey-25;
+  color: $color-srf-warmgrey-1100;
   margin: 1px 0;
   padding: 18px 16px;
   transition: background .2s ease-in-out;
@@ -55,6 +55,11 @@
 
       opacity: 1;
     }
+  }
+
+  .modal--theme-dark & {
+    background-color: $color-srf-warmgrey-1100;
+    color: $color-srf-neutral-white;
   }
 }
 
@@ -147,14 +152,12 @@
   font-family: $font-regular;
   @include fontSize(14);
   line-height: 1.15;
-  color: $color-srf-neutral-white;
 }
 
 .onairnav-link__title--rtr-radiostation {
   font-family: $font-regular;
   @include fontSize(18);
   line-height: 1.15;
-  color: $color-srf-neutral-white;
 }
 
 
