@@ -51,6 +51,28 @@
   }
 }
 
+.podcast-details__link--black {
+  font-family: $font-medium;
+  color: inherit;
+
+  &:hover {
+    color: inherit;
+
+    .svg-icon {
+      filter: brightness(1);
+    }
+  }
+
+  @include smartphone {
+    width: 100%;
+    .svg-icon {
+      float: right;
+      top: 0;
+      bottom: 0;
+    }
+  }
+}
+
 .podcast-details__title {
   font-family: $font-medium;
   @include fontSize(24);
