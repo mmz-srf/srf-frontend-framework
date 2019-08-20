@@ -1,0 +1,142 @@
+.log {
+  width: 100%;
+  min-height: 800px;
+
+  @include smartphone {
+    margin-left: 16px;
+    padding-left: 0;
+    margin-right: -8px;
+  }
+}
+
+.log__entry {
+  margin-left: 0;
+  padding: 12px 24px 12px 0;
+  border-top: 1px solid $color-srf-neutral-blacka08;
+  display: table;
+  width: $tablet-content-max-width;
+
+  @include smartphone {
+    display: block;
+    width: auto;
+  }
+
+  @include tablet-up {
+    width: $desktop-content-max-width;
+  }
+
+  @include desktop-wide {
+    width: $desktop-wide-content-max-width;
+  }
+
+  &:last-of-type {
+    border-bottom: 1px solid $color-srf-neutral-blacka08;
+  }
+
+}
+
+.log__time {
+  font-family: $font-regular;
+  @include fontSize(12);
+  color: $color-srf-warmgrey-800;
+  display: table-cell;
+  vertical-align: top;
+  width: 60px;
+
+  @include tablet-up {
+    margin-bottom: 0;
+    @include fontSize(14);
+  }
+
+  @include smartphone {
+    display: block;
+    padding-bottom: 4px;
+  }
+}
+
+.log__title {
+  font-family: $font-medium;
+  @include fontSize(16);
+  font-weight: 500;
+  line-height: $default-line-height-ratio;
+  color: $color-srf-warmgrey-1100;
+  width: 280px;
+  display: table-cell;
+  padding-right: 24px;
+
+  @include tablet-up {
+    width: 326px;
+  }
+
+  @include desktop-wide {
+    width: 422px;
+  }
+
+  @include smartphone {
+    display: block;
+    width: auto;
+  }
+}
+
+.log__artist {
+  font-family: $font-light;
+  @include fontSize(16);
+  font-weight: 300;
+  line-height: $default-line-height-ratio;
+  color: $color-srf-warmgrey-900;
+  vertical-align: top;
+  display: table-cell;
+  min-width: 218px;
+
+  @include smartphone {
+    display: block;
+    width: auto;
+  }
+}
+
+.log__info {
+  display: table;
+  line-height: 20px;
+}
+
+.log--compact {
+  min-height: auto;
+  margin-left: 0;
+  padding-left: 0;
+
+  .log__entry {
+    border: none;
+    padding: 4px 0 4px 0;
+    width: auto;
+
+    @include smartphone {
+      display: table;
+    }
+  }
+
+  .log__time {
+    @include fontSize(12);
+    padding-right: 12px;
+    padding-top: 2px;
+    width: auto;
+
+    @include smartphone {
+      display: table-cell;
+    }
+  }
+
+  .log__title {
+    @include fontSize(16);
+    width: auto;
+    padding-right: 0;
+    vertical-align: top;
+    display: contents;
+  }
+
+  .log__artist {
+    @include fontSize(14);
+    line-height: $default-line-height-ratio;
+    display: contents;
+  }
+
+}

@@ -67,7 +67,33 @@ body.body--loading.body--loading {
     // no space between header and an branded collection at first position
     &:first-child {
       margin-top: 0;
+
+      .collection__branding-wrapper {
+        padding-top: 16px;
+
+        @include tablet-up {
+          padding-top: 32px;
+        }
+
+        @include desktop-wide {
+          padding-top: 40px;
+        }
+      }
+
+      &.collection--borderless {
+        .collection__branding-wrapper {
+          padding-top: 0;
+        }
+      }
+
     }
+
+    &.collection--swipeable,
+    &.collection--compact-swipeable {
+	    .collection__teaser-list {
+	      margin-bottom: 12px;
+	    }
+	  }
   }
 
   .collection__branding-wrapper {
@@ -149,6 +175,62 @@ body.body--loading.body--loading {
     @include desktop-wide {
       padding: 0 $teaser-col-gap-desktop-wide 40px 0;
     }
+  }
+
+  .collection__links {
+    margin: 0 8px 12px;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+
+    @include tablet-up {
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+
+    @include tablet-up {
+      margin: 16px 32px 16px;
+    }
+
+    @include desktop-wide {
+      margin: 20px 40px 20px;
+    }
+  }
+
+  .collection__link-item {
+    margin: 0 0 2px 0;
+    padding: 0;
+    list-style-type: none;
+
+    @include tablet-up {
+      margin: 0 12px 0 0;
+    }
+
+    @include desktop-wide {
+      margin: 0 16px 0 0;
+    }
+  }
+
+  .collection__link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    border-radius: 2px;
+    background-color: $color-srf-warmgrey-10;
+  }
+
+  .collection--branded .collection__link {
+    background-color: $color-srf-neutral-whitea08;
+  }
+
+  .collection--branded-dark .collection__link {
+    background-color: $color-srf-neutral-blacka04;
+  }
+
+  .collection__link-text,
+  .collection__link-icon {
+    opacity: 0;
   }
 
   .collection:not(.collection--swipeable) {
@@ -359,6 +441,110 @@ body.body--loading.body--loading {
     }
   }
 
+  // Dense Swipeable
+  // displays up to 6 teasers (smartphone: 2) in one row at once. becomes swipeable for more teasers.
+  // usually used for square teasers.
+  .collection--dense-swipeable {
+    .swipeable-area__wrapper {
+      width: 100%;
+      box-sizing: content-box;
+      overflow: hidden;
+      padding-top: 1px; // so that the items inside the wrapper can have a shadow
+    }
+
+    .collection__teaser-list {
+      flex-wrap: nowrap;
+      flex-direction: row;
+      margin: 0;
+    }
+
+    .collection__teaser-item {
+      box-sizing: content-box; // paddings must not be included in ratio 1:1 calculation!
+      min-width: calc((100% - 40px - (2 * 8px)) / 2.00001);
+      padding-right: 8px;
+      margin: 0;
+      width: auto;
+
+      @include tablet-up {
+        min-width: calc((100% - 6px - 56px - (6 * 12px)) / 6.00001);
+        padding-right: 12px;
+        max-width: none;
+      }
+
+      @include desktop {
+        min-width: calc((100% - 20px - 56px - (6 * 12px)) / 6.00001);
+        padding-right: 12px;
+        max-width: none;
+      }
+
+      @include desktop-wide {
+        min-width: calc((100% - 40px - 56px - (6 * 16px)) / 6.00001);
+        padding-right: 16px;
+      }
+
+      &:first-child {
+        margin-left: 8px;
+
+        @include tablet-up {
+          margin-left: 32px;
+        }
+
+        @include desktop-wide {
+          margin-left: 40px;
+        }
+      }
+
+      &:last-child {
+        padding-right: 8px;
+
+        @include tablet-up {
+          padding-right: 32px;
+        }
+
+        @include desktop-wide {
+          padding-right: 40px;
+        }
+      }
+    }
+
+    // 1-2 teasers on smartphone: not swipeable.
+    .collection__teaser-item:nth-last-child(-n+2):first-child,
+    .collection__teaser-item:nth-last-child(-n+2):first-child ~ .collection__teaser-item {
+      @include smartphone {
+        box-sizing: border-box;
+        width: calc((100% - 8px) / 2.0001);
+        padding-right: 8px;
+        min-width: 0;
+
+        &::after {
+          content: none;
+        }
+      }
+    }
+
+    // 1-6 teasers on tablet-up: not swipeable. teasers should use the same grid as 3 compact teasers.
+    .collection__teaser-item:nth-last-child(-n+6):first-child,
+    .collection__teaser-item:nth-last-child(-n+6):first-child ~ .collection__teaser-item {
+
+      @include tablet-up {
+        box-sizing: border-box;
+        width: calc((100% - 40px) / 6.0001);
+        padding-right: 24px;
+        min-width: 0;
+
+        &::after {
+          content: none;
+        }
+      }
+
+      // slightly different gaps/gutter on desktop-wide+
+      @include desktop-wide {
+        width: calc((100% - 48px) / 6.0001);
+        padding-right: 32px;
+      }
+    }
+  }
+
   // Selectable: Hide the selection element, show the first collection after it.
   // From that collection, only show the first 3 teasers
   .selectable {
@@ -424,6 +610,25 @@ body.body--loading.body--loading {
     background-color: $color-srf-neutral-offwhite;
     box-shadow: $shadow-elevation1;
     color: $color-srf-warmgrey-1100;
+
+    &.teaser--no-card {
+      background-color: transparent;
+      box-shadow: none;
+    }
+  }
+
+  .teaser--square {
+    box-shadow: none;
+
+    .teaser__medium-wrapper {
+      margin: 0;
+      flex-basis: auto;
+    }
+
+    // teaser content is just used for A11Y (alternative link text)
+    .teaser__content {
+      @include offscreen-non-focusable;
+    }
   }
 
   .teaser__medium-wrapper {
@@ -506,6 +711,26 @@ body.body--loading.body--loading {
       }
       .teaser__medium-wrapper {
         flex-basis: $teaser-xl-medium-ratio;
+      }
+    }
+  }
+
+  // switches position of medium and content of a teaser
+  // normally only used together with modifier `teaser--size-s`
+  .teaser--with-medium-reverse {
+    .teaser__medium-wrapper {
+      order: 1;
+    }
+
+    &.teaser--size-s {
+      --media-time-indicator-display: none;
+
+      .teaser__medium-wrapper {
+        margin: 16px 0 16px 16px;
+
+        @include desktop-wide {
+          margin: 24px 0 24px 24px;
+        }
       }
     }
   }
@@ -652,7 +877,11 @@ body.body--loading.body--loading {
 
   .simple-teaser,
   .content-header__station-logo,
-  .content-header__presenter-image {
+  .content-header__presenter-image,
+  .modal-flyout,
+  .a2z__search,
+  .a2z__filter-bar,
+  .a2z__lists {
     display: none;
   }
 }

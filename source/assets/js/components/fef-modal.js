@@ -2,17 +2,17 @@ import { DOM_CHANGED_EVENT } from '../classes/fef-dom-observer';
 import { FefResponsiveHelper } from '../classes/fef-responsive-helper';
 import { FefBouncePrevention } from './fef-bounce-prevention';
 
-let ANIMATION_SPEED = 200;
-
-if (window.matchMedia('(prefers-reduced-motion)').matches) {
-    ANIMATION_SPEED = 0;
-}
+const ANIMATION_FADE_IN_OUT = 'fade-in-out';
+const ANIMATION_SCALE_FROM_ORIGIN = 'scale-from-origin';
+const ANIMATION_FLYOUT = 'as-flyout-from-origin';
+const ANIMATION_SPEED = (window.matchMedia('(prefers-reduced-motion)').matches) ? 0 : 200;
 const KEYCODES = {
     'enter': 13,
     'tab': 9,
     'escape': 27
 };
 const END_OF_MODAL = '.js-end-of-modal';
+
 
 let existingModals = {};
 let scrollbarWidth = 0;
@@ -21,7 +21,10 @@ $(window).on(DOM_CHANGED_EVENT, (e) => {
     scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
     $('[data-modal-id]').each((index, element) => {
 
-        $(element).on('click', () => {
+        $(element).on('click', (event) => {
+            event.preventDefault();
+            event.stopPropagation();
+
             let $caller = $(element);
             let modalId = $caller.attr('data-modal-id');
             let $modalElement = $(`[data-id=${modalId}]`);
@@ -80,6 +83,7 @@ export class FefModal {
      */
     bindEvents() {
         this.$element.find('.js-close-modal, .js-modal-overlay').on('click', (event) => {
+            event.preventDefault();
             event.stopPropagation();
             this.close();
         });
@@ -104,10 +108,13 @@ export class FefModal {
         this.$caller.attr({'aria-expanded': true, 'aria-haspopup': true});
 
         switch (this.animation) {
-            case 'scale-from-origin':
+            case ANIMATION_SCALE_FROM_ORIGIN:
                 this.scaleFromOrigin(() => this.onShowFinished());
                 break;
-            case 'fade-in-out':
+            case ANIMATION_FLYOUT:
+                this.asFlyoutFromOrigin(() => this.onShowFinished());
+                break;
+            case ANIMATION_FADE_IN_OUT:
                 this.$element.stop(true, true).fadeIn(ANIMATION_SPEED, () => this.onShowFinished());
                 break;
             default:
@@ -119,7 +126,9 @@ export class FefModal {
     onShowFinished() {
         this.preventScrolling();
 
-        this.setA11YProperties(true);
+        if (this.animation !== ANIMATION_FLYOUT) {
+            this.setA11YProperties(true);
+        }
 
         if (this.$focusTarget && this.$focusTarget.length === 1) {
             this.setFocus(this.$focusTarget);
@@ -135,17 +144,18 @@ export class FefModal {
         this.$caller.attr({'aria-expanded': false, 'aria-haspopup': false});
 
         switch (this.animation) {
-            case 'fade-in-out':
-                this.$element.stop(true, true).fadeOut(ANIMATION_SPEED);
+            case ANIMATION_FADE_IN_OUT:
+                this.$element.stop(true, true).fadeOut(ANIMATION_SPEED, () => this.setFocus(this.$caller));
+                this.setA11YProperties(false);
+                break;
+            case ANIMATION_FLYOUT:
+                this.$element.fadeOut(ANIMATION_SPEED, () => this.setFocus(this.$caller)).hide();
                 break;
             default:
-                this.$element.hide();
+                this.$element.hide(ANIMATION_SPEED, '', () => this.setFocus(this.$caller));
+                this.setA11YProperties(false);
                 break;
         }
-
-        this.setA11YProperties(false);
-
-        this.setFocus(this.$caller);
     }
 
     /**
@@ -156,7 +166,7 @@ export class FefModal {
     setFocus($element) {
         $element.attr('tabindex', -1).on('blur focusout', () => {
             $element.removeAttr('tabindex');
-        }).focus();
+        }).get(0).focus({preventScroll: true});
     }
 
     /**
@@ -200,14 +210,56 @@ export class FefModal {
     }
 
     /**
+     * Flyout opening animation:
+     * - used for flyout-modals
+     * - smartphone: flyout is fixed to the bottom of the viewport
+     * - tablet-up: flyout is centered over the caller element (i.e. a button)
+     */
+    asFlyoutFromOrigin(callBack) {
+        // clear existing inline styles on flyout (in case a resizing of the viewport happened)
+        this.$element.attr('style', '');
+
+        this.$element.css({
+            'display': 'block',
+            'opacity': 0
+        });
+
+        if (!FefResponsiveHelper.isSmartphone()) {
+            // a flyout can be placed anywhere in the dom. but for positioning it relative to the caller (while staying
+            // at place on scrolling), it must be positioned absolutely relative to the page. that's why we move it in
+            // the DOM to be a first-level child of the body element, if needed.
+
+            if(this.$element.parent().get(0).tagName !== 'BODY') {
+                $('body').append(this.$element);
+            }
+
+            let callerBox = this.$caller.offset();
+            let flyoutBox = this.$element[0].getBoundingClientRect();
+
+            let newPosLeft = Math.ceil(callerBox.left + (this.$caller.width()/2) - (flyoutBox.width/2));
+            let newPosTop = Math.ceil(callerBox.top + (this.$caller.height()/2) - (flyoutBox.height/2));
+
+            this.$element.css({
+                'position': 'absolute',
+                'left': newPosLeft+'px',
+                'top': newPosTop+'px'
+            });
+        }
+
+        this.$element.animate({
+            'opacity': 1
+        }, ANIMATION_SPEED, 'easeInOutSine', callBack);
+    }
+
+    /**
      * Prevent scrollable page when the modal is open.
      * We achieve this by setting the body to overflow: hidden and setting the height to 100%, thus
      * effectively cutting the rest of the page off. This scrolls to the top of the page, so we
      * also have to save the previous scroll state.
-     * 
+     *
      * Additionally, we prevent bouncy body scrolling which can lead to subpar
      * experience on iOS devices.
-     * 
+     *
      * We only do this if the modal covers the whole page and on mobile/tablet.
      */
     preventScrolling() {

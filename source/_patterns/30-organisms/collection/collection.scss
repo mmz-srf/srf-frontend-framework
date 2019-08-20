@@ -494,7 +494,6 @@ $background-overlap-wide: 50px;
       }
     }
 
-
     // the last item must have more space at the right side in order to align with the last teaser of
     // the other collections
     &:last-child {
@@ -519,7 +518,40 @@ $background-overlap-wide: 50px;
       }
     }
   }
+
+  // only one teaser on mobile: remove 40px gap on the right
+  @include smartphone {
+    .collection__teaser-item:last-child:first-child {
+      min-width: calc(100% - 8px);
+    }
+  }
 }
+
+.collection--swipeable {
+  // 1-3 teasers on tablet+: larger gap between teasers, flex-basis same as standard teasers;
+  @include tablet-up {
+    .collection__teaser-item:nth-last-child(-n+3):first-child,
+    .collection__teaser-item:nth-last-child(-n+3):first-child ~ .collection__teaser-item {
+      flex-basis: calc((100% - 40px) / 3.00001);
+      padding-right: 24px;
+      max-width: none;
+
+      @include desktop-wide {
+        padding-right: 32px;
+      }
+
+      &:last-child {
+        min-width: 0;
+        margin-right: 8px;
+
+        &::after {
+          content: none; 
+        }
+      }
+    }
+  }
+}
+
 
 // Compact Swipeable has (next to only having S teasers on all BPs) one difference to the
 // Standard Swipeable collection: On Tablet, only 2 teasers are visible instead of 3.
@@ -549,7 +581,158 @@ $background-overlap-wide: 50px;
       margin-bottom: 2px;
     }
   }
+
+  // What if there are not enough teasers for swiping?
+  // 1 teaser: not scrollable anywhere. Should look the same as compact with one teaser.
+  .collection__teaser-item:last-child:first-child {
+    @include tablet-up {
+      width: calc(50% - 12px);
+    }
+
+    @include desktop-wide {
+      width: calc(50% - 16px);
+    }
+  }
+
+  // 2 teasers: scrollable on mobile. On Tablet+ it should look the same as 2 compact teasers.
+  .collection__teaser-item:nth-last-child(2):first-child, 
+  .collection__teaser-item:nth-last-child(2):first-child ~ .collection__teaser-item {
+    @include tablet-up {
+      width: calc((100% - 40px ) / 2);
+      padding-right: 24px;
+      min-width: 0;
+
+      &::after {
+        content: none;
+      }
+    }
+
+    // slightly different gaps/gutter on desktop-wide+
+    @include desktop-wide {
+      width: calc((100% - 48px ) / 2);
+      padding-right: 32px;
+    }
+  }
+
+  // 3 teasers: scrollable on mobile and tablet. On Desktop+ it should look the same as 3 compact teasers.
+  .collection__teaser-item:nth-last-child(3):first-child, 
+  .collection__teaser-item:nth-last-child(3):first-child ~ .collection__teaser-item {
+    @include desktop-up {
+      width: calc((100% - 40px ) / 3.0001);
+      padding-right: 24px;
+      min-width: 0;
+
+      &::after {
+        content: none;
+      }
+    }
+
+    // slightly different gaps/gutter on desktop-wide+
+    @include desktop-wide {
+      width: calc((100% - 48px ) / 3.0001);
+      padding-right: 32px;
+    }
+  }
 }
+
+
+
+// Dense Swipeable
+// displays up to 6 teasers (smartphone: 2) in one row at once. becomes swipeable for more teasers.
+// usually used for square teasers.
+.collection--dense-swipeable {
+  .collection__teaser-list {
+    flex-wrap: nowrap;
+    flex-direction: row;
+    margin: 0;
+  }
+
+  .collection__teaser-item {
+    box-sizing: content-box; // paddings must not be included in ratio 1:1 calculation!
+    min-width: calc((100% - 40px - (2 * 8px)) / 2.00001);
+    padding-right: 8px;
+    margin: 0;
+
+    @include tablet-up {
+      min-width: calc((100% - 6px - 56px - (6 * 12px)) / 6.00001);
+      padding-right: 12px;
+      max-width: none;
+    }
+
+    @include desktop {
+      min-width: calc((100% - 20px - 56px - (6 * 12px)) / 6.00001);
+      padding-right: 12px;
+      max-width: none;
+    }
+
+    @include desktop-wide {
+      min-width: calc((100% - 40px - 56px - (6 * 16px)) / 6.00001);
+      padding-right: 16px;
+    }
+
+    &:first-child {
+      margin-left: 8px;
+
+      @include tablet-up {
+        margin-left: 32px;
+      }
+
+      @include desktop-wide {
+        margin-left: 40px;
+      }
+    }
+
+    &:last-child {
+      padding-right: 8px;
+
+      @include tablet-up {
+        padding-right: 32px;
+      }
+
+      @include desktop-wide {
+        padding-right: 40px;
+      }
+    }
+  }
+
+  // 1-2 teasers on smartphone: not swipeable.
+  .collection__teaser-item:nth-last-child(-n+2):first-child,
+  .collection__teaser-item:nth-last-child(-n+2):first-child ~ .collection__teaser-item {
+    @include smartphone {
+      box-sizing: border-box;
+      width: calc((100% - 8px) / 2.0001);
+      padding-right: 8px;
+      min-width: 0;
+
+      &::after {
+        content: none;
+      }
+    }
+  }
+
+  // 1-6 teasers on tablet-up: not swipeable. teasers should use the same grid as 3 compact teasers.
+  .collection__teaser-item:nth-last-child(-n+6):first-child,
+  .collection__teaser-item:nth-last-child(-n+6):first-child ~ .collection__teaser-item {
+
+    @include tablet-up {
+      box-sizing: border-box;
+      width: calc((100% - 40px) / 6.0001);
+      padding-right: 24px;
+      min-width: 0;
+
+      &::after {
+        content: none;
+      }
+    }
+
+    // slightly different gaps/gutter on desktop-wide+
+    @include desktop-wide {
+      width: calc((100% - 48px) / 6.0001);
+      padding-right: 32px;
+    }
+  }
+}
+
 
 // Hero: 1st teaser XL + fills whole row, rest M which fills 1/3 of a row.
 .collection--hero {
@@ -1004,6 +1187,16 @@ $background-overlap-wide: 50px;
 
     @include tablet-up {
       max-width: calc((100% - 74px) / 3.00001);
+    }
+  }
+
+  // Search results can show 2 teasers on mobile, so if there are exactly 2
+  // teasers on mobile: remove 40px gap on the right and let the teasers grow
+  @include smartphone {
+    .collection__teaser-item:nth-last-child(2):first-child, 
+    .collection__teaser-item:nth-last-child(2):first-child ~ .collection__teaser-item {
+      max-width: none;
+      flex-basis: 50%;
     }
   }
 }
