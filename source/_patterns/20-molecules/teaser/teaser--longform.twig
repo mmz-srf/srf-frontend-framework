@@ -9,7 +9,7 @@
 
     {# fullsize link needed in XL longform teasers #}
     {% if 'teaser--size-xl' in styleModifier %}
-        <a class="teaser__fullsize-link" tabindex="-1" href="{{ teaser.link|default('#') }}"></a>
+        <a class="teaser__fullsize-link" tabindex="-1" aria-hidden="true" role="presentation" href="{{ teaser.link|default('#') }}"></a>
     {% endif %}
 
     <div class="teaser__content-shimmer h-loading-only">
