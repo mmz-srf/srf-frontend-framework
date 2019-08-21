@@ -16,13 +16,17 @@
                 Wer die Nachrichten schon kennt, will möglichst bald mehr: mehr Einordnung, mehr
                 Analyse, mehr Hintergrund. SRF 4 News bietet deshalb mit …
             </a>
-            <div class="podcast-details__categories">
+            <div>
                 {% include 'atoms-underlined-link' with {'url': '#', 'linkText': 'Hintergrund,'} %}
                 {% include 'atoms-underlined-link' with {'url': '#', 'linkText': 'Politik & Wirtschaft'} %}
             </div>
             <div class="podcast-details__actions">
-                {% include 'atoms-icon-button' with {'buttonText':'Abonnieren', 'iconStyleModifier':'svg-icon--subscribe', 'styleModifier':'icon-button--small', 'expanderId':'subscribe'} %}
-                {% include 'atoms-icon-button' with {'buttonText':'Teilen', 'iconStyleModifier':'svg-icon--share', 'styleModifier':'icon-button--small', 'expanderId':'share'} %}
+                <button class="podcast-details__actions-button" data-expander-id="subscribe">
+                    {% include 'atoms-icon-button' with {'buttonText':'Folgen', 'iconStyleModifier':'svg-icon--subscribe', 'styleModifier':'icon-button--small'} %}
+                </button>
+                <button class="podcast-details__actions-button" data-expander-id="share">
+                    {% include 'atoms-icon-button' with {'buttonText':'Teilen', 'iconStyleModifier':'svg-icon--share', 'styleModifier':'icon-button--small'} %}
+                </button>
             </div>
         </div>
     </div>
@@ -42,8 +46,39 @@
             {% endfor %}
         </div>
     </div>
-
-    <a href="#" class="podcast-details__link podcast-details__link--black">
-        Alle Episoden anzeigen {% include 'atoms-svg-icon' with {'styleModifier':'svg-icon--arrow-right'} %}
-    </a>
+    <div class="podcast-details__episode-wrapper">
+        {% include 'organisms-collection' with {
+            'collection': {
+                'styleModifier': 'collection--compact podcast-details__collection',
+                "theme": {
+                    "colorStart": "rgba(255, 255, 255, 1)",
+                    "colorEnd": "rgba(255, 255, 255, 1)"
+                },
+                "title": "Neueste Episoden",
+                "teasers": [
+                    {
+                        "styleModifier": "teaser--size-s teaser--with-medium-reverse teaser--no-card",
+                        "title": "Podcast: Echo der Zeit",
+                        "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+                        "link": "#"
+                    },
+                    {
+                        "styleModifier": "teaser--size-s teaser--with-medium-reverse teaser--no-card",
+                        "title": "Podcast: Echo der Zeit",
+                        "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+                        "link": "#"
+                    },
+                    {
+                        "styleModifier": "teaser--size-s teaser--with-medium-reverse teaser--no-card",
+                        "title": "Podcast: Echo der Zeit",
+                        "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+                        "link": "#"
+                    }
+                ]
+            }
+        } %}
+        <a href="#" class="podcast-details__link podcast-details__link--black">
+            Alle Episoden anzeigen {% include 'atoms-svg-icon' with {'styleModifier':'svg-icon--arrow-right'} %}
+        </a>
+    </div>
 </div>

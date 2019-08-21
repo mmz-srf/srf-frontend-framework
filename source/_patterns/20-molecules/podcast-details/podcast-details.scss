@@ -3,6 +3,11 @@
   justify-content: flex-end;
   flex-wrap: wrap;
   position: relative;
+  padding: 16px 24px 0 24px;
+
+  @include tablet-up {
+    padding: 16px 32px 0 32px;
+  }
 }
 
 .podcast-details__image {
@@ -12,7 +17,7 @@
 
   @include tablet-up {
     position: absolute;
-    left: 0;
+    left: 32px;
     margin: 0 24px 16px 0;
   }
 }
@@ -36,7 +41,7 @@
 .podcast-details__link {
   margin-bottom: 12px;
   font-family: $font-regular;
-  display: block;
+  display: inline-block;
 
   &:hover {
     .svg-icon {
@@ -54,6 +59,14 @@
 .podcast-details__link--black {
   font-family: $font-medium;
   color: inherit;
+  padding: 16px;
+  margin: 16px 0;
+  display: flex;
+  justify-content: space-between;
+
+  @include tablet-up {
+    display: inline-block;
+  }
 
   &:hover {
     color: inherit;
@@ -110,12 +123,10 @@
   }
 }
 
-.podcast-details__categories {
-  margin-bottom: 16px;
-}
-
 .podcast-details__actions {
+  margin-top: 16px;
   display: flex;
+  margin-left: -24px;
 }
 
 .podcast-details__actions__container {
@@ -135,6 +146,10 @@
   @include desktop-wide {
     padding: 0 40px 16px;
   }
+}
+
+.podcast-details__actions-button {
+  border: none;
 }
 
 .podcast-details__expander-area {
@@ -190,5 +205,37 @@
     height: 12px;
     margin-left: -14px;
     bottom: calc(-13px - 12px);
+  }
+}
+
+.podcast-details__collection {
+  margin-top: 16px;
+
+  .collection__title {
+    margin-top: 0;
+
+    @include smartphone {
+      margin-left: 16px;
+    }
+
+    @include fontSize(18px);
+
+    @include tablet-up {
+      margin-left: 0;
+      margin-right: 0;
+      @include fontSize(20px);
+    }
+  }
+
+  .collection__teaser-list {
+    margin: 0;
+  }
+}
+
+.podcast-details__episode-wrapper {
+  padding: 0 8px;
+
+  @include tablet-up {
+    padding: 0 32px;
   }
 }
