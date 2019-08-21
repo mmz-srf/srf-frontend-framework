@@ -1,0 +1,28 @@
+@import "../../variables";
+@import "../../mixins";
+
+.pill-link {
+  border-radius: 18px;
+  background-color: $color-srf-warmgrey-25;
+  color: $color-srf-warmgrey-900;
+  font-family: $font-regular;
+  @include fontSize(14);
+  padding: 4px 16px;
+  margin: 0 12px 16px 0;
+  display: inline-block;
+
+  &:hover,
+  &:focus {
+    color: $color-srf-warmgrey-900;
+    background-color: $color-srf-warmgrey-50;
+  }
+
+  &:active {
+    color: $color-srf-warmgrey-900;
+    background-color: $color-srf-warmgrey-100;
+  }
+
+  &:last-of-type {
+    margin-right: 0;
+  }
+}

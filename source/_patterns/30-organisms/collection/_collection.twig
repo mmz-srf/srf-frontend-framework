@@ -1,11 +1,10 @@
-{% set swipeable = collection.swipeable|default(('collection--swipeable' in collection.styleModifier or 'collection--compact-swipeable' in collection.styleModifier)) %}
+{% set swipeable = collection.swipeable|default(('collection--swipeable' in collection.styleModifier or 'collection--compact-swipeable' in collection.styleModifier or 'collection--dense-swipeable' in collection.styleModifier)) %}
 {% set branded = 'collection--branded' in collection.styleModifier %}
 {% set selectable = 'collection--selectable' in collection.styleModifier %}
 {% set renderTitlePrecusor = 'collection--search-results' in collection.styleModifier %}
 {% set showTitlelink = collection.titleLink is defined or selectable %}
 {% set themeColorStart = collection.theme is defined and collection.theme.colorStart is defined ? collection.theme.colorStart : '#135c94' %}
 {% set themeColorEnd = collection.theme is defined and collection.theme.colorEnd is defined ? collection.theme.colorEnd : '#ADD8E6' %}
-
 
 {% if selectable %}<div class="selectable-wrapper">{% endif %}
 
@@ -97,6 +96,9 @@
                         {% elseif ('collection--compact' in collection.styleModifier or 'collection--compact-swipeable' in collection.styleModifier) %}
                             {# SWIPEABLE, COMPACT, COMPACT SWIPEABLE: all S teasers #}
                             {% set teaserFormat = 'teaser--size-s' %}
+                        {% elseif 'collection--dense-swipeable' in collection.styleModifier %}
+                            {# DENSE SWIPEABLE: all teasers are square and only half of the normal width #}
+                            {% set teaserFormat = 'teaser--square' %}
                         {% elseif 'collection--borderless' in collection.styleModifier %}
                             {# BORDERLESS: all M teasers with no translation #}
                             {% set teaserFormat = 'teaser--size-m teaser--no-translate' %}
@@ -113,6 +115,10 @@
                         <li class="collection__teaser-item {{ swipeable ? "js-swipeable-area-item swipeable-area__item" }}">
                             {% if 'teaser--longform' in teaser.styleModifier|default("") %}
                                 {% include 'molecules-teaser--longform' with teaserParameters %}
+                            {% elseif 'teaser--with-medium-reverse' in teaser.styleModifier|default("") %}
+                                {% include 'molecules-teaser--with-medium-reverse' with teaserParameters %}
+                            {% elseif teaserFormat == 'teaser--square' %}
+                                {% include 'molecules-teaser--square' with teaserParameters %}
                             {% elseif teaser.showScoreboard %}
                                 {% include 'molecules-teaser--scoreboard' with teaserParameters %}
                             {% elseif 'collection--search-results' in collection.styleModifier %}

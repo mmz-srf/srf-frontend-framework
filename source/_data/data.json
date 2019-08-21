@@ -959,6 +959,20 @@
           "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
           "link": "#",
           "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet."
+        },
+        {
+          "title": "Betrunkener randalierte im Wald ",
+          "kicker": "Schlug Specht",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet."
+        },
+        {
+          "title": "Meister Lampe nach Stadionbesuch angeschlagen",
+          "kicker": "Hasenreizung",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet."
         }
       ]
     },
@@ -1162,5 +1176,59 @@
           }
         ]
       }
+  ],
+  "categories": [
+    {
+      "url": "#",
+      "name": "Hörspiele & Geschichten"
+    },
+    {
+      "url": "#",
+      "name": "Kinder & Familie"
+    },
+    {
+      "url": "#",
+      "name": "Krimi & True Crime"
+    },
+    {
+      "url": "#",
+      "name": "Kultur & Religion"
+    },
+    {
+      "url": "#",
+      "name": "Menschen & Gesellschaft"
+    },
+    {
+      "url": "#",
+      "name": "Musik"
+    },
+    {
+      "url": "#",
+      "name": "News"
+    },
+    {
+      "url": "#",
+      "name": "Politik & Wirtschaft"
+    },
+    {
+      "url": "#",
+      "name": "Ratgeber"
+    },
+    {
+      "url": "#",
+      "name": "Satire & Comedy"
+    },
+    {
+      "url": "#",
+      "name": "Sport"
+    },
+    {
+      "url": "#",
+      "name": "Talk"
+    },
+    {
+      "url": "#",
+      "name": "Wissen"
+    }
   ]
 }
