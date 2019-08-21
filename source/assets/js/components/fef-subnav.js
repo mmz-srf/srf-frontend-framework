@@ -161,7 +161,10 @@ export class FefSubnav {
             if(e.keyCode === KEYCODES.escape) {
                 this.closeAllSubNavs();
             }
-        }).on(FOCUSOUT_LISTENER_NAME, (e) => {
+        });
+
+        $('.' + ITEM_GROUP_WRAPPER_CLASS).on(FOCUSOUT_LISTENER_NAME, (e) => {
+            console.log('asdf');
             if ($(e.target).hasClass('nav-item--third-level') && $(e.target).closest('li').index() === $(e.target).closest('ul').children().length - 1) {
                 this.closeAllSubNavs();
             }
