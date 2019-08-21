@@ -1,0 +1,37 @@
+{% extends "teaser.twig" %}
+{% set ratio = '1:1' %}
+{% set styleModifier = 'teaser--square' %}
+{% set showOpinion = false %}
+{% set showScoreboard = false %}
+{% set showLinks = false %}
+
+{% block broadcastinfo %}{% endblock %}
+{% block kicker %}{% endblock %}
+{% block shimmer %}{% endblock %}
+
+{% block medium %}
+    {% embed "ratio.twig" with {
+        'class': 'teaser__medium-wrapper',
+        'ratio': '1:1',
+
+    } %}
+        {% block ratio_content %}
+            <div class="teaser__medium">
+                <div class="media-still media-still--dynamic">
+                    <div class="media-still__image media-still__image--no-hover">
+                        <div class="image image--media-still-dynamic">
+                            <img src="{{ teaser.image|default('') }}" alt="{{ teaser.title|default('') }}" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endblock %}
+    {% endembed %}
+{% endblock %}
+
+
+{% block teasertext %}
+    {{ teaser.title|default('Alternative link text for accessibility.') }}
+{% endblock %}
+
+{% block teaserinfo %}{% endblock %}

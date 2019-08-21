@@ -118,6 +118,39 @@
     } %}
 </div>
 
+
+<h2>No Card</h2>
+
+<div class='js-togglable-wrapper togglable-wrapper'>
+    {% include 'molecules-teaser' with {
+        "styleModifier": "teaser--size-s teaser--no-card",
+        "teaser": collections[0].teasers[0],
+        'showOpinion': false,
+        'showScoreboard': false,
+        'showLinks': false
+    } %}
+</div>
+
+
+<h2>Medium Reverse, No Card</h2>
+
+<div class='js-togglable-wrapper togglable-wrapper'>
+    {% include 'molecules-teaser--with-medium' with {
+        "styleModifier": "teaser--size-s teaser--no-card teaser--with-medium-reverse",
+        "teaser" : {
+            "title": "Wo Einkaufen im Netz?",
+            "kicker": "",
+            "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+            "link": "#",
+            "lead": "",
+            "": "6:05 min, Espresso vom 31.5.2018"
+        },
+        'showOpinion': false,
+        'showScoreboard': false,
+        'showLinks': false
+    } %}
+</div>
+
 <h2>Theme Breaking</h2>
 
 <div class='js-togglable-wrapper togglable-wrapper'>
