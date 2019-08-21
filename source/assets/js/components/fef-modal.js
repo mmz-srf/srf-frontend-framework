@@ -284,7 +284,7 @@ export class FefModal {
      */
     scrollToPreviousPosition() {
         if (this.previousScrollPosition !== null) {
-            $('html').removeClass('h-prevent-scrolling');
+            $('html').removeClass('h-prevent-scrolling');assets/js/components/fef-modal.js
             $(window).scrollTop(this.previousScrollPosition);
             this.previousScrollPosition = null;
 
@@ -308,6 +308,11 @@ export class FefModal {
         });
     }
 
+    /**
+     * In some cases the same modal may be opened by different caller.
+     *
+     * @param $caller jQuery.Element
+     */
     setCaller($caller) {
         this.$caller = $caller;
     }
