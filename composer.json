@@ -37,12 +37,10 @@
 	"scripts": {
 		"post-install-cmd": [
 			"PatternLab\\Installer::postInstallCmd",
-			"php core/console --config --set plugins.twigNamespaces.enabled='true'",
 			"gulp build"
 		],
 		"post-update-cmd": [
 			"PatternLab\\Installer::postUpdateCmd",
-			"php core/console --config --set plugins.twigNamespaces.enabled='true'",
 			"gulp build"
 		],
 		"post-root-package-install": [
