@@ -58,6 +58,10 @@ $modal-z-index: 100;
   @include momentumScrolling;
 }
 
+.modal-main-wrapper--neutral {
+  background: #fff;
+}
+
 .modal-wrapper {
   max-width: calc(#{$content-width} + 2 * 16px);
   margin: 0 auto;
