@@ -16,8 +16,9 @@
 {% include 'organisms-modal' with {
     'id': 'test-modal-2',
     'styleModifier': '',
-    'title': 'Zweites Modal'
-   }
+    'title': 'Zweites Modal',
+    'withCloseButton': true
+}
 %}
 {% include 'atoms-button' with {
     'styleModifier': '',
@@ -56,19 +57,10 @@
     'id': 'test-modal-5',
     'animation': 'slide-from-bottom',
     'styleModifier': 'modal--attachment-bottom',
-    'styleModifierModalWrapper': ''
+    'styleModifierModalWrapper': '',
+    'withCloseButton': true
 } %}
     {% block content %}
-        <div class="modal__head">
-            <a href="#" class="js-close-modal">
-                {% include 'atoms-icon-button' with {
-                    'iconStyleModifier': 'svg-icon--close-dark',
-                    'buttonText': 'Schliessen',
-                    'styleModifier': 'icon-button--collapsing-text-mobile icon-button--spaceless-right-mobile'
-                    }
-                %}
-            </a>
-        </div>
         <div class="modal__content-wrapper">
             <h2 class="content-heading js-focus-target">Dies ist ein Beispiel mit viel Inhalt</h2>
             {% include 'atoms-article-text' %}

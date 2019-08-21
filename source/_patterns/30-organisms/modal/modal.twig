@@ -5,9 +5,21 @@
 
   <div class="modal__main-wrapper {{ styleModifierModalWrapper|default("") }} js-modal-main-wrapper">
     <div class="modal__main-content js-modal-main-content">
+
+      {% if withCloseButton|default(false) %}
+        <div class="modal__head">
+          <a href="#" class="js-close-modal">
+          {% include 'atoms-icon-button' with {
+              'iconStyleModifier': 'svg-icon--close-dark',
+              'buttonText': 'Schliessen',
+              'styleModifier': 'icon-button--collapsing-text-mobile icon-button--spaceless-right-mobile'
+          }%}
+          </a>
+        </div>
+      {% endif %}
+
       {% block content %}
         <span class="h-offscreen js-focus-target">Modal-Titel</span>
-
         <div class="modal__content-wrapper">
           <h1>{{ title | default("Your header could be here!") }}</h1>
           <p>And your content could be here!</p>
