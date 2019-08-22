@@ -18,11 +18,11 @@
   }
 
   &:hover {
-    background-color: $color-srf-warmgrey-10;
+    opacity: .8;
   }
 
   &:active {
-    background-color: $color-srf-warmgrey-25;
+    opacity: .6;
   }
 }
 
@@ -76,8 +76,4 @@
       display: none;
     }
   }
-}
-
-.icon-button--small {
-  padding: 12px;
 }

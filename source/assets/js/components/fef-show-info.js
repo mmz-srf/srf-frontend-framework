@@ -1,5 +1,5 @@
-const PODCAST_DETAILS_CLASS = 'js-podcast-details',
-    ICON_BUTTON_WITH_ARROW_CLASS = 'podcast-details__icon-button--with-arrow';
+const PODCAST_DETAILS_CLASS = 'js-show-info',
+    ICON_BUTTON_WITH_ARROW_CLASS = 'show-info__actions-button--active';
 
 export function init() {
     $(`.${PODCAST_DETAILS_CLASS}`).each((index, element) => {
