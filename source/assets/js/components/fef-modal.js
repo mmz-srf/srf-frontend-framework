@@ -284,7 +284,7 @@ export class FefModal {
      */
     scrollToPreviousPosition() {
         if (this.previousScrollPosition !== null) {
-            $('html').removeClass('h-prevent-scrolling');assets/js/components/fef-modal.js
+            $('html').removeClass('h-prevent-scrolling');
             $(window).scrollTop(this.previousScrollPosition);
             this.previousScrollPosition = null;
 
