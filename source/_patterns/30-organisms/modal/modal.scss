@@ -75,14 +75,6 @@ $modal-z-index: 100;
   }
 }
 
-.modal__content-wrapper {
-  margin-bottom: 24px;
-
-  @include tablet-up {
-    margin-bottom: 32px;
-  }
-}
-
 .modal__head {
   display: flex;
   justify-content: flex-end;
