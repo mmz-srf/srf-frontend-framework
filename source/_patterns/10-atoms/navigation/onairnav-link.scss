@@ -145,6 +145,20 @@
   width: 80px;
   height: 80px;
   max-height: 80px;
+
+  @include desktop-up {
+    width: 100%;
+    height: auto;
+    max-height: none;
+  }
+
+  .modal--theme-dark & {
+    @include desktop-up {
+      width: 80px;
+      height: 80px;
+      max-height: 80px;
+    }
+  }
 }
 
 .onairnav-link__media--rtr-radiologo {
