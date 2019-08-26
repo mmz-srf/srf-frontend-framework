@@ -1,5 +1,6 @@
 import {setFocus} from '../components/fef-flying-focus';
 import {FefStorage} from '../classes/fef-storage';
+import {KEYCODES} from '../utils/fef-keycodes';
 
 
 export function init() {
@@ -10,13 +11,7 @@ export function init() {
 
 const DEFAULT_MAX_SUGGESTIONS = 7;
 const DEFAULT_MIN_SEARCH_LENGTH = 2;
-const KEYCODES = {
-    'enter': 13,
-    'tab': 9,
-    'escape': 27,
-    'up': 38,
-    'down': 40
-};
+
 const ACTIVE_CLASS = 'search--active';
 const OUTSIDE_CLICK_LISTENER_NAME = 'click.search-destroyer';
 const LOCAL_STORAGE_KEY = 'srf:search:history';
