@@ -473,13 +473,15 @@ $background-overlap-wide: 50px;
 
     @include tablet-up {
       min-width: calc((100% - 32px - 44px) / 3.00001); // 32px: left gap between Collection and Teaser; 44px: visible part of the first 'overflowed' item
-      padding-bottom: 16px;
       padding-right: 12px;
+      margin-bottom: -16px;
+
     }
 
     @include desktop-wide {
       min-width: calc((100% - 40px - 56px) / 3.00001);
       padding-right: 16px;
+      margin-bottom: -20px;
     }
 
     &:first-child {
@@ -545,7 +547,7 @@ $background-overlap-wide: 50px;
         margin-right: 8px;
 
         &::after {
-          content: none; 
+          content: none;
         }
       }
     }
@@ -595,7 +597,7 @@ $background-overlap-wide: 50px;
   }
 
   // 2 teasers: scrollable on mobile. On Tablet+ it should look the same as 2 compact teasers.
-  .collection__teaser-item:nth-last-child(2):first-child, 
+  .collection__teaser-item:nth-last-child(2):first-child,
   .collection__teaser-item:nth-last-child(2):first-child ~ .collection__teaser-item {
     @include tablet-up {
       width: calc((100% - 40px ) / 2);
@@ -615,7 +617,7 @@ $background-overlap-wide: 50px;
   }
 
   // 3 teasers: scrollable on mobile and tablet. On Desktop+ it should look the same as 3 compact teasers.
-  .collection__teaser-item:nth-last-child(3):first-child, 
+  .collection__teaser-item:nth-last-child(3):first-child,
   .collection__teaser-item:nth-last-child(3):first-child ~ .collection__teaser-item {
     @include desktop-up {
       width: calc((100% - 40px ) / 3.0001);
@@ -1193,7 +1195,7 @@ $background-overlap-wide: 50px;
   // Search results can show 2 teasers on mobile, so if there are exactly 2
   // teasers on mobile: remove 40px gap on the right and let the teasers grow
   @include smartphone {
-    .collection__teaser-item:nth-last-child(2):first-child, 
+    .collection__teaser-item:nth-last-child(2):first-child,
     .collection__teaser-item:nth-last-child(2):first-child ~ .collection__teaser-item {
       max-width: none;
       flex-basis: 50%;
