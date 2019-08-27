@@ -1,9 +1,8 @@
 import {FefDebounceHelper} from '../classes/fef-debounce-helper';
 import {FefResponsiveHelper} from '../classes/fef-responsive-helper';
+import {KEYCODES} from '../utils/fef-keycodes';
 
-const KEYCODES = {
-    'escape': 27
-};
+
 const SUBNAV_CLASS = 'js-subnav-container',
     INNER_CONTAINER_CLASS = 'js-subnav-content',
     BUTTON_BACK_CLASS = 'js-subnav-button-back',
