@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 57.1 (83088) - https://sketch.com -->
+    <title>Icons/Twitter_Icon_Outline</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Icons/Twitter_Icon_Outline" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+        <g id="social-media-twitter" transform="translate(1.000000, 3.000000)" stroke="#4E4D47">
+            <path d="M22,3.628 L20,3.128 L21,1.128 L18.536,1.828 C17.2285046,0.60820888 15.3208706,0.282748762 13.6828951,1.0000151 C12.0449197,1.71728144 10.9903408,3.33988887 11,5.128 L11,6.128 C7.461,6.858 4.366,4.928 1.5,1.628 C1,4.29466667 1.5,6.29466667 3,7.628 L1.77635684e-15,7.128 C0.405,9.197 1.362,10.828 4,11.128 L1.5,12.128 C2.5,14.128 4.066,14.438 6.5,14.628 C4.60691968,15.9806353 2.32602899,16.6824479 1.77635684e-15,16.628 C12.755,22.297 20,13.964 20,6.628 L20,5.3 L22,3.628 Z" id="Shape"></path>
+        </g>
+    </g>
+</svg>
