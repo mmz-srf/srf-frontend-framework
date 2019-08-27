@@ -147,71 +147,57 @@
 .show-info__actions {
   display: flex;
   margin-left: -16px;
-}
 
-.show-info__actions-button {
-  border: none;
-  background: none;
-  cursor: pointer;
-  margin-right: 16px;
-
-  &:last-of-type {
-    margin-right: 0;
+  @include tablet-up {
+    margin-left: -12px;
   }
 
-  &:hover {
-    background-color: $color-srf-warmgrey-10;
+  .button--neutral {
+    margin: 0 16px 0 0;
+    width: auto;
 
-    .icon-button {
-      opacity: 1;
+    &:last-of-type {
+      margin: 0;
     }
   }
 
-  &:active {
+  .button--neutral--active {
+    position: relative;
     background-color: $color-srf-warmgrey-25;
 
-    .icon-button {
-      opacity: 1;
+    &:hover {
+      background-color: $color-srf-warmgrey-25;
     }
-  }
-}
 
-.show-info__actions-button--active {
-  position: relative;
-  background-color: $color-srf-warmgrey-25;
+    &::before,
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      left: 50%;
+      pointer-events: none;
+    }
 
-  &:hover {
-    background-color: $color-srf-warmgrey-25;
-  }
+    //square that is rotated 45 degrees
+    //caution, weird px values
+    &::before {
+      background: $color-srf-warmgrey-10;
+      border: 1px solid $color-srf-warmgrey-50;
+      width: 16px;
+      height: 16px;
+      transform: rotate(45deg);
+      bottom: -22px;
+      margin-left: -10px;
+    }
 
-  &::before,
-  &::after {
-    content: '';
-    display: block;
-    position: absolute;
-    left: 50%;
-    pointer-events: none;
-  }
-
-  //square that is rotated 45 degrees
-  //caution, weird px values
-  &::before {
-    background: $color-srf-warmgrey-10;
-    border: 1px solid #eeeeee;
-    width: 16px;
-    height: 16px;
-    transform: rotate(45deg);
-    bottom: calc(-10px - 12px);
-    margin-left: -10px;
-  }
-
-  //rectangle that hides the bottom half of the ::before-square --> triangle
-  &::after {
-    background: $color-srf-warmgrey-10;
-    width: 26px;
-    height: 12px;
-    margin-left: -14px;
-    bottom: calc(-13px - 12px);
+    //rectangle that hides the bottom half of the ::before-square --> triangle
+    &::after {
+      background: $color-srf-warmgrey-10;
+      width: 26px;
+      height: 15px;
+      margin-left: -14px;
+      bottom: -26px;
+    }
   }
 }
 
@@ -219,12 +205,14 @@
   display: none;
 
   margin-top: -6px;
+  margin-bottom: 16px;
   background: $color-srf-warmgrey-10;
   border-top: 1px solid $color-srf-warmgrey-50;
   border-bottom: 1px solid $color-srf-warmgrey-50;
 
   @include desktop-wide {
     margin-top: -10px;
+    margin-bottom: 20px;
   }
 
   .button--secondary {
@@ -274,7 +262,7 @@
 }
 
 .show-info__collection {
-  margin-top: 16px;
+  margin-top: 0;
 
   .collection__title {
     margin-top: 0;

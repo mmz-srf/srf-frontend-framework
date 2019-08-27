@@ -17,16 +17,12 @@
                 {% include 'atoms-decorated-link' with {'url': '#', 'linkText': 'Politik & Wirtschaft'} %}
             </div>
             <div class="show-info__actions">
-                <button class="show-info__actions-button show-info__actions-button--active" data-expander-id="show-info-subscribe">
-                    {% include 'atoms-icon-button' with {'buttonText':'Abonnieren', 'iconStyleModifier':'svg-icon--subscribe'} %}
-                </button>
-                <button class="show-info__actions-button" data-expander-id="show-info-share">
-                    {% include 'atoms-icon-button' with {'buttonText':'Teilen', 'iconStyleModifier':'svg-icon--share'} %}
-                </button>
+                {% include 'atoms-button' with {'styleModifier': 'button--neutral button--small-font', 'screenReaderText': 'Auf Facebook teilen', 'svgIcon': 'svg-icon--subscribe', 'buttonText': 'Abonnieren', 'additionalAttributes': 'data-expander-id="show-info-subscribe"'} %}
+                {% include 'atoms-button' with {'styleModifier': 'button--neutral button--small-font', 'screenReaderText': 'Auf Facebook teilen', 'svgIcon': 'svg-icon--share', 'buttonText': 'Teilen', 'additionalAttributes': 'data-expander-id="show-info-share"'} %}
             </div>
         </div>
     </div>
-    <div class="show-info__expander-area show-info__expander-area--expanded" data-expander-area="show-info-subscribe">
+    <div class="show-info__expander-area" data-expander-area="show-info-subscribe">
         <div class="show-info__expander-innerwrap">
             {% include 'atoms-button' with {'styleModifier': 'button--secondary', 'screenReaderText': 'Bei Apple Podcasts abonnieren', 'svgIcon': 'svg-icon--apple-podcasts', 'buttonText': 'Apple Podcasts'} %}
             {% include 'atoms-button' with {'styleModifier': 'button--secondary', 'screenReaderText': 'Bei Google Podcasts abonnieren', 'svgIcon': 'svg-icon--google-podcasts', 'buttonText': 'Google Podcasts'} %}

@@ -249,6 +249,38 @@ $button-animation-duration: .3s;
   }
 }
 
+.button--neutral {
+  border: none;
+  box-shadow: none;
+  background: none;
+  color: $color-srf-warmgrey-1100;
+  cursor: pointer;
+
+  &:hover,
+  &:focus,
+  &:active {
+    box-shadow: none;
+
+    .icon-button {
+      opactiy: 1;
+    }
+  }
+
+  &:hover,
+  &:focus {
+    background-color: $color-srf-warmgrey-10;
+  }
+
+  &:active {
+    background-color: $color-srf-warmgrey-25;
+  }
+}
+
+.button--small-font {
+  @include fontSize(14);
+  padding: 13px 14px;
+}
+
 .button-wrapper--svg-icon {
   display: flex;
   flex-wrap: nowrap;
