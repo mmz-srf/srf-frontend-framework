@@ -53,6 +53,7 @@
   @include tablet-up {
     flex-direction: row;
     padding: 0;
+    overflow-x: hidden;
 
     &::after {
       display: none;
