@@ -56,7 +56,7 @@
  * Tell me, tell me now! Your arguments better be damn good!
  */
 _:-ms-fullscreen,
-:root .modal.modal--theme-dark .modal-main-wrapper {
+:root .modal.modal--theme-dark .modal__main-wrapper {
   background-image: linear-gradient(135deg, $color-srf-warmgrey-1100, $color-srf-neutral-1000);
   box-shadow: $shadow-elevation8;
 

@@ -1,4 +1,4 @@
-<button class="button {{ className|default("") }} {{ styleModifier|default("") }}">
+<button class="button {{ className|default("") }} {{ styleModifier|default("") }}" {{ additionalAttributes|default("") }}>
   <span class="h-offscreen">{{ screenReaderText|default("Screenreader-Text für Schaltfläche") }}</span>
   <div class="button-wrapper{% if svgIcon %} button-wrapper--svg-icon{% endif %}">
     <span class="button-icon">{% if svgIcon %}{% include 'atoms-svg-icon' with {'styleModifier': svgIcon|default("") } %}{% endif %}</span>
