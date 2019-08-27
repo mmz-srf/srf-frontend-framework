@@ -302,9 +302,15 @@
 }
 
 .show-info__episode-wrapper {
+  margin: 0 auto;
+  max-width: $content-width;
   padding: 0 8px;
 
   @include tablet-up {
     padding: 0 32px;
+  }
+
+  @include desktop-wide {
+    padding: 0 40px;
   }
 }
