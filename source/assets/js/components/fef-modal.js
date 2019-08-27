@@ -1,16 +1,14 @@
 import { DOM_CHANGED_EVENT } from '../classes/fef-dom-observer';
 import { FefResponsiveHelper } from '../classes/fef-responsive-helper';
 import { FefBouncePrevention } from './fef-bounce-prevention';
+import { KEYCODES } from '../utils/fef-keycodes';
 
 const ANIMATION_FADE_IN_OUT = 'fade-in-out';
 const ANIMATION_SCALE_FROM_ORIGIN = 'scale-from-origin';
 const ANIMATION_FLYOUT = 'as-flyout-from-origin';
+const ANIMATION_SLIDE_FROM_BOTTOM = 'slide-from-bottom';
+
 const ANIMATION_SPEED = (window.matchMedia('(prefers-reduced-motion)').matches) ? 0 : 200;
-const KEYCODES = {
-    'enter': 13,
-    'tab': 9,
-    'escape': 27
-};
 const END_OF_MODAL = '.js-end-of-modal';
 
 
@@ -117,6 +115,9 @@ export class FefModal {
             case ANIMATION_FADE_IN_OUT:
                 this.$element.stop(true, true).fadeIn(ANIMATION_SPEED, () => this.onShowFinished());
                 break;
+            case ANIMATION_SLIDE_FROM_BOTTOM:
+                this.slideFromBottom(() => this.onShowFinished());
+                break;
             default:
                 this.$element.show(() => this.onShowFinished());
                 break;
@@ -150,6 +151,10 @@ export class FefModal {
                 break;
             case ANIMATION_FLYOUT:
                 this.$element.fadeOut(ANIMATION_SPEED, () => this.setFocus(this.$caller)).hide();
+                break;
+            case ANIMATION_SLIDE_FROM_BOTTOM:
+                this.slideFromBottomClose();
+                this.setA11YProperties(false);
                 break;
             default:
                 this.$element.hide(ANIMATION_SPEED, '', () => this.setFocus(this.$caller));
@@ -249,6 +254,42 @@ export class FefModal {
         this.$element.animate({
             'opacity': 1
         }, ANIMATION_SPEED, 'easeInOutSine', callBack);
+    }
+
+    /**
+     * modal opening animation:
+     * - slides the modal in from the bottom
+     * - adjusts the animation speed depending on modal height
+     * - calls an optional callback
+     */
+    slideFromBottom(callBack) {
+        this.$element.show();
+        let modalHeight = this.$mainWrapper.outerHeight();
+        let animationSpeed = (ANIMATION_SPEED > 0) ? ANIMATION_SPEED + (Math.floor(modalHeight / 100) * 25) : 0; // adjusting animation speed
+
+        this.$mainWrapper.css({
+            'bottom': `-${modalHeight}px`,
+            'transition': `transform ${animationSpeed}ms ease-in-out`,
+            'transform': `translateY(-${modalHeight}px)`
+        });
+
+        callBack();
+    }
+
+    /**
+     * corresponding closing animation for slideFromBottom:
+     * - slides the modal out to the bottom
+     * - sets the focus to the caller
+     */
+    slideFromBottomClose() {
+        this.$mainWrapper.one('transitionend', () => {
+            this.$element.hide();
+            this.setFocus(this.$caller);
+        });
+
+        this.$mainWrapper.css({
+            'transform': 'translateY(0)'
+        });
     }
 
     /**
