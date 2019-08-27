@@ -1,11 +1,10 @@
 import { FefStorage } from '../classes/fef-storage';
 import { FefTouchDetection } from '../classes/fef-touch-detection';
+import { KEYCODES } from '../utils/fef-keycodes';
+
 
 const STORAGE_KEY = 'SRF.Navigations';
 const OPEN_BY_DEFAULT = true;
-const KEYCODES = {
-    'enter': 13
-};
 
 export function init() {
     $('.js-globalnav').each((i, elem) => {
