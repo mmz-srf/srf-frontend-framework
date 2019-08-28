@@ -11,25 +11,27 @@ const KEYCODES = {
     'space': 32
 };
 
-const EXPANDER_CLASS = 'js-expander';
-
 export function init() {
-    $(`.${EXPANDER_CLASS}`).each((index, element) => {
-        new FefExpander(element);
+    $('.js-expander').each((index, element) => {
+        new FefExpander($(element));
     });
 }
 
 export class FefExpander {
-    constructor(element) {
-        this.$element = $(element);
-        this.$triggers = $('[data-expander-id]');
 
-        for (let i = 0; i < this.$triggers.length; i++) {
-            const triggerId = $(this.$triggers[i]).data('expander-id');
-            const query = '[data-expander-area=' + triggerId + ']';
-            this.$triggers[i].$area = $(query);
+    /**
+     * @param $element jQuery.element
+     */
+    constructor($element) {
+        this.$element = $element;
+        this.$trigger = $('.js-expander-area');
 
-            this.bindEvents(this.$triggers[i]);
+        for (let i = 0; i < this.$trigger.length; i++) {
+            const triggerId = $(this.$trigger[i]).attr('data-expander-id');
+            const expandArea = '[data-expander-area=' + triggerId + ']';
+            this.$trigger[i].$expandArea = $(expandArea);
+
+            this.bindEvents(this.$trigger[i]);
         }
     }
 
@@ -49,14 +51,14 @@ export class FefExpander {
     }
 
     toggleArea($trigger) {
-        this.closeAllAreas($trigger.$area);
-        $trigger.$area.slideToggle(ANIMATION_DURATION, ANIMATION_EASING);
+        this.closeAllAreas($trigger.$expandArea);
+        $trigger.$expandArea.slideToggle(ANIMATION_DURATION, ANIMATION_EASING);
     }
 
     closeAllAreas($exceptedArea) {
-        for (let i = 0; i < this.$triggers.length; i++) {
-            if (this.$triggers[i].$area !== $exceptedArea) {
-                this.$triggers[i].$area.slideUp(ANIMATION_DURATION, ANIMATION_EASING);
+        for (let i = 0; i < this.$trigger.length; i++) {
+            if (this.$trigger[i].$expandArea !== $exceptedArea) {
+                this.$trigger[i].$expandArea.slideUp(ANIMATION_DURATION, ANIMATION_EASING);
             }
         }
     }

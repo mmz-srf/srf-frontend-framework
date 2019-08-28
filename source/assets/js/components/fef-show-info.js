@@ -1,8 +1,8 @@
-const PODCAST_DETAILS_CLASS = 'js-show-info',
-    ICON_BUTTON_WITH_ARROW_CLASS = 'button--neutral--active';
+const SHOW_INFO_CLASS = 'js-show-info',
+      BUTTON_ACTIVE_CLASS = 'button--active';
 
 export function init() {
-    $(`.${PODCAST_DETAILS_CLASS}`).each((index, element) => {
+    $(`.${SHOW_INFO_CLASS}`).each((index, element) => {
         new FefPodcastDetails(element);
     });
 }
@@ -27,13 +27,13 @@ export class FefPodcastDetails {
 
     toggleActionButtonArrow($actionButton) {
         this.hideAllActionButtonArrows($actionButton);
-        $($actionButton).toggleClass(ICON_BUTTON_WITH_ARROW_CLASS);
+        $($actionButton).toggleClass(BUTTON_ACTIVE_CLASS);
     }
 
     hideAllActionButtonArrows($exceptedActionButton) {
         for (let i = 0; i < this.$actionButtons.length; i++) {
             if (this.$actionButtons[i] !== $exceptedActionButton) {
-                $(this.$actionButtons[i]).removeClass(ICON_BUTTON_WITH_ARROW_CLASS);
+                $(this.$actionButtons[i]).removeClass(BUTTON_ACTIVE_CLASS);
             }
         }
     }
