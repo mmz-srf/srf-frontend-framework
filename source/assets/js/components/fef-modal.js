@@ -28,6 +28,7 @@ $(window).on(DOM_CHANGED_EVENT, (e) => {
             let $modalElement = $(`[data-id=${modalId}]`);
 
             if (existingModals[modalId]) {
+                existingModals[modalId].setCaller($caller);
                 existingModals[modalId].show();
             } else if ($modalElement.length > 0) {
                 existingModals[modalId] = new FefModal($modalElement, $caller);
@@ -346,5 +347,14 @@ export class FefModal {
             'aria-hidden': modalIsOpened,
             'role': modalIsOpened ? 'presentation': ''
         });
+    }
+
+    /**
+     * In some cases the same modal may be opened by different caller.
+     *
+     * @param $caller jQuery.Element
+     */
+    setCaller($caller) {
+        this.$caller = $caller;
     }
 }
