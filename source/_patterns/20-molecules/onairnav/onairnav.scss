@@ -121,10 +121,14 @@
   .onairnav-list__element {
     display: flex;
     flex-direction: column;
-    flex: 1 0 calc((100% / 6) - (5 * 2px));
+    flex: 1 0 calc(80px + 12px + 2px);
     padding-top: 16px;
     padding-bottom: 24px;
     margin: -16px 2px 0 0;
+
+    @include tablet-up {
+      flex-basis: calc(80px + 16px + 2px);
+    }
 
     @include desktop-up {
       flex-basis: calc((100% / 6) - (5 * 24px));
@@ -139,6 +143,7 @@
       flex-grow: 0;
       flex-basis: calc(33.3334% - 2 * 1px);
       margin: 1px;
+      padding: 0;
       max-width: calc(33.3334% - 2 * 1px);
 
       &:last-of-type {

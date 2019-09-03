@@ -8,12 +8,13 @@
   border-radius: 2px;
   background-color: $color-srf-warmgrey-10;
   color: $color-srf-warmgrey-1100;
-  margin: 1px 0;
-  padding: 18px 16px;
-  transition: background .2s ease-in-out;
+  margin: 0;
+  padding: 12px;
+  transition: background-color 2s ease-in-out;
 
   @include tablet-up {
     margin: 0;
+    padding: 16px;
     flex-grow: 1;
   }
 
@@ -29,23 +30,22 @@
     width: 100%;
     pointer-events: none;
 
+    @include desktop-up {
+      box-shadow: $shadow-elevation16;
+    }
+
     /* theme */
     @include customPropWithFallback('background-color', '--teaser-background-link-hover', $color-srf-warmgrey-300a12);
 
     // performance improvement: Don't animate the background-color, but the opacity
     opacity: 0;
-    transition: opacity .2s ease-in-out;
+    transition: opacity .2s ease-in-out, background-color .2s ease-in-out;
   }
 
   &:hover,
   &:focus,
   &:active {
     color: $color-srf-warmgrey-1100;
-
-    @include desktop-up {
-      background-color: $color-srf-neutral-white;
-      box-shadow: $shadow-elevation16;
-    }
 
     &::after {
       opacity: 1;
@@ -66,13 +66,13 @@
     &::after {
       /* theme */
       @include customPropWithFallback('background-color', '--teaser-background-link-hover', $color-srf-neutral-whitea08);
+      box-shadow: none;
     }
 
     &:hover,
     &:focus,
     &:active {
       background-color: none;
-      box-shadow: none;
     }
 
     &:hover,
@@ -155,14 +155,15 @@
 }
 
 .onairnav-link__media--radiologo {
-  width: 80px;
-  height: 80px;
+  width: 100%;
   max-height: 80px;
+  max-width: 80px;
 
   @include desktop-up {
     width: 100%;
     height: auto;
     max-height: none;
+    max-width: none;
   }
 
   .modal--theme-dark & {
