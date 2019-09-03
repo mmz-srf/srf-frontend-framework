@@ -80,6 +80,13 @@ $modal-z-index: 100;
   }
 }
 
+.modal__content-wrapper--no-spacing {
+  @include smartphone {
+    max-width: $content-width;
+    padding: 0;
+  }
+}
+
 .modal__head {
   display: flex;
   justify-content: flex-end;
