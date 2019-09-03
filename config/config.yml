@@ -1,5 +1,5 @@
 v: 2.6.0
-overrideConfig: q
+overrideConfig: n
 ie:
     - DS_Store
     - less
@@ -18,10 +18,10 @@ cacheBusterOn: 'true'
 exportDir: export
 publicDir: public
 sourceDir: source
-assetsDirDefault: '/assets'
-defaultPattern: introduction-intro
+assetsDirDefault: /assets
+defaultPattern: documentation-intro
 defaultShowPatternInfo: true
-lineageMatch: '{%([ ]+)?include( |\()[&quot;\&#039;]([A-Za-z0-9-_]+)[&quot;\&#039;](\))?(.*)%}'
+lineageMatch: '{%([ ]+)?(?:include|extends|embed)( |\()[&quot;\&#039;]([\/.@A-Za-z0-9-_]+)[&quot;\&#039;]([\s\S+]*?)%}'
 lineageMatchKey: 3
 patternExtension: twig
 twigDebug: true
@@ -33,15 +33,21 @@ twigFilterExt: filter.php
 twigFunctionExt: function.php
 twigTagExt: tag.php
 twigTestExt: test.php
-ishMinimum: '240'
+ishMinimum: '320'
 ishMaximum: '2600'
 ishControlsHide:
     - hay
+    - views-all
 ishViewportRange:
-    s: [240, 719]
-    m: [720, 1023]
-    l: [1024, 1279]
-
+    s:
+        - 320
+        - 719
+    m:
+        - 720
+        - 1023
+    l:
+        - 1024
+        - 1279
 styleguideKit: pattern-lab/styleguidekit-twig-default
 styleguideKitPath: vendor/pattern-lab/styleguidekit-twig-default
 plugins:
@@ -49,3 +55,7 @@ plugins:
         enabled: true
     dataInheritance:
         enabled: false
+    twigNamespaces:
+        enabled: true
+        roots: {  }
+        namespaces: { docs: { recursive: false, paths: [docs] } }
