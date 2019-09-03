@@ -1,6 +1,6 @@
 # Colors in FEF
 
-There is a distinctive color palette for SRF, defined by the companies own design departement. It contains 10+ tints and shades of the corporate «SRF Red» and its four square color harmonies «SRF Yellow», «SRF Green», «SRF Blue» and «SRF Purple» – each being brand colors of SRF subsidiaries on their own (Yellow = Sport, Purple = Kultur, and so forth). The palette furthermore contains tints and shades of a «SRF Warmgrey», representing a identity-grey for SRF. And some neutral white, grey and black tints and shades.
+There is a distinctive color palette for SRF, defined by the company's own design departement. It contains 10+ tints and shades of the corporate «SRF Red» and its four square color harmonies «SRF Yellow», «SRF Green», «SRF Blue» and «SRF Purple» – each being brand colors of SRF subsidiaries on their own (Yellow = Sport, Purple = Kultur, and so forth). The palette furthermore contains tints and shades of a «SRF Warmgrey», representing a identity-grey for SRF. And some neutral white, grey and black tints and shades.
 
 All colors used in FEF should origin from this palette *and this palette only*.
 
