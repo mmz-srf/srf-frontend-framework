@@ -88,8 +88,8 @@
                             {# HERO: 1 XL, all others M #}
                             {% set teaserFormat = loop.index == 1 ? 'teaser--size-xl' : 'teaser--size-m teaser--size-s-on-mobile' %}
                         {% elseif 'collection--duo' in collection.styleModifier %}
-                            {# DUO: 2 L (2nd L looks like S on mobile), all others M #}
-                            {% set teaserFormat = loop.index == 1 ? 'teaser--size-l' : (loop.index == 2 ? 'teaser--size-l teaser--size-s-on-mobile' : 'teaser--size-m teaser--size-s-on-mobile') %}
+                            {# DUO: 2 L, all others M #}
+                            {% set teaserFormat = loop.index < 3 ? 'teaser--size-l' : 'teaser--size-m teaser--size-s-on-mobile') %}
                         {% elseif ('collection--swipeable' in collection.styleModifier) %}
                             {# SWIPEABLE: all M teasers #}
                             {% set teaserFormat = 'teaser--size-m' %}
