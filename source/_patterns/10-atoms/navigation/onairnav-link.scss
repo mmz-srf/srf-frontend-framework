@@ -30,7 +30,7 @@
     pointer-events: none;
 
     /* theme */
-    @include customPropWithFallback('background-color', '--teaser-background-link-hover', $color-srf-neutral-blacka08);
+    @include customPropWithFallback('background-color', '--teaser-background-link-hover', $color-srf-warmgrey-300a12);
 
     // performance improvement: Don't animate the background-color, but the opacity
     opacity: 0;
@@ -38,8 +38,14 @@
   }
 
   &:hover,
-  &:focus {
+  &:focus,
+  &:active {
     color: $color-srf-warmgrey-1100;
+
+    @include desktop-up {
+      background-color: $color-srf-neutral-white;
+      box-shadow: $shadow-elevation16;
+    }
 
     &::after {
       opacity: 1;
@@ -47,13 +53,9 @@
   }
 
   &:active {
-    color: $color-srf-warmgrey-1100;
-
     &::after {
       /* theme */
-      @include customPropWithFallback('background-color', '--teaser-background-link-active', $color-srf-neutral-blacka12);
-
-      opacity: 1;
+      @include customPropWithFallback('background-color', '--teaser-background-link-hover', $color-srf-warmgrey-300a24);
     }
   }
 
@@ -67,8 +69,19 @@
     }
 
     &:hover,
+    &:focus,
+    &:active {
+      background-color: none;
+      box-shadow: none;
+    }
+
+    &:hover,
     &:focus {
       color: $color-srf-neutral-white;
+
+      &::after {
+        opacity: 1;
+      }
     }
 
     &:active {

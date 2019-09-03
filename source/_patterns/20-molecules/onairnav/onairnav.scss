@@ -19,7 +19,6 @@
 }
 
 .onairnav-list-wrapper {
-  overflow: hidden;
   margin: 0 0 24px 0;
 
   @include tablet-up {
@@ -39,9 +38,11 @@
   margin: 0;
   padding: 0 8px;
 
-  overflow-x: scroll;
-  overflow-y: hidden;
-  @include preventScrollbars;
+  @include smartphone {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    @include preventScrollbars;
+  }
 
   &::after {
     content: '';
@@ -53,7 +54,6 @@
   @include tablet-up {
     flex-direction: row;
     padding: 0;
-    overflow-x: hidden;
 
     &::after {
       display: none;
@@ -64,8 +64,10 @@
     margin: 0 -16px;
     flex-wrap: wrap;
 
-    overflow-x: visible;
-    overflow-y: visible;
+    @include smartphone {
+      overflow-x: visible;
+      overflow-y: visible;
+    }
 
     @include tablet {
       margin: 0 -12px;
@@ -120,7 +122,9 @@
     display: flex;
     flex-direction: column;
     flex: 1 0 calc((100% / 6) - (5 * 2px));
-    margin: 0 2px 0 0;
+    padding-top: 16px;
+    padding-bottom: 24px;
+    margin: -16px 2px 0 0;
 
     @include desktop-up {
       flex-basis: calc((100% / 6) - (5 * 24px));
