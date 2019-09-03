@@ -37,14 +37,9 @@
     box-shadow: none;
 
     &:hover,
-    &:focus {
-      box-shadow: none;
-      background-color: $color-srf-warmgrey-300a12;
-    }
-
+    &:focus,
     &:active {
       box-shadow: none;
-      background-color: $color-srf-warmgrey-300a24;
     }
   }
 }
@@ -837,6 +832,40 @@
 
       @include desktop-wide {
         margin: 24px 0 24px 24px;
+      }
+    }
+  }
+}
+
+// no spacings if no-card
+.teaser--no-card {
+  &.teaser--size-s {
+    .teaser__main {
+      transition: opacity .2s ease-in-out;
+
+      &:hover,
+      &:focus {
+        opacity: .8;
+      }
+
+      &:active {
+        opacity: .6;
+
+        &::after {
+          opacity: 0;
+        }
+      }
+    }
+
+    .teaser__content {
+      margin: 0 0 0 12px;
+    }
+
+    .teaser__medium-wrapper {
+      margin: 0;
+
+      @include desktop-wide {
+        margin: 0;
       }
     }
   }
