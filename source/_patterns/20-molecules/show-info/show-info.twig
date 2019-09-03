@@ -17,8 +17,8 @@
                 {% include 'atoms-decorated-link' with {'url': '#', 'linkText': 'Politik & Wirtschaft'} %}
             </div>
             <div class="show-info__actions">
-                {% include 'atoms-button' with {'styleModifier': 'button--neutral button--small-font', 'screenReaderText': 'Auf Facebook teilen', 'svgIcon': 'svg-icon--subscribe', 'buttonText': 'Abonnieren', 'additionalAttributes': 'data-expander-id="show-info-subscribe"'} %}
-                {% include 'atoms-button' with {'styleModifier': 'button--neutral button--small-font', 'screenReaderText': 'Auf Facebook teilen', 'svgIcon': 'svg-icon--share', 'buttonText': 'Teilen', 'additionalAttributes': 'data-expander-id="show-info-share"'} %}
+                {% include 'atoms-button' with {'styleModifier': 'button--neutral button--small-font js-expander-trigger', 'screenReaderText': 'Auf Facebook teilen', 'svgIcon': 'svg-icon--subscribe', 'buttonText': 'Abonnieren', 'additionalAttributes': 'data-expander-id="show-info-subscribe"'} %}
+                {% include 'atoms-button' with {'styleModifier': 'button--neutral button--small-font js-expander-trigger', 'screenReaderText': 'Auf Facebook teilen', 'svgIcon': 'svg-icon--share', 'buttonText': 'Teilen', 'additionalAttributes': 'data-expander-id="show-info-share"'} %}
             </div>
         </div>
     </div>

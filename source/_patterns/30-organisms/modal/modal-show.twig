@@ -1,0 +1,22 @@
+{% include 'atoms-button' with {
+    'styleModifier': '',
+    'buttonText': 'Bottom modal large',
+    'additionalAttributes': 'data-modal-id="modal-show"'
+}
+%}
+
+{% embed "modal.twig" with {
+    'id': 'modal-show',
+    'animation': 'slide-from-bottom',
+    'styleModifier': 'modal--bottom',
+    'withCloseButton': true
+} %}
+
+    {% block content %}
+        <span class="h-offscreen">Sendungs-Detail</span>
+
+        <div class="modal__content-wrapper">
+            {% include 'molecules-show-info' with {'styleModifier': ''} %}
+        </div>
+    {% endblock %}
+{% endembed %}
