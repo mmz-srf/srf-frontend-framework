@@ -4,7 +4,7 @@ There is a distinctive color palette for SRF, defined by the company's own desig
 
 All colors used in FEF should origin from this palette *and this palette only*.
 
-You should never use colors not specified in the palette – if you do so, you should double and tribble check with the design team. Every color used in their files should origin from the SRF Color Palette.
+You should never use colors not specified in the palette – if you do so, you should double and triple check with the design team. Every color used in their files should origin from the SRF Color Palette.
 
 ## Variablify all the Colors!
 All the colors from the SRF Color Palette are available throughout the FEF as sass variables with logical names like `color-srf-red-100` or `color-srf-warmgrey-800`. The number represents the tint or shade of the color.
