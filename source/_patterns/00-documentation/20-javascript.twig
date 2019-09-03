@@ -1,0 +1,5 @@
+{% embed 'templates-docpage' %}
+    {% block article_content %}
+        {{ include('@docs/javascript.md')|markdown }}
+    {% endblock %}
+{% endembed %}

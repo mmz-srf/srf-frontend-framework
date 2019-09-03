@@ -6,8 +6,8 @@
   position: relative; // to position the pseudo elements
   height: 100%;
   border-radius: 2px;
-  background-color: $color-srf-warmgrey-1100;
-  color: $color-srf-neutral-white;
+  background-color: $color-srf-warmgrey-25;
+  color: $color-srf-warmgrey-1100;
   margin: 1px 0;
   padding: 18px 16px;
   transition: background .2s ease-in-out;
@@ -30,7 +30,7 @@
     pointer-events: none;
 
     /* theme */
-    @include customPropWithFallback('background-color', '--teaser-background-link-hover', $color-srf-neutral-whitea08);
+    @include customPropWithFallback('background-color', '--teaser-background-link-hover', $color-srf-neutral-blacka08);
 
     // performance improvement: Don't animate the background-color, but the opacity
     opacity: 0;
@@ -39,7 +39,7 @@
 
   &:hover,
   &:focus {
-    color: $color-srf-neutral-white;
+    color: $color-srf-warmgrey-1100;
 
     &::after {
       opacity: 1;
@@ -47,13 +47,37 @@
   }
 
   &:active {
+    color: $color-srf-warmgrey-1100;
+
+    &::after {
+      /* theme */
+      @include customPropWithFallback('background-color', '--teaser-background-link-active', $color-srf-neutral-blacka12);
+
+      opacity: 1;
+    }
+  }
+
+  .modal--theme-dark & {
+    background-color: $color-srf-warmgrey-1100;
     color: $color-srf-neutral-white;
 
     &::after {
       /* theme */
-      @include customPropWithFallback('background-color', '--teaser-background-link-active', $color-srf-neutral-whitea12);
+      @include customPropWithFallback('background-color', '--teaser-background-link-hover', $color-srf-neutral-whitea08);
+    }
 
-      opacity: 1;
+    &:hover,
+    &:focus {
+      color: $color-srf-neutral-white;
+    }
+
+    &:active {
+      color: $color-srf-neutral-white;
+
+      &::after {
+        /* theme */
+        @include customPropWithFallback('background-color', '--teaser-background-link-active', $color-srf-neutral-whitea12);
+      }
     }
   }
 }
@@ -121,6 +145,20 @@
   width: 80px;
   height: 80px;
   max-height: 80px;
+
+  @include desktop-up {
+    width: 100%;
+    height: auto;
+    max-height: none;
+  }
+
+  .modal--theme-dark & {
+    @include desktop-up {
+      width: 80px;
+      height: 80px;
+      max-height: 80px;
+    }
+  }
 }
 
 .onairnav-link__media--rtr-radiologo {
@@ -147,14 +185,12 @@
   font-family: $font-regular;
   @include fontSize(14);
   line-height: 1.15;
-  color: $color-srf-neutral-white;
 }
 
 .onairnav-link__title--rtr-radiostation {
   font-family: $font-regular;
   @include fontSize(18);
   line-height: 1.15;
-  color: $color-srf-neutral-white;
 }
 
 

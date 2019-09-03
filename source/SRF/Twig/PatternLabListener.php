@@ -7,6 +7,11 @@ use PatternLab\Config;
 use PatternLab\Data;
 use PatternLab\Listener;
 use PatternLab\PatternEngine\Twig\TwigUtil;
+use Twig\Markdown\MarkdownExtension;
+use Twig\Markdown\DefaultMarkdown;
+use Twig\Markdown\MarkdownRuntime;
+use Twig\RuntimeLoader\RuntimeLoaderInterface;
+
 
 class PatternLabListener extends Listener {
 
@@ -33,6 +38,16 @@ class PatternLabListener extends Listener {
 
         $instance = TwigUtil::getInstance();
         $instance->addGlobal('frameworkAssetPath', $assetsPrefix);
+
+        // enable the markdown filter
+        $instance->addExtension(new MarkdownExtension());
+        $instance->addRuntimeLoader(new class implements RuntimeLoaderInterface {
+            public function load($class) {
+                if (MarkdownRuntime::class === $class) {
+                    return new MarkdownRuntime(new DefaultMarkdown());
+                }
+            }
+        });
     }
 
 }

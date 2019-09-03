@@ -13,7 +13,6 @@ const HOOK_CLASS = 'js-swipeable-area',
     RIGHT_OFFSET = 24,
     DEFAULT_SCROLL_TIME = 400,
     DEBOUNCETIME = 75,
-    DEBOUNCETIME_SCROLL_TRACKING = 1000,
     HINT_AMOUNT = 20;
 
 export function init(interactionMeasureString = '') {
@@ -38,10 +37,6 @@ export class FefSwipeableArea {
 
         this.visibleClass = null;
         this.hiddenClass = null;
-
-        this.oldScrollLeft = this.$innerContainer.scrollLeft();
-        this.isPageBackClick = false;
-        this.isPageForwardClick = false;
 
         this.initOnce();
         this.init();
@@ -99,7 +94,6 @@ export class FefSwipeableArea {
         $(window).on('resize', FefDebounceHelper.debounce(() => this.init(), DEBOUNCETIME));
         $(window).on('srf.styles.loaded', () => this.init());
         this.$element.on('srf.swipeableArea.reinitialize', () => this.init());
-        this.$innerContainer.on('scroll', FefDebounceHelper.throttle(() => this.track(), DEBOUNCETIME_SCROLL_TRACKING));
         this.$element.on('srf.swipeable.content-changed', () => this.init());
     };
 
@@ -212,7 +206,7 @@ export class FefSwipeableArea {
      * - Buttons only appear on Breakpoints Desktop and Desktop Wide
      * - If scrolled to the very end, don't show the forward button
      * - If scrolled to the very beginning, don't show the back button
-     * 
+     *
      * If the buttons shouldn't be visible at all, they're hidden here.
      */
     updateButtonStatus() {
@@ -253,8 +247,8 @@ export class FefSwipeableArea {
 
         let newPosition = this.itemPositions[nextItemIndex].center - (this.$innerContainer.innerWidth() / 2);
 
-        this.isPageForwardClick = true;
         this.scrollToPosition(newPosition);
+        this.track('click-right');
     }
 
     /**
@@ -272,8 +266,8 @@ export class FefSwipeableArea {
 
         let newPosition = this.itemPositions[nextItemIndex].center - (this.$innerContainer.innerWidth() / 2);
 
-        this.isPageBackClick = true;
         this.scrollToPosition(newPosition);
+        this.track('click-left');
     }
 
     /**
@@ -354,19 +348,7 @@ export class FefSwipeableArea {
         this.$innerContainer.children().first().css('transform', `translateX(${pixels}px)`);
     }
 
-    track() {
-        let eventValue = null;
-
-        if (this.isPageBackClick || this.isPageForwardClick) {
-            eventValue = this.isPageBackClick ? 'click-left' : 'click-right';
-            this.isPageBackClick = false;
-            this.isPageForwardClick = false;
-        } else {
-            eventValue = this.oldScrollLeft < this.$innerContainer.scrollLeft() ? 'swipe-right' : 'swipe-left';
-        }
-
-        this.oldScrollLeft = this.$innerContainer.scrollLeft();
-
+    track(eventValue) {
         $(window).trigger(this.interactionMeasureString, {
             event_source: this.$element.data('event-source'),
             event_name: this.$element.data('event-name'),

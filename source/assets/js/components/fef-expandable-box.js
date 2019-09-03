@@ -1,3 +1,5 @@
+import {KEYCODES} from '../utils/fef-keycodes';
+
 let ANIMATIONDURATION = 200;
 
 if (window.matchMedia('(prefers-reduced-motion)').matches) {
@@ -5,10 +7,6 @@ if (window.matchMedia('(prefers-reduced-motion)').matches) {
 }
 
 const ANIMATIONEASING = 'easeInOutCubic';
-const KEYCODES = {
-    'enter': 13,
-    'space': 32
-};
 
 export function init() {
     $('.js-expandable-box').each((index, elem) => {

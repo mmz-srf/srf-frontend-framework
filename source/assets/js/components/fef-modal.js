@@ -1,6 +1,7 @@
 import { DOM_CHANGED_EVENT } from '../classes/fef-dom-observer';
 import { FefResponsiveHelper } from '../classes/fef-responsive-helper';
 import { FefBouncePrevention } from './fef-bounce-prevention';
+import { KEYCODES } from '../utils/fef-keycodes';
 
 const ANIMATION_FADE_IN_OUT = 'fade-in-out';
 const ANIMATION_SCALE_FROM_ORIGIN = 'scale-from-origin';
@@ -8,11 +9,6 @@ const ANIMATION_FLYOUT = 'as-flyout-from-origin';
 const ANIMATION_SLIDE_FROM_BOTTOM = 'slide-from-bottom';
 
 const ANIMATION_SPEED = (window.matchMedia('(prefers-reduced-motion)').matches) ? 0 : 200;
-const KEYCODES = {
-    'enter': 13,
-    'tab': 9,
-    'escape': 27
-};
 const END_OF_MODAL = '.js-end-of-modal';
 
 
@@ -32,6 +28,7 @@ $(window).on(DOM_CHANGED_EVENT, (e) => {
             let $modalElement = $(`[data-id=${modalId}]`);
 
             if (existingModals[modalId]) {
+                existingModals[modalId].setCaller($caller);
                 existingModals[modalId].show();
             } else if ($modalElement.length > 0) {
                 existingModals[modalId] = new FefModal($modalElement, $caller);
@@ -350,5 +347,14 @@ export class FefModal {
             'aria-hidden': modalIsOpened,
             'role': modalIsOpened ? 'presentation': ''
         });
+    }
+
+    /**
+     * In some cases the same modal may be opened by different caller.
+     *
+     * @param $caller jQuery.Element
+     */
+    setCaller($caller) {
+        this.$caller = $caller;
     }
 }

@@ -1,0 +1,5 @@
+{% embed 'templates-docpage' %}
+    {% block article_content %}
+        {{ include('@docs/frontify.md')|markdown }}
+    {% endblock %}
+{% endembed %}
