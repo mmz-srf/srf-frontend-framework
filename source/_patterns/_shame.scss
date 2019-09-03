@@ -474,3 +474,18 @@ _:-ms-fullscreen,
   grid-area: fg;
   grid-area: fh;
 }
+
+/*
+ * TARGETED BROWSER: IE 11
+ *
+ * IE11 has troubles with the correct flex-basis-value of calc((100% / 6) - (5 * 24px)) :rolling_eyes:
+ */
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .onairnav-list--compact {
+    .onairnav-list__element {
+      @include desktop-up {
+        flex-basis: calc(100% / 6);
+      }
+    }
+  }
+}
