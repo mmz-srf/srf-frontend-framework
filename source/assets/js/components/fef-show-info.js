@@ -1,5 +1,5 @@
 const SHOW_INFO_CLASS = 'js-show-info',
-      BUTTON_ACTIVE_CLASS = 'button--active';
+    BUTTON_ACTIVE_CLASS = 'button--active';
 
 export function init() {
     $(`.${SHOW_INFO_CLASS}`).each((index, element) => {
