@@ -158,6 +158,7 @@
 
 .show-info__actions {
   display: flex;
+  flex-wrap: wrap;
   margin-left: -16px;
 
   @include tablet-up {
@@ -166,14 +167,15 @@
 
   .pill-button {
     margin-right: 16px;
+    margin-bottom: 16px;
   }
 
   .button--neutral {
-    margin: 0 16px 0 0;
+    margin: 0 16px 16px 0;
     width: auto;
 
     &:last-of-type {
-      margin: 0;
+      margin-right: 0;
     }
 
     &.expander-trigger--active {
