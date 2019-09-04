@@ -7,11 +7,8 @@
     {% block content %}
         <span class="h-offscreen js-focus-target">Aktuelle Programme und Live-Streams</span>
 
-        <div class="modal__head modal-wrapper">
+        <div class="modal__content-wrapper">
         	{% include 'molecules-search-header' with {'styleModifier': '', 'styleModifierSearch': ''} %}
-        </div>
-
-        <div class="modal__body modal-wrapper">
         	{% include 'molecules-onairnav' with {'styleModifier': ''} %}
         </div>
     {% endblock %}

@@ -13,7 +13,7 @@ $modal-z-index: 100;
   z-index: $modal-z-index;
 }
 
-.modal-main-wrapper {
+.modal__main-wrapper {
   /* fallback */
   background-image: linear-gradient(135deg, #{$color-srf-neutral-offwhite}, #{$color-srf-warmgrey-10});
 
@@ -58,7 +58,13 @@ $modal-z-index: 100;
   @include momentumScrolling;
 }
 
-.modal-wrapper {
+.modal__main-wrapper--no-bg {
+  background: #fff;
+}
+
+
+.modal__head,
+.modal__content-wrapper {
   max-width: calc(#{$content-width} + 2 * 16px);
   margin: 0 auto;
   padding: 0 16px;
@@ -72,6 +78,11 @@ $modal-z-index: 100;
     max-width: calc(#{$content-width} + 2 * 40px);
     padding: 0 40px;
   }
+}
+
+.modal__head {
+  display: flex;
+  justify-content: flex-end;
 }
 
 .modal__overlay {
@@ -90,7 +101,7 @@ $modal-z-index: 100;
 
 // In certain cases the overflow has to be visible, e.g. when the search results can be taller than the modal wrapper
 .modal--allow-overflow {
-  .modal-main-wrapper {
+  .modal__main-wrapper {
     overflow: visible;
   }
 }
@@ -102,9 +113,22 @@ $modal-z-index: 100;
     display: none;
   }
 
-  .modal-main-wrapper {
+  .modal__main-wrapper {
     &::after {
       display: none;
     }
+  }
+}
+
+.modal--bottom {
+  .modal__main-wrapper {
+    top: auto;
+    bottom: 0;
+    overflow-y: auto;
+  }
+
+  .modal__content-wrapper {
+    max-height: calc(100vh - 56px);
+    overflow-y: visible;
   }
 }

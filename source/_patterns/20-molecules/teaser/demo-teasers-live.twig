@@ -182,62 +182,6 @@
     } %}
 </div>
 
-<h1>L-Teaser (but S on mobile)</h1>
-<h2>Pre-Live</h2>
-
-<div class="js-togglable-wrapper togglable-wrapper">
-    {% include 'molecules-teaser' with {
-        'styleModifier': 'teaser--size-l teaser--size-s-on-mobile',
-        'teaser': collections[0].teasers[0],
-        'infoText': 'Vor 5 Minuten',
-        'infoType': 'live',
-        'infoMediaSource': 'Livestream',
-        'infoMediaTime': 'um 20:15 Uhr',
-        'infoStyleModifier': 'teaser-info--live-pre',
-        'labelWording': 'Live',
-        'styleModifierType': 'teaser__label--pre'
-    } %}
-
-    {% include 'molecules-teaser' with {
-        'styleModifier': 'teaser--size-l teaser--size-s-on-mobile',
-        'teaser': collections[0].teasers[1],
-        'infoText': 'Vor 5 Minuten',
-        'infoType': 'live',
-        'infoMediaSource': 'Liveticker',
-        'infoMediaTime': 'um 13:37 Uhr',
-        'infoStyleModifier': 'teaser-info--live-pre',
-        'labelWording': 'Liveticker',
-        'styleModifierType': 'teaser__label--pre'
-    } %}
-</div>
-
-<h2>Live</h2>
-<div class="js-togglable-wrapper togglable-wrapper">
-    {% include 'molecules-teaser' with {
-        'styleModifier': 'teaser--size-l teaser--size-s-on-mobile',
-        'teaser': collections[0].teasers[0],
-        'infoText': 'Vor 5 Minuten',
-        'infoType': 'live',
-        'infoMediaSource': 'Livestream',
-        'infoMediaTime': 'seit 4 Stunden',
-        'infoStyleModifier': 'teaser-info--live-live',
-        'labelWording': 'Live',
-        'styleModifierType': 'teaser__label--live'
-    } %}
-
-    {% include 'molecules-teaser' with {
-        'styleModifier': 'teaser--size-l teaser--size-s-on-mobile',
-        'teaser': collections[0].teasers[1],
-        'infoText': 'Vor 5 Minuten',
-        'infoType': 'live',
-        'infoMediaSource': 'Liveticker',
-        'infoMediaTime': 'seit 3 Minuten',
-        'infoStyleModifier': 'teaser-info--live-live',
-        'labelWording': 'Liveticker',
-        'styleModifierType': 'teaser__label--live'
-    } %}
-</div>
-
 <h1>L-Teaser</h1>
 <h2>Pre-Live</h2>
 

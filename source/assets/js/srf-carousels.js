@@ -1,10 +1,10 @@
+import { KEYCODES } from './utils/fef-keycodes';
+
 let $carousels = [];
 let loadedCarousels = {};
 let slidesPerScreen = 1;
 let currentElement = null;
-let keycodes = {
-    enter: 13
-};
+
 let css = {
     'containers': '.js-carousel',
     'handles': '.carousel__link--next, .carousel__link--prev'
@@ -133,12 +133,12 @@ export function init() {
         }
     }).on('keyup', 'a', function (e) {
         // someone is tabbing => clicked <enter> (desktop)
-        if (e.keyCode === keycodes.enter) {
+        if (e.keyCode === KEYCODES.enter) {
             $(this).trigger('click');
         }
     }).on('keyup', '.carousel__link--next', function (e) { // this is too late!
         // someone is tabbing => clicked <enter> on the arrow going to the next page
-        if (e.keyCode === keycodes.enter) {
+        if (e.keyCode === KEYCODES.enter) {
             // we select the first video-link available on the page
             $(this).closest('.js-video-gallery').find('.slick-current > a').focus();
         }

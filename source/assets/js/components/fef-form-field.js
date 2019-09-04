@@ -1,4 +1,5 @@
 import {DOM_CHANGED_EVENT} from '../classes/fef-dom-observer';
+import {KEYCODES} from '../utils/fef-keycodes';
 
 $(window).on(DOM_CHANGED_EVENT, (e) => {
     $('.radio-button, .checkbox').each((index, element) => {
@@ -24,7 +25,7 @@ export class FefFormField {
     bindEvents($element) {
         // Enable checking radios by tabbing in + <enter>
         $element.on('keypress', (e) => {
-            if (e.keyCode === 13) {
+            if (e.keyCode === KEYCODES.enter) {
                 const isChecked = !$element.prop('checked');
                 $element.prop('checked', isChecked);
                 return false;

@@ -286,10 +286,13 @@
   flex: 0 0 100%;
   display: flex;
   flex-direction: row;
-  align-items: flex-end;
 
   // IE11 extra sausage
   max-width: 100%;
+}
+
+.teaser__scoreboard {
+  align-items: flex-end;
 }
 
 .teaser__opinion {

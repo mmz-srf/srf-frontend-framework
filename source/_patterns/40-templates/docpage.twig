@@ -1,0 +1,33 @@
+{% extends 'templates-article-plain' %}
+
+{% block article_header %}
+    <script src="../../assets/demo/js/toc.js"></script>
+
+    {% include 'atoms-breadcrumbs' with {  "breadcrumbs": [
+        {
+            "url": "/?p=documentation-intro",
+            "name": "Documentation"
+        }
+    ]} %}
+    <header class="article-header">
+        <h1 class="article-title">
+            <span class="article-title__overline">Documentation</span>
+            <span class="article-title__text">SRF Frontend Framework (FEF)</span>
+        </h1>
+    </header>
+    {% include 'atoms-horizontal-separator' %}
+{% endblock %}
+
+{% block demo_content %}
+    <script>
+        // replace all link targets with the value of a data-fef-href attribute, if available
+        // so that different links can be used in .md files and the generated patternlab website
+        var links = document.getElementsByTagName("a");
+        for (var i = 0; i < links.length; i++) {
+            if (!!links[i].getAttribute('data-fef-href') && links[i].getAttribute('data-fef-href').length > 0) {
+                links[i].href = links[i].getAttribute('data-fef-href');
+            }
+        }
+    </script>
+{% endblock %}
+

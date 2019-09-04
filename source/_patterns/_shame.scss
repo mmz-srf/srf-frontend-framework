@@ -56,7 +56,7 @@
  * Tell me, tell me now! Your arguments better be damn good!
  */
 _:-ms-fullscreen,
-:root .modal.modal--theme-dark .modal-main-wrapper {
+:root .modal.modal--theme-dark .modal__main-wrapper {
   background-image: linear-gradient(135deg, $color-srf-warmgrey-1100, $color-srf-neutral-1000);
   box-shadow: $shadow-elevation8;
 
@@ -473,4 +473,19 @@ _:-ms-fullscreen,
   grid-area: fe;
   grid-area: fg;
   grid-area: fh;
+}
+
+/*
+ * TARGETED BROWSER: IE 11
+ *
+ * IE11 has troubles with the correct flex-basis-value of calc((100% / 6) - (5 * 24px)) :rolling_eyes:
+ */
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .onairnav-list--compact {
+    .onairnav-list__element {
+      @include desktop-up {
+        flex-basis: calc(100% / 6);
+      }
+    }
+  }
 }
