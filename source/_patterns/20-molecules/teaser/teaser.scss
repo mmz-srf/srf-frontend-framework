@@ -388,7 +388,6 @@
 
   .teaser__content {
     flex: 1 0 auto;
-    flex-basis: auto;
   }
 
   .teaser__opinion,
@@ -587,7 +586,7 @@
     flex: 1 0 auto;
 
     @include tablet-up {
-      flex: 1 0 0px;
+      flex: 1 0 auto;
       margin: 24px 16px 24px 24px;
     }
 
