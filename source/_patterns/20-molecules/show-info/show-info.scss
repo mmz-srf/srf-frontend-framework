@@ -76,7 +76,7 @@
   font-family: $font-medium;
   color: inherit;
   padding: 16px;
-  margin: 16px 0;
+  margin: 0 0 16px 0;
   display: flex;
   justify-content: space-between;
 
@@ -119,6 +119,14 @@
   }
 }
 
+.show-info__title--compact {
+  @include fontSize(18);
+
+  @include tablet-up {
+    @include fontSize(20);
+  }
+}
+
 .show-info__body {
   font-family: $font-light;
   @include fontSize(16);
@@ -130,7 +138,15 @@
   &:hover {
     color: inherit;
   }
+}
 
+.show-info__categories {
+  margin-bottom: 16px;
+}
+
+.show-info__title,
+.show-info__body,
+.show-info__categories {
   @include tablet-up {
     max-width: 578px;
   }
@@ -140,16 +156,16 @@
   }
 }
 
-.show-info__categories {
-  margin-bottom: 16px;
-}
-
 .show-info__actions {
   display: flex;
   margin-left: -16px;
 
   @include tablet-up {
     margin-left: -12px;
+  }
+
+  .pill-button {
+    margin-right: 16px;
   }
 
   .button--neutral {
