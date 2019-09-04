@@ -16,9 +16,9 @@ const SUBNAV_CLASS = 'js-subnav-container',
     ITEM_GROUP_CLASS = 'js-nav-group',
     ITEM_OPEN_GROUP_CLASS = 'js-nav-group-open',
     ITEM_GROUP_WRAPPER_CLASS = 'js-nav-group-wrapper',
+    END_OF_NAV_GROUP_CLASS = 'js-end-of-nav-group',
     OUTSIDE_CLICK_LISTENER_NAME = 'click.nav-group',
     OUTSIDE_KEYPRESS_LISTENER_NAME = 'keydown.nav-group',
-    FOCUSOUT_LISTENER_NAME = 'focusout.js-nav-group-wrapper',
     DEBOUNCETIME = 10,
     THROTTLETIME = 100,
     RIGHT_OFFSET = 24,
@@ -52,6 +52,7 @@ export class FefSubnav {
         this.$buttonForward = $(`.${BUTTON_FORWARD_CLASS}`, this.$element);
         this.$maskLeft = $(`.${MASK_LEFT_CLASS}`, this.$element);
         this.$maskRight = $(`.${MASK_RIGHT_CLASS}`, this.$element);
+        this.$endOfNavGroup = $(`.${END_OF_NAV_GROUP_CLASS}`, this.$element);
         this.lastLeftScrollPos = 0;
 
         this.init();
@@ -97,6 +98,15 @@ export class FefSubnav {
                 this.toggleSubNav($(e.currentTarget));
             }
         });
+
+        this.$endOfNavGroup.on('focus', (e) => {
+            this.closeAllSubNavs();
+            this.focusAfterNavGroup(e.target);
+        });
+    }
+
+    focusAfterNavGroup(el) {
+        $(el).parents('.subnav__list-item').next().children('.nav-item').focus();
     }
 
     handleScroll(e) {
@@ -159,13 +169,6 @@ export class FefSubnav {
             }
         }).on(OUTSIDE_KEYPRESS_LISTENER_NAME, (e) => {
             if(e.keyCode === KEYCODES.escape) {
-                this.closeAllSubNavs();
-            }
-        });
-
-        $('.' + ITEM_GROUP_WRAPPER_CLASS).on(FOCUSOUT_LISTENER_NAME, (e) => {
-            console.log('asdf');
-            if ($(e.target).hasClass('nav-item--third-level') && $(e.target).closest('li').index() === $(e.target).closest('ul').children().length - 1) {
                 this.closeAllSubNavs();
             }
         });
