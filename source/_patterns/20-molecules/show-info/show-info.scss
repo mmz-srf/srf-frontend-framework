@@ -32,6 +32,11 @@
   }
 }
 
+.show-info__cover-image {
+  width: 112px;
+  height: 112px;
+}
+
 .show-info__header {
   flex-basis: calc(100% - (112px + 12px));
 

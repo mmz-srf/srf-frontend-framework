@@ -1,7 +1,19 @@
 <div class="show-info js-show-info js-expander">
     <div class="show-info__info-wrap">
-        <a href="#sendungsseite">
-            <img src="../../assets/img/Placeholder-1to1.svg" alt="placeholder" class="show-info__cover">
+        <a href="#sendungsseite" class="show-info__cover">
+            {% block medium %}
+                {% embed "ratio.twig" with {
+                    'ratio': '1:1',
+                } %}
+                    {% block ratio_content %}
+                        <div class="show-info__cover-image">
+                            <div class="image image--media-still-dynamic">
+                                <img src="../../assets/demo/img/bild0/bild_s8.jpg" alt="Alt-Text" />
+                            </div>
+                        </div>
+                    {% endblock %}
+                {% endembed %}
+            {% endblock %}
         </a>
         <div class="show-info__header">
             <a href="#sendungsseite" class="show-info__link">Zur Sendungsseite {% include 'atoms-svg-icon' with {'styleModifier':'svg-icon--arrow-right-red-small'} %}</a>
