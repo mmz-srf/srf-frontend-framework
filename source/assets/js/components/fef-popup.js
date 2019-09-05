@@ -3,12 +3,13 @@ const DEFAULT_HEIGHT = 600,
     DEFAULT_MEDIA_QUERY = 'screen';
 
 export function init() {
-    $('.js-popup').each((index, elem) => {
-        new FefPopup($(elem));
+    $(document).on('click', '.js-popup', (event) => {
+        let popup = new FefPopup($(event.currentTarget));
+        popup.openPopup(event);
     });
 }
 
-export class FefPopup {
+class FefPopup {
 
     /**
      * @param $element jQuery.element
@@ -20,17 +21,6 @@ export class FefPopup {
         this.height = this.$element.data('popup-height') || DEFAULT_HEIGHT;
         this.mediaQuery = this.$element.data('popup-media-query') || DEFAULT_MEDIA_QUERY;
         this.triggerEvent = this.$element.data('popup-trigger-event') || null;
-        this.bindEvents();
-
-    }
-
-    /**
-     * Bind click
-     */
-    bindEvents () {
-        this.$element.on('click', (event) => {
-            this.openPopup(event);
-        });
     }
 
     openPopup(event) {
