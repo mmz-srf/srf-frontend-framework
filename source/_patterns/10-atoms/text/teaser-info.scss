@@ -13,10 +13,10 @@
   @include tablet-up {
     margin-top: 12px;
   }
+}
 
-  .teaser--no-card & {
-    align-items: flex-start;
-  }
+.teaser-info-wrapper--no-gap {
+  align-items: flex-start;
 }
 
 // hide empty teaser infos to not introduce additional gaps in the teaser
@@ -26,7 +26,7 @@
 
 .teaser-info-innerwrapper {
   line-height: 1;
-  margin-bottom: -3px; //aligns baseline of text to image on s-teaser
+  margin-bottom: -3px; // aligns baseline of text to image on s-teaser
 }
 
 .teaser-info {

@@ -39,7 +39,10 @@
 
     // performance improvement: Don't animate the background-color, but the opacity
     opacity: 0;
-    transition: opacity .2s ease-in-out, background-color .2s ease-in-out;
+    // sass-lint:disable indentation
+    transition: opacity .2s ease-in-out,
+                background-color .2s ease-in-out;
+    // sass-lint:enable indentation
   }
 
   &:hover,

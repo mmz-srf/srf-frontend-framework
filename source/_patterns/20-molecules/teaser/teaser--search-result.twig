@@ -12,7 +12,7 @@
 {% endblock %}
 
 {% block teaserinfo %}
-    <div class="teaser-info-wrapper">
+    <div class="teaser-info-wrapper {{ teaserInfoStyleModifier|default('') }}">
         <div class="teaser-info-innerwrapper">
 
             {% set randomMediumModifier = random(['teaser-info--search teaser-info--mediaicon-audio teaser-info--with-icon', 'teaser-info--search teaser-info--mediaicon-video teaser-info--with-icon']) %}

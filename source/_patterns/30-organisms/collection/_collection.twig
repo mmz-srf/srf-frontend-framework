@@ -107,9 +107,12 @@
                         {% endif %}
 
                         {% set teaserStyleModifier = teaserFormat ~ " " ~ (teaser.styleModifier|default("")) %}
+                        {% set teaserInfoStyleModifier = teaser.styleModifierTeaserInfo|default("") %}
+
                         {% set teaserParameters = {
                             "teaser": teaser,
-                            "styleModifier": teaserStyleModifier
+                            "styleModifier": teaserStyleModifier,
+                            "styleModifierTeaserInfo": teaserInfoStyleModifier
                         } %}
 
                         <li class="collection__teaser-item {{ swipeable ? "js-swipeable-area-item swipeable-area__item" }}">
