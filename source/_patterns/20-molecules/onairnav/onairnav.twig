@@ -2,10 +2,10 @@
   <h3 class="h-offscreen">Sendungen</h3>
   <ul class="onairnav-list">
     <li class="onairnav-list__element">
-      {% include 'atoms-onairnav-link' with { 'title': 'TV Sendungen und Videos', 'media':'/img/video-play.svg', 'mediaLabel':'Play SRF', 'styleModifierMedia':'onairnav-link__media--labeled' } %}
+      {% include 'atoms-onairnav-link' with { 'title': 'TV Sendungen und Videos', 'url':'/play', 'media':'/img/video-play.svg', 'mediaLabel':'Play SRF', 'styleModifierMedia':'onairnav-link__media--labeled' } %}
     </li>
     <li class="onairnav-list__element">
-      {% include 'atoms-onairnav-link' with { 'title': 'Radio Sendungen und Podcasts', 'media':'/img/icon/video-play.svg', 'mediaLabel':'Audio und Podcasts', 'styleModifierMedia':'onairnav-link__media--labeled' } %}
+      {% include 'atoms-onairnav-link' with { 'title': 'Radio Sendungen und Podcasts', 'url':'/podcasts', 'media':'/img/video-play.svg', 'mediaLabel':'Audio und Podcasts', 'styleModifierMedia':'onairnav-link__media--labeled' } %}
     </li>
   </ul>
 
@@ -13,18 +13,18 @@
   <ul class="onairnav-list onairnav-list--teaser">
     <li class="onairnav-list__element">
       {% include 'molecules-teaser' with {
-          'styleModifier': 'teaser--size-m teaser--size-s-on-mobile teaser--no-translate teaser--theme-dark teaser--hoverable',
-          'teaser': collections[0].teasers[1],
-          'styleModifierLive': 'teaser-status-live--live',
-          'labelWording': 'Live'
+        'styleModifier': 'teaser--size-m teaser--size-s-on-mobile teaser--no-translate teaser--theme-dark teaser--hoverable',
+        'teaser': collections[0].teasers[1],
+        'styleModifierLive': 'teaser-status-live--live',
+        'labelWording': 'Live'
       } %}
     </li>
     <li class="onairnav-list__element">
       {% include 'molecules-teaser' with {
-          'styleModifier': 'teaser--size-m teaser--size-s-on-mobile teaser--no-translate teaser--theme-dark teaser--hoverable',
-          'teaser': collections[0].teasers[1],
-          'styleModifierLive': 'teaser-status-live--live',
-          'labelWording': 'Live'
+        'styleModifier': 'teaser--size-m teaser--size-s-on-mobile teaser--no-translate teaser--theme-dark teaser--hoverable',
+        'teaser': collections[0].teasers[1],
+        'styleModifierLive': 'teaser-status-live--live',
+        'labelWording': 'Live'
       } %}
     </li>
   </ul>
@@ -60,16 +60,16 @@
       {% include 'atoms-onairnav-link' with { 'styleModifier': 'onairnav-link--compact', 'url': '/radio-srf-musikwelle', 'styleModifierMedia': 'onairnav-link__media--radiologo', 'media': '/img/stationlogos/radio-srf-musikwelle-square.svg','title': 'Radio SRF Musikwelle', 'styleModifierTitle': 'onairnav-link__title--radiostation' } %}
     </li>
     <li class="onairnav-list__element">
-       {% include 'atoms-onairnav-link' with { 'styleModifier': 'onairnav-link--compact','url': '/radio-srf-virus',  'styleModifierMedia': 'onairnav-link__media--radiologo', 'media': '/img/stationlogos/radio-srf-virus-square.svg','title': 'Radio SRF Virus', 'styleModifierTitle': 'onairnav-link__title--radiostation' } %}
+      {% include 'atoms-onairnav-link' with { 'styleModifier': 'onairnav-link--compact','url': '/radio-srf-virus',  'styleModifierMedia': 'onairnav-link__media--radiologo', 'media': '/img/stationlogos/radio-srf-virus-square.svg','title': 'Radio SRF Virus', 'styleModifierTitle': 'onairnav-link__title--radiostation' } %}
     </li>
     <li class="onairnav-list__element">
-       {% include 'atoms-onairnav-link' with { 'styleModifier': 'onairnav-link--compact','url': '/radio-swiss-pop',  'styleModifierMedia': 'onairnav-link__media--radiologo', 'media': '/img/stationlogos/radio-swiss-pop-square.svg','title': 'Radio Swiss Pop', 'styleModifierTitle': 'onairnav-link__title--radiostation' } %}
+      {% include 'atoms-onairnav-link' with { 'styleModifier': 'onairnav-link--compact','url': '/radio-swiss-pop',  'styleModifierMedia': 'onairnav-link__media--radiologo', 'media': '/img/stationlogos/radio-swiss-pop-square.svg','title': 'Radio Swiss Pop', 'styleModifierTitle': 'onairnav-link__title--radiostation' } %}
     </li>
     <li class="onairnav-list__element">
-       {% include 'atoms-onairnav-link' with { 'styleModifier': 'onairnav-link--compact','url': '/radio-swiss-classic',  'styleModifierMedia': 'onairnav-link__media--radiologo', 'media': '/img/stationlogos/radio-swiss-classic-square.svg','title': 'Radio Swiss Classic', 'styleModifierTitle': 'onairnav-link__title--radiostation' } %}
+      {% include 'atoms-onairnav-link' with { 'styleModifier': 'onairnav-link--compact','url': '/radio-swiss-classic',  'styleModifierMedia': 'onairnav-link__media--radiologo', 'media': '/img/stationlogos/radio-swiss-classic-square.svg','title': 'Radio Swiss Classic', 'styleModifierTitle': 'onairnav-link__title--radiostation' } %}
     </li>
     <li class="onairnav-list__element">
-       {% include 'atoms-onairnav-link' with { 'styleModifier': 'onairnav-link--compact','url': '/radio-swiss-jazz',  'styleModifierMedia': 'onairnav-link__media--radiologo', 'media': '/img/stationlogos/radio-swiss-jazz-square.svg','title': 'Radio Swiss Jazz', 'styleModifierTitle': 'onairnav-link__title--radiostation' } %}
+      {% include 'atoms-onairnav-link' with { 'styleModifier': 'onairnav-link--compact','url': '/radio-swiss-jazz',  'styleModifierMedia': 'onairnav-link__media--radiologo', 'media': '/img/stationlogos/radio-swiss-jazz-square.svg','title': 'Radio Swiss Jazz', 'styleModifierTitle': 'onairnav-link__title--radiostation' } %}
     </li>
   </ul>
 </div>
