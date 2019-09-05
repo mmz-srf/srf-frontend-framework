@@ -294,7 +294,7 @@ _:-ms-fullscreen,
  */
 
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
-  .teaser__content.teaser__content.teaser__content {
+  .teaser--size-xl .teaser__content.teaser__content {
     flex-basis: 0px;
   }
 }
