@@ -18,6 +18,7 @@ import {init as FefSkiplinks} from './components/fef-skiplinks';
 import {init as FefSelectableInit} from './components/fef-selectable';
 import {init as FefListmoduleInit} from './srf-listmodule';
 import {init as FefExpander} from './components/fef-expander';
+import {init as FefGenericExpander} from './components/fef-generic-expander';
 import {init as FefPodcastDetails} from './components/fef-show-info';
 
 
@@ -50,6 +51,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
     FefSelectableInit();
     FefListmoduleInit();
     FefExpander();
+    FefGenericExpander();
     FefPodcastDetails();
 
     FefShameInit(); // this should probably be last, because it may contain code that depends on the previous scripts
