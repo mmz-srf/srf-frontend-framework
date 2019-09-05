@@ -2,13 +2,10 @@
   <h3 class="h-offscreen">Sendungen</h3>
   <ul class="onairnav-list">
     <li class="onairnav-list__element">
-      {% include 'atoms-onairnav-link' with { 'styleModifier': 'onairnav-link--arrow', 'title': 'Play SRF' } %}
+      {% include 'atoms-onairnav-link' with { 'title': 'TV Sendungen und Videos', 'media':'/img/video-play.svg', 'mediaLabel':'Play SRF', 'styleModifierMedia':'onairnav-link__media--labeled' } %}
     </li>
     <li class="onairnav-list__element">
-      {% include 'atoms-onairnav-link' with { 'styleModifier': 'onairnav-link--arrow', 'title': 'Sendungen A-Z' } %}
-    </li>
-    <li class="onairnav-list__element">
-      {% include 'atoms-onairnav-link' with { 'styleModifier': 'onairnav-link--arrow', 'title': 'Podcasts' } %}
+      {% include 'atoms-onairnav-link' with { 'title': 'Radio Sendungen und Podcasts', 'media':'/img/icon/play-audio.svg', 'mediaLabel':'Audio und Podcasts' } %}
     </li>
   </ul>
 

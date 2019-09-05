@@ -3,10 +3,15 @@
     {% if 'onairnav-link__media--live' in styleModifierMedia %}
       <span class="onairnav-link__media onairnav-link__media--live">{{ media }}</span>
     {% else %}
-      <img class="onairnav-link__media {{ styleModifierMedia|default('') }}"
-           src="{{ frameworkAssetPath }}{{ media }}"
-           alt="{{ mediaAlt|default('') }}"
-           aria-hidden="true" role="presentation">
+        <div class="onairnav-link__media-wrapper">
+            <img class="onairnav-link__media {{ styleModifierMedia|default('') }}"
+                 src="{{ frameworkAssetPath }}{{ media }}"
+                 alt="{{ mediaAlt|default('') }}"
+                 aria-hidden="true" role="presentation">
+            {% if mediaLabel is defined %}
+                <span class="onairnav-link__media-label">{{ mediaLabel }}</span>
+            {% endif %}
+        </div>
     {% endif %}
   {% endif %}
 
