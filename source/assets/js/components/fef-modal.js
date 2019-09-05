@@ -49,7 +49,6 @@ export class FefModal {
     constructor($element, $caller) {
         this.$element = $element;
         this.$caller = $caller;
-        this.domObserver = new FefDomObserver();
         this.$focusTarget = this.$element.find('.js-focus-target').first();
         this.$mainWrapper = this.$element.find('.js-modal-main-wrapper');
         this.$mainContent = this.$element.find('.js-modal-main-content');
@@ -105,7 +104,7 @@ export class FefModal {
         if (this.$caller.data('remote-content') !== null) {
             $.get(this.$caller.data('remote-content'), (content) => {
                 this.$contentContainer.html(content);
-                this.domObserver.triggerDomChangedEvent();
+                $(document).trigger('fef.modal.loaded', {container: this.$contentContainer});
                 this.show();
             })
         } else {
