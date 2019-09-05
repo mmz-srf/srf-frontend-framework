@@ -118,28 +118,29 @@
   }
 }
 
+.onairnav-link--labeled {
+  .onairnav-link__media-wrapper {
+    margin-bottom: 8px;
+  }
+}
+
 /* Logos and LIVE-Badge */
 .onairnav-link__media-wrapper {
   display: flex;
+  margin-bottom: 12px;
+  align-items: center;
 }
 
 .onairnav-link__media-label {
-  //regular in zeplin, but title is regular not medium as in zeplin
   font-family: $font-light;
   @include fontSize(14);
   color: $color-srf-warmgrey-100;
-  padding-top: 2px;
 }
 
 .onairnav-link__media {
-  margin-bottom: 12px;
-  margin-right: 16px; //12 or 16?
+  margin-right: 16px;
   max-height: 24px;
   width: auto;
-}
-
-.onairnav-link__media--labeled {
-  margin-bottom: 8px;
 }
 
 .onairnav-link__media--live {

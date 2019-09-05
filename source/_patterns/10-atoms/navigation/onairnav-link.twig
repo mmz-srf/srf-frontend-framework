@@ -1,18 +1,18 @@
 <a class="onairnav-link {{ styleModifier|default('') }}" href="{{ url|default('#') }}">
   {% if media is defined %}
-    {% if 'onairnav-link__media--live' in styleModifierMedia %}
-      <span class="onairnav-link__media onairnav-link__media--live">{{ media }}</span>
-    {% else %}
-      <div class="onairnav-link__media-wrapper">
-        <img class="onairnav-link__media {{ styleModifierMedia|default('') }}"
-             src="{{ frameworkAssetPath }}{{ media }}"
-             alt="{{ mediaAlt|default('') }}"
-             aria-hidden="true" role="presentation">
-        {% if mediaLabel is defined %}
-          <span class="onairnav-link__media-label">{{ mediaLabel }}</span>
-        {% endif %}
-      </div>
-    {% endif %}
+    <div class="onairnav-link__media-wrapper">
+      {% if 'onairnav-link__media--live' in styleModifierMedia %}
+        <span class="onairnav-link__media onairnav-link__media--live">{{ media }}</span>
+      {% else %}
+          <img class="onairnav-link__media {{ styleModifierMedia|default('') }}"
+               src="{{ frameworkAssetPath }}{{ media }}"
+               alt="{{ mediaAlt|default('') }}"
+               aria-hidden="true" role="presentation">
+          {% if mediaLabel is defined %}
+            <span class="onairnav-link__media-label">{{ mediaLabel }}</span>
+          {% endif %}
+      {% endif %}
+    </div>
   {% endif %}
 
   {% if ('onairnav-link__media--live' in styleModifierMedia) or (progress is defined) %}
