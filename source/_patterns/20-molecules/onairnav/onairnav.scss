@@ -19,14 +19,26 @@
 }
 
 .onairnav-list-wrapper {
-  margin: 0 0 24px 0;
+  margin: 0 0 24px;
 
   @include tablet-up {
-    margin: 0 32px 32px;
+    margin: 0 32px 48px;
   }
 
   @include desktop-wide {
-    margin: 0 40px 32px;
+    margin: 0 40px 56px;
+  }
+
+  .modal--theme-dark & {
+    margin: 0 0 24px 0;
+
+    @include tablet-up {
+      margin: 0 32px 32px;
+    }
+
+    @include desktop-wide {
+      margin: 0 40px 32px;
+    }
   }
 }
 
@@ -121,10 +133,8 @@
   .onairnav-list__element {
     display: flex;
     flex-direction: column;
-    flex: 1 0 calc(80px + 12px + 2px);
-    padding-top: 16px;
-    padding-bottom: 24px;
-    margin: -16px 2px 0 0;
+    flex: 1 0 calc(80px + 24px + 2px);
+    margin: 0 2px 0 0;
 
     @include tablet-up {
       flex-basis: calc(80px + 16px + 2px);

@@ -36,6 +36,11 @@
     background-color: transparent;
     box-shadow: none;
 
+    @include smartphone {
+      margin-bottom: 12px;
+      margin-left: 16px;
+    }
+
     &:hover,
     &:focus,
     &:active {

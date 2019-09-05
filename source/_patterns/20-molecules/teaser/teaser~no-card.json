@@ -1,3 +1,4 @@
 {
-  "styleModifier": "teaser--no-card"
+  "styleModifier": "teaser--no-card",
+  "teaserInfoStyleModifier": "teaser-info-wrapper--no-gap"
 }
