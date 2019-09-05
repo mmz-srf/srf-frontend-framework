@@ -288,6 +288,18 @@ _:-ms-fullscreen,
 }
 
 /*
+ * TARGETED BROWSER: IE 11
+ *
+ * fixing a flexbug where IE11 cannot properly handle a flex-basis of auto in nested flexbox containers
+ */
+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .teaser__content {
+    flex-basis: 0px;
+  }
+}
+
+/*
  * TARGETED BROWSER: Chrome and Firefox on macOS
  *
  * Changes subpixel anti-aliasing to normal antialiasing (font-smoothing) to themed modal Close-Button-Text
