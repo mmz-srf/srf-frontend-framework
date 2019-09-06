@@ -599,6 +599,12 @@
     }
   }
 
+  // used as a workaround for a safari, IE11 problem, where the height of the teaser_content does not
+  // stretch to a containing iframe's height
+  .teaser__content--with-iframe {
+    flex-basis: auto;
+  }
+
   .teaser__title {
     @include tablet {
       letter-spacing: 0.4px;
