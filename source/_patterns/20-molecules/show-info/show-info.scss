@@ -182,49 +182,49 @@
     &:last-of-type {
       margin-right: 0;
     }
-
-    &.expander-trigger--active {
-      position: relative;
-      background-color: $color-srf-warmgrey-25;
-
-      &:hover {
-        background-color: $color-srf-warmgrey-25;
-      }
-
-      &::before,
-      &::after {
-        content: '';
-        display: block;
-        position: absolute;
-        left: 50%;
-        pointer-events: none;
-      }
-
-      //square that is rotated 45 degrees
-      //caution, weird px values
-      &::before {
-        background: $color-srf-warmgrey-10;
-        border: 1px solid $color-srf-warmgrey-50;
-        width: 16px;
-        height: 16px;
-        transform: rotate(45deg);
-        bottom: -22px;
-        margin-left: -10px;
-      }
-
-      //rectangle that hides the bottom half of the ::before-square --> triangle
-      &::after {
-        background: $color-srf-warmgrey-10;
-        width: 26px;
-        height: 15px;
-        margin-left: -14px;
-        bottom: -26px;
-      }
-    }
   }
 }
 
-.show-info__expander-area {
+.show-info__actions-button--active {
+  position: relative;
+  background-color: $color-srf-warmgrey-25;
+
+  &:hover {
+    background-color: $color-srf-warmgrey-25;
+  }
+
+  &::before,
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 50%;
+    pointer-events: none;
+  }
+
+  //square that is rotated 45 degrees
+  //caution, weird px values
+  &::before {
+    background: $color-srf-warmgrey-10;
+    border: 1px solid $color-srf-warmgrey-50;
+    width: 16px;
+    height: 16px;
+    transform: rotate(45deg);
+    bottom: -22px;
+    margin-left: -10px;
+  }
+
+  //rectangle that hides the bottom half of the ::before-square --> triangle
+  &::after {
+    background: $color-srf-warmgrey-10;
+    width: 26px;
+    height: 15px;
+    margin-left: -14px;
+    bottom: -26px;
+  }
+}
+
+.show-info__panel {
   display: none;
 
   margin-top: -6px;
@@ -260,11 +260,11 @@
   }
 }
 
-.show-info__expander-area--expanded {
+.show-info__panel--expanded {
   display: block;
 }
 
-.show-info__expander-innerwrap {
+.show-info__panel-innerwrap {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;

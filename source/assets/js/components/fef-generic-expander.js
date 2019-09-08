@@ -1,8 +1,14 @@
 import {KEYCODES} from '../utils/fef-keycodes';
 
-const HOOK_CLASS      = '.js-genex',
-      TOGGLE_CLASS    = '.js-genex-toggle',
-      PANEL_CLASS     = '.js-genex-panel';
+const HOOK_CLASS        = '.js-genex';
+const TOGGLE_CLASS      = '.js-genex-toggle';
+const ANIMATION_DEFAULT_EASING = 'easeInOutCubic';
+
+let ANIMATION_DEFAULT_DURATION = 400;
+
+if (window.matchMedia('(prefers-reduced-motion)').matches) {
+    ANIMATION_DEFAULT_DURATION = 0;
+}
 
 export function init() {
     $(HOOK_CLASS).each((index, element) => {
@@ -11,48 +17,103 @@ export function init() {
 }
 
 export class FefGenericExpander {
-
-
     constructor(element) {
         this.$element = $(element);
-        this.openToggleClass = this.$element.attr('data-genex-open-toggle-class') ? this.$element.attr('data-genex-open-toggle-class') : 'js-genex-open-toggle';
-        this.openPanelClass = this.$element.attr('data-genex-open-panel-class') ? this.$element.attr('data-genex-open-panel-class') : 'js-genex-open-panel';
+        this.openToggleClass = this.$element.attr('data-genex-open-toggle-class') || 'js-genex-toggle-open';
+        this.openPanelClass  = this.$element.attr('data-genex-open-panel-class')  || 'js-genex-panel-open';
 
+        this.eventSource = this.$element.attr('data-event-source');
+        this.eventValue = this.$element.attr('data-event-value');
+
+        this.initA11Y();
         this.bindEvents();
+    }
 
-        $(PANEL_CLASS).hide();
+    initA11Y() {
+        // set aria-expand attribute
+        $(TOGGLE_CLASS).attr('aria-expanded', false);
+
+        // set aria-controls attribute
+        $('[data-genex-target-id]').each((index, element) => {
+            $(element).attr('aria-controls', $(element).attr('data-genex-target-id'));
+        });
     }
 
     bindEvents() {
         let clickHandler = (event) => {
+            event.preventDefault();
             this.togglePanels(event);
         };
 
         let keyboardHandler = (event) => {
             if (event.keyCode === KEYCODES.enter || event.keyCode === KEYCODES.space) {
+                event.preventDefault();
                 this.togglePanels(event);
             }
         };
 
-
-        this.$element.on("click", TOGGLE_CLASS, clickHandler);
-        this.$element.on("keydown", TOGGLE_CLASS, keyboardHandler);
+        this.$element.on('click', TOGGLE_CLASS, clickHandler);
+        this.$element.on('keydown', TOGGLE_CLASS, keyboardHandler);
     }
 
-    togglePanels(event){
-        let $toggle = $(event.target);
-        let $panel  = $('#'+$toggle.attr('data-genex-target-id'));
+    togglePanels(event) {
+        let $lastToggle = $('.' + this.openToggleClass);
 
-        let isAlreadyOpen = $toggle.hasClass(this.openToggleClass);
-
-        $(PANEL_CLASS).removeClass(this.openPanelClass).hide();
-        $(TOGGLE_CLASS).removeClass(this.openToggleClass);
-
-        if(!isAlreadyOpen){
-            $toggle.addClass(this.openToggleClass);
-            $panel.addClass(this.openPanelClass);
-            $panel.show();
+        if($lastToggle.length > 0) {
+            this.closeOpenPanels(event);
+        } else {
+            this.openCurrentPanel(event);
         }
     }
 
+    closeOpenPanels(event) {
+        this.setA11YState($(TOGGLE_CLASS), false);
+        this.doTracking(event, false);
+        $('.' + this.openPanelClass)
+            .removeClass(this.openPanelClass)
+            .slideUp(ANIMATION_DEFAULT_DURATION, ANIMATION_DEFAULT_EASING, this.openCurrentPanel(event));
+
+        $('.' + this.openToggleClass).removeClass(this.openToggleClass);
+    }
+
+    openCurrentPanel(event) {
+        let $lastToggle = $('.' + this.openToggleClass);
+        let $currentToggle = $(event.currentTarget);
+        let $currentPanel  = $('#' + $currentToggle.attr('data-genex-target-id'));
+
+        if($lastToggle === undefined || $lastToggle.get(0) !== $currentToggle.get(0)) {
+            this.doTracking(event, true);
+            this.setA11YState($currentToggle, true);
+            $currentPanel.slideDown(
+                ANIMATION_DEFAULT_DURATION,
+                ANIMATION_DEFAULT_EASING,
+                () => {
+                    $currentToggle.addClass(this.openToggleClass);
+                    $currentPanel.addClass(this.openPanelClass);
+                }
+            );
+        }
+    }
+
+    setA11YState($element, isActive) {
+        if(isActive) {
+            $element.attr('aria-expanded', 'true');
+        } else {
+            $element.attr('aria-expanded', 'false');
+        }
+    }
+
+    doTracking(event, panelWillBeOpen) {
+        if(this.eventSource && this.eventValue) {
+            let trackingData = {
+                event_type: event.type === 'keydown' ? 'keypress' : 'click',
+                event_source: this.eventSource,
+                event_name:  panelWillBeOpen ? 'Open': 'Close',
+                event_value: this.eventValue
+            };
+
+            $(window).trigger('fef.track.interaction', trackingData);
+            $(window).trigger('fef.expandable.interaction', trackingData);
+        }
+    }
 }

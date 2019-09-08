@@ -1,4 +1,6 @@
-<div class="show-info js-show-info js-expander">
+<div class="show-info js-show-info js-genex"
+     data-genex-open-toggle-class="show-info__actions-button--active"
+     data-genex-open-panel-class="show-info__panel--expanded">
     <div class="show-info__info-wrap">
         <a href="#sendungsseite" class="show-info__cover">
             {% block medium %}
@@ -38,22 +40,22 @@
                 {# Download button only on epidose-detail-page #}
                 {% include 'atoms-button' with {'styleModifier': 'button--neutral button--small-font', 'screenReaderText': 'Download', 'svgIcon': 'svg-icon--download', 'buttonText': 'Download'} %}
                 {# Abonnieren button only on sendungen-detail-page #}
-                {% include 'atoms-button' with {'styleModifier': 'button--neutral button--small-font js-expander-trigger', 'screenReaderText': 'Abonnieren', 'svgIcon': 'svg-icon--subscribe', 'buttonText': 'Abonnieren', 'additionalAttributes': 'data-expander-id="show-info-subscribe"'} %}
-                {% include 'atoms-button' with {'styleModifier': 'button--neutral button--small-font js-expander-trigger', 'screenReaderText': 'Teilen', 'svgIcon': 'svg-icon--share', 'buttonText': 'Teilen', 'additionalAttributes': 'data-expander-id="show-info-share"'} %}
+                {% include 'atoms-button' with {'styleModifier': 'button--neutral button--small-font js-genex-toggle', 'screenReaderText': 'Abonnieren', 'svgIcon': 'svg-icon--subscribe', 'buttonText': 'Abonnieren', 'additionalAttributes': 'data-genex-target-id=show-info-subscribe'} %}
+                {% include 'atoms-button' with {'styleModifier': 'button--neutral button--small-font js-genex-toggle', 'screenReaderText': 'Teilen', 'svgIcon': 'svg-icon--share', 'buttonText': 'Teilen', 'additionalAttributes': 'data-genex-target-id=show-info-share'} %}
             </div>
         </div>
     </div>
     {# Abonnieren Area only on sendungen-detail-page #}
-    <div class="show-info__expander-area js-expander-area" data-expander-area="show-info-subscribe">
-        <div class="show-info__expander-innerwrap">
+    <div id="show-info-subscribe" class="show-info__panel generic-expander__panel">
+        <div class="show-info__panel-innerwrap">
             {% include 'atoms-button' with {'styleModifier': 'button--secondary', 'screenReaderText': 'Bei Apple Podcasts abonnieren', 'svgIcon': 'svg-icon--apple-podcasts', 'buttonText': 'Apple Podcasts'} %}
             {% include 'atoms-button' with {'styleModifier': 'button--secondary', 'screenReaderText': 'Bei Google Podcasts abonnieren', 'svgIcon': 'svg-icon--google-podcasts', 'buttonText': 'Google Podcasts'} %}
             {% include 'atoms-button' with {'styleModifier': 'button--secondary', 'screenReaderText': 'Bei Spotify abonnieren', 'svgIcon': 'svg-icon--spotify', 'buttonText': 'Spotify'} %}
             {% include 'atoms-button' with {'styleModifier': 'button--secondary', 'screenReaderText': 'Feed-URL kopieren', 'svgIcon': 'svg-icon--clipboard', 'buttonText': 'Feed-URL kopieren'} %}
         </div>
     </div>
-    <div class="show-info__expander-area js-expander-area" data-expander-area="show-info-share">
-        <div class="show-info__expander-innerwrap">
+    <div id="show-info-share" class="show-info__panel generic-expander__panel">
+        <div class="show-info__panel-innerwrap">
             {% include 'atoms-button' with {'styleModifier': 'button--secondary', 'screenReaderText': 'Auf Facebook teilen', 'svgIcon': 'svg-icon--outline-facebook', 'buttonText': 'Facebook'} %}
             {% include 'atoms-button' with {'styleModifier': 'button--secondary', 'screenReaderText': 'Auf Twitter teilen', 'svgIcon': 'svg-icon--outline-twitter', 'buttonText': 'Twitter'} %}
             {% include 'atoms-button' with {'styleModifier': 'button--secondary', 'screenReaderText': 'Per WhatsApp teilen', 'svgIcon': 'svg-icon--outline-whatsapp', 'buttonText': 'WhatsApp'} %}
