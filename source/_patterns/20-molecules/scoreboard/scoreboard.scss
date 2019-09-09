@@ -1,4 +1,4 @@
-$scoreboard-col-padding-height: 4px;
+$scoreboard-col-padding-height: 6px;
 
 .scoreboard {
   display: grid;
@@ -10,11 +10,7 @@ $scoreboard-col-padding-height: 4px;
   letter-spacing: 0.4px;
   text-align: left;
   border-spacing: 0;
-  padding: 8px 16px calc(16px + #{$scoreboard-col-padding-height}) 0;
-
-  @include desktop-wide {
-    padding: 8px 24px calc(24px + #{$scoreboard-col-padding-height}) 0;
-  }
+  padding: 8px 0;
 
   // if a browser supports @support but not grid, it's a very strange browser does not deserve our scoreboard 😤
   @supports not (display: grid) {
@@ -24,6 +20,7 @@ $scoreboard-col-padding-height: 4px;
 
 .scoreboard__competitor {
   grid-column: 1;
+  height: 18px;
   padding: 0 0 0 16px;
   overflow: hidden;
   position: relative;
@@ -52,30 +49,26 @@ $scoreboard-col-padding-height: 4px;
   display: flex;
   align-items: center;
   white-space: nowrap;
-  height: 20px;
+  height: 18px;
 }
 
-// first row's score is 4px higher (goes over border at the top)
+// first row's score is 6px higher (goes over border at the top)
 .scoreboard__row-first {
   margin-top: -$scoreboard-col-padding-height;
 
   .score {
     padding-top: $scoreboard-col-padding-height;
     height: 24px;
-    border-top-left-radius: 2px;
-    border-top-right-radius: 2px;
   }
 }
 
-// last row's score is 4px higher (goes over border at the bottom)
+// last row's score is 6px higher (goes over border at the bottom)
 .scoreboard__row-last {
   margin-bottom: -$scoreboard-col-padding-height;
 
   .score {
     padding-bottom: $scoreboard-col-padding-height;
     height: 24px;
-    border-bottom-left-radius: 2px;
-    border-bottom-right-radius: 2px;
   }
 }
 
@@ -112,7 +105,7 @@ $scoreboard-col-padding-height: 4px;
 
 .scoreboard__name {
   flex-grow: 1;
-  line-height: $default-line-height-ratio;
+  line-height: $secondary-line-height-ratio;
 }
 
 .scoreboard__score-live.scoreboard__score-live {
