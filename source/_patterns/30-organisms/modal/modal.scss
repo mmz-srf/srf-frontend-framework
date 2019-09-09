@@ -85,6 +85,11 @@ $modal-z-index: 100;
     max-width: $content-width;
     padding: 0;
   }
+
+  @include tablet-up {
+    max-width: 100%;
+    padding: 0;
+  }
 }
 
 .modal__head {
