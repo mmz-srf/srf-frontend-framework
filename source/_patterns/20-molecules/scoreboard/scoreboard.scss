@@ -1,4 +1,3 @@
-
 $scoreboard-col-padding-height: 6px;
 
 .scoreboard {
@@ -21,7 +20,7 @@ $scoreboard-col-padding-height: 6px;
 
 .scoreboard__competitor {
   grid-column: 1;
-  height: 20px;
+  height: 18px;
   padding: 0 0 0 16px;
   overflow: hidden;
   position: relative;
@@ -50,7 +49,7 @@ $scoreboard-col-padding-height: 6px;
   display: flex;
   align-items: center;
   white-space: nowrap;
-  height: 20px;
+  height: 18px;
 }
 
 // first row's score is 6px higher (goes over border at the top)
@@ -59,7 +58,7 @@ $scoreboard-col-padding-height: 6px;
 
   .score {
     padding-top: $scoreboard-col-padding-height;
-    height: 28px;
+    height: 24px;
   }
 }
 
@@ -69,7 +68,7 @@ $scoreboard-col-padding-height: 6px;
 
   .score {
     padding-bottom: $scoreboard-col-padding-height;
-    height: 28px;
+    height: 24px;
   }
 }
 
