@@ -6,7 +6,7 @@ $scoreboard-col-padding-height: 6px;
   width: 100%;
   border-collapse: collapse;
   font-family: $font-regular;
-  font-size: 14px;
+  @include fontSize(14);
   letter-spacing: 0.4px;
   text-align: left;
   border-spacing: 0;
@@ -105,7 +105,7 @@ $scoreboard-col-padding-height: 6px;
 
 .scoreboard__name {
   flex-grow: 1;
-  line-height: 14px;
+  line-height: $secondary-line-height-ratio;
 }
 
 .scoreboard__score-live.scoreboard__score-live {
