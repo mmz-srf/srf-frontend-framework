@@ -227,14 +227,14 @@
 .show-info__panel {
   display: none;
 
-  margin-top: -6px;
+  margin-top: -22px;
   margin-bottom: 16px;
   background: $color-srf-warmgrey-10;
   border-top: 1px solid $color-srf-warmgrey-50;
   border-bottom: 1px solid $color-srf-warmgrey-50;
 
   @include desktop-wide {
-    margin-top: -10px;
+    margin-top: -26px;
     margin-bottom: 20px;
   }
 
