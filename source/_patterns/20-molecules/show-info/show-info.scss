@@ -12,7 +12,7 @@
   }
 
   @include desktop-wide {
-    padding: 20px 40px;
+    padding: 20px 0;
   }
 }
 
@@ -28,7 +28,7 @@
   }
 
   @include desktop-wide {
-    left: 40px;
+    left: 0;
   }
 }
 
@@ -87,6 +87,10 @@
 
   @include tablet-up {
     display: inline-block;
+  }
+
+  @include desktop-wide {
+    padding-left: 0;
   }
 
   &:hover {
@@ -279,8 +283,8 @@
   }
 
   @include desktop-wide {
-    padding-right: 40px;
-    padding-left: 40px;
+    padding-right: 0;
+    padding-left: 0;
   }
 }
 
@@ -306,6 +310,11 @@
   .collection__teaser-list {
     margin-right: 16px;
     margin-left: 16px;
+
+    @include desktop-wide {
+      margin-right: 0;
+      margin-left: 0;
+    }
   }
 
   .collection__branding-wrapper {
@@ -323,6 +332,6 @@
   }
 
   @include desktop-wide {
-    padding: 0 40px;
+    padding: 0;
   }
 }
