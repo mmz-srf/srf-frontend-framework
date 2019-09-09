@@ -293,6 +293,11 @@
 
 .teaser__scoreboard {
   align-items: flex-end;
+  padding: 0 16px 16px 0;
+
+  @include desktop-wide {
+    padding: 0 24px 24px 0;
+  }
 }
 
 .teaser__opinion {
@@ -633,7 +638,6 @@
 
       .teaser__scoreboard {
         padding-left: 8px;
-        background-color: $color-srf-warmgrey-10;
       }
 
       .teaser__opinion {

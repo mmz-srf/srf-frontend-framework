@@ -5,13 +5,13 @@
   height: 20px;
   justify-content: flex-end;
   align-items: center;
-  font-family: $font-bold;
+  font-family: $font-regular;
   @include font-smoothing;
   font-size: 14px;
   line-height: 14px;
   white-space: nowrap;
   color: $color-srf-warmgrey-1100;
-  background-color: $color-srf-yellow-500;
+  background-color: $color-srf-yellow-400;
 }
 
 .score__value {
@@ -23,11 +23,12 @@
 .score--winner {
   .score__value {
     opacity: 1;
+    font-family: $font-medium;
   }
 }
 
 .score--live {
-  background-color: $color-srf-red-500;
+  background-color: $color-srf-red-400;
   color: $color-srf-neutral-white;
 
   .score__value {

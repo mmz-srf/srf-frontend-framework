@@ -1,15 +1,14 @@
 
-$scoreboard-col-padding-height: 8px;
+$scoreboard-col-padding-height: 6px;
 
 .scoreboard {
   display: grid;
   grid-template-columns: 1fr auto;
   width: 100%;
   border-collapse: collapse;
-  font-family: $font-medium;
+  font-family: $font-regular;
   font-size: 14px;
   letter-spacing: 0.4px;
-  background-color: $color-srf-warmgrey-10;
   text-align: left;
   border-spacing: 0;
   padding: 8px 0;
@@ -54,22 +53,22 @@ $scoreboard-col-padding-height: 8px;
   height: 20px;
 }
 
-// first row's score is 8px higher (goes over border at the top)
+// first row's score is 6px higher (goes over border at the top)
 .scoreboard__row-first {
-  margin-top: -8px;
+  margin-top: -$scoreboard-col-padding-height;
 
   .score {
-    padding-top: 8px;
+    padding-top: $scoreboard-col-padding-height;
     height: 28px;
   }
 }
 
-// last row's score is 8px higher (goes over border at the bottom)
+// last row's score is 6px higher (goes over border at the bottom)
 .scoreboard__row-last {
-  margin-bottom: -8px;
+  margin-bottom: -$scoreboard-col-padding-height;
 
   .score {
-    padding-bottom: 8px;
+    padding-bottom: $scoreboard-col-padding-height;
     height: 28px;
   }
 }
