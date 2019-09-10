@@ -118,17 +118,15 @@
   }
 }
 
-.onairnav-link--labeled {
-  .onairnav-link__media-wrapper {
-    margin-bottom: 8px;
-  }
-}
-
 /* Logos and LIVE-Badge */
 .onairnav-link__media-wrapper {
   display: flex;
-  margin-bottom: 12px;
-  align-items: center;
+  margin-bottom: 8px;
+
+  .onairnav-link__media {
+    margin-right: 16px;
+    margin-bottom: 0;
+  }
 }
 
 .onairnav-link__media-label {
@@ -138,7 +136,7 @@
 }
 
 .onairnav-link__media {
-  margin-right: 16px;
+  margin-bottom: 12px;
   max-height: 24px;
   width: auto;
 }
