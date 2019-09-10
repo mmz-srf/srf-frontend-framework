@@ -229,14 +229,9 @@
 
 .show-info__panel {
   display: none;
-  margin-bottom: 16px;
   background: $color-srf-warmgrey-10;
   border-top: 1px solid $color-srf-warmgrey-50;
   border-bottom: 1px solid $color-srf-warmgrey-50;
-
-  @include desktop-wide {
-    margin-bottom: 20px;
-  }
 
   .button--secondary {
     margin-top: 16px;
@@ -320,7 +315,7 @@
 }
 
 .show-info__episode-wrapper {
-  margin: 0 auto;
+  margin: 4px auto 0 auto;
   max-width: $content-width;
   padding: 0 8px;
 
@@ -330,5 +325,6 @@
 
   @include desktop-wide {
     padding: 0;
+    margin-top: 8px;
   }
 }
