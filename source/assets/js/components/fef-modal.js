@@ -106,7 +106,7 @@ export class FefModal {
                 this.$contentContainer.html(content);
                 $(document).trigger('fef.modal.loaded', {container: this.$contentContainer});
                 this.show();
-            })
+            });
         } else {
             this.show();
         }
