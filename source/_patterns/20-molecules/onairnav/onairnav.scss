@@ -98,7 +98,7 @@
   }
 }
 
-.onairnav-list--duo-tablet {
+.onairnav-list--duo-on-tablet {
   .onairnav-list__element {
     @include tablet {
       flex-basis: calc(50% - 2 * 12px);
