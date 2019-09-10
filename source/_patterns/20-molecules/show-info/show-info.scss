@@ -4,15 +4,15 @@
   flex-wrap: wrap;
   position: relative;
   margin: 0 auto;
-  padding: 16px 24px;
+  padding: 16px 24px 0 24px;
   max-width: $content-width;
 
   @include tablet-up {
-    padding: 16px 32px;
+    padding: 16px 32px 0 32px;
   }
 
   @include desktop-wide {
-    padding: 20px 0;
+    padding: 20px 0 0 0;
   }
 }
 
@@ -175,12 +175,11 @@
   }
 
   .pill-button {
-    margin-right: 16px;
-    margin-bottom: 16px;
+    margin: 0 16px 12px 0;
   }
 
   .button--neutral {
-    margin: 0 16px 16px 0;
+    margin: 0 16px 12px 0;
     width: auto;
 
     &:last-of-type {
@@ -207,12 +206,12 @@
   }
 
   //square that is rotated 45 degrees
-  //caution, weird px values
   &::before {
     background: $color-srf-warmgrey-10;
     border: 1px solid $color-srf-warmgrey-50;
-    width: 16px;
-    height: 16px;
+    //square with diagonal of 24px --> sides of 16.97px
+    width: 17px;
+    height: 17px;
     transform: rotate(45deg);
     bottom: -22px;
     margin-left: -10px;
@@ -221,8 +220,8 @@
   //rectangle that hides the bottom half of the ::before-square --> triangle
   &::after {
     background: $color-srf-warmgrey-10;
-    width: 26px;
-    height: 15px;
+    width: 27px;
+    height: 13px;
     margin-left: -14px;
     bottom: -26px;
   }
@@ -230,19 +229,17 @@
 
 .show-info__panel {
   display: none;
-
-  margin-top: -22px;
   margin-bottom: 16px;
   background: $color-srf-warmgrey-10;
   border-top: 1px solid $color-srf-warmgrey-50;
   border-bottom: 1px solid $color-srf-warmgrey-50;
 
   @include desktop-wide {
-    margin-top: -26px;
     margin-bottom: 20px;
   }
 
   .button--secondary {
+    margin-top: 16px;
     @include tablet-up {
       margin-right: 24px;
       flex-basis: calc(50% - (28px / 2));
