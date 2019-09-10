@@ -32,6 +32,7 @@
 
     @include desktop-up {
       box-shadow: $shadow-elevation16;
+      z-index: 1;
     }
 
     /* theme */
