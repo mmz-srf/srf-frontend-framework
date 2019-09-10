@@ -751,8 +751,8 @@ $background-overlap-wide: 50px;
   }
 }
 
-.collection--compact-swipeable--audio,
-.collection--dense-swipeable--audio {
+.collection--compact-swipeable--no-card,
+.collection--dense-swipeable--no-card {
   .collection__teaser-item {
     &:first-child {
       margin-left: 24px;
