@@ -1078,4 +1078,14 @@
   }
 }
 
+// used as a workaround for a safari, IE11 problem, where the height of the teaser_content does not
+// stretch to a containing iframe's height
+.teaser--with-iframe {
+  &.teaser--size-xl {
+    .teaser__content {
+      flex-basis: auto;
+    }
+  }
+}
+
 /* autoprefixer grid: off */
