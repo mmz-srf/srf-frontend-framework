@@ -821,9 +821,11 @@
 }
 
 
+// no-card is a no-card, medium-reversed, spacing-altered super-special-design-variant of teaser
 // switches position of medium and content of a teaser
+// no spacings if no-card
 // normally only used together with modifier `teaser--size-s`
-.teaser--with-medium-reverse {
+.teaser--no-card {
   .teaser__medium-wrapper {
     order: 1;
   }
@@ -831,19 +833,6 @@
   &.teaser--size-s {
     --media-time-indicator-display: none;
 
-    .teaser__medium-wrapper {
-      margin: 16px 0 16px 16px;
-
-      @include desktop-wide {
-        margin: 24px 0 24px 24px;
-      }
-    }
-  }
-}
-
-// no spacings if no-card
-.teaser--no-card {
-  &.teaser--size-s {
     .teaser__main {
       transition: opacity .2s ease-in-out;
 
@@ -866,9 +855,11 @@
     }
 
     .teaser__medium-wrapper {
+      // margin: 16px 0 16px 16px; -> from .teaser--with-medium-reverse
       margin: 0;
 
       @include desktop-wide {
+        // margin: 24px 0 24px 24px; -> from .teaser--with-medium-reverse
         margin: 0;
       }
     }
