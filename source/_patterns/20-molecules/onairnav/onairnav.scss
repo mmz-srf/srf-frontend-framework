@@ -141,8 +141,7 @@
     }
 
     @include desktop-up {
-      flex-basis: calc((100% / 6) - (5 * 24px));
-      margin-right: 24px;
+      flex-basis: calc((100% / 9) - 24px);
     }
 
     &:last-of-type {
