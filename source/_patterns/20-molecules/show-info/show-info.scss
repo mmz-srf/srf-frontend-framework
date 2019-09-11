@@ -3,7 +3,7 @@
   justify-content: flex-end;
   flex-wrap: wrap;
   position: relative;
-  margin: 0 auto;
+  margin: 0 auto 12px auto;
   padding: 16px 24px 0 24px;
   max-width: $content-width;
 
@@ -174,12 +174,12 @@
     margin-left: -12px;
   }
 
-  .pill-button {
-    margin: 0 16px 12px 0;
+  .pill-button,
+  .button--neutral {
+    margin: 0 16px 0 0;
   }
 
   .button--neutral {
-    margin: 0 16px 12px 0;
     width: auto;
 
     &:last-of-type {
@@ -315,7 +315,7 @@
 }
 
 .show-info__episode-wrapper {
-  margin: 4px auto 0 auto;
+  margin: 16px auto 0 auto;
   max-width: $content-width;
   padding: 0 8px;
 
@@ -325,6 +325,6 @@
 
   @include desktop-wide {
     padding: 0;
-    margin-top: 8px;
+    margin-top: 20px;
   }
 }
