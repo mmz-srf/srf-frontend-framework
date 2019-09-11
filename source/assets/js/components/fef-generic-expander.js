@@ -15,7 +15,6 @@ export function init() {
         new FefGenericExpander(element);
     });
 }
-
 export class FefGenericExpander {
     constructor(element) {
         this.$element = $(element);
@@ -27,6 +26,8 @@ export class FefGenericExpander {
 
         this.initA11Y();
         this.bindEvents();
+
+        this.$lastToggle = undefined;
     }
 
     initA11Y() {
@@ -69,19 +70,20 @@ export class FefGenericExpander {
     closeOpenPanels(event) {
         this.setA11YState($(TOGGLE_CLASS), false);
         this.doTracking(event, false);
+        const self = this;
         $('.' + this.openPanelClass)
             .removeClass(this.openPanelClass)
-            .slideUp(ANIMATION_DEFAULT_DURATION, ANIMATION_DEFAULT_EASING, this.openCurrentPanel(event));
-
-        $('.' + this.openToggleClass).removeClass(this.openToggleClass);
+            .slideUp(ANIMATION_DEFAULT_DURATION, ANIMATION_DEFAULT_EASING, () => {
+                self.openCurrentPanel(event);
+                $('.' + this.openToggleClass).removeClass(this.openToggleClass);
+            });
     }
 
     openCurrentPanel(event) {
-        let $lastToggle = $('.' + this.openToggleClass);
         let $currentToggle = $(event.currentTarget);
         let $currentPanel  = $('#' + $currentToggle.attr('data-genex-target-id'));
 
-        if($lastToggle === undefined || $lastToggle.get(0) !== $currentToggle.get(0)) {
+        if(this.$lastToggle === undefined || this.$lastToggle.get(0) !== $currentToggle.get(0) || !$currentToggle.hasClass(this.openToggleClass)) {
             this.doTracking(event, true);
             this.setA11YState($currentToggle, true);
             $currentPanel.slideDown(
@@ -93,6 +95,8 @@ export class FefGenericExpander {
                 }
             );
         }
+
+        this.$lastToggle = $currentToggle;
     }
 
     setA11YState($element, isActive) {
