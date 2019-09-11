@@ -649,17 +649,34 @@ $background-overlap-wide: 50px;
 }
 
 .collection--compact-swipeable--no-card {
-  .collection__teaser-item {
-    &:first-child {
-      margin-left: 24px;
+  // 1+2 teasers
+  .collection__teaser-item:last-child:first-child {
+    @include smartphone {
+      min-width: calc(100% - 24px);
+    }
+  }
 
-      @include tablet-up {
-        margin-left: 32px;
-      }
+  .collection__teaser-item:last-child:first-child,
+  .collection__teaser-item:nth-last-child(2):first-child,
+  .collection__teaser-item:nth-last-child(2):first-child ~ .collection__teaser-item {
+    @include tablet {
+      width: calc(50% - 12px);
+    }
 
-      @include desktop-wide {
-        margin-left: 40px;
-      }
+    @include desktop-up {
+      width: calc((100% - 2 * 24px) / 3.0001);
+    }
+  }
+
+  .collection__teaser-item:first-child {
+    margin-left: 24px;
+
+    @include tablet-up {
+      margin-left: 32px;
+    }
+
+    @include desktop-wide {
+      margin-left: 40px;
     }
   }
 }
