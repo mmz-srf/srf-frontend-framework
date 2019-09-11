@@ -302,6 +302,7 @@
   .collection__teaser-list {
     margin-right: 16px;
     margin-left: 16px;
+    margin-bottom: 0;
 
     @include tablet-up {
       margin-right: 0;
@@ -311,6 +312,17 @@
 
   .collection__branding-wrapper {
     margin: 0;
+  }
+
+  @include smartphone {
+    .teaser {
+      margin-bottom: 0;
+    }
+
+    .collection__teaser-item {
+      margin-bottom: 0;
+      padding-bottom: 16px;
+    }
   }
 }
 
