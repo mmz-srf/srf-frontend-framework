@@ -303,7 +303,7 @@
     margin-right: 16px;
     margin-left: 16px;
 
-    @include desktop-wide {
+    @include tablet-up {
       margin-right: 0;
       margin-left: 0;
     }
