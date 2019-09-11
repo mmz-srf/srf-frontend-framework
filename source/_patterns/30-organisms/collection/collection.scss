@@ -861,6 +861,20 @@ $background-overlap-wide: 50px;
       margin-left: 16px;
     }
   }
+
+  // DOUBLE Exception -> undo/double-do (it depends on your POV) all the
+  // fancy first-child:nth-last-child(3) stuff that has been done in .collection--compact some lines above
+  .collection__teaser-item,
+  .collection__teaser-item ~ .collection__teaser-item {
+    @include desktop-up {
+      @include IESafeFlexBasis(33.3333334%);
+      padding-right: $teaser-col-gap-tablet-up;
+    }
+
+    @include desktop-wide {
+      padding-right: $teaser-col-gap-desktop-wide;
+    }
+  }
 }
 
 .collection--branded {
