@@ -148,6 +148,10 @@ $image-height--b4: 112px;
     flex-basis: 308px;
   }
 
+  @include desktop-up {
+    @include fontSize(20);
+  }
+
   @include desktop-wide {
     flex-basis: 512px;
   }
@@ -172,6 +176,10 @@ $image-height--b4: 112px;
 
   @include desktop {
     flex-basis: 246px;
+  }
+
+  @include desktop-up {
+    @include fontSize(16);
   }
 
   @include desktop-wide {
