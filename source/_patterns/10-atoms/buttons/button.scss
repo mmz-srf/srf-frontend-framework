@@ -50,6 +50,7 @@ $button-animation-duration: .3s;
   &:active {
     cursor: pointer;
     outline: none;
+    color: inherit; // needed, if .button is an Anchor
     box-shadow: $shadow-elevation8;
   }
 
