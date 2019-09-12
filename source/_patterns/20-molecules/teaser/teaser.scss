@@ -861,15 +861,15 @@
       @include desktop-wide {
         // margin: 24px 0 24px 24px; -> from .teaser--with-medium-reverse
         margin: 0;
-        flex-basis: 120px;
-        height: 120px;
+        flex-basis: 112px;
+        height: 112px;
       }
     }
 
     .teaser__medium {
       @include desktop-up {
-        width: 120px;
-        height: 120px;
+        width: 112px;
+        height: 112px;
       }
     }
   }
