@@ -47,7 +47,7 @@ export class FefGenericExpander {
             if (this.isTogglingAllowed) {
                 this.togglePanels(event);
                 this.isTogglingAllowed = false;
-                setTimeout(() => {this.isTogglingAllowed = true}, !this.isSwitching ? ANIMATION_DEFAULT_DURATION : ANIMATION_DEFAULT_DURATION * 2);
+                setTimeout(() => {this.isTogglingAllowed = true;}, !this.isSwitching ? ANIMATION_DEFAULT_DURATION : ANIMATION_DEFAULT_DURATION * 2);
             }
         };
 
