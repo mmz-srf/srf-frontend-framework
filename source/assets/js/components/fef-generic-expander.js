@@ -27,7 +27,8 @@ export class FefGenericExpander {
         this.initA11Y();
         this.bindEvents();
 
-        this.$lastToggle = undefined;
+        this.isTogglingAllowed = true;
+        this.isSwitching = false;
     }
 
     initA11Y() {
@@ -43,7 +44,11 @@ export class FefGenericExpander {
     bindEvents() {
         let clickHandler = (event) => {
             event.preventDefault();
-            this.togglePanels(event);
+            if (this.isTogglingAllowed) {
+                this.togglePanels(event);
+                this.isTogglingAllowed = false;
+                setTimeout(() => {this.isTogglingAllowed = true}, !this.isSwitching ? ANIMATION_DEFAULT_DURATION : ANIMATION_DEFAULT_DURATION * 2);
+            }
         };
 
         let keyboardHandler = (event) => {
@@ -71,6 +76,13 @@ export class FefGenericExpander {
         this.setA11YState($(TOGGLE_CLASS), false);
         this.doTracking(event, false);
         const self = this;
+
+        let $currentToggle = $(event.currentTarget);
+        let $lastToggle = $('.' + this.openToggleClass);
+        if ($lastToggle.get(0) !== $currentToggle.get(0)) {
+            this.isSwitching = true;
+        }
+
         $('.' + this.openPanelClass)
             .removeClass(this.openPanelClass)
             .slideUp(ANIMATION_DEFAULT_DURATION, ANIMATION_DEFAULT_EASING, () => {
@@ -82,8 +94,9 @@ export class FefGenericExpander {
     openCurrentPanel(event) {
         let $currentToggle = $(event.currentTarget);
         let $currentPanel  = $('#' + $currentToggle.attr('data-genex-target-id'));
+        let $lastToggle = $('.' + this.openToggleClass);
 
-        if(this.$lastToggle === undefined || this.$lastToggle.get(0) !== $currentToggle.get(0) || !$currentToggle.hasClass(this.openToggleClass)) {
+        if($lastToggle === undefined || $lastToggle.get(0) !== $currentToggle.get(0)) {
             this.doTracking(event, true);
             this.setA11YState($currentToggle, true);
             $currentPanel.slideDown(
@@ -92,11 +105,10 @@ export class FefGenericExpander {
                 () => {
                     $currentToggle.addClass(this.openToggleClass);
                     $currentPanel.addClass(this.openPanelClass);
+                    $currentToggle.focus();
                 }
             );
         }
-
-        this.$lastToggle = $currentToggle;
     }
 
     setA11YState($element, isActive) {
