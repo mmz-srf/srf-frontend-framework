@@ -71,9 +71,11 @@
   }
 
   .svg-icon {
-    position: relative;
-    top: 7px;
-    bottom: 7px;
+    margin-bottom: -7px;
+
+    @include smartphone {
+      width: 20px;
+    }
   }
 }
 
@@ -82,8 +84,6 @@
   color: inherit;
   padding: 16px;
   margin: 0 0 16px -16px;
-  display: flex;
-  justify-content: space-between;
 
   @include tablet-up {
     display: inline-block;
@@ -91,6 +91,7 @@
 
   @include desktop-wide {
     padding-left: 0;
+    margin-left: 0;
   }
 
   &:hover {
@@ -102,11 +103,11 @@
   }
 
   @include smartphone {
-    width: 100%;
+    @include fontSize(16);
+    margin-left: 0;
+
     .svg-icon {
-      float: right;
-      top: 0;
-      bottom: 0;
+      width: 24px;
     }
   }
 }
