@@ -28,7 +28,6 @@ export class FefGenericExpander {
         this.bindEvents();
 
         this.isTogglingAllowed = true;
-        this.isSwitching = false;
     }
 
     initA11Y() {
@@ -44,11 +43,7 @@ export class FefGenericExpander {
     bindEvents() {
         let clickHandler = (event) => {
             event.preventDefault();
-            if (this.isTogglingAllowed) {
-                this.togglePanels(event);
-                this.isTogglingAllowed = false;
-                setTimeout(() => {this.isTogglingAllowed = true;}, !this.isSwitching ? ANIMATION_DEFAULT_DURATION : ANIMATION_DEFAULT_DURATION * 2);
-            }
+            this.togglePanels(event);
         };
 
         let keyboardHandler = (event) => {
@@ -63,52 +58,64 @@ export class FefGenericExpander {
     }
 
     togglePanels(event) {
-        let $lastToggle = $('.' + this.openToggleClass);
+        //prevent toggling of multiple panels
+        if (this.isTogglingAllowed) {
+            let isSwitching = false;
 
-        if($lastToggle.length > 0) {
-            this.closeOpenPanels(event);
-        } else {
-            this.openCurrentPanel(event);
+            const $lastToggle = $('.' + this.openToggleClass);
+            const $currentToggle = $(event.currentTarget);
+            const $openPanel = $('.' + this.openPanelClass);
+
+            if ($openPanel.length > 0) {
+                if ($lastToggle.get(0) !== $currentToggle.get(0)) {
+                    isSwitching = true;
+                    this.closeOpenPanels(event, $lastToggle, $openPanel, () => {
+                        this.openCurrentPanel(event, $lastToggle, $currentToggle);
+                    });
+                } else {
+                    this.closeOpenPanels(event, $lastToggle, $openPanel);
+                }
+            } else {
+                this.openCurrentPanel(event, $lastToggle, $currentToggle);
+            }
+            //blocking toggling for duration of animation
+            //if panels are switched 2 animations are played consecutively, so the duration is doubled
+            this.isTogglingAllowed = false;
+            setTimeout(() => {this.isTogglingAllowed = true;}, !isSwitching ? ANIMATION_DEFAULT_DURATION : ANIMATION_DEFAULT_DURATION * 2);
         }
     }
 
-    closeOpenPanels(event) {
+    closeOpenPanels(event, $lastToggle, $openPanel, callbackFunction) {
         this.setA11YState($(TOGGLE_CLASS), false);
         this.doTracking(event, false);
-        const self = this;
 
-        let $currentToggle = $(event.currentTarget);
-        let $lastToggle = $('.' + this.openToggleClass);
-        if ($lastToggle.get(0) !== $currentToggle.get(0)) {
-            this.isSwitching = true;
-        }
+        $lastToggle.removeClass(this.openToggleClass);
 
-        $('.' + this.openPanelClass)
-            .removeClass(this.openPanelClass)
-            .slideUp(ANIMATION_DEFAULT_DURATION, ANIMATION_DEFAULT_EASING, () => {
-                self.openCurrentPanel(event);
-                $('.' + this.openToggleClass).removeClass(this.openToggleClass);
-            });
+        $openPanel.slideUp(ANIMATION_DEFAULT_DURATION, ANIMATION_DEFAULT_EASING, () => {
+            $openPanel.removeClass(this.openPanelClass);
+            //callback function to open another panel after closing one, respectively when switching panels.
+            if (callbackFunction !== undefined) {
+                callbackFunction();
+            }
+        });
     }
 
-    openCurrentPanel(event) {
-        let $currentToggle = $(event.currentTarget);
-        let $currentPanel  = $('#' + $currentToggle.attr('data-genex-target-id'));
-        let $lastToggle = $('.' + this.openToggleClass);
+    openCurrentPanel(event, $lastToggle, $currentToggle) {
+        const $currentPanel = $('#' + $currentToggle.attr('data-genex-target-id'));
 
-        if($lastToggle === undefined || $lastToggle.get(0) !== $currentToggle.get(0)) {
-            this.doTracking(event, true);
-            this.setA11YState($currentToggle, true);
-            $currentPanel.slideDown(
-                ANIMATION_DEFAULT_DURATION,
-                ANIMATION_DEFAULT_EASING,
-                () => {
-                    $currentToggle.addClass(this.openToggleClass);
-                    $currentPanel.addClass(this.openPanelClass);
-                    $currentToggle.focus();
-                }
-            );
-        }
+        this.doTracking(event, true);
+        this.setA11YState($currentToggle, true);
+        $currentToggle.addClass(this.openToggleClass);
+
+        $currentPanel.slideDown(
+            ANIMATION_DEFAULT_DURATION,
+            ANIMATION_DEFAULT_EASING,
+            () => {
+                $currentPanel.addClass(this.openPanelClass);
+                //Prevent focus of the wrong toggle when clicking on another one while this one opens the panel
+                $currentToggle.focus();
+            }
+        );
     }
 
     setA11YState($element, isActive) {
