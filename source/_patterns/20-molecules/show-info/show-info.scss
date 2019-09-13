@@ -182,9 +182,26 @@
 
   .button--neutral {
     width: auto;
+    position: relative;
 
     &:last-of-type {
       margin-right: 0;
+    }
+
+    &:before {
+      content: '';
+      height: 0;
+      width: 0;
+      position: absolute;
+      bottom: -14px;
+      left: calc(50% - 12px);
+      border-style: solid;
+      border-width: 12px;
+      border-color: transparent transparent $color-srf-warmgrey-10 transparent;
+      filter: drop-shadow(0px -1px 0 $color-srf-warmgrey-50);
+      transform-origin: bottom center;
+      transform: scale3d(0,0,0);
+      transition: transform .4s ease-in;
     }
   }
 }
@@ -197,34 +214,8 @@
     background-color: $color-srf-warmgrey-25;
   }
 
-  &::before,
-  &::after {
-    content: '';
-    display: block;
-    position: absolute;
-    left: 50%;
-    pointer-events: none;
-  }
-
-  //square that is rotated 45 degrees
-  &::before {
-    background: $color-srf-warmgrey-10;
-    border: 1px solid $color-srf-warmgrey-50;
-    //square with diagonal of 24px --> sides of 16.97px
-    width: 17px;
-    height: 17px;
-    transform: rotate(45deg);
-    bottom: -22px;
-    margin-left: -10px;
-  }
-
-  //rectangle that hides the bottom half of the ::before-square --> triangle
-  &::after {
-    background: $color-srf-warmgrey-10;
-    width: 27px;
-    height: 13px;
-    margin-left: -14px;
-    bottom: -26px;
+  &:before {
+    transform: scale3d(1,1,1) !important;
   }
 }
 
