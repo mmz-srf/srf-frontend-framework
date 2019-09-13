@@ -10,7 +10,7 @@ $scoreboard-col-padding-height: 6px;
   letter-spacing: 0.4px;
   text-align: left;
   border-spacing: 0;
-  padding: 8px 0;
+  padding: 3px 0;
 
   // if a browser supports @support but not grid, it's a very strange browser does not deserve our scoreboard 😤
   @supports not (display: grid) {
@@ -34,6 +34,7 @@ $scoreboard-col-padding-height: 6px;
 
 .scoreboard__competitor--winner {
   color: $color-srf-warmgrey-1100;
+  font-family: $font-medium;
 }
 
 .scoreboard__competitor-mask {
@@ -59,6 +60,8 @@ $scoreboard-col-padding-height: 6px;
   .score {
     padding-top: $scoreboard-col-padding-height;
     height: 24px;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
   }
 }
 
@@ -69,6 +72,8 @@ $scoreboard-col-padding-height: 6px;
   .score {
     padding-bottom: $scoreboard-col-padding-height;
     height: 24px;
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
   }
 }
 
