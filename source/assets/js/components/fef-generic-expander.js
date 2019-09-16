@@ -62,21 +62,21 @@ export class FefGenericExpander {
         if (this.isTogglingAllowed) {
             let isSwitching = false;
 
-            const $lastToggle = $('.' + this.openToggleClass);
+            const $lastToggle = $('.' + this.openToggleClass, this.$element);
             const $currentToggle = $(event.currentTarget);
-            const $openPanel = $('.' + this.openPanelClass);
+            const $openPanel = $('.' + this.openPanelClass, this.$element);
 
             if ($openPanel.length > 0) {
                 if ($lastToggle.get(0) !== $currentToggle.get(0)) {
                     isSwitching = true;
                     this.closeOpenPanels(event, $lastToggle, $openPanel, () => {
-                        this.openCurrentPanel(event, $lastToggle, $currentToggle);
+                        this.openCurrentPanel(event, $currentToggle);
                     });
                 } else {
                     this.closeOpenPanels(event, $lastToggle, $openPanel);
                 }
             } else {
-                this.openCurrentPanel(event, $lastToggle, $currentToggle);
+                this.openCurrentPanel(event, $currentToggle);
             }
             //blocking toggling for duration of animation
             //if panels are switched 2 animations are played consecutively, so the duration is doubled
@@ -100,7 +100,7 @@ export class FefGenericExpander {
         });
     }
 
-    openCurrentPanel(event, $lastToggle, $currentToggle) {
+    openCurrentPanel(event, $currentToggle) {
         const $currentPanel = $('#' + $currentToggle.attr('data-genex-target-id'));
 
         this.doTracking(event, true);
@@ -119,11 +119,7 @@ export class FefGenericExpander {
     }
 
     setA11YState($element, isActive) {
-        if(isActive) {
-            $element.attr('aria-expanded', 'true');
-        } else {
-            $element.attr('aria-expanded', 'false');
-        }
+        $element.attr('aria-expanded', isActive);
     }
 
     doTracking(event, panelWillBeOpen) {

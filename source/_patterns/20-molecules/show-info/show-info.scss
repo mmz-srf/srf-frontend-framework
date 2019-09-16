@@ -3,16 +3,16 @@
   justify-content: flex-end;
   flex-wrap: wrap;
   position: relative;
-  margin: 0 auto 12px auto;
-  padding: 16px 24px 0 24px;
+  margin: 0 auto;
+  padding: 16px 24px 12px 24px;
   max-width: $content-width;
 
   @include tablet-up {
-    padding: 16px 32px 0 32px;
+    padding: 16px 32px 12px 32px;
   }
 
   @include desktop-wide {
-    padding: 20px 0 0 0;
+    padding: 20px 0 12px 0;
   }
 }
 
@@ -206,24 +206,25 @@
   }
 }
 
-.show-info__actions-button--active {
+.button--neutral.show-info__actions-button--active {
   position: relative;
-  background-color: $color-srf-warmgrey-25;
+  background-color: $color-srf-warmgrey-50;
 
   &:hover {
     background-color: $color-srf-warmgrey-25;
   }
 
   &:before {
-    transform: scale3d(1,1,1) !important;
+    transform: scale3d(1, 1, 1);
   }
 }
 
 .show-info__panel {
   display: none;
   background: $color-srf-warmgrey-10;
-  border-top: 1px solid $color-srf-warmgrey-50;
-  border-bottom: 1px solid $color-srf-warmgrey-50;
+  outline: 1px solid $color-srf-warmgrey-50;
+  outline-offset: -1px;
+  margin: 0 -1px;
 
   .button--secondary {
     margin-top: 16px;
@@ -319,16 +320,15 @@
 }
 
 .show-info__episode-wrapper {
-  margin: 16px auto 0 auto;
+  margin: 0 auto;
   max-width: $content-width;
-  padding: 0 8px;
+  padding: 16px 8px 0;
 
   @include tablet-up {
-    padding: 0 32px;
+    padding: 16px 32px 0;
   }
 
   @include desktop-wide {
-    padding: 0;
-    margin-top: 20px;
+    padding: 20px 0 0;
   }
 }
