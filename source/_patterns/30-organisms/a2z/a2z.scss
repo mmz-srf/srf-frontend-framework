@@ -76,7 +76,7 @@
   min-height: #{3 * 96px};
 
   @include tablet {
-    min-height: calc(3 * 96px);
+    min-height: #{3 * 96px};
   }
 
   @include tablet-up {
