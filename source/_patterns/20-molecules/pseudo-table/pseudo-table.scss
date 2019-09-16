@@ -73,7 +73,7 @@ $image-height--b4: 112px;
   }
 
   @include desktop-wide {
-    flex-basis: calc(#{$image-height--b4} + 24px);
+    flex-basis: #{$image-height--b4 + 24px};
     max-height: $image-height--b4;
     min-height: $image-height--b4;
   }
