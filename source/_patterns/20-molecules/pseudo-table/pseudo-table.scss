@@ -57,7 +57,7 @@ $image-height--b4: 112px;
 }
 
 .pseudo-table__cell--image {
-  flex: 0 0 calc(#{$image-height--b1} + 8px);
+  flex: 0 0 #{$image-height--b1 + 8px};
   min-height: $image-height--b1;
   max-height: $image-height--b1;
 
