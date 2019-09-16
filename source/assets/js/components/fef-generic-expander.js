@@ -91,7 +91,10 @@ export class FefGenericExpander {
 
         $lastToggle.removeClass(this.openToggleClass);
 
-        $openPanel.slideUp(ANIMATION_DEFAULT_DURATION, ANIMATION_DEFAULT_EASING, () => {
+        $openPanel.slideUp(
+                ANIMATION_DEFAULT_DURATION,
+                ANIMATION_DEFAULT_EASING,
+                () => {
             $openPanel.removeClass(this.openPanelClass);
             // callback function to open another panel after closing one, respectively when switching panels.
             if (callbackFunction !== undefined) {
