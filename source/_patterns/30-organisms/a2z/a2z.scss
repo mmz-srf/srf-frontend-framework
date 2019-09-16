@@ -85,7 +85,7 @@
   }
 
   @include desktop {
-    min-height: calc(3 * 112px);
+    min-height: #{3 * 112px};
   }
 
   @include desktop-wide {
