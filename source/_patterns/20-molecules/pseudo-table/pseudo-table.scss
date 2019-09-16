@@ -63,7 +63,7 @@ $image-height--b4: 112px;
 
   @include tablet-up {
     align-self: center;
-    flex-basis: calc(#{$image-height--b1} + 16px);
+    flex-basis: #{$image-height--b1 + 16px};
   }
 
   @include desktop {
