@@ -133,7 +133,7 @@
   .onairnav-list__element {
     display: flex;
     flex-direction: column;
-    flex: 1 0 calc(80px + 24px + 2px);
+    flex: 1 0 #{80px + 24px + 2px};
     margin: 0 2px 0 0;
 
     @include tablet-up {
