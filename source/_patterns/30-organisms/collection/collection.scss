@@ -649,7 +649,7 @@ $background-overlap-wide: 50px;
 }
 
 .collection--compact-swipeable--no-card {
-  // 1+2 teasers
+  // Only 1 teaser
   .collection__teaser-item:last-child:first-child {
     @include smartphone {
       min-width: calc(100% - 24px);
