@@ -136,6 +136,22 @@
 }
 
 /* Logos and LIVE-Badge */
+.onairnav-link__media-wrapper {
+  display: flex;
+  margin-bottom: 8px;
+
+  .onairnav-link__media {
+    margin-right: 16px;
+    margin-bottom: 0;
+  }
+}
+
+.onairnav-link__media-label {
+  font-family: $font-light;
+  @include fontSize(14);
+  color: $color-srf-warmgrey-100;
+}
+
 .onairnav-link__media {
   margin-bottom: 12px;
   max-height: 24px;

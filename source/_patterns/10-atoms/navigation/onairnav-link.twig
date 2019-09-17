@@ -3,10 +3,17 @@
     {% if 'onairnav-link__media--live' in styleModifierMedia %}
       <span class="onairnav-link__media onairnav-link__media--live">{{ media }}</span>
     {% else %}
+      {% if mediaLabel is defined %}
+        <div class="onairnav-link__media-wrapper">
+      {% endif %}
       <img class="onairnav-link__media {{ styleModifierMedia|default('') }}"
            src="{{ frameworkAssetPath }}{{ media }}"
            alt="{{ mediaAlt|default('') }}"
            aria-hidden="true" role="presentation">
+      {% if mediaLabel is defined %}
+        <span class="onairnav-link__media-label">{{ mediaLabel }}</span>
+        </div>
+      {% endif %}
     {% endif %}
   {% endif %}
 
@@ -21,5 +28,5 @@
   {% if progress is defined %}
     <progress class="onairnav-link__progress" value="{{ progress }}" max="100" aria-hidden="true"></progress>
     <span class="h-offscreen">{{ progress }}% der Sendung wurde bereits gezeigt.</span>
-  {% endif%}
+  {% endif %}
 </a>
