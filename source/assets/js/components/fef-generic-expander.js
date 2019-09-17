@@ -101,7 +101,7 @@ export class FefGenericExpander {
     }
 
     openCurrentPanel(event, $currentToggle) {
-        const $currentPanel = $(`#${currentToggle.attr('data-genex-target-id')}`, this.$element);
+        const $currentPanel = $(`#${$currentToggle.attr('data-genex-target-id')}`, this.$element);
 
         this.track(event, true);
         this.setA11YState($currentToggle, true);
