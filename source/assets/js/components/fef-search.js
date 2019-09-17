@@ -274,7 +274,9 @@ export class SrfSearch {
         }
 
         this.typeaheadData.forEach((item) => {
-            let matchIndex = item.name.toString().toLowerCase().indexOf(query);
+            const matchIndexName = item.name.toString().toLowerCase().indexOf(query);
+            const matchIndexKey  = item.keymatches.toString().toLowerCase().indexOf(query);
+            let matchIndex = Math.max(matchIndexName, matchIndexKey);
             if (matchIndex >= 0) {
                 results.push({
                     name: item.name,
