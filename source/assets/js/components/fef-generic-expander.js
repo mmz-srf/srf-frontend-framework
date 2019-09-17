@@ -58,13 +58,13 @@ export class FefGenericExpander {
     }
 
     togglePanels(event) {
-        //prevent toggling of multiple panels
+        // prevent toggling of multiple panels
         if (this.isTogglingAllowed) {
             let isSwitching = false;
 
-            const $lastToggle = $('.' + this.openToggleClass, this.$element);
+            const $lastToggle = $(`.${this.openToggleClass}`, this.$element);
             const $currentToggle = $(event.currentTarget);
-            const $openPanel = $('.' + this.openPanelClass, this.$element);
+            const $openPanel = $(`.${this.openPanelClass}`, this.$element);
 
             if ($openPanel.length > 0) {
                 if ($lastToggle.get(0) !== $currentToggle.get(0)) {
@@ -78,15 +78,15 @@ export class FefGenericExpander {
             } else {
                 this.openCurrentPanel(event, $currentToggle);
             }
-            //blocking toggling for duration of animation
-            //if panels are switched 2 animations are played consecutively, so the duration is doubled
+            // blocking toggling for duration of animation
+            // if panels are switched, 2 animations are played consecutively, so the duration is doubled
             this.isTogglingAllowed = false;
             setTimeout(() => {this.isTogglingAllowed = true;}, !isSwitching ? ANIMATION_DEFAULT_DURATION : ANIMATION_DEFAULT_DURATION * 2);
         }
     }
 
-    closeOpenPanels(event, $lastToggle, $openPanel, callbackFunction) {
-        this.setA11YState($(TOGGLE_CLASS), false);
+    closeOpenPanels(event, $lastToggle, $openPanel, callbackFunction = () => {}) {
+        this.setA11YState($(TOGGLE_CLASS, this.$element), false);
         this.doTracking(event, false);
 
         $lastToggle.removeClass(this.openToggleClass);
