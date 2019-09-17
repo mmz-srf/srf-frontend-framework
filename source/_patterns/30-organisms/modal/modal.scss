@@ -31,6 +31,7 @@ $modal-z-index: 100;
   overflow-x: hidden;
   box-shadow: $shadow-elevation8;
   z-index: $modal-z-index;
+  padding-bottom: 80px;
 
   @include smartphone {
 
@@ -62,7 +63,6 @@ $modal-z-index: 100;
   background: #fff;
 }
 
-
 .modal__head,
 .modal__content-wrapper {
   max-width: calc(#{$content-width} + 2 * 16px);
@@ -80,9 +80,30 @@ $modal-z-index: 100;
   }
 }
 
+.modal__content-wrapper--no-spacing {
+  @include smartphone {
+    max-width: $content-width;
+    padding: 0;
+  }
+
+  @include tablet-up {
+    max-width: 100%;
+    padding: 0;
+  }
+}
+
 .modal__head {
   display: flex;
   justify-content: flex-end;
+
+  .icon-button {
+    padding: 12px;
+  }
+
+  @include smartphone {
+    background-color: $color-srf-neutral-whitea92;
+    padding: 0;
+  }
 }
 
 .modal__overlay {

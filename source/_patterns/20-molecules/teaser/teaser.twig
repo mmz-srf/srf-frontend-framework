@@ -61,7 +61,7 @@
 
             {# TEASERINFO/STATUS #}
             {% block teaserinfo %}
-                <div class="teaser-info-wrapper">
+                <div class="teaser-info-wrapper {{ teaserInfoStyleModifier|default('') }}">
                   <div class="teaser-info-innerwrapper">
                     {% include 'atoms-teaser-info' with {
                         'type': infoType|default(''),

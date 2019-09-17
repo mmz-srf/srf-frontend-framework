@@ -50,6 +50,7 @@ $button-animation-duration: .3s;
   &:active {
     cursor: pointer;
     outline: none;
+    color: inherit; // needed, if .button is an Anchor
     box-shadow: $shadow-elevation8;
   }
 
@@ -207,6 +208,10 @@ $button-animation-duration: .3s;
   &:focus {
     background-color: $color-srf-warmgrey-200;
   }
+
+  .button-wrapper {
+    height: 22px;
+  }
 }
 
 .button--inactive {
@@ -246,5 +251,51 @@ $button-animation-duration: .3s;
 .button--allow-line-breaks {
   .button-wrapper {
     white-space: normal;
+  }
+}
+
+.button--neutral {
+  border: none;
+  box-shadow: none;
+  background: none;
+  color: $color-srf-warmgrey-1100;
+  cursor: pointer;
+
+  &:hover,
+  &:focus,
+  &:active {
+    box-shadow: none;
+
+    .icon-button {
+      opacity: 1;
+    }
+  }
+
+  &:hover,
+  &:focus {
+    background-color: $color-srf-warmgrey-25;
+  }
+
+  &:active {
+    background-color: $color-srf-warmgrey-50;
+  }
+}
+
+.button--small-font {
+  @include fontSize(14);
+  padding: 12px 14px;
+}
+
+.button-wrapper--svg-icon {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+
+  .button-icon {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    margin: 0 12px 0 0;
   }
 }

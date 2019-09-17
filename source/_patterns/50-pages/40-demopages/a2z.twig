@@ -1,178 +1,190 @@
-<div class="a2z__search">
-  <div class="a2z__search-input">
+{% embed 'templates-landingpage' %}
+    {% block landingpage_content %}
 
-    {# BEGIN % include 'atoms-search' % #}
+<div id="js-a2z" class="collection collection--branded collection--branded-dark" aria-live="polite" data-js-plugin="a2z">
+  <div class="collection__branding-wrapper js-collection-branding-wrapper" style="background-color: #fefefd;">
+    <div class="collection__content-wrapper">
 
-    <form autocomplete="off"
-          class="search {{ styleModifier|default("") }} js-search"
-          data-typeahead-url="/assets/demo/typeahead_search.json"
-          data-referrer-track="srf_suchfeld=''"
-          data-suggestion-history="true"
-          action="suche"
-          role="search">
+      <div class="a2z__search">
+        <div class="a2z__search-input">
 
-      <div class="search-wrapper">
-        <div class="search__input--wrapper">
-          <div class="search__icon"></div>
+          {# BEGIN % include 'atoms-search' % #}
 
-          <label class="search__label">
-            <span class="h-offscreen">Sendung Suchen</span>
-            <input class="search__input js-search-input"
-                name="q"
-                type="text"
-                placeholder="Sendung Suchen"
-                data-result-alert-text="Resultate für">
-          </label>
+          <form autocomplete="off"
+                class="search {{ styleModifier|default("") }} js-search"
+                data-typeahead-url="/assets/demo/typeahead_search.json"
+                data-referrer-track="srf_suchfeld=''"
+                data-suggestion-history="true"
+                action="suche"
+                role="search">
 
-          <a href="#" class="search__close js-search-close">
-            <img src="{{ frameworkAssetPath }}/img/close.svg" title="Suchfeld schliessen" width="10" height="10" alt="Suchfeld schliessen" />
-          </a>
+            <div class="search-wrapper">
+              <div class="search__input--wrapper">
+                <div class="search__icon"></div>
 
-          <button type="submit"
-                  class="h-offscreen"
-                  tabindex="-1"
-                  aria-hidden="true">Suchen</button>
+                <label class="search__label">
+                  <span class="h-offscreen">Sendung Suchen</span>
+                  <input class="search__input js-search-input"
+                      name="q"
+                      type="text"
+                      placeholder="Sendung Suchen"
+                      data-result-alert-text="Resultate für">
+                </label>
+
+                <a href="#" class="search__close js-search-close">
+                  <img src="{{ frameworkAssetPath }}/img/close.svg" title="Suchfeld schliessen" width="10" height="10" alt="Suchfeld schliessen" />
+                </a>
+
+                <button type="submit"
+                        class="h-offscreen"
+                        tabindex="-1"
+                        aria-hidden="true">Suchen</button>
+              </div>
+
+              <ul class="search__results js-search-results"
+                  aria-live="polite"
+                  aria-relevant="additions">
+              </ul>
+            </div>
+          </form>
+
+          {# END % include 'atoms-search' % #}
+
         </div>
+        <div class="a2z__search-select">
 
-        <ul class="search__results js-search-results"
-            aria-live="polite"
-            aria-relevant="additions">
-        </ul>
-      </div>
-    </form>
+          {# BEGIN % include 'atoms-select-menu' % #}
 
-    {# END % include 'atoms-search' % #}
+          <select class="select-menu js-a2z-select-menu" id="stations">
+            <option value="all">Alle Sender</option>
+            <option value="69e8ac16-4327-4af4-b873-fd5cd6e895a7">Radio SRF 1</option>
+            <option value="c8537421-c9c5-4461-9c9c-c15816458b46">Radio SRF 2 Kultur</option>
+            <option value="dd0fa1ba-4ff6-4e1a-ab74-d7e49057d96f">Radio SRF 3</option>
+            <option value="ee1fb348-2b6a-4958-9aac-ec6c87e190da">Radio SRF 4 News</option>
+            <option value="a9c5c070-8899-46c7-ac27-f04f1be902fd">Radio SRF Musikwelle</option>
+            <option value="66815fe2-9008-4853-80a5-f9caaffdf3a9">Radio SRF Virus</option>
+          </select>
 
-  </div>
-  <div class="a2z__search-select">
+          {# END % include 'atoms-select-menu' % #}
 
-    {# BEGIN % include 'atoms-select-menu' % #}
-
-    <select class="select-menu js-a2z-select-menu" id="stations">
-      <option value="all">Alle Sender</option>
-      <option value="69e8ac16-4327-4af4-b873-fd5cd6e895a7">Radio SRF 1</option>
-      <option value="c8537421-c9c5-4461-9c9c-c15816458b46">Radio SRF 2 Kultur</option>
-      <option value="dd0fa1ba-4ff6-4e1a-ab74-d7e49057d96f">Radio SRF 3</option>
-      <option value="ee1fb348-2b6a-4958-9aac-ec6c87e190da">Radio SRF 4 News</option>
-      <option value="a9c5c070-8899-46c7-ac27-f04f1be902fd">Radio SRF Musikwelle</option>
-      <option value="66815fe2-9008-4853-80a5-f9caaffdf3a9">Radio SRF Virus</option>
-    </select>
-
-    {# END % include 'atoms-select-menu' % #}
-
-  </div>
-</div>
-
-<div class="a2z__filter-bar">
-  {% include 'molecules-filter-bar' %}
-</div>
-
-<div class="a2z__lists">
-
-  <div class="a2z__error a2z__error--hidden js-a2z-error">
-    <h2 class="a2z__error-heading"><span class="a2z__error-term js-a2z-error-term">xxx</span> in Sendungen A-Z</h2>
-    <p class="a2z__error-message">Es wurden keine Resultate für diesen Suchbegriff gefunden.</p>
-  </div>
-
-  <div class="a2z__lists-block js-a2z-letter-box" data-block="a2z-#0-9" id="a2z-#0-9">
-    <h2 class="a2z__lists-title">#0-9</h2>
-    <div class="pseudo-table">
-      <div class="pseudo-table__row js-a2z-teaser" data-filter="dd0fa1ba-4ff6-4e1a-ab74-d7e49057d96f">
-        <div class="pseudo-table__cell pseudo-table__cell--image">
-          <img class="js-lazyload js-lazyload-webp initial loaded" alt="" title="" aria-hidden="true" data-src="https://srf-cms-test.rokka.io/square_160w/d03a1d.jpg" src="https://srf-cms-test.rokka.io/square_160w/d03a1d.webp" data-was-processed="true">
-        </div>
-
-        <div class="pseudo-table__cell pseudo-table__cell--info">
-          <div class="pseudo-table__innercell pseudo-table__innercell--title"><a href="#sendung">#SRFglobal</a></div>
-          <div class="pseudo-table__innercell pseudo-table__innercell--station">
-            Radio SRF 3    </div>
-          <div class="pseudo-table__innercell pseudo-table__innercell--cats">
-            <a href="#">Hintergrund</a>    </div>
         </div>
       </div>
 
-      <div class="pseudo-table__row js-a2z-teaser" data-filter="c8537421-c9c5-4461-9c9c-c15816458b46">
-        <div class="pseudo-table__cell pseudo-table__cell--image">
-          <img class="js-lazyload js-lazyload-webp initial loaded" alt="" title="" aria-hidden="true" data-src="https://srf-cms-test.rokka.io/square_160w/560efa.jpg" src="https://srf-cms-test.rokka.io/square_160w/560efa.webp" data-was-processed="true">
-        </div>
-
-        <div class="pseudo-table__cell pseudo-table__cell--info">
-          <div class="pseudo-table__innercell pseudo-table__innercell--title"><a href="#sendung">100 Sekunden Wissen</a></div>
-          <div class="pseudo-table__innercell pseudo-table__innercell--station">
-            Radio SRF 2 Kultur    </div>
-          <div class="pseudo-table__innercell pseudo-table__innercell--cats">
-            <a href="#">Wissen</a>    </div>
-        </div>
+      <div class="a2z__filter-bar">
+        {% include 'molecules-filter-bar' %}
       </div>
 
-      <div class="pseudo-table__row js-a2z-teaser" data-filter="23FFBE1B-65CE-4188-ADD2-C724186C2C9F">
-        <div class="pseudo-table__cell pseudo-table__cell--image">
-          <img class="js-lazyload js-lazyload-nowebp initial loaded" alt="" title="" aria-hidden="true" data-src="https://ws-test.srf.ch/asset/image/audio/fdc33bbd-4427-4ff7-9bf9-235d8e0c16d1/WEBVISUAL/1422870503.jpg/scale/width/160" src="https://ws-test.srf.ch/asset/image/audio/fdc33bbd-4427-4ff7-9bf9-235d8e0c16d1/WEBVISUAL/1422870503.jpg/scale/width/160" data-was-processed="true">
+      <div class="a2z__lists">
+
+        <div class="a2z__error a2z__error--hidden js-a2z-error">
+          <h2 class="a2z__error-heading"><span class="a2z__error-term js-a2z-error-term">xxx</span> in Sendungen A-Z</h2>
+          <p class="a2z__error-message">Es wurden keine Resultate für diesen Suchbegriff gefunden.</p>
         </div>
 
-        <div class="pseudo-table__cell pseudo-table__cell--info">
-          <div class="pseudo-table__innercell pseudo-table__innercell--title"><a href="#sendung">3 vo 5</a></div>
-          <div class="pseudo-table__innercell pseudo-table__innercell--station">
-            SRF 1    </div>
-          <div class="pseudo-table__innercell pseudo-table__innercell--cats">
+        <div class="a2z__lists-block js-a2z-letter-box" data-block="a2z-#0-9" id="a2z-#0-9">
+          <h2 class="a2z__lists-title">#0-9</h2>
+          <div class="pseudo-table">
+            <div class="pseudo-table__row js-a2z-teaser" data-filter="dd0fa1ba-4ff6-4e1a-ab74-d7e49057d96f">
+              <div class="pseudo-table__cell pseudo-table__cell--image">
+              </div>
+
+              <div class="pseudo-table__cell pseudo-table__cell--info">
+                <div class="pseudo-table__innercell pseudo-table__innercell--title"><a href="#sendung">#SRFglobal</a></div>
+                <div class="pseudo-table__innercell pseudo-table__innercell--station">
+                  Radio SRF 3    </div>
+                <div class="pseudo-table__innercell pseudo-table__innercell--cats">
+                  <a href="#">Hintergrund</a>    </div>
+              </div>
+            </div>
+
+            <div class="pseudo-table__row js-a2z-teaser" data-filter="c8537421-c9c5-4461-9c9c-c15816458b46">
+              <div class="pseudo-table__cell pseudo-table__cell--image">
+              </div>
+
+              <div class="pseudo-table__cell pseudo-table__cell--info">
+                <div class="pseudo-table__innercell pseudo-table__innercell--title"><a href="#sendung">100 Sekunden Wissen</a></div>
+                <div class="pseudo-table__innercell pseudo-table__innercell--station">
+                  Radio SRF 2 Kultur    </div>
+                <div class="pseudo-table__innercell pseudo-table__innercell--cats">
+                  <a href="#">Wissen</a>    </div>
+              </div>
+            </div>
+
+            <div class="pseudo-table__row js-a2z-teaser" data-filter="23FFBE1B-65CE-4188-ADD2-C724186C2C9F">
+              <div class="pseudo-table__cell pseudo-table__cell--image">
+                <img class="js-lazyload js-lazyload-nowebp initial loaded" alt="" title="" aria-hidden="true" data-src="https://ws-test.srf.ch/asset/image/audio/fdc33bbd-4427-4ff7-9bf9-235d8e0c16d1/WEBVISUAL/1422870503.jpg/scale/width/160" src="https://ws-test.srf.ch/asset/image/audio/fdc33bbd-4427-4ff7-9bf9-235d8e0c16d1/WEBVISUAL/1422870503.jpg/scale/width/160" data-was-processed="true">
+              </div>
+
+              <div class="pseudo-table__cell pseudo-table__cell--info">
+                <div class="pseudo-table__innercell pseudo-table__innercell--title"><a href="#sendung">3 vo 5</a></div>
+                <div class="pseudo-table__innercell pseudo-table__innercell--station">
+                  SRF 1    </div>
+                <div class="pseudo-table__innercell pseudo-table__innercell--cats">
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="a2z__lists-block js-a2z-letter-box" data-block="a2z-a" id="a2z-a">
+          <h2 class="a2z__lists-title">A</h2>
+          <div class="pseudo-table">
+            <div class="pseudo-table__row js-a2z-teaser" data-filter="66815fe2-9008-4853-80a5-f9caaffdf3a9">
+              <div class="pseudo-table__cell pseudo-table__cell--image">
+                <img class="js-lazyload js-lazyload-nowebp loaded" alt="" title="" aria-hidden="true" data-src="https://ws-test.srf.ch/asset/image/audio/8fbdec7f-29f8-4d98-acd1-40334c6febab/PODCAST/1558513593.jpg/scale/width/160" src="https://ws-test.srf.ch/asset/image/audio/8fbdec7f-29f8-4d98-acd1-40334c6febab/PODCAST/1558513593.jpg/scale/width/160" data-was-processed="true">
+              </div>
+
+              <div class="pseudo-table__cell pseudo-table__cell--info">
+                <div class="pseudo-table__innercell pseudo-table__innercell--title"><a href="#sendung">Ampère</a></div>
+                <div class="pseudo-table__innercell pseudo-table__innercell--station">
+                  Radio SRF Virus    </div>
+                <div class="pseudo-table__innercell pseudo-table__innercell--cats">
+                  <a href="#">Musik</a>    </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="a2z__lists-block js-a2z-letter-box" data-block="a2z-b" id="a2z-b">
+          <h2 class="a2z__lists-title">B</h2>
+          <div class="pseudo-table">
+
+
+            <div class="pseudo-table__row js-a2z-teaser" data-filter="dd0fa1ba-4ff6-4e1a-ab74-d7e49057d96f">
+              <div class="pseudo-table__cell pseudo-table__cell--image">
+                <img class="js-lazyload js-lazyload-nowebp loaded" alt="" title="" aria-hidden="true" data-src="https://ws-test.srf.ch/asset/image/audio/91edcda6-b136-48ef-a61f-cd3da5dbc7b9/PODCAST/1554189832.jpg/scale/width/160" src="https://ws-test.srf.ch/asset/image/audio/91edcda6-b136-48ef-a61f-cd3da5dbc7b9/PODCAST/1554189832.jpg/scale/width/160" data-was-processed="true">
+              </div>
+
+              <div class="pseudo-table__cell pseudo-table__cell--info">
+                <div class="pseudo-table__innercell pseudo-table__innercell--title"><a href="#sendung">Black Music Special Bängerz</a></div>
+                <div class="pseudo-table__innercell pseudo-table__innercell--station">
+                  Radio SRF 3    </div>
+                <div class="pseudo-table__innercell pseudo-table__innercell--cats">
+                  <a href="#">Musik</a>    </div>
+              </div>
+            </div>
+
+            <div class="pseudo-table__row js-a2z-teaser" data-filter="c8537421-c9c5-4461-9c9c-c15816458b46">
+              <div class="pseudo-table__cell pseudo-table__cell--image">
+                <img class="js-lazyload js-lazyload-nowebp loaded" alt="" title="" aria-hidden="true" data-src="https://ws-test.srf.ch/asset/image/audio/1c2799b8-353f-4d1c-9072-8516e683713c/WEBVISUAL/1549350744.jpg/scale/width/160" src="https://ws-test.srf.ch/asset/image/audio/1c2799b8-353f-4d1c-9072-8516e683713c/WEBVISUAL/1549350744.jpg/scale/width/160" data-was-processed="true">
+              </div>
+
+              <div class="pseudo-table__cell pseudo-table__cell--info">
+                <div class="pseudo-table__innercell pseudo-table__innercell--title"><a href="#sendung">Blick in die Feuilletons</a></div>
+                <div class="pseudo-table__innercell pseudo-table__innercell--station">
+                  Radio SRF 2 Kultur    </div>
+                <div class="pseudo-table__innercell pseudo-table__innercell--cats">
+                  <a href="#">Kultur &amp; Religion</a>    </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
     </div>
   </div>
-
-  <div class="a2z__lists-block js-a2z-letter-box" data-block="a2z-a" id="a2z-a">
-    <h2 class="a2z__lists-title">A</h2>
-    <div class="pseudo-table">
-      <div class="pseudo-table__row js-a2z-teaser" data-filter="66815fe2-9008-4853-80a5-f9caaffdf3a9">
-        <div class="pseudo-table__cell pseudo-table__cell--image">
-          <img class="js-lazyload js-lazyload-nowebp loaded" alt="" title="" aria-hidden="true" data-src="https://ws-test.srf.ch/asset/image/audio/8fbdec7f-29f8-4d98-acd1-40334c6febab/PODCAST/1558513593.jpg/scale/width/160" src="https://ws-test.srf.ch/asset/image/audio/8fbdec7f-29f8-4d98-acd1-40334c6febab/PODCAST/1558513593.jpg/scale/width/160" data-was-processed="true">
-        </div>
-
-        <div class="pseudo-table__cell pseudo-table__cell--info">
-          <div class="pseudo-table__innercell pseudo-table__innercell--title"><a href="#sendung">Ampère</a></div>
-          <div class="pseudo-table__innercell pseudo-table__innercell--station">
-            Radio SRF Virus    </div>
-          <div class="pseudo-table__innercell pseudo-table__innercell--cats">
-            <a href="#">Musik</a>    </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="a2z__lists-block js-a2z-letter-box" data-block="a2z-b" id="a2z-b">
-    <h2 class="a2z__lists-title">B</h2>
-    <div class="pseudo-table">
-
-
-      <div class="pseudo-table__row js-a2z-teaser" data-filter="dd0fa1ba-4ff6-4e1a-ab74-d7e49057d96f">
-        <div class="pseudo-table__cell pseudo-table__cell--image">
-          <img class="js-lazyload js-lazyload-nowebp loaded" alt="" title="" aria-hidden="true" data-src="https://ws-test.srf.ch/asset/image/audio/91edcda6-b136-48ef-a61f-cd3da5dbc7b9/PODCAST/1554189832.jpg/scale/width/160" src="https://ws-test.srf.ch/asset/image/audio/91edcda6-b136-48ef-a61f-cd3da5dbc7b9/PODCAST/1554189832.jpg/scale/width/160" data-was-processed="true">
-        </div>
-
-        <div class="pseudo-table__cell pseudo-table__cell--info">
-          <div class="pseudo-table__innercell pseudo-table__innercell--title"><a href="#sendung">Black Music Special Bängerz</a></div>
-          <div class="pseudo-table__innercell pseudo-table__innercell--station">
-            Radio SRF 3    </div>
-          <div class="pseudo-table__innercell pseudo-table__innercell--cats">
-            <a href="#">Musik</a>    </div>
-        </div>
-      </div>
-
-      <div class="pseudo-table__row js-a2z-teaser" data-filter="c8537421-c9c5-4461-9c9c-c15816458b46">
-        <div class="pseudo-table__cell pseudo-table__cell--image">
-          <img class="js-lazyload js-lazyload-nowebp loaded" alt="" title="" aria-hidden="true" data-src="https://ws-test.srf.ch/asset/image/audio/1c2799b8-353f-4d1c-9072-8516e683713c/WEBVISUAL/1549350744.jpg/scale/width/160" src="https://ws-test.srf.ch/asset/image/audio/1c2799b8-353f-4d1c-9072-8516e683713c/WEBVISUAL/1549350744.jpg/scale/width/160" data-was-processed="true">
-        </div>
-
-        <div class="pseudo-table__cell pseudo-table__cell--info">
-          <div class="pseudo-table__innercell pseudo-table__innercell--title"><a href="#sendung">Blick in die Feuilletons</a></div>
-          <div class="pseudo-table__innercell pseudo-table__innercell--station">
-            Radio SRF 2 Kultur    </div>
-          <div class="pseudo-table__innercell pseudo-table__innercell--cats">
-            <a href="#">Kultur &amp; Religion</a>    </div>
-        </div>
-      </div>
-    </div>
-  </div>
 </div>
+
+    {% endblock %}
+{% endembed %}

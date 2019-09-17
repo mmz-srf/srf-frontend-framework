@@ -1,5 +1,11 @@
+$image-height--b1: 80px;
+$image-height--b2: $image-height--b1;
+$image-height--b3: 96px;
+$image-height--b4: 112px;
+
 .pseudo-table {
   margin-bottom: 32px;
+  border-top: 1px solid $color-srf-neutral-blacka08;
 
   @include desktop-wide {
     margin-bottom: 60px;
@@ -12,15 +18,21 @@
   padding: 8px 0;
   border-bottom: 1px solid $color-srf-neutral-blacka08;
 
-  &:first-of-type {
-    border-top: 1px solid $color-srf-neutral-blacka08;
-  }
-  
   &:hover,
   &:active {
     background-color: $color-srf-warmgrey-10;
     margin-left: #{-$article-offset};
     padding-left: #{$article-offset};
+
+    &:first-of-type::after {
+      content: '';
+      position: absolute;
+      width: 24px;
+      height: 1px;
+      top: -1px;
+      left: 0;
+      background-color: $color-srf-neutral-blacka08;
+    }
   }
   
   &:active {
@@ -51,22 +63,45 @@
 }
 
 .pseudo-table__cell--image {
-  flex: 0 0 88px;
-  max-height: 80px;
+  flex: 0 0 #{$image-height--b1 + 8px};
+  min-height: $image-height--b1;
+  max-height: $image-height--b1;
 
   @include tablet-up {
     align-self: center;
-    flex: 0 0 104px;
+    flex-basis: #{$image-height--b1 + 16px};
+  }
+
+  @include desktop {
+    flex-basis: #{$image-height--b3 + 24px};
+    max-height: $image-height--b3;
+    min-height: $image-height--b3;
+  }
+
+  @include desktop-wide {
+    flex-basis: #{$image-height--b4 + 24px};
+    max-height: $image-height--b4;
+    min-height: $image-height--b4;
   }
 
   img {
-    width: 80px;
-    height: 80px;
+    width: $image-height--b1;
+    height: $image-height--b1;
+
+    @include desktop {
+      width: $image-height--b3;
+      height: $image-height--b3;
+    }
+
+    @include desktop-wide {
+      width: $image-height--b4;
+      height: $image-height--b4;
+    }
   }
 }
 
 .pseudo-table__cell--info {
-  flex-basis: calc(100% - (80px + 8px));
+  flex-basis: calc(100% - (#{$image-height--b1} + 8px));
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -78,11 +113,11 @@
   }
 
   @include tablet {
-    flex-basis: calc(100% - (80px + 16px));
+    flex-basis: calc(100% - (#{$image-height--b1} + 16px));
   }
 
   @include desktop-up {
-    flex-basis: calc(100% - (80px + 24px));
+    flex-basis: calc(100% - (#{$image-height--b3} + 24px));
   }
 }
 
@@ -123,6 +158,10 @@
     flex-basis: 308px;
   }
 
+  @include desktop-up {
+    @include fontSize(20);
+  }
+
   @include desktop-wide {
     flex-basis: 512px;
   }
@@ -147,6 +186,10 @@
 
   @include desktop {
     flex-basis: 246px;
+  }
+
+  @include desktop-up {
+    @include fontSize(16);
   }
 
   @include desktop-wide {

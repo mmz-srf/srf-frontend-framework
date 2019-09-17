@@ -36,15 +36,14 @@
     background-color: transparent;
     box-shadow: none;
 
-    &:hover,
-    &:focus {
-      box-shadow: none;
-      background-color: $color-srf-warmgrey-300a12;
+    @include smartphone {
+      margin-bottom: 12px;
     }
 
+    &:hover,
+    &:focus,
     &:active {
       box-shadow: none;
-      background-color: $color-srf-warmgrey-300a24;
     }
   }
 }
@@ -822,9 +821,11 @@
 }
 
 
+// no-card is a no-card, medium-reversed, spacing-altered super-special-design-variant of teaser
 // switches position of medium and content of a teaser
+// no spacings if no-card
 // normally only used together with modifier `teaser--size-s`
-.teaser--with-medium-reverse {
+.teaser--no-card {
   .teaser__medium-wrapper {
     order: 1;
   }
@@ -832,11 +833,41 @@
   &.teaser--size-s {
     --media-time-indicator-display: none;
 
+    .teaser__main {
+      transition: opacity .2s ease-in-out;
+
+      &:hover,
+      &:focus {
+        opacity: .8;
+      }
+
+      &:active {
+        opacity: .6;
+
+        &::after {
+          opacity: 0;
+        }
+      }
+    }
+
+    .teaser__content {
+      margin: 0 0 0 12px;
+    }
+
     .teaser__medium-wrapper {
-      margin: 16px 0 16px 16px;
+      margin: 0;
 
       @include desktop-wide {
-        margin: 24px 0 24px 24px;
+        margin: 0;
+        flex-basis: 112px;
+        height: 112px;
+      }
+    }
+
+    .teaser__medium {
+      @include desktop-up {
+        width: 112px;
+        height: 112px;
       }
     }
   }

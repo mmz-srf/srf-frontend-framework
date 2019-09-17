@@ -107,16 +107,19 @@
                         {% endif %}
 
                         {% set teaserStyleModifier = teaserFormat ~ " " ~ (teaser.styleModifier|default("")) %}
+                        {% set teaserInfoStyleModifier = teaser.styleModifierTeaserInfo|default("") %}
+
                         {% set teaserParameters = {
                             "teaser": teaser,
-                            "styleModifier": teaserStyleModifier
+                            "styleModifier": teaserStyleModifier,
+                            "styleModifierTeaserInfo": teaserInfoStyleModifier
                         } %}
 
                         <li class="collection__teaser-item {{ swipeable ? "js-swipeable-area-item swipeable-area__item" }}">
                             {% if 'teaser--longform' in teaser.styleModifier|default("") %}
                                 {% include 'molecules-teaser--longform' with teaserParameters %}
-                            {% elseif 'teaser--with-medium-reverse' in teaser.styleModifier|default("") %}
-                                {% include 'molecules-teaser--with-medium-reverse' with teaserParameters %}
+                            {% elseif 'teaser--no-card' in teaser.styleModifier|default("") %}
+                                {% include 'molecules-teaser-no-card' with teaserParameters %}
                             {% elseif teaserFormat == 'teaser--square' %}
                                 {% include 'molecules-teaser--square' with teaserParameters %}
                             {% elseif teaser.showScoreboard %}

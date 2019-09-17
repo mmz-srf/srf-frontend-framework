@@ -19,15 +19,26 @@
 }
 
 .onairnav-list-wrapper {
-  overflow: hidden;
-  margin: 0 0 24px 0;
+  margin: 0 0 24px;
 
   @include tablet-up {
-    margin: 0 32px 32px;
+    margin: 0 32px 48px;
   }
 
   @include desktop-wide {
-    margin: 0 40px 32px;
+    margin: 0 40px 56px;
+  }
+
+  .modal--theme-dark & {
+    margin: 0 0 24px 0;
+
+    @include tablet-up {
+      margin: 0 32px 32px;
+    }
+
+    @include desktop-wide {
+      margin: 0 40px 32px;
+    }
   }
 }
 
@@ -39,9 +50,11 @@
   margin: 0;
   padding: 0 8px;
 
-  overflow-x: scroll;
-  overflow-y: hidden;
-  @include preventScrollbars;
+  @include smartphone {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    @include preventScrollbars;
+  }
 
   &::after {
     content: '';
@@ -53,7 +66,6 @@
   @include tablet-up {
     flex-direction: row;
     padding: 0;
-    overflow-x: hidden;
 
     &::after {
       display: none;
@@ -64,8 +76,10 @@
     margin: 0 -16px;
     flex-wrap: wrap;
 
-    overflow-x: visible;
-    overflow-y: visible;
+    @include smartphone {
+      overflow-x: visible;
+      overflow-y: visible;
+    }
 
     @include tablet {
       margin: 0 -12px;
@@ -127,12 +141,15 @@
   .onairnav-list__element {
     display: flex;
     flex-direction: column;
-    flex: 1 0 calc((100% / 6) - (5 * 2px));
+    flex: 1 0 #{80px + 24px + 2px};
     margin: 0 2px 0 0;
 
+    @include tablet-up {
+      flex-basis: #{80px + 16px + 2px};
+    }
+
     @include desktop-up {
-      flex-basis: calc((100% / 6) - (5 * 24px));
-      margin-right: 24px;
+      flex-basis: calc((100% / 9) - 24px);
     }
 
     &:last-of-type {
@@ -143,6 +160,7 @@
       flex-grow: 0;
       flex-basis: calc(33.3334% - 2 * 1px);
       margin: 1px;
+      padding: 0;
       max-width: calc(33.3334% - 2 * 1px);
 
       &:last-of-type {

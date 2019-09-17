@@ -17,6 +17,7 @@ import {init as FefPopupInit} from './components/fef-popup';
 import {init as FefSkiplinks} from './components/fef-skiplinks';
 import {init as FefSelectableInit} from './components/fef-selectable';
 import {init as FefListmoduleInit} from './srf-listmodule';
+import {init as FefGenericExpander} from './components/fef-generic-expander';
 
 
 /** SELF loading components without init **/
@@ -47,6 +48,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
     FefSkiplinks();
     FefSelectableInit();
     FefListmoduleInit();
+    FefGenericExpander();
 
     FefShameInit(); // this should probably be last, because it may contain code that depends on the previous scripts
 });

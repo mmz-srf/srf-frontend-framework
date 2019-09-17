@@ -6,14 +6,15 @@
   position: relative; // to position the pseudo elements
   height: 100%;
   border-radius: 2px;
-  background-color: $color-srf-warmgrey-25;
+  background-color: $color-srf-warmgrey-10;
   color: $color-srf-warmgrey-1100;
-  margin: 1px 0;
-  padding: 18px 16px;
-  transition: background .2s ease-in-out;
+  margin: 0;
+  padding: 12px;
+  transition: background-color 2s ease-in-out;
 
   @include tablet-up {
     margin: 0;
+    padding: 16px;
     flex-grow: 1;
   }
 
@@ -29,16 +30,25 @@
     width: 100%;
     pointer-events: none;
 
+    @include desktop-up {
+      box-shadow: $shadow-elevation16;
+      z-index: 1;
+    }
+
     /* theme */
-    @include customPropWithFallback('background-color', '--teaser-background-link-hover', $color-srf-neutral-blacka08);
+    @include customPropWithFallback('background-color', '--teaser-background-link-hover', $color-srf-warmgrey-300a12);
 
     // performance improvement: Don't animate the background-color, but the opacity
     opacity: 0;
-    transition: opacity .2s ease-in-out;
+    // sass-lint:disable indentation
+    transition: opacity .2s ease-in-out,
+                background-color .2s ease-in-out;
+    // sass-lint:enable indentation
   }
 
   &:hover,
-  &:focus {
+  &:focus,
+  &:active {
     color: $color-srf-warmgrey-1100;
 
     &::after {
@@ -47,13 +57,9 @@
   }
 
   &:active {
-    color: $color-srf-warmgrey-1100;
-
     &::after {
       /* theme */
-      @include customPropWithFallback('background-color', '--teaser-background-link-active', $color-srf-neutral-blacka12);
-
-      opacity: 1;
+      @include customPropWithFallback('background-color', '--teaser-background-link-hover', $color-srf-warmgrey-300a24);
     }
   }
 
@@ -64,11 +70,22 @@
     &::after {
       /* theme */
       @include customPropWithFallback('background-color', '--teaser-background-link-hover', $color-srf-neutral-whitea08);
+      box-shadow: none;
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: none;
     }
 
     &:hover,
     &:focus {
       color: $color-srf-neutral-white;
+
+      &::after {
+        opacity: 1;
+      }
     }
 
     &:active {
@@ -158,14 +175,15 @@
 }
 
 .onairnav-link__media--radiologo {
-  width: 80px;
-  height: 80px;
+  width: 100%;
   max-height: 80px;
+  max-width: 80px;
 
   @include desktop-up {
     width: 100%;
     height: auto;
     max-height: none;
+    max-width: none;
   }
 
   .modal--theme-dark & {

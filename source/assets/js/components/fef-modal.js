@@ -1,4 +1,4 @@
-import { DOM_CHANGED_EVENT } from '../classes/fef-dom-observer';
+import { DOM_CHANGED_EVENT, FefDomObserver } from '../classes/fef-dom-observer';
 import { FefResponsiveHelper } from '../classes/fef-responsive-helper';
 import { FefBouncePrevention } from './fef-bounce-prevention';
 import { KEYCODES } from '../utils/fef-keycodes';
@@ -29,7 +29,7 @@ $(window).on(DOM_CHANGED_EVENT, (e) => {
 
             if (existingModals[modalId]) {
                 existingModals[modalId].setCaller($caller);
-                existingModals[modalId].show();
+                existingModals[modalId].load();
             } else if ($modalElement.length > 0) {
                 existingModals[modalId] = new FefModal($modalElement, $caller);
             }
@@ -52,6 +52,7 @@ export class FefModal {
         this.$focusTarget = this.$element.find('.js-focus-target').first();
         this.$mainWrapper = this.$element.find('.js-modal-main-wrapper');
         this.$mainContent = this.$element.find('.js-modal-main-content');
+        this.$contentContainer = this.$element.find('.js-modal-content-container');
         this.animation = this.$element.attr('data-animation');
         this.previousScrollPosition = null;
         this.browserSupportsElasticScrolling = FefBouncePrevention.checkSupport();
@@ -72,7 +73,7 @@ export class FefModal {
     }
 
     postInit() {
-        this.show();
+        this.load();
     }
 
     /**
@@ -99,6 +100,18 @@ export class FefModal {
         });
     }
 
+    load() {
+        if (this.$caller.data('remote-content') !== undefined) {
+            $.get(this.$caller.data('remote-content'), (content) => {
+                this.$contentContainer.html(content);
+                $(document).trigger('fef.modal.loaded', {container: this.$contentContainer});
+                this.show();
+            });
+        } else {
+            this.show();
+        }
+
+    }
     /**
      * Show the modal, depending on the provided animation.
      * The actual _showing_ of the modal is done by jQuery ($.show() or $.fadeIn()).

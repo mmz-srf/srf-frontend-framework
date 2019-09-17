@@ -73,13 +73,25 @@
 .a2z__lists {
   display: block;
   margin-left: 24px;
+  min-height: #{3 * 96px};
+
+  @include tablet {
+    min-height: #{3 * 96px};
+  }
 
   @include tablet-up {
+    margin-right: 32px;
     margin-left: 32px;
   }
 
+  @include desktop {
+    min-height: #{3 * 112px};
+  }
+
   @include desktop-wide {
+    margin-right: 40px;
     margin-left: 40px;
+    min-height: #{3 * 128px};
   }
 }
 

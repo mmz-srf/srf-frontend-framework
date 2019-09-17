@@ -27,6 +27,14 @@
   @include caret('red', 'right', 'medium');
 }
 
+.svg-icon--arrow-right-red-small {
+  @include caret('red', 'right', 'small');
+}
+
+.svg-icon--arrow-right-red-tiny {
+  @include caret('red', 'right', 'tiny');
+}
+
 .svg-icon--arrow-left {
   @include caret('grey', 'left', 'medium');
 }
@@ -148,13 +156,49 @@
   }
 }
 
+.svg-icon--apple-podcasts {
+  background-image: url(../../../assets/img/icon/apple-podcasts.svg);
+}
+
+.svg-icon--clipboard {
+  background-image: url(../../../assets/img/icon/clipboard.svg);
+}
+
+.svg-icon--download {
+  background-image: url(../../../assets/img/icon/download.svg);
+}
+
+.svg-icon--google-podcasts {
+  background-image: url(../../../assets/img/icon/google-podcasts.svg);
+}
+
+.svg-icon--spotify {
+  background-image: url(../../../assets/img/icon/spotify.svg);
+}
+
+.svg-icon--subscribe {
+  background-image: url(../../../assets/img/icon/subscribe.svg);
+}
+
+.svg-icon--share {
+  background-image: url(../../../assets/img/icon/share.svg);
+}
+
 /* OUTLINE ICONS */
 .svg-icon--outline-facebook-color {
   background-image: url(../../../assets/img/icon/outline/facebook-color.svg);
 }
 
+.svg-icon--outline-facebook {
+  background-image: url(../../../assets/img/icon/outline/facebook.svg);
+}
+
 .svg-icon--outline-instagram {
   background-image: url(../../../assets/img/icon/outline/instagram.svg);
+}
+
+.svg-icon--outline-twitter {
+  background-image: url(../../../assets/img/icon/outline/twitter.svg);
 }
 
 .svg-icon--outline-mail {

@@ -648,6 +648,40 @@ $background-overlap-wide: 50px;
   }
 }
 
+.collection--compact-swipeable--no-card {
+  // Only 1 teaser
+  .collection__teaser-item:last-child:first-child {
+    @include smartphone {
+      min-width: calc(100% - 24px);
+    }
+  }
+
+  // Exactly 2 teasers
+  .collection__teaser-item:last-child:first-child,
+  .collection__teaser-item:nth-last-child(2):first-child,
+  .collection__teaser-item:nth-last-child(2):first-child ~ .collection__teaser-item {
+    @include tablet {
+      width: calc(50% - 12px);
+    }
+
+    @include desktop-up {
+      width: calc((100% - 2 * 24px) / 3.0001);
+    }
+  }
+
+  .collection__teaser-item:first-child {
+    margin-left: 24px;
+
+    @include tablet-up {
+      margin-left: 32px;
+    }
+
+    @include desktop-wide {
+      margin-left: 40px;
+    }
+  }
+}
+
 
 
 // Dense Swipeable
@@ -657,7 +691,8 @@ $background-overlap-wide: 50px;
   .collection__teaser-list {
     flex-wrap: nowrap;
     flex-direction: row;
-    margin: 0;
+    margin-right: 0;
+    margin-left: 0;
   }
 
   .collection__teaser-item {
@@ -665,6 +700,10 @@ $background-overlap-wide: 50px;
     min-width: calc((100% - 40px - (2 * 8px)) / 2.00001);
     padding-right: 8px;
     margin: 0;
+
+    @include smartphone {
+      padding-bottom: 12px;
+    }
 
     @include tablet-up {
       min-width: calc((100% - 6px - 56px - (6 * 12px)) / 6.00001);
@@ -684,7 +723,7 @@ $background-overlap-wide: 50px;
     }
 
     &:first-child {
-      margin-left: 8px;
+      margin-left: 24px;
 
       @include tablet-up {
         margin-left: 32px;
@@ -746,7 +785,6 @@ $background-overlap-wide: 50px;
   }
 }
 
-
 // Hero: 1st teaser XL + fills whole row, rest M which fills 1/3 of a row.
 .collection--hero {
   .collection__teaser-item {
@@ -793,9 +831,13 @@ $background-overlap-wide: 50px;
 
 // Compact: S teasers only. 2 columns on tablet. Desktop: 2 columns, except if 3 teasers --> then 3 columns
 .collection--compact {
-  @include tablet-up {
-    .collection__teaser-list {
-      margin-bottom: 0;
+  .collection__teaser-list {
+    @include tablet-up {
+      margin-bottom: 32px;
+    }
+
+    @include desktop-wide {
+      margin-bottom: 40px;
     }
   }
 
@@ -820,6 +862,28 @@ $background-overlap-wide: 50px;
   // --> apply styles to all children of a container that has exactly 3 children.
   .collection__teaser-item:first-child:nth-last-child(3),
   .collection__teaser-item:first-child:nth-last-child(3) ~ .collection__teaser-item {
+    @include desktop-up {
+      @include IESafeFlexBasis(33.3333334%);
+      padding-right: $teaser-col-gap-tablet-up;
+    }
+
+    @include desktop-wide {
+      padding-right: $teaser-col-gap-desktop-wide;
+    }
+  }
+}
+
+.collection--compact--no-card {
+  .collection__teaser-item {
+    @include smartphone {
+      margin-left: 16px;
+    }
+  }
+
+  // DOUBLE Exception -> undo/double-do (it depends on your POV) all the
+  // fancy first-child:nth-last-child(3) stuff that has been done in .collection--compact some lines above
+  .collection__teaser-item,
+  .collection__teaser-item ~ .collection__teaser-item {
     @include desktop-up {
       @include IESafeFlexBasis(33.3333334%);
       padding-right: $teaser-col-gap-tablet-up;
@@ -898,7 +962,8 @@ $background-overlap-wide: 50px;
   }
 
   &.collection--swipeable,
-  &.collection--compact-swipeable {
+  &.collection--compact-swipeable,
+  &.collection--dense-swipeable {
     .collection__teaser-list {
       margin-bottom: 12px;
     }

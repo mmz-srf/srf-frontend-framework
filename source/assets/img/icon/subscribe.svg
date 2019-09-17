@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 57.1 (83088) - https://sketch.com -->
+    <title>Icons/Subscribe_Icon</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Icons/Subscribe_Icon" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-2">
+            <rect id="Rectangle" x="0" y="0" width="24" height="24"></rect>
+            <g id="Group" transform="translate(6.500000, 6.500000)" stroke="#4E4D47" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6,0 L6,12" id="Line-2"></path>
+                <path d="M6,0 L6,12" id="Line-2" transform="translate(6.000000, 6.000000) rotate(-90.000000) translate(-6.000000, -6.000000) "></path>
+            </g>
+        </g>
+    </g>
+</svg>
