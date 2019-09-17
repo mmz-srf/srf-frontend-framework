@@ -855,11 +855,9 @@
     }
 
     .teaser__medium-wrapper {
-      // margin: 16px 0 16px 16px; -> from .teaser--with-medium-reverse
       margin: 0;
 
       @include desktop-wide {
-        // margin: 24px 0 24px 24px; -> from .teaser--with-medium-reverse
         margin: 0;
         flex-basis: 112px;
         height: 112px;
