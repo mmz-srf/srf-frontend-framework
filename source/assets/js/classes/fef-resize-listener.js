@@ -70,6 +70,14 @@ export class FefResizeListener {
         return rl.subscribe(callback, type);
     }
 
+    static subscribeDebounced(callback = () => {}) {
+        return rl.subscribe(callback, DEBOUNCED);
+    }
+
+    static subscribeThrottled(callback = () => {}) {
+        return rl.subscribe(callback, THROTTLED);
+    }
+
     static unsubscribe(idToRemove) {
         rl.unsubscribe(idToRemove);
     }
