@@ -31,12 +31,11 @@ export class FefGenericExpander {
     }
 
     initA11Y() {
-        // set aria-expand attribute
-        $(TOGGLE_CLASS).attr('aria-expanded', false);
-
-        // set aria-controls attribute
-        $('[data-genex-target-id]').each((index, element) => {
-            $(element).attr('aria-controls', $(element).attr('data-genex-target-id'));
+        $('[data-genex-target-id]', this.$element).each((index, element) => {
+            $(element).attr({
+                'aria-controls': $(element).attr('data-genex-target-id'),
+                'aria-expanded': false
+            });
         });
     }
 
@@ -87,7 +86,7 @@ export class FefGenericExpander {
 
     closeOpenPanels(event, $lastToggle, $openPanel, callbackFunction = () => {}) {
         this.setA11YState($(TOGGLE_CLASS, this.$element), false);
-        this.doTracking(event, false);
+        this.track(event, false);
 
         $lastToggle.removeClass(this.openToggleClass);
 
@@ -97,16 +96,14 @@ export class FefGenericExpander {
             () => {
                 $openPanel.removeClass(this.openPanelClass);
                 // callback function to open another panel after closing one, respectively when switching panels.
-                if (callbackFunction !== undefined) {
-                    callbackFunction();
-                }
+                callbackFunction();
             });
     }
 
     openCurrentPanel(event, $currentToggle) {
-        const $currentPanel = $('#' + $currentToggle.attr('data-genex-target-id'));
+        const $currentPanel = $(`#${currentToggle.attr('data-genex-target-id')}`, this.$element);
 
-        this.doTracking(event, true);
+        this.track(event, true);
         this.setA11YState($currentToggle, true);
 
         $currentToggle.addClass(this.openToggleClass);
@@ -126,7 +123,7 @@ export class FefGenericExpander {
         $element.attr('aria-expanded', isActive);
     }
 
-    doTracking(event, panelWillBeOpen) {
+    track(event, panelWillBeOpen) {
         if(this.eventSource && this.eventValue) {
             let trackingData = {
                 event_type: event.type === 'keydown' ? 'keypress' : 'click',
