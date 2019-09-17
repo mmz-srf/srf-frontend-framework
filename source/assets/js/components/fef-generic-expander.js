@@ -59,7 +59,9 @@ export class FefGenericExpander {
     togglePanels(event) {
         // prevent toggling of multiple panels
         if (this.isTogglingAllowed) {
-            let isSwitching = false;
+            let allowToggling = () => {
+                this.isTogglingAllowed = true;
+            };
 
             const $lastToggle = $(`.${this.openToggleClass}`, this.$element);
             const $currentToggle = $(event.currentTarget);
@@ -67,20 +69,17 @@ export class FefGenericExpander {
 
             if ($openPanel.length > 0) {
                 if ($lastToggle.get(0) !== $currentToggle.get(0)) {
-                    isSwitching = true;
                     this.closeOpenPanels(event, $lastToggle, $openPanel, () => {
-                        this.openCurrentPanel(event, $currentToggle);
+                        this.openCurrentPanel(event, $currentToggle, allowToggling);
                     });
                 } else {
-                    this.closeOpenPanels(event, $lastToggle, $openPanel);
+                    this.closeOpenPanels(event, $lastToggle, $openPanel, allowToggling);
                 }
             } else {
-                this.openCurrentPanel(event, $currentToggle);
+                this.openCurrentPanel(event, $currentToggle, allowToggling);
             }
-            // blocking toggling for duration of animation
-            // if panels are switched, 2 animations are played consecutively, so the duration is doubled
+
             this.isTogglingAllowed = false;
-            setTimeout(() => {this.isTogglingAllowed = true;}, !isSwitching ? ANIMATION_DEFAULT_DURATION : ANIMATION_DEFAULT_DURATION * 2);
         }
     }
 
@@ -100,7 +99,7 @@ export class FefGenericExpander {
             });
     }
 
-    openCurrentPanel(event, $currentToggle) {
+    openCurrentPanel(event, $currentToggle, callbackFunction = () => {}) {
         const $currentPanel = $(`#${$currentToggle.attr('data-genex-target-id')}`, this.$element);
 
         this.track(event, true);
@@ -113,8 +112,9 @@ export class FefGenericExpander {
             ANIMATION_DEFAULT_EASING,
             () => {
                 $currentPanel.addClass(this.openPanelClass);
-                //Prevent focus of the wrong toggle when clicking on another one while this one opens the panel
+                // Prevent focus of the wrong toggle when clicking on another one while this one opens the panel
                 $currentToggle.focus();
+                callbackFunction();
             }
         );
     }
