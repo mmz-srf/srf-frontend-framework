@@ -101,7 +101,7 @@ export class FefModal {
     }
 
     load() {
-        if (this.$caller.data('remote-content') !== null) {
+        if (this.$caller.data('remote-content') !== undefined) {
             $.get(this.$caller.data('remote-content'), (content) => {
                 this.$contentContainer.html(content);
                 $(document).trigger('fef.modal.loaded', {container: this.$contentContainer});
