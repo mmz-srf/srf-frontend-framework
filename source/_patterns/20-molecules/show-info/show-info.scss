@@ -85,7 +85,7 @@ $coverImageSize: 112px;
   font-family: $font-medium;
   color: inherit;
   padding: 16px;
-  margin: 0 0 16px -16px;
+  margin: 0 0 0 -16px;
 
   @include tablet-up {
     display: inline-block;
@@ -294,7 +294,7 @@ $coverImageSize: 112px;
     }
   }
 
-  .collection__teaser-list {
+  .collection__teaser-list.collection__teaser-list {
     margin-right: 16px;
     margin-left: 16px;
     margin-bottom: 0;

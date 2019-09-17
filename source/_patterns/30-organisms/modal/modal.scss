@@ -63,6 +63,7 @@ $modal-z-index: 100;
   background: #fff;
 }
 
+.modal__head,
 .modal__content-wrapper {
   max-width: calc(#{$content-width} + 2 * 16px);
   margin: 0 auto;
@@ -94,10 +95,14 @@ $modal-z-index: 100;
 .modal__head {
   display: flex;
   justify-content: flex-end;
-  background-color: rgba(255, 255, 255, .92);
 
   .icon-button {
     padding: 12px;
+  }
+
+  @include smartphone {
+    background-color: rgba(255, 255, 255, .92);
+    padding: 0;
   }
 }
 
