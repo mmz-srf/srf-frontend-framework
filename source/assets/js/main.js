@@ -26,6 +26,7 @@ import {FefTooltip} from './components/fef-tooltip';
 import {FefImageSlider} from './components/fef-image-slider';
 import {Affix} from './components/affix';
 import {FefModal} from './components/fef-modal';
+import {FefResizeListener} from './classes/fef-resize-listener';
 import './components/fef-ripple';
 
 import './utils/fef-easings';
@@ -49,6 +50,9 @@ document.addEventListener('DOMContentLoaded', function(event) {
     FefSelectableInit();
     FefListmoduleInit();
     FefGenericExpander();
+
+    // Expose Resize Listener For Demo Purposes
+    window.FefResizeListener = FefResizeListener;
 
     FefShameInit(); // this should probably be last, because it may contain code that depends on the previous scripts
 });

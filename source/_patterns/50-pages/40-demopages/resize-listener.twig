@@ -1,0 +1,51 @@
+{% include 'atoms-button' with {
+    'className': 'js-add-subscriber',
+    'additionalAttributes': 'data-type=debounced',
+    'buttonText': 'Add a debounced subscriber'
+} %}
+
+{% include 'atoms-button' with {
+    'className': 'js-add-subscriber',
+    'additionalAttributes': 'data-type=throttled',
+    'buttonText': 'Add a throttled subscriber'
+} %}
+
+<p>Subscribers:</p>
+<ul id="list"></ul>
+
+<script>
+    $(document).ready(function() {
+        // chicken/egg problem down there, use silly workaround
+        let lastId = 0;
+        let updateCounter = (id) => {
+            let $counter = $(`.item[data-id="${id}"] .item__counter`);
+            if ($counter.length === 1) {
+                let oldCount = Number.parseInt($counter.html());
+                $counter.html( oldCount + 1 );
+            }
+        };
+
+        $('.js-add-subscriber').on("click", (event) => {
+            let type = $(event.currentTarget).data('type');
+            let probableNewIdLol = JSON.parse( JSON.stringify(lastId) );
+            let id = FefResizeListener.subscribe(() => {
+                updateCounter(probableNewIdLol);
+            }, type);
+            
+            $('#list').append(`
+                <li class="item" data-id="${id}">
+                    <p>Listener ${id}: ${type}. Called: <span class="item__counter">0</span> times</p>
+                    <button class="remove" data-id="${id}">Remove this listener</button>
+                </li>`
+            );
+            lastId++;
+        });
+
+        $(document).on('click', '.remove', (event) => {
+            let id = $(event.currentTarget).data('id');
+            FefResizeListener.unsubscribe(id);
+            let $li = $(event.currentTarget).parents(".item");
+            $li.remove();
+        });
+    });
+</script>
