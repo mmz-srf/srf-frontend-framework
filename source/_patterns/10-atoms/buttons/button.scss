@@ -208,6 +208,10 @@ $button-animation-duration: .3s;
   &:focus {
     background-color: $color-srf-warmgrey-200;
   }
+
+  .button-wrapper {
+    height: 22px;
+  }
 }
 
 .button--inactive {
@@ -269,11 +273,11 @@ $button-animation-duration: .3s;
 
   &:hover,
   &:focus {
-    background-color: $color-srf-warmgrey-10;
+    background-color: $color-srf-warmgrey-25;
   }
 
   &:active {
-    background-color: $color-srf-warmgrey-25;
+    background-color: $color-srf-warmgrey-50;
   }
 }
 

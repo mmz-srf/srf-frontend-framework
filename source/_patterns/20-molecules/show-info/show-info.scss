@@ -214,10 +214,6 @@
   position: relative;
   background-color: $color-srf-warmgrey-50;
 
-  &:hover {
-    background-color: $color-srf-warmgrey-25;
-  }
-
   &:before {
     transform: scale3d(1, 1, 1);
   }
@@ -334,5 +330,11 @@
 
   @include desktop-wide {
     padding: 20px 0 0;
+  }
+}
+
+.show-info__button-whatsapp {
+  @include tablet-up{
+    display: none;
   }
 }
