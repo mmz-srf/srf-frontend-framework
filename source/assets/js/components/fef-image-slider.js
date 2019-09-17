@@ -1,4 +1,5 @@
 import {DOM_CHANGED_EVENT} from '../classes/fef-dom-observer';
+import {FefResizeListener} from '../classes/fef-resize-listener';
 
 export const COMPONENT_LOADED = 'fef.component.image.slider.loaded';
 
@@ -45,7 +46,7 @@ export class FefImageSlider {
      * @param $element
      */
     bindWindowResizeEvents($element) {
-        $(window).resize( (event) => {
+        FefResizeListener.subscribeDebounced((event) => {
             let compBoxLeft = $element.offset().left;
             this.moveSlider(event, compBoxLeft, $element);
         });
