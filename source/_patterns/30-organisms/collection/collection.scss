@@ -656,6 +656,7 @@ $background-overlap-wide: 50px;
     }
   }
 
+  // Exactly 2 teasers
   .collection__teaser-item:last-child:first-child,
   .collection__teaser-item:nth-last-child(2):first-child,
   .collection__teaser-item:nth-last-child(2):first-child ~ .collection__teaser-item {
