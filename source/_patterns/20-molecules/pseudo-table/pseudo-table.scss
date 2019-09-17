@@ -5,6 +5,7 @@ $image-height--b4: 112px;
 
 .pseudo-table {
   margin-bottom: 32px;
+  border-top: 1px solid $color-srf-neutral-blacka08;
 
   @include desktop-wide {
     margin-bottom: 60px;
@@ -26,11 +27,6 @@ $image-height--b4: 112px;
   
   &:active {
     background-color: $color-srf-warmgrey-25;
-  }
-
-  &:first-child {
-    border-top: 1px solid $color-srf-neutral-blacka08;
-    top: -1px;
   }
 
   // handling lines between two or more adjacent rows

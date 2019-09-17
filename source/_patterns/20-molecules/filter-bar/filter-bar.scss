@@ -8,6 +8,7 @@
   @include preventScrollbars();
 
   @include desktop-up {
+    overflow-x: hidden;
     justify-content: space-between;
     align-content: stretch;
     max-width: calc(100% - (2 * 32px));
