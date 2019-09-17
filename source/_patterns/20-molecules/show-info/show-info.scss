@@ -1,4 +1,4 @@
-$coverImage: 112px;
+$coverImageSize: 112px;
 
 .show-info__info-wrap {
   display: flex;
@@ -19,8 +19,8 @@ $coverImage: 112px;
 }
 
 .show-info__cover {
-  width: $coverImage;
-  height: $coverImage;
+  width: $coverImageSize;
+  height: $coverImageSize;
   margin: 0 12px 16px 0;
 
   @include tablet-up {
@@ -35,15 +35,15 @@ $coverImage: 112px;
 }
 
 .show-info__cover-image {
-  width: $coverImage;
-  height: $coverImage;
+  width: $coverImageSize;
+  height: $coverImageSize;
 }
 
 .show-info__header {
-  flex-basis: calc(100% - (#{$coverImage} + 12px));
+  flex-basis: calc(100% - (#{$coverImageSize} + 12px));
 
   @include tablet-up {
-    flex-basis: calc(100% - (#{$coverImage} + 24px));
+    flex-basis: calc(100% - (#{$coverImageSize} + 24px));
   }
 }
 
@@ -51,7 +51,7 @@ $coverImage: 112px;
   flex-basis: 100%;
 
   @include tablet-up {
-    flex-basis: calc(100% - (#{$coverImage} + 24px));
+    flex-basis: calc(100% - (#{$coverImageSize} + 24px));
   }
 }
 
