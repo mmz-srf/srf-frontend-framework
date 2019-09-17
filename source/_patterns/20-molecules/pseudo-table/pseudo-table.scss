@@ -23,6 +23,16 @@ $image-height--b4: 112px;
     background-color: $color-srf-warmgrey-10;
     margin-left: #{-$article-offset};
     padding-left: #{$article-offset};
+
+    &:first-of-type::after {
+      content: '';
+      position: absolute;
+      width: 24px;
+      height: 1px;
+      top: -1px;
+      left: 0;
+      background-color: $color-srf-neutral-blacka08;
+    }
   }
   
   &:active {
