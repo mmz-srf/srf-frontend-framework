@@ -31,6 +31,9 @@ import './components/fef-ripple';
 
 import './utils/fef-easings';
 
+// Expose Resize Listener For Demo Purposes, because we can't import JS files in twig (PatternLab only)
+window.FefResizeListener = FefResizeListener;
+
 document.addEventListener('DOMContentLoaded', function(event) {
     FefCarouselsInit();
     FefChartsInit();
@@ -51,8 +54,6 @@ document.addEventListener('DOMContentLoaded', function(event) {
     FefListmoduleInit();
     FefGenericExpander();
 
-    // Expose Resize Listener For Demo Purposes
-    window.FefResizeListener = FefResizeListener;
 
     FefShameInit(); // this should probably be last, because it may contain code that depends on the previous scripts
 });

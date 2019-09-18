@@ -10,6 +10,12 @@
     'buttonText': 'Add a throttled subscriber'
 } %}
 
+{% include 'atoms-button' with {
+    'className': 'js-add-subscriber',
+    'additionalAttributes': 'data-type=breakpointChanges',
+    'buttonText': 'Add a subscriber to changing breakpoints'
+} %}
+
 <p>Subscribers:</p>
 <ul id="list"></ul>
 
@@ -34,7 +40,7 @@
             
             $('#list').append(`
                 <li class="item" data-id="${id}">
-                    <p>Listener ${id}: ${type}. Called: <span class="item__counter">0</span> times</p>
+                    <p>Listener ${id}: ${type}. Called: <span class="item__counter">0</span> time(s)</p>
                     <button class="remove" data-id="${id}">Remove this listener</button>
                 </li>`
             );
