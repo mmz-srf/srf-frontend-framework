@@ -175,14 +175,18 @@ function registerListener($carousel) {
         $(this).find('.carousel__link--next').removeClass('carousel__link--waggle');
     });
 
-    $carousel.find(css.handles).on('touchstart mousedown mouseenter', function (e) {
+    $carousel.find(css.handles).on('touchstart mousedown mouseenter', function () {
         // if the handles are clicked / touched: stop the animation
         $(this).removeClass('carousel__link--waggle');
+    });
+
+    $carousel.find(css.handles).on('mouseenter', function (e) {
+        console.log('mouse entered');
+    });
+
+    $carousel.find(css.handles).on('touchstart mousedown', function (e) {
         $(e.target).removeClass('untouched');
-        console.log($(e.target));
     }).on('touchend touchcancel', function (e) {
-        console.log('is untouched');
-        console.log($(e.target));
         $(e.target).addClass('untouched');
     });
 }
