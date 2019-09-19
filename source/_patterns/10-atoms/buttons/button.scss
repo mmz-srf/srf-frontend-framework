@@ -84,7 +84,6 @@ $button-animation-duration: .3s;
 }
 
 .button--pending {
-
   &:hover,
   &:active,
   &:focus {
@@ -189,7 +188,6 @@ $button-animation-duration: .3s;
 }
 
 .button--retry {
-
   .button-icon {
     display: inline-block;
     background-image: url('../../../assets/img/retry.svg');
