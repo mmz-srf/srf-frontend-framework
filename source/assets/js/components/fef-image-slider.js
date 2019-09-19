@@ -17,7 +17,6 @@ export class FefImageSlider {
         let currentPosition = 50;
 
         this.bindMotionEvents($element);
-        this.bindWindowResizeEvents($element);
 
         this.bindMoveLeftClick(currentPosition, $element);
         this.bindMoveRightClick(currentPosition, $element);
@@ -38,16 +37,6 @@ export class FefImageSlider {
                 event = event.originalEvent.touches[0];
             }
 
-            this.moveSlider(event, compBoxLeft, $element);
-        });
-    }
-
-    /**
-     * @param $element
-     */
-    bindWindowResizeEvents($element) {
-        FefResizeListener.subscribeDebounced((event) => {
-            let compBoxLeft = $element.offset().left;
             this.moveSlider(event, compBoxLeft, $element);
         });
     }

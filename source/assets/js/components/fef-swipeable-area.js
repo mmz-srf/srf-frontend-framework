@@ -92,10 +92,9 @@ export class FefSwipeableArea {
     }
 
     registerGeneralListeners() {
-        FefResizeListener.subscribeDebounced(() => this.init());
-        $(window).on('srf.styles.loaded', () => this.init());
-        this.$element.on('srf.swipeableArea.reinitialize', () => this.init());
-        this.$element.on('srf.swipeable.content-changed', () => this.init());
+        FefResizeListener.subscribeDebounced(this.init);
+        $(window).on('srf.styles.loaded', this.init);
+        this.$element.on('srf.swipeableArea.reinitialize srf.swipeable.content-changed', this.init);
     };
 
     registerDesktopListeners() {
