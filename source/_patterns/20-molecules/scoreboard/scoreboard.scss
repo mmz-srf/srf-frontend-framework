@@ -1,18 +1,16 @@
-
-$scoreboard-col-padding-height: 8px;
+$scoreboard-col-padding-height: 6px;
 
 .scoreboard {
   display: grid;
   grid-template-columns: 1fr auto;
   width: 100%;
   border-collapse: collapse;
-  font-family: $font-medium;
-  font-size: 14px;
+  font-family: $font-regular;
+  @include fontSize(14);
   letter-spacing: 0.4px;
-  background-color: $color-srf-warmgrey-10;
   text-align: left;
   border-spacing: 0;
-  padding: 8px 0;
+  padding: 3px 0;
 
   // if a browser supports @support but not grid, it's a very strange browser does not deserve our scoreboard 😤
   @supports not (display: grid) {
@@ -22,7 +20,7 @@ $scoreboard-col-padding-height: 8px;
 
 .scoreboard__competitor {
   grid-column: 1;
-  height: 20px;
+  height: 18px;
   padding: 0 0 0 16px;
   overflow: hidden;
   position: relative;
@@ -36,6 +34,7 @@ $scoreboard-col-padding-height: 8px;
 
 .scoreboard__competitor--winner {
   color: $color-srf-warmgrey-1100;
+  font-family: $font-medium;
 }
 
 .scoreboard__competitor-mask {
@@ -44,33 +43,37 @@ $scoreboard-col-padding-height: 8px;
   right: 0;
   width: 50px;
   height: 50px; // IE needs an absolute height
-  background: linear-gradient(to right, $color-srf-warmgrey-10a00, $color-srf-warmgrey-10);
+  background: linear-gradient(to right, $color-srf-neutral-whitea00, $color-srf-neutral-white);
 }
 
 .scoreboard__competitor-wrapper {
   display: flex;
   align-items: center;
   white-space: nowrap;
-  height: 20px;
+  height: 18px;
 }
 
-// first row's score is 8px higher (goes over border at the top)
+// first row's score is 6px higher (goes over border at the top)
 .scoreboard__row-first {
-  margin-top: -8px;
+  margin-top: -$scoreboard-col-padding-height;
 
   .score {
-    padding-top: 8px;
-    height: 28px;
+    padding-top: $scoreboard-col-padding-height;
+    height: 24px;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
   }
 }
 
-// last row's score is 8px higher (goes over border at the bottom)
+// last row's score is 6px higher (goes over border at the bottom)
 .scoreboard__row-last {
-  margin-bottom: -8px;
+  margin-bottom: -$scoreboard-col-padding-height;
 
   .score {
-    padding-bottom: 8px;
-    height: 28px;
+    padding-bottom: $scoreboard-col-padding-height;
+    height: 24px;
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
   }
 }
 
@@ -107,7 +110,7 @@ $scoreboard-col-padding-height: 8px;
 
 .scoreboard__name {
   flex-grow: 1;
-  line-height: 14px;
+  line-height: $secondary-line-height-ratio;
 }
 
 .scoreboard__score-live.scoreboard__score-live {
