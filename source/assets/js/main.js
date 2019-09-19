@@ -26,9 +26,13 @@ import {FefTooltip} from './components/fef-tooltip';
 import {FefImageSlider} from './components/fef-image-slider';
 import {Affix} from './components/affix';
 import {FefModal} from './components/fef-modal';
+import {FefResizeListener} from './classes/fef-resize-listener';
 import './components/fef-ripple';
 
 import './utils/fef-easings';
+
+// Expose Resize Listener For Demo Purposes, because we can't import JS files in twig (PatternLab only)
+window.FefResizeListener = FefResizeListener;
 
 document.addEventListener('DOMContentLoaded', function(event) {
     FefCarouselsInit();
@@ -49,6 +53,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
     FefSelectableInit();
     FefListmoduleInit();
     FefGenericExpander();
+
 
     FefShameInit(); // this should probably be last, because it may contain code that depends on the previous scripts
 });

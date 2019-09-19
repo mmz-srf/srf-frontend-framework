@@ -1,0 +1,64 @@
+{% include 'atoms-button' with {
+    'className': 'js-add-subscriber',
+    'additionalAttributes': 'data-type=debounced',
+    'buttonText': 'Add a debounced subscriber'
+} %}
+
+{% include 'atoms-button' with {
+    'className': 'js-add-subscriber',
+    'additionalAttributes': 'data-type=throttled',
+    'buttonText': 'Add a throttled subscriber'
+} %}
+
+{% include 'atoms-button' with {
+    'className': 'js-add-subscriber',
+    'additionalAttributes': 'data-type=breakpointChanges',
+    'buttonText': 'Add a subscriber to changing breakpoints'
+} %}
+
+<p>Subscribers:</p>
+<ul id="list"></ul>
+
+<script>
+    $(document).ready(function() {
+        // since we don't know if there was already another subscriber, we have
+        // to quickly subscribe, get the ID and then unsubscribe so we can get
+        // the current ID.
+        let lastId = FefResizeListener.subscribe();
+        FefResizeListener.unsubscribe(lastId);
+        lastId++;
+
+        // Chicken/egg problem down there (can't know the ID before
+        // subscribing, where we'd need the ID already for this demo.
+        let updateCounter = (id) => {
+            let $counter = $(`.item[data-id="${id}"] .item__counter`);
+            if ($counter.length === 1) {
+                let oldCount = Number.parseInt($counter.html());
+                $counter.html( oldCount + 1 );
+            }
+        };
+
+        $('.js-add-subscriber').on("click", (event) => {
+            let type = $(event.currentTarget).data('type');
+            let probableNewIdLol = JSON.parse( JSON.stringify(lastId) );
+            let id = FefResizeListener.subscribe(() => {
+                updateCounter(probableNewIdLol);
+            }, type);
+            
+            $('#list').append(`
+                <li class="item" data-id="${id}">
+                    <p>Listener ${id}: ${type}. Called: <span class="item__counter">0</span> time(s)</p>
+                    <button class="remove" data-id="${id}">Remove this listener</button>
+                </li>`
+            );
+            lastId++;
+        });
+
+        $(document).on('click', '.remove', (event) => {
+            let id = $(event.currentTarget).data('id');
+            FefResizeListener.unsubscribe(id);
+            let $li = $(event.currentTarget).parents(".item");
+            $li.remove();
+        });
+    });
+</script>
