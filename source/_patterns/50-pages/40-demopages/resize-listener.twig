@@ -21,8 +21,15 @@
 
 <script>
     $(document).ready(function() {
-        // chicken/egg problem down there, use silly workaround
-        let lastId = 0;
+        // since we don't know if there was already another subscriber, we have
+        // to quickly subscribe, get the ID and then unsubscribe so we can get
+        // the current ID.
+        let lastId = FefResizeListener.subscribe();
+        FefResizeListener.unsubscribe(lastId);
+        lastId++;
+
+        // Chicken/egg problem down there (can't know the ID before
+        // subscribing, where we'd need the ID already for this demo.
         let updateCounter = (id) => {
             let $counter = $(`.item[data-id="${id}"] .item__counter`);
             if ($counter.length === 1) {
