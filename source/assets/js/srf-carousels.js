@@ -179,6 +179,7 @@ function registerListener($carousel) {
         // if the handles are clicked / touched: stop the animation
         $(this).removeClass('untouched carousel__link--waggle');
     }).on('touchend touchcancel', function () {
+        console.log('is untouched');
         $(this).addClass('untouched');
     });
 }

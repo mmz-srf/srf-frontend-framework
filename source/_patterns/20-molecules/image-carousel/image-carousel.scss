@@ -157,9 +157,13 @@
     background-color: $color-srf-neutral-blacka80;
   }
 
-  &.untouched:active {
-    background-color: transparent;
+  &.untouched {
+    background-color: transparent !important;
   }
+}
+
+.untouched {
+  background-color: transparent !important;
 }
 
 .carousel__link--prev {
