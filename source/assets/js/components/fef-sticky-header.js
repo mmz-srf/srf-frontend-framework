@@ -21,7 +21,7 @@ export class FeFStickyHeader {
 
         this.initializeAffix();
 
-        FefResizeListener.subscribeDebounced(this.reInitializeAffix);
+        FefResizeListener.subscribeDebounced(() => this.reInitializeAffix());
     }
 
     /* eslint-disable no-lonely-if */
