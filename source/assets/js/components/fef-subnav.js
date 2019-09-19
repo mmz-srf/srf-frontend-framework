@@ -15,7 +15,6 @@ const SUBNAV_CLASS = 'js-subnav-container',
     ITEM_GROUP_CLASS = 'js-nav-group',
     ITEM_OPEN_GROUP_CLASS = 'js-nav-group-open',
     ITEM_GROUP_WRAPPER_CLASS = 'js-nav-group-wrapper',
-    END_OF_NAV_GROUP_CLASS = 'js-end-of-nav-group',
     OUTSIDE_CLICK_LISTENER_NAME = 'click.nav-group',
     OUTSIDE_KEYPRESS_LISTENER_NAME = 'keydown.nav-group',
     DEBOUNCETIME = 10,
@@ -51,7 +50,6 @@ export class FefSubnav {
         this.$buttonForward = $(`.${BUTTON_FORWARD_CLASS}`, this.$element);
         this.$maskLeft = $(`.${MASK_LEFT_CLASS}`, this.$element);
         this.$maskRight = $(`.${MASK_RIGHT_CLASS}`, this.$element);
-        this.$endOfNavGroup = $(`.${END_OF_NAV_GROUP_CLASS}`, this.$element);
         this.lastLeftScrollPos = 0;
 
         this.init();
@@ -97,15 +95,6 @@ export class FefSubnav {
                 this.toggleSubNav($(e.currentTarget));
             }
         });
-
-        this.$endOfNavGroup.on('focus', (e) => {
-            this.closeAllSubNavs();
-            this.focusAfterNavGroup(e.target);
-        });
-    }
-
-    focusAfterNavGroup(el) {
-        $(el).parents('.subnav__list-item').next().children('.nav-item').focus();
     }
 
     handleScroll(e) {
@@ -181,6 +170,18 @@ export class FefSubnav {
             // Mobile: don't let the nav-group be taller than the space under the masthead. Make it scrollable and set a max-height to guarantee it.
             $navItem.find(`.${ITEM_GROUP_WRAPPER_CLASS}`).css({'max-height': `calc(100vh - ${$('.js-affix').outerHeight(true)}px)`});
         }
+
+        // Close subnav when tabbing out of it
+        const $lastNavItem = $navItem.find('.nav-group__item').last();
+        $lastNavItem.on('focusin', () => {
+            $lastNavItem.on('keydown', (e) => {
+                if (e.keyCode === KEYCODES.tab && !e.shiftKey) {
+                    this.closeSubNav($navItem);
+                    $lastNavItem.off('focusin');
+                    $lastNavItem.off('keydown');
+                }
+            });
+        });
     }
 
     positionAndStretchSubNavGroup($navItem) {
