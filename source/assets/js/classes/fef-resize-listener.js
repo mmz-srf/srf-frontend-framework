@@ -9,6 +9,11 @@ const THROTTLERATE = 100;
 
 class ResizeListener {
     constructor() {
+        // make sure there's only one ResizeListener
+        if(ResizeListener.instance) {
+            return ResizeListener.instance;
+        }
+
         this.subscribers = [];
         this.lastId = 0;
         this.wasListening = {
@@ -21,8 +26,20 @@ class ResizeListener {
             [BREAKPOINT_CHANGED]: FefDebounceHelper.throttle(() => this.handleThrottledEvents(), THROTTLERATE)
         };
         this.lastBreakpoint = FefResponsiveHelper.getBreakpoint();
+
+        ResizeListener.instance = this;
     }
     
+    /**
+     * Upon subscribing, a new entry in the subscriber list will be added.
+     * The subscriber will be notified of the desired events by calling the
+     * provided callback function.
+     * To enable unsubscribing, an ID wil be generated and returned to the
+     * subscriber.
+     *
+     * @param {Function} callback Function that will be called when the desired event occurs
+     * @param {String} type DEBOUNCED|THROTTLED|BREAKPOINT_CHANGED
+     */
     subscribe(callback = () => {}, type = DEBOUNCED) {
         let id = this.lastId++;
         
@@ -36,12 +53,25 @@ class ResizeListener {
         return id;
     }
     
+    /**
+     * A subscriber can also unsubscribe of the events they were subscribed to.
+     *
+     * @param {Number} idToRemove ID of the subscriber to be removed
+     */
     unsubscribe(idToRemove) {
         let subscriberToRemove = this.subscribers.find(listener => listener.id !== idToRemove);
         this.subscribers = this.subscribers.filter(listener => listener.id !== idToRemove);
         this.updateEventListeners(subscriberToRemove.type);
     }
     
+    /**
+     * After the number of subscribers for a type changed, the need for
+     * listeners must be checked. If it was the last subscriber and they
+     * unsubscribed, the listener can be removed. If it's the first subscriber
+     * for this type, the corresponding listener needs to be added.
+     *
+     * @param {String} type DEBOUNCED|THROTTLED|BREAKPOINT_CHANGED
+     */
     updateEventListeners(type) {
         let typeHasSubscribers = this.subscribers.some(listener => listener.type === type);
         if (!this.wasListening[type] && typeHasSubscribers) {
@@ -53,11 +83,21 @@ class ResizeListener {
         }
     }
 
+    /**
+     * Add a listener for the provided type.
+     *
+     * @param {String} type DEBOUNCED|THROTTLED|BREAKPOINT_CHANGED
+     */
     startListening(type) {
         window.addEventListener('resize', this.listeners[type], { passive: true });
         this.wasListening[type] = true;
     }
 
+    /**
+     * Remove a listener for the provided type.
+     *
+     * @param {String} type DEBOUNCED|THROTTLED|BREAKPOINT_CHANGED
+     */
     stopListening(type) {
         window.removeEventListener('resize', this.listeners[type], false);
         this.wasListening[type] = false;
@@ -74,6 +114,10 @@ class ResizeListener {
             .forEach(listener => listener.callback());
     }
 
+    /**
+     * For throttled events, subscribers for breakpoint changes also want to be
+     * informed (if the breakpoint changed).
+     */
     handleThrottledEvents() {
         this.notifySubscribers(THROTTLED);
 
@@ -88,6 +132,8 @@ class ResizeListener {
     }
 }
 
+// We don't want to make the ResizeListener public - use the static methods in
+// FefResizeListener that interact with the ResizeListener instance:
 let rl = new ResizeListener();
 
 export class FefResizeListener {
@@ -146,6 +192,12 @@ export class FefResizeListener {
         return rl.subscribe(callback, BREAKPOINT_CHANGED);
     }
 
+    /**
+     * If a subscriber no longer wants to receive updates about the resize
+     * events, they can unsubscribe here.
+     *
+     * @param {Number} idToRemove ID of the subscriber
+     */
     static unsubscribe(idToRemove) {
         rl.unsubscribe(idToRemove);
     }
