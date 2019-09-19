@@ -83,11 +83,11 @@ export class FefSubnav {
     }
 
     registerListeners() {
-        FefResizeListener.subscribeDebounced(this.onResize);
-        this.$innerContainer.on('scroll', FefDebounceHelper.debounce(this.init, DEBOUNCETIME));
+        FefResizeListener.subscribeDebounced(() => this.onResize());
+        this.$innerContainer.on('scroll', FefDebounceHelper.debounce(() => this.init(), DEBOUNCETIME));
         this.$innerContainer.on('scroll', FefDebounceHelper.throttle((e) => this.handleScroll(e), THROTTLETIME));
-        this.$buttonBack.on('click', this.pageBack);
-        this.$buttonForward.on('click', this.pageForward);
+        this.$buttonBack.on('click', () => this.pageBack());
+        this.$buttonForward.on('click', () => this.pageForward());
 
         this.$element.on('click', `.${ITEM_GROUP_CLASS}`, (e) => {
             if ($(e.target).parent().hasClass(ITEM_GROUP_CLASS)) {
