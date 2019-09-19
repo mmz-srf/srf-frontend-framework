@@ -1,5 +1,6 @@
 import {FefDebounceHelper} from '../classes/fef-debounce-helper';
 import {FefResponsiveHelper} from '../classes/fef-responsive-helper';
+import {FefResizeListener} from '../classes/fef-resize-listener';
 import {KEYCODES} from '../utils/fef-keycodes';
 
 
@@ -68,7 +69,7 @@ export class FefSubnav {
     }
 
     initItemPositions() {
-        this.$innerContainer.children().each( (index, element) => {
+        this.$innerContainer.children().each( (_, element) => {
             this.itemLeftPositions.push($(element).position().left);
             this.itemRightPositions.push($(element).position().left + $(element).innerWidth());
         });
@@ -82,11 +83,11 @@ export class FefSubnav {
     }
 
     registerListeners() {
-        $(window).on('resize', FefDebounceHelper.debounce(() => this.onResize(), DEBOUNCETIME));
-        this.$innerContainer.on('scroll', FefDebounceHelper.debounce(() => this.init(), DEBOUNCETIME));
+        FefResizeListener.subscribeDebounced(this.onResize);
+        this.$innerContainer.on('scroll', FefDebounceHelper.debounce(this.init, DEBOUNCETIME));
         this.$innerContainer.on('scroll', FefDebounceHelper.throttle((e) => this.handleScroll(e), THROTTLETIME));
-        this.$buttonBack.on('click', () => { this.pageBack(); });
-        this.$buttonForward.on('click', () => { this.pageForward(); });
+        this.$buttonBack.on('click', this.pageBack);
+        this.$buttonForward.on('click', this.pageForward);
 
         this.$element.on('click', `.${ITEM_GROUP_CLASS}`, (e) => {
             if ($(e.target).parent().hasClass(ITEM_GROUP_CLASS)) {
@@ -108,9 +109,9 @@ export class FefSubnav {
 
     closeAllSubNavs() {
         $(document).off(`${OUTSIDE_CLICK_LISTENER_NAME} ${OUTSIDE_KEYPRESS_LISTENER_NAME}`);
-        let openNavs = this.$element.find(`.${ITEM_OPEN_GROUP_CLASS}`);
+        let $openNavs = this.$element.find(`.${ITEM_OPEN_GROUP_CLASS}`);
 
-        openNavs.each((index, el) => this.closeSubNav($(el)));
+        $openNavs.each((_, el) => this.closeSubNav($(el)));
     }
 
     /**
