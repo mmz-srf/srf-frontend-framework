@@ -157,7 +157,7 @@
     background-color: $color-srf-neutral-blacka80;
   }
 
-  &.untouched {
+  &.untouched:active {
     background-color: transparent;
   }
 }
