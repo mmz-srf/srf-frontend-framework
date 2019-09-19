@@ -51,6 +51,7 @@ $button-animation-duration: .3s;
     cursor: pointer;
     outline: none;
     box-shadow: $shadow-elevation8;
+    color: $color-srf-neutral-white;
   }
 
   &:hover,
@@ -200,6 +201,12 @@ $button-animation-duration: .3s;
   background-color: $color-srf-warmgrey-50;
 
   &:hover,
+  &:focus,
+  &:active {
+    color: $color-srf-warmgrey-900;
+  }
+
+  &:hover,
   &:active {
     background-color: $color-srf-warmgrey-100;
   }
@@ -264,6 +271,7 @@ $button-animation-duration: .3s;
   &:focus,
   &:active {
     box-shadow: none;
+    color: $color-srf-warmgrey-1100;
 
     .icon-button {
       opacity: 1;
