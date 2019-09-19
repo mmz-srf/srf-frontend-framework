@@ -205,11 +205,11 @@ $button-animation-duration: .3s;
   }
 
   &:hover,
-  &:active {
+  &:focus {
     background-color: $color-srf-warmgrey-100;
   }
 
-  &:focus {
+  &:active {
     background-color: $color-srf-warmgrey-200;
   }
 
