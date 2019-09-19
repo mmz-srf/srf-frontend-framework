@@ -180,14 +180,13 @@ function registerListener($carousel) {
         $(this).removeClass('carousel__link--waggle');
     });
 
-    $carousel.find(css.handles).on('mouseenter', function (e) {
-        console.log('mouse entered');
-    });
-
     $carousel.find(css.handles).on('touchstart mousedown', function (e) {
+        console.log('is touched');
         $(e.target).removeClass('untouched');
     }).on('touchend touchcancel', function (e) {
+        console.log('is untouched');
         $(e.target).addClass('untouched');
+        console.log($(e.target));
     });
 }
 
