@@ -1,4 +1,5 @@
 import { KEYCODES } from './utils/fef-keycodes';
+import {FefTouchDetection} from "./classes/fef-touch-detection";
 
 let $carousels = [];
 let loadedCarousels = {};
@@ -18,6 +19,10 @@ export function init() {
         $(this).closest('.carousel-container').addClass('carousel-container--initialized');
         $(css.containers).css('visibility', 'visible');
     });
+
+    if (FefTouchDetection.isTouchSupported()) {
+        $carousels.addClass('has-touch');
+    }
 
     // img carousels
     $.each($carousels, function (i, carousel) {

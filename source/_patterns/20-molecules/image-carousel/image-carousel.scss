@@ -156,13 +156,14 @@
   &:active {
     background-color: $color-srf-neutral-blacka80;
   }
+}
 
-  &.untouched {
-    background-color: transparent !important;
-  }
-
-  @media (hover: none) {
-    background-color: transparent !important;
+.has-touch {
+  .carousel__link--prev,
+  .carousel__link--next {
+    &:hover {
+      background-color: transparent;
+    }
   }
 }
 
