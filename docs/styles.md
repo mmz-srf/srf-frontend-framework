@@ -1,8 +1,12 @@
 # CSS/Sass Development Guidelines
 
-## General considerations
-- The main idea behind our [BEM blocks](#BEM) is that they could be used independently and anywhere. A vision is that – when we are ready to use http/2 – each block will have a separate generated CSS file so that just the styles for blocks used on a web page need to be included. Therefore: Avoid global styles and code a block in a way that all its styling is in one Sass file.
-- Maintainability should be the primary goal when writing CSS/Sass-Code for the framework even if it results in more code.
+## General
+- Maintainability should be the primary goal when writing CSS/Sass-Code for the framework. Even if it results in more code.
+- Try to create FEF components in a reusable way:
+  - The dimensions of atoms should not be fixed (if possible); their dimensions should rather be defined by the parent container.
+  - Avoid global styles and code a component block in a way that all its styling is in one Sass file.
+  - Only use CSS classes of one [BEM block](#BEM) in a file. Use BEM modifiers if you need to create variants of a block or an element.
+  - Avoid CSS specificity: use CSS classes instead of complex selectors as much as possible.
 - Top and bottom spaces between components should be ruled by [collapsing margins](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model/Mastering_margin_collapsing). The component with the larger margin wins. Therefore only use margins not padding for top and bottom spaces. Sometimes it is necessary to add a wrapper `<div />` to make margins work as desired.
 
 ## Formatting
@@ -13,24 +17,8 @@
 - In properties, put a space after, but not before, the `:` character.
 - Put closing braces `}` of rule declarations on a new line
 - Put blank lines between rule declarations
-- Order your regular CSS and `@include` declarations logically (see below)
-- Use the `.scss` syntax, never the original `.sass` syntax
 
-### Example
-#### Bad
-```scss
-.avatar{
-  border-radius:50%;
-  border:2px solid white; }
-.no, .nope, .not_good {
-  // ...
-}
-#lol-no {
-  // ...
-}
-```
-
-#### Good
+**Example**
 ```scss
 .avatar {
   border-radius: 50%;
@@ -44,31 +32,19 @@
 }
 ```
 
-## Nesting selectors
-Avoid the nesting of selectors in order to reduce [specificity](https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity); whenever possible, use class selectors.
+## Specificity and selector nesting
+Keep CSS [specificity](https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity) as low as possible:
 
-But in any case: **Do not nest selectors more than three levels deep!**
+- Whenever possible, use class selectors.
+- Avoid the nesting of selectors and complex selectors.
+- In any case: **Do not nest selectors more than three levels deep!**
+- If you need to increase the specificity of a CSS class, use its name in a selector twice: `.my-class.my-class`.
 
-```scss
-.page-container {
-  .content {
-    .profile {
-      // STOP!
-    }
-  }
-}
-```
+Please **do not** abbreviate and nest class names with the Sass parent selector (`&`). Searching for CSS definitions gets very hard this way.
 
-When selectors become this long, you’re likely writing CSS that is:
+**Example**
 
-- Strongly coupled to the HTML (fragile) _—OR—_
-- Overly specific (powerful) _—OR—_
-- Not reusable
-
-Please do not abbreviate and nest class names with the sass parent selector (`&`). Searching for CSS definitions gets very hard this way.
-
-### Example
-#### Bad
+*Bad*
 ```scss
 .sharing-bar {
   &__container { … }
@@ -79,7 +55,7 @@ Please do not abbreviate and nest class names with the sass parent selector (`&`
 }
 ```
 
-#### Good
+*Good*
 ```scss
 .sharing-bar { … }
 
@@ -91,51 +67,6 @@ Please do not abbreviate and nest class names with the sass parent selector (`&`
 
 .sharing-bar__button--facebook { … }
 ```
-
-## Ordering of property declarations
-1.  Property declarations
-    List all standard property declarations, anything that isn’t an `@include` or a nested selector.
-
-    ```scss
-    .btn-green {
-      background: green;
-      font-weight: bold;
-      …
-    }
-    ```
-
-2.  `@include` declarations
-    Grouping `@include` declarations at the end makes it easier to read the entire selector.
-
-    ```scss
-    .btn-green {
-      background: green;
-      font-weight: bold;
-      @include transition(background 0.5s ease);
-      …
-    }
-    ```
-
-3.  Nested selectors
-    Nested selectors, _if necessary_, go last, and nothing goes after them. Add whitespace between your rule declarations and nested selectors, as well as between adjacent nested selectors. Apply the same guidelines as above to your nested selectors.
-
-    ```scss
-    .block-link {
-      background: #ddd;
-      font-weight: bold;
-      @include transition(background 0.5s ease);
-
-      &:hover {
-        background: #fff;
-      }
-    }
-    ```
-
-## Comments
-- Prefer line comments (`//` in Sass-Files) to block comments.
-- Write detailed comments for code that isn’t self-documenting, i.e.:
- - Uses of z-index
- - Compatibility or browser-specific hacks
 
 ## Class naming
 - In general, use BEM for naming classes where sensible. The block names should correspond to the pattern name in patternlab.
@@ -213,7 +144,6 @@ Therefore, please create JavaScript-specific classes to bind to, prefixed with `
 While it is possible to select elements by ID in CSS, it should generally be considered an anti-pattern. ID selectors introduce an unnecessarily high level of [specificity](https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity) to your rule declarations, and they are not reusable.
 
 ## !important declarations
-This statement says it all:
 
 > `!important` declarations should not be used unless they are absolutely necessary after all other avenues have been exhausted.
 > -- <cite>[Louis Lazaris](https://www.smashingmagazine.com/2010/11/the-important-css-declaration-how-and-when-to-use-it/)</cite>
@@ -221,10 +151,19 @@ This statement says it all:
 If you really must use an `!important` statement, please comment the reasons for its use in the code.
 
 ## Sass-Variables
-Prefer dash-cased variable names (e.g. `$my-variable`) over camelCased or snake_cased variable names. It is acceptable to prefix variable names that are intended to be used only within the same file with an underscore (e.g. `$_my-variable`).
+Prefer dash-cased variable names (e.g. `$my-variable`) over camelCased or snake_cased variable names.
 
 ## Colors
 Consult <a href="docs/colors.md" data-fef-href="/patterns/00-documentation-30-colors/00-documentation-30-colors.html">Colors in FEF</a> for important information about using Colors in FEF.
+
+## Comments
+- Write detailed comments for code that isn’t self-documenting, i.e.:
+ - Uses of z-index
+ - Compatibility or browser-specific hacks
+
+## Browser workarounds
+- Put browser-specific hacks and workarounds in the `_shame.scss` file.
+- Remove the workarounds from there when a browser isn't supported anymore.
 
 ## Mixins
 Mixins should be used to DRY up your code, add clarity, or abstract complexity – in much the same way as well-named functions. Mixins that accept no arguments can be useful for this, but note that if you are not compressing your payload (e.g. gzip), this may contribute to unnecessary code duplication in the resulting styles.
@@ -233,4 +172,4 @@ Mixins should be used to DRY up your code, add clarity, or abstract complexity �
 `@extend` must be avoided because it has unintuitive and potentially dangerous behavior, especially when used with nested selectors. Even extending top-level placeholder selectors can cause problems if the order of selectors ends up changing later (e.g. if they are in other files and the order the files are loaded shifts). Gzipping should handle most of the savings you would have gained by using `@extend`, and you can DRY up your stylesheets nicely with **mixins**.
 
 ## Credits
-This style guide is based on the [Airbnb CSS / Sass Styleguide](https://github.com/airbnb/css) with adaptations for the SRF Frontend Framework.
+This style guide was inspired by and uses some parts of the [Airbnb CSS / Sass Styleguide](https://github.com/airbnb/css).
