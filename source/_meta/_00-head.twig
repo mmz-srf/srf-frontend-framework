@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../../assets/demo/css/no-prod.css?{{ cacheBuster }}" media="all" />
     <link rel="stylesheet" href="../../assets/css/{{ criticalCssFile|default('c_article.css') }}?{{ cacheBuster }}" media="all" />
     {% if not criticalCssOnly|default(false) %}
-      {% if alternateCssFiles | length > 0 %}
+      {% if alternateCssFiles | default([]) | length > 0 %}
         {% for cssFile in alternateCssFiles %}
           <link rel="stylesheet" href="../../assets/css/{{ cssFile }}?{{ cacheBuster }}" media="all" />
         {% endfor %}
