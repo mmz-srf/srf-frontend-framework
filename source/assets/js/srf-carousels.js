@@ -177,16 +177,9 @@ function registerListener($carousel) {
 
     $carousel.find(css.handles).on('touchstart mousedown mouseenter', function () {
         // if the handles are clicked / touched: stop the animation
-        $(this).removeClass('carousel__link--waggle');
-    });
-
-    $carousel.find(css.handles).on('touchstart mousedown', function (e) {
-        console.log('is touched');
-        $(e.target).removeClass('untouched');
-    }).on('touchend touchcancel', function (e) {
-        console.log('is untouched');
-        $(e.target).addClass('untouched');
-        console.log($(e.target));
+        $(this).removeClass('untouched carousel__link--waggle');
+    }).on('touchend touchcancel', function () {
+        $(this).addClass('untouched');
     });
 }
 

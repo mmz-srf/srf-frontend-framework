@@ -160,10 +160,10 @@
   &.untouched {
     background-color: transparent !important;
   }
-}
 
-.untouched {
-  background-color: transparent !important;
+  @media (hover: none) {
+    background-color: transparent !important;
+  }
 }
 
 .carousel__link--prev {
