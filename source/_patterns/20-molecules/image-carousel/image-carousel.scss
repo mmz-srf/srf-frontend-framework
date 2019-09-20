@@ -156,9 +156,18 @@
   &:active {
     background-color: $color-srf-neutral-blacka80;
   }
+}
 
-  &.untouched {
-    background-color: transparent;
+.has-touch {
+  .carousel__link--prev,
+  .carousel__link--next {
+    &:hover {
+      background-color: transparent;
+    }
+
+    &:active {
+      background-color: $color-srf-neutral-blacka80;
+    }
   }
 }
 
