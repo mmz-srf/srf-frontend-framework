@@ -21,7 +21,7 @@ export function init() {
     });
 
     if (!FefTouchDetection.isTouchSupported()) {
-        $carousels.addClass('no-touch');
+        $carousels.addClass('has-touch');
     }
 
     // img carousels
