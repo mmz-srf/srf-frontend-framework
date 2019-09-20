@@ -119,6 +119,15 @@
   }
 }
 
+.has-touch {
+  .carousel__link--prev,
+  .carousel__link--next {
+    &:hover {
+      background-color: transparent;
+    }
+  }
+}
+
 .carousel__link--prev,
 .carousel__link--next {
   position: absolute;
@@ -155,15 +164,6 @@
 
   &:active {
     background-color: $color-srf-neutral-blacka80;
-  }
-}
-
-.has-touch {
-  .carousel__link--prev,
-  .carousel__link--next {
-    &:hover {
-      background-color: transparent;
-    }
   }
 }
 
