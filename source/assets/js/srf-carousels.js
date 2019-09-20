@@ -20,8 +20,8 @@ export function init() {
         $(css.containers).css('visibility', 'visible');
     });
 
-    if (FefTouchDetection.isTouchSupported()) {
-        $carousels.addClass('has-touch');
+    if (!FefTouchDetection.isTouchSupported()) {
+        $carousels.addClass('carousel--no-touch');
     }
 
     // img carousels
