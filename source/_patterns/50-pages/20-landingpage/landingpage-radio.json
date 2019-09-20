@@ -2,5 +2,6 @@
   "title": "News",
   "bodyClass": "",
   "criticalCssFile": "c_landingpage.css",
+  "alternateCssFiles": [ "main.global.css", "main.page.css"],
   "themeStyleModifier": "masthead--theme-radio_srf_1"
 }
