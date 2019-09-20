@@ -119,15 +119,6 @@
   }
 }
 
-.has-touch {
-  .carousel__link--prev,
-  .carousel__link--next {
-    &:hover {
-      background-color: transparent;
-    }
-  }
-}
-
 .carousel__link--prev,
 .carousel__link--next {
   position: absolute;
@@ -159,11 +150,24 @@
   }
 
   &:hover {
-    background-color: $color-srf-neutral-blacka48;
+    $color-srf-neutral-blacka48;
   }
 
   &:active {
     background-color: $color-srf-neutral-blacka80;
+  }
+}
+
+.has-touch {
+  .carousel__link--prev,
+  .carousel__link--next {
+    &:hover {
+      background-color: transparent;
+    }
+
+    &:active {
+      background-color: $color-srf-neutral-blacka80;
+    }
   }
 }
 
