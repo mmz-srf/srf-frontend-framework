@@ -33,6 +33,14 @@ $(window).on(DOM_CHANGED_EVENT, (e) => {
             } else if ($modalElement.length > 0) {
                 existingModals[modalId] = new FefModal($modalElement, $caller);
             }
+
+            if ($caller.data('event-source') && $caller.data('event-name')) {
+                $(window).trigger('fef.track.interaction', {
+                    event_source: $caller.data('event-source'),
+                    event_name: $caller.data('event-name'),
+                    event_value: 'click'
+                });
+            }
         });
     });
 });
@@ -56,6 +64,7 @@ export class FefModal {
         this.animation = this.$element.attr('data-animation');
         this.previousScrollPosition = null;
         this.browserSupportsElasticScrolling = FefBouncePrevention.checkSupport();
+        this.interactionMeasureString = '';
 
         // Accsessibility: when opening the modal, set all other content on the page to aria-hidden, so that screenreaders can't access them anymore.
         this.$A11YElements = this.$element.siblings('div, section, footer, span, h1, a, img');
