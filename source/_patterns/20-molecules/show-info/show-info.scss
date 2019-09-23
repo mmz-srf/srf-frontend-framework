@@ -160,10 +160,6 @@ $coverImageSize: 112px;
   }
 }
 
-.show-info__categories {
-  margin-bottom: 16px;
-}
-
 .show-info__title,
 .show-info__body,
 .show-info__categories {
@@ -181,18 +177,18 @@ $coverImageSize: 112px;
   flex-wrap: wrap;
 
   .pill-button {
-    margin: 0 16px 0 0;
+    margin: 16px 16px 0 0;
 
     @include smartphone {
       width: 100%;
-      margin: 0;
+      margin-right: 0;
     }
   }
 
   .button--neutral {
     width: auto;
     position: relative;
-    margin: 0 16px 0 0;
+    margin: 16px 16px 0 0;
 
     &:last-of-type {
       margin-right: 0;
@@ -212,10 +208,6 @@ $coverImageSize: 112px;
       transform-origin: bottom center;
       transform: scale3d(0,0,0);
       transition: transform .4s ease-in;
-    }
-
-    @include smartphone {
-      margin-top: 16px;
     }
   }
 }
