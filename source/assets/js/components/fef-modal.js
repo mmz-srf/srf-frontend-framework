@@ -34,11 +34,13 @@ $(window).on(DOM_CHANGED_EVENT, (e) => {
                 existingModals[modalId] = new FefModal($modalElement, $caller);
             }
 
-            $(window).trigger('fef.track.interaction', {
-                event_source: $caller.data('event-source'),
-                event_name: $caller.data('event-name'),
-                event_value: 'click'
-            });
+            if ($caller.data('event-source') && $caller.data('event-name')) {
+                $(window).trigger('fef.track.interaction', {
+                    event_source: $caller.data('event-source'),
+                    event_name: $caller.data('event-name'),
+                    event_value: 'click'
+                });
+            }
         });
     });
 });
