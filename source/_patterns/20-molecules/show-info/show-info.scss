@@ -334,9 +334,3 @@ $coverImageSize: 112px;
     padding: 20px 0 0;
   }
 }
-
-.show-info__button-whatsapp {
-  @include tablet-up{
-    display: none;
-  }
-}
