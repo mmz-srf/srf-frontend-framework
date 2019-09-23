@@ -228,7 +228,7 @@ $coverImageSize: 112px;
   outline-offset: -1px;
   margin: 0 -1px;
 
-  .button--secondary {
+  .button {
     margin-top: 16px;
     @include tablet-up {
       margin-right: 24px;
@@ -332,11 +332,5 @@ $coverImageSize: 112px;
 
   @include desktop-wide {
     padding: 20px 0 0;
-  }
-}
-
-.show-info__button-whatsapp {
-  @include tablet-up{
-    display: none;
   }
 }

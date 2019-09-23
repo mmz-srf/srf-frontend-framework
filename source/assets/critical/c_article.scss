@@ -84,12 +84,7 @@
   background-color: $color-srf-warmgrey-900;
 }
 .sharing-bar__button--whatsapp {
-  display: none;
   background-color: $color-brand-whatsapp;
-
-  @include smartphone {
-    display: inline-block
-  }
 }
 
 .shimmer-box {
