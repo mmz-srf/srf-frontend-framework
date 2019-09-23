@@ -152,6 +152,14 @@ $coverImageSize: 112px;
   }
 }
 
+.show-info__more {
+  &::after {
+    content: '';
+    position: absolute;
+    @include caret('dark', 'right', 'small');
+  }
+}
+
 .show-info__categories {
   margin-bottom: 16px;
 }
