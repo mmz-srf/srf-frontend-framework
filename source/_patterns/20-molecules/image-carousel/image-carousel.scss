@@ -149,16 +149,17 @@
     background-size: 28px;
   }
 
-  &:hover {
-    background-color: $color-srf-neutral-blacka48;
-  }
-
   &:active {
     background-color: $color-srf-neutral-blacka80;
   }
+}
 
-  &.untouched {
-    background-color: transparent;
+.carousel--no-touch {
+  .carousel__link--prev,
+  .carousel__link--next {
+    &:hover {
+      background-color: $color-srf-neutral-blacka48;
+    }
   }
 }
 
