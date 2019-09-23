@@ -228,13 +228,17 @@ $coverImageSize: 112px;
   outline-offset: -1px;
   margin: 0 -1px;
 
+  // Mobile: 1 column
+  // Tablet/Desktop: 2 columns
+  // Desktop+: 1 row
   .button {
     margin-top: 16px;
+
     @include tablet-up {
       margin-right: 24px;
       flex-basis: calc(50% - (28px / 2));
 
-      &:nth-of-type(2n) {
+      &:nth-child(2n) {
         margin-right: 0;
       }
     }
@@ -244,7 +248,7 @@ $coverImageSize: 112px;
       flex-basis: auto;
       width: auto;
 
-      &:nth-of-type(2n) {
+      &:nth-child(2n) {
         margin-right: 16px;
       }
     }
