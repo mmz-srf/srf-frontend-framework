@@ -160,6 +160,11 @@
     &:hover {
       background-color: $color-srf-neutral-blacka48;
     }
+
+    // :hover in this class is defined after the :active that is set already, so it has to be overridden again
+    &:active {
+      background-color: $color-srf-neutral-blacka80;
+    }
   }
 }
 
