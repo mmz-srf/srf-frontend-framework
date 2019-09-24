@@ -3,6 +3,7 @@ import {KEYCODES} from '../utils/fef-keycodes';
 const HOOK_CLASS        = '.js-genex';
 const TOGGLE_CLASS      = '.js-genex-toggle';
 const ANIMATION_DEFAULT_EASING = 'easeInOutCubic';
+const ANIMATION_FINISHED_EVENT = 'fef.element.height.changed';
 
 let ANIMATION_DEFAULT_DURATION = 400;
 
@@ -59,8 +60,11 @@ export class FefGenericExpander {
     togglePanels(event) {
         // prevent toggling of multiple panels
         if (this.isTogglingAllowed) {
-            let allowToggling = () => {
+            let onAnimationDone = () => {
+                // allow further toggling
                 this.isTogglingAllowed = true;
+                // let other components know (e.g. modals) that the height changed
+                $(window).trigger(ANIMATION_FINISHED_EVENT);
             };
 
             const $lastToggle = $(`.${this.openToggleClass}`, this.$element);
@@ -70,13 +74,13 @@ export class FefGenericExpander {
             if ($openPanel.length > 0) {
                 if ($lastToggle.get(0) !== $currentToggle.get(0)) {
                     this.closeOpenPanels(event, $lastToggle, $openPanel, () => {
-                        this.openCurrentPanel(event, $currentToggle, allowToggling);
+                        this.openCurrentPanel(event, $currentToggle, onAnimationDone);
                     });
                 } else {
-                    this.closeOpenPanels(event, $lastToggle, $openPanel, allowToggling);
+                    this.closeOpenPanels(event, $lastToggle, $openPanel, onAnimationDone);
                 }
             } else {
-                this.openCurrentPanel(event, $currentToggle, allowToggling);
+                this.openCurrentPanel(event, $currentToggle, onAnimationDone);
             }
 
             this.isTogglingAllowed = false;
