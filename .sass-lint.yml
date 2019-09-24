@@ -12,6 +12,7 @@ rules:
     - convention: 0
   brace-style:
     - 1
+    - style: '1tbs'
     - allow-single-line: true
   class-name-format:
     - 0
@@ -21,7 +22,7 @@ rules:
     - filename-extension: false
       leading-underscore: false
   empty-line-between-blocks:
-    - 0
+    - 1
     - ignore-single-line-rulesets: true
   extends-before-declarations: 1
   extends-before-mixins: 1
@@ -133,7 +134,7 @@ rules:
         - 1
         - 2
         - 3
-  single-line-per-selector: 0
+  single-line-per-selector: 1
   space-after-bang:
     - 1
     - include: false

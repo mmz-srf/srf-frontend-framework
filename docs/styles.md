@@ -32,6 +32,14 @@
 }
 ```
 
+**Checking coding style**
+
+- Validate and lint your code before committing to ensure your changes follow our coding standards
+
+```shell
+  gulp sass-lint
+```
+
 ## Specificity and selector nesting
 Keep CSS [specificity](https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity) as low as possible:
 

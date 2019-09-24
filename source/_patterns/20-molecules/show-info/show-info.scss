@@ -336,7 +336,7 @@ $coverImageSize: 112px;
 }
 
 .show-info__button-whatsapp {
-  @include tablet-up{
+  @include tablet-up {
     display: none;
   }
 }
