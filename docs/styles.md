@@ -17,6 +17,7 @@
 - In properties, put a space after, but not before, the `:` character.
 - Put closing braces `}` of rule declarations on a new line
 - Put blank lines between rule declarations
+- Lint your code before committing: `gulp sass-lint`
 
 **Example**
 ```scss
@@ -32,23 +33,14 @@
 }
 ```
 
-**Checking coding style**
-
-- Validate and lint your code before committing to ensure your changes follow our coding standards
-
-```shell
-  gulp sass-lint
-```
-
 ## Specificity and selector nesting
 Keep CSS [specificity](https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity) as low as possible:
 
 - Whenever possible, use class selectors.
-- Avoid the nesting of selectors and complex selectors.
-- In any case: **Do not nest selectors more than three levels deep!**
+- Avoid complex selectors and the nesting of selectors.
+- In any case: Do not nest selectors more than three levels deep!
 - If you need to increase the specificity of a CSS class, use its name in a selector twice: `.my-class.my-class`.
-
-Please **do not** abbreviate and nest class names with the Sass parent selector (`&`). Searching for CSS definitions gets very hard this way.
+- Please **do not** abbreviate and nest class names with the Sass parent selector (`&`). Searching for CSS definitions gets very hard this way.
 
 **Example**
 
@@ -65,19 +57,27 @@ Please **do not** abbreviate and nest class names with the Sass parent selector 
 
 *Good*
 ```scss
-.sharing-bar { … }
-
-.sharing-bar__container { … }
-
-.sharing-bar__button {
-  &:hover { … }
+.sharing-bar {
+  …
 }
 
-.sharing-bar__button--facebook { … }
+.sharing-bar__container {
+  …
+}
+
+.sharing-bar__button {
+  &:hover {
+    …
+  }
+}
+
+.sharing-bar__button--facebook {
+  …
+}
 ```
 
 ## Class naming
-- In general, use BEM for naming classes where sensible. The block names should correspond to the pattern name in patternlab.
+- In general, use [BEM](#BEM) for naming classes where sensible. The block names should correspond to the pattern name in patternlab.
 - For global and utility classes use the following prefixes:
 
 | Prefix         | Use case   |
@@ -85,14 +85,14 @@ Please **do not** abbreviate and nest class names with the Sass parent selector 
 | `l-`           | Classes defining the global **l** ayout |
 | `h-`           | [Utility/ **h** elper classes](#utility_classes)|
 | `js-`          | [**J** ava **s** cript hooks](#js_hooks) |
-| `demo-`, `sg-` | Class names beginning with `demo-` or `sg-` are **not** part of the SRF Frontend Framework patterns. Use them only to style this patternlab styleguide. |
+| `demo-`, `sg-` | Only use to style this patternlab styleguide (**not** part of the FEF patterns). |
 
 ### <a id="BEM"></a>BEM
 **BEM**, or «Block-Element-Modifier», is a _naming convention_ for classes in HTML and CSS. It was originally developed by Yandex with large codebases and scalability in mind, and can serve as a solid set of guidelines for implementing OOCSS.
 
 We use a variant of BEM called [«Two Dashes style»](https://en.bem.info/methodology/naming-convention/#two-dashes-style):
 
-#### Example HTML
+**Example HTML**
 ```html
 <!-- sharing-bar.twig -->
 <div class="sharing-bar">
@@ -107,7 +107,7 @@ We use a variant of BEM called [«Two Dashes style»](https://en.bem.info/method
 </div>
 ```
 
-#### Example SCSS
+**Example SCSS**
 ```scss
 /* sharing-bar.scss */
 .sharing-bar { … }
@@ -120,7 +120,7 @@ We use a variant of BEM called [«Two Dashes style»](https://en.bem.info/method
 - `.sharing-bar__container` and `.sharing-bar__button` are «elements» and represents descendants of `.sharing-bar` that helps compose the block as a whole. Elements can be nested in the html structure of the block.
 - `.sharing-bar__button--facebook` is a «modifier» and represents a different state or variation on the `.sharing-bar__button` element. Modifiers can be applied to elements and blocks
 
-The main principle behind our BEM blocks should be that they can be used anywhere, independent of their context. In the future, each block will have a separate generated CSS file so that just the styles for the block have to be included when its added somewhere. Therefore it's important that all styling of a block and its elements is contained in one single Sass file. The name of the sass file should correspond to the name of the block (i.e. block `.sharing-bar { … }` is defined in a file named `sharing-bar.scss`
+To keep maintenance simple, it's important that **all styling of a block** and its elements is contained **in one single** Sass file. The name of the Sass file should correspond to the name of the block (i.e. block `.sharing-bar { … }` is defined in a file named `sharing-bar.scss`
 
 - [BEM](https://en.bem.info)
 - [GetBEM](http://getbem.com)
@@ -161,23 +161,25 @@ If you really must use an `!important` statement, please comment the reasons for
 ## Sass-Variables
 Prefer dash-cased variable names (e.g. `$my-variable`) over camelCased or snake_cased variable names.
 
-## Colors
-Consult <a href="docs/colors.md" data-fef-href="/patterns/00-documentation-30-colors/00-documentation-30-colors.html">Colors in FEF</a> for important information about using Colors in FEF.
-
 ## Comments
-- Write detailed comments for code that isn’t self-documenting, i.e.:
- - Uses of z-index
- - Compatibility or browser-specific hacks
+Write detailed comments for code that isn’t self-documenting, i.e.:
+- Compatibility or browser-specific workarounds
+- Calculations
+- Usages of z-index
 
 ## Browser workarounds
-- Put browser-specific hacks and workarounds in the `_shame.scss` file.
-- Remove the workarounds from there when a browser isn't supported anymore.
+Put browser-specific hacks and workarounds in the `_shame.scss` file.
+
+Remove the workarounds from there when a browser isn't supported anymore.
 
 ## Mixins
 Mixins should be used to DRY up your code, add clarity, or abstract complexity – in much the same way as well-named functions. Mixins that accept no arguments can be useful for this, but note that if you are not compressing your payload (e.g. gzip), this may contribute to unnecessary code duplication in the resulting styles.
 
 ## Extend directive
-`@extend` must be avoided because it has unintuitive and potentially dangerous behavior, especially when used with nested selectors. Even extending top-level placeholder selectors can cause problems if the order of selectors ends up changing later (e.g. if they are in other files and the order the files are loaded shifts). Gzipping should handle most of the savings you would have gained by using `@extend`, and you can DRY up your stylesheets nicely with **mixins**.
+`@extend` must be avoided because it has unintuitive and potentially dangerous behavior, especially when used with nested selectors. Instead, you can DRY up your stylesheets nicely with **mixins**.
+
+## Colors
+Consult <a href="docs/colors.md" data-fef-href="/patterns/00-documentation-30-colors/00-documentation-30-colors.html">Colors in FEF</a> for important information about using Colors in FEF.
 
 ## Credits
-This style guide was inspired by and uses some parts of the [Airbnb CSS / Sass Styleguide](https://github.com/airbnb/css).
+This style guide was originally based on the [Airbnb CSS / Sass Styleguide](https://github.com/airbnb/css) and might still use some content of it.

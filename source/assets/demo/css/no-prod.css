@@ -81,12 +81,19 @@ code {
   padding: 0.1em 0.25em;
 }
 
+pre > code {
+  display: inline-block;
+  padding: 0 0.25em;
+  margin-bottom: -0.5rem;
+}
+
+
 blockquote {
-  font-size: 1rem;
-  margin: 1rem 0.5rem 1rem 1.5rem;
-  padding: 0 1.5rem 0 1.5rem;
-  border-left: 1rem solid rgba(253,246,227,1);
   font-family: 'SRG_SSR_Serif_Regular', serif;
+  background: #f9f9f9;
+  border-left: 10px solid #ccc;
+  margin: 1rem 4.5rem 1rem 4.5rem;
+  padding: 0.25rem 1.5rem;
 }
 
 h4 {
@@ -165,6 +172,7 @@ td {
   border-color: rgba(255,255,255,1);
   border-width: 0 1px 2px 0;
   vertical-align: top;
+}
 
 @media (max-width: 719px) {
   th,
