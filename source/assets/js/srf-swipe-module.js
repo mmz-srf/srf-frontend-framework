@@ -1,4 +1,5 @@
 import {FefDebounceHelper} from './classes/fef-debounce-helper';
+import {FefResizeListener} from './classes/fef-resize-listener';
 
 export function init() {
     $('.swipemod').each((index, elem) => {
@@ -58,7 +59,7 @@ export class SrfSwiper {
 
         this.$swipeContainer.on('scroll', FefDebounceHelper.throttle(() => this.afterUserScrolled(), DEBOUNCETIME) );
 
-        $(window).on('resize', FefDebounceHelper.debounce(() => this.afterResize(), DEBOUNCETIME) );
+        FefResizeListener.subscribeDebounced(() => this.afterResize());
 
         this.$prevBtn.hover(
             (_) => this.applyHint(20),

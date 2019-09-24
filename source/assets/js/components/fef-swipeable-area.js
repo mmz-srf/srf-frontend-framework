@@ -1,6 +1,7 @@
 import {FefDebounceHelper} from '../classes/fef-debounce-helper';
 import {FefResponsiveHelper} from '../classes/fef-responsive-helper';
 import {FefTouchDetection} from '../classes/fef-touch-detection';
+import {FefResizeListener} from '../classes/fef-resize-listener';
 
 const HOOK_CLASS = 'js-swipeable-area',
     INNER_CONTAINER_CLASS = 'js-swipeable-area-wrapper',
@@ -91,10 +92,9 @@ export class FefSwipeableArea {
     }
 
     registerGeneralListeners() {
-        $(window).on('resize', FefDebounceHelper.debounce(() => this.init(), DEBOUNCETIME));
+        FefResizeListener.subscribeDebounced(() => this.init());
         $(window).on('srf.styles.loaded', () => this.init());
-        this.$element.on('srf.swipeableArea.reinitialize', () => this.init());
-        this.$element.on('srf.swipeable.content-changed', () => this.init());
+        this.$element.on('srf.swipeableArea.reinitialize srf.swipeable.content-changed', () => this.init());
     };
 
     registerDesktopListeners() {
