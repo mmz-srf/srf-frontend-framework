@@ -1,5 +1,5 @@
-import {FefDebounceHelper} from '../classes/fef-debounce-helper';
 import {FefResponsiveHelper} from '../classes/fef-responsive-helper';
+import {FefResizeListener} from '../classes/fef-resize-listener';
 
 export function init() {
     $('.js-masthead').each((i, elem) => {
@@ -21,7 +21,7 @@ export class FeFStickyHeader {
 
         this.initializeAffix();
 
-        $(window).on('resize.sticky-header', FefDebounceHelper.debounce(() => this.reInitializeAffix(), DEBOUNCE_TIME));
+        FefResizeListener.subscribeDebounced(() => this.reInitializeAffix());
     }
 
     /* eslint-disable no-lonely-if */
