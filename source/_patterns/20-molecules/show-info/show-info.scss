@@ -153,10 +153,19 @@ $coverImageSize: 112px;
 }
 
 .show-info__more {
+  &, &:hover {
+    border: 0;
+  }
+
+  // estimate the link's color by darkening the caret
+  &:hover::after {
+    filter: brightness(.6);
+  }
+
   &::after {
     content: '';
     position: absolute;
-    @include caret('dark', 'right', 'small');
+    @include caret('red', 'right', 'small');
   }
 }
 
