@@ -36,6 +36,8 @@
 .article-teaser__content {
   margin-left: 104px;
   min-height: 92px;
+  display: flex;
+  flex-direction: column;
 
   @include tablet-up {
     margin-left: 158px;
@@ -50,6 +52,7 @@
   line-height: 1.33;
   margin: 0;
   padding-bottom: 4px;
+  flex-grow: 0;
 
   @include tablet-up {
     @include fontSize(14);
@@ -64,6 +67,7 @@
   @include fontSize(16);
   line-height: $emphasize-line-height-ratio;
   color: $color-srf-warmgrey-1100;
+  flex-grow: 1;
 
   @include tablet-up {
     padding-bottom: 8px;
