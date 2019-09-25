@@ -877,13 +877,17 @@ body.body--loading.body--loading {
 
   .simple-teaser,
   .content-header__station-logo,
-  .content-header__presenter-image,
   .modal-flyout,
+  .pill-link-wrapper {
+    display: none;
+  }
+
   .a2z__search,
   .a2z__filter-bar,
   .a2z__lists,
-  .onairnav-list,
-  .pill-link-wrapper {
+  .content-header__presenter-image,
+  .onairnav-list {
     opacity: 0;
   }
+
 }
