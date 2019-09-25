@@ -5,17 +5,28 @@
 
     {% include 'atoms-breadcrumbs' with {  "breadcrumbs": [
         {
-            "url": "/?p=documentation-intro",
+            "url": "/patterns/00-documentation-00-intro/00-documentation-00-intro.html",
             "name": "Documentation"
         }
     ]} %}
+
     <header class="article-header">
         <h1 class="article-title">
             <span class="article-title__overline">Documentation</span>
             <span class="article-title__text">SRF Frontend Framework (FEF)</span>
         </h1>
     </header>
+
     {% include 'atoms-horizontal-separator' %}
+
+    <section class="article-content">
+        <p><strong>Table of contents</strong></p>
+        <div class="js-demo-toc"></div>
+    <section class="article-content">
+
+    {% include 'atoms-horizontal-separator' %}
+
+
 {% endblock %}
 
 {% block demo_content %}

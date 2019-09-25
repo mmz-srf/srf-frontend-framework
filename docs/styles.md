@@ -87,7 +87,7 @@ Keep CSS [specificity](https://developer.mozilla.org/en-US/docs/Web/CSS/Specific
 | `js-`          | [**J** ava **s** cript hooks](#js_hooks) |
 | `demo-`, `sg-` | Only use to style this patternlab styleguide (**not** part of the FEF patterns). |
 
-### <a id="BEM"></a>BEM
+## <a id="BEM"></a>BEM
 **BEM**, or «Block-Element-Modifier», is a _naming convention_ for classes in HTML and CSS. It was originally developed by Yandex with large codebases and scalability in mind, and can serve as a solid set of guidelines for implementing OOCSS.
 
 We use a variant of BEM called [«Two Dashes style»](https://en.bem.info/methodology/naming-convention/#two-dashes-style):
