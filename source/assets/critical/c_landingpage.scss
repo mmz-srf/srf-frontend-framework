@@ -679,7 +679,7 @@ body.body--loading.body--loading {
   .teaser__opinion,
   .teaser__links,
   .media-still__indicator {
-    display: none;
+    opacity: 0;
   }
 
   .ratio::before {
@@ -881,7 +881,9 @@ body.body--loading.body--loading {
   .modal-flyout,
   .a2z__search,
   .a2z__filter-bar,
-  .a2z__lists {
-    display: none;
+  .a2z__lists,
+  .onairnav-list,
+  .pill-link-wrapper {
+    opacity: 0;
   }
 }
