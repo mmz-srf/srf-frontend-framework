@@ -881,7 +881,9 @@ body.body--loading.body--loading {
   .modal-flyout,
   .a2z__search,
   .a2z__filter-bar,
-  .a2z__lists {
-    display: none;
+  .a2z__lists,
+  .onairnav-list,
+  .pill-link-wrapper {
+    opacity: 0;
   }
 }
