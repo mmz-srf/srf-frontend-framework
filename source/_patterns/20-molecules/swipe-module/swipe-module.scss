@@ -168,6 +168,7 @@ $item-max-width: 400px;
     &::after {
       content: none;
     }
+
     .swipemod-container--4ormore &::after {
       content: '';
     }

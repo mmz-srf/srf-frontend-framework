@@ -157,7 +157,9 @@
   transition: background-color 0.2s ease-in-out;
   padding: 14px 16px 14px 48px;
 
-  &:hover, &:active, &:focus {
+  &:hover,
+  &:active,
+  &:focus {
     background-color: $color-srf-warmgrey-100;
   }
 }

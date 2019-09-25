@@ -83,6 +83,7 @@
 .play-icon--hover {
   @extend .play-icon:hover;
 }
+
 .play-icon--audio.play-icon--hover {
   @extend .play-icon--audio:hover;
 }
