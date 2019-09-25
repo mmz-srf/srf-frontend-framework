@@ -1,5 +1,5 @@
-<div class="media-caption {{ styleModifier }}">
-    <span class="h-offscreen">Legende:</span>
+<div class="media-caption {{ styleModifier }}" role="text">
+    <span class="h-offscreen">Audio</span>
     {% if audio.title %}
         <div class="media-caption__title media-caption__title--audio">{{ audio.title }}</div>
     {% endif %}
@@ -10,4 +10,5 @@
         {% endif %}
         vom {{ audio.show.date|date("d.m.Y")  }}
     </div>
+    <span class="h-offscreen">abspielen</span>
 </div>
