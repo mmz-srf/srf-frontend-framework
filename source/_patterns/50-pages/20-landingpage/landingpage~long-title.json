@@ -1,3 +1,4 @@
 {
-  "title": "DOK - 12'378'000'000 mm Australien"
+  "title": "DOK - 12'378'000'000 mm Australien",
+  "alternateCssFiles": [ "main.global.css", "main.page.css"]
 }

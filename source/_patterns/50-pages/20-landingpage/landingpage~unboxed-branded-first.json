@@ -1,5 +1,6 @@
 {
   "title": "Meteo",
+  "alternateCssFiles": [ "main.global.css", "main.page.css"],
   "themeStyleModifier": "masthead--theme-meteo",
   "collections": [
     {

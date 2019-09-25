@@ -1,4 +1,5 @@
 {
   "title": "SRF",
-  "headerType": "home"
+  "headerType": "home",
+  "alternateCssFiles": [ "main.global.css", "main.page.css"]
 }
