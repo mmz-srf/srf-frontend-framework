@@ -21,7 +21,6 @@ $(window).on(DOM_CHANGED_EVENT, (e) => {
 
         $(element).on('click', (event) => {
             event.preventDefault();
-            event.stopPropagation();
 
             let $caller = $(element);
             let modalId = $caller.attr('data-modal-id');
