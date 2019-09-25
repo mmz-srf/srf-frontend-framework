@@ -884,6 +884,7 @@ body.body--loading.body--loading {
   .a2z__lists,
   .onairnav-list,
   .pill-link-wrapper {
-    display: none;
+    opacity: 0;
+    transition: opacity .25s ease-out;
   }
 }
