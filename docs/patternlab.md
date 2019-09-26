@@ -26,7 +26,7 @@ Here are just some quick remarks how we use Pattern Lab:
 
 - The "cogwheel" menu in the top right corner of Pattern Lab's menubar is often overlooked but contains some handy features:
   - "Find patterns": Search for patterns by their name
-  - "Open in new Windeow": Display the pattern without the pattern lab website in a new window
+  - "Open in new Window": Display the pattern without the pattern lab website in a new window
   - "Show pattern info": Copy generated pattern HTML from this info window, see where a pattern is included and see the content of a patterns .md-file.
 
 
