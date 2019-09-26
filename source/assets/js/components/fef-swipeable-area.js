@@ -79,7 +79,7 @@ export class FefSwipeableArea {
     initItemPositions() {
         this.itemPositions = [];
 
-        this.$items.each( (index, element) => {
+        this.$items.each( (_, element) => {
             const left = $(element).position().left;
             // take width of first child because element itself may have margin/padding which should not be counted
             const width = $(element).children().first().innerWidth();
@@ -91,10 +91,47 @@ export class FefSwipeableArea {
             });
         });
 
-        // lol doesn't work :(
-        let containerWidth = this.$innerContainer.innerWidth();
-        this.nrOfPotentialVisibleItems = this.itemPositions.filter(positionSet => positionSet.right < containerWidth).length;
-        console.log(this.nrOfPotentialVisibleItems);
+        
+        this.setNrOfPotentialVisibleItems();
+    }
+
+    /**
+     * To find out how many items could be fit in the visible area, we
+     * count all items where the right edge is in the range of the
+     * container's width + one gap between the items (because in some cases
+     * when the gap is large enough it can "push" one item out of this range).
+     * 
+     * Example:
+     * If we just count the items where the right edge is less than the
+     * container's width, this would give us 1. But when we scroll a bit
+     * it's apparent that actually 2 items fit in it. That's why we add
+     * the gap to the filter condition.
+     * 
+     *            +-----------------------+ <-- container
+     *            |                       |
+     *           +---------------------------------------
+     *           ||                       |
+     *           ||        +--+         +--+         +--+
+     *           ||        |  |         | ||         |  |
+     *           ||        +--+         +--+         +--+
+     *           ||                       |
+     *           +---------------------------------------
+     *            |                       |
+     *      +---------------------------------------
+     *      |     |                       |
+     *      |     |   +--+         +--+   |     +--+
+     *      |     |   |  |         |  |   |     |  |
+     *      |     |   +--+         +--+   |     +--+
+     *      |     |                       |
+     *      +---------------------------------------
+     *            |                       |
+     *            +-----------------------+
+     */
+    setNrOfPotentialVisibleItems() {
+        let containerWidth = this.$innerContainer.innerWidth(),
+            containerAndFirstGap = containerWidth + this.itemPositions[0].left;
+
+        this.nrOfPotentialVisibleItems = this.itemPositions.filter((positionSet) => positionSet.right < containerAndFirstGap).length;
     }
 
     registerGeneralListeners() {
