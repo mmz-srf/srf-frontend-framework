@@ -34,6 +34,7 @@ export class FefSwipeableArea {
         this.itemPositions = [];
         this.$buttonBack = null;
         this.$buttonForward = null;
+        this.nrOfPotentialVisibleItems = 0;
         this.interactionMeasureString = interactionMeasureString;
 
         this.visibleClass = null;
@@ -89,6 +90,11 @@ export class FefSwipeableArea {
                 right: left + width
             });
         });
+
+        // lol doesn't work :(
+        let containerWidth = this.$innerContainer.innerWidth();
+        this.nrOfPotentialVisibleItems = this.itemPositions.filter(positionSet => positionSet.right < containerWidth).length;
+        console.log(this.nrOfPotentialVisibleItems);
     }
 
     registerGeneralListeners() {
@@ -233,19 +239,135 @@ export class FefSwipeableArea {
     }
 
     /**
+     * @param {Number} partiallyVisibleItemIndex
+     * @param {String} direction 'forward'|'backward'
+     */
+    getTargetItemIndex(partiallyVisibleItemIndex, direction) {
+        let isEven = this.nrOfPotentialVisibleItems % 2 === 0,
+            targetPosition;
+
+        if (direction === 'forward') {
+            if (isEven) {
+                // EVEN
+                targetPosition = partiallyVisibleItemIndex + (this.nrOfPotentialVisibleItems / 2) - 1;
+            } else {
+                // ODD
+                targetPosition = partiallyVisibleItemIndex + (this.nrOfPotentialVisibleItems - 1) / 2;
+            }
+        } else {
+            // eslint-disable-next-line no-lonely-if
+            if (isEven) {
+                // EVEN
+                targetPosition = partiallyVisibleItemIndex - (this.nrOfPotentialVisibleItems / 2) + 1;
+            } else {
+                // ODD
+                targetPosition = partiallyVisibleItemIndex - (this.nrOfPotentialVisibleItems + 1) / 2;
+            }
+        }
+
+        return targetPosition;
+    }
+
+    getCenterTargetPosition(targetItemIndex, direction) {
+        let isEven = this.nrOfPotentialVisibleItems % 2 === 0,
+            halfGap = (this.itemPositions[0].left / 2),
+            targetPosition;
+
+        if (!isEven) {
+            // ODD in any direction: target position is the item's center
+            targetPosition = this.itemPositions[targetItemIndex].center;
+        } else if (direction === 'forward') {
+            // EVEN forward: target position is the center of the gap between
+            // the item and the one to the right
+            targetPosition = this.itemPositions[targetItemIndex].right + halfGap;
+        } else {
+            // EVEN backward: target position is the center of the gap between
+            // the item and the one to the left
+            targetPosition = this.itemPositions[targetItemIndex].left - halfGap;
+        }
+
+        return targetPosition;
+    }
+
+    /**
      * Paging forward (-->):
      * Get the right-most item that's partially out of view (i.e. its right edge
      * is over the visible area's right edge).
-     * Then get the one after that and try to center it. If there's no next one
-     * we just take the last (the right-most) and use this.
+     * 
+     * If there's an EVEN amount of potentially visible items (n), the rule is as
+     * follows:
+     * Get the item (n/2 - 1) items AFTER that and align the gap to the right of
+     * it with the center of the container.
+     * 
+     * Example: 5 is the right-most partially visible item and there is space
+     * for up to 4 items (n) so we have align the gap AFTER item 5 + n/2 - 1 = 6
+     * with the center of the container.
+     * 
+     *    +-------------------------------------+
+     *    |                                     |
+     *    |  +---+   +---+   +---+   +---+   +--++   +---+   +---+   +---+
+     *    |  |   |   |   |   |   |   |   |   |xxx|   |   |   |   |   |   |
+     *    |  | 1 |   | 2 |   | 3 |   | 4 |   |x5x|   | 6 |   | 7 |   | 8 |
+     *    |  |   |   |   |   |   |   |   |   |xxx|   |   |   |   |   |   |
+     *    |  +---+   +---+   +---+   +---+   +--++   +---+   +---+   +---+
+     *    |                                     |
+     *    +-------------------------------------+
+     *                       +
+     *    +-------------------------------------+
+     *    |                  +                  |
+     * +---+   +---+   +---+   +---+   +---+   +---+
+     * |  ||   |xxx|   |   |   |   |   |   |   ||  |
+     * | 4||   |x5x|   | 6 |   | 7 |   | 8 |   ||9 |
+     * |  ||   |xxx|   |   |   |   |   |   |   ||  |
+     * +---+   +---+   +---+   +---+   +---+   +---+
+     *    |                  +                  |
+     *    +-------------------------------------+
+     *                       + center line
+     * 
+     * If there's an ODD amount of potentially visible items (n), the rule is as
+     * follows:
+     * Get the item (n-1) / 2 items AFTER that and align its center with the
+     * center of the container.
+     * 
+     * Example: 4 is the right-most partially visible item and there is space
+     * for up to 3 items (n) so we have align the center of item 4 + (n-1)/2 = 5
+     * with the center of the container.
+     * 
+     *    +-----------------------------+
+     *    |                             |
+     *    |  +---+   +---+   +---+   +--++   +---+
+     *    |  |   |   |   |   |   |   |xxx|   |   |
+     *    |  | 1 |   | 2 |   | 3 |   |x4x|   | 5 |
+     *    |  |   |   |   |   |   |   |xxx|   |   |
+     *    |  +---+   +---+   +---+   +--++   +---+
+     *    |                             |
+     *    +-----------------------------+
+     * 
+     *                   +
+     *    +--------------+--------------+
+     *    |                             |
+     * +---+   +---+   +---+   +---+   +---+
+     * |  ||   |xxx|   |   |   |   |   ||  |
+     * | 3||   |x4x|   | 5 |   | 6 |   ||7 |
+     * |  ||   |xxx|   |   |   |   |   ||  |
+     * +---+   +---+   +---+   +---+   +---+
+     *    |                             |
+     *    +--------------+--------------+
+     *                   + center line
+     * 
+     * If there's no next item or not enough we just take the last (the
+     * right-most) item and use it as the "target" item to center.
      */
     pageForward() {
-        let visibleAreaRightEdge = this.$innerContainer.scrollLeft() + this.$innerContainer.innerWidth(),
-            nextItemIndex = this.itemPositions.findIndex(pos => pos.right > visibleAreaRightEdge);
+        let containerWidth = this.$innerContainer.innerWidth(),
+            visibleAreaRightEdge = this.$innerContainer.scrollLeft() + containerWidth,
+            partiallyVisibleItemIndex = this.itemPositions.findIndex(pos => pos.right > visibleAreaRightEdge),
+            targetItemIndex = this.getTargetItemIndex(partiallyVisibleItemIndex, 'forward');
 
-        nextItemIndex = Math.min(nextItemIndex + 1, this.itemPositions.length - 1);
+        // Make sure index is not out of bounds
+        targetItemIndex = Math.min(partiallyVisibleItemIndex, this.itemPositions.length - 1);
 
-        let newPosition = this.itemPositions[nextItemIndex].center - (this.$innerContainer.innerWidth() / 2);
+        let newPosition = this.getCenterTargetPosition(targetItemIndex, 'forward') - (containerWidth / 2);
 
         this.scrollToPosition(newPosition);
         this.track('click-right');
@@ -253,18 +375,18 @@ export class FefSwipeableArea {
 
     /**
      * Paging back (<--):
-     * Get the left-most item that's partially out of view (i.e. its right edge
-     * is over the visible area's left edge).
-     * Then get the one before that and try to center it. If there's no previous one
-     * we just take the first (the left-most) and use this.
+     * For a visual description, see pageForward()'s doc block above.
      */
     pageBack() {
-        let visibleAreaLeftEdge = this.$innerContainer.scrollLeft(),
-            nextItemIndex = this.itemPositions.findIndex(pos => pos.right > visibleAreaLeftEdge);
+        let containerWidth = this.$innerContainer.innerWidth(),
+            visibleAreaLeftEdge = this.$innerContainer.scrollLeft(),
+            partiallyVisibleItemIndex = this.itemPositions.findIndex(pos => pos.right > visibleAreaLeftEdge),
+            targetItemIndex = this.getTargetItemIndex(partiallyVisibleItemIndex, 'backward');
 
-        nextItemIndex = Math.max(nextItemIndex - 1, 0);
+        // Make sure index is not out of bounds
+        targetItemIndex = Math.max(targetItemIndex, 0);
 
-        let newPosition = this.itemPositions[nextItemIndex].center - (this.$innerContainer.innerWidth() / 2);
+        let newPosition = this.getCenterTargetPosition(targetItemIndex, 'backward') - (containerWidth / 2);
 
         this.scrollToPosition(newPosition);
         this.track('click-left');
