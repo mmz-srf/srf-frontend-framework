@@ -11,7 +11,7 @@ Here are just some quick remarks how we use Pattern Lab:
 - All patterns can be found in `/source/_patterns`.
 - A pattern must at least have a twig file in order to appear in the styleguide. Prefix a twig file name with a `_` to hide it from the styleguide but still be able to include the file in an other pattern. Example: `_teaser.twig`
 - If you want to demonstrate various versions or states of a pattern, create a demo page. Prefix the file name of a demo page with `demo-`. Don't include a demo page in another pattern.
-- **Styles** of a pattern must be included in one of the `/source/main.xyz.scss files:
+- **Styles** of a pattern must be included in one of the `/source/main.xyz.scss` files:
   - `main.global.scss`: patterns that will be used anywhere.
   - `main.article.scss`: patterns that will only be used in SRF articles.
   - `main.page.scss`: patterns that will only be used in SRF landingpages.
