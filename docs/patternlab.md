@@ -17,7 +17,7 @@ Here are just some quick remarks how we use Pattern Lab:
   - `main.page.scss`: patterns that will only be used in SRF landingpages.
 - Styles for the **Critical CSS** are defined in one of the following files:
   - `/assets/critical/c_article.scss`: Critical CSS for SRF articles
-  - `/assets/critical/c_landingpage.scss`: Critical CSS for SRF landingpages`
+  - `/assets/critical/c_landingpage.scss`: Critical CSS for SRF landingpages
 - Some global css rules, variables, mixins etc. can be found in the top level of `/source/_patterns`, prefixed with an underscore, i.e. `_mixins.scss`, `_variables.scss`.
 - **Javascript** files go into `/assets/js` and must be included/initialized in the `main.js` file
 - **Images** are located in `/assets/img`
