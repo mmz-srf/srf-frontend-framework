@@ -78,20 +78,24 @@ export class FefSwipeableArea {
 
     initItemPositions() {
         this.itemPositions = [];
+        
+        let currentLeft = 0;
 
         this.$items.each( (_, element) => {
-            const left = $(element).position().left;
-            // take width of first child because element itself may have margin/padding which should not be counted
-            const width = $(element).children().first().innerWidth();
+            const widthParent = $(element).innerWidth();
+            const widthChild = $(element).children().first().innerWidth();
 
             this.itemPositions.push({
-                left: left,
-                center: left + (width / 2),
-                right: left + width
+                left: currentLeft,
+                center: currentLeft + (widthChild / 2),
+                right: currentLeft + widthChild
             });
+
+            currentLeft += widthParent;
         });
 
-        
+        console.log(this.itemPositions);
+
         this.setNrOfPotentialVisibleItems();
     }
 
@@ -222,6 +226,9 @@ export class FefSwipeableArea {
      */
     onTeaserClick(event) {
         let $item = $(event.currentTarget);
+        
+        // DEV
+        $item.find('.teaser--square').css('border-radius','100%');
 
         if (!$item.hasClass(this.hiddenClass)) {
             return;
@@ -281,33 +288,33 @@ export class FefSwipeableArea {
      */
     getTargetItemIndex(partiallyVisibleItemIndex, direction) {
         let isEven = this.nrOfPotentialVisibleItems % 2 === 0,
-            targetPosition;
-
+            targetIndex;
+        
         if (direction === 'forward') {
             if (isEven) {
                 // EVEN
-                targetPosition = partiallyVisibleItemIndex + (this.nrOfPotentialVisibleItems / 2) - 1;
+                targetIndex = partiallyVisibleItemIndex + (this.nrOfPotentialVisibleItems / 2) - 1;
             } else {
                 // ODD
-                targetPosition = partiallyVisibleItemIndex + (this.nrOfPotentialVisibleItems - 1) / 2;
+                targetIndex = partiallyVisibleItemIndex + (this.nrOfPotentialVisibleItems - 1) / 2;
             }
         } else {
             // eslint-disable-next-line no-lonely-if
             if (isEven) {
                 // EVEN
-                targetPosition = partiallyVisibleItemIndex - (this.nrOfPotentialVisibleItems / 2) + 1;
+                targetIndex = partiallyVisibleItemIndex - (this.nrOfPotentialVisibleItems / 2) + 1;
             } else {
                 // ODD
-                targetPosition = partiallyVisibleItemIndex - (this.nrOfPotentialVisibleItems + 1) / 2;
+                targetIndex = partiallyVisibleItemIndex - (this.nrOfPotentialVisibleItems + 1) / 2;
             }
         }
 
-        return targetPosition;
+        return targetIndex;
     }
 
     getCenterTargetPosition(targetItemIndex, direction) {
         let isEven = this.nrOfPotentialVisibleItems % 2 === 0,
-            halfGap = (this.itemPositions[0].left / 2),
+            halfGap = (this.itemPositions[1].left - this.itemPositions[0].right) / 2,
             targetPosition;
 
         if (!isEven) {
@@ -322,6 +329,8 @@ export class FefSwipeableArea {
             // the item and the one to the left
             targetPosition = this.itemPositions[targetItemIndex].left - halfGap;
         }
+
+        console.log('targetPosition: '+targetPosition);
 
         return targetPosition;
     }
@@ -402,9 +411,9 @@ export class FefSwipeableArea {
             targetItemIndex = this.getTargetItemIndex(partiallyVisibleItemIndex, 'forward');
 
         // Make sure index is not out of bounds
-        targetItemIndex = Math.min(partiallyVisibleItemIndex, this.itemPositions.length - 1);
+        targetItemIndex = Math.min(targetItemIndex, this.itemPositions.length - 1);
 
-        let newPosition = this.getCenterTargetPosition(targetItemIndex, 'forward') - (containerWidth / 2);
+        let newPosition = this.getCenterTargetPosition(targetItemIndex, 'forward') - (containerWidth / 2) - this.$innerContainer.scrollLeft();
 
         this.scrollToPosition(newPosition);
         this.track('click-right');
