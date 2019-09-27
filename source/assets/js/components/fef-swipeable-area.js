@@ -94,7 +94,15 @@ export class FefSwipeableArea {
             currentLeft += widthParent;
         });
 
-        console.log(this.itemPositions);
+        // works, but eww
+        if (this.itemPositions.length > 1) {
+            let leftGap = this.$items.first().outerWidth(true, true) - this.$items.first().children().first().innerWidth() - (this.itemPositions[1].left - this.itemPositions[0].right);
+            this.itemPositions = this.itemPositions.map((pos) => {return {
+                left: pos.left + leftGap,
+                center: pos.center + leftGap,
+                right: pos.right + leftGap,
+            };});
+        }
 
         this.setNrOfPotentialVisibleItems();
     }
@@ -329,8 +337,6 @@ export class FefSwipeableArea {
             // the item and the one to the left
             targetPosition = this.itemPositions[targetItemIndex].left - halfGap;
         }
-
-        console.log('targetPosition: '+targetPosition);
 
         return targetPosition;
     }
