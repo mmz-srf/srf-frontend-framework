@@ -1,32 +1,18 @@
-<header class="masthead js-masthead masthead--home {{ themeStyleModifier }} masthead--{{ variantModifier }}">
-    <div class="masthead__wrapper">
-        <h2 class="h-offscreen">Header</h2>
-        <div class="masthead__universal {{ mastheadUniversalModifier|default('') }}">
-            <div class="masthead__logo">
-                {% include 'atoms-main-logo' with {'styleModifier': ''} %}
-            </div>
-            <div class="masthead__portals">
-                {% include 'molecules-portalsnav' with {'styleModifier': 'portalsnav--large'} %}
-            </div>
-            <div class="masthead__button-wrapper">
-                <h3 class="h-offscreen">Navigation</h3>
-                <button class="masthead__button" data-modal-id="modal-onairnav" aria-haspopup="false" aria-expanded="false">
-                    {% include 'atoms-icon-button' with {
-                        'iconStyleModifier': 'svg-icon--play-video-circle',
-                        'buttonText': 'TV/Radio',
-                        'screenReaderText': 'TV/Radio-Navigation (öffnet in einem Modal)'
-                    } %}
-                </button>
-                <button class="masthead__button" data-modal-id="modal-menu" aria-haspopup="false" aria-expanded="false">
-                    {% include 'atoms-icon-button' with {
-                        'iconStyleModifier': 'svg-icon--searchmenu',
-                        'buttonText': 'Menü',
-                        'styleModifier': 'icon-button--collapsing-text-tablet icon-button--spaceless-right-tablet',
-                        'screenReaderText': 'Suche/Hauptnavigation (öffnet in einem Modal)'
-                    } %}
-                </button>
-            </div>
-        </div>
+{% embed 'organisms-masthead' %}
+
+    {% block headertag %}
+        <header class="masthead js-masthead masthead--home {{ themeStyleModifier }} masthead--{{ variantModifier }}">
+    {% endblock %}
+
+    {% block logo %}
+        {% include 'atoms-main-logo' with {'styleModifier': ''} %}
+    {% endblock %}
+
+    {% block portalsnav %}
+        {% include 'molecules-portalsnav' with {'styleModifier': 'portalsnav--large'} %}
+    {% endblock %}
+
+    {% block subnavigation %}
         <div class="masthead__nav {{ mastheadNavModifier|default('') }}" aria-hidden="true" role="presentation">
             {% include 'molecules-subnav' with {
                 "styleModifier": "subnav--portals",
@@ -53,5 +39,5 @@
                 }
             } %}
         </div>
-    </div>
-</header>
+    {% endblock %}
+{% endembed %}

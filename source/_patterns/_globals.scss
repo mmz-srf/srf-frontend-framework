@@ -26,6 +26,10 @@ html, body {
   line-height: $default-line-height-ratio;
 }
 
+nav {
+  display: inline;
+}
+
 ul, ol {
   counter-reset: item;
   list-style-type: none;
