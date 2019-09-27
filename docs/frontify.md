@@ -21,7 +21,7 @@ Hint: `<access_token>` is the frontify access token (it's stored in our password
 
 4. Some of the asset paths within the .html-files of the `/export/` folder are changed to a frontify compatible path.
 
-5. The javascript files `/public/assets/js/vendor.js` and `/public/assets/js/bundle.js` are concatinated and saved as a new `/public/assets/frontify/frontify-bundle.js` file.
+5. The javascript files `/public/assets/js/vendor.js` and `/public/assets/js/bundle.js` are concatenated and saved as a new `/public/assets/frontify/frontify-bundle.js` file.
 
 6. The patterns from the `/export/` folder are synced via frontify api to frontify.
 
