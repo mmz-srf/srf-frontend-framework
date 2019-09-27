@@ -35,9 +35,14 @@
 
 .article-teaser__content {
   margin-left: 104px;
-  min-height: 92px;
   display: flex;
   flex-direction: column;
+
+  // Cross Browser min height, taken from:
+  // https://css-tricks.com/snippets/css/cross-browser-min-height/
+  min-height: 92px;
+  height: auto !important;
+  height: 92px;
 
   @include tablet-up {
     margin-left: 158px;
