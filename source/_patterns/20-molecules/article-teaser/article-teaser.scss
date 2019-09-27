@@ -33,18 +33,19 @@
   }
 }
 
+.article-teaser__content-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 92px;
+}
+
 .article-teaser__content {
   margin-left: 104px;
   display: flex;
   flex-direction: column;
+  flex: 1 0 auto;
 
   min-height: 92px;
-
-  // IE11 calculation of min height
-  &:before {
-    content: '';
-    height: 92px;
-  }
 
   @include tablet-up {
     margin-left: 158px;
