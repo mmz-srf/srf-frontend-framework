@@ -429,3 +429,12 @@
   // edge/ie (autohiding, but they appear again on interaction)
   -ms-overflow-style: -ms-autohiding-scrollbar;
 }
+
+@mixin crossBrowserMinHeight($height) {
+  min-height: $height + 0px;
+
+  // IE11 detection, IE treats height as min height, the löli
+  _:-ms-fullscreen, :root .ie11up {
+    height: $height + 0px;
+  }
+}
