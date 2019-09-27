@@ -41,7 +41,11 @@ export class FefSwipeableArea {
         this.hiddenClass = null;
 
         this.initOnce();
-        this.init();
+
+        // only set up the swipeable at this point if it's swipeable
+        if (this.hasScrollableOverflow()) {
+            this.init();
+        }
     }
 
     initOnce() {
@@ -78,31 +82,20 @@ export class FefSwipeableArea {
 
     initItemPositions() {
         this.itemPositions = [];
-        
-        let currentLeft = 0;
 
-        this.$items.each( (_, element) => {
-            const widthParent = $(element).innerWidth();
-            const widthChild = $(element).children().first().innerWidth();
+        let parentOffset = this.$innerContainer.children().first().offset().left;
+
+        this.$items.each((_, item) => {
+            let $item = $(item).children().first(),
+                left = $item.offset().left - parentOffset,
+                width = $item.innerWidth();
 
             this.itemPositions.push({
-                left: currentLeft,
-                center: currentLeft + (widthChild / 2),
-                right: currentLeft + widthChild
+                left: left,
+                center: left + (width / 2 ),
+                right: left + width
             });
-
-            currentLeft += widthParent;
         });
-
-        // works, but eww
-        if (this.itemPositions.length > 1) {
-            let leftGap = this.$items.first().outerWidth(true, true) - this.$items.first().children().first().innerWidth() - (this.itemPositions[1].left - this.itemPositions[0].right);
-            this.itemPositions = this.itemPositions.map((pos) => {return {
-                left: pos.left + leftGap,
-                center: pos.center + leftGap,
-                right: pos.right + leftGap,
-            };});
-        }
 
         this.setNrOfPotentialVisibleItems();
     }
@@ -234,9 +227,6 @@ export class FefSwipeableArea {
      */
     onTeaserClick(event) {
         let $item = $(event.currentTarget);
-        
-        // DEV
-        $item.find('.teaser--square').css('border-radius','100%');
 
         if (!$item.hasClass(this.hiddenClass)) {
             return;
@@ -419,7 +409,7 @@ export class FefSwipeableArea {
         // Make sure index is not out of bounds
         targetItemIndex = Math.min(targetItemIndex, this.itemPositions.length - 1);
 
-        let newPosition = this.getCenterTargetPosition(targetItemIndex, 'forward') - (containerWidth / 2) - this.$innerContainer.scrollLeft();
+        let newPosition = this.getCenterTargetPosition(targetItemIndex, 'forward') - (containerWidth / 2);
 
         this.scrollToPosition(newPosition);
         this.track('click-right');
