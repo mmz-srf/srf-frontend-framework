@@ -303,7 +303,7 @@ export class FefSwipeableArea {
                 targetIndex = partiallyVisibleItemIndex - (this.nrOfPotentialVisibleItems / 2) + 1;
             } else {
                 // ODD
-                targetIndex = partiallyVisibleItemIndex - (this.nrOfPotentialVisibleItems + 1) / 2;
+                targetIndex = partiallyVisibleItemIndex - (this.nrOfPotentialVisibleItems - 1) / 2;
             }
         }
 
