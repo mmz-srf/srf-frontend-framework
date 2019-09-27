@@ -92,7 +92,7 @@ export class FefSwipeableArea {
 
             this.itemPositions.push({
                 left: left,
-                center: left + (width / 2 ),
+                center: left + (width / 2),
                 right: left + width
             });
         });
