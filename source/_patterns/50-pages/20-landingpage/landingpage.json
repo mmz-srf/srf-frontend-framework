@@ -1,5 +1,6 @@
 {
   "title": "News",
   "bodyClass": "",
-  "criticalCssFile": "c_landingpage.css"
+  "criticalCssFile": "c_landingpage.css",
+  "alternateCssFiles": [ "main.global.css", "main.page.css"]
 }

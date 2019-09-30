@@ -149,16 +149,22 @@
     background-size: 28px;
   }
 
-  &:hover {
-    background-color: $color-srf-neutral-blacka48;
-  }
-
   &:active {
     background-color: $color-srf-neutral-blacka80;
   }
+}
 
-  &.untouched {
-    background-color: transparent;
+.carousel--no-touch {
+  .carousel__link--prev,
+  .carousel__link--next {
+    &:hover {
+      background-color: $color-srf-neutral-blacka48;
+    }
+
+    // :hover in this class is defined after the :active that is set already, so it has to be overridden again
+    &:active {
+      background-color: $color-srf-neutral-blacka80;
+    }
   }
 }
 

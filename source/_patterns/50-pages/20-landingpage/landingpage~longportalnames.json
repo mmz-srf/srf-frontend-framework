@@ -2,5 +2,6 @@
   "title": "SRF",
   "themeStyleModifier": "masthead--longportalnames",
   "variantModifier": "longportalnames",
-  "headerType": "home"
+  "headerType": "home",
+  "alternateCssFiles": [ "main.global.css", "main.page.css"]
 }

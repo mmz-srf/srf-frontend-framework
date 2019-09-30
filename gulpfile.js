@@ -55,6 +55,9 @@ gulp.task('clean', function () {
 gulp.task('styles', function () {
     return gulp.src([
         'source/_patterns/main.scss',
+        'source/_patterns/main.article.scss',
+        'source/_patterns/main.page.scss',
+        'source/_patterns/main.global.scss',
         'source/assets/critical/c_article.scss',
         'source/assets/critical/c_landingpage.scss'
     ])

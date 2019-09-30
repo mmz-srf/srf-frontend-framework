@@ -1,3 +1,4 @@
 {
-  "bodyClass": ""
+  "bodyClass": "",
+  "alternateCssFiles": [ "main.global.css", "main.article.css"]
 }
