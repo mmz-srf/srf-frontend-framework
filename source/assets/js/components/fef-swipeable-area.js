@@ -36,6 +36,7 @@ export class FefSwipeableArea {
         this.$buttonForward = null;
         this.nrOfPotentialVisibleItems = 0;
         this.interactionMeasureString = interactionMeasureString;
+        this.isScrollingToEdge = false; // flag which is set to true while the container is currently being scrolled to the beginning or end by the script (not by the user)
 
         this.visibleClass = null;
         this.hiddenClass = null;
@@ -202,14 +203,15 @@ export class FefSwipeableArea {
     /**
      * Hovering over an item can trigger the hinting mechanism, if it's
      * partially visible.
-     *
+     * Don't do anything if the swipeable is currently scrolling to the end of
+     * the container or the element is visible.
      *
      * @param {jQery.event} event
      */
     onTeaserHover(event) {
         let $item = $(event.currentTarget);
 
-        if (!$item.hasClass(this.hiddenClass)) {
+        if (this.isScrollingToEdge || !$item.hasClass(this.hiddenClass)) {
             return;
         }
 
@@ -448,7 +450,7 @@ export class FefSwipeableArea {
 
         this.$innerContainer
             .stop(true, false)
-            .animate( { scrollLeft: position }, time, 'easeInOutSine');
+            .animate({ scrollLeft: position }, time, 'easeInOutSine', () => this.isScrollingToEdge = false);
     }
 
     checkFuturePosition(position) {
@@ -475,22 +477,28 @@ export class FefSwipeableArea {
         }
 
         if (willBeOutOfBoundsOnAnySide) {
+            this.isScrollingToEdge = true;
             this.applyHint(0);
         }
     }
 
     markItems() {
-        this.$items.each( (_, element) => {
-            let $element = $(element),
-                isInView = this.isItemCompletelyInView($element);
+        let $visibleItems = this.$items.filter((_, element) => this.isItemCompletelyInView($(element))),
+            $hiddenItems = this.$items.filter((_, element) => !this.isItemCompletelyInView($(element)));
 
-            $element
-                .toggleClass(this.visibleClass, isInView)
-                .toggleClass(this.hiddenClass, !isInView);
-        });
+        this.markItemsVisible($visibleItems);
+        this.markItemsHidden($hiddenItems);
 
         // move the flying focus to the new position after scrolling
         $(document).trigger('flyingfocus:move');
+    }
+
+    markItemsVisible($items) {
+        $items.each((_, element) => $(element).removeClass(this.hiddenClass).addClass(this.visibleClass));
+    }
+
+    markItemsHidden($items) {
+        $items.each((_, element) => $(element).removeClass(this.visibleClass).addClass(this.hiddenClass));
     }
 
     isItemCompletelyInView($itemElem) {
