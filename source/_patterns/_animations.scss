@@ -15,22 +15,27 @@ $light-attention-color: $color-srf-red-500;
     transform: scale($small-size);
     background-color: $dark-attention-color;
   }
+
   20% {
     transform: scale($big-size);
     background-color: $light-attention-color;
   }
+
   40% {
     transform: scale($small-size);
     background-color: $dark-attention-color;
   }
+
   60% {
     transform: scale($big-size);
     background-color: $light-attention-color;
   }
+
   80% {
     transform: scale($small-size);
     background-color: $dark-attention-color;
   }
+
   100% {
     transform: scale($small-size);
     background-color: $dark-attention-color;
@@ -50,9 +55,11 @@ $light-attention-color: $color-srf-red-500;
   25% {
     background-color: $color-srf-red-500;
   }
+
   50% {
     background-color: $color-srf-yellow-700;
   }
+
   75% {
     background-color: $color-srf-red-500;
   }
@@ -71,6 +78,7 @@ $light-attention-color: $color-srf-red-500;
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(360deg);
   }
@@ -89,9 +97,11 @@ $light-attention-color: $color-srf-red-500;
   0% {
     box-shadow: 0 0 0 $color-srf-neutral-blacka00;
   }
+
   20% {
     box-shadow: 0 4px 16px $color-srf-neutral-blacka30;
   }
+
   100% {
     box-shadow: 0 0 0 $color-srf-neutral-blacka00;
   }
@@ -117,9 +127,11 @@ $light-attention-color: $color-srf-red-500;
   0% {
     background-position: 10%;
   }
+
   50% {
     background-position: 80%;
   }
+
   100% {
     background-position: 10%;
   }
@@ -138,6 +150,7 @@ $light-attention-color: $color-srf-red-500;
   0% {
     background-color: $color-srf-neutral-blacka00;
   }
+
   100% {
     background-color: $color-srf-neutral-blacka12;
   }
@@ -156,9 +169,11 @@ $light-attention-color: $color-srf-red-500;
   0% {
     transform: scaleY(0);
   }
+
   20% {
     opacity: 0;
   }
+
   100% {
     opacity: 1;
     transform: scaleY(1);
@@ -169,6 +184,7 @@ $light-attention-color: $color-srf-red-500;
   20% {
     opacity: 0;
   }
+
   100% {
     opacity: 1;
   }
@@ -188,9 +204,11 @@ $light-attention-color: $color-srf-red-500;
     opacity: 0;
     max-height: 0;
   }
+
   80% {
     max-height: 48px;
   }
+
   100% {
     opacity: 1;
     max-height: none;
@@ -206,6 +224,7 @@ $light-attention-color: $color-srf-red-500;
     opacity: 1;
     max-height: none;
   }
+
   100% {
     opacity: 1;
     max-height: none;
@@ -216,9 +235,11 @@ $light-attention-color: $color-srf-red-500;
   0% {
     transform: rotate(0deg);
   }
+
   90% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(-360deg);
   }

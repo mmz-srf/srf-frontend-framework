@@ -19,12 +19,14 @@
     @include font-smoothing;
   }
 }
+
 .teaser__label--live {
   .teaser__label-box {
     @include sickAnimation {
       animation: pulsatingLiveAnimation 3s infinite ease-in-out;
     }
   }
+
   .teaser__label-box--time {
     display: none;
   }

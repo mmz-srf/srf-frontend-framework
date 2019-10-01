@@ -47,20 +47,9 @@ body.demo-pattern-page {
 
 
 /* Styles for DOCS-Elements */
-.path {
-  background: rgba(0,117,227,1);
-  color: rgba(255,255,255,1);
-  letter-spacing: .025em;
-}
-
-span.path {
-  display: inline-block;
-  background: none;
-  color: rgba(0,117,227,1);
-}
-
-pre,
-code {
+body.demo-doc-page pre,
+body.demo-doc-page code {
+  font-size: 1rem;
   background: rgba(253,246,227,1);
   color: rgba(73,73,73,1);
   letter-spacing: .025em;
@@ -71,11 +60,38 @@ code {
   user-select: all;
 }
 
-pre {
+body.demo-doc-page pre {
   padding: 1em;
+  margin: 1rem;
 }
 
-h4 {
+body.demo-doc-page code {
+  padding: 0.1em 0.25em;
+}
+
+body.demo-doc-page pre > code {
+  display: inline-block;
+  padding: 0 0.25em;
+  margin-bottom: -0.5rem;
+}
+
+
+body.demo-doc-page blockquote {
+  font-family: 'SRG_SSR_Serif_Regular', serif;
+  background: #f9f9f9;
+  border-left: 10px solid #ccc;
+  margin: 1rem 4.5rem 1rem 4.5rem;
+  padding: 0.25rem 1.5rem;
+}
+
+
+body.demo-doc-page h1 {
+  margin: 3px 0 18px;
+  font-size: 36px;
+  letter-spacing: normal;
+}
+
+body.demo-doc-page h4 {
   padding: 0 24px;
   margin: 32px 0 12px;
   font-family: "SRG_SSR_Medium", sans-serif;
@@ -85,25 +101,25 @@ h4 {
 }
 
 @media (max-width: 719px) {
-  h4 {
+  body.demo-doc-page h4 {
     margin: 24px 0 12px;
     font-size: 22px;
   }
 }
 
-table {
+body.demo-doc-page table {
   width: 100%;
   border-collapse: collapse;
 }
 
 @media (max-width: 719px) {
-  table {
+  body.demo-doc-page table {
     width: calc(100% - 8px);
     margin-left: 8px;
   }
 }
 
-th {
+body.demo-doc-page th {
   font-size: 14px;
 
   font-family: "SRG_SSR_Medium", sans-serif;
@@ -114,47 +130,52 @@ th {
 }
 
 @media (max-width: 719px) {
-  th {
+  body.demo-doc-page th {
     font-size: 16px;
   }
 
-  thead th:last-of-type,
-  tbody td:last-of-type {
+  body.demo-doc-page thead th:last-of-type,
+  body.demo-doc-page tbody td:last-of-type {
     border-right-width: 8px;
   }
 }
 
-// if there is a thead, begin with a light bg-color
-thead + tbody tr:nth-child(even) {background-color: rgba(245,245,242,1)}
-thead + tbody tr:nth-child(odd) {background-color: rgba(250,250,248,1)}
+/* if there is a thead, begin with a light bg-color */
+body.demo-doc-page thead + tbody tr:nth-child(even) {background-color: rgba(245,245,242,1)}
+body.demo-doc-page thead + tbody tr:nth-child(odd) {background-color: rgba(250,250,248,1)}
 
-// otherwise begin with a dark bg-color
-tbody tr:nth-child(even) {background-color: rgba(250,250,248,1)}
-tbody tr:nth-child(odd) {background-color: rgba(245,245,242,1)}
+/* otherwise begin with a dark bg-color */
+body.demo-doc-page tbody tr:nth-child(even) {background-color: rgba(250,250,248,1)}
+body.demo-doc-page tbody tr:nth-child(odd) {background-color: rgba(245,245,242,1)}
 
 
-td {
+body.demo-doc-page td {
   font-size: 14px;
 }
 
 @media (max-width: 719px) {
-  td {
+  body.demo-doc-page td {
     font-size: 16px;
   }
 }
 
-th,
-td {
+body.demo-doc-page th,
+body.demo-doc-page td {
   padding: 13px 16px 15px;
 
   border-style: solid;
   border-color: rgba(255,255,255,1);
   border-width: 0 1px 2px 0;
   vertical-align: top;
+}
 
 @media (max-width: 719px) {
-  th,
-  td {
+  body.demo-doc-page th,
+  body.demo-doc-page td {
     padding: 11px 24px 13px;
   }
+}
+
+body.demo-doc-page .l-card {
+  padding-bottom: 64px;
 }

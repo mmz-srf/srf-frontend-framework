@@ -28,21 +28,25 @@
     height: 100%;
   }
 }
+
 .teaser__medium-wrapper {
   .js-fake-image-object-fit {
     height: 100%;
     position: absolute;
   }
 }
+
 .image--media-still-dynamic {
   .js-fake-image-object-fit {
     height: 100%;
     position: relative;
   }
 }
+
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
   .teaser__medium-wrapper-xl-only {
     flex: 0 0 65.75%;
+
     .teaser__medium-wrapper {
       flex-basis: auto;
     }
@@ -249,6 +253,7 @@ _:-ms-fullscreen,
       color: $color-srf-neutral-white;
     }
   }
+
   .teaser--longform {
     .block-link--teaser-link:hover {
       color: $color-srf-neutral-white;
