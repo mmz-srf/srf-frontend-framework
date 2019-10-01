@@ -50,6 +50,7 @@ $ticker-item-border-width: 1px;
     left: -1px;
   }
 }
+
 .ticker--closed { // fix overlapping border
   .ticker-item:first-of-type::after {
     top: 0;
@@ -57,6 +58,7 @@ $ticker-item-border-width: 1px;
     border-left: 1px solid $color-srf-neutral-white;
   }
 }
+
 .ticker--scheduled,
 .ticker--live { // elongated border
   .ticker-item:first-of-type::after {
@@ -65,6 +67,7 @@ $ticker-item-border-width: 1px;
     border-left: 1px solid $color-srf-warmgrey-200;
   }
 }
+
 .ticker--live {
   .ticker-item--new::before { // red center
     left: -6px;
