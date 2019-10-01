@@ -10,6 +10,13 @@ $(window).on(DOM_CHANGED_EVENT, (e) => {
     });
 });
 
+// Init function for srf-plugin-loader
+export function init() {
+    $('.image-slider').each((index, element) => {
+        new FefImageSlider($(element));
+    });
+}
+
 export class FefImageSlider {
 
     constructor($element) {
@@ -22,6 +29,8 @@ export class FefImageSlider {
         this.bindMoveRightClick(currentPosition, $element);
 
         $(window).trigger(COMPONENT_LOADED, { 'component': this, 'element': $element });
+
+        $element.find('.js-spinner-container').remove();
         $element.addClass('ready');
     }
 
