@@ -848,7 +848,11 @@
 
       &:active {
         opacity: .6;
+      }
 
+      &:hover,
+      &:focus,
+      &:active {
         &::after {
           opacity: 0;
         }
