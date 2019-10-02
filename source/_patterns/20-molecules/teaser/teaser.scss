@@ -173,6 +173,7 @@
 
   /* theme */
   @include customPropWithFallback('color', '--teaser-color-accentuation', $color-srf-red-600);
+
   > * {
     flex: 0 1 auto;
     margin: 0 8px 4px 0;
@@ -847,7 +848,11 @@
 
       &:active {
         opacity: .6;
+      }
 
+      &:hover,
+      &:focus,
+      &:active {
         &::after {
           opacity: 0;
         }

@@ -24,10 +24,15 @@
                 <a href="#sendungsseite">4x4 Podcast</a>
             </h3>
             {# infoline only on epidose-detail-page #}
-            <p class="infoline">17:44 min, vom 4.5.2019</p>
+            <a href="#sendungsseite">
+                <p class="infoline">17:44 min, vom 4.5.2019</p>
+            </a>
         </div>
         <div class="show-info__content">
-            <a href="#sendungsseite" class="show-info__body">Wer die Nachrichten schon kennt, will möglichst bald mehr: mehr Einordnung, mehr Analyse, mehr Hintergrund. SRF 4 News bietet deshalb mit …</a>
+            <a href="#sendungsseite" class="show-info__body">
+                Wer die Nachrichten schon kennt, will möglichst bald mehr: mehr Einordnung, mehr Analyse, mehr Hintergrund. SRF 4 News bietet deshalb mit …
+                {% include 'atoms-pseudo-link' with { 'linkText': 'Mehr', 'additionalClasses': 'show-info__more' } %}
+                </a>
             {# Kategorien links only on sendungen-detail-page #}
             <div class="show-info__categories">
                 {% include 'atoms-decorated-link' with {'url': '#', 'linkText': 'Hintergrund'} %}

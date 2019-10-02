@@ -31,7 +31,6 @@ $modal-z-index: 100;
   overflow-x: hidden;
   box-shadow: $shadow-elevation8;
   z-index: $modal-z-index;
-  padding-bottom: 80px;
 
   @include smartphone {
 
@@ -101,7 +100,6 @@ $modal-z-index: 100;
   }
 
   @include smartphone {
-    background-color: $color-srf-neutral-whitea92;
     padding: 0;
   }
 }
@@ -146,6 +144,7 @@ $modal-z-index: 100;
     top: auto;
     bottom: 0;
     overflow-y: auto;
+    padding-bottom: 80px;
   }
 
   .modal__content-wrapper {

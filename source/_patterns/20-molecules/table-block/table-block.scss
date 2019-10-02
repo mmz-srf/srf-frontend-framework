@@ -47,12 +47,22 @@ $gap-to-window-mobile: 8px;
   }
 
   // if there is a thead, begin with a light bg-color
-  thead + tbody tr:nth-child(even) {background-color: $color-srf-warmgrey-25}
-  thead + tbody tr:nth-child(odd) {background-color: $color-srf-warmgrey-10}
+  thead + tbody tr:nth-child(even) {
+    background-color: $color-srf-warmgrey-25;
+  }
+
+  thead + tbody tr:nth-child(odd) {
+    background-color: $color-srf-warmgrey-10;
+  }
 
   // otherwise begin with a dark bg-color
-  tbody tr:nth-child(even) {background-color: $color-srf-warmgrey-10}
-  tbody tr:nth-child(odd) {background-color: $color-srf-warmgrey-25}
+  tbody tr:nth-child(even) {
+    background-color: $color-srf-warmgrey-10;
+  }
+
+  tbody tr:nth-child(odd) {
+    background-color: $color-srf-warmgrey-25;
+  }
 
   td {
     @include fontSize(14);
@@ -62,7 +72,8 @@ $gap-to-window-mobile: 8px;
     }
   }
 
-  th, td {
+  th,
+  td {
     padding: 13px $article-offset-mobile 15px;
 
     border-style: solid;
@@ -86,12 +97,15 @@ $gap-to-window-mobile: 8px;
   [data-align="center"] {
     text-align: center;
   }
+
   [data-bold="true"] {
     font-weight: bold;
   }
+
   [data-underline="true"] {
     text-decoration: underline;
   }
+
   [data-italic="true"] {
     font-style: italic;
   }

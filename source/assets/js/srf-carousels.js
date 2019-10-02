@@ -1,4 +1,5 @@
 import { KEYCODES } from './utils/fef-keycodes';
+import {FefTouchDetection} from './classes/fef-touch-detection';
 
 let $carousels = [];
 let loadedCarousels = {};
@@ -18,6 +19,10 @@ export function init() {
         $(this).closest('.carousel-container').addClass('carousel-container--initialized');
         $(css.containers).css('visibility', 'visible');
     });
+
+    if (!FefTouchDetection.isTouchSupported()) {
+        $carousels.addClass('carousel--no-touch');
+    }
 
     // img carousels
     $.each($carousels, function (i, carousel) {
@@ -177,9 +182,7 @@ function registerListener($carousel) {
 
     $carousel.find(css.handles).on('touchstart mousedown mouseenter', function () {
         // if the handles are clicked / touched: stop the animation
-        $(this).removeClass('untouched carousel__link--waggle');
-    }).on('touchend touchcancel', function () {
-        $(this).addClass('untouched');
+        $(this).removeClass('carousel__link--waggle');
     });
 }
 

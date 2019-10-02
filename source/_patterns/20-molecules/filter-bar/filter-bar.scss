@@ -27,7 +27,11 @@
     display: flex;
 
     &:last-of-type .filter-bar__letter {
-      margin-right: 0;
+      margin-right: 12px;
+
+      @include desktop-up {
+        margin-right: 0;
+      }
     }
 
     &:first-of-type {
@@ -85,7 +89,7 @@
 
 .filter-bar__letter--active {
   background-color: $color-srf-warmgrey-100;
-  
+
   &:focus,
   &:hover {
     background-color: $color-srf-warmgrey-100;
