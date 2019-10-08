@@ -1,4 +1,4 @@
-import { DOM_CHANGED_EVENT, FefDomObserver } from '../classes/fef-dom-observer';
+import { DOM_INIT_EVENT, FefDomObserver } from '../classes/fef-dom-observer';
 import { FefResponsiveHelper } from '../classes/fef-responsive-helper';
 import { FefBouncePrevention } from './fef-bounce-prevention';
 import { KEYCODES } from '../utils/fef-keycodes';
@@ -16,7 +16,7 @@ const END_OF_MODAL = '.js-end-of-modal';
 let existingModals = {};
 let scrollbarWidth = 0;
 
-$(window).on(DOM_CHANGED_EVENT, (e) => {
+$(window).on(DOM_INIT_EVENT, (e) => {
     scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
     $('[data-modal-id]').each((index, element) => {
 
