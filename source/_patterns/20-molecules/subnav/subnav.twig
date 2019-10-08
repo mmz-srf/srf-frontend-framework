@@ -1,4 +1,5 @@
-<nav class="subnav js-subnav-container {{ styleModifier }}">
+<nav class="subnav js-subnav-container {{ styleModifier }}" aria-labelledby="subnav-label">
+    <h3 id="subnav-label" class="h-offscreen">Themen der aktuellen Rubrik</h3>
     <ul class="subnav__list js-subnav-content">
         {% for item in masthead.subnavi %}
             {% set itemStyleModifier = (item.active) ? 'nav-item--active js-active-subnav-item' : ''  %}
