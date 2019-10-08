@@ -399,7 +399,7 @@ export class FefSwipeableArea {
      *    +--------------+--------------+
      *                   + center line
      * 
-     * If there's no next item or not enough we just take the last (the
+     * If there's no next item or not enough items, we just take the last (the
      * right-most) item and use it as the "target" item to center.
      */
     pageForward() {
