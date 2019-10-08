@@ -822,6 +822,7 @@ $background-overlap-wide: 50px;
         @include IESafeFlexBasis(calc(50% + 4px));
         padding-right: 40px;
       }
+
       &:nth-child(2) {
         @include IESafeFlexBasis(calc(50% - 4px));
       }

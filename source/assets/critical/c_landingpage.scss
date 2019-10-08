@@ -679,7 +679,7 @@ body.body--loading.body--loading {
   .teaser__opinion,
   .teaser__links,
   .media-still__indicator {
-    display: none;
+    visibility: hidden;
   }
 
   .ratio::before {
@@ -877,11 +877,18 @@ body.body--loading.body--loading {
 
   .simple-teaser,
   .content-header__station-logo,
-  .content-header__presenter-image,
   .modal-flyout,
-  .a2z__search,
-  .a2z__filter-bar,
-  .a2z__lists {
+  .pill-link-wrapper {
     display: none;
   }
+
+  .a2z__search,
+  .a2z__filter-bar,
+  .a2z__lists,
+  .onairnav-list,
+  .pill-link-wrapper,
+  .content-header__presenter-image {
+    visibility: hidden;
+  }
+
 }

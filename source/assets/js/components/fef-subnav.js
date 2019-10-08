@@ -171,6 +171,18 @@ export class FefSubnav {
             // Mobile: don't let the nav-group be taller than the space under the masthead. Make it scrollable and set a max-height to guarantee it.
             $navItem.find(`.${ITEM_GROUP_WRAPPER_CLASS}`).css({'max-height': `calc(100vh - ${$('.js-affix').outerHeight(true)}px)`});
         }
+
+        // Close subnav when tabbing out of it
+        const $lastNavItem = $navItem.find('.nav-group__item').last();
+        $lastNavItem.on('focusin', () => {
+            $lastNavItem.on('keydown', (e) => {
+                if (e.keyCode === KEYCODES.tab && !e.shiftKey) {
+                    this.closeSubNav($navItem);
+                    $lastNavItem.off('focusin');
+                    $lastNavItem.off('keydown');
+                }
+            });
+        });
     }
 
     positionAndStretchSubNavGroup($navItem) {

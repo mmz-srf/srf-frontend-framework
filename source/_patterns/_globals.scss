@@ -22,7 +22,8 @@ body {
   background-color: $color-srf-warmgrey-25;
 }
 
-html, body {
+html,
+body {
   line-height: $default-line-height-ratio;
 }
 
@@ -30,7 +31,8 @@ nav {
   display: inline;
 }
 
-ul, ol {
+ul,
+ol {
   counter-reset: item;
   list-style-type: none;
   margin: 0;
