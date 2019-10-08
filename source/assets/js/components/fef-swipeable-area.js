@@ -34,13 +34,19 @@ export class FefSwipeableArea {
         this.itemPositions = [];
         this.$buttonBack = null;
         this.$buttonForward = null;
+        this.nrOfPotentialVisibleItems = 0;
         this.interactionMeasureString = interactionMeasureString;
+        this.isScrollingToEdge = false; // flag which is set to true while the container is currently being scrolled to the beginning or end by the script (not by the user)
 
         this.visibleClass = null;
         this.hiddenClass = null;
 
         this.initOnce();
-        this.init();
+
+        // only set up the swipeable at this point if it's swipeable
+        if (this.hasScrollableOverflow()) {
+            this.init();
+        }
     }
 
     initOnce() {
@@ -78,10 +84,12 @@ export class FefSwipeableArea {
     initItemPositions() {
         this.itemPositions = [];
 
-        this.$items.each( (index, element) => {
-            const left = $(element).position().left;
-            // take width of first child because element itself may have margin/padding which should not be counted
-            const width = $(element).children().first().innerWidth();
+        let parentOffset = this.$innerContainer.children().first().offset().left;
+
+        this.$items.each((_, item) => {
+            let $item = $(item).children().first(),
+                left = $item.offset().left - parentOffset,
+                width = $item.innerWidth();
 
             this.itemPositions.push({
                 left: left,
@@ -89,6 +97,47 @@ export class FefSwipeableArea {
                 right: left + width
             });
         });
+
+        this.setNrOfPotentialVisibleItems();
+    }
+
+    /**
+     * To find out how many items could be fit in the visible area, we
+     * count all items where the right edge is in the range of the
+     * container's width + one gap between the items (because in some cases
+     * when the gap is large enough it can "push" one item out of this range).
+     * 
+     * Example:
+     * If we just count the items where the right edge is less than the
+     * container's width, this would give us 1. But when we scroll a bit
+     * it's apparent that actually 2 items fit in it. That's why we add
+     * the gap to the filter condition.
+     * 
+     *            +-----------------------+ <-- container
+     *            |                       |
+     *           +---------------------------------------
+     *           ||                       |
+     *           ||        +--+         +--+         +--+
+     *           ||        |  |         | ||         |  |
+     *           ||        +--+         +--+         +--+
+     *           ||                       |
+     *           +---------------------------------------
+     *            |                       |
+     *      +---------------------------------------
+     *      |     |                       |
+     *      |     |   +--+         +--+   |     +--+
+     *      |     |   |  |         |  |   |     |  |
+     *      |     |   +--+         +--+   |     +--+
+     *      |     |                       |
+     *      +---------------------------------------
+     *            |                       |
+     *            +-----------------------+
+     */
+    setNrOfPotentialVisibleItems() {
+        let containerWidth = this.$innerContainer.innerWidth(),
+            containerAndFirstGap = containerWidth + this.itemPositions[0].left;
+
+        this.nrOfPotentialVisibleItems = this.itemPositions.filter((positionSet) => positionSet.right < containerAndFirstGap).length;
     }
 
     registerGeneralListeners() {
@@ -154,14 +203,15 @@ export class FefSwipeableArea {
     /**
      * Hovering over an item can trigger the hinting mechanism, if it's
      * partially visible.
-     *
+     * Don't do anything if the swipeable is currently scrolling to the end of
+     * the container or the element is visible.
      *
      * @param {jQery.event} event
      */
     onTeaserHover(event) {
         let $item = $(event.currentTarget);
 
-        if (!$item.hasClass(this.hiddenClass)) {
+        if (this.isScrollingToEdge || !$item.hasClass(this.hiddenClass)) {
             return;
         }
 
@@ -233,19 +283,135 @@ export class FefSwipeableArea {
     }
 
     /**
+     * @param {Number} partiallyVisibleItemIndex
+     * @param {String} direction 'forward'|'backward'
+     */
+    getTargetItemIndex(partiallyVisibleItemIndex, direction) {
+        let isEven = this.nrOfPotentialVisibleItems % 2 === 0,
+            targetIndex;
+        
+        if (direction === 'forward') {
+            if (isEven) {
+                // EVEN
+                targetIndex = partiallyVisibleItemIndex + (this.nrOfPotentialVisibleItems / 2) - 1;
+            } else {
+                // ODD
+                targetIndex = partiallyVisibleItemIndex + (this.nrOfPotentialVisibleItems - 1) / 2;
+            }
+        } else {
+            // eslint-disable-next-line no-lonely-if
+            if (isEven) {
+                // EVEN
+                targetIndex = partiallyVisibleItemIndex - (this.nrOfPotentialVisibleItems / 2) + 1;
+            } else {
+                // ODD
+                targetIndex = partiallyVisibleItemIndex - (this.nrOfPotentialVisibleItems - 1) / 2;
+            }
+        }
+
+        return targetIndex;
+    }
+
+    getCenterTargetPosition(targetItemIndex, direction) {
+        let isEven = this.nrOfPotentialVisibleItems % 2 === 0,
+            halfGap = (this.itemPositions[1].left - this.itemPositions[0].right) / 2,
+            targetPosition;
+
+        if (!isEven) {
+            // ODD in any direction: target position is the item's center
+            targetPosition = this.itemPositions[targetItemIndex].center;
+        } else if (direction === 'forward') {
+            // EVEN forward: target position is the center of the gap between
+            // the item and the one to the right
+            targetPosition = this.itemPositions[targetItemIndex].right + halfGap;
+        } else {
+            // EVEN backward: target position is the center of the gap between
+            // the item and the one to the left
+            targetPosition = this.itemPositions[targetItemIndex].left - halfGap;
+        }
+
+        return targetPosition;
+    }
+
+    /**
      * Paging forward (-->):
      * Get the right-most item that's partially out of view (i.e. its right edge
      * is over the visible area's right edge).
-     * Then get the one after that and try to center it. If there's no next one
-     * we just take the last (the right-most) and use this.
+     * 
+     * If there's an EVEN amount of potentially visible items (n), the rule is as
+     * follows:
+     * Get the item (n/2 - 1) items AFTER that and align the gap to the right of
+     * it with the center of the container.
+     * 
+     * Example: 5 is the right-most partially visible item and there is space
+     * for up to 4 items (n) so we have align the gap AFTER item 5 + n/2 - 1 = 6
+     * with the center of the container.
+     * 
+     *    +-------------------------------------+
+     *    |                                     |
+     *    |  +---+   +---+   +---+   +---+   +--++   +---+   +---+   +---+
+     *    |  |   |   |   |   |   |   |   |   |xxx|   |   |   |   |   |   |
+     *    |  | 1 |   | 2 |   | 3 |   | 4 |   |x5x|   | 6 |   | 7 |   | 8 |
+     *    |  |   |   |   |   |   |   |   |   |xxx|   |   |   |   |   |   |
+     *    |  +---+   +---+   +---+   +---+   +--++   +---+   +---+   +---+
+     *    |                                     |
+     *    +-------------------------------------+
+     *                       +
+     *    +-------------------------------------+
+     *    |                  +                  |
+     * +---+   +---+   +---+   +---+   +---+   +---+
+     * |  ||   |xxx|   |   |   |   |   |   |   ||  |
+     * | 4||   |x5x|   | 6 |   | 7 |   | 8 |   ||9 |
+     * |  ||   |xxx|   |   |   |   |   |   |   ||  |
+     * +---+   +---+   +---+   +---+   +---+   +---+
+     *    |                  +                  |
+     *    +-------------------------------------+
+     *                       + center line
+     * 
+     * If there's an ODD amount of potentially visible items (n), the rule is as
+     * follows:
+     * Get the item (n-1) / 2 items AFTER that and align its center with the
+     * center of the container.
+     * 
+     * Example: 4 is the right-most partially visible item and there is space
+     * for up to 3 items (n) so we have align the center of item 4 + (n-1)/2 = 5
+     * with the center of the container.
+     * 
+     *    +-----------------------------+
+     *    |                             |
+     *    |  +---+   +---+   +---+   +--++   +---+
+     *    |  |   |   |   |   |   |   |xxx|   |   |
+     *    |  | 1 |   | 2 |   | 3 |   |x4x|   | 5 |
+     *    |  |   |   |   |   |   |   |xxx|   |   |
+     *    |  +---+   +---+   +---+   +--++   +---+
+     *    |                             |
+     *    +-----------------------------+
+     * 
+     *                   +
+     *    +--------------+--------------+
+     *    |                             |
+     * +---+   +---+   +---+   +---+   +---+
+     * |  ||   |xxx|   |   |   |   |   ||  |
+     * | 3||   |x4x|   | 5 |   | 6 |   ||7 |
+     * |  ||   |xxx|   |   |   |   |   ||  |
+     * +---+   +---+   +---+   +---+   +---+
+     *    |                             |
+     *    +--------------+--------------+
+     *                   + center line
+     * 
+     * If there's no next item or not enough items, we just take the last (the
+     * right-most) item and use it as the "target" item to center.
      */
     pageForward() {
-        let visibleAreaRightEdge = this.$innerContainer.scrollLeft() + this.$innerContainer.innerWidth(),
-            nextItemIndex = this.itemPositions.findIndex(pos => pos.right > visibleAreaRightEdge);
+        let containerWidth = this.$innerContainer.innerWidth(),
+            visibleAreaRightEdge = this.$innerContainer.scrollLeft() + containerWidth,
+            partiallyVisibleItemIndex = this.itemPositions.findIndex(pos => pos.right > visibleAreaRightEdge),
+            targetItemIndex = this.getTargetItemIndex(partiallyVisibleItemIndex, 'forward');
 
-        nextItemIndex = Math.min(nextItemIndex + 1, this.itemPositions.length - 1);
+        // Make sure index is not out of bounds
+        targetItemIndex = Math.min(targetItemIndex, this.itemPositions.length - 1);
 
-        let newPosition = this.itemPositions[nextItemIndex].center - (this.$innerContainer.innerWidth() / 2);
+        let newPosition = this.getCenterTargetPosition(targetItemIndex, 'forward') - (containerWidth / 2);
 
         this.scrollToPosition(newPosition);
         this.track('click-right');
@@ -253,18 +419,18 @@ export class FefSwipeableArea {
 
     /**
      * Paging back (<--):
-     * Get the left-most item that's partially out of view (i.e. its right edge
-     * is over the visible area's left edge).
-     * Then get the one before that and try to center it. If there's no previous one
-     * we just take the first (the left-most) and use this.
+     * For a visual description, see pageForward()'s doc block above.
      */
     pageBack() {
-        let visibleAreaLeftEdge = this.$innerContainer.scrollLeft(),
-            nextItemIndex = this.itemPositions.findIndex(pos => pos.right > visibleAreaLeftEdge);
+        let containerWidth = this.$innerContainer.innerWidth(),
+            visibleAreaLeftEdge = this.$innerContainer.scrollLeft(),
+            partiallyVisibleItemIndex = this.itemPositions.findIndex(pos => pos.right > visibleAreaLeftEdge),
+            targetItemIndex = this.getTargetItemIndex(partiallyVisibleItemIndex, 'backward');
 
-        nextItemIndex = Math.max(nextItemIndex - 1, 0);
+        // Make sure index is not out of bounds
+        targetItemIndex = Math.max(targetItemIndex, 0);
 
-        let newPosition = this.itemPositions[nextItemIndex].center - (this.$innerContainer.innerWidth() / 2);
+        let newPosition = this.getCenterTargetPosition(targetItemIndex, 'backward') - (containerWidth / 2);
 
         this.scrollToPosition(newPosition);
         this.track('click-left');
@@ -284,7 +450,7 @@ export class FefSwipeableArea {
 
         this.$innerContainer
             .stop(true, false)
-            .animate( { scrollLeft: position }, time, 'easeInOutSine');
+            .animate({ scrollLeft: position }, time, 'easeInOutSine', () => this.isScrollingToEdge = false);
     }
 
     checkFuturePosition(position) {
@@ -311,22 +477,28 @@ export class FefSwipeableArea {
         }
 
         if (willBeOutOfBoundsOnAnySide) {
+            this.isScrollingToEdge = true;
             this.applyHint(0);
         }
     }
 
     markItems() {
-        this.$items.each( (_, element) => {
-            let $element = $(element),
-                isInView = this.isItemCompletelyInView($element);
+        let $visibleItems = this.$items.filter((_, element) => this.isItemCompletelyInView($(element))),
+            $hiddenItems = this.$items.filter((_, element) => !this.isItemCompletelyInView($(element)));
 
-            $element
-                .toggleClass(this.visibleClass, isInView)
-                .toggleClass(this.hiddenClass, !isInView);
-        });
+        this.markItemsVisible($visibleItems);
+        this.markItemsHidden($hiddenItems);
 
         // move the flying focus to the new position after scrolling
         $(document).trigger('flyingfocus:move');
+    }
+
+    markItemsVisible($items) {
+        $items.each((_, element) => $(element).removeClass(this.hiddenClass).addClass(this.visibleClass));
+    }
+
+    markItemsHidden($items) {
+        $items.each((_, element) => $(element).removeClass(this.visibleClass).addClass(this.hiddenClass));
     }
 
     isItemCompletelyInView($itemElem) {
