@@ -20,11 +20,7 @@ export class FefDomObserver {
 
             for(let mutation of mutationsList) {
                 if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
-                    console.log('A child node has been added or removed.', mutation);
                     mutationsOfInterest++;
-                }
-                else if (mutation.type === 'attributes') {
-                    console.log('The ' + mutation.attributeName + ' attribute was modified.');
                 }
             }
 

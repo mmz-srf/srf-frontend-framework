@@ -3,10 +3,6 @@ import {DOM_MUTATION} from '../classes/fef-dom-observer';
 
 $(window).on(DOM_MUTATION, (e) => {
 
-    console.log('DOM Mutation observed, init FefTooltips');
-
-    console.log('Found tooltips on site:', $('[data-tooltip-toggle]').length);
-
     $('[data-tooltip-toggle]').each((index, element) => {
         new FefTooltip($(element));
     });
@@ -65,7 +61,7 @@ export class FefTooltip {
         if (this.tooltipEnabled) {
             this.bindEvents($element);
         }
-        console.log('FefTooltip initialized');
+
         $element.data('tooltipInitialized', true);
     }
 
