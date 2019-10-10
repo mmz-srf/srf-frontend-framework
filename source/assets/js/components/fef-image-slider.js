@@ -1,10 +1,10 @@
-import {DOM_CHANGED_EVENT} from '../classes/fef-dom-observer';
+import {DOM_INIT_EVENT} from '../classes/fef-dom-observer';
 import {FefResizeListener} from '../classes/fef-resize-listener';
 
 export const COMPONENT_LOADED = 'fef.component.image.slider.loaded';
 
 // Self loading on document.ready and updates if dom change event fired
-$(window).on(DOM_CHANGED_EVENT, (e) => {
+$(window).on(DOM_INIT_EVENT, (e) => {
     $('.image-slider').each((index, element) => {
         new FefImageSlider($(element));
     });
