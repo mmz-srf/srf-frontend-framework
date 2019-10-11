@@ -321,7 +321,7 @@ export class FefModal {
 
     /**
      * When the height of the content changes while the modal is opened,
-     * scrolling may have to be prevented or the prevention has to be lifted.
+     * scrolling may have to be prevented or the prevention has to be undone.
      */
     onContentHeightChanged() {
         if (this.shouldPreventScrolling()) {
@@ -331,6 +331,11 @@ export class FefModal {
         }
     }
 
+    /**
+     * Quick and simple check to see if the scrolling should be prevented.
+     * This is the case on mobile + tablet and if the content is larger than
+     * the modal itself (i.e. the modal is scrollable).
+     */
     shouldPreventScrolling() {
         return this.$mainContent.outerHeight() >= $(window).outerHeight() && (FefResponsiveHelper.isTablet() || FefResponsiveHelper.isSmartphone());
     }
@@ -344,9 +349,6 @@ export class FefModal {
      *
      * Additionally, we prevent bouncy body scrolling which can lead to subpar
      * experience on iOS devices.
-     *
-     * This is only necessary if the modal covers the whole page and on mobile/
-     * tablet. (see shouldPreventScrolling())
      */
     preventScrolling() {
         this.previousScrollPosition = $(window).scrollTop();
