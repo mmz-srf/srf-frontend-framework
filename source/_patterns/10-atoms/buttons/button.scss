@@ -107,10 +107,12 @@ $button-animation-duration: .3s;
 
 .button--call-to-action {
   background-color: $color-srf-red-400;
+
   &:hover,
   &:focus {
     background-color: $color-srf-red-300;
   }
+
   &:active {
     background-color: $color-srf-red-200;
   }
