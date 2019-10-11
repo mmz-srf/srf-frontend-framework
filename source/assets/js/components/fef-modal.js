@@ -139,7 +139,9 @@ export class FefModal {
     }
 
     onShowFinished() {
-        this.preventScrolling();
+        if (this.shouldPreventScrolling()) {
+            this.preventScrolling();
+        }
 
         if (this.animation !== ANIMATION_FLYOUT) {
             this.setA11YProperties(true);
@@ -154,7 +156,7 @@ export class FefModal {
         if (FefResponsiveHelper.isTablet() || FefResponsiveHelper.isSmartphone()) {
             $(window)
                 .off(ANIMATION_FINISHED_EVENT)
-                .on(ANIMATION_FINISHED_EVENT, () => this.preventScrolling());
+                .on(ANIMATION_FINISHED_EVENT, () => this.onContentHeightChanged());
         }
     }
 
@@ -318,24 +320,40 @@ export class FefModal {
     }
 
     /**
+     * When the height of the content changes while the modal is opened,
+     * scrolling may have to be prevented or the prevention has to be lifted.
+     */
+    onContentHeightChanged() {
+        if (this.shouldPreventScrolling()) {
+            this.preventScrolling();
+        } else {
+            this.scrollToPreviousPosition();
+        }
+    }
+
+    shouldPreventScrolling() {
+        return this.$mainContent.outerHeight() >= $(window).outerHeight() && (FefResponsiveHelper.isTablet() || FefResponsiveHelper.isSmartphone());
+    }
+
+    /**
      * Prevent scrollable page when the modal is open.
-     * We achieve this by setting the body to overflow: hidden and setting the height to 100%, thus
-     * effectively cutting the rest of the page off. This scrolls to the top of the page, so we
-     * also have to save the previous scroll state.
+     * We achieve this by setting the body to overflow: hidden and setting the
+     * height to 100%, thus effectively cutting the rest of the page off. This
+     * scrolls to the top of the page, so we also have to save the previous
+     * scroll state.
      *
      * Additionally, we prevent bouncy body scrolling which can lead to subpar
      * experience on iOS devices.
      *
-     * We only do this if the modal covers the whole page and on mobile/tablet.
+     * This is only necessary if the modal covers the whole page and on mobile/
+     * tablet. (see shouldPreventScrolling())
      */
     preventScrolling() {
-        if (this.$mainContent.outerHeight() >= $(window).outerHeight() && (FefResponsiveHelper.isTablet() || FefResponsiveHelper.isSmartphone())) {
-            this.previousScrollPosition = $(window).scrollTop();
-            $('html').addClass('h-prevent-scrolling');
+        this.previousScrollPosition = $(window).scrollTop();
+        $('html').addClass('h-prevent-scrolling');
 
-            if (this.browserSupportsElasticScrolling) {
-                FefBouncePrevention.enable();
-            }
+        if (this.browserSupportsElasticScrolling) {
+            FefBouncePrevention.enable();
         }
     }
 
