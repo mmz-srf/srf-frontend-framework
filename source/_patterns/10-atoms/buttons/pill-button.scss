@@ -104,6 +104,12 @@
   --theme-color-shadow: #{$color-brand-radio-srf-virus-color-1a60};
 }
 
+.pill-button--theme-call_to_action {
+  --theme-color-gradient-1: #{$color-srf-red-400};
+  --theme-color-gradient-2: #{$color-srf-red-400};
+  --theme-color-button-text: #{$color-srf-neutral-white};
+}
+
 .pill-button--theme-radio_srf_default,
 .pill-button--theme-radio_srf_2_kultur,
 .pill-button--theme-radio_srf_3,
