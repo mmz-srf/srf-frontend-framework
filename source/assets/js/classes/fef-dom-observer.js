@@ -16,15 +16,8 @@ export class FefDomObserver {
 
         // Callback function to execute when mutations are observed
         const callback = (mutationsList, observer) => {
-            let mutationsOfInterest = 0;
-
-            for(let mutation of mutationsList) {
-                if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
-                    mutationsOfInterest++;
-                }
-            }
-
-            if (mutationsOfInterest > 0) {
+            // Let's only trigger changed events if we have any that are of interest
+            if (mutationsList.some(mutation => mutation.type === 'childList' && mutation.addedNodes.length > 0)) {
                 setTimeout(() => {
                     this.triggerDomChangedEvent();
                 }, 250);
