@@ -1,4 +1,4 @@
-.nested-link-wrapper {
+.layered-link-wrapper {
   position: relative;
 
   a {
@@ -7,7 +7,7 @@
   }
 }
 
-.nested-link.nested-link {
+.layered-link.layered-link {
   position: static;
 
   &::before {
