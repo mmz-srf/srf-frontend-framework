@@ -154,7 +154,16 @@ $coverImageSize: 112px;
 }
 
 .show-info__more {
-  &, &:hover {
+  color: $color-srf-red-600;
+  border: 0;
+
+  &:hover {
+    color: $color-srf-red-800;
+    border: 0;
+  }
+
+  &:active {
+    color: $color-srf-red-900;
     border: 0;
   }
 
