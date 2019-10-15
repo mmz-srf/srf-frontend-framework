@@ -7,7 +7,7 @@ const ANIMATION_FADE_IN_OUT = 'fade-in-out';
 const ANIMATION_SCALE_FROM_ORIGIN = 'scale-from-origin';
 const ANIMATION_FLYOUT = 'as-flyout-from-origin';
 const ANIMATION_SLIDE_FROM_BOTTOM = 'slide-from-bottom';
-const ANIMATION_FINISHED_EVENT = 'fef.element.height.changed'; // will be thrown by some element that changed its height
+const DOM_HEIGHT_CHANGE_EVENT = 'fef.element.height.changed'; // will be thrown by some element that changed its height
 
 const ANIMATION_SPEED = (window.matchMedia('(prefers-reduced-motion)').matches) ? 0 : 200;
 const END_OF_MODAL = '.js-end-of-modal';
@@ -155,8 +155,8 @@ export class FefModal {
         // modal taller than the viewport --> scrolling must be prevented:
         if (FefResponsiveHelper.isTablet() || FefResponsiveHelper.isSmartphone()) {
             $(window)
-                .off(ANIMATION_FINISHED_EVENT)
-                .on(ANIMATION_FINISHED_EVENT, () => this.onContentHeightChanged());
+                .off(DOM_HEIGHT_CHANGE_EVENT)
+                .on(DOM_HEIGHT_CHANGE_EVENT, () => this.onContentHeightChanged());
         }
     }
 
@@ -167,7 +167,7 @@ export class FefModal {
         this.scrollToPreviousPosition();
 
         // stop listening to any height-changing animations on the page
-        $(window).off(ANIMATION_FINISHED_EVENT);
+        $(window).off(DOM_HEIGHT_CHANGE_EVENT);
 
         this.$caller.attr({'aria-expanded': false, 'aria-haspopup': false});
 
