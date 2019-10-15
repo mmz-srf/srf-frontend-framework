@@ -145,7 +145,7 @@ $coverImageSize: 112px;
   line-height: $default-line-height-ratio;
   color: $color-srf-warmgrey-1100;
   margin-top: 16px;
-  margin-bottom: 24px;
+  margin-bottom: 8px;
   display: block;
 
   &:hover {
@@ -191,8 +191,8 @@ $coverImageSize: 112px;
   flex-wrap: wrap;
 
   .pill-button {
+    margin: 16px 16px 0 0;
     padding: 0 24px 0 16px;
-    margin-right: 16px;
 
     @include smartphone {
       width: 100%;
@@ -203,8 +203,7 @@ $coverImageSize: 112px;
   .button--neutral {
     width: auto;
     position: relative;
-    margin-right: 16px;
-    margin-top: 0;
+    margin: 16px 16px 0 0;
 
     &:last-child {
       margin-right: 0;
