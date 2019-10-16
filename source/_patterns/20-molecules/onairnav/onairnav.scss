@@ -50,7 +50,7 @@
   margin: 0;
   padding: 0 8px;
 
-  @include smartphone {
+  @include desktop-down {
     overflow-x: scroll;
     overflow-y: hidden;
     @include preventScrollbars;
