@@ -5,7 +5,6 @@
 @import '../../_patterns/variables';
 @import '../../_patterns/breakpoints';
 @import '../../_patterns/mixins';
-@import '../../_patterns/10-atoms/indicators/shimmer';
 @import '../../_patterns/10-atoms/wrapper/ratio';
 @import '../../_patterns/40-templates/landingpage';
 
@@ -115,11 +114,10 @@ body.body--loading.body--loading {
       width: 100%;
       height: calc(100% - 2px);
       left: 0;
-      border-top: 1px solid $color-srf-neutral-blacka08;
-      border-bottom: 1px solid $color-srf-neutral-blacka08;
     }
 
     @include forceAspectRatio("16:9");
+
     @include tablet-up {
       @include forceAspectRatio("3:1");
     }
@@ -127,11 +125,26 @@ body.body--loading.body--loading {
 
     @include desktop-wide {
       margin-bottom: -50px;
-      border-radius: 3px;
     }
-
   }
-    .collection__content-wrapper {
+
+  .collection__background-image--with-lead {
+    @include forceAspectRatio("1:1");
+  
+    @include tablet {
+      @include forceAspectRatio("2:1");
+    }
+  
+    @include desktop-up {
+      @include forceAspectRatio("3:1");
+    }
+  
+    .collection__background-image-dimmer {
+      display: block;
+    }
+  }
+
+  .collection__content-wrapper {
     display: flex;
     flex-direction: column;
   }
@@ -284,18 +297,39 @@ body.body--loading.body--loading {
     }
   }
 
-  .collection__lead {
-    display: none;
-  }
-
-  .collection__title-logo,
-  .collection__title-text,
-  .collection__title-button {
-    display: none;
-  }
-
   .collection__title-link {
     display: none;
+  }
+
+  .collection__background-image-dimmer {
+    position: absolute;
+    bottom: 0;
+    padding-bottom: 50px;
+    width: 100%;
+  }
+
+  .collection__lead {
+    font-family: $font-light;
+    font-size: 20px;
+    line-height: $emphasize-line-height-ratio;
+    color: $color-srf-warmgrey-900;
+    margin: -4px 24px 24px;
+    max-width: 624px;
+
+    @include tablet-up {
+      margin: -2px 32px 32px;
+    }
+
+    @include desktop-up {
+      @include fontSize(22);
+      margin-top: -8px;
+      max-width: 680px;
+    }
+
+    @include desktop-wide {
+      margin-left: 40px;
+      margin-right: 40px;
+    }
   }
 
   .collection--hero {
@@ -662,17 +696,35 @@ body.body--loading.body--loading {
   }
 
   .teaser__content {
-    display: none;
+    flex: 1 1 auto;
+    margin: 24px; // TODO: other BPs
   }
 
-  .teaser__content-shimmer {
-    flex-grow: 1;
-    flex-shrink: 1;
-    margin: 16px 12px 16px 16px;
+  .teaser__kicker {
+    letter-spacing: 0.4px;
+    line-height: 1.13;
+  }
 
-    @include desktop-wide {
-      margin: 24px;
+  .teaser__title {
+    @include fontSize(16);
+    letter-spacing: 0.2px;
+    line-height: 1.25;
+    color: $color-srf-warmgrey-1000;
+
+    @include desktop-up {
+      @include fontSize(24);
     }
+  }
+
+  .teaser__lead {
+    margin: 12px 0 0;
+    line-height: 1.25;
+    color: $color-srf-warmgrey-1100;
+  }
+
+  .teaser__broadcast-info,
+  .teaser-info-wrapper {
+    display: none;
   }
 
   .teaser__scoreboard,
@@ -702,6 +754,26 @@ body.body--loading.body--loading {
 
   .teaser--static {
     width: 100%;
+  }
+
+  .teaser--size-s-on-mobile {
+    @include smartphone() {
+      .teaser__lead {
+        display: none;
+      }
+
+      .teaser__content {
+        margin: 16px 12px 16px 16px;
+      }
+
+      .teaser__title {
+        @include fontSize(16);
+      }
+
+      .teaser__kicker {
+        @include fontSize(14);
+      }
+    }
   }
 
   .teaser--size-xl {
@@ -792,27 +864,6 @@ body.body--loading.body--loading {
     .teaser-cantons-nav__content,
     .teaser-cantons-nav__navigation {
       display: none;
-    }
-
-    .teaser-cantons-nav__content-shimmer,
-    .teaser-cantons-nav__navigation-shimmer {
-      flex-grow:1;
-      flex-shrink: 1;
-      @include tablet-up {
-        flex-basis: 0;
-      }
-    }
-
-    .teaser-cantons-nav__content-shimmer {
-      padding: 16px;
-      @include tablet-up {
-        padding: 24px 32px 24px 24px;
-      }
-    }
-
-    .teaser-cantons-nav__navigation-shimmer {
-      background-color: $color-srf-warmgrey-100;
-      min-height: 250px;
     }
   }
 
