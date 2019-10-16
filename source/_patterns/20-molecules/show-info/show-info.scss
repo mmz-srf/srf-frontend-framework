@@ -198,9 +198,10 @@ $coverImageSize: 112px;
 .show-info__actions {
   display: flex;
   flex-wrap: wrap;
+  margin-left: -16px;
 
   .pill-button {
-    margin: 16px 16px 0 0;
+    margin: 16px 16px 0 16px;
     padding: 0 24px 0 16px;
 
     @include smartphone {
