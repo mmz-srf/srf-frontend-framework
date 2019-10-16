@@ -56,7 +56,7 @@ $coverImageSize: 112px;
 }
 
 .show-info__link {
-  margin-bottom: 12px;
+  margin-bottom: 8px;
   font-family: $font-regular;
   @include fontSize(14);
   line-height: $secondary-line-height-ratio;
@@ -144,8 +144,8 @@ $coverImageSize: 112px;
   @include fontSize(16);
   line-height: $default-line-height-ratio;
   color: $color-srf-warmgrey-1100;
-  margin-top: 16px;
-  margin-bottom: 8px;
+  margin-top: 8px;
+  margin-bottom: 16px;
   display: block;
 
   &:hover {
