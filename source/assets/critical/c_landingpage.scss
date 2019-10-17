@@ -450,6 +450,7 @@ body.body--loading.body--loading {
       @include tablet-up {
         min-width: calc((100% - 32px - 44px) / 3.00001 ); // 32px: left gap between Collection and Teaser; 44px: visible part of the first 'overflowed' item
         padding-right: 12px;
+        flex-shrink: 1;
       }
 
       @include desktop-wide {
