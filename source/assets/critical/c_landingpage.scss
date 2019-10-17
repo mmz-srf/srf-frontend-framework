@@ -724,15 +724,12 @@ body.body--loading.body--loading {
   }
 
   .teaser__broadcast-info,
-  .teaser-info-wrapper {
-    display: none;
-  }
-
+  .teaser-info-wrapper,
   .teaser__scoreboard,
   .teaser__opinion,
   .teaser__links,
   .media-still__indicator {
-    visibility: hidden;
+    display: none;
   }
 
   .ratio::before {
@@ -821,23 +818,47 @@ body.body--loading.body--loading {
     .teaser__content {
       margin: 0;
     }
+
+    &.teaser--size-m {
+      background-color: $color-srf-warmgrey-100;
+
+      .teaser__main-wrapper {
+        flex: 1 1 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+
+        .teaser__main {
+          flex-grow: 0;
+          padding: 24px;
+        }
+      }
+    }
+
+    &.teaser--size-xl {
+      @include tablet-up {
+        flex-direction: row;
+        background-color: $color-srf-warmgrey-100;
+  
+        &::before {
+          // enforce 16:9 ratio or higher (ONLY regarding the image, not the content)
+          // 65.75% * 9/16 = 36.984375%
+          padding-top: #{$teaser-xl-medium-ratio * 9 / 16};
+          width: $teaser-xl-medium-ratio;
+        }
+  
+        .teaser__main-wrapper {
+          flex-basis: 34.25%;
+        }
+  
+        .teaser__content {
+          margin: 24px;
+        }
+      }
   }
 
   .teaser__fullsize-link {
     display: none;
-  }
-
-  .teaser--longform.teaser--size-xl {
-    @include tablet-up {
-      flex-direction: row;
-
-      &::before {
-        // enforce 16:9 ratio or higher (ONLY regarding the image, not the content)
-        // 65.75% * 9/16 = 36.984375%
-        padding-top: #{$teaser-xl-medium-ratio * 9 / 16};
-        width: $teaser-xl-medium-ratio;
-      }
-    }
   }
 
   .rlp-footer {
