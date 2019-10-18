@@ -7,7 +7,10 @@
 body.body--loading.body--loading {
   background-color: $color-srf-warmgrey-25;
   margin: 0;
+
+  // prevent scrollbar from showing up during loading
   overflow: hidden;
+  max-height: 100vh;
   
   * {
     box-sizing: border-box
