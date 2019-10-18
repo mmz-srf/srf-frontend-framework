@@ -123,7 +123,7 @@ body.body--loading.body--loading {
     @include tablet-up {
       @include forceAspectRatio("3:1");
     }
-    
+
     margin-bottom: -40px;
 
     @include desktop-wide {
@@ -552,6 +552,18 @@ body.body--loading.body--loading {
       }
     }
   }
+
+  // copied from shimmer.scss to keep this file minimal
+  @keyframes shimmeringAnimation {
+    0% {
+      transform: translateX(-100%);
+    }
+  
+    100% {
+      transform: translateX(200%);
+    }
+  }
+  
 
   .teaser__medium-wrapper {
     img {
