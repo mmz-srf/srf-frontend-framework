@@ -1,0 +1,6 @@
+{
+    "bodyClass": "body--loading",
+    "criticalCssOnly": true,
+    "criticalCssFile": "c_landingpage_poc4.css",
+    "headerType": "home"
+}

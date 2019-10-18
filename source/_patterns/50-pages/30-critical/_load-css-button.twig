@@ -11,7 +11,13 @@
     $('.js-load-css').on('click', (e) => {
         var finalStyles = loadCSS("../../assets/css/main.css?{{ cacheBuster }}");
         onloadCSS( finalStyles, function() {
-            window.setTimeout( function() { $('body').removeClass('body--loading'); } , 50);
+            window.setTimeout( function() {
+                let $loader = $('.loading-anim');
+                $loader.fadeOut(() => {
+                    $loader.remove();
+                    $('body').removeClass('body--loading');
+                });
+            } , 50);
         });
         $(event.currentTarget).hide();
     });

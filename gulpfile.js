@@ -59,7 +59,8 @@ gulp.task('styles', function () {
         'source/_patterns/main.page.scss',
         'source/_patterns/main.global.scss',
         'source/assets/critical/c_article.scss',
-        'source/assets/critical/c_landingpage.scss'
+        'source/assets/critical/c_landingpage.scss',
+        'source/assets/critical/c_landingpage_poc4.scss'
     ])
         .pipe($.sass.sync({
             outputStyle: 'compressed',    //use 'nested' for debugging
