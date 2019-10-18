@@ -7,6 +7,10 @@
 body.body--loading.body--loading {
   background-color: $color-srf-warmgrey-25;
   margin: 0;
+
+  // prevent scrollbar from showing up during loading
+  overflow: hidden;
+  max-height: 100vh;
   
   * {
     box-sizing: border-box
@@ -18,10 +22,6 @@ body.body--loading.body--loading {
     font-feature-settings: "salt";
     font-weight: 400;
     @include font-smoothing;
-  }
-
-  .h-loading-only {
-    display: block;
   }
 
   .rlp-footer,
@@ -39,149 +39,195 @@ body.body--loading.body--loading {
     visibility: hidden;
   }
 
-
-  /* Header */
-  .h {
-    height: 112px;
-    margin-bottom: 32px;
-    box-shadow: $shadow-elevation8;
-    padding: 16px;
-    background-color: $color-srf-neutral-white;
-  }
-
-  .hw {
-    max-width: 1200px;
-    margin: 0 auto;
+  /* Loading animation */
+  .loading-anim {
+    position: fixed;
     display: flex;
-    justify-content: flex-start;
-  }
-
-  .h svg {
-    transform: scale(0.75); /* = width: 36px; height: 24px; */
-    transform-origin: 0 0;
-  }
-
-  .h b {
-    display: none;
-  }
-
-  @include tablet-up {
-    .h {
-      height: 72px;
-      padding: 20px 32px;
-    }
-  
-    .h svg {
-      transform: none;
-      width: 48px;
-      height: 32px;
-    }
-  
-    .h b {
-      display: block;
-      color: rgb(78,77,71);
-      font-family: sans-serif;
-      font-size: 18px;
-      font-weight: 400;
-      line-height: 1.35;
-      padding: 4px 0 4px 24px;
-      text-decoration: none;
-    }
-  }
-
-  /* Collection & Teaser */
-  .sw {
-    max-width: 1200px;
-    min-width: 320px;
-    margin: 0 auto;
-    display: flex;
-    flex-wrap: wrap;
-  }
-
-  .s {
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    left: 0;
+    height: 100vh;
     width: 100%;
-    overflow: hidden;
-    background-color: $color-srf-neutral-white;
-    border-radius: 2px;
-    box-shadow: $shadow-elevation1;
-    margin: 0 0 8px;
+    z-index: 9999;  
+    background: white;
+    transition: opacity 0.3s linear;
   }
 
-  /* Image */
-  .s::before {
-    content: '';
+  /* Heart */
+  .loading-anim *,
+  .loading-anim *:before,
+  .loading-anim *:after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  $strokeColor: #B8B8B8;
+  $heartColor: #E21737;
+  $size: 180px;
+  $totalAnim: 7s;
+  $delay: 1s;
+  $squareLen: 240;
+  $circleLen: 188.522;
+  $heartLen: 308.522;
+  $svgSize: 90px;
+  $circleW: 60px;
+  
+  .heart-loader {
+    position: absolute;
     display: block;
-    float: right;
-    width: 92px;
-    height: 92px;
-    margin: 16px;
-    background: $color-srf-warmgrey-100;
-  }
-
-  /* Shimmer */
-  .s::after {
-    content: '';
-    float: left;
-    display: block;
-    height: 98px;
-    width: calc(100% - (2 * 16px) - 16px - 92px);
-    margin: 16px 0 14px 16px;
-    background-color: $color-srf-warmgrey-1100a12;
-    background-image: linear-gradient( /* swoosh */
-      120deg, transparent 0%,
-      $color-srf-neutral-whitea00 40%, white 50%, $color-srf-neutral-whitea00 60%,
-      transparent 100%
-    ),
-    linear-gradient( /* fake boxes */
-      180deg, rgb(249,228,231) #{100% / 7 * 1},
-      white #{100% / 7 * 1}, white #{100% / 7 * 2},
-      transparent #{100% / 7 * 2}, transparent #{100% / 7 * 3},
-      white #{100% / 7 * 3}, white #{100% / 7 * 4},
-      transparent #{100% / 7 * 4}, transparent #{100% / 7 * 5},
-      white #{100% / 7 * 5}, white #{100% / 7 * 6},
-      transparent #{100% / 7 * 6}, transparent #{100% / 7 * 7},
-      white 100%
-    );
-    background-size: 300% 98px;
-    background-position-x: -100%;
-    animation: a 2.5s infinite ease-in-out;
-  }
-
-  @include tablet-up {
-    .s {
-      flex-basis: calc(100% / 2 - 32px);
-      flex-direction: column;
-      margin: 0 32px 40px 0;
+    left: 50%;
+    top: 50%;
+    margin-top: $size/-2;
+    width: $size;
+    height: $size;
+    overflow: visible;
+    
+    &__group {
+      transform-origin: 0 $svgSize;
+      animation: group-anim $totalAnim $delay infinite;
     }
- 
-    .s:nth-child(2) {
-      margin-right: 0;
+    
+    &__square {
+      stroke: $strokeColor;
+      stroke-dasharray: $squareLen, $squareLen;
+      stroke-dashoffset: $squareLen;
+      animation: square-anim $totalAnim $delay infinite;
     }
-
-    .s:nth-child(n+3) {
-      flex-basis: calc(100% / 3 - 32px);
+    
+    &__circle {
+      stroke: $strokeColor;
+      stroke-dasharray: $circleLen, $circleLen;
+      stroke-dashoffset: $circleLen;
+      transform-origin: $circleW $circleW/2;
+      
+      &.m--left {
+        animation: left-circle-anim $totalAnim $delay infinite;
+      }
+      
+      &.m--right {
+        animation: right-circle-anim $totalAnim $delay infinite;
+      }
     }
-
-    .s::before {
-      width: 100%;
-      height: 0;
-      margin: 0;
-      padding-top: 56.25%;
-    }
-
-    .s::after {
-      width: calc(100% - (2 * 24px));
-      margin: 24px 24px 38px;
+    
+    &__heartPath {
+      stroke: $heartColor;
+      fill: transparent;
+      stroke-dasharray: $heartLen, $heartLen;
+      stroke-dashoffset: $heartLen;
+      animation: heart-anim $totalAnim $delay infinite;
     }
   }
-
-  @keyframes a {
-    0% {
-      background-position-x: 0;
+  @keyframes square-anim {
+    12% {
+      stroke-dashoffset: 0;
+    }
+    43% {
+      stroke-dashoffset: 0;
+      opacity: 1;
+    }
+    85% {
+      stroke-dashoffset: 0;
+      opacity: 0;
     }
     100% {
-      background-position-x: -200%;
+      stroke-dashoffset: 0;
+      opacity: 0;
     }
   }
-
+  @keyframes left-circle-anim {
+    12% {
+      stroke-dashoffset: $circleLen;
+    }
+    31% {
+      stroke-dashoffset: 0;
+      transform: translateY(0);
+    }
+    41% {
+      stroke-dashoffset: 0;
+      transform: translateY($circleW/-2);
+    }
+    43% {
+      stroke-dashoffset: 0;
+      transform: translateY($circleW/-2);
+      opacity: 1;
+    }
+    85% {
+      stroke-dashoffset: 0;
+      transform: translateY($circleW/-2);
+      opacity: 0;
+    }
+    100% {
+      stroke-dashoffset: 0;
+      transform: translateY($circleW/-2);
+      opacity: 0;
+    }
+  }
+  @keyframes right-circle-anim {
+    12% {
+      stroke-dashoffset: $circleLen;
+    }
+    31% {
+      stroke-dashoffset: 0;
+      transform: translateX(0);
+    }
+    41% {
+      stroke-dashoffset: 0;
+      transform: translateX($circleW/2);
+    }
+    43% {
+      stroke-dashoffset: 0;
+      transform: translateX($circleW/2);
+      opacity: 1;
+    }
+    85% {
+      stroke-dashoffset: 0;
+      transform: translateX($circleW/2);
+      opacity: 0;
+    }
+    100% {
+      stroke-dashoffset: 0;
+      transform: translateX($circleW/2);
+      opacity: 0;
+    }
+  }
+  @keyframes group-anim {
+    43% {
+      transform: rotate(0);
+    }
+    54% {
+      transform: rotate(-45deg);
+    }
+    90% {
+      transform: rotate(-45deg);
+      opacity: 1;
+    }
+    97% {
+      transform: rotate(-45deg);
+      opacity: 0;
+    }
+    100% {
+      transform: rotate(-45deg);
+      opacity: 0;
+    }
+  }
+  @keyframes heart-anim {
+    55% {
+      stroke-dashoffset: $heartLen;
+      fill: transparent;
+    }
+    70% {
+      stroke-dashoffset: 0;
+      fill: transparent;
+    }
+    87% {
+      stroke-dashoffset: 0;
+      fill: $heartColor;
+    }
+    100% {
+      stroke-dashoffset: 0;
+      fill: $heartColor;
+    }
+  }
 }
