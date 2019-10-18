@@ -13,13 +13,6 @@
             {% endblock %}
         {% endembed %}
 
-        <div class="teaser__content-shimmer h-loading-only">
-            {% include 'atoms-shimmer' with {'styleModifier': 'shimmer--overline'} %}
-            {% include 'atoms-shimmer' with {'styleModifier': ''} %}
-            {% include 'atoms-shimmer' with {'styleModifier': ''} %}
-            {% include 'atoms-shimmer' with {'styleModifier': 'shimmer--short'} %}
-        </div>
-
         <div class="teaser__content">
             <div class="teaser__kicker">
                 <span class="teaser__kicker-text">{{ teaser.kicker|default('') }}</span>

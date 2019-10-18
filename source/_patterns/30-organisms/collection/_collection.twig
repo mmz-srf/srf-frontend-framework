@@ -15,13 +15,6 @@
     <div class="collection__branding-wrapper js-collection-branding-wrapper"{% if branded %} style="background-image: linear-gradient(120deg, {{ themeColorStart }}, {{ themeColorEnd }});"{% endif %} >
         <div class="collection__content-wrapper js-collection-content-wrapper">
             <h3 class="collection__title">
-                <span class="h-loading-only">
-                    {% include 'atoms-shimmer' with {'styleModifier': 'shimmer--heading shimmer--shorter'} %}
-                    {% if collection.lead is defined %}
-                        {% include 'atoms-shimmer' with {'styleModifier': 'shimmer--heading shimmer--short'} %}
-                        {% include 'atoms-shimmer' with {'styleModifier': 'shimmer--heading shimmer--short'} %}
-                    {% endif %}
-                </span>
 
                 {% if renderTitlePrecusor %}
                     {# e.g. used in search results for play, where the search key is shown in the title precursor #}

@@ -5,7 +5,6 @@
 @import '../../_patterns/variables';
 @import '../../_patterns/breakpoints';
 @import '../../_patterns/mixins';
-@import '../../_patterns/10-atoms/indicators/shimmer';
 @import '../../_patterns/10-atoms/wrapper/ratio';
 @import '../../_patterns/40-templates/landingpage';
 
@@ -120,9 +119,11 @@ body.body--loading.body--loading {
     }
 
     @include forceAspectRatio("16:9");
+
     @include tablet-up {
       @include forceAspectRatio("3:1");
     }
+    
     margin-bottom: -40px;
 
     @include desktop-wide {
@@ -131,7 +132,8 @@ body.body--loading.body--loading {
     }
 
   }
-    .collection__content-wrapper {
+
+  .collection__content-wrapper {
     display: flex;
     flex-direction: column;
   }
@@ -175,127 +177,6 @@ body.body--loading.body--loading {
     @include desktop-wide {
       padding: 0 $teaser-col-gap-desktop-wide 40px 0;
     }
-  }
-
-  .collection__links {
-    margin: 0 8px 12px;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-
-    @include tablet-up {
-      flex-direction: row;
-      flex-wrap: wrap;
-    }
-
-    @include tablet-up {
-      margin: 16px 32px 16px;
-    }
-
-    @include desktop-wide {
-      margin: 20px 40px 20px;
-    }
-  }
-
-  .collection__link-item {
-    margin: 0 0 2px 0;
-    padding: 0;
-    list-style-type: none;
-
-    @include tablet-up {
-      margin: 0 12px 0 0;
-    }
-
-    @include desktop-wide {
-      margin: 0 16px 0 0;
-    }
-  }
-
-  .collection__link {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 16px;
-    border-radius: 2px;
-    background-color: $color-srf-warmgrey-10;
-  }
-
-  .collection--branded .collection__link {
-    background-color: $color-srf-neutral-whitea08;
-  }
-
-  .collection--branded-dark .collection__link {
-    background-color: $color-srf-neutral-blacka04;
-  }
-
-  .collection__link-text,
-  .collection__link-icon {
-    opacity: 0;
-  }
-
-  .collection:not(.collection--swipeable) {
-    .collection__teaser-item {
-      @include smartphone {
-        // teasers 2+ should be in S layout on mobile
-        &:nth-child(n+2) {
-          .teaser__main {
-            flex-direction: row-reverse;
-          }
-
-          .teaser__medium-wrapper {
-            padding-bottom: 0;
-            width: 80px;
-            height: 80px;
-            margin: 16px 16px 16px 0;
-            border-radius: 2px;
-            overflow: hidden;
-          }
-
-          .teaser__medium {
-            object-fit: cover;
-          }
-        }
-      }
-    }
-  }
-
-  .collection__title {
-    display: block;
-    margin: 16px 24px 12px;
-    font-family: $font-medium;
-    @include fontSize(24);
-    font-weight: 500;
-    font-style: normal;
-    font-stretch: normal;
-    line-height: $emphasize-line-height-ratio;
-    color: $color-srf-warmgrey-1100;
-
-    @include tablet-up {
-      margin: 16px 32px 12px;
-    }
-
-    @include desktop-up {
-      margin: 20px 32px 16px;
-      @include fontSize(28);
-    }
-
-    @include desktop-wide {
-      margin: 20px 40px 16px;
-    }
-  }
-
-  .collection__lead {
-    display: none;
-  }
-
-  .collection__title-logo,
-  .collection__title-text,
-  .collection__title-button {
-    display: none;
-  }
-
-  .collection__title-link {
-    display: none;
   }
 
   .collection--hero {
@@ -601,53 +482,78 @@ body.body--loading.body--loading {
     }
   }
 
-  .teaser {
-    display: flex;
-    flex-grow: 1;
-    position: relative; // to position the pseudo elements
-    border-radius: 2px;
-    overflow: hidden; // to cut off image with border radius
-    background-color: $color-srf-neutral-offwhite;
-    box-shadow: $shadow-elevation1;
-    color: $color-srf-warmgrey-1100;
+  .collection__title {
+    visibility: hidden;
+    line-height: 1.25;
 
-    &.teaser--no-card {
-      background-color: transparent;
-      box-shadow: none;
+    font-size: 24px;
+    margin: 16px 24px 12px;
+
+    @include tablet {
+      margin: 16px 32px 12px;
+    }
+
+    @include desktop-up {
+      margin: 20px 40px 16px;
+      font-size: 28px;
     }
   }
 
-  .teaser--square {
-    box-shadow: none;
+  .collection__lead {
+    visibility: hidden;
+    line-height: 1.25;
+    
+    max-width: 624px;
+    margin: -4px 24px 24px;
+    font-size: 20px;
 
-    .teaser__medium-wrapper {
-      margin: 0;
-      flex-basis: auto;
+    @include tablet {
+      margin: -2px 32px 32px;
+    }
+    
+    @include desktop-up {
+      max-width: 680px;
+      margin: -8px 0 32px;
+      font-size: 22px;
+    }
+  }
+
+  .teaser {
+    flex-grow: 1;
+    box-shadow: $shadow-elevation1;
+    width: 100%;
+    height: 100%;
+    background-color: $color-srf-neutral-offwhite;
+    position: relative;
+    overflow: hidden;
+
+    &::before,
+    &::after {
+      content: "";
+      height: 100%;
+      position: absolute;
+      left: 0;
+      top: 0;
+      display: block;
     }
 
-    // teaser content is just used for A11Y (alternative link text)
-    .teaser__content {
-      @include offscreen-non-focusable;
+    &::before {
+      width: 100%;
+      background: rgba(218, 218, 210, .32);
+    }
+    
+    &::after {
+      width: 800px;
+      background: linear-gradient(90deg, transparent, rgba(218, 218, 210, .64) 50%,transparent);
+
+      @include sickAnimation {
+        animation: shimmeringAnimation 2.5s infinite ease-in-out;
+        will-change: transform;
+      }
     }
   }
 
   .teaser__medium-wrapper {
-    flex-grow: 0;
-    flex-shrink: 0;
-    margin: 0;
-    position: relative; // for positioning ::pseudo elements
-
-    &::after {
-      position: absolute;
-      pointer-events: none;
-      content: '';
-      width: 100%;
-      height: 100%;
-      background-color: $color-srf-warmgrey-100;
-      top: 0;
-      left: 0;
-      box-sizing: border-box;
-    }
     img {
       visibility: hidden; // not "display: none" because the lazy loading mechanism would fail
       width: 0; // visibility: hidden; will still let the image keep its size which breaks the loading state.
@@ -655,30 +561,71 @@ body.body--loading.body--loading {
 
   }
 
-  .teaser__main {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-  }
-
   .teaser__content {
-    display: none;
-  }
-
-  .teaser__content-shimmer {
-    flex-grow: 1;
-    flex-shrink: 1;
     margin: 16px 12px 16px 16px;
 
-    @include desktop-wide {
+    @include desktop-up {
       margin: 24px;
     }
   }
+  
+  .teaser__title {
+    line-height: 1.25;
 
+    font-size: 16px;
+
+    @include desktop-up {
+      font-size: 20px;
+    }
+  }
+
+  .teaser__kicker {
+    font-size: 14px;
+
+    @include smartphone {
+      line-height: 1.3; // approximation
+    }
+    
+    @include desktop-up {
+      font-size: 16px;
+    }
+  }
+
+  .teaser-info-wrapper {
+    line-height: 1.17;
+    font-size: 12px;
+    margin-top: 8px;
+    margin-bottom: -3px;
+    letter-spacing: -0.6px; // approximation
+
+    @include desktop-up {
+      margin-top: 12px;
+    }
+  }
+  
+  .teaser--size-s {
+    min-height: 112px; // 80px img + 2 * padding of 16px
+    
+    @include smartphone {
+      .teaser__medium-wrapper {
+        visibility: hidden;
+        height: 0;
+        position: absolute;
+      }
+    }
+  }
+
+  .teaser__main,
   .teaser__scoreboard,
   .teaser__opinion,
   .teaser__links,
-  .media-still__indicator {
+  .media-still__indicator,
+  .a2z__search,
+  .a2z__filter-bar,
+  .a2z__lists,
+  .onairnav-list,
+  .pill-link-wrapper,
+  .content-header__presenter-image {
     visibility: hidden;
   }
 
@@ -704,191 +651,20 @@ body.body--loading.body--loading {
     width: 100%;
   }
 
-  .teaser--size-xl {
-    @include tablet-up {
-      .teaser__main {
-        flex-direction: row;
-      }
-      .teaser__medium-wrapper {
-        flex-basis: $teaser-xl-medium-ratio;
-      }
-    }
-  }
-
-  // switches position of medium and content of a teaser
-  // normally only used together with modifier `teaser--size-s`
-  .teaser--with-medium-reverse {
-    .teaser__medium-wrapper {
-      order: 1;
-    }
-
-    &.teaser--size-s {
-      --media-time-indicator-display: none;
-
-      .teaser__medium-wrapper {
-        margin: 16px 0 16px 16px;
-
-        @include desktop-wide {
-          margin: 24px 0 24px 24px;
-        }
-      }
-    }
-  }
-
-  .teaser--longform {
-    flex-direction: column;
-
-    &::before {
-      content: '';
-      width: 100%;
-      padding-top: 56.25%;
-      background-color: $color-srf-warmgrey-100;
-    }
-  }
-
-  .teaser__fullsize-link {
-    display: none;
-  }
-
-  .teaser--longform.teaser--size-xl {
-    @include tablet-up {
-      flex-direction: row;
-
-      &::before {
-        // enforce 16:9 ratio or higher (ONLY regarding the image, not the content)
-        // 65.75% * 9/16 = 36.984375%
-        padding-top: #{$teaser-xl-medium-ratio * 9 / 16};
-        width: $teaser-xl-medium-ratio;
-      }
-    }
-  }
-
-  .rlp-footer {
-    display: none;
-  }
-
-  .teaser-cantons-nav {
-    background-color: $color-srf-neutral-offwhite;
-    box-shadow: $shadow-elevation1;
-    display: flex;
-    flex-direction: column;
-    max-width: 1280px;
-    margin: 0 8px;
-    padding: 0;
-    height: 430px;
-
-    @include tablet-up {
-      margin: 0 8px 0 32px;
-      padding: 0;
-      flex-direction: row;
-      height: 322px;
-    }
-
-    @include desktop-wide {
-      margin: 0 8px 0 40px;
-      height: 320px;
-    }
-
-    .teaser-cantons-nav__content,
-    .teaser-cantons-nav__navigation {
-      display: none;
-    }
-
-    .teaser-cantons-nav__content-shimmer,
-    .teaser-cantons-nav__navigation-shimmer {
-      flex-grow:1;
-      flex-shrink: 1;
-      @include tablet-up {
-        flex-basis: 0;
-      }
-    }
-
-    .teaser-cantons-nav__content-shimmer {
-      padding: 16px;
-      @include tablet-up {
-        padding: 24px 32px 24px 24px;
-      }
-    }
-
-    .teaser-cantons-nav__navigation-shimmer {
-      background-color: $color-srf-warmgrey-100;
-      min-height: 250px;
-    }
-  }
-
-  .content-header {
-    width: 100%;
-    background-color: $color-srf-neutral-offwhite;
-  }
-
-  .content-header__wrapper {
-    max-width: $desktop-wide-size;
-    margin: 0 auto;
-    display: flex;
-    flex-wrap: wrap;
-  }
-
-  .content-header__slot {
-    display: block;
-
-    flex-grow: 0;
-    flex-shrink: 0;
-    @include IESafeFlexBasis(33.3333333334%);
-    padding: $collection-gap;
-    min-height: calc(80px + #{$collection-gap});
-
-    @include smartphone {
-      @include IESafeFlexBasis(100%);
-    }
-
-    @include tablet {
-      @include IESafeFlexBasis(50%);
-      padding: $collection-gap-tablet-up;
-      min-height: calc(80px + #{$collection-gap-tablet-up});
-    }
-
-    @include desktop {
-      padding: $collection-gap-tablet-up;
-      min-height: calc(96px + #{$collection-gap-tablet-up});
-    }
-
-    @include desktop-wide {
-      padding: $collection-gap-desktop-wide;
-      min-height: calc(96px + #{$collection-gap-desktop-wide});
-    }
-  }
-
-  .content-header__slot--first {
-    @include smartphone {
-      margin-bottom: 72px;
-    }
-  }
-
-  .content-header__buttonbar {
-    height: 56px;
-    visibility: hidden;
-    overflow: hidden;
-    @include IESafeFlexBasis(100%);
-
-    @include desktop-up {
-      @include IESafeFlexBasis(50%);
-    }
-  }
-
+  .content-header,
+  .teaser-cantons-nav,
+  .teaser__fullsize-link,
+  .teaser__lead,
+  .rlp-footer,
   .simple-teaser,
   .content-header__station-logo,
   .modal-flyout,
-  .pill-link-wrapper {
+  .pill-link-wrapper,
+  .collection__links,
+  .collection__link,
+  .collection__title-logo,
+  .collection__title-button,
+  .collection__title-link {
     display: none;
   }
-
-  .a2z__search,
-  .a2z__filter-bar,
-  .a2z__lists,
-  .onairnav-list,
-  .pill-link-wrapper,
-  .content-header__presenter-image {
-    visibility: hidden;
-  }
-
 }
