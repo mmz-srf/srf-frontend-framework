@@ -20,7 +20,7 @@ $(window).on(DOM_CHANGED_EVENT, (e) => {
     scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
     $('[data-modal-id]').each((index, element) => {
 
-        $(element).on('click', (event) => {
+        $(element).off("click").on('click', (event) => {
             event.preventDefault();
 
             let $caller = $(element);
