@@ -5,6 +5,7 @@ import { KEYCODES } from '../utils/fef-keycodes';
 
 const STORAGE_KEY = 'SRF.Navigations';
 const OPEN_BY_DEFAULT = true;
+const DOM_HEIGHT_CHANGE_EVENT = 'fef.element.height.changed';
 
 export function init() {
     $('.js-globalnav').each((i, elem) => {
@@ -72,15 +73,19 @@ export class FefGlobalnav {
     }
 
     toggleMenu(subMenuIsOpen, event) {
+        let informOtherComponentsAboutHeightChange = () => $(window).trigger(DOM_HEIGHT_CHANGE_EVENT);
+
         // User should not be able to tab over the submenu when it's closed
         if (subMenuIsOpen) {
             this.isInTransition = false;
             this.$submenuWrapper.show();
+            this.$submenuWrapper.one('transitionend', () => informOtherComponentsAboutHeightChange());
         } else {
             this.isInTransition = true;
             this.$submenuWrapper.one('transitionend', () => {
                 this.$submenuWrapper.hide();
                 this.isInTransition = false;
+                informOtherComponentsAboutHeightChange();
 
                 // remove focus if the click originated from a mouse click
                 if (event && FefTouchDetection.eventIsMouseclick(event)) {
