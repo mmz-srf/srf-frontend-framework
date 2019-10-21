@@ -14,6 +14,7 @@ const DEFAULT_MIN_SEARCH_LENGTH = 2;
 
 const ACTIVE_CLASS = 'search--active';
 const OUTSIDE_CLICK_LISTENER_NAME = 'mousedown.search-destroyer';
+const SET_SEARCH_INACTIVE_EVENT = 'srf.search.deactivate';
 const LOCAL_STORAGE_KEY = 'srf:search:history';
 
 export class SrfSearch {
@@ -76,6 +77,10 @@ export class SrfSearch {
 
         this.$searchResults.on('keydown', (e) => {
             this.onResultsKeyDown(e);
+        });
+
+        this.$element.on(SET_SEARCH_INACTIVE_EVENT, () => {
+            this.setSearchInactive();
         });
     }
 
