@@ -1301,7 +1301,7 @@ $background-overlap-wide: 50px;
 }
 
 // only shows the teaser-links
-.collection--search-results--empty {
+.collection.collection--search-results--empty {
   .collection__title,
   .collection__background-image,
   .collection__lead,
