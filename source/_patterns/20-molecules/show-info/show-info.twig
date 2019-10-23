@@ -1,38 +1,35 @@
 <div class="show-info js-show-info js-genex"
      data-genex-open-toggle-class="show-info__actions-button--active"
      data-genex-open-panel-class="show-info__panel--expanded">
-    <div class="show-info__info-wrap">
-        <a href="#sendungsseite" class="show-info__cover">
-            {% block medium %}
-                {% embed "ratio.twig" with {
-                    'ratio': '1:1',
-                } %}
-                    {% block ratio_content %}
-                        <div class="show-info__cover-image">
-                            <div class="image image--media-still-dynamic">
-                                <img src="../../assets/demo/img/bild0/bild_s8.jpg" alt="Alt-Text" />
-                            </div>
+    <div class="show-info__info-wrap layered-link-wrapper">
+        {% block medium %}
+            {% embed "ratio.twig" with {
+                'ratio': '1:1',
+                'class': 'show-info__cover'
+            } %}
+                {% block ratio_content %}
+                    <div class="show-info__cover-image">
+                        <div class="image image--media-still-dynamic">
+                            <img src="../../assets/demo/img/bild0/bild_s8.jpg" alt="Alt-Text" />
                         </div>
-                    {% endblock %}
-                {% endembed %}
-            {% endblock %}
-        </a>
+                    </div>
+                {% endblock %}
+            {% endembed %}
+        {% endblock %}
         <div class="show-info__header">
-            <a href="#sendungsseite" class="show-info__link">Zur Sendungsseite {% include 'atoms-svg-icon' with {'styleModifier':'svg-icon--arrow-right-red-small'} %}</a>
+            <a href="#Zur-Sendungsseite" class="show-info__link">Zur Sendungsseite {% include 'atoms-svg-icon' with {'styleModifier':'svg-icon--arrow-right-red-small'} %}</a>
             {# .show-info__title--compact only on epidose-detail-page #}
             <h3 class="show-info__title show-info__title--compact">
-                <a href="#sendungsseite">4x4 Podcast</a>
+                <a href="#4x4-Podcast" class="layered-link">4x4 Podcast</a>
             </h3>
             {# infoline only on epidose-detail-page #}
-            <a href="#sendungsseite">
-                <p class="infoline">17:44 min, vom 4.5.2019</p>
-            </a>
+            <p class="infoline">17:44 min, vom 4.5.2019</p>
         </div>
         <div class="show-info__content">
-            <a href="#sendungsseite" class="show-info__body">
+            <p class="show-info__body">
                 Wer die Nachrichten schon kennt, will möglichst bald mehr: mehr Einordnung, mehr Analyse, mehr Hintergrund. SRF 4 News bietet deshalb mit …
-                {% include 'atoms-pseudo-link' with { 'linkText': 'Mehr', 'additionalClasses': 'show-info__more' } %}
-                </a>
+                <span class="show-info__more">Mehr</span>
+            </p>
             {# Kategorien links only on sendungen-detail-page #}
             <div class="show-info__categories">
                 {% include 'atoms-decorated-link' with {'url': '#', 'linkText': 'Hintergrund'} %}
