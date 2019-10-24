@@ -678,7 +678,8 @@ body.body--loading.body--loading {
   .teaser__scoreboard,
   .teaser__opinion,
   .teaser__links,
-  .media-still__indicator {
+  .media-still__indicator,
+  .rlp-footer {
     visibility: hidden;
   }
 
@@ -761,10 +762,6 @@ body.body--loading.body--loading {
         width: $teaser-xl-medium-ratio;
       }
     }
-  }
-
-  .rlp-footer {
-    display: none;
   }
 
   .teaser-cantons-nav {
