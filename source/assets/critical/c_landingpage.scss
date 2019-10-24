@@ -189,11 +189,11 @@ body.body--loading.body--loading {
     }
 
     @include tablet-up {
-      margin: 16px 32px 16px;
+      margin: 16px 32px 8px;
     }
 
     @include desktop-wide {
-      margin: 20px 40px 20px;
+      margin: 20px 40px 12px;
     }
   }
 
@@ -203,11 +203,11 @@ body.body--loading.body--loading {
     list-style-type: none;
 
     @include tablet-up {
-      margin: 0 12px 0 0;
+      margin: 0 12px 8px 0;
     }
 
     @include desktop-wide {
-      margin: 0 16px 0 0;
+      margin: 0 16px 8px 0;
     }
   }
 
