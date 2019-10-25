@@ -80,6 +80,11 @@
 <button class="js-show-tooltip">Show Tooltip</button>
 <button class="js-hide-tooltip">Hide Tooltip</button>
 
+<br />
+<div id="target-for-dynamic-tooltip"></div>
+<button class="js-add-dynamic-tooltip">Add dynamic tooltip</button>
+
+
 
 <script>
     let $buttonTarget = $('.js-toggle-button-target');
@@ -90,5 +95,16 @@
 
     $('.js-hide-tooltip').on('click', () => {
         $buttonTarget.trigger('srf.tooltip.hide');
+    });
+
+    $('.js-add-dynamic-tooltip').on('click', () => {
+        const $target = $('#target-for-dynamic-tooltip').html('');
+
+        const $tooltipElement = $('<div data-tooltip-toggle="top"></div>');
+        $tooltipElement.text('Hello, I am a dynamic tooltip. I get initialized after dom loaded');
+        $tooltipElement
+            .addClass('tooltip-demo-element')
+            .data('tooltipContent', 'Cool, seems it works!')
+            .appendTo($target);
     });
 </script>

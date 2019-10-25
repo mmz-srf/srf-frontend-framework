@@ -1,7 +1,7 @@
 import { KEYCODES } from '../utils/fef-keycodes';
-import { DOM_CHANGED_EVENT } from '../utils/fef-events';
+import { DOM_INIT_EVENT } from '../utils/fef-events';
 
-$(window).on(DOM_CHANGED_EVENT, (e) => {
+$(window).on(DOM_INIT_EVENT, () => {
     $('.radio-button, .checkbox').each((index, element) => {
         new FefFormField($(element));
     });

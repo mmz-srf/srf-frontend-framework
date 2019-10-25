@@ -1,7 +1,7 @@
 import {FefTouchDetection} from '../classes/fef-touch-detection';
-import {DOM_CHANGED_EVENT} from '../classes/fef-dom-observer';
+import {DOM_MUTATION} from '../classes/fef-dom-observer';
 
-$(window).on(DOM_CHANGED_EVENT, (e) => {
+$(window).on(DOM_MUTATION, (e) => {
 
     $('[data-tooltip-toggle]').each((index, element) => {
         new FefTooltip($(element));
@@ -9,7 +9,7 @@ $(window).on(DOM_CHANGED_EVENT, (e) => {
 
 });
 
-const DEFAULT_OFFSET = 16; // distance between tooltip's triange and the edge of the parent
+const DEFAULT_OFFSET = 16; // distance between tooltip's triangle and the edge of the parent
 const ADDITIONAL_OFFSET = 9; // padding + triangle
 
 export class FefTooltip {
@@ -18,6 +18,9 @@ export class FefTooltip {
      * @param $element jQuery element
      */
     constructor ($element) {
+        if ($element.data('tooltipInitialized') === true) {
+            return;
+        }
         this.clientTouchSupported = FefTouchDetection.isTouchSupported();
 
         this.title = $element.data('tooltipContent');
@@ -58,6 +61,8 @@ export class FefTooltip {
         if (this.tooltipEnabled) {
             this.bindEvents($element);
         }
+
+        $element.data('tooltipInitialized', true);
     }
 
     /**

@@ -9,6 +9,26 @@
 export const DOM_CHANGED_EVENT = 'fef.dom.changed';
 
 /**
+ * This event is triggered when the DOM is initialized.
+ * 
+ * Example trigger: FefDomObserver
+ * Example listener: FefModal
+ * 
+ * @type {string}
+ */
+export const DOM_INIT_EVENT = 'fef.dom.initialized';
+
+/**
+ * Triggered when the DOM is initialized or changed.
+ * 
+ * Example trigger: FefDomObserver
+ * Example listener: FefModal
+ * 
+ * @type {string}
+ */
+export const DOM_MUTATION_EVENT = `${DOM_INIT_EVENT} ${DOM_CHANGED_EVENT}`;
+
+/**
  * This event is triggered when an element changed its height.
  * 
  * Example trigger: FefGlobalnav (can open/close submenu which changes the height)
