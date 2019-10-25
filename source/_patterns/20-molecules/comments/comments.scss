@@ -560,7 +560,8 @@
   }
 }
 
-.reply__label,reply__help {
+.reply__label,
+.reply__help {
   display: block;
   @include fontSize(16);
   font-family: $font-regular;
