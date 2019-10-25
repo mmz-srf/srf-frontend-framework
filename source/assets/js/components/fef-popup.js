@@ -33,13 +33,13 @@ class FefPopup {
         if (matchMedia(this.mediaQuery).matches) {
             event.preventDefault();
             let parameters = [
-                'width='+this.width,
-                'height='+this.height,
-                'toolbar='+this.isToolbarShown,
+                'width=' + this.width,
+                'height=' + this.height,
+                'toolbar=' + this.isToolbarShown,
                 'scrollbars=1',
-                'location='+this.isLocationShown,
+                'location=' + this.isLocationShown,
                 'status=0',
-                'menubar='+this.isMenubarShown,
+                'menubar=' + this.isMenubarShown,
                 'resizable=1'
             ];
             if (this.triggerEvent) {
