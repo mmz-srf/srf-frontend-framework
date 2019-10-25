@@ -39,4 +39,4 @@ export const COMPONENT_LOADED_EVENT = 'fef.component.loaded';
  * 
  * @type {string}
  */
-export const SET_SEARCH_INACTIVE_EVENT = 'srf.search.deactivate';
+export const SET_SEARCH_INACTIVE_EVENT = 'fef.search.deactivate';
