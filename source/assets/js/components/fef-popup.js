@@ -22,9 +22,9 @@ class FefPopup {
         this.target = this.$element.attr('href');
         this.width = this.$element.data('popup-width') || DEFAULT_WIDTH;
         this.height = this.$element.data('popup-height') || DEFAULT_HEIGHT;
-        this.isToolbarShown = this.$element.data('popup-is-toolbar-shown') === undefined ? DEFAULT_IS_TOOLBAR_SHOWN : this.$element.data('popup-is-toolbar-shown');
-        this.isMenubarShown = this.$element.data('popup-is-menubar-shown') === undefined ? DEFAULT_IS_MENUBAR_SHOWN : this.$element.data('popup-is-menubar-shown');
-        this.isLocationShown = this.$element.data('popup-is-location-shown') === undefined ? DEFAULT_IS_LOCATION_SHOWN : this.$element.data('popup-is-location-shown');
+        this.isToolbarShown = this.$element.attr('data-popup-is-toolbar-shown') || DEFAULT_IS_TOOLBAR_SHOWN;
+        this.isMenubarShown = this.$element.attr('data-popup-is-menubar-shown') || DEFAULT_IS_MENUBAR_SHOWN;
+        this.isLocationShown = this.$element.data('data-popup-is-location-shown') || DEFAULT_IS_LOCATION_SHOWN;
         this.mediaQuery = this.$element.data('popup-media-query') || DEFAULT_MEDIA_QUERY;
         this.triggerEvent = this.$element.data('popup-trigger-event') || null;
     }
