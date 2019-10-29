@@ -21,6 +21,7 @@
   background-color: $color-srf-warmgrey-10;
   box-shadow: $shadow-elevation2;
   transition: box-shadow .2s ease-in-out, filter .2s ease-in-out;
+  cursor: pointer;
 
   &:hover,
   &:active {
