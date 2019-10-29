@@ -22,7 +22,8 @@
   box-shadow: $shadow-elevation2;
   transition: box-shadow .2s ease-in-out, filter .2s ease-in-out;
 
-  &:hover {
+  &:hover,
+  &:active {
     box-shadow: $shadow-elevation8;
     transition: all .2s ease-in-out;
     color: $color-srf-warmgrey-900;
@@ -61,7 +62,8 @@
   color: var(--theme-color-button-text, $color-srf-warmgrey-1100);
   background-image: linear-gradient(to right, var(--theme-color-gradient-1, $color-srf-warmgrey-10), var(--theme-color-gradient-2, $color-srf-warmgrey-50));
 
-  &:hover {
+  &:hover,
+  &:active {
     color: var(--theme-color-button-text, $color-srf-warmgrey-1100);
   }
 }
