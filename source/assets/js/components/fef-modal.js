@@ -2,6 +2,7 @@ import { DOM_CHANGED_EVENT, FefDomObserver } from '../classes/fef-dom-observer';
 import { FefResponsiveHelper } from '../classes/fef-responsive-helper';
 import { FefBouncePrevention } from './fef-bounce-prevention';
 import { KEYCODES } from '../utils/fef-keycodes';
+import {setFocus} from '../components/fef-a11y';
 
 const ANIMATION_FADE_IN_OUT = 'fade-in-out';
 const ANIMATION_SCALE_FROM_ORIGIN = 'scale-from-origin';
@@ -188,17 +189,6 @@ export class FefModal {
                 this.setA11YProperties(false);
                 break;
         }
-    }
-
-    /**
-     * Simply using .focus() doesn't suffice.
-     *
-     * @param $element jQuery.Element
-     */
-    setFocus($element) {
-        $element.attr('tabindex', -1).on('blur focusout', () => {
-            $element.removeAttr('tabindex');
-        }).get(0).focus({preventScroll: true});
     }
 
     /**
