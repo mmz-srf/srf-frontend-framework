@@ -1,8 +1,7 @@
 import {FefTouchDetection} from '../classes/fef-touch-detection';
-import {DOM_MUTATION} from '../classes/fef-dom-observer';
+import { DOM_MUTATION_EVENTS } from '../utils/fef-events';
 
-$(window).on(DOM_MUTATION, (e) => {
-
+$(window).on(DOM_MUTATION_EVENTS, (e) => {
     $('[data-tooltip-toggle]').each((index, element) => {
         new FefTooltip($(element));
     });
@@ -18,22 +17,21 @@ export class FefTooltip {
      * @param $element jQuery element
      */
     constructor ($element) {
+        // make sure tooltip doesn't get initialized multiple times
         if ($element.data('tooltipInitialized') === true) {
             return;
         }
-        this.clientTouchSupported = FefTouchDetection.isTouchSupported();
 
+        this.clientTouchSupported = FefTouchDetection.isTouchSupported();
         this.title = $element.data('tooltipContent');
 
         // Set correct value for touch enabled flag (YAGNI?)
         this.touchEnabled = (typeof $element.data('tooltipTouch')) !== 'undefined';
-
         this.tooltipEnabled = false;
 
         // Explicit check for provided data-tooltip-content attribute
         if (typeof this.title !== 'undefined') {
             this.tooltipEnabled = true;
-
         // eslint-disable-next-line no-console
         } else if (console && console.warn) {
             // eslint-disable-next-line no-console

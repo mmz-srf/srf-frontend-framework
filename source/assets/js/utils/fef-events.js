@@ -19,14 +19,16 @@ export const DOM_CHANGED_EVENT = 'fef.dom.changed';
 export const DOM_INIT_EVENT = 'fef.dom.initialized';
 
 /**
- * Triggered when the DOM is initialized or changed.
+ * Triggered when the DOM is initialized or changed. Be careful, consists
+ * actually of 2 events, DOM_INIT_EVENT and DOM_CHANGED_EVENT!
+ * Make sure you know what you are doing.
  * 
- * Example trigger: FefDomObserver
- * Example listener: FefModal
+ * Example trigger: See DOM_INIT_EVENT/DOM_CHANGED_EVENT
+ * Example listener: FefTooltip
  * 
  * @type {string}
  */
-export const DOM_MUTATION_EVENT = `${DOM_INIT_EVENT} ${DOM_CHANGED_EVENT}`;
+export const DOM_MUTATION_EVENTS = `${DOM_INIT_EVENT} ${DOM_CHANGED_EVENT}`;
 
 /**
  * This event is triggered when an element changed its height.
