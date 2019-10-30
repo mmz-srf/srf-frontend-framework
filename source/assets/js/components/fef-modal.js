@@ -2,7 +2,7 @@ import { DOM_CHANGED_EVENT, FefDomObserver } from '../classes/fef-dom-observer';
 import { FefResponsiveHelper } from '../classes/fef-responsive-helper';
 import { FefBouncePrevention } from './fef-bounce-prevention';
 import { KEYCODES } from '../utils/fef-keycodes';
-import {setFocus} from '../components/fef-a11y';
+import { setFocus } from '../components/fef-a11y';
 
 const ANIMATION_FADE_IN_OUT = 'fade-in-out';
 const ANIMATION_SCALE_FROM_ORIGIN = 'scale-from-origin';

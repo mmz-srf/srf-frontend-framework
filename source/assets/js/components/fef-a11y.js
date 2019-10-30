@@ -10,11 +10,14 @@ export function init() {
  * https://www.bignerdranch.com/blog/web-accessibility-skip-navigation-links/
  */
 export function enableSkiplinks() {
-    // flag link to inform about manipulation of the link
-    $('.js-skiplink').attr('data-skiplink', 'true');
 
-    $('.js-skiplink').on('click', function() {
-        let skipTo='#'+this.href.split('#')[1];
+    let $skiplink = $('.js-skiplink');
+
+    // flag link to inform about manipulation of the link
+    $skiplink.attr('data-skiplink', 'true');
+
+    $skiplink.on('click', function() {
+        let skipTo = '#' + this.href.split('#')[1];
         setFocus($(skipTo));
     });
 }
