@@ -2,6 +2,7 @@ import { FefResponsiveHelper } from '../classes/fef-responsive-helper';
 import { FefBouncePrevention } from './fef-bounce-prevention';
 import { KEYCODES } from '../utils/fef-keycodes';
 import { DOM_HEIGHT_CHANGE_EVENT, DOM_MUTATION_EVENTS } from '../utils/fef-events';
+import { setFocus } from '../components/fef-a11y';
 
 const ANIMATION_FADE_IN_OUT = 'fade-in-out';
 const ANIMATION_SCALE_FROM_ORIGIN = 'scale-from-origin';
@@ -147,7 +148,7 @@ export class FefModal {
         }
 
         if (this.$focusTarget && this.$focusTarget.length === 1) {
-            this.setFocus(this.$focusTarget);
+            setFocus(this.$focusTarget);
         }
 
         // while the modal is open, height changes of elements could make the
@@ -172,32 +173,21 @@ export class FefModal {
 
         switch (this.animation) {
             case ANIMATION_FADE_IN_OUT:
-                this.$element.stop(true, true).fadeOut(ANIMATION_SPEED, () => this.setFocus(this.$caller));
+                this.$element.stop(true, true).fadeOut(ANIMATION_SPEED, () => setFocus(this.$caller));
                 this.setA11YProperties(false);
                 break;
             case ANIMATION_FLYOUT:
-                this.$element.fadeOut(ANIMATION_SPEED, () => this.setFocus(this.$caller)).hide();
+                this.$element.fadeOut(ANIMATION_SPEED, () => setFocus(this.$caller)).hide();
                 break;
             case ANIMATION_SLIDE_FROM_BOTTOM:
                 this.slideFromBottomClose();
                 this.setA11YProperties(false);
                 break;
             default:
-                this.$element.hide(ANIMATION_SPEED, '', () => this.setFocus(this.$caller));
+                this.$element.hide(ANIMATION_SPEED, '', () => setFocus(this.$caller));
                 this.setA11YProperties(false);
                 break;
         }
-    }
-
-    /**
-     * Simply using .focus() doesn't suffice.
-     *
-     * @param $element jQuery.Element
-     */
-    setFocus($element) {
-        $element.attr('tabindex', -1).on('blur focusout', () => {
-            $element.removeAttr('tabindex');
-        }).get(0).focus({preventScroll: true});
     }
 
     /**
@@ -310,7 +300,7 @@ export class FefModal {
     slideFromBottomClose() {
         this.$mainWrapper.one('transitionend', () => {
             this.$element.hide();
-            this.setFocus(this.$caller);
+            setFocus(this.$caller);
         });
 
         this.$mainWrapper.css({
