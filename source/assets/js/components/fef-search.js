@@ -1,4 +1,4 @@
-import {setFocus} from '../components/fef-flying-focus';
+import {setFocus} from '../components/fef-a11y';
 import {FefStorage} from '../classes/fef-storage';
 import {KEYCODES} from '../utils/fef-keycodes';
 
