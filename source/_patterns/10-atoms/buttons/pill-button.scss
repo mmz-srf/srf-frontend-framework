@@ -120,7 +120,9 @@
 .pill-button--theme-radio_srf_2_kultur,
 .pill-button--theme-radio_srf_3,
 .pill-button--theme-radio_srf_4_news,
-.pill-button--theme-radio_srf_musikwelle {
+.pill-button--theme-radio_srf_musikwelle,
+.pill-button--theme-rtr_radio
+{
   @supports (--srf: cool) {
     .pill-button__icon {
       filter: invert(100%) contrast(400%);
