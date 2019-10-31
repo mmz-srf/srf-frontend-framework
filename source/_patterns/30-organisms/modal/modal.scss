@@ -32,6 +32,11 @@ $modal-z-index: 100;
   box-shadow: $shadow-elevation8;
   z-index: $modal-z-index;
 
+  // we prevent scrolling on the body when the modal is taller than the
+  // viewport via JS (see fef-modal.js@preventScrolling()), but
+  // overscroll-behavior already does that on browsers that support it.
+  overscroll-behavior: contain;
+
   @include smartphone {
 
     &::after {

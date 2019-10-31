@@ -339,6 +339,11 @@ export class FefModal {
      *
      * Additionally, we prevent bouncy body scrolling which can lead to subpar
      * experience on iOS devices.
+     *
+     * One day, this can be solved by `overscroll-behavior: contain;` which
+     * "contains" the scrolling to the current container (exactly what we
+     * need), but for now it's not supported everywhere yet:
+     * https://caniuse.com/#feat=css-overscroll-behavior
      */
     preventScrolling() {
         this.previousScrollPosition = $(window).scrollTop();
