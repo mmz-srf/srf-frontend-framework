@@ -139,16 +139,17 @@ $modal-z-index: 100;
   }
 }
 
+// Aligned at the bottom with some extra padding for mobile browsers
 .modal--bottom {
   .modal__main-wrapper {
     top: auto;
     bottom: 0;
     overflow-y: auto;
-    padding-bottom: 80px;
   }
-
-  .modal__content-wrapper {
-    max-height: calc(100vh - 56px);
-    overflow-y: visible;
+  
+  // keep padding in content, not in wrapper, for accurate height measurement
+  // of content (see fef-modal.js@shouldPreventScrolling())
+  .modal__main-content {
+    padding-bottom: 80px;
   }
 }

@@ -278,18 +278,19 @@ export class FefModal {
      * - adjusts the animation speed depending on modal height
      * - calls an optional callback
      */
-    slideFromBottom(callBack) {
+    slideFromBottom(callBack = () => {}) {
         this.$element.show();
         let modalHeight = this.$mainWrapper.outerHeight();
         let animationSpeed = (ANIMATION_SPEED > 0) ? ANIMATION_SPEED + (Math.floor(modalHeight / 100) * 25) : 0; // adjusting animation speed
+
+        // bind listener for transitionend to invoke callback after transition ended
+        this.$mainWrapper.one('transitionend', () => callBack());
 
         this.$mainWrapper.css({
             'bottom': `-${modalHeight}px`,
             'transition': `transform ${animationSpeed}ms ease-in-out`,
             'transform': `translateY(-${modalHeight}px)`
         });
-
-        callBack();
     }
 
     /**
