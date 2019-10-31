@@ -1,11 +1,10 @@
-import {FefTouchDetection} from '../classes/fef-touch-detection';
+import { FefTouchDetection } from '../classes/fef-touch-detection';
 import { DOM_MUTATION_EVENTS } from '../utils/fef-events';
 
 $(window).on(DOM_MUTATION_EVENTS, (e) => {
     $('[data-tooltip-toggle]').each((index, element) => {
         new FefTooltip($(element));
     });
-
 });
 
 const DEFAULT_OFFSET = 16; // distance between tooltip's triangle and the edge of the parent

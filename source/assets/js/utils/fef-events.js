@@ -41,19 +41,6 @@ export const DOM_MUTATION_EVENTS = `${DOM_INIT_EVENT} ${DOM_CHANGED_EVENT}`;
 export const DOM_HEIGHT_CHANGE_EVENT = 'fef.element.height.changed';
 
 /**
- * Triggered when a component was loaded.
- * 
- * @param {Object} component instance of a component (usually 'this' when triggering)
- * @param {JQuery.element} element corresponding DOM of the instance
- *
- * Example trigger: FefImageSlider
- * Example listener: ?
- * 
- * @type {string}
- */
-export const COMPONENT_LOADED_EVENT = 'fef.component.loaded';
-
-/**
  * Triggered when a search component should be deactivated.
  * 
  * Example trigger: A2zFilter (CMS)

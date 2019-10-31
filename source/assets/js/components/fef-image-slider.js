@@ -1,7 +1,5 @@
 import { DOM_INIT_EVENT } from '../utils/fef-events';
 
-export const COMPONENT_LOADED = 'fef.component.image.slider.loaded';
-
 // Self loading on document.ready and updates if dom change event fired
 $(window).on(DOM_INIT_EVENT, () => {
     $('.image-slider').each((index, element) => {
@@ -26,8 +24,6 @@ export class FefImageSlider {
 
         this.bindMoveLeftClick(currentPosition, $element);
         this.bindMoveRightClick(currentPosition, $element);
-
-        $(window).trigger(COMPONENT_LOADED_EVENT, { 'component': this, 'element': $element });
 
         $element.find('.js-spinner-container').remove();
         $element.addClass('ready');
