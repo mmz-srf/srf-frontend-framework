@@ -203,7 +203,8 @@
   --theme-color-pager-end-transparent: #{$theme-rtr-archivar-color-bg-pager-end-transparent};
 }
 
-.masthead.masthead--theme-rtr_interpresa {
+.masthead.masthead--theme-rtr_interpresa,
+.masthead.masthead--theme-rtr_radio {
   --theme-color-gradient-1: #{$theme-rtr-interpresa-color-1};
   --theme-color-gradient-2: #{$theme-rtr-interpresa-color-2};
   --theme-color-pager-start: #{$theme-rtr-interpresa-color-bg-pager-start};
