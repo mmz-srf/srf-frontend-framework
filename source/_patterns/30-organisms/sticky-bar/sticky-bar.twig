@@ -1,19 +1,21 @@
 <div class="sticky-bar js-sticky-bar {{ styleModifier|default('') }}">
     <div class="sticky-bar__inner-wrapper">
-        <div class="sticky-bar__content">
+        <div class="h-offscreen">{{ title|default('') }}</div>
+
+        <div class="sticky-bar__content related-articles">
             {% block content %}
                 {% include 'molecules-teaser' with {
-                    "styleModifier": "teaser--size-s teaser--no-card",
+                    "styleModifier": "teaser--size-s teaser--no-card related-article",
                     "teaser": collections[0].teasers[0]
                 } %}
 
                 {% include 'molecules-teaser' with {
-                    "styleModifier": "teaser--size-s teaser--no-card",
+                    "styleModifier": "teaser--size-s teaser--no-card related-article",
                     "teaser": collections[0].teasers[1]
                 } %}
 
                 {% include 'molecules-teaser' with {
-                    "styleModifier": "teaser--size-s teaser--no-card",
+                    "styleModifier": "teaser--size-s teaser--no-card related-article",
                     "teaser": collections[0].teasers[2]
                 } %}
             {% endblock %}

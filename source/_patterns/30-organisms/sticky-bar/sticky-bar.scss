@@ -6,10 +6,20 @@
     bottom: 0;
     left: 0;
     width: 100%;
+    display: none;
+
+    transition: transform .2s ease-in-out;
 
     box-shadow: $shadow-elevation8;
-    padding: 8px 32px;
     background-color: $color-srf-neutral-white;
+    
+    z-index: 1; // TODO - necessary?
+    
+    padding: 8px 16px;
+
+    @include tablet-up {
+        padding: 16px 32px;
+    }
 }
 
 .sticky-bar__inner-wrapper {
@@ -21,9 +31,39 @@
 
 .sticky-bar__content {
     flex: 1 1 auto;
-    display: flex;
 }
 
 .sticky-bar__close {
-    flex: 0 0 40px;
+    flex: 0 0 auto;
+    display: flex; // center button inside
+}
+
+/* Specfic Styles for related articles go below here */
+.related-articles {
+    display: flex;
+}
+
+// Mobile: 1 Teaser
+// Tablet: 2 Teaser
+// Desktop+: 3 Teaser
+.related-article {
+    flex: 1 1 0;
+    margin-right: 8px;
+    display: none;
+
+    &:first-child {
+        display: block;
+    }
+
+    @include tablet-up {
+        &:nth-child(2) {
+            display: block;
+        }
+    }
+
+    @include desktop-up {
+        &:nth-child(3) {
+            display: block;
+        }
+    }
 }

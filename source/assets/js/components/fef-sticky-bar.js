@@ -1,6 +1,6 @@
-import { DOM_MUTATION_EVENTS } from '../utils/fef-events';
+import { DOM_INIT_EVENT } from '../utils/fef-events';
 
-$(window).on(DOM_MUTATION_EVENTS, () => {
+$(window).on(DOM_INIT_EVENT, () => {
     $('.js-sticky-bar').each((_, element) => {
         new FefStickyBar($(element));
     });
@@ -19,8 +19,28 @@ export class FefStickyBar {
     }
 
     bindEvents () {
-        this.$closeButton.on('click', () => {
-            this.$element.hide();
+        this.$closeButton.on('click', () => this.hideBar());
+
+        setTimeout(() => this.showBar(), 3000);
+    }
+
+    showBar() {
+        this.$element.show();
+        let modalHeight = this.$element.outerHeight();
+
+        this.$element.css({
+            'bottom': `-${modalHeight}px`,
+            'transform': `translateY(-${modalHeight}px)`
+        });
+    }
+
+    hideBar() {
+        let modalHeight = this.$element.outerHeight();
+
+        this.$element.one('transitionend', () => this.$element.hide());
+
+        this.$element.css({
+            'transform': `translateY(${modalHeight}px)`
         });
     }
 }
