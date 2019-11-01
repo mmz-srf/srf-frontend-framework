@@ -49,7 +49,7 @@ export class SrfSearch {
         });
 
         this.$element.on('submit', (e) => {
-            if (this.$inputField.val() == '') {
+            if (this.$inputField.val().trim() == '') {
                 return false;
             }
         });
