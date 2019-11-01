@@ -1,0 +1,29 @@
+<div class="sticky-bar js-sticky-bar {{ styleModifier|default('') }}">
+    <div class="sticky-bar__inner-wrapper">
+        <div class="sticky-bar__content">
+            {% block content %}
+                {% include 'molecules-teaser' with {
+                    "styleModifier": "teaser--size-s teaser--no-card",
+                    "teaser": collections[0].teasers[0]
+                } %}
+
+                {% include 'molecules-teaser' with {
+                    "styleModifier": "teaser--size-s teaser--no-card",
+                    "teaser": collections[0].teasers[1]
+                } %}
+
+                {% include 'molecules-teaser' with {
+                    "styleModifier": "teaser--size-s teaser--no-card",
+                    "teaser": collections[0].teasers[2]
+                } %}
+            {% endblock %}
+        </div>
+
+        <a href="#" class="sticky-bar__close js-close-sticky-bar">
+            {% include 'atoms-icon-button' with {
+                'iconStyleModifier': 'svg-icon--close-dark',
+                'screenReaderText': 'Schliessen'
+            } %}
+        </a>
+    </div>
+</div>
