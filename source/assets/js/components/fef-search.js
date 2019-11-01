@@ -48,6 +48,12 @@ export class SrfSearch {
             }, 0);
         });
 
+        this.$element.on('submit', (e) => {
+            if (this.$inputField.val() == '') {
+                return false;
+            }
+        });
+
         this.$inputField.on('focus', (e) => {
             this.setSearchActive();
 
