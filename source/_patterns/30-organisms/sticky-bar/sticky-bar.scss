@@ -88,8 +88,12 @@
     flex: 1 1 0;
     
     // override teaser styles
-    background-color: transparent;
-    box-shadow: none;
+    &,
+    &:hover,
+    &:active {
+        background-color: transparent;
+        box-shadow: none;
+    }
 
     @include smartphone {
         &:first-child ~ * {
