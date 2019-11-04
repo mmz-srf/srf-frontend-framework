@@ -10,10 +10,9 @@
     transition: transform .2s ease-in-out;
     box-shadow: $shadow-elevation8;
     background-color: $color-srf-neutral-white;
-    padding: 16px;
 
     @include tablet-up {
-        padding: 0 32px 16px;
+        padding: 0 32px;
     }
 }
 
@@ -47,6 +46,11 @@
 
     @include tablet-up {
         display: block;
+        margin-left: 16px;
+    }
+
+    @include desktop-wide {
+        margin-left: 24px;
     }
 }
 
@@ -61,6 +65,14 @@
 .sticky-bar__close {
     flex: 0 0 auto;
     display: flex; // center button inside
+
+    @include smartphone {
+        align-self: flex-start;
+    }
+
+    @include desktop-wide {
+        margin-right: 8px;
+    }
 }
 
 /* Specfic Styles for related articles go below here */
@@ -73,32 +85,24 @@
 // Desktop+: 3 Teaser
 .related-article {
     flex: 1 1 0;
-    margin-right: 8px;
-    display: none;
+    
+    // override teaser styles
+    background-color: transparent;
+    box-shadow: none;
 
     @include smartphone {
-        &.related-article {
-            margin-bottom: 0;
-        }
-
-        .teaser__medium-wrapper {
+        &:first-child ~ * {
             display: none;
         }
     }
 
-    &:first-child {
-        display: block;
-    }
-
-    @include tablet-up {
-        &:nth-child(2) {
-            display: block;
+    @include tablet {
+        &:nth-child(3) ~ * {
+            display: none;
         }
     }
+}
 
-    @include desktop-up {
-        &:nth-child(3) {
-            display: block;
-        }
-    }
+.related-articles__separator {
+    margin: 16px 12px;
 }

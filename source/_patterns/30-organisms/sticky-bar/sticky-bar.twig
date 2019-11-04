@@ -8,7 +8,7 @@
 
         <a href="#" class="sticky-bar__close js-close-sticky-bar">
             {% include 'atoms-icon-button' with {
-                'styleModifier': 'icon-button--collapsing-text-mobile icon-button--spaceless-right-tablet-up',
+                'styleModifier': 'icon-button--collapsing-text-mobile',
                 'iconStyleModifier': 'svg-icon--close-dark',
                 'buttonText': 'Schliessen'
             } %}
@@ -17,17 +17,21 @@
         <div class="sticky-bar__content related-articles">
             {% block content %}
                 {% include 'molecules-teaser' with {
-                    "styleModifier": "teaser--size-s teaser--no-card related-article",
+                    "styleModifier": "teaser--size-s teaser--no-medium-on-mobile related-article",
                     "teaser": collections[0].teasers[0]
                 } %}
 
+                <span class="vertical-separator related-articles__separator"></span>
+
                 {% include 'molecules-teaser' with {
-                    "styleModifier": "teaser--size-s teaser--no-card related-article",
+                    "styleModifier": "teaser--size-s teaser--no-medium-on-mobile related-article",
                     "teaser": collections[0].teasers[1]
                 } %}
 
+                <span class="vertical-separator related-articles__separator"></span>
+
                 {% include 'molecules-teaser' with {
-                    "styleModifier": "teaser--size-s teaser--no-card related-article",
+                    "styleModifier": "teaser--size-s teaser--no-medium-on-mobile related-article",
                     "teaser": collections[0].teasers[2]
                 } %}
             {% endblock %}
