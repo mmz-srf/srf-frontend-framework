@@ -7,15 +7,10 @@
     left: 0;
     width: 100%;
     display: none;
-
     transition: transform .2s ease-in-out;
-
     box-shadow: $shadow-elevation8;
     background-color: $color-srf-neutral-white;
-    
-    z-index: 1; // TODO - necessary?
-    
-    padding: 8px 16px;
+    padding: 16px;
 
     @include tablet-up {
         padding: 16px 32px;
@@ -50,6 +45,12 @@
     flex: 1 1 0;
     margin-right: 8px;
     display: none;
+
+    @include smartphone {
+        &.related-article {
+            margin-bottom: 0;
+        }
+    }
 
     &:first-child {
         display: block;
