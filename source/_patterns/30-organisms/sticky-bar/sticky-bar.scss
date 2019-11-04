@@ -13,7 +13,7 @@
     padding: 16px;
 
     @include tablet-up {
-        padding: 16px 32px;
+        padding: 0 32px 16px;
     }
 }
 
@@ -22,10 +22,40 @@
     margin: 0 auto;
     position: relative;
     display: flex;
+    align-items: center;
+    
+    @include smartphone {
+        flex-direction: row-reverse;
+    }
+
+    @include tablet-up {
+        flex-wrap: wrap;
+    }
+}
+
+.sticky-bar__title {
+    flex: 1 1 auto;
+    display: none;
+
+    font-family: $font-medium;
+    @include fontSize(24);
+    line-height: 1.25;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    color: $color-srf-warmgrey-1100;
+
+    @include tablet-up {
+        display: block;
+    }
 }
 
 .sticky-bar__content {
     flex: 1 1 auto;
+
+    @include tablet-up {
+        flex: 1 0 100%;
+    }
 }
 
 .sticky-bar__close {
@@ -49,6 +79,10 @@
     @include smartphone {
         &.related-article {
             margin-bottom: 0;
+        }
+
+        .teaser__medium-wrapper {
+            display: none;
         }
     }
 

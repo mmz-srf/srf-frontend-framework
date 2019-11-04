@@ -2,6 +2,18 @@
     <div class="sticky-bar__inner-wrapper">
         <div class="h-offscreen">{{ title|default('') }}</div>
 
+        <div class="sticky-bar__title">
+            {{ title|default('') }}
+        </div>
+
+        <a href="#" class="sticky-bar__close js-close-sticky-bar">
+            {% include 'atoms-icon-button' with {
+                'styleModifier': 'icon-button--collapsing-text-mobile icon-button--spaceless-right-tablet-up',
+                'iconStyleModifier': 'svg-icon--close-dark',
+                'buttonText': 'Schliessen'
+            } %}
+        </a>
+
         <div class="sticky-bar__content related-articles">
             {% block content %}
                 {% include 'molecules-teaser' with {
@@ -20,12 +32,5 @@
                 } %}
             {% endblock %}
         </div>
-
-        <a href="#" class="sticky-bar__close js-close-sticky-bar">
-            {% include 'atoms-icon-button' with {
-                'iconStyleModifier': 'svg-icon--close-dark',
-                'screenReaderText': 'Schliessen'
-            } %}
-        </a>
     </div>
 </div>
