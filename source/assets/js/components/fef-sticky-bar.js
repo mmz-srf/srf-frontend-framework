@@ -1,7 +1,11 @@
 import { DOM_INIT_EVENT } from '../utils/fef-events';
 
+const JS_HOOK_ELEMENT = '.js-sticky-bar';
+const JS_HOOK_CLOSE_BUTTON = '.js-close-sticky-bar';
+const TIME_TO_SHOW = 3000;
+
 $(window).on(DOM_INIT_EVENT, () => {
-    $('.js-sticky-bar').each((_, element) => {
+    $(JS_HOOK_ELEMENT).each((_, element) => {
         new FefStickyBar($(element));
     });
 });
@@ -13,7 +17,7 @@ export class FefStickyBar {
      */
     constructor ($element) {
         this.$element = $element;
-        this.$closeButton = $element.find('.js-close-sticky-bar');
+        this.$closeButton = $element.find(JS_HOOK_CLOSE_BUTTON);
         
         this.bindEvents();
     }
@@ -21,7 +25,7 @@ export class FefStickyBar {
     bindEvents () {
         this.$closeButton.on('click', () => this.hideBar());
 
-        setTimeout(() => this.showBar(), 3000);
+        setTimeout(() => this.showBar(), TIME_TO_SHOW);
     }
 
     showBar() {
