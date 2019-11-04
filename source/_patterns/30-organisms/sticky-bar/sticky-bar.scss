@@ -106,4 +106,8 @@
 
 .related-articles__separator {
     margin: 16px 12px;
+
+    @include desktop-wide {
+        margin: 24px 16px;
+    }
 }
