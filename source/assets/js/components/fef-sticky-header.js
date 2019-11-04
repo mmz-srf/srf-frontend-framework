@@ -7,7 +7,6 @@ export function init() {
     });
 }
 
-const DEBOUNCE_TIME = 100;
 const AFFIX_SELECTOR = '.js-affix';
 const PLACEHOLDER_SELECTOR = '.js-affix-placeholder';
 const AFFIX_EVENT_START = 'affix.bs.affix';
