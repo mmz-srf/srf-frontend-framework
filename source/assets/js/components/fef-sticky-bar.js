@@ -32,6 +32,8 @@ export class FefStickyBar {
             'bottom': `-${modalHeight}px`,
             'transform': `translateY(-${modalHeight}px)`
         });
+
+        $('body').css('margin-bottom', modalHeight);
     }
 
     hideBar() {
@@ -42,5 +44,7 @@ export class FefStickyBar {
         this.$element.css({
             'transform': `translateY(${modalHeight}px)`
         });
+
+        $('body').css('margin-bottom', '');
     }
 }
