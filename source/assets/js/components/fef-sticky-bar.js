@@ -2,7 +2,7 @@ import { DOM_INIT_EVENT } from '../utils/fef-events';
 
 const JS_HOOK_ELEMENT = '.js-sticky-bar';
 const JS_HOOK_CLOSE_BUTTON = '.js-close-sticky-bar';
-const TIME_TO_SHOW = 0;
+const TIME_TO_SHOW = 3000;
 
 $(window).on(DOM_INIT_EVENT, () => {
     $(JS_HOOK_ELEMENT).each((_, element) => {
