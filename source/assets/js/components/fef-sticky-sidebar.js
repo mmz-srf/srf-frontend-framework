@@ -1,30 +1,25 @@
 import { DOM_INIT_EVENT } from '../utils/fef-events';
 
-const JS_HOOK_ELEMENT = '.js-sticky-bar';
-const JS_HOOK_CLOSE_BUTTON = '.js-close-sticky-bar';
+const JS_HOOK_ELEMENT = '.js-sticky-sidebar';
 const TIME_TO_SHOW = 3000;
 
 $(window).on(DOM_INIT_EVENT, () => {
     $(JS_HOOK_ELEMENT).each((_, element) => {
-        new FefStickyBar($(element));
+        new FefStickySidebar($(element));
     });
 });
 
-export class FefStickyBar {
+export class FefStickySidebar {
 
     /**
      * @param $element jQuery element
      */
     constructor ($element) {
         this.$element = $element;
-        this.$closeButton = $element.find(JS_HOOK_CLOSE_BUTTON);
-        
         this.bindEvents();
     }
 
     bindEvents () {
-        this.$closeButton.on('click', () => this.hideBar());
-
         setTimeout(() => this.showBar(), TIME_TO_SHOW);
     }
 
@@ -38,17 +33,5 @@ export class FefStickyBar {
         });
 
         $('body').css('margin-bottom', barHeight);
-    }
-
-    hideBar() {
-        let barHeight = this.$element.outerHeight();
-
-        this.$element.one('transitionend', () => this.$element.hide());
-
-        this.$element.css({
-            'transform': `translateY(${barHeight}px)`
-        });
-
-        $('body').css('margin-bottom', '');
     }
 }

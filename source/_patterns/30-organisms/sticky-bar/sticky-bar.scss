@@ -81,12 +81,7 @@
     display: flex;
 }
 
-// Mobile: 1 Teaser
-// Tablet: 2 Teaser
-// Desktop+: 3 Teaser
 .related-article {
-    flex: 1 1 0;
-    
     // override teaser styles
     &,
     &:hover,
@@ -94,24 +89,45 @@
         background-color: transparent;
         box-shadow: none;
     }
+}
 
-    @include smartphone {
-        &:first-child ~ * {
-            display: none;
+// Mobile: 1 Teaser
+// Tablet: 2 Teaser
+// Desktop+: 3 Teaser
+.related-articles--horizontal {
+    .related-article {
+        flex: 1 1 0;
+
+        @include smartphone {
+            &:first-child ~ * {
+                display: none;
+            }
+        }
+
+        @include tablet {
+            &:nth-child(3) ~ * {
+                display: none;
+            }
         }
     }
 
-    @include tablet {
-        &:nth-child(3) ~ * {
-            display: none;
+    .related-articles__separator {
+        margin: 16px 12px;
+
+        @include desktop-wide {
+            margin: 24px 16px;
         }
     }
 }
 
-.related-articles__separator {
-    margin: 16px 12px;
+.related-articles--vertical {
+    flex-direction: column;
 
-    @include desktop-wide {
-        margin: 24px 16px;
+    .related-article {
+        opacity: 1;
+    }
+
+    .related-articles__separator {
+        margin: 0 24px;
     }
 }

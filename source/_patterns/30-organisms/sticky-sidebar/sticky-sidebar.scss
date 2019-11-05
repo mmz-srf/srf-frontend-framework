@@ -1,0 +1,40 @@
+@import "../../variables";
+@import "../../mixins";
+
+.sticky-sidebar {
+    position: fixed;
+    display: none;
+    top: 20%;
+    right: 0;
+    // take up half of the space that's left over after subtracting the content column, minus a 12px gap
+    width: calc(((100% - 728px) / 2) - 12px);
+    transition: transform .2s ease-in-out;
+    background-color: $color-srf-neutral-white;
+
+    @include desktop-wide {
+        display: block;
+    }
+}
+
+.sticky-sidebar__inner-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.sticky-sidebar__title {
+    font-family: $font-medium;
+    @include fontSize(24);
+    line-height: 1.25;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    color: $color-srf-warmgrey-1100;
+    margin-bottom: 12px;
+    margin-left: 24px;
+}
+
+.sticky-sidebar__content {
+    display: flex;
+    flex-direction: column;
+}
