@@ -317,3 +317,19 @@ $button-animation-duration: .3s;
     margin: 0 12px 0 0;
   }
 }
+
+.button--icon-only {
+  padding: 13px;
+
+  .button-wrapper {
+    height: auto;
+  }
+
+  .button-icon {
+    margin: 0;
+  }
+
+  .button-text {
+    display: none;
+  }
+}
