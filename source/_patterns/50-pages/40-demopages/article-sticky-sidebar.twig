@@ -4,14 +4,11 @@
     {% endblock %}
     
     {% block article_content %}
+        {% include 'organisms-sticky-sidebar' with {'title': 'Verwandte Artikel'} %}
         {% include 'atoms-content-heading' %}
         {% include 'atoms-article-text' %}
         {% include 'molecules-medium--vertical' %}
         {% include 'atoms-article-text' %}
         {% include 'atoms-article-author--short' %}
-    {% endblock %}
-
-    {% block after_everything %}
-        {% include 'organisms-sticky-sidebar' with {'title': 'Verwandte Artikel'} %}
     {% endblock %}
 {% endembed %}

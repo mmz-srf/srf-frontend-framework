@@ -1,18 +1,44 @@
 @import "../../variables";
 @import "../../mixins";
+@import "../../animations";
+
+.sticky-sidebar-positioner {
+    position: absolute;
+    // Default/fallback value is approximately where the share bar line is
+    top: 200px;
+	bottom: 0;
+    left: calc(728px + 12px);
+    // Sidebar should occupy half of the leftover space after subtracting the
+    // content's width, plus a small gap
+    width: calc(((100vw - 728px) / 2) - 12px);
+    // Arbitrary, meaningless max width so that the teasers aren't too wide
+	max-width: 420px;
+}
 
 .sticky-sidebar {
-    position: fixed;
+    position: absolute;
+    margin-top: -72px;
+
+    @supports (position: sticky) {
+        position: sticky;
+        // Sticky should be sticky on "top edge"
+        // Default/fallback value is the height of the compact masthead
+        top: 72px;
+        margin-top: 0;
+    }
+
     display: none;
-    top: 20%;
-    right: 0;
-    // take up half of the space that's left over after subtracting the content column, minus a 12px gap
-    width: calc(((100% - 728px) / 2) - 12px);
-    transition: transform .2s ease-in-out;
+    opacity: 0;
     background-color: $color-srf-neutral-white;
 
     @include desktop-wide {
         display: block;
+
+        // Fade in the sidebar after a small delay. This way, the JS has time
+        // to kick in and set the correct offset/sticky value.
+        animation: fadeInAnimation .2s;
+        animation-delay: .2s;
+        animation-fill-mode: forwards;
     }
 }
 
@@ -30,8 +56,7 @@
     font-stretch: normal;
     font-style: normal;
     color: $color-srf-warmgrey-1100;
-    margin-bottom: 12px;
-    margin-left: 24px;
+    margin: 12px 24px;
 }
 
 .sticky-sidebar__content {

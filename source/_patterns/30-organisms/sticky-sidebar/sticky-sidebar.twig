@@ -1,32 +1,37 @@
-<div class="sticky-sidebar js-sticky-sidebar {{ styleModifier|default('') }}">
-    <div class="sticky-sidebar__inner-wrapper">
-        <div class="sticky-sidebar__title">
-            {{ title|default('') }}
-        </div>
+<div class="sticky-sidebar-positioner js-sticky-sidebar-positioner">
+    <div class="sticky-sidebar js-sticky-sidebar {{ styleModifier|default('') }}">
+        <div class="sticky-sidebar__inner-wrapper">
 
-        <div class="sticky-sidebar__content related-articles related-articles--vertical">
-            {% block content %}
-                {% include 'atoms-horizontal-separator' with {'styleModifier': 'related-articles__separator'} %}
+            <div class="sticky-sidebar__title js-sticky-sidebar-title">
+                {{ title|default('') }}
+            </div>
 
-                {% include 'molecules-teaser' with {
-                    "styleModifier": "teaser--size-s teaser--no-medium-on-mobile teaser--alternative-interaction-design related-article",
-                    "teaser": collections[0].teasers[0]
-                } %}
+            <div class="sticky-sidebar__content related-articles related-articles--vertical">
+                {% block content %}
+                    {% include 'atoms-horizontal-separator' with {'styleModifier': 'related-articles__separator'} %}
 
-                {% include 'atoms-horizontal-separator' with {'styleModifier': 'related-articles__separator'} %}
+                    {% include 'molecules-teaser' with {
+                        "styleModifier": "teaser--size-s teaser--no-medium-on-mobile teaser--alternative-interaction-design related-article",
+                        "teaser": collections[0].teasers[0]
+                    } %}
 
-                {% include 'molecules-teaser' with {
-                    "styleModifier": "teaser--size-s teaser--no-medium-on-mobile teaser--alternative-interaction-design related-article",
-                    "teaser": collections[0].teasers[1]
-                } %}
+                    {% include 'atoms-horizontal-separator' with {'styleModifier': 'related-articles__separator'} %}
 
-                {% include 'atoms-horizontal-separator' with {'styleModifier': 'related-articles__separator'} %}
+                    {% include 'molecules-teaser' with {
+                        "styleModifier": "teaser--size-s teaser--no-medium-on-mobile teaser--alternative-interaction-design related-article",
+                        "teaser": collections[0].teasers[1]
+                    } %}
 
-                {% include 'molecules-teaser' with {
-                    "styleModifier": "teaser--size-s teaser--no-medium-on-mobile teaser--alternative-interaction-design related-article",
-                    "teaser": collections[0].teasers[2]
-                } %}
-            {% endblock %}
+                    {% include 'atoms-horizontal-separator' with {'styleModifier': 'related-articles__separator'} %}
+
+                    {% include 'molecules-teaser' with {
+                        "styleModifier": "teaser--size-s teaser--no-medium-on-mobile teaser--alternative-interaction-design related-article",
+                        "teaser": collections[0].teasers[2]
+                    } %}
+
+                    {% include 'atoms-horizontal-separator' with {'styleModifier': 'related-articles__separator'} %}
+                {% endblock %}
+            </div>
         </div>
     </div>
 </div>
