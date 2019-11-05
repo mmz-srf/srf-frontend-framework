@@ -2,6 +2,7 @@
 @import "../../mixins";
 @import "../../animations";
 
+// Area in which the sidebar can move when scrolling
 .sticky-sidebar-positioner {
     position: absolute;
     // Default/fallback value is approximately where the share bar line is
@@ -16,17 +17,21 @@
 }
 
 .sticky-sidebar {
+    // Fallback if sticky is not supported: Position absolute and undo the top
+    // value from the JS or the fallback from below
     position: absolute;
     margin-top: -72px;
-
+    
     @supports (position: sticky) {
+        // If sticky is supported, undo the undo (margin-top from above)
         position: sticky;
-        // Sticky should be sticky on "top edge"
-        // Default/fallback value is the height of the compact masthead
-        top: 72px;
         margin-top: 0;
     }
 
+    // Sticky should be sticky on "top edge"
+    // Default/fallback value is the height of the compact masthead
+    top: 72px;
+    
     display: none;
     opacity: 0;
     background-color: $color-srf-neutral-white;
