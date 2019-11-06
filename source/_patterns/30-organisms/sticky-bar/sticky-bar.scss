@@ -88,6 +88,18 @@
     &:active {
         background-color: transparent;
         box-shadow: none;
+        border: none;
+    }
+
+    .related-items-list__content {
+        &,
+        &:hover,
+        &:active {
+            border: none;
+            margin: 0;
+            padding: 0;
+            background-color: transparent;
+        }
     }
 }
 
