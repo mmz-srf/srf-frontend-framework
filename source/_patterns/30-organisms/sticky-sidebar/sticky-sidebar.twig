@@ -10,23 +10,20 @@
                 {% block content %}
                     {% include 'atoms-horizontal-separator' with {'styleModifier': 'related-articles__separator'} %}
 
-                    {% include 'molecules-teaser' with {
-                        "styleModifier": "teaser--size-s teaser--no-medium-on-mobile teaser--alternative-interaction-design related-article",
-                        "teaser": collections[0].teasers[0]
+                    {% include 'molecules-article-teaser' with {
+                        'styleModifier': 'article-teaser--related-article related-article'
                     } %}
 
                     {% include 'atoms-horizontal-separator' with {'styleModifier': 'related-articles__separator'} %}
 
-                    {% include 'molecules-teaser' with {
-                        "styleModifier": "teaser--size-s teaser--no-medium-on-mobile teaser--alternative-interaction-design related-article",
-                        "teaser": collections[0].teasers[1]
+                    {% include 'molecules-article-teaser' with {
+                        'styleModifier': 'article-teaser--related-article related-article'
                     } %}
 
                     {% include 'atoms-horizontal-separator' with {'styleModifier': 'related-articles__separator'} %}
 
-                    {% include 'molecules-teaser' with {
-                        "styleModifier": "teaser--size-s teaser--no-medium-on-mobile teaser--alternative-interaction-design related-article",
-                        "teaser": collections[0].teasers[2]
+                    {% include 'molecules-article-teaser' with {
+                        'styleModifier': 'article-teaser--related-article related-article'
                     } %}
 
                     {% include 'atoms-horizontal-separator' with {'styleModifier': 'related-articles__separator'} %}

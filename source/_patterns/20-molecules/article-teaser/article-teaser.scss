@@ -82,3 +82,73 @@
   line-height: $secondary-line-height-ratio;
   margin: 0;
 }
+
+// Only used for A-B-Testing
+.article-teaser--related-article {
+  transition: opacity .2s ease-in-out;
+  opacity: 1;
+
+  &:hover,
+  &:focus {
+    opacity: .8;
+  }
+
+  &:active {
+    opacity: .6;
+  }
+
+  .article-teaser__wrapper {
+    display: flex;
+    flex-direction: row-reverse;
+    padding: 24px;
+  }
+
+  .article-teaser__image {
+    margin: 0 0 0 24px;
+    width: 94px;
+    height: 94px;
+    border-radius: 2px;
+
+    @include smartphone {
+      display: none;
+    }
+  }
+
+  .article-teaser__content {
+    margin: 0;
+  }
+
+  .article-teaser__kicker {
+    @include fontSize(14);
+
+    @include desktop-up {
+      @include fontSize(16);
+    }
+  }
+
+  .article-teaser__title {
+    margin: 0;
+
+    @include desktop-up {
+      @include fontSize(18);
+    }
+  }
+
+  .teaser-info--fading {
+    display: none;
+  }
+
+  &.related-article--horizontal {
+    .article-teaser__wrapper {
+      padding: 0 16px 16px;
+
+      @include smartphone {
+        padding: 16px 24px;
+      }
+      
+      @include desktop-wide {
+        padding: 0 24px 24px;
+      }
+    }
+  }
+}
