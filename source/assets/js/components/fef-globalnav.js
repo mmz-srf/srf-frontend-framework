@@ -1,11 +1,11 @@
 import { FefStorage } from '../classes/fef-storage';
 import { FefTouchDetection } from '../classes/fef-touch-detection';
 import { KEYCODES } from '../utils/fef-keycodes';
+import { DOM_HEIGHT_CHANGE_EVENT } from '../utils/fef-events';
 
 
 const STORAGE_KEY = 'SRF.Navigations';
 const OPEN_BY_DEFAULT = true;
-const DOM_HEIGHT_CHANGE_EVENT = 'fef.element.height.changed';
 
 export function init() {
     $('.js-globalnav').each((i, elem) => {

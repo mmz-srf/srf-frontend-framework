@@ -1,14 +1,13 @@
-import { DOM_CHANGED_EVENT, FefDomObserver } from '../classes/fef-dom-observer';
 import { FefResponsiveHelper } from '../classes/fef-responsive-helper';
 import { FefBouncePrevention } from './fef-bounce-prevention';
 import { KEYCODES } from '../utils/fef-keycodes';
+import { DOM_HEIGHT_CHANGE_EVENT, DOM_MUTATION_EVENTS } from '../utils/fef-events';
 import { setFocus } from '../components/fef-a11y';
 
 const ANIMATION_FADE_IN_OUT = 'fade-in-out';
 const ANIMATION_SCALE_FROM_ORIGIN = 'scale-from-origin';
 const ANIMATION_FLYOUT = 'as-flyout-from-origin';
 const ANIMATION_SLIDE_FROM_BOTTOM = 'slide-from-bottom';
-const DOM_HEIGHT_CHANGE_EVENT = 'fef.element.height.changed'; // will be thrown by some element that changed its height
 
 const ANIMATION_SPEED = (window.matchMedia('(prefers-reduced-motion)').matches) ? 0 : 200;
 const END_OF_MODAL = '.js-end-of-modal';
@@ -17,9 +16,9 @@ const END_OF_MODAL = '.js-end-of-modal';
 let existingModals = {};
 let scrollbarWidth = 0;
 
-$(window).on(DOM_CHANGED_EVENT, (e) => {
+$(window).on(DOM_MUTATION_EVENTS, () => {
     scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
-    $('[data-modal-id]').each((index, element) => {
+    $('[data-modal-id]').each((_, element) => {
 
         $(element).off('click').on('click', (event) => {
             event.preventDefault();
@@ -279,18 +278,19 @@ export class FefModal {
      * - adjusts the animation speed depending on modal height
      * - calls an optional callback
      */
-    slideFromBottom(callBack) {
+    slideFromBottom(callBack = () => {}) {
         this.$element.show();
         let modalHeight = this.$mainWrapper.outerHeight();
         let animationSpeed = (ANIMATION_SPEED > 0) ? ANIMATION_SPEED + (Math.floor(modalHeight / 100) * 25) : 0; // adjusting animation speed
+
+        // bind listener for transitionend to invoke callback after transition ended
+        this.$mainWrapper.one('transitionend', () => callBack());
 
         this.$mainWrapper.css({
             'bottom': `-${modalHeight}px`,
             'transition': `transform ${animationSpeed}ms ease-in-out`,
             'transform': `translateY(-${modalHeight}px)`
         });
-
-        callBack();
     }
 
     /**
@@ -339,6 +339,11 @@ export class FefModal {
      *
      * Additionally, we prevent bouncy body scrolling which can lead to subpar
      * experience on iOS devices.
+     *
+     * One day, this can be solved by `overscroll-behavior: contain;` which
+     * "contains" the scrolling to the current container (exactly what we
+     * need), but for now it's not supported everywhere yet:
+     * https://caniuse.com/#feat=css-overscroll-behavior
      */
     preventScrolling() {
         this.previousScrollPosition = $(window).scrollTop();

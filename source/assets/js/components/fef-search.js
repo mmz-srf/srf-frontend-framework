@@ -1,7 +1,7 @@
-import {setFocus} from '../components/fef-a11y';
-import {FefStorage} from '../classes/fef-storage';
-import {KEYCODES} from '../utils/fef-keycodes';
-
+import { setFocus } from '../components/fef-a11y';
+import { FefStorage } from '../classes/fef-storage';
+import { KEYCODES } from '../utils/fef-keycodes';
+import { SET_SEARCH_INACTIVE_EVENT } from '../utils/fef-events';
 
 export function init() {
     $('.js-search').each((i, elem) => {
@@ -14,7 +14,6 @@ const DEFAULT_MIN_SEARCH_LENGTH = 2;
 
 const ACTIVE_CLASS = 'search--active';
 const OUTSIDE_CLICK_LISTENER_NAME = 'mousedown.search-destroyer';
-const SET_SEARCH_INACTIVE_EVENT = 'srf.search.deactivate';
 const LOCAL_STORAGE_KEY = 'srf:search:history';
 
 export class SrfSearch {
@@ -47,6 +46,12 @@ export class SrfSearch {
             setTimeout(() => {
                 this.$inputField.focus();
             }, 0);
+        });
+
+        this.$element.on('submit', (e) => {
+            if (this.$inputField.val().trim() == '') {
+                return false;
+            }
         });
 
         this.$inputField.on('focus', (e) => {
