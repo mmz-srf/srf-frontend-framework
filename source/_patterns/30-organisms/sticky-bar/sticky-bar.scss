@@ -89,6 +89,7 @@
         background-color: transparent;
         box-shadow: none;
         border: none;
+        margin: 0;
     }
 
     .related-items-list__content {
@@ -134,10 +135,6 @@
 
 .related-articles--vertical {
     flex-direction: column;
-
-    .related-article {
-        opacity: 1;
-    }
 
     .related-articles__separator {
         margin: 0 24px;
