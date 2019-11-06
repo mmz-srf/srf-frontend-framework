@@ -18,8 +18,9 @@ $default-input-background: $color-srf-neutral-white;
   font-family: $font-light;
   color: $color-srf-warmgrey-1100;
   background-color: $default-input-background;
-  padding: 12px 44px 12px 16px;
+  padding: 13px 44px 13px 16px;
   margin: 4px 0 2px;
+  line-height: $emphasize-line-height-ratio;
   box-sizing: border-box;
   border: 1px solid $color-srf-warmgrey-300;
   border-radius: 2px;
@@ -54,10 +55,10 @@ $default-input-background: $color-srf-neutral-white;
 
   &.input-field--icon-date {
     padding-left: 48px;
-    background: $default-input-background url('../../../assets/img/icon/calendar.svg') no-repeat left 0 center;
+    background: $default-input-background url('../../../assets/img/icon/calendar.svg') no-repeat 12px 12px;
 
     &.input-field--on-error {
-      background: url('../../../assets/img/icon/calendar.svg') no-repeat left 16px center,
+      background: url('../../../assets/img/icon/calendar.svg') no-repeat 12px 12px,
                   url('../../../assets/img/exclamation-mark-red.svg') no-repeat right 16px center,
                   $default-input-background;
 

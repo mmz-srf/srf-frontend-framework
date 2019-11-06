@@ -319,7 +319,8 @@ $button-animation-duration: .3s;
 }
 
 .button--icon-only {
-  padding: 13px;
+  width: auto;
+  padding: 12px;
 
   .button-wrapper {
     height: auto;
