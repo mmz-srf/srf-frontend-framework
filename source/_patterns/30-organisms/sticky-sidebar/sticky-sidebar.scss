@@ -29,14 +29,14 @@
     }
 
     // Sticky should be sticky on "top edge"
-    // Default/fallback value is the height of the compact masthead
-    top: 72px;
+    // Default/fallback value is twice the height of the compact masthead
+    top: 144px;
     
     display: none;
     opacity: 0;
     background-color: $color-srf-neutral-white;
 
-    @include desktop-wide {
+    @media (min-width: 1440px) {
         display: block;
 
         // Fade in the sidebar after a small delay. This way, the JS has time
