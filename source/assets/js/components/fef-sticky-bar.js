@@ -65,7 +65,7 @@ export class FefStickyBar {
      * If so, show the bar and remove the scroll event listener.
      */
     checkPosition() {
-        if (window.scrollY >= (window.outerHeight/2)) {
+        if (window.scrollY + window.outerHeight >= document.body.offsetHeight / 2) {
             this.showBar();
 
             window.removeEventListener(
