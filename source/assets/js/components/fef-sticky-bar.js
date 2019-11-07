@@ -23,7 +23,7 @@ export class FefStickyBar {
 
     /**
      * Bind events to show/hide the sticky bar.
-     * The bar should appear when the page was scrolled >= 50% of the page's
+     * The bar should appear when the page was scrolled >= 50% of the content's
      * height. Thus we need to listen to the window's scroll event; if possible
      * passively for performance reasons and of course debounced.
      * If the page can't be scrolled, it should appear after a fixed
@@ -43,6 +43,8 @@ export class FefStickyBar {
 
         // need to have the same function reference to remove listener again
         this.debouncedCheck = FefDebounceHelper.debounce(() => this.checkPosition());
+        let articleNode = document.getElementsByClassName('article')[0];
+        this.targetPosition = (articleNode.offsetTop + articleNode.offsetHeight) / 2;
 
         // check if passive event listeners are supported
         this.supportsPassive = false;
@@ -61,11 +63,11 @@ export class FefStickyBar {
     }
 
     /**
-     * Check if the scrollposition is >= 50% of the page height.
+     * Check if the scrollposition is >= 50% of the content height.
      * If so, show the bar and remove the scroll event listener.
      */
     checkPosition() {
-        if (window.scrollY + window.outerHeight >= document.body.offsetHeight / 2) {
+        if (window.scrollY + (window.outerHeight / 2) >= this.targetPosition) {
             this.showBar();
 
             window.removeEventListener(
