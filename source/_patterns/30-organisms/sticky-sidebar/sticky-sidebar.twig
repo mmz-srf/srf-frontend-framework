@@ -1,0 +1,34 @@
+<div class="sticky-sidebar-positioner js-sticky-sidebar-positioner">
+    <div class="sticky-sidebar js-sticky-sidebar {{ styleModifier|default('') }}">
+        <div class="sticky-sidebar__inner-wrapper">
+
+            <div class="sticky-sidebar__title js-sticky-sidebar-title">
+                {{ title|default('') }}
+            </div>
+
+            <div class="sticky-sidebar__content related-articles related-articles--vertical">
+                {% block content %}
+                    {% include 'atoms-horizontal-separator' with {'styleModifier': 'related-articles__separator'} %}
+
+                    {% include 'molecules-article-teaser' with {
+                        'styleModifier': 'article-teaser--related-article related-article'
+                    } %}
+
+                    {% include 'atoms-horizontal-separator' with {'styleModifier': 'related-articles__separator'} %}
+
+                    {% include 'molecules-article-teaser' with {
+                        'styleModifier': 'article-teaser--related-article related-article'
+                    } %}
+
+                    {% include 'atoms-horizontal-separator' with {'styleModifier': 'related-articles__separator'} %}
+
+                    {% include 'molecules-article-teaser' with {
+                        'styleModifier': 'article-teaser--related-article related-article'
+                    } %}
+
+                    {% include 'atoms-horizontal-separator' with {'styleModifier': 'related-articles__separator'} %}
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+</div>

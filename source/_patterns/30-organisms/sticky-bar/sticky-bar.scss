@@ -1,0 +1,142 @@
+@import "../../variables";
+@import "../../mixins";
+
+.sticky-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: none;
+    transition: transform .4s ease-in-out;
+    box-shadow: $shadow-elevation8;
+    background-color: $color-srf-neutral-white;
+
+    @include tablet-up {
+        padding: 0 32px;
+    }
+}
+
+.sticky-bar__inner-wrapper {
+    max-width: $content-width;
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    align-items: center;
+    
+    @include smartphone {
+        flex-direction: row-reverse;
+    }
+
+    @include tablet-up {
+        flex-wrap: wrap;
+    }
+}
+
+.sticky-bar__title {
+    flex: 1 1 auto;
+    display: none;
+
+    font-family: $font-medium;
+    @include fontSize(24);
+    line-height: 1.25;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    color: $color-srf-warmgrey-1100;
+
+    @include tablet-up {
+        display: block;
+        margin-left: 16px;
+    }
+
+    @include desktop-wide {
+        margin-left: 24px;
+    }
+}
+
+.sticky-bar__content {
+    flex: 1 1 auto;
+
+    // take up a whole row on tablet+
+    @include tablet-up {
+        flex: 1 0 100%;
+    }
+}
+
+.sticky-bar__close {
+    flex: 0 0 auto;
+    display: flex; // center button inside
+
+    @include smartphone {
+        align-self: flex-start;
+    }
+
+    @include desktop-wide {
+        margin-right: 8px;
+    }
+}
+
+/* Specfic Styles for related articles go below here */
+.related-articles {
+    display: flex;
+}
+
+.related-article {
+    // override teaser styles
+    &,
+    &:hover,
+    &:active {
+        background-color: transparent;
+        box-shadow: none;
+        border: none;
+        margin: 0;
+    }
+
+    .related-items-list__content {
+        &,
+        &:hover,
+        &:active {
+            border: none;
+            margin: 0;
+            padding: 0;
+            background-color: transparent;
+        }
+    }
+}
+
+// Mobile: 1 Teaser
+// Tablet: 2 Teaser
+// Desktop+: 3 Teaser
+.related-articles--horizontal {
+    .related-article {
+        flex: 1 1 0;
+
+        @include smartphone {
+            &:first-child ~ * {
+                display: none;
+            }
+        }
+
+        @include tablet {
+            &:nth-child(3) ~ * {
+                display: none;
+            }
+        }
+    }
+
+    .related-articles__separator {
+        margin: 16px 12px;
+
+        @include desktop-wide {
+            margin: 24px 16px;
+        }
+    }
+}
+
+.related-articles--vertical {
+    flex-direction: column;
+
+    .related-articles__separator {
+        margin: 0 24px;
+    }
+}

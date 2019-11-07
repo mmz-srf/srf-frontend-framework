@@ -1,0 +1,35 @@
+<div class="sticky-bar js-sticky-bar {{ styleModifier|default('') }}">
+    <div class="sticky-bar__inner-wrapper">
+        <div class="sticky-bar__title">
+            {{ title|default('') }}
+        </div>
+
+        <a href="#" class="sticky-bar__close js-close-sticky-bar">
+            {% include 'atoms-icon-button' with {
+                'styleModifier': 'icon-button--collapsing-text-mobile',
+                'iconStyleModifier': 'svg-icon--close-dark',
+                'buttonText': 'Schliessen'
+            } %}
+        </a>
+
+        <div class="sticky-bar__content related-articles related-articles--horizontal">
+            {% block content %}
+                {% include 'molecules-article-teaser' with {
+                    'styleModifier': 'article-teaser--related-article related-article related-article--horizontal'
+                } %}
+
+                <span class="vertical-separator related-articles__separator"></span>
+
+                {% include 'molecules-article-teaser' with {
+                    'styleModifier': 'article-teaser--related-article related-article related-article--horizontal'
+                } %}
+
+                <span class="vertical-separator related-articles__separator"></span>
+                
+                {% include 'molecules-article-teaser' with {
+                    'styleModifier': 'article-teaser--related-article related-article related-article--horizontal'
+                } %}
+            {% endblock %}
+        </div>
+    </div>
+</div>

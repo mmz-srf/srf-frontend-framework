@@ -1,0 +1,70 @@
+@import "../../variables";
+@import "../../mixins";
+@import "../../animations";
+
+// Area in which the sidebar can move when scrolling
+.sticky-sidebar-positioner {
+    position: absolute;
+    // Default/fallback value is approximately where the share bar line is
+    top: 200px;
+	bottom: 0;
+    left: calc(728px + 12px);
+    // Sidebar should occupy half of the leftover space after subtracting the
+    // content's width, plus a small gap
+    width: calc(((100vw - 728px) / 2) - 12px);
+    // Arbitrary, meaningless max width so that the teasers aren't too wide
+	max-width: 420px;
+}
+
+.sticky-sidebar {
+    // Fallback if sticky is not supported: Position absolute and undo the top
+    // value from the JS or the fallback from below
+    position: absolute;
+    margin-top: -72px;
+    
+    @supports (position: sticky) {
+        // If sticky is supported, undo the undo (margin-top from above)
+        position: sticky;
+        margin-top: 0;
+    }
+
+    // Sticky should be sticky on "top edge"
+    // Default/fallback value is twice the height of the compact masthead
+    top: 144px;
+    
+    display: none;
+    opacity: 0;
+    background-color: $color-srf-neutral-white;
+
+    @media (min-width: 1440px) {
+        display: block;
+
+        // Fade in the sidebar after a small delay. This way, the JS has time
+        // to kick in and set the correct offset/sticky value.
+        animation: fadeInAnimation .2s;
+        animation-delay: .2s;
+        animation-fill-mode: forwards;
+    }
+}
+
+.sticky-sidebar__inner-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.sticky-sidebar__title {
+    font-family: $font-medium;
+    @include fontSize(24);
+    line-height: 1.25;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    color: $color-srf-warmgrey-1100;
+    margin: 12px 24px;
+}
+
+.sticky-sidebar__content {
+    display: flex;
+    flex-direction: column;
+}

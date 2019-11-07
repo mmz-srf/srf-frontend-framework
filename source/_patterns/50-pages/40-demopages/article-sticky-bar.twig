@@ -1,0 +1,17 @@
+{% embed 'templates-article' %}
+    {% block top_media %}
+        {% include 'molecules-medium--fullwidth-element' %}
+    {% endblock %}
+    
+    {% block article_content %}
+        {% include 'atoms-content-heading' %}
+        {% include 'atoms-article-text' %}
+        {% include 'molecules-medium--vertical' %}
+        {% include 'atoms-article-text' %}
+        {% include 'atoms-article-author--short' %}
+    {% endblock %}
+
+    {% block after_everything %}
+        {% include 'organisms-sticky-bar' with {'title': 'Verwandte Artikel'} %}
+    {% endblock %}
+{% endembed %}

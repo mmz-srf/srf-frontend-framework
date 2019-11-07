@@ -1,9 +1,9 @@
-import {KEYCODES} from '../utils/fef-keycodes';
+import { KEYCODES } from '../utils/fef-keycodes';
+import { DOM_HEIGHT_CHANGE_EVENT } from '../utils/fef-events';
 
 const HOOK_CLASS        = '.js-genex';
 const TOGGLE_CLASS      = '.js-genex-toggle';
 const ANIMATION_DEFAULT_EASING = 'easeInOutCubic';
-const DOM_HEIGHT_CHANGE_EVENT = 'fef.element.height.changed';
 
 let ANIMATION_DEFAULT_DURATION = 400;
 

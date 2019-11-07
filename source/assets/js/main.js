@@ -14,7 +14,7 @@ import {init as FefExpandableBoxInit} from './components/fef-expandable-box';
 import {init as FefStickyHeaderInit} from './components/fef-sticky-header';
 import {init as FefSubnavInit} from './components/fef-subnav';
 import {init as FefPopupInit} from './components/fef-popup';
-import {init as FefSkiplinks} from './components/fef-skiplinks';
+import {init as FefA11yInit} from './components/fef-a11y';
 import {init as FefSelectableInit} from './components/fef-selectable';
 import {init as FefListmoduleInit} from './srf-listmodule';
 import {init as FefGenericExpander} from './components/fef-generic-expander';
@@ -27,6 +27,9 @@ import {FefImageSlider} from './components/fef-image-slider';
 import {Affix} from './components/affix';
 import {FefModal} from './components/fef-modal';
 import {FefResizeListener} from './classes/fef-resize-listener';
+import {FefDomObserver} from './classes/fef-dom-observer';
+import './components/fef-sticky-bar';
+import './components/fef-sticky-sidebar';
 import './components/fef-ripple';
 
 import './utils/fef-easings';
@@ -49,7 +52,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
     FefStickyHeaderInit();
     FefSubnavInit();
     FefPopupInit();
-    FefSkiplinks();
+    FefA11yInit();
     FefSelectableInit();
     FefListmoduleInit();
     FefGenericExpander();
