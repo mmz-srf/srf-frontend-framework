@@ -21,6 +21,7 @@
     // value from the JS or the fallback from below
     position: absolute;
     margin-top: -72px;
+    width: 100%;
     
     @supports (position: sticky) {
         // If sticky is supported, undo the undo (margin-top from above)

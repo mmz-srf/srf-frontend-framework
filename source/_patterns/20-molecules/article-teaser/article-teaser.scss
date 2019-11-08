@@ -107,6 +107,7 @@
     margin: 0 0 0 24px;
     width: 94px;
     height: 94px;
+    flex: 0 0 94px;
     border-radius: 2px;
 
     @include smartphone {
@@ -116,7 +117,7 @@
 
   .article-teaser__content {
     margin: 0;
-    flex: 1 1 0;
+    flex: 1 1 0px; //px is needed for IE11
   }
 
   .article-teaser__kicker {
