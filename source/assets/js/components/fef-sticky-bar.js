@@ -1,11 +1,12 @@
-import { DOM_INIT_EVENT } from '../utils/fef-events';
+import { SHOW_BOTTOMBAR_RELATED_ARTICLES_EVENT } from '../utils/fef-events';
 import { FefDebounceHelper } from '../classes/fef-debounce-helper';
 
 const JS_HOOK_ELEMENT = '.js-sticky-bar';
 const JS_HOOK_CLOSE_BUTTON = '.js-close-sticky-bar';
+const JS_HOOK_DEFAULT_RELATED_ELEMENTS = '.js-related-items';
 const TIME_TO_SHOW = 3000;
 
-$(window).on(DOM_INIT_EVENT, () => {
+$(window).on(SHOW_BOTTOMBAR_RELATED_ARTICLES_EVENT, () => {
     $(JS_HOOK_ELEMENT).each((_, element) => {
         new FefStickyBar($(element));
     });
@@ -19,6 +20,9 @@ export class FefStickyBar {
     constructor ($element) {
         this.$element = $element;
         this.bindEvents();
+
+        // hide the "normal" related elements list
+        $(JS_HOOK_DEFAULT_RELATED_ELEMENTS).hide();
     }
 
     /**
@@ -59,7 +63,10 @@ export class FefStickyBar {
             'scroll',
             this.debouncedCheck,
             this.supportsPassive ? { passive: true } : false
-        ); 
+        );
+
+        // initial check, in case the page was loaded in a scrolled state
+        this.checkPosition();
     }
 
     /**

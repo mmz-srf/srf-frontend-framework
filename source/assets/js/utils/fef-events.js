@@ -49,3 +49,25 @@ export const DOM_HEIGHT_CHANGE_EVENT = 'fef.element.height.changed';
  * @type {string}
  */
 export const SET_SEARCH_INACTIVE_EVENT = 'fef.search.deactivate';
+
+/**
+ * Show the sticky sidebar with related articles (only during A-B-Testing
+ * period)
+ * 
+ * Example trigger: A-B-Tasty custom script
+ * Example listener: FefStickySidebar
+ * 
+ * @type {string}
+ */
+export const SHOW_SIDEBAR_RELATED_ARTICLES_EVENT = 'fef.sidebar.show';
+
+/**
+ * Show the sticky bottom bar with related articles (only during A-B-Testing
+ * period)
+ * 
+ * Example trigger: A-B-Tasty custom script
+ * Example listener: FefStickyBar
+ * 
+ * @type {string}
+ */
+export const SHOW_BOTTOMBAR_RELATED_ARTICLES_EVENT = 'fef.bottombar.show';
