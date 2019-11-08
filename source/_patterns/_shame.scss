@@ -463,3 +463,12 @@ _:-ms-fullscreen,
     }
   }
 }
+
+/*
+ * TARGETED BROWSER: IE 11
+ * IE11 doesn't support the main element natively.
+ * It is recognized as a proper element, but doesn't have proper styling
+ */
+main {
+  display: block;
+}

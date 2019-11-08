@@ -202,11 +202,11 @@ body.body--loading.body--loading {
     }
 
     @include tablet-up {
-      margin: 16px 32px 16px;
+      margin: 16px 32px 8px;
     }
 
     @include desktop-wide {
-      margin: 20px 40px 20px;
+      margin: 20px 40px 12px;
     }
   }
 
@@ -216,11 +216,11 @@ body.body--loading.body--loading {
     list-style-type: none;
 
     @include tablet-up {
-      margin: 0 12px 0 0;
+      margin: 0 12px 8px 0;
     }
 
     @include desktop-wide {
-      margin: 0 16px 0 0;
+      margin: 0 16px 8px 0;
     }
   }
 
@@ -728,8 +728,9 @@ body.body--loading.body--loading {
   .teaser__scoreboard,
   .teaser__opinion,
   .teaser__links,
-  .media-still__indicator {
-    display: none;
+  .media-still__indicator,
+  .rlp-footer {
+    visibility: hidden;
   }
 
   .ratio::before {
@@ -858,14 +859,6 @@ body.body--loading.body--loading {
     }
   }
 
-  .teaser__fullsize-link {
-    display: none;
-  }
-
-  .rlp-footer {
-    display: none;
-  }
-
   .teaser-cantons-nav {
     background-color: $color-srf-neutral-offwhite;
     box-shadow: $shadow-elevation1;
@@ -956,7 +949,7 @@ body.body--loading.body--loading {
   .simple-teaser,
   .content-header__station-logo,
   .modal-flyout,
-  .pill-link-wrapper {
+  .pill-link-wrapper{
     display: none;
   }
 
@@ -965,7 +958,8 @@ body.body--loading.body--loading {
   .a2z__lists,
   .onairnav-list,
   .pill-link-wrapper,
-  .content-header__presenter-image {
+  .content-header__presenter-image,
+  .error-page {
     visibility: hidden;
   }
 
