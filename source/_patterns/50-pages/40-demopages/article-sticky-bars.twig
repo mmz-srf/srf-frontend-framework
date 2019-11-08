@@ -15,16 +15,30 @@
     {% block after_everything %}
         {% include 'organisms-sticky-bar' with {'title': 'Verwandte Artikel'} %}
 
-        <script>
-            // DEMO ONLY - REMOVE ONE STICKY BAR RANDOMLY
-            let $sidebar = $('.js-sticky-sidebar-positioner'),
-                $bottombar = $('.js-sticky-bar');
+        <div class="demo-sticky-buttons-container">
+            {% include 'atoms-button' with { 'styleModifier' : 'button--primary js-show-side', 'buttonText' : 'Enable Side Bar' } %}
+            {% include 'atoms-button' with { 'styleModifier' : 'button--primary js-show-bottom', 'buttonText' : 'Enable Bottom Bar' } %}
+        </div>
 
-            if (Math.random() > 0.5) {
-                $sidebar.remove();
-            } else {
-                $bottombar.remove();
-            }
+        <script>
+            $('.js-show-side').on('click', () => $(window).trigger('fef.sidebar.show'));
+            $('.js-show-bottom').on('click', () => $(window).trigger('fef.bottombar.show'));
         </script>
+
+        <style>
+            .demo-sticky-buttons-container {
+                position: fixed;
+                left: 0;
+                top: 100px;
+                z-index: 100;
+                display: flex;
+                transform: rotate(-90deg) translateX(-100%);
+                transform-origin: 0 0;
+            }
+
+            .demo-sticky-buttons-container .button:first-child {
+                margin-right: 16px;
+            }
+        </style>
     {% endblock %}
 {% endembed %}

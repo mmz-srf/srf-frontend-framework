@@ -36,6 +36,8 @@ export class FefStickySidebar {
         // hide the "normal" related elements list
         $(JS_HOOK_DEFAULT_RELATED_ELEMENTS).hide();
 
+        $parent.show();
+
         // set sidebar's sticky offset if the required element was found
         if ($masthead.length) {
             let mastheadHeight = $masthead.outerHeight();
