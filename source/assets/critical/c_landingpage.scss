@@ -875,7 +875,7 @@ body.body--loading.body--loading {
   .simple-teaser,
   .content-header__station-logo,
   .modal-flyout,
-  .pill-link-wrapper {
+  .pill-link-wrapper{
     display: none;
   }
 
@@ -884,7 +884,8 @@ body.body--loading.body--loading {
   .a2z__lists,
   .onairnav-list,
   .pill-link-wrapper,
-  .content-header__presenter-image {
+  .content-header__presenter-image,
+  .error-page {
     visibility: hidden;
   }
 
