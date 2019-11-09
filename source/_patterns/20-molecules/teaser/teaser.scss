@@ -1131,4 +1131,13 @@
   }
 }
 
+// removes the medium on mobile	
+.teaser--no-medium-on-mobile {	
+  @include smartphone {	
+    .teaser__medium-wrapper {	
+      display: none;	
+    }	
+  }	
+}
+
 /* autoprefixer grid: off */

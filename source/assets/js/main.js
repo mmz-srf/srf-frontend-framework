@@ -28,8 +28,6 @@ import {Affix} from './components/affix';
 import {FefModal} from './components/fef-modal';
 import {FefResizeListener} from './classes/fef-resize-listener';
 import {FefDomObserver} from './classes/fef-dom-observer';
-import './components/fef-sticky-bar';
-import './components/fef-sticky-sidebar';
 import './components/fef-ripple';
 
 import './utils/fef-easings';

@@ -76,44 +76,24 @@
     }
 }
 
-/* Specfic Styles for related articles go below here */
-.related-articles {
+.sticky-bar__content {
     display: flex;
-}
-
-.related-article {
-    // override teaser styles
-    &,
-    &:hover,
-    &:active {
-        background-color: transparent;
-        box-shadow: none;
-        border: none;
-        margin: 0;
-    }
-
-    .related-items-list__content {
-        &,
-        &:hover,
-        &:active {
-            border: none;
-            margin: 0;
-            padding: 0;
-            background-color: transparent;
-        }
-    }
 }
 
 // Mobile: 1 Teaser
 // Tablet: 2 Teaser
 // Desktop+: 3 Teaser
-.related-articles--horizontal {
-    .related-article {
+.sticky-bar__content--horizontal {
+    .sticky-bar__teaser {
         flex: 1 1 0;
 
         @include smartphone {
             &:first-child ~ * {
                 display: none;
+            }
+
+            .teaser__content {
+                margin-left: 24px;
             }
         }
 
@@ -122,21 +102,40 @@
                 display: none;
             }
         }
+        
+        @include tablet-up {
+            .teaser__content,
+            .teaser__medium-wrapper {
+                margin-top: 0;
+            }
+        }
     }
 
-    .related-articles__separator {
-        margin: 16px 12px;
+    .sticky-bar__separator {
+        margin: 0 12px 16px;
 
         @include desktop-wide {
-            margin: 24px 16px;
+            margin-bottom: 24px;
         }
     }
 }
 
-.related-articles--vertical {
+.sticky-bar__content--vertical {
     flex-direction: column;
 
-    .related-articles__separator {
+    .sticky-bar__separator {
         margin: 0 24px;
+    }
+}
+
+.sticky-bar__teaser {
+    // override teaser styles
+    &,
+    &:hover,
+    &:active {
+        background-color: transparent;
+        box-shadow: none;
+        border: none;
+        margin: 0;
     }
 }
