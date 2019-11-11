@@ -138,4 +138,10 @@
         border: none;
         margin: 0;
     }
+
+    // not all teaser infos are desired here
+    .teaser__opinion,
+    .teaser__scoreboard {
+        display: none;
+    }
 }
