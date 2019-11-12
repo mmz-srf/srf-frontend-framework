@@ -779,6 +779,7 @@ body.body--loading.body--loading {
     @include tablet-up {
       .teaser__main {
         flex-direction: row;
+        flex-wrap: nowrap;
       }
       .teaser__medium-wrapper {
         flex-basis: $teaser-xl-medium-ratio;
