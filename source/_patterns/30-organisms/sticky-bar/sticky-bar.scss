@@ -122,6 +122,7 @@
 
 .sticky-bar__content--vertical {
     flex-direction: column;
+    margin-bottom: 8px; // align last separator with breadcrumbs
 
     .sticky-bar__separator {
         margin: 0 24px;
