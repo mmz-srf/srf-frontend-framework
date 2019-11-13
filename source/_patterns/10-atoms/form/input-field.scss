@@ -63,7 +63,7 @@ $default-input-background: $color-srf-neutral-white;
                   $default-input-background;
 
       &:focus {
-        background: $default-input-background url('../../../assets/img/icon/calendar.svg') no-repeat left 16px center;
+        background: $default-input-background url('../../../assets/img/icon/calendar.svg') no-repeat 12px 12px;
       }
     }
   }
