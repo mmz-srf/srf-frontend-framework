@@ -7,7 +7,7 @@
 body.body--loading.body--loading {
   background-color: $color-srf-warmgrey-25;
   margin: 0;
-  
+
   * {
     box-sizing: border-box
   }
@@ -70,13 +70,13 @@ body.body--loading.body--loading {
       height: 72px;
       padding: 20px 32px;
     }
-  
+
     .h svg {
       transform: none;
       width: 48px;
       height: 32px;
     }
-  
+
     .h b {
       display: block;
       color: rgb(78,77,71);
@@ -153,7 +153,7 @@ body.body--loading.body--loading {
       flex-direction: column;
       margin: 0 32px 40px 0;
     }
- 
+
     .s:nth-child(2) {
       margin-right: 0;
     }
@@ -184,7 +184,7 @@ body.body--loading.body--loading {
     left: 0;
     height: 100vh;
     width: 100%;
-    z-index: 9999;  
+    z-index: 9999;
     background: $color-srf-warmgrey-25;
     transition: opacity 0.3s linear;
   }

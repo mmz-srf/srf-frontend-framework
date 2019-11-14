@@ -93,7 +93,7 @@
   background-color: $color-srf-red-700;
   display: inline-block;
   overflow: hidden;
-  
+
   svg {
     transform: scale(.75);
     transform-origin: 0 0;
@@ -209,16 +209,16 @@
   .masthead.masthead--theme-meteo,
   .masthead.masthead--theme-kultur,
   .masthead.masthead--theme-dok,
-  .masthead.masthead--theme-radio_srf_2_kultur,
-  .masthead.masthead--theme-radio_srf_3,
-  .masthead.masthead--theme-radio_srf_musikwelle,
-  .masthead.masthead--theme-rtr_novitads,
-  .masthead.masthead--theme-rtr_cultura,
-  .masthead.masthead--theme-rtr_sport,
-  .masthead.masthead--theme-rtr_uffants,
-  .masthead.masthead--theme-rtr_archiv,
-  .masthead.masthead--theme-rtr_aura,
-  .masthead.masthead--theme-rtr_interpresa {
+  .masthead.masthead--theme-radio-srf-2-kultur,
+  .masthead.masthead--theme-radio-srf-3,
+  .masthead.masthead--theme-radio-srf-musikwelle,
+  .masthead.masthead--theme-rtr-novitads,
+  .masthead.masthead--theme-rtr-cultura,
+  .masthead.masthead--theme-rtr-sport,
+  .masthead.masthead--theme-rtr-uffants,
+  .masthead.masthead--theme-rtr-archiv,
+  .masthead.masthead--theme-rtr-aura,
+  .masthead.masthead--theme-rtr-interpresa {
     .masthead__title-link,
     .portalsnav__link {
       color: $color-srf-neutral-white;
@@ -232,7 +232,7 @@
 }
 
 .masthead.masthead--theme-meteo,
-.masthead.masthead--theme-rtr_aura {
+.masthead.masthead--theme-rtr-aura {
   --theme-color-gradient-1: #{$theme-meteo-color-1};
 }
 
@@ -244,46 +244,46 @@
   --theme-color-gradient-1: #{$theme-dok-color-1};
 }
 
-.masthead.masthead--theme-rtr_novitads {
+.masthead.masthead--theme-rtr-novitads {
   --theme-color-gradient-1: #{$theme-rtr-novitads-color-1};
 }
 
-.masthead.masthead--theme-rtr_cultura {
+.masthead.masthead--theme-rtr-cultura {
   --theme-color-gradient-1: #{$theme-rtr-cultura-color-1};
 }
 
-.masthead.masthead--theme-rtr_sport {
+.masthead.masthead--theme-rtr-sport {
   --theme-color-gradient-1: #{$theme-rtr-sport-color-1};
 }
 
-.masthead.masthead--theme-rtr_uffants {
+.masthead.masthead--theme-rtr-uffants {
   --theme-color-gradient-1: #{$theme-rtr-uffants-color-1};
 }
 
-.masthead.masthead--theme-rtr_archiv {
+.masthead.masthead--theme-rtr-archiv {
   --theme-color-gradient-1: #{$theme-rtr-archivar-color-1};
 }
 
-.masthead.masthead--theme-rtr_interpresa {
+.masthead.masthead--theme-rtr-interpresa {
   --theme-color-gradient-1: #{$theme-rtr-interpresa-color-1};
 }
 
-.masthead.masthead--theme-radio_srf_1 {
+.masthead.masthead--theme-radio-srf-1 {
   --theme-color-gradient-1: #{$theme-radio-srf-1-color-1};
 }
 
-.masthead.masthead--theme-radio_srf_2_kultur {
+.masthead.masthead--theme-radio-srf-2-kultur {
   --theme-color-gradient-1: #{$theme-radio-srf-2-color-1};
 }
 
-.masthead.masthead--theme-radio_srf_3 {
+.masthead.masthead--theme-radio-srf-3 {
   --theme-color-gradient-1: #{$theme-radio-srf-3-color-1};
 }
 
-.masthead.masthead--theme-radio_srf_musikwelle {
+.masthead.masthead--theme-radio-srf-musikwelle {
   --theme-color-gradient-1: #{$theme-radio-srf-musikwelle-color-1};
 }
 
-.masthead.masthead--theme-radio_srf_virus {
+.masthead.masthead--theme-radio-srf-virus {
   --theme-color-gradient-1: #{$theme-radio-srf-virus-color-1};
 }

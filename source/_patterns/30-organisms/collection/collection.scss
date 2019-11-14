@@ -358,11 +358,15 @@ $background-overlap-wide: 50px;
   }
 
   @include tablet-up {
-    margin: 16px 32px 16px;
+    margin: 16px 32px 8px;
+
+    .collection__link-item {
+      margin-bottom: 8px;
+    }
   }
 
   @include desktop-wide {
-    margin: 20px 40px 20px;
+    margin: 20px 40px 12px;
   }
 }
 
@@ -536,6 +540,14 @@ $background-overlap-wide: 50px;
 
     @include desktop-wide {
       height: calc(100% - 40px);
+    }
+  }
+
+  .collection__links {
+    margin-top: 12px;
+
+    @include tablet-up {
+      margin-top: 0;
     }
   }
 }
@@ -968,6 +980,14 @@ $background-overlap-wide: 50px;
     .collection__teaser-list {
       margin-bottom: 12px;
     }
+
+    .collection__links {
+      margin-top: 0;
+
+      @include tablet-up {
+        margin-top: -12px;
+      }
+    }
   }
 }
 
@@ -1281,7 +1301,7 @@ $background-overlap-wide: 50px;
 }
 
 // only shows the teaser-links
-.collection--search-results--empty {
+.collection.collection--search-results--empty {
   .collection__title,
   .collection__background-image,
   .collection__lead,
@@ -1293,6 +1313,7 @@ $background-overlap-wide: 50px;
 
   .collection__links {
     display: flex;
+    margin-top: 12px;
   }
 }
 
