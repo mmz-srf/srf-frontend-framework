@@ -1,13 +1,13 @@
-import { DOM_CHANGED_EVENT, FefDomObserver } from '../classes/fef-dom-observer';
 import { FefResponsiveHelper } from '../classes/fef-responsive-helper';
 import { FefBouncePrevention } from './fef-bounce-prevention';
 import { KEYCODES } from '../utils/fef-keycodes';
+import { DOM_HEIGHT_CHANGE_EVENT, DOM_MUTATION_EVENTS } from '../utils/fef-events';
+import { setFocus } from '../components/fef-a11y';
 
 const ANIMATION_FADE_IN_OUT = 'fade-in-out';
 const ANIMATION_SCALE_FROM_ORIGIN = 'scale-from-origin';
 const ANIMATION_FLYOUT = 'as-flyout-from-origin';
 const ANIMATION_SLIDE_FROM_BOTTOM = 'slide-from-bottom';
-const ANIMATION_FINISHED_EVENT = 'fef.element.height.changed'; // will be thrown by some element that changed its height
 
 const ANIMATION_SPEED = (window.matchMedia('(prefers-reduced-motion)').matches) ? 0 : 200;
 const END_OF_MODAL = '.js-end-of-modal';
@@ -16,11 +16,11 @@ const END_OF_MODAL = '.js-end-of-modal';
 let existingModals = {};
 let scrollbarWidth = 0;
 
-$(window).on(DOM_CHANGED_EVENT, (e) => {
+$(window).on(DOM_MUTATION_EVENTS, () => {
     scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
-    $('[data-modal-id]').each((index, element) => {
+    $('[data-modal-id]').each((_, element) => {
 
-        $(element).on('click', (event) => {
+        $(element).off('click').on('click', (event) => {
             event.preventDefault();
 
             let $caller = $(element);
@@ -139,22 +139,24 @@ export class FefModal {
     }
 
     onShowFinished() {
-        this.preventScrolling();
+        if (this.shouldPreventScrolling()) {
+            this.preventScrolling();
+        }
 
         if (this.animation !== ANIMATION_FLYOUT) {
             this.setA11YProperties(true);
         }
 
         if (this.$focusTarget && this.$focusTarget.length === 1) {
-            this.setFocus(this.$focusTarget);
+            setFocus(this.$focusTarget);
         }
 
         // while the modal is open, height changes of elements could make the
         // modal taller than the viewport --> scrolling must be prevented:
         if (FefResponsiveHelper.isTablet() || FefResponsiveHelper.isSmartphone()) {
             $(window)
-                .off(ANIMATION_FINISHED_EVENT)
-                .on(ANIMATION_FINISHED_EVENT, () => this.preventScrolling());
+                .off(DOM_HEIGHT_CHANGE_EVENT)
+                .on(DOM_HEIGHT_CHANGE_EVENT, () => this.onContentHeightChanged());
         }
     }
 
@@ -165,38 +167,27 @@ export class FefModal {
         this.scrollToPreviousPosition();
 
         // stop listening to any height-changing animations on the page
-        $(window).off(ANIMATION_FINISHED_EVENT);
+        $(window).off(DOM_HEIGHT_CHANGE_EVENT);
 
         this.$caller.attr({'aria-expanded': false, 'aria-haspopup': false});
 
         switch (this.animation) {
             case ANIMATION_FADE_IN_OUT:
-                this.$element.stop(true, true).fadeOut(ANIMATION_SPEED, () => this.setFocus(this.$caller));
+                this.$element.stop(true, true).fadeOut(ANIMATION_SPEED, () => setFocus(this.$caller));
                 this.setA11YProperties(false);
                 break;
             case ANIMATION_FLYOUT:
-                this.$element.fadeOut(ANIMATION_SPEED, () => this.setFocus(this.$caller)).hide();
+                this.$element.fadeOut(ANIMATION_SPEED, () => setFocus(this.$caller)).hide();
                 break;
             case ANIMATION_SLIDE_FROM_BOTTOM:
                 this.slideFromBottomClose();
                 this.setA11YProperties(false);
                 break;
             default:
-                this.$element.hide(ANIMATION_SPEED, '', () => this.setFocus(this.$caller));
+                this.$element.hide(ANIMATION_SPEED, '', () => setFocus(this.$caller));
                 this.setA11YProperties(false);
                 break;
         }
-    }
-
-    /**
-     * Simply using .focus() doesn't suffice.
-     *
-     * @param $element jQuery.Element
-     */
-    setFocus($element) {
-        $element.attr('tabindex', -1).on('blur focusout', () => {
-            $element.removeAttr('tabindex');
-        }).get(0).focus({preventScroll: true});
     }
 
     /**
@@ -287,18 +278,19 @@ export class FefModal {
      * - adjusts the animation speed depending on modal height
      * - calls an optional callback
      */
-    slideFromBottom(callBack) {
+    slideFromBottom(callBack = () => {}) {
         this.$element.show();
         let modalHeight = this.$mainWrapper.outerHeight();
         let animationSpeed = (ANIMATION_SPEED > 0) ? ANIMATION_SPEED + (Math.floor(modalHeight / 100) * 25) : 0; // adjusting animation speed
+
+        // bind listener for transitionend to invoke callback after transition ended
+        this.$mainWrapper.one('transitionend', () => callBack());
 
         this.$mainWrapper.css({
             'bottom': `-${modalHeight}px`,
             'transition': `transform ${animationSpeed}ms ease-in-out`,
             'transform': `translateY(-${modalHeight}px)`
         });
-
-        callBack();
     }
 
     /**
@@ -309,7 +301,7 @@ export class FefModal {
     slideFromBottomClose() {
         this.$mainWrapper.one('transitionend', () => {
             this.$element.hide();
-            this.setFocus(this.$caller);
+            setFocus(this.$caller);
         });
 
         this.$mainWrapper.css({
@@ -318,24 +310,47 @@ export class FefModal {
     }
 
     /**
+     * When the height of the content changes while the modal is opened,
+     * scrolling may have to be prevented or the prevention has to be undone.
+     */
+    onContentHeightChanged() {
+        if (this.shouldPreventScrolling()) {
+            this.preventScrolling();
+        } else {
+            this.scrollToPreviousPosition();
+        }
+    }
+
+    /**
+     * Quick and simple check to see if the scrolling should be prevented.
+     * This is the case on mobile + tablet and if the content is larger than
+     * the modal itself (i.e. the modal is scrollable).
+     */
+    shouldPreventScrolling() {
+        return this.$mainContent.outerHeight() >= $(window).outerHeight() && (FefResponsiveHelper.isTablet() || FefResponsiveHelper.isSmartphone());
+    }
+
+    /**
      * Prevent scrollable page when the modal is open.
-     * We achieve this by setting the body to overflow: hidden and setting the height to 100%, thus
-     * effectively cutting the rest of the page off. This scrolls to the top of the page, so we
-     * also have to save the previous scroll state.
+     * We achieve this by setting the body to overflow: hidden and setting the
+     * height to 100%, thus effectively cutting the rest of the page off. This
+     * scrolls to the top of the page, so we also have to save the previous
+     * scroll state.
      *
      * Additionally, we prevent bouncy body scrolling which can lead to subpar
      * experience on iOS devices.
      *
-     * We only do this if the modal covers the whole page and on mobile/tablet.
+     * One day, this can be solved by `overscroll-behavior: contain;` which
+     * "contains" the scrolling to the current container (exactly what we
+     * need), but for now it's not supported everywhere yet:
+     * https://caniuse.com/#feat=css-overscroll-behavior
      */
     preventScrolling() {
-        if (this.$mainContent.outerHeight() >= $(window).outerHeight() && (FefResponsiveHelper.isTablet() || FefResponsiveHelper.isSmartphone())) {
-            this.previousScrollPosition = $(window).scrollTop();
-            $('html').addClass('h-prevent-scrolling');
+        this.previousScrollPosition = $(window).scrollTop();
+        $('html').addClass('h-prevent-scrolling');
 
-            if (this.browserSupportsElasticScrolling) {
-                FefBouncePrevention.enable();
-            }
+        if (this.browserSupportsElasticScrolling) {
+            FefBouncePrevention.enable();
         }
     }
 

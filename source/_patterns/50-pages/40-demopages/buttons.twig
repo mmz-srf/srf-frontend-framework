@@ -10,6 +10,7 @@
 
     {% block article_content %}
     {% include 'atoms-button' with {'buttonText' : 'Primary Button'} %}
+    {% include 'atoms-button' with {'styleModifier' : 'button--call-to-action','buttonText' : 'Primary Call to Action'} %}
     {% include 'atoms-button' with {'buttonText' : 'Senden'} %}
     {% include 'atoms-button' with {'styleModifier' : 'button--pending',   'buttonText' : ''} %}
     {% include 'atoms-button' with {'styleModifier' : 'button--success',   'buttonText' : 'Gesendet'} %}
@@ -27,6 +28,11 @@
 
     <h3>Pill Buttons</h3>
     {% include 'atoms-pill-button' with {
+        'styleModifier' : 'pill-button--primary pill-button--themed pill-button--theme-call-to-action',
+        'buttonText' : 'Call to Action'
+    }%}
+    <br><br>
+    {% include 'atoms-pill-button' with {
         'buttonText': 'Kontakt ins Studio'
     }%}
     <br><br>
@@ -38,13 +44,13 @@
 
     <br><br>
     {% include 'atoms-pill-button' with {
-        'styleModifier': 'pill-button--primary pill-button--themed pill-button--theme-radio_srf_1',
+        'styleModifier': 'pill-button--primary pill-button--themed pill-button--theme-radio-srf-1',
         'buttonIcon': 'svg-icon--play-audio-dark',
         'buttonText': 'Jetzt hören'
     }%}
     <br><br>
     {% include 'atoms-pill-button' with {
-        'styleModifier': 'pill-button--primary pill-button--themed pill-button--theme-radio_srf_2_kultur',
+        'styleModifier': 'pill-button--primary pill-button--themed pill-button--theme-radio-srf-2-kultur',
         'buttonIcon': 'svg-icon--play-audio-dark',
         'buttonText': 'Jetzt hören'
     }%}

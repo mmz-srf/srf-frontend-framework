@@ -117,6 +117,14 @@
   }
 }
 
+.onairnav-link--audiovideo {
+  margin-bottom: 2px;
+
+  @include tablet-up {
+    margin-bottom: 0;
+  }
+}
+
 .onairnav-link--program {
   margin-bottom: 12px;
   padding-bottom: 24px;
