@@ -1,3 +1,12 @@
+{% set themeLightFont = {
+    "colorStart": "rgb(201, 29, 125)",
+    "colorEnd": "rgb(140, 29, 96)"
+} %}
+{% set themeDarkFont = {
+    "colorStart": "rgb(235, 235, 229)",
+    "colorEnd": "rgb(218, 218, 210)"
+} %}
+
 <style>
     .js-collection-wrapper > h3 {
         padding: 12px 32px;
@@ -222,6 +231,7 @@
         'collection': {
             'styleModifier': 'collection--compact-swipeable collection--branded',
             "title": "News Schweiz",
+            "theme": themeLightFont,
             "teasers": collections[0].teasers[0:5]
         }
     } %}
@@ -235,6 +245,7 @@
         'collection': {
             'styleModifier': 'collection--compact-swipeable collection--branded collection--branded-dark',
             "title": "News Schweiz",
+            "theme": themeDarkFont,
             "teasers": collections[0].teasers[0:5]
         }
     } %}
@@ -296,6 +307,7 @@
         'collection': {
             'styleModifier': 'collection--standard collection--branded',
             "title": "News Schweiz",
+            "theme": themeLightFont,
             "titleLink": "https://www-test.srf.ch/news/wirtschaft",
             "lead": "1996 schrieb John Perry Barlow die «Unabhängigkeitserklärung des Cyberspace». Darin kritisierte er Poeten.",
             "type": "standard",
@@ -312,6 +324,7 @@
         'collection': {
             'styleModifier': 'collection--standard collection--branded collection--branded-dark',
             "title": "News Schweiz",
+            "theme": themeDarkFont,
             "titleLink": "https://www-test.srf.ch/news/wirtschaft",
             "lead": "1996 schrieb John Perry Barlow die «Unabhängigkeitserklärung des Cyberspace». Darin kritisierte er Poeten.",
             "type": "standard",
@@ -343,6 +356,7 @@
         'collection': {
             'styleModifier': 'collection--standard collection--branded',
             "title": "News Schweiz",
+            "theme": themeLightFont,
             "lead": "1996 schrieb John Perry Barlow die «Unabhängigkeitserklärung des Cyberspace». Darin kritisierte er Poeten.",
             "type": "standard",
             "teasers": collections[0].teasers[0:1]
@@ -358,6 +372,7 @@
         'collection': {
             'styleModifier': 'collection--standard collection--branded collection--branded-dark',
             "title": "News Schweiz",
+            "theme": themeDarkFont,
             "lead": "1996 schrieb John Perry Barlow die «Unabhängigkeitserklärung des Cyberspace». Darin kritisierte er Poeten.",
             "type": "standard",
             "teasers": collections[0].teasers[0:1]
@@ -373,6 +388,7 @@
         'collection': {
             'styleModifier': 'collection--standard collection--branded',
             "title": "News Schweiz",
+            "theme": themeLightFont,
             "lead": "1996 schrieb John Perry Barlow die «Unabhängigkeitserklärung des Cyberspace». Darin kritisierte er Poeten.",
             "teasers": collections[0].teasers[0:1]
         }
@@ -387,6 +403,7 @@
         'collection': {
             'styleModifier': 'collection--standard collection--branded collection--branded-dark',
             "title": "News Schweiz",
+            "theme": themeDarkFont,
             "lead": "1996 schrieb John Perry Barlow die «Unabhängigkeitserklärung des Cyberspace». Darin kritisierte er Poeten.",
             "teasers": collections[0].teasers[0:1]
         }
@@ -486,6 +503,7 @@
         'collection': {
             'styleModifier': 'collection--standard collection--branded',
             "title": "News Schweiz",
+            "theme": themeLightFont,
             "type": "standard",
             "links": [
                 {
@@ -513,6 +531,7 @@
             'styleModifier': 'collection--standard collection--branded collection--branded-dark',
             "title": "News Schweiz",
             "type": "standard",
+            "theme": themeDarkFont,
             "links": [
                 {
                     "title": "Google",
@@ -532,12 +551,70 @@
 </div>
 
 <div class="js-collection-wrapper">
+    <h3>Swipeable mit links, 5 Teasers</h3>
+    <div class="js-collection-wrapper-content">
+    {% include 'organisms-collection' with {
+        'collection': {
+            'styleModifier': 'collection--swipeable',
+            "title": "News Schweiz",
+            "titleLink": "https://www-test.srf.ch/news/wirtschaft",
+            "lead": "1996 schrieb John Perry Barlow die «Unabhängigkeitserklärung des Cyberspace». Darin kritisierte er Poeten.",
+            "type": "swipeable",
+            "links": [
+                {
+                    "title": "Google",
+                    "link": "https://www.google.com"
+                }, {
+                    "title": "Bing",
+                    "link": "https://www.bing.com"
+                }, {
+                    "title": "DuckDuckGo",
+                    "link": "https://www.duckduckgo.com"
+                }
+            ],
+            "teasers": collections[0].teasers[0:5]
+        }
+    } %}
+    </div>
+</div>
+
+<div class="js-collection-wrapper">
+    <h3>Swipeable mit links, 5 Teasers, branded</h3>
+    <div class="js-collection-wrapper-content">
+    {% include 'organisms-collection' with {
+        'collection': {
+            'styleModifier': 'collection--swipeable collection--branded',
+            "title": "News Schweiz",
+            "titleLink": "https://www-test.srf.ch/news/wirtschaft",
+            "theme": themeLightFont,
+            "lead": "1996 schrieb John Perry Barlow die «Unabhängigkeitserklärung des Cyberspace». Darin kritisierte er Poeten.",
+            "type": "swipeable",
+            "links": [
+                {
+                    "title": "Google",
+                    "link": "https://www.google.com"
+                }, {
+                    "title": "Bing",
+                    "link": "https://www.bing.com"
+                }, {
+                    "title": "DuckDuckGo",
+                    "link": "https://www.duckduckgo.com"
+                }
+            ],
+            "teasers": collections[0].teasers[0:5]
+        }
+    } %}
+    </div>
+</div>
+
+<div class="js-collection-wrapper">
     <h3>Compact, 5 Teaser, Branded</h3>
     <div class="js-collection-wrapper-content">
     {% include 'organisms-collection' with {
         'collection': {
             'styleModifier': 'collection--compact collection--branded',
             "title": "News Schweiz",
+            "theme": themeLightFont,
             "type": "standard",
             "teasers": collections[0].teasers[0:5]
         }
@@ -552,6 +629,7 @@
         'collection': {
             'styleModifier': 'collection--compact collection--branded collection--branded-dark',
             "title": "News Schweiz",
+            "theme": themeDarkFont,
             "type": "standard",
             "teasers": collections[0].teasers[0:5]
         }
@@ -668,6 +746,7 @@
     'collection': {
         'styleModifier': 'collection--standard collection--branded',
         "title": "News Schweiz",
+        "theme": themeLightFont,
         "links": [
             {
                 "title": "Google",
@@ -713,6 +792,7 @@
     'collection': {
         'styleModifier': 'collection--standard collection--branded collection--branded-dark',
         "title": "News Schweiz",
+        "theme": themeDarkFont,
         "links": [
             {
                 "title": "Google",
@@ -758,6 +838,7 @@
     'collection': {
         'styleModifier': 'collection--standard collection--branded',
         "title": "News Schweiz",
+        "theme": themeLightFont,
         "links": [
             {
                 "title": "Google",
@@ -803,6 +884,7 @@
     'collection': {
         'styleModifier': 'collection--standard collection--branded collection--branded-dark',
         "title": "News Schweiz",
+        "theme": themeDarkFont,
         "links": [
             {
                 "title": "Google",
@@ -848,6 +930,7 @@
         'collection': {
             'styleModifier': 'collection--standard collection--unboxed collection--branded',
             "title": "News Schweiz",
+            "theme": themeLightFont,
             "type": "standard",
             "links": [
                 {
@@ -894,6 +977,7 @@
         'collection': {
             'styleModifier': 'collection--standard collection--unboxed collection--branded collection--branded-dark',
             "title": "News Schweiz",
+            "theme": themeDarkFont,
             "type": "standard",
             "links": [
                 {
@@ -940,6 +1024,7 @@
             'collection': {
                 'styleModifier': 'collection--standard collection--branded',
                 "title": "News Schweiz",
+                "theme": themeLightFont,
                 "teasers": [
                     {
                         "title": "Wissenschaftler sagen: Kühe geben Milch. Stadtbewohner erstaunt und entrüstet: 'Igitt!'",
@@ -967,6 +1052,7 @@
             'collection': {
                 'styleModifier': 'collection--standard collection--branded',
                 "title": "News Schweiz",
+                "theme": themeLightFont,
                 "links": [
                     {
                         "title": "Google",
@@ -1012,6 +1098,7 @@
             'collection': {
                 'styleModifier': 'collection--standard collection--branded collection--branded-dark',
                 "title": "News Schweiz",
+                "theme": themeDarkFont,
                 "teasers": [
                     {
                         "title": "Wissenschaftler sagen: Kühe geben Milch. Stadtbewohner erstaunt und entrüstet: 'Igitt!'",
@@ -1039,6 +1126,7 @@
             'collection': {
                 'styleModifier': 'collection--standard collection--branded collection--branded-dark',
                 "title": "News Schweiz",
+                "theme": themeDarkFont,
                 "links": [
                     {
                         "title": "Google",
@@ -1084,6 +1172,7 @@
             'collection': {
                 'styleModifier': 'collection--standard collection--branded',
                 "title": "News Schweiz",
+                "theme": themeLightFont,
                 "teasers": [
                     {
                         "title": "Wissenschaftler sagen: Kühe geben Milch. Stadtbewohner erstaunt und entrüstet: 'Igitt!'",
@@ -1124,6 +1213,7 @@
             'collection': {
                 'styleModifier': 'collection--standard collection--branded collection--branded-dark',
                 "title": "News Schweiz",
+                "theme": themeDarkFont,
                 "teasers": [
                     {
                         "title": "Wissenschaftler sagen: Kühe geben Milch. Stadtbewohner erstaunt und entrüstet: 'Igitt!'",
@@ -1338,12 +1428,13 @@
 </div>
 
 <div class="js-collection-wrapper">
-    <h3>Borderless collection, 3 Teaser</h3>
+    <h3>Borderless collection, 3 Teaser, branded</h3>
     <div class="js-collection-wrapper-content">
         {% include 'organisms-collection' with {
             'collection': {
                 'styleModifier': 'collection--borderless collection--branded',
                 "title": "News Schweiz",
+                "theme": themeLightFont,
                 "teasers": [
                     {
                         "title": "Wissenschaftler sagen: Kühe geben Milch. Stadtbewohner erstaunt und entrüstet: 'Igitt!'",
@@ -1377,6 +1468,7 @@
             'collection': {
                 'styleModifier': 'collection--borderless collection--branded collection--branded-dark',
                 "title": "News Schweiz",
+                "theme": themeDarkFont,
                 "teasers": [
                     {
                         "title": "Wissenschaftler sagen: Kühe geben Milch. Stadtbewohner erstaunt und entrüstet: 'Igitt!'",
@@ -1449,6 +1541,7 @@
                 "styleModifier": "collection--standard collection--selectable collection--branded",
                 "title": "Bern Freiburg Wallis",
                 "titleLink": "https://hurrdurr.com",
+                "theme": themeLightFont,
                 "lead": "Hier könnte Ihre Werbung stehen!",
                 "selectableText": "Region wählen",
                 "selectableGroups": [
@@ -1472,6 +1565,7 @@
             'collection': {
                 "styleModifier": "collection--standard collection--selectable collection--branded collection--branded-dark",
                 "title": "Bern Freiburg Wallis",
+                "theme": themeDarkFont,
                 "titleLink": "https://hurrdurr.com",
                 "lead": "Hier könnte Ihre Werbung stehen!",
                 "selectableText": "Region wählen",

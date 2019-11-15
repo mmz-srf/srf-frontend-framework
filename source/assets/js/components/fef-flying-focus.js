@@ -177,14 +177,3 @@ export function init() {
 
     body.appendChild(style);
 }
-
-/**
- * Simply using .focus() doesn't suffice.
- *
- * @param $element jQuery.Element
- */
-export function setFocus($element) {
-    $element.attr('tabindex', -1).on('blur focusout', () => {
-        $element.removeAttr('tabindex');
-    }).focus();
-}

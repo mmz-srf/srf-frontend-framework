@@ -33,12 +33,12 @@
             {# Kategorien links only on sendungen-detail-page #}
             <div class="show-info__categories">
                 {% include 'atoms-decorated-link' with {'url': '#', 'linkText': 'Hintergrund'} %}
-                , 
+                ,
                 {% include 'atoms-decorated-link' with {'url': '#', 'linkText': 'Politik & Wirtschaft'} %}
             </div>
             <div class="show-info__actions">
                 {# Jetzt hören button only on epidose-detail-page #}
-                {% include 'atoms-pill-button' with {'styleModifier': 'pill-button--themed pill-button--theme-radio_srf_4_news', 'buttonIcon': 'svg-icon--play-audio-dark', 'buttonText': 'Jetzt hören'} %}
+                {% include 'atoms-pill-button' with {'styleModifier': 'pill-button--themed pill-button--theme-radio-srf-4-news', 'buttonIcon': 'svg-icon--play-audio-dark', 'buttonText': 'Jetzt hören'} %}
                 {# Download button only on epidose-detail-page #}
                 {% include 'atoms-button' with {'styleModifier': 'button--neutral button--small-font', 'screenReaderText': 'Download', 'svgIcon': 'svg-icon--download', 'buttonText': 'Download'} %}
                 {# Abonnieren button only on sendungen-detail-page #}
