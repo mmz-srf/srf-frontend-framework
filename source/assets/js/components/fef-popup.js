@@ -51,7 +51,6 @@ class FefPopup {
             if (this.triggerEvent) {
                 $(window).trigger(this.triggerEvent);
             }
-            console.log(parameters.join(','));
             window.open(this.target, '_blank', parameters.join(','));
         }
     }
