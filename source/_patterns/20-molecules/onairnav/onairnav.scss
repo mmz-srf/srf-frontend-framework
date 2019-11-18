@@ -18,23 +18,76 @@
   }
 }
 
+.onairnav-list-wrapper {
+  margin: 0 0 24px;
+
+  @include tablet-up {
+    margin: 0 32px 48px;
+  }
+
+  @include desktop-wide {
+    margin: 0 40px 56px;
+  }
+
+  .modal--theme-dark & {
+    margin: 0 0 24px 0;
+
+    @include tablet-up {
+      margin: 0 32px 32px;
+    }
+
+    @include desktop-wide {
+      margin: 0 40px 32px;
+    }
+  }
+}
+
 .onairnav-list {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   flex-direction: column;
-  margin: 0 -16px;
-  padding: 0;
+  position: relative;
+  margin: 0;
+  padding: 0 8px;
+
+  @include desktop-down {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    @include preventScrollbars;
+  }
+
+  &::after {
+    content: '';
+    display: block;
+    background-color: transparent;
+    flex: 0 0 8px;
+  }
 
   @include tablet-up {
     flex-direction: row;
+    padding: 0;
+
+    &::after {
+      display: none;
+    }
   }
 
-  @include tablet {
-    margin: 0 -12px;
-  }
-
-  @include desktop-up {
+  .modal--theme-dark & {
     margin: 0 -16px;
+    flex-wrap: wrap;
+
+    @include smartphone {
+      overflow-x: visible;
+      overflow-y: visible;
+    }
+
+    @include tablet {
+      margin: 0 -12px;
+    }
+
+    @include desktop-up {
+      margin: 0 -16px;
+    }
   }
 
   .onairnav-list__element {
@@ -55,6 +108,14 @@
     @include desktop-up {
       flex-basis: calc(33.3334% - 2 * 16px);
       margin: 0 16px;
+    }
+  }
+}
+
+.onairnav-list--duo-on-tablet {
+  .onairnav-list__element {
+    @include tablet {
+      flex-basis: calc(50% - 2 * 12px);
     }
   }
 }
@@ -80,22 +141,43 @@
   .onairnav-list__element {
     display: flex;
     flex-direction: column;
-    flex-grow: 0;
-    flex-shrink: 1;
-    flex-basis: calc(33.3334% - 2 * 1px);
-    margin: 1px;
-    max-width: calc(33.3334% - 2 * 1px);
-
-    @include tablet {
-      flex-basis: calc(16.6667% - 2 * 1px);
-    }
+    flex: 1 0 #{80px + 24px + 2px};
+    margin: 0 2px 0 0;
 
     @include tablet-up {
-      max-width: auto;
+      flex-basis: #{80px + 16px + 2px};
     }
 
     @include desktop-up {
-      flex-basis: calc(11.1111% - 2 * 1px);
+      flex-basis: calc((100% / 9) - 24px);
+    }
+
+    &:last-of-type {
+      margin-right: 0;
+    }
+
+    .modal--theme-dark & {
+      flex-grow: 0;
+      flex-basis: calc(33.3334% - 2 * 1px);
+      margin: 1px;
+      padding: 0;
+      max-width: calc(33.3334% - 2 * 1px);
+
+      &:last-of-type {
+        margin-right: 1px;
+      }
+
+      @include tablet {
+        flex-basis: calc(16.6667% - 2 * 1px);
+      }
+
+      @include tablet-up {
+        max-width: auto;
+      }
+
+      @include desktop-up {
+        flex-basis: calc(11.1111% - 2 * 1px);
+      }
     }
   }
 

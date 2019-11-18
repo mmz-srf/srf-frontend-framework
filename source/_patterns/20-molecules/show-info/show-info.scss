@@ -1,0 +1,371 @@
+$coverImageSize: 112px;
+
+.show-info__info-wrap {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  position: relative;
+  margin: 0 auto;
+  padding: 0 24px 12px;
+  max-width: $content-width;
+
+  @include tablet-up {
+    padding: 0 32px 12px;
+  }
+
+  @include desktop-wide {
+    padding: 0 0 12px;
+  }
+}
+
+.show-info__cover {
+  width: $coverImageSize;
+  height: $coverImageSize;
+  margin: 0 12px 16px 0;
+
+  @include tablet-up {
+    position: absolute;
+    left: 32px;
+    margin-right: 24px;
+  }
+
+  @include desktop-wide {
+    left: 0;
+  }
+}
+
+.show-info__cover-image {
+  width: $coverImageSize;
+  height: $coverImageSize;
+}
+
+.show-info__header {
+  flex-basis: calc(100% - (#{$coverImageSize} + 12px));
+
+  @include tablet-up {
+    flex-basis: calc(100% - (#{$coverImageSize} + 24px));
+  }
+}
+
+.show-info__content {
+  flex-basis: 100%;
+
+  @include tablet-up {
+    flex-basis: calc(100% - (#{$coverImageSize} + 24px));
+  }
+}
+
+.show-info__link {
+  margin-bottom: 8px;
+  font-family: $font-regular;
+  @include fontSize(14);
+  line-height: $secondary-line-height-ratio;
+  display: inline-block;
+
+  @include tablet-up {
+    @include fontSize(16);
+  }
+
+  &:hover {
+    .svg-icon {
+      filter: brightness(.6);
+    }
+  }
+
+  .svg-icon {
+    margin-bottom: -7px;
+
+    @include smartphone {
+      width: 20px;
+    }
+  }
+}
+
+.show-info__link--black {
+  font-family: $font-medium;
+  color: inherit;
+  padding: 16px;
+  margin: 0 0 0 -16px;
+
+  @include tablet-up {
+    display: inline-block;
+  }
+
+  @include desktop-wide {
+    padding-left: 0;
+    margin-left: 0;
+  }
+
+  &:hover {
+    color: inherit;
+
+    .svg-icon {
+      filter: brightness(1);
+    }
+  }
+
+  @include smartphone {
+    @include fontSize(16);
+    margin-left: 0;
+
+    .svg-icon {
+      width: 24px;
+    }
+  }
+}
+
+.show-info__title {
+  font-family: $font-medium;
+  @include fontSize(24);
+  line-height: $emphasize-line-height-ratio;
+  color: $color-srf-warmgrey-1100;
+  margin-top: 0;
+  margin-bottom: 8px;
+
+  a {
+    color: inherit;
+  }
+
+  @include desktop-up {
+    @include fontSize(28);
+  }
+}
+
+.show-info__title--compact {
+  @include fontSize(18);
+
+  @include tablet-up {
+    @include fontSize(20);
+  }
+}
+
+.show-info__body {
+  font-family: $font-light;
+  @include fontSize(16);
+  line-height: $default-line-height-ratio;
+  color: $color-srf-warmgrey-1100;
+  margin-top: 8px;
+  margin-bottom: 16px;
+  display: block;
+
+  &:hover {
+    color: inherit;
+  }
+}
+
+.show-info__more {
+  color: $color-srf-red-600;
+  border: 0;
+
+  &:hover {
+    color: $color-srf-red-800;
+    border: 0;
+  }
+
+  &:active {
+    color: $color-srf-red-900;
+    border: 0;
+  }
+
+  // estimate the link's color by darkening the caret
+  &:hover::after {
+    filter: brightness(.6);
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    @include caret('red', 'right', 'small');
+  }
+}
+
+.show-info__title,
+.show-info__body,
+.show-info__categories {
+  @include tablet-up {
+    max-width: 578px;
+  }
+
+  @include desktop-wide {
+    max-width: 756px;
+  }
+}
+
+.show-info__categories {
+  color: $color-srf-red-600;
+}
+
+.show-info__actions {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -16px;
+
+  .pill-button {
+    margin: 16px 16px 0 16px;
+    padding: 0 24px 0 16px;
+
+    @include smartphone {
+      width: 100%;
+      margin-right: 0;
+    }
+  }
+
+  .button--neutral {
+    width: auto;
+    position: relative;
+    margin: 16px 16px 0 0;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &:before {
+      content: '';
+      height: 0;
+      width: 0;
+      position: absolute;
+      bottom: -14px;
+      left: calc(50% - 12px);
+      border-style: solid;
+      border-width: 12px;
+      border-color: transparent transparent $color-srf-warmgrey-10 transparent;
+      filter: drop-shadow(0px -1px 0 $color-srf-warmgrey-50);
+      transform-origin: bottom center;
+      transform: scale3d(0,0,0);
+      transition: transform .4s ease-in;
+    }
+  }
+}
+
+.button--neutral.show-info__actions-button--active {
+  position: relative;
+  background-color: $color-srf-warmgrey-50;
+
+  &:before {
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+.show-info__panel {
+  display: none;
+  background: $color-srf-warmgrey-10;
+  outline: 1px solid $color-srf-warmgrey-50;
+  outline-offset: -1px;
+  margin: 0 -1px;
+
+  // Mobile: 1 column
+  // Tablet/Desktop: 2 columns
+  // Desktop+: 1 row
+  .button {
+    margin-top: 16px;
+
+    @include tablet-up {
+      margin-right: 24px;
+      flex-basis: calc(50% - (28px / 2));
+
+      &:nth-child(2n) {
+        margin-right: 0;
+      }
+    }
+
+    @include desktop-wide {
+      margin-right: 16px;
+      flex-basis: auto;
+      width: auto;
+
+      &:nth-child(2n) {
+        margin-right: 16px;
+      }
+    }
+  }
+}
+
+.show-info__panel--expanded {
+  display: block;
+}
+
+.show-info__panel-innerwrap {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  max-width: $content-width;
+  padding: 0 8px 16px;
+
+  @include tablet-up {
+    padding-right: 32px;
+    padding-left: 32px;
+    flex-direction: row;
+  }
+
+  @include desktop-wide {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+
+.show-info__collection.collection {
+  margin-top: 0;
+
+  .collection__title {
+    margin-top: 0;
+
+    @include smartphone {
+      margin-left: 16px;
+    }
+
+    @include fontSize(18px);
+
+    @include tablet-up {
+      margin-left: 0;
+      margin-right: 0;
+      @include fontSize(20px);
+    }
+  }
+
+  .collection__teaser-list.collection__teaser-list {
+    margin-right: 16px;
+    margin-left: 16px;
+    margin-bottom: 0;
+
+    @include tablet-up {
+      margin-right: 0;
+      margin-left: 0;
+    }
+  }
+
+  .collection__branding-wrapper {
+    margin: 0;
+  }
+
+  @include smartphone {
+    .teaser {
+      margin-bottom: 0;
+    }
+
+    .collection__teaser-item {
+      margin-bottom: 0;
+      padding-bottom: 16px;
+    }
+  }
+}
+
+.show-info__episode-wrapper {
+  margin: 0 auto;
+  max-width: $content-width;
+  padding: 16px 8px 0;
+
+  @include tablet-up {
+    padding: 16px 32px 0;
+  }
+
+  @include desktop-wide {
+    padding: 20px 0 0;
+  }
+}
+
+.show-info__button-whatsapp {
+  @include tablet-up {
+    display: none;
+  }
+}

@@ -1,17 +1,18 @@
+@import "../../mixins";
 @import "../../variables";
 
 .score {
   display: flex;
-  height: 20px;
+  height: 18px;
   justify-content: flex-end;
   align-items: center;
-  font-family: $font-bold;
+  font-family: $font-regular;
   @include font-smoothing;
-  font-size: 14px;
-  line-height: 14px;
+  @include fontSize(14);
+  line-height: $secondary-line-height-ratio;
   white-space: nowrap;
   color: $color-srf-warmgrey-1100;
-  background-color: $color-srf-yellow-500;
+  background-color: $color-srf-yellow-400;
 }
 
 .score__value {
@@ -22,6 +23,7 @@
 
 .score--winner {
   .score__value {
+    font-family: $font-medium;
     opacity: 1;
   }
 }

@@ -1,5 +1,6 @@
 {% set showOpinion = showOpinion|default(false) and teaser.opinion is defined %}
 {% set infoStyleModifier = infoStyleModifier|default('') %}
+{% set ratio = ratio|default('16:9') %}
 {% if 'teaser--size-l' in styleModifier or 'teaser--size-xl' in styleModifier %}
     {% set infoStyleModifier = infoStyleModifier ~ ' teaser-info--size-large' %}
 {% endif %}
@@ -8,26 +9,31 @@
     <a class="teaser__main" href="{{ teaser.link|default('#') }}">
 
         {# MEDIUM #}
-        {% embed "ratio.twig" with {
-            'class': 'teaser__medium-wrapper',
-            'ratio': '16:9'
-        } %}
-            {% block ratio_content %}
-                <div class="teaser__medium">
-                    <div class="image image--media-still-dynamic">
-                        <img src="{{ teaser.image|default('') }}" alt="{{ teaser.title|default('') }}" />
+        {% block medium %}
+            {% embed "ratio.twig" with {
+                'class': 'teaser__medium-wrapper',
+                'ratio': ratio,
+
+            } %}
+                {% block ratio_content %}
+                    <div class="teaser__medium">
+                        <div class="image image--media-still-dynamic">
+                            <img src="{{ teaser.image|default('') }}" alt="{{ teaser.title|default('') }}" />
+                        </div>
                     </div>
-                </div>
-            {% endblock %}
-        {% endembed %}
+                {% endblock %}
+            {% endembed %}
+        {% endblock %}
 
         {# SHIMMER #}
-        <div class="teaser__content-shimmer h-loading-only">
-            {% include 'atoms-shimmer' with {'styleModifier': 'shimmer--overline'} %}
-            {% include 'atoms-shimmer' with {'styleModifier': ''} %}
-            {% include 'atoms-shimmer' with {'styleModifier': ''} %}
-            {% include 'atoms-shimmer' with {'styleModifier': 'shimmer--short'} %}
-        </div>
+        {% block shimmer %}
+            <div class="teaser__content-shimmer h-loading-only">
+                {% include 'atoms-shimmer' with {'styleModifier': 'shimmer--overline'} %}
+                {% include 'atoms-shimmer' with {'styleModifier': ''} %}
+                {% include 'atoms-shimmer' with {'styleModifier': ''} %}
+                {% include 'atoms-shimmer' with {'styleModifier': 'shimmer--short'} %}
+            </div>
+        {% endblock %}
 
         {# CONTENT #}
         <div class="teaser__content">
@@ -55,7 +61,7 @@
 
             {# TEASERINFO/STATUS #}
             {% block teaserinfo %}
-                <div class="teaser-info-wrapper">
+                <div class="teaser-info-wrapper {{ teaserInfoStyleModifier|default('') }}">
                   <div class="teaser-info-innerwrapper">
                     {% include 'atoms-teaser-info' with {
                         'type': infoType|default(''),

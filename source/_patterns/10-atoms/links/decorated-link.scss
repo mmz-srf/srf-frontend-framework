@@ -1,0 +1,11 @@
+.decorated-link {
+  border-bottom: 1px solid $color-srf-red-600;
+
+  &:hover {
+    border-bottom: 1px solid $color-srf-red-800;
+  }
+
+  &:active {
+    border-bottom: 1px solid $color-srf-red-900;
+  }
+}

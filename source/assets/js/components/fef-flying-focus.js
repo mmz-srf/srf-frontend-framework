@@ -1,4 +1,4 @@
-import {FefDebounceHelper} from '../classes/fef-debounce-helper';
+import {FefResizeListener} from '../classes/fef-resize-listener';
 
 const DEBOUNCETIME = 500;
 
@@ -24,10 +24,7 @@ export function init() {
         }
     }, false);
 
-    win.addEventListener('resize',
-        FefDebounceHelper.debounce(() => placeFlyingFocus(doc.activeElement), DEBOUNCETIME),
-        false
-    );
+    FefResizeListener.subscribeDebounced(() => placeFlyingFocus(doc.activeElement));
 
     docElem.addEventListener('focus', function (event) {
         let target = event.target;
@@ -179,15 +176,4 @@ export function init() {
     }`;
 
     body.appendChild(style);
-}
-
-/**
- * Simply using .focus() doesn't suffice.
- *
- * @param $element jQuery.Element
- */
-export function setFocus($element) {
-    $element.attr('tabindex', -1).on('blur focusout', () => {
-        $element.removeAttr('tabindex');
-    }).focus();
 }

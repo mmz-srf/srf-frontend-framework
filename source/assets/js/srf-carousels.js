@@ -1,10 +1,12 @@
+import { KEYCODES } from './utils/fef-keycodes';
+import {FefTouchDetection} from './classes/fef-touch-detection';
+import 'slick-carousel/slick/slick.min.js';
+
 let $carousels = [];
 let loadedCarousels = {};
 let slidesPerScreen = 1;
 let currentElement = null;
-let keycodes = {
-    enter: 13
-};
+
 let css = {
     'containers': '.js-carousel',
     'handles': '.carousel__link--next, .carousel__link--prev'
@@ -18,6 +20,10 @@ export function init() {
         $(this).closest('.carousel-container').addClass('carousel-container--initialized');
         $(css.containers).css('visibility', 'visible');
     });
+
+    if (!FefTouchDetection.isTouchSupported()) {
+        $carousels.addClass('carousel--no-touch');
+    }
 
     // img carousels
     $.each($carousels, function (i, carousel) {
@@ -133,12 +139,12 @@ export function init() {
         }
     }).on('keyup', 'a', function (e) {
         // someone is tabbing => clicked <enter> (desktop)
-        if (e.keyCode === keycodes.enter) {
+        if (e.keyCode === KEYCODES.enter) {
             $(this).trigger('click');
         }
     }).on('keyup', '.carousel__link--next', function (e) { // this is too late!
         // someone is tabbing => clicked <enter> on the arrow going to the next page
-        if (e.keyCode === keycodes.enter) {
+        if (e.keyCode === KEYCODES.enter) {
             // we select the first video-link available on the page
             $(this).closest('.js-video-gallery').find('.slick-current > a').focus();
         }
@@ -177,9 +183,7 @@ function registerListener($carousel) {
 
     $carousel.find(css.handles).on('touchstart mousedown mouseenter', function () {
         // if the handles are clicked / touched: stop the animation
-        $(this).removeClass('untouched carousel__link--waggle');
-    }).on('touchend touchcancel', function () {
-        $(this).addClass('untouched');
+        $(this).removeClass('carousel__link--waggle');
     });
 }
 

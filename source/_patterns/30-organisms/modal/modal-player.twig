@@ -1,10 +1,10 @@
 {% embed "modal.twig" with {
-    'id': 'modal-player',
+    'id': id|default('modal-player'),
     'animation': 'scale-from-origin',
     'styleModifier': 'modal--theme-dark modal--no-overlay'
 } %}
     {% block content %}
-        <div class="modal-wrapper modal-player__container">
+        <div class="modal__content-wrapper modal-player__container">
             <div class="modal-player__share"></div>
 
             <div class="modal-player__media">

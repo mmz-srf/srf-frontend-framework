@@ -31,6 +31,21 @@
   &.teaser--no-translate {
     box-shadow: none;
   }
+
+  &.teaser--no-card {
+    background-color: transparent;
+    box-shadow: none;
+
+    @include smartphone {
+      margin-bottom: 12px;
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+      box-shadow: none;
+    }
+  }
 }
 
 .teaser__main {
@@ -158,6 +173,7 @@
 
   /* theme */
   @include customPropWithFallback('color', '--teaser-color-accentuation', $color-srf-red-600);
+
   > * {
     flex: 0 1 auto;
     margin: 0 8px 4px 0;
@@ -270,10 +286,18 @@
   flex: 0 0 100%;
   display: flex;
   flex-direction: row;
-  align-items: flex-end;
 
   // IE11 extra sausage
   max-width: 100%;
+}
+
+.teaser__scoreboard {
+  align-items: flex-end;
+  padding: 0 16px 16px 0;
+
+  @include desktop-wide {
+    padding: 0 24px 24px 0;
+  }
 }
 
 .teaser__opinion {
@@ -614,7 +638,6 @@
 
       .teaser__scoreboard {
         padding-left: 8px;
-        background-color: $color-srf-warmgrey-10;
       }
 
       .teaser__opinion {
@@ -798,6 +821,63 @@
     @include desktop-wide {
       --media-time-indicator-bottom: 26px;
       --media-time-indicator-right: 26px;
+    }
+  }
+}
+
+
+// no-card is a no-card, medium-reversed, spacing-altered super-special-design-variant of teaser
+// switches position of medium and content of a teaser
+// no spacings if no-card
+// normally only used together with modifier `teaser--size-s`
+.teaser--no-card {
+  .teaser__medium-wrapper {
+    order: 1;
+  }
+
+  &.teaser--size-s {
+    --media-time-indicator-display: none;
+
+    .teaser__main {
+      transition: opacity .2s ease-in-out;
+
+      &:hover,
+      &:focus {
+        opacity: .8;
+      }
+
+      &:active {
+        opacity: .6;
+      }
+
+      &:hover,
+      &:focus,
+      &:active {
+        &::after {
+          opacity: 0;
+        }
+      }
+    }
+
+    .teaser__content {
+      margin: 0 0 0 12px;
+    }
+
+    .teaser__medium-wrapper {
+      margin: 0;
+
+      @include desktop-wide {
+        margin: 0;
+        flex-basis: 112px;
+        height: 112px;
+      }
+    }
+
+    .teaser__medium {
+      @include desktop-up {
+        width: 112px;
+        height: 112px;
+      }
     }
   }
 }
@@ -1014,14 +1094,37 @@
   }
 }
 
-.teaser--centered {
+.teaser--square {
+  box-shadow: none;
 
+  .teaser__medium-wrapper {
+    margin: 0;
+    flex-basis: auto;
+  }
+
+  // teaser content is just used for A11Y (alternative link text)
+  .teaser__content {
+    @include offscreen-non-focusable;
+  }
+}
+
+.teaser--centered {
   .teaser__content {
     justify-content: center;
   }
 
   .teaser__title {
     text-align: center;
+  }
+}
+
+// used as a workaround for a safari, IE11 problem, where the height of the teaser_content does not
+// stretch to a containing iframe's height
+.teaser--with-iframe {
+  &.teaser--size-xl {
+    .teaser__content {
+      flex-basis: auto;
+    }
   }
 }
 

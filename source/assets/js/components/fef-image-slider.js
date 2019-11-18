@@ -1,13 +1,18 @@
-import {DOM_CHANGED_EVENT} from '../classes/fef-dom-observer';
-
-export const COMPONENT_LOADED = 'fef.component.image.slider.loaded';
+import { DOM_INIT_EVENT } from '../utils/fef-events';
 
 // Self loading on document.ready and updates if dom change event fired
-$(window).on(DOM_CHANGED_EVENT, (e) => {
+$(window).on(DOM_INIT_EVENT, () => {
     $('.image-slider').each((index, element) => {
         new FefImageSlider($(element));
     });
 });
+
+// Init function for srf-plugin-loader
+export function init() {
+    $('.image-slider').each((index, element) => {
+        new FefImageSlider($(element));
+    });
+}
 
 export class FefImageSlider {
 
@@ -16,12 +21,11 @@ export class FefImageSlider {
         let currentPosition = 50;
 
         this.bindMotionEvents($element);
-        this.bindWindowResizeEvents($element);
 
         this.bindMoveLeftClick(currentPosition, $element);
         this.bindMoveRightClick(currentPosition, $element);
 
-        $(window).trigger(COMPONENT_LOADED, { 'component': this, 'element': $element });
+        $element.find('.js-spinner-container').remove();
         $element.addClass('ready');
     }
 
@@ -37,16 +41,6 @@ export class FefImageSlider {
                 event = event.originalEvent.touches[0];
             }
 
-            this.moveSlider(event, compBoxLeft, $element);
-        });
-    }
-
-    /**
-     * @param $element
-     */
-    bindWindowResizeEvents($element) {
-        $(window).resize( (event) => {
-            let compBoxLeft = $element.offset().left;
             this.moveSlider(event, compBoxLeft, $element);
         });
     }

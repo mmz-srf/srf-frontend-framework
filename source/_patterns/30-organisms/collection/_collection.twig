@@ -1,11 +1,10 @@
-{% set swipeable = collection.swipeable|default(('collection--swipeable' in collection.styleModifier or 'collection--compact-swipeable' in collection.styleModifier)) %}
+{% set swipeable = collection.swipeable|default(('collection--swipeable' in collection.styleModifier or 'collection--compact-swipeable' in collection.styleModifier or 'collection--dense-swipeable' in collection.styleModifier)) %}
 {% set branded = 'collection--branded' in collection.styleModifier %}
 {% set selectable = 'collection--selectable' in collection.styleModifier %}
 {% set renderTitlePrecusor = 'collection--search-results' in collection.styleModifier %}
 {% set showTitlelink = collection.titleLink is defined or selectable %}
 {% set themeColorStart = collection.theme is defined and collection.theme.colorStart is defined ? collection.theme.colorStart : '#135c94' %}
 {% set themeColorEnd = collection.theme is defined and collection.theme.colorEnd is defined ? collection.theme.colorEnd : '#ADD8E6' %}
-
 
 {% if selectable %}<div class="selectable-wrapper">{% endif %}
 
@@ -46,7 +45,7 @@
                         {% include 'atoms-icon-button' with {
                             'iconStyleModifier': 'svg-icon--more',
                             'buttonText': collection.selectableText|default('Region'),
-                            'styleModifier': 'icon-button--collapsing-text-mobile icon-button--spaceless-right-mobile'
+                            'styleModifier': 'icon-button--collapsing-text-mobile icon-button--spaceless-right-tablet-up'
                         } %}
                     </button>
                 {% endif %}
@@ -89,14 +88,17 @@
                             {# HERO: 1 XL, all others M #}
                             {% set teaserFormat = loop.index == 1 ? 'teaser--size-xl' : 'teaser--size-m teaser--size-s-on-mobile' %}
                         {% elseif 'collection--duo' in collection.styleModifier %}
-                            {# DUO: 2 L (2nd L looks like S on mobile), all others M #}
-                            {% set teaserFormat = loop.index == 1 ? 'teaser--size-l' : (loop.index == 2 ? 'teaser--size-l teaser--size-s-on-mobile' : 'teaser--size-m teaser--size-s-on-mobile') %}
+                            {# DUO: 2 L, all others M #}
+                            {% set teaserFormat = loop.index < 3 ? 'teaser--size-l' : 'teaser--size-m teaser--size-s-on-mobile' %}
                         {% elseif ('collection--swipeable' in collection.styleModifier) %}
                             {# SWIPEABLE: all M teasers #}
                             {% set teaserFormat = 'teaser--size-m' %}
                         {% elseif ('collection--compact' in collection.styleModifier or 'collection--compact-swipeable' in collection.styleModifier) %}
                             {# SWIPEABLE, COMPACT, COMPACT SWIPEABLE: all S teasers #}
                             {% set teaserFormat = 'teaser--size-s' %}
+                        {% elseif 'collection--dense-swipeable' in collection.styleModifier %}
+                            {# DENSE SWIPEABLE: all teasers are square and only half of the normal width #}
+                            {% set teaserFormat = 'teaser--square' %}
                         {% elseif 'collection--borderless' in collection.styleModifier %}
                             {# BORDERLESS: all M teasers with no translation #}
                             {% set teaserFormat = 'teaser--size-m teaser--no-translate' %}
@@ -105,14 +107,21 @@
                         {% endif %}
 
                         {% set teaserStyleModifier = teaserFormat ~ " " ~ (teaser.styleModifier|default("")) %}
+                        {% set teaserInfoStyleModifier = teaser.styleModifierTeaserInfo|default("") %}
+
                         {% set teaserParameters = {
                             "teaser": teaser,
-                            "styleModifier": teaserStyleModifier
+                            "styleModifier": teaserStyleModifier,
+                            "styleModifierTeaserInfo": teaserInfoStyleModifier
                         } %}
 
                         <li class="collection__teaser-item {{ swipeable ? "js-swipeable-area-item swipeable-area__item" }}">
                             {% if 'teaser--longform' in teaser.styleModifier|default("") %}
                                 {% include 'molecules-teaser--longform' with teaserParameters %}
+                            {% elseif 'teaser--no-card' in teaser.styleModifier|default("") %}
+                                {% include 'molecules-teaser-no-card' with teaserParameters %}
+                            {% elseif teaserFormat == 'teaser--square' %}
+                                {% include 'molecules-teaser--square' with teaserParameters %}
                             {% elseif teaser.showScoreboard %}
                                 {% include 'molecules-teaser--scoreboard' with teaserParameters %}
                             {% elseif 'collection--search-results' in collection.styleModifier %}

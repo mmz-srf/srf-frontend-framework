@@ -14,9 +14,10 @@ import {init as FefExpandableBoxInit} from './components/fef-expandable-box';
 import {init as FefStickyHeaderInit} from './components/fef-sticky-header';
 import {init as FefSubnavInit} from './components/fef-subnav';
 import {init as FefPopupInit} from './components/fef-popup';
-import {init as FefSkiplinks} from './components/fef-skiplinks';
+import {init as FefA11yInit} from './components/fef-a11y';
 import {init as FefSelectableInit} from './components/fef-selectable';
 import {init as FefListmoduleInit} from './srf-listmodule';
+import {init as FefGenericExpander} from './components/fef-generic-expander';
 
 
 /** SELF loading components without init **/
@@ -25,9 +26,14 @@ import {FefTooltip} from './components/fef-tooltip';
 import {FefImageSlider} from './components/fef-image-slider';
 import {Affix} from './components/affix';
 import {FefModal} from './components/fef-modal';
+import {FefResizeListener} from './classes/fef-resize-listener';
+import {FefDomObserver} from './classes/fef-dom-observer';
 import './components/fef-ripple';
 
 import './utils/fef-easings';
+
+// Expose Resize Listener For Demo Purposes, because we can't import JS files in twig (PatternLab only)
+window.FefResizeListener = FefResizeListener;
 
 document.addEventListener('DOMContentLoaded', function(event) {
     FefCarouselsInit();
@@ -44,9 +50,11 @@ document.addEventListener('DOMContentLoaded', function(event) {
     FefStickyHeaderInit();
     FefSubnavInit();
     FefPopupInit();
-    FefSkiplinks();
+    FefA11yInit();
     FefSelectableInit();
     FefListmoduleInit();
+    FefGenericExpander();
+
 
     FefShameInit(); // this should probably be last, because it may contain code that depends on the previous scripts
 });

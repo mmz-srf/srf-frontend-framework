@@ -38,7 +38,8 @@
     }
   }
 
-  .reply-container, .form__validation--success {
+  .reply-container,
+  .form__validation--success {
     @include smartphone {
       margin: 0 16px 28px;
     }
@@ -267,7 +268,9 @@
     }
   }
 }
-.comments--main, .comments--popular { // ul
+
+.comments--main,
+.comments--popular { // ul
   margin-bottom: 13px;
   clear: both;
 
@@ -549,6 +552,7 @@
 
   &:focus {
     outline: none;
+
     + .reply-info .reply-info__count {
       position: static;
       opacity: 1;
@@ -556,7 +560,7 @@
   }
 }
 
-.reply__label, reply__help {
+.reply__label {
   display: block;
   @include fontSize(16);
   font-family: $font-regular;
@@ -564,6 +568,7 @@
   margin: 0;
   padding: 0;
   margin-top: 20px;
+
   &:first-child {
     margin-top: 0;
   }
@@ -601,6 +606,7 @@
     border: 1px solid $color-srf-red-600;
   }
 }
+
 .reply__textfield {
   width: 100%;
   @include fontSize(16);

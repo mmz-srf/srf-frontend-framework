@@ -1,0 +1,103 @@
+.filter-bar {
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  padding: 12px 0;
+  overflow-x: scroll;
+  -webkit-overflow-scrolling: touch;
+  @include preventScrollbars();
+
+  @include desktop-up {
+    overflow-x: hidden;
+    justify-content: space-between;
+    align-content: stretch;
+    max-width: calc(100% - (2 * 32px));
+    margin: 0 32px;
+  }
+
+  @include desktop-wide {
+    max-width: $content-width;
+    margin: 0 auto;
+  }
+
+  li {
+    flex: 1 0 auto;
+    justify-content: center;
+
+    display: flex;
+
+    &:last-of-type .filter-bar__letter {
+      margin-right: 12px;
+
+      @include desktop-up {
+        margin-right: 0;
+      }
+    }
+
+    &:first-of-type {
+      margin-left: 8px;
+
+      @include tablet {
+        margin-left: 32px;
+      }
+
+      @include desktop-up {
+        margin-left: 0;
+      }
+    }
+
+    &:last-of-type {
+      margin-right: 8px;
+
+      @include tablet {
+        margin-right: 32px;
+      }
+
+      @include desktop-up {
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+.filter-bar__letter {
+  display: inline-block;
+  width: 100%;
+  margin-right: 1px;
+  border-radius: 2px;
+  padding: 12px 16px;
+  color: $color-srf-warmgrey-1100;
+  white-space: nowrap;
+  text-align: center;
+
+  @include desktop-up {
+    margin-right: 2px;
+    padding: 12px 0;
+  }
+
+  &:focus,
+  &:hover {
+    background-color: $color-srf-warmgrey-50;
+    color: $color-srf-warmgrey-1100;
+  }
+
+  &:active {
+    background-color: $color-srf-warmgrey-100;
+    color: $color-srf-warmgrey-1100;
+  }
+}
+
+.filter-bar__letter--active {
+  background-color: $color-srf-warmgrey-100;
+
+  &:focus,
+  &:hover {
+    background-color: $color-srf-warmgrey-100;
+  }
+}
+
+.filter-bar__letter--inactive {
+  color: $color-srf-warmgrey-1100a24;
+  cursor: default;
+  pointer-events: none;
+}

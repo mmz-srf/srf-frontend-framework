@@ -51,6 +51,7 @@ $button-animation-duration: .3s;
     cursor: pointer;
     outline: none;
     box-shadow: $shadow-elevation8;
+    color: $color-srf-neutral-white;
   }
 
   &:hover,
@@ -83,7 +84,6 @@ $button-animation-duration: .3s;
 }
 
 .button--pending {
-
   &:hover,
   &:active,
   &:focus {
@@ -102,6 +102,19 @@ $button-animation-duration: .3s;
 
   .button-text {
     display: none;
+  }
+}
+
+.button--call-to-action {
+  background-color: $color-srf-red-400;
+
+  &:hover,
+  &:focus {
+    background-color: $color-srf-red-300;
+  }
+
+  &:active {
+    background-color: $color-srf-red-200;
   }
 }
 
@@ -188,7 +201,6 @@ $button-animation-duration: .3s;
 }
 
 .button--retry {
-
   .button-icon {
     display: inline-block;
     background-image: url('../../../assets/img/retry.svg');
@@ -200,12 +212,22 @@ $button-animation-duration: .3s;
   background-color: $color-srf-warmgrey-50;
 
   &:hover,
+  &:focus,
   &:active {
+    color: $color-srf-warmgrey-900;
+  }
+
+  &:hover,
+  &:focus {
     background-color: $color-srf-warmgrey-100;
   }
 
-  &:focus {
+  &:active {
     background-color: $color-srf-warmgrey-200;
+  }
+
+  .button-wrapper {
+    height: 22px;
   }
 }
 
@@ -246,5 +268,52 @@ $button-animation-duration: .3s;
 .button--allow-line-breaks {
   .button-wrapper {
     white-space: normal;
+  }
+}
+
+.button--neutral {
+  border: none;
+  box-shadow: none;
+  background: none;
+  color: $color-srf-warmgrey-1100;
+  cursor: pointer;
+
+  &:hover,
+  &:focus,
+  &:active {
+    box-shadow: none;
+    color: $color-srf-warmgrey-1100;
+
+    .icon-button {
+      opacity: 1;
+    }
+  }
+
+  &:hover,
+  &:focus {
+    background-color: $color-srf-warmgrey-25;
+  }
+
+  &:active {
+    background-color: $color-srf-warmgrey-50;
+  }
+}
+
+.button--small-font {
+  @include fontSize(14);
+  padding: 12px 14px;
+}
+
+.button-wrapper--svg-icon {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+
+  .button-icon {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    margin: 0 12px 0 0;
   }
 }

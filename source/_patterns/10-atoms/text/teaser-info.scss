@@ -15,6 +15,11 @@
   }
 }
 
+.teaser-info-wrapper--no-gap {
+  align-items: flex-start;
+  margin-top: 4px;
+}
+
 // hide empty teaser infos to not introduce additional gaps in the teaser
 .teaser-info-wrapper--empty {
   display: none;
@@ -22,7 +27,7 @@
 
 .teaser-info-innerwrapper {
   line-height: 1;
-  margin-bottom: -3px; //aligns baseline of text to image on s-teaser
+  margin-bottom: -3px; // aligns baseline of text to image on s-teaser
 }
 
 .teaser-info {
@@ -83,7 +88,8 @@
 
 
 .teaser-info--media-caption,
-.teaser-info--live-pre {
+.teaser-info--live-pre,
+.teaser-info--fading {
   font-family: $font-regular;
 
   /* theme */

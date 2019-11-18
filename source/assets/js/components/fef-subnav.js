@@ -1,9 +1,9 @@
 import {FefDebounceHelper} from '../classes/fef-debounce-helper';
 import {FefResponsiveHelper} from '../classes/fef-responsive-helper';
+import {FefResizeListener} from '../classes/fef-resize-listener';
+import {KEYCODES} from '../utils/fef-keycodes';
 
-const KEYCODES = {
-    'escape': 27
-};
+
 const SUBNAV_CLASS = 'js-subnav-container',
     INNER_CONTAINER_CLASS = 'js-subnav-content',
     BUTTON_BACK_CLASS = 'js-subnav-button-back',
@@ -69,7 +69,7 @@ export class FefSubnav {
     }
 
     initItemPositions() {
-        this.$innerContainer.children().each( (index, element) => {
+        this.$innerContainer.children().each( (_, element) => {
             this.itemLeftPositions.push($(element).position().left);
             this.itemRightPositions.push($(element).position().left + $(element).innerWidth());
         });
@@ -83,11 +83,11 @@ export class FefSubnav {
     }
 
     registerListeners() {
-        $(window).on('resize', FefDebounceHelper.debounce(() => this.onResize(), DEBOUNCETIME));
+        FefResizeListener.subscribeDebounced(() => this.onResize());
         this.$innerContainer.on('scroll', FefDebounceHelper.debounce(() => this.init(), DEBOUNCETIME));
         this.$innerContainer.on('scroll', FefDebounceHelper.throttle((e) => this.handleScroll(e), THROTTLETIME));
-        this.$buttonBack.on('click', () => { this.pageBack(); });
-        this.$buttonForward.on('click', () => { this.pageForward(); });
+        this.$buttonBack.on('click', () => this.pageBack());
+        this.$buttonForward.on('click', () => this.pageForward());
 
         this.$element.on('click', `.${ITEM_GROUP_CLASS}`, (e) => {
             if ($(e.target).parent().hasClass(ITEM_GROUP_CLASS)) {
@@ -109,9 +109,9 @@ export class FefSubnav {
 
     closeAllSubNavs() {
         $(document).off(`${OUTSIDE_CLICK_LISTENER_NAME} ${OUTSIDE_KEYPRESS_LISTENER_NAME}`);
-        let openNavs = this.$element.find(`.${ITEM_OPEN_GROUP_CLASS}`);
+        let $openNavs = this.$element.find(`.${ITEM_OPEN_GROUP_CLASS}`);
 
-        openNavs.each((index, el) => this.closeSubNav($(el)));
+        $openNavs.each((_, el) => this.closeSubNav($(el)));
     }
 
     /**
@@ -171,6 +171,18 @@ export class FefSubnav {
             // Mobile: don't let the nav-group be taller than the space under the masthead. Make it scrollable and set a max-height to guarantee it.
             $navItem.find(`.${ITEM_GROUP_WRAPPER_CLASS}`).css({'max-height': `calc(100vh - ${$('.js-affix').outerHeight(true)}px)`});
         }
+
+        // Close subnav when tabbing out of it
+        const $lastNavItem = $navItem.find('.nav-group__item').last();
+        $lastNavItem.on('focusin', () => {
+            $lastNavItem.on('keydown', (e) => {
+                if (e.keyCode === KEYCODES.tab && !e.shiftKey) {
+                    this.closeSubNav($navItem);
+                    $lastNavItem.off('focusin');
+                    $lastNavItem.off('keydown');
+                }
+            });
+        });
     }
 
     positionAndStretchSubNavGroup($navItem) {

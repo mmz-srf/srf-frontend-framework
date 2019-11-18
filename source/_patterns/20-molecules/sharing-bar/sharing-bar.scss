@@ -80,12 +80,7 @@
 }
 
 .sharing-bar__button--whatsapp {
-  display: none;
   background-image: url('../../../assets/img/share/icon_share_whatsapp.svg');
-
-  @include smartphone {
-    display: inline-block;
-  }
 }
 
 .sharing-bar__button--comment {

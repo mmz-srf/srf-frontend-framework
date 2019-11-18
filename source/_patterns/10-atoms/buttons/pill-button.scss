@@ -8,9 +8,9 @@
   align-items: center;
   flex-wrap: nowrap;
 
-  height: 56px;
+  height: 48px;
   padding: 0 40px;
-  border-radius: 28px;
+  border-radius: 24px;
   font-family: $font-regular;
   @include fontSize(16);
   letter-spacing: 0.8px;
@@ -21,8 +21,10 @@
   background-color: $color-srf-warmgrey-10;
   box-shadow: $shadow-elevation2;
   transition: box-shadow .2s ease-in-out, filter .2s ease-in-out;
+  cursor: pointer;
 
-  &:hover {
+  &:hover,
+  &:active {
     box-shadow: $shadow-elevation8;
     transition: all .2s ease-in-out;
     color: $color-srf-warmgrey-900;
@@ -46,7 +48,7 @@
 
 .pill-button--icon-only {
   padding: 0;
-  min-width: 56px;
+  min-width: 48px;
 }
 
 .pill-button--primary {
@@ -61,52 +63,60 @@
   color: var(--theme-color-button-text, $color-srf-warmgrey-1100);
   background-image: linear-gradient(to right, var(--theme-color-gradient-1, $color-srf-warmgrey-10), var(--theme-color-gradient-2, $color-srf-warmgrey-50));
 
-  &:hover {
+  &:hover,
+  &:active {
     color: var(--theme-color-button-text, $color-srf-warmgrey-1100);
   }
 }
 
 /* theme settings */
-/* note: theme suffixes use underscore due to portal names in the cms */
-.pill-button--theme-radio_srf_1 {
+.pill-button--theme-radio-srf-1 {
   --theme-color-gradient-1: #{$color-srf-yellow-300};
   --theme-color-gradient-2: #{$color-srf-yellow-500};
   --theme-color-shadow: #{$color-srf-yellow-300a60};
   --theme-color-button-text: #{$color-srf-warmgrey-1100};
 }
 
-.pill-button--theme-radio_srf_2_kultur {
+.pill-button--theme-radio-srf-2-kultur {
   --theme-color-gradient-1: #{$color-brand-radio-srf-2-1};
   --theme-color-gradient-2: #{$color-brand-radio-srf-2-2};
   --theme-color-shadow: #{$color-brand-radio-srf-2-1a60};
   --theme-color-button-text: #{$color-srf-neutral-white};
 }
 
-.pill-button--theme-radio_srf_3,
-.pill-button--theme-radio_srf_4_news {
+.pill-button--theme-radio-srf-3,
+.pill-button--theme-radio-srf-4-news,
+.pill-button--theme-radio-srf-default {
   --theme-color-gradient-1: #{$color-srf-red-500};
   --theme-color-gradient-2: #{$color-srf-red-600};
   --theme-color-shadow: #{$color-srf-red-500a60};
   --theme-color-button-text: #{$color-srf-neutral-white};
 }
 
-.pill-button--theme-radio_srf_musikwelle {
+.pill-button--theme-radio-srf-musikwelle {
   --theme-color-gradient-1: #{$color-brand-radio-srf-musikwelle-color-1};
   --theme-color-gradient-2: #{$color-brand-radio-srf-musikwelle-color-2};
   --theme-color-shadow: #{$color-brand-radio-srf-musikwelle-color-1a60};
   --theme-color-button-text: #{$color-srf-neutral-white};
 }
 
-.pill-button--theme-radio_srf_virus {
+.pill-button--theme-radio-srf-virus {
   --theme-color-gradient-1: #{$color-brand-radio-srf-virus-color-1};
   --theme-color-gradient-2: #{$color-brand-radio-srf-virus-color-2};
   --theme-color-shadow: #{$color-brand-radio-srf-virus-color-1a60};
 }
 
-.pill-button--theme-radio_srf_2_kultur,
-.pill-button--theme-radio_srf_3,
-.pill-button--theme-radio_srf_4_news,
-.pill-button--theme-radio_srf_musikwelle {
+.pill-button--theme-call-to-action {
+  --theme-color-gradient-1: #{$color-srf-red-400};
+  --theme-color-gradient-2: #{$color-srf-red-400};
+  --theme-color-button-text: #{$color-srf-neutral-white};
+}
+
+.pill-button--theme-radio-srf-default,
+.pill-button--theme-radio-srf-2-kultur,
+.pill-button--theme-radio-srf-3,
+.pill-button--theme-radio-srf-4-news,
+.pill-button--theme-radio-srf-musikwelle {
   @supports (--srf: cool) {
     .pill-button__icon {
       filter: invert(100%) contrast(400%);

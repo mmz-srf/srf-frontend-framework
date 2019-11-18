@@ -2,5 +2,5 @@
     "bodyClass": "body--loading",
     "criticalCssOnly": true,
     "criticalCssFile": "c_landingpage.css",
-    "themeStyleModifier": "masthead--theme-radio_srf_1"
+    "themeStyleModifier": "masthead--theme-radio-srf-1"
 }

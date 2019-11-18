@@ -28,21 +28,25 @@
     height: 100%;
   }
 }
+
 .teaser__medium-wrapper {
   .js-fake-image-object-fit {
     height: 100%;
     position: absolute;
   }
 }
+
 .image--media-still-dynamic {
   .js-fake-image-object-fit {
     height: 100%;
     position: relative;
   }
 }
+
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
   .teaser__medium-wrapper-xl-only {
     flex: 0 0 65.75%;
+
     .teaser__medium-wrapper {
       flex-basis: auto;
     }
@@ -56,7 +60,7 @@
  * Tell me, tell me now! Your arguments better be damn good!
  */
 _:-ms-fullscreen,
-:root .modal.modal--theme-dark .modal-main-wrapper {
+:root .modal.modal--theme-dark .modal__main-wrapper {
   background-image: linear-gradient(135deg, $color-srf-warmgrey-1100, $color-srf-neutral-1000);
   box-shadow: $shadow-elevation8;
 
@@ -249,6 +253,7 @@ _:-ms-fullscreen,
       color: $color-srf-neutral-white;
     }
   }
+
   .teaser--longform {
     .block-link--teaser-link:hover {
       color: $color-srf-neutral-white;
@@ -444,33 +449,26 @@ _:-ms-fullscreen,
   }
 }
 
-/**
- * TARGETED BROWSER: IE11
- * When the supported browser list contains ie11, autoprefixer for grid shows a warning that
- * there are unused grid areas. This ugly workaround hides the warning at buildtime.
+/*
+ * TARGETED BROWSER: IE 11
+ *
+ * IE11 has troubles with the correct flex-basis-value of calc((100% / 6) - (5 * 24px)) :rolling_eyes:
  */
-.canton-map__unused-grid-area {
-  grid-area: aa;
-  grid-area: ab;
-  grid-area: ac;
-  grid-area: ad;
-  grid-area: ae;
-  grid-area: ag;
-  grid-area: ah;
-  grid-area: ba;
-  grid-area: bb;
-  grid-area: ca;
-  grid-area: cb;
-  grid-area: da;
-  grid-area: eb;
-  grid-area: ed;
-  grid-area: eg;
-  grid-area: eh;
-  grid-area: fa;
-  grid-area: fb;
-  grid-area: fc;
-  grid-area: fd;
-  grid-area: fe;
-  grid-area: fg;
-  grid-area: fh;
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .onairnav-list--compact {
+    .onairnav-list__element {
+      @include desktop-up {
+        flex-basis: calc(100% / 6);
+      }
+    }
+  }
+}
+
+/*
+ * TARGETED BROWSER: IE 11
+ * IE11 doesn't support the main element natively.
+ * It is recognized as a proper element, but doesn't have proper styling
+ */
+main {
+  display: block;
 }
