@@ -1,9 +1,9 @@
 const DEFAULT_HEIGHT = 600,
     DEFAULT_WIDTH= 944,
     DEFAULT_MEDIA_QUERY = 'screen',
-    DEFAULT_IS_TOOLBAR_SHOWN = '1',
-    DEFAULT_IS_MENUBAR_SHOWN = '1',
-    DEFAULT_IS_LOCATION_SHOWN = '1';
+    DEFAULT_IS_TOOLBAR_SHOWN = 'yes', // work with 'yes' and 'no' because of Windows 7 does not like '1' and '0' … kind of
+    DEFAULT_IS_MENUBAR_SHOWN = 'yes',
+    DEFAULT_IS_LOCATION_SHOWN = 'yes';
 
 export function init() {
     $(document).on('click', '.js-popup', (event) => {
