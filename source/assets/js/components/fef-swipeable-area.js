@@ -13,8 +13,7 @@ const HOOK_CLASS = 'js-swipeable-area',
     BUTTON_BACK_THRESHOLD = 2,
     RIGHT_OFFSET = 24,
     DEFAULT_SCROLL_TIME = 400,
-    DEBOUNCETIME = 75,
-    HINT_AMOUNT = 20;
+    DEBOUNCETIME = 75;
 
 export function init(interactionMeasureString = '') {
     $(`.${HOOK_CLASS}`).each((_, element) => {
@@ -36,7 +35,6 @@ export class FefSwipeableArea {
         this.$buttonForward = null;
         this.nrOfPotentialVisibleItems = 0;
         this.interactionMeasureString = interactionMeasureString;
-        this.isScrollingToEdge = false; // flag which is set to true while the container is currently being scrolled to the beginning or end by the script (not by the user)
 
         this.visibleClass = null;
         this.hiddenClass = null;
@@ -66,10 +64,8 @@ export class FefSwipeableArea {
             this.addButtons();
             this.updateButtonStatus();
             this.initItemPositions();
-            this.setupHinting();
         } else {
             this.deregisterDesktopListeners();
-            this.disableHinting();
         }
     }
 
@@ -180,49 +176,6 @@ export class FefSwipeableArea {
 
             this.$element.append(this.$buttonBack, this.$buttonForward);
         }
-    }
-
-    /**
-     * When hovering over a partially shown item, the container content
-     * will be "hinted at", i.e. moved into view a bit more.
-     */
-    setupHinting() {
-        // hinting = showing a little bit of the remaining elements on hovering over the buttons.
-        const useHinting = !!this.$element.data('swipeable-hinting');
-
-        if (!useHinting) {
-            return;
-        }
-
-        this.$items
-            .off('mouseenter.srf.swipeable-area-desktop')
-            .on('mouseenter.srf.swipeable-area-desktop', (event) => this.onTeaserHover(event))
-            .off('mouseleave.srf.swipeable-area-desktop')
-            .on('mouseleave.srf.swipeable-area-desktop', (_) => this.applyHint(0));
-    }
-
-    disableHinting() {
-        this.$items.off('mouseenter.srf.swipeable-area-desktop');
-        this.$items.off('mouseleave.srf.swipeable-area-desktop');
-    }
-
-    /**
-     * Hovering over an item can trigger the hinting mechanism, if it's
-     * partially visible.
-     * Don't do anything if the swipeable is currently scrolling to the end of
-     * the container or the element is visible.
-     *
-     * @param {jQery.event} event
-     */
-    onTeaserHover(event) {
-        let $item = $(event.currentTarget);
-
-        if (this.isScrollingToEdge || !$item.hasClass(this.hiddenClass)) {
-            return;
-        }
-
-        // Hint left or right, depending on where the item is
-        this.applyHint(this.isOutOfBoundsLeft($item) ? HINT_AMOUNT : -HINT_AMOUNT);
     }
 
     /**
@@ -444,7 +397,6 @@ export class FefSwipeableArea {
 
     /**
      * Scrolls to a specified position in a specified (or default) time.
-     * Also resets the hinting, if applicable, by removing the translation.
      *
      * @param {Number} position Where to scroll to
      * @param {Number} [time] How long it should take, optional
@@ -456,35 +408,20 @@ export class FefSwipeableArea {
 
         this.$innerContainer
             .stop(true, false)
-            .animate({ scrollLeft: position }, time, 'easeInOutSine', () => this.isScrollingToEdge = false);
+            .animate({ scrollLeft: position }, time, 'easeInOutSine');
     }
 
     checkFuturePosition(position) {
-        // If the scroll position *will* be so that it's not possible to
-        // scroll to one direction anymore, remove the hinting. We could
-        // do this in the callback of animate, but if it happens
-        // when starting the animation, it's less janky.
-        let willBeOutOfBoundsOnAnySide = false;
-
         if (position <= 0) {
-            willBeOutOfBoundsOnAnySide = true;
-
             if (this.$buttonBack) {
                 this.$buttonBack.removeClass(BUTTON_ACTIVE_CLASS);
             }
         }
 
         if (position + this.$innerContainer.innerWidth() >= this.$innerContainer[0].scrollWidth) {
-            willBeOutOfBoundsOnAnySide = true;
-
             if (this.$buttonForward) {
                 this.$buttonForward.removeClass(BUTTON_ACTIVE_CLASS);
             }
-        }
-
-        if (willBeOutOfBoundsOnAnySide) {
-            this.isScrollingToEdge = true;
-            this.applyHint(0);
         }
     }
 
@@ -520,10 +457,6 @@ export class FefSwipeableArea {
             rightEdgeContainer = this.$innerContainer.offset().left + this.$innerContainer.outerWidth();
 
         return rightEdgeItem > rightEdgeContainer;
-    }
-
-    applyHint(pixels) {
-        this.$innerContainer.children().first().css('transform', `translateX(${pixels}px)`);
     }
 
     track(eventValue) {
