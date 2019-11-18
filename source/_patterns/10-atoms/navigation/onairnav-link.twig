@@ -1,4 +1,4 @@
-<a class="onairnav-link {{ styleModifier|default('') }}" href="{{ url|default('#') }}">
+<a class="onairnav-link {% if popup is defined %} js-popup{% endif %} {{ styleModifier|default('') }}" href="{{ url|default('#') }}"{% if popup is defined %} data-popup-width="485" data-popup-height="700"  data-popup-is-toolbar-shown="no" data-popup-is-menubar-shown="no" data-popup-is-location-shown="no"{% endif %}>
   {% if media is defined %}
     {% if 'onairnav-link__media--live' in styleModifierMedia %}
       <span class="onairnav-link__media onairnav-link__media--live">{{ media }}</span>
