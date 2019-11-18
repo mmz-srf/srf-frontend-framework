@@ -46,15 +46,8 @@
   }
 }
 
-// no padding on the right on deksop+
-.icon-button--spaceless-right-tablet {
-  @include desktop-up {
-    padding-right: 0;
-  }
-}
-
 // no padding on the right on tablet+
-.icon-button--spaceless-right-mobile {
+.icon-button--spaceless-right-tablet-up {
   @include tablet-up {
     padding-right: 0;
   }
