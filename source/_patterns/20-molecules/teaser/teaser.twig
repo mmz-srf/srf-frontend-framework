@@ -26,14 +26,7 @@
         {% endblock %}
 
         {# SHIMMER #}
-        {% block shimmer %}
-            <div class="teaser__content-shimmer h-loading-only">
-                {% include 'atoms-shimmer' with {'styleModifier': 'shimmer--overline'} %}
-                {% include 'atoms-shimmer' with {'styleModifier': ''} %}
-                {% include 'atoms-shimmer' with {'styleModifier': ''} %}
-                {% include 'atoms-shimmer' with {'styleModifier': 'shimmer--short'} %}
-            </div>
-        {% endblock %}
+        {% block shimmer %}{% endblock %}
 
         {# CONTENT #}
         <div class="teaser__content">

@@ -65,10 +65,3 @@
     overflow: hidden;
   }
 }
-
-/*
- * use for hiding elements after the css is loaded (visible during loading via critical css)
- */
-.h-loading-only {
-  display: none;
-}
