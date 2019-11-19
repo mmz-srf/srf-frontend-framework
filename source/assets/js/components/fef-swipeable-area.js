@@ -6,7 +6,6 @@ import {FefResizeListener} from '../classes/fef-resize-listener';
 const HOOK_CLASS = 'js-swipeable-area',
     INNER_CONTAINER_CLASS = 'js-swipeable-area-wrapper',
     ITEM_CLASS = 'js-swipeable-area-item',
-    DEFAULT_PARTIALLY_VISIBLE_ITEM_CLASS = 'swipeable-area__item--hidden',
     BACK_BUTTON_CLASS = 'swipeable-area__button swipeable-area__button--back',
     FORWARD_BUTTON_CLASS = 'swipeable-area__button swipeable-area__button--forward',
     BUTTON_ACTIVE_CLASS = 'swipeable-area__button--active',
@@ -48,7 +47,6 @@ export class FefSwipeableArea {
     }
 
     initOnce() {
-        this.initItemCheck();
         this.registerGeneralListeners();
     }
 
@@ -67,14 +65,6 @@ export class FefSwipeableArea {
         } else {
             this.deregisterDesktopListeners();
         }
-    }
-
-    initItemCheck() {
-        const markVisibleClass = this.$element.data('mark-visible-items');
-        const markHiddenClass = this.$element.data('mark-hidden-items');
-
-        this.visibleClass = markVisibleClass ? markVisibleClass : '';
-        this.hiddenClass = markHiddenClass ? markHiddenClass : DEFAULT_PARTIALLY_VISIBLE_ITEM_CLASS;
     }
 
     initItemPositions() {
@@ -174,7 +164,7 @@ export class FefSwipeableArea {
             this.$buttonBack = $(`<div class='${BACK_BUTTON_CLASS}'><span></span></div>`);
             this.$buttonForward = $(`<div class='${FORWARD_BUTTON_CLASS}'><span></span></div>`);
 
-            this.$element.append(this.$buttonBack, this.$buttonForward);
+            //this.$element.append(this.$buttonBack, this.$buttonForward);
         }
     }
 
@@ -189,9 +179,7 @@ export class FefSwipeableArea {
     onTeaserClick(event) {
         let $item = $(event.currentTarget);
 
-        if (!$item.hasClass(this.hiddenClass)) {
-            return;
-        }
+        // TODO: check if no visible -> return
 
         // remove focus from the element that was just clicked if it was a mouse click
         if (FefTouchDetection.eventIsMouseclick(event)) {
@@ -426,22 +414,8 @@ export class FefSwipeableArea {
     }
 
     markItems() {
-        let $visibleItems = this.$items.filter((_, element) => this.isItemCompletelyInView($(element))),
-            $hiddenItems = this.$items.filter((_, element) => !this.isItemCompletelyInView($(element)));
-
-        this.markItemsVisible($visibleItems);
-        this.markItemsHidden($hiddenItems);
-
         // move the flying focus to the new position after scrolling
         $(document).trigger('flyingfocus:move');
-    }
-
-    markItemsVisible($items) {
-        $items.each((_, element) => $(element).removeClass(this.hiddenClass).addClass(this.visibleClass));
-    }
-
-    markItemsHidden($items) {
-        $items.each((_, element) => $(element).removeClass(this.visibleClass).addClass(this.hiddenClass));
     }
 
     isItemCompletelyInView($itemElem) {

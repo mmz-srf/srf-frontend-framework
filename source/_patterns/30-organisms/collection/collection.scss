@@ -533,16 +533,6 @@ $background-overlap-wide: 50px;
 .collection--swipeable,
 .collection--compact-swipeable,
 .collection--dense-swipeable {
-  .swipeable-area__button {
-    @include tablet-up {
-      height: calc(100% - 32px);
-    }
-
-    @include desktop-wide {
-      height: calc(100% - 40px);
-    }
-  }
-
   .collection__links {
     margin-top: 12px;
 
@@ -954,14 +944,6 @@ $background-overlap-wide: 50px;
   .collection__title-link-icon,
   .collection__link-icon {
     @include caret('white', 'right', 'medium');
-  }
-
-  .swipeable-area__button--forward span {
-    @include caret('white', 'right', 'large');
-  }
-
-  .swipeable-area__button--back span {
-    @include caret('white', 'left', 'large');
   }
 
   @include smartphone {

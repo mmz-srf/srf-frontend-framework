@@ -3,6 +3,7 @@
   overflow: hidden;
 }
 
+/*
 .swipeable-area__button {
   display: none;
   opacity: 0;
@@ -42,6 +43,7 @@
 .swipeable-area__button--active {
   opacity: 1;
 }
+*/
 
 .swipeable-area__wrapper {
   overflow-x: scroll;
@@ -50,39 +52,29 @@
   box-sizing: content-box;
   -webkit-overflow-scrolling: touch; // enable momentum scrolling on ios
   @include preventScrollbars();
-
-  // Direct child (usually an <ul>) can be animated by the hinting mechanism (See fef-swipeable-area.js:hintOn/hintOff)
-  > * {
-    transition: transform .2s ease-in-out;
-  }
 }
 
-.swipeable-area__item {
-  opacity: 1;
-  @include desktop-up {
-    transition: 0.2s opacity ease-in-out;
-  }
+.swipeable-area__mask {
+  position: absolute;
+  top: -1px;
+  width: 120px;
+  height: calc(100% - 40px + 20px);
 }
 
-// (at least) partially hidden item:
-// Tablet+: Make the direct child(ren) not clickable (prevents click event handler interference, e.g. video), but show cursor as pointer
-// Desktop+: Items are slightly transparent and get slightly less transparent on hover
-.swipeable-area__item--hidden {
-  @include tablet-up {
-    cursor: pointer;
+.swipeable-area__mask--left {
+  left: -80px;
+  background: linear-gradient(90deg, rgb(255, 255, 255) 0%, rgba(255, 255, 255, .7) 100%);
+}
 
-    > * {
-      pointer-events: none;
-    }
-  }
+.swipeable-area__mask--right {
+  right: -80px;
+  background: linear-gradient(90deg, rgb(255, 255, 255) 0%, rgba(255, 255, 255, .7) 100%);
+}
 
-  @include desktop-up {
-    opacity: 0.4;
-
-    &:hover,
-    &:focus,
-    &:active {
-      opacity: 0.6;
-    }
-  }
+.swipeable-area__button {
+  position: absolute;
+  border: 1px solid red;
+  height: 40px;
+  width: 40px;
+  top: 50%;
 }
