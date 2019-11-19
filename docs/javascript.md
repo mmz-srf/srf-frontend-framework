@@ -38,16 +38,17 @@
 
 ### Events
 
-- Your component may fire events which can trigger actions outside of the frontend framework
+- Your component may fire events which can trigger actions in other components in- or  outside of the frontend framework
 - Always use `fef` as the prefix of your event name
 - Event names are not camel case, concatenate your event description like this
 
   ```javascript
-  this.$element.trigger('fef.button.of.my.component.clicked');
+  const export USER_FELL_ASLEEP_EVENT = 'fef.button.of.my.component.clicked';
   ```
 
+- Define events in `fef-events.js`, if they can be used outside of the current component
+- Native events (e.g. `touchstart`, `keydown`, etc.) do not need to be documented
 - Document in detail what your event is for and what it indicates
 - Provide callback functions in your component if you want to interact with the outside world
 - Do not limit components which possibly subscribe to an event (Avoid documentation like: *"When triggered, outside 
 component A should do action B"*)
-- Add your event to event documentation (We do this to keep track of events happening in the frontend framework)

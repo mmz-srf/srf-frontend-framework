@@ -134,6 +134,12 @@ export class FefSwipeableArea {
      *            +-----------------------+
      */
     setNrOfPotentialVisibleItems() {
+        // Only set the potential visible items if there's at least one.
+        // Otherwise it's impossible to know how wide an item is.
+        if (this.itemPositions.length <= 0) {
+            return;
+        }
+
         let containerWidth = this.$innerContainer.innerWidth(),
             containerAndFirstGap = containerWidth + this.itemPositions[0].left;
 

@@ -1,5 +1,5 @@
 import { FefStorage } from '../classes/fef-storage';
-import { setFocus } from '../components/fef-flying-focus';
+import { setFocus } from '../components/fef-a11y';
 import { FefTouchDetection } from '../classes/fef-touch-detection';
 
 const STORAGE_KEY = 'srf:rlp:selectable:selected';

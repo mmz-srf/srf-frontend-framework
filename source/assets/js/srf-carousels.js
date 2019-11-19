@@ -1,5 +1,6 @@
 import { KEYCODES } from './utils/fef-keycodes';
 import {FefTouchDetection} from './classes/fef-touch-detection';
+import 'slick-carousel/slick/slick.min.js';
 
 let $carousels = [];
 let loadedCarousels = {};

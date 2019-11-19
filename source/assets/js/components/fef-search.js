@@ -1,7 +1,7 @@
-import {setFocus} from '../components/fef-flying-focus';
-import {FefStorage} from '../classes/fef-storage';
-import {KEYCODES} from '../utils/fef-keycodes';
-
+import { setFocus } from '../components/fef-a11y';
+import { FefStorage } from '../classes/fef-storage';
+import { KEYCODES } from '../utils/fef-keycodes';
+import { SET_SEARCH_INACTIVE_EVENT } from '../utils/fef-events';
 
 export function init() {
     $('.js-search').each((i, elem) => {
@@ -48,6 +48,12 @@ export class SrfSearch {
             }, 0);
         });
 
+        this.$element.on('submit', (e) => {
+            if (this.$inputField.val().trim() == '') {
+                return false;
+            }
+        });
+
         this.$inputField.on('focus', (e) => {
             this.setSearchActive();
 
@@ -76,6 +82,10 @@ export class SrfSearch {
 
         this.$searchResults.on('keydown', (e) => {
             this.onResultsKeyDown(e);
+        });
+
+        this.$element.on(SET_SEARCH_INACTIVE_EVENT, () => {
+            this.setSearchInactive();
         });
     }
 
