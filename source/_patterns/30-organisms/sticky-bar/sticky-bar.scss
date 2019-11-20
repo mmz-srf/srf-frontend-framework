@@ -10,6 +10,7 @@
     transition: transform .4s ease-in-out;
     box-shadow: $shadow-elevation8;
     background-color: $color-srf-neutral-white;
+    z-index: 2; // thank you meteo
 
     @include tablet-up {
         padding: 0 32px;
