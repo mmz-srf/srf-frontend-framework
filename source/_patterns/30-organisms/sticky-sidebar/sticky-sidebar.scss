@@ -10,7 +10,7 @@
     position: absolute;
     // Default/fallback value is approximately where the share bar line is
     top: 200px;
-	bottom: 0;
+    bottom: 0;
     left: calc(728px + 12px);
     // Sidebar should occupy half of the leftover space after subtracting the
     // content's width, plus a small gap
