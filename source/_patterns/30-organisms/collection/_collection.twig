@@ -12,7 +12,14 @@
     {% if collection.urn is defined %}data-urn="{{ collection.urn }}"{% endif %}
     {% if selectable %}data-selectable-urn="{{ collection.selectableURN }}"{% endif %}>
 
-    <div class="collection__branding-wrapper js-collection-branding-wrapper"{% if branded %} style="background-image: linear-gradient(120deg, {{ themeColorStart }}, {{ themeColorEnd }});"{% endif %} >
+    <div class="collection__branding-wrapper js-collection-branding-wrapper"
+         {% if branded %} style="
+            --branded-background-color-start: {{ themeColorStart }};
+            --branded-background-color-start-transparent: {{ themeColorStart }}b3;
+            --branded-background-color-end: {{ themeColorEnd }};
+            --branded-background-color-end-transparent: {{ themeColorEnd }}b3;"
+        {% endif %}
+         >
         <div class="collection__content-wrapper js-collection-content-wrapper">
             <h3 class="collection__title">
                 <span class="h-loading-only">
@@ -134,8 +141,9 @@
 
             {# SWIPEABLE AREA WRAPPER END TAGS #}
             {% if swipeable %}
-                        <div class='swipeable-area__mask swipeable-area__mask--left'></div>
-                        <div class='swipeable-area__mask swipeable-area__mask--right'></div>
+                        {# b3 is 70% in oct. #rrggbbaa is not well supported yet, so in prod you should use a twig operator which translates hex to rgba #}
+                        <div class='swipeable-area__mask swipeable-area__mask--left' {% if branded %} style="background-image: linear-gradient(to right, {{ themeColorStart }}, {{ themeColorStart }}b3);"{% endif %}></div>
+                        <div class='swipeable-area__mask swipeable-area__mask--right' {% if branded %} style="background-image: linear-gradient(120deg, {{ themeColorEnd }}b3, {{ themeColorEnd }});"{% endif %}></div>
                         <button class='swipeable-area__button swipeable-area__button--left'></button>
                         <button class='swipeable-area__button swipeable-area__button--right'></button>
                     </div>

@@ -118,6 +118,30 @@ $background-overlap-wide: 50px;
   display: flex;
   flex-direction: column;
   border-radius: 2px;
+
+  position: relative;
+  margin-left: calc((100% - 1280px) / 2);
+  margin-right: calc((100% - 1280px) / 2);
+
+  &:before,
+  &:after {
+    content: '';
+    display: block;
+    height: 100%;
+    width: calc((100vw - 1280px) / 2);
+    position: absolute;
+    top: 0;
+  }
+
+  &:before {
+    right: 100%;
+    background-color: var(--branded-background-color-start);
+  }
+
+  &:after {
+    left: 100%;
+    background-color: var(--branded-background-color-end);
+  }
 }
 
 .collection__title {
@@ -902,7 +926,8 @@ $background-overlap-wide: 50px;
   background-size: cover;
 
   .collection__content-wrapper {
-    background-color: transparent;
+    background-image: linear-gradient(100deg, var(--branded-background-color-start) 4%, var(--branded-background-color-end) 99%);
+    border-radius: 0;
   }
 
   .collection__title,
