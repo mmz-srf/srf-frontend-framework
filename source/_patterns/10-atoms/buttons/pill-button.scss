@@ -93,6 +93,13 @@
   --theme-color-button-text: #{$color-srf-neutral-white};
 }
 
+.pill-button--theme-rtr-radio {
+  --theme-color-gradient-1: #{$theme-rtr-interpresa-color-1};
+  --theme-color-gradient-2: #{$theme-rtr-interpresa-color-2};
+  --theme-color-shadow: #{$color-srf-red-600a60};
+  --theme-color-button-text: #{$color-srf-neutral-white};
+}
+
 .pill-button--theme-radio-srf-musikwelle {
   --theme-color-gradient-1: #{$color-brand-radio-srf-musikwelle-color-1};
   --theme-color-gradient-2: #{$color-brand-radio-srf-musikwelle-color-2};
@@ -116,7 +123,8 @@
 .pill-button--theme-radio-srf-2-kultur,
 .pill-button--theme-radio-srf-3,
 .pill-button--theme-radio-srf-4-news,
-.pill-button--theme-radio-srf-musikwelle {
+.pill-button--theme-radio-srf-musikwelle,
+.pill-button--theme-rtr-radio {
   @supports (--srf: cool) {
     .pill-button__icon {
       filter: invert(100%) contrast(400%);

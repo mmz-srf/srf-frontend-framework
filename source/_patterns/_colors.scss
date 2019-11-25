@@ -4,13 +4,13 @@
 //
 // 1. Global Color Variables
 //    Name all the colors and keep 'em neutral (e.g. don't use «light», use «secondary» or a value like 100, since in dark-themes a «light»-color might be something «dark»)
-// 
+//
 // 2. Element-Variables
 //    Add variables on a element-basis
-// 
+//
 // 3. Variable to Variable
 //    Reference element-variables to corresponding global color variables
-// 
+//
 // (Optional)
 // 4. Add Themes (like a Dark-Theme)
 //    Just overwrite element-variables inside theme-media-queries (ideally no new colors needed in this step)
@@ -30,6 +30,7 @@ $color-srf-red-600:                           rgba(201,16,36,1);     // #c91024
 $color-srf-red-600a00:                        rgba(201,16,36,0);     // #c91024 alpha  0%
 $color-srf-red-600a12:                        rgba(201,16,36,.12);   // #c91024 alpha 12%
 $color-srf-red-600a24:                        rgba(201,16,36,.24);   // #c91024 alpha 24%
+$color-srf-red-600a60:                        rgba(201,16,36,.6);   // #c91024 alpha 24%
 $color-srf-red-700:                           rgba(175,0,29,1);      // #af001d
 $color-srf-red-700a00:                        rgba(175,0,29,0);      // #af001d alpha  0%
 $color-srf-red-800:                           rgba(141,6,20,1);      // #8d0614
