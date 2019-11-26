@@ -57,12 +57,6 @@
 
 .sticky-bar__content {
     display: flex;
-    flex: 1 1 auto;
-
-    // take up a whole row on tablet+
-    @include tablet-up {
-        flex: 1 0 100%;
-    }
 }
 
 .sticky-bar__close {
@@ -82,6 +76,13 @@
 // Tablet: 2 Teaser
 // Desktop+: 3 Teaser
 .sticky-bar__content--horizontal {
+    flex: 1 1 auto;
+
+    // take up a whole row on tablet+
+    @include tablet-up {
+        flex: 1 0 100%;
+    }
+
     .sticky-bar__teaser {
         flex: 1 1 0;
 
