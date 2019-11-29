@@ -1,6 +1,16 @@
+@import "../../mixins";
+@import "../../variables";
+
 .swipeable-area {
   position: relative;
   overflow: hidden;
+  @include desktop {
+    margin: 0 -88px;
+  }
+
+  @include desktop-wide {
+    margin: 0 -80px;
+  }
 }
 
 .swipeable-area__wrapper {
@@ -10,29 +20,83 @@
   box-sizing: content-box;
   -webkit-overflow-scrolling: touch; // enable momentum scrolling on ios
   @include preventScrollbars();
+  
+  // TODO: lower BPs
+  scroll-snap-type: mandatory;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scroll-padding: 120px;
+}
+
+.swipeable-area__item {
+  scroll-snap-align: start;
+  scroll-snap-coordinate: -120px 0px;
 }
 
 .swipeable-area__mask {
   position: absolute;
   top: -1px;
   width: 120px;
-  height: calc(100% - 40px + 20px);
+  
+  // masks should have a height of 100% plus 20px more to also cover hover shadows
+  // (plus 1px because it's positioned -1px above the teasers for the same reason)
+  height: calc(100% + #{-52px + 20px + 1px}); // 52 = 40 (padding-bottom of collection__teaser-item) + 12 (margin-bottom of teaser-list)
 }
 
 .swipeable-area__mask--left {
-  left: -80px;
-  background: linear-gradient(90deg, var(--branded-background-color-start) 0%, var(--branded-background-color-start-transparent) 100%);
+  left: 0;
+
+  background: linear-gradient(to right, $color-srf-warmgrey-25, $color-srf-warmgrey-25a80);
+
+  @supports (--srf: cool) {
+    background: linear-gradient(90deg, var(--branded-background-color-start) 0%, var(--branded-background-color-start-transparent) 100%);
+  }
 }
 
 .swipeable-area__mask--right {
-  right: -80px;
-  background: linear-gradient(90deg, var(--branded-background-color-end-transparent) 0%, var(--branded-background-color-end) 100%);
+  z-index: 0;
+  right: 0;
+
+  background: linear-gradient(to left, $color-srf-warmgrey-25, $color-srf-warmgrey-25a80);
+
+  @supports (--srf: cool) {
+    background: linear-gradient(90deg, var(--branded-background-color-end-transparent) 0%, var(--branded-background-color-end) 100%);
+  }
 }
 
 .swipeable-area__button {
+  display: none;
   position: absolute;
-  border: 1px solid red;
-  height: 40px;
-  width: 40px;
-  top: 50%;
+  top: calc((100% - 52px) / 2); // 52 = 40 (padding-bottom of collection__teaser-item) + 12 (margin-bottom of teaser-list)
+  transform: translateY(-50%); // center button vertically
+  opacity: 1;
+  transition: opacity .2s ease-in-out;
+  background-color: $color-srf-neutral-white;
+  cursor: pointer;
+  padding: 4px;
+
+  @include desktop-up {
+    display: flex;
+  }
+  
+  @include desktop-wide {
+    padding: 8px;
+  }
+}
+
+.swipeable-area__button--left {
+  right: 120px;
+}
+
+.swipeable-area__button--right {
+  right: 88px;
+
+  @include desktop-wide {
+    right: 80px;
+  }
+}
+
+.swipeable-area__button--inactive {
+  opacity: .4;
+  pointer-events: none;
 }

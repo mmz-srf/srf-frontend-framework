@@ -5,6 +5,7 @@
 {% set showTitlelink = collection.titleLink is defined or selectable %}
 {% set themeColorStart = collection.theme is defined and collection.theme.colorStart is defined ? collection.theme.colorStart : '#135c94' %}
 {% set themeColorEnd = collection.theme is defined and collection.theme.colorEnd is defined ? collection.theme.colorEnd : '#ADD8E6' %}
+{% set needsBackgroundColors = branded or swipeable %}
 
 {% if selectable %}<div class="selectable-wrapper">{% endif %}
 
@@ -78,10 +79,9 @@
             {% if swipeable %}
                 <div class="collection__swipeable-area swipeable-area js-swipeable-area"
                      data-flying-focus-info="ignore-scrollable-container">
-                    <div class="swipeable-area__wrapper js-swipeable-area-wrapper">
             {% endif %}
 
-            <ul class="collection__teaser-list">
+            <ul class="collection__teaser-list {% if swipeable %}swipeable-area__wrapper js-swipeable-area-wrapper{% endif %}">
                 {% for teaser in collection.teasers %}
                     {% if teaser is not null %}
                         {% set teaserFormat = 'teaser--size-m teaser--size-s-on-mobile' %}
@@ -141,12 +141,20 @@
 
             {# SWIPEABLE AREA WRAPPER END TAGS #}
             {% if swipeable %}
-                        {# b3 is 70% in oct. #rrggbbaa is not well supported yet, so in prod you should use a twig operator which translates hex to rgba #}
-                        <div class='swipeable-area__mask swipeable-area__mask--left' {% if branded %} style="background-image: linear-gradient(to right, {{ themeColorStart }}, {{ themeColorStart }}b3);"{% endif %}></div>
-                        <div class='swipeable-area__mask swipeable-area__mask--right' {% if branded %} style="background-image: linear-gradient(120deg, {{ themeColorEnd }}b3, {{ themeColorEnd }});"{% endif %}></div>
-                        <button class='swipeable-area__button swipeable-area__button--left'></button>
-                        <button class='swipeable-area__button swipeable-area__button--right'></button>
-                    </div>
+                    {# b3 is 70% in oct. #rrggbbaa is not well supported yet, so in prod you should use a twig operator which translates hex to rgba #}
+                    <div class='js-swipeable-area-mask-left swipeable-area__mask swipeable-area__mask--left'></div>
+                    <div class='js-swipeable-area-mask-right swipeable-area__mask swipeable-area__mask--right'></div>
+
+                    {% include 'atoms-icon-button' with {
+                        'iconStyleModifier': 'svg-icon--arrow-left',
+                        'screenReaderText': 'Nach links scrollen',
+                        'styleModifier': 'js-swipeable-area-button-left swipeable-area__button swipeable-area__button--left swipeable-area__button--inactive'
+                    } %}
+                    {% include 'atoms-icon-button' with {
+                        'iconStyleModifier': 'svg-icon--arrow-right',
+                        'screenReaderText': 'Nach rechts scrollen',
+                        'styleModifier': 'js-swipeable-area-button-right swipeable-area__button swipeable-area__button--right'
+                    } %}
                 </div>
             {% endif %}
 

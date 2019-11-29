@@ -1,4 +1,3 @@
-import {FefDebounceHelper} from '../classes/fef-debounce-helper';
 import {FefResponsiveHelper} from '../classes/fef-responsive-helper';
 import {FefTouchDetection} from '../classes/fef-touch-detection';
 import {FefResizeListener} from '../classes/fef-resize-listener';
@@ -6,13 +5,15 @@ import {FefResizeListener} from '../classes/fef-resize-listener';
 const HOOK_CLASS = 'js-swipeable-area',
     INNER_CONTAINER_CLASS = 'js-swipeable-area-wrapper',
     ITEM_CLASS = 'js-swipeable-area-item',
-    BACK_BUTTON_CLASS = 'swipeable-area__button swipeable-area__button--back',
-    FORWARD_BUTTON_CLASS = 'swipeable-area__button swipeable-area__button--forward',
-    BUTTON_ACTIVE_CLASS = 'swipeable-area__button--active',
-    BUTTON_BACK_THRESHOLD = 2,
+    // buttons/masks needed for click handlers
+    BUTTON_LEFT_HOOK_CLASS = 'js-swipeable-area-button-left',
+    BUTTON_RIGHT_HOOK_CLASS = 'js-swipeable-area-button-right',
+    MASK_LEFT_HOOK_CLASS = 'js-swipeable-area-mask-left',
+    MASK_RIGHT_HOOK_CLASS = 'js-swipeable-area-mask-right',
+    // if clicking is prohibited, a button is inactive
+    BUTTON_INACTIVE_CLASS = 'swipeable-area__button--inactive',
     RIGHT_OFFSET = 24,
-    DEFAULT_SCROLL_TIME = 400,
-    DEBOUNCETIME = 75;
+    DEFAULT_SCROLL_TIME = 400;
 
 export function init(interactionMeasureString = '') {
     $(`.${HOOK_CLASS}`).each((_, element) => {
@@ -29,38 +30,70 @@ export class FefSwipeableArea {
         this.$element = $element;
         this.$innerContainer = $(`.${INNER_CONTAINER_CLASS}`, this.$element);
         this.$items = [];
+        this.$buttonLeft = $(`.${BUTTON_LEFT_HOOK_CLASS}`, this.$element);
+        this.$buttonRight = $(`.${BUTTON_RIGHT_HOOK_CLASS}`, this.$element);
+        this.$maskLeft = $(`.${MASK_LEFT_HOOK_CLASS}`, this.$element);
+        this.$maskRight = $(`.${MASK_RIGHT_HOOK_CLASS}`, this.$element);
         this.itemPositions = [];
-        this.$buttonBack = null;
-        this.$buttonForward = null;
         this.nrOfPotentialVisibleItems = 0;
         this.interactionMeasureString = interactionMeasureString;
-
-        this.visibleClass = null;
-        this.hiddenClass = null;
 
         this.initOnce();
 
         // only set up the swipeable at this point if it's swipeable
         if (this.hasScrollableOverflow()) {
-            this.init();
+            this.initSwipeability();
         }
     }
 
+    /**
+     * Some listeners are necessary:
+     * - browser resize, because some events are only needed on Desktop and up
+     * - styles are done being loaded, because some calculations are depending on elements' dimensions
+     * - content can change and the swipeable needs to be informed so it can re-bind and re-calculate things
+     * - clicking on the buttons or masks should page forwards/backwards
+     * - reaching the left or right edge should set the corresponding button to inactive
+     */
     initOnce() {
-        this.registerGeneralListeners();
+        // todo: only width is needed...
+        FefResizeListener.subscribeDebounced(() => this.initSwipeability());
+        $(window).on('srf.styles.loaded', () => this.initSwipeability());
+        this.$element.on('srf.swipeableArea.reinitialize srf.swipeable.content-changed', () => this.initSwipeability());
+
+        this.$buttonLeft.add(this.$maskLeft).on('mousedown touchstart', () => this.pageBack());
+        this.$buttonRight.add(this.$maskRight).on('mousedown touchstart', () => this.pageForward());
+
+        const optionsRight = {
+                root: this.$innerContainer[0],
+                rootMargin: '0px',
+                threshold: 1.0
+            },
+            // on the left edge we need to declare the 120px margin, otherwise identical to optionsRight
+            optionsLeft = Object.assign({}, optionsRight, {
+                rootMargin: '0px 0px 0px -120px'
+            }),
+            callbackRight = (entries, observer) => {
+                // set button to page LEFT to inactive when the FIRST item is completely in view
+                entries.forEach(entry => this.$buttonRight.toggleClass(BUTTON_INACTIVE_CLASS, entry.intersectionRatio === 1));
+            },
+            callbackLeft = (entries, observer) => {
+                // set button to page RIGHT to inactive when the LAST item is completely in view
+                entries.forEach(entry => this.$buttonLeft.toggleClass(BUTTON_INACTIVE_CLASS, entry.intersectionRatio === 1));
+            };
+
+        this.rightEdgeObserver = new IntersectionObserver(callbackRight, optionsRight);
+        this.leftEdgeObserver = new IntersectionObserver(callbackLeft, optionsLeft);
     }
 
-    init() {
+    initSwipeability() {
         this.$items = $(`.${ITEM_CLASS}`, this.$innerContainer);
 
-        // scroll back to the beginning (matters when swipeable was reinitialized)
+        // scroll back to the beginning (necessary when swipeable was reinitialized)
         this.scrollToPosition(0, 0);
 
         if (FefResponsiveHelper.isDesktopUp() && !FefTouchDetection.isTouchSupported()) {
             this.registerDesktopListeners();
-            this.markItems();
-            this.addButtons();
-            this.updateButtonStatus();
+            this.updateFlyingFocus();
             this.initItemPositions();
         } else {
             this.deregisterDesktopListeners();
@@ -132,40 +165,22 @@ export class FefSwipeableArea {
         this.nrOfPotentialVisibleItems = this.itemPositions.filter((positionSet) => positionSet.right < containerAndFirstGap).length;
     }
 
-    registerGeneralListeners() {
-        FefResizeListener.subscribeDebounced(() => this.init());
-        $(window).on('srf.styles.loaded', () => this.init());
-        this.$element.on('srf.swipeableArea.reinitialize srf.swipeable.content-changed', () => this.init());
-    };
-
     registerDesktopListeners() {
+        // unsubscribe to the events first to prevent double-binding
         this.$items
             .off('click.srf.swipeable-area-desktop')
             .on('click.srf.swipeable-area-desktop', (event) => this.onTeaserClick(event));
 
-        this.$innerContainer
-            .off('scroll.srf.swipeable-area-desktop')
-            .on('scroll.srf.swipeable-area-desktop', FefDebounceHelper.throttle(() => this.scrollHandlerDesktop(), DEBOUNCETIME));
+        this.rightEdgeObserver.observe(this.$items.last().find('.js-teaser')[0]);
+        this.leftEdgeObserver.observe(this.$items.first().find('.js-teaser')[0]);
     }
 
     deregisterDesktopListeners() {
         this.$items.off('click.srf.swipeable-area-desktop');
         this.$innerContainer.off('scroll.srf.swipeable-area-desktop');
-    }
 
-    scrollHandlerDesktop() {
-        this.markItems();
-        this.updateButtonStatus();
-    }
-
-    addButtons() {
-        // making sure to add the buttons only once
-        if (this.$buttonBack === null) {
-            this.$buttonBack = $(`<div class='${BACK_BUTTON_CLASS}'><span></span></div>`);
-            this.$buttonForward = $(`<div class='${FORWARD_BUTTON_CLASS}'><span></span></div>`);
-
-            //this.$element.append(this.$buttonBack, this.$buttonForward);
-        }
+        this.rightEdgeObserver.unobserve(this.$items.last()[0]);
+        this.leftEdgeObserver.unobserve(this.$items.first()[0]);
     }
 
     /**
@@ -198,35 +213,8 @@ export class FefSwipeableArea {
         return false;
     }
 
-    /**
-     * Shows/hides the buttons via class if needed.
-     * - Buttons only appear on Breakpoints Desktop and Desktop Wide
-     * - If scrolled to the very end, don't show the forward button
-     * - If scrolled to the very beginning, don't show the back button
-     *
-     * If the buttons shouldn't be visible at all, they're hidden here.
-     */
-    updateButtonStatus() {
-        // show forward/back buttons if needed
-        if (this.hasScrollableOverflow()) {
-            this.$buttonForward.toggleClass(BUTTON_ACTIVE_CLASS, !this.isAtScrollEnd());
-            this.$buttonBack.toggleClass(BUTTON_ACTIVE_CLASS, !this.isAtScrollBeginning());
-        } else {
-            this.$buttonForward.removeClass(BUTTON_ACTIVE_CLASS);
-            this.$buttonBack.removeClass(BUTTON_ACTIVE_CLASS);
-        }
-    }
-
     hasScrollableOverflow() {
         return this.$innerContainer[0].scrollWidth > this.$innerContainer.innerWidth() + RIGHT_OFFSET;
-    }
-
-    isAtScrollEnd() {
-        return this.$innerContainer.scrollLeft() + this.$innerContainer.innerWidth() >= this.$innerContainer[0].scrollWidth;
-    }
-
-    isAtScrollBeginning() {
-        return this.$innerContainer.scrollLeft() <= BUTTON_BACK_THRESHOLD;
     }
 
     /**
@@ -350,6 +338,12 @@ export class FefSwipeableArea {
      * right-most) item and use it as the "target" item to center.
      */
     pageForward() {
+        // simplified b/c scroll snap points:
+        // attempt to scroll to a position that's one containerwidth to the right. Done.
+        let containerWidth = this.$innerContainer.innerWidth();
+        this.$innerContainer.scrollLeft(this.$innerContainer.scrollLeft() + containerWidth);
+
+        /*
         let containerWidth = this.$innerContainer.innerWidth(),
             visibleAreaRightEdge = this.$innerContainer.scrollLeft() + containerWidth,
             partiallyVisibleItemIndex = this.itemPositions.findIndex(pos => pos.right > visibleAreaRightEdge),
@@ -361,6 +355,7 @@ export class FefSwipeableArea {
         let newPosition = this.getCenterTargetPosition(targetItemIndex, 'forward') - (containerWidth / 2);
 
         this.scrollToPosition(newPosition);
+        */
         this.track('click-right');
     }
 
@@ -369,6 +364,12 @@ export class FefSwipeableArea {
      * For a visual description, see pageForward()'s doc block above.
      */
     pageBack() {
+        // simplified b/c scroll snap points:
+        // attempt to scroll to a position that's one containerwidth to the right. Done.
+        let containerWidth = this.$innerContainer.innerWidth();
+        this.$innerContainer.scrollLeft(this.$innerContainer.scrollLeft() - containerWidth);
+
+        /*
         let containerWidth = this.$innerContainer.innerWidth(),
             visibleAreaLeftEdge = this.$innerContainer.scrollLeft(),
             partiallyVisibleItemIndex = this.itemPositions.findIndex(pos => pos.right > visibleAreaLeftEdge),
@@ -380,6 +381,7 @@ export class FefSwipeableArea {
         let newPosition = this.getCenterTargetPosition(targetItemIndex, 'backward') - (containerWidth / 2);
 
         this.scrollToPosition(newPosition);
+        */
         this.track('click-left');
     }
 
@@ -392,28 +394,12 @@ export class FefSwipeableArea {
     scrollToPosition(position, time) {
         time = typeof time === 'undefined' ? DEFAULT_SCROLL_TIME : time;
 
-        this.checkFuturePosition(position);
-
         this.$innerContainer
             .stop(true, false)
             .animate({ scrollLeft: position }, time, 'easeInOutSine');
     }
 
-    checkFuturePosition(position) {
-        if (position <= 0) {
-            if (this.$buttonBack) {
-                this.$buttonBack.removeClass(BUTTON_ACTIVE_CLASS);
-            }
-        }
-
-        if (position + this.$innerContainer.innerWidth() >= this.$innerContainer[0].scrollWidth) {
-            if (this.$buttonForward) {
-                this.$buttonForward.removeClass(BUTTON_ACTIVE_CLASS);
-            }
-        }
-    }
-
-    markItems() {
+    updateFlyingFocus() {
         // move the flying focus to the new position after scrolling
         $(document).trigger('flyingfocus:move');
     }
