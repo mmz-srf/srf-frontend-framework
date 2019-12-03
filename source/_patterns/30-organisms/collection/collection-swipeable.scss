@@ -10,12 +10,25 @@
     min-width: calc(100% - 40px);
     padding-right: 8px;
     margin: 0;
-    
-    @include tablet-up {
-      min-width: calc((100% - 32px - 44px) / 3.00001); // 32px: left gap between Collection and Teaser; 44px: visible part of the first 'overflowed' item
-      padding-right: 12px;
+
+    // (only on mobile + tablet)
+    // add the same amount of padding on the left side and remove it visually
+    // with negative margin to make centering easier with scroll-snap-align: center;
+    @include smartphone {
+      padding-left: 8px;
+      margin: 0 0 0 -8px;
     }
 
+    @include tablet {
+      min-width: calc((100% - 32px - 44px) / 3.00001); // 32px: left gap between Collection and Teaser; 44px: visible part of the first 'overflowed' item
+      padding-right: 12px;
+      padding-left: 12px;
+      margin-left: -12px;
+    }
+    
+    // desktop+: use 2.9999 instead of 3.00001, so that in case of a rounding
+    // error the teasers are 1px bigger - this prevents a small but visible
+    // area where the teaser isn't covered by the mask of the swipeable  
     @include desktop {
       min-width: calc((100% - 240px) / 2.99999);
       padding-right: 16px;
@@ -27,14 +40,14 @@
     }
     
     &:first-child {
-      margin-left: 8px;
+      margin-left: 0;
       
       @include tablet-up {
-        margin-left: 32px;
+        margin-left: #{calc(32px - 12px)}; // 32px: left gap between Collection edge and teaser; 12px: gap between teasers to be undone
       }
 
       @include desktop-up {
-        margin-left: 120px;
+        margin-left: 120px; // fix margin with the same size as the mask
       }
     }
     

@@ -21,16 +21,22 @@
   -webkit-overflow-scrolling: touch; // enable momentum scrolling on ios
   @include preventScrollbars();
   
-  // TODO: lower BPs
   scroll-snap-type: mandatory;
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
-  scroll-padding: 120px;
+
+  @include desktop-up {
+    scroll-padding: 120px;
+  }
 }
 
 .swipeable-area__item {
-  scroll-snap-align: start;
-  scroll-snap-coordinate: -120px 0px;
+  scroll-snap-align: center;
+  
+  @include desktop-up {
+    scroll-snap-align: start;
+    scroll-snap-coordinate: -120px 0px;
+  }
 }
 
 .swipeable-area__mask {
@@ -50,7 +56,6 @@
 
 .swipeable-area__mask--left {
   left: 0;
-
   background: linear-gradient(to right, $color-srf-warmgrey-25, $color-srf-warmgrey-25a80);
 
   @supports (--srf: cool) {
@@ -61,7 +66,6 @@
 .swipeable-area__mask--right {
   z-index: 0;
   right: 0;
-
   background: linear-gradient(to left, $color-srf-warmgrey-25, $color-srf-warmgrey-25a80);
 
   @supports (--srf: cool) {
