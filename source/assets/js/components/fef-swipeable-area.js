@@ -13,7 +13,8 @@ const HOOK_CLASS = 'js-swipeable-area',
     // if clicking is prohibited, a button is inactive
     BUTTON_INACTIVE_CLASS = 'swipeable-area__button--inactive',
     RIGHT_OFFSET = 24,
-    DEFAULT_SCROLL_TIME = 400;
+    DEFAULT_SCROLL_TIME = 400,
+    SUPPORTS_SNAP_POINTS = !!((window.CSS && window.CSS.supports) || window.supportsCSS || false) && CSS.supports('scroll-snap-align: start');
 
 export function init(interactionMeasureString = '') {
     $(`.${HOOK_CLASS}`).each((_, element) => {
@@ -192,9 +193,9 @@ export class FefSwipeableArea {
      * @param {jQuery.event} event
      */
     onTeaserClick(event) {
+        // Do not scroll into view for now - tbd by design
+        /*
         let $item = $(event.currentTarget);
-
-        // TODO: check if no visible -> return
 
         // remove focus from the element that was just clicked if it was a mouse click
         if (FefTouchDetection.eventIsMouseclick(event)) {
@@ -211,6 +212,7 @@ export class FefSwipeableArea {
         event.preventDefault();
         event.stopPropagation();
         return false;
+        */
     }
 
     hasScrollableOverflow() {
@@ -338,12 +340,16 @@ export class FefSwipeableArea {
      * right-most) item and use it as the "target" item to center.
      */
     pageForward() {
-        // simplified b/c scroll snap points:
-        // attempt to scroll to a position that's one containerwidth to the right. Done.
-        let containerWidth = this.$innerContainer.innerWidth();
-        this.$innerContainer.scrollLeft(this.$innerContainer.scrollLeft() + containerWidth);
+        this.track('click-right');
 
-        /*
+        if (SUPPORTS_SNAP_POINTS) {
+            // simplified b/c scroll snap points:
+            // attempt to scroll to a position that's one containerwidth to the right. Done.
+            let containerWidth = this.$innerContainer.innerWidth();
+            this.$innerContainer.scrollLeft(this.$innerContainer.scrollLeft() + containerWidth);
+            return;
+        }
+
         let containerWidth = this.$innerContainer.innerWidth(),
             visibleAreaRightEdge = this.$innerContainer.scrollLeft() + containerWidth,
             partiallyVisibleItemIndex = this.itemPositions.findIndex(pos => pos.right > visibleAreaRightEdge),
@@ -355,8 +361,6 @@ export class FefSwipeableArea {
         let newPosition = this.getCenterTargetPosition(targetItemIndex, 'forward') - (containerWidth / 2);
 
         this.scrollToPosition(newPosition);
-        */
-        this.track('click-right');
     }
 
     /**
@@ -364,12 +368,16 @@ export class FefSwipeableArea {
      * For a visual description, see pageForward()'s doc block above.
      */
     pageBack() {
-        // simplified b/c scroll snap points:
-        // attempt to scroll to a position that's one containerwidth to the right. Done.
-        let containerWidth = this.$innerContainer.innerWidth();
-        this.$innerContainer.scrollLeft(this.$innerContainer.scrollLeft() - containerWidth);
+        this.track('click-left');
 
-        /*
+        if (SUPPORTS_SNAP_POINTS) {
+            // simplified b/c scroll snap points:
+            // attempt to scroll to a position that's one containerwidth to the right. Done.
+            let containerWidth = this.$innerContainer.innerWidth();
+            this.$innerContainer.scrollLeft(this.$innerContainer.scrollLeft() - containerWidth);
+            return;
+        }
+
         let containerWidth = this.$innerContainer.innerWidth(),
             visibleAreaLeftEdge = this.$innerContainer.scrollLeft(),
             partiallyVisibleItemIndex = this.itemPositions.findIndex(pos => pos.right > visibleAreaLeftEdge),
@@ -381,8 +389,6 @@ export class FefSwipeableArea {
         let newPosition = this.getCenterTargetPosition(targetItemIndex, 'backward') - (containerWidth / 2);
 
         this.scrollToPosition(newPosition);
-        */
-        this.track('click-left');
     }
 
     /**
@@ -394,9 +400,16 @@ export class FefSwipeableArea {
     scrollToPosition(position, time) {
         time = typeof time === 'undefined' ? DEFAULT_SCROLL_TIME : time;
 
-        this.$innerContainer
-            .stop(true, false)
-            .animate({ scrollLeft: position }, time, 'easeInOutSine');
+        // don't use jQuery's animate() if scrolling should happen instantly or
+        // if snap points are supported.
+        if (time === 0 || SUPPORTS_SNAP_POINTS) {
+            this.$innerContainer.scrollLeft(position);
+        } else {
+            this.$innerContainer
+                .stop(true, false)
+                .animate({ scrollLeft: position }, time, 'easeInOutSine');
+        }
+
     }
 
     updateFlyingFocus() {
