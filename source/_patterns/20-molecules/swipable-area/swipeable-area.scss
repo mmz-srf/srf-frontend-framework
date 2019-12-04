@@ -58,8 +58,10 @@
   left: 0;
   background: linear-gradient(to right, $color-srf-warmgrey-25, $color-srf-warmgrey-25a80);
 
-  @supports (--srf: cool) {
-    background: linear-gradient(90deg, var(--branded-background-color-start) 0%, var(--branded-background-color-start-transparent) 100%);
+  &.swipeable-area--themed {
+    @supports (--srf: cool) {
+      background: linear-gradient(90deg, var(--branded-background-color-start) 0%, var(--branded-background-color-start-transparent) 100%);
+    }
   }
 }
 
@@ -68,8 +70,10 @@
   right: 0;
   background: linear-gradient(to left, $color-srf-warmgrey-25, $color-srf-warmgrey-25a80);
 
-  @supports (--srf: cool) {
-    background: linear-gradient(90deg, var(--branded-background-color-end-transparent) 0%, var(--branded-background-color-end) 100%);
+  &.swipeable-area--themed {
+    @supports (--srf: cool) {
+      background: linear-gradient(90deg, var(--branded-background-color-end-transparent) 0%, var(--branded-background-color-end) 100%);
+    }
   }
 }
 

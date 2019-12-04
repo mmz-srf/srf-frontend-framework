@@ -77,7 +77,7 @@
 
             {# SWIPEABLE AREA WRAPPER #}
             {% if swipeable %}
-                <div class="collection__swipeable-area swipeable-area js-swipeable-area"
+                <div class="collection__swipeable-area swipeable-area js-swipeable-area {% if branded %}swipeable-area--themed{% endif %}"
                      data-flying-focus-info="ignore-scrollable-container">
             {% endif %}
 
