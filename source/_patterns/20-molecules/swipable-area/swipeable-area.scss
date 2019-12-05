@@ -44,10 +44,7 @@
   position: absolute;
   top: -1px;
   width: 120px;
-  
-  // masks should have a height of 100% plus 20px more to also cover hover shadows
-  // (plus 1px because it's positioned -1px above the teasers for the same reason)
-  height: calc(100% + #{-52px + 20px + 1px}); // 52 = 40 (padding-bottom of collection__teaser-item) + 12 (margin-bottom of teaser-list)
+  height: 100%;
 
   @include desktop-up {
     display: block;

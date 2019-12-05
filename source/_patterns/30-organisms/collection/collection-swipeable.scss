@@ -3,7 +3,10 @@
   .collection__teaser-list {
     flex-wrap: nowrap;
     flex-direction: row;
-    margin: 0;
+
+    @include tablet-up {
+      margin: 0;
+    }
   }
   
   .collection__teaser-item {
@@ -253,6 +256,10 @@
 // displays up to 6 teasers (smartphone: 2) in one row at once. becomes swipeable for more teasers.
 // usually used for square teasers.
 .collection--dense-swipeable {
+  .swipeable-area__button {
+    top: calc((100% - 16px) / 2);
+  }
+
   .collection__teaser-list {
     flex-wrap: nowrap;
     flex-direction: row;
@@ -276,14 +283,8 @@
       max-width: none;
     }
     
-    @include desktop {
-      min-width: calc((100% - 20px - 56px - (6 * 12px)) / 6.00001);
-      padding-right: 12px;
-      max-width: none;
-    }
-    
-    @include desktop-wide {
-      min-width: calc((100% - 40px - 56px - (6 * 16px)) / 6.00001);
+    @include desktop-up {
+      min-width: calc((100% - 240px - (6 * 16px)) / 6.00001);
       padding-right: 16px;
     }
     
@@ -294,8 +295,8 @@
         margin-left: 32px;
       }
       
-      @include desktop-wide {
-        margin-left: 40px;
+      @include desktop-up {
+        margin-left: 120px;
       }
     }
     
@@ -306,8 +307,8 @@
         padding-right: 32px;
       }
       
-      @include desktop-wide {
-        padding-right: 40px;
+      @include desktop-up {
+        padding-right: 120px;
       }
     }
   }
