@@ -37,6 +37,7 @@
 .masthead.masthead--theme-rtr-archiv,
 .masthead.masthead--theme-rtr-aura,
 .masthead.masthead--theme-rtr-interpresa,
+.masthead.masthead--theme-rtr-radio,
 .masthead.masthead--theme-radio-srf-2-kultur,
 .masthead.masthead--theme-radio-srf-3,
 .masthead.masthead--theme-radio-srf-musikwelle {
@@ -203,7 +204,8 @@
   --theme-color-pager-end-transparent: #{$theme-rtr-archivar-color-bg-pager-end-transparent};
 }
 
-.masthead.masthead--theme-rtr-interpresa {
+.masthead.masthead--theme-rtr-interpresa,
+.masthead.masthead--theme-rtr-radio {
   --theme-color-gradient-1: #{$theme-rtr-interpresa-color-1};
   --theme-color-gradient-2: #{$theme-rtr-interpresa-color-2};
   --theme-color-pager-start: #{$theme-rtr-interpresa-color-bg-pager-start};

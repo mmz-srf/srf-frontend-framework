@@ -838,27 +838,6 @@
   &.teaser--size-s {
     --media-time-indicator-display: none;
 
-    .teaser__main {
-      transition: opacity .2s ease-in-out;
-
-      &:hover,
-      &:focus {
-        opacity: .8;
-      }
-
-      &:active {
-        opacity: .6;
-      }
-
-      &:hover,
-      &:focus,
-      &:active {
-        &::after {
-          opacity: 0;
-        }
-      }
-    }
-
     .teaser__content {
       margin: 0 0 0 12px;
     }
@@ -877,6 +856,30 @@
       @include desktop-up {
         width: 112px;
         height: 112px;
+      }
+    }
+  }
+}
+
+.teaser--no-card.teaser--size-s,
+.teaser--alternative-interaction-design {
+  .teaser__main {
+    transition: opacity .2s ease-in-out;
+
+    &:hover,
+    &:focus {
+      opacity: .8;
+    }
+
+    &:active {
+      opacity: .6;
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+      &::after {
+        opacity: 0;
       }
     }
   }
@@ -1126,6 +1129,15 @@
       flex-basis: auto;
     }
   }
+}
+
+// removes the medium on mobile	
+.teaser--no-medium-on-mobile {	
+  @include smartphone {	
+    .teaser__medium-wrapper {	
+      display: none;	
+    }	
+  }	
 }
 
 /* autoprefixer grid: off */
