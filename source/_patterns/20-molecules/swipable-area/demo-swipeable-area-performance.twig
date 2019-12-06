@@ -11,6 +11,12 @@
 <input type="checkbox" class="show-helpers">1024</input>
 <div class="helper helper--1024"></div>
 
+<input type="checkbox" class="show-helpers">8px gap</input>
+<div class="helper helper--gap8"></div>
+
+<input type="checkbox" class="show-helpers">Half</input>
+<div class="helper helper--half"></div>
+
 <style>
     .collection:not(.collection--branded) {
         background-color: #f5f5f2;
@@ -48,6 +54,19 @@
         border-color: darkred;
         width: 1280px;
         left: calc((100% - 1280px) / 2);
+    }
+
+    .helper--gap8 {
+        border-color: darkred;
+        width: calc(100% - 16px);
+        left: 8px;
+    }
+
+    .helper--half {
+        border-color: darkred;
+        width: 1px;
+        border-right: none;
+        left: 50%;
     }
 
     .show-helpers:checked + .helper {

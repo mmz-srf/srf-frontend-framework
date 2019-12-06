@@ -1,14 +1,5 @@
 .collection--swipeable,
-.collection--compact-swipeable {
-  .collection__teaser-list {
-    flex-wrap: nowrap;
-    flex-direction: row;
-
-    @include tablet-up {
-      margin: 0;
-    }
-  }
-  
+.collection--compact-swipeable {  
   .collection__teaser-item {
     min-width: calc(100% - 40px);
     padding-right: 8px;
@@ -101,6 +92,17 @@
 .collection--swipeable,
 .collection--compact-swipeable,
 .collection--dense-swipeable {
+  .collection__teaser-list {
+    flex-wrap: nowrap;
+    flex-direction: row;
+    margin-left: 0;
+    margin-right: 0;
+
+    @include tablet-up {
+      margin: 0;
+    }
+  }
+
   .collection__links {
     margin-top: 12px;
     
@@ -135,10 +137,17 @@
   }
 }
 
-
 // Compact Swipeable has (next to only having S teasers on all BPs) one difference to the
 // Standard Swipeable collection: On Tablet, only 2 teasers are visible instead of 3.
 .collection--compact-swipeable {
+
+  // Centering the middle of 2 teasers in the middle of the screen on BP2 (tablet)
+  .collection__teaser-list {
+    @include tablet {
+      scroll-padding-left: calc(50% - 40px);
+    }
+  }
+
   .collection__teaser-item {
     
     @include tablet {
@@ -265,6 +274,10 @@
     flex-direction: row;
     margin-right: 0;
     margin-left: 0;
+
+    @include smartphone {
+      scroll-padding-left: calc(50% - 10px);
+    }
   }
   
   .collection__teaser-item {
