@@ -1,17 +1,6 @@
 {% embed 'templates-landingpage' %}
     {% block landingpage_content %}
-        {% for collection in collections %}
-            {% include 'organisms-collection' with {'collection': collection} %}
-        {% endfor %}
-
-        {% include 'organisms-collection' with {
-            'collection': {
-                "styleModifier": "collection--standard collection--borderless",
-                "title": "You should never see this",
-                "lead": "You should never see this",
-                "teasers": collections[0].teasers[0:1]
-            }
-        } %}
+        {% include 'organisms-collection' with {'collection': collections[6]} %}
     {% endblock %}
 
     {% block demo_content %}

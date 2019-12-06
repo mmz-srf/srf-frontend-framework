@@ -12,13 +12,6 @@
         <a class="teaser__fullsize-link" tabindex="-1" aria-hidden="true" role="presentation" href="{{ teaser.link|default('#') }}"></a>
     {% endif %}
 
-    <div class="teaser__content-shimmer h-loading-only">
-        {% include 'atoms-shimmer' with {'styleModifier': 'shimmer--overline'} %}
-        {% include 'atoms-shimmer' with {'styleModifier': ''} %}
-        {% include 'atoms-shimmer' with {'styleModifier': ''} %}
-        {% include 'atoms-shimmer' with {'styleModifier': 'shimmer--short'} %}
-    </div>
-
     <div class="teaser__main-wrapper">
         <a class="teaser__main" href="{{ teaser.link|default('#') }}">
             <div class="teaser__content">
