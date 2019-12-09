@@ -4,6 +4,10 @@
 {% if 'teaser--size-l' in styleModifier or 'teaser--size-xl' in styleModifier %}
     {% set infoStyleModifier = infoStyleModifier ~ ' teaser-info--size-large' %}
 {% endif %}
+{% if 'teaser--size-xl' in styleModifier %}
+    {# XL-Teaser doesn't care about other formats #}
+    {% set ratio = '16:9' %}
+{% endif %}
 
 <div class="teaser js-teaser {{ styleModifier|default('teaser--size-m teaser--size-s-on-mobile') }}">
     <a class="teaser__main" href="{{ teaser.link|default('#') }}">
@@ -13,7 +17,7 @@
             {% embed "ratio.twig" with {
                 'class': 'teaser__medium-wrapper',
                 'ratio': ratio,
-
+                'mobileRatio': mobileRatio|default('')
             } %}
                 {% block ratio_content %}
                     <div class="teaser__medium">

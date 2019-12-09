@@ -1,3 +1,5 @@
+@import "../../breakpoints";
+
 .ratio::before {
   content: "";
   width: 1px;
@@ -26,4 +28,10 @@
 
 .ratio--1-1::before {
   padding-top: 100%;
+}
+
+.ratio--mobile-1-1::before {
+  @include smartphone {
+    padding-top: 100%;
+  }
 }
