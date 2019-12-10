@@ -1,6 +1,7 @@
 @import "../mixins";
 
 .article {
+  position: relative;
   min-height: 480px;
   @include content-column-default;
 }

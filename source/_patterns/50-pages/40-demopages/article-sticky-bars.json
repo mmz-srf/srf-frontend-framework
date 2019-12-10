@@ -1,0 +1,5 @@
+{
+  "bodyClass": "",
+  "criticalCssFile": "c_article.css",
+  "alternateCssFiles": [ "main.global.css", "main.article.css"]
+}

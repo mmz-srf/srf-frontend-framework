@@ -21,6 +21,7 @@
     {% include 'atoms-button' with {'styleModifier' : 'button--circle',    'buttonText' : 'Circle Button'} %}
     {% include 'atoms-button' with {'styleModifier' : 'button--fixed-bottom-right', 'buttonText' : 'Fixed Button'} %}
     {% include 'atoms-button' with {'styleModifier' : 'button--circle button--attention-hogger', 'buttonText' : 'Alarm!'} %}
+    {% include 'atoms-button' with {'styleModifier' : 'button--icon-only button--secondary', 'buttonText' : '', 'svgIcon': 'svg-icon--arrow-right'} %}
     <div class="js-toggle-container">
       {% include 'atoms-button' with {'buttonText' : 'Senden'} %}
       <button class="js-toggle-classes">Toggle Different States</button>
@@ -44,13 +45,13 @@
 
     <br><br>
     {% include 'atoms-pill-button' with {
-        'styleModifier': 'pill-button--primary pill-button--themed pill-button--theme-radio_srf_1',
+        'styleModifier': 'pill-button--primary pill-button--themed pill-button--theme-radio-srf-1',
         'buttonIcon': 'svg-icon--play-audio-dark',
         'buttonText': 'Jetzt hören'
     }%}
     <br><br>
     {% include 'atoms-pill-button' with {
-        'styleModifier': 'pill-button--primary pill-button--themed pill-button--theme-radio_srf_2_kultur',
+        'styleModifier': 'pill-button--primary pill-button--themed pill-button--theme-radio-srf-2-kultur',
         'buttonIcon': 'svg-icon--play-audio-dark',
         'buttonText': 'Jetzt hören'
     }%}

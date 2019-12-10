@@ -28,6 +28,7 @@
     padding: 24px 32px 24px 24px;
     margin: 0 32px 0 32px;
     flex-direction: row;
+    flex-grow: 1;
   }
 
   @include desktop-wide {
