@@ -4,6 +4,7 @@
 .swipeable-area {
   position: relative;
   overflow: hidden;
+
   @include desktop {
     margin: 0 -88px;
   }
@@ -11,13 +12,19 @@
   @include desktop-wide {
     margin: 0 -80px;
   }
+
+  &:hover {
+    .swipeable-area__button {
+      opacity: 1;
+    }
+  }
 }
 
 .swipeable-area__wrapper {
   overflow-x: scroll;
   overflow-y: hidden;
   width: 100%;
-  box-sizing: content-box;
+  //box-sizing: content-box; // WHY?
   -webkit-overflow-scrolling: touch; // enable momentum scrolling on ios
   @include preventScrollbars();
   
@@ -79,7 +86,7 @@
   position: absolute;
   top: calc((100% - 52px) / 2); // 52 = 40 (padding-bottom of collection__teaser-item) + 12 (margin-bottom of teaser-list)
   transform: translateY(-50%); // center button vertically
-  opacity: 1;
+  opacity: 0; // only visible when hovering over the area
   transition: opacity .2s ease-in-out;
   background-color: $color-srf-neutral-white;
   cursor: pointer;
@@ -91,6 +98,17 @@
   
   @include desktop-wide {
     padding: 8px;
+  }
+
+  // needs to have higher specificity than ".swipeable-area:hover .swipeable-area__button"
+  &.swipeable-area__button--inactive.swipeable-area__button--inactive {
+    opacity: .4;
+    pointer-events: none;
+  }
+
+  // needs higher specificity as well
+  &.swipeable-area__button--hidden {
+    display: none;
   }
 }
 
@@ -104,9 +122,4 @@
   @include desktop-wide {
     right: 80px;
   }
-}
-
-.swipeable-area__button--inactive {
-  opacity: .4;
-  pointer-events: none;
 }
