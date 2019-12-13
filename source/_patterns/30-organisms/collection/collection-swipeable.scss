@@ -1,12 +1,11 @@
-// cleaned up version, but without visible amount of next teaser
-
 $bottom-gap-mobile: 12px;
 $bottom-gap-tablet: 32px;
 $bottom-gap-desktop: 32px;
 $bottom-gap-desktopwide: 40px;
 
 // Gap between the container and the first item
-$edge-gap-mobile: 8px; // TODO: dense --> 24px
+$edge-gap-mobile: 8px;
+$edge-gap-dense-mobile: 24px; // EXCEPTION: One of the only ones because design vult: gap to edge is different in dense collections.
 $edge-gap-tablet: 32px;
 $edge-gap-desktop: 120px; // actually 32px, but on desktop+ there's the mask that forces this to be 120px
 $edge-gap-desktopwide: 120px; // actually 40px, but on desktop+ there's the mask that forces this to be 120px
@@ -22,13 +21,13 @@ $gap-between-teasers-when-swipeable-tablet: 12px;
 $gap-between-teasers-when-swipeable-desktop: 12px;
 $gap-between-teasers-when-swipeable-desktopwide: 16px;
 
-// How much of the next item should be visible when scrolled all the way to the left?
+// How MUCH of the next item should be visible when scrolled all the way to the left?
 $next-teaser-visible-amount-mobile: 40px;
 $next-teaser-visible-amount-tablet: 44px;
 $next-teaser-visible-amount-desktop: 32px;
 $next-teaser-visible-amount-desktopwide: 40px;
 
-// How many items should be fully visible when scrolled all the way to the left?
+// How MANY items should be fully visible when scrolled all the way to the left?
 $nr-of-teasers-standard-mobile: 1;
 $nr-of-teasers-standard-tablet: 3;
 $nr-of-teasers-standard-desktop: 3;
@@ -44,13 +43,21 @@ $nr-of-teasers-dense-tablet: 6;
 $nr-of-teasers-dense-desktop: 6;
 $nr-of-teasers-dense-desktopwide: 6;
 
-@mixin listStyles($bp: 'mobile') {
+@mixin listStyles($bp: 'mobile', $collectionType: 'standard') {
   // Looks scary, but could be replaced by dynamic variables
   // e.g. $gap-between: $gap-between-teasers-#{ $bp }
   // But Sass doesn't support this (yet).
   $gap-between: $gap-between-teasers-mobile;
   $side-gap: $edge-gap-mobile;
   $bottom-gap: $bottom-gap-mobile;
+
+  // This is one of the only exceptions - dense swipeable on mobile has a
+  // different gap to the edge than the others. Because it's just dense
+  // it's not sensible to add a $edge-gap-XXX-YYY for all types and BPs.
+  // See EXCEPTION on the top of this file.
+  @if $bp == 'mobile' and $collectionType == 'dense' {
+    $side-gap: $edge-gap-dense-mobile;
+  }
 
   @if $bp == 'tablet' {
     $gap-between: $gap-between-teasers-tablet;
@@ -83,6 +90,14 @@ $nr-of-teasers-dense-desktopwide: 6;
     $nr-of-teasers: $nr-of-teasers-compact-mobile;
   } @else if $collectionType == 'dense' {
     $nr-of-teasers: $nr-of-teasers-dense-mobile;
+  }
+
+  // This is one of the only exceptions - dense swipeable on mobile has a
+  // different gap to the edge than the others. Because it's just dense
+  // it's not sensible to add a $edge-gap-XXX-YYY for all types and BPs.
+  // See EXCEPTION on the top of this file.
+  @if $bp == 'mobile' and $collectionType == 'dense' {
+    $side-gap: $edge-gap-dense-mobile;
   }
 
   @if $bp == 'tablet' {
@@ -187,7 +202,9 @@ $nr-of-teasers-dense-desktopwide: 6;
     flex-wrap: nowrap;
     margin: 0;
 
-    @include listStyles('mobile');
+    @include smartphone {
+      @include listStyles('mobile');
+    }
 
     @include tablet {
       @include listStyles('tablet');
@@ -263,6 +280,13 @@ $nr-of-teasers-dense-desktopwide: 6;
 }
 
 .collection--dense-swipeable {
+  // See EXCEPTION on the top of this file.
+  .collection__teaser-list {
+    @include smartphone {
+      @include listStyles('mobile', 'dense');
+    }
+  }
+
   .collection__teaser-item {
     @include smartphone {
       @include itemStyles('mobile', 'dense');
