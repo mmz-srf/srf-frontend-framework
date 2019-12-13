@@ -1,393 +1,283 @@
-.collection--swipeable,
-.collection--compact-swipeable {  
-  .collection__teaser-item {
-    min-width: calc(100% - 40px);
-    padding-right: 8px;
-    margin: 0;
+// cleaned up version, but without visible amount of next teaser
 
-    // (only on mobile + tablet)
-    // add the same amount of padding on the left side and remove it visually
-    // with negative margin to make centering easier with scroll-snap-align: center;
-    @include smartphone {
-      padding-left: 8px;
-      margin: 0 0 0 -8px;
-    }
+$bottom-gap-mobile: 12px;
+$bottom-gap-tablet: 32px;
+$bottom-gap-desktop: 32px;
+$bottom-gap-desktopwide: 40px;
 
-    @include tablet {
-      min-width: calc((100% - 32px - 44px) / 3.00001); // 32px: left gap between Collection and Teaser; 44px: visible part of the first 'overflowed' item
-      padding-right: 12px;
-      padding-left: 12px;
-      margin-left: -12px;
-    }
+// Gap between the container and the first item
+$edge-gap-mobile: 8px; // TODO: dense --> 24px
+$edge-gap-tablet: 32px;
+$edge-gap-desktop: 120px; // actually 32px, but on desktop+ there's the mask that forces this to be 120px
+$edge-gap-desktopwide: 120px; // actually 40px, but on desktop+ there's the mask that forces this to be 120px
+
+// Gap between the teasers:
+$gap-between-teasers-mobile: 8px;
+$gap-between-teasers-tablet: 24px;
+$gap-between-teasers-desktop: 24px;
+$gap-between-teasers-desktopwide : 32px;
+
+$gap-between-teasers-when-swipeable-mobile: 8px;
+$gap-between-teasers-when-swipeable-tablet: 12px;
+$gap-between-teasers-when-swipeable-desktop: 12px;
+$gap-between-teasers-when-swipeable-desktopwide: 16px;
+
+// How much of the next item should be visible when scrolled all the way to the left?
+$next-teaser-visible-amount-mobile: 40px;
+$next-teaser-visible-amount-tablet: 44px;
+$next-teaser-visible-amount-desktop: 32px;
+$next-teaser-visible-amount-desktopwide: 40px;
+
+// How many items should be fully visible when scrolled all the way to the left?
+$nr-of-teasers-standard-mobile: 1;
+$nr-of-teasers-standard-tablet: 3;
+$nr-of-teasers-standard-desktop: 3;
+$nr-of-teasers-standard-desktopwide: 3;
+
+$nr-of-teasers-compact-mobile: 1;
+$nr-of-teasers-compact-tablet: 2;
+$nr-of-teasers-compact-desktop: 3;
+$nr-of-teasers-compact-desktopwide: 3;
+
+$nr-of-teasers-dense-mobile: 2;
+$nr-of-teasers-dense-tablet: 6;
+$nr-of-teasers-dense-desktop: 6;
+$nr-of-teasers-dense-desktopwide: 6;
+
+@mixin listStyles($bp: 'mobile') {
+  // Looks scary, but could be replaced by dynamic variables
+  // e.g. $gap-between: $gap-between-teasers-#{ $bp }
+  // But Sass doesn't support this (yet).
+  $gap-between: $gap-between-teasers-mobile;
+  $side-gap: $edge-gap-mobile;
+  $bottom-gap: $bottom-gap-mobile;
+
+  @if $bp == 'tablet' {
+    $gap-between: $gap-between-teasers-tablet;
+    $side-gap: $edge-gap-tablet;
+    $bottom-gap: $bottom-gap-tablet;
+  } @else if $bp == 'desktop' {
+    $gap-between: $gap-between-teasers-desktop;
+    $side-gap: $edge-gap-desktop;
+    $bottom-gap: $bottom-gap-desktop;
+  } @else if $bp == 'desktopwide' {
+    $gap-between: $gap-between-teasers-desktopwide;
+    $side-gap: $edge-gap-desktopwide;
+    $bottom-gap: $bottom-gap-desktopwide;
+  }
+
+  padding: 0 #{$side-gap} #{$bottom-gap};
+}
+
+@mixin itemStyles($bp: 'mobile', $collectionType: 'standard') {
+  // Looks scary, but could be replaced by dynamic variables
+  // e.g. $nr-of-teasers: $nr-of-teasers-#{ $collectionType }-#{ $bp }
+  // But Sass doesn't support this (yet).
+  $gap-between: $gap-between-teasers-mobile;
+  $gap-between-swipeable: $gap-between-teasers-when-swipeable-mobile;
+  $visible-of-next-teaser: $next-teaser-visible-amount-mobile;
+  $side-gap: $edge-gap-mobile;
+  $nr-of-teasers: $nr-of-teasers-standard-mobile;
+
+  @if $collectionType == 'compact' {
+    $nr-of-teasers: $nr-of-teasers-compact-mobile;
+  } @else if $collectionType == 'dense' {
+    $nr-of-teasers: $nr-of-teasers-dense-mobile;
+  }
+
+  @if $bp == 'tablet' {
+    $gap-between: $gap-between-teasers-tablet;
+    $gap-between-swipeable: $gap-between-teasers-when-swipeable-tablet;
+    $visible-of-next-teaser: $next-teaser-visible-amount-tablet;
+    $side-gap: $edge-gap-tablet;
     
-    // desktop+: use 2.9999 instead of 3.00001, so that in case of a rounding
-    // error the teasers are 1px bigger - this prevents a small but visible
-    // area where the teaser isn't covered by the mask of the swipeable  
-    @include desktop {
-      min-width: calc((100% - 240px) / 2.99999);
-      padding-right: 16px;
+    @if $collectionType == 'standard' {
+      $nr-of-teasers: $nr-of-teasers-standard-tablet;
+    } @else if $collectionType == 'compact' {
+      $nr-of-teasers: $nr-of-teasers-compact-tablet;
+    } @else if $collectionType == 'dense' {
+      $nr-of-teasers: $nr-of-teasers-dense-tablet;
     }
+  } @else if $bp == 'desktop' {
+    $gap-between: $gap-between-teasers-desktop;
+    $gap-between-swipeable: $gap-between-teasers-when-swipeable-desktop;
+    $visible-of-next-teaser: $next-teaser-visible-amount-desktop;
+    $side-gap: $edge-gap-desktop;
     
-    @include desktop-wide {
-      min-width: calc((100% - 240px) / 2.99999);
-      padding-right: 21px;
+    @if $collectionType == 'standard' {
+      $nr-of-teasers: $nr-of-teasers-standard-desktop;
+    } @else if $collectionType == 'compact' {
+      $nr-of-teasers: $nr-of-teasers-compact-desktop;
+    } @else if $collectionType == 'dense' {
+      $nr-of-teasers: $nr-of-teasers-dense-desktop;
     }
+  } @else if $bp == 'desktopwide' {
+    $gap-between: $gap-between-teasers-desktopwide;
+    $gap-between-swipeable: $gap-between-teasers-when-swipeable-desktopwide;
+    $visible-of-next-teaser: $next-teaser-visible-amount-desktopwide;
+    $side-gap: $edge-gap-desktopwide;
     
-    &:first-child {
-      margin-left: 0;
-      
-      @include tablet-up {
-        margin-left: #{calc(32px - 12px)}; // 32px: left gap between Collection edge and teaser; 12px: gap between teasers to be undone
-      }
-
-      @include desktop-up {
-        margin-left: 120px; // fix margin with the same size as the mask
-      }
-    }
-    
-    // the last item must have more space at the right side in order to align with the last teaser of
-    // the other collections
-    &:last-child {
-      @include tablet-up {
-        min-width: calc(((100% - 32px - 44px) / 3.00001) + 18px);
-      }
-
-      @include desktop {
-        min-width: calc(((100% - 240px) / 3) + 120px - 16px);
-        padding-right: 0;
-      }
-      
-      @include desktop-wide {
-        min-width: calc(((100% - 240px) / 3) + 120px - 21px);
-        padding-right: 0;
-      }
-      
-      &::after {
-        @include tablet-up {
-          content: '';
-          flex-grow: 0;
-          flex-shrink: 0;
-          @include IESafeFlexBasis(20px);
-        }
-
-        @include desktop {
-          @include IESafeFlexBasis(120px);
-        }
-        
-        @include desktop-wide {
-          @include IESafeFlexBasis(120px);
-        }
-      }
+    @if $collectionType == 'standard' {
+      $nr-of-teasers: $nr-of-teasers-standard-desktopwide;
+    } @else if $collectionType == 'compact' {
+      $nr-of-teasers: $nr-of-teasers-compact-desktopwide;
+    } @else if $collectionType == 'dense' {
+      $nr-of-teasers: $nr-of-teasers-dense-desktopwide;
     }
   }
+
+  // IE11 rounds strangely when dividing 100% by integers. By adding a little
+  // bit on top the rounding is counteracted.
+  $nr-of-teasers-floating-point: $nr-of-teasers + 0.00001; 
   
-  // only one teaser on mobile: remove 40px gap on the right
-  @include smartphone {
-    .collection__teaser-item:last-child:first-child {
-      min-width: calc(100% - 8px);
+  // gap between teasers distributed to teasers on each side of the gap -->
+  // this makes centering (via snap points) SO MUCH easier
+  padding: 0 #{$gap-between / 2} 0;
+  width: calc((100% + #{$gap-between} ) / #{$nr-of-teasers-floating-point});
+  
+  // undo padding from before on the left side of the first item and on the
+  // right side of the last item
+  &:first-child {
+    margin-left: -#{$gap-between / 2};
+  }
+
+  &:last-child {
+    margin-right: -#{$gap-between / 2};
+  }
+
+  // Swipeable:
+  &:first-child:nth-last-child(n + #{$nr-of-teasers + 1}),
+  &:first-child:nth-last-child(n + #{$nr-of-teasers + 1}) ~ .collection__teaser-item {
+    // different gap size when swipeable
+    padding: 0 #{$gap-between-swipeable / 2} 0;
+
+    @if $bp == 'desktop' or $bp == 'desktopwide' {
+      // Because of the fixed 120px padding on desktop and up we don't need to subtract anything
+      width: calc(100% / #{$nr-of-teasers-floating-point});
+    } @else {
+      width: calc((100% - #{$visible-of-next-teaser - $side-gap}) / #{$nr-of-teasers});
+    }
+
+    // undo padding from before on left side of first and right side of last teaser
+    &:first-child {
+      margin-left: -#{$gap-between-swipeable / 2};
+    }
+    &:last-child {
+      margin-right: -#{$gap-between-swipeable / 2};
+    }
+
+    &:last-child {
+      &::after {
+        content: '';
+        right: -#{$side-gap - $gap-between-swipeable / 2};
+        width: #{$side-gap - $gap-between-swipeable / 2};
+      }
     }
   }
 }
 
+
+// Styles that are the same for all swipeable types
 .collection--swipeable,
 .collection--compact-swipeable,
 .collection--dense-swipeable {
+  
   .collection__teaser-list {
-    flex-wrap: nowrap;
     flex-direction: row;
-    margin-left: 0;
-    margin-right: 0;
+    flex-wrap: nowrap;
+    margin: 0;
 
-    @include tablet-up {
-      margin: 0;
+    @include listStyles('mobile');
+
+    @include tablet {
+      @include listStyles('tablet');
+    }
+
+    @include desktop {
+      @include listStyles('desktop');
+    }
+
+    @include desktop-wide {
+      @include listStyles('desktopwide');
     }
   }
 
-  .collection__links {
-    margin-top: 12px;
-    
-    @include tablet-up {
-      margin-top: 0;
+  .collection__teaser-item {
+    flex-shrink: 0;
+    margin-bottom: 0;
+    margin: 0;
+    padding: 0 #{$gap-between-teasers-mobile / 2} 0;
+    position: relative; // to center ::after
+
+    // Only needed when scrollable:
+    // right-padding is ignored in scrollable containers (see https://blog.alexandergottlieb.com/overflow-scroll-and-the-right-padding-problem-a-css-only-solution-6d442915b3f4) 
+    &:last-child:not(:first-child) {
+      &::after {
+        position: absolute;
+        right: -#{$gap-between-teasers-mobile / 2};
+        width: #{$gap-between-teasers-mobile / 2};
+        height: 100%;
+      }
     }
   }
 }
 
 .collection--swipeable {
-  // 1-3 teasers on tablet+: larger gap between teasers, flex-basis same as standard teasers;
-  @include tablet-up {
-    .collection__teaser-item:nth-last-child(-n+3):first-child,
-    .collection__teaser-item:nth-last-child(-n+3):first-child ~ .collection__teaser-item {
-      flex-basis: calc((100% - 40px) / 3.00001);
-      padding-right: 24px;
-      max-width: none;
-      
-      @include desktop-wide {
-        padding-right: 32px;
-      }
-      
-      &:last-child {
-        min-width: 0;
-        margin-right: 8px;
-        
-        &::after {
-          content: none;
-        }
-      }
+  .collection__teaser-item {
+    @include smartphone {
+      @include itemStyles('mobile', 'standard');
+    }
+
+    @include tablet {
+      @include itemStyles('tablet', 'standard');
+    }
+
+    @include desktop {
+      @include itemStyles('desktop', 'standard');
+    }
+
+    @include desktop-wide {
+      @include itemStyles('desktopwide', 'standard');
     }
   }
 }
 
-// Compact Swipeable has (next to only having S teasers on all BPs) one difference to the
-// Standard Swipeable collection: On Tablet, only 2 teasers are visible instead of 3.
 .collection--compact-swipeable {
-
-  // Centering the middle of 2 teasers in the middle of the screen on BP2 (tablet)
-  .collection__teaser-list {
-    @include tablet {
-      scroll-padding-left: calc(50% - 40px);
-    }
-  }
-
   .collection__teaser-item {
-    
-    @include tablet {
-      min-width: calc(50% - (56px / 3) - 12px);
-      
-      // the last item must have more space at the right side in order to align with the last teaser of
-      // the other collections
-      &:last-child {
-        min-width: calc(50% - (56px / 3) - 12px + 20px);
-        
-        &::after {
-          content: '';
-          flex-grow: 0;
-          flex-shrink: 0;
-          @include IESafeFlexBasis(20px);
-        }
-      }
-    }
-  }
-  
-  .collection__swipeable-area {
-    @include tablet-up {
-      margin-bottom: 2px;
-    }
-  }
-  
-  // What if there are not enough teasers for swiping?
-  // 1 teaser: not scrollable anywhere. Should look the same as compact with one teaser.
-  .collection__teaser-item:last-child:first-child {
-    @include tablet-up {
-      width: calc(50% - 12px);
-    }
-    
-    @include desktop-wide {
-      width: calc(50% - 16px);
-    }
-  }
-  
-  // 2 teasers: scrollable on mobile. On Tablet+ it should look the same as 2 compact teasers.
-  .collection__teaser-item:nth-last-child(2):first-child,
-  .collection__teaser-item:nth-last-child(2):first-child ~ .collection__teaser-item {
-    @include tablet-up {
-      width: calc((100% - 40px ) / 2);
-      padding-right: 24px;
-      min-width: 0;
-      
-      &::after {
-        content: none;
-      }
-    }
-    
-    // slightly different gaps/gutter on desktop-wide+
-    @include desktop-wide {
-      width: calc((100% - 48px ) / 2);
-      padding-right: 32px;
-    }
-  }
-  
-  // 3 teasers: scrollable on mobile and tablet. On Desktop+ it should look the same as 3 compact teasers.
-  .collection__teaser-item:nth-last-child(3):first-child,
-  .collection__teaser-item:nth-last-child(3):first-child ~ .collection__teaser-item {
-    @include desktop-up {
-      width: calc((100% - 40px ) / 3.0001);
-      padding-right: 24px;
-      min-width: 0;
-      
-      &::after {
-        content: none;
-      }
-    }
-    
-    // slightly different gaps/gutter on desktop-wide+
-    @include desktop-wide {
-      width: calc((100% - 48px ) / 3.0001);
-      padding-right: 32px;
-    }
-  }
-}
-
-.collection--compact-swipeable--no-card {
-  // Only 1 teaser
-  .collection__teaser-item:last-child:first-child {
     @include smartphone {
-      min-width: calc(100% - 24px);
+      @include itemStyles('mobile', 'compact');
     }
-  }
-  
-  // Exactly 2 teasers
-  .collection__teaser-item:last-child:first-child,
-  .collection__teaser-item:nth-last-child(2):first-child,
-  .collection__teaser-item:nth-last-child(2):first-child ~ .collection__teaser-item {
+
     @include tablet {
-      width: calc(50% - 12px);
+      @include itemStyles('tablet', 'compact');
     }
-    
-    @include desktop-up {
-      width: calc((100% - 2 * 24px) / 3.0001);
+
+    @include desktop {
+      @include itemStyles('desktop', 'compact');
     }
-  }
-  
-  .collection__teaser-item:first-child {
-    margin-left: 24px;
-    
-    @include tablet-up {
-      margin-left: 32px;
-    }
-    
+
     @include desktop-wide {
-      margin-left: 40px;
+      @include itemStyles('desktopwide', 'compact');
     }
   }
 }
 
-// Dense Swipeable
-// displays up to 6 teasers (smartphone: 2) in one row at once. becomes swipeable for more teasers.
-// usually used for square teasers.
 .collection--dense-swipeable {
-  .swipeable-area__button {
-    top: calc((100% - 16px) / 2);
-  }
-
-  .collection__teaser-list {
-    flex-wrap: nowrap;
-    flex-direction: row;
-    margin-right: 0;
-    margin-left: 0;
-
-    @include smartphone {
-      scroll-padding-left: calc(50% - 10px);
-    }
-  }
-  
   .collection__teaser-item {
-    box-sizing: content-box; // paddings must not be included in ratio 1:1 calculation!
-    min-width: calc((100% - 40px - (2 * 8px)) / 2.00001);
-    padding-right: 8px;
-    margin: 0;
-    
     @include smartphone {
-      padding-bottom: 12px;
+      @include itemStyles('mobile', 'dense');
     }
-    
-    @include tablet-up {
-      min-width: calc((100% - 6px - 56px - (6 * 12px)) / 6.00001);
-      padding-right: 12px;
-      max-width: none;
+
+    @include tablet {
+      @include itemStyles('tablet', 'dense');
     }
-    
-    @include desktop-up {
-      min-width: calc((100% - 240px - (6 * 16px)) / 6.00001);
-      padding-right: 16px;
+
+    @include desktop {
+      @include itemStyles('desktop', 'dense');
     }
-    
-    &:first-child {
-      margin-left: 24px;
-      
-      @include tablet-up {
-        margin-left: 32px;
-      }
-      
-      @include desktop-up {
-        margin-left: 120px;
-      }
-    }
-    
-    &:last-child {
-      padding-right: 8px;
-      
-      @include tablet-up {
-        padding-right: 32px;
-      }
-      
-      @include desktop-up {
-        padding-right: 120px;
-      }
-    }
-  }
-  
-  // 1-2 teasers on smartphone: not swipeable.
-  .collection__teaser-item:nth-last-child(-n+2):first-child,
-  .collection__teaser-item:nth-last-child(-n+2):first-child ~ .collection__teaser-item {
-    @include smartphone {
-      box-sizing: border-box;
-      width: calc((100% - 8px) / 2.0001);
-      padding-right: 8px;
-      min-width: 0;
-      
-      &::after {
-        content: none;
-      }
-    }
-  }
-  
-  // 1-6 teasers on tablet-up: not swipeable. teasers should use the same grid as 3 compact teasers.
-  .collection__teaser-item:nth-last-child(-n+6):first-child,
-  .collection__teaser-item:nth-last-child(-n+6):first-child ~ .collection__teaser-item {
-    
-    @include tablet-up {
-      box-sizing: border-box;
-      width: calc((100% - 40px) / 6.0001);
-      padding-right: 24px;
-      min-width: 0;
-      
-      &::after {
-        content: none;
-      }
-    }
-    
-    // slightly different gaps/gutter on desktop-wide+
+
     @include desktop-wide {
-      width: calc((100% - 48px) / 6.0001);
-      padding-right: 32px;
+      @include itemStyles('desktopwide', 'dense');
     }
-  }
-}
-
-.collection--branded {
-  &.collection--swipeable,
-  &.collection--compact-swipeable,
-  &.collection--dense-swipeable {
-    .collection__teaser-list {
-      margin-bottom: 12px;
-    }
-
-    .collection__links {
-      margin-top: 0;
-
-      @include tablet-up {
-        margin-top: -12px;
-      }
-    }
-  }
-}
-
-.collection--branded-dark {
-  .swipeable-area__button--forward span {
-    @include caret('dark', 'right', 'large');
-  }
-  
-  .swipeable-area__button--back span {
-    @include caret('dark', 'left', 'large');
   }
 }

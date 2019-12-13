@@ -1,0 +1,146 @@
+{% embed 'templates-landingpage' %}
+    {% block landingpage_content %}
+        <label>Show helper lanes</label>
+        <input type="checkbox" class="show-helpers">1200</input>
+        <div class="helper helper--1200"></div>
+
+        <input type="checkbox" class="show-helpers">1216</input>
+        <div class="helper helper--1216"></div>
+
+        <input type="checkbox" class="show-helpers">1280</input>
+        <div class="helper helper--1280"></div>
+
+        <input type="checkbox" class="show-helpers">1024</input>
+        <div class="helper helper--1024"></div>
+
+        <input type="checkbox" class="show-helpers" checked>8px gap</input>
+        <div class="helper helper--gap8"></div>
+
+        <input type="checkbox" class="show-helpers">12px gap</input>
+        <div class="helper helper--gap12"></div>
+
+        <input type="checkbox" class="show-helpers">16px gap</input>
+        <div class="helper helper--gap16"></div>
+
+        <input type="checkbox" class="show-helpers">24px gap</input>
+        <div class="helper helper--gap24"></div>
+
+        <input type="checkbox" class="show-helpers" checked>32px gap</input>
+        <div class="helper helper--gap32"></div>
+
+        <input type="checkbox" class="show-helpers">40px gap</input>
+        <div class="helper helper--gap40"></div>
+
+        <input type="checkbox" class="show-helpers">44px gap</input>
+        <div class="helper helper--gap44"></div>
+
+        <input type="checkbox" class="show-helpers" checked>Half</input>
+        <div class="helper helper--half"></div>
+
+        <style>
+            .collection:not(.collection--branded) {
+                background-color: #f5f5f2;
+            }
+
+            .helper {
+                pointer-events: none;
+                position: fixed;
+                border-left: 1px dashed;
+                border-right: 1px dashed;
+                top: 0;
+                height: 100vh;
+                z-index: 999999;
+                display: none;
+            }
+
+            .helper--1216 {
+                border-color: red;
+                width: 1216px;
+                left: calc((100% - 1216px) / 2);
+            }
+
+            .helper--1200 {
+                border-color: darkred;
+                width: 1200px;
+                left: calc((100% - 1200px) / 2);
+            }
+
+            .helper--1024 {
+                border-color: red;
+                width: 1024px;
+                left: calc((100% - 1024px) / 2);
+            }
+
+            .helper--1280 {
+                border-color: darkred;
+                width: 1280px;
+                left: calc((100% - 1280px) / 2);
+            }
+
+            .helper--gap8 {
+                border-color: darkred;
+                width: calc(100% - 16px);
+                left: 8px;
+            }
+
+            .helper--gap12 {
+                border-color: darkred;
+                width: calc(100% - 24px);
+                left: 12px;
+            }
+
+            .helper--gap16 {
+                border-color: darkred;
+                width: calc(100% - 32px);
+                left: 16px;
+            }
+
+            .helper--gap24 {
+                border-color: darkred;
+                width: calc(100% - 48px);
+                left: 24px;
+            }
+
+            .helper--gap32 {
+                border-color: darkred;
+                width: calc(100% - 64px);
+                left: 32px;
+            }
+
+            .helper--gap40 {
+                border-color: darkred;
+                width: calc(100% - 80px);
+                left: 40px;
+            }
+
+            .helper--gap44 {
+                border-color: darkred;
+                width: calc(100% - 88px);
+                left: 44px;
+            }
+
+            .helper--half {
+                border-color: darkred;
+                width: 1px;
+                border-right: none;
+                left: 50%;
+            }
+
+            .show-helpers:checked + .helper {
+                display: block;
+            } 
+
+        </style>
+
+        {% for collection in demoCollections %}
+            {% include 'organisms-collection' with {
+                'collection': collection,
+                'showBroadcastInfo': false,
+                'showOpinion': false,
+                'showScoreboard': false,
+                'showLinks': false
+                }
+            %}
+        {% endfor %}
+    {% endblock %}
+{% endembed %}

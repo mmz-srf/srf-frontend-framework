@@ -12,7 +12,8 @@ const HOOK_CLASS = 'js-swipeable-area',
     MASK_RIGHT_HOOK_CLASS = 'js-swipeable-area-mask-right',
     // if clicking is prohibited, a button is inactive
     BUTTON_INACTIVE_CLASS = 'swipeable-area__button--inactive',
-    RIGHT_OFFSET = 24,
+    // if the swipeable is currently not actually swipeable (because it doesn't have enough items)
+    BUTTON_UNNECESSARY_CLASS = 'swipeable-area__button--hidden',
     DEFAULT_SCROLL_TIME = 400,
     SUPPORTS_SNAP_POINTS = !!((window.CSS && window.CSS.supports) || window.supportsCSS || false) && CSS.supports('scroll-snap-align: start');
 
@@ -44,6 +45,8 @@ export class FefSwipeableArea {
         // only set up the swipeable at this point if it's swipeable
         if (this.hasScrollableOverflow()) {
             this.initSwipeability();
+        } else {
+            this.$buttonLeft.add(this.$buttonRight).addClass(BUTTON_UNNECESSARY_CLASS);
         }
     }
 
@@ -64,15 +67,11 @@ export class FefSwipeableArea {
         this.$buttonLeft.add(this.$maskLeft).on('mousedown touchstart', () => this.pageBack());
         this.$buttonRight.add(this.$maskRight).on('mousedown touchstart', () => this.pageForward());
 
-        const optionsRight = {
+        const options = {
                 root: this.$innerContainer[0],
                 rootMargin: '0px',
                 threshold: 1.0
             },
-            // on the left edge we need to declare the 120px margin, otherwise identical to optionsRight
-            optionsLeft = Object.assign({}, optionsRight, {
-                rootMargin: '0px 0px 0px -120px'
-            }),
             callbackRight = (entries, observer) => {
                 // set button to page LEFT to inactive when the FIRST item is completely in view
                 entries.forEach(entry => this.$buttonRight.toggleClass(BUTTON_INACTIVE_CLASS, entry.intersectionRatio === 1));
@@ -82,8 +81,8 @@ export class FefSwipeableArea {
                 entries.forEach(entry => this.$buttonLeft.toggleClass(BUTTON_INACTIVE_CLASS, entry.intersectionRatio === 1));
             };
 
-        this.rightEdgeObserver = new IntersectionObserver(callbackRight, optionsRight);
-        this.leftEdgeObserver = new IntersectionObserver(callbackLeft, optionsLeft);
+        this.rightEdgeObserver = new IntersectionObserver(callbackRight, options);
+        this.leftEdgeObserver = new IntersectionObserver(callbackLeft, options);
     }
 
     initSwipeability() {
@@ -91,6 +90,9 @@ export class FefSwipeableArea {
 
         // scroll back to the beginning (necessary when swipeable was reinitialized)
         this.scrollToPosition(0, 0);
+
+        // buttons are necessary again (depending on the breakpoint, but that's handled in CSS)
+        this.$buttonLeft.add(this.$buttonRight).toggleClass(BUTTON_UNNECESSARY_CLASS, !this.hasScrollableOverflow());
 
         if (FefResponsiveHelper.isDesktopUp() && !FefTouchDetection.isTouchSupported()) {
             this.registerDesktopListeners();
@@ -216,7 +218,7 @@ export class FefSwipeableArea {
     }
 
     hasScrollableOverflow() {
-        return this.$innerContainer[0].scrollWidth > this.$innerContainer.innerWidth() + RIGHT_OFFSET;
+        return this.$innerContainer[0].scrollWidth > this.$innerContainer.innerWidth();
     }
 
     /**
