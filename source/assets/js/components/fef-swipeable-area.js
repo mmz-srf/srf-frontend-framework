@@ -15,7 +15,8 @@ const HOOK_CLASS = 'js-swipeable-area',
     // if the swipeable is currently not actually swipeable (because it doesn't have enough items)
     BUTTON_UNNECESSARY_CLASS = 'swipeable-area__button--hidden',
     DEFAULT_SCROLL_TIME = 400,
-    SUPPORTS_SNAP_POINTS = !!((window.CSS && window.CSS.supports) || window.supportsCSS || false) && CSS.supports('scroll-snap-align: start');
+    SUPPORTS_SNAP_POINTS = !!((window.CSS && window.CSS.supports) || window.supportsCSS || false) && CSS.supports('scroll-snap-align: start'),
+    SUPPORTS_INTERSECTION_OBSERVER = 'IntersectionObserver' in window && 'IntersectionObserverEntry' in window && 'intersectionRatio' in window.IntersectionObserverEntry.prototype;
 
 export function init(interactionMeasureString = '') {
     $(`.${HOOK_CLASS}`).each((_, element) => {
@@ -66,24 +67,26 @@ export class FefSwipeableArea {
         this.$buttonLeft.add(this.$maskLeft).on('mousedown touchstart', () => this.pageBack());
         this.$buttonRight.add(this.$maskRight).on('mousedown touchstart', () => this.pageForward());
 
-        // Taking 100% (1.0) as threshold is a bit optimistic. It can happen
-        // that the observer reports 99.99something% even if it's 100%.
-        const options = {
-                root: this.$innerContainer[0],
-                rootMargin: '0px',
-                threshold: [.9]
-            },
-            callbackRight = (entries, observer) => {
-                // set button to page LEFT to inactive when the FIRST item is completely in view
-                entries.forEach(entry => this.$buttonRight.toggleClass(BUTTON_INACTIVE_CLASS, entry.intersectionRatio >= 0.9));
-            },
-            callbackLeft = (entries, observer) => {
-                // set button to page RIGHT to inactive when the LAST item is completely in view
-                entries.forEach(entry => this.$buttonLeft.toggleClass(BUTTON_INACTIVE_CLASS, entry.intersectionRatio >= 0.9));
-            };
+        if (SUPPORTS_INTERSECTION_OBSERVER) {
+            // Taking 100% (1.0) as threshold is a bit optimistic. It can happen
+            // that the observer reports 99.99something% even if it's 100%.
+            const options = {
+                    root: this.$innerContainer[0],
+                    rootMargin: '0px',
+                    threshold: [.9]
+                },
+                callbackRight = (entries, observer) => {
+                    // set button to page LEFT to inactive when the FIRST item is completely in view
+                    entries.forEach(entry => this.$buttonRight.toggleClass(BUTTON_INACTIVE_CLASS, entry.intersectionRatio >= 0.9));
+                },
+                callbackLeft = (entries, observer) => {
+                    // set button to page RIGHT to inactive when the LAST item is completely in view
+                    entries.forEach(entry => this.$buttonLeft.toggleClass(BUTTON_INACTIVE_CLASS, entry.intersectionRatio >= 0.9));
+                };
 
-        this.rightEdgeObserver = new IntersectionObserver(callbackRight, options);
-        this.leftEdgeObserver = new IntersectionObserver(callbackLeft, options);
+            this.rightEdgeObserver = new IntersectionObserver(callbackRight, options);
+            this.leftEdgeObserver = new IntersectionObserver(callbackLeft, options);
+        }
     }
 
     initSwipeability() {
@@ -175,16 +178,20 @@ export class FefSwipeableArea {
             .off('click.srf.swipeable-area-desktop')
             .on('click.srf.swipeable-area-desktop', (event) => this.onTeaserClick(event));
 
-        this.rightEdgeObserver.observe(this.$items.last().find('.js-teaser')[0]);
-        this.leftEdgeObserver.observe(this.$items.first().find('.js-teaser')[0]);
+        if (SUPPORTS_INTERSECTION_OBSERVER) {
+            this.rightEdgeObserver.observe(this.$items.last().find('.js-teaser')[0]);
+            this.leftEdgeObserver.observe(this.$items.first().find('.js-teaser')[0]);
+        }
     }
 
     deregisterDesktopListeners() {
         this.$items.off('click.srf.swipeable-area-desktop');
         this.$innerContainer.off('scroll.srf.swipeable-area-desktop');
 
-        this.rightEdgeObserver.unobserve(this.$items.last()[0]);
-        this.leftEdgeObserver.unobserve(this.$items.first()[0]);
+        if (SUPPORTS_INTERSECTION_OBSERVER) {
+            this.rightEdgeObserver.unobserve(this.$items.last()[0]);
+            this.leftEdgeObserver.unobserve(this.$items.first()[0]);
+        }
     }
 
     /**
