@@ -96,6 +96,8 @@
   transition: opacity .2s ease-in-out;
   background-color: $color-srf-neutral-white;
   cursor: pointer;
+  border-radius: 2px;
+  box-shadow: 0 3px 6px 0 $color-srf-neutral-blacka16, 0 3px 6px 0 $color-srf-neutral-blacka08;
   padding: 4px;
 
   @include desktop-up {

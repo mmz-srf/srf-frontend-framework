@@ -23,6 +23,10 @@
   @include caret('grey', 'right', 'medium');
 }
 
+.svg-icon--arrow-right-dark {
+  @include caret('dark', 'right', 'medium');
+}
+
 .svg-icon--arrow-right-red {
   @include caret('red', 'right', 'medium');
 }
@@ -37,6 +41,10 @@
 
 .svg-icon--arrow-left {
   @include caret('grey', 'left', 'medium');
+}
+
+.svg-icon--arrow-left-dark {
+  @include caret('dark', 'left', 'medium');
 }
 
 .svg-icon--arrow-red-up-tiny {
