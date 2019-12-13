@@ -15,6 +15,7 @@ const HOOK_CLASS = 'js-swipeable-area',
     // if the swipeable is currently not actually swipeable (because it doesn't have enough items)
     BUTTON_UNNECESSARY_CLASS = 'swipeable-area__button--hidden',
     DEFAULT_SCROLL_TIME = 400,
+    SUPPORTS_CSS_VARS = !!((window.CSS && window.CSS.supports) || window.supportsCSS || false) && CSS.supports('--srf: cool'),
     SUPPORTS_SNAP_POINTS = !!((window.CSS && window.CSS.supports) || window.supportsCSS || false) && CSS.supports('scroll-snap-align: start'),
     SUPPORTS_INTERSECTION_OBSERVER = 'IntersectionObserver' in window && 'IntersectionObserverEntry' in window && 'intersectionRatio' in window.IntersectionObserverEntry.prototype;
 
@@ -87,6 +88,19 @@ export class FefSwipeableArea {
             this.rightEdgeObserver = new IntersectionObserver(callbackRight, options);
             this.leftEdgeObserver = new IntersectionObserver(callbackLeft, options);
         }
+
+        // Because IE11 doesn't support CSS variables, define the masks'
+        // gradients both as inline styles in the twig (for IE11) and via CSS
+        // as CSS variables. Inline styles are mightier and we can't override
+        // it in the shame.scss (with !important) because the CSS also sets the
+        // background, which would then be overridden by the !important.
+        // So we must remove these inline styles by JS here.
+        // See also _shame.scss
+        if (SUPPORTS_CSS_VARS) {
+            this.$maskLeft[0].style.removeProperty('background');
+            this.$maskRight[0].style.removeProperty('background');
+        }
+
     }
 
     initSwipeability() {

@@ -605,7 +605,9 @@ $background-overlap-wide: 50px;
   background-size: cover;
 
   .collection__content-wrapper {
-    background-image: linear-gradient(100deg, var(--branded-background-color-start) 17%, var(--branded-background-color-end) 83%);
+    @supports (--srf: cool) {
+      background-image: linear-gradient(100deg, var(--branded-background-color-start) 17%, var(--branded-background-color-end) 83%);
+    }
     border-radius: 0;
   }
 
