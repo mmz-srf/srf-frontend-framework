@@ -17,6 +17,12 @@
     .swipeable-area__button {
       opacity: 1;
     }
+
+    // needs to have higher specificity than ".swipeable-area:hover .swipeable-area__button"
+    .swipeable-area__button--inactive {
+      opacity: .4;
+      pointer-events: none;
+    }
   }
 }
 
@@ -100,13 +106,7 @@
     padding: 8px;
   }
 
-  // needs to have higher specificity than ".swipeable-area:hover .swipeable-area__button"
-  &.swipeable-area__button--inactive.swipeable-area__button--inactive {
-    opacity: .4;
-    pointer-events: none;
-  }
-
-  // needs higher specificity as well
+  // moved here because it needs a higher specificity
   &.swipeable-area__button--hidden {
     display: none;
   }
