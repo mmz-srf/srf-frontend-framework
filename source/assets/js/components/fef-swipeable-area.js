@@ -59,7 +59,6 @@ export class FefSwipeableArea {
      * - reaching the left or right edge should set the corresponding button to inactive
      */
     initOnce() {
-        // todo: only width is needed...
         FefResizeListener.subscribeDebounced(() => this.initSwipeability());
         $(window).on('srf.styles.loaded', () => this.initSwipeability());
         this.$element.on('srf.swipeableArea.reinitialize srf.swipeable.content-changed', () => this.initSwipeability());
@@ -67,18 +66,20 @@ export class FefSwipeableArea {
         this.$buttonLeft.add(this.$maskLeft).on('mousedown touchstart', () => this.pageBack());
         this.$buttonRight.add(this.$maskRight).on('mousedown touchstart', () => this.pageForward());
 
+        // Taking 100% (1.0) as threshold is a bit optimistic. It can happen
+        // that the observer reports 99.99something% even if it's 100%.
         const options = {
                 root: this.$innerContainer[0],
                 rootMargin: '0px',
-                threshold: 1.0
+                threshold: [.9]
             },
             callbackRight = (entries, observer) => {
                 // set button to page LEFT to inactive when the FIRST item is completely in view
-                entries.forEach(entry => this.$buttonRight.toggleClass(BUTTON_INACTIVE_CLASS, entry.intersectionRatio === 1));
+                entries.forEach(entry => this.$buttonRight.toggleClass(BUTTON_INACTIVE_CLASS, entry.intersectionRatio >= 0.9));
             },
             callbackLeft = (entries, observer) => {
                 // set button to page RIGHT to inactive when the LAST item is completely in view
-                entries.forEach(entry => this.$buttonLeft.toggleClass(BUTTON_INACTIVE_CLASS, entry.intersectionRatio === 1));
+                entries.forEach(entry => this.$buttonLeft.toggleClass(BUTTON_INACTIVE_CLASS, entry.intersectionRatio >= 0.9));
             };
 
         this.rightEdgeObserver = new IntersectionObserver(callbackRight, options);
