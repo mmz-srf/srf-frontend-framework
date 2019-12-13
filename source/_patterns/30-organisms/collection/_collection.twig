@@ -6,8 +6,9 @@
 {% set themeColorStart = collection.theme is defined and collection.theme.colorStart is defined ? collection.theme.colorStart : '#f5f5f2' %}
 {% set themeColorEnd = collection.theme is defined and collection.theme.colorEnd is defined ? collection.theme.colorEnd : '#f5f5f2' %}
 {# b3 is 70% in oct. #rrggbbaa is not well supported yet, so in prod you should use a twig operator which translates hex to rgba #}
-{% set themeColorStartTransparent = themeColorStart ~ 'b3' %}
-{% set themeColorEndTransparent = themeColorEnd ~ 'b3' %}
+{# themeColor*Transparent can be provided by the includer, because the b3 trick does not work for IE11. Is not necessary for production. #}
+{% set themeColorStartTransparent = themeColorStartTransparent|default(themeColorStart ~ 'b3') %}
+{% set themeColorEndTransparent = themeColorEndTransparent|default(themeColorEnd ~ 'b3') %}
 {% set needsBackgroundColors = branded or swipeable %}
 
 {% if selectable %}<div class="selectable-wrapper">{% endif %}
