@@ -141,9 +141,9 @@ $nr-of-teasers-dense-desktopwide: 6;
     }
   }
 
-  // IE11 rounds strangely when dividing 100% by integers. By adding a little
-  // bit on top the rounding is counteracted.
-  $nr-of-teasers-floating-point: $nr-of-teasers + 0.00001; 
+  // IE11 rounds strangely when dividing 100% by integers. By changing it just
+  // a little bit, the rounding is counteracted.
+  $nr-of-teasers-floating-point: $nr-of-teasers - 0.00001; 
   
   // gap between teasers distributed to teasers on each side of the gap -->
   // this makes centering (via snap points) SO MUCH easier
