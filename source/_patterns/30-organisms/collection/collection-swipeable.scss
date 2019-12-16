@@ -43,6 +43,49 @@ $nr-of-teasers-dense-tablet: 6;
 $nr-of-teasers-dense-desktop: 6;
 $nr-of-teasers-dense-desktopwide: 6;
 
+@mixin nrOfTeasers($bp: 'mobile', $collectionType: 'standard') {
+  // Looks scary, but could be replaced by dynamic variables
+  // e.g. $nr-of-teasers: $nr-of-teasers-#{ $collectionType }-#{ $bp }
+  // But Sass doesn't support this (yet).
+  $nr-of-teasers: $nr-of-teasers-standard-mobile;
+
+  @if $collectionType == 'compact' {
+    $nr-of-teasers: $nr-of-teasers-compact-mobile;
+  } @else if $collectionType == 'dense' {
+    $nr-of-teasers: $nr-of-teasers-dense-mobile;
+  }
+
+  @if $bp == 'tablet' {
+    @if $collectionType == 'standard' {
+      $nr-of-teasers: $nr-of-teasers-standard-tablet;
+    } @else if $collectionType == 'compact' {
+      $nr-of-teasers: $nr-of-teasers-compact-tablet;
+    } @else if $collectionType == 'dense' {
+      $nr-of-teasers: $nr-of-teasers-dense-tablet;
+    }
+  } @else if $bp == 'desktop' {
+    @if $collectionType == 'standard' {
+      $nr-of-teasers: $nr-of-teasers-standard-desktop;
+    } @else if $collectionType == 'compact' {
+      $nr-of-teasers: $nr-of-teasers-compact-desktop;
+    } @else if $collectionType == 'dense' {
+      $nr-of-teasers: $nr-of-teasers-dense-desktop;
+    }
+  } @else if $bp == 'desktopwide' {
+    @if $collectionType == 'standard' {
+      $nr-of-teasers: $nr-of-teasers-standard-desktopwide;
+    } @else if $collectionType == 'compact' {
+      $nr-of-teasers: $nr-of-teasers-compact-desktopwide;
+    } @else if $collectionType == 'dense' {
+      $nr-of-teasers: $nr-of-teasers-dense-desktopwide;
+    }
+  }
+
+  &::before {
+    content: "#{$nr-of-teasers}";
+  }
+}
+
 @mixin listStyles($bp: 'mobile', $collectionType: 'standard') {
   // Looks scary, but could be replaced by dynamic variables
   // e.g. $gap-between: $gap-between-teasers-#{ $bp }
@@ -71,6 +114,11 @@ $nr-of-teasers-dense-desktopwide: 6;
     $gap-between: $gap-between-teasers-desktopwide;
     $side-gap: $edge-gap-desktopwide;
     $bottom-gap: $bottom-gap-desktopwide;
+  }
+
+  &::before {
+    display: none;
+    content: '';
   }
 
   padding: 0 #{$side-gap} #{$bottom-gap};
@@ -217,6 +265,12 @@ $nr-of-teasers-dense-desktopwide: 6;
     @include desktop-wide {
       @include listStyles('desktopwide');
     }
+
+    // nr of teasers will be rendered in the before pseudo element so we can
+    // read it via JS (fef-swipeable-area.js)
+    &::before {
+      display: none;
+    }
   }
 
   .collection__teaser-item {
@@ -240,6 +294,24 @@ $nr-of-teasers-dense-desktopwide: 6;
 }
 
 .collection--swipeable {
+  .collection__teaser-list {
+    @include smartphone {
+      @include nrOfTeasers('mobile', 'standard');
+    }
+
+    @include tablet {
+      @include nrOfTeasers('tablet', 'standard');
+    }
+
+    @include desktop {
+      @include nrOfTeasers('desktop', 'standard');
+    }
+
+    @include desktop-wide {
+      @include nrOfTeasers('desktopwide', 'standard');
+    }
+  }
+
   .collection__teaser-item {
     @include smartphone {
       @include itemStyles('mobile', 'standard');
@@ -260,6 +332,24 @@ $nr-of-teasers-dense-desktopwide: 6;
 }
 
 .collection--compact-swipeable {
+  .collection__teaser-list {
+    @include smartphone {
+      @include nrOfTeasers('mobile', 'compact');
+    }
+
+    @include tablet {
+      @include nrOfTeasers('tablet', 'compact');
+    }
+
+    @include desktop {
+      @include nrOfTeasers('desktop', 'compact');
+    }
+
+    @include desktop-wide {
+      @include nrOfTeasers('desktopwide', 'compact');
+    }
+  }
+
   .collection__teaser-item {
     @include smartphone {
       @include itemStyles('mobile', 'compact');
@@ -280,10 +370,24 @@ $nr-of-teasers-dense-desktopwide: 6;
 }
 
 .collection--dense-swipeable {
-  // See EXCEPTION on the top of this file.
+  
   .collection__teaser-list {
     @include smartphone {
+      // See EXCEPTION on the top of this file.
       @include listStyles('mobile', 'dense');
+      @include nrOfTeasers('mobile', 'dense');
+    }
+
+    @include tablet {
+      @include nrOfTeasers('tablet', 'dense');
+    }
+
+    @include desktop {
+      @include nrOfTeasers('desktop', 'dense');
+    }
+
+    @include desktop-wide {
+      @include nrOfTeasers('desktopwide', 'dense');
     }
   }
 
