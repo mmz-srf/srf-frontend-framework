@@ -30,7 +30,6 @@
   overflow-x: scroll;
   overflow-y: hidden;
   width: 100%;
-  //box-sizing: content-box; // WHY?
   -webkit-overflow-scrolling: touch; // enable momentum scrolling on ios
   @include preventScrollbars();
   
