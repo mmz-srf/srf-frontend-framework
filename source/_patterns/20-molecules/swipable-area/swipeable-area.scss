@@ -21,7 +21,7 @@
     // needs to have higher specificity than ".swipeable-area:hover .swipeable-area__button"
     .swipeable-area__button--inactive {
       opacity: .4;
-      pointer-events: none;
+      cursor: default;
     }
   }
 }
