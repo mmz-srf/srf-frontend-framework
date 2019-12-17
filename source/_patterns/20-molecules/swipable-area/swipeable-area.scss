@@ -12,7 +12,7 @@
     &:hover {
       .swipeable-area__button-container:not(.swipeable-area__button-container--hidden) {
         opacity: 1;
-        display: flex;
+        visibility: visible;
       }
     }
   }
@@ -107,11 +107,15 @@
  *  XX+--------------------------------+XX             +--------------XX----------------+XX
  *   XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX                              XXXXXXXXXXXXXXXXXXX
  *    XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX                                XXXXXXXXXXXXXXXXX
- * 
+ *
+ * Funny enough, the buttons "on top" still get a box-shadow when being hovered over.
+ * This requires the usage of z-index, so that the hovered button is higher than its
+ * neighbor.
  */
 .swipeable-area__button-container {
   position: absolute;
-  display: none; // only visible when hovering over the area
+  display: flex;
+  visibility: hidden; // only visible when hovering over the area
   transform: translateY(-50%); // center button vertically
   opacity: 0; // fading the buttons in
   transition: opacity .2s ease-in-out;
@@ -128,7 +132,9 @@
   display: none;
   position: absolute;
   opacity: 1;
-  transition: opacity .2s ease-in-out;
+  box-shadow: none;
+  // opacity to switch between active/inactive; box-shadow for hover
+  transition: opacity .2s ease-in-out, box-shadow .2s ease-in-out;
   background-color: $color-srf-neutral-white;
   cursor: pointer;
   border-radius: 2px;
@@ -142,16 +148,19 @@
     display: flex;
   }
 
-  // override hover-style from icon-button
-  &:hover {
+  &:hover:not(.swipeable-area__button--inactive) {
+    // override hover-style from icon-button
     opacity: 1;
+    // and give it some shadow & lift the hovered buttong above its neighbor
+    box-shadow: $shadow-elevation12;
+    z-index: 1;
   }
 }
 
 .swipeable-area__button--left {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
-  left: 0;
+  left: -1px; // leave a small gap between the buttons
 }
 
 .swipeable-area__button--right {
@@ -172,9 +181,10 @@
 
 .swipeable-area__button-shadow {
   box-shadow: $shadow-elevation6;
+  transition: box-shadow .2s ease-in-out;
+  // same sizes as the buttons above
   height: 32px;
   width: 32px;
-  transition: box-shadow .2s ease-in-out;
 
   @include desktop-wide {
     height: 40px;
