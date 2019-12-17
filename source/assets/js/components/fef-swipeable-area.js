@@ -6,6 +6,7 @@ const HOOK_CLASS = 'js-swipeable-area',
     INNER_CONTAINER_CLASS = 'js-swipeable-area-wrapper',
     ITEM_CLASS = 'js-swipeable-area-item',
     // buttons/masks needed for click handlers
+    BUTTON_CONTAINER_CLASS = 'js-swipeable-button-container',
     BUTTON_LEFT_HOOK_CLASS = 'js-swipeable-area-button-left',
     BUTTON_RIGHT_HOOK_CLASS = 'js-swipeable-area-button-right',
     MASK_LEFT_HOOK_CLASS = 'js-swipeable-area-mask-left',
@@ -13,7 +14,7 @@ const HOOK_CLASS = 'js-swipeable-area',
     // if clicking is prohibited, a button is inactive
     BUTTON_INACTIVE_CLASS = 'swipeable-area__button--inactive',
     // if the swipeable is currently not actually swipeable (because it doesn't have enough items)
-    BUTTON_UNNECESSARY_CLASS = 'swipeable-area__button--hidden',
+    BUTTON_UNNECESSARY_CLASS = 'swipeable-area__button-container--hidden',
     DEFAULT_SCROLL_TIME = 600,
     MINIMAL_SCROLL_TIME = 200,
     SUPPORTS_CSS_VARS = !!((window.CSS && window.CSS.supports) || window.supportsCSS || false) && CSS.supports('--srf: cool'),
@@ -35,6 +36,7 @@ export class FefSwipeableArea {
         this.$element = $element;
         this.$innerContainer = $(`.${INNER_CONTAINER_CLASS}`, this.$element);
         this.$items = [];
+        this.$buttonContainer = $(`.${BUTTON_CONTAINER_CLASS}`, this.$element);
         this.$buttonLeft = $(`.${BUTTON_LEFT_HOOK_CLASS}`, this.$element);
         this.$buttonRight = $(`.${BUTTON_RIGHT_HOOK_CLASS}`, this.$element);
         this.$maskLeft = $(`.${MASK_LEFT_HOOK_CLASS}`, this.$element);
@@ -49,7 +51,7 @@ export class FefSwipeableArea {
         if (this.hasScrollableOverflow()) {
             this.initSwipeability();
         } else {
-            this.$buttonLeft.add(this.$buttonRight).addClass(BUTTON_UNNECESSARY_CLASS);
+            this.$buttonContainer.addClass(BUTTON_UNNECESSARY_CLASS);
         }
     }
 
@@ -123,7 +125,7 @@ export class FefSwipeableArea {
         this.scrollToPosition(0, 0);
 
         // buttons are necessary again (depending on the breakpoint, but that's handled in CSS)
-        this.$buttonLeft.add(this.$buttonRight).toggleClass(BUTTON_UNNECESSARY_CLASS, !this.hasScrollableOverflow());
+        this.$buttonContainer.toggleClass(BUTTON_UNNECESSARY_CLASS, !this.hasScrollableOverflow());
 
         if (FefResponsiveHelper.isDesktopUp() && !FefTouchDetection.isTouchSupported()) {
             this.registerDesktopListeners();

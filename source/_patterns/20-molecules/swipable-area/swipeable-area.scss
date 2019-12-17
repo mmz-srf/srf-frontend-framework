@@ -1,5 +1,6 @@
 @import "../../mixins";
 @import "../../variables";
+@import "../../30-organisms/collection/collection-swipeable";
 
 .swipeable-area {
   position: relative;
@@ -14,14 +15,9 @@
   }
 
   &:hover {
-    .swipeable-area__button {
+    .swipeable-area__button-container:not(.swipeable-area__button-container--hidden) {
       opacity: 1;
-    }
-
-    // needs to have higher specificity than ".swipeable-area:hover .swipeable-area__button"
-    .swipeable-area__button--inactive {
-      opacity: .4;
-      cursor: default;
+      display: flex;
     }
   }
 }
@@ -86,41 +82,110 @@
   }
 }
 
+/**
+ * The buttons are a bit more complicated than they could be. Reason:
+ * The 2 buttons are directly adjacent but have a shadow each, yet the shadows
+ * shouldn't be cast on each other, but rather be behind both buttons.
+ * When one button is inactive, it gets transparent and the shadow from the
+ * other button should be visible through it; its own shadow should disappear.
+ *
+ * This can only be solved by separating the button and the shadow:
+ *
+ * Both buttons active - "shared" shadow            One button active - only active button has shadow
+ * 
+ * +--------------------------------+               +--------------------------------+
+ * |               ||               |XX             |               ||               |XX
+ * |         XX    ||     XXX       |XXXX           |          XX   ||     XXX       |XXXX
+ * |      XXXX     ||       XXX     +--+XX          |        X      ||       XXX     +--+XX
+ * |     XXX       ||        XXX    |  |XX          |      XX       ||        XXX    |  |XX
+ * |       XXX     ||     XXXX      |  |XX          |        X      ||     XXXX      |  |XX
+ * |         XX    ||     XX        |  |XX          |          XX   ||     XX        |  |XX
+ * |               ||               |  |XX          |               ||               |  |XX
+ * +--------------------------------+  |XX          +--+-----------------------------+  |XX
+ *  XX|               ||               |XX             |              XX|               |XX
+ *  XX|               ||               |XX             |              XX|               |XX
+ *  XX+--------------------------------+XX             +--------------XX----------------+XX
+ *   XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX                              XXXXXXXXXXXXXXXXXXX
+ *    XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX                                XXXXXXXXXXXXXXXXX
+ * 
+ */
+.swipeable-area__button-container {
+  position: absolute;
+  display: none; // only visible when hovering over the area
+  transform: translateY(-50%); // center button vertically
+  opacity: 0; // fading the buttons in
+  transition: opacity .2s ease-in-out;
+  top: calc((100% - #{$bottom-gap-desktop}) / 2);
+  right: #{$edge-gap-desktop - $next-teaser-visible-amount-desktop};
+
+  @include desktop-wide {
+    top: calc((100% - #{$bottom-gap-desktopwide}) / 2);
+    right: #{$edge-gap-desktopwide - $next-teaser-visible-amount-desktopwide};
+  }
+}
+
 .swipeable-area__button {
   display: none;
   position: absolute;
-  top: calc((100% - 52px) / 2); // 52 = 40 (padding-bottom of collection__teaser-item) + 12 (margin-bottom of teaser-list)
-  transform: translateY(-50%); // center button vertically
-  opacity: 0; // only visible when hovering over the area
+  opacity: 1;
   transition: opacity .2s ease-in-out;
   background-color: $color-srf-neutral-white;
   cursor: pointer;
   border-radius: 2px;
-  box-shadow: 0 3px 6px 0 $color-srf-neutral-blacka16, 0 3px 6px 0 $color-srf-neutral-blacka08;
-  padding: 4px;
+  padding: 4px; // results in 32x32px
+  
+  @include desktop-wide {
+    padding: 8px; // results in 40x40px
+  }
 
   @include desktop-up {
     display: flex;
   }
-  
-  @include desktop-wide {
-    padding: 8px;
-  }
 
-  // moved here because it needs a higher specificity
-  &.swipeable-area__button--hidden {
-    display: none;
+  // override hover-style from icon-button
+  &:hover {
+    opacity: 1;
   }
 }
 
 .swipeable-area__button--left {
-  right: 120px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  left: 0;
 }
 
 .swipeable-area__button--right {
-  right: 88px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  right: 0;
+}
+
+.swipeable-area__button--inactive {
+  opacity: .4;
+  cursor: default;
+
+  // override hover-style from above
+  &:hover {
+    opacity: .4;
+  }
+}
+
+.swipeable-area__button-shadow {
+  box-shadow: $shadow-elevation6;
+  height: 32px;
+  width: 32px;
+  transition: box-shadow .2s ease-in-out;
 
   @include desktop-wide {
-    right: 80px;
+    height: 40px;
+    width: 40px;
   }
+}
+
+.swipeable-area__button--left.swipeable-area__button--inactive ~ .swipeable-area__button-shadow--left {
+  box-shadow: none;
+}
+
+.swipeable-area__button--right.swipeable-area__button--inactive ~ .swipeable-area__button-shadow--right {
+  box-shadow: none;
 }
