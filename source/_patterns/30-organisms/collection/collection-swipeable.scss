@@ -84,6 +84,12 @@ $nr-of-teasers-dense-desktopwide: 6;
   &::before {
     content: "#{$nr-of-teasers}";
   }
+  
+  // don't align center of a teaser with the center of the collection, but
+  // align the center between 2 teasers with the center of the collection
+  @if $nr-of-teasers % 2 == 0 {
+    scroll-padding: 0 0 0 50%;
+  }
 }
 
 @mixin listStyles($bp: 'mobile', $collectionType: 'standard') {
@@ -236,6 +242,12 @@ $nr-of-teasers-dense-desktopwide: 6;
         width: #{$side-gap - $gap-between-swipeable / 2};
       }
     }
+  }
+
+  // don't align center of a teaser with the center of the collection, but
+  // align the center between 2 teasers with the center of the collection
+  @if $nr-of-teasers % 2 == 0 {
+    scroll-snap-align: start;
   }
 }
 

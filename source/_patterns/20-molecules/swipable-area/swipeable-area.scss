@@ -6,19 +6,19 @@
   position: relative;
   overflow: hidden;
 
-  @include desktop {
+  @include desktop-up {
     margin: 0 -88px;
+    
+    &:hover {
+      .swipeable-area__button-container:not(.swipeable-area__button-container--hidden) {
+        opacity: 1;
+        display: flex;
+      }
+    }
   }
 
   @include desktop-wide {
     margin: 0 -80px;
-  }
-
-  &:hover {
-    .swipeable-area__button-container:not(.swipeable-area__button-container--hidden) {
-      opacity: 1;
-      display: flex;
-    }
   }
 }
 
