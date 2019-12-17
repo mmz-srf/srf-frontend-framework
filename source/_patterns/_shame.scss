@@ -130,6 +130,17 @@ _:-ms-fullscreen,
 }
 
 /*
+ * TARGETED BROWSER: VoiceOver on iOS
+ *
+ * Sometimes VoiceOver on iOS gets caught in a .js-media link if it is not explicitly set as
+ * "display: block" element
+ *
+ */
+.js-media {
+  display: block;
+}
+
+/*
  * TARGETED BROWSER: IE 11
  *
  * IE11 does not support css custom properties.
