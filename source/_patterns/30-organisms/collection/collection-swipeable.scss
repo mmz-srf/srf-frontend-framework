@@ -84,7 +84,7 @@ $nr-of-teasers-dense-desktopwide: 6;
   &::before {
     content: "#{$nr-of-teasers}";
   }
-  
+
   // don't align center of a teaser with the center of the collection, but
   // align the center between 2 teasers with the center of the collection
   @if $nr-of-teasers % 2 == 0 {
@@ -382,7 +382,6 @@ $nr-of-teasers-dense-desktopwide: 6;
 }
 
 .collection--dense-swipeable {
-  
   .collection__teaser-list {
     @include smartphone {
       // See EXCEPTION on the top of this file.
@@ -418,6 +417,31 @@ $nr-of-teasers-dense-desktopwide: 6;
 
     @include desktop-wide {
       @include itemStyles('desktopwide', 'dense');
+    }
+  }
+}
+
+// EXCEPTION:
+// Teasers with no card in a compact swipeable have some extra padding/margin
+// on mobile. This is hardcoded to not make the code here 25% larger.
+.collection--compact-swipeable-no-card {
+  .collection__teaser-item {
+    @include smartphone {
+      &:first-child:first-child:not(:last-child) {
+        margin-left: 12px;
+      }
+
+      // specificity is a wonderful thing
+      &:last-child:last-child:last-child:not(:first-child) {
+        &::after {
+          right: -20px;
+          width: 20px;
+        }
+      }
+
+      &:only-child {
+        padding: 0 20px;
+      }
     }
   }
 }
