@@ -10,10 +10,6 @@
     {% set ratioClass = 'ratio--3-1' %}
 {% endif %}
 
-{% if mobileRatio|default('') == '1:1' %}
-    {% set ratioClass = ratioClass ~ ' ratio--mobile-1-1' %}
-{% endif %}
-
 <div class="ratio-wrapper {{ class|default('') }}">
     <div class="ratio {{ ratioClass|default('') }}">
         {% block ratio_content %}{% endblock %}
