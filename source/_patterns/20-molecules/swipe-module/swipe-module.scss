@@ -367,7 +367,9 @@ $item-max-width: 400px;
   left: 0;
 
   &::after {
-    @include caret('grey', 'left', 'large', 'translateY(calc(-50% - 3px))'); // - 3px to center the arrow visually (card has a shadow/padding below)
+    // - 3px to center the arrow visually (card has a shadow/padding below)
+    // IE does not support calc() within translateY(), that's why it was split into two translations
+    @include caret('grey', 'left', 'large', 'translateY(-50%) translateY(-3px)');
     left: 10px;
   }
 }
@@ -376,7 +378,9 @@ $item-max-width: 400px;
   right: 0;
 
   &::after {
-    @include caret('grey', 'right', 'large', 'translateY(calc(-50% - 3px))'); // - 3px to center the arrow visually (card has a shadow/padding below)
+    // - 3px to center the arrow visually (card has a shadow/padding below)
+    // IE does not support calc() within translateY(), that's why it was split into two translations
+    @include caret('grey', 'right', 'large', 'translateY(-50%) translateY(-3px)');
     right: 10px;
   }
 }
