@@ -162,7 +162,7 @@ export class FefSwipeableArea {
      * provided by the CSS rules in collection-swipeable.scss.
      */
     setNrOfPotentialVisibleItems() {
-        let nrFromCSSBridge = Number.parseInt(window.getComputedStyle(this.$innerContainer[0], '::before').getPropertyValue('content').replace(/\"/g, ''));
+        let nrFromCSSBridge = Number.parseInt(window.getComputedStyle(this.$innerContainer[0], '::before').getPropertyValue('content').replace(/\"/g, ''), 10);
         if (Number.isInteger(nrFromCSSBridge)) {
             this.nrOfPotentialVisibleItems = nrFromCSSBridge;
         } else {
