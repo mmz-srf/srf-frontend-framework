@@ -81,6 +81,7 @@ $nr-of-teasers-dense-desktopwide: 6;
     }
   }
 
+  // will be read by JS to determine how many teasers can be visible at the same time (see setNrOfPotentialVisibleItems() in fef-swipeable-area.js)
   &::before {
     content: "#{$nr-of-teasers}";
   }
