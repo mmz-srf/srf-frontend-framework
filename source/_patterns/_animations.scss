@@ -88,36 +88,6 @@ $light-attention-color: $color-srf-red-500;
 
 /*
  *
- * Ripple-Effect
- * Used by _ripple.scss
- *
- */
-
-@keyframes rippleShadowAnimation {
-  0% {
-    box-shadow: 0 0 0 $color-srf-neutral-blacka00;
-  }
-
-  20% {
-    box-shadow: 0 4px 16px $color-srf-neutral-blacka30;
-  }
-
-  100% {
-    box-shadow: 0 0 0 $color-srf-neutral-blacka00;
-  }
-}
-
-@keyframes rippleAnimation {
-  to {
-    transform: scale(24);
-    opacity: 0;
-  }
-}
-
-
-
-/*
- *
  * Waggles the Element to the right
  * Used by image-carousel.scss
  *
