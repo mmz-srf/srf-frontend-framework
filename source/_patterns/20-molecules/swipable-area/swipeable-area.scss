@@ -29,7 +29,7 @@
   -webkit-overflow-scrolling: touch; // enable momentum scrolling on ios
   @include preventScrollbars();
   
-  scroll-snap-type: mandatory;
+  scroll-snap-type: mandatory; // fallback for old spec without dimension, see https://www.w3.org/TR/2015/WD-css-snappoints-1-20150326/
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
 
@@ -43,7 +43,6 @@
   
   @include desktop-up {
     scroll-snap-align: start;
-    scroll-snap-coordinate: -120px 0px;
   }
 }
 
