@@ -59,18 +59,19 @@
 
   @include desktop-up {
     display: block;
+    cursor: pointer;
   }
 }
 
 .swipeable-area__mask--left {
   left: 0;
-  background: linear-gradient(to right, $color-srf-warmgrey-25, $color-srf-warmgrey-25a80);
+  background: linear-gradient(to right, $color-srf-warmgrey-25, $color-srf-warmgrey-25a70);
 }
 
 .swipeable-area__mask--right {
   z-index: 0;
   right: 0;
-  background: linear-gradient(to left, $color-srf-warmgrey-25, $color-srf-warmgrey-25a80);
+  background: linear-gradient(to left, $color-srf-warmgrey-25, $color-srf-warmgrey-25a70);
 }
 
 .swipeable-area--themed {
@@ -151,25 +152,46 @@
     display: flex;
   }
 
-  &:hover:not(.swipeable-area__button--inactive) {
-    // override hover-style from icon-button
-    opacity: 1;
-    // and give it some shadow & lift the hovered buttong above its neighbor
-    box-shadow: $shadow-elevation12;
-    z-index: 1;
+  &:not(.swipeable-area__button--inactive) {
+    // make the clickable area of the buttons bigger
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      width: calc(100% + 16px);
+      height: calc(100% + 48px);
+      cursor: pointer;
+    }
+
+    &:hover {
+      // override hover-style from icon-button
+      opacity: 1;
+      // and give it some shadow & lift the hovered buttong above its neighbor
+      box-shadow: $shadow-elevation12;
+      z-index: 1;
+    }
   }
 }
 
 .swipeable-area__button--left {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
+  border-right: 1px solid $color-srf-neutral-blacka08;
   left: -1px; // leave a small gap between the buttons
+
+  &::before {
+    right: 0;
+  }
 }
 
 .swipeable-area__button--right {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
   right: 0;
+
+  &::before {
+    left: 0;
+  }
 }
 
 .swipeable-area__button--inactive {

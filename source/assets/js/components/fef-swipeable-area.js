@@ -382,7 +382,11 @@ export class FefSwipeableArea {
             // simplified b/c scroll snap points:
             // attempt to scroll to a position that's one containerwidth to the right. Done.
             let containerWidth = this.$innerContainer.width();
-            this.$innerContainer.scrollLeft(this.$innerContainer.scrollLeft() - containerWidth);
+
+            // attempting to scroll to a position < 0 can lead to a confusing
+            // bounce. Solution: Make sure we never try to scroll below 0px.
+            let newPosition = Math.min(0, this.$innerContainer.scrollLeft() - containerWidth);
+            this.$innerContainer.scrollLeft(newPosition);
             return;
         } else {
             let containerWidth = this.$innerContainer.width(),
