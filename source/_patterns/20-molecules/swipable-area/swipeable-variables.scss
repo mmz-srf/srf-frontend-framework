@@ -1,0 +1,252 @@
+$bottom-gap-mobile: 12px;
+$bottom-gap-tablet: 32px;
+$bottom-gap-desktop: 32px;
+$bottom-gap-desktopwide: 40px;
+
+// Gap between the container and the first item
+$edge-gap-mobile: 8px;
+$edge-gap-dense-mobile: 24px; // EXCEPTION: One of the only ones because design vult: gap to edge is different in dense collections.
+$edge-gap-tablet: 32px;
+$edge-gap-desktop: 120px; // actually 32px, but on desktop+ there's the mask that forces this to be 120px
+$edge-gap-desktopwide: 120px; // actually 40px, but on desktop+ there's the mask that forces this to be 120px
+
+// Gap between the teasers:
+$gap-between-teasers-mobile: 8px;
+$gap-between-teasers-tablet: 24px;
+$gap-between-teasers-desktop: 24px;
+$gap-between-teasers-desktopwide : 32px;
+
+$gap-between-teasers-when-swipeable-mobile: 8px;
+$gap-between-teasers-when-swipeable-tablet: 12px;
+$gap-between-teasers-when-swipeable-desktop: 12px;
+$gap-between-teasers-when-swipeable-desktopwide: 16px;
+
+// How MUCH of the next item should be visible when scrolled all the way to the left?
+$next-teaser-visible-amount-mobile: 40px;
+$next-teaser-visible-amount-tablet: 44px;
+$next-teaser-visible-amount-desktop: 32px;
+$next-teaser-visible-amount-desktopwide: 40px;
+
+// How MANY items should be fully visible when scrolled all the way to the left?
+$nr-of-teasers-standard-mobile: 1;
+$nr-of-teasers-standard-tablet: 3;
+$nr-of-teasers-standard-desktop: 3;
+$nr-of-teasers-standard-desktopwide: 3;
+
+$nr-of-teasers-compact-mobile: 1;
+$nr-of-teasers-compact-tablet: 2;
+$nr-of-teasers-compact-desktop: 3;
+$nr-of-teasers-compact-desktopwide: 3;
+
+$nr-of-teasers-dense-mobile: 2;
+$nr-of-teasers-dense-tablet: 6;
+$nr-of-teasers-dense-desktop: 6;
+$nr-of-teasers-dense-desktopwide: 6;
+
+@mixin nrOfTeasers($bp: 'mobile', $collectionType: 'standard') {
+  // Looks scary, but could be replaced by dynamic variables
+  // e.g. $nr-of-teasers: $nr-of-teasers-#{ $collectionType }-#{ $bp }
+  // But Sass doesn't support this (yet).
+  $nr-of-teasers: $nr-of-teasers-standard-mobile;
+
+  @if $collectionType == 'compact' {
+    $nr-of-teasers: $nr-of-teasers-compact-mobile;
+  } @else if $collectionType == 'dense' {
+    $nr-of-teasers: $nr-of-teasers-dense-mobile;
+  }
+
+  @if $bp == 'tablet' {
+    @if $collectionType == 'standard' {
+      $nr-of-teasers: $nr-of-teasers-standard-tablet;
+    } @else if $collectionType == 'compact' {
+      $nr-of-teasers: $nr-of-teasers-compact-tablet;
+    } @else if $collectionType == 'dense' {
+      $nr-of-teasers: $nr-of-teasers-dense-tablet;
+    }
+  } @else if $bp == 'desktop' {
+    @if $collectionType == 'standard' {
+      $nr-of-teasers: $nr-of-teasers-standard-desktop;
+    } @else if $collectionType == 'compact' {
+      $nr-of-teasers: $nr-of-teasers-compact-desktop;
+    } @else if $collectionType == 'dense' {
+      $nr-of-teasers: $nr-of-teasers-dense-desktop;
+    }
+  } @else if $bp == 'desktopwide' {
+    @if $collectionType == 'standard' {
+      $nr-of-teasers: $nr-of-teasers-standard-desktopwide;
+    } @else if $collectionType == 'compact' {
+      $nr-of-teasers: $nr-of-teasers-compact-desktopwide;
+    } @else if $collectionType == 'dense' {
+      $nr-of-teasers: $nr-of-teasers-dense-desktopwide;
+    }
+  }
+
+  &::before {
+    content: "#{$nr-of-teasers}";
+  }
+
+  // don't align center of a teaser with the center of the collection, but
+  // align the center between 2 teasers with the center of the collection
+  @if $nr-of-teasers % 2 == 0 {
+    scroll-padding: 0 0 0 50%;
+  }
+}
+
+@mixin listStyles($bp: 'mobile', $collectionType: 'standard') {
+  // Looks scary, but could be replaced by dynamic variables
+  // e.g. $gap-between: $gap-between-teasers-#{ $bp }
+  // But Sass doesn't support this (yet).
+  $gap-between: $gap-between-teasers-mobile;
+  $side-gap: $edge-gap-mobile;
+  $bottom-gap: $bottom-gap-mobile;
+
+  // This is one of the only exceptions - dense swipeable on mobile has a
+  // different gap to the edge than the others. Because it's just dense
+  // it's not sensible to add a $edge-gap-XXX-YYY for all types and BPs.
+  // See EXCEPTION on the top of this file.
+  @if $bp == 'mobile' and $collectionType == 'dense' {
+    $side-gap: $edge-gap-dense-mobile;
+  }
+
+  @if $bp == 'tablet' {
+    $gap-between: $gap-between-teasers-tablet;
+    $side-gap: $edge-gap-tablet;
+    $bottom-gap: $bottom-gap-tablet;
+  } @else if $bp == 'desktop' {
+    $gap-between: $gap-between-teasers-desktop;
+    $side-gap: $edge-gap-desktop;
+    $bottom-gap: $bottom-gap-desktop;
+  } @else if $bp == 'desktopwide' {
+    $gap-between: $gap-between-teasers-desktopwide;
+    $side-gap: $edge-gap-desktopwide;
+    $bottom-gap: $bottom-gap-desktopwide;
+  }
+
+  &::before {
+    display: none;
+    content: '';
+  }
+
+  padding: 0 #{$side-gap} #{$bottom-gap};
+}
+
+@mixin itemStyles($bp: 'mobile', $collectionType: 'standard') {
+  // Looks scary, but could be replaced by dynamic variables
+  // e.g. $nr-of-teasers: $nr-of-teasers-#{ $collectionType }-#{ $bp }
+  // But Sass doesn't support this (yet).
+  $gap-between: $gap-between-teasers-mobile;
+  $gap-between-swipeable: $gap-between-teasers-when-swipeable-mobile;
+  $visible-of-next-teaser: $next-teaser-visible-amount-mobile;
+  $side-gap: $edge-gap-mobile;
+  $nr-of-teasers: $nr-of-teasers-standard-mobile;
+
+  @if $collectionType == 'compact' {
+    $nr-of-teasers: $nr-of-teasers-compact-mobile;
+  } @else if $collectionType == 'dense' {
+    $nr-of-teasers: $nr-of-teasers-dense-mobile;
+  }
+
+  // This is one of the only exceptions - dense swipeable on mobile has a
+  // different gap to the edge than the others. Because it's just dense
+  // it's not sensible to add a $edge-gap-XXX-YYY for all types and BPs.
+  // See EXCEPTION on the top of this file.
+  @if $bp == 'mobile' and $collectionType == 'dense' {
+    $side-gap: $edge-gap-dense-mobile;
+  }
+
+  @if $bp == 'tablet' {
+    $gap-between: $gap-between-teasers-tablet;
+    $gap-between-swipeable: $gap-between-teasers-when-swipeable-tablet;
+    $visible-of-next-teaser: $next-teaser-visible-amount-tablet;
+    $side-gap: $edge-gap-tablet;
+    
+    @if $collectionType == 'standard' {
+      $nr-of-teasers: $nr-of-teasers-standard-tablet;
+    } @else if $collectionType == 'compact' {
+      $nr-of-teasers: $nr-of-teasers-compact-tablet;
+    } @else if $collectionType == 'dense' {
+      $nr-of-teasers: $nr-of-teasers-dense-tablet;
+    }
+  } @else if $bp == 'desktop' {
+    $gap-between: $gap-between-teasers-desktop;
+    $gap-between-swipeable: $gap-between-teasers-when-swipeable-desktop;
+    $visible-of-next-teaser: $next-teaser-visible-amount-desktop;
+    $side-gap: $edge-gap-desktop;
+    
+    @if $collectionType == 'standard' {
+      $nr-of-teasers: $nr-of-teasers-standard-desktop;
+    } @else if $collectionType == 'compact' {
+      $nr-of-teasers: $nr-of-teasers-compact-desktop;
+    } @else if $collectionType == 'dense' {
+      $nr-of-teasers: $nr-of-teasers-dense-desktop;
+    }
+  } @else if $bp == 'desktopwide' {
+    $gap-between: $gap-between-teasers-desktopwide;
+    $gap-between-swipeable: $gap-between-teasers-when-swipeable-desktopwide;
+    $visible-of-next-teaser: $next-teaser-visible-amount-desktopwide;
+    $side-gap: $edge-gap-desktopwide;
+    
+    @if $collectionType == 'standard' {
+      $nr-of-teasers: $nr-of-teasers-standard-desktopwide;
+    } @else if $collectionType == 'compact' {
+      $nr-of-teasers: $nr-of-teasers-compact-desktopwide;
+    } @else if $collectionType == 'dense' {
+      $nr-of-teasers: $nr-of-teasers-dense-desktopwide;
+    }
+  }
+
+  // IE11 rounds strangely when dividing 100% by integers. By changing it just
+  // a little bit, the rounding is counteracted.
+  $nr-of-teasers-floating-point: $nr-of-teasers - 0.00001; 
+  
+  // gap between teasers distributed to teasers on each side of the gap -->
+  // this makes centering (via snap points) SO MUCH easier
+  padding: 0 #{$gap-between / 2} 0;
+  width: calc((100% + #{$gap-between} ) / #{$nr-of-teasers-floating-point});
+  
+  // undo padding from before on the left side of the first item and on the
+  // right side of the last item
+  &:first-child {
+    margin-left: -#{$gap-between / 2};
+  }
+
+  &:last-child {
+    margin-right: -#{$gap-between / 2};
+  }
+
+  // Swipeable:
+  &:first-child:nth-last-child(n + #{$nr-of-teasers + 1}),
+  &:first-child:nth-last-child(n + #{$nr-of-teasers + 1}) ~ .collection__teaser-item {
+    // different gap size when swipeable
+    padding: 0 #{$gap-between-swipeable / 2} 0;
+
+    @if $bp == 'desktop' or $bp == 'desktopwide' {
+      // Because of the fixed 120px padding on desktop and up we don't need to subtract anything
+      width: calc(100% / #{$nr-of-teasers-floating-point});
+    } @else {
+      width: calc((100% - #{$visible-of-next-teaser - $side-gap}) / #{$nr-of-teasers});
+    }
+
+    // undo padding from before on left side of first and right side of last teaser
+    &:first-child {
+      margin-left: -#{$gap-between-swipeable / 2};
+    }
+    &:last-child {
+      margin-right: -#{$gap-between-swipeable / 2};
+    }
+
+    &:last-child {
+      &::after {
+        content: '';
+        right: -#{$side-gap - $gap-between-swipeable / 2};
+        width: #{$side-gap - $gap-between-swipeable / 2};
+      }
+    }
+  }
+
+  // don't align center of a teaser with the center of the collection, but
+  // align the center between 2 teasers with the center of the collection
+  @if $nr-of-teasers % 2 == 0 {
+    scroll-snap-align: start;
+  }
+}
