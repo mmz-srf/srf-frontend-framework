@@ -31,7 +31,11 @@
   
   scroll-snap-type: mandatory; // fallback for old spec without dimension, see https://www.w3.org/TR/2015/WD-css-snappoints-1-20150326/
   scroll-snap-type: x mandatory;
+
   scroll-behavior: smooth;
+  @include reducedMotion {
+    scroll-behavior: auto;
+  }
 
   @include desktop-up {
     scroll-padding: 120px;
