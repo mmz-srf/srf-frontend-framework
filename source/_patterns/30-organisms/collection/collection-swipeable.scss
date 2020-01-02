@@ -171,16 +171,16 @@
 
 // EXCEPTION:
 // Teasers with no card in a compact swipeable have some extra padding/margin
-// on mobile. This is hardcoded to not make the code here 25% larger.
+// on mobile. This is hardcoded to not make this file 33% larger.
 .collection--compact-swipeable-no-card {
-  .collection__teaser-item {
-    @include smartphone {
-      &:first-child:first-child:not(:last-child) {
+  @include smartphone {
+    // specificity is a wonderful thing
+    .collection__teaser-item.collection__teaser-item.collection__teaser-item {
+      &:first-child:not(:last-child) {
         margin-left: 12px;
       }
 
-      // specificity is a wonderful thing
-      &:last-child:last-child:last-child:not(:first-child) {
+      &:last-child:not(:first-child) {
         &::after {
           right: -20px;
           width: 20px;
