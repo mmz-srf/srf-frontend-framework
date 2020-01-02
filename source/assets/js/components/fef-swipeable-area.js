@@ -18,7 +18,8 @@ const HOOK_CLASS = 'js-swipeable-area',
     DEFAULT_SCROLL_TIME = 600,
     MINIMAL_SCROLL_TIME = 200,
     SUPPORTS_CSS_VARS = !!((window.CSS && window.CSS.supports) || window.supportsCSS || false) && CSS.supports('--srf: cool'),
-    SUPPORTS_SNAP_POINTS = !!((window.CSS && window.CSS.supports) || window.supportsCSS || false) && CSS.supports('scroll-snap-align: start'),
+    // check if the browser understands scroll-snap-align and scroll-behavior (the latter has to be additionally checked for Safari, which supports the former, but doesn't animate scrolling)
+    SUPPORTS_SNAP_POINTS = !!((window.CSS && window.CSS.supports) || window.supportsCSS || false) && CSS.supports('scroll-snap-align: start') && CSS.supports('scroll-behavior: smooth'),
     SUPPORTS_INTERSECTION_OBSERVER = 'IntersectionObserver' in window && 'IntersectionObserverEntry' in window && 'intersectionRatio' in window.IntersectionObserverEntry.prototype;
 
 export function init(interactionMeasureString = '') {
