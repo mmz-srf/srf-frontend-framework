@@ -8,5 +8,4 @@ export function init() {
     $('.js-media-still .play-icon').on('mouseenter mouseleave', (e) => {
         $(e.currentTarget).closest('.js-media-still').find('.media-still__image').toggleClass('media-still__image--hover');
     });
-
 }
