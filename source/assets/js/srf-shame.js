@@ -10,33 +10,32 @@ export function init() {
     addFixedforIEClass();
 }
 
-function copyPropertiesFromOldImage(oldImg, fakeImg, objectFitVal) {
-    let imageSource = oldImg.src,
-        imageClasses = oldImg.className;
-
-    oldImg.style.display = 'none';
-
-    if (imageSource.indexOf('Placeholder-16to9.svg') < 0) {
-        fakeImg.style.backgroundSize = objectFitVal;
-    }
-    fakeImg.style.backgroundImage = 'url(' + imageSource + ')';
-    fakeImg.style.backgroundPosition = 'center center';
-    fakeImg.style.backgroundRepeat = 'no-repeat';
-    fakeImg.className = imageClasses + ' js-fake-image-object-fit';
-}
-
-function getObjectFitValue(elem) {
-    let objectFitVal = 'contain';
-
-    if (  elem.currentStyle ) {
-        objectFitVal = elem.currentStyle.getAttribute('object-fit');
-    }
-
-    return objectFitVal;
-}
-
 export function polyfillObjectFit(element) {
-    //only do something if there is no objectFit
+    let copyPropertiesFromOldImage = function(oldImg, fakeImg, objectFitVal) {
+            let imageSource = oldImg.src,
+                imageClasses = oldImg.className;
+        
+            oldImg.style.display = 'none';
+        
+            if (imageSource.indexOf('Placeholder-16to9.svg') < 0) {
+                fakeImg.style.backgroundSize = objectFitVal;
+            }
+            fakeImg.style.backgroundImage = 'url(' + imageSource + ')';
+            fakeImg.style.backgroundPosition = 'center center';
+            fakeImg.style.backgroundRepeat = 'no-repeat';
+            fakeImg.className = imageClasses + ' js-fake-image-object-fit';
+        },
+        getObjectFitValue = function(elem) {
+            let objectFitVal = 'contain';
+        
+            if (  elem.currentStyle ) {
+                objectFitVal = elem.currentStyle.getAttribute('object-fit');
+            }
+        
+            return objectFitVal;
+        };
+
+    // only do something if there is no objectFit
     if ('objectFit' in document.documentElement.style ) {
         return;
     }
@@ -45,8 +44,14 @@ export function polyfillObjectFit(element) {
     if (!element) {
         return;
     }
-    //only do something if the image has a src
+
+    // only do something if the image has a src
     if (!element.getAttribute('src')) {
+        return;
+    }
+
+    // only do something if it hasn't been done before to this element
+    if (element.classList.contains('js-polyfilled-for-objectfit-ie11')) {
         return;
     }
 
@@ -65,26 +70,26 @@ export function polyfillObjectFit(element) {
             copyPropertiesFromOldImage(oldImg, fakeImg, objectFitVal);
         });
 
+        element.classList.add('js-polyfilled-for-objectfit-ie11');
+
         copyPropertiesFromOldImage(element, fakeImg, objectFitVal);
     }
 }
 
+/**
+ * TARGETED BROWSER: IE 11 and Edge <= 15
+ *
+ * This one is a object-fit-Fallback for Browsers not supporting object-fit --> IE 11 and Edge <= 15.
+ *
+ * It checks what kind of object-fit is used on the img ('contain' or 'cover') and sets the appropriate alternative
+ * BackgroundSize. Except in Edge, where we set the 'contain'-value per default (because we use 'contain' more often
+ * than 'cover' in the RA). We do this, because Edge does not let us read out the value of the prop it does not
+ * understand (object-fit) - unlike good-old IE.
+ * Additionally, a load-event-listener is bound to the image. If the source is changed (e.g. in image galleries,
+ * where images after the 2nd are only loaded on interaction with the gallery), we do the same procedure again.
+ */
 function objectFitForIE() {
-    /**
-     * TARGETED BROWSER: IE 11 and Edge <= 15
-     *
-     * This one is a object-fit-Fallback for Browsers not supporting object-fit --> IE 11 and Edge <= 15.
-     *
-     * It checks what kind of object-fit is used on the img ('contain' or 'cover') and sets the appropriate alternative
-     * BackgroundSize. Except in Edge, where we set the 'contain'-value per default (because we use 'contain' more often
-     * than 'cover' in the RA). We do this, because Edge does not let us read out the value of the prop it does not
-     * understand (object-fit) - unlike good-old IE.
-     * Additionally, a load-event-listener is bound to the image. If the source is changed (e.g. in image galleries,
-     * where images after the 2nd are only loaded on interaction with the gallery), we do the same procedure again.
-     */
-
     if ('objectFit' in document.documentElement.style === false) {
-
         const relevantClasses = [
                 '.article-media--image',
                 '.article-teaser__wrapper',
@@ -109,7 +114,8 @@ function objectFitForIE() {
 /*
  * TARGETED BROWSER: IE 11
  *
- * This one adds the value of a data-attribute named "ie-fix" to the class-list of this element – if the user agent is IE11.
+ * Adds the value of a data-attribute named "ie-fix" to the class-list of this
+ * element – if the user agent is IE11.
  */
 
 function addFixedforIEClass() {
