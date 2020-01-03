@@ -30,7 +30,7 @@ export function init() {
     $(`.${SUBNAV_CLASS}`)
         .filter((_, element) => !$(element).data('subnav-initialized'))
         .each((_, element) => {
-            new FefSubnav(element);
+            new FefSubnav($(element));
 
             // mark element, so that it won't be initialized again by this module
             $(element).data('subnav-initialized', true);
