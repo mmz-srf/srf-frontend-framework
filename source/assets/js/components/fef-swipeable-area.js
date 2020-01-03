@@ -17,9 +17,15 @@ const HOOK_CLASS = 'js-swipeable-area',
     HINT_AMOUNT = 20;
 
 export function init(interactionMeasureString = '') {
-    $(`.${HOOK_CLASS}`).each((_, element) => {
-        new FefSwipeableArea($(element), interactionMeasureString);
-    });
+    $(`.${HOOK_CLASS}`)
+        .filter((_, element) => !$(element).data('swipeabiliy-initialized'))
+        .each((_, element) => {
+            // initialize swipeability
+            new FefSwipeableArea($(element), interactionMeasureString);
+
+            // mark element, so that it won't be initialized again by this module
+            $(element).data('swipeabiliy-initialized', true);
+        });
 }
 
 /**
