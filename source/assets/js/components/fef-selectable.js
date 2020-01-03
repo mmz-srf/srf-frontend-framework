@@ -7,9 +7,14 @@ const SELECTED_COLLECTION_CLASS = 'js-selected-collection';
 const ANIMATION_PART_DURATION = 200;
 
 export function init() {
-    $('.js-selectable').each((i, elem) => {
-        new SrfSelectableCollection(elem);
-    });
+    $('.js-selectable')
+        .filter((_, element) => !$(element).data('selectable-initialized'))
+        .each((_, element) => {
+            new SrfSelectableCollection(element);
+
+            // mark element, so that it won't be initialized again by this module
+            $(element).data('selectable-initialized', true);
+        });
 }
 
 export class SrfSelectableCollection {
