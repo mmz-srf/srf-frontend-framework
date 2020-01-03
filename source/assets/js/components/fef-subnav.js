@@ -27,9 +27,14 @@ const SUBNAV_CLASS = 'js-subnav-container',
     DEFAULT_SCROLL_TIME = 200;
 
 export function init() {
-    $(`.${SUBNAV_CLASS}`).each((index, element) => {
-        new FefSubnav($(element));
-    });
+    $(`.${SUBNAV_CLASS}`)
+        .filter((_, element) => !$(element).data('subnav-initialized'))
+        .each((_, element) => {
+            new FefSubnav(element);
+
+            // mark element, so that it won't be initialized again by this module
+            $(element).data('subnav-initialized', true);
+        });
 }
 
 /**
