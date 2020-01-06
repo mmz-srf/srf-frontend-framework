@@ -10,6 +10,8 @@
 .collection--swipeable,
 .collection--compact-swipeable,
 .collection--dense-swipeable {
+  // make sure the collection can't force the page to be wider than 100%
+  overflow: hidden;
   
   .collection__teaser-list {
     flex-direction: row;
