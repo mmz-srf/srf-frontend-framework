@@ -142,7 +142,6 @@ $background-overlap-wide: 50px;
   &:after {
     left: 100%;
     background-color: var(--branded-background-color-end);
-    z-index: -1;
   }
 }
 

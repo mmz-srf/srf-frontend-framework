@@ -1,5 +1,11 @@
 @import "../../20-molecules/swipable-area/swipeable-variables";
 
+.collection__swipeable-area {
+  // make sure the swipeable area is higher than the "themed" background
+  // (.collection__content-wrapper:after)
+  z-index: 1;
+}
+
 // Styles that are the same for all swipeable types
 .collection--swipeable,
 .collection--compact-swipeable,
