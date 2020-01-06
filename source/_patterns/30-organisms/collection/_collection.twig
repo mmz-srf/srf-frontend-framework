@@ -5,8 +5,8 @@
 {% set showTitlelink = collection.titleLink is defined or selectable %}
 {% set themeColorStart = collection.theme is defined and collection.theme.colorStart is defined ? collection.theme.colorStart : '#f5f5f2' %}
 {% set themeColorEnd = collection.theme is defined and collection.theme.colorEnd is defined ? collection.theme.colorEnd : '#f5f5f2' %}
-{# b3 is 70% in oct. #rrggbbaa is not well supported yet, so in prod you should use a twig operator which translates hex to rgba #}
-{# themeColor*Transparent can be provided by the includer, because the b3 trick does not work for IE11. Is not necessary for production. #}
+{# b3 is 70% in oct. #rrggbbaa is not well supported yet, so in prod you should use a twig operator which translates hex to rgba (hex2Rgba filter) #}
+{# themeColor*Transparent can be provided by the includer, because the b3 trick does not work for IE11/Edge. Is not necessary for production. #}
 {% set themeColorStartTransparent = collection.themeColorStartTransparent|default(themeColorStart ~ 'b3') %}
 {% set themeColorEndTransparent = collection.themeColorEndTransparent|default(themeColorEnd ~ 'b3') %}
 {% set needsBackgroundColors = branded or swipeable %}
@@ -146,10 +146,8 @@
 
             {# SWIPEABLE AREA WRAPPER END TAGS #}
             {% if swipeable %}
-                    <div class='js-swipeable-area-mask-left swipeable-area__mask swipeable-area__mask--left'
-                         style='background: linear-gradient(90deg, {{ themeColorStart }}, {{ themeColorStartTransparent }});'></div>
-                    <div class='js-swipeable-area-mask-right swipeable-area__mask swipeable-area__mask--right'
-                         style='background: linear-gradient(90deg, {{ themeColorEndTransparent }}, {{ themeColorEnd }});'></div>
+                    <div class='js-swipeable-area-mask-left swipeable-area__mask swipeable-area__mask--left'></div>
+                    <div class='js-swipeable-area-mask-right swipeable-area__mask swipeable-area__mask--right'></div>
 
                     <div class='swipeable-area__button-container swipeable-area__button-container--hidden js-swipeable-button-container'>
                         {% include 'atoms-icon-button' with {

@@ -483,22 +483,3 @@ _:-ms-fullscreen,
 main {
   display: block;
 }
-
-/*
- * TARGETED BROWSER: IE 11
- * IE11 doesn't support CSS variables. We need CSS to correctly style branded
- * (swipeable) collections. For it to work in IE11 we had to render the
- * theme's colors directly as inline styles.
- * Browsers that DO support CSS variables have to ignore this inline style.
- * Inline styles can only be ignored by !important.
- * 
- * Once we drop IE11, please remove
- * - this
- * - the inline styles in _collection.twig
- * - the JS that removes the inline styles in fef-swipeable-area.js
- */
-@supports(--srf: cool) {
-  .collection--branded .collection__branding-wrapper {
-      background-image: none !important;
-  }
-}

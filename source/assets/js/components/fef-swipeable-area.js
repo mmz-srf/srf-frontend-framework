@@ -101,19 +101,6 @@ export class FefSwipeableArea {
             this.rightEdgeObserver = new IntersectionObserver(callbackRight, options);
             this.leftEdgeObserver = new IntersectionObserver(callbackLeft, options);
         }
-
-        // Because IE11 doesn't support CSS variables, define the masks'
-        // gradients both as inline styles in the twig (for IE11) and via CSS
-        // as CSS variables. Inline styles are mightier and we can't override
-        // it in the shame.scss (with !important) because the CSS also sets the
-        // background, which would then be overridden by the !important.
-        // So we must remove these inline styles by JS here.
-        // See also _shame.scss
-        if (SUPPORTS_CSS_VARS) {
-            this.$maskLeft[0].style.removeProperty('background');
-            this.$maskRight[0].style.removeProperty('background');
-        }
-
     }
 
     initSwipeability() {
