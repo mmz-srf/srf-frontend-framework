@@ -1,17 +1,24 @@
-import { DOM_INIT_EVENT } from '../utils/fef-events';
+import { DOM_MUTATION_EVENTS } from '../utils/fef-events';
+
+const HOOK_CLASS = '.image-slider';
+
+function initImageSliders() {
+    $(HOOK_CLASS)
+        .filter((_, element) => !$(element).data('image-slider-initialized'))
+        .each((_, element) => {
+            new FefImageSlider($(element));
+
+            // mark element, so that it won't be initialized again by this module
+            $(element).data('image-slider-initialized', true);
+        });
+}
 
 // Self loading on document.ready and updates if dom change event fired
-$(window).on(DOM_INIT_EVENT, () => {
-    $('.image-slider').each((index, element) => {
-        new FefImageSlider($(element));
-    });
-});
+$(window).on(DOM_MUTATION_EVENTS, () => initImageSliders());
 
 // Init function for srf-plugin-loader
 export function init() {
-    $('.image-slider').each((index, element) => {
-        new FefImageSlider($(element));
-    });
+    initImageSliders();
 }
 
 export class FefImageSlider {
