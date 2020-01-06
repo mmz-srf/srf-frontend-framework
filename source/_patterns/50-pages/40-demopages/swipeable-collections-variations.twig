@@ -128,9 +128,51 @@
 
             .show-helpers:checked + .helper {
                 display: block;
-            } 
+            }
 
+            .demo-collection--snap-not-mandatory .swipeable-area__wrapper {
+                scroll-snap-type: proximity;
+                scroll-snap-type: x proximity;
+            }
+
+            .demo-collection--scroll-snap-stop .swipeable-area__item{
+                scroll-snap-stop: always;
+            }
         </style>
+
+        <div class="demo-collection--snap-not-mandatory">
+            {% include 'organisms-collection' with {
+                'collection': {
+                    "styleModifier": demoCollections[7].styleModifier,
+                    'title': "DEMO: Proximity instead of Mandatory",
+                    'theme': demoCollections[7].theme,
+                    'themeColorStartTransparent': demoCollections[7].themeColorStartTransparent,
+                    'themeColorEndTransparent': demoCollections[7].themeColorEndTransparent,
+                    'teasers': demoCollections[7].teasers
+                },
+                'showBroadcastInfo': false,
+                'showOpinion': false,
+                'showScoreboard': false,
+                'showLinks': false
+            } %}
+        </div>
+
+        <div class="demo-collection--scroll-snap-stop">
+            {% include 'organisms-collection' with {
+                'collection': {
+                    "styleModifier": demoCollections[7].styleModifier,
+                    'title': "DEMO: scroll-snap-stop",
+                    'theme': demoCollections[7].theme,
+                    'themeColorStartTransparent': demoCollections[7].themeColorStartTransparent,
+                    'themeColorEndTransparent': demoCollections[7].themeColorEndTransparent,
+                    'teasers': demoCollections[7].teasers
+                },
+                'showBroadcastInfo': false,
+                'showOpinion': false,
+                'showScoreboard': false,
+                'showLinks': false
+            } %}
+        </div>
 
         {% for collection in demoCollections %}
             {% include 'organisms-collection' with {
@@ -141,5 +183,7 @@
                 'showLinks': false
             } %}
         {% endfor %}
+
+
     {% endblock %}
 {% endembed %}
