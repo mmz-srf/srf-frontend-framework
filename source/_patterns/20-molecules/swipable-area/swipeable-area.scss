@@ -44,9 +44,18 @@
 
 .swipeable-area__item {
   scroll-snap-align: center;
+  // Prevents scrolling that appears too fast.
+  // On mobile, this forces the user to scroll/swipe item by item
+  // On tablet, it's possible to scroll/swipe one or multiple items, dependong
+  // on how one swipes.
+  // Desktop and up: disabled, it's desired to be able to scroll over multiple
+  // items.
+  // Note: doesn't work on all browsers!
+  scroll-snap-stop: always;
   
   @include desktop-up {
     scroll-snap-align: start;
+    scroll-snap-stop: normal;
   }
 }
 
