@@ -17,7 +17,6 @@ const HOOK_CLASS = 'js-swipeable-area',
     BUTTON_UNNECESSARY_CLASS = 'swipeable-area__button-container--hidden',
     DEFAULT_SCROLL_TIME = 600,
     MINIMAL_SCROLL_TIME = 200,
-    SUPPORTS_CSS_VARS = !!((window.CSS && window.CSS.supports) || window.supportsCSS || false) && CSS.supports('--srf: cool'),
     // check if the browser understands scroll-snap-align and scroll-behavior (the latter has to be additionally checked for Safari, which supports the former, but doesn't animate scrolling)
     SUPPORTS_SNAP_POINTS = !!((window.CSS && window.CSS.supports) || window.supportsCSS || false) && CSS.supports('scroll-snap-align: start') && CSS.supports('scroll-behavior: smooth'),
     SUPPORTS_INTERSECTION_OBSERVER = 'IntersectionObserver' in window && 'IntersectionObserverEntry' in window && 'intersectionRatio' in window.IntersectionObserverEntry.prototype;
@@ -115,10 +114,17 @@ export class FefSwipeableArea {
         // buttons are necessary again (depending on the breakpoint, but that's handled in CSS)
         this.$buttonContainer.toggleClass(BUTTON_UNNECESSARY_CLASS, !this.hasScrollableOverflow());
 
-        if (FefResponsiveHelper.isDesktopUp() && !FefTouchDetection.isTouchSupported()) {
+        // on desktop and up the buttons are used to page back and forth.
+        if (FefResponsiveHelper.isDesktopUp()) {
             this.registerDesktopListeners();
             this.updateFlyingFocus();
-            this.initItemPositions();
+            
+            // If scroll-snap-points are not (fully) supported, we use the
+            // traditional way of calculating where to scroll to:
+            // calculating it from the items' positions
+            if (!SUPPORTS_INTERSECTION_OBSERVER) {
+                this.initItemPositions();
+            }
         } else {
             this.deregisterDesktopListeners();
         }
