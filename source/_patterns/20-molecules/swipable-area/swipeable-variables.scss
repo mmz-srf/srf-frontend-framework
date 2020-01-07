@@ -81,8 +81,10 @@ $nr-of-teasers-dense-desktopwide: 6;
     }
   }
 
-  // will be read by JS to determine how many teasers can be visible at the same time (see setNrOfPotentialVisibleItems() in fef-swipeable-area.js)
+  // will be read by JS to determine how many teasers can be visible at
+  // the same time (see setNrOfPotentialVisibleItems() in fef-swipeable-area.js)
   &::before {
+    display: none;
     content: "#{$nr-of-teasers}";
   }
 
@@ -121,11 +123,6 @@ $nr-of-teasers-dense-desktopwide: 6;
     $gap-between: $gap-between-teasers-desktopwide;
     $side-gap: $edge-gap-desktopwide;
     $bottom-gap: $bottom-gap-desktopwide;
-  }
-
-  &::before {
-    display: none;
-    content: '';
   }
 
   padding: 0 #{$side-gap} #{$bottom-gap};

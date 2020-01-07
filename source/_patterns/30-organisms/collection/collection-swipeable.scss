@@ -33,12 +33,6 @@
     @include desktop-wide {
       @include listStyles('desktopwide');
     }
-
-    // nr of teasers will be rendered in the before pseudo element so we can
-    // read it via JS (fef-swipeable-area.js)
-    &::before {
-      display: none;
-    }
   }
 
   .collection__teaser-item {
