@@ -27,6 +27,7 @@
   overflow-y: hidden;
   width: 100%;
   -webkit-overflow-scrolling: touch; // enable momentum scrolling on ios
+  transform: translate3d(0, 0, 0); // let the hardware render this
   @include preventScrollbars();
   
   scroll-snap-type: mandatory; // fallback for old spec without dimension, see https://www.w3.org/TR/2015/WD-css-snappoints-1-20150326/
