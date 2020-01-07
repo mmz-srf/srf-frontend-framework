@@ -46,7 +46,7 @@
   scroll-snap-align: center;
   // Prevents scrolling that appears too fast.
   // On mobile, this forces the user to scroll/swipe item by item
-  // On tablet, it's possible to scroll/swipe one or multiple items, dependong
+  // On tablet, it's possible to scroll/swipe one or multiple items, depending
   // on how one swipes.
   // Desktop and up: disabled, it's desired to be able to scroll over multiple
   // items.
@@ -175,7 +175,7 @@
     &:hover {
       // override hover-style from icon-button
       opacity: 1;
-      // and give it some shadow & lift the hovered buttong above its neighbor
+      // and give it some shadow & lift the hovered button above its neighbor
       box-shadow: $shadow-elevation12;
       z-index: 1;
     }

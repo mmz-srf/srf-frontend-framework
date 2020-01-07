@@ -5,7 +5,7 @@ $bottom-gap-desktopwide: 40px;
 
 // Gap between the container and the first item
 $edge-gap-mobile: 8px;
-$edge-gap-dense-mobile: 24px; // EXCEPTION: One of the only ones because design vult: gap to edge is different in dense collections.
+$edge-gap-dense-mobile: 24px; // EXCEPTION: One of the only ones: gap to edge is different in dense collections.
 $edge-gap-tablet: 32px;
 $edge-gap-desktop: 120px; // actually 32px, but on desktop+ there's the mask that forces this to be 120px
 $edge-gap-desktopwide: 120px; // actually 40px, but on desktop+ there's the mask that forces this to be 120px
