@@ -10,12 +10,12 @@
   }
 }
 
-// use case: see srf-media-still.js
+// use case: see srf-medium-hover.js
 .media-still__image--hover {
   @extend .media-still__image:hover;
 }
 
-// use case: see srf-media-still.js
+// use case: see srf-medium-hover.js
 .media-still__image--no-hover {
   &:hover {
     opacity: 1;
