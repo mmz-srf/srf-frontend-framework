@@ -1,23 +1,15 @@
 @import '10-atoms/feedback/spinner';                              // old global
 @import '10-atoms/feedback/spinner-container';                    // old global
 
-@import '10-atoms/form/select-menu';                              // old global
-@import '10-atoms/form/radio-button';                             // old global
-@import '10-atoms/form/checkbox';                                 // old global
-@import '10-atoms/form/input-field';                              // old global
-@import '10-atoms/form/validation';                               // old global
-
 @import '10-atoms/links/canton-link';                             // old page
 @import '10-atoms/links/pill-link';                               // old page
 
-@import '10-atoms/indicators/teaser-label';                       // old global
 @import '10-atoms/indicators/media-time-indicator';               // old global
 @import '10-atoms/indicators/score';                              // old page
 @import '10-atoms/indicators/carousel-counter';                   // old article
 
 @import '10-atoms/navigation/breadcrumbs';                        // old article
 
-@import '10-atoms/text/teaser-info';                              // old page
 @import '10-atoms/text/article-author';                           // old article
 @import '10-atoms/text/article-lead';                             // old article
 @import '10-atoms/text/article-title';                            // old article
@@ -39,8 +31,6 @@
 @import '20-molecules/button-group/button-group';                 // old global
 
 @import '20-molecules/charts/charts';                             // old global
-
-@import '20-molecules/form/form';                                 // old global
 
 @import '20-molecules/article-content/article-content';           // old article
 @import '20-molecules/article-header/article-header';             // old article
@@ -89,9 +79,6 @@
 
 @import '20-molecules/scoreboard/scoreboard';                     // old page
 
-@import '20-molecules/special-teasers/simple-teaser';             // old page
-@import '20-molecules/special-teasers/teaser-cantons-nav';        // old page
-
 @import '20-molecules/show-info/show-info';                       // old page
 
 @import '20-molecules/sharing-bar/sharing-bar';                   // old article
@@ -105,7 +92,6 @@
 
 @import '20-molecules/text-list/text-list';                       // old global
 
-@import '20-molecules/teaser/teaser';                             // old global
 @import '20-molecules/ticker/ticker';                             // old global
 
 
