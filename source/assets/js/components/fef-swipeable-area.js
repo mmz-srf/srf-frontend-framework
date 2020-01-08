@@ -122,7 +122,7 @@ export class FefSwipeableArea {
             // If scroll-snap-points are not (fully) supported, we use the
             // traditional way of calculating where to scroll to:
             // calculating it from the items' positions
-            if (!SUPPORTS_INTERSECTION_OBSERVER) {
+            if (!SUPPORTS_SNAP_POINTS) {
                 this.initItemPositions();
             }
         } else {
