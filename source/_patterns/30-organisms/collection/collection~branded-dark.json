@@ -2,6 +2,10 @@
   "collection": {
     "styleModifier": "collection--standard collection--branded collection--branded-dark",
     "title": "News Schweiz",
+    "theme": {
+      "colorStart": "#fdfd6c",
+      "colorEnd": "#1fa297"
+    },
     "teasers": [
       {
         "title": "Wissenschaftler sagen: Kühe geben Milch. Stadtbewohner erstaunt und entrüstet: 'Igitt!'",

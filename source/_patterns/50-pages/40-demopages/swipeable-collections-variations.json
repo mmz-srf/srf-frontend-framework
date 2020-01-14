@@ -1134,6 +1134,72 @@
           "lead": "In der dritten Folge von «Auf und davon» steht für die Tokays in Südafrika der erste Schultag an. Sylvia und Markus Buob beginnen in Schweden mit der Renovation. Und in Mexiko gehen Stefano Navarretta und Stefano Lotti vorübergehend getrennte Wege."
         }
       ]
+    },
+    {
+      "styleModifier": "collection--standard",
+      "title": "Standard Collection, 3 Teaser",
+      "teasers": [
+        {
+          "title": "Auf und davon",
+          "kicker": "",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "In der dritten Folge von «Auf und davon» steht für die Tokays in Südafrika der erste Schultag an. Sylvia und Markus Buob beginnen in Schweden mit der Renovation. Und in Mexiko gehen Stefano Navarretta und Stefano Lotti vorübergehend getrennte Wege."
+        },
+        {
+          "title": "Wenn die Motorsäge keine ist",
+          "kicker": "Ein begnadeter Imitator",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "Der Graurücken-Leierschwanz sorgt in seiner Heimat Australien des öftern für Verwirrung: Alarmsirenen, klickende Kameras oder sogar Motorsägen ahmt er täuschend echt nach."
+        },
+        {
+          "title": "Anti-Merkel-Shirt vom Markt genommen",
+          "kicker": "Aufdruck der Kanzlerin",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet."
+        }
+      ]
+    },
+    {
+      "styleModifier": "collection--standard collection--branded collection--branded-light",
+      "title": "Standard Collection, 3 Teaser, Themed",
+      "theme": {
+        "colorStart": "#4b7f5b",
+        "colorEnd": "#154e60"
+      },
+      "themeColorStartTransparent": "rgba(75, 127, 91, .7)",
+      "themeColorEndTransparent": "rgba(21, 78, 96, .7)",
+      "teasers": [
+        {
+          "title": "Auf und davon",
+          "kicker": "",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "In der dritten Folge von «Auf und davon» steht für die Tokays in Südafrika der erste Schultag an. Sylvia und Markus Buob beginnen in Schweden mit der Renovation. Und in Mexiko gehen Stefano Navarretta und Stefano Lotti vorübergehend getrennte Wege."
+        },
+        {
+          "title": "Wenn die Motorsäge keine ist",
+          "kicker": "Ein begnadeter Imitator",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "Der Graurücken-Leierschwanz sorgt in seiner Heimat Australien des öftern für Verwirrung: Alarmsirenen, klickende Kameras oder sogar Motorsägen ahmt er täuschend echt nach."
+        },
+        {
+          "title": "Anti-Merkel-Shirt vom Markt genommen",
+          "kicker": "Aufdruck der Kanzlerin",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet."
+        }
+      ]
     }
   ]
 }
