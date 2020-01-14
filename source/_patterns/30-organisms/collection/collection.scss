@@ -899,7 +899,7 @@ $background-overlap-wide: 50px;
     // show 2 teasers (+ some of a 3rd) on mobile instead of just 1
     .collection__teaser-item,
     .collection__teaser-item:last-child {
-      min-width: calc((100% - 48px) / 2.00001);
+      max-width: calc((100% - 48px) / 2.00001);
     }
 
     // slightly smaller font size on mobile, smaller gap between title and teasers
@@ -942,14 +942,6 @@ $background-overlap-wide: 50px;
   // branding-wrapper should not have padding
   &.collection.collection--branded .collection__branding-wrapper {
     padding: 0;
-  }
-
-  .collection__teaser-item {
-    max-width: calc((100% - 48px) / 2.00001);
-
-    @include tablet-up {
-      max-width: calc((100% - 74px) / 3.00001);
-    }
   }
 
   // Search results can show 2 teasers on mobile, so if there are exactly 2
