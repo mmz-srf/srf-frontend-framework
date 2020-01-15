@@ -14,7 +14,7 @@
   animation: fadeAndScaleInAnimation .2s forwards;
 
   @include reducedMotion {
-    animation: fadeInAnimation .2s forwards;    
+    animation: fadeInAnimation .2s forwards;
   }
 
   .nav-group--open & {

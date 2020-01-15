@@ -1,0 +1,1205 @@
+{
+  "bodyClass": "",
+  "criticalCssFile": "c_landingpage.css",
+  "demoCollections": [
+    {
+      "styleModifier": "collection--swipeable",
+      "title": "Swipeable Collection, 1 Teaser",
+      "teasers": [
+        {
+          "title": "Auf und davon",
+          "kicker": "",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "In der dritten Folge von «Auf und davon» steht für die Tokays in Südafrika der erste Schultag an. Sylvia und Markus Buob beginnen in Schweden mit der Renovation. Und in Mexiko gehen Stefano Navarretta und Stefano Lotti vorübergehend getrennte Wege."
+        }
+      ]
+    },
+    {
+      "styleModifier": "collection--swipeable collection--branded collection--branded-light",
+      "title": "Swipeable Collection, 1 Teaser, Themed",
+      "theme": {
+        "colorStart": "#4b7f5b",
+        "colorEnd": "#154e60"
+      },
+      "themeColorStartTransparent": "rgba(75, 127, 91, .7)",
+      "themeColorEndTransparent": "rgba(21, 78, 96, .7)",
+      "teasers": [
+        {
+          "title": "Auf und davon",
+          "kicker": "",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "In der dritten Folge von «Auf und davon» steht für die Tokays in Südafrika der erste Schultag an. Sylvia und Markus Buob beginnen in Schweden mit der Renovation. Und in Mexiko gehen Stefano Navarretta und Stefano Lotti vorübergehend getrennte Wege."
+        }
+      ]
+    },
+    {
+      "styleModifier": "collection--swipeable",
+      "title": "Swipeable Collection, 2 Teaser",
+      "teasers": [
+        {
+          "title": "Auf und davon",
+          "kicker": "",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "In der dritten Folge von «Auf und davon» steht für die Tokays in Südafrika der erste Schultag an. Sylvia und Markus Buob beginnen in Schweden mit der Renovation. Und in Mexiko gehen Stefano Navarretta und Stefano Lotti vorübergehend getrennte Wege."
+        },
+        {
+          "title": "Auf und davon",
+          "kicker": "",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "In der dritten Folge von «Auf und davon» steht für die Tokays in Südafrika der erste Schultag an. Sylvia und Markus Buob beginnen in Schweden mit der Renovation. Und in Mexiko gehen Stefano Navarretta und Stefano Lotti vorübergehend getrennte Wege."
+        }
+      ]
+    },
+    {
+      "styleModifier": "collection--swipeable collection--branded collection--branded-light",
+      "title": "Swipeable Collection, 2 Teaser, Themed",
+      "theme": {
+        "colorStart": "#4b7f5b",
+        "colorEnd": "#154e60"
+      },
+      "themeColorStartTransparent": "rgba(75, 127, 91, .7)",
+      "themeColorEndTransparent": "rgba(21, 78, 96, .7)",
+      "teasers": [
+        {
+          "title": "Auf und davon",
+          "kicker": "",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "In der dritten Folge von «Auf und davon» steht für die Tokays in Südafrika der erste Schultag an. Sylvia und Markus Buob beginnen in Schweden mit der Renovation. Und in Mexiko gehen Stefano Navarretta und Stefano Lotti vorübergehend getrennte Wege."
+        },
+        {
+          "title": "Auf und davon",
+          "kicker": "",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "In der dritten Folge von «Auf und davon» steht für die Tokays in Südafrika der erste Schultag an. Sylvia und Markus Buob beginnen in Schweden mit der Renovation. Und in Mexiko gehen Stefano Navarretta und Stefano Lotti vorübergehend getrennte Wege."
+        }
+      ]
+    },
+    {
+      "styleModifier": "collection--swipeable",
+      "title": "Swipeable Collection, 3 Teaser",
+      "teasers": [
+        {
+          "title": "Auf und davon",
+          "kicker": "",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "In der dritten Folge von «Auf und davon» steht für die Tokays in Südafrika der erste Schultag an. Sylvia und Markus Buob beginnen in Schweden mit der Renovation. Und in Mexiko gehen Stefano Navarretta und Stefano Lotti vorübergehend getrennte Wege."
+        },
+        {
+          "title": "Wenn die Motorsäge keine ist",
+          "kicker": "Ein begnadeter Imitator",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "Der Graurücken-Leierschwanz sorgt in seiner Heimat Australien des öftern für Verwirrung: Alarmsirenen, klickende Kameras oder sogar Motorsägen ahmt er täuschend echt nach."
+        },
+        {
+          "title": "Anti-Merkel-Shirt vom Markt genommen",
+          "kicker": "Aufdruck der Kanzlerin",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet."
+        }
+      ]
+    },
+    {
+      "styleModifier": "collection--swipeable collection--branded collection--branded-light",
+      "title": "Swipeable Collection, 3 Teaser, Themed",
+      "theme": {
+        "colorStart": "#4b7f5b",
+        "colorEnd": "#154e60"
+      },
+      "themeColorStartTransparent": "rgba(75, 127, 91, .7)",
+      "themeColorEndTransparent": "rgba(21, 78, 96, .7)",
+      "teasers": [
+        {
+          "title": "Auf und davon",
+          "kicker": "",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "In der dritten Folge von «Auf und davon» steht für die Tokays in Südafrika der erste Schultag an. Sylvia und Markus Buob beginnen in Schweden mit der Renovation. Und in Mexiko gehen Stefano Navarretta und Stefano Lotti vorübergehend getrennte Wege."
+        },
+        {
+          "title": "Wenn die Motorsäge keine ist",
+          "kicker": "Ein begnadeter Imitator",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "Der Graurücken-Leierschwanz sorgt in seiner Heimat Australien des öftern für Verwirrung: Alarmsirenen, klickende Kameras oder sogar Motorsägen ahmt er täuschend echt nach."
+        },
+        {
+          "title": "Anti-Merkel-Shirt vom Markt genommen",
+          "kicker": "Aufdruck der Kanzlerin",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet."
+        }
+      ]
+    },
+    {
+      "styleModifier": "collection--swipeable",
+      "title": "Swipeable Collection, 12 Teaser",
+      "teasers": [
+        {
+          "title": "Auf und davon",
+          "kicker": "",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "In der dritten Folge von «Auf und davon» steht für die Tokays in Südafrika der erste Schultag an. Sylvia und Markus Buob beginnen in Schweden mit der Renovation. Und in Mexiko gehen Stefano Navarretta und Stefano Lotti vorübergehend getrennte Wege."
+        },
+        {
+          "title": "Wenn die Motorsäge keine ist",
+          "kicker": "Ein begnadeter Imitator",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "Der Graurücken-Leierschwanz sorgt in seiner Heimat Australien des öftern für Verwirrung: Alarmsirenen, klickende Kameras oder sogar Motorsägen ahmt er täuschend echt nach."
+        },
+        {
+          "title": "Anti-Merkel-Shirt vom Markt genommen",
+          "kicker": "Aufdruck der Kanzlerin",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet."
+        },
+        {
+          "title": "Richtungsweisende Erfindung",
+          "kicker": "Kompass",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet."
+        },
+        {
+          "title": "Richtungsweisende Erfindung",
+          "kicker": "Kompass",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet."
+        },
+        {
+          "title": "Richtungsweisende Erfindung",
+          "kicker": "Kompass",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet."
+        },
+        {
+          "title": "Auf und davon",
+          "kicker": "",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "In der dritten Folge von «Auf und davon» steht für die Tokays in Südafrika der erste Schultag an. Sylvia und Markus Buob beginnen in Schweden mit der Renovation. Und in Mexiko gehen Stefano Navarretta und Stefano Lotti vorübergehend getrennte Wege."
+        },
+        {
+          "title": "Wenn die Motorsäge keine ist",
+          "kicker": "Ein begnadeter Imitator",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "Der Graurücken-Leierschwanz sorgt in seiner Heimat Australien des öftern für Verwirrung: Alarmsirenen, klickende Kameras oder sogar Motorsägen ahmt er täuschend echt nach."
+        },
+        {
+          "title": "Anti-Merkel-Shirt vom Markt genommen",
+          "kicker": "Aufdruck der Kanzlerin",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet."
+        },
+        {
+          "title": "Richtungsweisende Erfindung",
+          "kicker": "Kompass",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet."
+        },
+        {
+          "title": "Richtungsweisende Erfindung",
+          "kicker": "Kompass",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet."
+        },
+        {
+          "title": "Richtungsweisende Erfindung",
+          "kicker": "Kompass",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet."
+        }
+      ]
+    },
+    {
+      "styleModifier": "collection--swipeable collection--branded collection--branded-light",
+      "title": "Swipeable Collection, 12 Teaser, Themed",
+      "theme": {
+        "colorStart": "#4b7f5b",
+        "colorEnd": "#154e60"
+      },
+      "themeColorStartTransparent": "rgba(75, 127, 91, .7)",
+      "themeColorEndTransparent": "rgba(21, 78, 96, .7)",
+      "teasers": [
+        {
+          "title": "Auf und davon",
+          "kicker": "",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "In der dritten Folge von «Auf und davon» steht für die Tokays in Südafrika der erste Schultag an. Sylvia und Markus Buob beginnen in Schweden mit der Renovation. Und in Mexiko gehen Stefano Navarretta und Stefano Lotti vorübergehend getrennte Wege."
+        },
+        {
+          "title": "Wenn die Motorsäge keine ist",
+          "kicker": "Ein begnadeter Imitator",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "Der Graurücken-Leierschwanz sorgt in seiner Heimat Australien des öftern für Verwirrung: Alarmsirenen, klickende Kameras oder sogar Motorsägen ahmt er täuschend echt nach."
+        },
+        {
+          "title": "Anti-Merkel-Shirt vom Markt genommen",
+          "kicker": "Aufdruck der Kanzlerin",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet."
+        },
+        {
+          "title": "Auf und davon",
+          "kicker": "",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "In der dritten Folge von «Auf und davon» steht für die Tokays in Südafrika der erste Schultag an. Sylvia und Markus Buob beginnen in Schweden mit der Renovation. Und in Mexiko gehen Stefano Navarretta und Stefano Lotti vorübergehend getrennte Wege."
+        },
+        {
+          "title": "Wenn die Motorsäge keine ist",
+          "kicker": "Ein begnadeter Imitator",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "Der Graurücken-Leierschwanz sorgt in seiner Heimat Australien des öftern für Verwirrung: Alarmsirenen, klickende Kameras oder sogar Motorsägen ahmt er täuschend echt nach."
+        },
+        {
+          "title": "Anti-Merkel-Shirt vom Markt genommen",
+          "kicker": "Aufdruck der Kanzlerin",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet."
+        },
+        {
+          "title": "Auf und davon",
+          "kicker": "",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "In der dritten Folge von «Auf und davon» steht für die Tokays in Südafrika der erste Schultag an. Sylvia und Markus Buob beginnen in Schweden mit der Renovation. Und in Mexiko gehen Stefano Navarretta und Stefano Lotti vorübergehend getrennte Wege."
+        },
+        {
+          "title": "Wenn die Motorsäge keine ist",
+          "kicker": "Ein begnadeter Imitator",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "Der Graurücken-Leierschwanz sorgt in seiner Heimat Australien des öftern für Verwirrung: Alarmsirenen, klickende Kameras oder sogar Motorsägen ahmt er täuschend echt nach."
+        },
+        {
+          "title": "Anti-Merkel-Shirt vom Markt genommen",
+          "kicker": "Aufdruck der Kanzlerin",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet."
+        },
+        {
+          "title": "Richtungsweisende Erfindung",
+          "kicker": "Kompass",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet."
+        },
+        {
+          "title": "Richtungsweisende Erfindung",
+          "kicker": "Kompass",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet."
+        },
+        {
+          "title": "Richtungsweisende Erfindung",
+          "kicker": "Kompass",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet."
+        }
+      ]
+    },
+    {
+      "styleModifier": "collection--compact-swipeable",
+      "title": "Compact Swipeable Collection, 1 Teaser",
+      "teasers": [
+        {
+          "title": "Auf und davon",
+          "kicker": "",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "In der dritten Folge von «Auf und davon» steht für die Tokays in Südafrika der erste Schultag an. Sylvia und Markus Buob beginnen in Schweden mit der Renovation. Und in Mexiko gehen Stefano Navarretta und Stefano Lotti vorübergehend getrennte Wege."
+        }
+      ]
+    },
+    {
+      "styleModifier": "collection--compact-swipeable collection--branded collection--branded-light",
+      "title": "Compact Swipeable Collection, 1 Teaser, Themed",
+      "theme": {
+        "colorStart": "#4b7f5b",
+        "colorEnd": "#154e60"
+      },
+      "themeColorStartTransparent": "rgba(75, 127, 91, .7)",
+      "themeColorEndTransparent": "rgba(21, 78, 96, .7)",
+      "teasers": [
+        {
+          "title": "Auf und davon",
+          "kicker": "",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "In der dritten Folge von «Auf und davon» steht für die Tokays in Südafrika der erste Schultag an. Sylvia und Markus Buob beginnen in Schweden mit der Renovation. Und in Mexiko gehen Stefano Navarretta und Stefano Lotti vorübergehend getrennte Wege."
+        }
+      ]
+    },
+    {
+      "styleModifier": "collection--compact-swipeable",
+      "title": "Compact Swipeable Collection, 2 Teaser",
+      "teasers": [
+        {
+          "title": "Auf und davon",
+          "kicker": "",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "In der dritten Folge von «Auf und davon» steht für die Tokays in Südafrika der erste Schultag an. Sylvia und Markus Buob beginnen in Schweden mit der Renovation. Und in Mexiko gehen Stefano Navarretta und Stefano Lotti vorübergehend getrennte Wege."
+        },
+        {
+          "title": "Wenn die Motorsäge keine ist",
+          "kicker": "Ein begnadeter Imitator",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "Der Graurücken-Leierschwanz sorgt in seiner Heimat Australien des öftern für Verwirrung: Alarmsirenen, klickende Kameras oder sogar Motorsägen ahmt er täuschend echt nach."
+        }
+      ]
+    },
+    {
+      "styleModifier": "collection--compact-swipeable collection--branded collection--branded-light",
+      "title": "Compact Swipeable Collection, 2 Teaser, Themed",
+      "theme": {
+        "colorStart": "#4b7f5b",
+        "colorEnd": "#154e60"
+      },
+      "themeColorStartTransparent": "rgba(75, 127, 91, .7)",
+      "themeColorEndTransparent": "rgba(21, 78, 96, .7)",
+      "teasers": [
+        {
+          "title": "Auf und davon",
+          "kicker": "",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "In der dritten Folge von «Auf und davon» steht für die Tokays in Südafrika der erste Schultag an. Sylvia und Markus Buob beginnen in Schweden mit der Renovation. Und in Mexiko gehen Stefano Navarretta und Stefano Lotti vorübergehend getrennte Wege."
+        },
+        {
+          "title": "Wenn die Motorsäge keine ist",
+          "kicker": "Ein begnadeter Imitator",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "Der Graurücken-Leierschwanz sorgt in seiner Heimat Australien des öftern für Verwirrung: Alarmsirenen, klickende Kameras oder sogar Motorsägen ahmt er täuschend echt nach."
+        }
+      ]
+    },
+    {
+      "styleModifier": "collection--compact-swipeable",
+      "title": "Compact Swipeable Collection, 3 Teaser",
+      "teasers": [
+        {
+          "title": "Auf und davon",
+          "kicker": "",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "In der dritten Folge von «Auf und davon» steht für die Tokays in Südafrika der erste Schultag an. Sylvia und Markus Buob beginnen in Schweden mit der Renovation. Und in Mexiko gehen Stefano Navarretta und Stefano Lotti vorübergehend getrennte Wege."
+        },
+        {
+          "title": "Wenn die Motorsäge keine ist",
+          "kicker": "Ein begnadeter Imitator",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "Der Graurücken-Leierschwanz sorgt in seiner Heimat Australien des öftern für Verwirrung: Alarmsirenen, klickende Kameras oder sogar Motorsägen ahmt er täuschend echt nach."
+        },
+        {
+          "title": "Anti-Merkel-Shirt vom Markt genommen",
+          "kicker": "Aufdruck der Kanzlerin",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet."
+        }
+      ]
+    },
+    {
+      "styleModifier": "collection--compact-swipeable collection--branded collection--branded-light",
+      "title": "Compact Swipeable Collection, 3 Teaser, Themed",
+      "theme": {
+        "colorStart": "#4b7f5b",
+        "colorEnd": "#154e60"
+      },
+      "themeColorStartTransparent": "rgba(75, 127, 91, .7)",
+      "themeColorEndTransparent": "rgba(21, 78, 96, .7)",
+      "teasers": [
+        {
+          "title": "Auf und davon",
+          "kicker": "",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "In der dritten Folge von «Auf und davon» steht für die Tokays in Südafrika der erste Schultag an. Sylvia und Markus Buob beginnen in Schweden mit der Renovation. Und in Mexiko gehen Stefano Navarretta und Stefano Lotti vorübergehend getrennte Wege."
+        },
+        {
+          "title": "Wenn die Motorsäge keine ist",
+          "kicker": "Ein begnadeter Imitator",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "Der Graurücken-Leierschwanz sorgt in seiner Heimat Australien des öftern für Verwirrung: Alarmsirenen, klickende Kameras oder sogar Motorsägen ahmt er täuschend echt nach."
+        },
+        {
+          "title": "Anti-Merkel-Shirt vom Markt genommen",
+          "kicker": "Aufdruck der Kanzlerin",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet."
+        }
+      ]
+    },
+    {
+      "styleModifier": "collection--compact-swipeable",
+      "title": "Compact Swipeable Collection, 6 Teaser",
+      "teasers": [
+        {
+          "title": "Auf und davon",
+          "kicker": "",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "In der dritten Folge von «Auf und davon» steht für die Tokays in Südafrika der erste Schultag an. Sylvia und Markus Buob beginnen in Schweden mit der Renovation. Und in Mexiko gehen Stefano Navarretta und Stefano Lotti vorübergehend getrennte Wege."
+        },
+        {
+          "title": "Wenn die Motorsäge keine ist",
+          "kicker": "Ein begnadeter Imitator",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "Der Graurücken-Leierschwanz sorgt in seiner Heimat Australien des öftern für Verwirrung: Alarmsirenen, klickende Kameras oder sogar Motorsägen ahmt er täuschend echt nach."
+        },
+        {
+          "title": "Anti-Merkel-Shirt vom Markt genommen",
+          "kicker": "Aufdruck der Kanzlerin",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet."
+        },
+        {
+          "title": "Richtungsweisende Erfindung",
+          "kicker": "Kompass",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet."
+        },
+        {
+          "title": "Richtungsweisende Erfindung",
+          "kicker": "Kompass",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet."
+        },
+        {
+          "title": "Richtungsweisende Erfindung",
+          "kicker": "Kompass",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet."
+        }
+      ]
+    },
+    {
+      "styleModifier": "collection--compact-swipeable collection--branded collection--branded-light",
+      "title": "Compact Swipeable Collection, 6 Teaser, Themed",
+      "theme": {
+        "colorStart": "#4b7f5b",
+        "colorEnd": "#154e60"
+      },
+      "themeColorStartTransparent": "rgba(75, 127, 91, .7)",
+      "themeColorEndTransparent": "rgba(21, 78, 96, .7)",
+      "teasers": [
+        {
+          "title": "Auf und davon",
+          "kicker": "",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "In der dritten Folge von «Auf und davon» steht für die Tokays in Südafrika der erste Schultag an. Sylvia und Markus Buob beginnen in Schweden mit der Renovation. Und in Mexiko gehen Stefano Navarretta und Stefano Lotti vorübergehend getrennte Wege."
+        },
+        {
+          "title": "Wenn die Motorsäge keine ist",
+          "kicker": "Ein begnadeter Imitator",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "Der Graurücken-Leierschwanz sorgt in seiner Heimat Australien des öftern für Verwirrung: Alarmsirenen, klickende Kameras oder sogar Motorsägen ahmt er täuschend echt nach."
+        },
+        {
+          "title": "Anti-Merkel-Shirt vom Markt genommen",
+          "kicker": "Aufdruck der Kanzlerin",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet."
+        },
+        {
+          "title": "Richtungsweisende Erfindung",
+          "kicker": "Kompass",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet."
+        },
+        {
+          "title": "Richtungsweisende Erfindung",
+          "kicker": "Kompass",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet."
+        },
+        {
+          "title": "Richtungsweisende Erfindung",
+          "kicker": "Kompass",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet."
+        }
+      ]
+    },
+    {
+      "styleModifier": "collection--compact-swipeable collection--compact-swipeable-no-card",
+      "title": "Compact Swipeable Collection without Cards, 1 Teaser",
+      "teasers": [
+        {
+          "title": "Auf und davon",
+          "kicker": "",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "In der dritten Folge von «Auf und davon» steht für die Tokays in Südafrika der erste Schultag an. Sylvia und Markus Buob beginnen in Schweden mit der Renovation. Und in Mexiko gehen Stefano Navarretta und Stefano Lotti vorübergehend getrennte Wege.",
+          "styleModifier": "teaser--no-card"
+        }
+      ]
+    },
+    {
+      "styleModifier": "collection--compact-swipeable collection--compact-swipeable-no-card",
+      "title": "Compact Swipeable Collection without Cards, 2 Teaser",
+      "teasers": [
+        {
+          "title": "Auf und davon",
+          "kicker": "",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "In der dritten Folge von «Auf und davon» steht für die Tokays in Südafrika der erste Schultag an. Sylvia und Markus Buob beginnen in Schweden mit der Renovation. Und in Mexiko gehen Stefano Navarretta und Stefano Lotti vorübergehend getrennte Wege.",
+          "styleModifier": "teaser--no-card"
+        },
+        {
+          "title": "Wenn die Motorsäge keine ist",
+          "kicker": "Ein begnadeter Imitator",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "Der Graurücken-Leierschwanz sorgt in seiner Heimat Australien des öftern für Verwirrung: Alarmsirenen, klickende Kameras oder sogar Motorsägen ahmt er täuschend echt nach.",
+          "styleModifier": "teaser--no-card"
+        }
+      ]
+    },
+    {
+      "styleModifier": "collection--compact-swipeable collection--compact-swipeable-no-card",
+      "title": "Compact Swipeable Collection without Cards, 6 Teaser",
+      "teasers": [
+        {
+          "title": "Auf und davon",
+          "kicker": "",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "In der dritten Folge von «Auf und davon» steht für die Tokays in Südafrika der erste Schultag an. Sylvia und Markus Buob beginnen in Schweden mit der Renovation. Und in Mexiko gehen Stefano Navarretta und Stefano Lotti vorübergehend getrennte Wege.",
+          "styleModifier": "teaser--no-card"
+        },
+        {
+          "title": "Wenn die Motorsäge keine ist",
+          "kicker": "Ein begnadeter Imitator",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "Der Graurücken-Leierschwanz sorgt in seiner Heimat Australien des öftern für Verwirrung: Alarmsirenen, klickende Kameras oder sogar Motorsägen ahmt er täuschend echt nach.",
+          "styleModifier": "teaser--no-card"
+        },
+        {
+          "title": "Anti-Merkel-Shirt vom Markt genommen",
+          "kicker": "Aufdruck der Kanzlerin",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet.",
+          "styleModifier": "teaser--no-card"
+        },
+        {
+          "title": "Richtungsweisende Erfindung",
+          "kicker": "Kompass",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet.",
+          "styleModifier": "teaser--no-card"
+        },
+        {
+          "title": "Richtungsweisende Erfindung",
+          "kicker": "Kompass",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet.",
+          "styleModifier": "teaser--no-card"
+        },
+        {
+          "title": "Richtungsweisende Erfindung",
+          "kicker": "Kompass",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet.",
+          "styleModifier": "teaser--no-card"
+        }
+      ]
+    },
+    {
+      "styleModifier": "collection--dense-swipeable",
+      "title": "Dense Swipeable Collection, 1 Teaser",
+      "teasers": [
+        {
+          "title": "Auf und davon",
+          "kicker": "",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "In der dritten Folge von «Auf und davon» steht für die Tokays in Südafrika der erste Schultag an. Sylvia und Markus Buob beginnen in Schweden mit der Renovation. Und in Mexiko gehen Stefano Navarretta und Stefano Lotti vorübergehend getrennte Wege."
+        }
+      ]
+    },
+    {
+      "styleModifier": "collection--dense-swipeable collection--branded collection--branded-light",
+      "title": "Dense Swipeable Collection, 1 Teaser, Themed",
+      "theme": {
+        "colorStart": "#4b7f5b",
+        "colorEnd": "#154e60"
+      },
+      "themeColorStartTransparent": "rgba(75, 127, 91, .7)",
+      "themeColorEndTransparent": "rgba(21, 78, 96, .7)",
+      "teasers": [
+        {
+          "title": "Auf und davon",
+          "kicker": "",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "In der dritten Folge von «Auf und davon» steht für die Tokays in Südafrika der erste Schultag an. Sylvia und Markus Buob beginnen in Schweden mit der Renovation. Und in Mexiko gehen Stefano Navarretta und Stefano Lotti vorübergehend getrennte Wege."
+        }
+      ]
+    },
+    {
+      "styleModifier": "collection--dense-swipeable",
+      "title": "Dense Swipeable Collection, 2 Teaser",
+      "teasers": [
+        {
+          "title": "Auf und davon",
+          "kicker": "",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "In der dritten Folge von «Auf und davon» steht für die Tokays in Südafrika der erste Schultag an. Sylvia und Markus Buob beginnen in Schweden mit der Renovation. Und in Mexiko gehen Stefano Navarretta und Stefano Lotti vorübergehend getrennte Wege."
+        },
+        {
+          "title": "Auf und davon",
+          "kicker": "",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "In der dritten Folge von «Auf und davon» steht für die Tokays in Südafrika der erste Schultag an. Sylvia und Markus Buob beginnen in Schweden mit der Renovation. Und in Mexiko gehen Stefano Navarretta und Stefano Lotti vorübergehend getrennte Wege."
+        }
+      ]
+    },
+    {
+      "styleModifier": "collection--dense-swipeable collection--branded collection--branded-light",
+      "title": "Dense Swipeable Collection, 2 Teaser, Themed",
+      "theme": {
+        "colorStart": "#4b7f5b",
+        "colorEnd": "#154e60"
+      },
+      "themeColorStartTransparent": "rgba(75, 127, 91, .7)",
+      "themeColorEndTransparent": "rgba(21, 78, 96, .7)",
+      "teasers": [
+        {
+          "title": "Auf und davon",
+          "kicker": "",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "In der dritten Folge von «Auf und davon» steht für die Tokays in Südafrika der erste Schultag an. Sylvia und Markus Buob beginnen in Schweden mit der Renovation. Und in Mexiko gehen Stefano Navarretta und Stefano Lotti vorübergehend getrennte Wege."
+        },
+        {
+          "title": "Auf und davon",
+          "kicker": "",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "In der dritten Folge von «Auf und davon» steht für die Tokays in Südafrika der erste Schultag an. Sylvia und Markus Buob beginnen in Schweden mit der Renovation. Und in Mexiko gehen Stefano Navarretta und Stefano Lotti vorübergehend getrennte Wege."
+        }
+      ]
+    },
+    {
+      "styleModifier": "collection--dense-swipeable",
+      "title": "Dense Swipeable Collection, 3 Teaser",
+      "teasers": [
+        {
+          "title": "Auf und davon",
+          "kicker": "",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "In der dritten Folge von «Auf und davon» steht für die Tokays in Südafrika der erste Schultag an. Sylvia und Markus Buob beginnen in Schweden mit der Renovation. Und in Mexiko gehen Stefano Navarretta und Stefano Lotti vorübergehend getrennte Wege."
+        },
+        {
+          "title": "Auf und davon",
+          "kicker": "",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "In der dritten Folge von «Auf und davon» steht für die Tokays in Südafrika der erste Schultag an. Sylvia und Markus Buob beginnen in Schweden mit der Renovation. Und in Mexiko gehen Stefano Navarretta und Stefano Lotti vorübergehend getrennte Wege."
+        },
+        {
+          "title": "Auf und davon",
+          "kicker": "",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "In der dritten Folge von «Auf und davon» steht für die Tokays in Südafrika der erste Schultag an. Sylvia und Markus Buob beginnen in Schweden mit der Renovation. Und in Mexiko gehen Stefano Navarretta und Stefano Lotti vorübergehend getrennte Wege."
+        }
+      ]
+    },
+    {
+      "styleModifier": "collection--dense-swipeable collection--branded collection--branded-light",
+      "title": "Dense Swipeable Collection, 3 Teaser, Themed",
+      "theme": {
+        "colorStart": "#4b7f5b",
+        "colorEnd": "#154e60"
+      },
+      "themeColorStartTransparent": "rgba(75, 127, 91, .7)",
+      "themeColorEndTransparent": "rgba(21, 78, 96, .7)",
+      "teasers": [
+        {
+          "title": "Auf und davon",
+          "kicker": "",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "In der dritten Folge von «Auf und davon» steht für die Tokays in Südafrika der erste Schultag an. Sylvia und Markus Buob beginnen in Schweden mit der Renovation. Und in Mexiko gehen Stefano Navarretta und Stefano Lotti vorübergehend getrennte Wege."
+        },
+        {
+          "title": "Auf und davon",
+          "kicker": "",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "In der dritten Folge von «Auf und davon» steht für die Tokays in Südafrika der erste Schultag an. Sylvia und Markus Buob beginnen in Schweden mit der Renovation. Und in Mexiko gehen Stefano Navarretta und Stefano Lotti vorübergehend getrennte Wege."
+        },
+        {
+          "title": "Auf und davon",
+          "kicker": "",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "In der dritten Folge von «Auf und davon» steht für die Tokays in Südafrika der erste Schultag an. Sylvia und Markus Buob beginnen in Schweden mit der Renovation. Und in Mexiko gehen Stefano Navarretta und Stefano Lotti vorübergehend getrennte Wege."
+        }
+      ]
+    },
+    {
+      "styleModifier": "collection--dense-swipeable",
+      "title": "Dense Swipeable Collection, 6 Teaser",
+      "teasers": [
+        {
+          "title": "Auf und davon",
+          "kicker": "",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "In der dritten Folge von «Auf und davon» steht für die Tokays in Südafrika der erste Schultag an. Sylvia und Markus Buob beginnen in Schweden mit der Renovation. Und in Mexiko gehen Stefano Navarretta und Stefano Lotti vorübergehend getrennte Wege."
+        },
+        {
+          "title": "Auf und davon",
+          "kicker": "",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "In der dritten Folge von «Auf und davon» steht für die Tokays in Südafrika der erste Schultag an. Sylvia und Markus Buob beginnen in Schweden mit der Renovation. Und in Mexiko gehen Stefano Navarretta und Stefano Lotti vorübergehend getrennte Wege."
+        },
+        {
+          "title": "Auf und davon",
+          "kicker": "",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "In der dritten Folge von «Auf und davon» steht für die Tokays in Südafrika der erste Schultag an. Sylvia und Markus Buob beginnen in Schweden mit der Renovation. Und in Mexiko gehen Stefano Navarretta und Stefano Lotti vorübergehend getrennte Wege."
+        },
+        {
+          "title": "Auf und davon",
+          "kicker": "",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "In der dritten Folge von «Auf und davon» steht für die Tokays in Südafrika der erste Schultag an. Sylvia und Markus Buob beginnen in Schweden mit der Renovation. Und in Mexiko gehen Stefano Navarretta und Stefano Lotti vorübergehend getrennte Wege."
+        },
+        {
+          "title": "Auf und davon",
+          "kicker": "",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "In der dritten Folge von «Auf und davon» steht für die Tokays in Südafrika der erste Schultag an. Sylvia und Markus Buob beginnen in Schweden mit der Renovation. Und in Mexiko gehen Stefano Navarretta und Stefano Lotti vorübergehend getrennte Wege."
+        },
+        {
+          "title": "Auf und davon",
+          "kicker": "",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "In der dritten Folge von «Auf und davon» steht für die Tokays in Südafrika der erste Schultag an. Sylvia und Markus Buob beginnen in Schweden mit der Renovation. Und in Mexiko gehen Stefano Navarretta und Stefano Lotti vorübergehend getrennte Wege."
+        }
+      ]
+    },
+    {
+      "styleModifier": "collection--dense-swipeable collection--branded collection--branded-light",
+      "title": "Dense Swipeable Collection, 6 Teaser, Themed",
+      "theme": {
+        "colorStart": "#4b7f5b",
+        "colorEnd": "#154e60"
+      },
+      "themeColorEndTransparent": "rgba(21, 78, 96, .7)",
+      "themeColorStartTransparent": "rgba(75, 127, 91, .7)",
+      "teasers": [
+        {
+          "title": "Auf und davon",
+          "kicker": "",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "In der dritten Folge von «Auf und davon» steht für die Tokays in Südafrika der erste Schultag an. Sylvia und Markus Buob beginnen in Schweden mit der Renovation. Und in Mexiko gehen Stefano Navarretta und Stefano Lotti vorübergehend getrennte Wege."
+        },
+        {
+          "title": "Auf und davon",
+          "kicker": "",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "In der dritten Folge von «Auf und davon» steht für die Tokays in Südafrika der erste Schultag an. Sylvia und Markus Buob beginnen in Schweden mit der Renovation. Und in Mexiko gehen Stefano Navarretta und Stefano Lotti vorübergehend getrennte Wege."
+        },
+        {
+          "title": "Auf und davon",
+          "kicker": "",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "In der dritten Folge von «Auf und davon» steht für die Tokays in Südafrika der erste Schultag an. Sylvia und Markus Buob beginnen in Schweden mit der Renovation. Und in Mexiko gehen Stefano Navarretta und Stefano Lotti vorübergehend getrennte Wege."
+        },
+        {
+          "title": "Auf und davon",
+          "kicker": "",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "In der dritten Folge von «Auf und davon» steht für die Tokays in Südafrika der erste Schultag an. Sylvia und Markus Buob beginnen in Schweden mit der Renovation. Und in Mexiko gehen Stefano Navarretta und Stefano Lotti vorübergehend getrennte Wege."
+        },
+        {
+          "title": "Auf und davon",
+          "kicker": "",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "In der dritten Folge von «Auf und davon» steht für die Tokays in Südafrika der erste Schultag an. Sylvia und Markus Buob beginnen in Schweden mit der Renovation. Und in Mexiko gehen Stefano Navarretta und Stefano Lotti vorübergehend getrennte Wege."
+        },
+        {
+          "title": "Auf und davon",
+          "kicker": "",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "In der dritten Folge von «Auf und davon» steht für die Tokays in Südafrika der erste Schultag an. Sylvia und Markus Buob beginnen in Schweden mit der Renovation. Und in Mexiko gehen Stefano Navarretta und Stefano Lotti vorübergehend getrennte Wege."
+        }
+      ]
+    },
+    {
+      "styleModifier": "collection--dense-swipeable",
+      "title": "Dense Swipeable Collection, 8 Teaser",
+      "teasers": [
+        {
+          "title": "Auf und davon",
+          "kicker": "",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "In der dritten Folge von «Auf und davon» steht für die Tokays in Südafrika der erste Schultag an. Sylvia und Markus Buob beginnen in Schweden mit der Renovation. Und in Mexiko gehen Stefano Navarretta und Stefano Lotti vorübergehend getrennte Wege."
+        },
+        {
+          "title": "Auf und davon",
+          "kicker": "",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "In der dritten Folge von «Auf und davon» steht für die Tokays in Südafrika der erste Schultag an. Sylvia und Markus Buob beginnen in Schweden mit der Renovation. Und in Mexiko gehen Stefano Navarretta und Stefano Lotti vorübergehend getrennte Wege."
+        },
+        {
+          "title": "Auf und davon",
+          "kicker": "",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "In der dritten Folge von «Auf und davon» steht für die Tokays in Südafrika der erste Schultag an. Sylvia und Markus Buob beginnen in Schweden mit der Renovation. Und in Mexiko gehen Stefano Navarretta und Stefano Lotti vorübergehend getrennte Wege."
+        },
+        {
+          "title": "Auf und davon",
+          "kicker": "",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "In der dritten Folge von «Auf und davon» steht für die Tokays in Südafrika der erste Schultag an. Sylvia und Markus Buob beginnen in Schweden mit der Renovation. Und in Mexiko gehen Stefano Navarretta und Stefano Lotti vorübergehend getrennte Wege."
+        },
+        {
+          "title": "Auf und davon",
+          "kicker": "",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "In der dritten Folge von «Auf und davon» steht für die Tokays in Südafrika der erste Schultag an. Sylvia und Markus Buob beginnen in Schweden mit der Renovation. Und in Mexiko gehen Stefano Navarretta und Stefano Lotti vorübergehend getrennte Wege."
+        },
+        {
+          "title": "Auf und davon",
+          "kicker": "",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "In der dritten Folge von «Auf und davon» steht für die Tokays in Südafrika der erste Schultag an. Sylvia und Markus Buob beginnen in Schweden mit der Renovation. Und in Mexiko gehen Stefano Navarretta und Stefano Lotti vorübergehend getrennte Wege."
+        },
+        {
+          "title": "Auf und davon",
+          "kicker": "",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "In der dritten Folge von «Auf und davon» steht für die Tokays in Südafrika der erste Schultag an. Sylvia und Markus Buob beginnen in Schweden mit der Renovation. Und in Mexiko gehen Stefano Navarretta und Stefano Lotti vorübergehend getrennte Wege."
+        },
+        {
+          "title": "Auf und davon",
+          "kicker": "",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "In der dritten Folge von «Auf und davon» steht für die Tokays in Südafrika der erste Schultag an. Sylvia und Markus Buob beginnen in Schweden mit der Renovation. Und in Mexiko gehen Stefano Navarretta und Stefano Lotti vorübergehend getrennte Wege."
+        }
+      ]
+    },
+    {
+      "styleModifier": "collection--dense-swipeable collection--branded collection--branded-light",
+      "title": "Dense Swipeable Collection, 8 Teaser, Themed",
+      "theme": {
+        "colorStart": "#4b7f5b",
+        "colorEnd": "#154e60"
+      },
+      "themeColorEndTransparent": "rgba(21, 78, 96, .7)",
+      "themeColorStartTransparent": "rgba(75, 127, 91, .7)",
+      "teasers": [
+        {
+          "title": "Auf und davon",
+          "kicker": "",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "In der dritten Folge von «Auf und davon» steht für die Tokays in Südafrika der erste Schultag an. Sylvia und Markus Buob beginnen in Schweden mit der Renovation. Und in Mexiko gehen Stefano Navarretta und Stefano Lotti vorübergehend getrennte Wege."
+        },
+        {
+          "title": "Auf und davon",
+          "kicker": "",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "In der dritten Folge von «Auf und davon» steht für die Tokays in Südafrika der erste Schultag an. Sylvia und Markus Buob beginnen in Schweden mit der Renovation. Und in Mexiko gehen Stefano Navarretta und Stefano Lotti vorübergehend getrennte Wege."
+        },
+        {
+          "title": "Auf und davon",
+          "kicker": "",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "In der dritten Folge von «Auf und davon» steht für die Tokays in Südafrika der erste Schultag an. Sylvia und Markus Buob beginnen in Schweden mit der Renovation. Und in Mexiko gehen Stefano Navarretta und Stefano Lotti vorübergehend getrennte Wege."
+        },
+        {
+          "title": "Auf und davon",
+          "kicker": "",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "In der dritten Folge von «Auf und davon» steht für die Tokays in Südafrika der erste Schultag an. Sylvia und Markus Buob beginnen in Schweden mit der Renovation. Und in Mexiko gehen Stefano Navarretta und Stefano Lotti vorübergehend getrennte Wege."
+        },
+        {
+          "title": "Auf und davon",
+          "kicker": "",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "In der dritten Folge von «Auf und davon» steht für die Tokays in Südafrika der erste Schultag an. Sylvia und Markus Buob beginnen in Schweden mit der Renovation. Und in Mexiko gehen Stefano Navarretta und Stefano Lotti vorübergehend getrennte Wege."
+        },
+        {
+          "title": "Auf und davon",
+          "kicker": "",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "In der dritten Folge von «Auf und davon» steht für die Tokays in Südafrika der erste Schultag an. Sylvia und Markus Buob beginnen in Schweden mit der Renovation. Und in Mexiko gehen Stefano Navarretta und Stefano Lotti vorübergehend getrennte Wege."
+        },
+        {
+          "title": "Auf und davon",
+          "kicker": "",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "In der dritten Folge von «Auf und davon» steht für die Tokays in Südafrika der erste Schultag an. Sylvia und Markus Buob beginnen in Schweden mit der Renovation. Und in Mexiko gehen Stefano Navarretta und Stefano Lotti vorübergehend getrennte Wege."
+        },
+        {
+          "title": "Auf und davon",
+          "kicker": "",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "In der dritten Folge von «Auf und davon» steht für die Tokays in Südafrika der erste Schultag an. Sylvia und Markus Buob beginnen in Schweden mit der Renovation. Und in Mexiko gehen Stefano Navarretta und Stefano Lotti vorübergehend getrennte Wege."
+        }
+      ]
+    },
+    {
+      "styleModifier": "collection--standard",
+      "title": "Standard Collection, 3 Teaser",
+      "teasers": [
+        {
+          "title": "Auf und davon",
+          "kicker": "",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "In der dritten Folge von «Auf und davon» steht für die Tokays in Südafrika der erste Schultag an. Sylvia und Markus Buob beginnen in Schweden mit der Renovation. Und in Mexiko gehen Stefano Navarretta und Stefano Lotti vorübergehend getrennte Wege."
+        },
+        {
+          "title": "Wenn die Motorsäge keine ist",
+          "kicker": "Ein begnadeter Imitator",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "Der Graurücken-Leierschwanz sorgt in seiner Heimat Australien des öftern für Verwirrung: Alarmsirenen, klickende Kameras oder sogar Motorsägen ahmt er täuschend echt nach."
+        },
+        {
+          "title": "Anti-Merkel-Shirt vom Markt genommen",
+          "kicker": "Aufdruck der Kanzlerin",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet."
+        }
+      ]
+    },
+    {
+      "styleModifier": "collection--standard collection--branded collection--branded-light",
+      "title": "Standard Collection, 3 Teaser, Themed",
+      "theme": {
+        "colorStart": "#4b7f5b",
+        "colorEnd": "#154e60"
+      },
+      "themeColorStartTransparent": "rgba(75, 127, 91, .7)",
+      "themeColorEndTransparent": "rgba(21, 78, 96, .7)",
+      "teasers": [
+        {
+          "title": "Auf und davon",
+          "kicker": "",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "In der dritten Folge von «Auf und davon» steht für die Tokays in Südafrika der erste Schultag an. Sylvia und Markus Buob beginnen in Schweden mit der Renovation. Und in Mexiko gehen Stefano Navarretta und Stefano Lotti vorübergehend getrennte Wege."
+        },
+        {
+          "title": "Wenn die Motorsäge keine ist",
+          "kicker": "Ein begnadeter Imitator",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "Der Graurücken-Leierschwanz sorgt in seiner Heimat Australien des öftern für Verwirrung: Alarmsirenen, klickende Kameras oder sogar Motorsägen ahmt er täuschend echt nach."
+        },
+        {
+          "title": "Anti-Merkel-Shirt vom Markt genommen",
+          "kicker": "Aufdruck der Kanzlerin",
+          "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
+          "link": "#",
+          "subtitle": "Schweizer Auswanderer und ihre Abenteuer (3/6)",
+          "lead": "Neueste Erkenntnisse ergaben, dass Milch tatsächlich von Kühen kommt. Zürcher sind erstaunt und entrüstet."
+        }
+      ]
+    }
+  ]
+}

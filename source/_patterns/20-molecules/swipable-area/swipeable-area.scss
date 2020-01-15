@@ -1,88 +1,236 @@
+@import "../../mixins";
+@import "../../variables";
+@import "./swipeable-variables";
+
 .swipeable-area {
   position: relative;
   overflow: hidden;
-}
-
-.swipeable-area__button {
-  display: none;
-  opacity: 0;
-  align-items: center;
-  justify-content: flex-start;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 20;
-  width: 56px;
-  height: 100%;
-  pointer-events: none;
-
-  span {
-    margin-left: 16px;
-    flex-shrink: 0;
-    @include caret('grey', 'left', 'large');
-  }
 
   @include desktop-up {
-    display: flex;
+    margin: 0 -88px;
+    
+    &:hover {
+      .swipeable-area__button-container:not(.swipeable-area__button-container--hidden) {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
   }
-}
 
-.swipeable-area__button--forward {
-  left: auto;
-  right: 0;
-  justify-content: flex-end;
-
-  span {
-    margin-left: 0;
-    margin-right: 16px;
-    @include caret('grey', 'right', 'large');
+  @include desktop-wide {
+    margin: 0 -80px;
   }
-}
-
-.swipeable-area__button--active {
-  opacity: 1;
 }
 
 .swipeable-area__wrapper {
   overflow-x: scroll;
   overflow-y: hidden;
   width: 100%;
-  box-sizing: content-box;
   -webkit-overflow-scrolling: touch; // enable momentum scrolling on ios
+  transform: translate3d(0, 0, 0); // let the hardware render this
   @include preventScrollbars();
+  
+  scroll-snap-type: mandatory; // fallback for old spec without dimension, see https://www.w3.org/TR/2015/WD-css-snappoints-1-20150326/
+  scroll-snap-type: x mandatory;
 
-  // Direct child (usually an <ul>) can be animated by the hinting mechanism (See fef-swipeable-area.js:hintOn/hintOff)
-  > * {
-    transition: transform .2s ease-in-out;
+  scroll-behavior: smooth;
+  @include reducedMotion {
+    scroll-behavior: auto;
+  }
+
+  @include desktop-up {
+    scroll-padding: 120px;
   }
 }
 
 .swipeable-area__item {
-  opacity: 1;
+  scroll-snap-align: center;
+  // Prevents scrolling that appears too fast.
+  // On mobile, this forces the user to scroll/swipe item by item
+  // On tablet, it's possible to scroll/swipe one or multiple items, depending
+  // on how one swipes.
+  // Desktop and up: disabled, it's desired to be able to scroll over multiple
+  // items.
+  // Note: doesn't work on all browsers!
+  scroll-snap-stop: always;
+  
   @include desktop-up {
-    transition: 0.2s opacity ease-in-out;
+    scroll-snap-align: start;
+    scroll-snap-stop: normal;
   }
 }
 
-// (at least) partially hidden item:
-// Tablet+: Make the direct child(ren) not clickable (prevents click event handler interference, e.g. video), but show cursor as pointer
-// Desktop+: Items are slightly transparent and get slightly less transparent on hover
-.swipeable-area__item--hidden {
-  @include tablet-up {
-    cursor: pointer;
+.swipeable-area__mask {
+  display: none;
+  position: absolute;
+  top: -1px;
+  width: 120px;
+  height: 100%;
 
-    > * {
-      pointer-events: none;
+  @include desktop-up {
+    display: block;
+    cursor: pointer;
+  }
+}
+
+.swipeable-area__mask--left {
+  left: 0;
+  background: linear-gradient(to right, $color-srf-warmgrey-25, $color-srf-warmgrey-25a70);
+}
+
+.swipeable-area__mask--right {
+  z-index: 0;
+  right: 0;
+  background: linear-gradient(to left, $color-srf-warmgrey-25, $color-srf-warmgrey-25a70);
+}
+
+.swipeable-area--themed {
+  @supports (--srf: cool) {
+    .swipeable-area__mask--left {
+      background: linear-gradient(90deg, var(--branded-background-color-start) 0%, var(--branded-background-color-start-transparent) 100%);
     }
+
+    .swipeable-area__mask--right {
+      background: linear-gradient(90deg, var(--branded-background-color-end-transparent) 0%, var(--branded-background-color-end) 100%);
+    }
+  }
+}
+
+/**
+ * The buttons are a bit more complicated than they could be. Reason:
+ * The 2 buttons are directly adjacent but have a shadow each, yet the shadows
+ * shouldn't be cast on each other, but rather be behind both buttons.
+ * When one button is inactive, it gets transparent and the shadow from the
+ * other button should be visible through it; its own shadow should disappear.
+ *
+ * This can only be solved by separating the button and the shadow:
+ *
+ * Both buttons active - "shared" shadow            One button active - only active button has shadow
+ * 
+ * +--------------------------------+               +--------------------------------+
+ * |               ||               |XX             |               ||               |XX
+ * |         XX    ||     XXX       |XXXX           |          XX   ||     XXX       |XXXX
+ * |      XXXX     ||       XXX     +--+XX          |        X      ||       XXX     +--+XX
+ * |     XXX       ||        XXX    |  |XX          |      XX       ||        XXX    |  |XX
+ * |       XXX     ||     XXXX      |  |XX          |        X      ||     XXXX      |  |XX
+ * |         XX    ||     XX        |  |XX          |          XX   ||     XX        |  |XX
+ * |               ||               |  |XX          |               ||               |  |XX
+ * +--------------------------------+  |XX          +--+-----------------------------+  |XX
+ *  XX|               ||               |XX             |              XX|               |XX
+ *  XX|               ||               |XX             |              XX|               |XX
+ *  XX+--------------------------------+XX             +--------------XX----------------+XX
+ *   XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX                              XXXXXXXXXXXXXXXXXXX
+ *    XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX                                XXXXXXXXXXXXXXXXX
+ *
+ * Funny enough, the buttons "on top" still get a box-shadow when being hovered over.
+ * This requires the usage of z-index, so that the hovered button is higher than its
+ * neighbor.
+ */
+.swipeable-area__button-container {
+  position: absolute;
+  display: flex;
+  visibility: hidden; // only visible when hovering over the area
+  transform: translateY(-50%); // center button vertically
+  opacity: 0; // fading the buttons in
+  transition: opacity .2s ease-in-out;
+  top: calc((100% - #{$bottom-gap-desktop}) / 2);
+  right: #{$edge-gap-desktop - $next-teaser-visible-amount-desktop};
+
+  @include desktop-wide {
+    top: calc((100% - #{$bottom-gap-desktopwide}) / 2);
+    right: #{$edge-gap-desktopwide - $next-teaser-visible-amount-desktopwide};
+  }
+}
+
+.swipeable-area__button {
+  display: none;
+  position: absolute;
+  opacity: 1;
+  box-shadow: none;
+  // opacity to switch between active/inactive; box-shadow for hover
+  transition: opacity .2s ease-in-out, box-shadow .2s ease-in-out;
+  background-color: $color-srf-neutral-white;
+  cursor: pointer;
+  border-radius: 2px;
+  padding: 4px; // results in 32x32px
+  
+  @include desktop-wide {
+    padding: 8px; // results in 40x40px
   }
 
   @include desktop-up {
-    opacity: 0.4;
+    display: flex;
+  }
 
-    &:hover,
-    &:focus,
-    &:active {
-      opacity: 0.6;
+  &:not(.swipeable-area__button--inactive) {
+    // make the clickable area of the buttons bigger
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      width: calc(100% + 16px);
+      height: calc(100% + 48px);
+      cursor: pointer;
+    }
+
+    &:hover {
+      // override hover-style from icon-button
+      opacity: 1;
+      // and give it some shadow & lift the hovered button above its neighbor
+      box-shadow: $shadow-elevation12;
+      z-index: 1;
     }
   }
+}
+
+.swipeable-area__button--left {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-right: 1px solid $color-srf-neutral-blacka08;
+  left: -1px; // leave a small gap between the buttons
+
+  &::before {
+    right: 0;
+  }
+}
+
+.swipeable-area__button--right {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  right: 0;
+
+  &::before {
+    left: 0;
+  }
+}
+
+.swipeable-area__button--inactive {
+  opacity: .4;
+  cursor: default;
+
+  // override hover-style from above
+  &:hover {
+    opacity: .4;
+  }
+}
+
+.swipeable-area__button-shadow {
+  box-shadow: $shadow-elevation6;
+  transition: box-shadow .2s ease-in-out;
+  // same sizes as the buttons above
+  height: 32px;
+  width: 32px;
+
+  @include desktop-wide {
+    height: 40px;
+    width: 40px;
+  }
+}
+
+.swipeable-area__button--left.swipeable-area__button--inactive ~ .swipeable-area__button-shadow--left {
+  box-shadow: none;
+}
+
+.swipeable-area__button--right.swipeable-area__button--inactive ~ .swipeable-area__button-shadow--right {
+  box-shadow: none;
 }
