@@ -1,6 +1,7 @@
 @import "../../variables";
 @import "../../mixins";
 @import "../../breakpoints";
+@import "./collection-swipeable.scss";
 
 $color-collection-dim: $color-srf-neutral-blacka60 !default;
 $color-collection-dim-fade: $color-srf-neutral-blacka00 !default;
@@ -17,13 +18,6 @@ $background-overlap-wide: 50px;
 
   @include desktop-wide {
     margin-top: $collection-gap-desktop-wide;
-  }
-
-  .collection__content-wrapper {
-    max-width: $desktop-wide-size;
-    margin: 0 auto;
-    background-color: transparent;
-    box-shadow: none;
   }
 
   &:first-child {
@@ -54,7 +48,7 @@ $background-overlap-wide: 50px;
     &.collection--branded {
       margin-bottom: 0;
 
-      .collection__branding-wrapper {
+      .collection__content-wrapper {
         padding-bottom: 16px;
       }
     }
@@ -65,7 +59,7 @@ $background-overlap-wide: 50px;
       &.collection--branded {
         margin-bottom: 0;
 
-        .collection__branding-wrapper {
+        .collection__content-wrapper {
           padding-bottom: 32px;
         }
       }
@@ -77,7 +71,7 @@ $background-overlap-wide: 50px;
       &.collection--branded {
         margin-bottom: 0;
 
-        .collection__branding-wrapper {
+        .collection__content-wrapper {
           padding-bottom: 40px;
         }
       }
@@ -86,7 +80,7 @@ $background-overlap-wide: 50px;
     &.collection--borderless {
       margin-bottom: 0;
 
-      .collection__branding-wrapper {
+      .collection__content-wrapper {
         padding-bottom: 0;
       }
     }
@@ -118,6 +112,31 @@ $background-overlap-wide: 50px;
   display: flex;
   flex-direction: column;
   border-radius: 2px;
+  position: relative;
+  margin: 0 auto;
+  max-width: $desktop-wide-size;
+  background-color: transparent;
+  box-shadow: none;
+
+  &:before,
+  &:after {
+    content: '';
+    display: block;
+    height: 100%;
+    width: calc((100vw - 1280px) / 2);
+    position: absolute;
+    top: 0;
+  }
+
+  &:before {
+    right: 100%;
+    background-color: var(--branded-background-color-start);
+  }
+
+  &:after {
+    left: 100%;
+    background-color: var(--branded-background-color-end);
+  }
 }
 
 .collection__title {
@@ -462,340 +481,7 @@ $background-overlap-wide: 50px;
   }
 }
 
-.collection--swipeable,
-.collection--compact-swipeable {
-  .collection__teaser-list {
-    flex-wrap: nowrap;
-    flex-direction: row;
-    margin: 0;
-  }
 
-  .collection__teaser-item {
-    min-width: calc(100% - 40px);
-    padding-right: 8px;
-    margin: 0;
-
-    @include tablet-up {
-      min-width: calc((100% - 32px - 44px) / 3.00001); // 32px: left gap between Collection and Teaser; 44px: visible part of the first 'overflowed' item
-      padding-right: 12px;
-    }
-
-    @include desktop-wide {
-      min-width: calc((100% - 40px - 56px) / 3.00001);
-      padding-right: 16px;
-    }
-
-    &:first-child {
-      margin-left: 8px;
-
-      @include tablet-up {
-        margin-left: 32px;
-      }
-
-      @include desktop-wide {
-        margin-left: 40px;
-      }
-    }
-
-    // the last item must have more space at the right side in order to align with the last teaser of
-    // the other collections
-    &:last-child {
-      @include tablet-up {
-        min-width: calc(((100% - 32px - 44px) / 3.00001) + 18px);
-      }
-
-      @include desktop-wide {
-        min-width: calc((100% - 40px - 56px) / 3.00001 + 24px);
-      }
-
-      &::after {
-        @include tablet-up {
-          content: '';
-          flex-grow: 0;
-          flex-shrink: 0;
-          @include IESafeFlexBasis(20px);
-        }
-        @include desktop-wide {
-          @include IESafeFlexBasis(24px);
-        }
-      }
-    }
-  }
-
-  // only one teaser on mobile: remove 40px gap on the right
-  @include smartphone {
-    .collection__teaser-item:last-child:first-child {
-      min-width: calc(100% - 8px);
-    }
-  }
-}
-
-.collection--swipeable,
-.collection--compact-swipeable,
-.collection--dense-swipeable {
-  .swipeable-area__button {
-    @include tablet-up {
-      height: calc(100% - 32px);
-    }
-
-    @include desktop-wide {
-      height: calc(100% - 40px);
-    }
-  }
-
-  .collection__links {
-    margin-top: 12px;
-
-    @include tablet-up {
-      margin-top: 0;
-    }
-  }
-}
-
-.collection--swipeable {
-  // 1-3 teasers on tablet+: larger gap between teasers, flex-basis same as standard teasers;
-  @include tablet-up {
-    .collection__teaser-item:nth-last-child(-n+3):first-child,
-    .collection__teaser-item:nth-last-child(-n+3):first-child ~ .collection__teaser-item {
-      flex-basis: calc((100% - 40px) / 3.00001);
-      padding-right: 24px;
-      max-width: none;
-
-      @include desktop-wide {
-        padding-right: 32px;
-      }
-
-      &:last-child {
-        min-width: 0;
-        margin-right: 8px;
-
-        &::after {
-          content: none;
-        }
-      }
-    }
-  }
-}
-
-
-// Compact Swipeable has (next to only having S teasers on all BPs) one difference to the
-// Standard Swipeable collection: On Tablet, only 2 teasers are visible instead of 3.
-.collection--compact-swipeable {
-  .collection__teaser-item {
-
-    @include tablet {
-      min-width: calc(50% - (56px / 3) - 12px);
-
-      // the last item must have more space at the right side in order to align with the last teaser of
-      // the other collections
-      &:last-child {
-        min-width: calc(50% - (56px / 3) - 12px + 20px);
-
-        &::after {
-          content: '';
-          flex-grow: 0;
-          flex-shrink: 0;
-          @include IESafeFlexBasis(20px);
-        }
-      }
-    }
-  }
-
-  .collection__swipeable-area {
-    @include tablet-up {
-      margin-bottom: 2px;
-    }
-  }
-
-  // What if there are not enough teasers for swiping?
-  // 1 teaser: not scrollable anywhere. Should look the same as compact with one teaser.
-  .collection__teaser-item:last-child:first-child {
-    @include tablet-up {
-      width: calc(50% - 12px);
-    }
-
-    @include desktop-wide {
-      width: calc(50% - 16px);
-    }
-  }
-
-  // 2 teasers: scrollable on mobile. On Tablet+ it should look the same as 2 compact teasers.
-  .collection__teaser-item:nth-last-child(2):first-child,
-  .collection__teaser-item:nth-last-child(2):first-child ~ .collection__teaser-item {
-    @include tablet-up {
-      width: calc((100% - 40px ) / 2);
-      padding-right: 24px;
-      min-width: 0;
-
-      &::after {
-        content: none;
-      }
-    }
-
-    // slightly different gaps/gutter on desktop-wide+
-    @include desktop-wide {
-      width: calc((100% - 48px ) / 2);
-      padding-right: 32px;
-    }
-  }
-
-  // 3 teasers: scrollable on mobile and tablet. On Desktop+ it should look the same as 3 compact teasers.
-  .collection__teaser-item:nth-last-child(3):first-child,
-  .collection__teaser-item:nth-last-child(3):first-child ~ .collection__teaser-item {
-    @include desktop-up {
-      width: calc((100% - 40px ) / 3.0001);
-      padding-right: 24px;
-      min-width: 0;
-
-      &::after {
-        content: none;
-      }
-    }
-
-    // slightly different gaps/gutter on desktop-wide+
-    @include desktop-wide {
-      width: calc((100% - 48px ) / 3.0001);
-      padding-right: 32px;
-    }
-  }
-}
-
-.collection--compact-swipeable--no-card {
-  // Only 1 teaser
-  .collection__teaser-item:last-child:first-child {
-    @include smartphone {
-      min-width: calc(100% - 24px);
-    }
-  }
-
-  // Exactly 2 teasers
-  .collection__teaser-item:last-child:first-child,
-  .collection__teaser-item:nth-last-child(2):first-child,
-  .collection__teaser-item:nth-last-child(2):first-child ~ .collection__teaser-item {
-    @include tablet {
-      width: calc(50% - 12px);
-    }
-
-    @include desktop-up {
-      width: calc((100% - 2 * 24px) / 3.0001);
-    }
-  }
-
-  .collection__teaser-item:first-child {
-    margin-left: 24px;
-
-    @include tablet-up {
-      margin-left: 32px;
-    }
-
-    @include desktop-wide {
-      margin-left: 40px;
-    }
-  }
-}
-
-
-
-// Dense Swipeable
-// displays up to 6 teasers (smartphone: 2) in one row at once. becomes swipeable for more teasers.
-// usually used for square teasers.
-.collection--dense-swipeable {
-  .collection__teaser-list {
-    flex-wrap: nowrap;
-    flex-direction: row;
-    margin-right: 0;
-    margin-left: 0;
-  }
-
-  .collection__teaser-item {
-    box-sizing: content-box; // paddings must not be included in ratio 1:1 calculation!
-    min-width: calc((100% - 40px - (2 * 8px)) / 2.00001);
-    padding-right: 8px;
-    margin: 0;
-
-    @include smartphone {
-      padding-bottom: 12px;
-    }
-
-    @include tablet-up {
-      min-width: calc((100% - 6px - 56px - (6 * 12px)) / 6.00001);
-      padding-right: 12px;
-      max-width: none;
-    }
-
-    @include desktop {
-      min-width: calc((100% - 20px - 56px - (6 * 12px)) / 6.00001);
-      padding-right: 12px;
-      max-width: none;
-    }
-
-    @include desktop-wide {
-      min-width: calc((100% - 40px - 56px - (6 * 16px)) / 6.00001);
-      padding-right: 16px;
-    }
-
-    &:first-child {
-      margin-left: 24px;
-
-      @include tablet-up {
-        margin-left: 32px;
-      }
-
-      @include desktop-wide {
-        margin-left: 40px;
-      }
-    }
-
-    &:last-child {
-      padding-right: 8px;
-
-      @include tablet-up {
-        padding-right: 32px;
-      }
-
-      @include desktop-wide {
-        padding-right: 40px;
-      }
-    }
-  }
-
-  // 1-2 teasers on smartphone: not swipeable.
-  .collection__teaser-item:nth-last-child(-n+2):first-child,
-  .collection__teaser-item:nth-last-child(-n+2):first-child ~ .collection__teaser-item {
-    @include smartphone {
-      box-sizing: border-box;
-      width: calc((100% - 8px) / 2.0001);
-      padding-right: 8px;
-      min-width: 0;
-
-      &::after {
-        content: none;
-      }
-    }
-  }
-
-  // 1-6 teasers on tablet-up: not swipeable. teasers should use the same grid as 3 compact teasers.
-  .collection__teaser-item:nth-last-child(-n+6):first-child,
-  .collection__teaser-item:nth-last-child(-n+6):first-child ~ .collection__teaser-item {
-
-    @include tablet-up {
-      box-sizing: border-box;
-      width: calc((100% - 40px) / 6.0001);
-      padding-right: 24px;
-      min-width: 0;
-
-      &::after {
-        content: none;
-      }
-    }
-
-    // slightly different gaps/gutter on desktop-wide+
-    @include desktop-wide {
-      width: calc((100% - 48px) / 6.0001);
-      padding-right: 32px;
-    }
-  }
-}
 
 // Hero: 1st teaser XL + fills whole row, rest M which fills 1/3 of a row.
 .collection--hero {
@@ -912,7 +598,10 @@ $background-overlap-wide: 50px;
   background-size: cover;
 
   .collection__content-wrapper {
-    background-color: transparent;
+    @supports (--srf: cool) {
+      background-image: linear-gradient(100deg, var(--branded-background-color-start) 17%, var(--branded-background-color-end) 83%);
+    }
+    border-radius: 0;
   }
 
   .collection__title,
@@ -956,36 +645,12 @@ $background-overlap-wide: 50px;
     @include caret('white', 'right', 'medium');
   }
 
-  .swipeable-area__button--forward span {
-    @include caret('white', 'right', 'large');
-  }
-
-  .swipeable-area__button--back span {
-    @include caret('white', 'left', 'large');
-  }
-
   @include smartphone {
     .collection__link-item {
       .collection__link {
         &::before {
           background-color: $color-srf-neutral-whitea12;
         }
-      }
-    }
-  }
-
-  &.collection--swipeable,
-  &.collection--compact-swipeable,
-  &.collection--dense-swipeable {
-    .collection__teaser-list {
-      margin-bottom: 12px;
-    }
-
-    .collection__links {
-      margin-top: 0;
-
-      @include tablet-up {
-        margin-top: -12px;
       }
     }
   }
@@ -1020,14 +685,6 @@ $background-overlap-wide: 50px;
   .collection__title-link-icon,
   .collection__link-icon {
     @include caret('dark', 'right', 'medium');
-  }
-
-  .swipeable-area__button--forward span {
-    @include caret('dark', 'right', 'large');
-  }
-
-  .swipeable-area__button--back span {
-    @include caret('dark', 'left', 'large');
   }
 }
 
@@ -1236,7 +893,7 @@ $background-overlap-wide: 50px;
     // show 2 teasers (+ some of a 3rd) on mobile instead of just 1
     .collection__teaser-item,
     .collection__teaser-item:last-child {
-      min-width: calc((100% - 48px) / 2.00001);
+      max-width: calc((100% - 48px) / 2.00001);
     }
 
     // slightly smaller font size on mobile, smaller gap between title and teasers
@@ -1279,14 +936,6 @@ $background-overlap-wide: 50px;
   // branding-wrapper should not have padding
   &.collection.collection--branded .collection__branding-wrapper {
     padding: 0;
-  }
-
-  .collection__teaser-item {
-    max-width: calc((100% - 48px) / 2.00001);
-
-    @include tablet-up {
-      max-width: calc((100% - 74px) / 3.00001);
-    }
   }
 
   // Search results can show 2 teasers on mobile, so if there are exactly 2

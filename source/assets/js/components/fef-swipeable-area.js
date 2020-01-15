@@ -1,4 +1,3 @@
-import {FefDebounceHelper} from '../classes/fef-debounce-helper';
 import {FefResponsiveHelper} from '../classes/fef-responsive-helper';
 import {FefTouchDetection} from '../classes/fef-touch-detection';
 import {FefResizeListener} from '../classes/fef-resize-listener';
@@ -6,15 +5,21 @@ import {FefResizeListener} from '../classes/fef-resize-listener';
 const HOOK_CLASS = 'js-swipeable-area',
     INNER_CONTAINER_CLASS = 'js-swipeable-area-wrapper',
     ITEM_CLASS = 'js-swipeable-area-item',
-    DEFAULT_PARTIALLY_VISIBLE_ITEM_CLASS = 'swipeable-area__item--hidden',
-    BACK_BUTTON_CLASS = 'swipeable-area__button swipeable-area__button--back',
-    FORWARD_BUTTON_CLASS = 'swipeable-area__button swipeable-area__button--forward',
-    BUTTON_ACTIVE_CLASS = 'swipeable-area__button--active',
-    BUTTON_BACK_THRESHOLD = 2,
-    RIGHT_OFFSET = 24,
-    DEFAULT_SCROLL_TIME = 400,
-    DEBOUNCETIME = 75,
-    HINT_AMOUNT = 20;
+    // buttons/masks needed for click handlers
+    BUTTON_CONTAINER_CLASS = 'js-swipeable-button-container',
+    BUTTON_LEFT_HOOK_CLASS = 'js-swipeable-area-button-left',
+    BUTTON_RIGHT_HOOK_CLASS = 'js-swipeable-area-button-right',
+    MASK_LEFT_HOOK_CLASS = 'js-swipeable-area-mask-left',
+    MASK_RIGHT_HOOK_CLASS = 'js-swipeable-area-mask-right',
+    // if clicking is prohibited, a button is inactive
+    BUTTON_INACTIVE_CLASS = 'swipeable-area__button--inactive',
+    // if the swipeable is currently not actually swipeable (because it doesn't have enough items)
+    BUTTON_UNNECESSARY_CLASS = 'swipeable-area__button-container--hidden',
+    DEFAULT_SCROLL_TIME = 600,
+    MINIMAL_SCROLL_TIME = 200,
+    // check if the browser understands scroll-snap-align and scroll-behavior (the latter has to be additionally checked for Safari, which supports the former, but doesn't animate scrolling)
+    SUPPORTS_SNAP_POINTS = !!((window.CSS && window.CSS.supports) || window.supportsCSS || false) && CSS.supports('scroll-snap-align: start') && CSS.supports('scroll-behavior: smooth'),
+    SUPPORTS_INTERSECTION_OBSERVER = 'IntersectionObserver' in window && 'IntersectionObserverEntry' in window && 'intersectionRatio' in window.IntersectionObserverEntry.prototype;
 
 export function init(interactionMeasureString = '') {
     $(`.${HOOK_CLASS}`).each((_, element) => {
@@ -31,54 +36,98 @@ export class FefSwipeableArea {
         this.$element = $element;
         this.$innerContainer = $(`.${INNER_CONTAINER_CLASS}`, this.$element);
         this.$items = [];
+        this.$buttonContainer = $(`.${BUTTON_CONTAINER_CLASS}`, this.$element);
+        this.$buttonLeft = $(`.${BUTTON_LEFT_HOOK_CLASS}`, this.$element);
+        this.$buttonRight = $(`.${BUTTON_RIGHT_HOOK_CLASS}`, this.$element);
+        this.$maskLeft = $(`.${MASK_LEFT_HOOK_CLASS}`, this.$element);
+        this.$maskRight = $(`.${MASK_RIGHT_HOOK_CLASS}`, this.$element);
         this.itemPositions = [];
-        this.$buttonBack = null;
-        this.$buttonForward = null;
         this.nrOfPotentialVisibleItems = 0;
         this.interactionMeasureString = interactionMeasureString;
-        this.isScrollingToEdge = false; // flag which is set to true while the container is currently being scrolled to the beginning or end by the script (not by the user)
-
-        this.visibleClass = null;
-        this.hiddenClass = null;
 
         this.initOnce();
 
         // only set up the swipeable at this point if it's swipeable
         if (this.hasScrollableOverflow()) {
-            this.init();
+            this.initSwipeability();
+        } else {
+            this.$buttonContainer.addClass(BUTTON_UNNECESSARY_CLASS);
         }
     }
 
+    /**
+     * Some listeners are necessary:
+     * - browser resize, because some events are only needed on Desktop and up
+     * - styles are done being loaded, because some calculations are depending on elements' dimensions
+     * - content can change and the swipeable needs to be informed so it can re-bind and re-calculate things
+     * - clicking on the buttons or masks should page forwards/backwards
+     * - reaching the left or right edge should set the corresponding button to inactive
+     */
     initOnce() {
-        this.initItemCheck();
-        this.registerGeneralListeners();
+        // re-init swipeability if breakpoint changed
+        this.currentBreakpoint = FefResponsiveHelper.getBreakpoint();
+        FefResizeListener.subscribeDebounced(() => {
+            let newBreakpoint = FefResponsiveHelper.getBreakpoint();
+            if (newBreakpoint != this.currentBreakpoint) {
+                this.currentBreakpoint = newBreakpoint;
+                this.initSwipeability();
+            }
+        });
+
+        $(window).on('srf.styles.loaded', () => this.initSwipeability());
+        this.$element.on('srf.swipeableArea.reinitialize srf.swipeable.content-changed', () => this.initSwipeability());
+
+        this.$buttonLeft.add(this.$maskLeft).on('mousedown touchstart', () => this.pageBack());
+        this.$buttonRight.add(this.$maskRight).on('mousedown touchstart', () => this.pageForward());
+
+        if (SUPPORTS_INTERSECTION_OBSERVER) {
+            // Taking 100% (1.0) as threshold is a bit optimistic. It can happen
+            // that the observer reports 99.99something% even if it's 100%.
+            const options = {
+                    root: this.$innerContainer[0],
+                    rootMargin: '0px',
+                    threshold: [.9]
+                },
+                callbackRight = (entries, observer) => {
+                    // set button to page LEFT to inactive when the FIRST item is completely in view
+                    entries.forEach(entry => this.$buttonRight.toggleClass(BUTTON_INACTIVE_CLASS, entry.intersectionRatio >= 0.9));
+                },
+                callbackLeft = (entries, observer) => {
+                    // set button to page RIGHT to inactive when the LAST item is completely in view
+                    entries.forEach(entry => this.$buttonLeft.toggleClass(BUTTON_INACTIVE_CLASS, entry.intersectionRatio >= 0.9));
+                };
+
+            this.rightEdgeObserver = new IntersectionObserver(callbackRight, options);
+            this.leftEdgeObserver = new IntersectionObserver(callbackLeft, options);
+        }
     }
 
-    init() {
+    initSwipeability() {
         this.$items = $(`.${ITEM_CLASS}`, this.$innerContainer);
+        this.$items
+            .off('click.srf.swipeable-area-desktop')
+            .on('click.srf.swipeable-area-desktop', (event) => this.onTeaserClick(event));
 
-        // scroll back to the beginning (matters when swipeable was reinitialized)
+        // scroll back to the beginning (necessary when swipeable was reinitialized)
         this.scrollToPosition(0, 0);
 
-        if (FefResponsiveHelper.isDesktopUp() && !FefTouchDetection.isTouchSupported()) {
+        // buttons are necessary again (depending on the breakpoint, but that's handled in CSS)
+        this.$buttonContainer.toggleClass(BUTTON_UNNECESSARY_CLASS, !this.hasScrollableOverflow());
+
+        // on desktop and up the buttons are used to page back and forth.
+        if (FefResponsiveHelper.isDesktopUp()) {
             this.registerDesktopListeners();
-            this.markItems();
-            this.addButtons();
-            this.updateButtonStatus();
-            this.initItemPositions();
-            this.setupHinting();
+            this.updateFlyingFocus();
+            
+            // If scroll-snap-points are not (fully) supported, we use the
+            // traditional way of calculating where to scroll to:
+            // calculating it from the items' positions
+            if (!SUPPORTS_SNAP_POINTS) {
+                this.initItemPositions();
+            }
         } else {
             this.deregisterDesktopListeners();
-            this.disableHinting();
         }
-    }
-
-    initItemCheck() {
-        const markVisibleClass = this.$element.data('mark-visible-items');
-        const markHiddenClass = this.$element.data('mark-hidden-items');
-
-        this.visibleClass = markVisibleClass ? markVisibleClass : '';
-        this.hiddenClass = markHiddenClass ? markHiddenClass : DEFAULT_PARTIALLY_VISIBLE_ITEM_CLASS;
     }
 
     initItemPositions() {
@@ -102,190 +151,67 @@ export class FefSwipeableArea {
     }
 
     /**
-     * To find out how many items could be fit in the visible area, we
-     * count all items where the right edge is in the range of the
-     * container's width + one gap between the items (because in some cases
-     * when the gap is large enough it can "push" one item out of this range).
-     * 
-     * Example:
-     * If we just count the items where the right edge is less than the
-     * container's width, this would give us 1. But when we scroll a bit
-     * it's apparent that actually 2 items fit in it. That's why we add
-     * the gap to the filter condition.
-     * 
-     *            +-----------------------+ <-- container
-     *            |                       |
-     *           +---------------------------------------
-     *           ||                       |
-     *           ||        +--+         +--+         +--+
-     *           ||        |  |         | ||         |  |
-     *           ||        +--+         +--+         +--+
-     *           ||                       |
-     *           +---------------------------------------
-     *            |                       |
-     *      +---------------------------------------
-     *      |     |                       |
-     *      |     |   +--+         +--+   |     +--+
-     *      |     |   |  |         |  |   |     |  |
-     *      |     |   +--+         +--+   |     +--+
-     *      |     |                       |
-     *      +---------------------------------------
-     *            |                       |
-     *            +-----------------------+
+     * The amount of visible teasers varies depending on the breakpoint and the
+     * type of collection. We read the amount from the ::before pseudo element
+     * provided by the CSS rules in collection-swipeable.scss.
      */
     setNrOfPotentialVisibleItems() {
-        // Only set the potential visible items if there's at least one.
-        // Otherwise it's impossible to know how wide an item is.
-        if (this.itemPositions.length <= 0) {
-            return;
+        let nrFromCSSBridge = Number.parseInt(window.getComputedStyle(this.$innerContainer[0], '::before').getPropertyValue('content').replace(/\"/g, ''), 10);
+        if (Number.isInteger(nrFromCSSBridge)) {
+            this.nrOfPotentialVisibleItems = nrFromCSSBridge;
+        } else {
+            // Fallback of the fallback: 1 teaser on mobile, 3 on all other BPs
+            this.nrOfPotentialVisibleItems = FefResponsiveHelper.isSmartphone() ? 1 : 3;
         }
-
-        let containerWidth = this.$innerContainer.innerWidth(),
-            containerAndFirstGap = containerWidth + this.itemPositions[0].left;
-
-        this.nrOfPotentialVisibleItems = this.itemPositions.filter((positionSet) => positionSet.right < containerAndFirstGap).length;
     }
 
-    registerGeneralListeners() {
-        FefResizeListener.subscribeDebounced(() => this.init());
-        $(window).on('srf.styles.loaded', () => this.init());
-        this.$element.on('srf.swipeableArea.reinitialize srf.swipeable.content-changed', () => this.init());
-    };
-
     registerDesktopListeners() {
-        this.$items
-            .off('click.srf.swipeable-area-desktop')
-            .on('click.srf.swipeable-area-desktop', (event) => this.onTeaserClick(event));
-
-        this.$innerContainer
-            .off('scroll.srf.swipeable-area-desktop')
-            .on('scroll.srf.swipeable-area-desktop', FefDebounceHelper.throttle(() => this.scrollHandlerDesktop(), DEBOUNCETIME));
+        if (SUPPORTS_INTERSECTION_OBSERVER) {
+            this.rightEdgeObserver.observe(this.$items.last().find('.js-teaser')[0]);
+            this.leftEdgeObserver.observe(this.$items.first().find('.js-teaser')[0]);
+        }
     }
 
     deregisterDesktopListeners() {
-        this.$items.off('click.srf.swipeable-area-desktop');
-        this.$innerContainer.off('scroll.srf.swipeable-area-desktop');
-    }
-
-    scrollHandlerDesktop() {
-        this.markItems();
-        this.updateButtonStatus();
-    }
-
-    addButtons() {
-        // making sure to add the buttons only once
-        if (this.$buttonBack === null) {
-            this.$buttonBack = $(`<div class='${BACK_BUTTON_CLASS}'><span></span></div>`);
-            this.$buttonForward = $(`<div class='${FORWARD_BUTTON_CLASS}'><span></span></div>`);
-
-            this.$element.append(this.$buttonBack, this.$buttonForward);
+        if (SUPPORTS_INTERSECTION_OBSERVER) {
+            this.rightEdgeObserver.unobserve(this.$items.last()[0]);
+            this.leftEdgeObserver.unobserve(this.$items.first()[0]);
         }
     }
 
     /**
-     * When hovering over a partially shown item, the container content
-     * will be "hinted at", i.e. moved into view a bit more.
-     */
-    setupHinting() {
-        // hinting = showing a little bit of the remaining elements on hovering over the buttons.
-        const useHinting = !!this.$element.data('swipeable-hinting');
-
-        if (!useHinting) {
-            return;
-        }
-
-        this.$items
-            .off('mouseenter.srf.swipeable-area-desktop')
-            .on('mouseenter.srf.swipeable-area-desktop', (event) => this.onTeaserHover(event))
-            .off('mouseleave.srf.swipeable-area-desktop')
-            .on('mouseleave.srf.swipeable-area-desktop', (_) => this.applyHint(0));
-    }
-
-    disableHinting() {
-        this.$items.off('mouseenter.srf.swipeable-area-desktop');
-        this.$items.off('mouseleave.srf.swipeable-area-desktop');
-    }
-
-    /**
-     * Hovering over an item can trigger the hinting mechanism, if it's
-     * partially visible.
-     * Don't do anything if the swipeable is currently scrolling to the end of
-     * the container or the element is visible.
-     *
-     * @param {jQery.event} event
-     */
-    onTeaserHover(event) {
-        let $item = $(event.currentTarget);
-
-        if (this.isScrollingToEdge || !$item.hasClass(this.hiddenClass)) {
-            return;
-        }
-
-        // Hint left or right, depending on where the item is
-        this.applyHint(this.isOutOfBoundsLeft($item) ? HINT_AMOUNT : -HINT_AMOUNT);
-    }
-
-    /**
-     * Clicking an item can trigger pagination if it's partially visible.
-     * Instead of handing down the analytics methods or module to call upon
-     * pagination, we trigger a click on the buttons which have the correct
-     * data attribute already.
+     * Clicking an item can trigger pagination if the item is only partially
+     * visible.
      *
      * @param {jQuery.event} event
      */
     onTeaserClick(event) {
         let $item = $(event.currentTarget);
 
-        if (!$item.hasClass(this.hiddenClass)) {
-            return;
-        }
-
         // remove focus from the element that was just clicked if it was a mouse click
         if (FefTouchDetection.eventIsMouseclick(event)) {
             $(':focus').blur();
         }
 
+        let preventAction = true;
         if (this.isOutOfBoundsLeft($item)) {
             this.pageBack();
-        } else {
+        } else if (this.isOutOfBoundsRight($item)) {
             this.pageForward();
+        } else {
+            preventAction = false;
         }
 
-        // Don't go to the link of the teaser
-        event.preventDefault();
-        event.stopPropagation();
-        return false;
-    }
-
-    /**
-     * Shows/hides the buttons via class if needed.
-     * - Buttons only appear on Breakpoints Desktop and Desktop Wide
-     * - If scrolled to the very end, don't show the forward button
-     * - If scrolled to the very beginning, don't show the back button
-     *
-     * If the buttons shouldn't be visible at all, they're hidden here.
-     */
-    updateButtonStatus() {
-        // show forward/back buttons if needed
-        if (this.hasScrollableOverflow()) {
-            this.$buttonForward.toggleClass(BUTTON_ACTIVE_CLASS, !this.isAtScrollEnd());
-            this.$buttonBack.toggleClass(BUTTON_ACTIVE_CLASS, !this.isAtScrollBeginning());
-        } else {
-            this.$buttonForward.removeClass(BUTTON_ACTIVE_CLASS);
-            this.$buttonBack.removeClass(BUTTON_ACTIVE_CLASS);
+        if (preventAction) {
+            // Don't go to the link of the teaser
+            event.preventDefault();
+            event.stopPropagation();
+            return false;
         }
     }
 
     hasScrollableOverflow() {
-        return this.$innerContainer[0].scrollWidth > this.$innerContainer.innerWidth() + RIGHT_OFFSET;
-    }
-
-    isAtScrollEnd() {
-        return this.$innerContainer.scrollLeft() + this.$innerContainer.innerWidth() >= this.$innerContainer[0].scrollWidth;
-    }
-
-    isAtScrollBeginning() {
-        return this.$innerContainer.scrollLeft() <= BUTTON_BACK_THRESHOLD;
+        return this.$innerContainer[0].scrollWidth > this.$innerContainer.innerWidth();
     }
 
     /**
@@ -311,7 +237,7 @@ export class FefSwipeableArea {
                 targetIndex = partiallyVisibleItemIndex - (this.nrOfPotentialVisibleItems / 2) + 1;
             } else {
                 // ODD
-                targetIndex = partiallyVisibleItemIndex - (this.nrOfPotentialVisibleItems - 1) / 2;
+                targetIndex = partiallyVisibleItemIndex - (this.nrOfPotentialVisibleItems + 1) / 2;
             }
         }
 
@@ -409,18 +335,33 @@ export class FefSwipeableArea {
      * right-most) item and use it as the "target" item to center.
      */
     pageForward() {
-        let containerWidth = this.$innerContainer.innerWidth(),
-            visibleAreaRightEdge = this.$innerContainer.scrollLeft() + containerWidth,
-            partiallyVisibleItemIndex = this.itemPositions.findIndex(pos => pos.right > visibleAreaRightEdge),
-            targetItemIndex = this.getTargetItemIndex(partiallyVisibleItemIndex, 'forward');
-
-        // Make sure index is not out of bounds
-        targetItemIndex = Math.min(targetItemIndex, this.itemPositions.length - 1);
-
-        let newPosition = this.getCenterTargetPosition(targetItemIndex, 'forward') - (containerWidth / 2);
-
-        this.scrollToPosition(newPosition);
         this.track('click-right');
+
+        if (SUPPORTS_SNAP_POINTS) {
+            // simplified b/c scroll snap points:
+            // attempt to scroll to a position that's one containerwidth to the right. Done.
+            let containerWidth = this.$innerContainer.width();
+            this.$innerContainer.scrollLeft(this.$innerContainer.scrollLeft() + containerWidth);
+            return;
+        } else {
+            let containerWidth = this.$innerContainer.width(),
+                visibleAreaRightEdge = this.$innerContainer.scrollLeft() + containerWidth,
+                partiallyVisibleItemIndex = this.itemPositions.findIndex(pos => pos.right > visibleAreaRightEdge),
+                targetItemIndex = this.getTargetItemIndex(partiallyVisibleItemIndex, 'forward'),
+                targetIsOutOfBounds = targetItemIndex >= this.itemPositions.length;
+
+            this.$buttonRight.toggleClass(BUTTON_INACTIVE_CLASS, targetIsOutOfBounds);
+            this.$buttonLeft.removeClass(BUTTON_INACTIVE_CLASS);
+
+            // Make sure index is not out of bounds
+            if (targetIsOutOfBounds) {
+                targetItemIndex = this.itemPositions.length - 1;
+            }
+
+            let newPosition = this.getCenterTargetPosition(targetItemIndex, 'forward') - (containerWidth / 2);
+
+            this.scrollToPosition(newPosition);
+        }
     }
 
     /**
@@ -428,83 +369,69 @@ export class FefSwipeableArea {
      * For a visual description, see pageForward()'s doc block above.
      */
     pageBack() {
-        let containerWidth = this.$innerContainer.innerWidth(),
-            visibleAreaLeftEdge = this.$innerContainer.scrollLeft(),
-            partiallyVisibleItemIndex = this.itemPositions.findIndex(pos => pos.right > visibleAreaLeftEdge),
-            targetItemIndex = this.getTargetItemIndex(partiallyVisibleItemIndex, 'backward');
-
-        // Make sure index is not out of bounds
-        targetItemIndex = Math.max(targetItemIndex, 0);
-
-        let newPosition = this.getCenterTargetPosition(targetItemIndex, 'backward') - (containerWidth / 2);
-
-        this.scrollToPosition(newPosition);
         this.track('click-left');
+
+        if (SUPPORTS_SNAP_POINTS) {
+            // simplified b/c scroll snap points:
+            // attempt to scroll to a position that's one containerwidth to the right. Done.
+            let containerWidth = this.$innerContainer.width();
+
+            // attempting to scroll to a position < 0 can lead to a confusing
+            // bounce. Solution: Make sure we never try to scroll below 0px.
+            let newPosition = Math.min(0, this.$innerContainer.scrollLeft() - containerWidth);
+            this.$innerContainer.scrollLeft(newPosition);
+            return;
+        } else {
+            let containerWidth = this.$innerContainer.width(),
+                visibleAreaLeftEdge = this.$innerContainer.scrollLeft(),
+                partiallyVisibleItemIndex = this.itemPositions.findIndex(pos => pos.right > visibleAreaLeftEdge),
+                targetItemIndex = this.getTargetItemIndex(partiallyVisibleItemIndex, 'backward'),
+                targetIsOutOfBounds = targetItemIndex < 0;
+    
+            this.$buttonLeft.toggleClass(BUTTON_INACTIVE_CLASS, targetIsOutOfBounds);
+            this.$buttonRight.removeClass(BUTTON_INACTIVE_CLASS);
+    
+            // Make sure index is not out of bounds
+            if (targetIsOutOfBounds) {
+                targetItemIndex = 0;
+            }
+    
+            let newPosition = this.getCenterTargetPosition(targetItemIndex, 'backward') - (containerWidth / 2);
+    
+            this.scrollToPosition(newPosition);
+        }
     }
 
     /**
      * Scrolls to a specified position in a specified (or default) time.
-     * Also resets the hinting, if applicable, by removing the translation.
      *
      * @param {Number} position Where to scroll to
-     * @param {Number} [time] How long it should take, optional
+     * @param {Number} [time] How long it should take to travel 1200px, optional
      */
     scrollToPosition(position, time) {
         time = typeof time === 'undefined' ? DEFAULT_SCROLL_TIME : time;
 
-        this.checkFuturePosition(position);
+        // don't use jQuery's animate() if scrolling should happen instantly or
+        // if snap points are supported.
+        if (time === 0 || SUPPORTS_SNAP_POINTS) {
+            this.$innerContainer.scrollLeft(position);
+        } else {
+            // Make the time needed depend on the covered distance. This makes
+            // sure that longer distances take longer to scroll over than short
+            // distances. But it should take at least 200ms
+            time = time/1200 * (Math.abs(this.$innerContainer.scrollLeft() - position)); 
+            time = Math.max(time, MINIMAL_SCROLL_TIME);
 
-        this.$innerContainer
-            .stop(true, false)
-            .animate({ scrollLeft: position }, time, 'easeInOutSine', () => this.isScrollingToEdge = false);
+            this.$innerContainer
+                .stop(true, false)
+                .animate({ scrollLeft: position }, time, 'easeInOutSine');
+        }
+
     }
 
-    checkFuturePosition(position) {
-        // If the scroll position *will* be so that it's not possible to
-        // scroll to one direction anymore, remove the hinting. We could
-        // do this in the callback of animate, but if it happens
-        // when starting the animation, it's less janky.
-        let willBeOutOfBoundsOnAnySide = false;
-
-        if (position <= 0) {
-            willBeOutOfBoundsOnAnySide = true;
-
-            if (this.$buttonBack) {
-                this.$buttonBack.removeClass(BUTTON_ACTIVE_CLASS);
-            }
-        }
-
-        if (position + this.$innerContainer.innerWidth() >= this.$innerContainer[0].scrollWidth) {
-            willBeOutOfBoundsOnAnySide = true;
-
-            if (this.$buttonForward) {
-                this.$buttonForward.removeClass(BUTTON_ACTIVE_CLASS);
-            }
-        }
-
-        if (willBeOutOfBoundsOnAnySide) {
-            this.isScrollingToEdge = true;
-            this.applyHint(0);
-        }
-    }
-
-    markItems() {
-        let $visibleItems = this.$items.filter((_, element) => this.isItemCompletelyInView($(element))),
-            $hiddenItems = this.$items.filter((_, element) => !this.isItemCompletelyInView($(element)));
-
-        this.markItemsVisible($visibleItems);
-        this.markItemsHidden($hiddenItems);
-
+    updateFlyingFocus() {
         // move the flying focus to the new position after scrolling
         $(document).trigger('flyingfocus:move');
-    }
-
-    markItemsVisible($items) {
-        $items.each((_, element) => $(element).removeClass(this.hiddenClass).addClass(this.visibleClass));
-    }
-
-    markItemsHidden($items) {
-        $items.each((_, element) => $(element).removeClass(this.visibleClass).addClass(this.hiddenClass));
     }
 
     isItemCompletelyInView($itemElem) {
@@ -520,10 +447,6 @@ export class FefSwipeableArea {
             rightEdgeContainer = this.$innerContainer.offset().left + this.$innerContainer.outerWidth();
 
         return rightEdgeItem > rightEdgeContainer;
-    }
-
-    applyHint(pixels) {
-        this.$innerContainer.children().first().css('transform', `translateX(${pixels}px)`);
     }
 
     track(eventValue) {

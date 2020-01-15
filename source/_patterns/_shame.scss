@@ -483,3 +483,22 @@ _:-ms-fullscreen,
 main {
   display: block;
 }
+
+/*
+ * TARGETED BROWSER: Safari Mobile
+ * On touch devices, using fancy animations in scrollable containers can lead
+ * to jittery, undesired movements. Here we disable these animations, namely
+ * the box shadow on the teaser and the ::after's opacity and transition.
+ */
+@media (hover: none) {
+  .swipeable-area__item {
+    .teaser__main::after {
+      transition: none;
+      opacity: 0;
+    }
+
+    .teaser {
+      box-shadow: none !important;
+    }
+  }
+}

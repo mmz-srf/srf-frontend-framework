@@ -1,0 +1,169 @@
+<label>Show helper lanes</label>
+<input type="checkbox" class="show-helpers">1200</input>
+<div class="helper helper--1200"></div>
+
+<input type="checkbox" class="show-helpers">1216</input>
+<div class="helper helper--1216"></div>
+
+<input type="checkbox" class="show-helpers">1280</input>
+<div class="helper helper--1280"></div>
+
+<input type="checkbox" class="show-helpers">1024</input>
+<div class="helper helper--1024"></div>
+
+<input type="checkbox" class="show-helpers">8px gap</input>
+<div class="helper helper--gap8"></div>
+
+<input type="checkbox" class="show-helpers">Half</input>
+<div class="helper helper--half"></div>
+
+<style>
+    .collection:not(.collection--branded) {
+        background-color: #f5f5f2;
+    }
+
+    .helper {
+        pointer-events: none;
+        position: fixed;
+        border-left: 1px dashed;
+        border-right: 1px dashed;
+        height: 100vh;
+        z-index: 999999;
+        display: none;
+    }
+
+    .helper--1216 {
+        border-color: red;
+        width: 1216px;
+        left: calc((100% - 1216px) / 2);
+    }
+
+    .helper--1200 {
+        border-color: darkred;
+        width: 1200px;
+        left: calc((100% - 1200px) / 2);
+    }
+
+    .helper--1024 {
+        border-color: red;
+        width: 1024px;
+        left: calc((100% - 1024px) / 2);
+    }
+
+    .helper--1280 {
+        border-color: darkred;
+        width: 1280px;
+        left: calc((100% - 1280px) / 2);
+    }
+
+    .helper--gap8 {
+        border-color: darkred;
+        width: calc(100% - 16px);
+        left: 8px;
+    }
+
+    .helper--half {
+        border-color: darkred;
+        width: 1px;
+        border-right: none;
+        left: 50%;
+    }
+
+    .show-helpers:checked + .helper {
+        display: block;
+    } 
+
+</style>
+
+{% include 'organisms-collection' with {
+    'collection': {
+        "title": "Standard Collection",
+        "titleLink": "https://www-test.srf.ch/news/wirtschaft",
+        "lead": "1996 schrieb John Perry Barlow die «Unabhängigkeitserklärung des Cyberspace». Darin kritisierte er Poeten.",
+        "teasers": collections[0].teasers[0:3]
+    }
+} %}
+
+{% include 'organisms-collection' with {
+    'collection': {
+        'styleModifier': 'collection--swipeable collection--branded  collection--branded-light',
+        "theme": {
+            "colorStart": "#4b7f5b",
+            "colorEnd": "#154e60"
+        },
+        "title": "Branded Swipeable",
+        "titleLink": "https://www-test.srf.ch/news/wirtschaft",
+        "lead": "1996 schrieb John Perry Barlow die «Unabhängigkeitserklärung des Cyberspace». Darin kritisierte er Poeten.",
+        "teasers": collections[0].teasers[0:6]
+    }
+} %}
+
+{% include 'organisms-collection' with {
+    'collection': {
+        'styleModifier': 'collection--swipeable',
+        "title": "News Schweiz",
+        "titleLink": "https://www-test.srf.ch/news/wirtschaft",
+        "lead": "1996 schrieb John Perry Barlow die «Unabhängigkeitserklärung des Cyberspace». Darin kritisierte er Poeten.",
+        "teasers": collections[0].teasers[1:7]
+    }
+} %}
+
+{% include 'organisms-collection' with {
+    'collection': {
+        'styleModifier': 'collection--compact-swipeable',
+        "title": "News Schweiz Compact",
+        "titleLink": "https://www-test.srf.ch/news/wirtschaft",
+        "lead": "1996 schrieb John Perry Barlow die «Unabhängigkeitserklärung des Cyberspace». Darin kritisierte er Poeten.",
+        "teasers": collections[0].teasers[1:7]
+    }
+} %}
+
+{% include 'organisms-collection' with {
+    'collection': {
+        'styleModifier': 'collection--dense-swipeable',
+        "title": "News Schweiz Dense",
+        "titleLink": "https://www-test.srf.ch/news/wirtschaft",
+        "lead": "1996 schrieb John Perry Barlow die «Unabhängigkeitserklärung des Cyberspace». Darin kritisierte er Poeten.",
+        "teasers": collections[0].teasers[1:6]
+    }
+} %}
+
+{% include 'organisms-collection' with {
+    'collection': {
+        'styleModifier': 'collection--dense-swipeable',
+        "title": "News Schweiz Dense",
+        "titleLink": "https://www-test.srf.ch/news/wirtschaft",
+        "lead": "1996 schrieb John Perry Barlow die «Unabhängigkeitserklärung des Cyberspace». Darin kritisierte er Poeten.",
+        "teasers": collections[0].teasers[1:7]
+    }
+} %}
+
+{% include 'organisms-collection' with {
+    'collection': {
+        'styleModifier': 'collection--swipeable',
+        "title": "News Schweiz",
+        "titleLink": "https://www-test.srf.ch/news/wirtschaft",
+        "lead": "1996 schrieb John Perry Barlow die «Unabhängigkeitserklärung des Cyberspace». Darin kritisierte er Poeten.",
+        "teasers": collections[0].teasers[2:8]
+    }
+} %}
+
+{% include 'organisms-collection' with {
+    'collection': {
+        'styleModifier': 'collection--swipeable',
+        "title": "News Schweiz",
+        "titleLink": "https://www-test.srf.ch/news/wirtschaft",
+        "lead": "1996 schrieb John Perry Barlow die «Unabhängigkeitserklärung des Cyberspace». Darin kritisierte er Poeten.",
+        "teasers": collections[0].teasers[3:9]
+    }
+} %}
+
+{% include 'organisms-collection' with {
+    'collection': {
+        'styleModifier': 'collection--swipeable',
+        "title": "News Schweiz",
+        "titleLink": "https://www-test.srf.ch/news/wirtschaft",
+        "lead": "1996 schrieb John Perry Barlow die «Unabhängigkeitserklärung des Cyberspace». Darin kritisierte er Poeten.",
+        "teasers": collections[0].teasers[4:10]
+    }
+} %}
