@@ -119,10 +119,13 @@ $background-overlap-wide: 50px;
   display: flex;
   flex-direction: column;
   border-radius: 2px;
-
   position: relative;
-  margin-left: calc((100% - 1280px) / 2);
-  margin-right: calc((100% - 1280px) / 2);
+  margin: 0 auto;
+
+  @include desktop-wide {
+    margin-left: calc((100% - 1280px) / 2);
+    margin-right: calc((100% - 1280px) / 2);
+  }
 
   &:before,
   &:after {
