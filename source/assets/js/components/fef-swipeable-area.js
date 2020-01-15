@@ -15,6 +15,7 @@ const HOOK_CLASS = 'js-swipeable-area',
     BUTTON_INACTIVE_CLASS = 'swipeable-area__button--inactive',
     // if the swipeable is currently not actually swipeable (because it doesn't have enough items)
     BUTTON_UNNECESSARY_CLASS = 'swipeable-area__button-container--hidden',
+    MASK_UNNECESSARY_CLASS = 'swipeable-area__mask--hidden',
     DEFAULT_SCROLL_TIME = 600,
     MINIMAL_SCROLL_TIME = 200,
     // check if the browser understands scroll-snap-align and scroll-behavior (the latter has to be additionally checked for Safari, which supports the former, but doesn't animate scrolling)
@@ -111,8 +112,11 @@ export class FefSwipeableArea {
         // scroll back to the beginning (necessary when swipeable was reinitialized)
         this.scrollToPosition(0, 0);
 
-        // buttons are necessary again (depending on the breakpoint, but that's handled in CSS)
-        this.$buttonContainer.toggleClass(BUTTON_UNNECESSARY_CLASS, !this.hasScrollableOverflow());
+        // buttons & masks are necessary/unnecessary (depending on the breakpoint,
+        // but that's handled in CSS)
+        let canBeScrolled = this.hasScrollableOverflow();
+        this.$buttonContainer.toggleClass(BUTTON_UNNECESSARY_CLASS, !canBeScrolled);
+        this.$maskLeft.add(this.$maskRight).toggleClass(MASK_UNNECESSARY_CLASS, !canBeScrolled);
 
         // on desktop and up the buttons are used to page back and forth.
         if (FefResponsiveHelper.isDesktopUp()) {

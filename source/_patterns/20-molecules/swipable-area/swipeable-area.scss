@@ -71,6 +71,11 @@
     display: block;
     cursor: pointer;
   }
+
+  // hide in any case if it's not needed
+  &.swipeable-area__mask--hidden {
+    display: none;
+  }
 }
 
 .swipeable-area__mask--left {
