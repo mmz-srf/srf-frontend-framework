@@ -20,13 +20,6 @@ $background-overlap-wide: 50px;
     margin-top: $collection-gap-desktop-wide;
   }
 
-  .collection__content-wrapper {
-    max-width: $desktop-wide-size;
-    margin: 0 auto;
-    background-color: transparent;
-    box-shadow: none;
-  }
-
   &:first-child {
     &.collection--branded {
       .collection__branding-wrapper {
@@ -55,7 +48,7 @@ $background-overlap-wide: 50px;
     &.collection--branded {
       margin-bottom: 0;
 
-      .collection__branding-wrapper {
+      .collection__content-wrapper {
         padding-bottom: 16px;
       }
     }
@@ -66,7 +59,7 @@ $background-overlap-wide: 50px;
       &.collection--branded {
         margin-bottom: 0;
 
-        .collection__branding-wrapper {
+        .collection__content-wrapper {
           padding-bottom: 32px;
         }
       }
@@ -78,7 +71,7 @@ $background-overlap-wide: 50px;
       &.collection--branded {
         margin-bottom: 0;
 
-        .collection__branding-wrapper {
+        .collection__content-wrapper {
           padding-bottom: 40px;
         }
       }
@@ -87,7 +80,7 @@ $background-overlap-wide: 50px;
     &.collection--borderless {
       margin-bottom: 0;
 
-      .collection__branding-wrapper {
+      .collection__content-wrapper {
         padding-bottom: 0;
       }
     }
@@ -121,11 +114,9 @@ $background-overlap-wide: 50px;
   border-radius: 2px;
   position: relative;
   margin: 0 auto;
-
-  @include desktop-wide {
-    margin-left: calc((100% - 1280px) / 2);
-    margin-right: calc((100% - 1280px) / 2);
-  }
+  max-width: $desktop-wide-size;
+  background-color: transparent;
+  box-shadow: none;
 
   &:before,
   &:after {
