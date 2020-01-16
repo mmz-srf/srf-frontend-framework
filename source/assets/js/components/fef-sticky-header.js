@@ -5,7 +5,7 @@ export function init() {
     $('.js-masthead')
         .filter((_, element) => !$(element).data('sticky-header-initialized'))
         .each((_, element) => {
-            new FeFStickyHeader(elem);
+            new FeFStickyHeader(element);
 
             // mark element, so that it won't be initialized again by this module
             $(element).data('sticky-header-initialized', true);
