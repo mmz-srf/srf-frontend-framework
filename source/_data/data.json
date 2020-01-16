@@ -175,6 +175,35 @@
         "description": "Volz geht es nicht nur um schöne, bunte Bilder.",
         "source": "MICHAEL MAREK"
       }
+    },
+    {
+      "sources": {
+        "s8": {
+          "src": "../../assets/demo/img/bild4/bild.jpg",
+          "width": 640
+        },
+        "s8_retina": {
+          "src": "../../assets/demo/img/bild4/bild.jpg",
+          "width": 1248
+        },
+        "s12": {
+          "src": "../../assets/demo/img/bild4/bild.jpg",
+          "width": 944
+        },
+        "s12_retina": {
+          "src": "../../assets/demo/img/bild4/bild.jpg",
+          "width": 1888
+        },
+        "mobile_max": {
+          "src": "../../assets/demo/img/bild4/bild.jpg",
+          "width": 320
+        }
+      },
+      "caption": {
+        "title": "Mond",
+        "description": "Der Mond von der Erde aus fotografiert.",
+        "source": "Marty McGuire"
+      }
     }
   ],
   "audio": {
@@ -1364,6 +1393,20 @@
           "image": "../../assets/demo/img/bild2/bild_mobile_max.jpg",
           "link": "#",
           "lead": "Ngapo Ponika holt den Snitch in Minute 87, Neuseeland besiegt Wales 240 zu 180."
+        },
+        {
+          "title": "Über den Mond",
+          "kicker": "Butterberg",
+          "image": "../../assets/demo/img/bild4/bild.jpg",
+          "link": "#",
+          "lead": "Die Ausmasse der Milch- und Butter-Reserver haben grössere Ausmasse als bisher angenommen."
+        },
+        {
+          "title": "Senioren-Astronomen",
+          "kicker": "Star Geezer",
+          "image": "../../assets/demo/img/bild5/bild.jpg",
+          "link": "#",
+          "lead": "Schon jetzt die neue Heimat besichtigen."
         }
       ]
     }, {
