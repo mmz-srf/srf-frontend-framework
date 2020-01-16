@@ -388,7 +388,8 @@
 
   .teaser__medium {
     width: 100%;
-    height: auto;
+    height: 100%;
+    position: absolute;
   }
 
   .teaser__content {
@@ -426,8 +427,9 @@
   }
 
   .teaser__medium {
-    height: auto;
+    height: 100%;
     width: 100%;
+    position: absolute;
   }
 
   .teaser__content {
