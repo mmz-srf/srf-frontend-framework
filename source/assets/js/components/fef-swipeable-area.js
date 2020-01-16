@@ -23,9 +23,15 @@ const HOOK_CLASS = 'js-swipeable-area',
     SUPPORTS_INTERSECTION_OBSERVER = 'IntersectionObserver' in window && 'IntersectionObserverEntry' in window && 'intersectionRatio' in window.IntersectionObserverEntry.prototype;
 
 export function init(interactionMeasureString = '') {
-    $(`.${HOOK_CLASS}`).each((_, element) => {
-        new FefSwipeableArea($(element), interactionMeasureString);
-    });
+    $(`.${HOOK_CLASS}`)
+        .filter((_, element) => !$(element).data('swipeabiliy-initialized'))
+        .each((_, element) => {
+            // initialize swipeability
+            new FefSwipeableArea($(element), interactionMeasureString);
+
+            // mark element, so that it won't be initialized again by this module
+            $(element).data('swipeabiliy-initialized', true);
+        });
 }
 
 /**

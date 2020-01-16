@@ -12,10 +12,16 @@ if (window.matchMedia('(prefers-reduced-motion)').matches) {
 }
 
 export function init() {
-    $(HOOK_CLASS).each((index, element) => {
-        new FefGenericExpander(element);
-    });
+    $(HOOK_CLASS)
+        .filter((_, element) => !$(element).data('generic-expander-initialized'))
+        .each((_, element) => {
+            new FefGenericExpander(element);
+
+            // mark element, so that it won't be initialized again by this module
+            $(element).data('generic-expander-initialized', true);
+        });
 }
+
 export class FefGenericExpander {
     constructor(element) {
         this.$element = $(element);

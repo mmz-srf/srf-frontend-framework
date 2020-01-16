@@ -2,9 +2,14 @@ import {FefResponsiveHelper} from '../classes/fef-responsive-helper';
 import {FefResizeListener} from '../classes/fef-resize-listener';
 
 export function init() {
-    $('.js-masthead').each((i, elem) => {
-        new FeFStickyHeader(elem);
-    });
+    $('.js-masthead')
+        .filter((_, element) => !$(element).data('sticky-header-initialized'))
+        .each((_, element) => {
+            new FeFStickyHeader(elem);
+
+            // mark element, so that it won't be initialized again by this module
+            $(element).data('sticky-header-initialized', true);
+        });
 }
 
 const AFFIX_SELECTOR = '.js-affix';

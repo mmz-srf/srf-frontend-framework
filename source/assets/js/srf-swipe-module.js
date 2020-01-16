@@ -2,9 +2,14 @@ import {FefDebounceHelper} from './classes/fef-debounce-helper';
 import {FefResizeListener} from './classes/fef-resize-listener';
 
 export function init() {
-    $('.swipemod').each((index, elem) => {
-        new SrfSwiper(elem);
-    });
+    $('.swipemod')
+        .filter((_, element) => !$(element).data('swipemod-initialized'))
+        .each((_, element) => {
+            new SrfSwiper(element);
+
+            // mark element, so that it won't be initialized again by this module
+            $(element).data('swipemod-initialized', true);
+        });
 }
 
 $.extend(jQuery.easing,{

@@ -8,9 +8,14 @@ const STORAGE_KEY = 'SRF.Navigations';
 const OPEN_BY_DEFAULT = true;
 
 export function init() {
-    $('.js-globalnav').each((i, elem) => {
-        new FefGlobalnav(elem);
-    });
+    $('.js-globalnav')
+        .filter((_, element) => !$(element).data('globalnav-initialized'))
+        .each((_, element) => {
+            new FefGlobalnav(element);
+
+            // mark element, so that it won't be initialized again by this module
+            $(element).data('globalnav-initialized', true);
+        });
 }
 
 export class FefGlobalnav {
