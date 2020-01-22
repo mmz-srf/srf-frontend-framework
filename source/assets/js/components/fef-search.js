@@ -4,9 +4,14 @@ import { KEYCODES } from '../utils/fef-keycodes';
 import { SET_SEARCH_INACTIVE_EVENT } from '../utils/fef-events';
 
 export function init() {
-    $('.js-search').each((i, elem) => {
-        new SrfSearch(elem);
-    });
+    $('.js-search')
+        .filter((_, element) => !$(element).data('search-initialized'))
+        .each((_, element) => {
+            new SrfSearch(element);
+
+            // mark element, so that it won't be initialized again by this module
+            $(element).data('search-initialized', true);
+        });
 }
 
 const DEFAULT_MAX_SUGGESTIONS = 7;

@@ -2,9 +2,14 @@ import { KEYCODES } from '../utils/fef-keycodes';
 import { DOM_INIT_EVENT } from '../utils/fef-events';
 
 $(window).on(DOM_INIT_EVENT, () => {
-    $('.radio-button, .checkbox').each((index, element) => {
-        new FefFormField($(element));
-    });
+    $('.radio-button, .checkbox')
+        .filter((_, element) => !$(element).data('form-field-initialized'))
+        .each((_, element) => {
+            new FefFormField($(element));
+
+            // mark element, so that it won't be initialized again by this module
+            $(element).data('form-field-initialized', true);
+        });
 });
 
 /**

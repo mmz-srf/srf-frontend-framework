@@ -9,9 +9,14 @@ if (window.matchMedia('(prefers-reduced-motion)').matches) {
 const ANIMATIONEASING = 'easeInOutCubic';
 
 export function init() {
-    $('.js-expandable-box').each((index, elem) => {
-        new FefExpandableBox($(elem));
-    });
+    $('.js-expandable-box')
+        .filter((_, element) => !$(element).data('expandable-box-initialized'))
+        .each((_, element) => {
+            new FefExpandableBox($(element));
+
+            // mark element, so that it won't be initialized again by this module
+            $(element).data('expandable-box-initialized', true);
+        });
 }
 
 export class FefExpandableBox {
