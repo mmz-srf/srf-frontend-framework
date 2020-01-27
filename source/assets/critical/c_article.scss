@@ -355,6 +355,10 @@ body::after {
   width: 0
 }
 
+.collection--hidden {
+  display: none;
+}
+
 .article-comments .spinner-container {
   display: none;
 }

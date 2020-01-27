@@ -544,7 +544,11 @@ body.body--loading.body--loading {
       }
     }
   }
-
+  
+  .collection--hidden {
+    display: none;
+  }
+  
   // Selectable: Hide the selection element, show the first collection after it.
   // From that collection, only show the first 3 teasers
   .selectable {
