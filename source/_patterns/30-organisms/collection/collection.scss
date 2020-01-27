@@ -965,3 +965,8 @@ $background-overlap-wide: 50px;
     margin-top: 12px;
   }
 }
+
+// some collections start out invisible
+.collection--hidden {
+  display: none;
+}
