@@ -511,7 +511,7 @@ main {
  * element that has the scroll snapping behaviour.
  */
 
-@supports (hover: none) and (prefers-color-scheme: dark) {
+@supports not ((hover: none) and (prefers-color-scheme: dark)) {
   .swipeable-area__wrapper {
     scroll-snap-type: none;
   }
