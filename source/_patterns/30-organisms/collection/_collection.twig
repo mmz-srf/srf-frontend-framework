@@ -1,9 +1,9 @@
 {% set swipeable = collection.swipeable|default(('collection--swipeable' in collection.styleModifier or 'collection--compact-swipeable' in collection.styleModifier or 'collection--dense-swipeable' in collection.styleModifier)) %}
 {% set branded = 'collection--branded' in collection.styleModifier %}
 {% set selectable = 'collection--selectable' in collection.styleModifier %}
-{% set withFilter = 'collection--with-filter-container' in collection.styleModifier %}
 {% set renderTitlePrecusor = 'collection--search-results' in collection.styleModifier %}
 {% set showTitlelink = collection.titleLink is defined or selectable %}
+{% set withTitleFilter = collection.withTitleFilter is defined %}
 {% set themeColorStart = collection.theme is defined and collection.theme.colorStart is defined ? collection.theme.colorStart : '#f5f5f2' %}
 {% set themeColorEnd = collection.theme is defined and collection.theme.colorEnd is defined ? collection.theme.colorEnd : '#f5f5f2' %}
 {# b3 is 70% in oct. #rrggbbaa is not well supported yet, so in prod you should use a twig operator which translates hex to rgba (hex2Rgba filter) #}
@@ -28,7 +28,7 @@
         {% endif %}
          >
         <div class="collection__content-wrapper js-collection-content-wrapper">
-            <h3 class="collection__title">
+            <h3 class="collection__title{% if withTitleFilter %} collection__title--with-filter-container{% endif %}">
                 <span class="h-loading-only">
                     {% include 'atoms-shimmer' with {'styleModifier': 'shimmer--heading shimmer--shorter'} %}
                     {% if collection.lead is defined %}
@@ -64,7 +64,7 @@
                     </button>
                 {% endif %}
 
-                {% if withFilter %}
+                {% if withTitleFilter %}
                     <span class="collection__title-filter-container">
                         {% include 'atoms-select-menu' %}
                     </span>

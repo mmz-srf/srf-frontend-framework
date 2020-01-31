@@ -164,6 +164,37 @@ $background-overlap-wide: 50px;
   }
 }
 
+// has a wrapper for a filter, date picker etc. next to the title
+.collection__title--with-filter-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+
+  @include smartphone {
+    flex-wrap: wrap;
+  }
+
+  .collection__title-text {
+    flex-basis: 100%;
+    flex-shrink: 1;
+
+    @include smartphone {
+      flex-basis: 100%;
+    }
+  }
+
+  .collection__title-filter-container {
+    flex-basis: auto;
+    flex-grow: 1;
+    flex-shrink: 1;
+    @include smartphone {
+      padding-top: 8px;
+      flex-basis: 100%;
+      text-align: left;
+    }
+  }
+}
+
 .collection__title-link {
   display: inline-flex;
   align-items: center;
@@ -312,7 +343,8 @@ $background-overlap-wide: 50px;
   }
 }
 
-.collection__teaser-list {
+.collection__teaser-list,
+.collection__static-content-wrapper {
   display: flex;
   flex-direction: column;
   margin: 0 8px 12px;
@@ -329,6 +361,15 @@ $background-overlap-wide: 50px;
   @include desktop-wide {
     margin: 0 calc(40px - #{$teaser-col-gap-desktop-wide}) -20px 40px;
   }
+}
+
+/**
+ * this container can be used as a generic content wrapper if there's no
+ * teaser-list in the collection (i.e. as wrapper for custom content in static collections).
+ * it has the same margins as .collection__teaser-list (see above) but is not a flexbox container
+ */
+.collection__static-content-wrapper {
+  display: block;
 }
 
 /**
@@ -867,35 +908,6 @@ $background-overlap-wide: 50px;
 
   .collection__title-button-icon {
     @include caret('grey', 'right', 'medium');
-  }
-}
-
-// has a wrapper for a filter, date picker etc. next to the title
-.collection--with-filter-container {
-  .collection__title {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-  }
-
-  .collection__title-text {
-    flex-basis: 60%;
-    flex-grow: 1;
-    flex-shrink: 1;
-
-    @include smartphone {
-      flex-basis: 100%;
-    }
-  }
-
-  .collection__title-filter-container {
-    flex-basis: auto;
-    flex-grow: 1;
-    flex-shrink: 1;
-    @include smartphone {
-      padding-top: 8px;
-      flex-basis: 100%;
-    }
   }
 }
 

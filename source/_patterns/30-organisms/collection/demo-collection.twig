@@ -1611,10 +1611,11 @@
     <div class="js-collection-wrapper-content">
         {% include 'organisms-collection' with {
             'collection': {
-                'styleModifier': 'collection--hero collection--with-filter-container',
+                'styleModifier': 'collection--hero',
                 "title": "News Schweiz",
                 "type": "standard",
-                "teasers": collections[0].teasers[0:1]
+                "teasers": collections[0].teasers[0:1],
+                "withTitleFilter": true
             }
         } %}
     </div>
