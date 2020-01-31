@@ -870,6 +870,35 @@ $background-overlap-wide: 50px;
   }
 }
 
+// has a wrapper for a filter, date picker etc. next to the title
+.collection--with-filter-container {
+  .collection__title {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .collection__title-text {
+    flex-basis: 60%;
+    flex-grow: 1;
+    flex-shrink: 1;
+
+    @include smartphone {
+      flex-basis: 100%;
+    }
+  }
+
+  .collection__title-filter-container {
+    flex-basis: auto;
+    flex-grow: 1;
+    flex-shrink: 1;
+    @include smartphone {
+      padding-top: 8px;
+      flex-basis: 100%;
+    }
+  }
+}
+
 .collection--search-results {
   .collection__teaser-item,
   .collection__teaser-item:last-child {

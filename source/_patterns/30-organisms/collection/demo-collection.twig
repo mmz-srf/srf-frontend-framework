@@ -9,7 +9,6 @@
 
 <style>
     .js-collection-wrapper > h3 {
-        padding: 12px 32px;
         cursor: pointer;
         padding: 8px 32px;
         margin: 8px 0;
@@ -1602,6 +1601,20 @@
                     "Wallis"
                 ],
                 "teasers": collections[0].teasers[0:3]
+            }
+        } %}
+    </div>
+</div>
+
+<div class="js-collection-wrapper">
+    <h3>Hero, with filter container</h3>
+    <div class="js-collection-wrapper-content">
+        {% include 'organisms-collection' with {
+            'collection': {
+                'styleModifier': 'collection--hero collection--with-filter-container',
+                "title": "News Schweiz",
+                "type": "standard",
+                "teasers": collections[0].teasers[0:1]
             }
         } %}
     </div>

@@ -1,6 +1,7 @@
 {% set swipeable = collection.swipeable|default(('collection--swipeable' in collection.styleModifier or 'collection--compact-swipeable' in collection.styleModifier or 'collection--dense-swipeable' in collection.styleModifier)) %}
 {% set branded = 'collection--branded' in collection.styleModifier %}
 {% set selectable = 'collection--selectable' in collection.styleModifier %}
+{% set withFilter = 'collection--with-filter-container' in collection.styleModifier %}
 {% set renderTitlePrecusor = 'collection--search-results' in collection.styleModifier %}
 {% set showTitlelink = collection.titleLink is defined or selectable %}
 {% set themeColorStart = collection.theme is defined and collection.theme.colorStart is defined ? collection.theme.colorStart : '#f5f5f2' %}
@@ -61,6 +62,12 @@
                             'styleModifier': 'icon-button--collapsing-text-mobile icon-button--spaceless-right-tablet-up'
                         } %}
                     </button>
+                {% endif %}
+
+                {% if withFilter %}
+                    <span class="collection__title-filter-container">
+                        {% include 'atoms-select-menu' %}
+                    </span>
                 {% endif %}
             </h3>
 
