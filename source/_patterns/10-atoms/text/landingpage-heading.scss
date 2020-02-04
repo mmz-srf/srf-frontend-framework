@@ -7,6 +7,10 @@
   margin: 0 0 12px;
   padding: 0;
 
+  @include smartphone {
+    padding: 0 16px;
+  }
+
   @include desktop-up {
     @include fontSize(28);
     margin-bottom: 16px;

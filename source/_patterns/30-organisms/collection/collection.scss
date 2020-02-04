@@ -188,7 +188,7 @@ $background-overlap-wide: 50px;
     flex-grow: 1;
     flex-shrink: 1;
     @include smartphone {
-      padding-top: 8px;
+      padding-top: 16px;
       flex-basis: 100%;
       text-align: left;
     }
