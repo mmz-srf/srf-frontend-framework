@@ -193,7 +193,7 @@ function addBrowserClass() {
     let browser = (function() {
         let check = function(regexp) {
             return regexp.test(window.navigator.userAgent);
-        }
+        };
         switch (true) {
             case check(/iPhone OS 12/i): return 'safari-ios-12';
             default: return;
