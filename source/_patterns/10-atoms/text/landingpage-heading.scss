@@ -14,15 +14,15 @@
 }
 
 .landingpage-heading--large {
-  @include fontSize(18);
+  @include fontSize(20);
 
   @include desktop-up {
-    @include fontSize(24);
+    @include fontSize(22);
   }
 }
 
 .landingpage-heading--medium {
-  @include fontSize(16);
+  @include fontSize(18);
 
   @include desktop-up {
     @include fontSize(20);
