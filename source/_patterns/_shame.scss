@@ -511,10 +511,8 @@ main {
  * element that has the scroll snapping behaviour.
  */
 
-@media (hover: none) {
-  @supports not (prefers-color-scheme: dark) {
-    .swipeable-area__wrapper {
-      scroll-snap-type: none;
-    }
+.safari-ios-12 {
+  .swipeable-area__wrapper {
+    scroll-snap-type: none;
   }
 }
