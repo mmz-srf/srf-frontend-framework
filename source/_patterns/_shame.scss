@@ -511,6 +511,7 @@ main {
  * element that has the scroll snapping behaviour.
  */
 
+/* Browser-Class from `srf-shame.js` */
 .safari-ios-12 {
   .swipeable-area__wrapper {
     scroll-snap-type: none;

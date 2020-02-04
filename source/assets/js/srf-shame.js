@@ -201,5 +201,8 @@ function addBrowserClass() {
             default: return;
         }
     })();
+
     if (browser) {document.body.classList.add(browser);};
+
+    /* Bug-Fixes and Stylings via `_shame.scss` */
 }
