@@ -389,18 +389,6 @@ $background-overlap-wide: 50px;
   }
 }
 
-// No additional spacing on top if collection links follow a swipeable-area
-// (aka «swipeable with links»)
-.collection__swipeable-area + .collection__links {
-  @include tablet-up {
-    margin-top: 0;
-  }
-
-  @include desktop-wide {
-    margin-top: 0;
-  }
-}
-
 // DOM:
 // <li class="collection__link-item">
 //   <a class="collection__link"></a>
