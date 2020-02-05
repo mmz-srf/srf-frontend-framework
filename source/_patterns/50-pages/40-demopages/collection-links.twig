@@ -1,0 +1,66 @@
+{% set themeLightFont = {
+    "colorStart": "rgb(201, 29, 125)",
+    "colorEnd": "rgb(140, 29, 96)"
+} %}
+{% set themeDarkFont = {
+    "colorStart": "rgb(235, 235, 229)",
+    "colorEnd": "rgb(218, 218, 210)"
+} %}
+
+{% embed 'templates-landingpage' %}
+    {% block landingpage_content %}
+
+<h3>Standard with Links, 3 Teaser, branded</h3>
+<div class="js-collection-wrapper-content">
+{% include 'organisms-collection' with {
+    'collection': {
+        'styleModifier': 'collection--standard collection--branded',
+        "title": "News Schweiz",
+        "theme": themeLightFont,
+        "type": "standard",
+        "links": [
+            {
+                "title": "Google",
+                "link": "https://www.google.com"
+            }, {
+                "title": "Bing",
+                "link": "https://www.bing.com"
+            }, {
+                "title": "DuckDuckGo",
+                "link": "https://www.duckduckgo.com"
+            }
+        ],
+        "teasers": collections[0].teasers[0:3]
+    }
+} %}
+</div>
+
+<h3>Swipeable mit links, 5 Teasers, branded</h3>
+<div class="js-collection-wrapper-content">
+{% include 'organisms-collection' with {
+    'collection': {
+        'styleModifier': 'collection--swipeable collection--branded',
+        "title": "News Schweiz",
+        "titleLink": "https://www-test.srf.ch/news/wirtschaft",
+        "theme": themeLightFont,
+        "lead": "1996 schrieb John Perry Barlow die «Unabhängigkeitserklärung des Cyberspace». Darin kritisierte er Poeten.",
+        "type": "swipeable",
+        "links": [
+            {
+                "title": "Google",
+                "link": "https://www.google.com"
+            }, {
+                "title": "Bing",
+                "link": "https://www.bing.com"
+            }, {
+                "title": "DuckDuckGo",
+                "link": "https://www.duckduckgo.com"
+            }
+        ],
+        "teasers": collections[0].teasers[0:5]
+    }
+} %}
+</div>
+
+    {% endblock %}
+{% endembed %}

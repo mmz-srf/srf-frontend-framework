@@ -4,6 +4,16 @@
   // make sure the swipeable area is higher than the "themed" background
   // (.collection__content-wrapper:after)
   z-index: 1;
+
+
+
+  // No additional spacing on top if collection links follow a swipeable-area
+  // (aka «swipeable with links»)
+  & + .collection__links {
+    @include tablet-up {
+      margin-top: 0;
+    }
+  }
 }
 
 // Styles that are the same for all swipeable types
@@ -12,7 +22,7 @@
 .collection--dense-swipeable {
   // make sure the collection can't force the page to be wider than 100%
   overflow: hidden;
-  
+
   .collection__teaser-list {
     flex-direction: row;
     flex-wrap: nowrap;
@@ -43,7 +53,7 @@
     position: relative; // to center ::after
 
     // Only needed when scrollable:
-    // right-padding is ignored in scrollable containers (see https://blog.alexandergottlieb.com/overflow-scroll-and-the-right-padding-problem-a-css-only-solution-6d442915b3f4) 
+    // right-padding is ignored in scrollable containers (see https://blog.alexandergottlieb.com/overflow-scroll-and-the-right-padding-problem-a-css-only-solution-6d442915b3f4)
     &:last-child:not(:first-child) {
       &::after {
         position: absolute;
@@ -92,6 +102,8 @@
     }
   }
 }
+
+
 
 .collection--compact-swipeable {
   .collection__teaser-list {
