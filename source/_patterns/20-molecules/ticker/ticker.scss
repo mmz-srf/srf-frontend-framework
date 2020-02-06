@@ -246,8 +246,8 @@ $ticker-item-border-width: 1px;
   @include fontSize(12);
   line-height: $emphasize-line-height-ratio;
   color: $color-srf-warmgrey-800;
-  background-color: $color-srf-neutral-white;
-  box-shadow: 0 5px 10px 5px $color-srf-neutral-white; // like gradient
+  background-color: $color-srf-neutral-offwhite;
+  box-shadow: 0 5px 10px 5px $color-srf-neutral-offwhite; // like gradient
   position: relative;
   z-index: 1;
 
