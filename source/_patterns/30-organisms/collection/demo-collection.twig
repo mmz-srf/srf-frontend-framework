@@ -1607,6 +1607,28 @@
     </div>
 </div>
 
+
+<div class="js-collection-wrapper">
+    <h3>Separated Collection Title</h3>
+    <div class="js-collection-wrapper-content">
+
+        {% embed 'organisms-collection' with {
+            'collection': {
+                "type": "standard",
+                "teasers": collections[0].teasers[0:3]
+            }
+        } %}
+            {% block collection_title %}
+                <span class="collection__title-text">Title Link, but separate!</span>
+                <a href="#" class="collection__title-link collection__title-link--separate">
+                    Landingpage öffnen
+                    <span class="collection__title-link-icon"></span>
+                </a>
+            {% endblock %}
+        {% endembed %}
+    </div>
+</div>
+
 <br><br><br>
 
 <script>
