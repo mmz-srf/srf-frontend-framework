@@ -29,46 +29,48 @@
          >
         <div class="collection__content-wrapper js-collection-content-wrapper">
             <h3 class="collection__title{% if withTitleFilter %} collection__title--with-filter-container{% endif %}">
-                <span class="h-loading-only">
-                    {% include 'atoms-shimmer' with {'styleModifier': 'shimmer--heading shimmer--shorter'} %}
-                    {% if collection.lead is defined %}
-                        {% include 'atoms-shimmer' with {'styleModifier': 'shimmer--heading shimmer--short'} %}
-                        {% include 'atoms-shimmer' with {'styleModifier': 'shimmer--heading shimmer--short'} %}
-                    {% endif %}
-                </span>
-
-                {% if renderTitlePrecusor %}
-                    {# e.g. used in search results for play, where the search key is shown in the title precursor #}
-                    <div class="collection__title-precursor js-collection-title-precursor">tages</div>
-                {% endif %}
-
-                {% if showTitlelink %}
-                    <a href="{{ collection.titleLink|default("#") }}" class="collection__title-link">
-                {% endif %}
-
-                <span class="collection__title-text">{{ collection.title|default("")|trim }}</span>
-
-                {% if showTitlelink %}
-                        <span class="collection__title-a11y-help">Landingpage öffnen</span>
-                        <span class="collection__title-link-icon"></span>
-                    </a>
-                {% endif %}
-
-                {% if selectable %}
-                    <button class="selectable-button js-selectable-button">
-                        {% include 'atoms-icon-button' with {
-                            'iconStyleModifier': 'svg-icon--more',
-                            'buttonText': collection.selectableText|default('Region'),
-                            'styleModifier': 'icon-button--collapsing-text-mobile icon-button--spaceless-right-tablet-up'
-                        } %}
-                    </button>
-                {% endif %}
-
-                {% if withTitleFilter %}
-                    <span class="collection__title-filter-container">
-                        {% include 'atoms-select-menu' %}
+                {% block collection_title %}
+                    <span class="h-loading-only">
+                        {% include 'atoms-shimmer' with {'styleModifier': 'shimmer--heading shimmer--shorter'} %}
+                        {% if collection.lead is defined %}
+                            {% include 'atoms-shimmer' with {'styleModifier': 'shimmer--heading shimmer--short'} %}
+                            {% include 'atoms-shimmer' with {'styleModifier': 'shimmer--heading shimmer--short'} %}
+                        {% endif %}
                     </span>
-                {% endif %}
+
+                        {% if renderTitlePrecusor %}
+                            {# e.g. used in search results for play, where the search key is shown in the title precursor #}
+                            <div class="collection__title-precursor js-collection-title-precursor">tages</div>
+                        {% endif %}
+
+                        {% if showTitlelink %}
+                            <a href="{{ collection.titleLink|default("#") }}" class="collection__title-link">
+                        {% endif %}
+
+                        <span class="collection__title-text">{{ collection.title|default("")|trim }}</span>
+
+                        {% if showTitlelink %}
+                                <span class="collection__title-a11y-help">Landingpage öffnen</span>
+                                <span class="collection__title-link-icon"></span>
+                            </a>
+                        {% endif %}
+
+                    {% if selectable %}
+                        <button class="selectable-button js-selectable-button">
+                            {% include 'atoms-icon-button' with {
+                                'iconStyleModifier': 'svg-icon--more',
+                                'buttonText': collection.selectableText|default('Region'),
+                                'styleModifier': 'icon-button--collapsing-text-mobile icon-button--spaceless-right-tablet-up'
+                            } %}
+                        </button>
+                    {% endif %}
+
+                    {% if withTitleFilter %}
+                        <span class="collection__title-filter-container">
+                            {% include 'atoms-select-menu' %}
+                        </span>
+                    {% endif %}
+                {% endblock %}
             </h3>
 
             {% if collection.image is defined %}
