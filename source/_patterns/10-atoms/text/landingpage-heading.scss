@@ -1,0 +1,34 @@
+.landingpage-heading {
+  font-family: $font-medium;
+  @include fontSize(24);
+  font-weight: 500;
+  line-height: $emphasize-line-height-ratio;
+  color: $color-srf-warmgrey-1100;
+  margin: 0 0 12px;
+  padding: 0;
+
+  @include smartphone {
+    padding: 0 16px;
+  }
+
+  @include desktop-up {
+    @include fontSize(28);
+    margin-bottom: 16px;
+  }
+}
+
+.landingpage-heading--large {
+  @include fontSize(20);
+
+  @include desktop-up {
+    @include fontSize(22);
+  }
+}
+
+.landingpage-heading--medium {
+  @include fontSize(18);
+
+  @include desktop-up {
+    @include fontSize(20);
+  }
+}
