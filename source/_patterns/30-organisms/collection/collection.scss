@@ -140,6 +140,10 @@ $background-overlap-wide: 50px;
 }
 
 .collection__title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
   margin: 16px 24px 12px;
   font-family: $font-medium;
   font-feature-settings: "salt";
@@ -162,6 +166,41 @@ $background-overlap-wide: 50px;
   @include desktop-wide {
     margin: 20px 40px 16px;
   }
+}
+
+// has a wrapper for a filter, date picker etc. next to the title
+.collection__title--with-filter-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+
+  @include smartphone {
+    flex-wrap: wrap;
+  }
+
+  .collection__title-text {
+    flex-basis: 100%;
+    flex-shrink: 1;
+
+    @include smartphone {
+      flex-basis: 100%;
+    }
+  }
+
+  .collection__title-filter-container {
+    flex-basis: auto;
+    flex-grow: 1;
+    flex-shrink: 1;
+    @include smartphone {
+      padding-top: 16px;
+      flex-basis: 100%;
+      text-align: left;
+    }
+  }
+}
+
+.collection__title-text {
+  margin: 0;
 }
 
 .collection__title-link {
@@ -188,6 +227,37 @@ $background-overlap-wide: 50px;
       filter: brightness(1.37);
       opacity: 0.82;
     }
+  }
+}
+
+// The collection title link can also be separated from the collection title
+.collection__title-link--separate {
+  white-space: nowrap;
+  opacity: 1;
+  transition: opacity .2s ease-in-out;
+  font-family: $font-regular;
+  @include fontSize(16);
+  font-weight: 300;
+  line-height: 1;
+
+  &,
+  &:active,
+  &:focus,
+  &:hover {
+    color: inherit;
+  }
+
+  &:hover {
+    opacity: .8;
+  }
+
+  &:focus,
+  &:active {
+    opacity: .6;
+  }
+
+  .collection__title-link-icon {
+    @include caret('grey', 'right', 'tiny');
   }
 }
 
@@ -312,7 +382,8 @@ $background-overlap-wide: 50px;
   }
 }
 
-.collection__teaser-list {
+.collection__teaser-list,
+.collection__static-content-wrapper {
   display: flex;
   flex-direction: column;
   margin: 0 8px 12px;
@@ -329,6 +400,15 @@ $background-overlap-wide: 50px;
   @include desktop-wide {
     margin: 0 calc(40px - #{$teaser-col-gap-desktop-wide}) -20px 40px;
   }
+}
+
+/**
+ * this container can be used as a generic content wrapper if there's no
+ * teaser-list in the collection (i.e. as wrapper for custom content in static collections).
+ * it has the same margins as .collection__teaser-list (see above) but is not a flexbox container
+ */
+.collection__static-content-wrapper {
+  display: block;
 }
 
 /**
@@ -731,9 +811,6 @@ $background-overlap-wide: 50px;
   --theme-selection-button-bg: #{$color-srf-warmgrey-50};
 
   .collection__title {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
     align-items: start; // don't center button, always keep in top right corner
   }
 
@@ -802,10 +879,6 @@ $background-overlap-wide: 50px;
   }
 
   .collection__title {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
     min-height: 40px; // in case there's no title-logo
 
     @include smartphone {
@@ -877,6 +950,8 @@ $background-overlap-wide: 50px;
   }
 
   .collection__title {
+    flex-direction: column;
+    align-items: start;
     line-height: 1.21;
     margin-bottom: 26px;
   }
