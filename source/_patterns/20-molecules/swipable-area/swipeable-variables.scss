@@ -5,7 +5,7 @@ $bottom-gap-desktopwide: 40px;
 
 // Gap between the container and the first item
 $edge-gap-mobile: 8px;
-$edge-gap-dense-mobile: 24px; // EXCEPTION: One of the only ones: gap to edge is different in dense collections.
+$edge-gap-dense-mobile: 24px; // EXCEPTION: One of the only ones: gap to edge is different in dense & compact collections.
 $edge-gap-tablet: 32px;
 $edge-gap-desktop: 120px; // actually 32px, but on desktop+ there's the mask that forces this to be 120px
 $edge-gap-desktopwide: 120px; // actually 40px, but on desktop+ there's the mask that forces this to be 120px
@@ -103,11 +103,12 @@ $nr-of-teasers-dense-desktopwide: 6;
   $side-gap: $edge-gap-mobile;
   $bottom-gap: $bottom-gap-mobile;
 
-  // This is one of the only exceptions - dense swipeable on mobile has a
-  // different gap to the edge than the others. Because it's just dense
-  // it's not sensible to add a $edge-gap-XXX-YYY for all types and BPs.
+  // This is one of the only exceptions - dense & compact swipeable on mobile
+  // have a different gap to the edge than the others. Because it's just two
+  // types on one breakpoint, it's not sensible to add a $edge-gap-XXX-YYY for
+  // all types and BPs.
   // See EXCEPTION on the top of this file.
-  @if $bp == 'mobile' and $collectionType == 'dense' {
+  @if $bp == 'mobile' and ($collectionType == 'dense' or $collectionType == 'compact') {
     $side-gap: $edge-gap-dense-mobile;
   }
 
