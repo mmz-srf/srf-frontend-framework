@@ -7,3 +7,20 @@
 .shimmer-box--visible {
   display: block;
 }
+
+.shimmer-box--content-width {
+  width: auto;
+  padding: 0;
+
+  @include tablet {
+    width: $tablet-content-max-width;
+  }
+
+  @include tablet-up {
+    width: $desktop-content-max-width;
+  }
+
+  @include desktop-wide {
+    width: $desktop-wide-content-max-width;
+  }
+}
