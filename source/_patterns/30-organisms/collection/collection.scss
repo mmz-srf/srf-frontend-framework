@@ -200,9 +200,10 @@ $background-overlap-wide: 50px;
   white-space: nowrap;
   opacity: 1;
   transition: opacity .2s ease-in-out;
-  @include fontSize(18);
-  margin: -4px 0 -4px 8px;
-  padding: 8px 0 8px 8px;
+  font-family: $font-regular;
+  @include fontSize(16);
+  font-weight: 300;
+  line-height: 1;
 
   &,
   &:active,
@@ -221,7 +222,7 @@ $background-overlap-wide: 50px;
   }
 
   .collection__title-link-icon {
-    @include caret('grey', 'right', 'medium');
+    @include caret('grey', 'right', 'tiny');
   }
 }
 
