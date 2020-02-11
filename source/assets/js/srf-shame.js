@@ -204,3 +204,29 @@ function addBrowserClass() {
 
     /* Bug-Fixes and Stylings via `_shame.scss` */
 }
+
+/*
+ * TARGETED BROWSER: IE 11
+ *
+ * custom event polyfill
+ * https://gist.github.com/gt3/787767e8cbf0451716a189cdcb2a0d08
+ */
+(function() {
+    if (typeof window.CustomEvent === 'function') {
+        return false;
+    }
+
+    function CustomEvent(event, params) {
+        params = params || { bubbles: false, cancelable: false, detail: null };
+        let evt = document.createEvent('CustomEvent');
+        evt.initCustomEvent(
+            event,
+            params.bubbles,
+            params.cancelable,
+            params.detail
+        );
+        return evt;
+    }
+
+    window.CustomEvent = CustomEvent;
+})();
