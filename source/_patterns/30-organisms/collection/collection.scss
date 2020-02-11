@@ -258,7 +258,8 @@ $background-overlap-wide: 50px;
     opacity: .6;
   }
 
-  .collection__title-link-icon {
+  // .collection to be more specific than branded collections
+  .collection & .collection__title-link-icon {
     @include caret('grey', 'right', 'tiny');
   }
 }
