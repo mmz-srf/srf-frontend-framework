@@ -14,7 +14,48 @@
   font-display: swap;
 }
 
+@keyframes loadingBar {
+  0% {
+    right: 100vw;
+  }
+
+  15% {
+    right: 34vw;
+  }
+
+  67% {
+    right: 25vw;
+  }
+
+  80% {
+    right: 14vw;
+  }
+
+  93% {
+    right: 7vw;
+  }
+
+  100% {
+    right: .125vw;
+  }
+}
+
 body.body--loading.body--loading {
+  --theme-color-loader: #{$color-srf-red-600};
+
+  .masthead::after {
+    content: '';
+    position: absolute;
+    right: .125vw;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    animation: loadingBar 2s linear;
+
+    /* theme */
+    background-color: var(--theme-color-loader);
+  }
+
   .portalsnav__link,
   .masthead__title {
     font-family: $font-bold;
