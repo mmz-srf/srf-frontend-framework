@@ -108,6 +108,8 @@
 .collection--compact-swipeable {
   .collection__teaser-list {
     @include smartphone {
+      // See EXCEPTION on the top of this file.
+      @include listStyles('mobile', 'compact');
       @include nrOfTeasers('mobile', 'compact');
     }
 

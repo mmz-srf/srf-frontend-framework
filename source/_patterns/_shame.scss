@@ -505,12 +505,11 @@ main {
 
 /*
  * TARGETED BROWSER: Safari Mobile in iOS 12 and below
- * Our implementation of the swipeable-area causes Safari in iOS <=12
- * curiously to flicker when scrolling. Probably this is specifically
- * a bug in WebKit in re-painting an element (nav-arrows) on top of an
- * element that has the scroll snapping behaviour.
+ * Our implementation of the swipeable-area causes Safari in iOS 12
+ * curiously to flicker when scrolling.
  */
 
+/* Browser-Class from `srf-shame.js` */
 .safari-ios-12 {
   .swipeable-area__wrapper {
     scroll-snap-type: none;
