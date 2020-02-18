@@ -41,17 +41,19 @@
 }
 
 body.body--loading.body--loading {
-  .masthead {
-    &::after {
-      content: '';
-      position: absolute;
-      right: .125vw;
-      bottom: 0;
-      left: 0;
-      height: 2px;
-      background: $color-srf-red-600;
-      animation: loadingBar 2s linear;
-    }
+  --theme-color-loader: #{$color-srf-red-600};
+
+  .masthead::after {
+    content: '';
+    position: absolute;
+    right: .125vw;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    animation: loadingBar 2s linear;
+
+    /* theme */
+    background-color: var(--theme-color-loader);
   }
 
   .portalsnav__link,

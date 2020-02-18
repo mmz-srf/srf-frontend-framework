@@ -234,18 +234,22 @@
 .masthead.masthead--theme-meteo,
 .masthead.masthead--theme-rtr-aura {
   --theme-color-gradient-1: #{$theme-meteo-color-1};
+  --theme-color-loader: #{$color-srf-blue-100};
 }
 
 .masthead.masthead--theme-kultur {
   --theme-color-gradient-1: #{$theme-kultur-color-1};
+  --theme-color-loader: #{$color-srf-purple-300};
 }
 
 .masthead.masthead--theme-dok {
   --theme-color-gradient-1: #{$theme-dok-color-1};
+  --theme-color-loader: #{$color-srf-green-600};
 }
 
 .masthead.masthead--theme-rtr-novitads {
   --theme-color-gradient-1: #{$theme-rtr-novitads-color-1};
+  --theme-color-loader: #{$color-srf-red-600};
 }
 
 .masthead.masthead--theme-rtr-cultura {
