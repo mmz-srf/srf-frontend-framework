@@ -52,8 +52,11 @@ body.body--loading.body--loading {
     height: 2px;
     animation: loadingBar 2s linear;
 
+    /* fallback */
+    background-color: $color-srf-red-600;
+
     /* theme */
-    background-color: var(--theme-color-loader);
+    background-color: var(--theme-color-loader, $color-srf-red-600);
   }
 
   .portalsnav__link,
