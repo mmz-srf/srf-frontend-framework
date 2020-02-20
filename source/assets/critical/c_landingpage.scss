@@ -36,7 +36,7 @@
   }
 
   100% {
-    right: .125vw;
+    right: 1rem;
   }
 }
 
@@ -46,14 +46,17 @@ body.body--loading.body--loading {
   .masthead::after {
     content: '';
     position: absolute;
-    right: .125vw;
+    right: 1rem;
     bottom: -2px;
     left: 0;
     height: 2px;
     animation: loadingBar 2s linear;
 
+    /* fallback */
+    background-color: $color-srf-red-600;
+
     /* theme */
-    background-color: var(--theme-color-loader);
+    background-color: var(--theme-color-loader, $color-srf-red-600);
   }
 
   .portalsnav__link,
