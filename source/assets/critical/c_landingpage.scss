@@ -36,7 +36,7 @@
   }
 
   100% {
-    right: .125vw;
+    right: 1rem;
   }
 }
 
@@ -46,7 +46,7 @@ body.body--loading.body--loading {
   .masthead::after {
     content: '';
     position: absolute;
-    right: .125vw;
+    right: 1rem;
     bottom: -2px;
     left: 0;
     height: 2px;
