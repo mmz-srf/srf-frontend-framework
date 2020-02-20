@@ -47,7 +47,7 @@ body.body--loading.body--loading {
     content: '';
     position: absolute;
     right: .125vw;
-    bottom: 0;
+    bottom: -2px;
     left: 0;
     height: 2px;
     animation: loadingBar 2s linear;
