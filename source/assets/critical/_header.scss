@@ -200,6 +200,9 @@
   overflow: hidden;
 }
 
+body.body--loading.body--loading .masthead__button-wrapper > nav {
+  display: inline-block
+}
 
 /* THEME */
 
