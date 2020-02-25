@@ -185,6 +185,14 @@
   }
 }
 
+.masthead__button--varations {
+  display: none;
+}
+
+.masthead__button--audio-video {
+  display: block;
+}
+
 .masthead__nav {
   opacity: 1; /* OVERRIDE CRITICAL CSS */
   width: calc(100% + 64px);
