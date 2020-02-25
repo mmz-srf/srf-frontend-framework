@@ -304,7 +304,7 @@
 
 /* A-B-Tasty Tests for Audio-Video-Menu-Variants */
 .masthead__button-wrapper {
-  & ~ nav {
+  & > nav {
     display: none;
   }
 
