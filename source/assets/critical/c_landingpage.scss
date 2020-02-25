@@ -17,26 +17,37 @@
 @keyframes loadingBar {
   0% {
     right: 100vw;
+    opacity: 0;
   }
 
   15% {
+    right: 100vw;
+    opacity: 0;
+  }
+
+  25% {
     right: 34vw;
+    opacity: 1;
   }
 
   67% {
     right: 25vw;
+    opacity: 1;
   }
 
   80% {
     right: 14vw;
+    opacity: 1;
   }
 
   93% {
     right: 7vw;
+    opacity: 1;
   }
 
   100% {
-    right: 1rem;
+    right: 0;
+    opacity: 1;
   }
 }
 
@@ -46,7 +57,7 @@ body.body--loading.body--loading {
   .masthead::after {
     content: '';
     position: absolute;
-    right: 1rem;
+    right: 0;
     bottom: -2px;
     left: 0;
     height: 2px;
