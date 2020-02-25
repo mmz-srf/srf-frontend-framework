@@ -308,7 +308,8 @@
     display: none;
   }
 
-  & [aria-labelledby="audio-video-nav-label"] {
+  & [aria-labelledby="audio-video-nav-label"],
+  & [aria-labelledby="main-nav-label"] {
     display: inline-block;
   }
 }
