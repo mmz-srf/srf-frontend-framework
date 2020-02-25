@@ -185,14 +185,6 @@
   }
 }
 
-.masthead__button--varations {
-  display: none;
-}
-
-.masthead__button--audio-video {
-  display: inline-block;
-}
-
 .masthead__nav {
   opacity: 1; /* OVERRIDE CRITICAL CSS */
   width: calc(100% + 64px);
@@ -307,5 +299,16 @@
     .masthead__nav {
       display: none;
     }
+  }
+}
+
+/* A-B-Tasty Tests for Audio-Video-Menu-Variants */
+.masthead__button-wrapper {
+  & ~ nav {
+    display: none;
+  }
+
+  & [aria-labelledby="audio-video-nav-label"] {
+    display: inline-block;
   }
 }
