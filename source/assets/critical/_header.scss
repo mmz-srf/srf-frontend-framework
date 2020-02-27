@@ -200,6 +200,9 @@
   overflow: hidden;
 }
 
+body.body--loading.body--loading .masthead__button-wrapper > nav {
+  display: none;
+}
 
 /* THEME */
 
@@ -229,61 +232,76 @@
 /* THEME-SPECIFIC SETTINGS */
 .masthead.masthead--theme-sport {
   --theme-color-gradient-1: #{$theme-sport-color-1};
+  --theme-color-loader: #{$color-srf-red-600};
 }
 
 .masthead.masthead--theme-meteo,
 .masthead.masthead--theme-rtr-aura {
   --theme-color-gradient-1: #{$theme-meteo-color-1};
+  --theme-color-loader: #{$color-srf-blue-200};
 }
 
 .masthead.masthead--theme-kultur {
   --theme-color-gradient-1: #{$theme-kultur-color-1};
+  --theme-color-loader: #{$color-srf-purple-700};
 }
 
 .masthead.masthead--theme-dok {
   --theme-color-gradient-1: #{$theme-dok-color-1};
+  --theme-color-loader: #{$color-srf-green-800};
 }
 
 .masthead.masthead--theme-rtr-novitads {
   --theme-color-gradient-1: #{$theme-rtr-novitads-color-1};
+  --theme-color-loader: #{$color-srf-red-700};
 }
 
 .masthead.masthead--theme-rtr-cultura {
   --theme-color-gradient-1: #{$theme-rtr-cultura-color-1};
+  --theme-color-loader: #{$color-srf-purple-900};
 }
 
 .masthead.masthead--theme-rtr-sport {
   --theme-color-gradient-1: #{$theme-rtr-sport-color-1};
+  --theme-color-loader: #{$color-srf-red-600};
 }
 
 .masthead.masthead--theme-rtr-uffants {
   --theme-color-gradient-1: #{$theme-rtr-uffants-color-1};
+  --theme-color-loader: #{$color-srf-green-800};
 }
 
 .masthead.masthead--theme-rtr-archiv {
   --theme-color-gradient-1: #{$theme-rtr-archivar-color-1};
+  --theme-color-loader: #{$color-srf-red-600};
 }
 
 .masthead.masthead--theme-rtr-interpresa {
   --theme-color-gradient-1: #{$theme-rtr-interpresa-color-1};
+  --theme-color-loader: #{$color-srf-red-700};
 }
 
 .masthead.masthead--theme-radio-srf-1 {
   --theme-color-gradient-1: #{$theme-radio-srf-1-color-1};
+  --theme-color-loader: #{$color-srf-yellow-600};
 }
 
 .masthead.masthead--theme-radio-srf-2-kultur {
   --theme-color-gradient-1: #{$theme-radio-srf-2-color-1};
+  --theme-color-loader: #{$color-srf-purple-700};
 }
 
 .masthead.masthead--theme-radio-srf-3 {
   --theme-color-gradient-1: #{$theme-radio-srf-3-color-1};
+  --theme-color-loader: #{$color-srf-red-600};
 }
 
 .masthead.masthead--theme-radio-srf-musikwelle {
   --theme-color-gradient-1: #{$theme-radio-srf-musikwelle-color-1};
+  --theme-color-loader: #{$color-srf-blue-800};
 }
 
 .masthead.masthead--theme-radio-srf-virus {
   --theme-color-gradient-1: #{$theme-radio-srf-virus-color-1};
+  --theme-color-loader: #{$color-brand-radio-srf-virus-color-3};
 }
