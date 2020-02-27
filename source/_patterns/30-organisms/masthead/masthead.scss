@@ -176,6 +176,7 @@
   cursor: pointer; // firefox needs the cursor definition directly on a button element - it's not working when it's on a child
   height: 56px;
   min-width: 56px;
+  display: inline-block;
 }
 
 .masthead__button--search {
@@ -254,7 +255,7 @@
       display: none;
     }
   }
-  
+
   @include tablet-up {
     .masthead__nav {
       display: block;
@@ -298,5 +299,17 @@
     .masthead__nav {
       display: none;
     }
+  }
+}
+
+/* A-B-Tasty Tests for Audio-Video-Menu-Variants */
+.masthead__button-wrapper {
+  & > nav {
+    display: none;
+  }
+
+  & [aria-labelledby="radio-tv-nav-label"],
+  & [aria-labelledby="main-nav-label"] {
+    display: inline-block;
   }
 }

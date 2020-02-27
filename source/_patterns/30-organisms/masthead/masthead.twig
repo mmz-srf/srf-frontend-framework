@@ -16,16 +16,25 @@
                 {% endblock %}
             </nav>
             <div class="masthead__button-wrapper">
-                <nav aria-labelledby="radio-tv-nav-label">
-                    <h3 id="radio-tv-nav-label" class="h-offscreen">TV/Radio-Menü</h3>
-                    <button class="masthead__button" data-modal-id="modal-onairnav" aria-haspopup="false"
-                            aria-expanded="false">
+                <nav aria-labelledby="tv-nav-label">
+                    <h3 id="tv-nav-label" class="h-offscreen">TV-Menü</h3>
+                    <a href="#" class="masthead__button">
                         {% include 'atoms-icon-button' with {
-                            'iconStyleModifier': 'svg-icon--play-video-circle',
-                            'buttonText': 'TV/Radio',
-                            'screenReaderText': 'TV/Radio-Menü'
+                            'iconStyleModifier': 'svg-icon--videothek',
+                            'buttonText': 'TV',
+                            'screenReaderText': 'TV-Menü'
                         } %}
-                    </button>
+                    </a>
+                </nav>
+                <nav aria-labelledby="radio-nav-label">
+                    <h3 id="radio-nav-label" class="h-offscreen">Radio-Menü</h3>
+                    <a href="#" class="masthead__button">
+                        {% include 'atoms-icon-button' with {
+                            'iconStyleModifier': 'svg-icon--audiothek',
+                            'buttonText': 'Radio',
+                            'screenReaderText': 'Radio-Menü'
+                        } %}
+                    </a>
                 </nav>
                 <nav aria-labelledby="main-nav-label">
                     <h3 id="main-nav-label" class="h-offscreen">Hauptmenü/Suche</h3>
