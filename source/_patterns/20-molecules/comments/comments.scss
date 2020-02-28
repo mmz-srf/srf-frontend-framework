@@ -297,10 +297,10 @@
 
 .comment__logo {
   margin-left: auto;
+  width: 48px;
+  height: 32px;
 
   svg {
-    height: 16px;
-    width: 24px;
     transform: scale(.45);
     transform-origin: 0 0;
   }
