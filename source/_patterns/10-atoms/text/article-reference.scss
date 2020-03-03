@@ -1,0 +1,12 @@
+@import "../../variables";
+@import "../../mixins";
+
+.article-reference {
+  display: block;
+  @include tablet-up {
+    margin: 36px 0 20px;
+  }
+  margin: 30px 0 26px;
+  @include article-text-padding;
+
+}
